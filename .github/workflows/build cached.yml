@@ -20,6 +20,11 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools build-tools;34.0.0
+          
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.0'
@@ -43,10 +48,6 @@ jobs:
       - name: Flutter Doctor
         run: flutter doctor -v
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: platform-tools build-tools;34.0.0
 
       # Decode and place keystore
       - name: Decode keystore
