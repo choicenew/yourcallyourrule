@@ -111,8 +111,8 @@ class MainActivity : FlutterActivity() {
 
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
-        super.configureFlutterEngine(flutterEngine)
-        GeneratedPluginRegistrant.registerWith(flutterEngine)
+     super.configureFlutterEngine(flutterEngine)
+      //  GeneratedPluginRegistrant.registerWith(flutterEngine)
 
         setupSmsChannel(flutterEngine)
         setupCallerIdChannel(flutterEngine)
