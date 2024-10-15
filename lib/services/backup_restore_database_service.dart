@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:archive/archive_io.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter_device_name/flutter_device_name.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -65,10 +65,25 @@ class BackupRestoreService {
   }
 
   // 获取设备名称
+  /*
   Future<String> getDeviceName() async {
     final plugin = DeviceName();
     final deviceName = await plugin.getName();
     return deviceName ?? 'Unknown'; // 如果获取不到设备名称，则返回 'Unknown'
+  }
+*/
+
+  Future<String> getDeviceName() async {
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    if (Platform.isAndroid) {
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      return androidInfo.model; // 返回设备型号，如果获取不到则返回 'Unknown'
+    } else if (Platform.isIOS) {
+      IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+      return iosInfo.name; // 返回设备名称，如果获取不到则返回 'Unknown'
+    } else {
+      return 'Unknown'; // 其他平台返回 'Unknown'
+    }
   }
 
   // 导出单个数据库为 JSON

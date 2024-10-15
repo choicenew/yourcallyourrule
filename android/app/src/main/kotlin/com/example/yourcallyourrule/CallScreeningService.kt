@@ -32,17 +32,7 @@ class MyCallScreeningService : CallScreeningService() {
     private val handler = android.os.Handler(Looper.getMainLooper()) // 添加 Handler 对象
 
 
-/*
-//接受来自mainactivity 的请求
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        when (intent?.action) {
-            "END_CALL" -> endCurrentCall()
-            "ANSWER_THEN_HANGUP" -> answerThenHangup()
-            "SILENCE_NO_ANSWER" -> silenceNoAnswer()
-        }
-        return super.onStartCommand(intent, flags, startId)
-    }
-*/
+
     override fun onScreenCall(callDetails: Call.Details) {
         currentCallDetails = callDetails
         val incomingNumber = callDetails.handle?.schemeSpecificPart
@@ -90,52 +80,7 @@ class MyCallScreeningService : CallScreeningService() {
             respondToCall(callDetails, buildCallResponse(callAction))
         }
     }
-/* 
-    private suspend fun getCallAction(incomingNumber: String?): CallAction {
-        return withTimeout(5000) {  // 添加超时机制
-            incomingNumber?.let { number ->
-            suspendCancellableCoroutine { continuation ->
-              // 使用 handler.post() 将 MethodChannel 的调用发送到主线程
-              handler.post {
-                flutterEngine?.dartExecutor?.binaryMessenger?.let { binaryMessenger ->
-                    MethodChannel(binaryMessenger, shouldAcceptCallChannel).invokeMethod(
-                        "shouldAcceptCall",
-                        number,
-                        object : MethodChannel.Result {
-                            override fun success(result: Any?) {
-                                when (result) {
-                                    is Boolean -> {
-                                        if (result) continuation.resume(CallAction.ACCEPT)
-                                        else continuation.resume(CallAction.REJECT)
-                                    }
-                                    is String -> {
-                                        when (result.lowercase()) {
-                                            "silence" -> continuation.resume(CallAction.SILENCE)
-                                            "reject" -> continuation.resume(CallAction.REJECT)
-                                            else -> continuation.resume(CallAction.ACCEPT)
-                                        }
-                                    }
-                                    else -> continuation.resume(CallAction.ACCEPT)
-                                }
-                            }
 
-                            override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
-                                Log.e("CallScreeningService", "Error: $errorMessage")
-                                continuation.resume(CallAction.ACCEPT)
-                            }
-
-                            override fun notImplemented() {
-                                continuation.resume(CallAction.ACCEPT)
-                                 }
-                                }
-                            )
-                        } ?: continuation.resume(CallAction.ACCEPT)
-                    }
-                }
-            } ?: CallAction.ACCEPT
-        }
-    }
-*/
 
     private suspend fun getCallAction(incomingNumber: String?): CallAction {
         return withTimeout(5000) {  // 添加超时机制
@@ -288,26 +233,7 @@ class MyCallScreeningService : CallScreeningService() {
     }
 
 
-/* 
-    private fun buildCallResponse(callAction: CallAction): CallResponse {
-        return CallResponse.Builder().apply {
-            when (callAction) {
-                CallAction.REJECT -> {
-                    setDisallowCall(true)
-                    setRejectCall(true)
-                    setSkipCallLog(false)
-                    setSkipNotification(false)
-                }
-                CallAction.SILENCE -> {
-                    setSilenceCall(true)
-                }
-                CallAction.ACCEPT -> {
-                    // Do nothing, allow the call
-                }
-            }
-        }.build()
-    }
-    */
+
     override fun onCreate() { 
         super.onCreate()
         // 在 Service 创建完成后，通知 Flutter 端 shouldAcceptCallChannel 已准备好
@@ -338,23 +264,7 @@ class MyCallScreeningService : CallScreeningService() {
             respondToCall(details, response)
         }
     }
-/*
-    private fun answerThenHangup() {
-        currentCallDetails?.let { details ->
-            val response = CallResponse.Builder()
-                .setDisallowCall(false)
-                .setRejectCall(false)
-                .setSkipCallLog(false)
-                .setSkipNotification(false)
-                .build()
-            respondToCall(details, response)
 
-            // 模拟接听然后挂断的行为
-            handler.postDelayed({
-                endCurrentCall()
-            }, 10000) // 1秒后挂断
-        }
-    }
 
     private fun silenceNoAnswer() {
         currentCallDetails?.let { details ->
@@ -368,16 +278,12 @@ class MyCallScreeningService : CallScreeningService() {
             respondToCall(details, response)
         }
     }
-    */
+
     override fun onDestroy() {
         super.onDestroy()
         serviceScope.cancel() // 取消 serviceScope
     }
-/* 
-    private enum class CallAction {
-        ACCEPT, REJECT, SILENCE
-    }
-    */
+
 
     private enum class CallAction {
     ACCEPT, REJECT, SILENCE, ANSWER_THEN_HANGUP

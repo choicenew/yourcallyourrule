@@ -51,16 +51,6 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin firebase_core, io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new io.flutter.plugins.firebase.firebaseremoteconfig.FirebaseRemoteConfigPlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin firebase_remote_config, io.flutter.plugins.firebase.firebaseremoteconfig.FirebaseRemoteConfigPlugin", e);
-    }
-    try {
-      flutterEngine.getPlugins().add(new slayer.accessibility.service.flutter_accessibility_service.FlutterAccessibilityServicePlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin flutter_accessibility_service, slayer.accessibility.service.flutter_accessibility_service.FlutterAccessibilityServicePlugin", e);
-    }
-    try {
       flutterEngine.getPlugins().add(new io.crossingthestreams.flutterappauth.FlutterAppauthPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin flutter_appauth, io.crossingthestreams.flutterappauth.FlutterAppauthPlugin", e);
@@ -69,16 +59,6 @@ public final class GeneratedPluginRegistrant {
       flutterEngine.getPlugins().add(new co.quis.flutter_contacts.FlutterContactsPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin flutter_contacts, co.quis.flutter_contacts.FlutterContactsPlugin", e);
-    }
-    try {
-      flutterEngine.getPlugins().add(new dev.felipheallef.flutter_device_name.FlutterDeviceNamePlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin flutter_device_name, dev.felipheallef.flutter_device_name.FlutterDeviceNamePlugin", e);
-    }
-    try {
-      flutterEngine.getPlugins().add(new com.dooboolab.flutterinapppurchase.FlutterInappPurchasePlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin flutter_inapp_purchase, com.dooboolab.flutterinapppurchase.FlutterInappPurchasePlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new com.dexterous.flutterlocalnotifications.FlutterLocalNotificationsPlugin());
@@ -126,11 +106,6 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin in_app_purchase_android, io.flutter.plugins.inapppurchase.InAppPurchasePlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new io.flutter.plugins.localauth.LocalAuthPlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin local_auth_android, io.flutter.plugins.localauth.LocalAuthPlugin", e);
-    }
-    try {
       flutterEngine.getPlugins().add(new com.example.msal_auth.MsalAuthPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin msal_auth, com.example.msal_auth.MsalAuthPlugin", e);
@@ -149,11 +124,6 @@ public final class GeneratedPluginRegistrant {
       flutterEngine.getPlugins().add(new com.baseflow.permissionhandler.PermissionHandlerPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin permission_handler_android, com.baseflow.permissionhandler.PermissionHandlerPlugin", e);
-    }
-    try {
-      flutterEngine.getPlugins().add(new it.mainella.phone_state.PhoneStatePlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin phone_state, it.mainella.phone_state.PhoneStatePlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new dev.fluttercommunity.plus.share.SharePlusPlugin());
