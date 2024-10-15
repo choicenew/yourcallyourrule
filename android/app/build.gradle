@@ -34,8 +34,8 @@ android {
             keyPassword 'slroeeb@gmail.com'
         }
     }
-*/
 
+*/
 
     namespace = "com.yours.yourcallyourrule"
     compileSdk 34
@@ -74,7 +74,7 @@ android {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-         //  signingConfig signingConfigs.release
+          //  signingConfig signingConfigs.release
         }
     }
     buildToolsVersion '34.0.0'

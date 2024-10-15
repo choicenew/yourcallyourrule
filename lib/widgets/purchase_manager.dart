@@ -24,9 +24,7 @@ class InAppPurchaseManager {
   Future<void> _initialize() async {
     final bool available = await InAppPurchase.instance.isAvailable();
     if (!available) {
-      print('In-app purchases are not available.'); // 添加打印语句
       return;
-
     }
 
     InAppPurchase.instance.purchaseStream.listen((purchaseDetailsList) {

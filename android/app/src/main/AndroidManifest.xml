@@ -127,7 +127,7 @@
             android:windowSoftInputMode="adjustResize"
             android:showWhenLocked="true"
             android:turnScreenOn="true">
-
+            
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
@@ -157,7 +157,7 @@
         </activity>
 
         <activity android:name="com.microsoft.identity.client.BrowserTabActivity" android:exported="true">
-
+        
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -168,7 +168,7 @@
                     android:host="com.yours.yourcallyourrule"
                     android:path="/vTPqTKTC03RK8cQfxyK0j3CRkJs="
                     android:scheme="msauth" />
-            </intent-filter>
+           </intent-filter>
         </activity>
 
         <activity
@@ -218,15 +218,15 @@
 
         <!--  ===  Flutter Local Notification  ===  -->
         <service
-            android:name="com.dexterous.flutterlocalnotifications.ForegroundService"
+            android:name="com.dexterous.flutterlocalnotifications.ForegroundService"        
             android:exported="false"
             android:stopWithTask="false"/>
 
         <!--  ===  Call Receiver  ===  -->
         <receiver android:name=".CallStateReceiver" android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.PHONE_STATE" />
-            </intent-filter>
+            <action android:name="android.intent.action.PHONE_STATE" />
+        </intent-filter>
         </receiver>
 
         <!--  ===  SMS Receiver  ===  -->
@@ -249,7 +249,7 @@
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
-
+        
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
@@ -257,39 +257,38 @@
         <meta-data
             android:name="android.telecom.SUPPORTED_CALL_SCREENING_SERVICE"
             android:value=".MyCallScreeningService" />
-    <!--
-            <meta-data
-                android:name="com.google.firebase.messaging.default_notification_channel_id"
-                android:value="@string/default_notification_channel_id" />
-     -->
 
-            <meta-data
-                android:name="com.google.android.gms.ads.APPLICATION_ID"
-                android:value="ca-app-pub-7500321599129263~5440901422"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
 
-            <property
-                android:name="android.adservices.AD_SERVICES_CONFIG"
-                android:resource="@xml/gma_ad_services_config"
-                tools:replace="android:resource"/>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7500321599129263~5440901422"/>
+<!--
+        <property
+              android:name="android.adservices.AD_SERVICES_CONFIG"
+              android:resource="@xml/gma_ad_services_config"
+              tools:replace="android:resource"/>
+-->
+    </application>
 
-        </application>
 
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility?hl=en and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
 
-        <!-- Required to query activities that can process text, see:
-             https://developer.android.com/training/package-visibility?hl=en and
-             https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
-
-             In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
         </intent>
-
+   
         <!-- Place inside the <queries> element. -->
         <intent>
             <action android:name="android.intent.action.SENDTO"/>
             <data android:scheme="smsto" android:host="*" />
-        </intent>
+        </intent>   
     </queries>
 </manifest>

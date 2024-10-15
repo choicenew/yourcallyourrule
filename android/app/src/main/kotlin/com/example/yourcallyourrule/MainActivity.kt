@@ -35,8 +35,7 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugins.GeneratedPluginRegistrant
-//import io.flutter.plugins.googlemobileads.GoogleMobileAdsPlugin;
-//import io.flutter.plugins.googlemobileads.GoogleMobileAdsPlugin.NativeAdFactory;
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -111,8 +110,8 @@ class MainActivity : FlutterActivity() {
 
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
-     super.configureFlutterEngine(flutterEngine)
-      //  GeneratedPluginRegistrant.registerWith(flutterEngine)
+        super.configureFlutterEngine(flutterEngine)
+        GeneratedPluginRegistrant.registerWith(flutterEngine)
 
         setupSmsChannel(flutterEngine)
         setupCallerIdChannel(flutterEngine)
@@ -289,46 +288,7 @@ class MainActivity : FlutterActivity() {
             }
         }
     }
-/* 
-    //设置结束通话相关方法通道。
-private fun setupEndCallChannel(flutterEngine: FlutterEngine) {
-    MethodChannel(
-        flutterEngine.dartExecutor.binaryMessenger,
-        endCallChannel
-    ).setMethodCallHandler { call, result ->
-        when (call.method) {
-            "endCurrentCall" -> {
-                Log.d("FlutterCall", "收到来自 Flutter 的结束通话请求")
-                val intent = Intent(this, MyCallScreeningService::class.java).apply {
-                    action = "END_CALL"
-                }
-                startService(intent)
-                result.success(null)
-            }
-            "answerThenHangup" -> {
-                Log.d("FlutterCall", "收到来自 Flutter 的接听后挂断请求")
-                val intent = Intent(this, MyCallScreeningService::class.java).apply {
-                    action = "ANSWER_THEN_HANGUP"
-                }
-                startService(intent)
-                result.success(null)
-            }
-            "silenceNoAnswer" -> {
-                Log.d("FlutterCall", "收到来自 Flutter 的静默无应答请求")
-                val intent = Intent(this, MyCallScreeningService::class.java).apply {
-                    action = "SILENCE_NO_ANSWER"
-                }
-                startService(intent)
-                result.success(null)
-            }
-            else -> {
-                Log.w("FlutterCall", "收到来自 Flutter 的未知方法调用: ${call.method}")
-                result.notImplemented()
-            }
-        }
-    }
-}
-*/
+
     @RequiresApi(Build.VERSION_CODES.P)
     private fun endCurrentCall() {
         val telecomManager = getSystemService(TELECOM_SERVICE) as TelecomManager
@@ -593,35 +553,7 @@ registerSmsListener()
             smsReceivePermissionRequestCode
         )
     }
-/*
-    private fun registerSmsListener() {
-        smsReceiver = object : BroadcastReceiver() {
-            override fun onReceive(context: Context, intent: Intent) {
-                Log.d("android 端的smslistener 已经SmsReceiver", "onReceive called") // 打印广播接收器是否被调用
-                if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION == intent.action) {
-                    for (sms in Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
-                        val sender = sms.originatingAddress
-                        val messageBody = sms.messageBody
-                        Log.d("安卓端SmsReceiver", "Received SMS from $sender: $messageBody")
-                        Log.d("MainActivity", "安卓端sms注册服务")
 
-                        flutterEngine?.dartExecutor?.binaryMessenger?.let { binaryMessenger ->
-                            MethodChannel(binaryMessenger, smsChannel).invokeMethod(
-                                "onReceivedSms", 
-                                mapOf(
-                                    "phoneNumber" to sender,
-                                    "messageContent" to messageBody
-                                )
-                            )
-                        }
-                    }
-                }
-            }
-        }
-        val intentFilter = IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION)
-        registerReceiver(smsReceiver, intentFilter)
-    }
-*/
 
     private fun registerSmsListener() {
         smsReceiver = SmsReceiver() // 使用独立的 SmsReceiver 类创建实例
