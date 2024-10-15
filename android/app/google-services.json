@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "213507864895",
+    "project_id": "yourcallyourrule-b2bfa",
+    "storage_bucket": "yourcallyourrule-b2bfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213507864895:android:24b52b0d9f8cf30f013b8a",
+        "android_client_info": {
+          "package_name": "com.yours.yourcallyourrule"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0HQiX40ERefoU_bOQexkNn7VL20x9UZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

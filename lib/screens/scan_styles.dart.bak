@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+class ScanStyles {
+  static final buttonStyle = ElevatedButton.styleFrom(
+    foregroundColor: Colors.white,
+    backgroundColor: Colors.blue,
+    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+  );
+
+  static final tabStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
+
+  static final overlayStyle = BoxDecoration(
+    border: Border.all(color: Colors.green, width: 3),
+  );
+
+  static final selectedOverlayStyle = BoxDecoration(
+    border: Border.all(color: Colors.red, width: 3),
+  );
+
+  static final textStyle = TextStyle(
+    fontSize: 16,
+    color: Colors.black87,
+  );
+
+}

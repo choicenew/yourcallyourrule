@@ -1,0 +1,171 @@
+import 'dart:io';
+
+import 'package:camera/camera.dart';
+import 'package:contacts_service/contacts_service.dart'
+    as ContactsServicePackage;
+import 'package:flutter/material.dart';
+import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
+import 'package:google_mlkit_language_id/google_mlkit_language_id.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
+
+import 'contact_service.dart';
+import 'label_service.dart';
+
+class ScanService {
+  // 初始化各个识别器
+  final BarcodeScanner _barcodeScanner = BarcodeScanner();
+  final TextRecognizer _textRecognizer = TextRecognizer();
+  final LanguageIdentifier _languageIdentifier =
+      LanguageIdentifier(confidenceThreshold: 0.5);
+
+  final LabelService _labelService;
+  final ContactService _contactService;
+  CameraController? cameraController;
+
+  ScanService(this._labelService, this._contactService);
+
+  // 初始化摄像头
+  Future<void> initializeCamera() async {
+    final cameras = await availableCameras();
+    final firstCamera = cameras.first;
+    cameraController = CameraController(firstCamera, ResolutionPreset.medium);
+    await cameraController?.initialize();
+  }
+
+  // 扫描条形码
+  Future<List<Barcode>> scanBarcodes(InputImage inputImage) async {
+    return await _barcodeScanner.processImage(inputImage);
+  }
+
+  // 识别文本
+  Future<RecognizedText> scanText(InputImage inputImage) async {
+    return await _textRecognizer.processImage(inputImage);
+  }
+
+  // 识别语言
+  Future<String> identifyLanguage(String text) async {
+    final languageResult = await _languageIdentifier.identifyLanguage(text);
+    return languageResult;
+  }
+
+  // 处理扫描的文本
+  Future<void> processScannedText(String scannedText) async {
+    // 提取电话号码和姓名/描述
+    RegExp phoneRegex = RegExp(r'\b\d{10}\b|\+\d{11,12}\b');
+    RegExp nameRegex = RegExp(r'\b[A-Z][a-z]+ [A-Z][a-z]+\b');
+
+    Iterable<RegExpMatch> phoneMatches = phoneRegex.allMatches(scannedText);
+    Iterable<RegExpMatch> nameMatches = nameRegex.allMatches(scannedText);
+
+    for (RegExpMatch phoneMatch in phoneMatches) {
+      String phoneNumber = phoneMatch.group(0)!;
+      String? name;
+      if (nameMatches.isNotEmpty) {
+        name = nameMatches.first.group(0);
+      }
+
+      await _labelService.addLabelForPhoneNumber(
+          name ?? 'Scanned Contact', phoneNumber);
+    }
+  }
+
+  // 保存名片
+  Future<void> saveBusinessCard(
+      String scannedText, SaveOption saveOption) async {
+    ContactsServicePackage.Contact contact = ContactsServicePackage.Contact(
+      givenName: _extractName(scannedText),
+      phones: _extractPhoneNumbers(scannedText),
+      emails: _extractEmails(scannedText),
+    );
+
+    switch (saveOption) {
+      case SaveOption.local:
+        await _saveToLocal(contact);
+        break;
+      case SaveOption.app:
+        await _contactService.addContact(Contact(
+          name: contact.givenName ?? '',
+          phoneNumbers:
+              contact.phones?.map((phone) => phone.value ?? '').toList() ?? [],
+          email: contact.emails?.isNotEmpty == true
+              ? contact.emails?.first.value
+              : null,
+        ));
+        break;
+      case SaveOption.both:
+        await _saveToLocal(contact);
+        await _contactService.addContact(Contact(
+          name: contact.givenName ?? '',
+          phoneNumbers:
+              contact.phones?.map((phone) => phone.value ?? '').toList() ?? [],
+          email: contact.emails?.isNotEmpty == true
+              ? contact.emails?.first.value
+              : null,
+        ));
+        break;
+    }
+  }
+
+  // 保存到本地通讯录
+  Future<void> _saveToLocal(ContactsServicePackage.Contact contact) async {
+    await ContactsServicePackage.ContactsService.addContact(contact);
+  }
+
+  // 分享名片
+  Future<void> shareBusinessCard(String scannedText) async {
+    String vCard = _createVCard(scannedText);
+    final directory = await getTemporaryDirectory();
+    final file = File('${directory.path}/business_card.vcf');
+    await file.writeAsString(vCard);
+    await Share.shareXFiles([XFile(file.path)], text: 'Business Card');
+  }
+
+  // 创建 vCard 格式的名片
+  String _createVCard(String scannedText) {
+    String vCard = 'BEGIN:VCARD\nVERSION:3.0\n';
+    vCard += 'FN:${_extractName(scannedText)}\n';
+    vCard += 'TEL:${_extractPhoneNumbers(scannedText).first.value}\n';
+    vCard += 'EMAIL:${_extractEmails(scannedText).first.value}\n';
+    vCard += 'END:VCARD';
+    return vCard;
+  }
+
+  // 提取姓名
+  String _extractName(String text) {
+    RegExp nameRegex = RegExp(r'\b[A-Z][a-z]+ [A-Z][a-z]+\b');
+    var match = nameRegex.firstMatch(text);
+    return match != null ? match.group(0)! : 'Unknown';
+  }
+
+  // 提取电话号码
+  List<ContactsServicePackage.Item> _extractPhoneNumbers(String text) {
+    RegExp phoneRegex = RegExp(r'\b\d{10}\b|\+\d{11,12}\b');
+    var matches = phoneRegex.allMatches(text);
+    return matches
+        .map((m) =>
+            ContactsServicePackage.Item(label: 'mobile', value: m.group(0)!))
+        .toList();
+  }
+
+  // 提取邮箱
+  List<ContactsServicePackage.Item> _extractEmails(String text) {
+    RegExp emailRegex = RegExp(r'\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b');
+    var matches = emailRegex.allMatches(text);
+    return matches
+        .map((m) =>
+            ContactsServicePackage.Item(label: 'work', value: m.group(0)!))
+        .toList();
+  }
+
+  // 释放资源
+  void dispose() {
+    cameraController?.dispose();
+    _barcodeScanner.close();
+    _textRecognizer.close();
+    _languageIdentifier.close();
+  }
+}
+
+enum SaveOption { local, app, both }

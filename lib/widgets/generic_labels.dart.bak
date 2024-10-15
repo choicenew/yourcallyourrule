@@ -1,0 +1,150 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'dart:mirrors';
+import '../screens/appstate_provider.dart';
+
+class GenericLabels<T extends BaseLabelService> extends StatefulWidget {
+  final String? initialLabel;
+  final String? identifier;
+  final ValueChanged<String> onLabelChanged;
+  final String serviceName; // 服务名称，例如 'blacklistService'
+
+  const GenericLabels({
+    super.key,
+    this.initialLabel,
+    this.identifier,
+    required this.onLabelChanged,
+    required this.serviceName, // 传入服务名称
+  });
+
+  @override
+  State<GenericLabels<T>> createState() => _GenericLabelsState<T>();
+}
+
+class _GenericLabelsState<T extends BaseLabelService>
+    extends State<GenericLabels<T>> {
+  late T _service;
+  String? _selectedLabel;
+  List<String> _labels = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedLabel = widget.initialLabel;
+    _initService();
+    _initLabels();
+  }
+
+  void _initService() {
+    final appState = Provider.of<AppState>(context, listen: false);
+    // 使用反射获取服务实例
+    final serviceField = appState.runtimeType.getField(widget.serviceName);
+    _service = serviceField.get(appState) as T;
+    final originalService = serviceField.get(appState); // Get the original service
+      // 使用动态代理包装原始服务
+  _service = DynamicLabelServiceAdapter(originalService) as T;
+  }
+
+  Future<void> _initLabels() async {
+    // 获取所有标签
+    final labels = await _service.getAllLabels();
+    if (labels.isEmpty) {
+      // 如果没有标签，则插入预定义标签
+      await _service.insertPredefinedLabelsIfNotExists();
+      // 重新获取标签列表
+      _labels = await _service.getAllLabels();
+    } else {
+      _labels = labels;
+    }
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Select a label:',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8.0,
+          children: _labels.map((label) {
+            final translatedLabel = Intl.message(label);
+            final isSelected = label == _selectedLabel;
+            return ChoiceChip(
+              label: Text(translatedLabel),
+              selected: isSelected,
+              onSelected: (selected) {
+                if (selected) {
+                  setState(() {
+                    _selectedLabel = label;
+                  });
+                  widget.onLabelChanged(label);
+                }
+              },
+              selectedColor: Colors.green,
+              backgroundColor: Colors.grey[300],
+            );
+          }).toList(),
+        ),
+        if (_selectedLabel != null)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '${Intl.message('Selected Label')}: $_selectedLabel',
+              style: const TextStyle(fontSize: 16.0),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+
+
+class DynamicLabelServiceAdapter<T extends Object> extends BaseLabelService {
+  final T _service;
+
+  DynamicLabelServiceAdapter(this._service);
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) {
+    final methodName = invocation.memberName.toString();
+    if (methodName == 'getAllLabels' || methodName == 'insertPredefinedLabelsIfNotExists') {
+      return reflect(_service).invoke(Symbol(methodName), []).reflectee;
+    }
+    return super.noSuchMethod(invocation);
+  }
+}
+
+abstract class BaseLabelService {
+  Future<List<String>> getAllLabels();
+  Future<void> insertPredefinedLabelsIfNotExists();
+}
+
+
+/*
+
+// 使用 BlacklistService
+GenericLabels<BlacklistService>(
+  initialLabel: initialLabel,
+  identifier: phoneNumber,
+  onLabelChanged: (label) { ... },
+  serviceName: 'blacklistService',
+);
+
+// 使用 WhitelistService
+GenericLabels<WhitelistService>(
+  initialLabel: initialLabel,
+  identifier: phoneNumber,
+  onLabelChanged: (label) { ... },
+  serviceName: 'whitelistService',
+);
+*/

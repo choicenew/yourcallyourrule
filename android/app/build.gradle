@@ -1,0 +1,113 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services" // Google Services 插件
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+/*
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\Ngokel\\Desktop\\en\\test\\sign\\upload_keystore.jks')
+            storePassword 'slroeeb@gmail.com'
+            keyAlias 'yourcallyourrule'
+            keyPassword 'slroeeb@gmail.com'
+        }
+    }
+*/
+
+
+    namespace = "com.yours.yourcallyourrule"
+    compileSdk 34
+    ndkVersion = '27.0.12077973'
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        multiDexEnabled true //local notification
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.yours.yourcallyourrule"
+        minSdk 30
+        targetSdk 34
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        manifestPlaceholders += [
+                'appAuthRedirectScheme': 'com.yours.yourcallyourrule'
+        ]
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            // signingConfig signingConfigs.release
+        }
+    }
+    buildToolsVersion '34.0.0'
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.21'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.0.21'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.0.21'  // 指定 Kotlin 版本为 1.9.0
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.activity:activity:1.9.2'
+    implementation 'androidx.activity:activity-ktx:1.9.2'
+    implementation(platform('com.google.firebase:firebase-bom:33.4.0'))
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation platform('androidx.compose:compose-bom:2024.09.03')     // Import the Compose BOM
+    implementation 'androidx.compose.material3:material3:1.3.0'
+    // Import Material Design 3 library
+    implementation 'androidx.compose.foundation:foundation'
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'com.google.android.gms:play-services-basement:18.4.0'
+// Import other Compose libraries without version numbers
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.6'
+
+
+    implementation 'androidx.window:window:1.3.0'//local notification
+    implementation 'androidx.window:window-java:1.3.0'//local notification
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.2' //local notification
+}

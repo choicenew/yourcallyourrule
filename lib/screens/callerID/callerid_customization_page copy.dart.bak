@@ -1,0 +1,225 @@
+import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import '../../screens/callerID/callerid_overlay.dart';
+
+import '../../services/caller_id_service.dart';
+import 'callerid_style_provider.dart';
+
+// 用于自定义 CallerID 样式的设置页面
+class CallerIdCustomizationPage extends StatelessWidget {
+  const CallerIdCustomizationPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Customize Caller ID')),
+      body: Consumer<CallerIdStyleProvider>(
+        builder: (context, styleProvider, child) {
+          return ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              const Text('Background Gradient',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+                                const Text('Start Gradient',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              ColorPicker(
+                color: styleProvider.backgroundColorStart,
+                onColorChanged: (color) =>
+                    styleProvider.setBackgroundColorStart(color),
+              ),
+                           const Text('End Gradient',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              ColorPicker(
+                color: styleProvider.backgroundColorEnd,
+                onColorChanged: (color) =>
+                    styleProvider.setBackgroundColorEnd(color),
+              ),
+              const SizedBox(height: 20),
+              const Text('Text Colors',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              _buildColorPicker('Name Color', styleProvider.textNameColor,
+                  (color) => styleProvider.setTextNameColor(color)),
+              _buildColorPicker('Number Color', styleProvider.textNumberColor,
+                  (color) => styleProvider.setTextNumberColor(color)),
+              _buildColorPicker(
+                  'Location Color',
+                  styleProvider.textLocationColor,
+                  (color) => styleProvider.setTextLocationColor(color)),
+              _buildColorPicker('Carrier Color', styleProvider.textCarrierColor,
+                  (color) => styleProvider.setTextCarrierColor(color)),
+              _buildColorPicker(
+                  'Country Name Color',
+                  styleProvider.textCountryNameColor,
+                  (color) => styleProvider.setTextCountryNameColor(color)),
+              _buildColorPicker('Labels Color', styleProvider.textLabelsColor,
+                  (color) => styleProvider.setTextLabelsColor(color)),
+              _buildColorPicker('Count Color', styleProvider.textCountColor,
+                  (color) => styleProvider.setTextCountColor(color)),
+              _buildColorPicker(
+                  'Number Type Color',
+                  styleProvider.textNumberTypeColor,
+                  (color) => styleProvider.setTextNumberTypeColor(color)),
+              const SizedBox(height: 20),
+              const Text('Font Sizes',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              _buildSlider('Name Font Size', styleProvider.nameFontSize, 12, 24,
+                  (value) => styleProvider.setNameFontSize(value)),
+              _buildSlider('Number Font Size', styleProvider.numberFontSize, 12,
+                  24, (value) => styleProvider.setNumberFontSize(value)),
+              _buildSlider('Location Font Size', styleProvider.locationFontSize,
+                  12, 24, (value) => styleProvider.setLocationFontSize(value)),
+              _buildSlider('Carrier Font Size', styleProvider.carrierFontSize,
+                  12, 24, (value) => styleProvider.setCarrierFontSize(value)),
+              _buildSlider(
+                  'Country Name Font Size',
+                  styleProvider.countryNameFontSize,
+                  12,
+                  24,
+                  (value) => styleProvider.setCountryNameFontSize(value)),
+              _buildSlider('Labels Font Size', styleProvider.labelsFontSize, 12,
+                  24, (value) => styleProvider.setLabelsFontSize(value)),
+              _buildSlider('Count Font Size', styleProvider.countFontSize, 12,
+                  24, (value) => styleProvider.setCountFontSize(value)),
+              _buildSlider(
+                  'Number Type Font Size',
+                  styleProvider.numberTypeFontSize,
+                  12,
+                  24,
+                  (value) => styleProvider.setNumberTypeFontSize(value)),
+              const SizedBox(height: 20),
+              const Text('Avatar Size',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              _buildSlider('Avatar Size', styleProvider.avatarSize, 40, 80,
+                  (value) => styleProvider.setAvatarSize(value)),
+              const SizedBox(height: 20),
+              const Text('Icon Size',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              _buildSlider('Icon Size', styleProvider.iconSize, 16, 32,
+                  (value) => styleProvider.setIconSize(value)),
+              const SizedBox(height: 20),
+              const Text('Window Size',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              _buildSlider(
+                  'Width',
+                  styleProvider.windowWidth,
+                  200,
+                  400,
+                  (value) => styleProvider.setWindowSize(
+                      value, styleProvider.windowHeight)),
+              _buildSlider(
+                  'Height',
+                  styleProvider.windowHeight,
+                  100,
+                  300,
+                  (value) => styleProvider.setWindowSize(
+                      styleProvider.windowWidth, value)),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                child: const Text('Preview Caller ID'),
+                onPressed: () {
+                  _showPreview(context, styleProvider);
+                },
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildColorPicker(
+      String label, Color color, Function(Color) onChanged) {
+    return Row(
+      children: [
+        Expanded(child: Text(label)),
+        ColorPicker(color: color, onColorChanged: onChanged),
+      ],
+    );
+  }
+
+  Widget _buildSlider(String label, double value, double min, double max,
+      Function(double) onChanged) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label),
+        Slider(
+          value: value,
+          min: min,
+          max: max,
+          divisions: ((max - min) / 2).round(),
+          label: value.round().toString(),
+          onChanged: onChanged,
+        ),
+      ],
+    );
+  }
+
+  void _showPreview(BuildContext context, CallerIdStyleProvider styleProvider) {
+    // Create a mock CallerIdData
+    CallerIdData mockData = CallerIdData(
+      phoneNumber: '+1 234 567 8900',
+      countryName: 'United States',
+      region: 'New York',
+      carrier: 'Example Carrier',
+      numberType: PhoneNumberType.mobile,
+      labels: [const Label(label: 'Personal')],
+      name: 'John Doe',
+      avatar: 'assets/avatars/Unknow.png',
+      count: 5,
+    );
+
+    showDialog(
+      context: context,
+      builder: (context) => Stack(
+        children: [
+          GestureDetector(
+            onTap: () => Navigator.of(context).pop(),
+            child: Container(color: Colors.black.withOpacity(0.5)),
+          ),
+          CallerIdOverlay(
+            callerIdData: mockData,
+            onDismiss: () => Navigator.of(context).pop(),
+            isDismissible: true,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ColorPicker extends StatelessWidget {
+  final Color color;
+  final ValueChanged<Color> onColorChanged;
+
+  const ColorPicker(
+      {super.key, required this.color, required this.onColorChanged});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 300,
+      width: 200,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: Colors.primaries.length,
+        itemBuilder: (context, index) {
+          final itemColor = Colors.primaries[index];
+          return GestureDetector(
+            onTap: () => onColorChanged(itemColor),
+            child: Container(
+              width: 50,
+              height: 50,
+              color: itemColor,
+              child: itemColor == color
+                  ? const Icon(Icons.check, color: Colors.white)
+                  : null,
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

@@ -1,0 +1,420 @@
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:services/snackbar_service.dart';
+import 'package:http/http.dart';
+import 'package:services/snackbar_service.dart';
+
+import 'services/subscribe_contacts_service.dart';
+import 'models/subscribe_contacts_model.dart';
+import 'models/contact_model.dart';
+import 'package:utils/get_default_external_dir.dart';
+import 'package:utils/image_crop.dart';
+part 'contact_model.g.dart';
+
+class Contact {
+  final String id;
+  final String name;
+  final List<String> phoneNumbers; // 修改为列表
+  final String? email;
+  final String? label;
+  String? avatarPath; // 新增属性
+  final String？url;
+  
+  Contact({
+    required this.id,
+    required this.name,
+    required this.phoneNumber,
+    this.email,
+    this.label,
+    this.avatarPath,
+    this.url,    
+  });
+
+factory Contact.fromJson(Map<String, dynamic> json) => Contact(
+  id: json['id'],
+  name: json['name'],
+  phoneNumbers: json['phone_number'] != null ? List<String>.from(json['phone_number']) : [],
+  email: json['email'],
+  label: json['label'],
+  avatarPath: json['avatarPath'],
+  url: json['url'], // Added handling for 'url'
+);
+
+Map<String, dynamic> toJson() => {
+  'id': id,
+  'name': name,
+  'phone_numbers': phoneNumbers,
+  'email': email,
+  'label': label,
+  'avatarPath': avatarPath,
+  'url': url, // Added 'url' to the map
+};
+
+class ContactService {
+  final Database database;
+  late final SubscribeContactsService subscribeContactsService;
+
+
+  Future<List<Contact>> getAllContacts() async {
+    final List<Map<String, dynamic>> maps = await database.query('contacts');
+    return List.generate(maps.length, (i) => Contact.fromJson(maps[i]));
+  }
+
+  Future<Contact> getContactById(String id) async {
+    final List<Map<String, dynamic>> maps =
+        await database.query('contacts', where: 'id = ?', whereArgs: [id]);
+    return Contact.fromJson(maps.first);
+  }
+
+  Future<void> addContact(Contact contact) async {
+    await database.insert('contacts', contact.toJson());
+  }
+
+  Future<void> updateContact(Contact contact) async {
+    await database.update('contacts', contact.toJson(), where: 'id = ?', whereArgs: [contact.id]);
+  }
+
+  Future<void> deleteContact(Contact contact) async {
+    await database.delete('contacts', where: 'id = ?', whereArgs: [contact.id]);
+  }
+
+  // 更新头像
+Future<void> chooseAvatarAndSave(Contact contact) async {
+  final picker = ImagePicker();
+  final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+  if (pickedFile != null) {
+    // 获取应用外部存储目录
+    final appExternalDir = await getExternalStorageDirectory();
+    // 选择保存目录
+    String? directoryPath = await pickDirectory(
+      initialDirectory: appExternalDir.path,
+    );
+
+    // 如果用户没有选择目录，则使用默认目录
+    if (directoryPath == null) {
+      directoryPath = appExternalDir.path;
+    }
+
+    // 读取图片
+    final image = await decodeImageFromPath(pickedFile.path);
+
+    // 裁剪图片
+    final croppedImage = await cropImage(image, Rect.fromLTWH(0, 0, image.width.toDouble(), image.height.toDouble()));
+    // 生成新的文件名
+    final newFileName = '${basename(pickedFile.path)}-${DateTime.now().millisecondsSinceEpoch}';
+    // 保存文件
+    final newPath = await File(pickedFile.path).copy('$directoryPath/$newFileName');
+
+    contact.avatarPath = newPath;
+    await updateContact(contact);
+  }
+}
+
+
+
+
+  // Add the importContactsFromUrl function within the class
+  Future<void> importContactsFromUrl(String vcf Url) async {
+    try {
+      final response = await get(Uri.parse(Url));
+      if (response.statusCode == 200) {
+        final String vcfString = response.body;
+        await _importVcfContacts('', vcfString); // Assuming path is not required for downloaded content
+        SnackbarService.showSuccessSnackBar('Contacts imported successfully from URL!');
+      } else {
+        SnackbarService.showErrorSnackBar('Error downloading VCF: ${response.statusCode}');
+      }
+    } catch (error) {
+      SnackbarService.showErrorSnackBar('Error importing contacts from URL: $error');
+    }
+  }
+
+
+Future<void> importContacts(String format) async {
+  final FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['csv', 'vcf', 'json', 'txt']);
+
+  if (result != null) {
+    final String filePath = result.files.single.path!;
+    switch (format) {
+      case 'csv':
+        await _importContactsFromFile(_importCsvContacts, path: filePath);
+        break;
+      case 'vcf':
+        await _importContactsFromFile(_importVcfContacts, path: filePath);
+        break;
+      case 'json':
+        await _importContactsFromFile(_importJsonContacts, path: filePath);
+        break;
+      case 'txt':
+        await _importContactsFromFile(_importTxtContacts, path: filePath);
+        break;
+    }
+      SnackbarService.showSuccessSnackBar('Contacts imported successfully!');
+    } catch (error) {
+      // Handle import errors
+      print('Import error: $error');
+      SnackbarService.showErrorSnackBar('Error importing contacts: $error');
+    }
+  } else {
+    // Show error message if no file selected
+    SnackbarService.showErrorSnackBar('No file selected for import');
+  }
+}
+
+Future<void> _importContactsFromFile(
+  Future<void> Function(String path, String filePath) importFunction, {
+  required String path,
+  required String filePath,
+}) async {
+  try {
+    await importFunction(path, filePath);
+  } catch (error) {
+    // Handle import errors
+    print('Import error: $error');
+    // Show error message based on error type
+    if (error is FilePickerError) {
+      SnackbarService.showErrorSnackBar('文件选择错误: ${error.message}');
+    } else if (error is FormatException) {
+      SnackbarService.showErrorSnackBar('文件格式错误: ${error.message}');
+    } else {
+      SnackbarService.showErrorSnackBar('未知错误: $error');
+    }
+  }
+}
+
+Future<void> _importCsvContacts(String path, String filePath) async {
+  final File csvFile = File('$path/$filePath');
+  final List<String> lines = await csvFile.readAsLines();
+
+  // Parse CSV lines and create contacts
+  for (final String line in lines) {
+    final List<String> values = line.split(',');
+    final Contact contact = Contact(
+      id: values[0],
+      name: values[1],
+      phoneNumber: values[2],
+      email: values[3],
+      label: values[4],
+    );
+    await addContact(contact);
+  }
+}
+
+Future<void> _importVcfContacts(String path, String filePath) async {
+  final File vcfFile = File('$path/$filePath');
+  final String vcfString = await vcfFile.readAsString();
+
+  // Split VCF string into lines
+  final List<String> lines = vcfString.split('\n');
+
+  // Parse VCF lines and create contacts
+  for (final String line in lines) {
+    if (line.startsWith('BEGIN:VCARD')) {
+      final Contact contact = Contact();
+      String contactId = ''; // 存储 vCard 中的唯一标识符
+      List<String> phoneNumbers = []; // 存储多个电话号码
+
+      // Parse VCF properties
+      while (!line.startsWith('END:VCARD')) {
+        final List<String> parts = line.split(':');
+        final String property = parts[0].trim();
+        final String value = parts[1].trim();
+
+        switch (property) {
+          case 'UID': // 假设 vCard 中使用 UID 作为唯一标识符
+            contactId = value;
+            break;          
+          case 'FN':
+            contact.name = value;
+            break;
+          case 'TEL':
+            phoneNumbers.add(value); // 添加电话号码到列表中
+            break;
+          case 'EMAIL':
+            contact.email = value;
+            break;
+          case 'NOTE':
+            contact.label = value;
+            break;
+          case 'PHOTO;ENCODING=BASE64;TYPE=JPEG:':
+            final base64Data = line.split(':')[1];
+            final bytes = base64Decode(base64Data);
+            final appDocDir = await getApplicationDocumentsDirectory();
+            final fileName = '${basename(contact.id)}.jpg';
+            final filePath = '${appDocDir.path}/$fileName';
+            final file = File(filePath);
+            await file.writeAsBytes(bytes);
+            contact.avatarPath = filePath;
+            break;
+        }
+
+        // Read next line
+        line = lines[i];
+      }
+
+      // 设置联系人的电话号码列表
+      contact.phoneNumbers = phoneNumbers;
+
+      // 检查联系人是否已经存在
+      final existingContact = await getContactById(contactId);
+      if (existingContact == null) {
+        // 联系人不存在，可以添加 Add contact to database
+        await addContact(contact);
+      } else {
+        // 联系人已存在，可以选择更新现有联系人信息
+        // ... 更新代码
+        existingContact.name = contact.name; // 更新姓名
+        existingContact.phoneNumbers = phoneNumbers; // 更新电话号码列表
+        existingContact.email = contact.email; // 更新邮箱
+        await updateContact(existingContact);
+      }
+    }
+  }
+}
+
+
+Future<void> _importJsonContacts(String path, String filePath) async {
+  final File jsonFile = File('$path/$filePath');
+  final String jsonString = await jsonFile.readAsString();
+
+  // Parse JSON and create contacts
+  final List<dynamic> jsonData = jsonDecode(jsonString);
+  for (final dynamic jsonDataItem in jsonData) {
+    final Contact contact = Contact.fromJson(jsonDataItem);
+    await addContact(contact);
+  }
+}
+
+Future<void> _importTxtContacts(String path, String filePath) async {
+  final File txtFile = File('$path/$filePath');
+  final String txtString = await txtFile.readAsString();
+
+  // Split TXT string into lines
+  final List<String> lines = txtString.split('\n');
+
+  // Parse TXT lines and create contacts
+  for (final String line in lines) {
+    final List<String> values = line.split(',');
+    final Contact contact = Contact(
+      id: values[0],
+      name: values[1],
+      phoneNumber: values[2],
+      email: values[3],
+      label: values[4],
+    );
+    await addContact(contact);
+
+  Future<void> exportContacts(String format) async {
+  // Get  documents directory选择目录
+  String? directoryPath = await pickDirectory();
+  
+
+  //  If no path chosen, use default path如果用户没有选择目录，则使用默认目录
+  if (directoryPath == null) {
+    directoryPath = await _getDefaultExternalStorageDirectory();
+  }
+    
+  //生成文件名
+  final String fileName = 'contacts.$format';
+  // 生成文件路径
+  final String savePath = '$directoryPath/$fileName';
+
+  // Export based on format
+  switch (format) {
+    case 'csv':
+      await _exportCsvContacts(savePath);
+      break;
+    case 'vcf':
+      await _exportVcfContacts(savePath);
+      break;
+    case 'json':
+      await _exportJsonContacts(savePath);
+      break;
+    case 'txt':
+      await _exportTxtContacts(savePath);
+      break;
+  }
+  try {
+    showSuccessSnackBar('Contacts exported successfully to $savePath');
+  } catch (error) {
+    // Handle export errors
+    print('Export error: $error');
+    showErrorSnackBar('Error exporting contacts: $error');
+  }
+}
+
+// Implement export logic for each format, writing to the specified save path
+
+Future<void> _exportCsvContacts(String savePath) async {
+  // Get all contacts
+  final List<Contact> contacts = await getAllContacts();
+
+  // Create CSV file
+  final File csvFile = File(savePath);
+  final csvSink = csvFile.openWrite();
+
+  // Write headers
+  csvSink.writeln('id,name,phone_number,email,label');
+
+  // Write contact data
+  for (final Contact contact in contacts) {
+    csvSink.writeln('${contact.id},${contact.name},${contact.phoneNumber},${contact.email},${contact.label}');
+  }
+
+  // Close the sink
+  csvSink.close();
+}
+
+  Future<void> _exportVcfContacts(String savePath) async {
+  final List<Contact> contacts = await getAllContacts();
+  final File vcfFile = File(savePath);
+  final vcfSink = vcfFile.openWrite();
+
+  for (final Contact contact in contacts) {
+    // ... 写入 VCF 头信息
+    vcfSink.writeln('BEGIN:VCARD');
+    vcfSink.writeln('VERSION:3.0');
+    vcfSink.writeln('N:${contact.name}'); // 新增 name
+    vcfSink.writeln('FN:${contact.name}'); // 新增 name
+    vcfSink.writeln('LABEL:${contact.label}'); // 新增 label
+    
+    // 写入联系人基本信息
+    vcfSink.writeln('TEL;TYPE=CELL:${contact.phoneNumber}');
+    vcfSink.writeln('EMAIL;TYPE=HOME:${contact.email}');
+
+    // 写入头像（如果存在）
+    if (contact.avatarPath != null) {
+      vcfSink.writeln('PHOTO;ENCODING=BASE64;TYPE=JPEG:${base64Encode(File(contact.avatarPath!).readAsBytesSync())}');
+    }
+
+    // 写入 VCF 尾信息
+    vcfSink.writeln('END:VCARD');
+  }
+  vcfSink.close();
+}
+
+Future<void> _exportJsonContacts(String savePath) async {
+  final List<Contact> contacts = await getAllContacts();
+  final File jsonFile = File(savePath);
+  final jsonSink = jsonFile.openWrite();
+
+  // 将所有联系人转换为 JSON 数组
+  final json = jsonEncode(contacts.map((contact) => contact.toJson()).toList());
+
+  // 写入文件
+  jsonSink.write(json);
+  jsonSink.close();
+}
+    
+

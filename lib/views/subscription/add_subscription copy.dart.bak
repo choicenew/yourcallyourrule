@@ -1,0 +1,493 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+
+import 'package:provider/provider.dart';
+//import 'package:sqflite/sqflite.dart';
+
+import '../../new_set_icons.dart';
+import '../../screens/appstate_provider.dart';
+import '../../services/blacklist_whitelist_service.dart';
+import '../../services/snackbar_service.dart';
+//import '../../services/subscription_service.dart' as su;
+import '../../services/subscription_service.dart';
+import '../../utils/ad_manager.dart';
+import '../../utils/create_card.dart';
+import '../../widgets/custom_app_bar.dart';
+import '../../widgets/google_ad.dart';
+import '../../widgets/navigation_bar.dart';
+import '../Custom_3Button_Style.dart';
+//import '../../models/subscription_model.dart';
+//import '../../views/first_page_style.dart';
+import '../shield_switch_style.dart';
+import '../subpage_style.dart';
+import 'export_subscriptions.dart';
+import 'import_subscriptions.dart';
+import 'subscription_page.dart';
+
+class AddSubscriptionPageView extends StatefulWidget {
+  @override
+  _AddSubscriptionPageViewState createState() => _AddSubscriptionPageViewState();
+}
+
+class _AddSubscriptionPageViewState extends State<AddSubscriptionPageView> {
+  bool _isCollapsed = true; // 初始为折叠状态
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(title: "AddSubscription Page"),
+      body: Column(
+        children: [
+          // Toggle button for collapsing/expanding content
+          IconButton(
+            icon: Icon(_isCollapsed ? Icons.expand_more : Icons.expand_less),
+            onPressed: () {
+              setState(() {
+                _isCollapsed = !_isCollapsed;
+              });
+            },
+          ),
+
+          // Collapsible content
+          Visibility(
+            visible: !_isCollapsed,
+            child: Column(
+              children: [
+                // 导航到 SubscriptionListView 的 GestureDetector
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SubscriptionListView()),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Center(
+                      child: OrientationBuilder(
+                        builder: (context, orientation) {
+                          final mediaQuery = MediaQuery.of(context);
+                          final double cardRatio = 3 / 1.8;
+
+                          final cardWidth = mediaQuery.size.width < 600
+                              ? mediaQuery.size.width * 0.4
+                              : mediaQuery.size.width < 900
+                                  ? mediaQuery.size.width * 0.2
+                                  : mediaQuery.size.width * 0.1;
+                          final cardHeight = cardWidth / cardRatio;
+
+                          return Container(
+                            constraints: BoxConstraints(
+                              maxWidth: cardWidth,
+                              maxHeight: cardHeight,
+                            ),
+                            child: AspectRatio(
+                              aspectRatio: 3.1 / 1.3,
+                              child: createCard('SubscriptionListView'),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0),
+                  child: SizedBox(
+                    height: 50,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 0.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ExportSubscriptionsPageView(),
+                                ),
+                              );
+                            },
+                            icon: Icon(NewSet.upload),
+                            label: Text('Export'),
+                            style: Custom3ButtonStyle.style,
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AddSubscriptionPageView(),
+                                ),
+                              );
+                            },
+                            icon: Icon(NewSet.add),
+                            label: Text('Add'),
+                            style: Custom3ButtonStyle.style,
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ImportSubscriptionsPageView(),
+                                ),
+                              );
+                            },
+                            icon: Icon(NewSet.download),
+                            label: Text('Import'),
+                            style: Custom3ButtonStyle.style,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                FutureBuilder<Widget>(
+                  future: Future.value(GoogleAdWidget(adInfo: AdManager.bannerAd)),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
+                      return snapshot.data!;
+                    } else {
+                      return const SizedBox.shrink();
+                    }
+                  },
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: AddSubscriptionPage(),
+          ),
+        ],
+      ),
+      bottomNavigationBar: CustomBottomNavigationBar(),
+    );
+  }
+}
+
+class AddSubscriptionPage extends StatefulWidget {
+  @override
+  _AddSubscriptionPageState createState() => _AddSubscriptionPageState();
+}
+
+class _AddSubscriptionPageState extends State<AddSubscriptionPage> {
+  // 订阅名称控制器
+  TextEditingController _subscriptionNameController = TextEditingController();
+
+  // 订阅链接控制器
+  TextEditingController _urlController = TextEditingController();
+  bool _isBlacklist = false;
+  bool _isWhitelist = false;
+  bool _isAutoUpdate = false;
+  late SubscriptionService _subscriptionService;
+    late BlacklistService _blacklistService;
+      late WhitelistService _whitelistService;
+/*
+  @override
+  void initState() {
+    super.initState();
+    _initServices();
+  }
+
+  Future<void> _initServices() async {
+    // 打开 subscription_models.db 数据库
+    final subscriptionDatabase = await openDatabase(
+      join(await getDatabasesPath(), 'subscription_models.db'),
+      onCreate: su.createDatabase,
+      version: 1,
+    );
+
+    // 实例化服务
+
+    _subscriptionService = SubscriptionService(subscriptionDatabase);
+  }
+*/
+
+
+ @override
+  void initState() {
+    super.initState();
+    final appState = Provider.of<AppState>(context, listen: false);
+       _blacklistService = appState.blacklistService;
+          _whitelistService = appState.whitelistService; 
+    _subscriptionService = appState.subscriptionService;
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    final appState = Provider.of<AppState>(context, listen: false);
+
+    return FutureBuilder(
+      future: appState.ensureServicesInitialized(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+           return Center(child: CircularProgressIndicator()); // 显示加载界面
+        } else {
+          return _build(context); // 显示主界面
+        }
+      },
+    );
+  }
+
+
+  // 私有的构建订阅列表方法
+  Widget _build(BuildContext context) {
+   // final screenWidth = MediaQuery.of(context).size.width;
+    final textFieldHeight = 48.0; // 设置文本字段的高度
+
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+
+
+                child: Column(
+                  children: <Widget>[
+          Padding(
+      padding: EdgeInsets.only(top: 16.0), // 添加的间距
+      child: Container(
+        child: TextField(
+                        controller: _subscriptionNameController,
+                        decoration: inputDecoration.copyWith(
+                          labelText: 'Subscription Name',
+                          labelStyle: inputTextStyle,
+           ),
+        ),
+      ),
+      ),
+                
+                  SizedBox(width: 50.0),
+           // 订阅链接输入框
+        Padding(
+      padding: EdgeInsets.only(top: 16.0), // 添加的间距
+      child: Container(
+        child: TextField(
+          controller: _urlController,
+          decoration: inputDecoration.copyWith(
+            labelText: 'Subscription Link',
+            labelStyle: inputTextStyle,
+          ),
+        ),
+      ),
+      ),         
+         
+              SizedBox(height: 16.0),
+
+              // 打开本地文件夹按钮
+            
+
+            IgnorePointer(
+                child: GestureDetector(
+                  child: Container(
+                   
+                       
+                    height: textFieldHeight, // 设置为文本字段的高度
+          decoration: inputBoxDecoration, // 设置容器的背景颜色
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+          padding: EdgeInsets.all(16.0),  // 设置文本的padding值
+          child: Text(
+            'Open Local Folder',
+            style: inputTextStyle,
+          ),
+        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 16.0),
+                          child: Icon(NewSet.folder_pen, color: Colors.blue),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // 设置点击区域为整个容器区域
+                  onTap: () async {
+                    // 打开本地文件夹
+                    FilePickerResult? result =
+                        await FilePicker.platform.pickFiles(
+                      type: FileType.any,
+                    );
+
+                    // 检查用户是否选择了文件
+                    if (result != null && result.files.isNotEmpty) {
+                      final file = result.files.single;
+                      final filePath = file.path;
+                      if (filePath != null) {
+                        await _subscriptionService
+                            .importSubscriptionsFromLocalFile(File(filePath));
+                      }
+                    }
+                  },
+                ),
+            ),
+
+
+                        SizedBox(height: 16.0),
+            // 白名单和黑名单
+            Container(
+              decoration: whiteBoxDecoration,
+              padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 16.0),
+              child: Theme(
+                data: shieldSwitchThemeData,
+                child: SwitchListTile(
+                  title: Text(
+                    'Whitelist', 
+                    style: whiteTextStyle
+                    ),
+                  value: _isWhitelist,
+                  onChanged: (value) {
+                    setState(() {
+                      _isWhitelist = value;
+                      _isBlacklist = !value;
+                    });
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 16.0),
+                        Container(
+              decoration: whiteBoxDecoration,
+              padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 16.0),
+              child: Theme(
+                data: shieldSwitchThemeData,
+                child: SwitchListTile(
+                  title: Text(
+                    'Blacklist', 
+                    style: whiteTextStyle
+                    ),
+                  value: _isBlacklist,
+                  onChanged: (value) {
+                    setState(() {
+                      _isBlacklist = value;
+                          _isWhitelist = !value;
+                    });
+                  },
+                ),
+              ),
+            ),
+                         SizedBox(height: 16.0),
+                        //自动更新
+                        Container(
+              decoration: whiteBoxDecoration,
+              padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 16.0),
+              child: Theme(
+                data: shieldSwitchThemeData,
+                child: SwitchListTile(
+                  title: Text(
+                _isAutoUpdate ? '自动更新' : '不自动更新',
+                  style: whiteTextStyle
+                  ),
+                  value: _isAutoUpdate,
+                  onChanged: (value) {
+                    setState(() {
+                      _isAutoUpdate = value;
+                    });
+                  },
+                ),
+              ),
+            ),    
+         // 广告            
+          GoogleAdWidget(adInfo: AdManager.bannerAd), 
+             
+
+              SizedBox(height: 16.0),
+            ],
+          ),
+        ),
+      ),
+
+//居于屏幕右下角
+               floatingActionButton: Padding(
+        padding: EdgeInsets.only(bottom: 5.0, right: 16.0),
+        child: Align(
+                alignment: Alignment.bottomRight,
+          
+                  child: ElevatedButton(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min, // Use minimum size
+                      children: [
+                        Icon(NewSet.add),
+                        SizedBox(width: 8.0),
+                        Text(
+                          'Add',
+                        ),
+                      ],
+                    ),
+                    onPressed: () async {
+                      // 检查订阅名称是否为空
+                      if (_subscriptionNameController.text.isEmpty) {
+                        showErrorSnackBar(context, "Subscription Name cannot be empty");
+                        return;
+                      }
+
+                      // 检查 URL
+                      if (_urlController.text.isNotEmpty) {
+                        // 检查 URL 是否正确
+                        if (Uri.tryParse(_urlController.text) == null) {
+                          showErrorSnackBar(context, "Invalid URL format");
+                          return;
+                        }
+                      }
+                      /*else if (result == null) {
+    // 提示用户二选一
+    showErrorSnackBar(context, "请选择文件或输入 URL");
+    return;
+  }*/
+                      // 创建订阅对象
+                      final subscription = SubscriptionModel(
+                        name: _subscriptionNameController.text,
+                        url: _urlController.text.isNotEmpty
+                            ? _urlController.text
+                            : '',
+                        isWhitelist: _isWhitelist,
+                        isBlacklist: _isBlacklist,
+                        isAutoUpdate: _isAutoUpdate,
+                      );
+                      // 添加订阅
+                      // _subscriptionService.addSubscription(subscription);
+
+  // 根据黑白名单类型添加订阅
+                      if (_isBlacklist) {
+                        await _subscriptionService
+                            .addBlacklistSubscription(subscription);
+                      } else if (_isWhitelist) {
+                        await _subscriptionService
+                            .addWhitelistSubscription(subscription);
+                      }
+
+                      //自动更新
+    if (_isAutoUpdate) {
+
+        await _subscriptionService.autoUpdateSubscription(subscription);
+
+    }
+                      // 导入订阅号码
+                      if (_urlController.text.isNotEmpty) {
+                        if (_isBlacklist) {
+                          await _blacklistService.importBlacklistNumbersFromUrl(
+                              _urlController.text);
+                        } else if (_isWhitelist) {
+                          await _whitelistService.importWhitelistNumbersFromUrl(
+                              _urlController.text);
+                        }
+                      }
+                      /*else {
+    subscriptionService.importSubscriptionsFromLocalFile(File(filePath));
+  }*/
+                    },
+                    style: addButtonStyle,
+                  ),
+        ),
+      ),
+      
+      
+    );
+  }
+}
