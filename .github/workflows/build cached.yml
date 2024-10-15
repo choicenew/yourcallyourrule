@@ -35,11 +35,6 @@ jobs:
       - run: flutter pub get
       
 
-
-      - name: Flutter Doctor
-        run: flutter doctor -v
-
-
       # Decode and place keystore
       - name: Decode keystore
         run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
@@ -58,16 +53,6 @@ jobs:
           flutter build appbundle -v 
           flutter build apk --split-per-abi
 
-      # Cache Flutter build files
-      - name: Cache Flutter Build Files
-        uses: actions/cache@v3
-        with:
-          path: |
-            build
-            .dart_tool
-          key: ${{ runner.os }}-flutter-build-${{ hashFiles('**/pubspec.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-build-
 
       # Upload signed AAB and APKs as artifacts
       - name: Upload Signed Artifacts
