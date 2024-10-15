@@ -1,0 +1,145 @@
+name: Flutter Build and Sign AAB, Release, and Verify
+
+on:
+  workflow_dispatch:
+  #push:
+  #  branches:
+   #   - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle' 
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: build-tools;33.0.2 platform-tools 
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0' 
+          channel: 'stable'
+          cache: true 
+          cache-key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
+          
+      - name: Set PATH for zipalign
+        run: echo "PATH=$ANDROID_HOME/build-tools/33.0.2:$PATH" >> $GITHUB_ENV
+
+      - run: flutter pub get
+
+      # Decode and cache keystore
+      - name: Decode keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
+
+      # Build release AAB
+      - name: Build release AAB
+        run: flutter build appbundle --release --no-tree-shake-icons
+
+      # Build release APKs (armeabi-v7a, arm64-v8a, x86_64)
+      - name: Build release APKs
+        run: flutter build apk --release --no-tree-shake-icons --split-per-abi
+
+      # Sign AAB using jarsigner
+      - name: Sign AAB
+        run: |
+          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 -keystore android/app/key.jks \
+            build/app/outputs/bundle/release/app-release.aab ${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
+            -storepass ${{ secrets.ANDROID_KEYSTORE_PASSWORD }} -keypass ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+      # Sign APKs using jarsigner 
+      - name: Sign APKs
+        run: |
+          for apk in build/app/outputs/apk/release/*.apk; do
+            jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 -keystore android/app/key.jks \
+              "$apk" ${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
+              -storepass ${{ secrets.ANDROID_KEYSTORE_PASSWORD }} -keypass ${{ secrets.ANDROID_KEY_PASSWORD }}
+          done
+
+      # Upload signed AAB and APKs as artifacts (第一次上传)
+      - name: Upload Signed AAB and APKs Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: signed-app-artifacts
+          path: |
+            build/app/outputs/bundle/release/app-release.aab
+            build/app/outputs/apk/release/*.apk
+
+      # Verify AAB signature using upup-company/apksigner-android
+      - name: Apksigner Android (Verify AAB)
+        uses: upup-company/apksigner-android@v1
+        with:
+          releaseDirectory: build/app/outputs/bundle/release 
+          signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }} 
+          alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+      # Verify APK signatures using upup-company/apksigner-android
+      - name: Apksigner Android (Verify APKs)
+        uses: upup-company/apksigner-android@v1
+        with:
+          releaseDirectory: build/app/outputs/apk/release 
+          signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }} 
+          alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+      # Rename AAB after verification
+      - name: Rename AAB with Verified Signature
+        run: mv build/app/outputs/bundle/release/app-release.aab build/app/outputs/bundle/release/app-release-verified.aab
+
+      # Rename APKs after verification
+      - name: Rename APKs with Verified Signature
+        run: |
+          for apk in build/app/outputs/apk/release/*.apk; do
+            mv "$apk" "${apk%.apk}-verified.apk"
+          done
+
+      - name: Install dependencies
+        run: sudo apt-get install tree -y
+
+      - name: Generate Checksums
+        run: |
+          tree .
+          md5sum build/app/outputs/bundle/release/app-release-verified.aab >> RELEASE.md5sum
+          sha256sum build/app/outputs/bundle/release/app-release-verified.aab >> RELEASE.sha256sum
+          for apk in build/app/outputs/apk/release/*-verified.apk; do
+            md5sum "$apk" >> RELEASE.md5sum
+            sha256sum "$apk" >> RELEASE.sha256sum
+          done
+
+
+      # Upload verified AAB, APKs and checksums as artifacts (第二次上传)
+      - name: Upload Verified Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: verified-release-artifacts
+          path: |
+            build/app/outputs/bundle/release/app-release-verified.aab
+            build/app/outputs/apk/release/*.apk
+            RELEASE.md5sum
+            RELEASE.sha256sum
+
+      - name: Extract pubspec version
+        run: |
+          echo "PUBSPEC_VERSION=$(grep -oP 'version:\s*\K[^+]+(?=\+)' pubspec.yaml)" >> $GITHUB_ENV
+
+      - name: Upload Release 
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.MY_PAT }}
+          tag: v${{ env.PUBSPEC_VERSION }} 
+          omitBodyDuringUpdate: true
+          omitNameDuringUpdate: true
+          omitPrereleaseDuringUpdate: true
+          allowUpdates: true
+          artifacts: verified-release-artifacts/*

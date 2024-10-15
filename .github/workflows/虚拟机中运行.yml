@@ -1,0 +1,95 @@
+name: Local Build, Sign and Release
+
+on:
+  workflow_dispatch:
+  #push:
+  #  branches:
+   #   - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+                
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0' 
+          channel: 'stable'
+          cache: true 
+          cache-key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
+          
+      - run: flutter pub get
+
+      # Decode and cache keystore
+      - name: Decode keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
+
+      # Cache build artifacts
+      - name: Cache Build Artifacts
+        uses: actions/cache@v3
+        with:
+          path: |
+            build/app/outputs/bundle/release/app-release.aab
+            build/app/outputs/apk/release/*.apk
+          key: ${{ runner.os }}-flutter-build-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-build- 
+
+      # 复制仓库到构建目录 (排除 build 目录)
+      - name: Create build directory
+        run: mkdir -p build
+      - name: Copy repository to build directory (excluding build directory)
+        run: cp -r !(build) build/
+      - name: Change working directory to build
+        run: cd build
+
+      # Sign AAB and APKs using flutter built-in signing (with caching)
+      - name: Sign AAB and APKs
+        if: steps.cache-build-artifacts.outputs.cache-hit != 'true' # Only build if cache miss
+        run: |
+          flutter build appbundle --release --no-tree-shake-icons \
+            --dart-define=FLUTTER_KEYSTORE_PATH=android/app/key.jks \
+            --dart-define=FLUTTER_KEYSTORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
+            --dart-define=FLUTTER_KEY_ALIAS=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
+            --dart-define=FLUTTER_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }}
+          flutter build apk --release --no-tree-shake-icons --split-per-abi \
+            --dart-define=FLUTTER_KEYSTORE_PATH=android/app/key.jks \
+            --dart-define=FLUTTER_KEYSTORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
+            --dart-define=FLUTTER_KEY_ALIAS=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
+            --dart-define=FLUTTER_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }}
+
+      # Upload signed AAB and APKs as artifacts
+      - name: Upload Signed Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: signed-release-artifacts
+          path: |
+            build/app/outputs/bundle/release/app-release.aab
+            build/app/outputs/apk/release/*.apk
+
+      - name: Extract pubspec version
+        run: |
+          echo "PUBSPEC_VERSION=$(grep -oP 'version:\s*\K[^+]+(?=\+)' pubspec.yaml)" >> $GITHUB_ENV
+
+      - name: Upload Release 
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.MY_PAT }}
+          tag: v${{ env.PUBSPEC_VERSION }} 
+          omitBodyDuringUpdate: true
+          omitNameDuringUpdate: true
+          omitPrereleaseDuringUpdate: true
+          allowUpdates: true
+          artifacts: |
+            signed-release-artifacts/*
+            build/app/outputs/bundle/release/app-release.aab
+            build/app/outputs/apk/release/*.apk 
