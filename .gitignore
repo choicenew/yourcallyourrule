@@ -43,3 +43,5 @@ app.*.map.json
 /android/app/release
 /android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
 /android/gradle/wrapper/gradle-wrapper.jar
+GeneratedPluginRegistrant.java
+gradle-wrapper.jar
