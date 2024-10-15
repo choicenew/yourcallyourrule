@@ -54,16 +54,7 @@ jobs:
        #   echo "storeFile=key.jks" >> android/key.properties
 
 
-      # Cache build artifacts
-      - name: Cache Build Artifacts
-        uses: actions/cache@v3
-        with:
-          path: |
-            build/app/outputs/bundle/release/app-release.aab
-            build/app/outputs/apk/release/*.apk
-          key: ${{ runner.os }}-flutter-build-${{ hashFiles('**/pubspec.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-build-
+
 
       # Build and Sign AAB and APKs using Flutter's built-in signing (with caching)
       - name: Build and Sign AAB and APKs
