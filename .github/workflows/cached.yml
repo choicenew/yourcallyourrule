@@ -57,8 +57,7 @@ jobs:
 
 
       # Build and Sign AAB and APKs using Flutter's built-in signing (with caching)
-      - name: Build and Sign AAB and APKs
-        if: steps.cache-build-artifacts.outputs.cache-hit != 'true' # Only build if cache miss
+      - name: Build and Sign AAB and APKs        
         run: |
           flutter build appbundle -v 
           flutter build apk --split-per-abi
