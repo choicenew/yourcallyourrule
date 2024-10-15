@@ -1,0 +1,167 @@
+name: Flutter Build and Sign AAB, Release, and Verify
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle' 
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          api-level: 34
+          components: build-tools, platform-tools
+          cmdline-tools-version: '10406996' 
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0' 
+          channel: 'stable'
+          cache: true 
+          cache-key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
+
+      - run: flutter pub get
+
+      # Decode and cache keystore
+      - name: Decode keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
+
+      # Build release AAB
+      - name: Build release AAB
+        run: flutter build appbundle --release --no-tree-shake-icons
+
+      # Build release APKs (armeabi-v7a, arm64-v8a, x86_64)
+      - name: Build release APKs
+        run: flutter build apk --release --no-tree-shake-icons --split-per-abi
+
+      # Sign AAB using jarsigner
+      - name: Sign AAB
+        run: |
+          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 -keystore android/app/key.jks \
+            build/app/outputs/bundle/release/app-release.aab ${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
+            -storepass ${{ secrets.ANDROID_KEYSTORE_PASSWORD }} -keypass ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+      # Upload signed AAB as artifact 
+      - name: Upload Signed AAB Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release-aab
+          path: build/app/outputs/bundle/release/app-release.aab
+          
+      # Release after signing AAB
+      - name: Create Release (After Signing AAB)
+        id: create_release_after_signing_aab
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
+        with:
+          tag_name: test
+          release_name: Release ${{ github.ref }} (After Signing AAB)
+          draft: false
+          prerelease: false
+
+      # Upload AAB to release (After Signing)
+      - name: Upload Signed AAB to Release
+        id: upload-release-asset-after-signing-aab
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
+        with:
+          upload_url: ${{ steps.create_release_after_signing_aab.outputs.upload_url }}
+          asset_path: build/app/outputs/bundle/release/app-release.aab
+          asset_name: app-release-after-signing.aab
+          asset_content_type: application/octet-stream
+
+      # Sign APKs using jarsigner 
+      - name: Sign APKs
+        run: |
+          for apk in build/app/outputs/apk/release/*.apk; do
+            jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA256 -keystore android/app/key.jks \
+              "$apk" ${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
+              -storepass ${{ secrets.ANDROID_KEYSTORE_PASSWORD }} -keypass ${{ secrets.ANDROID_KEY_PASSWORD }}
+          done
+
+      # Upload signed APKs as artifacts 
+      - name: Upload Signed APKs Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release-apks
+          path: build/app/outputs/apk/release/*.apk
+
+      # Install apksigner and add it to PATH 
+      - name: Install apksigner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y apksigner
+          echo "PATH=\$PATH:\$ANDROID_HOME/build-tools/33.0.2" >> $GITHUB_ENV 
+
+      # Verify AAB signature using apksigner
+      - name: Verify AAB signature
+        run: apksigner verify -v --verbose build/app/outputs/bundle/release/app-release.aab
+
+      # Verify APK signatures using apksigner
+      - name: Verify APK signatures
+        run: |
+          for apk in build/app/outputs/apk/release/*.apk; do
+            apksigner verify -v --verbose "$apk"
+          done
+
+      # Rename AAB after verification
+      - name: Rename AAB with Verified Signature
+        run: mv build/app/outputs/bundle/release/app-release.aab build/app/outputs/bundle/release/app-release-verified-signature.aab
+
+      # Rename APKs after verification
+      - name: Rename APKs with Verified Signature
+        run: |
+          for apk in build/app/outputs/apk/release/*.apk; do
+            mv "$apk" "${apk%.apk}-verified-signature.apk"
+          done
+
+      # Release after verification
+      - name: Create Release (After Verification)
+        id: create_release_after_verification
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
+        with:
+          tag_name: test
+          release_name: Release ${{ github.ref }} (After Verification)
+          draft: false
+          prerelease: false
+
+      # Upload verified AAB to release 
+      - name: Upload Verified AAB
+        id: upload-release-asset-after-verification
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
+        with:
+          upload_url: ${{ steps.create_release_after_verification.outputs.upload_url }}
+          asset_path: build/app/outputs/bundle/release/app-release-verified-signature.aab
+          asset_name: app-release-verified-signature.aab
+          asset_content_type: application/octet-stream
+
+      # Upload verified APKs to release 
+      - name: Upload Verified APKs
+        run: |
+          for apk in build/app/outputs/apk/release/*-verified-signature.apk; do
+            asset_name=$(basename "$apk")
+            curl -X POST \
+              -H "Authorization: token ${{ secrets.MY_PAT }}" \
+              -H "Content-Type: application/vnd.android.package-archive" \
+              --data-binary @"$apk" \
+              "${{ steps.create_release_after_verification.outputs.upload_url }}?name=$asset_name"
+          done
