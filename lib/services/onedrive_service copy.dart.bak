@@ -1,0 +1,152 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:flutter_appauth/flutter_appauth.dart';
+import 'package:http/http.dart' as http;
+import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
+
+import 'backup_restore_database_service.dart';
+
+class OneDriveService extends ChangeNotifier {
+  late FlutterAppAuth _appAuth;
+     late BackupRestoreService _backupRestoreService;
+  String? _clientId;
+  String? _redirectUrl;
+  String? _accessToken;
+
+  OneDriveService() {
+    _appAuth = FlutterAppAuth();
+  }
+
+  bool get isEnabled => _accessToken != null;
+
+ Future<bool> signInWithCredentials(String clientId, String redirectUrl) async {
+    _clientId = clientId;
+    _redirectUrl = redirectUrl;
+    return await signIn();
+  }
+
+  Future<bool> signIn() async {
+    if (_clientId == null || _redirectUrl == null) {
+      throw Exception('Client ID and Redirect URL must be set before signing in');
+    }
+
+    try {
+      final AuthorizationTokenResponse? result = await _appAuth.authorizeAndExchangeCode(
+        AuthorizationTokenRequest(
+          _clientId!,
+          _redirectUrl!,
+          discoveryUrl: 'https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration',
+          scopes: ['Files.ReadWrite.All'],
+        ),
+      );
+
+      if (result != null && result.accessToken != null) {
+        _accessToken = result.accessToken!;
+        notifyListeners();
+      } else {
+        throw Exception('Failed to acquire access token');
+      }
+
+      return _accessToken != null;
+    } catch (error) {
+      print('Error signing in to OneDrive: $error');
+      return false;
+    }
+  }
+
+  Future<void> signOut() async {
+    _accessToken = null;
+    // Perform any additional cleanup if needed
+  }
+
+  Future<void> backup({String? backupDirName}) async {
+    if (_accessToken == null) throw Exception('Not signed in to OneDrive');
+
+    final defaultDirectory = await getExternalStorageDirectory();
+    final backupDirectoryPath = path.join(defaultDirectory!.path, 'backup');
+    final backupDirectory = Directory(backupDirectoryPath);
+
+    if (!await backupDirectory.exists()) {
+      throw Exception('Backup directory does not exist');
+    }
+
+    final backupFiles = await backupDirectory
+        .list()
+        .where((entity) => entity is File && entity.path.endsWith('.zip'))
+        .map((entity) => File(entity.path))
+        .toList();
+
+    if (backupFiles.isEmpty) {
+      throw Exception('No backup files found');
+    }
+
+    backupFiles.sort((a, b) => b.lastModifiedSync().compareTo(a.lastModifiedSync()));
+    final latestBackupFile = backupFiles.first;
+
+    final fileName = latestBackupFile.path.split('/').last;
+    final fileContent = await latestBackupFile.readAsBytes();
+
+    // Default backup directory name
+    final defaultBackupDirName = 'ycyr';
+    final actualBackupDirName = backupDirName ?? defaultBackupDirName;
+
+    final uploadUrl =
+        'https://graph.microsoft.com/v1.0/me/drive/root:/$actualBackupDirName/$fileName:/content';
+
+    final response = await http.put(
+      Uri.parse(uploadUrl),
+      headers: {
+        'Authorization': 'Bearer $_accessToken',
+        'Content-Type': 'application/zip',
+      },
+      body: fileContent,
+    );
+
+    if (response.statusCode != 200 && response.statusCode != 201) {
+      throw Exception('Failed to upload file to OneDrive: ${response.body}');
+    }
+  }
+
+  Future<void> restore({String? backupDirName, required BuildContext context}) async {
+    if (_accessToken == null) throw Exception('Not signed in to OneDrive');
+
+    // Default backup directory name
+    final defaultBackupDirName = 'ycyr';
+    final actualBackupDirName = backupDirName ?? defaultBackupDirName;
+
+    // Fetch files from OneDrive in specified directory
+    final listUrl =
+        'https://graph.microsoft.com/v1.0/me/drive/root:/$actualBackupDirName:/children';
+
+    final listResponse = await http.get(
+      Uri.parse(listUrl),
+      headers: {'Authorization': 'Bearer $_accessToken'},
+    );
+
+    if (listResponse.statusCode != 200) {
+      throw Exception('Failed to list files on OneDrive: ${listResponse.body}');
+    }
+
+    final files = json.decode(listResponse.body)['value'] as List;
+
+    // Mocking file selection (you should implement your own selection logic)
+    final selectedFile = files.isNotEmpty ? files.first : null;
+
+    if (selectedFile == null) {
+      throw Exception('No file selected for restore');
+    }
+
+    final downloadUrl = selectedFile['@microsoft.graph.downloadUrl'];
+
+    final tempDir = await getTemporaryDirectory();
+    final tempFile = File(path.join(tempDir.path, selectedFile['name']));
+
+    final downloadResponse = await http.get(Uri.parse(downloadUrl));
+    await tempFile.writeAsBytes(downloadResponse.bodyBytes);
+
+    // Simulating restore process (replace with your actual restore logic)
+    await _backupRestoreService.handleZipFile(tempFile);
+  }
+}

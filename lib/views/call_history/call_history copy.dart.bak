@@ -1,0 +1,656 @@
+import 'package:call_log/call_log.dart';
+import 'package:dlibphonenumber/locale.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:permission_handler/permission_handler.dart';
+//import 'package:path/path.dart' as path_helper;
+import 'package:provider/provider.dart';
+//import 'package:permission_handler/permission_handler.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:sqflite/sqflite.dart';
+
+import '../../new_set_icons.dart';
+import '../../screens/appstate_provider.dart';
+
+import '../../services/allowed_blocked_service.dart';
+import '../../services/caller_id_service.dart';
+
+import '../../services/label_service.dart';
+import '../contact/contact_form_page.dart';
+import '../label/add_label.dart';
+import '../shield_switch_style.dart';
+import '../subpage_style.dart';
+import '../../utils/permission.dart.bak';
+
+// 获取第三方库的Locale对象
+Locale getDlibPhoneNumberLocale(BuildContext context) {
+  var currentLocale = Localizations.localeOf(context);
+  var countryCode = currentLocale.countryCode ?? ''; // 使用空值合并操作符提供一个默认值
+  return Locale(language: currentLocale.languageCode, country: countryCode);
+}
+
+class CallHistoryPage extends StatefulWidget {
+  const CallHistoryPage({super.key});
+
+  @override
+  _CallHistoryPageState createState() => _CallHistoryPageState();
+}
+
+class _CallHistoryPageState extends State<CallHistoryPage> {
+  late AllowedService _allowedService;
+  late BlockedService _blockedService;
+  List<CallLogEntry> _callLog = [];
+  late CallerIdService _callerIdService;
+  Map<String, bool> _expandedItems = {};
+  bool _isAllowed = false;
+  bool _isBlocked = false;
+  bool _isContactButtonVisible = true;
+  bool _isContactIconButtonVisible = true;
+  late LabelService _labelService;
+    bool _isLoading = false;
+/*
+  @override
+  void initState() {
+    super.initState();
+    _initServices();
+    _loadPreferences();
+    _fetchCallLogs();
+  }
+*/
+
+ @override
+  void initState() {
+    super.initState();
+    final appState = Provider.of<AppState>(context, listen: false);
+    _labelService = appState.labelService;
+        _callerIdService = appState.callerIdService;
+    _allowedService = appState.allowedService;
+    _blockedService = appState.blockedService;
+    // 请求通话记录权限
+    _requestPhonePermission();
+
+   _loadPreferences();
+ _fetchCallLogs();
+  }
+
+//请求权限
+Future<void> _requestPhonePermission() async {
+  PermissionStatus status = await Permission.phone.request();
+
+  if (status.isGranted) {
+    // 权限已授予
+  } else if (status.isDenied) {
+    // 权限被拒绝，显示 Snackbar 并再次请求权限
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('此应用需要访问您的通话记录信息才能正常工作。请授予权限。'),
+        action: SnackBarAction(
+          label: '授予权限',
+          onPressed: () async {
+            PermissionStatus status = await Permission.contacts.request();
+            if (status.isGranted) {
+              // 权限已授予
+            } else {
+              // 再次拒绝，显示 Snackbar 提示用户可以在设置中手动开启
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('您已拒绝权限。您可以在设置中手动开启权限。'),
+                ),
+              );
+            }
+          },
+        ),
+      ),
+    );
+  } else if (status.isPermanentlyDenied) {
+    // 权限被永久拒绝，显示 Snackbar 提示用户可以在设置中手动开启
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('您已永久拒绝权限。您可以在设置中手动开启权限。'),
+      ),
+    );
+  }
+}
+
+//创建允许或者阻止开关
+  void _onSwitchChanged(bool newValue) {
+    setState(() {
+      if (_isAllowed == newValue) {
+        // 如果允许开关状态与传入的新值相同，说明是重复点击了相同的开关，无需进行任何操作
+        return;
+      }
+      // 更新允许开关状态为传入的新值
+      _isAllowed = newValue;
+      // 更新阻止开关状态为与允许相反
+      _isBlocked = !_isAllowed;
+    });
+  }
+/*
+  Future<void> _initServices() async {
+    final allowedBlockedDatabase = await openDatabase(
+      path_helper.join(await getDatabasesPath(), 'allowed_blocked.db'),
+      onCreate: ab.createDatabase,
+      version: 1,
+    );
+    final labelsDatabase = await openDatabase(
+      path_helper.join(await getDatabasesPath(), 'labels_database.db'),
+      onCreate: la.createDatabase,
+      version: 1,
+    );
+    // 实例化服务
+    _labelService = LabelService(labelsDatabase);
+    _callerIdService = CallerIdService();
+    _allowedService = AllowedService(allowedBlockedDatabase);
+    _blockedService = BlockedService(allowedBlockedDatabase);
+    await _callerIdService.initialize();
+  }
+*/
+
+Future<void> _loadPreferences() async {
+  final SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
+  _isContactButtonVisible = await asyncPrefs.getBool('isContactButtonVisible') ?? true;
+  _isContactIconButtonVisible = await asyncPrefs.getBool('isContactIconButtonVisible') ?? true;
+  setState(() {});
+}
+
+Future<void> _fetchCallLogs() async {
+  bool hasPermission = await PermissionHandler.checkCallLogPermission();
+  if (!hasPermission) {
+    hasPermission = await PermissionHandler.requestCallLogPermission();
+  }
+  
+  if (hasPermission) {
+    final Iterable<CallLogEntry> result = await CallLog.get();
+    setState(() {
+      _callLog = result.toList(); // Convert Iterable<CallLogEntry> to List<CallLogEntry>
+    });
+  } else {
+    // 使用 SnackBar 展示权限被拒绝的消息
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Call log permission denied')),
+    );
+  }
+      setState(() {
+      _isLoading = false;
+    });
+}
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Call History'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () => _showSettingsDialog(),
+          ),
+        ],
+      ),
+      body: ListView.builder(
+        itemCount: _callLog.length,
+        itemBuilder: (context, index) {
+          return _buildCallLogItem(_callLog[index]);
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AddLabelPage()),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCallLogItem(CallLogEntry entry) {
+    bool isExpanded = _expandedItems[entry.number] ?? false;
+
+    return FutureBuilder<CallerIdData>(
+      future: _callerIdService.getCallerId(
+          entry.number ?? '', context, getDlibPhoneNumberLocale(context)),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        }
+        if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+        final callerIdData = snapshot.data!;
+
+        return Column(
+          children: [
+            ExpansionPanelList(
+              expansionCallback: (int index, bool isExpanded) {
+                setState(() {
+                  _expandedItems[entry.number!] = !isExpanded;
+                });
+              },
+              children: [
+                ExpansionPanel(
+                  headerBuilder: (BuildContext context, bool isExpanded) {
+                    return ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage: callerIdData.avatarImage,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              right: 0,
+                              bottom: 0,
+                              child: Icon(
+                                _getCallTypeIcon(entry.callType),
+                                size: 16,
+                                color: _getCallTypeColor(entry.callType),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      title: Text(callerIdData.name, style: entryTitleStyle),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(entry.formattedNumber ?? '',
+                              style: entryTitleStyle),
+                          Text(
+                              '${callerIdData.countryName}, ${callerIdData.region ?? ''}',
+                              style: entryTitleStyle),
+                        ],
+                      ),
+                      trailing: callerIdData.labels.isNotEmpty
+                          ? Chip(label: Text(callerIdData.labels.first.label))
+                          : null,
+                    );
+                  },
+                  body: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          children: [
+                            if (_isContactIconButtonVisible)
+                              ElevatedButton.icon(
+                                icon: const Icon(Icons.person_add),
+                                label: const Text('Add Contact'),
+                                onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ContactFormPage()),
+                                ),
+                              ),
+                            const SizedBox(width: 8),
+                            IconButton(
+                              icon: Icon(isExpanded
+                                  ? Icons.expand_less
+                                  : Icons.expand_more),
+                              onPressed: () {
+                                setState(() {
+                                  _expandedItems[entry.number!] = !isExpanded;
+                                });
+                              },
+                            ),
+                            const SizedBox(width: 8),
+                          ],
+                        ),
+                      ),
+                      _buildExpandedContent(context, callerIdData, entry),
+                    ],
+                  ),
+                  isExpanded: isExpanded,
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildExpandedContent(
+      BuildContext context, CallerIdData callerIdData, CallLogEntry entry) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    const textFieldHeight = 14.0; // 设置文本字段的高度
+    // 创建一个 LabeledEntry 对象，用于传递给 Labels 组件
+    LabeledEntry labeledEntry = LabeledEntry(
+      phoneNumber: entry.number ?? '',
+      name: callerIdData.name,
+      label:
+          callerIdData.labels.isNotEmpty ? callerIdData.labels.first.label : '',
+    );
+
+    // 显示折叠内容
+    return Container(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Divider(height: 1),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // Whitelist switch on the left
+              Theme(
+                data: shieldSwitchThemeData,
+                child: SwitchListTile(
+                  contentPadding: const EdgeInsets.only(top: 16, left: 16),
+                  value: _isAllowed,
+                  onChanged: _onSwitchChanged,
+                  title: const Text(
+                    '加入/移除允许号码',
+                    style: whiteTextStyle,
+                  ),
+                ),
+              ),
+              // Blacklist switch on the right
+              Theme(
+                data: shieldSwitchThemeData,
+                child: SwitchListTile(
+                  contentPadding: const EdgeInsets.only(top: 16, right: 16),
+                  value: _isBlocked,
+                  onChanged: (value) => _onSwitchChanged(!value),
+                  title: const Text(
+                    '加入/移除阻止号码',
+                    style: whiteTextStyle,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          // 主要是调用后面代码的Labels和Label service的LabeledEntry 生成可选择的标签
+          Labels(entry: labeledEntry), //标签选择
+          //分割线
+          const Divider(height: 1),
+          const Spacer(),
+
+          Row(
+            //按钮最小均分
+            mainAxisSize: MainAxisSize.min, // 让按钮最小
+            mainAxisAlignment: MainAxisAlignment.spaceBetween, // 让按钮左右对齐
+            children: [
+              if (_isContactButtonVisible)
+                Expanded(
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.person_add),
+                    label: const Text('Add Contact'),
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ContactFormPage()),
+                    ),
+                  ),
+                ),
+              const SizedBox(width: 16.0), // Spacing between buttons
+              Expanded(
+                child: Container(
+                  width: screenWidth * 0.83, // width set to 83% of screen width
+                  height: textFieldHeight, // 设置为文本字段的高度
+                  child: TextFormField(
+                    decoration: showmoreinputBoxDecoration.copyWith(
+                      labelText: 'Name',
+                      border: const OutlineInputBorder(),
+                      labelStyle: showmoreTextStyle,
+                    ),
+                    style: showmoreTextStyle,
+                    controller: TextEditingController(text: callerIdData.name),
+                    onChanged: (value) {
+                      setState(() {
+                        labeledEntry.name = value;
+                      });
+                    },
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 10),
+              Expanded(
+                child: ElevatedButton(
+                  child: const Text('Save'),
+                  onPressed: () async {
+                    await _labelService.editLabelForPhoneNumber(
+                        labeledEntry.label, labeledEntry.phoneNumber);
+                    if (_isAllowed) {
+                      await _allowedService.editAllowedEntry(AllowedEntry(
+                        phoneNumber: labeledEntry.phoneNumber,
+                        name: labeledEntry.name,
+                        label: labeledEntry.label,
+                      ));
+                    } else if (_isBlocked) {
+                      await _blockedService.editBlockedEntry(BlockedEntry(
+                        phoneNumber: labeledEntry.phoneNumber,
+                        name: labeledEntry.name,
+                        label: labeledEntry.label,
+                      ));
+                    }
+                    setState(() {});
+                    _expandedItems[entry.number!] = false;
+                  },
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  IconData _getCallTypeIcon(CallType? callType) {
+    switch (callType) {
+      case CallType.incoming:
+        return Icons.call_received;
+      case CallType.outgoing:
+        return Icons.call_made;
+      case CallType.missed:
+        return Icons.call_missed;
+      case CallType.rejected: // 添加拒接电话的处理
+        return NewSet.phone_rejected; // 或者你希望显示的其他图标
+      default:
+        return Icons.call;
+    }
+  }
+
+  Color _getCallTypeColor(CallType? callType) {
+    return callType == CallType.missed ? Colors.red : Colors.green;
+  }
+
+  void _showSettingsDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Settings'),
+          content: StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SwitchListTile(
+                    title: const Text('Show Contact Button'),
+                    value: _isContactButtonVisible,
+                    onChanged: (bool value) {
+                      setState(() {
+                        _isContactButtonVisible = value;
+                      });
+                      _savePreferences();
+                    },
+                  ),
+                  SwitchListTile(
+                    title: const Text('Show Contact Icon Button'),
+                    value: _isContactIconButtonVisible,
+                    onChanged: (bool value) {
+                      setState(() {
+                        _isContactIconButtonVisible = value;
+                      });
+                      _savePreferences();
+                    },
+                  ),
+                ],
+              );
+            },
+          ),
+          actions: [
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _savePreferences() async {
+final SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
+    await asyncPrefs.setBool('isContactButtonVisible', _isContactButtonVisible);
+    await asyncPrefs.setBool(
+        'isContactIconButtonVisible', _isContactIconButtonVisible);
+  }
+
+
+}
+
+// Labels widget implementation remains the same as in the previous version
+
+class Labels extends StatefulWidget {
+  const Labels({super.key, required this.entry});
+
+  final LabeledEntry entry;
+
+  @override
+  State<Labels> createState() => _LabelsState();
+}
+
+class _LabelsState extends State<Labels> {
+  late LabelService _labelService;
+  List<String> _labels = [];
+  String? _selectedLabel;
+/*
+  @override
+  void initState() {
+    super.initState();
+    _initServices();
+  }
+
+  Future<void> _initServices() async {
+    // 打开 number_control_list.db 数据库
+
+    final labelsDatabase = await openDatabase(
+      path_helper.join(await getDatabasesPath(), 'labels_database.db'),
+      onCreate: la.createDatabase,
+      version: 1,
+    );
+
+    // 实例化服务
+    _labelService = LabelService(labelsDatabase);
+
+    // 获取所有标签
+    final labels = await _labelService.getAllLabels();
+    if (labels.isEmpty) {
+      await _labelService.insertPredefinedLabelsIfNotExists(labelsDatabase);
+    }
+
+    // 获取当前号码的标签
+    final currentLabel =
+        await _labelService.getLabelFromPhoneNumber(widget.entry.phoneNumber);
+
+    setState(() {
+      _labels = labels;
+      _selectedLabel = currentLabel;
+    });
+  }
+*/
+  @override
+  void initState() {
+    super.initState();
+    final appState = Provider.of<AppState>(context, listen: false);
+       _labelService = appState.labelService;
+    _initLabels();
+  }
+
+  Future<void> _initLabels() async {
+ 
+    
+    // 获取所有标签
+    final labels = await _labelService.getAllLabels();
+    if (labels.isEmpty) {
+      await _labelService.insertPredefinedLabelsIfNotExists(_labelService.database);
+    }
+
+    // 获取当前号码的标签
+    final currentLabel = await _labelService.getLabelFromPhoneNumber(widget.entry.phoneNumber);
+
+    setState(() {
+      _labels = labels;
+      _selectedLabel = currentLabel;
+    });
+  }   
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Select a label:',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8.0,
+          children: _labels.map((label) {
+            // 判断当前标签是否为选中状态
+            final translatedLabel = Intl.message(label); // 翻译标签
+            final isSelected = label == _selectedLabel; // 判断是否选中
+            // final isSelected = label == _selectedLabel;
+            return ChoiceChip(
+              label: Text(translatedLabel),
+              // 根据是否选中设置不同的样式
+              selected: isSelected,
+              // 点击标签时触发的回调函数
+              onSelected: (_) async {
+                setState(() {
+                  // 更新选中的标签
+                  _selectedLabel = label;
+                });
+                // 更新黑名单条目的标签
+                widget.entry.label = label;
+                try {
+                  // 将更改保存到数据库
+                  await _labelService.editLabelForPhoneNumber(
+                      widget.entry.label, widget.entry.phoneNumber);
+                } catch (e) {
+                  // 保存失败时,恢复之前的选中状态
+                  setState(() {
+                    _selectedLabel = widget.entry.label;
+                  });
+                  // 显示错误消息
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Failed to update label: $e')),
+                  );
+                }
+              },
+              // 选中的标签显示蓝色
+              selectedColor: Colors.blue,
+              // 未选中的标签显示灰色
+              backgroundColor: Colors.grey[300],
+            );
+          }).toList(),
+        ),
+        // 如果有选中的标签,显示选中的标签
+        if (_selectedLabel != null)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Selected Label: $_selectedLabel',
+              style: const TextStyle(fontSize: 16.0),
+            ),
+          ),
+      ],
+    );
+  }
+}

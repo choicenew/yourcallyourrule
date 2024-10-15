@@ -1,0 +1,259 @@
+
+import 'package:dlibphonenumber/locale.dart' as dlibphone;
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sqflite/sqflite.dart';
+
+import '../screens/appstate_provider.dart';
+import '../services/caller_id_service.dart';
+import '../utils/parse_phonenumber.dart';
+import '../views/allowed/allowed_page.dart';
+import '../views/blacklist/blacklist_page.dart';
+
+import '../views/blocked/blocked_page.dart';
+import '../views/contact/contact_main_page.dart';
+import '../utils/language_provider.dart';
+import '../views/label/label_page.dart';
+import '../views/sms_no_blacklist/blacklist_page.dart';
+import '../views/sms_no_whitelist/whitelist_page.dart';
+import '../views/sms_text_blacklist/blacklist_page.dart';
+import '../views/sms_text_whitelist/whitelist_page.dart';
+import '../views/whitelist/whitelist_page.dart';
+import 'search_bar_ui.dart';
+import 'search_result_wrapper.dart';
+
+class CustomSearchBar extends StatefulWidget {
+  final Color backgroundColor;
+  final BorderRadius borderRadius;
+
+  const CustomSearchBar({
+    super.key,
+    this.backgroundColor = Colors.white,
+    //this.borderRadius = BorderRadius.zero,
+    this.borderRadius = const BorderRadius.all(Radius.circular(30)), // 使用 const 构造函数
+  });
+
+  @override
+  _CustomSearchBarState createState() => _CustomSearchBarState();
+}
+
+class _CustomSearchBarState extends State<CustomSearchBar> {
+  List<SearchResult> _searchResults = [];
+  bool _showResults = false;
+
+  Future<void> _onSearch(String query) async {
+    if (query.isNotEmpty) {
+      final results = await SearchService.search(query);
+      setState(() {
+        _searchResults = results;
+        _showResults = true;
+      });
+    } else {
+      setState(() {
+        _searchResults = [];
+        _showResults = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: widget.backgroundColor,
+            borderRadius: widget.borderRadius,
+          ),
+          child: SearchBarUI(onSearch: _onSearch),
+        ),
+        if (_showResults)
+          SizedBox(
+            height: 200, // 或根据需要调整
+            child: ListView.builder(
+              itemCount: _searchResults.length,
+              itemBuilder: (context, index) {
+                final result = _searchResults[index];
+                return ListTile(
+                  title: Text(result.value),
+                  subtitle: Text(result.databaseName),
+                  onTap: () => _navigateToResult(context, result),
+                );
+              },
+            ),
+          ),
+      ],
+    );
+  }
+
+  void _navigateToResult(BuildContext context, SearchResult result) async {
+    final PageInfo pageInfo = _getPageInfo(result);
+    final page = pageInfo.databaseName == 'unknown'
+        ? await _buildDefaultPage(result.value)
+        : pageInfo.page;
+
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => SearchResultWrapper(
+          searchValue: result.value,
+          pageTitle: pageInfo.title,
+          child: page,
+        ),
+      ),
+    );
+  }
+
+  PageInfo _getPageInfo(SearchResult result) {
+    switch (result.databaseName) {
+      case 'call_rule_database.db':
+        return result.value == 'allowed_phonenumber'
+            ? PageInfo(AllowedPage(), '允许的号码')
+            : PageInfo(BlockedPage(), '阻止的号码');
+      case 'call_rule_database.db':
+        return result.value == 'whitelist_phonenumber'
+            ? PageInfo(WhitelistPage(), '白名单')
+            : PageInfo(BlacklistPage(), '黑名单');
+      case 'call_rule_database.db':
+        return result.value == 'sms_whitelisted_phonenumber'
+            ? PageInfo(SmsWhitelistPage(), 'Sms白名单')
+            : PageInfo(SmsBlacklistPage(), 'Sms黑名单');
+      case 'call_rule_database.db':
+        return result.value == 'sms_text_whitelisted_phonenumber'
+            ? PageInfo(SmsTextWhitelistPage(), 'SmsText白名单')
+            : PageInfo(SmsTextBlacklistPage(), 'SmsText黑名单');                        
+      case 'call_rule_database.db':
+        return PageInfo(LabelPage(), '标签');
+     
+      case 'call_rule_database.db':
+        return PageInfo(ContactsPage(), '联系人');
+      default:
+        return PageInfo(Container(), '未知', 'unknown');
+    }
+  }
+
+  Future<Widget> _buildDefaultPage(String phoneNumber) async {
+    final callerIdData = await _generateCallerIdData(phoneNumber);
+    return DefaultPage(callerIdData: callerIdData);
+  }
+
+  Future<CallerIdData> _generateCallerIdData(String phoneNumber) async {
+    print("CallerIdMonitorService: 收到 incoming call: $phoneNumber");
+
+  // 解析号码 (使用提取出的函数)
+  Map<String, String> parsedData = await parsePhoneNumber(phoneNumber);
+  String countryCode = parsedData['countryCode']!;
+  String e164Number = parsedData['e164Number']!;
+  String nationalNumber = parsedData['nationalNumber']!;
+
+    // 使用 Provider 获取当前的 Locale
+    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
+    final currentLocale = localeProvider.locale;
+
+    final languageCode = currentLocale.languageCode.split('_')[0];
+
+    // 创建 dlibphonenumber 的 Locale
+    final dlibLocale = dlibphone.Locale(
+      language: languageCode,
+      // country: countryCode ?? '', // 使用解析出的国家代码
+      country: (countryCode).toUpperCase(), // 使用 toUpperCase() 方法
+    );
+
+  final appState = Provider.of<AppState>(context, listen: false);
+  final callerIdService = appState.callerIdService;
+
+    CallerIdData callerIdData =
+        await callerIdService.getCallerId(e164Number, context, dlibLocale);
+
+      return callerIdData;
+
+
+  }
+}
+
+class SearchResult {
+  final String databaseName;
+  final String value;
+
+  SearchResult({required this.databaseName, required this.value});
+}
+
+class SearchService {
+  static final List<Map<String, String>> _databaseConfigs = [
+    {'name': 'call_rule_database.db', 'table': 'blacklist_phonenumber', 'column': 'phoneNumber'},
+    {'name': 'call_rule_database.db', 'table': 'whitelist_phonenumber', 'column': 'phoneNumber'},    
+    {'name': 'call_rule_database.db', 'table': 'allowed_phonenumber', 'column': 'phoneNumber'},
+    {'name': 'call_rule_database.db', 'table': 'blocked_phonenumber', 'column': 'phoneNumber'},    
+    {'name': 'call_rule_database.db', 'table': 'sms_blacklisted', 'column': 'phoneNumber'},
+    {'name': 'call_rule_database.db', 'table': 'sms_whitelisted', 'column': 'phoneNumber'},    
+    {'name': 'call_rule_database.db', 'table': 'sms_text_blacklisted', 'column': 'keyword'},
+    {'name': 'call_rule_database.db', 'table': 'sms_text_whitelisted', 'column': 'keyword'},     
+    {'name': 'call_rule_database.db', 'table': 'labeled_calls', 'column': 'phoneNumber'},
+    {'name': 'call_rule_database.db', 'table': 'location_data', 'column': 'phoneNumber'},    
+    {'name': 'call_rule_database.db', 'table': 'contacts', 'column': 'phone_numbers'},
+  ];
+
+  static Future<List<SearchResult>> search(String query) async {
+    final results = await Future.wait(_databaseConfigs.map((config) =>
+        _searchDatabase(config['name']!, config['table']!, config['column']!, query)));
+    return results.expand((x) => x).toList();
+  }
+
+  static Future<List<SearchResult>> _searchDatabase(
+      String dbName, String tableName, String columnName, String query) async {
+    final db = await openDatabase(dbName);
+    try {
+      final List<Map<String, dynamic>> maps = await db.query(
+        tableName,
+        where: '$columnName LIKE ?',
+        whereArgs: ['%$query%'],
+      );
+      return maps
+          .map((map) => SearchResult(
+                databaseName: dbName,
+                value: map[columnName] as String,
+              ))
+          .toList();
+    } finally {
+      await db.close();
+    }
+  }
+}
+
+class DefaultPage extends StatelessWidget {
+  final CallerIdData callerIdData;
+
+  const DefaultPage({super.key, required this.callerIdData});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('未知'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('未知页面'),
+            const SizedBox(height: 16),
+            Text('phoneNumber: ${callerIdData.phoneNumber}'),
+            Text('country/region Name: ${callerIdData.countryName}'),
+            Text('name: ${callerIdData.name}'),
+            Text('carrier: ${callerIdData.carrier}'),
+            Text('numberType: ${callerIdData.numberType}'),
+            Text('labels: ${callerIdData.labels}'),
+            Text('count: ${callerIdData.count}'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class PageInfo {
+  final Widget page;
+  final String title;
+  final String databaseName;
+
+  PageInfo(this.page, this.title, [this.databaseName = '']);
+}

@@ -1,0 +1,716 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:yaml/yaml.dart';
+import 'package:sqflite/sqflite.dart';
+//import 'package:sqflite/sqflite.dart' as sqflite;
+import 'package:http/http.dart' as http;
+import 'package:csv/csv.dart';
+import 'package:path/path.dart';
+// Import the model file to define the data structure of database entries.
+import 'package:dlibphonenumber/dlibphonenumber.dart';
+
+import '../utils/predefined_labels.dart';
+
+Database? _database;
+Future<Database> get database async {
+  if (_database != null) return _database!;
+
+  _database = await _initDatabase();
+  return _database!;
+}
+
+Future<Database> _initDatabase() async {
+  final String path = join(await getDatabasesPath(), 'call_rule_database.db');
+
+  return await openDatabase(
+    path,
+    version: 1,
+    onCreate: createDatabase,
+  );
+}
+/*
+Future<Database> openDatabase() async {
+  final _databaseName = "allowed_blocked.db";
+  final _databaseVersion = 1;
+  return await sqflite.openDatabase(_databaseName, version: _databaseVersion, onCreate: createDatabase);
+}
+*/
+
+Future<void> createDatabase(
+    Database database, int version) async {
+  if (version == 1) {
+    await database.execute('''
+      CREATE TABLE IF NOT EXISTS allowed_phonenumber (
+        avatar TEXT,
+        label TEXT,
+        phoneNumber TEXT NOT NULL UNIQUE,
+        name TEXT NOT NULL
+      )
+    ''');
+
+    await database.execute('''
+      CREATE TABLE IF NOT EXISTS blocked_phonenumber (
+        avatar TEXT,
+        label TEXT,
+        phoneNumber TEXT NOT NULL UNIQUE,
+        name TEXT NOT NULL
+      )
+    ''');
+  }
+}
+
+// 数据库操作类
+//class DatabaseHelper {
+//static final _databaseName = "allowed_blocked.db";
+//static final _databaseVersion = 1;
+
+// 创建数据库
+//Future<void> createDatabase(Database database) async {
+//   await database.execute('''
+//     CREATE TABLE allowed_phonenumber (
+//       id INTEGER PRIMARY KEY AUTOINCREMENT,
+//       avatar TEXT,
+//       label TEXT NOT NULL,
+//       phoneNumber TEXT NOT NULL UNIQUE,
+//       name TEXT NOT NULL
+//     )
+//   ''');
+
+// await database.execute('''
+//     CREATE TABLE blocked_phonenumber (
+//      id INTEGER PRIMARY KEY AUTOINCREMENT,
+//      avatar TEXT,
+//      label TEXT NOT NULL,
+//      phoneNumber TEXT NOT NULL UNIQUE,
+//      name TEXT NOT NULL
+//   )
+// ''');
+//}
+
+// 打开数据库
+//static Future<Database> openDatabase() async {
+//  return await openDatabase(_databaseName, _databaseVersion, onCreate: createDatabase);
+// }
+//}
+
+// 数据库表结构
+class AllowedEntry {
+  String? avatar;
+  String? label;
+  String phoneNumber;
+  String? name;
+
+  AllowedEntry({
+    this.avatar,
+     this.label,
+    required this.phoneNumber,
+    this.name,
+  });
+
+  Map<String, dynamic> toJson() => {
+        'avatar': avatar,
+        'label': label,
+        'phoneNumber': phoneNumber,
+        'name': name,
+      };
+
+  static AllowedEntry fromJson(Map<String, dynamic> json) => AllowedEntry(
+        avatar: json['avatar'],
+        label: json['label'],
+        phoneNumber: json['phoneNumber'],
+        name: json['name'],
+      );
+}
+
+class BlockedEntry {
+  String? avatar;
+  String? label;
+  String phoneNumber;
+  String? name;
+
+  BlockedEntry({
+    this.avatar,
+    this.label,
+    required this.phoneNumber,
+    this.name,
+  });
+
+  Map<String, dynamic> toJson() => {
+        'avatar': avatar,
+        'label': label,
+        'phoneNumber': phoneNumber,
+        'name': name,
+      };
+
+  static BlockedEntry fromJson(Map<String, dynamic> json) => BlockedEntry(
+        avatar: json['avatar'],
+        label: json['label'],
+        phoneNumber: json['phoneNumber'],
+        name: json['name'],
+      );
+}
+
+// 数据访问服务
+class AllowedService {
+  final Database database;
+
+  AllowedService(this.database);
+
+  // 添加allowed名单条目
+  /*Future<void> add(AllowedEntry entry) async {
+    final exists = await database.query('allowed_phonenumber',
+        where: 'phoneNumber = ?',
+        whereArgs: [entry.phoneNumber]).then((results) => results.isNotEmpty);
+    if (!exists) {
+      await database.insert('allowed_phonenumber', entry.toJson());
+    }
+  }*/
+Future<void> add(AllowedEntry entry) async {
+  await database.insert('allowed_phonenumber', entry.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.ignore);
+}
+  // 批量添加allowed名单条目
+  Future<void> addAll(List<AllowedEntry> entries) async {
+    final batch = database.batch();
+    for (final entry in entries) {
+      batch.insert('allowed_phonenumber', entry.toJson());
+    }
+    await batch.commit();
+  }
+
+  //根据号码查询allowed名单的标签
+  // Get all labels from the allowed database
+  Future<List<String>> getAllAllowedLabels() async {
+//final database = await _initDatabase();
+    final labels = await database.query('allowed_phonenumber').then(
+        (results) => results.map((row) => row['label'] as String).toList());
+
+    // Return unique labels
+    return labels.toSet().toList();
+  }
+  Future<void> insertPredefinedLabelsIfNotExists(Database database) async {
+  // 获取数据库中已存在的标签
+  final existingLabels = await database
+      .query('allowed_phonenumber', columns: ['label'])
+      .then((results) => results.map((row) => row['label'] as String).toSet());
+
+  // 创建一个批处理操作
+  final batch = database.batch();
+
+  // 遍历预定义标签，插入不存在的标签
+  for (final labelMap in predefinedLabels) {
+    final label = labelMap['label'] as String;
+    if (!existingLabels.contains(label)) {
+      batch.insert('allowed_phonenumber', {
+        'label': label,
+        'phoneNumber': '', // 使用空字符串作为占位符
+
+      });
+    }
+  }
+
+  // 执行批处理操作
+  await batch.commit();
+}
+
+
+//根据号码查询标签
+  Future<String?> getLabelByPhoneNumber(String phoneNumber) async {
+    // 1. 解析电话号码
+    PhoneNumber parsedNumber;
+    try {
+      parsedNumber = await PhoneNumberUtil.instance.parse(phoneNumber, null);
+    } catch (NumberParseException) {
+      // 解析号码失败，则无法匹配标签
+      return null;
+    }
+
+    // 2. 格式化为 E.164 格式和本地格式的号码
+    final e164Number =
+        PhoneNumberUtil.instance.format(parsedNumber, PhoneNumberFormat.e164);
+    final nationalNumber = PhoneNumberUtil.instance
+        .format(parsedNumber, PhoneNumberFormat.national);
+    final List<Map<String, dynamic>> results = await database.query(
+        'allowed_phonenumber',
+        where: 'phoneNumber IN (?, ?)',
+        whereArgs: [e164Number, nationalNumber]);
+
+    // 4. 如果找到匹配的标签，则返回该标签
+    if (results.isNotEmpty) {
+      // 取出第一个匹配的结果
+      final String label = results.first['label'];
+      return label;
+    } else {
+      // 未找到匹配的标签
+      return null;
+    }
+  }
+
+  // 检查号码是否在允许名单中
+  Future<bool> isAllowed(String phoneNumber) async {
+    final allowedEntry = await database.query('allowed_phonenumber',
+        where: 'phoneNumber = ?',
+        whereArgs: [
+          phoneNumber
+        ]).then((results) =>
+        results.isNotEmpty ? AllowedEntry.fromJson(results.first) : null);
+    return allowedEntry != null;
+  }
+
+// 修改allowed单中号码的姓名和标签
+  Future<void> editAllowedEntry(AllowedEntry entry) async {
+//final database = await _initDatabase();
+    await database.update('allowed_phonenumber', entry.toJson(),
+        where: 'phoneNumber = ?', whereArgs: [entry.phoneNumber]);
+  }
+
+  Future<void> remove(AllowedEntry entry) async {
+    database.delete('allowed_phonenumber',
+        where: 'phoneNumber = ?', whereArgs: [entry.phoneNumber]);
+  }
+
+  Future<bool> contains(String phoneNumber) {
+    return database.query('allowed_phonenumber',
+        where: 'phoneNumber = ?',
+        whereArgs: [phoneNumber]).then((results) => results.isNotEmpty);
+  }
+
+  Future<List<AllowedEntry>> getEntries() {
+    return database.query('allowed_phonenumber').then(
+        (results) => results.map((row) => AllowedEntry.fromJson(row)).toList());
+  }
+
+  Future<AllowedEntry?> getEntryByPhoneNumber(String phoneNumber) {
+    return database.query('allowed_phonenumber',
+        where: 'phoneNumber = ?',
+        whereArgs: [
+          phoneNumber
+        ]).then((results) =>
+        results.isNotEmpty ? AllowedEntry.fromJson(results.first) : null);
+  }
+}
+
+class BlockedService {
+  final Database database;
+
+  BlockedService(this.database);
+
+  // 添加blocked名单条目
+  Future<void> add(BlockedEntry entry) async {
+    final exists = await database.query('blocked_phonenumber',
+        where: 'phoneNumber = ?',
+        whereArgs: [entry.phoneNumber]).then((results) => results.isNotEmpty);
+    if (!exists) {
+      await database.insert('blocked_phonenumber', entry.toJson());
+    }
+  }
+
+  // 批量添加blocked名单条目
+  Future<void> addAll(List<BlockedEntry> entries) async {
+    final batch = database.batch();
+    for (final entry in entries) {
+      batch.insert('blocked_phonenumber', entry.toJson());
+    }
+    await batch.commit();
+  }
+
+  //根据号码查询allowed名单的标签
+  // Get all labels from the blockwed database
+  Future<List<String>> getAllBlockedLabels() async {
+//final database = await _initDatabase();
+    final labels = await database.query('blocked_phonenumber').then(
+        (results) => results.map((row) => row['label'] as String).toList());
+
+    // Return unique labels
+    return labels.toSet().toList();
+  }
+
+  Future<void> insertPredefinedLabelsIfNotExists(Database database) async {
+  // 获取数据库中已存在的标签
+  final existingLabels = await database
+      .query('blocked_phonenumber', columns: ['label'])
+      .then((results) => results.map((row) => row['label'] as String).toSet());
+
+  // 创建一个批处理操作
+  final batch = database.batch();
+
+  // 遍历预定义标签，插入不存在的标签
+  for (final labelMap in predefinedLabels) {
+    final label = labelMap['label'] as String;
+    if (!existingLabels.contains(label)) {
+      batch.insert('blocked_phonenumber', {
+        'label': label,
+        'phoneNumber': '', // 使用空字符串作为占位符
+
+      });
+    }
+  }
+
+  // 执行批处理操作
+  await batch.commit();
+}
+
+
+//根据号码查询标签
+  Future<String?> getLabelByPhoneNumber(String phoneNumber) async {
+    // 1. 解析电话号码
+    PhoneNumber parsedNumber;
+    try {
+      parsedNumber = await PhoneNumberUtil.instance.parse(phoneNumber, null);
+    } catch (NumberParseException) {
+      // 解析号码失败，则无法匹配标签
+      return null;
+    }
+
+    // 2. 格式化为 E.164 格式和本地格式的号码
+    final e164Number =
+        PhoneNumberUtil.instance.format(parsedNumber, PhoneNumberFormat.e164);
+    final nationalNumber = PhoneNumberUtil.instance
+        .format(parsedNumber, PhoneNumberFormat.national);
+    final List<Map<String, dynamic>> results = await database.query(
+        'blocked_phonenumber',
+        where: 'phoneNumber IN (?, ?)',
+        whereArgs: [e164Number, nationalNumber]);
+
+    // 4. 如果找到匹配的标签，则返回该标签
+    if (results.isNotEmpty) {
+      // 取出第一个匹配的结果
+      final String label = results.first['label'];
+      return label;
+    } else {
+      // 未找到匹配的标签
+      return null;
+    }
+  }
+
+  // 修改blocked单中号码的姓名和标签
+  Future<void> editBlockedEntry(BlockedEntry entry) async {
+//final database = await _initDatabase();
+    await database.update('blocked_phonenumber', entry.toJson(),
+        where: 'phoneNumber = ?', whereArgs: [entry.phoneNumber]);
+  }
+
+  Future<void> remove(BlockedEntry entry) async {
+    database.delete('blocked_phonenumber',
+        where: 'phoneNumber = ?', whereArgs: [entry.phoneNumber]);
+  }
+
+  Future<bool> contains(String phoneNumber) {
+    return database.query('blocked_phonenumber',
+        where: 'phoneNumber = ?',
+        whereArgs: [phoneNumber]).then((results) => results.isNotEmpty);
+  }
+
+  // 检查号码是否在阻止名单中
+  Future<bool> isBlocked(String phoneNumber) async {
+    final blockedEntry = await database.query('blocked_phonenumber',
+        where: 'phoneNumber = ?',
+        whereArgs: [
+          phoneNumber
+        ]).then((results) =>
+        results.isNotEmpty ? BlockedEntry.fromJson(results.first) : null);
+    return blockedEntry != null;
+  }
+
+  // 获取所有名单条目
+  Future<List<BlockedEntry>> getEntries() {
+    return database.query('blocked_phonenumber').then(
+        (results) => results.map((row) => BlockedEntry.fromJson(row)).toList());
+  }
+
+  Future<BlockedEntry?> getEntryByPhoneNumber(String phoneNumber) {
+    return database.query('blocked_phonenumber',
+        where: 'phoneNumber = ?',
+        whereArgs: [
+          phoneNumber
+        ]).then((results) =>
+        results.isNotEmpty ? BlockedEntry.fromJson(results.first) : null);
+  }
+}
+// Future<List<BlockedEntry>> getEntries() async {
+//   final results = await database.query('blocked_phonenumber');
+//   return results.map((row) => BlockedEntry.fromJson(row)).toList();
+//  }
+//  Future<BlockedEntry?> getEntryByPhoneNumber(String phoneNumber) async {
+//    final results = await database.query('blocked_phonenumber', where: 'phoneNumber = ?', whereArgs: [phoneNumber]);
+//    if (results.isNotEmpty) {
+//      return BlockedEntry.fromJson(results.first);
+//    } else {
+//      return null;
+//    }
+// }
+
+List<Map<String, dynamic>> parseCsvData(String data) {
+  final csvList = const CsvToListConverter().convert(data);
+  return csvList
+      .map((parts) =>
+          {'label': parts[0], 'phoneNumber': parts[1], 'name': parts[2]})
+      .toList();
+}
+
+List<Map<String, dynamic>> parseJsonData(String data) {
+  final jsonData = jsonDecode(data) as List<dynamic>;
+  final List<Map<String, dynamic>> entries = [];
+  for (final entry in jsonData) {
+    // 检查是否包含必要的字段
+    if (!entry.containsKey('label') ||
+        !entry.containsKey('phoneNumber') ||
+        !entry.containsKey('name')) {
+      continue;
+    }
+    final Map<String, dynamic> mappedEntry = {
+      'label': entry['label'],
+      'phoneNumber': entry['phoneNumber'],
+      'name': entry['name'],
+    };
+    entries.add(mappedEntry);
+  }
+  return entries;
+}
+
+List<Map<String, dynamic>> parseTxtData(String data) {
+  final lines = data.split('\n');
+  final List<Map<String, dynamic>> entries = [];
+  for (final line in lines) {
+    // 检查是否包含必要的字段
+    if (line.isEmpty || line.split(',').length < 3) {
+      continue;
+    }
+    final parts = line.split(',');
+    final Map<String, dynamic> mappedEntry = {
+      'label': parts[0],
+      'phoneNumber': parts[1],
+      'name': parts[2],
+    };
+    entries.add(mappedEntry);
+  }
+  return entries;
+}
+
+List<Map<String, dynamic>> parseYamlData(String data) {
+  final yamlData = loadYaml(data) as List<dynamic>;
+  final List<Map<String, dynamic>> entries = [];
+  for (final entry in yamlData) {
+    // 检查是否包含必要的字段
+    if (!entry.containsKey('label') ||
+        !entry.containsKey('phoneNumber') ||
+        !entry.containsKey('name')) {
+      continue;
+    }
+    final Map<String, dynamic> mappedEntry = {
+      'label': entry['label'],
+      'phoneNumber': entry['phoneNumber'],
+      'name': entry['name'],
+    };
+    entries.add(mappedEntry);
+  }
+  return entries;
+}
+
+Future<String> _fetchData(String url) async {
+  final response = await http.get(Uri.parse(url));
+  if (response.statusCode == 200) {
+    return response.body;
+  } else {
+    throw Exception('Failed to fetch data');
+  }
+}
+
+Future<List<Map<String, dynamic>>> parseFromUrl(String url) async {
+  final data = await _fetchData(url);
+  if (url.endsWith('.csv')) {
+    return parseCsvData(data);
+  } else if (url.endsWith('.json')) {
+    return parseJsonData(data);
+  } else if (url.endsWith('.txt')) {
+    return parseTxtData(data);
+  } else if (url.endsWith('.yaml')) {
+    return parseYamlData(data);
+  } else {
+    throw UnsupportedError('Unsupported file format');
+  }
+}
+
+Future<List<Map<String, dynamic>>> parseFromLocal(String filePath) async {
+  final data = await File(filePath).readAsString();
+  if (filePath.endsWith('.csv')) {
+    return parseCsvData(data);
+  } else if (filePath.endsWith('.json')) {
+    return parseJsonData(data);
+  } else if (filePath.endsWith('.txt')) {
+    return parseTxtData(data);
+  } else if (filePath.endsWith('.yaml')) {
+    return parseYamlData(data);
+  } else {
+    throw UnsupportedError('Unsupported file format');
+  }
+}
+
+Future<void> importAllowedNumbersFromUrl(String url) async {
+  final entries = await parseFromUrl(url);
+  final database = await _initDatabase(); // 获取数据库实例
+  await _batchInsert('allowed_phonenumber', entries, database);
+}
+
+Future<void> importAllowedNumbersFromLocal(String filePath) async {
+  final entries = await parseFromLocal(filePath);
+  final database = await _initDatabase(); // 获取数据库实例
+  await _batchInsert('allowed_phonenumber', entries, database);
+}
+
+Future<void> importBlockedNumbersFromUrl(String url) async {
+  final entries = await parseFromUrl(url);
+  final database = await _initDatabase(); // 获取数据库实例
+  await _batchInsert('blocked_phonenumber', entries, database);
+}
+
+Future<void> importBlockedNumbersFromLocal(String filePath) async {
+  final entries = await parseFromLocal(filePath);
+  final database = await _initDatabase(); // 获取数据库实例
+  await _batchInsert('blocked_phonenumber', entries, database);
+}
+
+Future<void> _batchInsert(String tableName, List<Map<String, dynamic>> entries,
+    Database database) async {
+  final batch = database.batch();
+  for (final entry in entries) {
+    batch.insert(tableName, entry);
+  }
+  await batch.commit();
+}
+
+// 实例化 AllowedService 类并赋值给 allowedService 变量
+
+// 添加导出为 CSV 格式的功能
+
+Future<String> exportAllAllowedToCsv() async {
+  final database = await _initDatabase();
+  final allowedService = AllowedService(database);
+  final entries = await allowedService.getEntries();
+
+  final csvList = entries
+      .map((entry) => [entry.label, entry.phoneNumber, entry.name])
+      .toList();
+  final csvString = const ListToCsvConverter().convert(csvList);
+
+  return csvString;
+}
+
+// 添加导出为 JSON 格式的功能
+Future<String> exportAllAllowedToJson() async {
+  final database = await _initDatabase();
+  final allowedService = AllowedService(database);
+  final entries = await allowedService.getEntries();
+  final jsonData = {
+    'entries': entries
+        .map((entry) => {
+              'label': entry.label,
+              'phoneNumber': entry.phoneNumber,
+              'name': entry.name,
+            })
+        .toList(),
+  };
+  return jsonEncode(jsonData);
+}
+
+// 添加导出为 CSV 格式的功能
+
+Future<String> exportAllBlockedToCsv() async {
+  final database = await _initDatabase();
+  final blockedService = BlockedService(database);
+  final entries = await blockedService.getEntries();
+
+  final csvList = entries
+      .map((entry) => [entry.label, entry.phoneNumber, entry.name])
+      .toList();
+  final csvString = const ListToCsvConverter().convert(csvList);
+
+  return csvString;
+}
+
+// 添加导出为 JSON 格式的功能
+Future<String> exportAllBlockedToJson() async {
+  final database = await _initDatabase();
+  final blockedService = BlockedService(database);
+  final entries = await blockedService.getEntries();
+  final jsonData = {
+    'entries': entries
+        .map((entry) => {
+              'label': entry.label,
+              'phoneNumber': entry.phoneNumber,
+              'name': entry.name,
+            })
+        .toList(),
+  };
+  return jsonEncode(jsonData);
+}
+
+// 添加导出为 CSV 格式的功能
+Future<void> exportAllowedToCsv(
+    List<AllowedEntry> entries, String directoryPath) async {
+  final now = DateTime.now();
+  final dateStr = now.toString().split(' ')[0];
+  final filePath = '$directoryPath/blacklist_entries_$dateStr.csv';
+
+  final csvData = ListToCsvConverter().convert(entries
+      .map((entry) => [
+            entry.avatar ?? '',
+            entry.label,
+            entry.phoneNumber,
+            entry.name ?? ''
+          ])
+      .toList());
+
+  final file = File(filePath);
+  await file.writeAsString(csvData);
+}
+
+// 添加导出为 JSON 格式的功能
+Future<void> exportAllowedToJson(
+    List<AllowedEntry> entries, String directoryPath) async {
+  final now = DateTime.now();
+  final dateStr = now.toString().split(' ')[0];
+  final filePath = '$directoryPath/blacklist_entries_$dateStr.json';
+
+  final jsonData = {
+    'entries': entries.map((entry) => entry.toJson()).toList(),
+  };
+
+  final file = File(filePath);
+  await file.writeAsString(jsonEncode(jsonData));
+}
+
+// 添加导出为 CSV 格式的功能
+Future<void> exportBlockedToCsv(
+    List<BlockedEntry> entries, String directoryPath) async {
+  final now = DateTime.now();
+  final dateStr = now.toString().split(' ')[0];
+  final filePath = '$directoryPath/whitelist_entries_$dateStr.csv';
+
+  final csvData = ListToCsvConverter().convert(entries
+      .map((entry) => [
+            entry.avatar ?? '',
+            entry.label,
+            entry.phoneNumber,
+            entry.name ?? ''
+          ])
+      .toList());
+
+  final file = File(filePath);
+  await file.writeAsString(csvData);
+}
+
+// 添加导出为 JSON 格式的功能
+Future<void> exportBlockedToJson(
+    List<BlockedEntry> entries, String directoryPath) async {
+  final now = DateTime.now();
+  final dateStr = now.toString().split(' ')[0];
+  final filePath = '$directoryPath/whitelist_entries_$dateStr.json';
+
+  final jsonData = {
+    'entries': entries.map((entry) => entry.toJson()).toList(),
+  };
+
+  final file = File(filePath);
+  await file.writeAsString(jsonEncode(jsonData));
+}

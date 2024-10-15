@@ -1,0 +1,174 @@
+import 'package:call_log/call_log.dart';
+import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:dlibphonenumber/locale.dart' as dlibphone;
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import 'package:provider/provider.dart';
+
+import 'package:sim_card_info/sim_card_info.dart';
+import 'package:sim_card_info/sim_info.dart';
+
+import '../../new_set_icons.dart';
+import '../../screens/appstate_provider.dart';
+
+import '../../services/caller_id_service.dart';
+
+import '../../utils/language_provider.dart';
+
+// ... other imports (例如你的 CallerIdData 和 Label 类)
+
+// 获取通话记录和 CallerIdData
+// 获取通话记录和 CallerIdData
+Future<Map<String, dynamic>> getCallHistoryData(BuildContext context) async {
+  // 获取通话记录数据
+  final entries = await CallLog.get();
+
+  // 获取并缓存 CallerIdData，预加载前 20 条
+  final callerIdDataMap = await _getCallerIdDataMap(entries, context, preloadCount: 20);
+
+  return {
+    'entries': entries,
+    'callerIdDataMap': callerIdDataMap,
+  };
+}
+
+// 获取并缓存 CallerIdData，可选预加载数量
+Future<Map<String, CallerIdData>> _getCallerIdDataMap(
+    Iterable<CallLogEntry> entries, BuildContext context, {int preloadCount = 0}) async {
+  final callerIdDataMap = <String, CallerIdData>{};
+  final preloadEntries = entries.take(preloadCount); // 获取需要预加载的 entries
+
+  for (var entry in preloadEntries) { // 只预加载指定数量的 CallerIdData
+    callerIdDataMap[entry.number ?? ''] = await getCallerIdData(entry, context);
+  }
+
+  return callerIdDataMap;
+}
+
+// 获取并缓存 CallerIdData
+Future<CallerIdData> getCallerIdData(
+    CallLogEntry entry, BuildContext context) async {
+  // 1. 初始化 sim_card_info 插件
+  final simCardInfoPlugin = SimCardInfo();
+
+  String? phoneNumber = entry.number ?? '';
+  late CallerIdService _callerIdService;
+
+  // 2. 获取 SIM 卡信息
+  List<SimInfo> simInfoList = await simCardInfoPlugin.getSimInfo() ?? [];
+  List<String> simCountryCodes =
+      simInfoList.map((sim) => sim.countryIso).toList();
+
+  // 3. 尝试解析号码
+  PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
+  String? countryCode;
+
+  String e164Number = "";
+
+  // 判断号码是否包含国际区号
+  RegExp internationalPrefixRegex = RegExp(r'^(?:\+|00)');
+
+  if (internationalPrefixRegex.hasMatch(phoneNumber)) {
+    // 包含国际区号， 使用 null 解析
+    try {
+      PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, null);
+
+      countryCode = phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
+      e164Number =
+          phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
+    } catch (e) {
+      // 可以添加额外的错误处理
+    }
+  } else {
+    // 2不包含国际区号， 使用 SIM 卡国家代码循环解析
+    for (String simCountryCode in simCountryCodes) {
+      try {
+        PhoneNumber parsedPhoneNumber =
+            phoneNumberUtil.parse(phoneNumber, simCountryCode);
+
+        // 验证解析结果
+        String? parsedCountryCode =
+            phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
+        if (parsedCountryCode?.toUpperCase() == simCountryCode.toUpperCase()) {
+          countryCode = simCountryCode; // 解析成功，记录国家代码
+          e164Number =
+              phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
+
+          break;
+        }
+      } catch (e) {
+        // print('Failed to parse with country code $simCountryCode: $e');
+      }
+      //3 特殊尝试添加国际区号到手机号码
+      try {
+        // 2. 如果直接解析失败，尝试添加国家代码
+        // 使用 getCountryCodeForRegion 获取数字国家代码
+        int? numericCountryCode = phoneNumberUtil
+            .getCountryCodeForRegion(simCountryCode.toUpperCase());
+
+        String fullPhoneNumber = '+$numericCountryCode$phoneNumber';
+        PhoneNumber parsedPhoneNumber =
+            phoneNumberUtil.parse(fullPhoneNumber, null);
+
+        // 验证解析结果
+        String? parsedCountryCode =
+            phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
+        if (parsedCountryCode?.toUpperCase() == simCountryCode.toUpperCase()) {
+          countryCode = simCountryCode; // 解析成功，记录国家代码
+          e164Number =
+              phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
+
+          break;
+        }
+      } catch (e) {
+//
+      }
+    }
+  }
+
+  // 使用 Provider 获取当前的 Locale
+  final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
+  final currentLocale = localeProvider.locale;
+
+  final languageCode = currentLocale.languageCode.split('_')[0];
+
+  // 创建 dlibphonenumber 的 Locale
+  final dlibLocale = dlibphone.Locale(
+    language: languageCode,
+    // country: countryCode ?? '', // 使用解析出的国家代码
+    country: (countryCode ?? '').toUpperCase(), // 使用 toUpperCase() 方法
+  );
+
+  final appState = Provider.of<AppState>(context, listen: false);
+
+  _callerIdService = appState.callerIdService;
+
+  // 检查 phoneNumber 是否为空
+  if (phoneNumber.isEmpty) {
+    return CallerIdData(
+      phoneNumber: 'Unknown', // 或其他你认为合适的默认值
+      countryName: 'Unknown',
+      region: 'Unknown',
+      carrier: 'Unknown',
+      numberType: PhoneNumberType.unknown,
+      labels: [Label(label: 'Unknown')],
+      name: 'OtherUnknown',
+      avatar: 'Unknown',
+      count: 0,
+    );
+  }
+  try {
+    CallerIdData callerIdData =
+        await _callerIdService.getCallerId(e164Number, context, dlibLocale);
+
+    return callerIdData;
+  } catch (error) {
+    return CallerIdData(
+      phoneNumber: phoneNumber,
+      countryName: 'locationOther',
+      labels: [Label(label: 'Other')],
+      name: 'OtherUnknown',
+    );
+  }
+}
