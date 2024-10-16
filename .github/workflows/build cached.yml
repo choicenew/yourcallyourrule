@@ -30,8 +30,14 @@ jobs:
       - run: flutter pub get
       - run: flutter pub upgrade
 
-      - name: Print .flutter-plugins content
-        run: cat .flutter-plugins
+      - name: Flutter Doctor
+        run: |
+          flutter doctor -v
+          echo "Flutter Plugins:"
+          echo $(cat .flutter-plugins)
+
+      - name: Linter
+        run: flutter analyze
 
       # Decode and place keystore
       - name: Decode keystore
