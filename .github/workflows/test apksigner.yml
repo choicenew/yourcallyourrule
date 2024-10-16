@@ -18,7 +18,7 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
         with:
-          packages: build-tools;33.0.2 platform-tools 
+          packages: build-tools;29.0.3 platform-tools 
 
       - name: Download Sample AAB Bundle
         run: wget https://github.com/haygcao/yourcallyourruletranslation/releases/download/test/app-arm64-v8a-release-unsigned.apk
