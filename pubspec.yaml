@@ -28,8 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter:
-    sdk: flutter
+
 
   archive: ^3.6.1
   android_intent_plus: ^5.1.0
@@ -63,6 +62,9 @@ dependencies:
   flutter_overlay_window: ^0.4.5
 
   flutter_localizations:
+    sdk: flutter
+
+  flutter:
     sdk: flutter
 
   flutter_secure_storage: ^9.0.0
