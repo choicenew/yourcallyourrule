@@ -21,7 +21,7 @@ jobs:
           packages: build-tools;33.0.2 platform-tools 
 
       - name: Download Sample AAB Bundle
-        run: wget https://github.com/haygcao/yourcallyourruletranslation/releases/download/test/app-release-after-signing.aab
+        run: wget https://github.com/haygcao/yourcallyourruletranslation/releases/download/test/app-arm64-v8a-release-unsigned.apk
 
       - name: Apksigner Android
         uses: upup-company/apksigner-android@v1
