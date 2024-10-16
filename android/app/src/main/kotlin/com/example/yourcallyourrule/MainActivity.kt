@@ -34,7 +34,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugins.GeneratedPluginRegistrant
+//import io.flutter.plugins.GeneratedPluginRegistrant
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -111,7 +111,7 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-        GeneratedPluginRegistrant.registerWith(flutterEngine)
+       // GeneratedPluginRegistrant.registerWith(flutterEngine)
 
         setupSmsChannel(flutterEngine)
         setupCallerIdChannel(flutterEngine)
