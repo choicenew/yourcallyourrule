@@ -199,7 +199,7 @@ class InAppPurchaseManager {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          '${S.of(context).youHaveObtainedTemporaryPurchasePrivilegesFor} ${randomDays} ${S.of(context).days}. ${S.of(context).expirationDate}: ${expiryDate.toLocal()}',
+          '${S.of(context).youHaveObtainedTemporaryPurchasePrivilegesFor} $randomDays ${S.of(context).days}. ${S.of(context).expirationDate}: ${expiryDate.toLocal()}',
         ),
       ),
     );
