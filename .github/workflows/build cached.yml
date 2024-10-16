@@ -26,9 +26,12 @@ jobs:
           flutter-version: '3.24.0'
           channel: 'stable'
 
-      - run: flutter pub cache clean
+      - run: flutter clean
       - run: flutter pub get
       - run: flutter pub upgrade
+
+      - name: Print .flutter-plugins content
+        run: cat .flutter-plugins
 
       # Decode and place keystore
       - name: Decode keystore
