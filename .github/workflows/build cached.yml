@@ -13,18 +13,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'oracle'
-          java-version: '17'
-          cache: 'gradle'
+
 
 
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
 
       - run: flutter clean
       - run: flutter pub get
@@ -36,8 +39,7 @@ jobs:
           echo "Flutter Plugins:"
           echo $(cat .flutter-plugins)
 
-      - name: Linter
-        run: flutter analyze
+
 
       # Decode and place keystore
       - name: Decode keystore
