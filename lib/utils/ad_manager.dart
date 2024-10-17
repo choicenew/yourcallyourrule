@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -44,24 +43,27 @@ class NativeAdConfig {
   });
 
   NativeTemplateStyle get style => NativeTemplateStyle(
-    templateType: template == NativeAdTemplate.small ? TemplateType.small : TemplateType.medium,
-    mainBackgroundColor: mainBackgroundColor,
-    cornerRadius: cornerRadius,
-    callToActionTextStyle: callToActionTextStyle,
-    primaryTextStyle: primaryTextStyle,
-    secondaryTextStyle: secondaryTextStyle,
-    tertiaryTextStyle: tertiaryTextStyle,
-  );
+        templateType: template == NativeAdTemplate.small
+            ? TemplateType.small
+            : TemplateType.medium,
+        mainBackgroundColor: mainBackgroundColor,
+        cornerRadius: cornerRadius,
+        callToActionTextStyle: callToActionTextStyle,
+        primaryTextStyle: primaryTextStyle,
+        secondaryTextStyle: secondaryTextStyle,
+        tertiaryTextStyle: tertiaryTextStyle,
+      );
 }
+
 class AdManager {
   static const AdInfo bannerAd = AdInfo(
-    adUnitId: 'ca-app-pub-3940256099942544/9214589741',
+    adUnitId: 'ca-app-pub-7500321599129263/7861430370',
     type: AdType.banner,
     size: AdSize.banner,
   );
 
   static const AdInfo adaptiveBannerAd = AdInfo(
-    adUnitId: 'ca-app-pub-3940256099942544/9214589741',
+    adUnitId: 'ca-app-pub-7500321599129263/2198040152',
     type: AdType.banner,
     size: AdSize.banner,
   );
@@ -72,7 +74,7 @@ class AdManager {
   );
 
   static const AdInfo rewardedInterstitialAd = AdInfo(
-    adUnitId: 'ca-app-pub-3940256099942544/5354046379',
+    adUnitId: 'ca-app-pub-7500321599129263/1982417737',
     type: AdType.rewardedInterstitial,
   );
 
@@ -82,13 +84,12 @@ class AdManager {
   );
 
   static const AdInfo nativeAdvancedAd = AdInfo(
-    adUnitId: 'ca-app-pub-3940256099942544/2247696110',
+    adUnitId: 'ca-app-pub-7500321599129263/2757981774',
     type: AdType.nativeAdvanced,
   );
 
   static const AdInfo appOpenAd = AdInfo(
-    adUnitId: '<YOUR_APP_OPEN_AD_UNIT_ID>',
+    adUnitId: 'ca-app-pub-7500321599129263/3319550135',
     type: AdType.appOpen,
   );
 }
-
