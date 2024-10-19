@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -159,6 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
       await ConfigurationManager.loadConfiguration(
           Provider.of<CallerIdStyleProvider>(context, listen: false));
     } catch (e) {
+      print('Error loading Caller ID configuration: $e');
       // Create and save a default configuration
       await ConfigurationManager.saveConfiguration(
           Provider.of<CallerIdStyleProvider>(context, listen: false));
@@ -191,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      SizedBox(height: 20), // 增加底部间距
+                    //  SizedBox(height: 10), // 增加底部间距
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 16), // 设置左右 padding
@@ -230,7 +233,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 return Center(
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(top: 8.0), // 根据需要调整 padding 大小
+                        const EdgeInsets.only(top: 0.0), // 根据需要调整 padding 大小
                     child: SizedBox(
                         width: cardWidth,
                         height: cardHeight,
@@ -282,8 +285,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 // 根据屏幕方向和宽度设置每行开关数量
                 final int switchesPerRow = orientation == Orientation.portrait
-                    ? (mediaQuery.size.width > 600 ? 3 : 1)
-                    : (mediaQuery.size.width > 900 ? 4 : 3);
+                    ? (mediaQuery.size.width > 600 ? 2 : 1)
+                    : (mediaQuery.size.width > 900 ? 4 : 2);
                 // 根据屏幕宽度设置水平 padding
                 final double switchHorizontalPadding =
                     mediaQuery.size.width > 600 ? 20.0 : 9.0;
@@ -298,7 +301,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: const Color.fromARGB(255, 11, 215, 116),
                         padding: EdgeInsets.symmetric(
                             horizontal: switchHorizontalPadding,
-                            vertical: 13.0),
+                            vertical: 10.0),
                         // 使用动态 padding
                         child: Theme(
                           // 添加 Theme widget
@@ -320,9 +323,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     BorderRadius.circular(35.0), // 设置圆角
                               ),
                               margin: const EdgeInsets.symmetric(
-                                  horizontal: 15.0), // 设置左右边距
+                                  horizontal: 10.0), // 设置左右边距
                               padding: const EdgeInsets.only(
-                                  left: 15, top: 15, right: 15.0, bottom: 15.0),
+                                  left: 10, top: 5, right: 5.0, bottom: 5.0),
                               child: Text(
                                 S.of(context).manageRules,
                                 style: subtitleTextStyle,
@@ -344,8 +347,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                   spacing: 15.0, //横向
                                   runSpacing: 10.0, //纵向
                                   // alignment: WrapAlignment.spaceBetween, // 设置对齐方式为 spaceBetween
-                                  children: _buildSwitchList(context,
-                                      switchesPerRow, switchHorizontalPadding),
+                                  children: _buildSwitchList(
+                                      context,
+                                      switchesPerRow,
+                                      switchHorizontalPadding,
+                                      containerdWidth),
                                 ),
                               ),
                             ],
@@ -454,16 +460,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List<Widget> _buildSwitchList(BuildContext context, int switchesPerRow,
-      double switchHorizontalPadding) {
+      double switchHorizontalPadding, double containerdWidth) {
     final List<Widget> switchList = [];
 
     // 计算可用宽度，减去 padding 和 spacing
     final mediaQuery = MediaQuery.of(context);
-    final availableWidth = mediaQuery.size.width -
+    final availableWidth = containerdWidth -
         2 * switchHorizontalPadding -
         (switchesPerRow - 1) * 15; // 5.0 是 Wrap 的 spacing
 
-    final switchWidth = availableWidth / switchesPerRow;
+    final switchWidth = (availableWidth / switchesPerRow) * 0.95;
+
     final List<Map<String, dynamic>> switchData = [
       {
         'key': 'allowAllAllowedNumbers',
