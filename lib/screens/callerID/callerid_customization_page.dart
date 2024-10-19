@@ -12,7 +12,7 @@ import '../../utils/ad_manager.dart';
 import '../../widgets/adwidgets/native_ads.dart';
 import '../../widgets/google_ad.dart';
 import '../../widgets/hsv_color_picker.dart';
-import '../homePage.dart';
+import '../home_page.dart';
 import 'callerid_configuration.dart';
 import 'callerid_style_provider.dart';
 
@@ -58,8 +58,9 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                 top: 10,
                 left: 0,
                 right: 0,
-                child: Center(
-                  // Wrap with Center widget
+             
+        child: Align( // 使用 Align 控制对齐方式
+          alignment: Alignment.center, // 居中对齐                  
                   child: CallerIdOverlay(
                     callerIdData: _mockCallerIdData(),
                     simInfo: _mockSimInfoData(),
@@ -67,7 +68,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                     onDismiss: () {},
                     isDismissible: false,
                   ),
-                ),
+                   ),
               ),
               Positioned(
                 top: MediaQuery.of(context).size.height * 0.25,
@@ -240,7 +241,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
       carrier: 'Example Carrier',
       numberType: PhoneNumberType.fixedLineOrMobile,
       labels: [Label(label: 'Robocall')],
-      name: 'John Doe',
+      name: 'Example Name',
       avatar: 'assets/avatars/Unknown.png',
       count: 5,
     );
@@ -669,8 +670,8 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
       carrier: 'Example Carrier',
       numberType: PhoneNumberType.fixedLineOrMobile,
       labels: [Label(label: 'Other')],
-      name: 'John Doe',
-      avatar: 'assets/avatars/Unknown.png',
+      name: 'Example name',
+      avatar: 'assets/avatars/Other.png',
       count: 5,
     );
   }

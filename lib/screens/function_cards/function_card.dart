@@ -93,6 +93,7 @@ class FunctionCard extends StatelessWidget {
                         fontSize: TextSizeStyle.fontSize,
                         color: titleColor,
                       ),
+                       maxLines: null, // 允许文本自动换行
                     ),
                   ),
                 ),

@@ -3,9 +3,9 @@ class CardStyle {
   static BorderRadius borderRadius = BorderRadius.circular(20);
   static const EdgeInsets margin = EdgeInsets.zero;
   static const EdgeInsets insidePadding = EdgeInsets.only(top: 2, left:2, right: 2, bottom: 2); // 修正了拼写错误
-  static const EdgeInsets iconPadding = EdgeInsets.only(top: 25, left: 15); // 修正了拼写错误
+  static const EdgeInsets iconPadding = EdgeInsets.only(top: 15, left: 15); // 修正了拼写错误
   static const EdgeInsets menuPadding = EdgeInsets.only(top: 5, right: 5); // 修正了拼写错误
-  static const EdgeInsets textPadding = EdgeInsets.only(top: 20, left: 60, bottom: 20); // 修正了拼写错误
+  static const EdgeInsets textPadding = EdgeInsets.only(top: 5, left: 70, bottom: 5); // 修正了拼写错误
   static const BoxShadow shadow = BoxShadow(
     color: Color(0x0A000000),
     spreadRadius: 0.0, // 阴影扩散半径
@@ -23,5 +23,6 @@ class MenuIconStyle {
 
 }
 class TextSizeStyle {
-  static const double fontSize = 18.0; // 文本尺寸
+  static const double fontSize = 20.0; // 文本尺寸
+static const FontWeight fontWeight = FontWeight.bold; // 加粗字体
 }

@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../generated/l10n.dart';
@@ -113,11 +114,38 @@ class AddAllowedEntryPageState extends State<AddLabelPage> {
       }
     });
   }
-
+/*
   @override
   Widget build(BuildContext context) {
     return _build(context); // 直接调用 _build(context)
   }
+*/
+/*
+@override
+Widget build(BuildContext context) {
+  return SafeArea(
+    child: _build(context),
+  );
+}
+*/
+@override
+Widget build(BuildContext context) {
+  return AnnotatedRegion<SystemUiOverlayStyle>(
+    value: SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // 将状态栏设置为透明
+      statusBarIconBrightness: Theme.of(context).brightness == Brightness.light
+          ? Brightness.dark // 亮色主题时使用深色状态栏图标
+          : Brightness.light, // 暗色主题时使用浅色状态栏图标
+    ),
+    child: Container(  // 添加 Container widget
+      color: Theme.of(context).scaffoldBackgroundColor, // 设置 Container 的背景颜色
+      child: SafeArea(
+        minimum: EdgeInsets.zero, // 设置 minimum 为 EdgeInsets.zero
+        child: _build(context),
+      ),
+    ),
+  );
+}
 
   // 私有的构建订阅列表方法
   Widget _build(BuildContext context) {

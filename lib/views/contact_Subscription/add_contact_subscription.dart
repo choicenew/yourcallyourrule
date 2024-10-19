@@ -12,6 +12,7 @@ import '../../widgets/google_ad.dart';
 import '../public/build_page_switch.dart';
 import '../public/isolated_widgets.dart';
 import '../subpage_style.dart';
+import 'contact_page.dart';
 import 'export_contact_subscriptions.dart';
 import 'import_contact_subscriptions.dart';
 
@@ -23,8 +24,8 @@ class AddContactSubscriptionPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).addContactSubscriptionPage, // 页面标题
-      'AddContactSubscriptionPage', // 卡片标题=点击卡片导航到的页面
-      const AddContactSubscriptionPage(), // 点击卡片导航到的页面
+      'ContactSubscriptionListView', // 卡片标题=点击卡片导航到的页面
+      const ContactSubscriptionListView(), // 点击卡片导航到的页面
       const AddContactSubscriptionPage(), // 当前页面主要内容
       exportPage: const ExportContactSubscriptionsPageView(), // 导出页面
       exportLabel: S.of(context).export, // 自定义导出按钮文字

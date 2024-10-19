@@ -14,7 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../screens/callerID/callerid_configuration.dart';
 import '../screens/callerID/callerid_style_provider.dart';
-import '../screens/homePage.dart';
+import '../screens/home_page.dart';
 import '../utils/blocked_call_repository.dart';
 import '../utils/call_filter.dart';
 import '../utils/language_provider.dart';

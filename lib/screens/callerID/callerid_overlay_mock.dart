@@ -48,8 +48,8 @@ class CallerIdSampleState extends State<CallerIdSample> {
                         ? mediaQuery.size.width * 0.7
                         : mediaQuery.size.width * 0.5)
                 : (mediaQuery.size.width < 900
-                    ? mediaQuery.size.width * 0.8
-                    : mediaQuery.size.width * 0.6));
+                    ? mediaQuery.size.width * 0.6
+                    : mediaQuery.size.width * 0.4));
             final overlayHeight = overlayWidth *
                 (mediaQuery.size.width < 600
                     ? 0.4
@@ -81,7 +81,7 @@ class CallerIdSampleState extends State<CallerIdSample> {
       carrier: 'Example Carrier',
       numberType: PhoneNumberType.fixedLineOrMobile,
       labels: [Label(label: 'Other')],
-      name: 'John Doe',
+      name: 'Example name',
       avatar: 'assets/avatars/Unknown.png', // Replace with your asset path
       count: 5,
     );

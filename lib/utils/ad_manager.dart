@@ -65,7 +65,7 @@ class AdManager {
   static const AdInfo adaptiveBannerAd = AdInfo(
     adUnitId: 'ca-app-pub-7500321599129263/2198040152',
     type: AdType.banner,
-    size: AdSize.banner,
+    //size: AdSize.banner,
   );
 
   static const AdInfo interstitialAd = AdInfo(

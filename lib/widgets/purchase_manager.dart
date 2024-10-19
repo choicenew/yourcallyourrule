@@ -42,8 +42,8 @@ class InAppPurchaseManager {
           //  purchaseState.updatePurchaseState(true); // 更新购买状态
           Provider.of<AdState>(context, listen: false).disableAds(); // 禁用广告
           // ... (其他去除广告套餐的逻辑)
-        } else if (purchaseDetails.productID == 'monthly_subscription_id' ||
-            purchaseDetails.productID == 'quarterly_subscription_id' ||
+        } else if (purchaseDetails.productID == 'monthly_id_subscription' ||
+            purchaseDetails.productID == 'quarterly_id_subscription' ||
             purchaseDetails.productID == 'lifetime_purchase_id') {
           // 订阅或永久购买套餐
           purchaseState.updatePurchaseState(true); // 更新购买状态
@@ -375,11 +375,12 @@ class PurchasePageState extends State<PurchasePage> {
                   title: S.of(context).removeAds,
                   description:
                       S.of(context).permanentlyRemoveAllAdsInTheAppAndEnjoyA,
-                  price: '¥6.00', // 价格信息不需要翻译
+                  price: 'USD3.99', // 价格信息不需要翻译
                   buttonText: S.of(context).purchase,
                   onTap: () {
                     inAppPurchaseManager
-                        .purchaseConsumable('consumable_product_id');
+                        //.purchaseConsumable('consumable_product_id');
+                        .purchaseNonConsumable('remove_ads_product_id');
                   },
                   backgroundColor: Colors.amber, // 设置卡片背景颜色
                 ),
@@ -394,11 +395,11 @@ class PurchasePageState extends State<PurchasePage> {
                         description: S
                             .of(context)
                             .unlockPremiumFeaturesEveryMonthIncludingExclusiveContentAndRemoving,
-                        price: '¥18.00', // 价格信息不需要翻译
+                        price: 'USD2.99', // 价格信息不需要翻译
                         buttonText: S.of(context).subscribe,
                         onTap: () {
                           inAppPurchaseManager
-                              .purchaseNonConsumable('monthly_subscription_id');
+                              .purchaseNonConsumable('monthly_id_subscription');
                         },
                         backgroundColor: Colors.blueAccent,
                       ),
@@ -410,11 +411,11 @@ class PurchasePageState extends State<PurchasePage> {
                         description: S
                             .of(context)
                             .unlockPremiumFeaturesEveryQuarterAndEnjoyABetterPrice,
-                        price: '¥48.00', // 价格信息不需要翻译
+                        price: 'USD6.99', // 价格信息不需要翻译
                         buttonText: S.of(context).subscribe,
                         onTap: () {
                           inAppPurchaseManager.purchaseNonConsumable(
-                              'quarterly_subscription_id');
+                              'quarterly_id_subscription');
                         },
                         backgroundColor: Colors.purpleAccent,
                       ),
@@ -429,7 +430,7 @@ class PurchasePageState extends State<PurchasePage> {
                   description: S
                       .of(context)
                       .onetimePurchaseToPermanentlyUnlockAllAdvancedFeaturesAndFuture,
-                  price: '¥98.00', // 价格信息不需要翻译
+                  price: 'USD9.99', // 价格信息不需要翻译
                   buttonText: S.of(context).purchase,
                   onTap: () {
                     inAppPurchaseManager
@@ -447,7 +448,7 @@ class PurchasePageState extends State<PurchasePage> {
                       .watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures,
                   price: purchaseState.hasTempPurchase
                       ? '${S.of(context).expiryDate}: ${purchaseState.tempPurchaseExpiryDate!.toLocal().toString().substring(0, 19)}' // 显示到秒
-                      : '¥0.00', // 根据是否有临时权限显示不同的价格信息
+                      : '0.00', // 根据是否有临时权限显示不同的价格信息
                   buttonText: S.of(context).watchAd,
                   onTap: () {
                     inAppPurchaseManager.showRewardedAd(context);

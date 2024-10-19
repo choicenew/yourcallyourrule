@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../screens/homePage.dart';
+import '../screens/home_page.dart';
 import '../generated/l10n.dart';
 import '../new_set_icons.dart';
 import '../screens/callerID/callerid_customization_page.dart';
@@ -20,7 +20,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({
     super.key,
     this.backgroundColor = Colors.black,
-    this.selectedItemColor = Colors.white,
+    this.selectedItemColor = Colors.black,
     this.unselectedItemColor = Colors.grey,
     this.height = 60.0,
   });
@@ -62,7 +62,7 @@ class CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: widget.backgroundColor,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(50),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: LayoutBuilder(
@@ -103,7 +103,7 @@ class CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                     color: selectedPageIndex == index
                         ? widget.selectedItemColor
                         : const Color.fromARGB(0, 86, 85, 85),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(50),
                   ),
                   child: selectedPageIndex == index
                       ? Column(
@@ -111,7 +111,7 @@ class CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                           children: [
                             Icon(
                               item.icon,
-                              color: Colors.black,
+                              color: const Color.fromARGB(255, 201, 201, 201),
                               size: 20,
                             ),
                             const SizedBox(width: 8),
@@ -120,7 +120,7 @@ class CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                               style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                                color: Color.fromARGB(255, 201, 201, 201),
                               ),
                             ),
                           ],

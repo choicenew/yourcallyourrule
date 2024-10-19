@@ -271,7 +271,7 @@ class SettingsPageState extends State<SettingsPage> {
         return SwitchListTile(
           title: Text(
             S.of(context).removeAdsAndEnableOnlineBackup,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(adState.isAdEnabled
               ? S.of(context).enableToRemoveAds
@@ -305,7 +305,7 @@ class SettingsPageState extends State<SettingsPage> {
         return ListTile(
           title: Text(
             S.of(context).chooseYourLanguage,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           trailing: DropdownButton<Locale>(
             // 将类型改为 Locale
@@ -333,7 +333,7 @@ class SettingsPageState extends State<SettingsPage> {
   Widget _buildCallActionInterceptorSettings() {
     return ExpansionTile(
       title: Text(S.of(context).blockedCallAction,
-          style: Theme.of(context).textTheme.titleLarge),
+          style: Theme.of(context).textTheme.titleMedium),
       initiallyExpanded: false, // 可以根据需要设置初始展开状态
       children: [
         _buildInterceptActionSelection(),
@@ -347,7 +347,7 @@ class SettingsPageState extends State<SettingsPage> {
   Widget _buildTimeBasedInterceptorSettings() {
     return ExpansionTile(
       title: Text(S.of(context).repeatedCalls,
-          style: Theme.of(context).textTheme.titleLarge),
+          style: Theme.of(context).textTheme.titleMedium),
       initiallyExpanded: false, // 可以根据需要设置初始展开状态
       children: [
         _buildCallFilterDuration(_durationController),
@@ -398,7 +398,7 @@ class SettingsPageState extends State<SettingsPage> {
         return SwitchListTile(
           title: Text(
             S.of(context).blockedCallNotification,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(_isCallUseLocalNotificationEnabled
               ? S.of(context).enableBlockedCallNotification
@@ -434,7 +434,7 @@ class SettingsPageState extends State<SettingsPage> {
         return SwitchListTile(
           title: Text(
             S.of(context).autoCloseLocalNotification,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(_isCallCancelLocalNotificationEnabled
               ? S.of(context).onlyOriginalCallAppNotification
@@ -474,7 +474,7 @@ class SettingsPageState extends State<SettingsPage> {
             flex: 2,
             child: Text(
               S.of(context).statisticsTimeRangeMinutes,
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
           Expanded(
@@ -506,7 +506,7 @@ class SettingsPageState extends State<SettingsPage> {
     return SwitchListTile(
       title: Text(
         S.of(context).interceptRepeatedIncomingCallsWithinTheTimeRange,
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleMedium,
       ),
       subtitle: Text(
         _shouldIntercept
@@ -526,7 +526,7 @@ class SettingsPageState extends State<SettingsPage> {
   Widget _buildStirSettings() {
     return ExpansionTile(
       title: Text(S.of(context).stirNotification,
-          style: Theme.of(context).textTheme.titleLarge),
+          style: Theme.of(context).textTheme.titleMedium),
       subtitle: Text(S.of(context).onlyForSupportedArea),
       initiallyExpanded: false, // 可以根据需要设置初始展开状态
       children: [
@@ -543,7 +543,7 @@ class SettingsPageState extends State<SettingsPage> {
         return SwitchListTile(
           title: Text(
             S.of(context).stirNotification,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(_isStirUseStirNotificationEnabled
               ? S.of(context).enableStirNotification
@@ -568,7 +568,7 @@ class SettingsPageState extends State<SettingsPage> {
   Widget _buildSMSSettings() {
     return ExpansionTile(
       title: Text(S.of(context).smsNotification,
-          style: Theme.of(context).textTheme.titleLarge),
+          style: Theme.of(context).textTheme.titleMedium),
       initiallyExpanded: false, // 可以根据需要设置初始展开状态
       children: [
         _buildSmsFilterToggle(),
@@ -584,7 +584,7 @@ class SettingsPageState extends State<SettingsPage> {
         return SwitchListTile(
           title: Text(
             S.of(context).smsFiltering,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(_isSmsFilterEnabled
               ? S.of(context).filterIncomingSmsMessages
@@ -618,7 +618,7 @@ class SettingsPageState extends State<SettingsPage> {
         return SwitchListTile(
           title: Text(
             S.of(context).smsLocalNotification,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(_isSmsUseLocalNotificationEnabled
               ? S.of(context).enableSmsLocalNotification
@@ -652,7 +652,7 @@ class SettingsPageState extends State<SettingsPage> {
         return SwitchListTile(
           title: Text(
             S.of(context).onlyRingLocalNotification,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(_isSmsCancelLocalNotificationEnabled
               ? S.of(context).onlyUseOriginalSmsNotification
@@ -685,7 +685,7 @@ class SettingsPageState extends State<SettingsPage> {
     return ExpansionTile(
       title: Text(
         S.of(context).serviceUpdateIntervalsDays,
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleMedium,
       ),
       children: [
         Column(
@@ -757,7 +757,7 @@ class SettingsPageState extends State<SettingsPage> {
       },
       title: Text(
         S.of(context).setupDefaultCallerIdApp,
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleMedium,
       ),
       subtitle: Text(_isDefaultCallerIdApp
           ? S.of(context).allowThisAppToShowCallerId
@@ -774,7 +774,7 @@ class SettingsPageState extends State<SettingsPage> {
     return ExpansionTile(
       title: Text(
         S.of(context).permissions,
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleMedium,
       ),
       initiallyExpanded: _isPermissionsExpanded,
       onExpansionChanged: (bool expanded) {
@@ -877,7 +877,7 @@ class SettingsPageState extends State<SettingsPage> {
         return ListTile(
           title: Text(
             S.of(context).darkMode,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(S.of(context).enableDarkModeBasedOnTime),
           trailing: DropdownButton<ThemeMode>(

@@ -8,7 +8,7 @@ import '../utils/app_data_collection.dart';
 import '../utils/call_screen_plugin.dart';
 import '../utils/language_provider.dart';
 import 'appstate_provider.dart';
-import 'homePage.dart';
+import 'home_page.dart';
 import 'language_data.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -31,10 +31,6 @@ class OnboardingScreenState extends State<OnboardingScreen> {
     // 在 initState 方法中进行 Firebase Analytics 的初始化
     AnalyticsService.init();
   }
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +102,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
         ? S.of(context).getStarted
         : S.of(context).next;
 
-    final button = ElevatedButton(
+    final button = FilledButton(
       onPressed: _currentPage == totalPages - 1
           ? _finishOnboarding
           : () {
@@ -115,7 +111,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                 curve: Curves.easeInOut,
               );
             },
-      style: ElevatedButton.styleFrom(
+      style: FilledButton.styleFrom(
         backgroundColor: const Color.fromRGBO(147, 203, 128, 1),
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
         textStyle: const TextStyle(fontSize: 18),
@@ -291,7 +287,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           const SizedBox(height: 30),
-          ElevatedButton(
+          FilledButton(
             onPressed: () async {
               // 使用 permission_handler 请求 SYSTEM_ALERT_WINDOW 权限
               PermissionStatus status =
@@ -315,7 +311,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                 );
               }
             },
-            style: ElevatedButton.styleFrom(
+            style: FilledButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
               textStyle: const TextStyle(fontSize: 18),
             ),
@@ -345,12 +341,12 @@ class OnboardingScreenState extends State<OnboardingScreen> {
           ),
         ),
         const SizedBox(height: 30),
-        ElevatedButton(
+        FilledButton(
           onPressed: () async {
             try {
               bool result =
                   await CallScreeningPlugin.requestCallScreeningRole();
-             // print("Call screening role request result: $result");
+              // print("Call screening role request result: $result");
               // 新增： 显示 Snackbar
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -370,7 +366,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
               );
             }
           },
-          style: ElevatedButton.styleFrom(
+          style: FilledButton.styleFrom(
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
             textStyle: const TextStyle(fontSize: 18),
           ),
