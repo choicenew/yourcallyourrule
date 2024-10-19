@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 
 class CallerIdStyleProvider with ChangeNotifier {
-  Color _backgroundColorStart = const Color.fromARGB(255, 255, 255, 255);
-  Color _backgroundColorEnd = const Color.fromARGB(255, 33, 150, 243);
+  Color _backgroundColorStart = const Color.fromARGB(255, 255, 227, 227);
+  Color _backgroundColorEnd = const Color.fromARGB(255, 255, 227, 227);
 
   Color _textIconLabelColor = const Color.fromARGB(255, 233, 30, 99);
   Color _textIconLocationColor = const Color.fromARGB(255, 76, 175, 80);
@@ -51,11 +51,11 @@ class CallerIdStyleProvider with ChangeNotifier {
   Offset _namePosition = const Offset(80, 50);
   Offset _carrierPosition = const Offset(80, 70);
   Offset _locationPosition = const Offset(10, 100);
-  Offset _labelsPosition = const Offset(20, 110);
-  Offset _countPosition = const Offset(80, 110);
-  Offset _numberPosition = const Offset(80, 120);
-  Offset _callTypePosition = const Offset(60, 120); //calltype 位置
-  Offset _simCardPosition = const Offset(150, 150);  // simcard 位置
+  Offset _labelsPosition = const Offset(20, 130);
+  Offset _countPosition = const Offset(110, 110);
+  Offset _numberPosition = const Offset(80, 150);
+  Offset _callTypePosition = const Offset(60, 150); //calltype 位置
+  Offset _simCardPosition = const Offset(150, 170);  // simcard 位置
   Offset _stirPosition = const Offset(200, 130);  // stir 位置
 
   // Getters

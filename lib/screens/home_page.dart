@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/screens/reorderable_wrap.dart';
@@ -88,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
     if (pixelRatio == null || pixelRatio == 1.0) {
       double devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
       pixelRatio = devicePixelRatio >= 3.0 ? devicePixelRatio : 3.0;
-      print("HomePage 中展示屏幕比例值: ${pixelRatio}");
     } // 只有在 pixelRatio 为 null 或 1.0 时才重新计算，否则保持原值
   }
 
@@ -161,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
       await ConfigurationManager.loadConfiguration(
           Provider.of<CallerIdStyleProvider>(context, listen: false));
     } catch (e) {
-      print('Error loading Caller ID configuration: $e');
+      //print('Error loading Caller ID configuration: $e');
       // Create and save a default configuration
       await ConfigurationManager.saveConfiguration(
           Provider.of<CallerIdStyleProvider>(context, listen: false));
@@ -194,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                    //  SizedBox(height: 10), // 增加底部间距
+                      //  SizedBox(height: 10), // 增加底部间距
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 16), // 设置左右 padding
@@ -551,8 +547,7 @@ class _MyHomePageState extends State<MyHomePage> {
       switch (key) {
         case 'rejectAllNumbers':
           _config.rejectAllNumbers = value;
-          print(
-              "_config.rejectAllNumbers updated to: ${_config.rejectAllNumbers}"); // 添加打印日志
+
           break;
         case 'allowAllAllowedNumbers':
           _config.allowAllAllowedNumbers = value;

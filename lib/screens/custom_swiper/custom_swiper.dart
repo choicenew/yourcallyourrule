@@ -5,7 +5,9 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../utils/ad_manager.dart';
 import '../../utils/ad_state.dart';
-import '../../widgets/google_ad.dart';
+
+import '../../widgets/adwidgets/inline_adaptive_ad.dart';
+
 import 'card.dart';
 
 import 'dart:async'; // 导入 Timer
@@ -103,7 +105,9 @@ class _CustomSwiperState extends State<CustomSwiper> {
     final children = List<Widget>.generate(itemCount, (index) {
       // 每两个卡片后面显示一个广告
       if (adState.isAdEnabled && (index + 1) % 3 == 0) {
-        return const GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd);
+        //return const GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd);
+        return const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd);
+
       } else {
         // 计算卡片索引，每两个卡片后面插入一个广告，所以索引需要进行调整
         final cardIndex = index - index ~/ 3;

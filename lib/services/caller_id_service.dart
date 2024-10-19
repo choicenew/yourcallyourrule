@@ -48,7 +48,8 @@ class CallerIdService {
     PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
 // 1. 解析号码
 // 判断号码是否包含国际区号
-    RegExp internationalPrefixRegex = RegExp(r'^(?:\+|00)');
+   // RegExp internationalPrefixRegex = RegExp(r'^(?:\+|00)');
+RegExp internationalPrefixRegex = RegExp(r'^\+');
 
 // 2. 获取格式化号码
     String e164Number = "";

@@ -32,6 +32,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.embedding.engine.FlutterEngineCache
+import io.flutter.embedding.engine.dart.DartExecutor
+
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.Result
 //import io.flutter.plugins.GeneratedPluginRegistrant
@@ -110,6 +113,11 @@ class MainActivity : FlutterActivity() {
 
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+        // 获取缓存的引擎实例
+        val cachedEngine = FlutterEngineCache.getInstance().get("my_engine_id")!!
+
+        // 使用缓存的引擎实例来配置 Flutter
+        cachedEngine.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
         super.configureFlutterEngine(flutterEngine)
        // GeneratedPluginRegistrant.registerWith(flutterEngine)
 
@@ -148,7 +156,7 @@ class MainActivity : FlutterActivity() {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                         val packageName = getDefaultSmsPackage() // 首先获取包名
                         result.success(packageName) // 将包名作为参数传递给 result.success()
-                        Log.d("setupSmsChannel", "setupSmsChannel: ${call.method}, packageName: $packageName")
+                       // Log.d("setupSmsChannel", "setupSmsChannel: ${call.method}, packageName: $packageName")
                     } else {
                         result.error(
                             "UNSUPPORTED_VERSION",
@@ -215,15 +223,15 @@ class MainActivity : FlutterActivity() {
             flutterEngine.dartExecutor.binaryMessenger,
             callerIdChannel
         ).setMethodCallHandler { call, result ->
-            Log.d("CallerIdChannel", "Received method call: ${call.method}") // 添加日志
+          //  Log.d("CallerIdChannel", "Received method call: ${call.method}") // 添加日志
             when (call.method) {
                 "initialize" -> {
                     try {
                         initializeCallerId()
                         result.success("Caller ID initialized successfully!")
-                        Log.d("Android端的CallerIdChannel", "Caller ID initialized successfully!") // 添加日志
+                 //       Log.d("Android端的CallerIdChannel", "Caller ID initialized successfully!") // 添加日志
                     } catch (e: Exception) {
-                        Log.e("CallerIdChannel", "Error during initialization", e) // 添加错误日志
+                  //      Log.e("CallerIdChannel", "Error during initialization", e) // 添加错误日志
                         result.error(
                             "INITIALIZATION_ERROR",
                             "Error during initialization: ${e.message}",
@@ -235,11 +243,11 @@ class MainActivity : FlutterActivity() {
                 "onIncomingCall" -> {
                     val incomingNumber = call.argument<String>("phoneNumber")
                     if (incomingNumber != null) {
-                        Log.d("CallerIdChannel", "Incoming call: $incomingNumber") // 添加日志
+                  //      Log.d("CallerIdChannel", "Incoming call: $incomingNumber") // 添加日志
                         handleIncomingCall(incomingNumber)
                         result.success(null)
                     } else {
-                        Log.e("CallerIdChannel", "Missing 'phoneNumber' argument") // 添加错误日志
+                  //      Log.e("CallerIdChannel", "Missing 'phoneNumber' argument") // 添加错误日志
                         result.error("INVALID_ARGUMENT", "Missing 'phoneNumber' argument", null)
                     }
                 }
@@ -247,18 +255,18 @@ class MainActivity : FlutterActivity() {
                 "onOutgoingCall" -> {
                     val outgoingNumber = call.argument<String>("phoneNumber")
                     if (outgoingNumber != null) {
-                        Log.d("CallerIdChannel", "Outgoing call: $outgoingNumber") // 添加日志
+                  //      Log.d("CallerIdChannel", "Outgoing call: $outgoingNumber") // 添加日志
                         handleOutgoingCall(outgoingNumber)
                         result.success(null)
                     } else {
-                        Log.e("CallerIdChannel", "Missing 'phoneNumber' argument") // 添加错误日志
+                 //       Log.e("CallerIdChannel", "Missing 'phoneNumber' argument") // 添加错误日志
                         result.error("INVALID_ARGUMENT", "Missing 'phoneNumber' argument", null)
                     }
                 }
 
                //被动接收通话结束的通知onCallEnded 和 handleCallEnded() 是一对，用于处理通话结束事件
                 "onCallEnded" -> {
-                    Log.d("CallerIdChannel", "Call ended") // 添加日志
+                 //   Log.d("CallerIdChannel", "Call ended") // 添加日志
                     handleCallEnded()
                     result.success(null)
                 }
@@ -266,7 +274,7 @@ class MainActivity : FlutterActivity() {
                 //主动发起结束通话的请求endCall 和 endCurrentCall() 是一对，用于处理结束通话请求
                 "endCall" -> {
                     if (hasCallPhonePermission()) {
-                        Log.d("CallerIdChannel", "Ending call") // 添加日志
+                 //       Log.d("CallerIdChannel", "Ending call") // 添加日志
                         flutterEngine.dartExecutor.binaryMessenger.let { messenger ->
                             MethodChannel(
                                 messenger,
@@ -275,7 +283,7 @@ class MainActivity : FlutterActivity() {
                         }
                         result.success(null)
                     } else {
-                        Log.e("CallerIdChannel", "Call phone permission not granted") // 添加错误日志
+                //        Log.e("CallerIdChannel", "Call phone permission not granted") // 添加错误日志
                         result.error(
                             "PERMISSION_NOT_GRANTED",
                             "Call phone permission not granted",
@@ -294,15 +302,15 @@ class MainActivity : FlutterActivity() {
         val telecomManager = getSystemService(TELECOM_SERVICE) as TelecomManager
         try {
             telecomManager.endCall()
-            Log.d("MainActivity", "Call ended successfully")
+        //    Log.d("MainActivity", "Call ended successfully")
         } catch (e: SecurityException) {
-            Log.e("MainActivity", "Security exception when trying to end call", e)
+         //   Log.e("MainActivity", "Security exception when trying to end call", e)
         }
     }
 
     private fun handleIncomingCall(incomingNumber: String) {
         flutterEngine?.dartExecutor?.binaryMessenger?.let { binaryMessenger ->
-          Log.d("MainActivity", "onIncomingCall",)
+       //   Log.d("MainActivity", "onIncomingCall",)
             MethodChannel(binaryMessenger, callerIdChannel).invokeMethod(
                 "onIncomingCall",
                 mapOf("phoneNumber" to incomingNumber)
@@ -454,17 +462,17 @@ registerSmsListener()
         val myServiceConnection: ServiceConnection = object : ServiceConnection {
             override fun onServiceConnected(componentName: ComponentName, iBinder: IBinder) {
                 // 在服务连接成功时执行操作
-                Log.e("MainActivity", "MyCallScreeningService 服务连接成功")
+              //  Log.e("MainActivity", "MyCallScreeningService 服务连接成功")
             }
 
             override fun onServiceDisconnected(componentName: ComponentName) {
                 // 在服务断开连接时执行操作
-                Log.e("MainActivity", "MyCallScreeningService 服务断开连接")
+             //   Log.e("MainActivity", "MyCallScreeningService 服务断开连接")
             }
 
             override fun onBindingDied(name: ComponentName) {
                 // 在绑定失败时执行操作
-                Log.e("MainActivity", "MyCallScreeningService 绑定失败")
+             //   Log.e("MainActivity", "MyCallScreeningService 绑定失败")
             }
         }
 
@@ -497,7 +505,7 @@ registerSmsListener()
         } else if (requestCode == requestSetDefaultCallScreeningAppCode) {
             if (resultCode == Activity.RESULT_OK) {
                 // 用户成功将应用设置为默认来电显示应用
-                Toast.makeText(this, "已成功设置为默认来电显示应用", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "The Default Caller ID & Spam App", Toast.LENGTH_SHORT).show()
 
                 // 保存设置状态
                 val sharedPref = getPreferences(Context.MODE_PRIVATE)
@@ -507,7 +515,7 @@ registerSmsListener()
                 }
             } else {
                 // 用户取消了设置，询问是否跳过
-                showSkipConfirmationDialog()
+               // showSkipConfirmationDialog()
             }
         }
         // ... 处理其他 Activity 结果 ...
@@ -629,51 +637,54 @@ registerSmsListener()
     // 获取默认短信应用的包名
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     private fun getDefaultSmsPackage(): String? {
-        Log.d("MainActivity", "Getting default SMS package name...")
+       // Log.d("MainActivity", "Getting default SMS package name...")
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             // API 31 及以上版本
-            Log.d("MainActivity", "Using API 31+ logic.")
+        //    Log.d("MainActivity", "Using API 31+ logic.")
 
             val subscriptionManager =
                 getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE) as SubscriptionManager
             val defaultSmsSubscriptionId = SubscriptionManager.getDefaultSmsSubscriptionId()
-            Log.d(
+          /*
+           Log.d(
                 "MainActivity",
                 "Default SMS subscription ID: $defaultSmsSubscriptionId"
             ) // 打印订阅 ID
-
+*/
             val smsManager = context.getSystemService(SmsManager::class.java)
                 .createForSubscriptionId(defaultSmsSubscriptionId)
-            Log.d("MainActivity", "Created SmsManager instance.") // 确认 SmsManager 实例创建成功
+       //     Log.d("MainActivity", "Created SmsManager instance.") // 确认 SmsManager 实例创建成功
 
             val packageName = Telephony.Sms.getDefaultSmsPackage(this)
-            Log.d("MainActivity", "Default SMS package name (API 31+): $packageName")
+        //    Log.d("MainActivity", "Default SMS package name (API 31+): $packageName")
             return packageName
         } else {
             // API 19 - 30 版本
-            Log.d("MainActivity", "Using API 19-30 logic.")
+        //    Log.d("MainActivity", "Using API 19-30 logic.")
 
             val packageName = Telephony.Sms.getDefaultSmsPackage(this)
             if (packageName != null) {
-                Log.d("MainActivity", "Default SMS package name (API 19-30): $packageName")
+         //       Log.d("MainActivity", "Default SMS package name (API 19-30): $packageName")
                 return packageName
             } else {
-                Log.d("MainActivity", "Falling back to PackageManager to find default SMS app.")
+        //        Log.d("MainActivity", "Falling back to PackageManager to find default SMS app.")
 
                 val intent = Intent(Intent.ACTION_MAIN)
                 intent.addCategory(Intent.CATEGORY_APP_MESSAGING)
-                Log.d("MainActivity", "Intent created: $intent") // 打印 Intent 信息
+         //       Log.d("MainActivity", "Intent created: $intent") // 打印 Intent 信息
 
                 val resolveInfo =
                     packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
-                Log.d("MainActivity", "ResolveInfo: $resolveInfo") // 打印 ResolveInfo 信息
+         //       Log.d("MainActivity", "ResolveInfo: $resolveInfo") // 打印 ResolveInfo 信息
 
                 val packageNameFromPackageManager = resolveInfo?.activityInfo?.packageName
+                /* 
                 Log.d(
                     "MainActivity",
                     "Default SMS package name (PackageManager): $packageNameFromPackageManager"
                 )
+                */
                 return packageNameFromPackageManager
             }
         }
@@ -736,7 +747,7 @@ registerSmsListener()
                 val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
                 startActivityForResult(intent, notificationPermissionRequestCode)
             } catch (e: Exception) {
-                Log.e("MainActivity", "Cannot open notification settings", e)
+             //   Log.e("MainActivity", "Cannot open notification settings", e)
                 result.error(
                     "CANNOT_OPEN_SETTINGS",
                     "Unable to open notification settings",

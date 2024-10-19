@@ -60,16 +60,9 @@ class CardItem extends StatelessWidget {
           _handleCardTap(context);
         },
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (imageUrl != null)
-
-              /*
-              Image.network(
-                imageUrl!,
-                fit: BoxFit.cover,
-              ),
-*/
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    if (imageUrl != null)
               imageUrl!.startsWith('http')
                   ? Image.network(
                       imageUrl!,
@@ -79,36 +72,35 @@ class CardItem extends StatelessWidget {
                       imageUrl!,
                       fit: BoxFit.cover,
                     ),
-            if (title != null || content != null)
-              ListTile(
-                contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16.0, vertical: 16.0),
-                title: title != null
-                    ? Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          //title!,
-                          title!
-                              .translate(context), // 使用 translate 扩展方法翻译 title
-                          style: titleTextStyle,
-                        ),
-                      )
-                    : null,
-                subtitle: content != null
-                    ? Align(
-                        alignment: Alignment.center,
-                        child: content is Widget // 检查内容是否为 Widget 类型
-                            ? content as Widget // 如果是 Widget 类型则直接返回
-                            : Text(
-                                // content.toString(),
-                                content.toString().translate(
-                                    context), // 使用 translate 扩展方法翻译 content
-                                style: contentTextStyle, // 使用内容样式
-                              ))
-                    : null,
-              ),
-          ],
+
+    if (title != null)
+      Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(
+          title!.translate(context),
+          style: titleTextStyle,
         ),
+      ),
+
+    if (content != null)
+Align(
+  alignment: Alignment.center,
+  child: Padding(
+    padding: const EdgeInsets.only(left:16.0,right:16), // 设置所有方向的 margin 为 16.0
+    child: content is Widget
+        ? content as Widget
+        : Text(
+            content.toString().translate(context),
+            style: contentTextStyle,
+            textAlign: TextAlign.center,
+          ),
+  ),
+),
+  ],
+) 
+
+
+
       ),
     );
   }

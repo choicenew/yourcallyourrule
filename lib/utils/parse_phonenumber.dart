@@ -4,7 +4,6 @@ import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:sim_card_info/sim_card_info.dart';
 import 'package:sim_card_info/sim_info.dart' as flutter;
 
-// 提取公共的电话号码解析逻辑
 Future<Map<String, String>> _parsePhoneNumber(
     String phoneNumber, String? simCountryCode) async {
   PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
@@ -12,75 +11,50 @@ Future<Map<String, String>> _parsePhoneNumber(
   String e164Number = "";
   String nationalNumber = "";
 
-  // 判断号码是否包含国际区号
-  RegExp internationalPrefixRegex = RegExp(r'^(?:\+|00)');
-
-  if (internationalPrefixRegex.hasMatch(phoneNumber)) {
-    // 包含国际区号， 使用 null 解析
-    try {
-      PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, null);
-      countryCode = phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
-      e164Number =
-          phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
-      nationalNumber =
-          phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.national);
-    } catch (e) {
-      //print('Failed to parse with null: $e');
-      // 可以添加额外的错误处理
-    }
-  } else if (simCountryCode != null) {
-    // 使用指定的 SIM 卡国家代码解析
-    try {
-      PhoneNumber parsedPhoneNumber =
-          phoneNumberUtil.parse(phoneNumber, simCountryCode.toUpperCase());
-      // 验证解析结果
-      String? parsedCountryCode =
-          phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
-      // 添加 national_number 的验证
-      if (parsedCountryCode?.toUpperCase() == simCountryCode.toUpperCase() &&
-          phoneNumberUtil.getNationalSignificantNumber(parsedPhoneNumber) ==
-              phoneNumber.replaceAll(RegExp(r'[^0-9]+'), '')) {
-        countryCode = simCountryCode; // 解析成功，记录国家代码
-        e164Number =
-            phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
-        nationalNumber = phoneNumberUtil.format(
-            parsedPhoneNumber, PhoneNumberFormat.national);
-      }
-    } catch (e) {
-      //print('Failed to parse with country code $simCountryCode: $e');
-    }
-  } else {
-    // 不包含国际区号， 使用 SIM 卡国家代码循环解析
-    final simCardInfoPlugin = SimCardInfo();
-    List<flutter.SimInfo> simInfoList =
-        await simCardInfoPlugin.getSimInfo() ?? [];
-    List<String> simCountryCodes =
-        simInfoList.map((sim) => sim.countryIso).toList();
-
-    for (String simCountryCode in simCountryCodes) {
-      try {
-        PhoneNumber parsedPhoneNumber =
-            phoneNumberUtil.parse(phoneNumber, simCountryCode.toUpperCase());
-        // 验证解析结果
-        String? parsedCountryCode =
-            phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
-        // 添加 national_number 的验证
-        if (parsedCountryCode?.toUpperCase() == simCountryCode.toUpperCase() &&
-            phoneNumberUtil.getNationalSignificantNumber(parsedPhoneNumber) ==
-                phoneNumber.replaceAll(RegExp(r'[^0-9]+'), '')) {
-          countryCode = simCountryCode; // 解析成功，记录国家代码
-          e164Number =
-              phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
-          nationalNumber = phoneNumberUtil.format(
-              parsedPhoneNumber, PhoneNumberFormat.national);
-          break;
-        }
-      } catch (e) {
-        //
-      }
-    }
+  // Function to parse and format the phone number
+  void parseAndFormat(PhoneNumber parsedPhoneNumber) {
+    countryCode = phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
+   
+    e164Number = phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
+    nationalNumber = phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.national);
   }
 
+  try {
+    if (phoneNumber.startsWith('+')) {
+      // Handle international numbers starting with '+'
+      PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, null);
+      parseAndFormat(parsedPhoneNumber);
+    } else if (phoneNumber.startsWith('00')) {
+      // Handle international numbers starting with '00'
+      String modifiedPhoneNumber = '+${phoneNumber.substring(2)}';
+      PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(modifiedPhoneNumber, null);
+      parseAndFormat(parsedPhoneNumber);
+    } else {
+      // Handle local numbers using SIM country code or available SIM information
+      if (simCountryCode != null) {
+        PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, simCountryCode.toUpperCase());
+        parseAndFormat(parsedPhoneNumber);
+      } else {
+        // If no SIM country code provided, try to get it from the device
+        final simCardInfoPlugin = SimCardInfo();
+        List<flutter.SimInfo> simInfoList = await simCardInfoPlugin.getSimInfo() ?? [];
+        List<String> simCountryCodes = simInfoList.map((sim) => sim.countryIso).toList();
+
+        for (String code in simCountryCodes) {
+          try {
+            PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, code.toUpperCase());
+            parseAndFormat(parsedPhoneNumber);
+            break;
+          } catch (e) {
+            print('Failed to parse with country code $code: $e');
+          }
+        }
+      }
+    }
+  } catch (e) {
+    print('Failed to parse phone number: $e');
+  }
+ print("解析后的号码,de $e164Number de $nationalNumber $countryCode"); 
   return {
     'countryCode': countryCode ?? '',
     'e164Number': e164Number,
@@ -94,7 +68,7 @@ Future<Map<String, String>> parsePhoneNumber(String phoneNumber) async {
 
 Future<Map<String, String>> parsePhoneNumberWithoutIso(
     String phoneNumber, String? countryCode) async {
-  return _parsePhoneNumber(phoneNumber, null); // 不使用 countryCode 参数
+  return _parsePhoneNumber(phoneNumber, null);
 }
 
 Future<Map<String, String>> parsePhoneNumberWithIso(

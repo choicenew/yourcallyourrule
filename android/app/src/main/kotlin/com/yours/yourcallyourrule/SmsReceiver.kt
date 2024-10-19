@@ -14,8 +14,8 @@ class SmsReceiver : BroadcastReceiver() {
             for (sms in Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
                 val sender = sms.originatingAddress
                 val messageBody = sms.messageBody
-                Log.d("安卓端SmsReceiver", "Received SMS from $sender: $messageBody")
-                Log.d("MainActivity", "安卓端sms注册服务")
+                //Log.d("安卓端SmsReceiver", "Received SMS from $sender: $messageBody")
+              //  Log.d("MainActivity", "安卓端sms注册服务")
 
                 // 获取 FlutterEngine 实例 
                 val flutterEngine = (context.applicationContext as? MyApplication)?.flutterEngine 

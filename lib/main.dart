@@ -12,7 +12,7 @@ import 'screens/appstate_provider.dart';
 
 import 'screens/callerID/callerid_overlay_entry.dart';
 import 'screens/callerID/callerid_style_provider.dart';
-import 'screens/homePage.dart';
+import 'screens/home_page.dart';
 import 'screens/onboarding.dart';
 
 import 'shared/const/theme_config.dart';

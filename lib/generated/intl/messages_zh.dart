@@ -392,8 +392,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "loan": MessageLookupByLibrary.simpleMessage("贷款"),
         "localBackupDirectoryOnlyUnderDownloadFolder":
             MessageLookupByLibrary.simpleMessage("本地备份目录仅位于下载文件夹下"),
-        "localCard1": MessageLookupByLibrary.simpleMessage("本地卡 1"),
-        "localCard1Content": MessageLookupByLibrary.simpleMessage("本地卡 1 内容"),
+        "localCard1": MessageLookupByLibrary.simpleMessage("注意"),
+        "localCard1Content":
+            MessageLookupByLibrary.simpleMessage("为保证你的安全，请仅使用你信任的订阅来源"),
         "locationColor": MessageLookupByLibrary.simpleMessage("位置颜色"),
         "locationFontSize": MessageLookupByLibrary.simpleMessage("位置字体大小"),
         "locationIconColor": MessageLookupByLibrary.simpleMessage("位置图标颜色"),

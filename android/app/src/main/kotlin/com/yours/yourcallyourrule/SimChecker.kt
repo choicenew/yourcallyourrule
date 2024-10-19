@@ -141,15 +141,15 @@ class SimChecker(private val context: Context, private val callDetails: Call.Det
                     simInfo,
                     object : MethodChannel.Result {
                         override fun success(result: Any?) {
-                            Log.d("SimChecker", "Successfully sent SIM info to Flutter: $simInfo")
+                           // Log.d("SimChecker", "Successfully sent SIM info to Flutter: $simInfo")
                         }
 
                         override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
-                            Log.e("SimChecker", "Error sending SIM info to Flutter: $errorMessage")
+                           // Log.e("SimChecker", "Error sending SIM info to Flutter: $errorMessage")
                         }
 
                         override fun notImplemented() {
-                            Log.e("SimChecker", "onSimInfo not implemented in Flutter")
+                          //  Log.e("SimChecker", "onSimInfo not implemented in Flutter")
                         }
                     }
                 )

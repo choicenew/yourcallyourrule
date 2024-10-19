@@ -50,11 +50,14 @@ class ReorderableWrapState extends State<ReorderableWrap> {
           ),
           child: DragTarget<int>(
             builder: (context, candidateData, rejectedData) {
-              return ConstrainedBox( // Use ConstrainedBox here
-                constraints: BoxConstraints.tightFor(
-                  width: (child as SizedBox).width, // Assuming child is a SizedBox
-                  height: (child).height, // Assuming child is a SizedBox
-                ), 
+              return ConstrainedBox(
+                // Use ConstrainedBox here
+                constraints: BoxConstraints(
+                  minWidth: 0, // 设置最小宽度为 0
+                  minHeight: 0, // 设置最小高度为 0
+                  maxWidth: (child as SizedBox).width ?? 0, // 如果宽度为 null，则使用 0
+                  maxHeight: (child).height ?? 0, // 如果高度为 null，则使用 0
+                ),
                 child: child,
               );
             },
