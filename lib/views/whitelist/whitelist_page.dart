@@ -31,7 +31,7 @@ class WhitelistPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).whitelistPage, // 页面标题
-      'WhitelistPageView', // 卡片标题=点击卡片导航到的页面
+     // 'WhitelistPageView', // 卡片标题=点击卡片导航到的页面
       const WhitelistPageView(), // 点击卡片导航到的页面
       const WhitelistPage(), // 当前页面主要内容
       exportPage: const ExportWhitelistsPageView(), // 导出页面

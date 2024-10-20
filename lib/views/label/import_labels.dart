@@ -27,7 +27,7 @@ class ImportLabelsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).importLabelPage, // 当前页面标题
-      'LabelPageView', // 卡片标题=点击卡片导航到的页面
+    //  'LabelPageView', // 卡片标题=点击卡片导航到的页面
       const LabelPageView(), // create card卡片导航到的页面
       const ImportLabelsPage(), // 当前页面主要内容
       //下面分别是导出，添加，导入

@@ -35,7 +35,7 @@ class ExportLabelsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportLabelPage, // 当前页面标题
-      'LabelPageView', // 卡片标题=点击卡片导航到的页面
+     // 'LabelPageView', // 卡片标题=点击卡片导航到的页面
       const LabelPageView(), // create card卡片导航到的页面
       const ExportLabelsPage(), // 当前页面主要内容
       exportPage: const ExportLabelsPageView(), // 导出页面

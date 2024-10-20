@@ -38,7 +38,7 @@ class ContactSubscriptionListView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).contactSubscriptionPage, // 页面标题
-      'ContactSubscriptionListView', // 卡片标题=点击卡片导航到的页面
+     // 'ContactSubscriptionListView', // 卡片标题=点击卡片导航到的页面
       const ContactSubscriptionListView(), // 点击卡片导航到的页面
       const ContactSubscriptionList(), // 当前页面主要内容
       exportPage: const ExportContactSubscriptionsPageView(), // 导出页面

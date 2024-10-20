@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 import '../screens/function_cards/function_card.dart';
 import '../screens/function_cards/function_cards_data.dart';
 
+// 修改后的 createCard 函数
+Widget createCard(Widget navigationPage) {
+  List<FunctionCard> allCards = getFunctionCards();
+
+  FunctionCard matchedCard = allCards.firstWhere(
+    (card) => card.page == navigationPage,  // 尝试匹配 navigationPage
+    orElse: () => throw Exception('Card not found for navigationPage: $navigationPage'),
+  );
+
+/*
 // 通用函数：根据页面名称创建卡片
 Widget createCard(String pageName) {
   // 获取所有功能卡片数据
@@ -12,8 +22,13 @@ Widget createCard(String pageName) {
     (card) => card.page.toString() == pageName,
     orElse: () => throw Exception('Card not found for page: $pageName'),
   );
-
-
+*/
+/** // 查找匹配的卡片
+  FunctionCard matchedCard = allCards.firstWhere(
+    (card) => card.page.toString.toLowerCase() == pageName.toLowerCase(),
+    orElse: () => throw Exception('Card not found for page: $pageName'),
+  );
+ */
 
   return Builder(
     builder: (BuildContext context) {

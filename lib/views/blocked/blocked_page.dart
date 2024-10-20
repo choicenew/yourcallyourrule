@@ -1,12 +1,9 @@
-//import 'dart:io';
+
 import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-//import 'dart:convert';
-//import 'package:path/path.dart' as path_helper;
-//import 'package:sqflite/sqflite.dart';
 
 import '../../generated/l10n.dart';
 import '../../new_set_icons.dart';
@@ -15,21 +12,17 @@ import '../../services/allowed_blocked_service.dart';
 import '../../utils/ad_manager.dart';
 import '../../utils/ad_state.dart';
 import '../../widgets/google_ad.dart';
-//import '../switch_style.dart';
+
 import '../../widgets/self_managed_search_bar.dart';
-//import '../../models/subscription_model.dart';
+
 
 import '../public/build_page_switch.dart';
 import '../public/isolated_widgets.dart';
 import '../public/public_select_label.dart';
 import '../public/responsive_grid_list.dart';
-//import 'package:csv/csv.dart';
-//import 'package:http/http.dart' as http;
-//import 'package:file_picker/file_picker.dart';
 
-//import 'dart:io';
 import 'add_blocked_entry.dart';
-//import '../../views/blocked/blocked_page.dart';
+
 import 'export_blocked_entries.dart';
 import 'import_blocked_entries.dart';
 
@@ -41,7 +34,7 @@ class BlockedPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).blockedPage, // 当前页面标题
-      'BlockedPageView', //要=createcard 这个不要修改-卡片标题=点击卡片导航到的页面
+     // 'BlockedPageView', //要=createcard 这个不要修改-卡片标题=点击卡片导航到的页面
       const BlockedPageView(), // create card卡片导航到的页面
       const BlockedPage(), // 当前页面主要内容
       //下面分别是导出，添加，导入

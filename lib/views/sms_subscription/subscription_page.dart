@@ -1,4 +1,4 @@
-//import 'dart:io';
+
 import 'dart:core';
 
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class SmsSubscriptionListView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).smsSubscriptionPage, // 页面标题
-      'SmsSubscriptionListView', // 卡片标题=点击卡片导航到的页面
+    //  'SmsSubscriptionListView', // 卡片标题=点击卡片导航到的页面
       const SmsSubscriptionListView(), // 卡片导航到的页面
       const SmsSubscriptionList(), // 当前页面主要内容
       exportPage: const ExportSmsSubscriptionsPageView(), // 导出页面

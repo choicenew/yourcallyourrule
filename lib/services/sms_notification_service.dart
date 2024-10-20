@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'sms_channel_manager.dart'; // Import the new SmsChannelManager
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 import 'sms_blacklist_whitelist_service.dart';
@@ -8,8 +9,7 @@ import 'sms_blacklist_whitelist_service.dart';
 import 'sms_text_service.dart';
 
 class SmsFilterService {
-  static const smsChannel =
-      MethodChannel('com.yours.yourcallyourrule/sms_filter');
+  final SmsChannelManager smsChannelManager; // Using SmsChannelManager
 
   static const String smsFilterEnabledKey = 'sms_filter_enabled';
   static const String smsLocalNotificationKey = 'sms_local_notification';
@@ -30,30 +30,35 @@ class SmsFilterService {
   String? _smsPackageName; // 存储短信应用包名
 
   SmsFilterService({
+    required this.smsChannelManager, // Inject SmsChannelManager - Correct name
     required this.numberBlacklistService,
     required this.numberWhitelistService,
     required this.textBlacklistService,
     required this.textWhitelistService,
   });
 
-  static Future<SmsFilterService> create({required Database database}) async {
+  static Future<SmsFilterService> create({
+    required Database database,
+    required SmsChannelManager smsChannelManager, // Pass SmsChannelManager
+  }) async {
     final service = SmsFilterService(
+      smsChannelManager:
+          smsChannelManager, // Assign SmsChannelManager - Correct name
       numberBlacklistService: SmsBlacklistService(database),
       numberWhitelistService: SmsWhitelistService(database),
       textBlacklistService: SmsTextBlacklistService(database),
       textWhitelistService: SmsTextWhitelistService(database),
     );
 
-    // await service.initialize();
     return service;
   }
 
   Future<void> initialize() async {
     await _loadSettings();
-    _setupMethodChannels();
-    await registerSmsListener(); // 初始化时注册监听器
-    // _getSmsPackageName();
-    // 初始化本地通知插件
+    _setupChannelCallbacks();
+
+    _smsPackageName =
+        await smsChannelManager.getDefaultSmsPackage(); // Use SmsChannelManager
     await _initializeNotifications();
   }
 
@@ -66,55 +71,25 @@ class SmsFilterService {
     await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
-
-  Future<void> _setupMethodChannels() async {
-    smsChannel.setMethodCallHandler((call) async {
-      if (call.method == "onSmsInitializationComplete") {
-        await _handleSmsInitializationComplete();
-      } else if (call.method == 'onReceivedSms') {
-        await _handleReceivedSms(call);
-      }
-      return null;
-    });
+  void _setupChannelCallbacks() {
+    smsChannelManager.onSmsCall = _handleSmsChannelCall;
   }
 
-  Future<void> _handleSmsInitializationComplete() async {
-    // 处理 "onSmsInitializationComplete" 方法调用
-    // 这里可以添加异步操作，例如初始化数据库
+  Future<void> _handleSmsChannelCall(MethodCall call) async {
+    if (call.method == "onSmsInitializationComplete") {
+      await smsChannelManager
+          .initializeSmsListener(); // Use the corrected method
+    } else if (call.method == 'onReceivedSms') {
+      await _handleReceivedSms(call);
+    }
   }
 
   Future<void> _handleReceivedSms(MethodCall call) async {
     // 处理 "onReceivedSms" 方法调用
     final String phoneNumber = call.arguments['phoneNumber'];
     final String messageContent = call.arguments['messageContent'];
+
     await handleIncomingSms(phoneNumber, messageContent);
-  }
-
-  Future<void> registerSmsListener() async {
-    try {
-      await smsChannel.invokeMethod('registerSmsListener');
-    } on PlatformException catch (e) {
-      //
-    }
-  }
-
-  Future<void> unregisterSmsListener() async {
-    try {
-      await smsChannel.invokeMethod('unregisterSmsListener');
-    } on PlatformException catch (e) {
-      //
-    }
-  }
-
-// 在 SmsFilterService 的 initState 或其他合适的时机调用
-  Future<void> _getSmsPackageName() async {
-    try {
-      String? smsPackageName =
-          await smsChannel.invokeMethod('getDefaultSmsPackage');
-      // 将 smsPackageName 存储到变量中，以便后续使用
-    } on PlatformException catch (e) {
-      //
-    }
   }
 
   Future<void> _loadSettings() async {
@@ -123,6 +98,7 @@ class SmsFilterService {
 
     useLocalNotification =
         await asyncPrefs.getBool(smsLocalNotificationKey) ?? false;
+
     cancelLocalNotification =
         await asyncPrefs.getBool(smsCancelLocalNotificationKey) ?? false;
   }
@@ -133,7 +109,6 @@ class SmsFilterService {
     isEnabled = enabled;
     final asyncPrefs = SharedPreferencesAsync();
     await asyncPrefs.setBool(smsFilterEnabledKey, enabled);
-
   }
 
   Future<void> setUseLocalNotification(bool useLocal) async {
@@ -166,6 +141,7 @@ class SmsFilterService {
     if (await textBlacklistService.isIncluded(messageContent)) {
       return false;
     }
+
     if (await numberBlacklistService.isBlacklisted(phoneNumber)) {
       return false;
     }
@@ -173,10 +149,10 @@ class SmsFilterService {
     return true;
   }
 
-
   Future<void> handleIncomingSms(
       String phoneNumber, String messageContent) async {
     if (!isEnabled) return;
+
     bool shouldNotifyUser = await shouldNotify(phoneNumber, messageContent);
 
     if (useLocalNotification && shouldNotifyUser) {
@@ -187,27 +163,13 @@ class SmsFilterService {
             .cancel(0); // cancel the notification with id value of zero
       }
     }
-    // 获取原生短信应用的包名
-    //String smsPackageName = _smsPackageName ?? "unknown"; // 如果包名为空，则使用默认值
-    String smsPackageName =
-        await smsChannel.invokeMethod('getDefaultSmsPackage'); // 直接使用返回值
-
-    // 设置通知通道的重要性
-    await smsChannel.invokeMethod('setSmsNotificationChannelImportance', {
-      'packageName': smsPackageName,
-      'importance': shouldNotifyUser
-          ? 4
-          : 2, // 使用原生端的常量值(4 代表 IMPORTANCE_DEFAULT，2 代表 IMPORTANCE_LOW)
-    });
-
-
   }
 
   Future<void> _showLocalNotification(
       String phoneNumber, String messageContent) async {
-    // Debug print
     const androidNotificationDetails = AndroidNotificationDetails(
-      'SMS_Filter_channel', 'SMS Filter Notifications',
+      'SMS_Filter_channel',
+      'SMS Filter Notifications',
       //channelDescription: 'SMS Filter Notifications',
       importance: Importance.max,
       priority: Priority.high,

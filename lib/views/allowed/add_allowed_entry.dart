@@ -34,7 +34,7 @@ class AddAllowedEntryPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).addAllowedEntryPage, // 页面标题
-      'AllowedPageView', // 卡片标题=点击卡片导航到的页面
+     // 'AllowedPageView', // 卡片标题=点击卡片导航到的页面
       const AllowedPageView(), // 点击卡片导航到的页面
       const AddAllowedEntryPage(), // 当前页面主要内容
       exportPage: const ExportAllowedEntriesPageView(), // 导出页面

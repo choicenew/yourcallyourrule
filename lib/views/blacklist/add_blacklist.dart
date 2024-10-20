@@ -29,7 +29,7 @@ class AddBlacklistPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).addBlacklistPage, // 页面标题
-      'BlacklistPageView', // 卡片标题=点击卡片导航到的页面
+     // 'BlacklistPageView', // 卡片标题=点击卡片导航到的页面
       const BlacklistPageView(), // 点击卡片导航到的页面
       const AddBlacklistPage(), // 当前页面主要内容
       exportPage: const ExportBlacklistsPageView(), // 导出页面

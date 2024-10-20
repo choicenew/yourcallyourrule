@@ -25,7 +25,7 @@ class ExportRegexPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportRegexPage, // 页面标题
-      'RegexPageView', // 卡片标题=点击卡片导航到的页面
+     // 'RegexPageView', // 卡片标题=点击卡片导航到的页面
       const RegexPageView(), // 点击卡片导航到的页面
       const ExportRegexPage(), // 当前页面主要内容
       exportPage: const ExportRegexPageView(), // 导出页面

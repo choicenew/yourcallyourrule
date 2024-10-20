@@ -30,7 +30,7 @@ class AddPluginPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).addPluginPage, // 页面标题
-      'PluginsPageView', // 卡片标题=点击卡片导航到的页面
+    //  'PluginsPageView', // 卡片标题=点击卡片导航到的页面
       const PluginsPageView(), // 点击卡片导航到的页面
       const AddPluginPage(), // 当前页面主要内容
       exportPage: const ExportPluginsPageView(), // 导出页面

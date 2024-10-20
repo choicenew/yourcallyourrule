@@ -1,3 +1,5 @@
+
+
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
@@ -9,10 +11,11 @@ import '../../screens/callerID/callerid_overlay.dart';
 import '../../services/caller_id_monitor_service.dart';
 import '../../services/caller_id_service.dart';
 import '../../utils/ad_manager.dart';
+import '../../utils/global_variable.dart';
 import '../../widgets/adwidgets/native_ads.dart';
 import '../../widgets/google_ad.dart';
 import '../../widgets/hsv_color_picker.dart';
-import '../home_page.dart';
+
 import 'callerid_configuration.dart';
 import 'callerid_style_provider.dart';
 
@@ -38,7 +41,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
       try {
         ConfigurationManager.loadConfiguration(styleProvider);
       } catch (e) {
-        //print('Error loading configuration: $e');
+ 
         // Create and save a default configuration
         ConfigurationManager.saveConfiguration(styleProvider);
       }
@@ -51,33 +54,22 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
       appBar: AppBar(title: Text(S.of(context).customizeCallerId)),
       body: Consumer<CallerIdStyleProvider>(
         builder: (context, styleProvider, child) {
-          return Stack(
+          return Column(
             children: [
               // 预览区域
-              Positioned(
-                top: 10,
-                left: 0,
-                right: 0,
-             
-        child: Align( // 使用 Align 控制对齐方式
-          alignment: Alignment.center, // 居中对齐                  
-                  child: CallerIdOverlay(
-                    callerIdData: _mockCallerIdData(),
-                    simInfo: _mockSimInfoData(),
-                    stirInfo: _mockStirInfoData(),
-                    onDismiss: () {},
-                    isDismissible: false,
-                  ),
-                   ),
+              Container(
+                width: styleProvider.windowWidth,
+                height: styleProvider.windowHeight,
+                alignment: Alignment.center,
+                child: CallerIdOverlay(
+                  callerIdData: _mockCallerIdData(),
+                  simInfo: _mockSimInfoData(),
+                  stirInfo: _mockStirInfoData(),
+                  onDismiss: () {},
+                  isDismissible: false,
+                ),
               ),
-              Positioned(
-                top: MediaQuery.of(context).size.height * 0.25,
-                left: 0,
-                right: 0,
-                bottom: 100,
-                child: Column(
-                  // Wrap ListView in a Column
-                  children: [
+  
                     Expanded(
                       // Use Expanded within the Column
                       child: ListView(
@@ -104,7 +96,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                           _buildExpansionTile('Font Sizes', 3,
                               _buildFontSizes(styleProvider), styleProvider),
                           _buildExpansionTile(
-                              S.of(context).avatarAndIconSizes,
+                               S.of(context).avatarAndIconSizes,
                               4,
                               _buildAvatarAndIconSizes(styleProvider),
                               styleProvider),
@@ -121,15 +113,9 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ),
+      
               // 按钮区域
-              Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: Padding(
+            Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -142,16 +128,17 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                             // 显示 SnackBar
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                  content: Text(S
-                                      .of(context)
-                                      .configurationImportedSuccessfully)),
+                                  content: Text(
+                                      S.of(context).configurationImportedSuccessfully)
+                                      ),
                             );
                           } catch (e) {
                             // 处理 JSON 解析错误
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                  content:
-                                      Text(S.of(context).invalidJsonFormat)),
+                                  content: Text(
+                                    S.of(context).invalidJsonFormat
+                                    )),
                             );
                           }
                         },
@@ -167,8 +154,8 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                           // 显示 SnackBar
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                                content: Text(
-                                    S.of(context).configurationExportedToFile)),
+                                content:
+                                    Text(S.of(context).configurationExportedToFile)),
                           );
                         },
                         style: FilledButton.styleFrom(
@@ -186,8 +173,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                               styleProvider);
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                                content:
-                                    Text(S.of(context).configurationSaved)),
+                                content: Text(S.of(context).configurationSaved)),
                           );
                           // 传输配置给isolated overlay
                           //  await updateAndShareConfiguration(styleProvider);
@@ -200,7 +186,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                     ],
                   ),
                 ),
-              ),
+              
             ],
           );
         },
@@ -208,22 +194,22 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
     );
   }
 
-  Future<void> updateAndShareConfiguration(
-      CallerIdStyleProvider styleProvider) async {
-    // 传输配置给 isolated overlay
-    final styleProviderData = ConfigurationManager.getConfigMap(styleProvider);
+Future<void> updateAndShareConfiguration(
+    CallerIdStyleProvider styleProvider) async {
+  // 传输配置给 isolated overlay
+  final styleProviderData = ConfigurationManager.getConfigMap(styleProvider);
 
-    // 添加 configType 标识
-    final dataToSend = {
-      "configType": "callerIdStyle",
-      ...styleProviderData,
-    };
+  // 添加 configType 标识
+  final dataToSend = {
+    "configType": "callerIdStyle",
+    ...styleProviderData,
+  };
 
-    // 传递 Map 对象
-    FlutterOverlayWindow.shareData(dataToSend);
-    //print("配置数据已更新,发送端,${styleProvider.nameFontSize}");
-    //print("share 发送 Map 数据：$dataToSend");
-  }
+  // 传递 Map 对象
+  FlutterOverlayWindow.shareData(dataToSend);
+
+}
+
 
 //用于测试浮动窗口的
 
@@ -241,35 +227,36 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
       carrier: 'Example Carrier',
       numberType: PhoneNumberType.fixedLineOrMobile,
       labels: [Label(label: 'Robocall')],
-      name: 'Example Name',
+      name: 'John Doe',
       avatar: 'assets/avatars/Unknown.png',
       count: 5,
     );
 
 // 模拟 StirInfo 数据，基于 _mockCallerIdData 中的 phoneNumber
 // 模拟 StirInfo 数据，基于 CallerIdData 中的 phoneNumber
-    StirInfo mockStirInfoData = StirInfo(
-      isVerified: true, // 模拟已验证状态
-      isNotVerified: false, // 模拟未验证状态
-      isFailed: false, // 模拟验证失败状态
-      phoneNumber:
-          mockCallerIdData.phoneNumber, // 使用 CallerIdData 中的 phoneNumber
-    );
+StirInfo mockStirInfoData = StirInfo(
+  isVerified: true,  // 模拟已验证状态
+  isNotVerified: false, // 模拟未验证状态
+  isFailed: false,   // 模拟验证失败状态
+  phoneNumber: mockCallerIdData.phoneNumber, // 使用 CallerIdData 中的 phoneNumber
+);
+
 
 // 模拟 SimInfo 数据
-    SimInfo mockSimInfoData = SimInfo(
-      carrierName: 'Example Carrier',
-      displayName: 'SIM 1',
-      iccId: '8901234567890123456',
-      countryIso: 'US',
-      phoneNumber: '+1 234 567 8900',
-      simSlotIndex: 0,
-      subscriptionId: 1,
-      mccString: '310',
-      mncString: '410',
-      simPhoneNumber: '+1 123 456 7890',
-      callType: "audio",
-    );
+SimInfo mockSimInfoData = SimInfo(
+    carrierName: 'Example Carrier',
+    displayName: 'SIM 1',
+    iccId: '8901234567890123456',
+    countryIso: 'US',
+    phoneNumber: '+1 234 567 8900', 
+    simSlotIndex: 0,
+    subscriptionId: 1,
+    mccString: '310',
+    mncString: '410',
+    simPhoneNumber: '+1 123 456 7890',
+    callType: "audio",
+  );
+
 
     // 获取当前 Overlay 位置，如果 Overlay 处于激活状态
     if (await FlutterOverlayWindow.isActive()) {
@@ -280,25 +267,28 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
     }
 
     // 使用 FlutterOverlayWindow.shareData() 将 CallerIdData 发送到 Overlay Isolate
-    // await FlutterOverlayWindow.shareData(mockCallerIdData);
-    await FlutterOverlayWindow.shareData({
-      "configType": "callerIdData", // 添加 configType 字段
-      ...mockCallerIdData.toJson(),
-    });
+   // await FlutterOverlayWindow.shareData(mockCallerIdData);
+  await FlutterOverlayWindow.shareData({
+    "configType": "callerIdData", // 添加 configType 字段
+    ...mockCallerIdData.toJson(),
+  });
 
-    //传递stir信息
-    await FlutterOverlayWindow.shareData({
-      "configType": "stirInfo", // 添加 configType 字段
-      ...mockStirInfoData.toJson(),
-    });
+  //传递stir信息
+  await FlutterOverlayWindow.shareData({
+    "configType": "stirInfo", // 添加 configType 字段
+    ...mockStirInfoData.toJson(),
+  });
     // 传递 SIM 信息
 
-    await FlutterOverlayWindow.shareData({
-      "configType": "simInfo", // 添加 configType 字段
-      ...mockSimInfoData.toJson(),
-    });
+  await FlutterOverlayWindow.shareData({
+    "configType": "simInfo", // 添加 configType 字段
+    ...mockSimInfoData.toJson(),
+  });
 
-    // print("customization 中获得屏幕比例值: ${pixelRatio}");
+
+
+
+
     if (await FlutterOverlayWindow.isActive()) {
       // 如果 Overlay 已经激活，则更新其位置
       await FlutterOverlayWindow.moveOverlay(storedPosition!);
@@ -319,8 +309,11 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
         width: (styleProvider.windowWidth * (pixelRatio ?? 1.0)).toInt(),
         startPosition: storedPosition!,
       );
+  
     }
   }
+
+
 
   // 构建可折叠设置项
   Widget _buildExpansionTile(String title, int index, Widget content,
@@ -348,7 +341,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
             (value) =>
                 styleProvider.setWindowSize(value, styleProvider.windowHeight)),
         _buildSlider(
-            S.of(context).height,
+             S.of(context).height,
             styleProvider.windowHeight,
             100,
             300,
@@ -362,13 +355,9 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
   Widget _buildBackgroundGradient(CallerIdStyleProvider styleProvider) {
     return Column(
       children: [
-        _buildColorPicker(
-            S.of(context).startColor,
-            styleProvider.backgroundColorStart,
+        _buildColorPicker(S.of(context).startColor, styleProvider.backgroundColorStart,
             (color) => styleProvider.setBackgroundColorStart(color)),
-        _buildColorPicker(
-            S.of(context).endColor,
-            styleProvider.backgroundColorEnd,
+        _buildColorPicker(S.of(context).endColor, styleProvider.backgroundColorEnd,
             (color) => styleProvider.setBackgroundColorEnd(color)),
       ],
     );
@@ -378,9 +367,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
   Widget _buildTextColors(CallerIdStyleProvider styleProvider) {
     return Column(
       children: [
-        _buildColorPicker(
-            S.of(context).labelIconColor,
-            styleProvider.textIconLabelColor,
+        _buildColorPicker(S.of(context).labelIconColor, styleProvider.textIconLabelColor,
             (color) => styleProvider.setTextIconLabelColor(color)),
         _buildColorPicker(
             S.of(context).locationIconColor,
@@ -399,44 +386,38 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
 
         _buildColorPicker(S.of(context).nameColor, styleProvider.textNameColor,
             (color) => styleProvider.setTextNameColor(color)),
-        _buildColorPicker(
-            S.of(context).numberColor,
-            styleProvider.textNumberColor,
+        _buildColorPicker(S.of(context).numberColor, styleProvider.textNumberColor,
             (color) => styleProvider.setTextNumberColor(color)),
-        _buildColorPicker(
-            S.of(context).locationColor,
-            styleProvider.textLocationColor,
+        _buildColorPicker(S.of(context).locationColor, styleProvider.textLocationColor,
             (color) => styleProvider.setTextLocationColor(color)),
-        _buildColorPicker(
-            S.of(context).carrierColor,
-            styleProvider.textCarrierColor,
+        _buildColorPicker(S.of(context).carrierColor, styleProvider.textCarrierColor,
             (color) => styleProvider.setTextCarrierColor(color)),
         _buildColorPicker(
             S.of(context).countryNameColor,
             styleProvider.textCountryNameColor,
             (color) => styleProvider.setTextCountryNameColor(color)),
+        //    _buildColorPicker('Region Color', styleProvider.textRegionColor,
+        //       (color) => styleProvider.setTextRegionColor(color)),
 
-        _buildColorPicker(
-            S.of(context).labelsColor,
-            styleProvider.textLabelsColor,
+        _buildColorPicker(S.of(context).labelsColor, styleProvider.textLabelsColor,
             (color) => styleProvider.setTextLabelsColor(color)),
-        _buildColorPicker(
-            S.of(context).countColor,
-            styleProvider.textCountColor,
+        _buildColorPicker(S.of(context).countColor, styleProvider.textCountColor,
             (color) => styleProvider.setTextCountColor(color)),
         _buildColorPicker(
-            S.of(context).numberTypeColor,
+             S.of(context).numberTypeColor,
             styleProvider.textNumberTypeColor,
             (color) => styleProvider.setTextNumberTypeColor(color)),
 //stir颜色
-        _buildColorPicker(S.of(context).stirColor, styleProvider.textStirColor,
+        _buildColorPicker(
+           S.of(context).stirColor,
+            styleProvider.textStirColor,
             (color) => styleProvider.setTextStirColor(color)),
 //Sim卡颜色
         _buildColorPicker(
             S.of(context).simCardColor,
             styleProvider.textSimCardColor,
             (color) => styleProvider.setTextSimCardColor(color)),
-        //添加其他的
+      //添加其他的      
       ],
     );
   }
@@ -445,13 +426,9 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
   Widget _buildFontSizes(CallerIdStyleProvider styleProvider) {
     return Column(
       children: [
-        _buildSlider(S.of(context).nameFontSize, styleProvider.nameFontSize, 12,
-            24, (value) => styleProvider.setNameFontSize(value)),
-        _buildSlider(
-            S.of(context).carrierFontSize,
-            styleProvider.carrierFontSize,
-            12,
-            24,
+        _buildSlider(S.of(context).nameFontSize, styleProvider.nameFontSize, 12, 24,
+            (value) => styleProvider.setNameFontSize(value)),
+        _buildSlider(S.of(context).carrierFontSize, styleProvider.carrierFontSize, 12, 24,
             (value) => styleProvider.setCarrierFontSize(value)),
         _buildSlider(
             S.of(context).countryNameFontSize,
@@ -459,35 +436,23 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
             12,
             24,
             (value) => styleProvider.setCountryNameFontSize(value)),
-        _buildSlider(S.of(context).labelsFontSize, styleProvider.labelsFontSize,
-            12, 24, (value) => styleProvider.setLabelsFontSize(value)),
-        _buildSlider(S.of(context).countFontSize, styleProvider.countFontSize,
-            12, 24, (value) => styleProvider.setCountFontSize(value)),
-        _buildSlider(
-            S.of(context).numberTypeFontSize,
-            styleProvider.numberTypeFontSize,
-            12,
-            24,
-            (value) => styleProvider.setNumberTypeFontSize(value)),
-        _buildSlider(S.of(context).numberFontSize, styleProvider.numberFontSize,
-            12, 24, (value) => styleProvider.setNumberFontSize(value)),
-        _buildSlider(
-            S.of(context).locationFontSize,
-            styleProvider.locationFontSize,
-            12,
-            24,
-            (value) => styleProvider.setLocationFontSize(value)),
-        //Stir文字尺寸
+        _buildSlider(S.of(context).labelsFontSize, styleProvider.labelsFontSize, 12, 24,
+            (value) => styleProvider.setLabelsFontSize(value)),
+        _buildSlider(S.of(context).countFontSize, styleProvider.countFontSize, 12, 24,
+            (value) => styleProvider.setCountFontSize(value)),
+        _buildSlider(S.of(context).numberTypeFontSize, styleProvider.numberTypeFontSize,
+            12, 24, (value) => styleProvider.setNumberTypeFontSize(value)),
+        _buildSlider(S.of(context).numberFontSize, styleProvider.numberFontSize, 12, 24,
+            (value) => styleProvider.setNumberFontSize(value)),
+        _buildSlider(S.of(context).locationFontSize, styleProvider.locationFontSize, 12,
+            24, (value) => styleProvider.setLocationFontSize(value)),
+            //Stir文字尺寸
         _buildSlider(S.of(context).stirFontSize, styleProvider.stirFontSize, 12,
             24, (value) => styleProvider.setStirFontSize(value)),
-        //SIm卡文字尺寸
-        _buildSlider(
-            S.of(context).simCardFontSize,
-            styleProvider.simCardFontSize,
-            12,
-            24,
-            (value) => styleProvider.setSimCardFontSize(value)),
-        //其他的
+          //SIm卡文字尺寸
+        _buildSlider(S.of(context).simCardFontSize, styleProvider.simCardFontSize, 12,
+            24, (value) => styleProvider.setSimCardFontSize(value)),
+            //其他的
       ],
     );
   }
@@ -498,12 +463,8 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
       children: [
         _buildSlider(S.of(context).avatarSize, styleProvider.avatarSize, 40, 80,
             (value) => styleProvider.setAvatarSize(value)),
-        _buildSlider(
-            S.of(context).avatarBorderSize,
-            styleProvider.avatarBorderSize,
-            40,
-            80,
-            (value) => styleProvider.setAvatarBorderSize(value)),
+        _buildSlider(S.of(context).avatarBorderSize, styleProvider.avatarBorderSize, 40,
+            80, (value) => styleProvider.setAvatarBorderSize(value)),
         _buildSlider(S.of(context).iconSize, styleProvider.iconSize, 16, 32,
             (value) => styleProvider.setIconSize(value)),
       ],
@@ -515,37 +476,25 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
   Widget _buildElementPositions(CallerIdStyleProvider styleProvider) {
     return Column(
       children: [
-        _buildPositionSlider(
-            S.of(context).avatarPosition,
-            styleProvider.avatarPosition,
+        _buildPositionSlider(S.of(context).avatarPosition, styleProvider.avatarPosition,
             (offset) => styleProvider.updateAvatarPosition(offset)),
-        _buildPositionSlider(
-            S.of(context).namePosition,
-            styleProvider.namePosition,
+        _buildPositionSlider(S.of(context).namePosition, styleProvider.namePosition,
             (offset) => styleProvider.updateNamePosition(offset)),
-        _buildPositionSlider(
-            S.of(context).carrierPosition,
-            styleProvider.carrierPosition,
+        _buildPositionSlider(S.of(context).carrierPosition, styleProvider.carrierPosition,
             (offset) => styleProvider.updateCarrierPosition(offset)),
         _buildPositionSlider(
             S.of(context).countryNamePosition,
             styleProvider.countryNamePosition,
             (offset) => styleProvider.updateCountryNamePosition(offset)),
-        _buildPositionSlider(
-            S.of(context).labelsPosition,
-            styleProvider.labelsPosition,
+        _buildPositionSlider(S.of(context).labelsPosition, styleProvider.labelsPosition,
             (offset) => styleProvider.updateLabelsPosition(offset)),
-        _buildPositionSlider(
-            S.of(context).countPosition,
-            styleProvider.countPosition,
+        _buildPositionSlider(S.of(context).countPosition, styleProvider.countPosition,
             (offset) => styleProvider.updateCountPosition(offset)),
         _buildPositionSlider(
             S.of(context).numberTypePosition,
             styleProvider.numberTypePosition,
             (offset) => styleProvider.updateNumberTypePosition(offset)),
-        _buildPositionSlider(
-            S.of(context).numberPosition,
-            styleProvider.numberPosition,
+        _buildPositionSlider(S.of(context).numberPosition, styleProvider.numberPosition,
             (offset) => styleProvider.updateNumberPosition(offset)),
         _buildPositionSlider(
             S.of(context).locationPosition,
@@ -556,11 +505,12 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
             S.of(context).stirPosition,
             styleProvider.stirPosition,
             (offset) => styleProvider.updateStirPosition(offset)),
-        //Sim card位置
-        _buildPositionSlider(
+            //Sim card位置
+         _buildPositionSlider(
             S.of(context).simCardPosition,
             styleProvider.simCardPosition,
             (offset) => styleProvider.updateSimCardPosition(offset)),
+
 
         // ... 元素位置设置
       ],
@@ -606,6 +556,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
       ],
     );
   }
+
 
   Widget _buildColorPicker(
       String label, Color color, Function(Color) onChanged) {
@@ -670,45 +621,45 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
       carrier: 'Example Carrier',
       numberType: PhoneNumberType.fixedLineOrMobile,
       labels: [Label(label: 'Other')],
-      name: 'Example name',
+      name: 'Example Name',
       avatar: 'assets/avatars/Other.png',
       count: 5,
     );
   }
-
 // 模拟 stirInfo 数据，基于 _mockCallerIdData 中的 phoneNumber
 // 模拟 StirInfo 数据，基于 _mockCallerIdData 中的 phoneNumber
-  StirInfo _mockStirInfoData() {
-    CallerIdData callerIdData = _mockCallerIdData();
-    String phoneNumber = callerIdData.phoneNumber; // 获取 phoneNumber
+StirInfo _mockStirInfoData() {
+  CallerIdData callerIdData = _mockCallerIdData();
+  String phoneNumber = callerIdData.phoneNumber; // 获取 phoneNumber
 
-    // 模拟验证状态，你可以根据需要修改
-    bool isVerified = true;
-    bool isNotVerified = false;
-    bool isFailed = false;
+  // 模拟验证状态，你可以根据需要修改
+  bool isVerified = true; 
+  bool isNotVerified = false;
+  bool isFailed = false;
 
-    return StirInfo(
-      isVerified: isVerified,
-      isNotVerified: isNotVerified,
-      isFailed: isFailed,
-      phoneNumber: phoneNumber, // 将 phoneNumber 传递给 StirInfo
-    );
-  }
+  return StirInfo(
+    isVerified: isVerified,
+    isNotVerified: isNotVerified,
+    isFailed: isFailed,
+    phoneNumber: phoneNumber, // 将 phoneNumber 传递给 StirInfo
+  );
+}
 
 // 模拟 SimInfo 数据
-  SimInfo _mockSimInfoData() {
-    return SimInfo(
-      carrierName: 'Example Carrier',
-      displayName: 'SIM 1',
-      iccId: '8901234567890123456',
-      countryIso: 'US',
-      phoneNumber: '+1 234 567 8900',
-      simSlotIndex: 0,
-      subscriptionId: 1,
-      mccString: '310',
-      mncString: '410',
-      simPhoneNumber: '+1 123 456 7890',
-      callType: "audio",
-    );
-  }
+SimInfo _mockSimInfoData() {
+  return SimInfo(
+    carrierName: 'Example Carrier',
+    displayName: 'SIM 1',
+    iccId: '8901234567890123456',
+    countryIso: 'US',
+    phoneNumber: '+1 234 567 8900', 
+    simSlotIndex: 0,
+    subscriptionId: 1,
+    mccString: '310',
+    mncString: '410',
+    simPhoneNumber: '+1 123 456 7890',
+    callType: "audio",
+  );
+}
+
 }

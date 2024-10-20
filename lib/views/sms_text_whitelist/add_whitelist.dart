@@ -28,7 +28,7 @@ class AddSmsTextWhitelistPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).addSmsTextWhitelistsPage, // 页面标题
-      'SmsTextWhitelistPageView', // 卡片标题=点击卡片导航到的页面
+     // 'SmsTextWhitelistPageView', // 卡片标题=点击卡片导航到的页面
       const SmsTextWhitelistPageView(), // 点击卡片导航到的页面
       const AddSmsTextWhitelistPage(), // 当前页面主要内容
       exportPage: const ExportSmsTextWhitelistsPageView(), // 导出页面

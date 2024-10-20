@@ -29,7 +29,7 @@ class ImportWhitelistsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).importWhitelistsPage, // 当前页面标题
-      'WhitelistPageView', // 卡片标题=点击卡片导航到的页面
+    //  'WhitelistPageView', // 卡片标题=点击卡片导航到的页面
       const WhitelistPageView(), // 点击卡片导航到的页面
       const ImportWhitelistsPage(), // 当前页面主要内容
       //下面分别是导出，添加，导入

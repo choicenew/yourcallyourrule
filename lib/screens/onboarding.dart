@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,8 +11,11 @@ import '../utils/app_data_collection.dart';
 import '../utils/call_screen_plugin.dart';
 import '../utils/language_provider.dart';
 import 'appstate_provider.dart';
+import 'callerID/callerid_configuration.dart';
+import 'callerID/callerid_style_provider.dart';
 import 'home_page.dart';
 import 'language_data.dart';
+
 
 class OnboardingScreen extends StatefulWidget {
   final VoidCallback onComplete;
@@ -28,8 +34,51 @@ class OnboardingScreenState extends State<OnboardingScreen> {
   void initState() {
     super.initState();
 
-    // 在 initState 方法中进行 Firebase Analytics 的初始化
     AnalyticsService.init();
+        // 保存默认配置
+  _loadCallerIDConfiguration(); 
+  }
+
+
+  // 显示进度条
+// 显示进度条
+  Widget _buildLoadingIndicator(AppState appState) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 60.0, vertical: 8.0),
+            child: ValueListenableBuilder<double>(
+              valueListenable: appState.initializationProgress,
+              builder: (context, value, child) {
+                return LinearProgressIndicator(value: value);
+              },
+            ),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            S.of(context).initializing,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // 新建的函数，用来显示加载指示器
+  Widget _databaseLoadingIndicator(BuildContext context) {
+    return Consumer<AppState>(
+      builder: (context, appState, child) {
+        if (!appState.isDatabaseInitialized) {
+          // 只在初始化过程中显示
+          return Center(
+            child: _buildLoadingIndicator(appState),
+          );
+        }
+        return Container(); // 其他情况不返回任何内容
+      },
+    );
   }
 
   @override
@@ -86,6 +135,8 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                   child: _buildPageIndicator(),
                 ),
               ),
+
+
             ],
           );
         },
@@ -112,7 +163,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
               );
             },
       style: FilledButton.styleFrom(
-        backgroundColor: const Color.fromRGBO(147, 203, 128, 1),
+       // backgroundColor: const Color.fromRGBO(147, 203, 128, 1),
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
         textStyle: const TextStyle(fontSize: 18),
       ),
@@ -222,6 +273,8 @@ class OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
+
+
   Widget _buildLanguageSelectionPage() {
     return Consumer<LocaleProvider>(
       builder: (context, localeProvider, child) {
@@ -272,7 +325,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.perm_phone_msg, size: 80, color: Colors.green),
+          const Icon(Icons.picture_in_picture, size: 80, color: Colors.green),
           const SizedBox(height: 20),
           Text(
             S.of(context).enableOverlayPermission,
@@ -314,6 +367,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             style: FilledButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
               textStyle: const TextStyle(fontSize: 18),
+
             ),
             child: Text(S.of(context).grantPermission),
           ),
@@ -322,11 +376,13 @@ class OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
+
   //  新增： 默认caller ID请求页面
   Widget _buildDefaultCallerIDRequestPage() {
     return Center(
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        const Icon(Icons.perm_phone_msg, size: 80, color: Colors.green),
+        const Icon(Icons.verified_user, size: 80, color: Colors.green),
+        
         const SizedBox(height: 20),
         Text(
           S.of(context).setupDefaultCallerIdApp,
@@ -346,7 +402,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             try {
               bool result =
                   await CallScreeningPlugin.requestCallScreeningRole();
-              // print("Call screening role request result: $result");
+             
               // 新增： 显示 Snackbar
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -356,7 +412,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               );
             } catch (e) {
-              //print("Error requesting call screening role: $e");
+        
               // 新增： 显示 Snackbar
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -434,6 +490,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
   void _finishOnboarding() async {
     final SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
     await asyncPrefs.setBool('onboarding_completed', true);
+
     // if (mounted) {
     // Add this check
     Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -441,4 +498,28 @@ class OnboardingScreenState extends State<OnboardingScreen> {
     ));
     // }
   }
+
+
+Future<void> _loadCallerIDConfiguration() async {
+  try {
+    final directory = await getApplicationDocumentsDirectory();
+    final file = File('${directory.path}/caller_id_config.json');
+
+    if (!await file.exists()) { // 如果配置文件不存在，才保存默认配置
+      await ConfigurationManager.saveConfiguration(
+          Provider.of<CallerIdStyleProvider>(context, listen: false));
+    } else {
+      // 配置文件已存在，加载用户自定义配置
+      await ConfigurationManager.loadConfiguration(
+          Provider.of<CallerIdStyleProvider>(context, listen: false));
+    }
+  } catch (e) {
+    //print('检查或保存默认配置出错: $e');
+  }
+}
+
+
+
+
+
 }

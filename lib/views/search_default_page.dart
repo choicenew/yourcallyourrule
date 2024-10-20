@@ -196,10 +196,12 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
         entry is SmsTextBlacklistEntry || entry is SmsTextWhitelistEntry
             ? entry.keyword
             : entry.phoneNumber;
+
     return Card(
       color: Colors.grey[100],
       margin: const EdgeInsets.all(10.0),
       child: ExpansionTile(
+        // leading: AvatarWidget(avatar: entry.avatar, label: entry.label),
         leading: (entry is BlacklistEntry ||
                 entry is WhitelistEntry ||
                 entry is SmsBlacklistEntry ||
@@ -234,11 +236,25 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
             const SizedBox(width: 8),
             DeleteButtonWidget(
                 onPressed: () => _showDeleteConfirmation(context, entry)),
+            /*
+            ExpansionIconWidget(
+                isExpanded:
+                    _expandedItems[entry.phoneNumber ?? entry.keyword] == true),
+                    */
             ExpansionIconWidget(
               isExpanded: _expandedItems[expansionTileKey] == true,
             ),
           ],
         ),
+/*
+        initiallyExpanded:
+            _expandedItems[entry.phoneNumber ?? entry.keyword] ?? false,
+        onExpansionChanged: (expanded) {
+          setState(() {
+            _expandedItems[entry.phoneNumber ?? entry.keyword] = expanded;
+          });
+*/
+
         initiallyExpanded: _expandedItems[expansionTileKey] ?? false,
         onExpansionChanged: (expanded) {
           setState(() {
@@ -274,12 +290,15 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
     );
 
     final TextEditingController keywordController = TextEditingController(
-      text: entry is SmsTextBlacklistEntry || entry is SmsTextWhitelistEntry
-          ? entry.keyword
-          : '' // 或者一个默认值
-    );
+        text: entry is SmsTextBlacklistEntry || entry is SmsTextWhitelistEntry
+            ? entry.keyword
+            : '' // 或者一个默认值
+        );
 
-
+    /*
+    final TextEditingController keywordController =
+        TextEditingController(text: entry.keyword);
+*/
 
     // 根据 entry 类型设置 _isWhitelist 和 _isBlacklist 的初始值
     if (entry is SmsTextBlacklistEntry || entry is SmsBlacklistEntry) {
@@ -787,9 +806,10 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
                 selectedCountryCode = countryCode;
               });
             }),
-                         Padding(
-                  padding: const EdgeInsets.only(left: 10.0, top:10),
-                  child: Text(S.of(context).ifThereIsAnErrorSelectACountry)),
+            Padding(
+                padding: const EdgeInsets.only(left: 10.0, top: 10),
+                child: Text(S.of(context).ifThereIsAnErrorSelectACountry)),
+
             // Caller ID 数据显示 (直接使用 FutureBuilder)
             FutureBuilder<CallerIdData>(
               key: ValueKey(selectedCountryCode), // 使用 countryCode 作为 Key
@@ -1023,6 +1043,8 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
             phoneNumber, countryCode) // 使用传入的 countryCode 解析
         : await parsePhoneNumber(phoneNumber); // 使用默认逻辑解析
 
+    print("通用页: 收到 incoming call: $countryCode");
+
     final countryCodeFromParsedData = parsedData['countryCode']!;
     final e164Number = parsedData['e164Number']!;
 
@@ -1042,7 +1064,7 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
     final callerIdService = appState.callerIdService;
 
     CallerIdData callerIdData =
-        await callerIdService.getCallerId(e164Number, context, dlibLocale);
+        await callerIdService.getCallerId(e164Number, dlibLocale);
 
     return callerIdData;
   }

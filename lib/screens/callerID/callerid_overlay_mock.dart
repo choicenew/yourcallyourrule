@@ -5,7 +5,8 @@ import 'package:provider/provider.dart';
 import '../../services/caller_id_monitor_service.dart';
 import '../../services/caller_id_service.dart';
 import 'callerid_configuration.dart';
-import 'callerid_overlay_entry.dart';
+import 'callerid_overlay.dart';
+
 import 'callerid_style_provider.dart';
 
 class CallerIdSample extends StatefulWidget {
@@ -25,6 +26,7 @@ class CallerIdSampleState extends State<CallerIdSample> {
       try {
         ConfigurationManager.loadConfiguration(styleProvider);
       } catch (e) {
+        print('Error loading configuration: $e');
         // Create and save a default configuration
         ConfigurationManager.saveConfiguration(styleProvider);
       }
@@ -53,18 +55,18 @@ class CallerIdSampleState extends State<CallerIdSample> {
             final overlayHeight = overlayWidth *
                 (mediaQuery.size.width < 600
                     ? 0.4
-                    : 0.3); // Adjust height ratio as needed
+                    : 0.3); // Adjust height ratio as needed // Adjust height ratio as needed
 
             return SizedBox(
               width: overlayWidth,
               height: overlayHeight,
-              child: IsolateCallerIdOverlay(
+              child: CallerIdOverlay(
                 callerIdData: _mockCallerIdData(),
                 simInfo: _mockSimInfoData(),
                 stirInfo: _mockStirInfoData(),
                 onDismiss: () {},
                 isDismissible: false,
-                styleProvider: Provider.of<CallerIdStyleProvider>(context),
+               // styleProvider: Provider.of<CallerIdStyleProvider>(context),
               ),
             );
           },
@@ -81,8 +83,8 @@ class CallerIdSampleState extends State<CallerIdSample> {
       carrier: 'Example Carrier',
       numberType: PhoneNumberType.fixedLineOrMobile,
       labels: [Label(label: 'Other')],
-      name: 'Example name',
-      avatar: 'assets/avatars/Unknown.png', // Replace with your asset path
+      name: 'Exampe Name',
+      avatar: 'assets/avatars/Other.png', // Replace with your asset path
       count: 5,
     );
   }

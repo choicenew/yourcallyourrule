@@ -10,13 +10,16 @@ import '../../widgets/navigation_bar.dart';
 import '../Custom_3Button_Style.dart';
 
 
+
+
+
 // 其他页面类似，只需要传入相应的参数即可
 // 创建一个公共函数来构建页面
 Widget buildPageWithCollapsibleContent(
   BuildContext context,
   String pageTitle, // 页面标题
-  String cardTitle, // 卡片标题
-  Widget navigationPage, // 点击卡片导航到的页面
+  //String cardTitle, // 卡片标题暂时没有用处了
+  Widget navigationPage, // 点击卡片导航到的页面 用这里进行function card 匹配
   Widget contentPage, // 当前页面主要内容
   {
     Widget? exportPage, // 导出页面
@@ -83,7 +86,7 @@ Widget buildPageWithCollapsibleContent(
                               ),
                               child: AspectRatio(
                                 aspectRatio: 9 / 1.3,
-                                child: createCard(cardTitle),
+                                child: createCard(navigationPage),
                               ),
                             );
                           },
