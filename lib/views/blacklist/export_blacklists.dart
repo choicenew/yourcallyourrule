@@ -27,7 +27,7 @@ class ExportBlacklistsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportBlacklistPage, // 当前页面标题
-      'BlacklistPageView', // 卡片标题=点击卡片导航到的页面
+      //'BlacklistPageView', // 卡片标题=点击卡片导航到的页面
       const BlacklistPageView(), // create card卡片导航到的页面
       const ExportBlacklistsPage(), // 当前页面主要内容
       exportPage: const ExportBlacklistsPageView(), // 导出页面

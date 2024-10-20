@@ -1,9 +1,9 @@
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_contacts/flutter_contacts.dart' as flutterContact;
 //import 'package:intl/intl.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:flutter_contacts/flutter_contacts.dart' as flutterContact;
 
 import 'blacklist_whitelist_service.dart';
 import 'contact_service.dart';
@@ -44,8 +44,9 @@ class CallerIdService {
   }
 
   Future<CallerIdData> getCallerId(
-      String phoneNumber, BuildContext context, Locale locale) async {
+      String phoneNumber, Locale locale) async {
     PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
+
 // 1. 解析号码
 // 判断号码是否包含国际区号
    // RegExp internationalPrefixRegex = RegExp(r'^(?:\+|00)');
@@ -58,6 +59,8 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
     if (internationalPrefixRegex.hasMatch(phoneNumber)) {
       // 包含国际区号， 使用 null 作为国家代码
       PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, null);
+
+          
       e164Number =
           phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
       nationalNumber =
@@ -66,16 +69,24 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
       // 不包含国际区号， 使用 locale.country 作为国家代码
       PhoneNumber parsedPhoneNumber =
           phoneNumberUtil.parse(phoneNumber, locale.country);
+        
       e164Number =
           phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
       nationalNumber =
           phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.national);
     }
 
+
+
+
+
+
+
     // 3. 查询数据
-    // 获取所有本地联系人
+   // 获取所有本地联系人
     List<flutterContact.Contact> allLocalContacts =
         await flutterContact.FlutterContacts.getContacts();
+
     // 使用原始号码、E164 和 National 格式分别查询
     flutterContact.Contact? localContact;
 
@@ -92,8 +103,9 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
       if (localContact != null) {
         break; // 找到匹配的联系人，跳出外层循环
       }
-    }
 
+    }
+ 
 
     // 4. Check contact service
 
@@ -105,6 +117,7 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
     }
     if (contact == null && nationalNumber.isNotEmpty) {
       contact = await contactService.findContactByPhoneNumber(nationalNumber);
+     
     }
 
     // 5. Check whitelist
@@ -121,27 +134,33 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
     // 6. Check blacklist
     BlacklistEntry? blacklistEntry =
         await blacklistService.getEntryByPhoneNumber(phoneNumber);
+          
     if (blacklistEntry == null && e164Number.isNotEmpty) {
       blacklistEntry = await blacklistService.getEntryByPhoneNumber(e164Number);
+       
     }
     if (blacklistEntry == null && nationalNumber.isNotEmpty) {
       blacklistEntry =
           await blacklistService.getEntryByPhoneNumber(nationalNumber);
+         
     }
 
     // 7. Check label service
-    LabeledEntry? labeledEntry =
-        await labelService.getEntryByPhoneNumber(phoneNumber);
+    LabeledEntry? labeledEntry = await labelService.getEntryByPhoneNumber(phoneNumber);
+     
     if (labeledEntry == null && nationalNumber.isNotEmpty) {
       labeledEntry = await labelService.getEntryByPhoneNumber(nationalNumber);
+       
     }
     if (labeledEntry == null && e164Number.isNotEmpty) {
       labeledEntry = await labelService.getEntryByPhoneNumber(e164Number);
+        
     }
 
     // 8. Check plugin manager
     Map<String, dynamic>? pluginData = await pluginService.callPlugins(
         phoneNumber, nationalNumber, e164Number);
+    
 
 
 
@@ -153,12 +172,14 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
         //pluginData?['name'] ??
         'Unknown';
 
+
     // Determine label
     String finalLabel = labeledEntry?.label ??
         whitelistEntry?.label ??
         blacklistEntry?.label ??
         pluginData?['predefinedLabel'] ??
         'Unknown';
+
 
     // Determine avatar
     String? avatar = contact?.avatar ??
@@ -168,12 +189,14 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
 
     // If no avatar but label exists, use label to construct avatar path
     if (avatar == null && finalLabel != 'Unknown') {
-      avatar = 'assets/avatars/$finalLabel.png';
+      avatar = 'assets/avatars/$finalLabel.png';      
     }
+
 
     // Get location data
     LocationData? locationData =
         await locationService.getCallerLocationData(e164Number, locale);
+
 
 
 
@@ -195,6 +218,7 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
 
     _callerIdSubject.add(callerIdData);
 
+
     //  更新label得号码数据添加新函数：如果 pluginData?['predefinedLabel'] 不为空，则添加到 LabeledEntry
     if (pluginData?['predefinedLabel'] != null) {
       final entry = LabeledEntry(
@@ -205,13 +229,16 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
       try {
         await labelService.addOrUpdate(entry);
       } catch (e) {
-        //
+        //print('Error adding/updating label: $e');
       }
     }
+
+
 
     return callerIdData;
   }
 }
+
 
 //单独定义得caller id data 数据
 class CallerIdData {
@@ -276,8 +303,8 @@ class CallerIdData {
         count: json['count'],
       );
 
-//为了支持overlay isolate 进行的转换
 
+//为了支持overlay isolate 进行的转换
 
 //显示头像，可展示网络头像
   ImageProvider get avatarImage {
@@ -297,6 +324,7 @@ class CallerIdData {
 }
 
 
+
 class Label {
   String label;
 
@@ -306,8 +334,8 @@ class Label {
   Map<String, dynamic> toJson() => {'label': label};
 
   // 从 Map 创建 Label 对象，这个就是为了展示isolate overlay的转换
-  factory Label.fromJson(Map<String, dynamic> json) =>
-      Label(label: json['label']);
+  factory Label.fromJson(Map<String, dynamic> json) => Label(label: json['label']);
 }
+
 
 

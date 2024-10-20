@@ -330,7 +330,7 @@ class CallHistoryPageState extends State<CallHistoryPage> {
     // 如果缓存中不存在数据，则查询数据库
     try {
       CallerIdData callerIdData =
-          await _callerIdService.getCallerId(e164Number, context, dlibLocale);
+          await _callerIdService.getCallerId(e164Number, dlibLocale);
       // 将查询结果存储到缓存中
       _callerIdDataCache[phoneNumber] = callerIdData;
       _saveCachedCallerIdData(); // 保存更新后的数据

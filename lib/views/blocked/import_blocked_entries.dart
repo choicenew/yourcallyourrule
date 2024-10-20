@@ -29,7 +29,7 @@ class ImportBlockedEntriesPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).importBlockedentriesPage, // 当前页面标题
-      'BlockedPageView', //要=createcard 这个不要修改-卡片标题=点击卡片导航到的页面
+     // 'BlockedPageView', //要=createcard 这个不要修改-卡片标题=点击卡片导航到的页面
       const BlockedPageView(), // create card卡片导航到的页面
       const ImportBlockedEntriesPage(), // 当前页面主要内容
       //下面分别是导出，添加，导入

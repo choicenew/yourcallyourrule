@@ -1,41 +1,37 @@
+// caller_id_monitor_service.dart
 import 'dart:async';
-
-import 'package:dlibphonenumber/dlibphonenumber.dart';
-import 'package:dlibphonenumber/locale.dart' as dlibphone;
+import 'dart:convert';
+import 'package:flutter/material.dart' as flutter;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sim_card_info/sim_card_info.dart';
+import 'package:sim_card_info/sim_info.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:dlibphonenumber/locale.dart' as dlibphone;
+
 //import 'package:flutter_overlay_apps/flutter_overlay_apps.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart' as overlay;
-import 'package:provider/provider.dart';
-import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+import '../screens/appstate_provider.dart';
 import '../screens/callerID/callerid_configuration.dart';
 import '../screens/callerID/callerid_style_provider.dart';
 import '../screens/home_page.dart';
-import '../utils/blocked_call_repository.dart';
 import '../utils/call_filter.dart';
+import '../utils/global_variable.dart';
 import '../utils/language_provider.dart';
+import '../utils/blocked_call_repository.dart';
+import '../screens/callerID/callerid_overlay.dart';
+
 import '../utils/parse_phonenumber.dart';
 import '../utils/repeated_call.dart';
 import 'caller_id_service.dart';
+import 'call_channel_manager.dart';
 
-/*
-// 定义 CallData 类 包含callerid data
-class CallData {
-  final CallerIdData callerIdData;
-  final String e164Number;
-  final String nationalNumber;
-
-  CallData({
-    required this.callerIdData,
-    required this.e164Number,
-    required this.nationalNumber,
-  });
-}
-*/
 // 定义 CallData 类 包含 callerid data, stirInfo 和 simInfo
 class CallData {
   final CallerIdData callerIdData;
@@ -155,20 +151,18 @@ class SimInfo {
 }
 
 class CallerIdMonitorService {
-  static const callerIdChannel =
-      MethodChannel('com.yours.yourcallyourrule/caller_id');
+  final CallChannelManager _channelManager; //新增加的解耦
 
-  static const endCallChannel =
-      MethodChannel('com.yours.yourcallyourrule/end_call');
+  final CallerIdService _callerIdService;
+  final CallFilter _callFilter;
+  final BlockedCallRepository _blockedCallRepository;
+  final TimeBasedInterceptor _timeBasedInterceptor = TimeBasedInterceptor();
+  final _callerIdSubject = BehaviorSubject<CallerIdData>();
+  final FlutterLocalNotificationsPlugin notificationsPlugin;
 
-  static const shouldAcceptCallChannel =
-      MethodChannel('com.yours.yourcallyourrule/should_accept_call');
-
-  static const stirChannel =
-      MethodChannel('com.yours.yourcallyourrule/stir_check');
-
-  static const simChannel =
-      MethodChannel('com.yours.yourcallyourrule/sim_check');
+  bool useLocalNotification = true;
+  bool cancelLocalNotification = false;
+  bool useStirNotification = true;
 
   static const String callLocalNotificationKey = 'call_local_notification';
   static const String callCancelLocalNotificationKey =
@@ -176,58 +170,45 @@ class CallerIdMonitorService {
   static const String stirLocalNotificationKey =
       'stir_local_notification'; //添加stir 的notification
 
-  final CallerIdService _callerIdService;
-  final CallFilter _callFilter;
-  final BlockedCallRepository _blockedCallRepository;
-  final _callerIdSubject = BehaviorSubject<CallerIdData>();
+  OverlayEntry? _currentOverlay;
+  StirInfo? stirInfo;
+  SimInfo? simInfo;
+  OverlayPosition? storedPosition;
+
   Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
 
-  final TimeBasedInterceptor _timeBasedInterceptor = TimeBasedInterceptor();
-  //final TimeBasedInterceptor _timeBasedInterceptor;
-  bool useLocalNotification = true;
-  bool cancelLocalNotification = false;
-  bool useStirNotification = true; //stir 通知
-
-  OverlayEntry? _currentOverlay;
-
-  final FlutterLocalNotificationsPlugin notificationsPlugin;
-
-//后期增加的STIR和SIMinfo
-  // 存储 STIR 信息
-  StirInfo? stirInfo;
-
-  // 存储 SIM 信息
-  SimInfo? simInfo;
-//后期增加的stir 和siminfo信息，到此结束
-
   CallerIdMonitorService(
-      this._callerIdService, this._callFilter, this._blockedCallRepository)
-      : notificationsPlugin = FlutterLocalNotificationsPlugin();
+    this._channelManager,
+    this._callerIdService,
+    this._callFilter,
+    this._blockedCallRepository,
+  ) : notificationsPlugin = FlutterLocalNotificationsPlugin() {
+    _setupChannelCallbacks();
+  }
 
-  Future<void> initialize(BuildContext context) async {
-    // Debug print
+  void _setupChannelCallbacks() {
+    _channelManager.onCallerIdCall = _handleCallerIdCall;
+    _channelManager.onShouldAcceptCallCall = _handleShouldAcceptCallCall;
+    _channelManager.onEndCallCall = _handleEndCallCall;
+    _channelManager.onStirCall = _handleStirCall;
+    _channelManager.onSimCall = _handleSimCall;
+  }
+
+  Future<void> initialize() async {
+
     await loadSettings();
     await _initializeNotifications();
-    _setupMethodChannels(context);
-    //_startListeningPhoneState(context);
-    await _initializeCallerIdService();
 
-    // Debug print
   }
 
   Future<void> loadSettings() async {
     final asyncPrefs = SharedPreferencesAsync();
     useLocalNotification =
-        await asyncPrefs.getBool(callLocalNotificationKey) ?? false;
-
-    // 从 SharedPreferences 读取拦截方式
-
-    final interceptAction =
-        await asyncPrefs.getString('intercept_action') ?? 'endCall';
-
-//stir 通知
+        await asyncPrefs.getBool('call_local_notification') ?? false;
+    //stir 通知
     useStirNotification =
-        await asyncPrefs.getBool(stirLocalNotificationKey) ?? false;
+        await asyncPrefs.getBool('stir_local_notification') ?? false;
+    
   }
 
   Future<void> setUseLocalNotification(bool useLocal) async {
@@ -255,165 +236,6 @@ class CallerIdMonitorService {
     await asyncPrefs.setBool(stirLocalNotificationKey, useStir);
   }
 
-  void _setupMethodChannels(BuildContext context) {
-    _setupCallerIdChannel(context);
-    _setupShouldAcceptCallChannel();
-    _setupEndCallChannel();
-    _setupStirChannel();
-    _setupSimChannel();
-  }
-
-  //calleridchannel的setup
-  void _setupCallerIdChannel(BuildContext context) {
-    //calleridchannel的setup
-    callerIdChannel.setMethodCallHandler((call) async {
-      // Debug print
-      if (call.method == "onCallerIdInitializationComplete") {
-        try {
-          //final String result =
-              await callerIdChannel.invokeMethod('initialize');
-        } on PlatformException catch (e) {
-          //
-        }
-      } else if (call.method == 'onIncomingCall') {
-        // Debug print
-        await _handleIncomingCall(call.arguments['phoneNumber'], context);
-      } else if (call.method == 'onCallEnded') {
-        if (_currentOverlay != null) {
-          enableOverlayDismissal();
-        }
-      } else if (call.method == 'onOutgoingCall') {
-        // Debug print
-        await _handleOutgoingCall(call.arguments['phoneNumber'], context);
-      }
-      return null;
-    });
-  }
-
-//shouldAcceptCall channel的setup
-  void _setupShouldAcceptCallChannel() {
-    shouldAcceptCallChannel.setMethodCallHandler((call) async {
-      if (call.method == 'onShouldAcceptCallInitializationComplete') {
-      } else if (call.method == 'shouldAcceptCall') {
-        final phoneNumber = call.arguments as String;
-        // 先判断 _callFilter 的结果
-        await _callFilter.loadConfig(); // 重新加载配置
-        bool shouldAccept = await _callFilter.shouldAcceptCall(phoneNumber);
-        await _timeBasedInterceptor.loadConfig();
-        // 如果 _callFilter bu允许接听，再判断 _timeBasedInterceptor 的结果
-        if (!shouldAccept && _timeBasedInterceptor.config.shouldIntercept) {
-          shouldAccept =
-              !await _timeBasedInterceptor.shouldIntercept(phoneNumber);
-        }
-
-        return shouldAccept;
-      }
-      return null;
-    });
-  }
-
-  //endcallchannel 的setup
-  void _setupEndCallChannel() {
-    endCallChannel.setMethodCallHandler((call) async {
-      if (call.method == "onEndCallInitializationComplete") {
-      } else if (call.method == "interceptAction") {
-        final phoneNumber = call.arguments as String;
-        SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-        final interceptAction =
-            await asyncPrefs.getString('intercept_action') ?? 'endCall';
-        return interceptAction;
-      }
-      return null;
-    });
-  }
-
-//stirchannel的setup
-  void _setupStirChannel() {
-    stirChannel.setMethodCallHandler((call) async {
-      if (call.method == "onStirInitializationComplete") {
-        // STIR 初始化完成，可以在这里进行一些初始化操作（可选）
-      } else if (call.method == "onStirResult") {
-        final isVerified = call.arguments['isVerified'] as bool;
-        final isNotVerified = call.arguments['isNotVerified'] as bool;
-        final isFailed = call.arguments['isFailed'] as bool;
-        final phoneNumber =
-            call.arguments['phoneNumber'] as String?; // 获取来电/去电号码
-
-        // 存储 STIR 信息
-        stirInfo = StirInfo(
-          isVerified: isVerified,
-          isNotVerified: isNotVerified,
-          isFailed: isFailed,
-          phoneNumber: phoneNumber, // 假设 phoneNumber 从这里获取
-        );
-
-        // 根据 STIR 验证结果进行拦截判断
-        //  await _showStirCallNotification(
-        //        call.arguments['phoneNumber'], isVerified, isNotVerified, isFailed);
-
-        await _handleStir(
-            call.arguments['phoneNumber'], isVerified, isNotVerified, isFailed);
-
-        // ... 你的拦截逻辑 ...
-
-        // 例如，如果 STIR 验证失败，则拦截来电
-        if (isFailed) {
-          // ... 执行拦截操作 ...
-        }
-      }
-      return null;
-    });
-  }
-
-  //simChannel的setup
-  void _setupSimChannel() {
-    simChannel.setMethodCallHandler((call) async {
-      if (call.method == "onSimInitializationComplete") {
-      } else if (call.method == "onSimInfo") {
-        final carrierName = call.arguments['carrierName'] as String?;
-        final displayName = call.arguments['displayName'] as String?;
-        final iccId = call.arguments['iccId'] as String?;
-        final countryIso = call.arguments['countryIso'] as String?;
-        final phoneNumber =
-            call.arguments['incomingPhoneNumber'] as String?; // 获取来电/去电号码
-        final simSlotIndex = call.arguments['simSlotIndex'] as int?; // SIM 卡槽索引
-        final subscriptionId =
-            call.arguments['subscriptionId'] as int?; // 订阅 ID
-        final mccString = call.arguments['mccString'] as String?; // MCC 字符串
-        final mncString = call.arguments['mncString'] as String?; // MNC 字符串
-        final simPhoneNumber =
-            call.arguments['simPhoneNumber'] as String?; // SIM 卡号码
-        final callType = call.arguments['callType'] as String?; // SIM 卡号码
-
-        // 存储 SIM 信息
-        simInfo = SimInfo(
-          carrierName: carrierName,
-          displayName: displayName,
-          iccId: iccId,
-          countryIso: countryIso,
-          phoneNumber: phoneNumber,
-          simSlotIndex: simSlotIndex,
-          subscriptionId: subscriptionId,
-          mccString: mccString,
-          mncString: mncString,
-          simPhoneNumber: simPhoneNumber,
-          callType: callType,
-        );
-
-        // ... 处理 SIM 卡信息 ...
-      }
-    });
-  }
-
-//初始化服务
-  Future<void> _initializeCallerIdService() async {
-    try {
-      await callerIdChannel.invokeMethod('initialize');
-    } on PlatformException catch (e) {
-      //
-    }
-  }
-
   Future<void> _initializeNotifications() async {
     const initializationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -422,8 +244,207 @@ class CallerIdMonitorService {
     await notificationsPlugin.initialize(initializationSettings);
   }
 
+  void _handleCallerIdCall(MethodCall call) async {
+    if (call.method == "onCallerIdInitializationComplete") {
+      await _channelManager.initializeCallerId();
+    } else if (call.method == 'onIncomingCall') {
+
+      await _handleIncomingCall(call.arguments['phoneNumber']);
+    } else if (call.method == 'onCallEnded') {
+      _handleCallEnded();
+    } else if (call.method == 'onOutgoingCall') {
+
+      await _handleOutgoingCall(call.arguments['phoneNumber']);
+    }
+  }
+
+  Future<bool?> _handleShouldAcceptCallCall(MethodCall call) async {
+    if (call.method == 'onShouldAcceptCallInitializationComplete') {
+    
+    } else if (call.method == 'shouldAcceptCall') {
+      final phoneNumber = call.arguments as String;
+      // 先判断 _callFilter 的结果
+      await _callFilter.loadConfig(); // 重新加载配置
+      bool shouldAccept = await _callFilter.shouldAcceptCall(phoneNumber);
+      await _timeBasedInterceptor.loadConfig();
+      // 如果 _callFilter bu允许接听，再判断 _timeBasedInterceptor 的结果
+      if (!shouldAccept && _timeBasedInterceptor.config.shouldIntercept) {
+        shouldAccept =
+            !await _timeBasedInterceptor.shouldIntercept(phoneNumber);
+      }
+      return shouldAccept;
+    }
+    return null;
+  }
+
+  Future<String?> _handleEndCallCall(MethodCall call) async {
+    if (call.method == "onEndCallInitializationComplete") {
+  
+    } else if (call.method == "interceptAction") {
+      final phoneNumber = call.arguments as String;
+      SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
+      final interceptAction =
+          await asyncPrefs.getString('intercept_action') ?? 'endCall';
+      return interceptAction;
+    }
+    return null;
+  }
+
+  void _handleStirCall(MethodCall call) {
+    if (call.method == "onStirInitializationComplete") {
+      // STIR 初始化完成，可以在这里进行一些初始化操作（可选）
+    
+    } else if (call.method == "onStirResult") {
+      final isVerified = call.arguments['isVerified'] as bool;
+      final isNotVerified = call.arguments['isNotVerified'] as bool;
+      final isFailed = call.arguments['isFailed'] as bool;
+      final phoneNumber = call.arguments['phoneNumber'] as String?; // 获取来电/去电号码
+
+      // 存储 STIR 信息
+      stirInfo = StirInfo(
+        isVerified: isVerified,
+        isNotVerified: isNotVerified,
+        isFailed: isFailed,
+        phoneNumber: phoneNumber,
+      );
+
+      _handleStir(stirInfo!.phoneNumber!, stirInfo!.isVerified,
+          stirInfo!.isNotVerified, stirInfo!.isFailed);
+
+      // ... 你的拦截逻辑 ...
+      // 例如，如果 STIR 验证失败，则拦截来电
+      if (isFailed) {
+        // ... 执行拦截操作 ...
+      }
+    }
+  }
+
+  void _handleSimCall(MethodCall call) {
+    if (call.method == "onSimInitializationComplete") {
+   
+    } else if (call.method == "onSimInfo") {
+      final carrierName = call.arguments['carrierName'] as String?;
+      final displayName = call.arguments['displayName'] as String?;
+      final iccId = call.arguments['iccId'] as String?;
+      final countryIso = call.arguments['countryIso'] as String?;
+      final phoneNumber = call.arguments['incomingPhoneNumber'] as String?;
+      final simSlotIndex = call.arguments['simSlotIndex'] as int?;
+      final subscriptionId = call.arguments['subscriptionId'] as int?;
+      final mccString = call.arguments['mccString'] as String?;
+      final mncString = call.arguments['mncString'] as String?;
+      final simPhoneNumber = call.arguments['simPhoneNumber'] as String?;
+      final callType = call.arguments['callType'] as String?;
+
+      simInfo = SimInfo(
+        carrierName: carrierName,
+        displayName: displayName,
+        iccId: iccId,
+        countryIso: countryIso,
+        phoneNumber: phoneNumber,
+        simSlotIndex: simSlotIndex,
+        subscriptionId: subscriptionId,
+        mccString: mccString,
+        mncString: mncString,
+        simPhoneNumber: simPhoneNumber,
+        callType: callType,
+      );
+
+      // ... 处理 SIM 卡信息 ...
+    }
+  }
+
+// 处理来电的方法
+  Future<void> _handleIncomingCall(String phoneNumber) async {
+    CallData callData = await _handleCall(phoneNumber);
+
+    //await showCallerIdOverlay(context, callData.callerIdData);
+    await showCallerIdOverlay(
+        callData.callerIdData, callData.stirInfo, callData.simInfo);
+
+    _callerIdSubject.add(callData.callerIdData);
+
+    // 使用列表和 any 方法进行优先级判断
+    final numbersToTest = [
+      phoneNumber,
+      callData.nationalNumber,
+      callData.e164Number
+    ].whereType<String>();
+
+    await _callFilter.loadConfig(); // 重新加载配置
+    await _timeBasedInterceptor.loadConfig();
+
+
+    final shouldAccept = await Future.any(
+      numbersToTest.map((number) async {
+        bool shouldAccept = await _callFilter.shouldAcceptCall(number);
+       
+        // 如果 _callFilter 不允许接听，再判断 _timeBasedInterceptor 的结果
+        if (!shouldAccept && _timeBasedInterceptor.config.shouldIntercept) {
+          shouldAccept = !await _timeBasedInterceptor.shouldIntercept(number);
+        
+        }
+
+        return shouldAccept;
+      }),
+    );
+
+
+
+    if (shouldAccept) {
+      // 显示 Overlay
+    } else {
+      // 拦截来电
+
+      // 从 SharedPreferences 读取拦截方式
+      SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
+      final interceptAction =
+          await asyncPrefs.getString('intercept_action') ?? 'endCall';
+
+      if (useLocalNotification) {
+        await _showBlockedCallNotification(phoneNumber);
+        if (cancelLocalNotification) {
+          await Future.delayed(
+              const Duration(seconds: 5)); // Delay for 5 seconds
+          await notificationsPlugin
+              .cancel(0); // cancel the notification with id value of zero
+        }
+      }
+
+      await _blockedCallRepository.addBlockedCall(phoneNumber);
+
+    }
+  }
+
+// 处理拨出电话的方法
+  Future<void> _handleOutgoingCall(String phoneNumber) async {
+    CallData callData = await _handleCall(phoneNumber);
+
+    //await showCallerIdOverlay(context, callData.callerIdData);
+    await showCallerIdOverlay(
+        callData.callerIdData, callData.stirInfo, callData.simInfo);
+
+    _callerIdSubject.add(callData.callerIdData);
+  }
+
+  void _handleCallEnded() {
+    if (_currentOverlay != null) {
+      enableOverlayDismissal();
+    }
+  }
+
+  Future<void> _handleStir(String phoneNumber, bool isVerified,
+      bool isNotVerified, bool isFailed) async {
+    if (useStirNotification) {
+      await _showStirCallNotification(
+          phoneNumber, isVerified, isNotVerified, isFailed);
+      await Future.delayed(const Duration(seconds: 5));
+      await notificationsPlugin.cancel(0);
+    }
+  }
+
 // 提取的公共函数
-  Future<CallData> _handleCall(String phoneNumber, BuildContext context) async {
+  Future<CallData> _handleCall(String phoneNumber) async {
+   
     // 使用存储的 STIR 信息 (如果 phoneNumber 匹配)
     StirInfo? stirInfoToUse =
         stirInfo != null && stirInfo!.phoneNumber == phoneNumber
@@ -435,7 +456,7 @@ class CallerIdMonitorService {
         simInfo != null && simInfo?.phoneNumber == phoneNumber ? simInfo : null;
 
     // 解析号码
-
+    // Map<String, String> parsedData = await parsePhoneNumber(phoneNumber);
     // 根据 simInfoToUse.countryIso 判断使用哪个解析方法
     Map<String, String> parsedData;
     if (simInfoToUse != null && simInfoToUse.countryIso != null) {
@@ -472,9 +493,9 @@ class CallerIdMonitorService {
     }
 
     // 获取当前 Locale
-    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
-    final currentLocale = localeProvider.locale;
-    final languageCode = currentLocale.languageCode;
+    // final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
+    //  final currentLocale = localeProvider.locale;
+    final languageCode = currentLocale?.languageCode ?? 'en';
 
     // 创建 dlibphonenumber 的 Locale
     final dlibLocale = dlibphone.Locale(
@@ -484,7 +505,7 @@ class CallerIdMonitorService {
 
     // 获取来电显示信息
     CallerIdData callerIdData =
-        await _callerIdService.getCallerId(phoneNumber, context, dlibLocale);
+        await _callerIdService.getCallerId(phoneNumber, dlibLocale);
 
     return CallData(
       callerIdData: callerIdData,
@@ -495,90 +516,79 @@ class CallerIdMonitorService {
     );
   }
 
-// 处理拨出电话的方法
-  Future<void> _handleOutgoingCall(
-      String phoneNumber, BuildContext context) async {
-    CallData callData = await _handleCall(phoneNumber, context);
+  Future<void> showCallerIdOverlay(
+      CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
 
-    //await showCallerIdOverlay(context, callData.callerIdData);
-    await showCallerIdOverlay(
-        context, callData.callerIdData, callData.stirInfo, callData.simInfo);
 
-    _callerIdSubject.add(callData.callerIdData);
-  }
+    CallerIdStyleProvider? styleProvider;
+    // 获取 CallerIdStyleProvider
+    //styleProvider = Provider.of<CallerIdStyleProvider>(context, listen: false);
 
-// 处理来电的方法
-  Future<void> _handleIncomingCall(
-      String phoneNumber, BuildContext context) async {
-    CallData callData = await _handleCall(phoneNumber, context);
+    styleProvider = await ConfigurationManager.fromSharedPreferences();
 
-    //await showCallerIdOverlay(context, callData.callerIdData);
-    await showCallerIdOverlay(
-        context, callData.callerIdData, callData.stirInfo, callData.simInfo);
 
-    _callerIdSubject.add(callData.callerIdData);
+    await updateAndShareConfiguration(styleProvider);
 
-    // 使用列表和 any 方法进行优先级判断
-    final numbersToTest = [
-      phoneNumber,
-      callData.nationalNumber,
-      callData.e164Number
-    ].whereType<String>();
+    // 获取当前 Overlay 位置，如果 Overlay 处于激活状态
+    if (await FlutterOverlayWindow.isActive()) {
+      storedPosition = await FlutterOverlayWindow.getOverlayPosition();
+    } else {
+      // 如果 Overlay 未激活，则初始化位置或使用默认位置
+      storedPosition = storedPosition ?? const OverlayPosition(0, 0);
+    }
 
-    await _callFilter.loadConfig(); // 重新加载配置
-    await _timeBasedInterceptor.loadConfig();
+    // 添加 configType 标识
+    final dataToSend = {
+      "configType": "callerIdData", // 添加 configType 字段
+      ...callerIdData.toJson(),
+    };
 
-    final shouldAccept = await Future.any(
-      numbersToTest.map((number) async {
-        bool shouldAccept = await _callFilter.shouldAcceptCall(number);
-        // 如果 _callFilter 不允许接听，再判断 _timeBasedInterceptor 的结果
-        if (!shouldAccept && _timeBasedInterceptor.config.shouldIntercept) {
-          shouldAccept = !await _timeBasedInterceptor.shouldIntercept(number);
-        }
-        return shouldAccept;
-      }),
+    // 传递 Map 对象
+    FlutterOverlayWindow.shareData(dataToSend);
+
+
+
+    if (stirInfo != null) {
+      await FlutterOverlayWindow.shareData({
+        "configType": "stirInfo", // 添加 configType 字段
+        ...stirInfo.toJson(),
+      });
+    }
+    // 传递 SIM 信息
+
+    if (simInfo != null) {
+      await FlutterOverlayWindow.shareData({
+        "configType": "simInfo", // 添加 configType 字段
+        ...simInfo.toJson(),
+      });
+    }
+
+    // 如果 Overlay 未激活，则显示 Overlay 并设置初始位置
+    await FlutterOverlayWindow.showOverlay(
+      enableDrag: true,
+      overlayTitle: "来电显示",
+      overlayContent:
+          "name:${callerIdData.phoneNumber},region:${callerIdData.countryName},carrier:${callerIdData.carrier}",
+      alignment: OverlayAlignment.center,
+      flag: OverlayFlag.defaultFlag,
+      visibility: overlay.NotificationVisibility.visibilityPublic,
+      positionGravity: PositionGravity.auto,
+      height: (styleProvider.windowHeight * (pixelRatio ?? 3.0))
+          .toInt(), // 使用 styleProvider.windowHeight
+      width: (styleProvider.windowWidth * (pixelRatio ?? 3.0)).toInt(),
+      startPosition: storedPosition!,
     );
 
-    if (shouldAccept) {
-      // 显示 Overlay
-    } else {
-      // 拦截来电
-
-      // 从 SharedPreferences 读取拦截方式
-      SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-      final interceptAction =
-          await asyncPrefs.getString('intercept_action') ?? 'endCall';
-
-      if (useLocalNotification) {
-        await _showBlockedCallNotification(phoneNumber);
-        if (cancelLocalNotification) {
-          await Future.delayed(
-              const Duration(seconds: 5)); // Delay for 5 seconds
-          await notificationsPlugin
-              .cancel(0); // cancel the notification with id value of zero
-        }
-      }
-
-      await _blockedCallRepository.addBlockedCall(phoneNumber);
-    }
+   
   }
 
-// 处理stir的方法
-  Future<void> _handleStir(String phoneNumber, bool isVerified,
-      bool isNotVerified, bool isFailed) async {
-    if (useStirNotification) {
-      // 根据 STIR 验证结果进行拦截判断
-      await _showStirCallNotification(
-          phoneNumber, isVerified, isNotVerified, isFailed);
-
-      await Future.delayed(const Duration(seconds: 5)); // Delay for 5 seconds
-      await notificationsPlugin
-          .cancel(0); // cancel the notification with id value of zero
-    }
+  void enableOverlayDismissal() {
+    // 直接使用 FlutterOverlayWindow 关闭 overlay 应用
+    FlutterOverlayWindow.closeOverlay();
   }
 
   Future<void> _showBlockedCallNotification(String phoneNumber) async {
-    // Debug print
+    
     const androidDetails = AndroidNotificationDetails(
       'call_blocker_channel',
       'Call Blocker Notifications',
@@ -606,7 +616,7 @@ class CallerIdMonitorService {
       stirResultMessage = "STIR Unknown";
     }
 
-    // Debug print
+
 
     const androidDetails = AndroidNotificationDetails(
       'call_blocker_channel',
@@ -633,69 +643,7 @@ class CallerIdMonitorService {
 
     // 传递 Map 对象
     FlutterOverlayWindow.shareData(dataToSend);
-  }
 
-  OverlayPosition? storedPosition;
-
-  Future<void> showCallerIdOverlay(BuildContext context,
-      CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
-    CallerIdStyleProvider? styleProvider;
-
-    styleProvider = await ConfigurationManager.fromSharedPreferences();
-
-    await updateAndShareConfiguration(styleProvider);
-
-    // 获取当前 Overlay 位置，如果 Overlay 处于激活状态
-    if (await FlutterOverlayWindow.isActive()) {
-      storedPosition = await FlutterOverlayWindow.getOverlayPosition();
-    } else {
-      // 如果 Overlay 未激活，则初始化位置或使用默认位置
-      storedPosition = storedPosition ?? const OverlayPosition(0, 0);
-    }
-
-    // 添加 configType 标识
-    final dataToSend = {
-      "configType": "callerIdData", // 添加 configType 字段
-      ...callerIdData.toJson(),
-    };
-
-    // 传递 Map 对象
-    FlutterOverlayWindow.shareData(dataToSend);
-
-    if (stirInfo != null) {
-      await FlutterOverlayWindow.shareData({
-        "configType": "stirInfo", // 添加 configType 字段
-        ...stirInfo.toJson(),
-      });
-    }
-
-    if (simInfo != null) {
-      await FlutterOverlayWindow.shareData({
-        "configType": "simInfo", // 添加 configType 字段
-        ...simInfo.toJson(),
-      });
-    }
-
-    // 如果 Overlay 未激活，则显示 Overlay 并设置初始位置
-    await FlutterOverlayWindow.showOverlay(
-      enableDrag: true,
-      overlayTitle: "来电显示",
-      overlayContent:
-          "name:${callerIdData.phoneNumber},region:${callerIdData.countryName},carrier:${callerIdData.carrier}",
-      alignment: OverlayAlignment.center,
-      flag: OverlayFlag.defaultFlag,
-      visibility: overlay.NotificationVisibility.visibilityPublic,
-      positionGravity: PositionGravity.auto,
-      height: (styleProvider.windowHeight * (pixelRatio ?? 3.0))
-          .toInt(), // 使用 styleProvider.windowHeight
-      width: (styleProvider.windowWidth * (pixelRatio ?? 3.0)).toInt(),
-      startPosition: storedPosition!,
-    );
-  }
-
-  void enableOverlayDismissal() {
-    // 直接使用 FlutterOverlayWindow 关闭 overlay 应用
-    FlutterOverlayWindow.closeOverlay();
   }
 
   Future<void> dispose() async {
@@ -705,5 +653,4 @@ class CallerIdMonitorService {
       FlutterOverlayWindow.closeOverlay();
     }
   }
-//ceshi
 }

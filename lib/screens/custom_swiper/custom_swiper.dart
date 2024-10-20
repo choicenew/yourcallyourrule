@@ -49,6 +49,7 @@ class _CustomSwiperState extends State<CustomSwiper> {
     super.dispose();
   }
 
+
   int getCardIndexFromItemIndex(
       int itemIndex, bool isAdEnabled, int cardCount) {
     return itemIndex; // 直接返回 itemIndex
@@ -106,7 +107,15 @@ class _CustomSwiperState extends State<CustomSwiper> {
       // 每两个卡片后面显示一个广告
       if (adState.isAdEnabled && (index + 1) % 3 == 0) {
         //return const GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd);
-        return const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd);
+        
+        return const InlineAdaptiveBannerAdWidget(
+  adInfo: AdManager.adaptiveBannerAd,
+  //width: 300,
+);
+
+
+
+
 
       } else {
         // 计算卡片索引，每两个卡片后面插入一个广告，所以索引需要进行调整
@@ -148,6 +157,7 @@ class _CustomSwiperState extends State<CustomSwiper> {
               // 将 itemExtent 设置为 widget.width * 0.9，与 SizedBox 宽度一致
               itemExtent: widget.width * 0.9,
               shrinkExtent: 200, // 设置卡片压缩后的最小宽度
+
 
               // CarouselView 的 onTap 回调函数
               onTap: (index) {
@@ -234,6 +244,7 @@ class CardItemWidget extends StatelessWidget {
 
   const CardItemWidget({super.key, required this.cardItem});
 
+
   @override
   Widget build(BuildContext context) {
     // 如果 cardItem 为空，则显示一个空的 Container
@@ -244,3 +255,6 @@ class CardItemWidget extends StatelessWidget {
     return cardItem!; // 直接返回 CardItem 组件，不再使用 GestureDetector
   }
 }
+
+
+

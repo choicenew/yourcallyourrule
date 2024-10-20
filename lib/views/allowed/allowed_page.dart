@@ -1,12 +1,10 @@
-//import 'dart:io';
+
 import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-//import 'dart:convert';
-//import 'package:path/path.dart' as path_helper;
-//import 'package:sqflite/sqflite.dart';
+
 
 import '../../generated/l10n.dart';
 import '../../new_set_icons.dart';
@@ -15,17 +13,17 @@ import '../../services/allowed_blocked_service.dart';
 import '../../utils/ad_manager.dart';
 import '../../utils/ad_state.dart';
 import '../../widgets/google_ad.dart';
-//import '../switch_style.dart';
+
 import '../../widgets/self_managed_search_bar.dart';
-//import '../../models/subscription_model.dart';
+
 
 import '../public/build_page_switch.dart';
 import '../public/isolated_widgets.dart';
 import '../public/public_select_label.dart';
 import '../public/responsive_grid_list.dart';
-//import 'dart:io';
+
 import 'add_allowed_entry.dart';
-//import '../../views/allowed/allowed_page.dart';
+
 import 'export_allowed_entries.dart';
 import 'import_allowed_entries.dart';
 
@@ -37,7 +35,7 @@ class AllowedPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).allowedEntryPage, // 页面标题
-      'AllowedPageView', // 卡片标题=点击卡片导航到的页面
+      //'AllowedPageView', // 卡片标题=点击卡片导航到的页面
       const AllowedPageView(), // 点击卡片导航到的页面
       const AllowedPage(), // 当前页面主要内容
       exportPage: const ExportAllowedEntriesPageView(), // 导出页面

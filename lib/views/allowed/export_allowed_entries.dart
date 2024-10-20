@@ -1,31 +1,23 @@
-//import 'dart:io';
+
 import 'dart:core';
 
-//import 'package:csv/csv.dart';
-//import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
-//import 'package:intl/intl.dart';
+
 import 'package:provider/provider.dart';
 
-//import 'dart:convert';
-//import 'package:path/path.dart';
-//import 'package:sqflite/sqflite.dart';
+
 
 import '../../generated/l10n.dart';
 import '../../screens/appstate_provider.dart';
 import '../../services/allowed_blocked_service.dart';
-//import 'dart:io';
-//import '../../models/subscription_model.dart';
-//import '../../views/first_page_style.dart';
-//import '../../views/shield_switch_style.dart';
-//import '../switch_style.dart';
-//import '../../services/blacklist_whitelist_service.dart';
+
 import '../public/build_page_switch.dart';
 import '../public/export_item.dart';
 import '../public/select_items.dart';
 import 'add_allowed_entry.dart';
 import 'allowed_page.dart';
-//import '../../views/allowed/export_allowed_entries.dart';
+
 import 'import_allowed_entries.dart';
 
 class ExportAllowedEntriesPageView extends StatelessWidget {
@@ -36,7 +28,7 @@ class ExportAllowedEntriesPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportAllowedEntryPage, // 页面标题
-      'AllowedPageView', // 卡片标题=点击卡片导航到的页面
+     // 'AllowedPageView', // 卡片标题=点击卡片导航到的页面
       const AllowedPageView(), // 点击卡片导航到的页面
       const ExportAllowedEntriesPage(), // 当前页面主要内容
       exportPage: const ExportAllowedEntriesPageView(), // 导出页面

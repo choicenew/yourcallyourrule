@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_overlay_apps/flutter_overlay_apps.dart';
+import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart' hide AppState;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -10,11 +11,14 @@ import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart
 import '../utils/language_provider.dart';
 import 'screens/appstate_provider.dart';
 
+import 'screens/callerID/callerid_overlay.dart';
 import 'screens/callerID/callerid_overlay_entry.dart';
 import 'screens/callerID/callerid_style_provider.dart';
 import 'screens/home_page.dart';
 import 'screens/onboarding.dart';
+import 'screens/settings.dart';
 
+import 'services/caller_id_service.dart';
 import 'shared/const/theme_config.dart';
 import 'utils/ad_state.dart';
 import 'generated/l10n.dart';
@@ -22,14 +26,62 @@ import 'generated/l10n.dart';
 import 'utils/purchase_state.dart';
 import 'utils/theme_provider.dart';
 import 'views/sync/backup_restore_controller.dart';
-
+/*
+// Overlay entry point
+@pragma('vm:entry-point')
+void showOverlay(CallerIdData callerIdData) {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => LocaleProvider()),
+        ChangeNotifierProvider(create: (_) => AppState()),
+        ChangeNotifierProvider(create: (_) => AdState()),
+        ChangeNotifierProvider(create: (context) => createBackupRestoreController(context)),
+        ChangeNotifierProvider(create: (context) => CallerIdStyleProvider()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: CallerIdOverlay(
+          callerIdData: callerIdData, // You'll need to pass the actual data here
+          onDismiss: () {
+            FlutterOverlayApps.closeOverlay();
+          },
+          isDismissible: false,
+        ),
+      ),
+    ),
+  );
+}
+//入口点结束，要删除也是删除上面的内容
+*/
 
 //ceshi
 @pragma("vm:entry-point")
 void overlayMain() {
   WidgetsFlutterBinding.ensureInitialized();
 
-
+/*  
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => LocaleProvider()),
+        ChangeNotifierProvider(create: (_) => AppState()),
+        ChangeNotifierProvider(create: (_) => AdState()),
+        ChangeNotifierProvider(create: (_) => PurchaseState()),        
+        ChangeNotifierProvider(create: (context) => createBackupRestoreController(context)),
+        ChangeNotifierProvider(create: (context) => CallerIdStyleProvider()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+      ],
+      child: const MaterialApp(
+      debugShowCheckedModeBanner: false,
+        home: CallerIdOverlayEntry(), // 使用一个新的 Widget 作为 Overlay 的入口
+      ),
+    ),
+  );
+}
+//ceshi
+*/
   runApp(
     MultiProvider(
       providers: [
@@ -49,14 +101,14 @@ void overlayMain() {
             debugShowCheckedModeBanner: false,
             locale: localeProvider
                 .locale, // Use the current locale from LocaleProvider
-            localizationsDelegates: [
+            localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               // GlobalCupertinoLocalizations.delegate, (if needed)
             ],
             supportedLocales: S.delegate.supportedLocales,
-            home: CallerIdOverlayEntry(),
+            home: const CallerIdOverlayEntry(),
           );
         },
       ),
@@ -75,8 +127,8 @@ void main() async {
   final appState = AppState();
   //await appState.initializeDatabases();
   await appState.initServices();
-  // await appState.ensureServicesInitialized();
-
+  //await appState.ensureServicesInitialized();
+ 
   await MobileAds.instance.initialize(); // 初始化 Google Mobile Ads SDK
   // 检查 onboarding 是否已经完成Check if onboarding is completed
 
@@ -108,12 +160,101 @@ void main() async {
   );
 }
 
+/*
+class MyApp extends StatelessWidget {
+  final bool onboardingCompleted;
 
+  const MyApp({super.key, required this.onboardingCompleted});
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<LocaleProvider>(
+      builder: (context, localeProvider, child) {
+        return MaterialApp(
+          title: 'Your Call Your Rule',
+          theme: ThemeData(
+            useMaterial3: false,
+          ),
+          locale: localeProvider.locale,
+          home: onboardingCompleted
+              ? const MyHomePage()
+              : OnboardingScreen(
+                  onComplete: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => const MyHomePage()),
+                    );
+                  },
+                ),
+        );
+      },
+    );
+  }
+}
+*/
 
 class MyApp extends StatelessWidget {
   final bool onboardingCompleted;
 
   const MyApp({super.key, required this.onboardingCompleted});
+
+/*
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<LocaleProvider>(
+      builder: (context, localeProvider, child) {
+        return MaterialApp(
+          title: 'Your Call Your Rule',
+          theme: ThemeData(
+            useMaterial3: true,
+          ),
+          locale: localeProvider.locale,
+          home: onboardingCompleted
+              ? const MyHomePage()
+              : OnboardingScreen(
+                  onComplete: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => const MyHomePage()),
+                    );
+                  },
+                ),
+        );
+      },
+    );
+  }
+}
+*/
+
+/*
+  @override
+  Widget build(BuildContext context) {
+    return Consumer2<LocaleProvider, ThemeProvider>( // 使用 Consumer2 监听两个 Provider
+      builder: (context, localeProvider, themeProvider, child) {
+        return MaterialApp(
+          title: 'Your Call Your Rule',
+          theme: getTheme(themeProvider.themeMode), // 使用 getTheme 函数获取主题
+          locale: localeProvider.locale,
+          localizationsDelegates: [
+                    S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        // GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          home: onboardingCompleted
+              ? const MyHomePage()
+              : OnboardingScreen(
+                  onComplete: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => const MyHomePage()),
+                    );
+                  },
+                ),
+        );
+      },
+    );
+  }
+}
+*/
 
 
 
@@ -127,7 +268,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: getTheme(themeProvider.themeMode), // 使用 getTheme 函数获取主题
           locale: localeProvider.locale,
-          localizationsDelegates: [
+          localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,

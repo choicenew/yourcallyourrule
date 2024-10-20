@@ -1,23 +1,27 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+
 import 'package:permission_handler/permission_handler.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../generated/l10n.dart';
 import '../services/caller_id_monitor_service.dart';
 import '../services/sms_notification_service.dart';
+
 import '../utils/ad_state.dart';
 import '../utils/call_screen_plugin.dart';
 import '../utils/language_provider.dart';
 import '../utils/purchase_state.dart';
 import '../utils/repeated_call.dart';
 import '../utils/theme_provider.dart';
-import '../utils/update_interval.dart';
 import '../views/about.dart';
 import '../widgets/adwidgets/native_ads.dart';
+
 import '../widgets/purchase_manager.dart';
+import 'package:provider/provider.dart';
+
+import '../utils/update_interval.dart';
+
 import 'appstate_provider.dart';
 import 'language_data.dart';
 
@@ -25,10 +29,10 @@ class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
   @override
-  SettingsPageState createState() => SettingsPageState();
+  _SettingsPageState createState() => _SettingsPageState();
 }
 
-class SettingsPageState extends State<SettingsPage> {
+class _SettingsPageState extends State<SettingsPage> {
   late InAppPurchaseManager inAppPurchaseManager;
 
   bool _isPermissionsExpanded = false; // 定义 _isPermissionsExpanded
@@ -74,7 +78,7 @@ class SettingsPageState extends State<SettingsPage> {
     _loadCallFilterService(); // 过滤电话action
     _loadInterceptAction(); // 新增: 加载 电话过滤action
     _loadSmsFilterService(); // 新增: 加载 SMS 过滤状态
-    _loadStirNotification();
+    _loadStirNotification(); // 新增: 加载 Stir状态
     //  _timeBasedInterceptor = TimeBasedInterceptor(); // 初始化实例
     _loadInterceptorSettings();
     _loadDefaultCallerIdStatus();
@@ -200,7 +204,7 @@ class SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     // 获取当前的 LocaleProvider
-    Provider.of<LocaleProvider>(context, listen: false);
+    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
 
     final adState = Provider.of<AdState>(context);
     return Scaffold(
@@ -292,6 +296,8 @@ class SettingsPageState extends State<SettingsPage> {
     );
   }
 
+
+
   Widget _buildLanguageSelection() {
     return Consumer<LocaleProvider>(
       builder: (context, localeProvider, child) {
@@ -328,6 +334,8 @@ class SettingsPageState extends State<SettingsPage> {
       },
     );
   }
+
+
 
   // 构建 TimeBasedInterceptor 设置项
   Widget _buildCallActionInterceptorSettings() {
@@ -681,6 +689,8 @@ class SettingsPageState extends State<SettingsPage> {
     );
   }
 
+
+
   Widget _buildIntervalSettings() {
     return ExpansionTile(
       title: Text(
@@ -907,3 +917,5 @@ class SettingsPageState extends State<SettingsPage> {
     );
   }
 }
+
+

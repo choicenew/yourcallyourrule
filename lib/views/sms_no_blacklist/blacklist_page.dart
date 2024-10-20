@@ -36,7 +36,7 @@ class SmsBlacklistPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).whitelistPage, // 页面标题
-      'SmsBlacklistPageView', // 卡片标题=点击卡片导航到的页面
+     // 'SmsBlacklistPageView', // 卡片标题=点击卡片导航到的页面
       const SmsBlacklistPageView(), // 点击卡片导航到的页面
       const SmsBlacklistPage(), // 当前页面主要内容
       exportPage: const ExportSmsBlacklistsPageView(), // 导出页面

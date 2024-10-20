@@ -31,7 +31,7 @@ class ExportSmsWhitelistsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportSmsWhitelistsPage, // 页面标题
-      'SmsWhitelistPageView', // 卡片标题=点击卡片导航到的页面
+     // 'SmsWhitelistPageView', // 卡片标题=点击卡片导航到的页面
       const SmsWhitelistPageView(), // 点击卡片导航到的页面
       const ExportSmsWhitelistsPage(), // 当前页面主要内容
       exportPage: const ExportSmsWhitelistsPageView(), // 导出页面

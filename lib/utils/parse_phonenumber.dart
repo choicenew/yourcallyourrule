@@ -1,8 +1,14 @@
 import 'dart:async';
 
+
+
 import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:call_log/call_log.dart';
 import 'package:sim_card_info/sim_card_info.dart';
 import 'package:sim_card_info/sim_info.dart' as flutter;
+
+import '../services/caller_id_monitor_service.dart';
+
 
 Future<Map<String, String>> _parsePhoneNumber(
     String phoneNumber, String? simCountryCode) async {
@@ -46,15 +52,16 @@ Future<Map<String, String>> _parsePhoneNumber(
             parseAndFormat(parsedPhoneNumber);
             break;
           } catch (e) {
-            print('Failed to parse with country code $code: $e');
+            //print('Failed to parse with country code $code: $e');
           }
         }
       }
     }
   } catch (e) {
-    print('Failed to parse phone number: $e');
+   // print('Failed to parse phone number: $e');
   }
- print("解析后的号码,de $e164Number de $nationalNumber $countryCode"); 
+ 
+
   return {
     'countryCode': countryCode ?? '',
     'e164Number': e164Number,
@@ -62,16 +69,18 @@ Future<Map<String, String>> _parsePhoneNumber(
   };
 }
 
+
 Future<Map<String, String>> parsePhoneNumber(String phoneNumber) async {
   return _parsePhoneNumber(phoneNumber, null);
 }
 
 Future<Map<String, String>> parsePhoneNumberWithoutIso(
     String phoneNumber, String? countryCode) async {
-  return _parsePhoneNumber(phoneNumber, null);
+  return _parsePhoneNumber(phoneNumber, null); // 不使用 countryCode 参数
 }
 
 Future<Map<String, String>> parsePhoneNumberWithIso(
     String phoneNumber, String simCountryCode) async {
   return _parsePhoneNumber(phoneNumber, simCountryCode);
 }
+

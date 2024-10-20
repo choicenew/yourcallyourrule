@@ -1,5 +1,6 @@
 import 'dart:async';
 
+
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path_helper;
 import 'package:sqflite/sqflite.dart';
@@ -14,10 +15,12 @@ import '../../services/sms_blacklist_whitelist_service.dart';
 import '../../services/sms_subscribe_service.dart';
 import '../../services/sms_text_service.dart';
 import '../../services/subscribe_contacts_service.dart';
+import '../services/call_channel_manager.dart';
 import '../services/regex_service.dart';
 
 import '../services/caller_id_monitor_service.dart';
 import '../services/caller_id_service.dart';
+import '../services/sms_channel_manager.dart';
 import '../services/sms_notification_service.dart';
 import '../services/subscription_service.dart';
 import '../utils/blocked_call_repository.dart';
@@ -59,7 +62,7 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   // 特殊 Service 实例
   late CallerIdService callerIdService;
-
+ // late CallBlockerService callBlockerService;
   late SmsFilterService smsFilterService;
   late CallFilter callFilter;
   late CallerIdMonitorService callerIdMonitorService;
@@ -82,11 +85,22 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   }
 
   Future<void> _initServices() async {
+      // 创建 ChannelManager 实例并初始化
+  final callChannelManager = CallChannelManager();
+    final smsChannelManager = SmsChannelManager();
+  callChannelManager.initialize();
+smsChannelManager.initialize();
+  
+        final blockedCallRepository = BlockedCallRepository();
+
+
+
     // 初始化 CallerIdService
     callerIdService = await CallerIdService.create(
       database: callRuleDatabase,
     );
-   // print("CallerIdService initialized successfully");
+
+
 
     // 初始化 CallFilter
     callFilter = await CallFilter.create(
@@ -96,19 +110,21 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   
     // 初始化 CallerIdMonitorService
-    final blockedCallRepository = BlockedCallRepository();
-
-    callerIdMonitorService = CallerIdMonitorService(callerIdService, callFilter, blockedCallRepository);
 
 
+    callerIdMonitorService = CallerIdMonitorService(callChannelManager, callerIdService, callFilter, blockedCallRepository);
+    
 
 
-    // 初始化 SmsFilterService
-    smsFilterService =
-        await SmsFilterService.create(database: callRuleDatabase);
-    await smsFilterService.registerSmsListener();
+
+        smsFilterService = await SmsFilterService.create(
+  database: callRuleDatabase,
+  smsChannelManager: smsChannelManager, // Pass the SmsChannelManager instance
+);
+  
 
 
+/*
     // 设置 SMS 监听器
     SmsFilterService.smsChannel.setMethodCallHandler((call) async {
       if (call.method == 'onSmsReceived') {
@@ -117,7 +133,7 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
         await smsFilterService.handleIncomingSms(phoneNumber, messageContent);
       }
     });
-
+*/
     _areServicesInitialized = true;
     _updateProgress(servicesInitWeight);
   }
@@ -138,8 +154,7 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
     await _createServiceInstances();
   }
-
-
+  
   Future<void> _openDatabase() async {
     final dbPath = path_helper.join(await getDatabasesPath(), 'call_rule_database.db');
     callRuleDatabase = await openDatabase(

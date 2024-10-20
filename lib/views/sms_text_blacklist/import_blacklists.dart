@@ -26,7 +26,7 @@ class ImportSmsTextBlacklistsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).importSmsTextBlacklistsPage, // 当前页面标题
-      'SmsTextBlacklistPageView', // 卡片标题=点击卡片导航到的页面
+     // 'SmsTextBlacklistPageView', // 卡片标题=点击卡片导航到的页面
       const SmsTextBlacklistPageView(), // 点击卡片导航到的页面
       const ImportSmsTextBlacklistsPage(), // 当前页面主要内容
       //下面分别是导出，添加，导入

@@ -80,7 +80,7 @@ class BackupRestoreViewState extends State<BackupRestoreView> {
                             ),
                             child: AspectRatio(
                               aspectRatio: 3.1 / 1.3,
-                              child: createCard(S.of(context).sync),
+                              child: createCard(const BackupRestoreView()),
                             ),
                           );
                         },

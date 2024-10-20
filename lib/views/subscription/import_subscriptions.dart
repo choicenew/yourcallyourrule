@@ -33,7 +33,7 @@ class ImportSubscriptionsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).importSubscriptionsPage, // 页面标题
-      'SubscriptionListView', // 卡片标题=点击卡片导航到的页面
+     // 'SubscriptionListView', // 卡片标题=点击卡片导航到的页面
       const SubscriptionListView(), // 点击卡片导航到的页面
       const ImportSubscriptionsPage(), // 当前页面主要内容
       exportPage: const ExportSubscriptionsPageView(), // 导出页面

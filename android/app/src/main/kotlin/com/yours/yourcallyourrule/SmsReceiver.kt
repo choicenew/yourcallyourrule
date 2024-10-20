@@ -9,7 +9,7 @@ import io.flutter.plugin.common.MethodChannel
 
 class SmsReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        Log.d("SmsReceiver", "onReceive called")
+        //Log.d("SmsReceiver", "onReceive called")
         if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION == intent.action) {
             for (sms in Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
                 val sender = sms.originatingAddress

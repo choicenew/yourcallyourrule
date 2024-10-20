@@ -1,5 +1,8 @@
+
+
 import 'package:flutter/material.dart';
 
+//import 'package:flutter_overlay_apps/flutter_overlay_apps.dart';
 import 'package:provider/provider.dart';
 import '../../generated/l10n.dart';
 import '../../services/caller_id_monitor_service.dart';
@@ -9,9 +12,10 @@ import '../../services/caller_id_service.dart';
 import 'callerid_style_provider.dart';
 import 'number_type_extension.dart';
 
+
 class CallerIdOverlay extends StatefulWidget {
   final CallerIdData callerIdData;
-  final SimInfo? simInfo;
+  final SimInfo? simInfo;  
   final StirInfo? stirInfo;
   final VoidCallback onDismiss;
   final bool isDismissible;
@@ -22,7 +26,7 @@ class CallerIdOverlay extends StatefulWidget {
     this.simInfo,
     this.stirInfo,
     required this.onDismiss,
-    required this.isDismissible,
+    required this.isDismissible,  
   });
 
   @override
@@ -30,39 +34,19 @@ class CallerIdOverlay extends StatefulWidget {
 }
 
 class CallerIdOverlayState extends State<CallerIdOverlay> {
-  Offset _offset = const Offset(20, 20);
-  double _opacity = 1.0;
 
+
+  final double _opacity = 1.0;
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-        left: _offset.dx,
-        top: _offset.dy,
-        child: GestureDetector(
-          onPanUpdate: (details) {
-            setState(() {
-              _offset += details.delta;
-              // 确保 overlay 不会移出屏幕
-              _offset = Offset(
-                _offset.dx.clamp(0, MediaQuery.of(context).size.width - 300),
-                _offset.dy.clamp(0, MediaQuery.of(context).size.height - 150),
-              );
-            });
-          },
-          child: widget.isDismissible
-              ? Dismissible(
-                  key: Key(widget.callerIdData.phoneNumber),
-                  direction: DismissDirection.horizontal,
-                  onDismissed: (_) => widget.onDismiss(),
-                  onUpdate: (details) {
-                    setState(() {
-                      _opacity = 1.0 - details.progress;
-                    });
-                  },
-                  child: _buildOverlayContent(context),
-                )
-              : _buildOverlayContent(context),
-        ));
+    return widget.isDismissible
+        ? Dismissible(
+            key: Key(widget.callerIdData.phoneNumber),
+            direction: DismissDirection.horizontal,
+            onDismissed: (_) => widget.onDismiss(),
+            child: _buildOverlayContent(context), 
+          )
+        : _buildOverlayContent(context);
   }
 
   Widget _buildOverlayContent(BuildContext context) {
@@ -91,19 +75,18 @@ class CallerIdOverlayState extends State<CallerIdOverlay> {
     );
   }
 
-  Widget _buildCallerIdContent(
-      BuildContext context, CallerIdStyleProvider styleProvider) {
+  Widget _buildCallerIdContent(BuildContext context, CallerIdStyleProvider styleProvider) {
     return Stack(
       children: <Widget>[
         //头像
         _buildDraggableElement(
           child: CircleAvatar(
-            radius: styleProvider.avatarBorderSize / 2,
-            backgroundColor: styleProvider.avatarBorderColor,
-            child: CircleAvatar(
-              radius: styleProvider.avatarSize / 2,
-              backgroundImage: widget.callerIdData.avatarImage,
-            ),
+                radius: styleProvider.avatarBorderSize / 2,
+                backgroundColor: styleProvider.avatarBorderColor,
+             child: CircleAvatar(
+            radius: styleProvider.avatarSize / 2,
+            backgroundImage: widget.callerIdData.avatarImage,
+              ),
           ),
           onPositionChanged: styleProvider.updateAvatarPosition,
           position: styleProvider.avatarPosition,
@@ -170,9 +153,7 @@ class CallerIdOverlayState extends State<CallerIdOverlay> {
         _buildDraggableElement(
           child: Text(
             //widget.callerIdData.count?.toString() ?? 'Unknown',
-            '${S.of(context).markedBy} ${widget.callerIdData.count?.toString() ?? {
-                  S.of(context).unknown
-                }}', // 翻译 "Marked by"
+            '${S.of(context).markedBy} ${widget.callerIdData.count?.toString() ?? {S.of(context).unknown}}', // 翻译 "Marked by"
             style: TextStyle(
               fontSize: styleProvider.countFontSize,
               color: styleProvider.textCountColor,
@@ -184,9 +165,8 @@ class CallerIdOverlayState extends State<CallerIdOverlay> {
         //numberType
         _buildDraggableElement(
           child: Text(
-            // widget.callerIdData.numberType?.toString() ?? S.of(context).unknown,
-            widget.callerIdData.numberType?.translated(context) ??
-                S.of(context).unknown,
+           // widget.callerIdData.numberType?.toString() ?? S.of(context).unknown,
+            widget.callerIdData.numberType?.translated(context) ?? S.of(context).unknown,
             style: TextStyle(
               fontSize: styleProvider.numberTypeFontSize,
               color: styleProvider.textNumberTypeColor,
@@ -234,9 +214,7 @@ class CallerIdOverlayState extends State<CallerIdOverlay> {
             // 直接使用 if-else if-else 语句
             widget.stirInfo!.isVerified
                 ? S.of(context).verified
-                : (widget.stirInfo!.isNotVerified
-                    ? S.of(context).notVerified
-                    : S.of(context).failed),
+                : (widget.stirInfo!.isNotVerified ? S.of(context).notVerified : S.of(context).failed),
             style: TextStyle(
               fontSize: styleProvider.stirFontSize,
               color: styleProvider.textStirColor,
@@ -265,14 +243,15 @@ class CallerIdOverlayState extends State<CallerIdOverlay> {
           position: styleProvider.callTypePosition,
         ),
 
+
         _buildDraggableElement(
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.5), // 半透明白色
               borderRadius: BorderRadius.circular(8.0), // 圆角
             ),
-            padding: const EdgeInsets.symmetric(
-                horizontal: 3.0, vertical: 3.0), // 内边距
+            padding:
+                const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0), // 内边距
             child: Row(
               children: [
                 Text(
@@ -292,6 +271,7 @@ class CallerIdOverlayState extends State<CallerIdOverlay> {
           onPositionChanged: styleProvider.updateSimCardPosition,
           position: styleProvider.simCardPosition,
         ),
+
 
         // Add more elements as needed
       ],
