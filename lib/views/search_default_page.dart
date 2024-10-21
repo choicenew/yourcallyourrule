@@ -1041,7 +1041,7 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
     final parsedData = countryCode != null
         ? await parsePhoneNumberWithIso(
             phoneNumber, countryCode) // 使用传入的 countryCode 解析
-        : await parsePhoneNumber(phoneNumber); // 使用默认逻辑解析
+        : await parsePhoneNumberWithoutIso(phoneNumber, null); // 使用默认逻辑解析
 
     print("通用页: 收到 incoming call: $countryCode");
 
