@@ -213,11 +213,12 @@ class LocationService {
     PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
     PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, null);
 
+/*
     // 检查电话号码是否有效
     if (!phoneNumberUtil.isValidNumber(parsedPhoneNumber)) {
       return null;
     }
-
+*/
     // 获取来电号码的类型
     PhoneNumberType numberType = await getNumberType(phoneNumber);
 

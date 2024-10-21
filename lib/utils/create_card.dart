@@ -7,10 +7,12 @@ Widget createCard(Widget navigationPage) {
   List<FunctionCard> allCards = getFunctionCards();
 
   FunctionCard matchedCard = allCards.firstWhere(
-    (card) => card.page == navigationPage,  // 尝试匹配 navigationPage
-    orElse: () => throw Exception('Card not found for navigationPage: $navigationPage'),
+    //(card) => card.page == navigationPage,  // 尝试匹配 navigationPage
+    (card) =>
+        card.page.runtimeType == navigationPage.runtimeType, // 比较 runtimeType
+    orElse: () =>
+        throw Exception('Card not found for navigationPage: $navigationPage'),
   );
-
 /*
 // 通用函数：根据页面名称创建卡片
 Widget createCard(String pageName) {

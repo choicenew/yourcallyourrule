@@ -13,21 +13,39 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-
-
-
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
+      - name: Setup Android SDK
+        uses: amyu/setup-android@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'gradle'
+          # default: false
+          # Whether to use the cache
+          cache-disabled: true
 
+          # default: `${sdkVersion}-${buildToolsVersion}-${ndkVersion}-${cmakeVersion}-v4`
+          # Custom key for cache. It is invalid when `cache-disabled: true`
+          cache-key: 'custom-cache-key'
+
+          # default: 34
+          # sdk version
+          # see https://developer.android.com/studio/releases/platforms
+          # It will always be installed.
+          sdk-version: 34
+          # or 
+          # sdk-version: |
+          #   33
+          #   34
+
+          # default: 33.0.2
+          # build tools version
+          # see https://developer.android.com/studio/releases/build-tools
+          # It will always be installed.
+          build-tools-version: 34.0.0 # 指定 buildToolsVersion
+
+          # ... 其他参数可以根据需要进行配置
 
       - run: flutter clean
       - run: flutter pub get

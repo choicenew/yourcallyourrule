@@ -72,7 +72,8 @@ class MainActivity : FlutterActivity() {
         Manifest.permission.READ_CALL_LOG,  // 通话记录权限
     )
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+
+    @RequiresApi(Build.VERSION_CODES.S)
     private inner class CustomTelephonyCallback : TelephonyCallback(),
         TelephonyCallback.CallStateListener {
         override fun onCallStateChanged(state: Int) {
