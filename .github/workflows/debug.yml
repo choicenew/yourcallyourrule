@@ -26,41 +26,29 @@ jobs:
           flutter-version: '3.24.0'
           channel: 'stable'
           
-      # 配置 settings.gradle
-      - name: Configure Gradle Settings
+      # 修改 build.gradle 添加必要的插件配置
+      - name: Update Gradle Config
         run: |
-          cat > android/settings.gradle << 'EOL'
-          include ':app'
-
-          def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
-          def properties = new Properties()
-
-          assert localPropertiesFile.exists()
-          localPropertiesFile.withReader("UTF-8") { reader -> properties.load(reader) }
-
-          def flutterSdkPath = properties.getProperty("flutter.sdk")
-          assert flutterSdkPath != null, "flutter.sdk not set in local.properties"
-
-          apply from: "$flutterSdkPath/packages/flutter_tools/gradle/app_plugin_loader.gradle"
-
-          def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
-          def plugins = new Properties()
-          def pluginsFile = new File(flutterProjectRoot.toFile(), '.flutter-plugins')
-          if (pluginsFile.exists()) {
-              pluginsFile.withReader('UTF-8') { reader -> plugins.load(reader) }
+          # 修改根目录的 build.gradle
+          cat > android/build.gradle << 'EOL'
+          buildscript {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+              dependencies {
+                  classpath 'com.android.tools.build:gradle:7.3.0'
+                  classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
+              }
           }
-
-          plugins.each { name, path ->
-              def pluginDirectory = flutterProjectRoot.resolve(path).resolve('android').toFile()
-              include ":$name"
-              project(":$name").projectDir = pluginDirectory
+          allprojects {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
           }
           EOL
 
-          # 创建 local.properties
-          echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
-          echo "sdk.dir=$ANDROID_SDK_ROOT" >> android/local.properties
-          
       - name: Install Dependencies
         run: flutter pub get
           
