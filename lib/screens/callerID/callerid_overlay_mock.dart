@@ -26,7 +26,6 @@ class CallerIdSampleState extends State<CallerIdSample> {
       try {
         ConfigurationManager.loadConfiguration(styleProvider);
       } catch (e) {
-        print('Error loading configuration: $e');
         // Create and save a default configuration
         ConfigurationManager.saveConfiguration(styleProvider);
       }
@@ -66,7 +65,7 @@ class CallerIdSampleState extends State<CallerIdSample> {
                 stirInfo: _mockStirInfoData(),
                 onDismiss: () {},
                 isDismissible: false,
-               // styleProvider: Provider.of<CallerIdStyleProvider>(context),
+                // styleProvider: Provider.of<CallerIdStyleProvider>(context),
               ),
             );
           },

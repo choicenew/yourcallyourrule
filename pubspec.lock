@@ -146,11 +146,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: HEAD
-      resolved-ref: e50595cecd1d81e0440482b1fbe77dfb0bfb5e05
+      ref: main
+      resolved-ref: "275b3c09967bb87ce259d20edc01bc7dea61f1f3"
       url: "https://github.com/haygcao/call_log.git"
     source: git
-    version: "5.0.0"
+    version: "5.5.10"
   characters:
     dependency: transitive
     description:

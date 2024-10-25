@@ -21,7 +21,7 @@ class StirChecker(private val context: Context, private val callDetails: Call.De
    // Log.d("StirChecker", "sendStirResultToFlutter called") // 添加日志
 
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R || callDetails == null) {
-       // Log.d("StirChecker", "Android version too low or callDetails is null") // 添加日志
+      //  Log.d("StirChecker", "Android version too low or callDetails is null") // 添加日志
         return 
     }
 
@@ -43,15 +43,15 @@ class StirChecker(private val context: Context, private val callDetails: Call.De
                     ),
                     object : MethodChannel.Result {
                         override fun success(result: Any?) {
-                  //          Log.d("StirChecker", "Successfully sent STIR result to Flutter")
+                          //  Log.d("StirChecker", "Successfully sent STIR result to Flutter")
                         }
 
                         override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
-                //            Log.e("StirChecker", "Error sending STIR result to Flutter: $errorMessage")
+                         //   Log.e("StirChecker", "Error sending STIR result to Flutter: $errorMessage")
                         }
 
                         override fun notImplemented() {
-                //            Log.e("StirChecker", "onStirResult not implemented in Flutter")
+                           // Log.e("StirChecker", "onStirResult not implemented in Flutter")
                         }
                     }
                 )

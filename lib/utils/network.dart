@@ -367,7 +367,7 @@ class _NetworkState extends State<Network> {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       backgroundColor: Colors.grey.shade200,
                     ),
-                    child: Text(item.costTime.toString() + " ms"),
+                    child: Text("${item.costTime} ms"),
                   ),
                 ),
               ],

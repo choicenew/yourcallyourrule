@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../screens/function_cards/function_card.dart';
 import '../screens/function_cards/function_cards_data.dart';
 
@@ -13,6 +14,7 @@ Widget createCard(Widget navigationPage) {
     orElse: () =>
         throw Exception('Card not found for navigationPage: $navigationPage'),
   );
+
 /*
 // 通用函数：根据页面名称创建卡片
 Widget createCard(String pageName) {
@@ -80,16 +82,15 @@ Widget createCard(String pageName) {
                     ),
                   ),
                   const SizedBox(width: 10.0),
-                 Text(
-                      matchedCard.title,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 25.0,
-                        color: matchedCard.titleColor,
-                      ),
-                      softWrap: true,
+                  Text(
+                    matchedCard.title,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      color: matchedCard.titleColor,
                     ),
-                  
+                    softWrap: true,
+                  ),
                 ],
               ),
             ),

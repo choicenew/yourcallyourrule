@@ -29,6 +29,7 @@ import 'home_styles.dart';
 
 //import 'scan_screen.dart';
 
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -39,12 +40,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   late CardManager _cardManager;
   late CallFilterConfig _config; //callfiter 的配置
-  final TimeBasedInterceptor timeBasedInterceptor =
-      TimeBasedInterceptor(); //重复来电配置
+  final TimeBasedInterceptor timeBasedInterceptor = TimeBasedInterceptor(); //重复来电配置
 
   //late TimeBasedInterceptorConfig _timeBasedInterceptorconfig; //重复来电配置
-  late TimeBasedInterceptorConfig _timeBasedInterceptorconfig =
-      TimeBasedInterceptorConfig(); // 使用默认值
+  late TimeBasedInterceptorConfig _timeBasedInterceptorconfig = TimeBasedInterceptorConfig(); // 使用默认值
   List<FunctionCard> cards = [];
   bool _isLoading = true;
 
@@ -53,30 +52,34 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _cardManager = CardManager();
 
-    initializeLocale(context); // 初始化 currentLocale
+ initializeLocale(context); // 初始化 currentLocale
 //独立的属于repeated的call的配置不同于前面的call filter的
     _loadInterceptorSettings();
     // 在 initState 中初始化 _config，确保初始值可用
     _config = CallFilterConfig();
-
+    
     _initializeCards();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // _initializeServices();
-      _initializeApp(); // 调用异步初始化方法
+     // 
+   // _initializeApp(); // 调用异步初始化方法
+
 
       _pixelRatio();
       _loadConfig();
+      _initializeServices();
       _loadCallerIDConfiguration();
     });
   }
 
-  Future<void> _initializeApp() async {
-    final appState = Provider.of<AppState>(context, listen: false);
-    await appState.ensureServicesInitialized(); // 等待 AppState 初始化完成
-    _initializeServices(); // 初始化依赖 AppState 的服务
-    _loadConfig(); // 加载依赖 AppState 的配置
-  }
+Future<void> _initializeApp() async {
+  final appState = Provider.of<AppState>(context, listen: false);
+  await appState.ensureServicesInitialized(); // 等待 AppState 初始化完成
+  _initializeServices(); // 初始化依赖 AppState 的服务
+  _loadConfig(); // 加载依赖 AppState 的配置
+}
+
+
 
   Future<void> _initializeCards() async {
     await _loadCardOrder();
@@ -90,28 +93,24 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    //_pixelRatio();
-    // 只在 didChangeDependencies 中加载配置和初始化服务
 
-    _initializeServices();
   }
-
+  
 // 全局函数，用于初始化 currentLocale
-  Future<void> initializeLocale(BuildContext context) async {
-    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
-    currentLocale = localeProvider.locale;
-  }
+Future<void> initializeLocale(BuildContext context) async {
+  final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
+  currentLocale = localeProvider.locale;
+}
 
   void _pixelRatio() {
     if (pixelRatio == null || pixelRatio == 1.0) {
       double devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
       pixelRatio = devicePixelRatio >= 3.0 ? devicePixelRatio : 3.0;
-     
     } // 只有在 pixelRatio 为 null 或 1.0 时才重新计算，否则保持原值
   }
 
   void _initializeServices() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+  //  WidgetsBinding.instance.addPostFrameCallback((_) {
       final appState = Provider.of<AppState>(context, listen: false);
       final callerIdMonitorService = appState.callerIdMonitorService;
       final smsFilterService = appState.smsFilterService;
@@ -119,8 +118,11 @@ class _MyHomePageState extends State<MyHomePage> {
       smsFilterService.initialize();
 
       callerIdMonitorService.initialize();
-    });
+  //  });
   }
+
+
+
 
   @override
   void dispose() {
@@ -143,10 +145,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // });
   }
 
+
+
   // 加载重复来电Interceptor配置
-  void _loadInterceptorSettings() {
+void _loadInterceptorSettings() {
     // 从 重复来电 加载配置
-    timeBasedInterceptor.loadConfig().then((_) {
+  timeBasedInterceptor.loadConfig().then((_) {
       setState(() {
 // 配置加载完成后，更新 _config 并触发 UI 重建
         _timeBasedInterceptorconfig = timeBasedInterceptor.config;
@@ -179,18 +183,21 @@ class _MyHomePageState extends State<MyHomePage> {
       await ConfigurationManager.loadConfiguration(
           Provider.of<CallerIdStyleProvider>(context, listen: false));
     } catch (e) {
-
+      
       // Create and save a default configuration
       await ConfigurationManager.saveConfiguration(
           Provider.of<CallerIdStyleProvider>(context, listen: false));
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
+
+
           SliverToBoxAdapter(
             child: SafeArea(
               // 使用 SafeArea 避免白条
@@ -212,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      // SizedBox(height: 20), // 增加底部间距
+                     // SizedBox(height: 20), // 增加底部间距
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 16), // 设置左右 padding
@@ -220,6 +227,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Flexible(child: CustomSearchBar()),
+                            /*
+      const SizedBox(width: 16),
+      IconButton(
+        icon: Icon(Icons.qr_code_scanner),
+        onPressed: _openScanScreen,
+      ),
+      */
                           ],
                         ),
                       ),
@@ -317,6 +331,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                         width: containerdWidth,
                         color: const Color.fromARGB(255, 11, 215, 116),
+                      
                         padding: EdgeInsets.symmetric(
                             horizontal: switchHorizontalPadding,
                             vertical: 10.0),
@@ -340,8 +355,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 borderRadius:
                                     BorderRadius.circular(35.0), // 设置圆角
                               ),
-                              margin: const EdgeInsets.symmetric(
-                                  horizontal: 10.0), // 设置左右边距
+                              margin: const EdgeInsets.symmetric(horizontal: 10.0), // 设置左右边距
                               padding: const EdgeInsets.only(
                                   left: 10, top: 5, right: 5.0, bottom: 5.0),
                               child: Text(
@@ -358,18 +372,15 @@ class _MyHomePageState extends State<MyHomePage> {
                               Padding(
                                 // Add padding here around the Wrap
                                 padding: const EdgeInsets.symmetric(
-                                    //horizontal: switchHorizontalPadding,
+                                   //horizontal: switchHorizontalPadding,
                                     vertical: 13.0),
-
+                                    
                                 child: Wrap(
                                   spacing: 15.0, //横向
                                   runSpacing: 10.0, //纵向
-                                  // alignment: WrapAlignment.spaceBetween, // 设置对齐方式为 spaceBetween
-                                  children: _buildSwitchList(
-                                      context,
-                                      switchesPerRow,
-                                      switchHorizontalPadding,
-                                      containerdWidth),
+                                 // alignment: WrapAlignment.spaceBetween, // 设置对齐方式为 spaceBetween
+                                  children: _buildSwitchList(context,
+                                      switchesPerRow, switchHorizontalPadding, containerdWidth),
                                 ),
                               ),
                             ],
@@ -536,6 +547,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if ((i + 1) % switchesPerRow != 0 && (i + 1) != switchData.length) {
         switchList.add(const SizedBox(width: 0.0, height: 1.0));
       }
+
     }
 
     return switchList;
@@ -546,7 +558,8 @@ class _MyHomePageState extends State<MyHomePage> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Flexible(
-          child: Text(
+          child: 
+          Text(
             _getConfigValue(key)
                 ? '$title (${S.of(context).accept})' // 翻译 Accept
                 : '$title (${S.of(context).reject})', // 翻译 Reject
@@ -570,7 +583,7 @@ class _MyHomePageState extends State<MyHomePage> {
       switch (key) {
         case 'rejectAllNumbers':
           _config.rejectAllNumbers = value;
-
+          // 添加打印日志
           break;
         case 'allowAllAllowedNumbers':
           _config.allowAllAllowedNumbers = value;

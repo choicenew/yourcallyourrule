@@ -1,3 +1,4 @@
+import 'dart:async'; // 导入 Timer
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -5,12 +6,8 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../utils/ad_manager.dart';
 import '../../utils/ad_state.dart';
-
 import '../../widgets/adwidgets/inline_adaptive_ad.dart';
-
 import 'card.dart';
-
-import 'dart:async'; // 导入 Timer
 
 class CustomSwiper extends StatefulWidget {
   final List<CardItem?> cards; // cards 列表现在包含可空的 CardItem
@@ -107,16 +104,11 @@ class _CustomSwiperState extends State<CustomSwiper> {
       // 每两个卡片后面显示一个广告
       if (adState.isAdEnabled && (index + 1) % 3 == 0) {
         //return const GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd);
-        
+
         return const InlineAdaptiveBannerAdWidget(
-  adInfo: AdManager.adaptiveBannerAd,
-  //width: 300,
-);
-
-
-
-
-
+          adInfo: AdManager.adaptiveBannerAd,
+          //width: 300,
+        );
       } else {
         // 计算卡片索引，每两个卡片后面插入一个广告，所以索引需要进行调整
         final cardIndex = index - index ~/ 3;
@@ -157,7 +149,17 @@ class _CustomSwiperState extends State<CustomSwiper> {
               // 将 itemExtent 设置为 widget.width * 0.9，与 SizedBox 宽度一致
               itemExtent: widget.width * 0.9,
               shrinkExtent: 200, // 设置卡片压缩后的最小宽度
-
+              /*
+               onTap: (index) {
+    final cardIndex = index - index ~/ 3;
+    final cardItem = widget.cards[cardIndex];
+    if (cardItem?.onTap != null) {
+      cardItem!.onTap!(context);
+    } else if (cardItem?.url != null) {
+      launchUrlString(cardItem!.url!);
+    }
+  },
+   */
 
               // CarouselView 的 onTap 回调函数
               onTap: (index) {
@@ -255,6 +257,3 @@ class CardItemWidget extends StatelessWidget {
     return cardItem!; // 直接返回 CardItem 组件，不再使用 GestureDetector
   }
 }
-
-
-

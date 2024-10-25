@@ -40,6 +40,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
   }
 
 
+
   // 显示进度条
 // 显示进度条
   Widget _buildLoadingIndicator(AppState appState) {
@@ -136,7 +137,26 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
 
+              /*     Positioned(
+                top: 30,
+                left: 0,
+                right: 0,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30),
+                   child: _databaseLoadingIndicator(context),
+                ),
 
+              ),
+
+
+                      if (!appState.isDatabaseInitialized) // 仅在初始化时显示
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: _buildDatabaseInitializationPage(),
+          ), */
             ],
           );
         },
@@ -376,7 +396,8 @@ class OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-
+ 
+ 
   //  新增： 默认caller ID请求页面
   Widget _buildDefaultCallerIDRequestPage() {
     return Center(
@@ -402,7 +423,6 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             try {
               bool result =
                   await CallScreeningPlugin.requestCallScreeningRole();
-             
               // 新增： 显示 Snackbar
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -412,7 +432,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               );
             } catch (e) {
-        
+              //print("Error requesting call screening role: $e");
               // 新增： 显示 Snackbar
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -500,26 +520,28 @@ class OnboardingScreenState extends State<OnboardingScreen> {
   }
 
 
+
 Future<void> _loadCallerIDConfiguration() async {
+  final SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
+  bool onboardingCompleted = await asyncPrefs.getBool('onboarding_completed') ?? false;
+
   try {
     final directory = await getApplicationDocumentsDirectory();
     final file = File('${directory.path}/caller_id_config.json');
 
-    if (!await file.exists()) { // 如果配置文件不存在，才保存默认配置
+    if (!onboardingCompleted || !await file.exists()) { 
+      // 首次加载或配置文件不存在，使用默认配置
       await ConfigurationManager.saveConfiguration(
-          Provider.of<CallerIdStyleProvider>(context, listen: false));
+          Provider.of<CallerIdStyleProvider>(context, listen: false)); 
+      // 保存默认配置，以便下次启动时加载
     } else {
       // 配置文件已存在，加载用户自定义配置
       await ConfigurationManager.loadConfiguration(
           Provider.of<CallerIdStyleProvider>(context, listen: false));
     }
   } catch (e) {
-    //print('检查或保存默认配置出错: $e');
+   // print('检查或保存默认配置出错: $e');
   }
 }
-
-
-
-
 
 }

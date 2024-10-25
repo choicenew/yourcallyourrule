@@ -1,27 +1,23 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../generated/l10n.dart';
 import '../services/caller_id_monitor_service.dart';
 import '../services/sms_notification_service.dart';
-
 import '../utils/ad_state.dart';
 import '../utils/call_screen_plugin.dart';
 import '../utils/language_provider.dart';
 import '../utils/purchase_state.dart';
 import '../utils/repeated_call.dart';
 import '../utils/theme_provider.dart';
+import '../utils/update_interval.dart';
 import '../views/about.dart';
 import '../widgets/adwidgets/native_ads.dart';
-
 import '../widgets/purchase_manager.dart';
-import 'package:provider/provider.dart';
-
-import '../utils/update_interval.dart';
-
 import 'appstate_provider.dart';
 import 'language_data.dart';
 
@@ -296,8 +292,6 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-
-
   Widget _buildLanguageSelection() {
     return Consumer<LocaleProvider>(
       builder: (context, localeProvider, child) {
@@ -334,8 +328,6 @@ class _SettingsPageState extends State<SettingsPage> {
       },
     );
   }
-
-
 
   // 构建 TimeBasedInterceptor 设置项
   Widget _buildCallActionInterceptorSettings() {
@@ -613,6 +605,8 @@ class _SettingsPageState extends State<SettingsPage> {
             final asyncPrefs = SharedPreferencesAsync();
             await asyncPrefs.setBool(
                 SmsFilterService.smsFilterEnabledKey, value);
+
+                       // 添加日志
             setState(() {});
           },
         );
@@ -647,6 +641,8 @@ class _SettingsPageState extends State<SettingsPage> {
             final asyncPrefs = SharedPreferencesAsync();
             await asyncPrefs.setBool(
                 SmsFilterService.smsLocalNotificationKey, value);
+
+                       // 添加日志
             setState(() {});
           },
         );
@@ -682,6 +678,9 @@ class _SettingsPageState extends State<SettingsPage> {
             final asyncPrefs = SharedPreferencesAsync();
             await asyncPrefs.setBool(
                 SmsFilterService.smsCancelLocalNotificationKey, value);
+
+                        // 添加日志
+  
             setState(() {});
           },
         );
@@ -689,7 +688,44 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  Future<bool> _checkRequiredPermissions() async {
+    bool smsPermission = await Permission.sms.isGranted;
+    bool notificationPermission = await Permission.notification.isGranted;
+    bool callLogPermission = await Permission.phone.isGranted;
+    bool contactPermission = await Permission.contacts.isGranted;
+    bool overlayPermission = await Permission.systemAlertWindow.isGranted;
+    bool storagePermission = await Permission.storage.isGranted;
+    bool batteryPermission =
+        await Permission.ignoreBatteryOptimizations.isGranted;
 
+    return smsPermission &&
+        notificationPermission &&
+        callLogPermission &&
+        contactPermission &&
+        overlayPermission &&
+        storagePermission &&
+        batteryPermission;
+  }
+
+  void _showPermissionRequiredDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text(S.of(context).permissionsRequired),
+        content: Text(S
+            .of(context)
+            .smsFilteringRequiresSmsNotificationAndPhonePermissionsPleaseGrant),
+        actions: <Widget>[
+          TextButton(
+            child: Text(S.of(context).ok),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _buildIntervalSettings() {
     return ExpansionTile(
@@ -740,6 +776,9 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
     );
   }
+
+
+
 
 //  新增： 默认caller ID请求页面
   Widget _buildDefaultCallerIDRequestToggle() {
@@ -917,5 +956,3 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 }
-
-

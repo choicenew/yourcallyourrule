@@ -1,45 +1,42 @@
-import 'dart:convert';
-import 'dart:io';
+import 'dart:async';
+
 
 import 'package:call_log/call_log.dart';
-import 'package:dlibphonenumber/dlibphonenumber.dart';
-import 'package:dlibphonenumber/locale.dart' as dlibphone;
+
 import 'package:flutter/material.dart';
+
 import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 import 'package:provider/provider.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:yourcallyourrule/views/public/label_translation_extension.dart';
 
 import '../../generated/l10n.dart';
 import '../../new_set_icons.dart';
 import '../../screens/appstate_provider.dart';
-
 import '../../services/allowed_blocked_service.dart';
 import '../../services/caller_id_service.dart';
-
 import '../../services/label_service.dart';
 import '../../utils/ad_manager.dart';
 import '../../utils/ad_state.dart';
 import '../../utils/avatar_edit_dialog.dart';
-import '../../utils/parse_phonenumber.dart';
-import '../../utils/language_provider.dart';
+
+import '../../views/public/label_translation_extension.dart';
 import '../../widgets/adwidgets/native_ads.dart';
 import '../../widgets/google_ad.dart';
 import '../../widgets/self_managed_search_bar.dart';
 import '../contact/contact_form_page.dart';
 import '../label/add_label.dart';
-
 import '../public/public_select_label.dart';
 import '../shield_switch_style.dart';
 import '../subpage_style.dart';
+import 'call_log_manager.dart';
+import 'call_log_searchsar_wrapper.dart';
+
+
 
 class CallHistoryPage extends StatefulWidget {
-  final String? phoneNumber; // 添加号码参数
+  final String? phoneNumber;
   const CallHistoryPage({super.key, this.phoneNumber});
 
   @override
@@ -47,108 +44,57 @@ class CallHistoryPage extends StatefulWidget {
 }
 
 class CallHistoryPageState extends State<CallHistoryPage> {
-  late AllowedService _allowedService;
-  late BlockedService _blockedService;
+  late CallLogManager _callLogManager;
+  late bool _isContactButtonVisible;
+  late bool _isContactIconButtonVisible;
   List<CallLogEntry> _callLogEntry = [];
-  Map<String, CallerIdData> _callerIdDataCache = {};
-  late CallerIdService _callerIdService;
-  Map<String, bool> _expandedItems = {};
+
+    Map<String, bool> _expandedItems = {};
+
+     late AllowedService _allowedService;
+  late BlockedService _blockedService;
+  late LabelService _labelService;
+
   bool _isAllowed = false;
   bool _isBlocked = false;
-  bool _isContactButtonVisible = true;
-  bool _isContactIconButtonVisible = true;
-  late LabelService _labelService;
-  bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
-
+        final appState = Provider.of<AppState>(context, listen: false);
+    _callLogManager = CallLogManager(context, appState.callerIdService);
     _initializeServices();
     _loadPreferences();
-    //  _checkPermissionAndFetchLogs(); // 在 initState 中直接调用
-//整合参数传递搜索
+    
     if (widget.phoneNumber != null) {
-      _filterCallLogsByPhoneNumber(widget.phoneNumber!);
-    } else {
-      _checkPermissionAndFetchLogs();
+      _callLogManager.filterByPhoneNumber(widget.phoneNumber!);
     }
   }
 
   @override
   void dispose() {
+    _callLogManager.dispose();
     super.dispose();
-  }
-
-  Future<void> _checkPermissionAndFetchLogs() async {
-    final status = await Permission.phone.status;
-    if (status.isGranted) {
-      _fetchCallLogs();
-    } else if (status.isDenied) {
-      _requestPhonePermission();
-    }
   }
 
   void _initializeServices() {
     final appState = Provider.of<AppState>(context, listen: false);
     _labelService = appState.labelService;
-    _callerIdService = appState.callerIdService;
+ 
     _allowedService = appState.allowedService;
     _blockedService = appState.blockedService;
+       
   }
 
-//请求权限
-  Future<void> _requestPhonePermission() async {
-    PermissionStatus status = await Permission.phone.request();
 
-    if (status.isGranted) {
-      // 显示 Snackbar 提示用户
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(S.of(context).permissionGranted),
-        ),
-      );
-    } else if (status.isDenied) {
-      // 权限被拒绝，显示 Snackbar 并再次请求权限
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-              S.of(context).thisAppNeedsAccessToYourCallLogInformation),
-          action: SnackBarAction(
-            label: S.of(context).grantPermission,
-            onPressed: () async {
-              PermissionStatus status = await Permission.contacts.request();
-              if (status.isGranted) {
-                // 显示 Snackbar 提示用户
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(S.of(context).permissionGranted),
-                  ),
-                );
-              } else {
-                // 再次拒绝，引导用户手动开启
-                await openAppSettings();
-                // 再次拒绝，显示 Snackbar 提示用户可以在设置中手动开启
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(S.of(context).deniedPermissionCanManuallyEnablePermissionInSetting),
-                  ),
-                );
-              }
-            },
-          ),
-        ),
-      );
-    } else if (status.isPermanentlyDenied) {
-      // 权限被永久拒绝，显示 Snackbar 提示用户可以在设置中手动开启
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-              S.of(context).deniedPermissionCanManuallyEnablePermissionInSetting),
-        ),
-      );
-    }
+  Future<void> _loadPreferences() async {
+    final SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
+    _isContactButtonVisible = 
+        await asyncPrefs.getBool('isContactButtonVisible') ?? true;
+    _isContactIconButtonVisible = 
+        await asyncPrefs.getBool('isContactIconButtonVisible') ?? true;
   }
+
 
 //创建允许或者阻止开关
   void _onSwitchChanged(bool newValue) {
@@ -182,229 +128,87 @@ class CallHistoryPageState extends State<CallHistoryPage> {
   }
 
 
-  Future<void> _loadPreferences() async {
-    final SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-    _isContactButtonVisible =
-        await asyncPrefs.getBool('isContactButtonVisible') ?? true;
-    _isContactIconButtonVisible =
-        await asyncPrefs.getBool('isContactIconButtonVisible') ?? true;
-    //setState(() {});
-  }
 
-  //获取通话记录
-  Future<void> _fetchCallLogs() async {
-    if (_isLoading) return;
-
-    setState(() {
-      _isLoading = true;
-    });
-
-    try {
-      final Iterable<CallLogEntry> result = await CallLog.get();
-      final newCallLogEntry = result.toList();
-
-      // 2. 检查通话记录是否有变化
-      if (newCallLogEntry.length != _callLogEntry.length ||
-          newCallLogEntry.toString() != _callLogEntry.toString()) {
-        // 检查长度和内容是否相同
-        setState(() {
-          _callLogEntry = newCallLogEntry;
-        });
-
-        // 3. 预加载所有 CallerIdData
-        await _preloadCallerIdData();
-      }
-    } catch (e) {
-      //print('Error loading call logs: $e');
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
-    }
-  }
-
-
-//整合参数传递搜索
-  Future<void> _filterCallLogsByPhoneNumber(String phoneNumber) async {
-    if (_isLoading) return;
-
-    PermissionStatus status = await Permission.phone.status;
-    if (status.isGranted) {
-      final Iterable<CallLogEntry> result = await CallLog.get();
-      final newCallLogEntry = result.toList();
-
-      setState(() {
-        _isLoading = true;
-        _callLogEntry = newCallLogEntry
-            .where((entry) => entry.number == phoneNumber)
-            .toList();
-      });
-
-      await _preloadCallerIdData();
-
-      setState(() {
-        _isLoading = false;
-      });
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(S.of(context).callLogPermissionDenied)),
-      );
-      setState(() {
-        _isLoading = false;
-      });
-    }
-  }
-
-  Future<void> _preloadCallerIdData() async {
-    // 1. 从本地文件加载缓存数据
-    await _loadCachedCallerIdData();
-
-    // 2. 预加载所有 CallerIdData (如果缓存中不存在)
-    for (var i = 0; i < _callLogEntry.length; i++) {
-      final entry = _callLogEntry[i];
-      if (!_callerIdDataCache.containsKey(entry.number)) {
-        _callerIdDataCache[entry.number ?? ''] =
-            await getCallerIdData(entry, context);
-      }
-    }
-
-    // 3. 保存更新后的缓存数据到本地文件
-    await _saveCachedCallerIdData();
-  }
-
-  // 异步加载 CallerIdData，但不触发整个页面的刷新
-  Future<void> _loadCallerIdData(CallLogEntry entry) async {
-    if (!_callerIdDataCache.containsKey(entry.number)) {
-      final callerIdData = await getCallerIdData(entry, context);
-      _callerIdDataCache[entry.number ?? ''] = callerIdData;
-      await _saveCachedCallerIdData(); // 保存更新后的缓存数据
-    }
-  }
-
-  Future<CallerIdData> getCallerIdData(
-      CallLogEntry entry, BuildContext context) async {
-    String? phoneNumber = entry.number ?? '';
-
-    // 解析号码 (使用提取出的函数)
-    Map<String, String> parsedData = await parsePhoneNumber(entry.number!);
-    String countryCode = parsedData['countryCode']!;
-    String e164Number = parsedData['e164Number']!;
-
-    // 使用 Provider 获取当前的 Locale
-    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
-    final currentLocale = localeProvider.locale;
-
-    final languageCode = currentLocale.languageCode;
-
-    // 创建 dlibphonenumber 的 Locale
-    final dlibLocale = dlibphone.Locale(
-      language: languageCode,
-      // country: countryCode ?? '', // 使用解析出的国家代码
-      country: (countryCode).toUpperCase(), // 使用 toUpperCase() 方法
-    );
-
-    final appState = Provider.of<AppState>(context, listen: false);
-
-    _callerIdService = appState.callerIdService;
-
-    // 检查 phoneNumber 是否为空
-    if (phoneNumber.isEmpty) {
-      return CallerIdData(
-        phoneNumber: 'Unknown', // 或其他你认为合适的默认值
-        countryName: 'Unknown',
-        region: 'Unknown',
-        carrier: 'Unknown',
-        numberType: PhoneNumberType.unknown,
-        labels: [Label(label: 'Unknown')],
-        name: 'OtherUnknown',
-        avatar: 'Unknown',
-        count: 0,
-      );
-    }
-
-    // 检查缓存
-    if (_callerIdDataCache.containsKey(phoneNumber)) {
-      return _callerIdDataCache[phoneNumber]!;
-    }
-
-    // 如果缓存中不存在数据，则查询数据库
-    try {
-      CallerIdData callerIdData =
-          await _callerIdService.getCallerId(e164Number, dlibLocale);
-      // 将查询结果存储到缓存中
-      _callerIdDataCache[phoneNumber] = callerIdData;
-      _saveCachedCallerIdData(); // 保存更新后的数据
-
-      return callerIdData;
-    } catch (error) {
-      return CallerIdData(
-        phoneNumber: phoneNumber,
-        countryName: 'locationOther',
-        labels: [Label(label: 'Other')],
-        name: 'OtherUnknown',
-      );
-    }
-  }
-
-// 保存缓存数据到本地文件
-  Future<void> _saveCachedCallerIdData() async {
-    final directory = await getApplicationDocumentsDirectory();
-    final file = File('${directory.path}/caller_id_cache.json');
-    final jsonData = jsonEncode(_callerIdDataCache);
-    await file.writeAsString(jsonData);
-  }
-
-// 从本地文件加载缓存数据
-  Future<void> _loadCachedCallerIdData() async {
-    final directory = await getApplicationDocumentsDirectory();
-    final file = File('${directory.path}/caller_id_cache.json');
-    if (await file.exists()) {
-      final jsonData = await file.readAsString();
-      _callerIdDataCache = (jsonDecode(jsonData) as Map<String, dynamic>)
-          .map((key, value) => MapEntry(key, CallerIdData.fromJson(value)));
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).callHistory),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () => _showSettingsDialog(),
-          ),
-        ],
-      ),
-      body: RefreshIndicator(
-        onRefresh: _fetchCallLogs,
-        child: _isLoading
-            ? const Center(child: CircularProgressIndicator())
-            // : _build(context),
-            : AdvancedSelfManagedSearchBar<CallLogEntry>(
-                items: _callLogEntry,
-                itemBuilder: (context, entry, width) =>
-                    _buildCallLogItem(entry, width),
-                getSearchString: (entry) =>
-                    '${entry.timestamp} ${entry.number} ${entry.name}',
-                getSortFields: (entry) => ['Label', 'Phone Number', 'Name'],
-                getSortFieldValues: (entry) =>
-                    [entry.timestamp, entry.number, entry.name],
-                originalBuilder: (context, items) => _build(context),
-                //adBuilder: (width, height) => nativeAdWidgetSmall(adWidth: width, adHeight: height),
-              ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const AddLabelPageView()),
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(S.of(context).callHistory),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.settings),
+          onPressed: () => _showSettingsDialog(),
         ),
+      ],
+    ),
+    body: StreamBuilder<List<CallLogEntry>>(
+        stream: _callLogManager.callLogsStream,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            // 调试日志
+            return Center(child: Text('Error: ${snapshot.error}'));
+          }
+
+      
+        
+          return RefreshIndicator(
+            onRefresh: () async {
+              // 调试日志
+              await _callLogManager.refresh();
+            },
+          child: (snapshot.hasData && snapshot.data!.isNotEmpty) 
+                ? _buildCallLogSearchBar(snapshot.data!)
+                : Center(child: Text(S.of(context).noDataAvailable)),
+          );
+      },
+    ),
+    floatingActionButton: FloatingActionButton(
+      child: const Icon(Icons.add),
+      onPressed: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const AddLabelPageView()),
       ),
+    ),
+  );
+}
+
+Widget _buildCallLogSearchBar(List<CallLogEntry> callLogs) {
+  return CallLogSearchBarWrapper(
+    callLogs: callLogs,
+    builder: (context, logs) => AdvancedSelfManagedSearchBar<CallLogEntry>(
+      items: logs,
+      itemBuilder: (context, entry, width) => _buildCallLogItem(entry, width),
+      getSearchString: (entry) => '${entry.timestamp} ${entry.number} ${entry.name}',
+      getSortFields: (entry) => ['Time', 'Phone Number', 'Name'],
+      getSortFieldValues: (entry) => [entry.timestamp, entry.number, entry.name],
+      originalBuilder: (context, items) => _build(context),
+    ),
+  );
+}
+
+  Widget _buildCallLogItem(CallLogEntry entry, double width) {
+    final phoneNumber = entry.number!;
+    final callerIdData = _callLogManager.callerIdCache[phoneNumber];
+    
+    if (callerIdData != null) {
+      return _buildCallLogCard(entry, callerIdData);
+    }
+    
+    return FutureBuilder<CallerIdData>(
+      future: _callLogManager.getCallerIdData(entry),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
+          return _buildCallLogCard(entry, snapshot.data!);
+        }
+        return Card(
+          child: ListTile(
+            title: Text(entry.number ?? S.of(context).unknown),
+            subtitle: Text(S.of(context).loading),
+          ),
+        );
+      },
     );
   }
-
 
   // 私有的构建订阅列表方法
   Widget _build(BuildContext context) {
@@ -464,19 +268,10 @@ class CallHistoryPageState extends State<CallHistoryPage> {
     );
   }
 
-  Widget _buildCallLogItem(CallLogEntry entry, double entryWidth) {
-    final callerIdData = _callerIdDataCache[entry.number ?? ''];
 
-    if (callerIdData == null) {
-      // 如果 CallerIdData 还没有加载，显示一个简单的占位符并触发加载
-      _loadCallerIdData(entry);
-      return Card(
-        child: ListTile(
-          title: Text(entry.number ?? S.of(context).unknown),
-          subtitle: Text(S.of(context).loading),
-        ),
-      );
-    }
+
+// 构建 Card 和 ExpansionTile
+  Widget _buildCallLogCard(CallLogEntry entry, CallerIdData callerIdData) {
     return Card(
         color: const Color.fromARGB(255, 251, 251, 251), // 设置背景色为浅灰色
         margin: const EdgeInsets.only(top: 5, left: 10, right: 10, bottom: 5),
@@ -528,7 +323,34 @@ class CallHistoryPageState extends State<CallHistoryPage> {
               ],
             ),
           ),
+/*
+title: ListTile(
+  title: Text(
+    entry.number ?? '',
+    style: entryTitleStyle,
+    overflow: TextOverflow.ellipsis,
+  ),
+  subtitle: Text(
+    '${callerIdData.countryName}, ${callerIdData.region ?? ''}',
+    style: entryLocationStyle,
+    overflow: TextOverflow.ellipsis,
+  ),
+),
 
+subtitle: ListTile(
+  leading: callerIdData.labels.isNotEmpty
+      ? Text(
+          callerIdData.labels.first.label,
+          style: entryLabelStyle,
+        )
+      : null, // 或其他 Widget，例如 SizedBox.shrink()
+  title: Text(
+        callerIdData.name,
+        style: entryNameStyle,
+        //overflow: TextOverflow.ellipsis,
+      ),
+),
+*/
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -550,9 +372,9 @@ class CallHistoryPageState extends State<CallHistoryPage> {
             children: [
               Text(
                 //callerIdData.name,
-    callerIdData.name == "Unknown" 
-      ? '${S.of(context).name}: ${S.of(context).unknown}' 
-      : '${S.of(context).name}: ${callerIdData.name}',
+                callerIdData.name == "Unknown"
+                    ? '${S.of(context).name}: ${S.of(context).unknown}'
+                    : '${S.of(context).name}: ${callerIdData.name}',
 
                 style: entryNameStyle,
                 overflow: TextOverflow.ellipsis,
@@ -568,6 +390,25 @@ class CallHistoryPageState extends State<CallHistoryPage> {
               ),
             ],
           ),
+          /*
+  subtitle: Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      if (callerIdData.labels.isNotEmpty)
+        Text(
+          callerIdData.labels.first.label,
+          style: entryLabelStyle,
+        ),
+            const SizedBox(width: 3.0), // 添加 SizedBox
+      Text(
+        callerIdData.name,
+        style: entryNameStyle,
+        overflow: TextOverflow.ellipsis,
+      ),
+    ],
+  ),
+
+*/
 
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
@@ -584,7 +425,8 @@ class CallHistoryPageState extends State<CallHistoryPage> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
-                        callerIdData.labels.first.label.translate(context), // 使用 translate 方法
+                        callerIdData.labels.first.label
+                            .translate(context), // 使用 translate 方法
                         style: entryLabelStyle,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -673,9 +515,9 @@ class CallHistoryPageState extends State<CallHistoryPage> {
             decoration:
                 InputDecoration(labelText: S.of(context).avatarUrlOrPath),
           ),
-
+     const SizedBox(height: 16),
           const Divider(height: 1),
-          const SizedBox(height: 10),
+     
           // Blacklist/Whitelist options with adjusted padding
           Row(
             mainAxisSize: MainAxisSize.min, // 添加了 mainAxisSize
@@ -722,19 +564,26 @@ class CallHistoryPageState extends State<CallHistoryPage> {
           ),
           const Divider(),
           // Stateful widget to manage Entry name and label
-
-        Labels(
-          initialLabel: callerIdData.labels.first.label,
-          phoneNumber: callerIdData.phoneNumber,
-          onLabelChanged: (newLabel) {
-            setState(() {
+          /*
+          Labels(
+            initialLabel: callerIdData.labels.first.label,
+            phoneNumber: callerIdData.phoneNumber,
+            onLabelChanged: (newLabel) {
               callerIdData.labels.first.label = newLabel;
-            });
-          },
-          selectLabelService: ListServiceAdapter(
-              Provider.of<AppState>(context, listen: false).labelService),
-        ),
-
+            },
+          ),
+          */
+          Labels(
+            initialLabel: callerIdData.labels.first.label,
+            phoneNumber: callerIdData.phoneNumber,
+            onLabelChanged: (newLabel) {
+              setState(() {
+                callerIdData.labels.first.label = newLabel;
+              });
+            },
+            selectLabelService: ListServiceAdapter(
+                Provider.of<AppState>(context, listen: false).labelService),
+          ),
 
           const GoogleAdWidget(adInfo: AdManager.bannerAd),
           const Divider(),
@@ -778,38 +627,36 @@ class CallHistoryPageState extends State<CallHistoryPage> {
                 onPressed: () async {
                   final updatedEntry = LabeledEntry(
                     phoneNumber: callerIdData.phoneNumber,
-                                        label: callerIdData.labels.first.label,
+                    label: callerIdData.labels.first.label,
                     name: nameController.text,
                     avatar: avatarController
                         .text, // Use the avatarController's value
-
                   );
 
-    final allowedEntry = AllowedEntry(
-      phoneNumber: updatedEntry.phoneNumber,
-      label: updatedEntry.label,
-      name: updatedEntry.name,
-      avatar: updatedEntry.avatar,
-    );
+                  final allowedEntry = AllowedEntry(
+                    phoneNumber: updatedEntry.phoneNumber,
+                    label: updatedEntry.label,
+                    name: updatedEntry.name,
+                    avatar: updatedEntry.avatar,
+                  );
 
-    final blockedEntry = BlockedEntry(
-      phoneNumber: updatedEntry.phoneNumber,
-      label: updatedEntry.label,
-      name: updatedEntry.name,
-      avatar: updatedEntry.avatar,
-    );
-
+                  final blockedEntry = BlockedEntry(
+                    phoneNumber: updatedEntry.phoneNumber,
+                    label: updatedEntry.label,
+                    name: updatedEntry.name,
+                    avatar: updatedEntry.avatar,
+                  );
 
                   await _labelService.addOrUpdate(
                       updatedEntry); // Update database with updated entry
                   if (_isAllowed) {
                     await _allowedService.addOrUpdate(allowedEntry);
-        await _blockedService.remove(blockedEntry);
+                    await _blockedService.remove(blockedEntry);
                   } else if (_isBlocked) {
                     await _blockedService.addOrUpdate(blockedEntry);
-    await _allowedService.remove(allowedEntry);
+                    await _allowedService.remove(allowedEntry);
                   }
-                  await _fetchCallLogs();
+                //  await _fetchCallLogs();
                   // Additional action after saving (optional)
                   setState(() {
                     _expandedItems[callerIdData.phoneNumber] = false;
@@ -822,7 +669,7 @@ class CallHistoryPageState extends State<CallHistoryPage> {
                     const Icon(NewSet.check),
                     const SizedBox(width: 8.0),
                     Text(
-                     S.of(context).save,
+                      S.of(context).save,
                     ),
                   ],
                 ),
@@ -916,4 +763,8 @@ class CallHistoryPageState extends State<CallHistoryPage> {
 
     return formattedDate;
   }
+
+
+  //结束
 }
+

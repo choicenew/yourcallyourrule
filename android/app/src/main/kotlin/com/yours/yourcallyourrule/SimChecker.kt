@@ -25,7 +25,7 @@ class SimChecker(private val context: Context, private val callDetails: Call.Det
     @SuppressLint("MissingPermission", "HardwareIds")
     fun sendSimInfoToFlutter() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP_MR1 || callDetails == null) {
-            Log.w("SimChecker", "Android version is below 22 or callDetails is null, skipping SIM check.")
+          //  Log.w("SimChecker", "Android version is below 22 or callDetails is null, skipping SIM check.")
             return
         }
 
@@ -141,19 +141,19 @@ class SimChecker(private val context: Context, private val callDetails: Call.Det
                     simInfo,
                     object : MethodChannel.Result {
                         override fun success(result: Any?) {
-                           // Log.d("SimChecker", "Successfully sent SIM info to Flutter: $simInfo")
+                         //   Log.d("SimChecker", "Successfully sent SIM info to Flutter: $simInfo")
                         }
 
                         override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
-                           // Log.e("SimChecker", "Error sending SIM info to Flutter: $errorMessage")
+                          //  Log.e("SimChecker", "Error sending SIM info to Flutter: $errorMessage")
                         }
 
                         override fun notImplemented() {
-                          //  Log.e("SimChecker", "onSimInfo not implemented in Flutter")
+                           // Log.e("SimChecker", "onSimInfo not implemented in Flutter")
                         }
                     }
                 )
-            } ?: Log.e("SimChecker", "FlutterEngine or BinaryMessenger is null")
+            } //?: Log.e("SimChecker", "FlutterEngine or BinaryMessenger is null")
         }
     }
 
