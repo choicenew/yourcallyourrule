@@ -1,95 +1,97 @@
-name: debug Flutter Build, Sign and Release
-
+name: 测试Flutter Debug Build
 on:
   workflow_dispatch:
-  #push:
-  #  branches:
-  #    - main
-
+    inputs:
+      build_type:
+        description: 'Build Type (aab/apk/both)'
+        required: true
+        default: 'both'
+        
 jobs:
-  build:
+  debug-build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
+        with:
+          fetch-depth: 0
+          
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
-          cache: 'gradle'
-
+          
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.3'
+          flutter-version: '3.24.0'
           channel: 'stable'
-          cache: true
-          cache-key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
-
-      - run: flutter pub get
-      
-      # Cache Gradle dependencies
-      - name: Cache Gradle Dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: Flutter Doctor
-        run: flutter doctor -v
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: platform-tools build-tools;34.0.0
-
-
-
-      # Build and Sign AAB and APKs using Flutter's built-in signing
-      - name: Build and Sign AAB and APKs
+          
+      # 配置 settings.gradle
+      - name: Configure Gradle Settings
         run: |
-          flutter build appbundle -v 
-          flutter build apk --split-per-abi
+          cat > android/settings.gradle << 'EOL'
+          include ':app'
 
-      # Cache Flutter build files
-      - name: Cache Flutter Build Files
-        uses: actions/cache@v3
-        with:
-          path: |
-            build
-            .dart_tool
-          key: ${{ runner.os }}-flutter-build-${{ hashFiles('**/pubspec.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-build-
+          def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
+          def properties = new Properties()
 
-      # Upload signed AAB and APKs as artifacts
-      - name: Upload Signed Artifacts
+          assert localPropertiesFile.exists()
+          localPropertiesFile.withReader("UTF-8") { reader -> properties.load(reader) }
+
+          def flutterSdkPath = properties.getProperty("flutter.sdk")
+          assert flutterSdkPath != null, "flutter.sdk not set in local.properties"
+
+          apply from: "$flutterSdkPath/packages/flutter_tools/gradle/app_plugin_loader.gradle"
+
+          def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
+          def plugins = new Properties()
+          def pluginsFile = new File(flutterProjectRoot.toFile(), '.flutter-plugins')
+          if (pluginsFile.exists()) {
+              pluginsFile.withReader('UTF-8') { reader -> plugins.load(reader) }
+          }
+
+          plugins.each { name, path ->
+              def pluginDirectory = flutterProjectRoot.resolve(path).resolve('android').toFile()
+              include ":$name"
+              project(":$name").projectDir = pluginDirectory
+          }
+          EOL
+
+          # 创建 local.properties
+          echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+          echo "sdk.dir=$ANDROID_SDK_ROOT" >> android/local.properties
+          
+      - name: Install Dependencies
+        run: flutter pub get
+          
+      - name: Decode Keystore
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
+          
+      - name: Create key.properties
+        run: |
+          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
+          echo "storeFile=key.jks" >> android/key.properties
+          
+      - name: Build Release
+        run: |
+          if [[ "${{ github.event.inputs.build_type }}" == "aab" || "${{ github.event.inputs.build_type }}" == "both" ]]; then
+            flutter build appbundle --verbose
+          fi
+          if [[ "${{ github.event.inputs.build_type }}" == "apk" || "${{ github.event.inputs.build_type }}" == "both" ]]; then
+            flutter build apk --split-per-abi --verbose
+          fi
+          
+      - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: signed-release-artifacts
+          name: release-build-artifacts
           path: |
             build/app/outputs/bundle/release/app-release.aab
             build/app/outputs/apk/release/*.apk
-
-      - name: Extract pubspec version
+            
+      - name: Extract Version
         run: |
           echo "PUBSPEC_VERSION=$(grep -oP 'version:\s*\K[^+]+(?=\+)' pubspec.yaml)" >> $GITHUB_ENV
-
-      - name: Upload Release 
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.MY_PAT }}
-          tag: v${{ env.PUBSPEC_VERSION }} 
-          omitBodyDuringUpdate: true
-          omitNameDuringUpdate: true
-          omitPrereleaseDuringUpdate: true
-          allowUpdates: true
-          artifacts: |
-            signed-release-artifacts/*
-            build/app/outputs/bundle/release/app-release.aab
-            build/app/outputs/apk/release/*.apk
