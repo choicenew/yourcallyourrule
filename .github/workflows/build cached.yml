@@ -22,10 +22,7 @@ jobs:
           cache: 'gradle'
 
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: platform-tools build-tools;34.0.0  
+
 
 
       - uses: subosito/flutter-action@v2
