@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_overlay_apps/flutter_overlay_apps.dart';
-import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart' hide AppState;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,14 +10,11 @@ import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart
 import '../utils/language_provider.dart';
 import 'screens/appstate_provider.dart';
 
-import 'screens/callerID/callerid_overlay.dart';
 import 'screens/callerID/callerid_overlay_entry.dart';
 import 'screens/callerID/callerid_style_provider.dart';
 import 'screens/home_page.dart';
 import 'screens/onboarding.dart';
-import 'screens/settings.dart';
 
-import 'services/caller_id_service.dart';
 import 'shared/const/theme_config.dart';
 import 'utils/ad_state.dart';
 import 'generated/l10n.dart';

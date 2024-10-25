@@ -1,14 +1,9 @@
 // caller_id_monitor_service.dart
 import 'dart:async';
-import 'dart:convert';
-import 'package:flutter/material.dart' as flutter;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sim_card_info/sim_card_info.dart';
-import 'package:sim_card_info/sim_info.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:dlibphonenumber/locale.dart' as dlibphone;
@@ -17,15 +12,12 @@ import 'package:dlibphonenumber/locale.dart' as dlibphone;
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart' as overlay;
 
-import '../screens/appstate_provider.dart';
 import '../screens/callerID/callerid_configuration.dart';
 import '../screens/callerID/callerid_style_provider.dart';
-import '../screens/home_page.dart';
 import '../utils/call_filter.dart';
+import '../utils/caller_id_cache.dart.dart';
 import '../utils/global_variable.dart';
-import '../utils/language_provider.dart';
 import '../utils/blocked_call_repository.dart';
-import '../screens/callerID/callerid_overlay.dart';
 
 import '../utils/parse_phonenumber.dart';
 import '../utils/repeated_call.dart';
@@ -155,14 +147,23 @@ class CallerIdMonitorService {
 
   final CallerIdService _callerIdService;
   final CallFilter _callFilter;
-  final BlockedCallRepository _blockedCallRepository;
+  
+  //final BlockedCallRepository _blockedCallRepository;
+
+  // BlockedCallRepository 可以直接在这里创建
+  final _blockedCallRepository = BlockedCallRepository();
   final TimeBasedInterceptor _timeBasedInterceptor = TimeBasedInterceptor();
   final _callerIdSubject = BehaviorSubject<CallerIdData>();
-  final FlutterLocalNotificationsPlugin notificationsPlugin;
+
+ // final FlutterLocalNotificationsPlugin notificationsPlugin;
+  // 作为内部工具直接初始化就好
+  final notificationsPlugin = FlutterLocalNotificationsPlugin();
+
 
   bool useLocalNotification = true;
   bool cancelLocalNotification = false;
   bool useStirNotification = true;
+  //bool? _shouldAccept; // 定义一个变量来存储 shouldAccept 的结果
 
   static const String callLocalNotificationKey = 'call_local_notification';
   static const String callCancelLocalNotificationKey =
@@ -177,14 +178,17 @@ class CallerIdMonitorService {
 
   Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
 
+
   CallerIdMonitorService(
     this._channelManager,
     this._callerIdService,
     this._callFilter,
-    this._blockedCallRepository,
-  ) : notificationsPlugin = FlutterLocalNotificationsPlugin() {
+   // this._blockedCallRepository,
+  ) {
     _setupChannelCallbacks();
   }
+
+
 
   void _setupChannelCallbacks() {
     _channelManager.onCallerIdCall = _handleCallerIdCall;
@@ -195,10 +199,11 @@ class CallerIdMonitorService {
   }
 
   Future<void> initialize() async {
-
+    
     await loadSettings();
     await _initializeNotifications();
 
+   
   }
 
   Future<void> loadSettings() async {
@@ -248,43 +253,41 @@ class CallerIdMonitorService {
     if (call.method == "onCallerIdInitializationComplete") {
       await _channelManager.initializeCallerId();
     } else if (call.method == 'onIncomingCall') {
-
+     
       await _handleIncomingCall(call.arguments['phoneNumber']);
     } else if (call.method == 'onCallEnded') {
       _handleCallEnded();
     } else if (call.method == 'onOutgoingCall') {
-
+      
       await _handleOutgoingCall(call.arguments['phoneNumber']);
     }
   }
 
-  Future<bool?> _handleShouldAcceptCallCall(MethodCall call) async {
+// 每次来电创建新的 StreamController
+StreamController<bool>? _currentDecisionController;
+
+
+  Future<bool> _handleShouldAcceptCallCall(MethodCall call) async {
     if (call.method == 'onShouldAcceptCallInitializationComplete') {
-    
+     
     } else if (call.method == 'shouldAcceptCall') {
-      final phoneNumber = call.arguments as String;
-      // 先判断 _callFilter 的结果
-      await _callFilter.loadConfig(); // 重新加载配置
-      bool shouldAccept = await _callFilter.shouldAcceptCall(phoneNumber);
-      await _timeBasedInterceptor.loadConfig();
-      // 如果 _callFilter bu允许接听，再判断 _timeBasedInterceptor 的结果
-      if (!shouldAccept && _timeBasedInterceptor.config.shouldIntercept) {
-        shouldAccept =
-            !await _timeBasedInterceptor.shouldIntercept(phoneNumber);
-      }
-      return shouldAccept;
+    _currentDecisionController = StreamController<bool>();
+    final result = await _currentDecisionController!.stream.first;
+    await _currentDecisionController!.close();
+    return result;
     }
-    return null;
+    return true;
   }
 
   Future<String?> _handleEndCallCall(MethodCall call) async {
     if (call.method == "onEndCallInitializationComplete") {
-  
+      
     } else if (call.method == "interceptAction") {
       final phoneNumber = call.arguments as String;
       SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
       final interceptAction =
           await asyncPrefs.getString('intercept_action') ?? 'endCall';
+      
       return interceptAction;
     }
     return null;
@@ -293,7 +296,7 @@ class CallerIdMonitorService {
   void _handleStirCall(MethodCall call) {
     if (call.method == "onStirInitializationComplete") {
       // STIR 初始化完成，可以在这里进行一些初始化操作（可选）
-    
+      
     } else if (call.method == "onStirResult") {
       final isVerified = call.arguments['isVerified'] as bool;
       final isNotVerified = call.arguments['isNotVerified'] as bool;
@@ -321,7 +324,6 @@ class CallerIdMonitorService {
 
   void _handleSimCall(MethodCall call) {
     if (call.method == "onSimInitializationComplete") {
-   
     } else if (call.method == "onSimInfo") {
       final carrierName = call.arguments['carrierName'] as String?;
       final displayName = call.arguments['displayName'] as String?;
@@ -334,6 +336,7 @@ class CallerIdMonitorService {
       final mncString = call.arguments['mncString'] as String?;
       final simPhoneNumber = call.arguments['simPhoneNumber'] as String?;
       final callType = call.arguments['callType'] as String?;
+
 
       simInfo = SimInfo(
         carrierName: carrierName,
@@ -357,9 +360,7 @@ class CallerIdMonitorService {
   Future<void> _handleIncomingCall(String phoneNumber) async {
     CallData callData = await _handleCall(phoneNumber);
 
-    //await showCallerIdOverlay(context, callData.callerIdData);
-    await showCallerIdOverlay(
-        callData.callerIdData, callData.stirInfo, callData.simInfo);
+
 
     _callerIdSubject.add(callData.callerIdData);
 
@@ -377,17 +378,17 @@ class CallerIdMonitorService {
     final shouldAccept = await Future.any(
       numbersToTest.map((number) async {
         bool shouldAccept = await _callFilter.shouldAcceptCall(number);
-       
         // 如果 _callFilter 不允许接听，再判断 _timeBasedInterceptor 的结果
         if (!shouldAccept && _timeBasedInterceptor.config.shouldIntercept) {
           shouldAccept = !await _timeBasedInterceptor.shouldIntercept(number);
-        
         }
 
         return shouldAccept;
       }),
     );
-
+    
+  // 发送决策结果
+  _currentDecisionController?.add(shouldAccept);
 
 
     if (shouldAccept) {
@@ -411,7 +412,6 @@ class CallerIdMonitorService {
       }
 
       await _blockedCallRepository.addBlockedCall(phoneNumber);
-
     }
   }
 
@@ -419,9 +419,7 @@ class CallerIdMonitorService {
   Future<void> _handleOutgoingCall(String phoneNumber) async {
     CallData callData = await _handleCall(phoneNumber);
 
-    //await showCallerIdOverlay(context, callData.callerIdData);
-    await showCallerIdOverlay(
-        callData.callerIdData, callData.stirInfo, callData.simInfo);
+
 
     _callerIdSubject.add(callData.callerIdData);
   }
@@ -444,7 +442,7 @@ class CallerIdMonitorService {
 
 // 提取的公共函数
   Future<CallData> _handleCall(String phoneNumber) async {
-   
+
     // 使用存储的 STIR 信息 (如果 phoneNumber 匹配)
     StirInfo? stirInfoToUse =
         stirInfo != null && stirInfo!.phoneNumber == phoneNumber
@@ -506,6 +504,13 @@ class CallerIdMonitorService {
     // 获取来电显示信息
     CallerIdData callerIdData =
         await _callerIdService.getCallerId(phoneNumber, dlibLocale);
+        //缓存数据到list
+        await saveCallerIdDataToCache(phoneNumber, callerIdData); 
+
+    //await showCallerIdOverlay(context, callData.callerIdData);
+    await showCallerIdOverlay(
+        callerIdData, stirInfo, simInfo);
+
 
     return CallData(
       callerIdData: callerIdData,
@@ -514,18 +519,18 @@ class CallerIdMonitorService {
       stirInfo: stirInfoToUse,
       simInfo: simInfoToUse,
     );
+
+    
   }
 
   Future<void> showCallerIdOverlay(
       CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
-
 
     CallerIdStyleProvider? styleProvider;
     // 获取 CallerIdStyleProvider
     //styleProvider = Provider.of<CallerIdStyleProvider>(context, listen: false);
 
     styleProvider = await ConfigurationManager.fromSharedPreferences();
-
 
     await updateAndShareConfiguration(styleProvider);
 
@@ -547,14 +552,12 @@ class CallerIdMonitorService {
     FlutterOverlayWindow.shareData(dataToSend);
 
 
-
     if (stirInfo != null) {
       await FlutterOverlayWindow.shareData({
         "configType": "stirInfo", // 添加 configType 字段
         ...stirInfo.toJson(),
       });
     }
-    // 传递 SIM 信息
 
     if (simInfo != null) {
       await FlutterOverlayWindow.shareData({
@@ -579,7 +582,6 @@ class CallerIdMonitorService {
       startPosition: storedPosition!,
     );
 
-   
   }
 
   void enableOverlayDismissal() {
@@ -588,7 +590,7 @@ class CallerIdMonitorService {
   }
 
   Future<void> _showBlockedCallNotification(String phoneNumber) async {
-    
+    // Debug print
     const androidDetails = AndroidNotificationDetails(
       'call_blocker_channel',
       'Call Blocker Notifications',
@@ -616,7 +618,7 @@ class CallerIdMonitorService {
       stirResultMessage = "STIR Unknown";
     }
 
-
+    // Debug print
 
     const androidDetails = AndroidNotificationDetails(
       'call_blocker_channel',
@@ -643,7 +645,6 @@ class CallerIdMonitorService {
 
     // 传递 Map 对象
     FlutterOverlayWindow.shareData(dataToSend);
-
   }
 
   Future<void> dispose() async {

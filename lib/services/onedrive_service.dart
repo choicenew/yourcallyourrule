@@ -250,7 +250,7 @@ class OneDriveService extends ChangeNotifier {
     if (_user == null) throw Exception('Not signed in to OneDrive');
 
     // Default backup directory name
-    final defaultBackupDirName = 'ycyr';
+    const defaultBackupDirName = 'ycyr';
     final actualBackupDirName = backupDirName ?? defaultBackupDirName;
 
     // Fetch files from OneDrive in specified directory
@@ -307,7 +307,7 @@ class OneDriveService extends ChangeNotifier {
     await _backupRestoreService.handleZipFile(tempFile);
     // 显示还原成功的 Snackbar
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text('Database restored successfully!'),
       ),
     );

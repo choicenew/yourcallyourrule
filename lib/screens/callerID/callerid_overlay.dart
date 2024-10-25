@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-//import 'package:flutter_overlay_apps/flutter_overlay_apps.dart';
 import 'package:provider/provider.dart';
 import '../../generated/l10n.dart';
 import '../../services/caller_id_monitor_service.dart';
@@ -243,6 +242,7 @@ class CallerIdOverlayState extends State<CallerIdOverlay> {
           position: styleProvider.callTypePosition,
         ),
 
+        //SIM卡位置
 
         _buildDraggableElement(
           child: Container(

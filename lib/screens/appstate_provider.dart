@@ -23,7 +23,7 @@ import '../services/caller_id_service.dart';
 import '../services/sms_channel_manager.dart';
 import '../services/sms_notification_service.dart';
 import '../services/subscription_service.dart';
-import '../utils/blocked_call_repository.dart';
+
 import '../utils/call_filter.dart';
 
 
@@ -87,11 +87,11 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   Future<void> _initServices() async {
       // 创建 ChannelManager 实例并初始化
   final callChannelManager = CallChannelManager();
-    final smsChannelManager = SmsChannelManager();
+SmsChannelManager smsChannelManager = SmsChannelManager();
   callChannelManager.initialize();
 smsChannelManager.initialize();
   
-        final blockedCallRepository = BlockedCallRepository();
+     //   final blockedCallRepository = BlockedCallRepository();
 
 
 
@@ -112,28 +112,17 @@ smsChannelManager.initialize();
     // 初始化 CallerIdMonitorService
 
 
-    callerIdMonitorService = CallerIdMonitorService(callChannelManager, callerIdService, callFilter, blockedCallRepository);
+    callerIdMonitorService = CallerIdMonitorService(callChannelManager, callerIdService, callFilter);
     
 
 
 
-        smsFilterService = await SmsFilterService.create(
-  database: callRuleDatabase,
-  smsChannelManager: smsChannelManager, // Pass the SmsChannelManager instance
-);
-  
+    smsFilterService = await SmsFilterService.create(
+      database: callRuleDatabase,
+      smsChannelManager:
+          smsChannelManager, // Pass the SmsChannelManager instance
+    );
 
-
-/*
-    // 设置 SMS 监听器
-    SmsFilterService.smsChannel.setMethodCallHandler((call) async {
-      if (call.method == 'onSmsReceived') {
-        final String phoneNumber = call.arguments['phoneNumber'];
-        final String messageContent = call.arguments['messageContent'];
-        await smsFilterService.handleIncomingSms(phoneNumber, messageContent);
-      }
-    });
-*/
     _areServicesInitialized = true;
     _updateProgress(servicesInitWeight);
   }
@@ -154,7 +143,8 @@ smsChannelManager.initialize();
 
     await _createServiceInstances();
   }
-  
+
+
   Future<void> _openDatabase() async {
     final dbPath = path_helper.join(await getDatabasesPath(), 'call_rule_database.db');
     callRuleDatabase = await openDatabase(

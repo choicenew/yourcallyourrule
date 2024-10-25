@@ -30,10 +30,10 @@ class MyInCallService : InCallService() {
         super.onCallAdded(call)
 
         val phoneNumber = call.details.handle?.schemeSpecificPart
-        Log.d(TAG, "onCallAdded: phoneNumber = $phoneNumber") // 添加日志：电话号码        
+      //  Log.d(TAG, "onCallAdded: phoneNumber = $phoneNumber") // 添加日志：电话号码        
        
         val simInfoJson = getSimInfoJsonForCall(this, phoneNumber, call)
-        Log.d(TAG, "onCallAdded: simInfoJson = $simInfoJson") // 添加日志：SIM 卡信息 JSON 字符串
+        //Log.d(TAG, "onCallAdded: simInfoJson = $simInfoJson") // 添加日志：SIM 卡信息 JSON 字符串
 
         // 发送来电/去电号码和 SIM 卡信息给 Flutter
         flutterEngine?.dartExecutor?.binaryMessenger?.let { messenger ->
@@ -73,12 +73,12 @@ class MyInCallService : InCallService() {
         val subscriptionManager = context.getSystemService(SubscriptionManager::class.java)
 
         if (telephonyManager != null && subscriptionManager != null) {
-             Log.e(TAG, "getSimInfoJsonForCall: telephonyManager or subscriptionManager is null") // 添加日志：服务为空
+          //   Log.e(TAG, "getSimInfoJsonForCall: telephonyManager or subscriptionManager is null") // 添加日志：服务为空
             // 尝试根据 SIM 卡槽索引获取 SIM 卡信息
             val simSlotIndex = getSimSlotIndexFromCall(call)
             if (simSlotIndex != -1) {
                 val subscriptionInfo = subscriptionManager.getActiveSubscriptionInfoForSimSlotIndex(simSlotIndex)
-            Log.d(TAG, "getSimInfoJsonForCall: subscriptionInfo (from slot) = $subscriptionInfo") // 添加日志：根据槽索引获取的 subscriptionInfo
+        //    Log.d(TAG, "getSimInfoJsonForCall: subscriptionInfo (from slot) = $subscriptionInfo") // 添加日志：根据槽索引获取的 subscriptionInfo
                 if (subscriptionInfo != null) {
                     return getSimInfoJson(context, subscriptionInfo, subscriptionManager) // 传递 subscriptionManager
                 }
@@ -86,12 +86,12 @@ class MyInCallService : InCallService() {
 
             // 如果根据 SIM 卡槽索引没有找到，则根据号码查找
             val subscriptions = subscriptionManager.activeSubscriptionInfoList
-        Log.d(TAG, "getSimInfoJsonForCall: subscriptions = $subscriptions") // 添加日志：所有 subscriptionInfo 列表
+      //  Log.d(TAG, "getSimInfoJsonForCall: subscriptions = $subscriptions") // 添加日志：所有 subscriptionInfo 列表
             if (subscriptions != null && subscriptions.isNotEmpty()) {
                 for (subscriptionInfo in subscriptions) {
                     val simNumber = subscriptionManager.getPhoneNumber(subscriptionInfo.subscriptionId)
                     if (simNumber == phoneNumber) {
-                    Log.d(TAG, "getSimInfoJsonForCall: Found matching SIM card!") // 添加日志：找到匹配的 SIM 卡                        
+              //      Log.d(TAG, "getSimInfoJsonForCall: Found matching SIM card!") // 添加日志：找到匹配的 SIM 卡                        
                         return getSimInfoJson(context, subscriptionInfo, subscriptionManager) // 传递 subscriptionManager
                     }
                 }
@@ -108,7 +108,7 @@ class MyInCallService : InCallService() {
             val getSimSlotIndexMethod = Call::class.java.getMethod("getSimSlotIndex")
             return getSimSlotIndexMethod.invoke(call) as Int
         } catch (e: Exception) {
-            Log.w(TAG, "Error getting sim slot index from call: ${e.message}")
+         //   Log.w(TAG, "Error getting sim slot index from call: ${e.message}")
             return -1
         }
     }
@@ -136,11 +136,11 @@ class MyInCallService : InCallService() {
             if (simNumber != null) {
                 simInfo.put("simNumber", simNumber)
             } else {
-                Log.w(TAG, "Unable to get SIM number.")
+          //      Log.w(TAG, "Unable to get SIM number.")
             }
 
         } catch (e: JSONException) {
-            Log.e(TAG, "Error creating JSON object: ${e.message}")
+          //  Log.e(TAG, "Error creating JSON object: ${e.message}")
         }
         return simInfo.toString()
     }

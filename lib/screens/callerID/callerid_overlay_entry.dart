@@ -1,26 +1,18 @@
-
 import 'dart:isolate';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:provider/provider.dart';
-
-import '../../views/public/label_translation_extension.dart';
 
 import '../../generated/l10n.dart';
 import '../../services/caller_id_monitor_service.dart';
 import '../../services/caller_id_service.dart';
-
 import '../../utils/language_provider.dart';
+import '../../views/public/label_translation_extension.dart';
 import 'callerid_configuration.dart';
-
-
-import 'package:flutter_overlay_window/flutter_overlay_window.dart';
-
 import 'callerid_style_provider.dart';
 import 'number_type_extension.dart';
-
 
 class CallerIdOverlayEntry extends StatefulWidget {
   const CallerIdOverlayEntry({super.key});
@@ -38,73 +30,74 @@ class _CallerIdOverlayEntryState extends State<CallerIdOverlayEntry> {
   @override
   void initState() {
     super.initState();
-    //_loadDefaultStyle(); // 加载默认样式
-
+    _loadDefaultStyle(); // 加载默认样式
 
     // 接收来自主应用程序的消息
     Isolate.current.addErrorListener(RawReceivePort((dynamic error) {
       // ... 处理错误
-    }).sendPort);
+    })
+        .sendPort);
 
     Isolate.current.addOnExitListener(RawReceivePort((dynamic message) {
       // ... 处理退出
-    }).sendPort);
+    })
+        .sendPort);
 
-    final receivePort = ReceivePort(); // 使用 ReceivePort 
-    IsolateNameServer.registerPortWithName(receivePort.sendPort, '_overlayPort');
+    final receivePort = ReceivePort(); // 使用 ReceivePort
+    IsolateNameServer.registerPortWithName(
+        receivePort.sendPort, '_overlayPort');
 
     receivePort.listen((dynamic message) {
       if (message is Map && message.containsKey('locale')) {
         // 更新 LocaleProvider
-        Provider.of<LocaleProvider>(context, listen: false).updateLocale(message['locale']);
+        Provider.of<LocaleProvider>(context, listen: false)
+            .updateLocale(message['locale']);
       }
     });
-
-
-
 
     // 获取 CallerIdStyleProvider 实例
     styleProvider = Provider.of<CallerIdStyleProvider>(context, listen: false);
 
 
-FlutterOverlayWindow.overlayListener.listen((event) {
-  setState(() {
-    // 判断接收到的数据类型
-    if (event is Map<String, dynamic> && event.containsKey("configType")) {
-      String configType = event["configType"];
+    FlutterOverlayWindow.overlayListener.listen((event) {
+      setState(() {
+        // 判断接收到的数据类型
+        if (event is Map<String, dynamic> && event.containsKey("configType")) {
+          String configType = event["configType"];
 
-      if (configType == "callerIdStyle") {
-        // 处理配置数据
-        ConfigurationManager.updateConfigFromMap(event, styleProvider!);
-      } else if (configType == "callerIdData") {
-        // 处理 CallerIdData 数据
-        _callerIdData = CallerIdData.fromJson(event);
-      } else if (configType == "stirInfo") {
-        // 处理 StirInfo 数据
-        _stirInfo = StirInfo.fromJson(event);
-      } else if (configType == "simInfo") {
-        // 处理 SimInfo 数据
-        _simInfo = SimInfo.fromJson(event);
+          if (configType == "callerIdStyle") {
+            // 处理配置数据
+            ConfigurationManager.updateConfigFromMap(event, styleProvider!);
+          } else if (configType == "callerIdData") {
+            // 处理 CallerIdData 数据
+            _callerIdData = CallerIdData.fromJson(event);
+          } else if (configType == "stirInfo") {
+            // 处理 StirInfo 数据
+            _stirInfo = StirInfo.fromJson(event);
+          } else if (configType == "simInfo") {
+            // 处理 SimInfo 数据
+            _simInfo = SimInfo.fromJson(event);
+          }
+        }
+      });
+
+      // 检查 styleProvider 和 callerIdData 是否都已接收
+      if (styleProvider != null && _callerIdData != null) {
+        setState(() {}); // 触发重新构建
       }
-    }
-  });
-
-  // 检查 styleProvider 和 callerIdData 是否都已接收
-  if (styleProvider != null && _callerIdData != null) {
-    setState(() {}); // 触发重新构建
-  }
-});
-
+    });
   }
 
 // 加载默认样式
   Future<void> _loadDefaultStyle() async {
     final loadedStyleProvider =
         await ConfigurationManager.fromSharedPreferences();
+        
     setState(() {
       styleProvider = loadedStyleProvider;
     });
   }
+
 
 
 
@@ -118,8 +111,8 @@ FlutterOverlayWindow.overlayListener.listen((event) {
           builder: (context, styleProvider, child) {
             return IsolateCallerIdOverlay(
               callerIdData: _callerIdData!,
-                  simInfo: _simInfo,
-                  stirInfo: _stirInfo,              
+              simInfo: _simInfo,
+              stirInfo: _stirInfo,
               onDismiss: () {
                 FlutterOverlayWindow.closeOverlay();
               },
@@ -138,7 +131,7 @@ FlutterOverlayWindow.overlayListener.listen((event) {
 //正式代码
 class IsolateCallerIdOverlay extends StatefulWidget {
   final CallerIdData callerIdData;
-  final SimInfo? simInfo;  
+  final SimInfo? simInfo;
   final StirInfo? stirInfo;
   final VoidCallback onDismiss;
   final bool isDismissible;
@@ -166,7 +159,6 @@ class _IsolateCallerIdOverlayState extends State<IsolateCallerIdOverlay> {
 
   @override
   Widget build(BuildContext context) {
-
 
     return Stack(
       children: [
@@ -259,10 +251,9 @@ class _IsolateCallerIdOverlayState extends State<IsolateCallerIdOverlay> {
         //name
         _buildElement(
           child: Text(
-    widget.callerIdData.name == "Unknown" 
-      ? '${S.of(context).name}: ${S.of(context).unknown}' 
-      : '${S.of(context).name}: ${widget.callerIdData.name}',
-            
+            widget.callerIdData.name == "Unknown"
+                ? '${S.of(context).name}: ${S.of(context).unknown}'
+                : '${S.of(context).name}: ${widget.callerIdData.name}',
             style: TextStyle(
               fontSize: styleProvider.nameFontSize,
               color: styleProvider.textNameColor,
@@ -292,7 +283,8 @@ class _IsolateCallerIdOverlayState extends State<IsolateCallerIdOverlay> {
               Text(
                 widget.callerIdData.labels
                     //.map((label) => label.label)
-                    .map((label) => label.label.translate(context)) // 使用 translate 方法
+                    .map((label) =>
+                        label.label.translate(context)) // 使用 translate 方法
                     .join(', '),
                 style: TextStyle(
                   fontSize: styleProvider.labelsFontSize,
@@ -307,7 +299,7 @@ class _IsolateCallerIdOverlayState extends State<IsolateCallerIdOverlay> {
         _buildElement(
           child: Text(
             //widget.callerIdData.count?.toString() ?? 'Unknown',
-             '${S.of(context).markedBy} ${widget.callerIdData.count?.toString() ?? S.of(context).unknown}', // 翻译 "Marked by"
+            '${S.of(context).markedBy} ${widget.callerIdData.count?.toString() ?? S.of(context).unknown}', // 翻译 "Marked by"
             style: TextStyle(
               fontSize: styleProvider.countFontSize,
               color: styleProvider.textCountColor,
@@ -318,8 +310,9 @@ class _IsolateCallerIdOverlayState extends State<IsolateCallerIdOverlay> {
         //numberType
         _buildElement(
           child: Text(
-           // widget.callerIdData.numberType?.toString() ?? S.of(context).unknown,
-            widget.callerIdData.numberType?.translated(context) ?? S.of(context).unknown,
+            // widget.callerIdData.numberType?.toString() ?? S.of(context).unknown,
+            widget.callerIdData.numberType?.translated(context) ??
+                S.of(context).unknown,
             style: TextStyle(
               fontSize: styleProvider.numberTypeFontSize,
               color: styleProvider.textNumberTypeColor,
@@ -362,15 +355,16 @@ class _IsolateCallerIdOverlayState extends State<IsolateCallerIdOverlay> {
         _buildElement(
           child: Text(
             // 直接使用 if-else if-else 语句
-            widget.stirInfo!.isVerified
+            widget.stirInfo?.isVerified == true
                 ? S.of(context).verified
-                : (widget.stirInfo!.isNotVerified ? S.of(context).notVerified : S.of(context).failed),
+                : (widget.stirInfo?.isNotVerified == true
+                    ? S.of(context).notVerified
+                    : S.of(context).failed),
             style: TextStyle(
               fontSize: styleProvider.stirFontSize,
               color: styleProvider.textStirColor,
             ),
           ),
-
           position: styleProvider.stirPosition,
         ),
 
@@ -389,20 +383,18 @@ class _IsolateCallerIdOverlayState extends State<IsolateCallerIdOverlay> {
               // ... other children ...
             ],
           ),
-
           position: styleProvider.callTypePosition,
         ),
 
-
-
+        //SIM卡位置
         _buildElement(
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.5), // 半透明白色
               borderRadius: BorderRadius.circular(8.0), // 圆角
             ),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0), // 内边距
+            padding: const EdgeInsets.symmetric(
+                horizontal: 3.0, vertical: 3.0), // 内边距
             child: Row(
               children: [
                 Text(
@@ -419,7 +411,6 @@ class _IsolateCallerIdOverlayState extends State<IsolateCallerIdOverlay> {
               ],
             ),
           ),
-
           position: styleProvider.simCardPosition,
         ),
 
@@ -441,4 +432,3 @@ class _IsolateCallerIdOverlayState extends State<IsolateCallerIdOverlay> {
 }
 
 //正式代码
-

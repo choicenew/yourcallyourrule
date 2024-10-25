@@ -58,9 +58,8 @@ Future<Map<String, String>> _parsePhoneNumber(
       }
     }
   } catch (e) {
-   // print('Failed to parse phone number: $e');
+    //print('Failed to parse phone number: $e');
   }
- 
 
   return {
     'countryCode': countryCode ?? '',

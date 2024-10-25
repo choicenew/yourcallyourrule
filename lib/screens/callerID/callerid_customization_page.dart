@@ -1,5 +1,3 @@
-
-
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
@@ -69,124 +67,107 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                   isDismissible: false,
                 ),
               ),
-  
-                    Expanded(
-                      // Use Expanded within the Column
-                      child: ListView(
-                        padding: const EdgeInsets.all(16),
-                        children: [
-                          const Divider(),
-                          const GoogleAdWidget(
-                              adInfo: AdManager
-                                  .bannerAd), // Replace with your actual AdWidget
-                          const Divider(),
-                          // 样式设置项
-                          _buildExpansionTile(
-                              S.of(context).windowSize,
-                              0,
-                              _buildWindowSizeSliders(styleProvider),
-                              styleProvider),
-                          _buildExpansionTile(
-                              S.of(context).backgroundGradient,
-                              1,
-                              _buildBackgroundGradient(styleProvider),
-                              styleProvider),
-                          _buildExpansionTile(S.of(context).textLabelColors, 2,
-                              _buildTextColors(styleProvider), styleProvider),
-                          _buildExpansionTile('Font Sizes', 3,
-                              _buildFontSizes(styleProvider), styleProvider),
-                          _buildExpansionTile(
-                               S.of(context).avatarAndIconSizes,
-                              4,
-                              _buildAvatarAndIconSizes(styleProvider),
-                              styleProvider),
-                          _buildExpansionTile(
-                              S.of(context).elementPositions,
-                              5,
-                              _buildElementPositions(styleProvider),
-                              styleProvider),
-                          //广告代码
-                          nativeAdWidgetMedium(
-                              adWidth: 320,
-                              adHeight:
-                                  320), // Replace with your actual AdWidget
-                        ],
-                      ),
-                    ),
-      
+
+              Expanded(
+                // Use Expanded within the Column
+                child: ListView(
+                  padding: const EdgeInsets.all(16),
+                  children: [
+                    const Divider(),
+                    const GoogleAdWidget(
+                        adInfo: AdManager
+                            .bannerAd), // Replace with your actual AdWidget
+                    const Divider(),
+                    // 样式设置项
+                    _buildExpansionTile(S.of(context).windowSize, 0,
+                        _buildWindowSizeSliders(styleProvider), styleProvider),
+                    _buildExpansionTile(S.of(context).backgroundGradient, 1,
+                        _buildBackgroundGradient(styleProvider), styleProvider),
+                    _buildExpansionTile(S.of(context).textLabelColors, 2,
+                        _buildTextColors(styleProvider), styleProvider),
+                    _buildExpansionTile('Font Sizes', 3,
+                        _buildFontSizes(styleProvider), styleProvider),
+                    _buildExpansionTile(S.of(context).avatarAndIconSizes, 4,
+                        _buildAvatarAndIconSizes(styleProvider), styleProvider),
+                    _buildExpansionTile(S.of(context).elementPositions, 5,
+                        _buildElementPositions(styleProvider), styleProvider),
+                    //广告代码
+                    nativeAdWidgetMedium(
+                        adWidth: 320,
+                        adHeight: 320), // Replace with your actual AdWidget
+                  ],
+                ),
+              ),
+
               // 按钮区域
-            Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      FilledButton(
-                        onPressed: () async {
-                          try {
-                            ConfigurationManager.importConfiguration(
-                                context, styleProvider);
-                            // 显示 SnackBar
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                  content: Text(
-                                      S.of(context).configurationImportedSuccessfully)
-                                      ),
-                            );
-                          } catch (e) {
-                            // 处理 JSON 解析错误
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                  content: Text(
-                                    S.of(context).invalidJsonFormat
-                                    )),
-                            );
-                          }
-                        },
-                        style: FilledButton.styleFrom(
-                          backgroundColor: Colors.amber,
-                        ),
-                        child: Text(S.of(context).import),
-                      ),
-                      FilledButton(
-                        onPressed: () async {
-                          await ConfigurationManager.exportConfiguration(
-                              styleProvider);
+              Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    FilledButton(
+                      onPressed: () async {
+                        try {
+                          ConfigurationManager.importConfiguration(
+                              context, styleProvider);
                           // 显示 SnackBar
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                                content:
-                                    Text(S.of(context).configurationExportedToFile)),
+                                content: Text(S
+                                    .of(context)
+                                    .configurationImportedSuccessfully)),
                           );
-                        },
-                        style: FilledButton.styleFrom(
-                          backgroundColor: Colors.green[400],
-                        ),
-                        child: Text(S.of(context).export),
-                      ),
-                      FilledButton(
-                        onPressed: () async {
-                          _showPreview(context, styleProvider); //临时测试
-                          // 保存配置 (此处仅为示例，实际保存逻辑需根据应用需求实现)
-                          ConfigurationManager.toSharedPreferences(
-                              styleProvider);
-                          await ConfigurationManager.saveConfiguration(
-                              styleProvider);
+                        } catch (e) {
+                          // 处理 JSON 解析错误
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                                content: Text(S.of(context).configurationSaved)),
+                                content: Text(S.of(context).invalidJsonFormat)),
                           );
-                          // 传输配置给isolated overlay
-                          //  await updateAndShareConfiguration(styleProvider);
-                        },
-                        style: FilledButton.styleFrom(
-                          backgroundColor: Colors.pink[300],
-                        ),
-                        child: Text(S.of(context).save),
+                        }
+                      },
+                      style: FilledButton.styleFrom(
+                        backgroundColor: Colors.amber,
                       ),
-                    ],
-                  ),
+                      child: Text(S.of(context).import),
+                    ),
+                    FilledButton(
+                      onPressed: () async {
+                        await ConfigurationManager.exportConfiguration(
+                            styleProvider);
+                        // 显示 SnackBar
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content: Text(
+                                  S.of(context).configurationExportedToFile)),
+                        );
+                      },
+                      style: FilledButton.styleFrom(
+                        backgroundColor: Colors.green[400],
+                      ),
+                      child: Text(S.of(context).export),
+                    ),
+                    FilledButton(
+                      onPressed: () async {
+                        _showPreview(context, styleProvider); //临时测试
+                        // 保存配置 (此处仅为示例，实际保存逻辑需根据应用需求实现)
+                        ConfigurationManager.toSharedPreferences(styleProvider);
+                        await ConfigurationManager.saveConfiguration(
+                            styleProvider);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content: Text(S.of(context).configurationSaved)),
+                        );
+                        // 传输配置给isolated overlay
+                        //  await updateAndShareConfiguration(styleProvider);
+                      },
+                      style: FilledButton.styleFrom(
+                        backgroundColor: Colors.pink[300],
+                      ),
+                      child: Text(S.of(context).save),
+                    ),
+                  ],
                 ),
-              
+              ),
             ],
           );
         },
@@ -194,22 +175,21 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
     );
   }
 
-Future<void> updateAndShareConfiguration(
-    CallerIdStyleProvider styleProvider) async {
-  // 传输配置给 isolated overlay
-  final styleProviderData = ConfigurationManager.getConfigMap(styleProvider);
 
-  // 添加 configType 标识
-  final dataToSend = {
-    "configType": "callerIdStyle",
-    ...styleProviderData,
-  };
+  Future<void> updateAndShareConfiguration(
+      CallerIdStyleProvider styleProvider) async {
+    // 传输配置给 isolated overlay
+    final styleProviderData = ConfigurationManager.getConfigMap(styleProvider);
 
-  // 传递 Map 对象
-  FlutterOverlayWindow.shareData(dataToSend);
+    // 添加 configType 标识
+    final dataToSend = {
+      "configType": "callerIdStyle",
+      ...styleProviderData,
+    };
 
-}
-
+    // 传递 Map 对象
+    FlutterOverlayWindow.shareData(dataToSend);
+  }
 
 //用于测试浮动窗口的
 
@@ -234,29 +214,28 @@ Future<void> updateAndShareConfiguration(
 
 // 模拟 StirInfo 数据，基于 _mockCallerIdData 中的 phoneNumber
 // 模拟 StirInfo 数据，基于 CallerIdData 中的 phoneNumber
-StirInfo mockStirInfoData = StirInfo(
-  isVerified: true,  // 模拟已验证状态
-  isNotVerified: false, // 模拟未验证状态
-  isFailed: false,   // 模拟验证失败状态
-  phoneNumber: mockCallerIdData.phoneNumber, // 使用 CallerIdData 中的 phoneNumber
-);
-
+    StirInfo mockStirInfoData = StirInfo(
+      isVerified: true, // 模拟已验证状态
+      isNotVerified: false, // 模拟未验证状态
+      isFailed: false, // 模拟验证失败状态
+      phoneNumber:
+          mockCallerIdData.phoneNumber, // 使用 CallerIdData 中的 phoneNumber
+    );
 
 // 模拟 SimInfo 数据
-SimInfo mockSimInfoData = SimInfo(
-    carrierName: 'Example Carrier',
-    displayName: 'SIM 1',
-    iccId: '8901234567890123456',
-    countryIso: 'US',
-    phoneNumber: '+1 234 567 8900', 
-    simSlotIndex: 0,
-    subscriptionId: 1,
-    mccString: '310',
-    mncString: '410',
-    simPhoneNumber: '+1 123 456 7890',
-    callType: "audio",
-  );
-
+    SimInfo mockSimInfoData = SimInfo(
+      carrierName: 'Example Carrier',
+      displayName: 'SIM 1',
+      iccId: '8901234567890123456',
+      countryIso: 'US',
+      phoneNumber: '+1 234 567 8900',
+      simSlotIndex: 0,
+      subscriptionId: 1,
+      mccString: '310',
+      mncString: '410',
+      simPhoneNumber: '+1 123 456 7890',
+      callType: "audio",
+    );
 
     // 获取当前 Overlay 位置，如果 Overlay 处于激活状态
     if (await FlutterOverlayWindow.isActive()) {
@@ -267,27 +246,23 @@ SimInfo mockSimInfoData = SimInfo(
     }
 
     // 使用 FlutterOverlayWindow.shareData() 将 CallerIdData 发送到 Overlay Isolate
-   // await FlutterOverlayWindow.shareData(mockCallerIdData);
-  await FlutterOverlayWindow.shareData({
-    "configType": "callerIdData", // 添加 configType 字段
-    ...mockCallerIdData.toJson(),
-  });
+    // await FlutterOverlayWindow.shareData(mockCallerIdData);
+    await FlutterOverlayWindow.shareData({
+      "configType": "callerIdData", // 添加 configType 字段
+      ...mockCallerIdData.toJson(),
+    });
 
-  //传递stir信息
-  await FlutterOverlayWindow.shareData({
-    "configType": "stirInfo", // 添加 configType 字段
-    ...mockStirInfoData.toJson(),
-  });
+    //传递stir信息
+    await FlutterOverlayWindow.shareData({
+      "configType": "stirInfo", // 添加 configType 字段
+      ...mockStirInfoData.toJson(),
+    });
     // 传递 SIM 信息
 
-  await FlutterOverlayWindow.shareData({
-    "configType": "simInfo", // 添加 configType 字段
-    ...mockSimInfoData.toJson(),
-  });
-
-
-
-
+    await FlutterOverlayWindow.shareData({
+      "configType": "simInfo", // 添加 configType 字段
+      ...mockSimInfoData.toJson(),
+    });
 
     if (await FlutterOverlayWindow.isActive()) {
       // 如果 Overlay 已经激活，则更新其位置
@@ -309,7 +284,6 @@ SimInfo mockSimInfoData = SimInfo(
         width: (styleProvider.windowWidth * (pixelRatio ?? 1.0)).toInt(),
         startPosition: storedPosition!,
       );
-  
     }
   }
 
@@ -341,7 +315,7 @@ SimInfo mockSimInfoData = SimInfo(
             (value) =>
                 styleProvider.setWindowSize(value, styleProvider.windowHeight)),
         _buildSlider(
-             S.of(context).height,
+            S.of(context).height,
             styleProvider.windowHeight,
             100,
             300,
@@ -355,9 +329,13 @@ SimInfo mockSimInfoData = SimInfo(
   Widget _buildBackgroundGradient(CallerIdStyleProvider styleProvider) {
     return Column(
       children: [
-        _buildColorPicker(S.of(context).startColor, styleProvider.backgroundColorStart,
+        _buildColorPicker(
+            S.of(context).startColor,
+            styleProvider.backgroundColorStart,
             (color) => styleProvider.setBackgroundColorStart(color)),
-        _buildColorPicker(S.of(context).endColor, styleProvider.backgroundColorEnd,
+        _buildColorPicker(
+            S.of(context).endColor,
+            styleProvider.backgroundColorEnd,
             (color) => styleProvider.setBackgroundColorEnd(color)),
       ],
     );
@@ -367,7 +345,9 @@ SimInfo mockSimInfoData = SimInfo(
   Widget _buildTextColors(CallerIdStyleProvider styleProvider) {
     return Column(
       children: [
-        _buildColorPicker(S.of(context).labelIconColor, styleProvider.textIconLabelColor,
+        _buildColorPicker(
+            S.of(context).labelIconColor,
+            styleProvider.textIconLabelColor,
             (color) => styleProvider.setTextIconLabelColor(color)),
         _buildColorPicker(
             S.of(context).locationIconColor,
@@ -386,11 +366,17 @@ SimInfo mockSimInfoData = SimInfo(
 
         _buildColorPicker(S.of(context).nameColor, styleProvider.textNameColor,
             (color) => styleProvider.setTextNameColor(color)),
-        _buildColorPicker(S.of(context).numberColor, styleProvider.textNumberColor,
+        _buildColorPicker(
+            S.of(context).numberColor,
+            styleProvider.textNumberColor,
             (color) => styleProvider.setTextNumberColor(color)),
-        _buildColorPicker(S.of(context).locationColor, styleProvider.textLocationColor,
+        _buildColorPicker(
+            S.of(context).locationColor,
+            styleProvider.textLocationColor,
             (color) => styleProvider.setTextLocationColor(color)),
-        _buildColorPicker(S.of(context).carrierColor, styleProvider.textCarrierColor,
+        _buildColorPicker(
+            S.of(context).carrierColor,
+            styleProvider.textCarrierColor,
             (color) => styleProvider.setTextCarrierColor(color)),
         _buildColorPicker(
             S.of(context).countryNameColor,
@@ -399,25 +385,27 @@ SimInfo mockSimInfoData = SimInfo(
         //    _buildColorPicker('Region Color', styleProvider.textRegionColor,
         //       (color) => styleProvider.setTextRegionColor(color)),
 
-        _buildColorPicker(S.of(context).labelsColor, styleProvider.textLabelsColor,
+        _buildColorPicker(
+            S.of(context).labelsColor,
+            styleProvider.textLabelsColor,
             (color) => styleProvider.setTextLabelsColor(color)),
-        _buildColorPicker(S.of(context).countColor, styleProvider.textCountColor,
+        _buildColorPicker(
+            S.of(context).countColor,
+            styleProvider.textCountColor,
             (color) => styleProvider.setTextCountColor(color)),
         _buildColorPicker(
-             S.of(context).numberTypeColor,
+            S.of(context).numberTypeColor,
             styleProvider.textNumberTypeColor,
             (color) => styleProvider.setTextNumberTypeColor(color)),
 //stir颜色
-        _buildColorPicker(
-           S.of(context).stirColor,
-            styleProvider.textStirColor,
+        _buildColorPicker(S.of(context).stirColor, styleProvider.textStirColor,
             (color) => styleProvider.setTextStirColor(color)),
 //Sim卡颜色
         _buildColorPicker(
             S.of(context).simCardColor,
             styleProvider.textSimCardColor,
             (color) => styleProvider.setTextSimCardColor(color)),
-      //添加其他的      
+        //添加其他的
       ],
     );
   }
@@ -426,9 +414,13 @@ SimInfo mockSimInfoData = SimInfo(
   Widget _buildFontSizes(CallerIdStyleProvider styleProvider) {
     return Column(
       children: [
-        _buildSlider(S.of(context).nameFontSize, styleProvider.nameFontSize, 12, 24,
-            (value) => styleProvider.setNameFontSize(value)),
-        _buildSlider(S.of(context).carrierFontSize, styleProvider.carrierFontSize, 12, 24,
+        _buildSlider(S.of(context).nameFontSize, styleProvider.nameFontSize, 12,
+            24, (value) => styleProvider.setNameFontSize(value)),
+        _buildSlider(
+            S.of(context).carrierFontSize,
+            styleProvider.carrierFontSize,
+            12,
+            24,
             (value) => styleProvider.setCarrierFontSize(value)),
         _buildSlider(
             S.of(context).countryNameFontSize,
@@ -436,23 +428,35 @@ SimInfo mockSimInfoData = SimInfo(
             12,
             24,
             (value) => styleProvider.setCountryNameFontSize(value)),
-        _buildSlider(S.of(context).labelsFontSize, styleProvider.labelsFontSize, 12, 24,
-            (value) => styleProvider.setLabelsFontSize(value)),
-        _buildSlider(S.of(context).countFontSize, styleProvider.countFontSize, 12, 24,
-            (value) => styleProvider.setCountFontSize(value)),
-        _buildSlider(S.of(context).numberTypeFontSize, styleProvider.numberTypeFontSize,
-            12, 24, (value) => styleProvider.setNumberTypeFontSize(value)),
-        _buildSlider(S.of(context).numberFontSize, styleProvider.numberFontSize, 12, 24,
-            (value) => styleProvider.setNumberFontSize(value)),
-        _buildSlider(S.of(context).locationFontSize, styleProvider.locationFontSize, 12,
-            24, (value) => styleProvider.setLocationFontSize(value)),
-            //Stir文字尺寸
+        _buildSlider(S.of(context).labelsFontSize, styleProvider.labelsFontSize,
+            12, 24, (value) => styleProvider.setLabelsFontSize(value)),
+        _buildSlider(S.of(context).countFontSize, styleProvider.countFontSize,
+            12, 24, (value) => styleProvider.setCountFontSize(value)),
+        _buildSlider(
+            S.of(context).numberTypeFontSize,
+            styleProvider.numberTypeFontSize,
+            12,
+            24,
+            (value) => styleProvider.setNumberTypeFontSize(value)),
+        _buildSlider(S.of(context).numberFontSize, styleProvider.numberFontSize,
+            12, 24, (value) => styleProvider.setNumberFontSize(value)),
+        _buildSlider(
+            S.of(context).locationFontSize,
+            styleProvider.locationFontSize,
+            12,
+            24,
+            (value) => styleProvider.setLocationFontSize(value)),
+        //Stir文字尺寸
         _buildSlider(S.of(context).stirFontSize, styleProvider.stirFontSize, 12,
             24, (value) => styleProvider.setStirFontSize(value)),
-          //SIm卡文字尺寸
-        _buildSlider(S.of(context).simCardFontSize, styleProvider.simCardFontSize, 12,
-            24, (value) => styleProvider.setSimCardFontSize(value)),
-            //其他的
+        //SIm卡文字尺寸
+        _buildSlider(
+            S.of(context).simCardFontSize,
+            styleProvider.simCardFontSize,
+            12,
+            24,
+            (value) => styleProvider.setSimCardFontSize(value)),
+        //其他的
       ],
     );
   }
@@ -463,8 +467,12 @@ SimInfo mockSimInfoData = SimInfo(
       children: [
         _buildSlider(S.of(context).avatarSize, styleProvider.avatarSize, 40, 80,
             (value) => styleProvider.setAvatarSize(value)),
-        _buildSlider(S.of(context).avatarBorderSize, styleProvider.avatarBorderSize, 40,
-            80, (value) => styleProvider.setAvatarBorderSize(value)),
+        _buildSlider(
+            S.of(context).avatarBorderSize,
+            styleProvider.avatarBorderSize,
+            40,
+            80,
+            (value) => styleProvider.setAvatarBorderSize(value)),
         _buildSlider(S.of(context).iconSize, styleProvider.iconSize, 16, 32,
             (value) => styleProvider.setIconSize(value)),
       ],
@@ -476,25 +484,37 @@ SimInfo mockSimInfoData = SimInfo(
   Widget _buildElementPositions(CallerIdStyleProvider styleProvider) {
     return Column(
       children: [
-        _buildPositionSlider(S.of(context).avatarPosition, styleProvider.avatarPosition,
+        _buildPositionSlider(
+            S.of(context).avatarPosition,
+            styleProvider.avatarPosition,
             (offset) => styleProvider.updateAvatarPosition(offset)),
-        _buildPositionSlider(S.of(context).namePosition, styleProvider.namePosition,
+        _buildPositionSlider(
+            S.of(context).namePosition,
+            styleProvider.namePosition,
             (offset) => styleProvider.updateNamePosition(offset)),
-        _buildPositionSlider(S.of(context).carrierPosition, styleProvider.carrierPosition,
+        _buildPositionSlider(
+            S.of(context).carrierPosition,
+            styleProvider.carrierPosition,
             (offset) => styleProvider.updateCarrierPosition(offset)),
         _buildPositionSlider(
             S.of(context).countryNamePosition,
             styleProvider.countryNamePosition,
             (offset) => styleProvider.updateCountryNamePosition(offset)),
-        _buildPositionSlider(S.of(context).labelsPosition, styleProvider.labelsPosition,
+        _buildPositionSlider(
+            S.of(context).labelsPosition,
+            styleProvider.labelsPosition,
             (offset) => styleProvider.updateLabelsPosition(offset)),
-        _buildPositionSlider(S.of(context).countPosition, styleProvider.countPosition,
+        _buildPositionSlider(
+            S.of(context).countPosition,
+            styleProvider.countPosition,
             (offset) => styleProvider.updateCountPosition(offset)),
         _buildPositionSlider(
             S.of(context).numberTypePosition,
             styleProvider.numberTypePosition,
             (offset) => styleProvider.updateNumberTypePosition(offset)),
-        _buildPositionSlider(S.of(context).numberPosition, styleProvider.numberPosition,
+        _buildPositionSlider(
+            S.of(context).numberPosition,
+            styleProvider.numberPosition,
             (offset) => styleProvider.updateNumberPosition(offset)),
         _buildPositionSlider(
             S.of(context).locationPosition,
@@ -505,12 +525,11 @@ SimInfo mockSimInfoData = SimInfo(
             S.of(context).stirPosition,
             styleProvider.stirPosition,
             (offset) => styleProvider.updateStirPosition(offset)),
-            //Sim card位置
-         _buildPositionSlider(
+        //Sim card位置
+        _buildPositionSlider(
             S.of(context).simCardPosition,
             styleProvider.simCardPosition,
             (offset) => styleProvider.updateSimCardPosition(offset)),
-
 
         // ... 元素位置设置
       ],
@@ -556,7 +575,6 @@ SimInfo mockSimInfoData = SimInfo(
       ],
     );
   }
-
 
   Widget _buildColorPicker(
       String label, Color color, Function(Color) onChanged) {
@@ -612,6 +630,8 @@ SimInfo mockSimInfoData = SimInfo(
     );
   }
 
+
+
   // 模拟 CallerIdData 数据
   CallerIdData _mockCallerIdData() {
     return CallerIdData(
@@ -626,40 +646,40 @@ SimInfo mockSimInfoData = SimInfo(
       count: 5,
     );
   }
+
 // 模拟 stirInfo 数据，基于 _mockCallerIdData 中的 phoneNumber
 // 模拟 StirInfo 数据，基于 _mockCallerIdData 中的 phoneNumber
-StirInfo _mockStirInfoData() {
-  CallerIdData callerIdData = _mockCallerIdData();
-  String phoneNumber = callerIdData.phoneNumber; // 获取 phoneNumber
+  StirInfo _mockStirInfoData() {
+    CallerIdData callerIdData = _mockCallerIdData();
+    String phoneNumber = callerIdData.phoneNumber; // 获取 phoneNumber
 
-  // 模拟验证状态，你可以根据需要修改
-  bool isVerified = true; 
-  bool isNotVerified = false;
-  bool isFailed = false;
+    // 模拟验证状态，你可以根据需要修改
+    bool isVerified = true;
+    bool isNotVerified = false;
+    bool isFailed = false;
 
-  return StirInfo(
-    isVerified: isVerified,
-    isNotVerified: isNotVerified,
-    isFailed: isFailed,
-    phoneNumber: phoneNumber, // 将 phoneNumber 传递给 StirInfo
-  );
-}
+    return StirInfo(
+      isVerified: isVerified,
+      isNotVerified: isNotVerified,
+      isFailed: isFailed,
+      phoneNumber: phoneNumber, // 将 phoneNumber 传递给 StirInfo
+    );
+  }
 
 // 模拟 SimInfo 数据
-SimInfo _mockSimInfoData() {
-  return SimInfo(
-    carrierName: 'Example Carrier',
-    displayName: 'SIM 1',
-    iccId: '8901234567890123456',
-    countryIso: 'US',
-    phoneNumber: '+1 234 567 8900', 
-    simSlotIndex: 0,
-    subscriptionId: 1,
-    mccString: '310',
-    mncString: '410',
-    simPhoneNumber: '+1 123 456 7890',
-    callType: "audio",
-  );
-}
-
+  SimInfo _mockSimInfoData() {
+    return SimInfo(
+      carrierName: 'Example Carrier',
+      displayName: 'SIM 1',
+      iccId: '8901234567890123456',
+      countryIso: 'US',
+      phoneNumber: '+1 234 567 8900',
+      simSlotIndex: 0,
+      subscriptionId: 1,
+      mccString: '310',
+      mncString: '410',
+      simPhoneNumber: '+1 123 456 7890',
+      callType: "audio",
+    );
+  }
 }

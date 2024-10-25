@@ -2,12 +2,10 @@ package com.yours.yourcallyourrule
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Build
 import android.os.Looper
 import android.telecom.Call
 import android.telecom.CallScreeningService
 import android.util.Log
-import androidx.annotation.RequiresApi
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import kotlinx.coroutines.CoroutineScope
@@ -20,7 +18,6 @@ import kotlinx.coroutines.withTimeout
 import kotlin.coroutines.resume
 
 
-@RequiresApi(Build.VERSION_CODES.N)
 class MyCallScreeningService : CallScreeningService() {
     private val endCallChannel = "com.yours.yourcallyourrule/end_call"
     private val shouldAcceptCallChannel = "com.yours.yourcallyourrule/should_accept_call" // 新的 Channel 用于 shouldAcceptCall
@@ -35,11 +32,21 @@ class MyCallScreeningService : CallScreeningService() {
     private val handler = android.os.Handler(Looper.getMainLooper()) // 添加 Handler 对象
 
 
-
+/*
+//接受来自mainactivity 的请求
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        when (intent?.action) {
+            "END_CALL" -> endCurrentCall()
+            "ANSWER_THEN_HANGUP" -> answerThenHangup()
+            "SILENCE_NO_ANSWER" -> silenceNoAnswer()
+        }
+        return super.onStartCommand(intent, flags, startId)
+    }
+*/
     override fun onScreenCall(callDetails: Call.Details) {
         currentCallDetails = callDetails
         val incomingNumber = callDetails.handle?.schemeSpecificPart
-       // Log.d("CallScreeningService", "Android端onScreenCall triggered. Incoming number: $incomingNumber")
+      //  Log.d("CallScreeningService", "Android端onScreenCall triggered. Incoming number: $incomingNumber")
    // val phoneNumber = callDetails.handle?.schemeSpecificPart
   //  Log.d("CallScreeningService", "Android端onScreenCall triggered. phone number来电去电: $phoneNumber")
     
@@ -56,22 +63,25 @@ class MyCallScreeningService : CallScreeningService() {
     simChecker.sendSimInfoToFlutter()
 //SimChecker检查服务到此
 
+
+
+
         // Send the incoming call information to Flutter
         incomingNumber?.let { 
             flutterEngine?.dartExecutor?.binaryMessenger?.let { binaryMessenger ->
-           //     Log.d("CallScreeningService", "Android端Attempting to send onIncomingCall to Flutter")
+              //  Log.d("CallScreeningService", "Android端Attempting to send onIncomingCall to Flutter")
                 MethodChannel(binaryMessenger, callerIdChannel).invokeMethod(
                     "onIncomingCall",
                     mapOf("phoneNumber" to it),
                     object : MethodChannel.Result {
                         override fun success(result: Any?) {
-           //                 Log.d("CallScreeningService", "Android端Successfully sent onIncomingCall to Flutter")
+                           // Log.d("CallScreeningService", "Android端Successfully sent onIncomingCall to Flutter")
                         }
                         override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
-           //                 Log.e("CallScreeningService", "Android端Error sending onIncomingCall to Flutter: $errorMessage")
+                           // Log.e("CallScreeningService", "Android端Error sending onIncomingCall to Flutter: $errorMessage")
                         }
                         override fun notImplemented() {
-             //               Log.e("CallScreeningService", "Android端onIncomingCall not implemented in Flutter")
+                           // Log.e("CallScreeningService", "Android端onIncomingCall not implemented in Flutter")
                         }
                     }
                 )
@@ -83,7 +93,52 @@ class MyCallScreeningService : CallScreeningService() {
             respondToCall(callDetails, buildCallResponse(callAction))
         }
     }
+/* 
+    private suspend fun getCallAction(incomingNumber: String?): CallAction {
+        return withTimeout(5000) {  // 添加超时机制
+            incomingNumber?.let { number ->
+            suspendCancellableCoroutine { continuation ->
+              // 使用 handler.post() 将 MethodChannel 的调用发送到主线程
+              handler.post {
+                flutterEngine?.dartExecutor?.binaryMessenger?.let { binaryMessenger ->
+                    MethodChannel(binaryMessenger, shouldAcceptCallChannel).invokeMethod(
+                        "shouldAcceptCall",
+                        number,
+                        object : MethodChannel.Result {
+                            override fun success(result: Any?) {
+                                when (result) {
+                                    is Boolean -> {
+                                        if (result) continuation.resume(CallAction.ACCEPT)
+                                        else continuation.resume(CallAction.REJECT)
+                                    }
+                                    is String -> {
+                                        when (result.lowercase()) {
+                                            "silence" -> continuation.resume(CallAction.SILENCE)
+                                            "reject" -> continuation.resume(CallAction.REJECT)
+                                            else -> continuation.resume(CallAction.ACCEPT)
+                                        }
+                                    }
+                                    else -> continuation.resume(CallAction.ACCEPT)
+                                }
+                            }
 
+                            override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+                                Log.e("CallScreeningService", "Error: $errorMessage")
+                                continuation.resume(CallAction.ACCEPT)
+                            }
+
+                            override fun notImplemented() {
+                                continuation.resume(CallAction.ACCEPT)
+                                 }
+                                }
+                            )
+                        } ?: continuation.resume(CallAction.ACCEPT)
+                    }
+                }
+            } ?: CallAction.ACCEPT
+        }
+    }
+*/
 
     private suspend fun getCallAction(incomingNumber: String?): CallAction {
         return withTimeout(5000) {  // 添加超时机制
@@ -102,12 +157,12 @@ class MyCallScreeningService : CallScreeningService() {
                                             if (result) continuation.resume(CallAction.ACCEPT) 
                                             // 如果 shouldAccept 为 false,不要直接拒绝,而是获取 Flutter 端的拦截指令
                                         else {
-                                            //Log.d("MyCallScreeningService", "shouldAcceptCallChannel 返回 false，准备获取拦截指令")
+                                         //   Log.d("MyCallScreeningService", "shouldAcceptCallChannel 返回 false，准备获取拦截指令")
                                             getInterceptActionFromFlutter(number) { action ->
                                                 continuation.resume(action) // 在回调中 resume
                                             }
                                         }
-                                    //    Log.d("MyCallScreeningService", "shouldAcceptCallChannel 返回结果: $result") // 添加日志
+                                      //  Log.d("MyCallScreeningService", "shouldAcceptCallChannel 返回结果: $result") // 添加日志
                                     }
                                     is String -> {
                                         when (result.lowercase()) {
@@ -145,6 +200,7 @@ class MyCallScreeningService : CallScreeningService() {
                 object : MethodChannel.Result {
                     override fun success(result: Any?) {
                         if (result is String) {
+                           // Log.d("MyCallScreeningService", "Flutter 返回的拦截指令: $result") // 添加日志输出
                             when (result) {
                                 "endCall" -> callback(CallAction.REJECT)
                                 "answerThenHangup" -> callback(CallAction.ANSWER_THEN_HANGUP)
@@ -158,13 +214,13 @@ class MyCallScreeningService : CallScreeningService() {
 
                     override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
                         // 处理错误情况
-                      //  Log.e("MyCallScreeningService", "获取拦截指令时出错：$errorMessage")
+                       // Log.e("MyCallScreeningService", "获取拦截指令时出错：$errorMessage")
                         callback(CallAction.ACCEPT)
                     }
 
                     override fun notImplemented() {
                         // 处理方法未实现的情况
-                      //  Log.w("MyCallScreeningService", "Flutter 端未实现 interceptAction 方法")
+                     //   Log.w("MyCallScreeningService", "Flutter 端未实现 interceptAction 方法")
                         callback(CallAction.ACCEPT)
                     }
                 }
@@ -236,12 +292,33 @@ class MyCallScreeningService : CallScreeningService() {
     }
 
 
-
+/* 
+    private fun buildCallResponse(callAction: CallAction): CallResponse {
+        return CallResponse.Builder().apply {
+            when (callAction) {
+                CallAction.REJECT -> {
+                    setDisallowCall(true)
+                    setRejectCall(true)
+                    setSkipCallLog(false)
+                    setSkipNotification(false)
+                }
+                CallAction.SILENCE -> {
+                    setSilenceCall(true)
+                }
+                CallAction.ACCEPT -> {
+                    // Do nothing, allow the call
+                }
+            }
+        }.build()
+    }
+    */
     override fun onCreate() { 
         super.onCreate()
         // 在 Service 创建完成后，通知 Flutter 端 shouldAcceptCallChannel 已准备好
         flutterEngine?.dartExecutor?.binaryMessenger?.let { messenger ->
+         //   Log.d("MyService", "Invoking onShouldAcceptCallInitializationComplete") // 添加 log 语句
             MethodChannel(messenger, shouldAcceptCallChannel).invokeMethod("onShouldAcceptCallInitializationComplete", null)
+         //   Log.d("MyService", "Invoking onEndCallInitializationComplete") // 添加 log 语句
             MethodChannel(messenger, endCallChannel).invokeMethod("onEndCallInitializationComplete", null) // 通知 Flutter 端初始化已完成
         }
 
@@ -267,7 +344,23 @@ class MyCallScreeningService : CallScreeningService() {
             respondToCall(details, response)
         }
     }
+/*
+    private fun answerThenHangup() {
+        currentCallDetails?.let { details ->
+            val response = CallResponse.Builder()
+                .setDisallowCall(false)
+                .setRejectCall(false)
+                .setSkipCallLog(false)
+                .setSkipNotification(false)
+                .build()
+            respondToCall(details, response)
 
+            // 模拟接听然后挂断的行为
+            handler.postDelayed({
+                endCurrentCall()
+            }, 10000) // 1秒后挂断
+        }
+    }
 
     private fun silenceNoAnswer() {
         currentCallDetails?.let { details ->
@@ -281,12 +374,16 @@ class MyCallScreeningService : CallScreeningService() {
             respondToCall(details, response)
         }
     }
-
+    */
     override fun onDestroy() {
         super.onDestroy()
         serviceScope.cancel() // 取消 serviceScope
     }
-
+/* 
+    private enum class CallAction {
+        ACCEPT, REJECT, SILENCE
+    }
+    */
 
     private enum class CallAction {
     ACCEPT, REJECT, SILENCE, ANSWER_THEN_HANGUP
