@@ -1,6 +1,11 @@
 name: 运行Flutter Debug Build
 on:
   workflow_dispatch:
+    inputs:
+      build_type:
+        description: 'Build Type (aab/apk/both)'
+        required: true
+        default: 'both'
 
         
 jobs:
