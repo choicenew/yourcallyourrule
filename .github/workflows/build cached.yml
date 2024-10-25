@@ -1,10 +1,10 @@
-name: dart Cached Flutter Build, Sign and Release
+name: xached Flutter Build, Sign and Release
 
 on:
   workflow_dispatch:
-  #push:
-  #  branches:
-  #    - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   build:
@@ -13,6 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pub-cache
+            ~/.flutter
+          key: ${{ runner.os }}-pub-cache-${{ hashFiles('**/pubspec.yaml') }}
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -21,30 +28,20 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-
-
-
-
-      - uses: subosito/flutter-action@v2
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
 
-
-
-
-
-      - run: flutter clean
-      - run: flutter pub get
-      - run: flutter pub upgrade
+      - name: Get Flutter packages
+        run: flutter pub get
 
       - name: Flutter Doctor
         run: |
           flutter doctor -v
           echo "Flutter Plugins:"
           echo $(cat .flutter-plugins)
-
-
 
       # Decode and place keystore
       - name: Decode keystore
@@ -61,9 +58,8 @@ jobs:
       # Build and Sign AAB and APKs using Flutter's built-in signing
       - name: Build and Sign AAB and APKs
         run: |
-          flutter build appbundle -v 
-          flutter build apk --split-per-abi
-
+          flutter build appbundle --release
+          flutter build apk --split-per-abi --release
 
       # Upload signed AAB and APKs as artifacts
       - name: Upload Signed Artifacts
@@ -78,11 +74,11 @@ jobs:
         run: |
           echo "PUBSPEC_VERSION=$(grep -oP 'version:\s*\K[^+]+(?=\+)' pubspec.yaml)" >> $GITHUB_ENV
 
-      - name: Upload Release 
+      - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.MY_PAT }}
-          tag: v${{ env.PUBSPEC_VERSION }} 
+          tag: v${{ env.PUBSPEC_VERSION }}
           omitBodyDuringUpdate: true
           omitNameDuringUpdate: true
           omitPrereleaseDuringUpdate: true
