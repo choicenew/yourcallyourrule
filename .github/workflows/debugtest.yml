@@ -1,4 +1,4 @@
-name: 运行Flutter Debug Build
+name: Flutter Debug Build
 on:
   workflow_dispatch:
     inputs:
@@ -6,7 +6,6 @@ on:
         description: 'Build Type (aab/apk/both)'
         required: true
         default: 'both'
-
         
 jobs:
   debug-build:
@@ -27,8 +26,12 @@ jobs:
           flutter-version: '3.24.0'
           channel: 'stable'
           
-      - name: Install Dependencies
-        run: flutter pub get
+      # 确保 Flutter 插件被正确设置
+      - name: Configure Flutter
+        run: |
+          flutter pub get
+          # 使用 Flutter 命令生成正确的 settings.gradle
+          flutter create --platforms=android .
           
       - name: Decode Keystore
         run: |
