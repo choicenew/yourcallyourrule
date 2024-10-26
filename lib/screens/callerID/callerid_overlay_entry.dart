@@ -30,7 +30,7 @@ class _CallerIdOverlayEntryState extends State<CallerIdOverlayEntry> {
   @override
   void initState() {
     super.initState();
-    _loadDefaultStyle(); // 加载默认样式
+   // _loadDefaultStyle(); // 加载默认样式
 
     // 接收来自主应用程序的消息
     Isolate.current.addErrorListener(RawReceivePort((dynamic error) {
@@ -88,6 +88,7 @@ class _CallerIdOverlayEntryState extends State<CallerIdOverlayEntry> {
     });
   }
 
+  /*
 // 加载默认样式
   Future<void> _loadDefaultStyle() async {
     final loadedStyleProvider =
@@ -97,7 +98,7 @@ class _CallerIdOverlayEntryState extends State<CallerIdOverlayEntry> {
       styleProvider = loadedStyleProvider;
     });
   }
-
+*/
 
 
 

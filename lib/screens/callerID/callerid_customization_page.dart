@@ -150,7 +150,7 @@ class _CallerIdCustomizationPageState extends State<CallerIdCustomizationPage> {
                       onPressed: () async {
                         _showPreview(context, styleProvider); //临时测试
                         // 保存配置 (此处仅为示例，实际保存逻辑需根据应用需求实现)
-                        ConfigurationManager.toSharedPreferences(styleProvider);
+                      await  ConfigurationManager.toSharedPreferences(styleProvider);
                         await ConfigurationManager.saveConfiguration(
                             styleProvider);
                         ScaffoldMessenger.of(context).showSnackBar(
