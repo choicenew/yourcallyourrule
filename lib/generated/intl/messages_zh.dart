@@ -96,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("自动关闭本地通知"),
         "autoUpdateDisabled": MessageLookupByLibrary.simpleMessage("已禁用自动更新"),
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage("已启用自动更新"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage("头像和图标大小"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("头像边框颜色"),
         "avatarBorderSize": MessageLookupByLibrary.simpleMessage("头像边框大小"),
@@ -187,6 +188,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("已成功导入联系人"),
         "contactsPage": MessageLookupByLibrary.simpleMessage("联系人页面"),
         "contactsWithNumber": MessageLookupByLibrary.simpleMessage("具有号码的联系人"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("通讯录订阅页面"),
         "countColor": MessageLookupByLibrary.simpleMessage("计数颜色"),
@@ -527,6 +530,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pluginPage": MessageLookupByLibrary.simpleMessage("插件页面"),
         "plugins": MessageLookupByLibrary.simpleMessage("插件"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("插件页视图"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("政治"),
         "purchase": MessageLookupByLibrary.simpleMessage("购买"),
         "purchaseFailed": MessageLookupByLibrary.simpleMessage("购买失败："),
@@ -534,6 +538,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("正在处理购买..."),
         "purchaseSuccessful": MessageLookupByLibrary.simpleMessage("购买成功！"),
         "quarterlySubscription": MessageLookupByLibrary.simpleMessage("季度订阅"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("正则表达式"),
         "regexPage": MessageLookupByLibrary.simpleMessage("正则页面"),
         "regexPatternExplanation":
@@ -647,6 +652,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscriptionListPage": MessageLookupByLibrary.simpleMessage("订阅列表页面"),
         "subscriptionValid": MessageLookupByLibrary.simpleMessage("订阅有效"),
         "subscriptionlistview": MessageLookupByLibrary.simpleMessage("订阅列表视图"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("成功"),
         "survey": MessageLookupByLibrary.simpleMessage("调查"),
         "sync": MessageLookupByLibrary.simpleMessage("同步"),

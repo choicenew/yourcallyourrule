@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../screens/interval_service_translation.dart';
 
 import '../generated/l10n.dart';
 import '../services/caller_id_monitor_service.dart';
@@ -25,10 +26,10 @@ class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
   @override
-  _SettingsPageState createState() => _SettingsPageState();
+  SettingsPageState createState() => SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class SettingsPageState extends State<SettingsPage> {
   late InAppPurchaseManager inAppPurchaseManager;
 
   bool _isPermissionsExpanded = false; // 定义 _isPermissionsExpanded
@@ -62,7 +63,7 @@ class _SettingsPageState extends State<SettingsPage> {
     'ContactSubscription': TextEditingController(),
     'AutoBackup': TextEditingController(),
     'PluginUpdate': TextEditingController(),
-    'RecordBackup': TextEditingController(),
+    //'RecordBackup': TextEditingController(),
   };
 
   @override
@@ -753,7 +754,7 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           Expanded(
             flex: 2,
-            child: Text(serviceName),
+            child: Text(serviceName.translate(context)), // 使用扩展方法翻译
           ),
           Expanded(
             flex: 1,

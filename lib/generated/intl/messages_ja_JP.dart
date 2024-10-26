@@ -105,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("自動更新が無効になっています"),
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("自動更新が有効になっています"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("アバターとアイコンのサイズ"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("アバターの境界線の色"),
@@ -208,6 +209,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("連絡先が正常にインポートされました"),
         "contactsPage": MessageLookupByLibrary.simpleMessage("連絡先ページ"),
         "contactsWithNumber": MessageLookupByLibrary.simpleMessage("番号付きの連絡先"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("ContactSubscriptionListView"),
         "countColor": MessageLookupByLibrary.simpleMessage("カウントの色"),
@@ -570,6 +573,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pluginPage": MessageLookupByLibrary.simpleMessage("プラグインページ"),
         "plugins": MessageLookupByLibrary.simpleMessage("プラグイン"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("プラグインページビュー"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("政治"),
         "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "purchaseFailed":
@@ -580,6 +584,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Purchase successful!"),
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("正規表現"),
         "regexPage": MessageLookupByLibrary.simpleMessage("正規表現ページ"),
         "regexPatternExplanation":
@@ -703,6 +708,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Subscription valid"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("購読リストビュー"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("成功しました"),
         "survey": MessageLookupByLibrary.simpleMessage("調査"),
         "sync": MessageLookupByLibrary.simpleMessage("同期"),

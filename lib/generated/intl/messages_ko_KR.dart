@@ -106,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("자동 업데이트 비활성화됨"),
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("자동 업데이트 활성화됨"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("아바타 및 아이콘 크기"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("아바타 테두리 색상"),
@@ -205,6 +206,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactsPage": MessageLookupByLibrary.simpleMessage("연락처 페이지"),
         "contactsWithNumber":
             MessageLookupByLibrary.simpleMessage("번호가 있는 연락처"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("연락처 구독 목록 보기"),
         "countColor": MessageLookupByLibrary.simpleMessage("개수 색상"),
@@ -582,6 +585,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pluginPage": MessageLookupByLibrary.simpleMessage("플러그인 페이지"),
         "plugins": MessageLookupByLibrary.simpleMessage("플러그인"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("플러그인 페이지 보기"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("정치"),
         "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "purchaseFailed":
@@ -592,6 +596,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Purchase successful!"),
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("정규식"),
         "regexPage": MessageLookupByLibrary.simpleMessage("정규식 페이지"),
         "regexPatternExplanation":
@@ -717,6 +722,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Subscription valid"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("구독 목록 보기"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("성공적으로"),
         "survey": MessageLookupByLibrary.simpleMessage("설문 조사"),
         "sync": MessageLookupByLibrary.simpleMessage("동기화"),

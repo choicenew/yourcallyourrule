@@ -524,6 +524,11 @@
   "smsWhitelist": "SMS白名单",
   "smsTextBlacklist": "SMS文本黑名单",
   "smsTextwhitelist": "SMS文本白名单",
-  "ifThereIsAnErrorSelectACountry": "if there is an error select a country",
-  "noDataAvailable": "No data available."
+  "ifThereIsAnErrorSelectACountry": "如果有错误请选择一个国家",
+  "noDataAvailable": "暂时没有数据",
+  "subscriptionmodel": "在线数据订阅更新",
+  "contactsubscription": "联系订阅",
+  "autobackup": "自动备份",
+  "pluginupdate": "插件更新",
+  "recordbackup": "录音备份"
 }

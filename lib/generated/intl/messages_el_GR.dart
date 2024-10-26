@@ -120,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Απενεργοποιημένη αυτόματη ενημέρωση"),
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "Ενεργοποιημένη αυτόματη ενημέρωση"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage(
             "Μεγέθη Avatar και Εικονιδίων"),
         "avatarBorderColor":
@@ -238,6 +239,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactsPage": MessageLookupByLibrary.simpleMessage("Σελίδα επαφών"),
         "contactsWithNumber":
             MessageLookupByLibrary.simpleMessage("επαφές με αριθμό"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Λίστα εγγραφών επαφής"),
         "countColor": MessageLookupByLibrary.simpleMessage("Χρώμα Μετρητή"),
@@ -680,6 +683,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plugins": MessageLookupByLibrary.simpleMessage("Plugins"),
         "pluginspageview":
             MessageLookupByLibrary.simpleMessage("Προβολή σελίδων plugin"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("Πολιτικό"),
         "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "purchaseFailed":
@@ -690,6 +694,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Purchase successful!"),
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Σελίδα Regex"),
         "regexPatternExplanation":
@@ -840,6 +845,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Subscription valid"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Λίστα εγγραφών"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("επιτυχώς"),
         "survey": MessageLookupByLibrary.simpleMessage("Έρευνα"),
         "sync": MessageLookupByLibrary.simpleMessage("Συγχρονισμός"),

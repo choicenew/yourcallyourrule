@@ -47,10 +47,11 @@ class OneDriveService extends ChangeNotifier {
   }
 
   Future<bool> signInWithCredentials(String? clientId, String? tenantId) async {
-    // 使用提供的 clientId 和 tenantId，或者使用默认值
-    _clientId = clientId ?? _clientId;
-    _tenantId = tenantId ?? _tenantId;
 
+   
+ // 使用提供的 clientId 和 tenantId，或者使用默认值
+   _clientId = clientId?.isNotEmpty == true ? clientId! : _clientId ?? '';
+_tenantId = tenantId?.isNotEmpty == true ? tenantId! : _tenantId ?? '';
     _authority =
         'https://login.microsoftonline.com/$_tenantId/oauth2/v2.0/authorize';
     // Initialize _msalAuthFuture here

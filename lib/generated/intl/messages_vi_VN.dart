@@ -117,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Đã tắt tự động cập nhật"),
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("Đã bật tự động cập nhật"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage(
             "Kích thước Avatar và Biểu tượng"),
         "avatarBorderColor":
@@ -234,6 +235,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactsPage": MessageLookupByLibrary.simpleMessage("Trang danh bạ"),
         "contactsWithNumber":
             MessageLookupByLibrary.simpleMessage("danh bạ có số"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Danh sách đăng ký liên hệ"),
         "countColor": MessageLookupByLibrary.simpleMessage("Màu số lượng"),
@@ -661,6 +664,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plugins": MessageLookupByLibrary.simpleMessage("Plugin"),
         "pluginspageview":
             MessageLookupByLibrary.simpleMessage("Chế độ xem trang plugin"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("Chính trị"),
         "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "purchaseFailed":
@@ -671,6 +675,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Purchase successful!"),
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Trang Regex"),
         "regexPatternExplanation":
@@ -815,6 +820,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Subscription valid"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Danh sách đăng ký"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("thành công"),
         "survey": MessageLookupByLibrary.simpleMessage("Khảo sát"),
         "sync": MessageLookupByLibrary.simpleMessage("Đồng bộ hóa"),

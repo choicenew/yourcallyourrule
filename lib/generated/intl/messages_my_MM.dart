@@ -119,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "အလိုအလျောက်အပ်ဒိတ်ကိုပိတ်ထားသည်"),
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "အလိုအလျောက်အပ်ဒိတ်ကိုဖွင့်ထားသည်"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage(
             "Avatar နှင့် Icon အရွယ်အစားများ"),
         "avatarBorderColor":
@@ -243,6 +244,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("အဆက်အသွယ်စာမျက်နှာ"),
         "contactsWithNumber":
             MessageLookupByLibrary.simpleMessage("နံပါတ်ပါသောအဆက်အသွယ်များ"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "အဆက်အသွယ်စာရင်းသွင်းမှုစာရင်းကြည့်ရှုမှု"),
         "countColor": MessageLookupByLibrary.simpleMessage("ရေတွက်မှုအရောင်"),
@@ -692,6 +695,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plugins": MessageLookupByLibrary.simpleMessage("Plugins"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage(
             "Plugins စာမျက်နှာကြည့်ရှုမှု"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("နိုင်ငံရေး"),
         "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "purchaseFailed":
@@ -702,6 +706,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Purchase successful!"),
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex စာမျက်နှာ"),
         "regexPatternExplanation":
@@ -852,6 +857,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Subscription valid"),
         "subscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "စာရင်းသွင်းမှုစာရင်းကြည့်ရှုမှု"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("အောင်မြင်စွာ"),
         "survey": MessageLookupByLibrary.simpleMessage("စစ်တမ်း"),
         "sync":
