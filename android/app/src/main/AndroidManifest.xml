@@ -109,9 +109,9 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
 
-    <uses-feature android:name="android.software.telecom.CALL_SCREENING" />
-    <uses-permission android:name="android.permission.REQUEST_CALL_SCREENING" />
-    <uses-permission android:name="android.permission.REQUEST_ROLE" />
+
+
+
 
     <application
         android:label="yourcallyourrule"
