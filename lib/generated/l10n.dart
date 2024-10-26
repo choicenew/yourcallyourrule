@@ -5322,6 +5322,56 @@ class S {
       args: [],
     );
   }
+
+  /// `SubscriptionModel`
+  String get subscriptionmodel {
+    return Intl.message(
+      'SubscriptionModel',
+      name: 'subscriptionmodel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ContactSubscription`
+  String get contactsubscription {
+    return Intl.message(
+      'ContactSubscription',
+      name: 'contactsubscription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AutoBackup`
+  String get autobackup {
+    return Intl.message(
+      'AutoBackup',
+      name: 'autobackup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PluginUpdate`
+  String get pluginupdate {
+    return Intl.message(
+      'PluginUpdate',
+      name: 'pluginupdate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `RecordBackup`
+  String get recordbackup {
+    return Intl.message(
+      'RecordBackup',
+      name: 'recordbackup',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

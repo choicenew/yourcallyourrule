@@ -526,5 +526,10 @@
   "smsTextBlacklist": "SMS Text Blacklist",
   "smsTextwhitelist": "SMS TextWhitelist",
   "ifThereIsAnErrorSelectACountry": "if there is an error select a country",
-  "noDataAvailable": "No data available."
+  "noDataAvailable": "No data available.",
+  "subscriptionmodel": "SubscriptionModel",
+  "contactsubscription": "ContactSubscription",
+  "autobackup": "AutoBackup",
+  "pluginupdate": "PluginUpdate",
+  "recordbackup": "RecordBackup"
 }

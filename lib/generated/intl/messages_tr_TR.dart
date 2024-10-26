@@ -118,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Otomatik Güncelleme Devre Dışı"),
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("Otomatik Güncelleme Etkin"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("Avatar ve Simge Boyutları"),
         "avatarBorderColor":
@@ -237,6 +238,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactsPage": MessageLookupByLibrary.simpleMessage("Kişiler Sayfası"),
         "contactsWithNumber":
             MessageLookupByLibrary.simpleMessage("numaralı kişiler"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "Kişi Abonelik Listesi Görünümü"),
         "countColor": MessageLookupByLibrary.simpleMessage("Sayım Rengi"),
@@ -677,6 +680,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plugins": MessageLookupByLibrary.simpleMessage("Eklentiler"),
         "pluginspageview":
             MessageLookupByLibrary.simpleMessage("Eklentiler Sayfa Görünümü"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("Siyasi"),
         "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "purchaseFailed":
@@ -687,6 +691,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Purchase successful!"),
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex Sayfası"),
         "regexPatternExplanation":
@@ -831,6 +836,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Subscription valid"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Abonelik Listesi Görünümü"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("başarıyla"),
         "survey": MessageLookupByLibrary.simpleMessage("Anket"),
         "sync": MessageLookupByLibrary.simpleMessage("Senkronize Et"),

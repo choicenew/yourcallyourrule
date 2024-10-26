@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+import 'dart:core';
 
-import 'package:provider/provider.dart';
 import 'package:dlibphonenumber/locale.dart' as dlibphone;
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../generated/l10n.dart';
 import '../new_set_icons.dart';
@@ -14,20 +15,17 @@ import '../services/label_service.dart';
 import '../services/sms_blacklist_whitelist_service.dart';
 import '../services/sms_text_service.dart';
 import '../utils/ad_manager.dart';
-
 import '../utils/language_provider.dart';
 import '../utils/parse_phonenumber.dart';
 import '../widgets/adwidgets/native_ads.dart';
 import '../widgets/google_ad.dart';
 import '../widgets/search_bar.dart';
-
 import 'label/add_label.dart';
-
+//import 'label/select_label.dart';
 import 'public/isolated_widgets.dart';
 import 'public/public_select_label.dart';
-
+import 'sim_info_list.dart';
 import 'subpage_style.dart';
-import 'dart:core';
 
 class Entry {
   String? phoneNumber;
@@ -809,13 +807,15 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
             Padding(
                 padding: const EdgeInsets.only(left: 10.0, top: 10),
                 child: Text(S.of(context).ifThereIsAnErrorSelectACountry)),
-
+             // 在需要显示 SIM 卡信息的地方
+            const SimInfoListWidget(),
             // Caller ID 数据显示 (直接使用 FutureBuilder)
             FutureBuilder<CallerIdData>(
               key: ValueKey(selectedCountryCode), // 使用 countryCode 作为 Key
               future:
                   generateCallerIdData(phoneNumber, selectedCountryCode?.code),
               builder: (context, snapshot) {
+          
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const CircularProgressIndicator();
                 } else if (snapshot.hasError) {
@@ -914,6 +914,7 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
         );
         // 将选择的国家代码传递给回调函数，并在 _buildCallerIdDataWidget 中触发重新构建
         onCountryCodeSelected(picked);
+  
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
@@ -1036,12 +1037,15 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
 
   Future<CallerIdData> generateCallerIdData(String phoneNumber,
       [String? countryCode]) async {
+ 
+
     // 解析号码 (使用提取出的函数)
 
     final parsedData = countryCode != null
         ? await parsePhoneNumberWithIso(
             phoneNumber, countryCode) // 使用传入的 countryCode 解析
         : await parsePhoneNumberWithoutIso(phoneNumber, null); // 使用默认逻辑解析
+
 
 
     final countryCodeFromParsedData = parsedData['countryCode']!;
@@ -1067,4 +1071,6 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
 
     return callerIdData;
   }
+
+
 }

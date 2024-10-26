@@ -119,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Automatisk uppdatering inaktiverad"),
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "Automatisk uppdatering aktiverad"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("Avatar- och ikonstorlekar"),
         "avatarBorderColor":
@@ -236,6 +237,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactsPage": MessageLookupByLibrary.simpleMessage("Kontaktsida"),
         "contactsWithNumber":
             MessageLookupByLibrary.simpleMessage("kontakter med nummer"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Kontaktprenumerationslistvy"),
         "countColor": MessageLookupByLibrary.simpleMessage("Antal färg"),
@@ -672,6 +675,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pluginPage": MessageLookupByLibrary.simpleMessage("Plugin-sida"),
         "plugins": MessageLookupByLibrary.simpleMessage("Plugins"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("Pluginsidvy"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("Politisk"),
         "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "purchaseFailed":
@@ -682,6 +686,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Purchase successful!"),
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex-sida"),
         "regexPatternExplanation":
@@ -823,6 +828,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Subscription valid"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Prenumerationslistvy"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("lyckades"),
         "survey": MessageLookupByLibrary.simpleMessage("Undersökning"),
         "sync": MessageLookupByLibrary.simpleMessage("Synkronisera"),

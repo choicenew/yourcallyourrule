@@ -117,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تعطيل التحديث التلقائي"),
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("تم تمكين التحديث التلقائي"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("أحجام الصورة الرمزية والرمز"),
         "avatarBorderColor":
@@ -236,6 +237,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("صفحة جهات الاتصال"),
         "contactsWithNumber":
             MessageLookupByLibrary.simpleMessage("جهات اتصال برقم"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "عرض قائمة اشتراكات جهات الاتصال"),
         "countColor": MessageLookupByLibrary.simpleMessage("لون العدد"),
@@ -660,6 +663,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plugins": MessageLookupByLibrary.simpleMessage("المكونات الإضافية"),
         "pluginspageview":
             MessageLookupByLibrary.simpleMessage("عرض صفحة المكونات الإضافية"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("سياسي"),
         "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "purchaseFailed":
@@ -670,6 +674,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Purchase successful!"),
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("تعبير عادي"),
         "regexPage":
             MessageLookupByLibrary.simpleMessage("صفحة التعبير العادي"),
@@ -812,6 +817,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Subscription valid"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("عرض قائمة الاشتراكات"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("بنجاح"),
         "survey": MessageLookupByLibrary.simpleMessage("استطلاع"),
         "sync": MessageLookupByLibrary.simpleMessage("مزامنة"),

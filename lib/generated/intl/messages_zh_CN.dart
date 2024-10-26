@@ -96,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("自动关闭本地通知"),
         "autoUpdateDisabled": MessageLookupByLibrary.simpleMessage("已禁用自动更新"),
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage("已启用自动更新"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("自动备份"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage("头像和图标大小"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("头像边框颜色"),
         "avatarBorderSize": MessageLookupByLibrary.simpleMessage("头像边框大小"),
@@ -187,6 +188,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("已成功导入联系人"),
         "contactsPage": MessageLookupByLibrary.simpleMessage("联系人页面"),
         "contactsWithNumber": MessageLookupByLibrary.simpleMessage("具有号码的联系人"),
+        "contactsubscription": MessageLookupByLibrary.simpleMessage("联系订阅"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("通讯录订阅页面"),
         "countColor": MessageLookupByLibrary.simpleMessage("计数颜色"),
@@ -326,8 +328,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "history": MessageLookupByLibrary.simpleMessage("历史记录"),
         "home": MessageLookupByLibrary.simpleMessage("首页"),
         "iconSize": MessageLookupByLibrary.simpleMessage("图标大小"),
-        "ifThereIsAnErrorSelectACountry": MessageLookupByLibrary.simpleMessage(
-            "if there is an error select a country"),
+        "ifThereIsAnErrorSelectACountry":
+            MessageLookupByLibrary.simpleMessage("如果有错误请选择一个国家"),
         "import": MessageLookupByLibrary.simpleMessage("导入"),
         "importAllowedEntryPage":
             MessageLookupByLibrary.simpleMessage("导入允许的条目页"),
@@ -431,8 +433,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nameFontSize": MessageLookupByLibrary.simpleMessage("姓名字体大小"),
         "namePosition": MessageLookupByLibrary.simpleMessage("姓名位置"),
         "next": MessageLookupByLibrary.simpleMessage("下一步"),
-        "noDataAvailable":
-            MessageLookupByLibrary.simpleMessage("No data available."),
+        "noDataAvailable": MessageLookupByLibrary.simpleMessage("暂时没有数据"),
         "noImageSelected": MessageLookupByLibrary.simpleMessage("尚未选择图像"),
         "noIncomingSmsMessagesFilter":
             MessageLookupByLibrary.simpleMessage("不过滤来短信"),
@@ -527,6 +528,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pluginPage": MessageLookupByLibrary.simpleMessage("插件页面"),
         "plugins": MessageLookupByLibrary.simpleMessage("插件"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("插件页视图"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("插件更新"),
         "political": MessageLookupByLibrary.simpleMessage("政治"),
         "purchase": MessageLookupByLibrary.simpleMessage("购买"),
         "purchaseFailed": MessageLookupByLibrary.simpleMessage("购买失败："),
@@ -534,6 +536,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("正在处理购买..."),
         "purchaseSuccessful": MessageLookupByLibrary.simpleMessage("购买成功！"),
         "quarterlySubscription": MessageLookupByLibrary.simpleMessage("季度订阅"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("录音备份"),
         "regex": MessageLookupByLibrary.simpleMessage("正则表达式"),
         "regexPage": MessageLookupByLibrary.simpleMessage("正则页面"),
         "regexPatternExplanation":
@@ -645,6 +648,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscriptionListPage": MessageLookupByLibrary.simpleMessage("订阅列表页面"),
         "subscriptionValid": MessageLookupByLibrary.simpleMessage("订阅有效"),
         "subscriptionlistview": MessageLookupByLibrary.simpleMessage("订阅列表视图"),
+        "subscriptionmodel": MessageLookupByLibrary.simpleMessage("在线数据订阅更新"),
         "successfully": MessageLookupByLibrary.simpleMessage("成功"),
         "survey": MessageLookupByLibrary.simpleMessage("调查"),
         "sync": MessageLookupByLibrary.simpleMessage("同步"),

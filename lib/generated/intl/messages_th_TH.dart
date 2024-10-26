@@ -117,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ปิดใช้งานการอัปเดตอัตโนมัติ"),
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "เปิดใช้งานการอัปเดตอัตโนมัติ"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("ขนาดรูปประจำตัวและไอคอน"),
         "avatarBorderColor":
@@ -233,6 +234,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactsPage": MessageLookupByLibrary.simpleMessage("หน้าผู้ติดต่อ"),
         "contactsWithNumber":
             MessageLookupByLibrary.simpleMessage("ผู้ติดต่อที่มีหมายเลข"),
+        "contactsubscription":
+            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "มุมมองรายการการสมัครสมาชิกผู้ติดต่อ"),
         "countColor": MessageLookupByLibrary.simpleMessage("สีจำนวน"),
@@ -667,6 +670,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plugins": MessageLookupByLibrary.simpleMessage("ปลั๊กอิน"),
         "pluginspageview":
             MessageLookupByLibrary.simpleMessage("มุมมองหน้าปลั๊กอิน"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
         "political": MessageLookupByLibrary.simpleMessage("การเมือง"),
         "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
         "purchaseFailed":
@@ -677,6 +681,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Purchase successful!"),
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
         "regex": MessageLookupByLibrary.simpleMessage("นิพจน์ทั่วไป"),
         "regexPage": MessageLookupByLibrary.simpleMessage("หน้านิพจน์ทั่วไป"),
         "regexPatternExplanation":
@@ -818,6 +823,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Subscription valid"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("มุมมองรายการการสมัครสมาชิก"),
+        "subscriptionmodel":
+            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
         "successfully": MessageLookupByLibrary.simpleMessage("สำเร็จ"),
         "survey": MessageLookupByLibrary.simpleMessage("แบบสำรวจ"),
         "sync": MessageLookupByLibrary.simpleMessage("ซิงค์"),
