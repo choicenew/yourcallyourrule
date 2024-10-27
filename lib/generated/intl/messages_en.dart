@@ -706,6 +706,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Restore from OneDrive"),
         "restoreFromWebdav":
             MessageLookupByLibrary.simpleMessage("Restore from WebDAV"),
+        "restorePurchase":
+            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
         "ridesharing": MessageLookupByLibrary.simpleMessage("Ridesharing"),
         "risk": MessageLookupByLibrary.simpleMessage("Risk"),
         "robocall": MessageLookupByLibrary.simpleMessage("Robocall"),
@@ -775,7 +777,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "smsTextWhitelistPage":
             MessageLookupByLibrary.simpleMessage("SMS Text Whitelist Page"),
         "smsTextwhitelist":
-            MessageLookupByLibrary.simpleMessage("SMS TextWhitelist"),
+            MessageLookupByLibrary.simpleMessage("SMS Text Whitelist"),
         "smsWhitelist": MessageLookupByLibrary.simpleMessage("SMS Whitelist"),
         "smsblacklistpageview":
             MessageLookupByLibrary.simpleMessage("SmsBlacklistPageView"),

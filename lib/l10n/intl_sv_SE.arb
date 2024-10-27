@@ -533,5 +533,6 @@
   "contactsubscription": "ContactSubscription",
   "autobackup": "AutoBackup",
   "pluginupdate": "PluginUpdate",
-  "recordbackup": "RecordBackup"
+  "recordbackup": "RecordBackup",
+  "restorePurchase": "Restore Purchase"
 }

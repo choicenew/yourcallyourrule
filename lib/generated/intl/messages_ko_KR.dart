@@ -626,6 +626,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("OneDrive에서 복원"),
         "restoreFromWebdav":
             MessageLookupByLibrary.simpleMessage("WebDAV에서 복원"),
+        "restorePurchase":
+            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
         "ridesharing": MessageLookupByLibrary.simpleMessage("차량 공유"),
         "risk": MessageLookupByLibrary.simpleMessage("위험"),
         "robocall": MessageLookupByLibrary.simpleMessage("로보콜"),

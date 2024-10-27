@@ -711,6 +711,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Khôi phục từ OneDrive"),
         "restoreFromWebdav":
             MessageLookupByLibrary.simpleMessage("Khôi phục từ WebDAV"),
+        "restorePurchase":
+            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
         "ridesharing":
             MessageLookupByLibrary.simpleMessage("Chia sẻ chuyến đi"),
         "risk": MessageLookupByLibrary.simpleMessage("Rủi ro"),
