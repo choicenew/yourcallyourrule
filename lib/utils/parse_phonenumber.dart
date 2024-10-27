@@ -49,8 +49,17 @@ Future<Map<String, String>> _parsePhoneNumber(
         for (String code in simCountryCodes) {
           try {
             PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, code.toUpperCase());
+           
+          String? parsedCountryCode = phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
+           
+           // 添加 national_number 的验证
+          if (parsedCountryCode?.toUpperCase() == code.toUpperCase() &&
+              phoneNumberUtil.getNationalSignificantNumber(parsedPhoneNumber) == 
+                  phoneNumber.replaceAll(RegExp(r'[^0-9]+'), '')) {
             parseAndFormat(parsedPhoneNumber);
+            
             break;
+          }
           } catch (e) {
             //print('Failed to parse with country code $code: $e');
           }

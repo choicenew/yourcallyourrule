@@ -567,6 +567,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("从 OneDrive 恢复"),
         "restoreFromWebdav":
             MessageLookupByLibrary.simpleMessage("从 WebDAV 恢复"),
+        "restorePurchase":
+            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
         "ridesharing": MessageLookupByLibrary.simpleMessage("拼车"),
         "risk": MessageLookupByLibrary.simpleMessage("风险"),
         "robocall": MessageLookupByLibrary.simpleMessage("机器人电话"),

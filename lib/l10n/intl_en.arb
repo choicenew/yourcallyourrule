@@ -524,12 +524,13 @@
   "smsBlacklist": "SMS Blacklist",
   "smsWhitelist": "SMS Whitelist",
   "smsTextBlacklist": "SMS Text Blacklist",
-  "smsTextwhitelist": "SMS TextWhitelist",
+  "smsTextwhitelist": "SMS Text Whitelist",
   "ifThereIsAnErrorSelectACountry": "if there is an error select a country",
   "noDataAvailable": "No data available.",
   "subscriptionmodel": "SubscriptionModel",
   "contactsubscription": "ContactSubscription",
   "autobackup": "AutoBackup",
   "pluginupdate": "PluginUpdate",
-  "recordbackup": "RecordBackup"
+  "recordbackup": "RecordBackup",
+  "restorePurchase": "Restore Purchase"
 }

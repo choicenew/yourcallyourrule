@@ -809,6 +809,7 @@ class _GeneralPageState extends State<GeneralPage> with WidgetsBindingObserver {
                 child: Text(S.of(context).ifThereIsAnErrorSelectACountry)),
              // 在需要显示 SIM 卡信息的地方
             const SimInfoListWidget(),
+            
             // Caller ID 数据显示 (直接使用 FutureBuilder)
             FutureBuilder<CallerIdData>(
               key: ValueKey(selectedCountryCode), // 使用 countryCode 作为 Key

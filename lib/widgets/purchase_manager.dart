@@ -30,6 +30,11 @@ class InAppPurchaseManager {
     InAppPurchase.instance.purchaseStream.listen((purchaseDetailsList) {
       _listenToPurchaseUpdated(purchaseDetailsList, context);
     });
+
+    // 恢复之前的购买
+    await InAppPurchase.instance.restorePurchases(); 
+
+
   }
 
   void _listenToPurchaseUpdated(
@@ -73,6 +78,20 @@ class InAppPurchaseManager {
           content:
               Text('${S.of(context).purchaseFailed} ${purchaseDetails.error}'),
         ));
+      } else if (purchaseDetails.status == PurchaseStatus.restored) {
+        // 添加恢复购买状态的处理
+        if (purchaseDetails.productID == 'monthly_id_subscription' ||
+            purchaseDetails.productID == 'quarterly_id_subscription' ||
+            purchaseDetails.productID == 'lifetime_purchase_id') {
+          purchaseState.updatePurchaseState(true);
+          Provider.of<AdState>(context, listen: false).disableAds();
+          // ... (其他处理逻辑，例如更新 UI) ...
+        } else if (purchaseDetails.productID == 'remove_ads_product_id') {
+          // 单独处理 remove_ads_product_id
+          Provider.of<AdState>(context, listen: false).disableAds();
+          // ... (其他 remove_ads_product_id 的恢复逻辑) ...
+        }
+        InAppPurchase.instance.completePurchase(purchaseDetails);
       }
 
       // 无论状态如何，如果 pendingCompletePurchase 为 true，都必须调用 completePurchase
@@ -215,6 +234,16 @@ class InAppPurchaseManager {
       adState.enableAds();
     }
   }
+
+  // 添加一个公共方法来手动恢复购买
+  Future<void> restorePurchases() async {
+    await InAppPurchase.instance.restorePurchases();
+  }
+
+  //结束
+
+
+
 }
 
 // 空白页面用于显示广告
@@ -455,6 +484,18 @@ class PurchasePageState extends State<PurchasePage> {
                   },
                   backgroundColor: Colors.greenAccent,
                 ),
+
+                // 添加一个恢复购买按钮
+                ElevatedButton(
+                  onPressed: () {
+                    inAppPurchaseManager.restorePurchases();
+                  },
+                  child: Text(S.of(context).restorePurchase), // 使用你的翻译
+                ),
+
+
+
+
               ],
             ),
           ),

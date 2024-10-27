@@ -727,6 +727,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("OneDrive\'dan Geri Yükle"),
         "restoreFromWebdav":
             MessageLookupByLibrary.simpleMessage("WebDAV\'dan Geri Yükle"),
+        "restorePurchase":
+            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
         "ridesharing": MessageLookupByLibrary.simpleMessage("Araç Paylaşımı"),
         "risk": MessageLookupByLibrary.simpleMessage("Risk"),
         "robocall": MessageLookupByLibrary.simpleMessage("Otomatik Arama"),

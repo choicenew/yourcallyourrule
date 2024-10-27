@@ -530,5 +530,6 @@
   "contactsubscription": "联系订阅",
   "autobackup": "自动备份",
   "pluginupdate": "插件更新",
-  "recordbackup": "录音备份"
+  "recordbackup": "录音备份",
+  "restorePurchase": "Restore Purchase"
 }

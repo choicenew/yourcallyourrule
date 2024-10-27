@@ -5293,10 +5293,10 @@ class S {
     );
   }
 
-  /// `SMS TextWhitelist`
+  /// `SMS Text Whitelist`
   String get smsTextwhitelist {
     return Intl.message(
-      'SMS TextWhitelist',
+      'SMS Text Whitelist',
       name: 'smsTextwhitelist',
       desc: '',
       args: [],
@@ -5368,6 +5368,16 @@ class S {
     return Intl.message(
       'RecordBackup',
       name: 'recordbackup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Restore Purchase`
+  String get restorePurchase {
+    return Intl.message(
+      'Restore Purchase',
+      name: 'restorePurchase',
       desc: '',
       args: [],
     );
