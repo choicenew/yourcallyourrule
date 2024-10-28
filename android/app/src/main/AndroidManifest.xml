@@ -114,7 +114,7 @@
 
 
     <application
-        android:label="yourcallyourrule"
+        android:label="Your Call Your Rule"
         android:name=".MyApplication"
 
         android:icon="@mipmap/ic_launcher">

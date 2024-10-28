@@ -52,14 +52,25 @@ Future<Map<String, String>> _parsePhoneNumber(
            
           String? parsedCountryCode = phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
            
-           // 添加 national_number 的验证
-          if (parsedCountryCode?.toUpperCase() == code.toUpperCase() &&
-              phoneNumberUtil.getNationalSignificantNumber(parsedPhoneNumber) == 
-                  phoneNumber.replaceAll(RegExp(r'[^0-9]+'), '')) {
-            parseAndFormat(parsedPhoneNumber);
+            bool isValid = phoneNumberUtil.isValidNumber(parsedPhoneNumber);
+            String nationalSignificant = phoneNumberUtil.getNationalSignificantNumber(parsedPhoneNumber);
+            String cleanedInput = phoneNumber.replaceAll(RegExp(r'[^0-9]+'), '');
             
-            break;
-          }
+            // 打印详细的调试信息
+            print('尝试国家码: $code');
+            print('解析后的国家码: $parsedCountryCode');
+            print('是否有效号码: $isValid');
+            print('National Significant Number: $nationalSignificant');
+            print('清理后的输入号码: $cleanedInput');
+
+               // 添加 national_number 的验证 1验证是否有效，2验证code是否match，3验证号码是否一致，三个不可以缺少任何一个
+            if (isValid && 
+                parsedCountryCode?.toUpperCase() == code.toUpperCase() &&
+                nationalSignificant == cleanedInput) {
+              print('找到匹配! 使用国家码: $code');
+              parseAndFormat(parsedPhoneNumber);
+              break;
+            } 
           } catch (e) {
             //print('Failed to parse with country code $code: $e');
           }
