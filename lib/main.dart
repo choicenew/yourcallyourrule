@@ -193,66 +193,6 @@ class MyApp extends StatelessWidget {
 
   const MyApp({super.key, required this.onboardingCompleted});
 
-/*
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<LocaleProvider>(
-      builder: (context, localeProvider, child) {
-        return MaterialApp(
-          title: 'Your Call Your Rule',
-          theme: ThemeData(
-            useMaterial3: true,
-          ),
-          locale: localeProvider.locale,
-          home: onboardingCompleted
-              ? const MyHomePage()
-              : OnboardingScreen(
-                  onComplete: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => const MyHomePage()),
-                    );
-                  },
-                ),
-        );
-      },
-    );
-  }
-}
-*/
-
-/*
-  @override
-  Widget build(BuildContext context) {
-    return Consumer2<LocaleProvider, ThemeProvider>( // 使用 Consumer2 监听两个 Provider
-      builder: (context, localeProvider, themeProvider, child) {
-        return MaterialApp(
-          title: 'Your Call Your Rule',
-          theme: getTheme(themeProvider.themeMode), // 使用 getTheme 函数获取主题
-          locale: localeProvider.locale,
-          localizationsDelegates: [
-                    S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        // GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          home: onboardingCompleted
-              ? const MyHomePage()
-              : OnboardingScreen(
-                  onComplete: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => const MyHomePage()),
-                    );
-                  },
-                ),
-        );
-      },
-    );
-  }
-}
-*/
-
-
 
   @override
   Widget build(BuildContext context) {
