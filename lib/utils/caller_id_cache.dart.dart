@@ -1,13 +1,14 @@
 // caller_id_cache.dart
 
 // 保存单个 CallerIdData 到缓存文件
-import 'dart:convert';
-import 'dart:io';
 
-import 'package:path_provider/path_provider.dart';
 
 import '../services/caller_id_service.dart';
+import '../views/call_history/call_log_database.dart';
 
+
+
+/*
 Future<void> saveCallerIdDataToCache(String phoneNumber, CallerIdData callerIdData) async {
   final directory = await getApplicationDocumentsDirectory();
   final filePath = '${directory.path}/caller_id_cache.json';
@@ -26,4 +27,11 @@ Future<void> saveCallerIdDataToCache(String phoneNumber, CallerIdData callerIdDa
   // 将更新后的数据写入文件
   final updatedJsonData = json.encode(cachedCallerIdData);
   await file.writeAsString(updatedJsonData);
+}
+*/
+
+
+Future<void> saveCallerIdDataToCache(String phoneNumber, CallerIdData callerIdData) async {
+  final database = CallLogDatabase.instance; // 获取 CallLogDatabase 实例
+  await database.insertCallerIdData(callerIdData); // 调用 CallLogDatabase 的 insertCallerIdData 方法
 }
