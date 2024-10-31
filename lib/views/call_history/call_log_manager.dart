@@ -21,8 +21,374 @@ import '../../utils/global_variable.dart';
 import '../../utils/parse_phonenumber.dart';
 
 
+import 'call_log_database.dart';
+
+class CallLogManager {
+  final _callLogController = BehaviorSubject<List<CallLogEntry>>();
+  bool _isLoading = false;
+  bool _hasInitializedCallLogs = false;
+  StreamSubscription<dynamic>? _newCallLogsSubscription;
+  final CallerIdService _callerIdService;
+  final BuildContext context;
+  final CallLogDatabase _database = CallLogDatabase.instance;
+  Map<String, CallerIdData> _callerIdDataCache = {};
+
+  CallLogManager(this.context, this._callerIdService) {
+
+    _initialize();
+  }
+
+  Stream<List<CallLogEntry>> get callLogsStream => _callLogController.stream;
+  Map<String, CallerIdData> get callerIdCache => _callerIdDataCache;
+
+  Future<void> _initialize() async {
+
+    final status = await Permission.phone.status;
+    if (status.isGranted) {
+      await loadAllCallerIdData(); // Load caller ID cache first
+      await loadAllCallLogs();
+      _setupCallLogListener();
+    } else if (status.isDenied) {
+      await _requestPhonePermission();
+    }
+  }
+
+  Future<void> _setupCallLogListener() async {
+
+    
+    await _newCallLogsSubscription?.cancel();
+    
+    _newCallLogsSubscription = CallLog.listenNewCallLogs().listen(
+      (newCallLog) async {
+
+        await _handleNewCallLog(newCallLog);
+      },
+      onError: (error) {
+ 
+        Future.delayed(const Duration(seconds: 5), _setupCallLogListener);
+      },
+      cancelOnError: false,
+    );
+  }
+
+  Future<void> loadAllCallLogs() async {
+
+    // 在 _initialize() 中读取 _hasInitializedCallLogs 的值
+_hasInitializedCallLogs = await _getHasInitializedCallLogs();
+
+    if (_isLoading) {
+
+      return;
+    }
+
+    _isLoading = true;
+    try {
+
+      
+      final lastSyncTimestamp = await _getLastSyncTimestamp();
+      
+      final Iterable<CallLogEntry> result;
+      if (!_hasInitializedCallLogs || lastSyncTimestamp == 0) {
+        result = await CallLog.get();
+
+      } else {
+        result = await CallLog.query(
+          dateTimeFrom: DateTime.fromMillisecondsSinceEpoch(lastSyncTimestamp),
+        );
+ 
+      }
+      
+      if (result.isNotEmpty) {
+        await _database.insertCallLogs(result.toList());
+        await _preloadCallerIdData(result.toList());
+      }
+
+      final logs = await _database.getRecentLogs(limit: 1000);
+      
+      if (!_callLogController.isClosed) {
+ 
+        _callLogController.add(logs);
+      }
+      
+      await _saveLastSyncTimestamp(DateTime.now().millisecondsSinceEpoch);
+      _hasInitializedCallLogs = true;
+ 
+      // 在 _loadAllCallLogs() 中保存 _hasInitializedCallLogs 的值
+await _saveHasInitializedCallLogs(true);
+    } catch (e) {
+
+      if (!_callLogController.isClosed) {
+        _callLogController.addError(e);
+      }
+    } finally {
+      _isLoading = false;
+    }
+  }
+
+  Future<void> _handleNewCallLog(CallLogEntry newCallLog) async {
+
+    
+    if (newCallLog.number == null) {
+
+      return;
+    }
+
+    try {
+      // Update CallerID data
+      if (!_callerIdDataCache.containsKey(newCallLog.number)) {
+        final callerIdData = await getCallerIdData(newCallLog);
+        _callerIdDataCache[newCallLog.number!] = callerIdData;
+        await _database.insertCallerIdData(callerIdData);
+      }
+      
+      // Save to database
+      await _database.insertCallLog(newCallLog);
+      
+      // Get updated records
+      final updatedLogs = await _database.getRecentLogs();
+      
+      if (!_callLogController.isClosed) {
+
+        _callLogController.add(updatedLogs);
+      }
+      
+    } catch (e) {
+     // print("Error handling new call log: $e");
+    }
+  }
+
+  Future<void> refresh() async {
+    print("Refreshing call logs");
+    
+    if (_isLoading) {
+     
+      return;
+    }
+
+    _isLoading = true;
+    try {
+      final lastSyncTimestamp = await _getLastSyncTimestamp();
+      final Iterable<CallLogEntry> result = await CallLog.query(
+        dateTimeFrom: DateTime.fromMillisecondsSinceEpoch(lastSyncTimestamp),
+      );
+      
+      if (result.isNotEmpty) {
+        await _database.insertCallLogs(result.toList());
+        await _preloadCallerIdData(result.toList());
+      }
+      
+      final updatedLogs = await _database.getRecentLogs();
+      
+      if (!_callLogController.isClosed) {
+      
+        _callLogController.add(updatedLogs);
+      }
+      
+      await _saveLastSyncTimestamp(DateTime.now().millisecondsSinceEpoch);
+    } catch (e) {
+     
+      if (!_callLogController.isClosed) {
+        _callLogController.addError(e);
+      }
+    } finally {
+      _isLoading = false;
+    }
+  }
+
+  Future<void> filterByPhoneNumber(String phoneNumber) async {
+    if (_isLoading) return;
+
+    _isLoading = true;
+    try {
+      final filteredLogs = await _database.getLogsByPhoneNumber(phoneNumber);
+      _callLogController.add(filteredLogs);
+    } finally {
+      _isLoading = false;
+    }
+  }
+
+  // CallerID related methods
+  Future<void> _preloadCallerIdData(List<CallLogEntry> logs) async {
+    for (var entry in logs) {
+      if (entry.number != null && !_callerIdDataCache.containsKey(entry.number)) {
+        final callerIdData = await _fetchAndSaveCallerIdData(entry.number!);
+        _callerIdDataCache[entry.number!] = callerIdData;
+        //await _database.insertCallerIdData(callerIdData);
+      }
+    }
+  }
+
+Future<CallerIdData> getCallerIdData(CallLogEntry entry) async {
+  String? phoneNumber = entry.number ?? '';
+
+  if (phoneNumber.isEmpty) {
+    return _getUnknownCallerIdData();
+  }
+
+  // 1. Check cache
+  if (_callerIdDataCache.containsKey(phoneNumber)) {
+    return _callerIdDataCache[phoneNumber]!;
+  } 
+ 
+    // 2. Check database
+    final callerIdDataFromDb = await _database.getCallerIdDataDatabaseByPhoneNumber(phoneNumber);
+        // print("manager库if之前: ${callerIdDataFromDb!.countryName}"); 
+    if (callerIdDataFromDb != null) {
+      // Save to cache
+      await _saveCallerIdDataToCache(phoneNumber, callerIdDataFromDb);
+       
+      return callerIdDataFromDb;
+    }
+   
+      // 3. Fetch from _callerIdService and save to cache and database
+   final callerIdData = await _fetchAndSaveCallerIdData(phoneNumber);
+  //    print("fetch 数据: $callerIdData.countryName"); 
+return callerIdData;
+
+}
+
+Future<CallerIdData> _fetchAndSaveCallerIdData(String phoneNumber) async {
+  try {
+    final parsedData = await parsePhoneNumber(phoneNumber);
+    final countryCode = parsedData['countryCode']!;
+    final e164Number = parsedData['e164Number']!;
+
+    final languageCode = currentLocale?.languageCode ?? 'en';
+    final dlibLocale = dlibphone.Locale(
+      language: languageCode,
+      country: countryCode.toUpperCase(),
+    );
+
+    final callerIdData = await _callerIdService.getCallerId(phoneNumber, dlibLocale);
+    await _saveCallerIdDataToCache(phoneNumber, callerIdData);
+    await _database.insertCallerIdData(callerIdData);
+       
+    return callerIdData;
+  } catch (error) {
+    return _getUnknownCallerIdData(phoneNumber);
+  }
+}
+
+Future<void> _saveCallerIdDataToCache(String phoneNumber, CallerIdData callerIdData) async {
+  if (_callerIdDataCache.length >= 50) {
+    _callerIdDataCache.remove(_callerIdDataCache.keys.first); // Remove the oldest cache item
+  }
+  _callerIdDataCache[phoneNumber] = callerIdData;
+}
+
+CallerIdData _getUnknownCallerIdData([String? phoneNumber]) {
+  return CallerIdData(
+    phoneNumber: phoneNumber ?? 'Unknown',
+    countryName: 'Unknown',
+    region: 'Unknown',
+    carrier: 'Unknown',
+    numberType: PhoneNumberType.unknown,
+    labels: [Label(label: 'Unknown')],
+    name: 'OtherUnknown',
+    avatar: 'Unknown',
+    count: 0,
+  );
+}
+
+// 在 CallLogManager 中添加
+Future<void> saveCallerIdData(String phoneNumber, CallerIdData callerIdData) async {
+    await _database.insertCallerIdData(callerIdData); // 保存到数据库
+// 在 CallLogManager 中添加
+  if (_callerIdDataCache.length >= 50) {
+    _callerIdDataCache.remove(_callerIdDataCache.keys.first); // 移除最旧的缓存项
+  }
+  _callerIdDataCache[phoneNumber] = callerIdData; 
+
+}
 
 
+  // Load cached CallerID data from database
+  Future<void> loadAllCallerIdData() async {
+    try {
+      final callerIdDataList = await _database.getAllCallerIdData();
+      _callerIdDataCache = {
+        for (var data in callerIdDataList)
+          data.phoneNumber: data
+      };
+    } catch (e) {
+      //print("Error loading cached caller ID data: $e");
+    }
+  }
+
+// 读取 _hasInitializedCallLogs
+Future<bool> _getHasInitializedCallLogs() async {
+  final prefs = await SharedPreferences.getInstance();
+  return prefs.getBool('has_initialized_call_logs') ?? false;
+}
+
+// 保存 _hasInitializedCallLogs
+Future<void> _saveHasInitializedCallLogs(bool value) async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('has_initialized_call_logs', value);
+}
+
+
+  Future<int> _getLastSyncTimestamp() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt('last_sync_timestamp') ?? 0;
+  }
+
+  Future<void> _saveLastSyncTimestamp(int timestamp) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('last_sync_timestamp', timestamp);
+  }
+
+  Future<void> _requestPhonePermission() async {
+    PermissionStatus status = await Permission.phone.request();
+
+    if (status.isGranted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(S.of(context).permissionGranted)),
+      );
+    } else if (status.isDenied) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(S.of(context).thisAppNeedsAccessToYourCallLogInformation),
+          action: SnackBarAction(
+            label: S.of(context).grantPermission,
+            onPressed: () async {
+              status = await Permission.contacts.request();
+              if (status.isGranted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(S.of(context).permissionGranted)),
+                );
+              } else {
+                await openAppSettings();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(S.of(context).deniedPermissionCanManuallyEnablePermissionInSetting),
+                  ),
+                );
+              }
+            },
+          ),
+        ),
+      );
+    } else if (status.isPermanentlyDenied) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(S.of(context).deniedPermissionCanManuallyEnablePermissionInSetting),
+        ),
+      );
+    }
+  }
+
+  void dispose() {
+   
+    _newCallLogsSubscription?.cancel();
+    _callLogController.close();
+ //   _database.close();
+  }
+}
+
+
+
+/*
 
 class CallLogManager {
   final _callLogController = BehaviorSubject<List<CallLogEntry>>();
@@ -600,7 +966,7 @@ Future<List<CallLogEntry>> _loadIncrementalCallLogsFromFile() async {
 
 }
 
-
+*/
 
 
 

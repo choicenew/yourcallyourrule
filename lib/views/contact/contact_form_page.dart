@@ -13,10 +13,13 @@ import '../../widgets/google_ad.dart';
 import '../../widgets/navigation_bar.dart';
 import '../subpage_style.dart';
 
+
+
 class ContactFormPage extends StatefulWidget {
   final Contact? contact;
+  final String? initialPhoneNumber; // 添加一个用于传递初始号码的参数
 
-  const ContactFormPage({super.key, this.contact});
+  const ContactFormPage({super.key, this.contact, this.initialPhoneNumber});
 
   @override
   ContactFormPageState createState() => ContactFormPageState();
@@ -26,9 +29,7 @@ class ContactFormPageState extends State<ContactFormPage> {
   final _formKey = GlobalKey<FormState>();
   late TextEditingController _firstNameController;
   late TextEditingController _lastNameController;
-  List<TextEditingController> _phoneControllers = [
-    TextEditingController()
-  ]; // Change to a list
+  List<TextEditingController> _phoneControllers = [TextEditingController()]; // Change to a list
   late TextEditingController _emailController;
   late TextEditingController _labelController;
   late TextEditingController _groupController;
@@ -36,10 +37,10 @@ class ContactFormPageState extends State<ContactFormPage> {
   late TextEditingController _subscribedLinkController;
   late ContactService _contactService;
   String? _avatar;
-
+  
   bool get isEditing => widget.contact != null;
 
-  @override
+ @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
@@ -50,27 +51,29 @@ class ContactFormPageState extends State<ContactFormPage> {
   void _initControllers() {
     final nameParts = widget.contact?.name.split(' ') ?? ['', ''];
     _firstNameController = TextEditingController(text: nameParts.first);
-    _lastNameController =
-        TextEditingController(text: nameParts.length > 1 ? nameParts.last : '');
+    _lastNameController = TextEditingController(text: nameParts.length > 1 ? nameParts.last : '');
+    
 
-    // Initialize phone controllers
-    _phoneControllers = [];
-    if (widget.contact != null) {
-      for (String phoneNumber in widget.contact!.phoneNumbers) {
-        _phoneControllers.add(TextEditingController(text: phoneNumber));
-      }
-    } else {
-      _phoneControllers
-          .add(TextEditingController()); // Add an initial empty field
+
+
+  // 初始化电话号码控制器
+  _phoneControllers = [];
+  if (widget.initialPhoneNumber != null) {
+    _phoneControllers.add(TextEditingController(text: widget.initialPhoneNumber)); // 使用传递的号码初始化
+  } else if (widget.contact != null) {
+    for (String phoneNumber in widget.contact!.phoneNumbers) {
+      _phoneControllers.add(TextEditingController(text: phoneNumber));
     }
+  } else {
+    _phoneControllers.add(TextEditingController()); // 添加一个初始空字段
+  }
+
 
     _emailController = TextEditingController(text: widget.contact?.email ?? '');
     _labelController = TextEditingController(text: widget.contact?.label ?? '');
     _groupController = TextEditingController(text: widget.contact?.group ?? '');
-    _websiteController =
-        TextEditingController(text: widget.contact?.website ?? '');
-    _subscribedLinkController =
-        TextEditingController(text: widget.contact?.url ?? '');
+    _websiteController = TextEditingController(text: widget.contact?.website ?? '');
+    _subscribedLinkController = TextEditingController(text: widget.contact?.url ?? '');
     _avatar = widget.contact?.avatar;
   }
 

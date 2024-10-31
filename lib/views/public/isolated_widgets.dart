@@ -48,7 +48,10 @@ class AvatarWidget extends StatelessWidget {
     if (avatar != null && avatar!.isNotEmpty) {
       return avatar!.startsWith('http')
           ? NetworkImage(avatar!)
-          : AssetImage(avatar!) as ImageProvider;
+         // : AssetImage(avatar!) as ImageProvider;
+         : AssetImage(
+            avatar!.contains('assets/') ? avatar! : 'assets/avatars/$avatar.png',
+          ) as ImageProvider;
     } else {
       return AssetImage('assets/avatars/$label.png');
     }

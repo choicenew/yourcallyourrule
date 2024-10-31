@@ -55,7 +55,10 @@ Future<Map<String, String>> _parsePhoneNumber(
             bool isValid = phoneNumberUtil.isValidNumber(parsedPhoneNumber);
             String nationalSignificant = phoneNumberUtil.getNationalSignificantNumber(parsedPhoneNumber);
             String cleanedInput = phoneNumber.replaceAll(RegExp(r'[^0-9]+'), '');
-            
+            String nationalNumber = phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.national);
+            // 去除 national 中的非数字字符
+String cleanedNational = nationalNumber.replaceAll(RegExp(r'[^0-9]+'), '');
+
             // 打印详细的调试信息
             print('尝试国家码: $code');
             print('解析后的国家码: $parsedCountryCode');
@@ -66,7 +69,7 @@ Future<Map<String, String>> _parsePhoneNumber(
                // 添加 national_number 的验证 1验证是否有效，2验证code是否match，3验证号码是否一致，三个不可以缺少任何一个
             if (isValid && 
                 parsedCountryCode?.toUpperCase() == code.toUpperCase() &&
-                nationalSignificant == cleanedInput) {
+                cleanedNational == cleanedInput) {
               print('找到匹配! 使用国家码: $code');
               parseAndFormat(parsedPhoneNumber);
               break;
