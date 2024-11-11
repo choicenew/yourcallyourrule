@@ -13,7 +13,7 @@ jobs:
     steps:
       # 1. Checkout 代码
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # 2. 设置 Java 17
       - name: Set up Java
@@ -22,11 +22,6 @@ jobs:
           distribution: 'zulu'
           java-version: '17.x'
 
-      # 3. 设置 Flutter 环境
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.7.0'  # 使用合适的 Flutter 版本
 
       # 4. 解密 Keystore 文件
       - name: Decode Keystore
@@ -41,13 +36,16 @@ jobs:
           echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
           echo "storeFile=key.jks" >> android/key.properties
 
-      # 6. 安装 Flutter 依赖
-      - name: Install dependencies
-        run: flutter pub get
 
-      # 7. 编译 Flutter AAB 文件
-      - name: Build AAB
-        run: flutter build appbundle --release
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.24.0
+      - run: flutter pub get
+      
+      - run: flutter build apk
+      - run: flutter build appbundle
 
       # 8. 上传构建的 AAB 文件作为 artifact
       - name: Upload AAB artifact
