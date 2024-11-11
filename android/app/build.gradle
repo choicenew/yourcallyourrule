@@ -23,7 +23,7 @@ def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
-/*
+
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
@@ -31,20 +31,13 @@ if (keystorePropertiesFile.exists()) {
         keystoreProperties.load(reader)
     }
 }
-*/
+
 
 android {
 
-    signingConfigs {
-        release {
-            storeFile file('C:\\Users\\Ngokel\\Desktop\\en\\test\\sign\\upload_keystore.jks')
-            storePassword 'slroeeb@gmail.com'
-            keyAlias 'yourcallyourrule'
-            keyPassword 'slroeeb@gmail.com'
-        }
-    }
 
-/*
+
+
     signingConfigs {
         release {
             keyAlias keystoreProperties['keyAlias']
@@ -53,7 +46,7 @@ android {
             storePassword keystoreProperties['storePassword']
         }
     }
-*/
+
     
     namespace = "com.yours.yourcallyourrule"
     compileSdk 34
