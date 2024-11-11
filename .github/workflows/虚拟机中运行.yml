@@ -1,4 +1,4 @@
-name: Local Build, Sign and Release
+name: chat 测试 tt
 
 on:
   workflow_dispatch:
@@ -11,85 +11,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      # 1. Checkout 代码
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
+      # 2. 设置 Flutter 环境
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'gradle'
-                
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.24.0' 
-          channel: 'stable'
-          cache: true 
-          cache-key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
-          
-      - run: flutter pub get
+          flutter-version: '3.24.0'  # 使用合适的 Flutter 版本
 
-      # Decode and cache keystore
-      - name: Decode keystore
-        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
-
-      # Cache build artifacts
-      - name: Cache Build Artifacts
-        uses: actions/cache@v3
-        with:
-          path: |
-            build/app/outputs/bundle/release/app-release.aab
-            build/app/outputs/apk/release/*.apk
-          key: ${{ runner.os }}-flutter-build-${{ hashFiles('**/pubspec.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-build- 
-
-      # 复制仓库到构建目录 (排除 build 目录)
-      - name: Create build directory
-        run: mkdir -p build
-      - name: Copy repository to build directory (excluding build directory)
-        run: cp -r !(build) build/
-      - name: Change working directory to build
-        run: cd build
-
-      # Sign AAB and APKs using flutter built-in signing (with caching)
-      - name: Sign AAB and APKs
-        if: steps.cache-build-artifacts.outputs.cache-hit != 'true' # Only build if cache miss
+      # 3. 解密 Keystore 文件
+      - name: Decode Keystore
         run: |
-          flutter build appbundle --release --no-tree-shake-icons \
-            --dart-define=FLUTTER_KEYSTORE_PATH=android/app/key.jks \
-            --dart-define=FLUTTER_KEYSTORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
-            --dart-define=FLUTTER_KEY_ALIAS=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
-            --dart-define=FLUTTER_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }}
-          flutter build apk --release --no-tree-shake-icons --split-per-abi \
-            --dart-define=FLUTTER_KEYSTORE_PATH=android/app/key.jks \
-            --dart-define=FLUTTER_KEYSTORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
-            --dart-define=FLUTTER_KEY_ALIAS=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
-            --dart-define=FLUTTER_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }}
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
 
-      # Upload signed AAB and APKs as artifacts
-      - name: Upload Signed Artifacts
+      # 4. 创建 key.properties 文件
+      - name: Create key.properties
+        run: |
+          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
+          echo "storeFile=key.jks" >> android/key.properties
+
+      # 5. 安装 Flutter 依赖
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 6. 编译 Flutter AAB 文件
+      - name: Build AAB
+        run: flutter build appbundle --release
+
+      # 7. 上传构建的 AAB 文件作为 artifact
+      - name: Upload AAB artifact
         uses: actions/upload-artifact@v3
         with:
-          name: signed-release-artifacts
-          path: |
-            build/app/outputs/bundle/release/app-release.aab
-            build/app/outputs/apk/release/*.apk
-
-      - name: Extract pubspec version
-        run: |
-          echo "PUBSPEC_VERSION=$(grep -oP 'version:\s*\K[^+]+(?=\+)' pubspec.yaml)" >> $GITHUB_ENV
-
-      - name: Upload Release 
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.MY_PAT }}
-          tag: v${{ env.PUBSPEC_VERSION }} 
-          omitBodyDuringUpdate: true
-          omitNameDuringUpdate: true
-          omitPrereleaseDuringUpdate: true
-          allowUpdates: true
-          artifacts: |
-            signed-release-artifacts/*
-            build/app/outputs/bundle/release/app-release.aab
-            build/app/outputs/apk/release/*.apk 
+          name: flutter-aab
+          path: build/app/outputs/bundle/release/app-release.aab
