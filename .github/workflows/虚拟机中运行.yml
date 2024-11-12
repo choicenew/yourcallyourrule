@@ -21,7 +21,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-
+      - run: flutter pub get  
+      - run: flutter test
 
 
 
