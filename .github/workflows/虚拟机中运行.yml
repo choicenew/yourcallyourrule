@@ -1,10 +1,7 @@
-name: chat 测试 tt
-
+name: Code quality check
 on:
   workflow_dispatch:
-  #push:
-  #  branches:
-   #   - main
+
 
 jobs:
   test:
@@ -17,15 +14,7 @@ jobs:
         with:
           channel: 'stable'
           flutter-version: '3.24.2'
-      - name: Print working directory
-        run: pwd
 
-      - name: List files in android directory
-        run: ls -l android
-
-      - name: List files in the root of the repository
-        run: ls -l
-  
       - name: Setup JDK 17
         uses: actions/setup-java@v3
         with:
@@ -35,30 +24,16 @@ jobs:
       - name: Install packages
         run: flutter pub get
 
-
-      # 4. 解密 Keystore 文件
-      - name: Decode Keystore
-        run: |
-          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
-
-      # 5. 创建 key.properties 文件
-      - name: Create key.properties
-        run: |
-          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
-          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
-          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
-          echo "storeFile=key.jks" >> android/key.properties
-
-
-
-
-      
+      - name: Linter
+        run: flutter analyze
 
       - run: flutter build appbundle -v
+      
+      - name: Build APK
+        run: flutter build apk
 
-      # 8. 上传构建的 AAB 文件作为 artifact
-      - name: Upload AAB artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
-          name: flutter-aab
-          path: build/app/outputs/bundle/release/app-release.aab
+          name: apk-release
+          path: build/app/outputs/flutter-apk/app-release.apk
