@@ -15,7 +15,6 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugins.GeneratedPluginRegistrant;
 
 class MainActivity : FlutterActivity() {
 
