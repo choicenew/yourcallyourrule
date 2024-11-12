@@ -44,7 +44,7 @@ jobs:
           flutter-version: 3.24.0
       - run: flutter pub get
       
-      - run: flutter build apk
+
       - run: flutter build appbundle -v
 
       # 8. 上传构建的 AAB 文件作为 artifact
