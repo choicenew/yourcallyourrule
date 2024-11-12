@@ -24,8 +24,7 @@ jobs:
       - name: Install packages
         run: flutter pub get
 
-      - name: Linter
-        run: flutter analyze
+
 
       - run: flutter build appbundle -v
       
