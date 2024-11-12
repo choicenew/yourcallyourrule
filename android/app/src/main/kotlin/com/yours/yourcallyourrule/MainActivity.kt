@@ -32,7 +32,7 @@ class MainActivity : FlutterActivity() {
                 // 使用缓存的引擎实例来配置 Flutter
         cachedEngine.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
 
-        super.configureFlutterEngine(flutterEngine)
+        //super.configureFlutterEngine(flutterEngine)
        // GeneratedPluginRegistrant.registerWith(flutterEngine)
 
         // 初始化方法通道处理器
