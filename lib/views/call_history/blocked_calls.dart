@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../generated/l10n.dart';
 import '../../utils/ad_manager.dart';
 import '../../utils/blocked_call_repository.dart';
-import '../../widgets/adwidgets/anchored_adaptive_ad.dart';
 import '../../widgets/adwidgets/inline_adaptive_ad.dart';
 import 'blocked_calls_chart.dart';
 

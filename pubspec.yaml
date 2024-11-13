@@ -60,7 +60,11 @@ dependencies:
 
   flutter_colorpicker: ^1.1.0
   flutter_local_notifications: ^17.2.2
-  flutter_overlay_window: ^0.4.5
+ # flutter_overlay_window: ^0.4.5
+  flutter_overlay_window:
+    git:
+      url: https://github.com/haygcao/flutter_overlay_window.git
+      ref: main
 
   flutter_localizations:
     sdk: flutter
@@ -98,7 +102,12 @@ dependencies:
   pinyin: ^3.3.0
   provider: ^6.1.2
   rxdart: ^0.28.0
-  sim_card_info: ^1.0.2
+ # sim_card_info: ^1.0.2
+  sim_card_info:
+    git:
+      url: https://github.com/haygcao/sim_card_info.git
+      ref: master
+
   share_plus: ^10.0.0
   shared_preferences: ^2.3.2
   smooth_page_indicator: ^1.2.0+3
@@ -139,11 +148,6 @@ flutter:
         - asset: assets/fonts/NewSet.ttf
 
 
-  plugin:
-    platforms:
-      android:
-        package: com.yours.yourcallyourrule
-        pluginClass: CallScreeningPlugin
 
 
   # The following line ensures that the Material Icons font is

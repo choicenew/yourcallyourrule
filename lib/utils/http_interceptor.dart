@@ -29,6 +29,7 @@ class HttpInterceptor {
         final pluginId = requestData['pluginId'] as String?; // 获取插件 ID
 
 
+
         // 记录请求信息 (发送前)
         String id = _generateUniqueId();
         int startTime = DateTime.now().millisecondsSinceEpoch;
@@ -60,10 +61,11 @@ class HttpInterceptor {
         ajaxStack.updateRequest(id, requestInfo);
 
 
+
         // 将响应发送回指定的 JS 插件
         controller.runJavaScript('''
           window.postMessage({
-            type: 'xhrResponse_${pluginId}', 
+            type: 'xhrResponse_$pluginId', 
             response: ${jsonEncode({
               'status': response.statusCode,
               'statusText': response.reasonPhrase,

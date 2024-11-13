@@ -3,11 +3,11 @@ import 'dart:async';
 
 
 import 'package:dlibphonenumber/dlibphonenumber.dart';
-import 'package:call_log/call_log.dart';
+
 import 'package:sim_card_info/sim_card_info.dart';
 import 'package:sim_card_info/sim_info.dart' as flutter;
 
-import '../services/caller_id_monitor_service.dart';
+
 
 
 Future<Map<String, String>> _parsePhoneNumber(
@@ -59,18 +59,11 @@ Future<Map<String, String>> _parsePhoneNumber(
             // 去除 national 中的非数字字符
 String cleanedNational = nationalNumber.replaceAll(RegExp(r'[^0-9]+'), '');
 
-            // 打印详细的调试信息
-            print('尝试国家码: $code');
-            print('解析后的国家码: $parsedCountryCode');
-            print('是否有效号码: $isValid');
-            print('National Significant Number: $nationalSignificant');
-            print('清理后的输入号码: $cleanedInput');
-
                // 添加 national_number 的验证 1验证是否有效，2验证code是否match，3验证号码是否一致，三个不可以缺少任何一个
             if (isValid && 
                 parsedCountryCode?.toUpperCase() == code.toUpperCase() &&
                 cleanedNational == cleanedInput) {
-              print('找到匹配! 使用国家码: $code');
+       
               parseAndFormat(parsedPhoneNumber);
               break;
             } 

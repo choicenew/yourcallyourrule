@@ -1,11 +1,8 @@
 // call_log_manager.dart
 import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
 import 'package:call_log/call_log.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -158,7 +155,7 @@ await _saveHasInitializedCallLogs(true);
   }
 
   Future<void> refresh() async {
-    print("Refreshing call logs");
+ 
     
     if (_isLoading) {
      
@@ -317,25 +314,25 @@ Future<void> saveCallerIdData(String phoneNumber, CallerIdData callerIdData) asy
 
 // 读取 _hasInitializedCallLogs
 Future<bool> _getHasInitializedCallLogs() async {
-  final prefs = await SharedPreferences.getInstance();
-  return prefs.getBool('has_initialized_call_logs') ?? false;
+  final asyncPrefs = SharedPreferencesAsync();
+  return await asyncPrefs.getBool('has_initialized_call_logs') ?? false;
 }
 
 // 保存 _hasInitializedCallLogs
 Future<void> _saveHasInitializedCallLogs(bool value) async {
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.setBool('has_initialized_call_logs', value);
+  final asyncPrefs = SharedPreferencesAsync();
+  await asyncPrefs.setBool('has_initialized_call_logs', value);
 }
 
 
   Future<int> _getLastSyncTimestamp() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getInt('last_sync_timestamp') ?? 0;
+    final asyncPrefs = SharedPreferencesAsync();
+    return await asyncPrefs.getInt('last_sync_timestamp') ?? 0;
   }
 
   Future<void> _saveLastSyncTimestamp(int timestamp) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('last_sync_timestamp', timestamp);
+    final asyncPrefs = SharedPreferencesAsync();
+    await asyncPrefs.setInt('last_sync_timestamp', timestamp);
   }
 
   Future<void> _requestPhonePermission() async {
@@ -892,14 +889,14 @@ Future<List<CallLogEntry>> _loadIncrementalCallLogsFromFile() async {
 
   // 获取上次同步时间戳
   Future<int> _getLastSyncTimestamp() async {
-    final prefs = await SharedPreferences.getInstance();
+    final asyncPrefs = SharedPreferencesAsync();
     return prefs.getInt('last_sync_timestamp') ?? 0;
   }
 
   // 保存上次同步时间戳
   Future<void> _saveLastSyncTimestamp(int timestamp) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('last_sync_timestamp', timestamp);
+    final asyncPrefs = SharedPreferencesAsync();
+    await asyncPrefs.setInt('last_sync_timestamp', timestamp);
   }
 
 
@@ -1271,14 +1268,14 @@ Future<List<CallLogEntry>> _loadIncrementalCallLogsFromFile() async {
 
   // 获取上次同步时间戳
   Future<int> _getLastSyncTimestamp() async {
-    final prefs = await SharedPreferences.getInstance();
+    final asyncPrefs = SharedPreferencesAsync();
     return prefs.getInt('last_sync_timestamp') ?? 0;
   }
 
   // 保存上次同步时间戳
   Future<void> _saveLastSyncTimestamp(int timestamp) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('last_sync_timestamp', timestamp);
+    final asyncPrefs = SharedPreferencesAsync();
+    await asyncPrefs.setInt('last_sync_timestamp', timestamp);
   }
 
 

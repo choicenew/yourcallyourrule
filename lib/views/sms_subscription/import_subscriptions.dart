@@ -62,40 +62,6 @@ class ImportSmsSubscriptionsPageState
   bool _isWhitelist = false;
   bool _isBlacklist = false;
 
-  void _onSwitchChanged(bool newValue) {
-    setState(() {
-      if (_isWhitelist == _isBlacklist) {
-        // 当两个开关状态相同时（都为 false，因为它们不能同时为 true）
-        if (newValue) {
-          // 如果新值为 true，我们需要确定哪个开关被点击
-          if (_isWhitelist != newValue) {
-            _isWhitelist = true;
-            _isBlacklist = false;
-          } else {
-            _isBlacklist = true;
-            _isWhitelist = false;
-          }
-        }
-        // 如果新值为 false，不需要做任何改变，因为两个开关已经是 false
-      } else {
-        // 当两个开关状态不同时（一个为 true，一个为 false）
-        if (newValue) {
-          // 如果新值为 true，我们需要切换状态
-          _isWhitelist = !_isWhitelist;
-          _isBlacklist = !_isBlacklist;
-        } else {
-          // 如果新值为 false，我们只需要将当前为 true 的开关设为 false
-          if (_isWhitelist) {
-            _isWhitelist = false;
-            _isBlacklist = true;
-          } else {
-            _isBlacklist = false;
-            _isWhitelist = true;
-          }
-        }
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
