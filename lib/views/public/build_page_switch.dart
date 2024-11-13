@@ -9,10 +9,6 @@ import '../../widgets/google_ad.dart';
 import '../../widgets/navigation_bar.dart';
 import '../custom_3button_style.dart';
 
-
-
-
-
 // 其他页面类似，只需要传入相应的参数即可
 // 创建一个公共函数来构建页面
 Widget buildPageWithCollapsibleContent(
@@ -22,20 +18,20 @@ Widget buildPageWithCollapsibleContent(
   Widget navigationPage, // 点击卡片导航到的页面 用这里进行function card 匹配
   Widget contentPage, // 当前页面主要内容
   {
-    Widget? exportPage, // 导出页面
-    String exportLabel = 'Export', // 导出按钮文字
-    IconData exportIcon = NewSet.upload, // 导出按钮图标
-    Widget? addPage, // 添加页面
-    String addLabel = 'Add', // 添加按钮文字
-    IconData addIcon = NewSet.add, // 添加按钮图标
-    Widget? importPage, // 导入页面
-    String importLabel = 'Import', // 导入按钮文字
-    IconData importIcon = NewSet.download, // 导入按钮图标
-  }
-) {
+  Widget? exportPage, // 导出页面
+  String exportLabel = 'Export', // 导出按钮文字
+  IconData exportIcon = NewSet.upload, // 导出按钮图标
+  Widget? addPage, // 添加页面
+  String addLabel = 'Add', // 添加按钮文字
+  IconData addIcon = NewSet.add, // 添加按钮图标
+  Widget? importPage, // 导入页面
+  String importLabel = 'Import', // 导入按钮文字
+  IconData importIcon = NewSet.download, // 导入按钮图标
+}) {
   bool isCollapsed = true; // 初始为折叠状态
 
-  return StatefulBuilder( // 使用StatefulBuilder来更新UI
+  return StatefulBuilder(
+    // 使用StatefulBuilder来更新UI
     builder: (context, setState) {
       return Scaffold(
         appBar: CustomAppBar(title: pageTitle),
@@ -45,7 +41,8 @@ Widget buildPageWithCollapsibleContent(
             IconButton(
               icon: Icon(isCollapsed ? Icons.expand_more : Icons.expand_less),
               onPressed: () {
-                setState(() { // 使用setState更新UI
+                setState(() {
+                  // 使用setState更新UI
                   isCollapsed = !isCollapsed;
                 });
               },
@@ -104,12 +101,14 @@ Widget buildPageWithCollapsibleContent(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            if (exportPage != null) // 只有当 exportPage 不为空时才显示导出按钮
+                            if (exportPage !=
+                                null) // 只有当 exportPage 不为空时才显示导出按钮
                               ElevatedButton.icon(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => exportPage),
+                                    MaterialPageRoute(
+                                        builder: (context) => exportPage),
                                   );
                                 },
                                 icon: Icon(exportIcon),
@@ -121,19 +120,22 @@ Widget buildPageWithCollapsibleContent(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => addPage),
+                                    MaterialPageRoute(
+                                        builder: (context) => addPage),
                                   );
                                 },
                                 icon: Icon(addIcon),
-                                label: Text(addLabel), // 使用自定义的 addLabel 
+                                label: Text(addLabel), // 使用自定义的 addLabel
                                 style: Custom3ButtonStyle.style,
                               ),
-                            if (importPage != null) // 只有当 importPage 不为空时才显示导入按钮
+                            if (importPage !=
+                                null) // 只有当 importPage 不为空时才显示导入按钮
                               ElevatedButton.icon(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => importPage),
+                                    MaterialPageRoute(
+                                        builder: (context) => importPage),
                                   );
                                 },
                                 icon: Icon(importIcon),
