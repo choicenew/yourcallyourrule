@@ -39,9 +39,6 @@ jobs:
           channel: 'stable'
           flutter-version: '3.24.2'
           
-      # Decode and place keystore
-      - name: Decode keystore
-        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
 
 
 
@@ -65,7 +62,7 @@ jobs:
       - name: Build and Sign AAB and APKs        
         run: |
           flutter build appbundle -v 
-          flutter build apk --split-per-abi
+          flutter build apk 
           
       # Upload signed AAB and APKs as artifacts
       - name: Upload Signed Artifacts
