@@ -19,8 +19,6 @@ import io.flutter.plugins.GeneratedPluginRegistrant;
 
 class MainActivity : FlutterActivity() {
 
-       super.configureFlutterEngine(flutterEngine)
-        GeneratedPluginRegistrant.registerWith(flutterEngine)
 
 
     
@@ -33,6 +31,11 @@ class MainActivity : FlutterActivity() {
     private val permissionsHelper = PermissionsHelper(this) // 创建 PermissionsHelper 实例
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+
+       super.configureFlutterEngine(flutterEngine)
+        GeneratedPluginRegistrant.registerWith(flutterEngine)
+
+           
            // 获取缓存的引擎实例
         val cachedEngine = FlutterEngineCache.getInstance().get("my_engine_id")!!
                 // 使用缓存的引擎实例来配置 Flutter
