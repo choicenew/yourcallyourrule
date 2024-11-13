@@ -15,6 +15,7 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.plugin.common.MethodChannel
+import io.flutter.plugins.GeneratedPluginRegistrant;
 
 class MainActivity : FlutterActivity() {
 
@@ -33,7 +34,7 @@ class MainActivity : FlutterActivity() {
         cachedEngine.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
 
         //super.configureFlutterEngine(flutterEngine)
-       // GeneratedPluginRegistrant.registerWith(flutterEngine)
+        GeneratedPluginRegistrant.registerWith(flutterEngine)
 
         // 初始化方法通道处理器
         smsChannelHandler = SmsChannelHandler(this, flutterEngine)
