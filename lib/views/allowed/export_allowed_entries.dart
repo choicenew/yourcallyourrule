@@ -50,7 +50,7 @@ class ExportAllowedEntriesPage extends StatefulWidget {
 }
 
 class ExportAllowedEntriesPageState extends State<ExportAllowedEntriesPage> {
-  final _entries = <AllowedEntry>[];
+  //final _entries = <AllowedEntry>[];
 
   late AllowedService _allowedService;
   List<AllowedEntry>? _selectedEntries;
@@ -64,8 +64,8 @@ class ExportAllowedEntriesPageState extends State<ExportAllowedEntriesPage> {
     _selectedEntries = []; // 初始化为空列表
   }
 
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
+ // String? _filePath;
+ // String _selectedType = 'csv'; // Default export format (CSV)
 
   @override
   Widget build(BuildContext context) {

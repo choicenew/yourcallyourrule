@@ -438,8 +438,15 @@ class SettingsPageState extends State<SettingsPage> {
             style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(_isCallCancelLocalNotificationEnabled
-              ? S.of(context).onlyOriginalCallAppNotification
-              : S.of(context).bothOriginalCallAppLocalNotification),
+            //  ? S.of(context).onlyOriginalCallAppNotification
+            //  : S.of(context).bothOriginalCallAppLocalNotification),
+
+
+      ? S.of(context).bothOriginalCallAppLocalNotification
+              : S.of(context).onlyOriginalCallAppNotification),
+
+
+
           value:
               _isCallCancelLocalNotificationEnabled, // 直接访问 SmsFilterService 的状态
           onChanged: (bool value) async {

@@ -233,7 +233,6 @@ class CallLogDatabase {
 
 // 在 CallLogDatabase 中添加
 Future<void> insertCallerIdData(CallerIdData data) async {
-  print("数据库: ${data.countryName}${data.phoneNumber}"); 
   final db = await database;
   await db.insert(
     'caller_id',
@@ -266,7 +265,7 @@ Future<void> insertCallerIdData(CallerIdData data) async {
 
       // 将 fromMap 方法的逻辑直接放在这里
       final phoneNumber = result.first['phoneNumber'] as String;
-      print("读取库号码: $phoneNumber"); // 添加 print 语句
+      // 添加 print 语句
   final map = result.first;
       // 将 fromMap 方法的逻辑直接放在这里
     return CallerIdData(

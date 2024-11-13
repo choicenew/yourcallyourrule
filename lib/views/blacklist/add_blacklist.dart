@@ -158,8 +158,6 @@ class AddBlacklistPageState extends State<AddBlacklistPage> {
               try {
                 await _blacklistService.addOrUpdate(entry);
 
-                var result = await _blacklistService
-                    .getEntryByPhoneNumber(_phoneNumberController.text);
 
 
 

@@ -1,10 +1,6 @@
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter/material.dart';
 
 
-import '../screens/appstate_provider.dart';
 import '../services/allowed_blocked_service.dart';
 
 import '../services/blacklist_whitelist_service.dart';
@@ -50,23 +46,6 @@ class CallFilter {
     required this.blacklistService,
   });
 
-/*
-  final RegexService regexService;
-  final AllowedService allowedService;
-  final BlockedService blockedService;
-  final WhitelistService whitelistService;
-  final BlacklistService blacklistService;
-  CallFilterConfig config;
-
-  CallFilter({
-    required this.regexService,
-    required this.allowedService,
-    required this.blockedService,
-    required this.whitelistService,
-    required this.blacklistService,
-    CallFilterConfig? config,
-  }) : config = config ?? CallFilterConfig();
-*/
 
 
 
@@ -98,15 +77,7 @@ class CallFilter {
     await asyncPrefs.setBool('allowAllBlacklistedNumbers', config.allowAllBlacklistedNumbers);
   }
 
-/*
-  // endCallChannel 用于处理  endCurrentCall:
-  static const endCallChannel = MethodChannel('com.example.yourcallyourrule/end_call');
 
-  // shouldAcceptCallChannel  用于处理 shouldAcceptCall：
-  static const shouldAcceptCallChannel = MethodChannel('com.example.yourcallyourrule/should_accept_call');
-  //final calleridchannel;
-  static const callerIdChannel = MethodChannel('com.example.yourcallyourrule/caller_id');
-*/
 
   // 工厂方法创建 CallFilter 实例
   static Future<CallFilter> create({required Database database}) async {
@@ -128,100 +99,6 @@ class CallFilter {
 
   
 
-/*
- // channel should accept
-  void setupMethodChannel() {
-    bool isChannelInitialized = false;
-
-    shouldAcceptCallChannel.setMethodCallHandler((call) async {
-      if (call.method == 'onShouldAcceptCallInitializationComplete') {
-        print("Android shouldAcceptCallChannel is initialized!");
-        isChannelInitialized = true;
-      }
-
-      //  只有在通道建立之后才处理 shouldAcceptCall
-      if (isChannelInitialized && call.method == 'shouldAcceptCall') {
-        final phoneNumber = call.arguments as String;
-        final shouldAccept = await shouldAcceptCall(phoneNumber);
-        return shouldAccept;
-      }
-      return null;
-    });
-  }
-*/
-/*
-Future<void> initialize() async {
- print("CallFilter.initialize: 开始执行"); // 添加日志打印
-    
-    try {
-      await callerIdChannel.invokeMethod('initialize');
-    } on PlatformException catch (e) {
-      print("Failed to initialize call screening: '${e.message}'.");
-    }
-*/
-/*
-        // 设置 shouldAcceptCallChannel 的监听器
-    shouldAcceptCallChannel.setMethodCallHandler((call) async {
-      if (call.method == 'shouldAcceptCall') {
-        final String phoneNumber = call.arguments;
-        print("CallHandler: Received shouldAcceptCall message with phoneNumber: $phoneNumber");
-        // 使用 CallFilter 判断是否应该接听来电
-        final shouldAccept = await shouldAcceptCall(phoneNumber);
-        return shouldAccept;
-      }
-      return null;
-    });
-  }
-*/
-/*
-   // 监听原生端的结束通话初始化完成事件listenForEndCallInitialization
-  // 这个方法本身不结束通话，而是用于监听来自 Android 端的初始化完成消息
-  Future<void> endCurrentCall() async {
-    // 监听初始化完成事件
-    endCallChannel.setMethodCallHandler((call) async {
-      if (call.method == "onEndCallInitializationComplete") {
-        // 原生端初始化完成，调用 endCurrentCall 方法
-        try {
-          final String result =
-              await endCallChannel.invokeMethod('endCurrentCall');
-          print(result);
-        } on PlatformException catch (e) {
-          print("Failed to use myCall Screening Service: '${e.message}'.");
-        }
-      }
-      return null;
-    });
-  }
-*/
-  // 工厂方法创建 CallFilter 实例，并加载配置
-
-  /*
-  static Future<CallFilter> create({required Database database, CallFilterConfig? config}) async {
-
-    return CallFilter(
-      regexService: RegexService(database),
-      allowedService: AllowedService(database),
-      blockedService: BlockedService(database),
-      whitelistService: WhitelistService(database),
-      blacklistService: BlacklistService(database),
-      config: config,
-    );
-  }
-*/
-/*
-  // 工厂方法创建 CallFilter 实例，并加载配置
-  static Future<CallFilter> create({required Database database}) async {
-    final CallFilter filter = CallFilter(
-      regexService: RegexService(database),
-      allowedService: AllowedService(database),
-      blockedService: BlockedService(database),
-      whitelistService: WhitelistService(database),
-      blacklistService: BlacklistService(database),
-    );
-    await filter.loadConfig(); // 加载配置
-    return filter;
-  }
-*/
 
 
 

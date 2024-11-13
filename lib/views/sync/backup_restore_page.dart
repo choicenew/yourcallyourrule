@@ -249,7 +249,7 @@ class BackupRestorePageState extends State<BackupRestorePage> {
       children: [
         ListTile(
             title: Text(S.of(context).cloudServices,
-                style: TextStyle(fontWeight: FontWeight.bold))),
+                style: const TextStyle(fontWeight: FontWeight.bold))),
         _buildCloudServiceTile('WebDAV', 'webdav', controller),
         _buildCloudServiceTile('Google Drive', 'googledrive', controller),
         _buildCloudServiceTile('OneDrive', 'onedrive', controller),

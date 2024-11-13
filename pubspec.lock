@@ -604,10 +604,11 @@ packages:
   flutter_overlay_window:
     dependency: "direct main"
     description:
-      name: flutter_overlay_window
-      sha256: "87a8ed7c47104a9ac1352d081e85304934b3f06ae28507097e49dd5f892e208d"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: main
+      resolved-ref: "7755987d5ad5c696f9caf397c81872acb2fbe951"
+      url: "https://github.com/haygcao/flutter_overlay_window.git"
+    source: git
     version: "0.4.5"
   flutter_plugin_android_lifecycle:
     dependency: transitive
@@ -1358,11 +1359,12 @@ packages:
   sim_card_info:
     dependency: "direct main"
     description:
-      name: sim_card_info
-      sha256: d22c1fc597a962d1feed75e9b6415c8db8040d3eb78ed2f3a0e7832afb024488
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
+      path: "."
+      ref: master
+      resolved-ref: "4871826a65703a8e7d446fd9548906941a72ba86"
+      url: "https://github.com/haygcao/sim_card_info.git"
+    source: git
+    version: "1.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
