@@ -19,6 +19,11 @@ import io.flutter.plugins.GeneratedPluginRegistrant;
 
 class MainActivity : FlutterActivity() {
 
+       super.configureFlutterEngine(flutterEngine)
+        GeneratedPluginRegistrant.registerWith(flutterEngine)
+
+
+    
     private lateinit var telephonyManager: TelephonyManager
     private lateinit var telecomManager: TelecomManager
 
@@ -33,8 +38,7 @@ class MainActivity : FlutterActivity() {
                 // 使用缓存的引擎实例来配置 Flutter
         cachedEngine.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
 
-        //super.configureFlutterEngine(flutterEngine)
-        GeneratedPluginRegistrant.registerWith(flutterEngine)
+
 
         // 初始化方法通道处理器
         smsChannelHandler = SmsChannelHandler(this, flutterEngine)
