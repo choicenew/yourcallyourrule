@@ -61,7 +61,7 @@ jobs:
       # Build and Sign AAB and APKs using Flutter's built-in signing (with caching)
       - name: Build and Sign AAB and APKs        
         run: |
-          flutter build appbundle -v 
+          flutter build appbundle --release -v 
           flutter build apk 
           
       # Upload signed AAB and APKs as artifacts
