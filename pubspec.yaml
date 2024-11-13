@@ -139,11 +139,7 @@ flutter:
         - asset: assets/fonts/NewSet.ttf
 
 
-  plugin:
-    platforms:
-      android:
-        package: com.yours.yourcallyourrule
-        pluginClass: CallScreeningPlugin
+
 
 
   # The following line ensures that the Material Icons font is
