@@ -34,10 +34,10 @@ jobs:
           
           
       # Setup the Flutter environment.
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          flutter-version: '3.24.2'
           
       # Decode and place keystore
       - name: Decode keystore
