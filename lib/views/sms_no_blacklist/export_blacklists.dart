@@ -1,12 +1,8 @@
-
 import 'dart:core';
-
 
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-
-
 
 import '../../generated/l10n.dart';
 
@@ -21,7 +17,6 @@ import 'add_blacklist.dart';
 import 'blacklist_page.dart';
 import 'import_blacklists.dart';
 
-
 class ExportSmsBlacklistsPageView extends StatelessWidget {
   const ExportSmsBlacklistsPageView({super.key});
 
@@ -30,7 +25,7 @@ class ExportSmsBlacklistsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportSmsBlacklistsPage, // 页面标题
-     // 'SmsBlacklistPageView', // 卡片标题=点击卡片导航到的页面
+      // 'SmsBlacklistPageView', // 卡片标题=点击卡片导航到的页面
       const SmsBlacklistPageView(), // 点击卡片导航到的页面
       const ExportSmsBlacklistsPage(), // 当前页面主要内容
       exportPage: const ExportSmsBlacklistsPageView(), // 导出页面
@@ -43,7 +38,6 @@ class ExportSmsBlacklistsPageView extends StatelessWidget {
   }
 }
 
-
 class ExportSmsBlacklistsPage extends StatefulWidget {
   const ExportSmsBlacklistsPage({super.key});
 
@@ -52,41 +46,31 @@ class ExportSmsBlacklistsPage extends StatefulWidget {
 }
 
 class ExportSmsBlacklistsPageState extends State<ExportSmsBlacklistsPage> {
-  final _entries = <SmsBlacklistEntry>[];
-  late SmsBlacklistService _smsBlacklistService;
-  List<SmsBlacklistEntry>? _selectedEntries;
-
-
- @override
+  @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
-    _selectedEntries = []; // 初始化为空列表
-     _smsBlacklistService = appState.smsBlacklistService; 
   }
-
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
-  
-
 
   @override
   Widget build(BuildContext context) {
-        final appState = Provider.of<AppState>(context, listen: false);
+    final appState = Provider.of<AppState>(context, listen: false);
     return _build(context, appState); // 直接调用 _build(context)
   }
 
-
   Widget _build(BuildContext context, AppState appState) {
-    return ExportScreenWidget<SmsBlacklistEntry>( // 使用泛型指定类型
+    return ExportScreenWidget<SmsBlacklistEntry>(
+      // 使用泛型指定类型
       getEntries: appState.smsBlacklistService.getEntries,
-      buildSelectDialog: (BuildContext context, List<SmsBlacklistEntry> entries) {
+      buildSelectDialog:
+          (BuildContext context, List<SmsBlacklistEntry> entries) {
         //return SelectWhitelistEntriesDialog(entries: entries);
         return SelectEntriesDialog<SmsBlacklistEntry>(
-  entries: entries,
-  hasSubscriptionTabs: true,
-  searchKey: 'phoneNumber',
-);
+          entries: entries,
+          hasSubscriptionTabs: true,
+          //searchKey: 'phoneNumber',
+          getSearchString: (entry) => entry.phoneNumber, //  提供 Getter 函数
+        );
       },
       exportToCsv: appState.smsBlacklistService.exportToCsv,
       exportToJson: appState.smsBlacklistService.exportToJson,

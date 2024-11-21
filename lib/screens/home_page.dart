@@ -71,14 +71,14 @@ class _MyHomePageState extends State<MyHomePage> {
       _loadCallerIDConfiguration();
     });
   }
-
+/*
 Future<void> _initializeApp() async {
   final appState = Provider.of<AppState>(context, listen: false);
   await appState.ensureServicesInitialized(); // 等待 AppState 初始化完成
   _initializeServices(); // 初始化依赖 AppState 的服务
   _loadConfig(); // 加载依赖 AppState 的配置
 }
-
+*/
 
 
   Future<void> _initializeCards() async {
@@ -493,7 +493,7 @@ void _loadInterceptorSettings() {
     final List<Widget> switchList = [];
 
     // 计算可用宽度，减去 padding 和 spacing
-    final mediaQuery = MediaQuery.of(context);
+    //final mediaQuery = MediaQuery.of(context);
     final availableWidth = containerdWidth -
         2 * switchHorizontalPadding -
         (switchesPerRow - 1) * 15; // 5.0 是 Wrap 的 spacing

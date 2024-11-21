@@ -25,7 +25,7 @@ class ExportRegexPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportRegexPage, // 页面标题
-     // 'RegexPageView', // 卡片标题=点击卡片导航到的页面
+      // 'RegexPageView', // 卡片标题=点击卡片导航到的页面
       const RegexPageView(), // 点击卡片导航到的页面
       const ExportRegexPage(), // 当前页面主要内容
       exportPage: const ExportRegexPageView(), // 导出页面
@@ -46,20 +46,11 @@ class ExportRegexPage extends StatefulWidget {
 }
 
 class ExportRegexPageState extends State<ExportRegexPage> {
-  final _rexPatterns = <RegexPattern>[];
-  late RegexService _regexService;
-  List<RegexPattern>? _selectedPatterns;
-
   @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
-    _selectedPatterns = []; // 初始化为空列表
-    _regexService = appState.regexService;
   }
-
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +67,8 @@ class ExportRegexPageState extends State<ExportRegexPage> {
         return SelectEntriesDialog<RegexPattern>(
           entries: rexPatterns,
           hasBlacklistWhitelistTabs: true,
-          searchKey: 'pattern',
+          // searchKey: 'pattern',
+          getSearchString: (entry) => entry.pattern, //  提供 Getter 函数
         );
       },
       exportToCsv: appState.regexService.exportToCsv,

@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../generated/l10n.dart';
 import '../subpage_style.dart';
+
+
 
 class SelectEntriesDialog<T> extends StatefulWidget {
   final List<T> entries;
   final bool hasSubscriptionTabs; // 是否显示订阅相关的选项卡
   final bool hasBlacklistWhitelistTabs; // 是否显示黑白名单相关的选项卡
-  final String searchKey; // 用于搜索和显示的 key
+  //final String searchKey; // 用于搜索和显示的 key
+  final String Function(T) getSearchString; //  泛型 Getter 函数
 
   const SelectEntriesDialog({
     super.key,
     required this.entries,
     this.hasSubscriptionTabs = false, // 默认不显示订阅选项卡
     this.hasBlacklistWhitelistTabs = false, // 默认不显示黑白名单选项卡
-    required this.searchKey,
+   // required this.searchKey,
+   required this.getSearchString,  //  必传参数
   });
 
   @override
@@ -26,13 +31,18 @@ class SelectEntriesDialogState<T> extends State<SelectEntriesDialog<T>> {
   bool _isSelectAll = false;
   String _keyword = '';
 
+
+
   @override
   Widget build(BuildContext context) {
+    // 使用泛型 Getter 函数过滤 entries
     final filteredEntries = widget.entries
-        .where((entry) => (entry as dynamic)[widget.searchKey]
+        .where((entry) => widget.getSearchString(entry)
             .toLowerCase()
             .contains(_keyword.toLowerCase()))
         .toList();
+
+
 
     int tabCount = 1;
     if (widget.hasSubscriptionTabs) tabCount += 2;
@@ -155,12 +165,14 @@ class SelectEntriesDialogState<T> extends State<SelectEntriesDialog<T>> {
     );
   }
 
+
+
   Widget _buildEntriesList(List<T> entries) {
     return SingleChildScrollView(
       child: Column(
         children: entries.map((entry) {
           return CheckboxListTile(
-            title: Text((entry as dynamic)[widget.searchKey]),
+            title: Text(widget.getSearchString(entry)), // 使用泛型 Getter 函数
             value: _isSelectAll || _selectedEntries.contains(entry),
             onChanged: (bool? value) {
               setState(() {
@@ -176,6 +188,7 @@ class SelectEntriesDialogState<T> extends State<SelectEntriesDialog<T>> {
       ),
     );
   }
+
 
   Widget _buildSubscribed(List<T> entries) {
     final subscribedEntries =

@@ -1,12 +1,8 @@
-
 import 'dart:core';
-
 
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-
-
 
 import '../../generated/l10n.dart';
 import '../../screens/appstate_provider.dart';
@@ -14,8 +10,6 @@ import '../public/build_page_switch.dart';
 import '../public/export_item.dart';
 import '../public/select_items.dart';
 import '../sms_no_whitelist/import_whitelists.dart';
-
-
 
 import '../../services/sms_blacklist_whitelist_service.dart';
 
@@ -31,7 +25,7 @@ class ExportSmsWhitelistsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportSmsWhitelistsPage, // 页面标题
-     // 'SmsWhitelistPageView', // 卡片标题=点击卡片导航到的页面
+      // 'SmsWhitelistPageView', // 卡片标题=点击卡片导航到的页面
       const SmsWhitelistPageView(), // 点击卡片导航到的页面
       const ExportSmsWhitelistsPage(), // 当前页面主要内容
       exportPage: const ExportSmsWhitelistsPageView(), // 导出页面
@@ -44,7 +38,6 @@ class ExportSmsWhitelistsPageView extends StatelessWidget {
   }
 }
 
-
 class ExportSmsWhitelistsPage extends StatefulWidget {
   const ExportSmsWhitelistsPage({super.key});
 
@@ -53,41 +46,31 @@ class ExportSmsWhitelistsPage extends StatefulWidget {
 }
 
 class ExportSmsWhitelistsPageState extends State<ExportSmsWhitelistsPage> {
-  final _entries = <SmsWhitelistEntry>[];
-  late SmsWhitelistService _smsWhitelistService;
-  List<SmsWhitelistEntry>? _selectedEntries;
-
-
- @override
+  @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
-    _selectedEntries = []; // 初始化为空列表
-     _smsWhitelistService = appState.smsWhitelistService; 
   }
-
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
-  
-
 
   @override
   Widget build(BuildContext context) {
-        final appState = Provider.of<AppState>(context, listen: false);
+    final appState = Provider.of<AppState>(context, listen: false);
     return _build(context, appState); // 直接调用 _build(context)
   }
 
-
   Widget _build(BuildContext context, AppState appState) {
-    return ExportScreenWidget<SmsWhitelistEntry>( // 使用泛型指定类型
+    return ExportScreenWidget<SmsWhitelistEntry>(
+      // 使用泛型指定类型
       getEntries: appState.smsWhitelistService.getEntries,
-      buildSelectDialog: (BuildContext context, List<SmsWhitelistEntry> entries) {
+      buildSelectDialog:
+          (BuildContext context, List<SmsWhitelistEntry> entries) {
         //return SelectWhitelistEntriesDialog(entries: entries);
         return SelectEntriesDialog<SmsWhitelistEntry>(
-  entries: entries,
-  hasSubscriptionTabs: true,
-  searchKey: 'phoneNumber',
-);
+          entries: entries,
+          hasSubscriptionTabs: true,
+          //searchKey: 'phoneNumber',
+          getSearchString: (entry) => entry.phoneNumber, //  提供 Getter 函数
+        );
       },
       exportToCsv: appState.smsWhitelistService.exportToCsv,
       exportToJson: appState.smsWhitelistService.exportToJson,

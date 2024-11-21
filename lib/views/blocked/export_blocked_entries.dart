@@ -54,10 +54,7 @@ class ExportBlockedEntriesPage extends StatefulWidget {
 }
 
 class ExportBlockedEntriesPageState extends State<ExportBlockedEntriesPage> {
-  final _entries = <BlockedEntry>[];
 
-  late BlockedService _blockedService;
-  List<BlockedEntry>? _selectedEntries;
   
 
 
@@ -67,12 +64,9 @@ class ExportBlockedEntriesPageState extends State<ExportBlockedEntriesPage> {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
 
-   _blockedService = appState.blockedService;
-    _selectedEntries = []; // 初始化为空列表
+
   }
 
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +82,8 @@ class ExportBlockedEntriesPageState extends State<ExportBlockedEntriesPage> {
         return SelectEntriesDialog<BlockedEntry>(
   entries: entries,
   hasSubscriptionTabs: false,
-  searchKey: 'phoneNumber',
+ // searchKey: 'phoneNumber',
+   getSearchString: (entry) => entry.phoneNumber, //  提供 Getter 函数
 );
       },
       exportToCsv: appState.blockedService.exportToCsv,

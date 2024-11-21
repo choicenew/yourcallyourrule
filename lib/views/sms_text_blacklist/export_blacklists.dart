@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-
 
 import 'dart:core';
 
@@ -18,10 +16,7 @@ import 'blacklist_page.dart';
 
 import 'import_blacklists.dart';
 
-
-
 import '../../services/sms_text_service.dart';
-
 
 class ExportSmsTextBlacklistsPageView extends StatelessWidget {
   const ExportSmsTextBlacklistsPageView({super.key});
@@ -44,50 +39,41 @@ class ExportSmsTextBlacklistsPageView extends StatelessWidget {
   }
 }
 
-
 class ExportSmsTextBlacklistsPage extends StatefulWidget {
   const ExportSmsTextBlacklistsPage({super.key});
 
   @override
-  ExportSmsTextBlacklistsPageState createState() => ExportSmsTextBlacklistsPageState();
+  ExportSmsTextBlacklistsPageState createState() =>
+      ExportSmsTextBlacklistsPageState();
 }
 
-class ExportSmsTextBlacklistsPageState extends State<ExportSmsTextBlacklistsPage> {
-  final _entries = <SmsTextBlacklistEntry>[];
-  late SmsTextBlacklistService _smsTextBlacklistService;
-  List<SmsTextBlacklistEntry>? _selectedEntries;
-
-
- @override
+class ExportSmsTextBlacklistsPageState
+    extends State<ExportSmsTextBlacklistsPage> {
+  @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
-    _selectedEntries = []; // 初始化为空列表
-     _smsTextBlacklistService = appState.smsTextBlacklistService; 
   }
-
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
-  
-
 
   @override
   Widget build(BuildContext context) {
-        final appState = Provider.of<AppState>(context, listen: false);
+    final appState = Provider.of<AppState>(context, listen: false);
     return _build(context, appState); // 直接调用 _build(context)
   }
 
-
   Widget _build(BuildContext context, AppState appState) {
-    return ExportScreenWidget<SmsTextBlacklistEntry>( // 使用泛型指定类型
+    return ExportScreenWidget<SmsTextBlacklistEntry>(
+      // 使用泛型指定类型
       getEntries: appState.smsTextBlacklistService.getEntries,
-      buildSelectDialog: (BuildContext context, List<SmsTextBlacklistEntry> entries) {
+      buildSelectDialog:
+          (BuildContext context, List<SmsTextBlacklistEntry> entries) {
         //return SelectWhitelistEntriesDialog(entries: entries);
         return SelectEntriesDialog<SmsTextBlacklistEntry>(
-  entries: entries,
-  hasSubscriptionTabs: true,
-  searchKey: 'keyword',
-);
+          entries: entries,
+          hasSubscriptionTabs: true,
+          // searchKey: 'keyword',
+          getSearchString: (entry) => entry.keyword, //  提供 Getter 函数
+        );
       },
       exportToCsv: appState.smsTextBlacklistService.exportToCsv,
       exportToJson: appState.smsTextBlacklistService.exportToJson,

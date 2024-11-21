@@ -101,6 +101,8 @@ class AddSubscriptionPageState extends State<AddSubscriptionPage> {
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
+    _blacklistService = appState.blacklistService;
+    _whitelistService = appState.whitelistService;
     _subscriptionService = appState.subscriptionService;
   }
 

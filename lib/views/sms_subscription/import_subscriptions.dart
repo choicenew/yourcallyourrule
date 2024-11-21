@@ -59,8 +59,6 @@ class ImportSmsSubscriptionsPageState
     _smsSubscriptionService = appState.smsSubscriptionService;
   }
 
-  bool _isWhitelist = false;
-  bool _isBlacklist = false;
 
 
   @override

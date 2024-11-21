@@ -364,8 +364,8 @@ class ContactService {
   Contact _mergeContactDetails(Contact contact1, Contact contact2) {
     return Contact(
       name: contact1.name.isNotEmpty ? contact1.name : contact2.name,
-      phoneNumbers:
-          [...contact1.phoneNumbers, ...contact2.phoneNumbers].toSet().toList(),
+     // phoneNumbers: [...contact1.phoneNumbers, ...contact2.phoneNumbers].toSet().toList(),
+       phoneNumbers: {...contact1.phoneNumbers, ...contact2.phoneNumbers}.toList(),
       email: contact1.email ?? contact2.email,
       label: contact1.label ?? contact2.label,
       avatar: contact1.avatar ?? contact2.avatar,

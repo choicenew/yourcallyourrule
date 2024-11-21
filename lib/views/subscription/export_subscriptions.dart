@@ -19,7 +19,7 @@ class ExportSubscriptionsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportSubscriptionsPage, // 页面标题
-     // 'SubscriptionListView', // 卡片标题=点击卡片导航到的页面
+      // 'SubscriptionListView', // 卡片标题=点击卡片导航到的页面
       const SubscriptionListView(), // 点击卡片导航到的页面
       const ExportSubscriptionsPage(), // 当前页面主要内容
       exportPage: const ExportSubscriptionsPageView(), // 导出页面
@@ -40,19 +40,11 @@ class ExportSubscriptionsPage extends StatefulWidget {
 }
 
 class ExportSubscriptionsPageState extends State<ExportSubscriptionsPage> {
-  late SubscriptionService _subscriptionService;
-  List<SubscriptionModel>? _selectedSubscriptions;
-
   @override
   void initState() {
     super.initState();
-    final appState = Provider.of<AppState>(context, listen: false);
-    _selectedSubscriptions = []; // 初始化为空列表
-    _subscriptionService = appState.subscriptionService;
+  //  final appState = Provider.of<AppState>(context, listen: false);
   }
-
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +61,8 @@ class ExportSubscriptionsPageState extends State<ExportSubscriptionsPage> {
         return SelectEntriesDialog<SubscriptionModel>(
           entries: subscriptions,
           hasBlacklistWhitelistTabs: true,
-          searchKey: 'name',
+          // searchKey: 'name',
+          getSearchString: (entry) => entry.name, //  提供 Getter 函数
         );
       },
       exportToCsv: appState.subscriptionService.exportSubscriptionsToCsv,

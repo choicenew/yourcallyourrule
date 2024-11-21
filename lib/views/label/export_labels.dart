@@ -57,21 +57,16 @@ class ExportLabelsPage extends StatefulWidget {
 }
 
 class ExportLabelsPageState extends State<ExportLabelsPage> {
-  final _entries = <LabeledEntry>[];
-  late LabelService _labelService;
-  List<LabeledEntry>? _selectedEntries;
 
 
  @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
-    _selectedEntries = []; // 初始化为空列表
-     _labelService = appState.labelService; 
+
   }
 
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
+
   
 
   @override
@@ -89,7 +84,8 @@ class ExportLabelsPageState extends State<ExportLabelsPage> {
         return SelectEntriesDialog<LabeledEntry>(
   entries: entries,
   hasSubscriptionTabs: false,
-  searchKey: 'phoneNumber',
+  //searchKey: 'phoneNumber',
+   getSearchString: (entry) => entry.phoneNumber, //  提供 Getter 函数
 );
       },
       exportToCsv: appState.labelService.exportToCsv,

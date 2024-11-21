@@ -66,7 +66,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
-
+/*
   // 新建的函数，用来显示加载指示器
   Widget _databaseLoadingIndicator(BuildContext context) {
     return Consumer<AppState>(
@@ -81,10 +81,10 @@ class OnboardingScreenState extends State<OnboardingScreen> {
       },
     );
   }
-
+*/
   @override
   Widget build(BuildContext context) {
-    final appState = Provider.of<AppState>(context);
+   // final appState = Provider.of<AppState>(context);
     return Scaffold(
       body: OrientationBuilder(
         builder: (context, orientation) {

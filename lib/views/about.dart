@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yourcallyourrule/new_set_icons.dart';
 
 import '../generated/l10n.dart';
 
-class AboutPage extends StatelessWidget {
+class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
+
+  @override
+  State<AboutPage> createState() => _AboutPageState();
+}
+
+class _AboutPageState extends State<AboutPage> {
+  String version = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _initPackageInfo();
+  }
+
+  Future<void> _initPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    setState(() {
+      version = info.version;
+    });
+  }
 
   Future<void> _launchUrl(Uri url) async {
     if (!await launchUrl(url)) {
@@ -60,7 +81,7 @@ class AboutPage extends StatelessWidget {
                   'https://github.com/haygcao/yourcallyourruletranslation')),
               child: Text(
                 S.of(context).tutorial,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.blue,
                   decoration: TextDecoration.underline,
                 ),
@@ -68,7 +89,7 @@ class AboutPage extends StatelessWidget {
             ),
             Text(
               S.of(context).contactUs,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
@@ -90,6 +111,10 @@ class AboutPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
+                        Text(
+              'Version: $version', // 显示版本号
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
           ],
         ),
       ),

@@ -48,21 +48,16 @@ class ExportBlacklistsPage extends StatefulWidget {
 }
 
 class ExportBlacklistsPageState extends State<ExportBlacklistsPage> {
-  final _entries = <BlacklistEntry>[];
-  late BlacklistService _blacklistService;
-  List<BlacklistEntry>? _selectedEntries;
 
 
   @override
   void initState() {
     super.initState();
-    final appState = Provider.of<AppState>(context, listen: false);
-    _selectedEntries = []; // 初始化为空列表
-    _blacklistService = appState.blacklistService;
+    Provider.of<AppState>(context, listen: false);
+// 初始化为空列表
   }
 
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
+// Default export format (CSV)
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +74,8 @@ class ExportBlacklistsPageState extends State<ExportBlacklistsPage> {
         return SelectEntriesDialog<BlacklistEntry>(
           entries: entries,
           hasSubscriptionTabs: true,
-          searchKey: 'phoneNumber',
+         // searchKey: 'phoneNumber',
+            getSearchString: (entry) => entry.phoneNumber, //  提供 Getter 函数
         );
       },
       exportToCsv: appState.blacklistService.exportToCsv,

@@ -162,6 +162,19 @@ abstract class ListService<T extends ListEntry> {
     }
   }
 
+  // 添加/更新名单条目
+  /*
+  Future<void> addOrUpdate(T entry) async {
+    final results = await database.query(tableName,
+        where: 'phoneNumber = ?', whereArgs: [entry.phoneNumber]);
+    final exists = results.isNotEmpty;
+
+    exists
+        ? await database.update(tableName, entry.toMap(),
+            where: 'phoneNumber = ?', whereArgs: [entry.phoneNumber])
+        : await database.insert(tableName, entry.toMap());
+  }
+*/
 
   Future<void> addOrUpdate(T entry) async {
     await database.insert(tableName, entry.toMap(),
@@ -177,7 +190,23 @@ abstract class ListService<T extends ListEntry> {
     await batch.commit();
   }
 
-
+/*
+  Future<void> addAllOrUpdate(List<T> entries) async {
+    final batch = database.batch();
+    for (final entry in entries) {
+      final exists = await database.query(tableName,
+          where: 'phoneNumber = ?',
+          whereArgs: [entry.phoneNumber]).then((results) => results.isNotEmpty);
+      if (exists) {
+        batch.update(tableName, entry.toMap(),
+            where: 'phoneNumber = ?', whereArgs: [entry.phoneNumber]);
+      } else {
+        batch.insert(tableName, entry.toMap());
+      }
+    }
+    await batch.commit();
+  }
+*/
 
   Future<void> addAllOrUpdate(List<T> entries) async {
     final batch = database.batch();
@@ -325,12 +354,12 @@ abstract class ListService<T extends ListEntry> {
 
 // Generic import functions
   Future<void> _importFromUrl(String url) async {
-    final entries = await _parseFromUrl(url);
+    final entries = await parseFromUrl(url);
     await _addAllWithUrl(tableName, entries, url); // 传递 tableName 参数
   }
 
   Future<void> _importFromLocal(String filePath) async {
-    final entries = await _parseFromLocal(filePath);
+    final entries = await parseFromLocal(filePath);
     await _addAllWithUrl(tableName, entries, null); // 传递 tableName 参数
   }
 
@@ -380,9 +409,6 @@ abstract class ListService<T extends ListEntry> {
     await file.writeAsString(jsonData);
   }
 
-  // --- Parsing and Fetching Functions ---
-
-
   List<Map<String, dynamic>> _parseCsvData(String data) {
     final csvList = const CsvToListConverter().convert(data);
     return csvList.skip(1).map((parts) {
@@ -398,7 +424,7 @@ abstract class ListService<T extends ListEntry> {
         'isSubscribed':
             parts.length > 4 && (parts[4] == 'true' || parts[4] == '1') ? 1 : 0,
         'count': parts.length > 5 && parts[5].toString().isNotEmpty
-            ? int.tryParse(parts[5])
+            ? int.tryParse(parts[5].toString())
             : null,
         'url': parts.length > 6 ? parts[6] : null,
       };
@@ -459,7 +485,8 @@ abstract class ListService<T extends ListEntry> {
         'isSubscribed':
             parts.length > 4 && (parts[4] == 'true' || parts[4] == '1') ? 1 : 0,
         'count': parts.length > 5 && parts[5].toString().isNotEmpty
-            ? int.tryParse(parts[5])
+            //? int.tryParse(parts[5])
+            ? int.tryParse(parts[5].toString())
             : null,
         'url': parts.length > 6 ? parts[6] : null,
       };
@@ -481,7 +508,13 @@ abstract class ListService<T extends ListEntry> {
                       ? (entry['isSubscribed'] ? 1 : 0)
                       : entry['isSubscribed'])
                   : 0,
-              'count': entry.containsKey('count') ? entry['count'] : null,
+              // 'count': entry.containsKey('count') ? entry['count'] : null,
+              'count': entry.containsKey('count')
+                  ? (entry['count'] is String
+                      ? int.tryParse(entry['count'])
+                      : entry['count'])
+                  : null,
+
               'url': entry.containsKey('url') ? entry['url'] : null,
             })
         .toList();
@@ -508,6 +541,7 @@ abstract class ListService<T extends ListEntry> {
   // 这个方法应该是公共的，因为它被子类调用
   Future<List<Map<String, dynamic>>> parseFromUrl(String url) async {
     final data = await _fetchData(url);
+
     return _parseData(data, url);
   }
 
@@ -517,64 +551,20 @@ abstract class ListService<T extends ListEntry> {
     return _parseData(data, filePath);
   }
 
-  Future<List<Map<String, dynamic>>> _parseFromUrl(String url) async {
-    final data = await _fetchData(url);
-    if (url.endsWith('.csv')) {
-      return _parseCsvData(data);
-    } else if (url.endsWith('.json')) {
-      return _parseJsonData(data);
-    } else if (url.endsWith('.txt')) {
-      return _parseTxtData(data);
-    } else if (url.endsWith('.yaml')) {
-      return _parseYamlData(data);
-    } else {
-      throw UnsupportedError('Unsupported file format');
-    }
-  }
-
-  Future<List<Map<String, dynamic>>> _parseFromLocal(String filePath) async {
-    final data = await File(filePath).readAsString();
-    if (filePath.endsWith('.csv')) {
-      return _parseCsvData(data);
-    } else if (filePath.endsWith('.json')) {
-      return _parseJsonData(data);
-    } else if (filePath.endsWith('.txt')) {
-      return _parseTxtData(data);
-    } else if (filePath.endsWith('.yaml')) {
-      return _parseYamlData(data);
-    } else {
-      throw UnsupportedError('Unsupported file format');
-    }
-  }
-
-// 在 ListService 类中修改 _addAllWithUrl 方法
   Future<void> _addAllWithUrl(
       String tableName, List<Map<String, dynamic>> entries, String? url) async {
     final batch = database.batch();
+
     for (final entry in entries) {
-      // 添加 URL（如果提供了且条目中没有）
-      if (url != null && !entry.containsKey('url')) {
-        entry['url'] = url;
-      }
-
-      final exists = await database.query(
-        tableName,
-        where: 'phoneNumber = ?',
-        whereArgs: [entry['phoneNumber']],
-      ).then((results) => results.isNotEmpty);
-
-      if (exists) {
-        batch.update(
-          tableName,
-          entry,
-          where: 'phoneNumber = ?',
-          whereArgs: [entry['phoneNumber']],
-        );
-      } else {
-        batch.insert(tableName, entry);
-      }
+      // 如果有url且entry没有url，则添加
+      entry['url'] ??= url;
+      // 打印正在插入的条目
+      // 直接使用 insertOrReplace
+      batch.insert(tableName, entry,
+          conflictAlgorithm: ConflictAlgorithm.replace);
     }
-    await batch.commit();
+
+    await batch.commit(noResult: true);
   }
 }
 
