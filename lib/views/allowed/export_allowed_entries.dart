@@ -50,18 +50,15 @@ class ExportAllowedEntriesPage extends StatefulWidget {
 }
 
 class ExportAllowedEntriesPageState extends State<ExportAllowedEntriesPage> {
-  //final _entries = <AllowedEntry>[];
+ 
 
-  late AllowedService _allowedService;
-  List<AllowedEntry>? _selectedEntries;
 
   @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
 
-    _allowedService = appState.allowedService;
-    _selectedEntries = []; // 初始化为空列表
+ 
   }
 
  // String? _filePath;
@@ -82,7 +79,8 @@ class ExportAllowedEntriesPageState extends State<ExportAllowedEntriesPage> {
         return SelectEntriesDialog<AllowedEntry>(
           entries: entries,
           hasSubscriptionTabs: false,
-          searchKey: 'phoneNumber',
+          //searchKey: 'phoneNumber',
+            getSearchString: (entry) => entry.phoneNumber, //  提供 Getter 函数
         );
       },
       exportToCsv: appState.allowedService.exportToCsv,

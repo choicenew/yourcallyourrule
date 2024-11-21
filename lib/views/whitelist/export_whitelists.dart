@@ -21,7 +21,7 @@ class ExportWhitelistsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportWhitelistsPage, // 页面标题
-     // 'WhitelistPageView', // 卡片标题=点击卡片导航到的页面
+      // 'WhitelistPageView', // 卡片标题=点击卡片导航到的页面
       const WhitelistPageView(), // 点击卡片导航到的页面
       const ExportWhitelistsPage(), // 当前页面主要内容
       exportPage: const ExportWhitelistsPageView(), // 导出页面
@@ -42,18 +42,11 @@ class ExportWhitelistsPage extends StatefulWidget {
 }
 
 class ExportWhitelistsPageState extends State<ExportWhitelistsPage> {
-  final _entries = <WhitelistEntry>[];
-  List<WhitelistEntry>? _selectedEntries;
-
   @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
-    _selectedEntries = []; // 初始化为空列表
   }
-
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +63,8 @@ class ExportWhitelistsPageState extends State<ExportWhitelistsPage> {
         return SelectEntriesDialog<WhitelistEntry>(
           entries: entries,
           hasSubscriptionTabs: true,
-          searchKey: 'phoneNumber',
+          //searchKey: 'phoneNumber',
+          getSearchString: (entry) => entry.phoneNumber, //  提供 Getter 函数
         );
       },
       exportToCsv: appState.whitelistService.exportToCsv,

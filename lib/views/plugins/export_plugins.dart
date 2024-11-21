@@ -1,16 +1,11 @@
-
-
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-
-
 
 import '../../generated/l10n.dart';
 
 import '../../screens/appstate_provider.dart';
 import '../../services/plugin_manager_service.dart';
-
 
 import '../public/build_page_switch.dart';
 import '../public/export_item.dart';
@@ -29,8 +24,8 @@ class ExportPluginsPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return buildPageWithCollapsibleContent(
       context,
-     S.of(context).exportPluginPage, // 页面标题
-    //  'PluginsPageView', // 卡片标题=点击卡片导航到的页面
+      S.of(context).exportPluginPage, // 页面标题
+      //  'PluginsPageView', // 卡片标题=点击卡片导航到的页面
       const PluginsPageView(), // 点击卡片导航到的页面
       const ExportPluginsPage(), // 当前页面主要内容
       exportPage: const ExportPluginsPageView(), // 导出页面
@@ -43,51 +38,37 @@ class ExportPluginsPageView extends StatelessWidget {
   }
 }
 
-
 class ExportPluginsPage extends StatefulWidget {
   const ExportPluginsPage({super.key});
 
   @override
-  ExportPluginsPageState createState() =>
-      ExportPluginsPageState();
+  ExportPluginsPageState createState() => ExportPluginsPageState();
 }
 
 class ExportPluginsPageState extends State<ExportPluginsPage> {
-  final _plugins = <Plugin>[];
-  late PluginService _pluginservice;
-  List<Plugin>? _selectedPlugins;
-
-
-
-
- @override
+  @override
   void initState() {
     super.initState();
-    final appState = Provider.of<AppState>(context, listen: false);
-    _selectedPlugins = []; // 初始化为空列表
-     _pluginservice = appState.pluginService; 
+  //  final appState = Provider.of<AppState>(context, listen: false);
   }
 
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
-
-    @override
+  @override
   Widget build(BuildContext context) {
-     final appState = Provider.of<AppState>(context, listen: false);
+    final appState = Provider.of<AppState>(context, listen: false);
     return _build(context, appState); // 直接调用 _build(context)
   }
 
-
-
   Widget _build(BuildContext context, AppState appState) {
-    return ExportScreenWidget<Plugin>( // 使用泛型指定类型
+    return ExportScreenWidget<Plugin>(
+      // 使用泛型指定类型
       getEntries: appState.pluginService.getAllPlugins,
       buildSelectDialog: (BuildContext context, List<Plugin> plugins) {
         return SelectEntriesDialog<Plugin>(
-  entries: plugins,
-  hasSubscriptionTabs: false,
-  searchKey: 'name',
-);
+          entries: plugins,
+          hasSubscriptionTabs: false,
+          // searchKey: 'name',
+          getSearchString: (entry) => entry.name, //  提供 Getter 函数
+        );
       },
       exportToCsv: appState.pluginService.exportPluginsToCsv,
       exportToJson: appState.pluginService.exportPluginsToJson,

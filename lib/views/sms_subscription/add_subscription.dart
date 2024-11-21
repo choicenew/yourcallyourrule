@@ -1,21 +1,36 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 import '../../generated/l10n.dart';
 import '../../new_set_icons.dart';
+
+
 import '../../screens/appstate_provider.dart';
 import '../../services/sms_blacklist_whitelist_service.dart';
+
 import '../../services/sms_subscribe_service.dart';
+
 import '../../services/sms_text_service.dart';
+
 import '../../services/snackbar_service.dart';
 import '../../utils/ad_manager.dart';
+
 import '../../widgets/google_ad.dart';
+
+
+
 import '../public/build_page_switch.dart';
 import '../public/isolated_widgets.dart';
+
 import '../subpage_style.dart';
+
 import 'export_subscriptions.dart';
 import 'import_subscriptions.dart';
+
 import 'subscription_page.dart';
+
+
 
 class AddSmsSubscriptionPageView extends StatelessWidget {
   const AddSmsSubscriptionPageView({super.key});
@@ -25,7 +40,7 @@ class AddSmsSubscriptionPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).addSmsSubscriptionPage, // 页面标题
-     // 'SmsSubscriptionListView', // 卡片标题=点击卡片导航到的页面
+    //  'SmsSubscriptionListView', // 卡片标题=点击卡片导航到的页面
       const SmsSubscriptionListView(), // 点击卡片导航到的页面
       const AddSmsSubscriptionPage(), // 当前页面主要内容
       exportPage: const ExportSmsSubscriptionsPageView(), // 导出页面
@@ -55,8 +70,8 @@ class AddSmsSubscriptionPageState extends State<AddSmsSubscriptionPage> {
 
   late SmsBlacklistService _smsBlacklistService;
   late SmsWhitelistService _smsWhitelistService;
-  late SmsTextBlacklistService _smsTextblacklistService;
-  late SmsTextWhitelistService _smsTextwhitelistService;
+  late SmsTextBlacklistService _smsTextBlacklistService;
+  late SmsTextWhitelistService _smsTextWhitelistService;
   late SmsSubscribeService _smsSubscriptionService;
 
   late SmsSubscriptionModel _subscriptions;
@@ -105,10 +120,23 @@ class AddSmsSubscriptionPageState extends State<AddSmsSubscriptionPage> {
   @override
   void initState() {
     super.initState();
-    final appState = Provider.of<AppState>(context, listen: false);
+
     _subscriptions = SmsSubscriptionModel(name: '', url: '');
+     _initializeServices();
+
+  }
+
+
+  void _initializeServices() {
+    final appState = Provider.of<AppState>(context, listen: false);
+    _smsBlacklistService = appState.smsBlacklistService;
+    _smsWhitelistService = appState.smsWhitelistService;
+    _smsTextBlacklistService = appState.smsTextBlacklistService;
+    _smsTextWhitelistService = appState.smsTextWhitelistService;
     _smsSubscriptionService = appState.smsSubscriptionService;
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +154,7 @@ class AddSmsSubscriptionPageState extends State<AddSmsSubscriptionPage> {
               // 使用 NameInputWidget
               NameInputWidget(nameController: _subscriptionNameController),
 
-              const SizedBox(height: 16.0),
+               const SizedBox(height: 16.0),
               // 使用 UrlInputWidget
               UrlInputWidget(urlController: _urlController),
 
@@ -172,6 +200,7 @@ class AddSmsSubscriptionPageState extends State<AddSmsSubscriptionPage> {
                 blockedType: 'Blacklist',
               ),
 
+
               const Divider(height: 1),
 
               // 广告
@@ -192,7 +221,8 @@ class AddSmsSubscriptionPageState extends State<AddSmsSubscriptionPage> {
             onPressed: () async {
               // 检查订阅名称是否为空
               if (_subscriptionNameController.text.isEmpty) {
-                showErrorSnackBar(context, S.of(context).nameCannotBeEmpty);
+                showErrorSnackBar(
+                    context, S.of(context).nameCannotBeEmpty);
                 return;
               }
               // 检查电话号码是否为空
@@ -231,17 +261,19 @@ class AddSmsSubscriptionPageState extends State<AddSmsSubscriptionPage> {
                   if (_isBlacklist) {
                     if (_isNumberType) {
                       await _smsBlacklistService
-                          .importNumbersFromUrl(_urlController.text);
+                          .importNumbersFromUrl(
+                              _urlController.text);
                     } else {
-                      await _smsTextblacklistService
+                      await _smsTextBlacklistService
                           .importKeywordsFromUrl(_urlController.text);
                     }
                   } else if (_isWhitelist) {
                     if (_isNumberType) {
                       await _smsWhitelistService
-                          .importNumbersFromUrl(_urlController.text);
+                          .importNumbersFromUrl(
+                              _urlController.text);
                     } else {
-                      await _smsTextwhitelistService
+                      await _smsTextWhitelistService
                           .importKeywordsFromUrl(_urlController.text);
                     }
                   }
@@ -253,13 +285,21 @@ class AddSmsSubscriptionPageState extends State<AddSmsSubscriptionPage> {
                   _subscriptions = SmsSubscriptionModel(name: '', url: '');
                 });
                 if (mounted) {
-                  showSuccessSnackBar(context, S.of(context).addedSuccessfully);
+                  showSuccessSnackBar(
+                      context, S.of(context).addedSuccessfully);
                 }
               } catch (e) {
                 if (mounted) {
-                  showErrorSnackBar(context, '${S.of(context).failedToAdd} $e');
+                  showErrorSnackBar(
+                      context, '${S.of(context).failedToAdd} $e');
                 }
               }
+              // Update database with updated model
+              //  if (_isAllowed) {
+              //    await _allowedService.add(model as AllowedEntry);
+              //  } else if (_isBlocked) {
+              //    await _blockedService.add(model as BlockedEntry);
+              //   }
             },
             style: floatingButtonStyle,
             child: Row(
@@ -278,3 +318,5 @@ class AddSmsSubscriptionPageState extends State<AddSmsSubscriptionPage> {
     );
   }
 }
+
+

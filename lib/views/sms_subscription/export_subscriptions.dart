@@ -1,18 +1,11 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-
-
 import '../../generated/l10n.dart';
-
-
 
 import '../../screens/appstate_provider.dart';
 import '../../services/sms_subscribe_service.dart';
-
-
 
 import '../public/build_page_switch.dart';
 import '../public/export_item.dart';
@@ -32,7 +25,7 @@ class ExportSmsSubscriptionsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportSmsSubscriptionPage, // 页面标题
-    //  'SmsSubscriptionListView', // 卡片标题=点击卡片导航到的页面
+      //  'SmsSubscriptionListView', // 卡片标题=点击卡片导航到的页面
       const SmsSubscriptionListView(), // 点击卡片导航到的页面
       const ExportSmsSubscriptionsPage(), // 当前页面主要内容
       exportPage: const ExportSmsSubscriptionsPageView(), // 导出页面
@@ -45,7 +38,6 @@ class ExportSmsSubscriptionsPageView extends StatelessWidget {
   }
 }
 
-
 class ExportSmsSubscriptionsPage extends StatefulWidget {
   const ExportSmsSubscriptionsPage({super.key});
 
@@ -54,45 +46,32 @@ class ExportSmsSubscriptionsPage extends StatefulWidget {
       ExportSmsSubscriptionsPageState();
 }
 
-class ExportSmsSubscriptionsPageState extends State<ExportSmsSubscriptionsPage> {
-  final _subscriptions = <SmsSubscriptionModel>[];
-  late SmsSubscribeService _smsSubscriptionService;
-  List<SmsSubscriptionModel>? _selectedSubscriptions;
-
-
-
-
- @override
+class ExportSmsSubscriptionsPageState
+    extends State<ExportSmsSubscriptionsPage> {
+  @override
   void initState() {
     super.initState();
-    final appState = Provider.of<AppState>(context, listen: false);
-    _selectedSubscriptions = []; // 初始化为空列表
-     _smsSubscriptionService = appState.smsSubscriptionService; 
+  //  final appState = Provider.of<AppState>(context, listen: false);
   }
-
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
-  
-
-
 
   @override
   Widget build(BuildContext context) {
-     final appState = Provider.of<AppState>(context, listen: false);
+    final appState = Provider.of<AppState>(context, listen: false);
     return _build(context, appState); // 直接调用 _build(context)
   }
 
-
-
   Widget _build(BuildContext context, AppState appState) {
-    return ExportScreenWidget<SmsSubscriptionModel>( // 使用泛型指定类型
+    return ExportScreenWidget<SmsSubscriptionModel>(
+      // 使用泛型指定类型
       getEntries: appState.smsSubscriptionService.getAllSubscriptions,
-      buildSelectDialog: (BuildContext context, List<SmsSubscriptionModel> subscriptions) {
+      buildSelectDialog:
+          (BuildContext context, List<SmsSubscriptionModel> subscriptions) {
         return SelectEntriesDialog<SmsSubscriptionModel>(
-  entries: subscriptions,
-  hasBlacklistWhitelistTabs: true,
-  searchKey: 'name',
-);
+          entries: subscriptions,
+          hasBlacklistWhitelistTabs: true,
+          //searchKey: 'name',
+          getSearchString: (entry) => entry.name, //  提供 Getter 函数
+        );
       },
       exportToCsv: appState.smsSubscriptionService.exportSubscriptionsToCsv,
       exportToJson: appState.smsSubscriptionService.exportSubscriptionsToJson,

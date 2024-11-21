@@ -23,31 +23,10 @@ jobs:
           
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.24.2'
           channel: 'stable'
           
-      # 修改 build.gradle 添加必要的插件配置
-      - name: Update Gradle Config
-        run: |
-          # 修改根目录的 build.gradle
-          cat > android/build.gradle << 'EOL'
-          buildscript {
-              repositories {
-                  google()
-                  mavenCentral()
-              }
-              dependencies {
-                  classpath 'com.android.tools.build:gradle:7.3.0'
-                  classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
-              }
-          }
-          allprojects {
-              repositories {
-                  google()
-                  mavenCentral()
-              }
-          }
-          EOL
+
 
       - name: Install Dependencies
         run: flutter pub get

@@ -44,19 +44,15 @@ class ExportContactSubscriptionsPage extends StatefulWidget {
 
 class ExportContactSubscriptionsPageState
     extends State<ExportContactSubscriptionsPage> {
-  late SubscribeContactsService _subscribeContactsService;
-  List<ContactSubscriptionModel>? _selectedSubscriptions;
 
   @override
   void initState() {
     super.initState();
-    final appState = Provider.of<AppState>(context, listen: false);
-    _selectedSubscriptions = []; // 初始化为空列表
-    _subscribeContactsService = appState.subscribeContactsService;
+    //final appState = Provider.of<AppState>(context, listen: false);
+// 初始化为空列表
   }
 
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
+
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +69,8 @@ class ExportContactSubscriptionsPageState
         return SelectEntriesDialog<ContactSubscriptionModel>(
           entries: subscriptions,
           hasBlacklistWhitelistTabs: true,
-          searchKey: 'name',
+          //searchKey: 'name',
+           getSearchString: (entry) => entry.name, //  提供 Getter 函数
         );
       },
       exportToCsv: appState.subscribeContactsService.exportSubscriptionsToCsv,

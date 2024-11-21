@@ -22,7 +22,7 @@ class ExportSmsTextWhitelistsPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).exportSmsTextWhitelistsPage, // 页面标题
-    //  'SmsTextWhitelistPageView', // 卡片标题=点击卡片导航到的页面
+      //  'SmsTextWhitelistPageView', // 卡片标题=点击卡片导航到的页面
       const SmsTextWhitelistPageView(), // 点击卡片导航到的页面
       const ExportSmsTextWhitelistsPage(), // 当前页面主要内容
       exportPage: const ExportSmsTextWhitelistsPageView(), // 导出页面
@@ -45,20 +45,11 @@ class ExportSmsTextWhitelistsPage extends StatefulWidget {
 
 class ExportSmsTextWhitelistsPageState
     extends State<ExportSmsTextWhitelistsPage> {
-  final _entries = <SmsTextWhitelistEntry>[];
-  late SmsTextWhitelistService _smsTextWhitelistService;
-  List<SmsTextWhitelistEntry>? _selectedEntries;
-
   @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
-    _selectedEntries = []; // 初始化为空列表
-    _smsTextWhitelistService = appState.smsTextWhitelistService;
   }
-
-  String? _filePath;
-  String _selectedType = 'csv'; // Default export format (CSV)
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +67,8 @@ class ExportSmsTextWhitelistsPageState
         return SelectEntriesDialog<SmsTextWhitelistEntry>(
           entries: entries,
           hasSubscriptionTabs: true,
-          searchKey: 'keyword',
+          // searchKey: 'keyword',
+          getSearchString: (entry) => entry.keyword, //  提供 Getter 函数
         );
       },
       exportToCsv: appState.smsTextWhitelistService.exportToCsv,
