@@ -271,7 +271,7 @@ class BackupRestorePageState extends State<BackupRestorePage> {
               title:
                   Text('$title ${S.of(context).backup}', style: whiteTextStyle),
               trailing: Theme(
-                data: customSwitchThemeData,
+                data: AppSwitchTheme.apply(context, switchTheme),
                 child: Switch(
                   value: cloudBackupSnapshot.data ?? false,
 /*

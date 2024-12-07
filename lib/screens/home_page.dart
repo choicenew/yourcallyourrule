@@ -1,6 +1,7 @@
 //备份homepage
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -193,40 +194,46 @@ void _loadInterceptorSettings() {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // 将状态栏设置为透明
+        statusBarIconBrightness: Theme.of(context).brightness == Brightness.light
+            ? Brightness.dark // 亮色主题时使用深色状态栏图标
+            : Brightness.light, // 暗色主题时使用浅色状态栏图标
+      ),
+     child: Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
 
 
           SliverToBoxAdapter(
-            child: SafeArea(
-              // 使用 SafeArea 避免白条
-              child: Padding(
-                padding: HomePaddingStyle.searchBarPadding.copyWith(
-                  left: 0, // 将左右 padding 设置为 0
-                  right: 0,
-                ),
-                child: Container(
-                  width: MediaQuery.of(context).size.width, // 撑满屏幕宽度
-                  color: const Color.fromRGBO(10, 202, 109, 1),
+            child: Container( // 将 Container 移到 SafeArea 外面
+             width: MediaQuery.of(context).size.width,
+              color: const Color.fromRGBO(10, 202, 109, 1),
+              child: SafeArea(
+                 minimum: EdgeInsets.zero, // 设置 minimum 为 EdgeInsets.zero
+                 child: Padding(
+                      padding: HomePaddingStyle.searchBarPadding.copyWith(
+                     left: 0, // 将左右 padding 设置为 0
+                     right: 0,
+                   ),
                   child: const Column(
-                    children: [
-                      Padding(
-                        padding: HomePaddingStyle.paddingTop,
-                        child: Text(
-                          'Your Call Your Rule',
-                          style: logoTitleTextStyle,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                     // SizedBox(height: 20), // 增加底部间距
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 16), // 设置左右 padding
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(child: CustomSearchBar()),
+                      children: [
+                        Padding(
+                          padding: HomePaddingStyle.paddingTop,
+                         child: Text(
+                            'Your Call Your Rule',
+                             style: logoTitleTextStyle,
+                             textAlign: TextAlign.center,
+                           ),
+                         ),
+                        Padding(
+                           padding: EdgeInsets.symmetric(
+                              horizontal: 16), // 设置左右 padding
+                           child: Row(
+                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                             children: [
+                              Flexible(child: CustomSearchBar()),
                             /*
       const SizedBox(width: 16),
       IconButton(
@@ -234,14 +241,16 @@ void _loadInterceptorSettings() {
         onPressed: _openScanScreen,
       ),
       */
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 20), // 增加底部间距
+                             ],
+                           ),
+                         ),
+
+
+                         SizedBox(height: 20), // 增加底部间距
                     ],
-                  ),
+                 ),
                 ),
-              ),
+               ),
             ),
           ),
 
@@ -485,7 +494,8 @@ void _loadInterceptorSettings() {
         ],
       ),
       bottomNavigationBar: const CustomBottomNavigationBar(),
-    );
+    )
+     );
   }
 
   List<Widget> _buildSwitchList(BuildContext context, int switchesPerRow,

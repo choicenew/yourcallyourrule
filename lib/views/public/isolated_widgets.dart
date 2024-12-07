@@ -208,7 +208,7 @@ class ShieldSwitchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: shieldSwitchThemeData,
+      data: AppSwitchTheme.apply(context, shieldSwitchTheme),
       child: SwitchListTile(
         contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         value: value,
@@ -247,7 +247,7 @@ class SwitchRowWidget extends StatelessWidget {
       children: [
         Expanded(
           child: Theme(
-            data: shieldSwitchThemeData,
+            data: AppSwitchTheme.apply(context, shieldSwitchTheme),
             child: SwitchListTile(
               contentPadding: const EdgeInsets.only(top: 16, left: 16),
               value: isAllowed,
@@ -263,7 +263,7 @@ title: Text(
         ),
         Expanded(
           child: Theme(
-            data: shieldSwitchThemeData,
+            data: AppSwitchTheme.apply(context, shieldSwitchTheme),
             child: SwitchListTile(
               contentPadding: const EdgeInsets.only(top: 16, right: 16),
               value: isBlocked,
@@ -705,7 +705,7 @@ class SubscriptionAutoUpdateSwitchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: customSwitchThemeData,
+      data: AppSwitchTheme.apply(context, switchTheme),
       child: SwitchListTile(
         title: Text(
           isAutoUpdate
@@ -733,7 +733,7 @@ class SubscriptionNumberTypeSwitchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: customSwitchThemeData,
+      data: AppSwitchTheme.apply(context, switchTheme),
       child: SwitchListTile(
         title: Text(
           isNumberType
@@ -761,7 +761,7 @@ class SubscriptionEnabledSwitchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: customSwitchThemeData,
+      data: AppSwitchTheme.apply(context, switchTheme),
       child: SwitchListTile(
         title: Text(
           enabled
@@ -790,7 +790,7 @@ class SubscribedSwitchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: shieldSwitchThemeData, // 你可以在 common_widgets.dart 中定义这个主题
+      data: AppSwitchTheme.apply(context, shieldSwitchTheme), // 你可以在 common_widgets.dart 中定义这个主题
       child: SwitchListTile(
         title: Text(
           isSubscribed

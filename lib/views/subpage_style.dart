@@ -76,12 +76,12 @@ const TextStyle callerlocationTextStyle = TextStyle(
   // 黑名单和白名单文字的样式
 const TextStyle whiteTextStyle = TextStyle(
   fontSize: 16.0,
-  color: Colors.black,
+  //color: Colors.black,
 );
   // 黑名单和白名单开关的样式
 const TextStyle shieldSwitchTextStyle = TextStyle(
   fontSize: 16.0,
-  color: Colors.black,
+  //color: Colors.black,
 );
   
 
