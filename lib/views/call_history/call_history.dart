@@ -93,7 +93,7 @@ class CallHistoryPageState extends State<CallHistoryPage> {
 
 //创建允许或者阻止开关
   void _onSwitchChanged(bool newValue) {
-    setState(() {
+   // setState(() {
       if (_isAllowed == _isBlocked) {
         // 当两个开关状态相同时（都为 false，因为它们不能同时为 true）
         if (newValue) {
@@ -119,7 +119,7 @@ class CallHistoryPageState extends State<CallHistoryPage> {
           _isBlocked = false;
         }
       }
-    });
+  //  });
   }
 
   @override
@@ -222,9 +222,9 @@ class CallHistoryPageState extends State<CallHistoryPage> {
           key: ValueKey(entry.number),
           initiallyExpanded: _expandedItems[entry.number] ?? false,
           onExpansionChanged: (isExpanded) {
-            setState(() {
+          //  setState(() {
               _expandedItems[entry.number!] = isExpanded;
-            });
+          //  });
           },
           leading: Stack(
             children: [
@@ -431,6 +431,7 @@ class CallHistoryPageState extends State<CallHistoryPage> {
                     labelController.text,
                     _isAllowed,
                     _isBlocked),
+                    
               ),
             ],
           ),

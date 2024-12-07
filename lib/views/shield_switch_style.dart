@@ -27,7 +27,22 @@ final ThemeData shieldSwitchThemeData = ThemeData(
   ),
 );
 
-
+// 先定义独立的 switch theme 配置
+final SwitchThemeData shieldSwitchTheme = SwitchThemeData(
+      trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
+          return flexSchemeLight.outlineVariant; // Use outlineVariant for on state
+        }
+        return flexSchemeLight.outline; // Use outline for off state
+      }),
+      trackColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
+          return flexSchemeLight.primaryContainer; // Use outlineVariant for on state
+        }
+        return flexSchemeLight.surfaceContainerHighest; // Use outline for off state
+      }),
+    thumbIcon: shieldThumbIcon, // 设置 thumbIcon
+  );
 
 
 // 定义 MaterialStateProperty for thumb icon based on switch state
@@ -43,10 +58,7 @@ final WidgetStateProperty<Icon?> shieldThumbIcon =
 
 
 
-final ThemeData customSwitchThemeData = ThemeData(
-  // 通过 colorScheme 定义不同状态下的颜色
 
-);
 
 
 final ThemeData switchThemeData = ThemeData(
@@ -68,6 +80,24 @@ final ThemeData switchThemeData = ThemeData(
     ),
   );
 
+// 先定义独立的 switch theme 配置
+final SwitchThemeData switchTheme = SwitchThemeData(
+      trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
+          return flexSchemeLight.outlineVariant; // Use outlineVariant for on state
+        }
+        return flexSchemeLight.outline; // Use outline for off state
+      }),
+      trackColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.selected)) {
+          return flexSchemeLight.primaryContainer; // Use outlineVariant for on state
+        }
+        return flexSchemeLight.surfaceContainerHighest; // Use outline for off state
+      }),
+      thumbIcon: switchThumbIcon, 
+    );
+
+
 
   final WidgetStateProperty<Icon?> switchThumbIcon =
   WidgetStateProperty.resolveWith<Icon?>((Set<WidgetState> states) {
@@ -76,3 +106,18 @@ final ThemeData switchThemeData = ThemeData(
     }
     return const Icon(NewSet.close, color: Colors.white); // Use shield_off icon for off state with grey color
   });
+
+
+// 然后创建一个类来应用这个配置，同时保持系统主题
+class AppSwitchTheme {
+  static ThemeData apply(BuildContext context, SwitchThemeData switchTheme) {
+    return Theme.of(context).copyWith(
+      switchTheme: switchTheme,
+    );
+  }
+}
+
+
+
+
+
