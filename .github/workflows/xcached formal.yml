@@ -87,3 +87,19 @@ jobs:
             signed-release-artifacts/*
             build/app/outputs/bundle/release/app-release.aab
             build/app/outputs/apk/release/*.apk
+
+            
+            - name: Upload to Translation Repository
+            uses: ncipollo/release-action@v1
+            with:
+              token: ${{ secrets.MY_PAT }}  # 确保这个PAT有权限访问目标仓库
+              tag: v${{ env.PUBSPEC_VERSION }}
+              repository: haygcao/yourcallyourruletranslation  # 指定目标仓库
+              omitBodyDuringUpdate: true
+              omitNameDuringUpdate: true
+              omitPrereleaseDuringUpdate: true
+              allowUpdates: true
+              artifacts: |
+                signed-release-artifacts/*
+                build/app/outputs/bundle/release/app-release.aab
+                build/app/outputs/apk/release/*.apk
