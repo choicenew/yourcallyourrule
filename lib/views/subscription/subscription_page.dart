@@ -74,7 +74,7 @@ class SubscriptionListState extends State<SubscriptionList> with WidgetsBindingO
    late BlacklistService _blacklistService;
   late WhitelistService _whitelistService;
   late SubscriptionService _subscriptionService;
-  Map<int, bool> _expandedItems = {};
+  Map<int, bool> expandedItems = {};
   List<SubscriptionModel> _subscriptions = [];
   bool _isLoading = false;
 
@@ -205,9 +205,9 @@ Widget build(BuildContext context) {
       margin: const EdgeInsets.all(10.0),
       child: ExpansionTile(
         key: ValueKey(subscription.id),
-        initiallyExpanded: _expandedItems[subscription.id] ?? false,
+        initiallyExpanded: expandedItems[subscription.id] ?? false,
         onExpansionChanged: (isExpanded) {
-          _expandedItems[subscription.id!] = isExpanded;
+          expandedItems[subscription.id!] = isExpanded;
         },
         title: SubscriptionTitleWidget(name: subscription.name),
         subtitle: Row(
@@ -255,7 +255,7 @@ Widget build(BuildContext context) {
               onPressed: () => _showDeleteConfirmation(context, subscription),
             ),
             ExpansionIconWidget(
-                isExpanded: _expandedItems[subscription.id] ?? false),
+                isExpanded: expandedItems[subscription.id] ?? false),
 
           ],
         ),
@@ -348,6 +348,7 @@ Widget build(BuildContext context) {
       _subscriptionService.deleteSubscription,
       displayText: subscription.id.toString(),
     );
+    await deleteDataBySubscriptionType(subscription);
     await _loadSubscriptions();
   }
 
@@ -358,15 +359,43 @@ Future<void> _toggleSubscriptionEnabled(SubscriptionModel subscription) async {
 
   // 更新后端数据
   await _subscriptionService.editSubscription(subscription);
-
+/*
   if (subscription.enabled) {
         await _subscriptionService.enableSubscription(subscription);
   } else {
     await _subscriptionService.disableSubscription(subscription);
   }
+*/
 
+await updateSubscriptionList(subscription);
   //setState(() {});
 }
+
+Future<void> updateSubscriptionList(SubscriptionModel subscription) async {
+  if (subscription.enabled) {
+    await _subscriptionService.enableSubscription(subscription);
+    if (subscription.isBlacklist) {
+      await _blacklistService.importNumbersFromUrl(subscription.url);
+      await _whitelistService.deleteByUrl(subscription.url);
+    } else if (subscription.isWhitelist) {
+      await _whitelistService.importNumbersFromUrl(subscription.url);
+      await _blacklistService.deleteByUrl(subscription.url);
+    }
+  } else {
+    await _subscriptionService.disableSubscription(subscription);
+    await _whitelistService.deleteByUrl(subscription.url);
+    await _blacklistService.deleteByUrl(subscription.url);
+  }
+}
+
+Future<void> deleteDataBySubscriptionType(SubscriptionModel subscription) async {
+  if (subscription.isBlacklist) {
+    await _blacklistService.deleteByUrl(subscription.url);
+  } else if (subscription.isWhitelist) {
+    await _whitelistService.deleteByUrl(subscription.url);
+  }
+}
+
 
 Future<void> _updateSubscription(SubscriptionModel subscription, String name, String url, bool isWhitelist, bool isBlacklist) async {
   final updatedSubscription = SubscriptionModel(
@@ -388,7 +417,7 @@ Future<void> _updateSubscription(SubscriptionModel subscription, String name, St
     await _subscriptionService.addBlacklistSubscription(updatedSubscription);
     await _subscriptionService.removeWhitelistSubscription(updatedSubscription);
   }
-
+/*
   if (subscription.enabled) {
     await _subscriptionService.enableSubscription(updatedSubscription);
     if (subscription.isBlacklist) {
@@ -403,7 +432,8 @@ Future<void> _updateSubscription(SubscriptionModel subscription, String name, St
     await _whitelistService.deleteByUrl(updatedSubscription.url);
     await _blacklistService.deleteByUrl(updatedSubscription.url);
   }
-
+*/
+await updateSubscriptionList(updatedSubscription);
 }
 
 void _saveEntry(SubscriptionModel subscription, String name, String url, bool isWhitelist, bool isBlacklist) async {
@@ -411,7 +441,7 @@ void _saveEntry(SubscriptionModel subscription, String name, String url, bool is
 
   await _loadSubscriptions();
   setState(() {
-    _expandedItems[subscription.id!] = false;
+    expandedItems[subscription.id!] = false;
   });
 }
   ///

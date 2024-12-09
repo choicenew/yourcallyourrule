@@ -422,6 +422,7 @@ Future<bool> isIncluded(String smsContent) async {
   }
 
 // 在 TextlistService 类中修改 _addAllWithUrl 方法
+/*
   Future<void> _addAllWithUrl(
       String tableName, List<Map<String, dynamic>> entries, String? url) async {
     final batch = database.batch();
@@ -450,6 +451,30 @@ Future<bool> isIncluded(String smsContent) async {
     }
     await batch.commit();
   }
+*/
+
+Future<void> _addAllWithUrl(String tableName, List<Map<String, dynamic>> entries, String? url) async {
+  final batch = database.batch();
+
+  for (final entry in entries) {
+    // 修改判断逻辑，同时处理 null 和空字符串的情况
+    if (entry['url'] == null || entry['url'].toString().isEmpty) {
+      entry['url'] = url;
+    }
+    
+
+    
+    batch.insert(
+      tableName, 
+      entry,
+      conflictAlgorithm: ConflictAlgorithm.replace
+    );
+  }
+
+  await batch.commit(noResult: true);
+}
+
+
 }
 
 class SmsTextBlacklistService extends TextlistService<SmsTextBlacklistEntry> {

@@ -344,7 +344,7 @@ EnableDisableButtonWidget<SmsSubscriptionModel>(
       _smsSubscriptionService.deleteSubscription,
       displayText: subscription.id.toString(),
     );
-
+    await deleteDataBySubscriptionType(subscription);
     await _loadSubscriptions();
   }
 
@@ -355,15 +355,67 @@ EnableDisableButtonWidget<SmsSubscriptionModel>(
     subscription.enabled = !subscription.enabled;
 
     await _smsSubscriptionService.editSubscription(subscription);
-
+/*
     if (subscription.enabled) {
       await _smsSubscriptionService.enableSubscription(subscription);
     } else {
       await _smsSubscriptionService.disableSubscription(subscription);
     }
-
+    */
+await updateSubscriptionList(subscription);
     //setState(() {});
   }
+
+Future<void> updateSubscriptionList(SmsSubscriptionModel subscription) async {
+    if (subscription.enabled) {
+      await _smsSubscriptionService.enableSubscription(subscription);
+      if (subscription.isBlacklist) {
+        if (subscription.isNumberType) {
+          await _smsBlacklistService
+              .importNumbersFromUrl(subscription.url);
+          await _smsWhitelistService.deleteByUrl(subscription.url);
+        } else {
+          await _smsTextblacklistService
+              .importKeywordsFromUrl(subscription.url);
+          await _smsTextwhitelistService.deleteByUrl(subscription.url);
+        }
+      } else if (subscription.isWhitelist) {
+        if (subscription.isNumberType) {
+          await _smsWhitelistService
+              .importNumbersFromUrl(subscription.url);
+          await _smsBlacklistService.deleteByUrl(subscription.url);
+        } else {
+          await _smsTextwhitelistService
+              .importKeywordsFromUrl(subscription.url);
+          await _smsTextblacklistService.deleteByUrl(subscription.url);
+        }
+      }
+    } else {
+      await _smsSubscriptionService.disableSubscription(subscription);
+      await _smsWhitelistService.deleteByUrl(subscription.url);
+      await _smsBlacklistService.deleteByUrl(subscription.url);
+      await _smsTextwhitelistService.deleteByUrl(subscription.url);
+      await _smsTextblacklistService.deleteByUrl(subscription.url);
+    }
+}
+
+Future<void> deleteDataBySubscriptionType(
+      SmsSubscriptionModel subscription) async {
+    if (subscription.isBlacklist) {
+      if (subscription.isNumberType) {
+        await _smsWhitelistService.deleteByUrl(subscription.url);
+      } else {
+        await _smsTextwhitelistService.deleteByUrl(subscription.url);
+      }
+    } else if (subscription.isWhitelist) {
+      if (subscription.isNumberType) {
+        await _smsBlacklistService.deleteByUrl(subscription.url);
+      } else {
+        await _smsTextblacklistService.deleteByUrl(subscription.url);
+      }
+    }
+  }
+
 
   Future<void> _updateSubscription(SmsSubscriptionModel subscription,
       String name, String url, bool isWhitelist, bool isBlacklist) async {
@@ -409,6 +461,7 @@ EnableDisableButtonWidget<SmsSubscriptionModel>(
     }
 
 //分割
+/*
     if (subscription.enabled) {
       await _smsSubscriptionService.enableSubscription(updatedSubscription);
       if (isBlacklist) {
@@ -439,6 +492,8 @@ EnableDisableButtonWidget<SmsSubscriptionModel>(
       await _smsTextwhitelistService.deleteByUrl(updatedSubscription.url);
       await _smsTextblacklistService.deleteByUrl(updatedSubscription.url);
     }
+    */
+await updateSubscriptionList(updatedSubscription);
   }
 
   void _saveEntry(SmsSubscriptionModel subscription, String name, String url,
