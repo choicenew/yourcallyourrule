@@ -525,6 +525,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Match phone numbers with specific characters in the middle:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Medical"),
         "merge": MessageLookupByLibrary.simpleMessage("Merge"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("Merge Contacts"),
@@ -636,6 +638,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Please enter"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Please enter a phone number"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Please enter an pattern"),
         "pleaseEnterAnUrl":
@@ -679,9 +684,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex Page"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Regex Pattern Explanation"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Regex patterns are regular expressions used to match phone numbers."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview": MessageLookupByLibrary.simpleMessage("RegexPageView"),
         "region": MessageLookupByLibrary.simpleMessage("Region:"),
         "reject": MessageLookupByLibrary.simpleMessage("Reject"),
@@ -814,6 +823,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("SubscriptionListView"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("successfully"),
         "survey": MessageLookupByLibrary.simpleMessage("Survey"),
         "sync": MessageLookupByLibrary.simpleMessage("Sync"),

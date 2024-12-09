@@ -541,6 +541,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Αντιστοίχιση αριθμών τηλεφώνου με συγκεκριμένους χαρακτήρες στη μέση:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Ιατρική"),
         "merge": MessageLookupByLibrary.simpleMessage("Συγχώνευση"),
         "mergeContacts":
@@ -656,6 +658,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Παρακαλώ εισάγετε"),
         "pleaseEnterAPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Παρακαλώ εισάγετε έναν αριθμό τηλεφώνου"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern": MessageLookupByLibrary.simpleMessage(
             "Παρακαλώ εισάγετε ένα πρότυπο"),
         "pleaseEnterAnUrl":
@@ -699,9 +704,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Σελίδα Regex"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Επεξήγηση προτύπου Regex"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Τα πρότυπα Regex είναι κανονικές εκφράσεις που χρησιμοποιούνται για την αντιστοίχιση αριθμών τηλεφώνου."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Προβολή σελίδας regex"),
         "region": MessageLookupByLibrary.simpleMessage("Περιοχή:"),
@@ -849,6 +858,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Λίστα εγγραφών"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("επιτυχώς"),
         "survey": MessageLookupByLibrary.simpleMessage("Έρευνα"),
         "sync": MessageLookupByLibrary.simpleMessage("Συγχρονισμός"),

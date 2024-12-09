@@ -491,91 +491,110 @@ class ContactService {
     }
   }
 
+
 // 从VCF文件导入联系人
-  Future<void> importContactsFromVcf(
-      String vcfString, Directory directory) async {
-    final lines = vcfString.split('\n');
-    final contacts = <Contact>[];
-    Contact? currentContact;
+Future<void> importContactsFromVcf(String vcfString, Directory directory) async {
+  final lines = vcfString.split('\n');
+  final contacts = <Contact>[];
+  Contact? currentContact;
 
-    for (final line in lines) {
-      final trimmedLine = line.trim();
-      final match = RegExp(r'^(.+?):\s*(.+)$').firstMatch(trimmedLine);
+  for (final line in lines) {
+    final trimmedLine = line.trim();
+    
+    // 修改正则表达式以处理属性中的分号和TYPE
+    final match = RegExp(r'^([^:]+):(.+)$').firstMatch(trimmedLine);
 
-      if (match != null) {
-        final property = match.group(1);
-        final value = match.group(2);
+    if (match != null) {
+      final fullProperty = match.group(1)!;  // 完整的属性部分（包含TYPE等）
+      final value = match.group(2)!.trim();
+      
+      // 获取基本属性名（去除TYPE等修饰符）
+      final baseProperty = fullProperty.split(';').first;
 
-        switch (property) {
-          case 'BEGIN':
-            if (value == 'VCARD') {
-              // 创建新的 Contact 对象
-              currentContact = Contact(
-                name: '',
-                phoneNumbers: [],
-              );
+      switch (baseProperty) {
+        case 'BEGIN':
+          if (value == 'VCARD') {
+            currentContact = Contact(
+              name: '',
+              phoneNumbers: [],
+            );
+          }
+          break;
+          
+        case 'END':
+          if (value == 'VCARD' && currentContact != null) {
+            contacts.add(currentContact);
+          }
+          break;
+          
+        case 'FN':
+          if (currentContact != null) {
+            currentContact.name = value;
+          }
+          break;
+          
+        case 'N':
+          if (currentContact != null) {
+            // 处理格式如 "N:迟;娇娇;;;"
+            final nameParts = value.split(';');
+            if (nameParts.isNotEmpty) {
+              // 如果 FN 还没有设置，使用 N 中的姓名
+              if (currentContact.name.isEmpty) {
+                // 组合姓和名
+                final lastName = nameParts[0].trim();
+                final firstName = nameParts.length > 1 ? nameParts[1].trim() : '';
+                currentContact.name = (firstName + lastName).trim();
+              }
             }
-            break;
-          case 'END':
-            if (value == 'VCARD' && currentContact != null) {
-              // 将当前 Contact 添加到联系人列表
-              contacts.add(currentContact);
-            }
-            break;
-          case 'FN':
-            // 设置联系人的名称
-            if (currentContact != null) {
-              currentContact.name = value!;
-            }
-            break;
-          case 'TEL':
-            // 处理电话号码
-            if (currentContact != null) {
-              final type = value!.split(';').first.trim(); // 获取电话号码类型
-              final phoneNumber =
-                  value.substring(type.length + 1).trim(); // 获取电话号码
+          }
+          break;
+          
+        case 'TEL':
+          if (currentContact != null) {
+            // 直接获取冒号后面的电话号码部分
+            String phoneNumber = value.replaceAll('-', '').trim();
+            if (phoneNumber.isNotEmpty) {
               currentContact.phoneNumbers.add(phoneNumber);
+     
             }
-            break;
-          case 'EMAIL':
-            // 处理电子邮件
-            if (currentContact != null) {
-              currentContact.email = value;
-            }
-            break;
-          case 'URL':
-            // 处理网址
-            if (currentContact != null) {
-              currentContact.website = value;
-            }
-            break;
-          case 'GROUP':
-            // 处理分组信息
-            if (currentContact != null) {
-              currentContact.group = value;
-            }
-            break;
-          case 'PHOTO':
-            // 处理头像信息（如果有）
-            if (currentContact != null) {
-              final base64Data = value!.substring(7).trim();
-              currentContact.avatar = await saveAvatar(base64Data, directory);
-            }
-            break;
-          default:
-            // 记录或忽略未知属性
-            // print('Unknown property: $line');
-            break;
-        }
-      } else {
-        // 处理未知属性
-        // print('Unknown property: $line');
+          }
+          break;
+          
+        case 'EMAIL':
+          if (currentContact != null) {
+            currentContact.email = value;
+          }
+          break;
+          
+        case 'URL':
+          if (currentContact != null) {
+            currentContact.website = value;
+          }
+          break;
+          
+        case 'GROUP':
+          if (currentContact != null) {
+            currentContact.group = value;
+          }
+          break;
+          
+        case 'PHOTO':
+          if (currentContact != null && value.startsWith('BASE64,')) {
+            final base64Data = value.substring(7).trim();
+            currentContact.avatar = await saveAvatar(base64Data, directory);
+          }
+          break;
+          
+        default:
+          // 现在我们只记录真正未知的属性
+          
+          break;
       }
     }
-
-    // 保存联系人到数据库
-    await addOrUpdateContacts(contacts);
   }
+
+  await addOrUpdateContacts(contacts);
+}
 
 // 从CSV文件导入联系人
   Future<void> importContactsFromCsv(String csvString) async {

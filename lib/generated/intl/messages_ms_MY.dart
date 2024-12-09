@@ -538,6 +538,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Padankan nombor telefon dengan aksara tertentu di tengah:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Perubatan"),
         "merge": MessageLookupByLibrary.simpleMessage("Gabung"),
         "mergeContacts":
@@ -652,6 +654,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Sila masukkan"),
         "pleaseEnterAPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Sila masukkan nombor telefon"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Sila masukkan corak"),
         "pleaseEnterAnUrl":
@@ -695,9 +700,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Halaman Regex"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Penjelasan Corak Regex"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Corak Regex adalah ungkapan biasa yang digunakan untuk memadankan nombor telefon."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Paparan Halaman Regex"),
         "region": MessageLookupByLibrary.simpleMessage("Wilayah:"),
@@ -838,6 +847,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Senarai Paparan Langganan"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("berjaya"),
         "survey": MessageLookupByLibrary.simpleMessage("Tinjauan"),
         "sync": MessageLookupByLibrary.simpleMessage("Segerak"),

@@ -555,6 +555,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Hacer coincidir números de teléfono con caracteres específicos en el medio:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Médico"),
         "merge": MessageLookupByLibrary.simpleMessage("Combinar"),
         "mergeContacts":
@@ -672,6 +674,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Introduzca"),
         "pleaseEnterAPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Introduzca un número de teléfono"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Introduzca un patrón"),
         "pleaseEnterAnUrl":
@@ -716,9 +721,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Página Regex"),
         "regexPatternExplanation": MessageLookupByLibrary.simpleMessage(
             "Explicación del patrón Regex"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Los patrones Regex son expresiones regulares que se utilizan para hacer coincidir números de teléfono."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Vista de página Regex"),
         "region": MessageLookupByLibrary.simpleMessage("Región:"),
@@ -867,6 +876,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vista de lista de suscripción"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("correctamente"),
         "survey": MessageLookupByLibrary.simpleMessage("Encuesta"),
         "sync": MessageLookupByLibrary.simpleMessage("Sincronizar"),

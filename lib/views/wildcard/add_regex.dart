@@ -15,6 +15,7 @@ import 'export_regexs.dart';
 import 'hint.dart';
 import 'import_regexs.dart';
 import 'regex_page.dart';
+import 'regex_test.dart';
 
 class AddRegexPageView extends StatelessWidget {
   const AddRegexPageView({super.key});
@@ -47,10 +48,10 @@ class AddRegexPage extends StatefulWidget {
 class AddRegexPageState extends State<AddRegexPage> {
   // 订阅名称控制器
 
-  TextEditingController _regexNameController = TextEditingController();
+  TextEditingController regexNameController = TextEditingController();
 
   //规则控制器
-  TextEditingController _patternController = TextEditingController();
+  TextEditingController patternController = TextEditingController();
 
   late RegexService _regexService;
 
@@ -118,11 +119,11 @@ class AddRegexPageState extends State<AddRegexPage> {
           child: Column(
             children: <Widget>[
               // 使用 NameInputWidget
-              NameInputWidget(nameController: _regexNameController),
+              NameInputWidget(nameController: regexNameController),
 
               const SizedBox(height: 16.0),
               // 使用 patternInputWidget
-              PatternInputWidget(patternController: _patternController),
+              PatternInputWidget(patternController: patternController),
 
               const SizedBox(height: 16.0),
 
@@ -150,6 +151,8 @@ class AddRegexPageState extends State<AddRegexPage> {
               const Divider(height: 1),
 // regex 提示
               const RegexPatternExplanationButton(),
+const RegexPatternTestButton(),
+
 
               const Divider(height: 1),
               const SizedBox(height: 16.0),
@@ -170,19 +173,19 @@ class AddRegexPageState extends State<AddRegexPage> {
           child: ElevatedButton(
             onPressed: () async {
               // 检查订阅名称是否为空
-              if (_regexNameController.text.isEmpty) {
+              if (regexNameController.text.isEmpty) {
                 showErrorSnackBar(context, S.of(context).nameCannotBeEmpty);
                 return;
               }
               // 检查规则是否为空
-              if (_patternController.text.isEmpty) {
+              if (patternController.text.isEmpty) {
                 showErrorSnackBar(context, S.of(context).pleaseEnterAnPattern);
                 return;
               }
 
               final rexPattern = RegexPattern(
-                name: _regexNameController.text,
-                pattern: _patternController.text,
+                name: regexNameController.text,
+                pattern: patternController.text,
                 isWhitelist: _isWhitelist,
                 isBlacklist: _isBlacklist,
                 enabled: _enabled,
@@ -195,8 +198,8 @@ class AddRegexPageState extends State<AddRegexPage> {
                   await _regexService.enablePattern(rexPattern);
                 }
 
-                _regexNameController.clear();
-                _patternController.clear();
+                regexNameController.clear();
+                patternController.clear();
                 setState(() {
                   _rexPattern = RegexPattern(name: '', pattern: '');
                 });

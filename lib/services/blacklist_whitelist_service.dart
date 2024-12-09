@@ -551,21 +551,27 @@ abstract class ListService<T extends ListEntry> {
     return _parseData(data, filePath);
   }
 
-  Future<void> _addAllWithUrl(
-      String tableName, List<Map<String, dynamic>> entries, String? url) async {
-    final batch = database.batch();
+Future<void> _addAllWithUrl(String tableName, List<Map<String, dynamic>> entries, String? url) async {
+  final batch = database.batch();
 
-    for (final entry in entries) {
-      // 如果有url且entry没有url，则添加
-      entry['url'] ??= url;
-      // 打印正在插入的条目
-      // 直接使用 insertOrReplace
-      batch.insert(tableName, entry,
-          conflictAlgorithm: ConflictAlgorithm.replace);
+  for (final entry in entries) {
+    // 修改判断逻辑，同时处理 null 和空字符串的情况
+    if (entry['url'] == null || entry['url'].toString().isEmpty) {
+      entry['url'] = url;
     }
+    
 
-    await batch.commit(noResult: true);
+    
+    batch.insert(
+      tableName, 
+      entry,
+      conflictAlgorithm: ConflictAlgorithm.replace
+    );
   }
+
+  await batch.commit(noResult: true);
+}
+
 }
 
 class BlacklistService extends ListService<BlacklistEntry> {

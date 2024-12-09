@@ -539,6 +539,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Ortasında belirli karakterler bulunan telefon numaralarıyla eşleştir:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Tıbbi"),
         "merge": MessageLookupByLibrary.simpleMessage("Birleştir"),
         "mergeContacts":
@@ -653,6 +655,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Lütfen girin"),
         "pleaseEnterAPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Lütfen bir telefon numarası girin"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Lütfen bir desen girin"),
         "pleaseEnterAnUrl":
@@ -696,9 +701,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex Sayfası"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Regex Desen Açıklaması"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Regex desenleri, telefon numaralarıyla eşleştirmek için kullanılan düzenli ifadelerdir."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Regex Sayfa Görünümü"),
         "region": MessageLookupByLibrary.simpleMessage("Bölge:"),
@@ -840,6 +849,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Abonelik Listesi Görünümü"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("başarıyla"),
         "survey": MessageLookupByLibrary.simpleMessage("Anket"),
         "sync": MessageLookupByLibrary.simpleMessage("Senkronize Et"),

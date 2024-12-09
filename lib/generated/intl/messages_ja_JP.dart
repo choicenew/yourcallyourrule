@@ -450,6 +450,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("特定の数字を含む電話番号を照合する："),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage("途中に特定の文字を含む電話番号を照合する："),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("医療"),
         "merge": MessageLookupByLibrary.simpleMessage("マージ"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("連絡先をマージ"),
@@ -548,6 +550,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("入力してください"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("電話番号を入力してください"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("パターンを入力してください"),
         "pleaseEnterAnUrl":
@@ -589,9 +594,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("正規表現ページ"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("正規表現パターンの説明"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "正規表現パターンは、電話番号の照合に使用される正規表現です。"),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview": MessageLookupByLibrary.simpleMessage("正規表現ページビュー"),
         "region": MessageLookupByLibrary.simpleMessage("地域："),
         "reject": MessageLookupByLibrary.simpleMessage("拒否"),
@@ -712,6 +721,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("購読リストビュー"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("成功しました"),
         "survey": MessageLookupByLibrary.simpleMessage("調査"),
         "sync": MessageLookupByLibrary.simpleMessage("同期"),

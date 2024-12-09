@@ -531,6 +531,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Cocokkan nomor telepon dengan karakter tertentu di tengah:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Medis"),
         "merge": MessageLookupByLibrary.simpleMessage("Gabungkan"),
         "mergeContacts":
@@ -646,6 +648,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Silakan masukkan"),
         "pleaseEnterAPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Silakan masukkan nomor telepon"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Silakan masukkan pola"),
         "pleaseEnterAnUrl":
@@ -689,9 +694,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Halaman Regex"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Penjelasan Pola Regex"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Pola Regex adalah ekspresi reguler yang digunakan untuk mencocokkan nomor telepon."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("TampilanHalamanRegex"),
         "region": MessageLookupByLibrary.simpleMessage("Wilayah:"),
@@ -832,6 +841,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("DaftarTampilanBerlangganan"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("berhasil"),
         "survey": MessageLookupByLibrary.simpleMessage("Survei"),
         "sync": MessageLookupByLibrary.simpleMessage("Sinkronisasi"),

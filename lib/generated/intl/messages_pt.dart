@@ -552,6 +552,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Corresponder a números de telefone com caracteres específicos no meio:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Médico"),
         "merge": MessageLookupByLibrary.simpleMessage("Fundir"),
         "mergeContacts":
@@ -668,6 +670,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Por favor introduza"),
         "pleaseEnterAPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Introduza um número de telefone"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Introduza um padrão"),
         "pleaseEnterAnUrl":
@@ -711,9 +716,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Página Regex"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Explicação do Padrão Regex"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Os padrões Regex são expressões regulares usadas para corresponder a números de telefone."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Vista da Página Regex"),
         "region": MessageLookupByLibrary.simpleMessage("Região:"),
@@ -861,6 +870,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vista da Lista de Subscrições"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("com sucesso"),
         "survey": MessageLookupByLibrary.simpleMessage("Sondagem"),
         "sync": MessageLookupByLibrary.simpleMessage("Sincronizar"),

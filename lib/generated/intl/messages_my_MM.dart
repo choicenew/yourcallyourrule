@@ -551,6 +551,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "အလယ်တွင်သတ်မှတ်ထားသောဇာတ်ကောင်များပါသောဖုန်းနံပါတ်များနှင့်ကိုက်ညီပါ :"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("ဆေးဘက်ဆိုင်ရာ"),
         "merge": MessageLookupByLibrary.simpleMessage("ပေါင်းစည်းပါ"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage(
@@ -668,6 +670,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ကျေးဇူးပြု၍ ရိုက်ထည့်ပါ"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("ဖုန်းနံပါတ်တစ်ခုရိုက်ထည့်ပါ"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("ပုံစံတစ်ခုရိုက်ထည့်ပါ"),
         "pleaseEnterAnUrl":
@@ -711,9 +716,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex စာမျက်နှာ"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Regex ပုံစံရှင်းလင်းချက်"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Regex ပုံစံများသည်ဖုန်းနံပါတ်များနှင့်ကိုက်ညီရန်အသုံးပြုသောပုံမှန်ဖော်ပြချက်များဖြစ်သည်။"),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Regex စာမျက်နှာကြည့်ရှုမှု"),
         "region": MessageLookupByLibrary.simpleMessage("ဒေသ :"),
@@ -861,6 +870,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "စာရင်းသွင်းမှုစာရင်းကြည့်ရှုမှု"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("အောင်မြင်စွာ"),
         "survey": MessageLookupByLibrary.simpleMessage("စစ်တမ်း"),
         "sync":

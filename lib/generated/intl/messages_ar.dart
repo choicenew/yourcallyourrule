@@ -524,6 +524,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "مطابقة أرقام الهواتف التي تحتوي على أحرف محددة في المنتصف:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("طبي"),
         "merge": MessageLookupByLibrary.simpleMessage("دمج"),
         "mergeContacts":
@@ -635,6 +637,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("الرجاء إدخال"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال رقم هاتف"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال نمط"),
         "pleaseEnterAnUrl":
@@ -680,9 +685,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("صفحة التعبير العادي"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("شرح نمط التعبير العادي"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "أنماط التعبير العادي هي عبارة عن تعبيرات منتظمة تستخدم لمطابقة أرقام الهواتف."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("عرض صفحة التعبير العادي"),
         "region": MessageLookupByLibrary.simpleMessage("المنطقة:"),
@@ -821,6 +830,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("عرض قائمة الاشتراكات"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("بنجاح"),
         "survey": MessageLookupByLibrary.simpleMessage("استطلاع"),
         "sync": MessageLookupByLibrary.simpleMessage("مزامنة"),

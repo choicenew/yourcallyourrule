@@ -527,6 +527,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "จับคู่หมายเลขโทรศัพท์ที่มีอักขระเฉพาะอยู่ตรงกลาง:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("การแพทย์"),
         "merge": MessageLookupByLibrary.simpleMessage("รวม"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("รวมผู้ติดต่อ"),
@@ -643,6 +645,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("โปรดป้อน"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("โปรดป้อนหมายเลขโทรศัพท์"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("โปรดป้อนรูปแบบ"),
         "pleaseEnterAnUrl":
@@ -686,9 +691,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("หน้านิพจน์ทั่วไป"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("คำอธิบายรูปแบบนิพจน์ทั่วไป"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "รูปแบบนิพจน์ทั่วไปคือนิพจน์ทั่วไปที่ใช้เพื่อจับคู่หมายเลขโทรศัพท์"),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("มุมมองหน้านิพจน์ทั่วไป"),
         "region": MessageLookupByLibrary.simpleMessage("ภูมิภาค:"),
@@ -827,6 +836,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("มุมมองรายการการสมัครสมาชิก"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("สำเร็จ"),
         "survey": MessageLookupByLibrary.simpleMessage("แบบสำรวจ"),
         "sync": MessageLookupByLibrary.simpleMessage("ซิงค์"),

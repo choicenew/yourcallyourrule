@@ -425,6 +425,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("匹配包含特定數字的電話號碼："),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage("匹配中間包含特定字符的電話號碼："),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("醫療"),
         "merge": MessageLookupByLibrary.simpleMessage("合併"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("合併聯絡人"),
@@ -516,6 +518,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("請輸入"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("請輸入電話號碼"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern": MessageLookupByLibrary.simpleMessage("請輸入一個模式"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("請輸入一個網址"),
         "pleaseSelectAFileOrInputAUrl":
@@ -549,8 +554,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("正則表達式頁面"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("正則表達式模式說明"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage("正則表達式模式是用於匹配電話號碼的正則表達式。"),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview": MessageLookupByLibrary.simpleMessage("正則表達式頁面視圖"),
         "region": MessageLookupByLibrary.simpleMessage("地區："),
         "reject": MessageLookupByLibrary.simpleMessage("拒絕"),
@@ -664,6 +673,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscriptionlistview": MessageLookupByLibrary.simpleMessage("訂閱列表視圖"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("成功"),
         "survey": MessageLookupByLibrary.simpleMessage("調查"),
         "sync": MessageLookupByLibrary.simpleMessage("同步"),

@@ -504,6 +504,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "התאם למספרי טלפון עם תווים ספציפיים באמצע:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("רפואי"),
         "merge": MessageLookupByLibrary.simpleMessage("מזג"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("מזג אנשי קשר"),
@@ -610,6 +612,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("אנא הזן"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("אנא הזן מספר טלפון"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("אנא הזן תבנית"),
         "pleaseEnterAnUrl":
@@ -653,9 +658,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("עמוד ביטוי רגולרי"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("הסבר תבנית ביטוי רגולרי"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "תבניות ביטוי רגולרי הן ביטויים רגולריים המשמשים להתאמה של מספרי טלפון."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("תצוגת עמוד ביטוי רגולרי"),
         "region": MessageLookupByLibrary.simpleMessage("אזור:"),
@@ -786,6 +795,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("רשימת תצוגת מנויים"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("בהצלחה"),
         "survey": MessageLookupByLibrary.simpleMessage("סקר"),
         "sync": MessageLookupByLibrary.simpleMessage("סנכרון"),
