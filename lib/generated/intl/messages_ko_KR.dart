@@ -459,6 +459,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("특정 숫자가 포함된 전화번호 일치:"),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage("중간에 특정 문자가 있는 전화번호 일치:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("의료"),
         "merge": MessageLookupByLibrary.simpleMessage("병합"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("연락처 병합"),
@@ -561,6 +563,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("입력하세요"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("전화번호를 입력하세요"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("패턴을 입력하세요"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("URL을 입력하세요"),
@@ -601,9 +606,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("정규식 페이지"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("정규식 패턴 설명"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "정규식 패턴은 전화번호를 일치시키는 데 사용되는 정규식입니다."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview": MessageLookupByLibrary.simpleMessage("정규식 페이지 보기"),
         "region": MessageLookupByLibrary.simpleMessage("지역:"),
         "reject": MessageLookupByLibrary.simpleMessage("거부"),
@@ -726,6 +735,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("구독 목록 보기"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("성공적으로"),
         "survey": MessageLookupByLibrary.simpleMessage("설문 조사"),
         "sync": MessageLookupByLibrary.simpleMessage("동기화"),

@@ -96,7 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("自动关闭本地通知"),
         "autoUpdateDisabled": MessageLookupByLibrary.simpleMessage("已禁用自动更新"),
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage("已启用自动更新"),
-        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("自动备份"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage("头像和图标大小"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("头像边框颜色"),
         "avatarBorderSize": MessageLookupByLibrary.simpleMessage("头像边框大小"),
@@ -188,8 +188,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("已成功导入联系人"),
         "contactsPage": MessageLookupByLibrary.simpleMessage("联系人页面"),
         "contactsWithNumber": MessageLookupByLibrary.simpleMessage("具有号码的联系人"),
-        "contactsubscription":
-            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
+        "contactsubscription": MessageLookupByLibrary.simpleMessage("联系订阅"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("通讯录订阅页面"),
         "countColor": MessageLookupByLibrary.simpleMessage("计数颜色"),
@@ -329,8 +328,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "history": MessageLookupByLibrary.simpleMessage("历史记录"),
         "home": MessageLookupByLibrary.simpleMessage("首页"),
         "iconSize": MessageLookupByLibrary.simpleMessage("图标大小"),
-        "ifThereIsAnErrorSelectACountry": MessageLookupByLibrary.simpleMessage(
-            "if there is an error select a country"),
+        "ifThereIsAnErrorSelectACountry":
+            MessageLookupByLibrary.simpleMessage("如果有错误请选择一个国家"),
         "import": MessageLookupByLibrary.simpleMessage("导入"),
         "importAllowedEntryPage":
             MessageLookupByLibrary.simpleMessage("导入允许的条目页"),
@@ -419,6 +418,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("匹配包含特定数字的电话号码："),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage("匹配中间包含特定字符的电话号码："),
+        "matchSuccessful": MessageLookupByLibrary.simpleMessage("匹配成功!"),
         "medical": MessageLookupByLibrary.simpleMessage("医疗"),
         "merge": MessageLookupByLibrary.simpleMessage("合并"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("合并联系人"),
@@ -434,8 +434,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nameFontSize": MessageLookupByLibrary.simpleMessage("姓名字体大小"),
         "namePosition": MessageLookupByLibrary.simpleMessage("姓名位置"),
         "next": MessageLookupByLibrary.simpleMessage("下一步"),
-        "noDataAvailable":
-            MessageLookupByLibrary.simpleMessage("No data available."),
+        "noDataAvailable": MessageLookupByLibrary.simpleMessage("暂时没有数据"),
         "noImageSelected": MessageLookupByLibrary.simpleMessage("尚未选择图像"),
         "noIncomingSmsMessagesFilter":
             MessageLookupByLibrary.simpleMessage("不过滤来短信"),
@@ -510,6 +509,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("请输入"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("请输入电话号码"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage("请输入电话号码和正则表达式"),
         "pleaseEnterAnPattern": MessageLookupByLibrary.simpleMessage("请输入一个模式"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("请输入一个 URL"),
         "pleaseSelectAFileOrInputAUrl":
@@ -530,7 +531,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pluginPage": MessageLookupByLibrary.simpleMessage("插件页面"),
         "plugins": MessageLookupByLibrary.simpleMessage("插件"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("插件页视图"),
-        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("插件更新"),
         "political": MessageLookupByLibrary.simpleMessage("政治"),
         "purchase": MessageLookupByLibrary.simpleMessage("购买"),
         "purchaseFailed": MessageLookupByLibrary.simpleMessage("购买失败："),
@@ -538,13 +539,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("正在处理购买..."),
         "purchaseSuccessful": MessageLookupByLibrary.simpleMessage("购买成功！"),
         "quarterlySubscription": MessageLookupByLibrary.simpleMessage("季度订阅"),
-        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("录音备份"),
         "regex": MessageLookupByLibrary.simpleMessage("正则表达式"),
         "regexPage": MessageLookupByLibrary.simpleMessage("正则页面"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("正则表达式模式说明"),
+        "regexPatternTest": MessageLookupByLibrary.simpleMessage("Regex 测试"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage("正则表达式模式是用于匹配电话号码的正则表达式。"),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex 测试号码"),
         "regexpageview": MessageLookupByLibrary.simpleMessage("正则表达式页视图"),
         "region": MessageLookupByLibrary.simpleMessage("地区："),
         "reject": MessageLookupByLibrary.simpleMessage("拒绝"),
@@ -567,8 +571,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("从 OneDrive 恢复"),
         "restoreFromWebdav":
             MessageLookupByLibrary.simpleMessage("从 WebDAV 恢复"),
-        "restorePurchase":
-            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
+        "restorePurchase": MessageLookupByLibrary.simpleMessage("恢复购买"),
         "ridesharing": MessageLookupByLibrary.simpleMessage("拼车"),
         "risk": MessageLookupByLibrary.simpleMessage("风险"),
         "robocall": MessageLookupByLibrary.simpleMessage("机器人电话"),
@@ -612,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "simCardPosition": MessageLookupByLibrary.simpleMessage("SIM 卡位置"),
         "skip": MessageLookupByLibrary.simpleMessage("跳过"),
         "sms": MessageLookupByLibrary.simpleMessage("短信"),
-        "smsBlacklist": MessageLookupByLibrary.simpleMessage("SMS Blacklist"),
+        "smsBlacklist": MessageLookupByLibrary.simpleMessage("SMS黑名单"),
         "smsBlacklistPage": MessageLookupByLibrary.simpleMessage("短信黑名单页面"),
         "smsFiltering": MessageLookupByLibrary.simpleMessage("短信过滤"),
         "smsFilteringRequiresSmsNotificationAndPhonePermissionsPleaseGrant":
@@ -620,15 +623,13 @@ class MessageLookup extends MessageLookupByLibrary {
                 "短信过滤需要短信、通知和电话权限。请授予这些权限以启用此功能。"),
         "smsLocalNotification": MessageLookupByLibrary.simpleMessage("短信本地通知"),
         "smsNotification": MessageLookupByLibrary.simpleMessage("短信通知"),
-        "smsSubscribe": MessageLookupByLibrary.simpleMessage("SMS Subscribe"),
+        "smsSubscribe": MessageLookupByLibrary.simpleMessage("SMS订阅"),
         "smsSubscriptionPage": MessageLookupByLibrary.simpleMessage("短信订阅页面"),
-        "smsTextBlacklist":
-            MessageLookupByLibrary.simpleMessage("SMS Text Blacklist"),
+        "smsTextBlacklist": MessageLookupByLibrary.simpleMessage("SMS文本黑名单"),
         "smsTextWhitelistPage":
             MessageLookupByLibrary.simpleMessage("短信文本白名单页面"),
-        "smsTextwhitelist":
-            MessageLookupByLibrary.simpleMessage("SMS TextWhitelist"),
-        "smsWhitelist": MessageLookupByLibrary.simpleMessage("SMS Whitelist"),
+        "smsTextwhitelist": MessageLookupByLibrary.simpleMessage("SMS文本白名单"),
+        "smsWhitelist": MessageLookupByLibrary.simpleMessage("SMS白名单"),
         "smsblacklistpageview": MessageLookupByLibrary.simpleMessage("短信黑名单页面"),
         "smssubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("短信订阅页面"),
@@ -654,8 +655,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscriptionListPage": MessageLookupByLibrary.simpleMessage("订阅列表页面"),
         "subscriptionValid": MessageLookupByLibrary.simpleMessage("订阅有效"),
         "subscriptionlistview": MessageLookupByLibrary.simpleMessage("订阅列表视图"),
-        "subscriptionmodel":
-            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "subscriptionmodel": MessageLookupByLibrary.simpleMessage("在线数据订阅更新"),
+        "successful": MessageLookupByLibrary.simpleMessage("成功"),
         "successfully": MessageLookupByLibrary.simpleMessage("成功"),
         "survey": MessageLookupByLibrary.simpleMessage("调查"),
         "sync": MessageLookupByLibrary.simpleMessage("同步"),

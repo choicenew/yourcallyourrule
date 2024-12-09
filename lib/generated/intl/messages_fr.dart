@@ -558,6 +558,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Faire correspondre les numéros de téléphone avec des caractères spécifiques au milieu :"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Médical"),
         "merge": MessageLookupByLibrary.simpleMessage("Fusionner"),
         "mergeContacts":
@@ -674,6 +676,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Veuillez saisir"),
         "pleaseEnterAPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Veuillez saisir un numéro de téléphone"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Veuillez saisir un modèle"),
         "pleaseEnterAnUrl":
@@ -717,9 +722,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Page Regex"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Explication du modèle Regex"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Les modèles Regex sont des expressions régulières utilisées pour faire correspondre les numéros de téléphone."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Vue de la page Regex"),
         "region": MessageLookupByLibrary.simpleMessage("Région :"),
@@ -866,6 +875,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Liste des abonnements"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("avec succès"),
         "survey": MessageLookupByLibrary.simpleMessage("Sondage"),
         "sync": MessageLookupByLibrary.simpleMessage("Synchroniser"),

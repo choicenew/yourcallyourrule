@@ -546,6 +546,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Telefonnummern mit bestimmten Zeichen in der Mitte abgleichen:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Medizinisch"),
         "merge": MessageLookupByLibrary.simpleMessage("Zusammenführen"),
         "mergeContacts":
@@ -662,6 +664,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Bitte eingeben"),
         "pleaseEnterAPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Bitte geben Sie eine Telefonnummer ein"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern": MessageLookupByLibrary.simpleMessage(
             "Bitte geben Sie ein Muster ein"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage(
@@ -705,9 +710,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex-Seite"),
         "regexPatternExplanation": MessageLookupByLibrary.simpleMessage(
             "Erläuterung des Regex-Musters"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Regex-Muster sind reguläre Ausdrücke, die zum Abgleichen von Telefonnummern verwendet werden."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Ansicht der Regex-Seite"),
         "region": MessageLookupByLibrary.simpleMessage("Region:"),
@@ -855,6 +864,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Listenansicht der Abonnements"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("erfolgreich"),
         "survey": MessageLookupByLibrary.simpleMessage("Umfrage"),
         "sync": MessageLookupByLibrary.simpleMessage("Synchronisieren"),

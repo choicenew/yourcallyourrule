@@ -525,6 +525,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Khớp với số điện thoại có ký tự cụ thể ở giữa:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Y tế"),
         "merge": MessageLookupByLibrary.simpleMessage("Hợp nhất"),
         "mergeContacts":
@@ -637,6 +639,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Vui lòng nhập"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập số điện thoại"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập một mẫu"),
         "pleaseEnterAnUrl":
@@ -680,9 +685,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Trang Regex"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Giải thích mẫu Regex"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Các mẫu Regex là các biểu thức chính quy được sử dụng để khớp với số điện thoại."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Chế độ xem trang Regex"),
         "region": MessageLookupByLibrary.simpleMessage("Khu vực:"),
@@ -824,6 +833,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Danh sách đăng ký"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("thành công"),
         "survey": MessageLookupByLibrary.simpleMessage("Khảo sát"),
         "sync": MessageLookupByLibrary.simpleMessage("Đồng bộ hóa"),

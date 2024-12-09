@@ -531,5 +531,10 @@
   "autobackup": "自动备份",
   "pluginupdate": "插件更新",
   "recordbackup": "录音备份",
-  "restorePurchase": "Restore Purchase"
+  "restorePurchase": "恢复购买",
+  "pleaseEnterAPhoneNumberAndRegexPattern": "请输入电话号码和正则表达式",
+  "matchSuccessful": "匹配成功!",
+  "regexPhoneNumberTest": "Regex 测试号码",
+  "successful": "成功",
+  "regexPatternTest": "Regex 测试"
 }

@@ -547,6 +547,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Збігати номери телефонів з певними символами посередині:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Медичний"),
         "merge": MessageLookupByLibrary.simpleMessage("Об\'єднати"),
         "mergeContacts":
@@ -663,6 +665,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Будь ласка, введіть"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Введіть номер телефону"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Введіть шаблон"),
         "pleaseEnterAnUrl":
@@ -707,9 +712,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Сторінка регулярних виразів"),
         "regexPatternExplanation": MessageLookupByLibrary.simpleMessage(
             "Пояснення шаблону регулярного виразу"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Шаблони регулярних виразів - це регулярні вирази, що використовуються для збігу номерів телефонів."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview": MessageLookupByLibrary.simpleMessage(
             "Перегляд сторінки регулярних виразів"),
         "region": MessageLookupByLibrary.simpleMessage("Регіон:"),
@@ -852,6 +861,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Список підписок"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("успішно"),
         "survey": MessageLookupByLibrary.simpleMessage("Опитування"),
         "sync": MessageLookupByLibrary.simpleMessage("Синхронізувати"),

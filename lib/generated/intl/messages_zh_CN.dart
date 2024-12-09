@@ -418,6 +418,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("匹配包含特定数字的电话号码："),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage("匹配中间包含特定字符的电话号码："),
+        "matchSuccessful": MessageLookupByLibrary.simpleMessage("匹配成功!"),
         "medical": MessageLookupByLibrary.simpleMessage("医疗"),
         "merge": MessageLookupByLibrary.simpleMessage("合并"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("合并联系人"),
@@ -508,6 +509,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("请输入"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("请输入电话号码"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage("请输入电话号码和正则表达式"),
         "pleaseEnterAnPattern": MessageLookupByLibrary.simpleMessage("请输入一个模式"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("请输入一个 URL"),
         "pleaseSelectAFileOrInputAUrl":
@@ -541,8 +544,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("正则页面"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("正则表达式模式说明"),
+        "regexPatternTest": MessageLookupByLibrary.simpleMessage("Regex 测试"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage("正则表达式模式是用于匹配电话号码的正则表达式。"),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex 测试号码"),
         "regexpageview": MessageLookupByLibrary.simpleMessage("正则表达式页视图"),
         "region": MessageLookupByLibrary.simpleMessage("地区："),
         "reject": MessageLookupByLibrary.simpleMessage("拒绝"),
@@ -565,8 +571,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("从 OneDrive 恢复"),
         "restoreFromWebdav":
             MessageLookupByLibrary.simpleMessage("从 WebDAV 恢复"),
-        "restorePurchase":
-            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
+        "restorePurchase": MessageLookupByLibrary.simpleMessage("恢复购买"),
         "ridesharing": MessageLookupByLibrary.simpleMessage("拼车"),
         "risk": MessageLookupByLibrary.simpleMessage("风险"),
         "robocall": MessageLookupByLibrary.simpleMessage("机器人电话"),
@@ -651,6 +656,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscriptionValid": MessageLookupByLibrary.simpleMessage("订阅有效"),
         "subscriptionlistview": MessageLookupByLibrary.simpleMessage("订阅列表视图"),
         "subscriptionmodel": MessageLookupByLibrary.simpleMessage("在线数据订阅更新"),
+        "successful": MessageLookupByLibrary.simpleMessage("成功"),
         "successfully": MessageLookupByLibrary.simpleMessage("成功"),
         "survey": MessageLookupByLibrary.simpleMessage("调查"),
         "sync": MessageLookupByLibrary.simpleMessage("同步"),

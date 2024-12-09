@@ -544,6 +544,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Telefoonnummers matchen met specifieke tekens in het midden:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Medisch"),
         "merge": MessageLookupByLibrary.simpleMessage("Samenvoegen"),
         "mergeContacts":
@@ -657,6 +659,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Voer in"),
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Voer een telefoonnummer in"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Voer een patroon in"),
         "pleaseEnterAnUrl":
@@ -700,9 +705,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Pagina regex"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Regex-patroonuitleg"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Regex-patronen zijn reguliere expressies die worden gebruikt om telefoonnummers te matchen."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("Weergave regexpagina"),
         "region": MessageLookupByLibrary.simpleMessage("Regio:"),
@@ -847,6 +856,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lijstweergave abonnementen"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("succesvol"),
         "survey": MessageLookupByLibrary.simpleMessage("Enquête"),
         "sync": MessageLookupByLibrary.simpleMessage("Synchroniseren"),

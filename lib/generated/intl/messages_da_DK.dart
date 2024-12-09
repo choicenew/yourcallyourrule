@@ -537,6 +537,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage(
                 "Match telefonnumre med specifikke tegn i midten:"),
+        "matchSuccessful":
+            MessageLookupByLibrary.simpleMessage("Match successful!"),
         "medical": MessageLookupByLibrary.simpleMessage("Medicinsk"),
         "merge": MessageLookupByLibrary.simpleMessage("Flet"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("Flet kontakter"),
@@ -649,6 +651,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnter": MessageLookupByLibrary.simpleMessage("Indtast venligst"),
         "pleaseEnterAPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Indtast venligst et telefonnummer"),
+        "pleaseEnterAPhoneNumberAndRegexPattern":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a phone number and regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Indtast venligst et mønster"),
         "pleaseEnterAnUrl":
@@ -692,9 +697,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex-side"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Forklaring af Regex-mønster"),
+        "regexPatternTest":
+            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "Regex-mønstre er regulære udtryk, der bruges til at matche telefonnumre."),
+        "regexPhoneNumberTest":
+            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("RegexSidevisning"),
         "region": MessageLookupByLibrary.simpleMessage("Region:"),
@@ -831,6 +840,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Abonnementslistevisning"),
         "subscriptionmodel":
             MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "successfully": MessageLookupByLibrary.simpleMessage("med succes"),
         "survey": MessageLookupByLibrary.simpleMessage("Undersøgelse"),
         "sync": MessageLookupByLibrary.simpleMessage("Synkroniser"),

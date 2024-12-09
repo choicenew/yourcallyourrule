@@ -5382,6 +5382,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Please enter a phone number and regex pattern`
+  String get pleaseEnterAPhoneNumberAndRegexPattern {
+    return Intl.message(
+      'Please enter a phone number and regex pattern',
+      name: 'pleaseEnterAPhoneNumberAndRegexPattern',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Match successful!`
+  String get matchSuccessful {
+    return Intl.message(
+      'Match successful!',
+      name: 'matchSuccessful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Regex Phone Number Test`
+  String get regexPhoneNumberTest {
+    return Intl.message(
+      'Regex Phone Number Test',
+      name: 'regexPhoneNumberTest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successful`
+  String get successful {
+    return Intl.message(
+      'Successful',
+      name: 'successful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Regex Pattern Test`
+  String get regexPatternTest {
+    return Intl.message(
+      'Regex Pattern Test',
+      name: 'regexPatternTest',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -532,5 +532,10 @@
   "autobackup": "AutoBackup",
   "pluginupdate": "PluginUpdate",
   "recordbackup": "RecordBackup",
-  "restorePurchase": "Restore Purchase"
+  "restorePurchase": "Restore Purchase",
+  "pleaseEnterAPhoneNumberAndRegexPattern": "Please enter a phone number and regex pattern",
+  "matchSuccessful": "Match successful!",
+  "regexPhoneNumberTest": "Regex Phone Number Test",
+  "successful": "Successful",
+  "regexPatternTest": "Regex Pattern Test"
 }
