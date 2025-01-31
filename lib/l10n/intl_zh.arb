@@ -536,5 +536,20 @@
   "matchSuccessful": "匹配成功!",
   "regexPhoneNumberTest": "Regex 测试号码",
   "successful": "成功",
-  "regexPatternTest": "Regex 测试"
+  "regexPatternTest": "Regex 测试",
+  "callerIdDataIsNotAvailable": "来电信息不可用",
+  "verifyPhoneNumber": "验证电话号码",
+  "countryCode": "国家代码",
+  "enterCountryCode": "输入国家代码（例如：CN、US）",
+  "verify": "验证",
+  "verificationResultsRules": "验证结果（接听规则）：",
+  "callerIdData": "来电信息：",
+  "countryName": "国家名称",
+  "avatar": "头像",
+  "count": "数量",
+  "pluginData": "插件数据：",
+  "testCallerIdOverlay": "测试来电信息弹窗",
+  "allowOtherNumbers": "允许其他号码",
+  "verificationPageRules": "验证规则页面",
+  "toTestRules": "验证规则"
 }

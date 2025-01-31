@@ -90,6 +90,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cho phép tất cả các số trong danh sách trắng"),
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("Cho phép các số bị chặn"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Cho phép các mẫu danh sách đen Regex"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -118,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("Đã bật tự động cập nhật"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage(
             "Kích thước Avatar và Biểu tượng"),
         "avatarBorderColor":
@@ -176,6 +179,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Yêu cầu vai trò sàng lọc cuộc gọi thành công!"),
         "callerIdApp":
             MessageLookupByLibrary.simpleMessage("Ứng dụng ID người gọi"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle":
@@ -239,12 +245,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Danh sách đăng ký liên hệ"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("Màu số lượng"),
         "countFontSize":
             MessageLookupByLibrary.simpleMessage("Cỡ chữ số lượng"),
         "countPosition":
             MessageLookupByLibrary.simpleMessage("Vị trí số lượng"),
         "country": MessageLookupByLibrary.simpleMessage("Quốc gia:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Màu tên quốc gia"),
         "countryNameFontSize":
@@ -311,6 +320,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Đã bật"),
         "endColor": MessageLookupByLibrary.simpleMessage("Màu kết thúc"),
         "endcall": MessageLookupByLibrary.simpleMessage("Kết thúc cuộc gọi"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Nhập URL hình ảnh"),
         "enterPluginCodeHere":
@@ -665,6 +676,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Vui lòng đợi quá trình khởi tạo cơ sở dữ liệu hoàn tất."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Trang plugin"),
         "plugins": MessageLookupByLibrary.simpleMessage("Plugin"),
         "pluginspageview":
@@ -851,6 +863,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Kiểm tra"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("Màu văn bản & nhãn"),
         "textType": MessageLookupByLibrary.simpleMessage("Loại văn bản"),
@@ -868,6 +882,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Quyền này là bắt buộc để ứng dụng của chúng tôi hiển thị thông tin quan trọng trên các ứng dụng khác. \\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Hướng dẫn"),
@@ -900,7 +915,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Sử dụng mẫu \'^\\+\' để khớp với tất cả các số điện thoại bắt đầu bằng dấu cộng, thường cho biết số quốc tế."),
         "userName": MessageLookupByLibrary.simpleMessage("Tên người dùng"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Đã xác minh"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Video"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

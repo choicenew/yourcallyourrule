@@ -86,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "אפשר את כל המספרים ברשימה לבנה"),
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("אפשר מספרים חסומים"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "אפשר תבניות ברשימה שחורה של ביטויים רגולריים"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -114,6 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("עדכון אוטומטי מופעל"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("גדלי אווטאר וסמל"),
         "avatarBorderColor":
@@ -171,6 +174,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "בקשת תפקיד סינון שיחות הצליחה!"),
         "callerIdApp":
             MessageLookupByLibrary.simpleMessage("אפליקציית זיהוי מתקשר"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle":
@@ -231,11 +237,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("רשימת תצוגת מנויים איש קשר"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("צבע ספירה"),
         "countFontSize":
             MessageLookupByLibrary.simpleMessage("גודל גופן ספירה"),
         "countPosition": MessageLookupByLibrary.simpleMessage("מיקום ספירה"),
         "country": MessageLookupByLibrary.simpleMessage("מדינה:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("צבע שם מדינה"),
         "countryNameFontSize":
@@ -299,6 +308,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("מופעל"),
         "endColor": MessageLookupByLibrary.simpleMessage("צבע סיום"),
         "endcall": MessageLookupByLibrary.simpleMessage("סיים שיחה"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("הזן כתובת URL של תמונה"),
         "enterPluginCodeHere":
@@ -638,6 +649,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "אנא המתן לסיום אתחול מסד הנתונים."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("עמוד תוסף"),
         "plugins": MessageLookupByLibrary.simpleMessage("תוספים"),
         "pluginspageview":
@@ -812,6 +824,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("בדיקה"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("צבעי טקסט ותוויות"),
         "textType": MessageLookupByLibrary.simpleMessage("סוג טקסט"),
@@ -829,6 +843,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "הרשאה זו נדרשת על מנת שהאפליקציה שלנו תציג מידע חשוב מעל אפליקציות אחרות.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("מדריך"),
@@ -861,7 +876,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "השתמש בתבנית \'^\\+\' כדי להתאים לכל מספרי הטלפון שמתחילים בסימן פלוס, שבדרך כלל מציין מספר בינלאומי."),
         "userName": MessageLookupByLibrary.simpleMessage("שם משתמש"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("מאומת"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("וידאו"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

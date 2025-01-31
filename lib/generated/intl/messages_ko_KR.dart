@@ -84,6 +84,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("모든 허용 목록 번호 허용"),
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("차단된 번호 허용"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns":
             MessageLookupByLibrary.simpleMessage("정규식 차단 목록 패턴 허용"),
         "allowRegexWhitelistedPatterns":
@@ -107,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("자동 업데이트 활성화됨"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("아바타 및 아이콘 크기"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("아바타 테두리 색상"),
@@ -153,6 +156,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "callScreeningRoleRequestSuccessful":
             MessageLookupByLibrary.simpleMessage("통화 스크리닝 역할 요청 성공!"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage("발신자 ID 앱"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle": MessageLookupByLibrary.simpleMessage("발신자 ID 스타일"),
@@ -210,10 +216,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("연락처 구독 목록 보기"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("개수 색상"),
         "countFontSize": MessageLookupByLibrary.simpleMessage("개수 글꼴 크기"),
         "countPosition": MessageLookupByLibrary.simpleMessage("개수 위치"),
         "country": MessageLookupByLibrary.simpleMessage("국가:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor": MessageLookupByLibrary.simpleMessage("국가 이름 색상"),
         "countryNameFontSize":
             MessageLookupByLibrary.simpleMessage("국가 이름 글꼴 크기"),
@@ -274,6 +283,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("활성화됨"),
         "endColor": MessageLookupByLibrary.simpleMessage("끝 색상"),
         "endcall": MessageLookupByLibrary.simpleMessage("통화 종료"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl": MessageLookupByLibrary.simpleMessage("이미지 URL 입력"),
         "enterPluginCodeHere":
             MessageLookupByLibrary.simpleMessage("여기에 플러그인 코드를 입력하세요"),
@@ -587,6 +598,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "\"기본 설정\"을 탭하고 다음 화면에서 권한을 허용하세요."),
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage("데이터베이스 초기화가 완료될 때까지 기다려주세요."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("플러그인 페이지"),
         "plugins": MessageLookupByLibrary.simpleMessage("플러그인"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("플러그인 페이지 보기"),
@@ -752,6 +764,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("테스트"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors": MessageLookupByLibrary.simpleMessage("텍스트 및 레이블 색상"),
         "textType": MessageLookupByLibrary.simpleMessage("텍스트 유형"),
         "theTranslationIsNotYetComplete": MessageLookupByLibrary.simpleMessage(
@@ -768,6 +782,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "이 권한은 앱이 다른 앱 위에 중요한 정보를 표시하는 데 필요합니다.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("튜토리얼"),
@@ -799,7 +814,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "플러스 기호로 시작하는 모든 전화번호를 일치시키려면 \'^\\+\' 패턴을 사용하세요. 일반적으로 국제 번호를 나타냅니다."),
         "userName": MessageLookupByLibrary.simpleMessage("사용자 이름"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("확인됨"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("비디오"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

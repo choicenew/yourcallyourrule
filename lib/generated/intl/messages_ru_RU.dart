@@ -91,6 +91,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Разрешить все номера из белого списка"),
         "allowBlockedNumbers": MessageLookupByLibrary.simpleMessage(
             "Разрешить заблокированные номера"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Разрешить шаблоны черного списка Regex"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -119,6 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("Автообновление включено"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("Размеры аватаров и значков"),
         "avatarBorderColor":
@@ -178,6 +181,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Запрос роли фильтрации вызовов выполнен успешно!"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage("Приложение АОН"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle": MessageLookupByLibrary.simpleMessage("Стиль АОН"),
@@ -243,12 +249,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Список подписок на контакты"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("Цвет счетчика"),
         "countFontSize":
             MessageLookupByLibrary.simpleMessage("Размер шрифта счетчика"),
         "countPosition":
             MessageLookupByLibrary.simpleMessage("Положение счетчика"),
         "country": MessageLookupByLibrary.simpleMessage("Страна:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Цвет названия страны"),
         "countryNameFontSize": MessageLookupByLibrary.simpleMessage(
@@ -319,6 +328,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Включено"),
         "endColor": MessageLookupByLibrary.simpleMessage("Конечный цвет"),
         "endcall": MessageLookupByLibrary.simpleMessage("Завершить вызов"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Введите URL изображения"),
         "enterPluginCodeHere":
@@ -690,6 +701,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Пожалуйста, подождите, пока завершится инициализация базы данных."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Страница плагина"),
         "plugins": MessageLookupByLibrary.simpleMessage("Плагины"),
         "pluginspageview":
@@ -877,6 +889,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Тест"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("Цвета текста и меток"),
         "textType": MessageLookupByLibrary.simpleMessage("Тип текста"),
@@ -894,6 +908,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Это разрешение требуется для того, чтобы наше приложение отображало важную информацию поверх других приложений.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Руководство"),
@@ -926,7 +941,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Используйте шаблон \'^\\+\' для сопоставления всех номеров телефонов, начинающихся со знака плюс, который обычно указывает на международный номер."),
         "userName": MessageLookupByLibrary.simpleMessage("Имя пользователя"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Подтверждено"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Видео"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

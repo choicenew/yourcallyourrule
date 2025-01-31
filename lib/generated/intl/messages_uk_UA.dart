@@ -91,6 +91,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Дозволити всі номери з білого списку"),
         "allowBlockedNumbers": MessageLookupByLibrary.simpleMessage(
             "Дозволити заблоковані номери"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Дозволити регулярні вирази з чорного списку"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -119,6 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("Автооновлення ввімкнено"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage(
             "Розміри аватара та піктограм"),
         "avatarBorderColor":
@@ -179,6 +182,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Запит на роль перевірки дзвінків успішний!"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage(
             "Програма ідентифікатора абонента"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle": MessageLookupByLibrary.simpleMessage(
@@ -245,12 +251,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Список підписок контактів"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("Колір лічильника"),
         "countFontSize":
             MessageLookupByLibrary.simpleMessage("Розмір шрифту лічильника"),
         "countPosition":
             MessageLookupByLibrary.simpleMessage("Позиція лічильника"),
         "country": MessageLookupByLibrary.simpleMessage("Країна:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Колір назви країни"),
         "countryNameFontSize":
@@ -320,6 +329,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Увімкнено"),
         "endColor": MessageLookupByLibrary.simpleMessage("Кінцевий колір"),
         "endcall": MessageLookupByLibrary.simpleMessage("Завершити дзвінок"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl": MessageLookupByLibrary.simpleMessage(
             "Введіть URL-адресу зображення"),
         "enterPluginCodeHere":
@@ -691,6 +702,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Зачекайте, будь ласка, поки завершиться ініціалізація бази даних."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Сторінка плагінів"),
         "plugins": MessageLookupByLibrary.simpleMessage("Плагіни"),
         "pluginspageview":
@@ -878,6 +890,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Тест"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("Кольори тексту та міток"),
         "textType": MessageLookupByLibrary.simpleMessage("Тип тексту"),
@@ -895,6 +909,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Цей дозвіл необхідний для того, щоб наш додаток відображав важливу інформацію поверх інших додатків.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Підручник"),
@@ -927,7 +942,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Використовуйте шаблон \'^\\+\' для збігу всіх номерів телефонів, що починаються зі знака плюс, який зазвичай вказує на міжнародний номер."),
         "userName": MessageLookupByLibrary.simpleMessage("Ім\'я користувача"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Перевірено"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Відео"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

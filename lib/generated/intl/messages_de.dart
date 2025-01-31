@@ -93,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Alle Whitelist-Nummern zulassen"),
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("Blockierte Nummern zulassen"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Regex-Blacklist-Muster zulassen"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -121,6 +123,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "Automatisches Update aktiviert"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("Avatar- und Symbolgrößen"),
         "avatarBorderColor":
@@ -179,6 +182,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Anrufüberprüfungsrollen-Anfrage erfolgreich!"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage("Anrufer-ID-App"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle":
@@ -245,11 +251,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "Listenansicht der Kontaktabonnements"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("Anzahlfarbe"),
         "countFontSize":
             MessageLookupByLibrary.simpleMessage("Schriftgröße der Anzahl"),
         "countPosition": MessageLookupByLibrary.simpleMessage("Anzahlposition"),
         "country": MessageLookupByLibrary.simpleMessage("Land:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Farbe des Ländernamens"),
         "countryNameFontSize": MessageLookupByLibrary.simpleMessage(
@@ -318,6 +327,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Aktiviert"),
         "endColor": MessageLookupByLibrary.simpleMessage("Endfarbe"),
         "endcall": MessageLookupByLibrary.simpleMessage("Auflegen"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Bild-URL eingeben"),
         "enterPluginCodeHere":
@@ -690,6 +701,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Bitte warten Sie, bis die Datenbankinitialisierung abgeschlossen ist."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Plugin-Seite"),
         "plugins": MessageLookupByLibrary.simpleMessage("Plugins"),
         "pluginspageview":
@@ -881,6 +893,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Test"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("Text- & Beschriftungsfarben"),
         "textType": MessageLookupByLibrary.simpleMessage("Texttyp"),
@@ -898,6 +912,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Diese Berechtigung ist erforderlich, damit unsere App wichtige Informationen über anderen Apps anzeigen kann.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Tutorial"),
@@ -930,7 +945,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Verwenden Sie das Muster \'^\\+\' zum Abgleichen aller Telefonnummern, die mit einem Pluszeichen beginnen, was typischerweise auf eine internationale Nummer hinweist."),
         "userName": MessageLookupByLibrary.simpleMessage("Benutzername"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Verifiziert"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Video"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

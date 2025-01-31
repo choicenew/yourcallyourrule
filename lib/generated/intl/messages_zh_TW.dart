@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "allowAllWhitelistedNumbers":
             MessageLookupByLibrary.simpleMessage("允許所有白名單號碼"),
         "allowBlockedNumbers": MessageLookupByLibrary.simpleMessage("允許封鎖的號碼"),
+        "allowOtherNumbers": MessageLookupByLibrary.simpleMessage("允許其他號碼"),
         "allowRegexBlacklistedPatterns":
             MessageLookupByLibrary.simpleMessage("允許正則表達式黑名單模式"),
         "allowRegexWhitelistedPatterns":
@@ -96,7 +97,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("自動關閉本地通知"),
         "autoUpdateDisabled": MessageLookupByLibrary.simpleMessage("自動更新已停用"),
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage("自動更新已啟用"),
-        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("自動備份"),
+        "avatar": MessageLookupByLibrary.simpleMessage("頭像"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage("頭像和圖示大小"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("頭像邊框顏色"),
         "avatarBorderSize": MessageLookupByLibrary.simpleMessage("頭像邊框大小"),
@@ -140,6 +142,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "callScreeningRoleRequestSuccessful":
             MessageLookupByLibrary.simpleMessage("通話篩選角色請求成功！"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage("來電顯示應用程式"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("來電資訊："),
+        "callerIdDataIsNotAvailable":
+            MessageLookupByLibrary.simpleMessage("來電信息無法取得"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("來電顯示 SIM 卡來源"),
         "callerIdStyle": MessageLookupByLibrary.simpleMessage("來電顯示樣式"),
@@ -188,14 +193,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("聯絡人匯入成功"),
         "contactsPage": MessageLookupByLibrary.simpleMessage("聯絡人頁面"),
         "contactsWithNumber": MessageLookupByLibrary.simpleMessage("聯絡人（含號碼）"),
-        "contactsubscription":
-            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
+        "contactsubscription": MessageLookupByLibrary.simpleMessage("聯絡人訂閱"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("聯絡人訂閱清單檢視"),
+        "count": MessageLookupByLibrary.simpleMessage("數量"),
         "countColor": MessageLookupByLibrary.simpleMessage("計數顏色"),
         "countFontSize": MessageLookupByLibrary.simpleMessage("計數字體大小"),
         "countPosition": MessageLookupByLibrary.simpleMessage("計數位置"),
         "country": MessageLookupByLibrary.simpleMessage("國家/地區："),
+        "countryCode": MessageLookupByLibrary.simpleMessage("國家代碼"),
+        "countryName": MessageLookupByLibrary.simpleMessage("國家名稱"),
         "countryNameColor": MessageLookupByLibrary.simpleMessage("國家名稱顏色"),
         "countryNameFontSize": MessageLookupByLibrary.simpleMessage("國家名稱字體大小"),
         "countryNamePosition": MessageLookupByLibrary.simpleMessage("國家名稱位置"),
@@ -251,6 +258,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("已啟用"),
         "endColor": MessageLookupByLibrary.simpleMessage("結束顏色"),
         "endcall": MessageLookupByLibrary.simpleMessage("結束通話"),
+        "enterCountryCode":
+            MessageLookupByLibrary.simpleMessage("輸入國家代碼（例如：TW、CN）"),
         "enterImageUrl": MessageLookupByLibrary.simpleMessage("輸入圖片網址"),
         "enterPluginCodeHere":
             MessageLookupByLibrary.simpleMessage("在此輸入外掛程式碼"),
@@ -329,8 +338,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "history": MessageLookupByLibrary.simpleMessage("歷史記錄"),
         "home": MessageLookupByLibrary.simpleMessage("首頁"),
         "iconSize": MessageLookupByLibrary.simpleMessage("圖示大小"),
-        "ifThereIsAnErrorSelectACountry": MessageLookupByLibrary.simpleMessage(
-            "if there is an error select a country"),
+        "ifThereIsAnErrorSelectACountry":
+            MessageLookupByLibrary.simpleMessage("如果發生錯誤，請選擇國家"),
         "import": MessageLookupByLibrary.simpleMessage("匯入"),
         "importAllowedEntryPage":
             MessageLookupByLibrary.simpleMessage("匯入允許項目頁面"),
@@ -422,8 +431,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("比對包含特定數字的電話號碼："),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage("比對中間包含特定字元的電話號碼："),
-        "matchSuccessful":
-            MessageLookupByLibrary.simpleMessage("Match successful!"),
+        "matchSuccessful": MessageLookupByLibrary.simpleMessage("比對成功！"),
         "medical": MessageLookupByLibrary.simpleMessage("醫療"),
         "merge": MessageLookupByLibrary.simpleMessage("合併"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("合併聯絡人"),
@@ -439,8 +447,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nameFontSize": MessageLookupByLibrary.simpleMessage("姓名字體大小"),
         "namePosition": MessageLookupByLibrary.simpleMessage("姓名位置"),
         "next": MessageLookupByLibrary.simpleMessage("下一步"),
-        "noDataAvailable":
-            MessageLookupByLibrary.simpleMessage("No data available."),
+        "noDataAvailable": MessageLookupByLibrary.simpleMessage("無可用資料。"),
         "noImageSelected": MessageLookupByLibrary.simpleMessage("未選取圖片"),
         "noIncomingSmsMessagesFilter":
             MessageLookupByLibrary.simpleMessage("無傳入簡訊過濾器"),
@@ -516,8 +523,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("請輸入電話號碼"),
         "pleaseEnterAPhoneNumberAndRegexPattern":
-            MessageLookupByLibrary.simpleMessage(
-                "Please enter a phone number and regex pattern"),
+            MessageLookupByLibrary.simpleMessage("請輸入電話號碼和正規表示式"),
         "pleaseEnterAnPattern": MessageLookupByLibrary.simpleMessage("請輸入模式"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("請輸入網址"),
         "pleaseSelectAFileOrInputAUrl":
@@ -535,10 +541,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("請點選「設定預設值」，並在下一個畫面中允許該權限。"),
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage("請等待資料庫初始化完成。"),
+        "pluginData": MessageLookupByLibrary.simpleMessage("插件資料："),
         "pluginPage": MessageLookupByLibrary.simpleMessage("外掛程式頁面"),
         "plugins": MessageLookupByLibrary.simpleMessage("外掛程式"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("外掛程式頁面檢視"),
-        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("插件更新"),
         "political": MessageLookupByLibrary.simpleMessage("政治"),
         "purchase": MessageLookupByLibrary.simpleMessage("購買"),
         "purchaseFailed": MessageLookupByLibrary.simpleMessage("購買失敗："),
@@ -546,17 +553,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("正在處理購買..."),
         "purchaseSuccessful": MessageLookupByLibrary.simpleMessage("購買成功！"),
         "quarterlySubscription": MessageLookupByLibrary.simpleMessage("季度訂閱"),
-        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("記錄備份"),
         "regex": MessageLookupByLibrary.simpleMessage("正則表達式"),
         "regexPage": MessageLookupByLibrary.simpleMessage("正則表達式頁面"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("正則表達式模式說明"),
-        "regexPatternTest":
-            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
+        "regexPatternTest": MessageLookupByLibrary.simpleMessage("正規表示式測試"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage("正則表達式模式是用於比對電話號碼的正則表達式。"),
         "regexPhoneNumberTest":
-            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
+            MessageLookupByLibrary.simpleMessage("正規表示式電話號碼測試"),
         "regexpageview": MessageLookupByLibrary.simpleMessage("正則表達式頁面檢視"),
         "region": MessageLookupByLibrary.simpleMessage("地區："),
         "reject": MessageLookupByLibrary.simpleMessage("拒絕"),
@@ -579,8 +585,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("從 OneDrive 還原"),
         "restoreFromWebdav":
             MessageLookupByLibrary.simpleMessage("從 WebDAV 還原"),
-        "restorePurchase":
-            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
+        "restorePurchase": MessageLookupByLibrary.simpleMessage("回復購買"),
         "ridesharing": MessageLookupByLibrary.simpleMessage("共乘"),
         "risk": MessageLookupByLibrary.simpleMessage("風險"),
         "robocall": MessageLookupByLibrary.simpleMessage("機器人來電"),
@@ -624,7 +629,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "simCardPosition": MessageLookupByLibrary.simpleMessage("Sim 卡位置"),
         "skip": MessageLookupByLibrary.simpleMessage("跳過"),
         "sms": MessageLookupByLibrary.simpleMessage("簡訊"),
-        "smsBlacklist": MessageLookupByLibrary.simpleMessage("SMS Blacklist"),
+        "smsBlacklist": MessageLookupByLibrary.simpleMessage("SMS 黑名單"),
         "smsBlacklistPage": MessageLookupByLibrary.simpleMessage("簡訊黑名單頁面"),
         "smsFiltering": MessageLookupByLibrary.simpleMessage("簡訊過濾"),
         "smsFilteringRequiresSmsNotificationAndPhonePermissionsPleaseGrant":
@@ -632,15 +637,13 @@ class MessageLookup extends MessageLookupByLibrary {
                 "簡訊過濾需要簡訊、通知和電話權限。請授予這些權限以啟用此功能。"),
         "smsLocalNotification": MessageLookupByLibrary.simpleMessage("簡訊本地通知"),
         "smsNotification": MessageLookupByLibrary.simpleMessage("簡訊通知"),
-        "smsSubscribe": MessageLookupByLibrary.simpleMessage("SMS Subscribe"),
+        "smsSubscribe": MessageLookupByLibrary.simpleMessage("SMS 訂閱"),
         "smsSubscriptionPage": MessageLookupByLibrary.simpleMessage("簡訊訂閱頁面"),
-        "smsTextBlacklist":
-            MessageLookupByLibrary.simpleMessage("SMS Text Blacklist"),
+        "smsTextBlacklist": MessageLookupByLibrary.simpleMessage("SMS 文字黑名單"),
         "smsTextWhitelistPage":
             MessageLookupByLibrary.simpleMessage("簡訊文字白名單頁面"),
-        "smsTextwhitelist":
-            MessageLookupByLibrary.simpleMessage("SMS TextWhitelist"),
-        "smsWhitelist": MessageLookupByLibrary.simpleMessage("SMS Whitelist"),
+        "smsTextwhitelist": MessageLookupByLibrary.simpleMessage("SMS 文字白名單"),
+        "smsWhitelist": MessageLookupByLibrary.simpleMessage("SMS 白名單"),
         "smsblacklistpageview":
             MessageLookupByLibrary.simpleMessage("簡訊黑名單頁面檢視"),
         "smssubscriptionlistview":
@@ -668,9 +671,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscriptionListPage": MessageLookupByLibrary.simpleMessage("訂閱清單頁面"),
         "subscriptionValid": MessageLookupByLibrary.simpleMessage("訂閱有效"),
         "subscriptionlistview": MessageLookupByLibrary.simpleMessage("訂閱清單檢視"),
-        "subscriptionmodel":
-            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
-        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
+        "subscriptionmodel": MessageLookupByLibrary.simpleMessage("訂閱模型"),
+        "successful": MessageLookupByLibrary.simpleMessage("成功"),
         "successfully": MessageLookupByLibrary.simpleMessage("成功"),
         "survey": MessageLookupByLibrary.simpleMessage("調查"),
         "sync": MessageLookupByLibrary.simpleMessage("同步"),
@@ -685,6 +687,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "temporaryVipUser": MessageLookupByLibrary.simpleMessage("臨時 VIP 用戶"),
         "tenantId": MessageLookupByLibrary.simpleMessage("租戶 ID"),
         "test": MessageLookupByLibrary.simpleMessage("測試"),
+        "testCallerIdOverlay": MessageLookupByLibrary.simpleMessage("測試來電信息覆蓋"),
         "textLabelColors": MessageLookupByLibrary.simpleMessage("文字和標籤顏色"),
         "textType": MessageLookupByLibrary.simpleMessage("文字類型"),
         "theTranslationIsNotYetComplete": MessageLookupByLibrary.simpleMessage(
@@ -701,6 +704,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "此權限是我們應用程式在其他應用程式上方顯示重要資訊所需的權限。\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("測試規則"),
         "today": MessageLookupByLibrary.simpleMessage("今天"),
         "translation": MessageLookupByLibrary.simpleMessage("翻譯"),
         "tutorial": MessageLookupByLibrary.simpleMessage("教學"),
@@ -729,7 +733,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "使用模式\'^\\+\'比對所有以加號開頭的電話號碼，這通常表示國際號碼。"),
         "userName": MessageLookupByLibrary.simpleMessage("使用者名稱"),
+        "verificationPageRules": MessageLookupByLibrary.simpleMessage("驗證測試規則"),
+        "verificationResultsRules":
+            MessageLookupByLibrary.simpleMessage("驗證結果（shouldAcceptCall 規則）："),
         "verified": MessageLookupByLibrary.simpleMessage("已驗證"),
+        "verify": MessageLookupByLibrary.simpleMessage("驗證"),
+        "verifyPhoneNumber": MessageLookupByLibrary.simpleMessage("驗證電話號碼"),
         "video": MessageLookupByLibrary.simpleMessage("視訊"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP 用戶"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

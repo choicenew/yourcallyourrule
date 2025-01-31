@@ -91,6 +91,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Izinkan Semua Nomor Daftar Putih"),
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("Izinkan Nomor yang Diblokir"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Izinkan Pola Daftar Hitam Regex"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -119,6 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "Pembaruan Otomatis Diaktifkan"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("Avatar and Icon Sizes"),
         "avatarBorderColor":
@@ -178,6 +181,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Permintaan peran penyaringan panggilan berhasil!"),
         "callerIdApp":
             MessageLookupByLibrary.simpleMessage("Aplikasi ID Penelepon"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle":
@@ -242,12 +248,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "DaftarTampilanBerlanggananKontak"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("Warna Hitungan"),
         "countFontSize":
             MessageLookupByLibrary.simpleMessage("Ukuran Font Hitungan"),
         "countPosition":
             MessageLookupByLibrary.simpleMessage("Posisi Hitungan"),
         "country": MessageLookupByLibrary.simpleMessage("Negara:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Warna Nama Negara"),
         "countryNameFontSize":
@@ -314,6 +323,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Diaktifkan"),
         "endColor": MessageLookupByLibrary.simpleMessage("Warna Akhir"),
         "endcall": MessageLookupByLibrary.simpleMessage("akhiriPanggilan"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Masukkan URL Gambar"),
         "enterPluginCodeHere": MessageLookupByLibrary.simpleMessage(
@@ -674,6 +685,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Harap tunggu hingga inisialisasi basis data selesai."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Halaman Plugin"),
         "plugins": MessageLookupByLibrary.simpleMessage("Plugin"),
         "pluginspageview":
@@ -858,6 +870,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Tes"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("Text & Label Colors"),
         "textType": MessageLookupByLibrary.simpleMessage("Jenis Teks"),
@@ -875,6 +889,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Izin ini diperlukan agar aplikasi kami dapat menampilkan informasi penting di atas aplikasi lain.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Tutorial"),
@@ -908,7 +923,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Gunakan pola \'^\\+\' untuk mencocokkan semua nomor telepon yang dimulai dengan tanda plus, yang biasanya menunjukkan nomor internasional."),
         "userName": MessageLookupByLibrary.simpleMessage("Nama pengguna"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Terverifikasi"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Video"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

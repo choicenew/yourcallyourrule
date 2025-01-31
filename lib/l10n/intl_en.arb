@@ -537,5 +537,20 @@
   "matchSuccessful": "Match successful!",
   "regexPhoneNumberTest": "Regex Phone Number Test",
   "successful": "Successful",
-  "regexPatternTest": "Regex Pattern Test"
+  "regexPatternTest": "Regex Pattern Test",
+  "callerIdDataIsNotAvailable": "Caller ID Data is not available",
+  "verifyPhoneNumber": "Verify Phone Number",
+  "countryCode": "Country Code",
+  "enterCountryCode": "Enter country code (e.g., US, CA)",
+  "verify": "Verify",
+  "verificationResultsRules": "Verification Results (shouldAcceptCall Rules):",
+  "callerIdData": "Caller ID Data:",
+  "countryName": "Country Name",
+  "avatar": "Avatar",
+  "count": "Count",
+  "pluginData": "Plugin Data:",
+  "testCallerIdOverlay": "Test Caller ID Overlay",
+  "allowOtherNumbers": "Allow Other Numbers",
+  "verificationPageRules": "Verification Page (Rules)",
+  "toTestRules": "To test rules"
 }

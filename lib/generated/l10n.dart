@@ -5432,6 +5432,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Caller ID Data is not available`
+  String get callerIdDataIsNotAvailable {
+    return Intl.message(
+      'Caller ID Data is not available',
+      name: 'callerIdDataIsNotAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify Phone Number`
+  String get verifyPhoneNumber {
+    return Intl.message(
+      'Verify Phone Number',
+      name: 'verifyPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country Code`
+  String get countryCode {
+    return Intl.message(
+      'Country Code',
+      name: 'countryCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter country code (e.g., US, CA)`
+  String get enterCountryCode {
+    return Intl.message(
+      'Enter country code (e.g., US, CA)',
+      name: 'enterCountryCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get verify {
+    return Intl.message(
+      'Verify',
+      name: 'verify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification Results (shouldAcceptCall Rules):`
+  String get verificationResultsRules {
+    return Intl.message(
+      'Verification Results (shouldAcceptCall Rules):',
+      name: 'verificationResultsRules',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Caller ID Data:`
+  String get callerIdData {
+    return Intl.message(
+      'Caller ID Data:',
+      name: 'callerIdData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country Name`
+  String get countryName {
+    return Intl.message(
+      'Country Name',
+      name: 'countryName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Avatar`
+  String get avatar {
+    return Intl.message(
+      'Avatar',
+      name: 'avatar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Count`
+  String get count {
+    return Intl.message(
+      'Count',
+      name: 'count',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plugin Data:`
+  String get pluginData {
+    return Intl.message(
+      'Plugin Data:',
+      name: 'pluginData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Test Caller ID Overlay`
+  String get testCallerIdOverlay {
+    return Intl.message(
+      'Test Caller ID Overlay',
+      name: 'testCallerIdOverlay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow Other Numbers`
+  String get allowOtherNumbers {
+    return Intl.message(
+      'Allow Other Numbers',
+      name: 'allowOtherNumbers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification Page (Rules)`
+  String get verificationPageRules {
+    return Intl.message(
+      'Verification Page (Rules)',
+      name: 'verificationPageRules',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To test rules`
+  String get toTestRules {
+    return Intl.message(
+      'To test rules',
+      name: 'toTestRules',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

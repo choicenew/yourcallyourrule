@@ -14,6 +14,7 @@ import '../utils/global_variable.dart';
 import '../utils/language_provider.dart';
 import '../utils/repeated_call.dart';
 import '../views/shield_switch_style.dart';
+import '../views/verification.dart';
 import '../widgets/adwidgets/native_ads.dart';
 import '../widgets/google_ad.dart';
 import '../widgets/navigation_bar.dart';
@@ -301,6 +302,42 @@ void _loadInterceptorSettings() {
               },
             ),
           ),
+          //加载广告
+          const SliverToBoxAdapter(
+            child: GoogleAdWidget(adInfo: AdManager.bannerAd),
+          ),
+          //加载间距
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 16.0), // 设置垂直间距
+          ),
+          // Verification Section
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 215, 52, 11),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const VerificationPage()),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    S.of(context).verificationPageRules,
+                    style: const TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
           //加载广告
           const SliverToBoxAdapter(
             child: GoogleAdWidget(adInfo: AdManager.bannerAd),

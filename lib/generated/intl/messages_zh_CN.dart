@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "allowAllWhitelistedNumbers":
             MessageLookupByLibrary.simpleMessage("允许所有已列入白名单的号码"),
         "allowBlockedNumbers": MessageLookupByLibrary.simpleMessage("允许已阻止的号码"),
+        "allowOtherNumbers": MessageLookupByLibrary.simpleMessage("允许其他号码"),
         "allowRegexBlacklistedPatterns":
             MessageLookupByLibrary.simpleMessage("允许正则表达式黑名单模式"),
         "allowRegexWhitelistedPatterns":
@@ -97,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateDisabled": MessageLookupByLibrary.simpleMessage("已禁用自动更新"),
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage("已启用自动更新"),
         "autobackup": MessageLookupByLibrary.simpleMessage("自动备份"),
+        "avatar": MessageLookupByLibrary.simpleMessage("头像"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage("头像和图标大小"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("头像边框颜色"),
         "avatarBorderSize": MessageLookupByLibrary.simpleMessage("头像边框大小"),
@@ -140,6 +142,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "callScreeningRoleRequestSuccessful":
             MessageLookupByLibrary.simpleMessage("呼叫筛选角色要求成功！"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage("来电显示应用"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("来电信息："),
+        "callerIdDataIsNotAvailable":
+            MessageLookupByLibrary.simpleMessage("来电信息不可用"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("来电显示 SIM 卡来源"),
         "callerIdStyle": MessageLookupByLibrary.simpleMessage("来电显示样式"),
@@ -191,10 +196,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactsubscription": MessageLookupByLibrary.simpleMessage("联系订阅"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("通讯录订阅页面"),
+        "count": MessageLookupByLibrary.simpleMessage("数量"),
         "countColor": MessageLookupByLibrary.simpleMessage("计数颜色"),
         "countFontSize": MessageLookupByLibrary.simpleMessage("计数字体大小"),
         "countPosition": MessageLookupByLibrary.simpleMessage("计数位置"),
         "country": MessageLookupByLibrary.simpleMessage("国家/地区："),
+        "countryCode": MessageLookupByLibrary.simpleMessage("国家代码"),
+        "countryName": MessageLookupByLibrary.simpleMessage("国家名称"),
         "countryNameColor": MessageLookupByLibrary.simpleMessage("国家/地区名称颜色"),
         "countryNameFontSize":
             MessageLookupByLibrary.simpleMessage("国家/地区名称字体大小"),
@@ -252,6 +260,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("已启用"),
         "endColor": MessageLookupByLibrary.simpleMessage("结束颜色"),
         "endcall": MessageLookupByLibrary.simpleMessage("结束通话"),
+        "enterCountryCode":
+            MessageLookupByLibrary.simpleMessage("输入国家代码（例如：CN、US）"),
         "enterImageUrl": MessageLookupByLibrary.simpleMessage("输入图像 URL"),
         "enterPluginCodeHere":
             MessageLookupByLibrary.simpleMessage("在此处输入插件代码"),
@@ -528,6 +538,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("请点击“设为默认”，并在下一个屏幕允许权限。"),
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage("请等待数据库初始化完成。"),
+        "pluginData": MessageLookupByLibrary.simpleMessage("插件数据："),
         "pluginPage": MessageLookupByLibrary.simpleMessage("插件页面"),
         "plugins": MessageLookupByLibrary.simpleMessage("插件"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("插件页视图"),
@@ -670,6 +681,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("已获得临时 VIP"),
         "temporaryVipUser": MessageLookupByLibrary.simpleMessage("临时 VIP 用户"),
         "test": MessageLookupByLibrary.simpleMessage("测试"),
+        "testCallerIdOverlay": MessageLookupByLibrary.simpleMessage("测试来电信息弹窗"),
         "textLabelColors": MessageLookupByLibrary.simpleMessage("文本和标签颜色"),
         "textType": MessageLookupByLibrary.simpleMessage("文本类型"),
         "theTranslationIsNotYetComplete": MessageLookupByLibrary.simpleMessage(
@@ -685,6 +697,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "此权限对于我们的应用程序在其他应用程序之上显示重要信息是必需的。"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("验证规则"),
         "today": MessageLookupByLibrary.simpleMessage("今天"),
         "translation": MessageLookupByLibrary.simpleMessage("翻译"),
         "tutorial": MessageLookupByLibrary.simpleMessage("教程"),
@@ -714,7 +727,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "使用模式 \'^\\+\' 来匹配所有以加号开头的电话号码，加号通常表示国际号码。"),
         "userName": MessageLookupByLibrary.simpleMessage("用户名"),
+        "verificationPageRules": MessageLookupByLibrary.simpleMessage("验证规则页面"),
+        "verificationResultsRules":
+            MessageLookupByLibrary.simpleMessage("验证结果（接听规则）："),
         "verified": MessageLookupByLibrary.simpleMessage("STIR 已验证"),
+        "verify": MessageLookupByLibrary.simpleMessage("验证"),
+        "verifyPhoneNumber": MessageLookupByLibrary.simpleMessage("验证电话号码"),
         "video": MessageLookupByLibrary.simpleMessage("视频"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP 用户"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":
