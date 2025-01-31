@@ -1,5 +1,3 @@
-
-
 import 'dart:core';
 
 import 'package:flutter/material.dart';
@@ -21,7 +19,6 @@ import 'export_plugins.dart';
 import 'import_plugins.dart';
 import 'plugins_page.dart';
 
-
 class AddPluginPageView extends StatelessWidget {
   const AddPluginPageView({super.key});
 
@@ -30,7 +27,7 @@ class AddPluginPageView extends StatelessWidget {
     return buildPageWithCollapsibleContent(
       context,
       S.of(context).addPluginPage, // 页面标题
-    //  'PluginsPageView', // 卡片标题=点击卡片导航到的页面
+      //  'PluginsPageView', // 卡片标题=点击卡片导航到的页面
       const PluginsPageView(), // 点击卡片导航到的页面
       const AddPluginPage(), // 当前页面主要内容
       exportPage: const ExportPluginsPageView(), // 导出页面
@@ -53,33 +50,29 @@ class AddPluginPage extends StatefulWidget {
 }
 
 class AddPluginPageState extends State<AddPluginPage> {
-   // 订阅名称控制器
+  // 订阅名称控制器
 
   TextEditingController _pluginNameController = TextEditingController();
 
   // 订阅链接控制器
-  TextEditingController _urlController = TextEditingController();
+  TextEditingController urlController = TextEditingController();
 
   late PluginService _pluginService;
-
 
   late Plugin _plugins;
 
   bool _isAutoUpdate = false;
   bool _isEnabled = false;
 
- AddPluginMethod _selectedMethod = AddPluginMethod.URL;
+  AddPluginMethod _selectedMethod = AddPluginMethod.URL;
 
   String? filePath;
-
-
-
 
   @override
   void initState() {
     super.initState();
     final appState = Provider.of<AppState>(context, listen: false);
-   // _plugins = Plugin(name: '', url: '');
+    // _plugins = Plugin(name: '', url: '');
     _pluginService = appState.pluginService;
   }
 
@@ -89,85 +82,94 @@ class AddPluginPageState extends State<AddPluginPage> {
   }
 
   // 私有的构建订阅列表方法
-Widget _build(BuildContext context) {
-  return Scaffold(
-    body: SingleChildScrollView(
-      child: Column(
-        children: [
-          buildAddImportItem(_urlController, filePath, (path) {
-            setState(() {
-              filePath = path;
-            });
-          }),
-     //ceshi
-     ElevatedButton(
-          onPressed: () {
-            // 导航到 TestPage
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const TestPage(title: 'Test Page')),
-            );
-          },
-          child: const Text('Go to Test Page'),
+  Widget _build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            buildAddImportItem(urlController, filePath, (path) {
+              setState(() {
+                filePath = path;
+              });
+            }),
+            //ceshi
+            ElevatedButton(
+              onPressed: () {
+                // 导航到 TestPage
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const TestPage(title: 'Test Page')),
+                );
+              },
+              child: const Text('Go to Test Page'),
+            ),
+            ////ceshi
+
+            nativeAdWidgetMedium(
+                adWidth: 320, adHeight: 320), // 将广告 Widget 移到这里
+            const SizedBox(height: 16.0),
+            const GoogleAdWidget(adInfo: AdManager.bannerAd), // 将广告 Widget 移到这里
+            const SizedBox(height: 16.0),
+          ],
         ),
-     ////ceshi      
-          
-          nativeAdWidgetMedium(adWidth: 320, adHeight: 320), // 将广告 Widget 移到这里
-          const SizedBox(height: 16.0),
-          const GoogleAdWidget(adInfo: AdManager.bannerAd), // 将广告 Widget 移到这里
-          const SizedBox(height: 16.0),
-        ],
       ),
-    ),
 
       //居于屏幕右下角
-                  //居于屏幕右下角
-               floatingActionButton: Padding(
+      //居于屏幕右下角
+      floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 5.0, right: 16.0),
         child: Align(
-                alignment: Alignment.bottomRight,
-          
-                  child: ElevatedButton(
-                    onPressed: () async {
-                          // 检查 URL 和本地文件
-                          if (_urlController.text.isNotEmpty ||
-                              filePath == null) {
-                            // Check if the URL is valid
-                            if (Uri.tryParse(_urlController.text) == null &&
-                                filePath == null) {
-                              showErrorSnackBar(
-                                  context, S.of(context).urlFormatIsIncorrect);
-                              return;
-                            }
-                          }
+          alignment: Alignment.bottomRight,
+          child: ElevatedButton(
+            onPressed: () async {
+              // 检查 URL 和本地文件
+              if (urlController.text.isNotEmpty || filePath == null) {
+                // Check if the URL is valid
+                if (Uri.tryParse(urlController.text) == null &&
+                    filePath == null) {
+                  showErrorSnackBar(
+                      context, S.of(context).urlFormatIsIncorrect);
+                  return;
+                }
+              }
 
-                          // 导入号码
-                          if (_urlController.text.isNotEmpty) {
-                            await _pluginService.addPluginFromUrl(_urlController.text);
-                          } else if (filePath != null) {
-                           await _pluginService.addPluginFromLocal(filePath!);
-                          } else {
-                            showErrorSnackBar(
-                                context, S.of(context).pleaseSelectAFileOrInputAUrl);
-                            return;
-                          }
-                        },
-                        style: addButtonStyle,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min, // Use minimum size
-                      children: [
-                        const Icon(NewSet.add),
-                        const SizedBox(width: 8.0),
-                        Text(
-                              S.of(context).save,
-                            ),
-                          ],
-                        ),
-                  ),
+              // 导入号码
+              if (urlController.text.isNotEmpty) {
+                await _pluginService.addPluginFromUrl(urlController.text);
+              } else if (filePath != null) {
+                await _pluginService.addPluginFromLocal(filePath!);
+              } else {
+                showErrorSnackBar(
+                    context, S.of(context).pleaseSelectAFileOrInputAUrl);
+                return;
+              }
+
+              // Clear the URL and file path after successful operation
+              setState(() {
+                urlController.clear(); // Clear the URL controller
+                filePath = null; // Reset the file path
+              });
+
+              // Optionally, you can show a success message here
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(S.of(context).addedSuccessfully)),
+              );
+            },
+            style: addButtonStyle,
+            child: Row(
+              mainAxisSize: MainAxisSize.min, // Use minimum size
+              children: [
+                const Icon(NewSet.add),
+                const SizedBox(width: 8.0),
+                Text(
+                  S.of(context).save,
+                ),
+              ],
+            ),
+          ),
         ),
       ),
-      
-      
     );
   }
 }

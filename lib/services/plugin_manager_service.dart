@@ -1,4 +1,5 @@
 // 导入必要的库
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -11,6 +12,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+// 引入 Android 平台相关的包
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 import 'package:yaml/yaml.dart';
 
 import '../../utils/update_interval.dart';
@@ -126,42 +130,137 @@ class PluginService {
   static Map<String, dynamic> loadedPlugins = {};
   late HttpInterceptor _httpInterceptor; // 添加 HttpInterceptor 对象
 
+// 存储每个插件查询的 Completer
+  Map<String, Completer<Map<String, dynamic>?>> _pluginQueryCompleters = {};
+
+  // 跟踪每个插件的就绪状态
+  final Map<String, bool> _pluginReadyStatus = {};
+
+  // 用于通知插件就绪状态的 StreamController
+  final StreamController<String> _pluginReadyController = StreamController<String>.broadcast();
+
+
   PluginService(this.database) {
     _httpInterceptor = HttpInterceptor(); // 初始化 HttpInterceptor
-    _initWebView();
+    _initializeWebView();
   }
 
-  void _initWebView() {
-    _webViewController = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..addJavaScriptChannel(
-        'TestPageChannel', // TestPage 的 JavaScriptChannel
-        onMessageReceived: (JavaScriptMessage message) async {
-          try {
-            final jsonData = jsonDecode(message.message);
-            // 输出解析后的 JSON 对象
+void _initializeWebView() {
+  late final PlatformWebViewControllerCreationParams params;
+  if (WebViewPlatform.instance is WebKitWebViewPlatform) {
+    params = WebKitWebViewControllerCreationParams(
+      allowsInlineMediaPlayback: true,
+      mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
+    );
+  } else {
+    params = const PlatformWebViewControllerCreationParams();
+  }
 
-            if (jsonData['type'] == 'pluginLoaded') {
-            } else if (jsonData['type'] == 'pluginReady') {
-            } else if (jsonData['type'] == 'pluginResult') {
-            } else if (jsonData['type'] == 'pluginError') {}
-          } catch (e) {
-            // 如果不是 JSON，则视为普通字符串消息
+  _webViewController = WebViewController.fromPlatformCreationParams(params)
+    ..setJavaScriptMode(JavaScriptMode.unrestricted)
+    ..addJavaScriptChannel(
+      'TestPageChannel',
+      onMessageReceived: (JavaScriptMessage message) async {
+        // 处理来自 JavaScript 的消息 (例如插件加载、就绪状态等)
+        print('message信息: ${message.message}');
+        try {
+          final jsonData = jsonDecode(message.message);
+          print('jsonData打印: $jsonData');
+
+          if (jsonData['type'] == 'pluginLoaded') {
+            print('Plugin loaded打印: ${jsonData['pluginId']}');
+          } else if (jsonData['type'] == 'pluginReady') {
+            print('Plugin ready: ${jsonData['pluginId']}');
+
+              // 1. 标记插件为就绪状态
+              _pluginReadyStatus[jsonData['pluginId']] = true;
+              print('Plugin marked as ready插件就绪 in _pluginReadyStatus: ${jsonData['pluginId']}');
+              // 2. 通过 StreamController 发送插件就绪通知
+              _pluginReadyController.add(jsonData['pluginId']);
+              print('Plugin ready 准备通知notification sent via _pluginReadyController: ${jsonData['pluginId']}');
+
+
+          } else if (jsonData['type'] == 'pluginError') {
+            print('Plugin error: ${jsonData['error']}');
           }
+        } catch (e) {
+          print('Received message: ${message.message}');
+        }
+      },
+    )
+    ..addJavaScriptChannel(
+      'consoleLog',
+      onMessageReceived: (JavaScriptMessage message) {
+        print('JS Console Log: ${message.message}');
+      },
+    )
+    ..addJavaScriptChannel(
+      'consoleWarn',
+      onMessageReceived: (JavaScriptMessage message) {
+        print('JS Console Warn: ${message.message}');
+      },
+    )
+    ..addJavaScriptChannel(
+      'consoleError',
+      onMessageReceived: (JavaScriptMessage message) {
+        print('JS Console Error: ${message.message}');
+      },
+    )
+    ..addJavaScriptChannel(
+      'PluginResultChannel',
+      onMessageReceived: (JavaScriptMessage message) {
+        print('Received message on PluginResultChannel: ${message.message}');
+        try {
+          final Map<String, dynamic> decodedMessage = jsonDecode(message.message);
+          final pluginId = decodedMessage['pluginId'];
+          final requestId = decodedMessage['requestId'];
+
+          // 检查消息类型和 requestId 是否存在于 _pluginQueryCompleters 中
+          if (decodedMessage['type'] == 'pluginResult' &&
+              _pluginQueryCompleters.containsKey(requestId)) {
+            final data = Map<String, dynamic>.from(decodedMessage['data']);
+                    // 明确打印即将执行 complete 操作
+        print('Completing Completer for requestId: $requestId with data: $data'); 
+            // 完成对应的 Completer
+            _pluginQueryCompleters[requestId]!.complete(data);
+                    print('Completer for requestId: $requestId completed'); 
+            _pluginQueryCompleters.remove(requestId); // 成功完成，移除 Completer
+          } else if (decodedMessage['type'] == 'pluginError' &&
+              _pluginQueryCompleters.containsKey(requestId)) {
+            // 错误完成对应的 Completer
+             print('Completing Completer with error for requestId: $requestId');
+            _pluginQueryCompleters[requestId]!.completeError(
+              decodedMessage['error'] ?? 'Unknown error from plugin',
+            );
+            _pluginQueryCompleters.remove(requestId); // 错误完成，移除 Completer
+          }
+        } catch (e) {
+          print('Error processing message on PluginResultChannel: $e');
+          // 可以在这里处理解析错误，例如记录日志或完成对应的 Completer（如果有的话）
+        }
+      },
+    )
+    ..setBackgroundColor(const Color(0x00000000))
+    ..setNavigationDelegate(
+      NavigationDelegate(
+        onPageFinished: (String url) async {},
+        onWebResourceError: (WebResourceError error) {
+          print('Page loading error: ${error.description}');
         },
-      )
-      ..setBackgroundColor(const Color(0x00000000))
-      ..setNavigationDelegate(
-        NavigationDelegate(
-          onPageFinished: (String url) async {},
-        ),
-      );
+      ),
+    );
+
+  if (_webViewController.platform is AndroidWebViewController) {
+    AndroidWebViewController.enableDebugging(false);
+    (_webViewController.platform as AndroidWebViewController)
+        .setMediaPlaybackRequiresUserGesture(false);
+  }
 
     // 初始化 HTTP 拦截器
     _httpInterceptor.register(_webViewController);
 
-    _webViewController.loadRequest(Uri.parse('about:blank'));
-  }
+    //_webViewController.loadRequest(Uri.parse('about:blank'));
+}
 
   Future<void> addPlugin(Plugin plugin) async {
     await database.insert('plugins', plugin.toJson(),
@@ -599,6 +698,7 @@ class PluginService {
     _plugins.addAll(plugins);
   }
 
+/*
   Future<void> loadScriptFromFile(Plugin plugin) async {
     final scriptPath = await plugin.getScriptPath();
     final script = await File(scriptPath).readAsString();
@@ -619,6 +719,33 @@ class PluginService {
 
     loadedPlugins[plugin.id] = 'window.plugin["${plugin.id}"]';
   }
+*/
+
+
+  // 使用 Map 来跟踪每个插件的就绪状态
+  // 加载单个插件
+  Future<void> loadScriptFromFile(Plugin plugin) async {
+    final scriptPath = await plugin.getScriptPath();
+    final script = await File(scriptPath).readAsString();
+
+    print('Executing script for plugin: ${plugin.id}');
+
+    // 重置插件就绪状态
+    _pluginReadyStatus[plugin.id] = false;
+
+    // 执行 JS 插件代码
+    await _webViewController.runJavaScript('''
+      (function() {
+        $script
+      })();
+    ''');
+
+    print('Waiting for pluginReady message for plugin: ${plugin.id}');
+
+    loadedPlugins[plugin.id] = 'window.plugin["${plugin.id}"]';
+  }
+
+
 
   /// 保存插件
   Future<void> savePlugin(Plugin plugin) async {
@@ -739,63 +866,136 @@ class PluginService {
     loadedPlugins[plugin.id] = script;
   }
 
+
+  // 辅助函数：等待插件就绪
+  Future<void> waitForPluginReady(String pluginId) async {
+    // 如果插件已经就绪，则直接返回
+    if (_pluginReadyStatus[pluginId] == true) {
+      return;
+    }
+
+    // 创建一个 Completer，用于等待插件就绪
+    final completer = Completer<void>();
+
+    // 监听 _pluginReadyController 的流，等待指定 pluginId 的插件就绪
+    StreamSubscription? sub;
+    sub = _pluginReadyController.stream.listen((readyPluginId) {
+      if (readyPluginId == pluginId) {
+        // 如果等待的插件已就绪，则完成 Completer
+        if (!completer.isCompleted) {
+          completer.complete();
+        }
+        // 取消订阅，因为已经找到并等待的插件已就绪
+        sub?.cancel();
+      }
+    });
+
+    // 设置超时时间，如果在指定时间内插件未就绪，则打印提示信息
+    await completer.future.timeout(const Duration(seconds: 5), onTimeout: () {
+      print('Timeout: Plugin $pluginId did not send pluginReady message.');
+      // 超时后取消订阅
+      sub?.cancel();
+    });
+  }
+
+
   // 调用所有已启用插件的函数查询
-  Future<Map<String, dynamic>?> callPlugins(
-      String? phoneNumber, String? nationalNumber, String? e164Number) async {
-    List<Map<String, dynamic>> results = [];
+  // 调用所有已启用插件的函数查询 (修正此函数)
+Future<Map<String, dynamic>?> callPlugins(
+    String? phoneNumber,
+    String? nationalNumber,
+    String? e164Number,
+  ) async {
     final enabledPlugins = await getEnabledPlugins();
     final enabledPluginIds = enabledPlugins.map((plugin) => plugin.id).toList();
 
     if (enabledPluginIds.isEmpty) {
+      print('No enabled plugins to call.');
       return null;
     }
 
-    // 确保所有启用的插件都已经加载了 JavaScript 代码
+    print('Enabled plugin IDs: $enabledPluginIds');
+
+    // 1. 加载并等待所有启用的插件就绪
     for (var pluginId in enabledPluginIds) {
-      if (!loadedPlugins.containsKey(pluginId)) {
+      if (!loadedPlugins.containsKey(pluginId) || _pluginReadyStatus[pluginId] != true) {
         final plugin = await getPluginById(pluginId);
         if (plugin != null) {
+          print('Attempting to load script for plugin: $pluginId');
           await loadScriptFromFile(plugin);
+          print('Finished loadScriptFromFile for plugin: $pluginId');
+
+          // 等待当前插件就绪
+          print('Waiting for pluginReady: $pluginId');
+          await waitForPluginReady(pluginId);
+          print('Plugin ready confirmed: $pluginId');
         }
       }
     }
 
-    // 执行插件函数
+    // 2. 执行所有已就绪插件的查询函数
+    print('Calling plugins: $enabledPluginIds');
+
+    // 用于存储所有插件查询任务的 Future
+    List<Future<Map<String, dynamic>?>> futures = [];
+    // 用于存储所有插件查询的 Completer (为了在最后清理)
+    List<Completer<Map<String, dynamic>?>> completers = [];
+
     for (var pluginId in enabledPluginIds) {
-      // 添加 print 语句
-      var pluginObject = loadedPlugins[pluginId];
-      if (pluginObject != null) {
-        var result = await _webViewController.runJavaScriptReturningResult(
-            "$pluginObject.generateOutput('${phoneNumber ?? ''}', '${nationalNumber ?? ''}', '${e164Number ?? ''}')");
-        // 添加 print 语句
-        // 添加 print 语句
+      final requestId = 'query_${pluginId}_${DateTime.now().millisecondsSinceEpoch}';
+      // 为每个插件查询创建一个 Completer
+      final completer = Completer<Map<String, dynamic>?>();
+      _pluginQueryCompleters[requestId] = completer;
+      completers.add(completer);
 
-        //  var resultMap = Map<String, dynamic>.from(result as Map);
-        //  if (isValidResult(resultMap)) {
+      // 将每个插件查询的 Future 添加到 futures 列表中
+      futures.add(completer.future);
 
-        // 将 result 转换为 Map 类型，并进行空值检查
-        var resultMap = (result is Map) ? result as Map<String, dynamic> : null;
+      print('开始执行generateOutput');
+      // 执行 JavaScript 查询代码
+      if (loadedPlugins.containsKey(pluginId)) {
+        await _webViewController.runJavaScript('''
+          (function(pluginId) {
+            if (window.plugin && window.plugin[pluginId]) {
+              window.plugin[pluginId].generateOutput(
+                "$phoneNumber",
+                "$nationalNumber",
+                "$e164Number",
+                "$requestId"
+              );
+            } else {
+              console.error('Plugin not found or not loaded:', pluginId);
+            }
+          })('$pluginId');
+        ''');
+      } else {
+        print('Plugin object not found for pluginId: $pluginId');
+      }
+    }
+    print('完成执行generateOutput');
 
-        if (resultMap != null && isValidResult(resultMap)) {
-          results.add({
-            'phoneNumber': resultMap['phoneNumber'],
-            'sourceLabel': resultMap['sourceLabel'],
-            'count': resultMap['count'],
-            'predefinedLabel': resultMap['predefinedLabel'],
-            'source': resultMap['source'],
-            /*
-              'phoneNumber': resultMap['phoneNumber'] as String? ?? '',
-    'sourceLabel': resultMap['sourceLabel'] as String? ?? '',
-    'count': resultMap['count'] as int? ?? 0,
-    'predefinedLabel': resultMap['predefinedLabel'] as String? ?? '',
-    'source': resultMap['source'] as String? ?? '',
-          */
-          });
+    // 3. 等待第一个有效的插件结果
+    print('Waiting for first valid result...');
+    Map<String, dynamic>? validResult;
+    for (var future in futures) {
+      try {
+        final result = await future;
+        if (result != null && isValidResult(result)) {
+          validResult = result;
+          print('Valid result found: $validResult');
+          break; // 找到有效结果，跳出循环
         }
+      } catch (error) {
+        print('Error in plugin future: $error');
       }
     }
 
-    return results.isNotEmpty ? results.first : null;
+    // 4. 清理并返回结果
+    print('Cleaning up completers...');
+    _pluginQueryCompleters.clear(); // 清理 Completers
+
+    print('Final result: $validResult');
+    return validResult;
   }
 
   // 定义一个函数来检查结果是否有效
