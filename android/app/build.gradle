@@ -56,7 +56,7 @@ android {
 
     
     namespace = "com.yours.yourcallyourrule"
-    compileSdk 34
+    compileSdk 35
     ndkVersion = '27.1.12297006'
 
     compileOptions {
