@@ -1,0 +1,82 @@
+name: SMS xached 直接发布 Sign and Release
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pub-cache
+            ~/.flutter
+          key: ${{ runner.os }}-pub-cache-${{ hashFiles('**/pubspec.yaml') }}
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+
+      - name: Get Flutter packages
+        run: flutter pub get
+
+      - name: Flutter Doctor
+        run: |
+          flutter doctor -v
+          echo "Flutter Plugins:"
+          echo $(cat .flutter-plugins)
+
+      # Decode and place keystore
+      - name: Decode keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
+
+      # Create key.properties file
+      - name: Create key.properties
+        run: |
+          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
+          echo "storeFile=key.jks" >> android/key.properties
+
+      # Build and Sign AAB and APKs using Flutter's built-in signing
+      - name: Build and Sign AAB and APKs
+        run: |
+          flutter build appbundle --release
+          flutter build apk --split-per-abi --release
+
+
+
+      - name: Extract pubspec version
+        run: |
+          echo "PUBSPEC_VERSION=$(grep -oP 'version:\s*\K[^+]+(?=\+)' pubspec.yaml)" >> $GITHUB_ENV
+
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.MY_PAT }}
+          tag: v${{ env.PUBSPEC_VERSION }}
+          omitBodyDuringUpdate: true
+          omitNameDuringUpdate: true
+          omitPrereleaseDuringUpdate: true
+          allowUpdates: true
+          artifacts: |
+            build/app/outputs/bundle/release/app-release-with-SMS.aab
+            build/app/outputs/apk/release/*-with-SMS.apk
