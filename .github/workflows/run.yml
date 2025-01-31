@@ -70,7 +70,7 @@ jobs:
 
       # Upload signed AAB and APKs as artifacts
       - name: Upload Signed Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: signed-release-artifacts
           path: |
