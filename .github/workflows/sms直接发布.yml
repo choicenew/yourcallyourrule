@@ -62,7 +62,11 @@ jobs:
           flutter build appbundle --release
           flutter build apk --split-per-abi --release
 
-
+      # Rename files before uploading
+      - name: Rename Artifacts with Suffix
+        run: |
+          mv build/app/outputs/bundle/release/app-release.aab build/app/outputs/bundle/release/app-release-with-SMS.aab
+          for f in build/app/outputs/apk/release/*.apk; do mv "$f" "${f%.*}-with-SMS.${f##*.}"; done
 
       - name: Extract pubspec version
         run: |
