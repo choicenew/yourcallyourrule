@@ -94,6 +94,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Autoriser tous les numéros de la liste blanche"),
         "allowBlockedNumbers": MessageLookupByLibrary.simpleMessage(
             "Autoriser les numéros bloqués"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Autoriser les modèles de liste noire Regex"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -122,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "Mise à jour automatique activée"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage(
             "Tailles des avatars et des icônes"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage(
@@ -183,6 +186,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Demande de rôle de filtrage des appels réussie !"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage(
             "Application d\'identification de l\'appelant"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle": MessageLookupByLibrary.simpleMessage(
@@ -250,6 +256,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "Liste des abonnements aux contacts"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor":
             MessageLookupByLibrary.simpleMessage("Couleur du compteur"),
         "countFontSize": MessageLookupByLibrary.simpleMessage(
@@ -257,6 +264,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "countPosition":
             MessageLookupByLibrary.simpleMessage("Position du compteur"),
         "country": MessageLookupByLibrary.simpleMessage("Pays :"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Couleur du nom du pays"),
         "countryNameFontSize": MessageLookupByLibrary.simpleMessage(
@@ -328,6 +337,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Activé"),
         "endColor": MessageLookupByLibrary.simpleMessage("Couleur de fin"),
         "endcall": MessageLookupByLibrary.simpleMessage("Raccrocher"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Saisir l\'URL de l\'image"),
         "enterPluginCodeHere": MessageLookupByLibrary.simpleMessage(
@@ -702,6 +713,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Veuillez attendre la fin de l\'initialisation de la base de données."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Page du plugin"),
         "plugins": MessageLookupByLibrary.simpleMessage("Plugins"),
         "pluginspageview":
@@ -892,6 +904,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Tester"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors": MessageLookupByLibrary.simpleMessage(
             "Couleurs du texte et des étiquettes"),
         "textType": MessageLookupByLibrary.simpleMessage("Type de texte"),
@@ -909,6 +923,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Cette autorisation est requise pour que notre application puisse afficher des informations importantes par-dessus d\'autres applications.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Tutoriel"),
@@ -941,7 +956,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Utilisez le modèle \'^\\+\' pour faire correspondre tous les numéros de téléphone commençant par un signe plus, qui indique généralement un numéro international."),
         "userName": MessageLookupByLibrary.simpleMessage("Nom d\'utilisateur"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Vérifié"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Vidéo"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

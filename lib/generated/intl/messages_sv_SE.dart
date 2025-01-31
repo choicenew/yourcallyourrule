@@ -92,6 +92,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Tillåt alla vitlistade nummer"),
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("Tillåt blockerade nummer"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Tillåt Regex svartlistade mönster"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -120,6 +122,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "Automatisk uppdatering aktiverad"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("Avatar- och ikonstorlekar"),
         "avatarBorderColor":
@@ -178,6 +181,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Begäran om samtalsscreeningroll lyckades!"),
         "callerIdApp":
             MessageLookupByLibrary.simpleMessage("Uppringnings-ID-app"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle":
@@ -241,11 +247,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Kontaktprenumerationslistvy"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("Antal färg"),
         "countFontSize":
             MessageLookupByLibrary.simpleMessage("Antal teckenstorlek"),
         "countPosition": MessageLookupByLibrary.simpleMessage("Antal position"),
         "country": MessageLookupByLibrary.simpleMessage("Land:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Landsnamnsfärg"),
         "countryNameFontSize":
@@ -311,6 +320,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Aktiverad"),
         "endColor": MessageLookupByLibrary.simpleMessage("Slutfärg"),
         "endcall": MessageLookupByLibrary.simpleMessage("Avsluta samtal"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Ange bildadress"),
         "enterPluginCodeHere":
@@ -677,6 +688,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Vänta tills databasinitialiseringen är klar."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Plugin-sida"),
         "plugins": MessageLookupByLibrary.simpleMessage("Plugins"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("Pluginsidvy"),
@@ -858,6 +870,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Testa"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("Text- och etikettfärger"),
         "textType": MessageLookupByLibrary.simpleMessage("Texttyp"),
@@ -875,6 +889,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Denna behörighet krävs för att vår app ska kunna visa viktig information ovanpå andra appar.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Guide"),
@@ -908,7 +923,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Använd mönstret \'^\\+\' för att matcha alla telefonnummer som börjar med ett plustecken, vilket vanligtvis indikerar ett internationellt nummer."),
         "userName": MessageLookupByLibrary.simpleMessage("Användarnamn"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Verifierad"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Video"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

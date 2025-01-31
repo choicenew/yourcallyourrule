@@ -92,6 +92,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "ခွင့်ပြုစာရင်းတင်ထားသောနံပါတ်အားလုံးကိုခွင့်ပြုပါ"),
         "allowBlockedNumbers": MessageLookupByLibrary.simpleMessage(
             "ပိတ်ဆို့ထားသောနံပါတ်များကိုခွင့်ပြုပါ"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Regex ပိတ်ဆို့ထားသောပုံစံများကိုခွင့်ပြုပါ"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -120,6 +122,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "အလိုအလျောက်အပ်ဒိတ်ကိုဖွင့်ထားသည်"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage(
             "Avatar နှင့် Icon အရွယ်အစားများ"),
         "avatarBorderColor":
@@ -181,6 +184,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "ဖုန်းခေါ်ဆိုမှုစစ်ဆေးခြင်းလုပ်ဆောင်ချက်တောင်းဆိုမှုအောင်မြင်ပါပြီ။"),
         "callerIdApp":
             MessageLookupByLibrary.simpleMessage("ဖုန်းခေါ်ဆိုသူ ID အက်ပ်"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle":
@@ -248,12 +254,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "အဆက်အသွယ်စာရင်းသွင်းမှုစာရင်းကြည့်ရှုမှု"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("ရေတွက်မှုအရောင်"),
         "countFontSize":
             MessageLookupByLibrary.simpleMessage("ရေတွက်မှုဖောင့်အရွယ်အစား"),
         "countPosition":
             MessageLookupByLibrary.simpleMessage("ရေတွက်မှုတည်နေရာ"),
         "country": MessageLookupByLibrary.simpleMessage("နိုင်ငံ :"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("နိုင်ငံအမည်အရောင်"),
         "countryNameFontSize":
@@ -323,6 +332,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("ဖွင့်ထားသည်"),
         "endColor": MessageLookupByLibrary.simpleMessage("အဆုံးအရောင်"),
         "endcall": MessageLookupByLibrary.simpleMessage("ဖုန်းချပါ"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Image URL ကိုရိုက်ထည့်ပါ"),
         "enterPluginCodeHere": MessageLookupByLibrary.simpleMessage(
@@ -696,6 +707,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "ဒေတာဘေ့စ်စတင်ခြင်းပြီးဆုံးသည်အထိစောင့်ဆိုင်းပါ။"),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Plugin စာမျက်နှာ"),
         "plugins": MessageLookupByLibrary.simpleMessage("Plugins"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage(
@@ -888,6 +900,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("စမ်းသပ်ပါ"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("စာသားနှင့် Label အရောင်များ"),
         "textType": MessageLookupByLibrary.simpleMessage("စာသားအမျိုးအစား"),
@@ -905,6 +919,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "ဤခွင့်ပြုချက်သည်ကျွန်ုပ်တို့၏အက်ပ်အားအခြားအက်ပ်များ၏ထိပ်တွင်အရေးကြီးသောအချက်အလက်များကိုပြသရန်လိုအပ်သည်။"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("သင်ခန်းစာ"),
@@ -938,7 +953,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "plus လက္ခဏာဖြင့်စတင်သောဖုန်းနံပါတ်အားလုံးနှင့်ကိုက်ညီရန် \'^\\+\' ပုံစံကိုသုံးပါ၊ ၎င်းသည်ပုံမှန်အားဖြင့်နိုင်ငံတကာနံပါတ်ကိုညွှန်ပြသည်။"),
         "userName": MessageLookupByLibrary.simpleMessage("အသုံးပြုသူအမည်"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("အတည်ပြုပြီး"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("ဗီဒီယို"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

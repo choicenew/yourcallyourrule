@@ -91,6 +91,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Tüm Beyaz Listeye Alınmış Numaralara İzin Ver"),
         "allowBlockedNumbers": MessageLookupByLibrary.simpleMessage(
             "Engellenen Numaralara İzin Ver"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Regex Kara Listeye Alınmış Desенlere İzin Ver"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -119,6 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("Otomatik Güncelleme Etkin"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("Avatar ve Simge Boyutları"),
         "avatarBorderColor":
@@ -177,6 +180,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Çağrı tarama rolü isteği başarılı!"),
         "callerIdApp":
             MessageLookupByLibrary.simpleMessage("Arayan Kimliği Uygulaması"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle":
@@ -242,11 +248,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "Kişi Abonelik Listesi Görünümü"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("Sayım Rengi"),
         "countFontSize":
             MessageLookupByLibrary.simpleMessage("Sayım Yazı Tipi Boyutu"),
         "countPosition": MessageLookupByLibrary.simpleMessage("Sayım Konumu"),
         "country": MessageLookupByLibrary.simpleMessage("Ülke:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Ülke Adı Rengi"),
         "countryNameFontSize":
@@ -313,6 +322,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Etkin"),
         "endColor": MessageLookupByLibrary.simpleMessage("Bitiş Rengi"),
         "endcall": MessageLookupByLibrary.simpleMessage("Aramayı Sonlandır"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Resim URL\'sini Girin"),
         "enterPluginCodeHere":
@@ -681,6 +692,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Lütfen veritabanı başlatmasının tamamlanmasını bekleyin."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Eklenti Sayfası"),
         "plugins": MessageLookupByLibrary.simpleMessage("Eklentiler"),
         "pluginspageview":
@@ -866,6 +878,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Test Et"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("Metin ve Etiket Renkleri"),
         "textType": MessageLookupByLibrary.simpleMessage("Metin Türü"),
@@ -883,6 +897,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Bu izin, uygulamamızın diğer uygulamaların üzerinde önemli bilgileri görüntülemesi için gereklidir.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Eğitim"),
@@ -916,7 +931,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Genellikle uluslararası bir numarayı gösteren artı işaretiyle başlayan tüm telefon numaralarıyla eşleştirmek için \'^\\+\' desenini kullanın."),
         "userName": MessageLookupByLibrary.simpleMessage("Kullanıcı Adı"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Doğrulandı"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Video"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

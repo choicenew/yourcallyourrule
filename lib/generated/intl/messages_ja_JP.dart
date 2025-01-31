@@ -82,6 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ホワイトリストに登録されているすべての番号を許可する"),
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("ブロックされている番号を許可する"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns":
             MessageLookupByLibrary.simpleMessage("正規表現ブラックリストパターンを許可する"),
         "allowRegexWhitelistedPatterns":
@@ -106,6 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("自動更新が有効になっています"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("アバターとアイコンのサイズ"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("アバターの境界線の色"),
@@ -156,6 +159,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "callScreeningRoleRequestSuccessful":
             MessageLookupByLibrary.simpleMessage("通話スクリーニングの役割要求に成功しました！"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage("発信者番号アプリ"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle": MessageLookupByLibrary.simpleMessage("発信者番号のスタイル"),
@@ -213,10 +219,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("ContactSubscriptionListView"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("カウントの色"),
         "countFontSize": MessageLookupByLibrary.simpleMessage("カウントのフォントサイズ"),
         "countPosition": MessageLookupByLibrary.simpleMessage("カウントの位置"),
         "country": MessageLookupByLibrary.simpleMessage("国："),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor": MessageLookupByLibrary.simpleMessage("国/地域名のカラー"),
         "countryNameFontSize":
             MessageLookupByLibrary.simpleMessage("国/地域名のフォントサイズ"),
@@ -276,6 +285,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("有効"),
         "endColor": MessageLookupByLibrary.simpleMessage("終了色"),
         "endcall": MessageLookupByLibrary.simpleMessage("通話を終了"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, JP)"),
         "enterImageUrl": MessageLookupByLibrary.simpleMessage("画像のURLを入力"),
         "enterPluginCodeHere":
             MessageLookupByLibrary.simpleMessage("ここにプラグインコードを入力してください"),
@@ -575,6 +586,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "「デフォルトに設定」をタップし、次の画面で権限を許可してください。"),
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage("データベースの初期化が完了するまでお待ちください。"),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("プラグインページ"),
         "plugins": MessageLookupByLibrary.simpleMessage("プラグイン"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("プラグインページビュー"),
@@ -738,6 +750,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("テスト"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors": MessageLookupByLibrary.simpleMessage("テキストとラベルの色"),
         "textType": MessageLookupByLibrary.simpleMessage("テキストタイプ"),
         "theTranslationIsNotYetComplete": MessageLookupByLibrary.simpleMessage(
@@ -754,6 +768,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "この権限は、アプリが他のアプリの上に重要な情報を表示するために必要です。"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("チュートリアル"),
@@ -785,7 +800,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "「^\\+」パターンを使用して、プラス記号で始まるすべての電話番号に一致させます。プラス記号は通常、国際番号を示します。"),
         "userName": MessageLookupByLibrary.simpleMessage("ユーザー名"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("確認済み"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("ビデオ"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

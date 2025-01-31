@@ -93,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Να επιτρέπονται όλοι οι αριθμοί λευκής λίστας"),
         "allowBlockedNumbers": MessageLookupByLibrary.simpleMessage(
             "Να επιτρέπονται οι αποκλεισμένοι αριθμοί"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Να επιτρέπονται τα πρότυπα μαύρης λίστας Regex"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -121,6 +123,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "Ενεργοποιημένη αυτόματη ενημέρωση"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes": MessageLookupByLibrary.simpleMessage(
             "Μεγέθη Avatar και Εικονιδίων"),
         "avatarBorderColor":
@@ -180,6 +183,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Επιτυχής αίτημα ρόλου φιλτραρίσματος κλήσεων!"),
         "callerIdApp":
             MessageLookupByLibrary.simpleMessage("Εφαρμογή ID καλούντος"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle":
@@ -243,11 +249,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("Λίστα εγγραφών επαφής"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor": MessageLookupByLibrary.simpleMessage("Χρώμα Μετρητή"),
         "countFontSize": MessageLookupByLibrary.simpleMessage(
             "Μέγεθος Γραμματοσειράς Μετρητή"),
         "countPosition": MessageLookupByLibrary.simpleMessage("Θέση Μετρητή"),
         "country": MessageLookupByLibrary.simpleMessage("Χώρα:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Χρώμα Ονόματος Χώρας"),
         "countryNameFontSize": MessageLookupByLibrary.simpleMessage(
@@ -318,6 +327,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Ενεργοποιημένο"),
         "endColor": MessageLookupByLibrary.simpleMessage("Χρώμα Λήξης"),
         "endcall": MessageLookupByLibrary.simpleMessage("Τερματισμός κλήσης"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Εισαγάγετε URL εικόνας"),
         "enterPluginCodeHere": MessageLookupByLibrary.simpleMessage(
@@ -684,6 +695,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Παρακαλώ περιμένετε να ολοκληρωθεί η εκκίνηση της βάσης δεδομένων."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("Σελίδα Plugin"),
         "plugins": MessageLookupByLibrary.simpleMessage("Plugins"),
         "pluginspageview":
@@ -875,6 +887,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Δοκιμή"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("Χρώματα Κειμένου & Ετικετών"),
         "textType": MessageLookupByLibrary.simpleMessage("Τύπος κειμένου"),
@@ -892,6 +906,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Αυτή η άδεια απαιτείται για να εμφανίζει η εφαρμογή μας σημαντικές πληροφορίες πάνω από άλλες εφαρμογές.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Εκμάθηση"),
@@ -924,7 +939,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Χρησιμοποιήστε το πρότυπο \'^\\+\' για να αντιστοιχίσετε όλους τους αριθμούς τηλεφώνου που ξεκινούν με σύμβολο συν, το οποίο συνήθως υποδεικνύει διεθνή αριθμό."),
         "userName": MessageLookupByLibrary.simpleMessage("Όνομα χρήστη"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Επαληθευμένο"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Βίντεο"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":

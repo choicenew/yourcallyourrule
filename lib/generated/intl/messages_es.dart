@@ -93,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Permitir todos los números de la lista blanca"),
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("Permitir números bloqueados"),
+        "allowOtherNumbers":
+            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "Permitir patrones de lista negra Regex"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -121,6 +123,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoUpdateEnabled": MessageLookupByLibrary.simpleMessage(
             "Actualización automática habilitada"),
         "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
+        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("Tamaños de avatar e iconos"),
         "avatarBorderColor":
@@ -181,6 +184,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "¡Solicitud de función de filtro de llamadas correcta!"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage(
             "Aplicación de identificación de llamadas"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Caller ID Data is not available"),
         "callerIdSimSource":
             MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
         "callerIdStyle": MessageLookupByLibrary.simpleMessage(
@@ -249,6 +255,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ContactSubscription"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "Vista de lista de suscripción de contacto"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "countColor":
             MessageLookupByLibrary.simpleMessage("Color del contador"),
         "countFontSize": MessageLookupByLibrary.simpleMessage(
@@ -256,6 +263,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "countPosition":
             MessageLookupByLibrary.simpleMessage("Posición del contador"),
         "country": MessageLookupByLibrary.simpleMessage("País:"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
+        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("Color del nombre del país"),
         "countryNameFontSize": MessageLookupByLibrary.simpleMessage(
@@ -324,6 +333,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enabled": MessageLookupByLibrary.simpleMessage("Habilitado"),
         "endColor": MessageLookupByLibrary.simpleMessage("Color final"),
         "endcall": MessageLookupByLibrary.simpleMessage("finalizar llamada"),
+        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
+            "Enter country code (e.g., US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("Introducir URL de la imagen"),
         "enterPluginCodeHere": MessageLookupByLibrary.simpleMessage(
@@ -700,6 +711,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "Espere a que se complete la inicialización de la base de datos."),
+        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
         "pluginPage":
             MessageLookupByLibrary.simpleMessage("Página de complemento"),
         "plugins": MessageLookupByLibrary.simpleMessage("Complementos"),
@@ -893,6 +905,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
         "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
         "test": MessageLookupByLibrary.simpleMessage("Prueba"),
+        "testCallerIdOverlay":
+            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
         "textLabelColors": MessageLookupByLibrary.simpleMessage(
             "Colores de texto y etiquetas"),
         "textType": MessageLookupByLibrary.simpleMessage("Tipo de texto"),
@@ -910,6 +924,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "Este permiso es necesario para que nuestra aplicación muestre información importante sobre otras aplicaciones.\\n\\n"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "tutorial": MessageLookupByLibrary.simpleMessage("Tutorial"),
@@ -942,7 +957,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Utilice el patrón \'^\\+\' para hacer coincidir todos los números de teléfono que comienzan con un signo más, que normalmente indica un número internacional."),
         "userName": MessageLookupByLibrary.simpleMessage("Nombre de usuario"),
+        "verificationPageRules":
+            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
+            "Verification Results (shouldAcceptCall Rules):"),
         "verified": MessageLookupByLibrary.simpleMessage("Verificado"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
         "video": MessageLookupByLibrary.simpleMessage("Vídeo"),
         "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":
