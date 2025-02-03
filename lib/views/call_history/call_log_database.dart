@@ -1,21 +1,95 @@
 import 'dart:convert';
-
-import 'package:call_log/call_log.dart';
-import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:path/path.dart';
-
 import '../../services/caller_id_service.dart';
+import '../../services/caller_id_monitor_service.dart';
 
-class CallLogDatabase {
-  static final CallLogDatabase instance = CallLogDatabase._init();
+
+class CallLogEntry {
+  int? id;
+  String? number;
+  int? timestamp;
+  String? simDisplayName;
+  String? callType;
+  int? simSlotIndex;
+  String? carrierName;
+  String? countryIso;
+  int? subscriptionId;
+
+  CallLogEntry({
+    this.id,
+    this.number,
+    this.timestamp,
+    this.simDisplayName,
+    this.callType,
+    this.simSlotIndex,
+    this.carrierName,
+    this.countryIso,
+    this.subscriptionId,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'number': number,
+      'timestamp': timestamp,
+      'simDisplayName': simDisplayName,
+      'callType': callType,
+      'simSlotIndex': simSlotIndex,
+      'carrierName': carrierName,
+      'countryIso': countryIso,
+      'subscriptionId': subscriptionId,
+    };
+  }
+
+
+  factory CallLogEntry.fromMap(Map<String, dynamic> map) {
+    return CallLogEntry(
+      id: map['id']?.toInt(),
+      number: map['number'],
+      timestamp: map['timestamp']?.toInt(),
+      simDisplayName: map['simDisplayName'],
+      callType: map['callType'],
+      simSlotIndex: map['simSlotIndex']?.toInt(),
+      carrierName: map['carrierName'],
+      countryIso: map['countryIso'],
+      subscriptionId: map['subscriptionId']?.toInt(),
+    );
+  }
+    factory CallLogEntry.fromDbMap(Map<String, dynamic> map) {
+        return CallLogEntry(
+            id: map['id'],
+            number: map['number'],
+            timestamp: map['timestamp'],
+            simDisplayName: map['simDisplayName'],
+          callType: map['callType'],
+          simSlotIndex: map['simSlotIndex'],
+          carrierName:map['carrierName'],
+          countryIso: map['countryIso'],
+          subscriptionId: map['subscriptionId']
+        );
+    }
+
+
+  @override
+  String toString() {
+    return 'CallLogEntry{id: $id, number: $number, timestamp: $timestamp, simDisplayName: $simDisplayName, callType: $callType, simSlotIndex: $simSlotIndex, carrierName: $carrierName, countryIso: $countryIso, subscriptionId: $subscriptionId}';
+  }
+
+
+}
+
+
+class CallScreeningDatabase {
+  static final CallScreeningDatabase instance = CallScreeningDatabase._init();
   static Database? _database;
 
-  CallLogDatabase._init();
+  CallScreeningDatabase._init();
 
   Future<Database> get database async {
     if (_database != null) return _database!;
-    _database = await _initDB('call_logs.db');
+    _database = await _initDB('call_screening.db');
     return _database!;
   }
 
@@ -31,25 +105,22 @@ class CallLogDatabase {
   }
 
   Future<void> _createDB(Database db, int version) async {
-    // 通话记录表
+    // Modified call_logs table to only include data available from CallScreeningService
     await db.execute('''
       CREATE TABLE call_logs (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
         number TEXT,
-        formattedNumber TEXT,
-        callType INTEGER,
-        duration INTEGER,
         timestamp INTEGER,
-        cachedNumberType INTEGER,
-        cachedNumberLabel TEXT,
         simDisplayName TEXT,
-        phoneAccountId TEXT,
-        simSlotIndex TEXT
+        callType TEXT,
+        simSlotIndex INTEGER,
+        carrierName TEXT,
+        countryIso TEXT,
+        subscriptionId INTEGER
       )
     ''');
 
-    // CallerID表 - 保持简单但包含必要字段
+    // CallerID表保持不变，因为这是自定义的识别数据
     await db.execute('''
       CREATE TABLE caller_id (
         phoneNumber TEXT PRIMARY KEY,
@@ -57,203 +128,102 @@ class CallLogDatabase {
         region TEXT,
         carrier TEXT,
         numberType TEXT,
-        labels TEXT,  
+        labels TEXT,
         name TEXT,
         avatar TEXT,
-        count INTEGER      -- lastUpdated INTEGER
-     
+        count INTEGER
       )
     ''');
 
-    // 创建索引提升查询性能
     await db.execute('CREATE INDEX idx_timestamp ON call_logs(timestamp)');
   }
 
-  // 插入通话记录
-  Future<void> insertCallLog(CallLogEntry log) async {
+  // Modified to use CallScreeningService data
+  Future<void> insertCallScreeningEntry(CallData callData) async {
+          print("读取库号码: ${callData.simInfo?.phoneNumber}"); // 添加 print 语句
     final db = await database;
     await db.insert(
       'call_logs',
       {
-        'name': log.name,
-        'number': log.number,
-        'formattedNumber': log.formattedNumber,
-        'callType': log.callType?.index, // 存储 CallType 的 index 值
-        'duration': log.duration,
-        'timestamp': log.timestamp,
-        'cachedNumberType': log.cachedNumberType,
-        'cachedNumberLabel': log.cachedNumberLabel,
-        'simDisplayName': log.simDisplayName,
-        'phoneAccountId': log.phoneAccountId,
-        'simSlotIndex': log.simSlotIndex,
+        'number': callData.simInfo?.phoneNumber,
+        'timestamp': DateTime.now().millisecondsSinceEpoch,
+        'simDisplayName': callData.simInfo?.displayName,
+        'callType': callData.simInfo?.callType,
+        'simSlotIndex': callData.simInfo?.simSlotIndex,
+        'carrierName': callData.simInfo?.carrierName,
+        'countryIso': callData.simInfo?.countryIso,
+        'subscriptionId': callData.simInfo?.subscriptionId,
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 
-  // 批量插入通话记录
-  Future<void> insertCallLogs(List<CallLogEntry> logs) async {
-    final db = await database;
-    final batch = db.batch();
-    
-    for (var log in logs) {
-      batch.insert(
-        'call_logs',
-        {
-          'name': log.name,
-          'number': log.number,
-          'formattedNumber': log.formattedNumber,
-          'callType': log.callType?.index, // 存储 CallType 的 index 值
-          'duration': log.duration,
-          'timestamp': log.timestamp,
-          'cachedNumberType': log.cachedNumberType,
-          'cachedNumberLabel': log.cachedNumberLabel,
-          'simDisplayName': log.simDisplayName,
-          'phoneAccountId': log.phoneAccountId,
-          'simSlotIndex': log.simSlotIndex,
-        },
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
-    }
-    
-    await batch.commit(noResult: true);
-  }
+  // Get recent call screening logs
+Future<List<CallLogEntry>> getRecentLogs() async {   // limit parameter removed
+  final db = await database;
+  final List<Map<String, dynamic>> maps = await db.query(
+    'call_logs',
+    orderBy: 'timestamp DESC', 
+  );
+  return maps.map(CallLogEntry.fromDbMap).toList();
+}
 
+Future<List<CallLogEntry>> getLogsByPhoneNumber(String phoneNumber) async {  //limit parameter removed
+  final db = await database;
+  final List<Map<String, dynamic>> maps = await db.query(
+    'call_logs',
+    where: 'number = ?',
+    whereArgs: [phoneNumber],
+    orderBy: 'timestamp DESC',
+  );
+  return maps.map(CallLogEntry.fromDbMap).toList();
+}
 
-
-
-
-
-  // 获取最近的通话记录
-  Future<List<CallLogEntry>> getRecentLogs({int limit = 100}) async {
-    final db = await database;
-    final result = await db.query(
-      'call_logs',
-      orderBy: 'timestamp DESC',
-      limit: limit,
-    );
-
-    return result.map((map) => CallLogEntry(
-      name: map['name'] as String?,
-      number: map['number'] as String?,
-      formattedNumber: map['formattedNumber'] as String?,
-      callType: map['callType'] != null ? CallType.values[map['callType'] as int] : null, // 转换 CallType
-      duration: map['duration'] as int?,
-      timestamp: map['timestamp'] as int?,
-      cachedNumberType: map['cachedNumberType'] as int?,
-      cachedNumberLabel: map['cachedNumberLabel'] as String?,
-      simDisplayName: map['simDisplayName'] as String?,
-      phoneAccountId: map['phoneAccountId'] as String?,
-      simSlotIndex: map['simSlotIndex'] as String?,
-    )).toList();
-  }
-
-  // 根据电话号码获取通话记录
-  Future<List<CallLogEntry>> getLogsByPhoneNumber(String phoneNumber, {int limit = 50}) async {
-    final db = await database;
-    final result = await db.query(
-      'call_logs',
-      where: 'number = ?',
-      whereArgs: [phoneNumber],
-      orderBy: 'timestamp DESC',
-      limit: limit,
-    );
-
-    return result.map((map) => CallLogEntry(
-      name: map['name'] as String?,
-      number: map['number'] as String?,
-      formattedNumber: map['formattedNumber'] as String?,
-      callType: map['callType'] != null ? CallType.values[map['callType'] as int] : null, // 转换 CallType
-      duration: map['duration'] as int?,
-      timestamp: map['timestamp'] as int?,
-      cachedNumberType: map['cachedNumberType'] as int?,
-      cachedNumberLabel: map['cachedNumberLabel'] as String?,
-      simDisplayName: map['simDisplayName'] as String?,
-      phoneAccountId: map['phoneAccountId'] as String?,
-      simSlotIndex: map['simSlotIndex'] as String?,
-    )).toList();
-  }
-
-  // 获取所有CallerID数据
+  // CallerID related methods remain unchanged
   Future<List<CallerIdData>> getAllCallerIdData() async {
     final db = await database;
-    final result = await db.query(
-      'caller_id',
-     // orderBy: 'lastUpdated DESC',
-    );
+    final result = await db.query('caller_id');
 
     return result.map((map) => CallerIdData(
       phoneNumber: map['phoneNumber'] as String,
       countryName: map['countryName'] as String,
       region: map['region'] as String?,
       carrier: map['carrier'] as String?,
-        numberType: map['numberType'] != null 
-            ? PhoneNumberType.values.firstWhere(
-                (e) => e.toString() == map['numberType'],
-                orElse: () => PhoneNumberType.unknown,
-              )
-            : null,
+      numberType: map['numberType'] != null 
+          ? PhoneNumberType.values.firstWhere(
+              (e) => e.toString() == map['numberType'],
+              orElse: () => PhoneNumberType.unknown,
+            )
+          : null,
       labels: (jsonDecode(map['labels'] as String) as List)
           .map((json) => Label.fromJson(json))
           .toList(),
       name: map['name'] as String,
       avatar: map['avatar'] as String?,
       count: map['count'] as int? ?? 0,
-
     )).toList();
   }
 
-  // 批量插入CallerID数据
-  Future<void> insertCallerIdDataBatch(List<CallerIdData> dataList) async {
+  Future<void> insertCallerIdData(CallerIdData data) async {
     final db = await database;
-    final batch = db.batch();
-    
-    for (var data in dataList) {
-      batch.insert(
-        'caller_id',
-        {
-          'phoneNumber': data.phoneNumber,
-          'countryName': data.countryName,
-          'region': data.region,
-          'carrier': data.carrier,
-            'numberType': data.numberType?.toString(), // 存储枚举名称
-          'labels': jsonEncode(data.labels.map((l) => l.toJson()).toList()),
-          'name': data.name,
-          'avatar': data.avatar,
-          'count': data.count ?? 0,  // 确保提供默认值
-         // 'lastUpdated': DateTime.now().millisecondsSinceEpoch,
-        },
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
-    }
-    
-    await batch.commit(noResult: true);
+    await db.insert(
+      'caller_id',
+      {
+        'phoneNumber': data.phoneNumber,
+        'countryName': data.countryName,
+        'region': data.region,
+        'carrier': data.carrier,
+        'numberType': data.numberType?.toString(),
+        'labels': jsonEncode(data.labels.map((l) => l.toJson()).toList()),
+        'name': data.name,
+        'avatar': data.avatar,
+        'count': data.count ?? 0,
+      },
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
-
-// 在 CallLogDatabase 中添加
-Future<void> insertCallerIdData(CallerIdData data) async {
-  final db = await database;
-  await db.insert(
-    'caller_id',
-    {
-      'phoneNumber': data.phoneNumber,
-      'countryName': data.countryName,
-      'region': data.region,
-      'carrier': data.carrier,
-        'numberType': data.numberType?.toString(), // 存储枚举名称
-      'labels': jsonEncode(data.labels.map((l) => l.toJson()).toList()),
-      'name': data.name,
-      'avatar': data.avatar,
-     'count': data.count ?? 0,  // 确保提供默认值
-     // 'lastUpdated': DateTime.now().millisecondsSinceEpoch,
-    },
-        
-    conflictAlgorithm: ConflictAlgorithm.replace,
-  );
-}
-
-  Future<CallerIdData?> getCallerIdDataDatabaseByPhoneNumber(String phoneNumber) async {
+  Future<CallerIdData?> getCallerIdDataByPhoneNumber(String phoneNumber) async {
     final db = await database;
     final result = await db.query(
       'caller_id',
@@ -262,13 +232,8 @@ Future<void> insertCallerIdData(CallerIdData data) async {
     );
 
     if (result.isNotEmpty) {
-
-      // 将 fromMap 方法的逻辑直接放在这里
-      final phoneNumber = result.first['phoneNumber'] as String;
-      // 添加 print 语句
-  final map = result.first;
-      // 将 fromMap 方法的逻辑直接放在这里
-    return CallerIdData(
+      final map = result.first;
+      return CallerIdData(
         phoneNumber: map['phoneNumber'] as String,
         countryName: map['countryName'] as String,
         region: map['region'] as String?,
@@ -300,7 +265,8 @@ Future<void> updateCallerIdDataByFields(String phoneNumber, Map<String, dynamic>
   );
 }
 
-  // 清理数据库
+
+
   Future<void> close() async {
     final db = await database;
     db.close();
