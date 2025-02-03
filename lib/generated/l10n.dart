@@ -2121,10 +2121,10 @@ class S {
     );
   }
 
-  /// `Collection`
+  /// `Debt Collection`
   String get collection {
     return Intl.message(
-      'Collection',
+      'Debt Collection',
       name: 'collection',
       desc: '',
       args: [],
@@ -5578,6 +5578,76 @@ class S {
     return Intl.message(
       'To test rules',
       name: 'toTestRules',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Agent`
+  String get agent {
+    return Intl.message(
+      'Agent',
+      name: 'agent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recruiter`
+  String get recruiter {
+    return Intl.message(
+      'Recruiter',
+      name: 'recruiter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Headhunter`
+  String get headhunter {
+    return Intl.message(
+      'Headhunter',
+      name: 'headhunter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Silent Call(Voice Clone?)`
+  String get silentCallvoiceClone {
+    return Intl.message(
+      'Silent Call(Voice Clone?)',
+      name: 'silentCallvoiceClone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Regex Pattern`
+  String get regexPattern {
+    return Intl.message(
+      'Regex Pattern',
+      name: 'regexPattern',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a regex pattern`
+  String get pleaseEnterARegexPattern {
+    return Intl.message(
+      'Please enter a regex pattern',
+      name: 'pleaseEnterARegexPattern',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Match failed!`
+  String get matchFailed {
+    return Intl.message(
+      'Match failed!',
+      name: 'matchFailed',
       desc: '',
       args: [],
     );

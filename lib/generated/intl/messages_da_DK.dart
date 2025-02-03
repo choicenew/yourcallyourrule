@@ -81,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tilføj hvidlistesider"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("tilføjet med succes"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("Alle"),
         "allowAllAllowedNumbers":
             MessageLookupByLibrary.simpleMessage("Tillad alle tilladte numre"),
@@ -418,6 +419,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "grantPermission":
             MessageLookupByLibrary.simpleMessage("Giv tilladelse"),
         "group": MessageLookupByLibrary.simpleMessage("Gruppe"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("Højde"),
         "history": MessageLookupByLibrary.simpleMessage("Historik"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -542,6 +544,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("Markeret af"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("Match ethvert tegn:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "Match telefonnumre, der indeholder specifikke cifre:"),
@@ -665,6 +668,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Indtast venligst et mønster"),
         "pleaseEnterAnUrl":
@@ -705,8 +710,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex-side"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Forklaring af Regex-mønster"),
         "regexPatternTest":
@@ -787,6 +794,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("Stilhed uden svar"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("SIM-kortfarve"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("SIM-kortskriftstørrelse"),

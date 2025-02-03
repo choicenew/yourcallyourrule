@@ -13,6 +13,7 @@ import '../utils/call_filter.dart';
 import '../utils/global_variable.dart';
 import '../utils/language_provider.dart';
 import '../utils/repeated_call.dart';
+import '../views/public/all_label_initializer.dart';
 import '../views/shield_switch_style.dart';
 import '../views/verification.dart';
 import '../widgets/adwidgets/native_ads.dart';
@@ -71,6 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
       _loadConfig();
       _initializeServices();
       _loadCallerIDConfiguration();
+            // 调用 initializeAllLabels 函数，完成所有标签的初始化
+               print("之前Before initializing labels"); // 新增的 print 语句
+    initializeAllLabels(context);
     });
   }
 /*

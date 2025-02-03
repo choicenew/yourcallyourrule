@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Agregar páginas de listas blancas"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("agregado correctamente"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("Todos"),
         "allowAllAllowedNumbers": MessageLookupByLibrary.simpleMessage(
             "Permitir todos los números permitidos"),
@@ -434,6 +435,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "grantPermission":
             MessageLookupByLibrary.simpleMessage("Conceder permiso"),
         "group": MessageLookupByLibrary.simpleMessage("Grupo"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("Alto"),
         "history": MessageLookupByLibrary.simpleMessage("Historial"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -560,6 +562,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("Marcado por"),
         "matchAnyCharacter": MessageLookupByLibrary.simpleMessage(
             "Hacer coincidir cualquier carácter:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "Hacer coincidir números de teléfono que contienen dígitos específicos:"),
@@ -688,6 +691,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Introduzca un patrón"),
         "pleaseEnterAnUrl":
@@ -729,8 +734,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Página Regex"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation": MessageLookupByLibrary.simpleMessage(
             "Explicación del patrón Regex"),
         "regexPatternTest":
@@ -823,6 +830,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("Silencio sin respuesta"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor":
             MessageLookupByLibrary.simpleMessage("Color de la tarjeta SIM"),
         "simCardFontSize": MessageLookupByLibrary.simpleMessage(

@@ -178,6 +178,8 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
         whitelistEntry?.label ??
         blacklistEntry?.label ??
         pluginData?['predefinedLabel'] ??
+        //pluginData?['predefinedLabel'] ??
+       // pluginData?['sourceLabel'] ??
         'Unknown';
 
 
@@ -218,7 +220,7 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
 
     _callerIdSubject.add(callerIdData);
 
-
+/*
     //  更新label得号码数据添加新函数：如果 pluginData?['predefinedLabel'] 不为空，则添加到 LabeledEntry
     if (pluginData?['predefinedLabel'] != null) {
       final entry = LabeledEntry(
@@ -232,8 +234,23 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
         //print('Error adding/updating label: $e');
       }
     }
+*/
 
-
+//labeledEntry、whitelistEntry 和 blacklistEntry的label属性都为null 时，才会更新 labelService
+if (labeledEntry?.label == null && whitelistEntry?.label == null && blacklistEntry?.label == null) {
+  if (pluginData?['predefinedLabel'] != null) {
+    final entry = LabeledEntry(
+      name: name, // 使用前面确定的 name
+      phoneNumber: phoneNumber,
+      label: pluginData?['predefinedLabel'],
+    );
+   // try {
+      await labelService.addOrUpdate(entry);
+  //  } catch (e) {
+   //   print('Error adding/updating label: $e');
+   // }
+  }
+}
 
     return callerIdData;
   }

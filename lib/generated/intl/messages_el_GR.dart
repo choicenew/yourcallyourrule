@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Προσθήκη σελίδων λευκής λίστας"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("προστέθηκε επιτυχώς"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("Όλα"),
         "allowAllAllowedNumbers": MessageLookupByLibrary.simpleMessage(
             "Να επιτρέπονται όλοι οι επιτρεπόμενοι αριθμοί"),
@@ -422,6 +423,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "grantPermission":
             MessageLookupByLibrary.simpleMessage("Χορήγηση Άδειας"),
         "group": MessageLookupByLibrary.simpleMessage("Ομάδα"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("Ύψος"),
         "history": MessageLookupByLibrary.simpleMessage("Ιστορικό"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -546,6 +548,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("Σημειώθηκε από"),
         "matchAnyCharacter": MessageLookupByLibrary.simpleMessage(
             "Αντιστοίχιση οποιουδήποτε χαρακτήρα:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "Αντιστοίχιση αριθμών τηλεφώνου που περιέχουν συγκεκριμένα ψηφία:"),
@@ -672,6 +675,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern": MessageLookupByLibrary.simpleMessage(
             "Παρακαλώ εισάγετε ένα πρότυπο"),
         "pleaseEnterAnUrl":
@@ -712,8 +717,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Σελίδα Regex"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Επεξήγηση προτύπου Regex"),
         "regexPatternTest":
@@ -805,6 +812,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("Σίγαση χωρίς απάντηση"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor":
             MessageLookupByLibrary.simpleMessage("Χρώμα Κάρτας SIM"),
         "simCardFontSize": MessageLookupByLibrary.simpleMessage(

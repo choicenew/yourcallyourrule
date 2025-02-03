@@ -83,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "ခွင့်ပြုစာရင်းစာမျက်နှာများထည့်ပါ"),
         "addedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "အောင်မြင်စွာထည့်သွင်းပြီးပါပြီ"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("အားလုံး"),
         "allowAllAllowedNumbers": MessageLookupByLibrary.simpleMessage(
             "ခွင့်ပြုထားသောနံပါတ်အားလုံးကိုခွင့်ပြုပါ"),
@@ -432,6 +433,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "grantPermission":
             MessageLookupByLibrary.simpleMessage("ခွင့်ပြုချက်ပေးပါ"),
         "group": MessageLookupByLibrary.simpleMessage("အဖွဲ့"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("အမြင့်"),
         "history": MessageLookupByLibrary.simpleMessage("မှတ်တမ်း"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -556,6 +558,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("မှတ်သားသူ"),
         "matchAnyCharacter": MessageLookupByLibrary.simpleMessage(
             "ဇာတ်ကောင်တစ်ခုခုနှင့်ကိုက်ညီပါ :"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "သတ်မှတ်ထားသောဂဏန်းများပါသောဖုန်းနံပါတ်များနှင့်ကိုက်ညီပါ :"),
@@ -684,6 +687,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("ပုံစံတစ်ခုရိုက်ထည့်ပါ"),
         "pleaseEnterAnUrl":
@@ -724,8 +729,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex စာမျက်နှာ"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Regex ပုံစံရှင်းလင်းချက်"),
         "regexPatternTest":
@@ -816,6 +823,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("တိတ်ဆိတ်စွာမဖြေပါ"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("SIM ကတ်အရောင်"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("SIM ကတ်ဖောင့်အရွယ်အစား"),

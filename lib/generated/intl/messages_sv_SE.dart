@@ -83,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addWhitelistsPage":
             MessageLookupByLibrary.simpleMessage("Lägg till vitlistasidor"),
         "addedSuccessfully": MessageLookupByLibrary.simpleMessage("tillagd"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("Alla"),
         "allowAllAllowedNumbers":
             MessageLookupByLibrary.simpleMessage("Tillåt alla tillåtna nummer"),
@@ -420,6 +421,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "grantPermission":
             MessageLookupByLibrary.simpleMessage("Ge behörighet"),
         "group": MessageLookupByLibrary.simpleMessage("Grupp"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("Höjd"),
         "history": MessageLookupByLibrary.simpleMessage("Historik"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -541,6 +543,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("Markerad av"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("Matcha valfritt tecken:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "Matcha telefonnummer som innehåller specifika siffror:"),
@@ -666,6 +669,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Ange ett mönster"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("Ange en URL"),
@@ -704,8 +709,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex-sida"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Förklaring av Regex-mönster"),
         "regexPatternTest":
@@ -789,6 +796,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("Tystnad inget svar"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("SIM-kortsfärg"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("SIM-kort teckenstorlek"),

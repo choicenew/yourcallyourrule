@@ -6,10 +6,13 @@ import '../generated/l10n.dart';
 import '../screens/appstate_provider.dart';
 import '../services/caller_id_service.dart';
 import '../services/regex_service.dart';
+import '../utils/ad_manager.dart';
 import '../utils/call_filter.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart' as dlibphone;
 
 import '../utils/repeated_call.dart';
+import '../widgets/adwidgets/native_ads.dart';
+import '../widgets/google_ad.dart';
 
 class VerificationPage extends StatefulWidget {
   const VerificationPage({super.key});
@@ -171,6 +174,14 @@ class VerificationPageState extends State<VerificationPage> {
                 ),
               ),
             ),
+              const SizedBox(height: 8.0),
+          // 广告 - Centered with Align
+          const Align(
+            alignment: Alignment.center,
+            child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+          ),
+
+              const SizedBox(height: 16.0),
             TextField(
               controller: _phoneNumberController,
               keyboardType: TextInputType.phone,
@@ -188,6 +199,13 @@ class VerificationPageState extends State<VerificationPage> {
               ),
             ),
             const SizedBox(height: 20),
+          // 广告 - Centered with Align
+          const Align(
+            alignment: Alignment.center,
+            child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+          ),
+
+              const SizedBox(height: 8.0),
             Center(
               child: ElevatedButton(
                 onPressed: _isLoading ? null : _verifyPhoneNumber,
@@ -248,6 +266,13 @@ class VerificationPageState extends State<VerificationPage> {
                 );
               }),
             ],
+
+          // 广告 - Centered with Align
+          const Align(
+            alignment: Alignment.center,
+            child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+          ),
+
             if (_callerIdData != null) ...[
               const SizedBox(height: 20),
               Text(S.of(context).callerIdData,
@@ -316,6 +341,13 @@ class VerificationPageState extends State<VerificationPage> {
                 child: Text(S.of(context).testCallerIdOverlay),
               ),
             ),
+            //广告代码 - Centered with Align
+           Align(
+            alignment: Alignment.center,
+            child: nativeAdWidgetMedium(
+                adWidth: 320,
+                adHeight: 390),
+          ),
           ],
         ),
       ),

@@ -78,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Add Whitelists Page"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("added successfully"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "allowAllAllowedNumbers":
             MessageLookupByLibrary.simpleMessage("Allow All Allowed Numbers"),
@@ -214,7 +215,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cloudBackupRequiresAutoBackup": MessageLookupByLibrary.simpleMessage(
             "Cloud backup requires Auto backup"),
         "cloudServices": MessageLookupByLibrary.simpleMessage("Cloud Services"),
-        "collection": MessageLookupByLibrary.simpleMessage("Collection"),
+        "collection": MessageLookupByLibrary.simpleMessage("Debt Collection"),
         "configurationExportedToFile": MessageLookupByLibrary.simpleMessage(
             "Configuration exported to file!"),
         "configurationImported":
@@ -410,6 +411,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "grantPermission":
             MessageLookupByLibrary.simpleMessage("Grant Permission"),
         "group": MessageLookupByLibrary.simpleMessage("Group"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
         "history": MessageLookupByLibrary.simpleMessage("History"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -530,6 +532,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("Marked by"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("Match any character:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "Match phone numbers containing specific digits:"),
@@ -652,6 +655,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Please enter an pattern"),
         "pleaseEnterAnUrl":
@@ -692,8 +697,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex Page"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Regex Pattern Explanation"),
         "regexPatternTest":
@@ -772,6 +779,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("SilenceNoAnswer"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("SIM Card Colour"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("SIM Card Font Size"),

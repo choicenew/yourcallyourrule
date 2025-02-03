@@ -75,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("허용 목록 페이지 추가"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("성공적으로 추가되었습니다"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("전체"),
         "allowAllAllowedNumbers":
             MessageLookupByLibrary.simpleMessage("모든 허용된 번호 허용"),
@@ -366,6 +367,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Google 드라이브 설정"),
         "grantPermission": MessageLookupByLibrary.simpleMessage("권한 부여"),
         "group": MessageLookupByLibrary.simpleMessage("그룹"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("높이"),
         "history": MessageLookupByLibrary.simpleMessage("기록"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -466,6 +468,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "manuallyDisablePermissionInAppSetting": m3,
         "markedBy": MessageLookupByLibrary.simpleMessage("표시자"),
         "matchAnyCharacter": MessageLookupByLibrary.simpleMessage("임의의 문자 일치:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage("특정 숫자가 포함된 전화번호 일치:"),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
@@ -577,6 +580,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("패턴을 입력하세요"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("URL을 입력하세요"),
@@ -614,8 +619,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("정규식"),
         "regexPage": MessageLookupByLibrary.simpleMessage("정규식 페이지"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("정규식 패턴 설명"),
         "regexPatternTest":
@@ -688,6 +695,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "showingSearchResultsFor":
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer": MessageLookupByLibrary.simpleMessage("무음 무응답"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("SIM 카드 색상"),
         "simCardFontSize": MessageLookupByLibrary.simpleMessage("SIM 카드 글꼴 크기"),
         "simCardPosition": MessageLookupByLibrary.simpleMessage("SIM 카드 위치"),

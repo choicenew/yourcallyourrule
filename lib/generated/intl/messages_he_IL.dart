@@ -77,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("הוסף עמודי רשימה לבנה"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("נוסף בהצלחה"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("הכל"),
         "allowAllAllowedNumbers":
             MessageLookupByLibrary.simpleMessage("אפשר את כל המספרים המותרים"),
@@ -399,6 +400,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("הגדרת Google Drive"),
         "grantPermission": MessageLookupByLibrary.simpleMessage("הענק הרשאה"),
         "group": MessageLookupByLibrary.simpleMessage("קבוצה"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("גובה"),
         "history": MessageLookupByLibrary.simpleMessage("היסטוריה"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -509,6 +511,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("מסומן על ידי"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("התאם לכל תו:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "התאם למספרי טלפון המכילים ספרות ספציפיות:"),
@@ -626,6 +629,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("אנא הזן תבנית"),
         "pleaseEnterAnUrl":
@@ -666,8 +671,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("ביטוי רגולרי"),
         "regexPage": MessageLookupByLibrary.simpleMessage("עמוד ביטוי רגולרי"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("הסבר תבנית ביטוי רגולרי"),
         "regexPatternTest":
@@ -746,6 +753,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("השתקה ללא מענה"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("צבע כרטיס SIM"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("גודל גופן כרטיס SIM"),

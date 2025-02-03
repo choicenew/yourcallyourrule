@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Додати сторінки білого списку"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("успішно додано"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("Усі"),
         "allowAllAllowedNumbers": MessageLookupByLibrary.simpleMessage(
             "Дозволити всі дозволені номери"),
@@ -430,6 +431,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "grantPermission":
             MessageLookupByLibrary.simpleMessage("Надати дозвіл"),
         "group": MessageLookupByLibrary.simpleMessage("Група"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("Висота"),
         "history": MessageLookupByLibrary.simpleMessage("Історія"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -552,6 +554,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("Помічено"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("Збігати будь-який символ:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "Збігати номери телефонів, що містять певні цифри:"),
@@ -679,6 +682,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Введіть шаблон"),
         "pleaseEnterAnUrl":
@@ -719,9 +724,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Регулярний вираз"),
         "regexPage":
             MessageLookupByLibrary.simpleMessage("Сторінка регулярних виразів"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation": MessageLookupByLibrary.simpleMessage(
             "Пояснення шаблону регулярного виразу"),
         "regexPatternTest":
@@ -809,6 +816,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("Тиша без відповіді"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("Колір SIM-карти"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("Розмір шрифту SIM-карти"),

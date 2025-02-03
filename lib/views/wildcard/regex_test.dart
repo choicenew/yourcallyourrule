@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../generated/l10n.dart';
+import '../../utils/ad_manager.dart';
+import '../../widgets/adwidgets/native_ads.dart';
+import '../../widgets/google_ad.dart';
 
 // 假设这是你的 RegexTestPage
 class RegexTestPage extends StatefulWidget {
@@ -25,24 +28,25 @@ class RegexTestPageState extends State<RegexTestPage> {
         return;
       }
 
-    try {
-      RegExp regExp = RegExp(regexPattern);
-      if (regExp.hasMatch(phoneNumber)) {
-        _resultMessage = S.of(context).matchSuccessful;
-      } else {
-        _resultMessage = 'Match failed!';
+      try {
+        RegExp regExp = RegExp(regexPattern);
+        if (regExp.hasMatch(phoneNumber)) {
+          _resultMessage = S.of(context).matchSuccessful;
+        } else {
+          _resultMessage = S.of(context).matchFailed;
+        }
+      } catch (e) {
+        // Show the error message using a Snackbar
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Regex pattern error: $e'),
+            backgroundColor:
+                Colors.red, // Optional: Customize the background color
+          ),
+        );
       }
-    } catch (e) {
-      // Show the error message using a Snackbar
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Regex pattern error: $e'),
-          backgroundColor: Colors.red, // Optional: Customize the background color
-        ),
-      );
-    }
-  });
-}
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,21 +61,27 @@ class RegexTestPageState extends State<RegexTestPage> {
           children: [
             TextField(
               controller: _phoneNumberController,
-              decoration: const InputDecoration(
-                labelText: 'PhoneNumber',
-                hintText: 'Please enter a phone number',
+              decoration: InputDecoration(
+                labelText: S.of(context).phonenumber,
+                hintText: S.of(context).pleaseEnterAPhoneNumber,
               ),
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 16),
             TextField(
               controller: _regexController,
-              decoration: const InputDecoration(
-                labelText: 'Regex Pattern',
-                hintText: 'Please enter a regex pattern',
+              decoration: InputDecoration(
+                labelText: S.of(context).regexPattern,
+                hintText: S.of(context).pleaseEnterARegexPattern,
               ),
             ),
             const SizedBox(height: 16),
+            // 广告 - Centered with Align
+            const Align(
+              alignment: Alignment.center,
+              child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            ),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: _testRegex,
               child: Text(S.of(context).test),
@@ -87,6 +97,11 @@ class RegexTestPageState extends State<RegexTestPage> {
                         ? Colors.red
                         : Colors.black,
               ),
+            ),
+            //广告代码 - Centered with Align
+            Align(
+              alignment: Alignment.center,
+              child: nativeAdWidgetMedium(adWidth: 320, adHeight: 150),
             ),
           ],
         ),
@@ -133,7 +148,9 @@ class RegexPatternTestButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              S.of(context).regexPatternTest, // 假设你有 S.of(context).regexPatternExplanation 用于国际化
+              S
+                  .of(context)
+                  .regexPatternTest, // 假设你有 S.of(context).regexPatternExplanation 用于国际化
             ),
             const Icon(Icons.help_outline),
           ],

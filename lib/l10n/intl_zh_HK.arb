@@ -207,7 +207,7 @@
   "medical": "醫療",
   "charity": "慈善",
   "other": "其他",
-  "collection": "催收",
+  "collection": "債務催收",
   "survey": "調查",
   "political": "政治",
   "ecommerce": "電子商務",
@@ -545,7 +545,7 @@
   "countryCode": "國家代碼",
   "enterCountryCode": "輸入國家代碼（例如：HK、CN）",
   "verify": "驗證",
-  "verificationResultsRules": "驗證結果（shouldAcceptCall 規則）：",
+  "verificationResultsRules": "驗證結果（接聽 規則）：",
   "callerIdData": "來電資料：",
   "countryName": "國家名稱",
   "avatar": "頭像",
@@ -554,5 +554,12 @@
   "testCallerIdOverlay": "測試來電資料覆蓋",
   "allowOtherNumbers": "允許其他號碼",
   "verificationPageRules": "驗證測試規則",
-  "toTestRules": "To test rules"
+  "toTestRules": "驗證測試規則",
+  "agent": "經紀人",
+  "recruiter": "招聘專員",
+  "headhunter": "獵頭顧問",
+  "silentCallvoiceClone": "無聲通話(語音複製)",
+  "regexPattern": "正則表達式",
+  "pleaseEnterARegexPattern": "請輸入正則表達式",
+  "matchFailed": "匹配失敗!"
 }

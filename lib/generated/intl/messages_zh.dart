@@ -68,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addToLabel": MessageLookupByLibrary.simpleMessage("添加到标签"),
         "addWhitelistsPage": MessageLookupByLibrary.simpleMessage("添加白名单页"),
         "addedSuccessfully": MessageLookupByLibrary.simpleMessage("已成功添加"),
+        "agent": MessageLookupByLibrary.simpleMessage("中介"),
         "all": MessageLookupByLibrary.simpleMessage("全部"),
         "allowAllAllowedNumbers":
             MessageLookupByLibrary.simpleMessage("允许所有已允许的号码"),
@@ -174,7 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cloudBackupRequiresAutoBackup":
             MessageLookupByLibrary.simpleMessage("云备份需要自动备份"),
         "cloudServices": MessageLookupByLibrary.simpleMessage("云服务"),
-        "collection": MessageLookupByLibrary.simpleMessage("收款"),
+        "collection": MessageLookupByLibrary.simpleMessage("债务收款"),
         "configurationExportedToFile":
             MessageLookupByLibrary.simpleMessage("配置已导出到文件！"),
         "configurationImported": MessageLookupByLibrary.simpleMessage("配置已导入"),
@@ -334,6 +335,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Google 云端硬盘设置"),
         "grantPermission": MessageLookupByLibrary.simpleMessage("授予权限"),
         "group": MessageLookupByLibrary.simpleMessage("组"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("猎头"),
         "height": MessageLookupByLibrary.simpleMessage("高度"),
         "history": MessageLookupByLibrary.simpleMessage("历史记录"),
         "home": MessageLookupByLibrary.simpleMessage("首页"),
@@ -424,6 +426,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "manuallyDisablePermissionInAppSetting": m3,
         "markedBy": MessageLookupByLibrary.simpleMessage("标记为"),
         "matchAnyCharacter": MessageLookupByLibrary.simpleMessage("匹配任何字符："),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("匹配失败!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage("匹配包含特定数字的电话号码："),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
@@ -521,6 +524,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("请输入电话号码"),
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage("请输入电话号码和正则表达式"),
+        "pleaseEnterARegexPattern":
+            MessageLookupByLibrary.simpleMessage("请输入正规则表达式"),
         "pleaseEnterAnPattern": MessageLookupByLibrary.simpleMessage("请输入一个模式"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("请输入一个 URL"),
         "pleaseSelectAFileOrInputAUrl":
@@ -551,8 +556,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "purchaseSuccessful": MessageLookupByLibrary.simpleMessage("购买成功！"),
         "quarterlySubscription": MessageLookupByLibrary.simpleMessage("季度订阅"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("录音备份"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("招聘"),
         "regex": MessageLookupByLibrary.simpleMessage("正则表达式"),
         "regexPage": MessageLookupByLibrary.simpleMessage("正则页面"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("正规则"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("正则表达式模式说明"),
         "regexPatternTest": MessageLookupByLibrary.simpleMessage("Regex 测试"),
@@ -621,6 +628,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "showingSearchResultsFor":
             MessageLookupByLibrary.simpleMessage("显示搜索结果"),
         "silencenoanswer": MessageLookupByLibrary.simpleMessage("无声无应答"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("无声通话(语音克隆？"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("SIM 卡颜色"),
         "simCardFontSize": MessageLookupByLibrary.simpleMessage("SIM 卡字体大小"),
         "simCardPosition": MessageLookupByLibrary.simpleMessage("SIM 卡位置"),
