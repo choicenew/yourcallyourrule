@@ -667,7 +667,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "smswhitelistpageview":
             MessageLookupByLibrary.simpleMessage("短訊白名單頁面視圖"),
         "sortBy": MessageLookupByLibrary.simpleMessage("排序方式: "),
-        "spamLikely": MessageLookupByLibrary.simpleMessage("可能是垃圾郵件"),
+        "spamLikely": MessageLookupByLibrary.simpleMessage("可能是騷擾電話"),
         "startColor": MessageLookupByLibrary.simpleMessage("起始顏色"),
         "statisticsTimeRangeMinutes":
             MessageLookupByLibrary.simpleMessage("統計時間範圍（分鐘）："),

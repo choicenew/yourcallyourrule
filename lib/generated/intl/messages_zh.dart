@@ -659,7 +659,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("短信文本白名单页面"),
         "smswhitelistpageview": MessageLookupByLibrary.simpleMessage("短信白名单页面"),
         "sortBy": MessageLookupByLibrary.simpleMessage("排序方式："),
-        "spamLikely": MessageLookupByLibrary.simpleMessage("可能为垃圾邮件"),
+        "spamLikely": MessageLookupByLibrary.simpleMessage("可能为骚扰电话"),
         "startColor": MessageLookupByLibrary.simpleMessage("起始颜色"),
         "statisticsTimeRangeMinutes":
             MessageLookupByLibrary.simpleMessage("统计时间范围（分钟）："),
