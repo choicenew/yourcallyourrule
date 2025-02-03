@@ -73,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addWhitelistsPage":
             MessageLookupByLibrary.simpleMessage("ホワイトリストページを追加"),
         "addedSuccessfully": MessageLookupByLibrary.simpleMessage("正常に追加されました"),
+        "agent": MessageLookupByLibrary.simpleMessage("エージェント"),
         "all": MessageLookupByLibrary.simpleMessage("すべて"),
         "allowAllAllowedNumbers":
             MessageLookupByLibrary.simpleMessage("許可されているすべての番号を許可する"),
@@ -82,8 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ホワイトリストに登録されているすべての番号を許可する"),
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("ブロックされている番号を許可する"),
-        "allowOtherNumbers":
-            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
+        "allowOtherNumbers": MessageLookupByLibrary.simpleMessage("他の番号を許可"),
         "allowRegexBlacklistedPatterns":
             MessageLookupByLibrary.simpleMessage("正規表現ブラックリストパターンを許可する"),
         "allowRegexWhitelistedPatterns":
@@ -107,8 +107,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("自動更新が無効になっています"),
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("自動更新が有効になっています"),
-        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
-        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
+        "autobackup": MessageLookupByLibrary.simpleMessage("自動バックアップ"),
+        "avatar": MessageLookupByLibrary.simpleMessage("アバター"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("アバターとアイコンのサイズ"),
         "avatarBorderColor": MessageLookupByLibrary.simpleMessage("アバターの境界線の色"),
@@ -139,7 +139,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ブロックされた通話の操作"),
         "blockedCallNotification":
             MessageLookupByLibrary.simpleMessage("ブロックされた通話の通知"),
-        "blockedCalls": MessageLookupByLibrary.simpleMessage("Blocked Calls"),
+        "blockedCalls": MessageLookupByLibrary.simpleMessage("着信拒否"),
         "blockedCallsStatistics":
             MessageLookupByLibrary.simpleMessage("ブロックされた通話の統計"),
         "blockedPage": MessageLookupByLibrary.simpleMessage("ブロックされたページ"),
@@ -159,19 +159,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "callScreeningRoleRequestSuccessful":
             MessageLookupByLibrary.simpleMessage("通話スクリーニングの役割要求に成功しました！"),
         "callerIdApp": MessageLookupByLibrary.simpleMessage("発信者番号アプリ"),
-        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
-        "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
-            "Caller ID Data is not available"),
+        "callerIdData": MessageLookupByLibrary.simpleMessage("発信者 ID データ:"),
+        "callerIdDataIsNotAvailable":
+            MessageLookupByLibrary.simpleMessage("発信者 ID データは利用できません"),
         "callerIdSimSource":
-            MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
+            MessageLookupByLibrary.simpleMessage("発信者 ID SIM ソース"),
         "callerIdStyle": MessageLookupByLibrary.simpleMessage("発信者番号のスタイル"),
         "callerIdStyleContent":
             MessageLookupByLibrary.simpleMessage("発信者番号のスタイルの内容"),
         "calltypeIconColor":
             MessageLookupByLibrary.simpleMessage("通話タイプアイコンの色"),
         "cancel": MessageLookupByLibrary.simpleMessage("キャンセル"),
-        "cannotFindItem":
-            MessageLookupByLibrary.simpleMessage("Cannot find item"),
+        "cannotFindItem": MessageLookupByLibrary.simpleMessage("アイテムが見つかりません"),
         "carrier": MessageLookupByLibrary.simpleMessage("キャリア："),
         "carrierColor": MessageLookupByLibrary.simpleMessage("キャリアの色"),
         "carrierFontSize": MessageLookupByLibrary.simpleMessage("キャリアのフォントサイズ"),
@@ -188,7 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("言語を選択してください"),
         "clientId": MessageLookupByLibrary.simpleMessage("クライアントID"),
         "close": MessageLookupByLibrary.simpleMessage("閉じる"),
-        "cloudBackup": MessageLookupByLibrary.simpleMessage("Cloud Backup"),
+        "cloudBackup": MessageLookupByLibrary.simpleMessage("クラウド バックアップ"),
         "cloudBackupDirectoryName":
             MessageLookupByLibrary.simpleMessage("クラウドバックアップディレクトリ名"),
         "cloudBackupRequiresAutoBackup":
@@ -216,16 +215,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactsPage": MessageLookupByLibrary.simpleMessage("連絡先ページ"),
         "contactsWithNumber": MessageLookupByLibrary.simpleMessage("番号付きの連絡先"),
         "contactsubscription":
-            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
+            MessageLookupByLibrary.simpleMessage("連絡先サブスクリプション"),
         "contactsubscriptionlistview":
             MessageLookupByLibrary.simpleMessage("ContactSubscriptionListView"),
-        "count": MessageLookupByLibrary.simpleMessage("Count"),
+        "count": MessageLookupByLibrary.simpleMessage("カウント"),
         "countColor": MessageLookupByLibrary.simpleMessage("カウントの色"),
         "countFontSize": MessageLookupByLibrary.simpleMessage("カウントのフォントサイズ"),
         "countPosition": MessageLookupByLibrary.simpleMessage("カウントの位置"),
         "country": MessageLookupByLibrary.simpleMessage("国："),
-        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
-        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("国コード"),
+        "countryName": MessageLookupByLibrary.simpleMessage("国名"),
         "countryNameColor": MessageLookupByLibrary.simpleMessage("国/地域名のカラー"),
         "countryNameFontSize":
             MessageLookupByLibrary.simpleMessage("国/地域名のフォントサイズ"),
@@ -236,7 +235,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("発信者番号のカスタマイズ"),
         "dark": MessageLookupByLibrary.simpleMessage("ダーク"),
         "darkMode": MessageLookupByLibrary.simpleMessage("ダークモード"),
-        "days": MessageLookupByLibrary.simpleMessage("days"),
+        "days": MessageLookupByLibrary.simpleMessage("日"),
         "delete": MessageLookupByLibrary.simpleMessage("削除"),
         "deleteContact": MessageLookupByLibrary.simpleMessage("連絡先を削除"),
         "deleted": MessageLookupByLibrary.simpleMessage("削除済み"),
@@ -244,18 +243,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "deniedPermissionCanManuallyEnablePermissionInSetting":
             MessageLookupByLibrary.simpleMessage("権限を拒否しました。設定で手動で権限を有効にできます。"),
         "descriptionFeature1": MessageLookupByLibrary.simpleMessage(
-            "The app supports subscriptions from online links and plugins. Customize your own API or convert any website into a plugin to help you find caller ID information."),
+            "アプリは、オンライン リンクとプラグインからのサブスクリプションをサポートしています。独自の API をカスタマイズするか、任意の Web サイトをプラグインに変換して、発信者 ID 情報を見つけるのに役立ててください。"),
         "descriptionFeature2": MessageLookupByLibrary.simpleMessage(
-            "The app supports regular expressions (Regex), allowing you to customize patterns for blocking calls."),
+            "アプリは正規表現 (Regex) をサポートしており、着信拒否のパターンをカスタマイズできます。"),
         "descriptionFeature3": MessageLookupByLibrary.simpleMessage(
-            "Import or export your database locally or online via WebDAV, Google Drive, or OneDrive."),
+            "WebDAV、Google ドライブ、または OneDrive を介して、データベースをローカルまたはオンラインでインポートまたはエクスポートします。"),
         "disableBlockedCallNotification":
             MessageLookupByLibrary.simpleMessage("ブロックされた通話の通知を無効にする"),
         "disablePermission": MessageLookupByLibrary.simpleMessage("権限を無効にする"),
         "disableSmsLocalNotification":
             MessageLookupByLibrary.simpleMessage("SMSローカル通知を無効にする"),
         "disableStirNotification":
-            MessageLookupByLibrary.simpleMessage("Disable Stir Notification"),
+            MessageLookupByLibrary.simpleMessage("Stir 通知を無効にする"),
         "disableThisAppToShowCallerId":
             MessageLookupByLibrary.simpleMessage("このアプリに発信者番号の表示を許可しない"),
         "disabled": MessageLookupByLibrary.simpleMessage("無効"),
@@ -276,17 +275,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("オーバーレイ権限を有効にする"),
         "enableSmsLocalNotification":
             MessageLookupByLibrary.simpleMessage("SMSローカル通知を有効にする"),
-        "enableSorting":
-            MessageLookupByLibrary.simpleMessage("Enable sorting: "),
+        "enableSorting": MessageLookupByLibrary.simpleMessage("並べ替えを有効にする: "),
         "enableStirNotification":
-            MessageLookupByLibrary.simpleMessage("Enable Stir Notification"),
+            MessageLookupByLibrary.simpleMessage("Stir 通知を有効にする"),
         "enableToRemoveAds":
             MessageLookupByLibrary.simpleMessage("広告を削除するには有効にします"),
         "enabled": MessageLookupByLibrary.simpleMessage("有効"),
         "endColor": MessageLookupByLibrary.simpleMessage("終了色"),
         "endcall": MessageLookupByLibrary.simpleMessage("通話を終了"),
-        "enterCountryCode": MessageLookupByLibrary.simpleMessage(
-            "Enter country code (e.g., US, JP)"),
+        "enterCountryCode":
+            MessageLookupByLibrary.simpleMessage("国コードを入力してください (例: US、JP)"),
         "enterImageUrl": MessageLookupByLibrary.simpleMessage("画像のURLを入力"),
         "enterPluginCodeHere":
             MessageLookupByLibrary.simpleMessage("ここにプラグインコードを入力してください"),
@@ -302,9 +300,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorImporting": MessageLookupByLibrary.simpleMessage("インポートエラー"),
         "errorRequestingCallScreeningRole":
             MessageLookupByLibrary.simpleMessage("通話スクリーニングの役割の要求エラー："),
-        "expirationDate":
-            MessageLookupByLibrary.simpleMessage("Expiration date"),
-        "expiryDate": MessageLookupByLibrary.simpleMessage("Expiry Date"),
+        "expirationDate": MessageLookupByLibrary.simpleMessage("有効期限"),
+        "expiryDate": MessageLookupByLibrary.simpleMessage("有効期限"),
         "export": MessageLookupByLibrary.simpleMessage("エクスポート"),
         "exportAllowedEntryPage":
             MessageLookupByLibrary.simpleMessage("許可されたエントリページをエクスポート"),
@@ -345,8 +342,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "feature2": MessageLookupByLibrary.simpleMessage("Supporting Regex"),
         "feature3": MessageLookupByLibrary.simpleMessage("privacy"),
         "featureDescription": MessageLookupByLibrary.simpleMessage("機能の説明"),
-        "featureIntroduction":
-            MessageLookupByLibrary.simpleMessage("Feature Introduction"),
+        "featureIntroduction": MessageLookupByLibrary.simpleMessage("機能紹介"),
         "filterIncomingSmsMessages":
             MessageLookupByLibrary.simpleMessage("着信SMSメッセージをフィルタリングする"),
         "filterRepeatedIncomingCalls":
@@ -354,7 +350,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "financial": MessageLookupByLibrary.simpleMessage("金融"),
         "firstName": MessageLookupByLibrary.simpleMessage("名"),
         "fraudScamLikely": MessageLookupByLibrary.simpleMessage("詐欺の可能性が高い"),
-        "function": MessageLookupByLibrary.simpleMessage("Function"),
+        "function": MessageLookupByLibrary.simpleMessage("機能"),
         "getStarted": MessageLookupByLibrary.simpleMessage("開始する"),
         "googleDriveLoginFailed":
             MessageLookupByLibrary.simpleMessage("Googleドライブへのログインに失敗しました"),
@@ -364,12 +360,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Googleドライブ設定"),
         "grantPermission": MessageLookupByLibrary.simpleMessage("権限を付与"),
         "group": MessageLookupByLibrary.simpleMessage("グループ"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("ヘッドハンター"),
         "height": MessageLookupByLibrary.simpleMessage("高さ"),
         "history": MessageLookupByLibrary.simpleMessage("履歴"),
-        "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "home": MessageLookupByLibrary.simpleMessage("ホーム"),
         "iconSize": MessageLookupByLibrary.simpleMessage("アイコンサイズ"),
-        "ifThereIsAnErrorSelectACountry": MessageLookupByLibrary.simpleMessage(
-            "if there is an error select a country"),
+        "ifThereIsAnErrorSelectACountry":
+            MessageLookupByLibrary.simpleMessage("エラーがある場合は国を選択してください"),
         "import": MessageLookupByLibrary.simpleMessage("インポート"),
         "importAllowedEntryPage":
             MessageLookupByLibrary.simpleMessage("許可されたエントリページをインポート"),
@@ -394,8 +391,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("購読ページをインポート"),
         "importedSuccessfullyFromUrl":
             MessageLookupByLibrary.simpleMessage("URLから正常にインポートされました"),
-        "inappPurchase":
-            MessageLookupByLibrary.simpleMessage("In-app purchase"),
+        "inappPurchase": MessageLookupByLibrary.simpleMessage("アプリ内購入"),
         "inappPurchasesEnabled":
             MessageLookupByLibrary.simpleMessage("アプリ内購入が有効になっています"),
         "incomingCallInterceptAction":
@@ -404,7 +400,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "initializingDatabase":
             MessageLookupByLibrary.simpleMessage("データベースを初期化しています..."),
         "inputClientIdTenantId":
-            MessageLookupByLibrary.simpleMessage("Input Client ID & Tenant ID"),
+            MessageLookupByLibrary.simpleMessage("クライアント ID とテナント ID を入力"),
         "inputOnedriveCredentials":
             MessageLookupByLibrary.simpleMessage("OneDriveの資格情報を入力してください"),
         "insurance": MessageLookupByLibrary.simpleMessage("保険"),
@@ -427,8 +423,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "labelsFontSize": MessageLookupByLibrary.simpleMessage("ラベルのフォントサイズ"),
         "labelsPosition": MessageLookupByLibrary.simpleMessage("ラベルの位置"),
         "lastName": MessageLookupByLibrary.simpleMessage("姓"),
-        "lifetimePurchase":
-            MessageLookupByLibrary.simpleMessage("Lifetime Purchase"),
+        "lifetimePurchase": MessageLookupByLibrary.simpleMessage("永久購入"),
         "light": MessageLookupByLibrary.simpleMessage("ライト"),
         "link": MessageLookupByLibrary.simpleMessage("リンク"),
         "loading": MessageLookupByLibrary.simpleMessage("読み込み中..."),
@@ -457,12 +452,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("次のようにマークされています"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("任意の文字に一致させる："),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("一致しませんでした！"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage("特定の数字を含む電話番号を照合する："),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
             MessageLookupByLibrary.simpleMessage("途中に特定の文字を含む電話番号を照合する："),
-        "matchSuccessful":
-            MessageLookupByLibrary.simpleMessage("Match successful!"),
+        "matchSuccessful": MessageLookupByLibrary.simpleMessage("マッチ成功！"),
         "medical": MessageLookupByLibrary.simpleMessage("医療"),
         "merge": MessageLookupByLibrary.simpleMessage("マージ"),
         "mergeContacts": MessageLookupByLibrary.simpleMessage("連絡先をマージ"),
@@ -470,22 +465,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "message": MessageLookupByLibrary.simpleMessage("メッセージ"),
         "mins": MessageLookupByLibrary.simpleMessage("分"),
         "monthlySubscription":
-            MessageLookupByLibrary.simpleMessage("Monthly Subscription"),
+            MessageLookupByLibrary.simpleMessage("月額サブスクリプション"),
         "moreAdsToGetTemporaryVipPrivileges":
-            MessageLookupByLibrary.simpleMessage(
-                "more ads to get temporary VIP privileges."),
+            MessageLookupByLibrary.simpleMessage("より多くの広告で一時的な VIP 権限を取得できます。"),
         "name": MessageLookupByLibrary.simpleMessage("名前"),
         "nameCannotBeEmpty": MessageLookupByLibrary.simpleMessage("名前は空にできません"),
         "nameColor": MessageLookupByLibrary.simpleMessage("名前の色"),
         "nameFontSize": MessageLookupByLibrary.simpleMessage("名前のフォントサイズ"),
         "namePosition": MessageLookupByLibrary.simpleMessage("名前の位置"),
         "next": MessageLookupByLibrary.simpleMessage("次へ"),
-        "noDataAvailable":
-            MessageLookupByLibrary.simpleMessage("No data available."),
+        "noDataAvailable": MessageLookupByLibrary.simpleMessage("データがありません。"),
         "noImageSelected": MessageLookupByLibrary.simpleMessage("画像が選択されていません"),
         "noIncomingSmsMessagesFilter":
             MessageLookupByLibrary.simpleMessage("着信SMSメッセージをフィルタリングしない"),
-        "normalUser": MessageLookupByLibrary.simpleMessage("Normal User"),
+        "normalUser": MessageLookupByLibrary.simpleMessage("一般ユーザー"),
         "notVerified": MessageLookupByLibrary.simpleMessage("未確認"),
         "notifications": MessageLookupByLibrary.simpleMessage("通知"),
         "numberColor": MessageLookupByLibrary.simpleMessage("番号の色"),
@@ -500,11 +493,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "onedriveSetting": MessageLookupByLibrary.simpleMessage("OneDrive設定"),
         "onetimePurchaseToPermanentlyUnlockAllAdvancedFeaturesAndFuture":
             MessageLookupByLibrary.simpleMessage(
-                "One-time purchase to permanently unlock all advanced features and future updates."),
+                "1 回限りの購入で、すべての高度な機能と将来のアップデートを永続的にロック解除します。"),
         "onlineCallerIdSubscription":
             MessageLookupByLibrary.simpleMessage("オンライン発信者番号購読"),
         "onlyForSupportedArea":
-            MessageLookupByLibrary.simpleMessage("Only for supported Area"),
+            MessageLookupByLibrary.simpleMessage("サポートされている地域のみ"),
         "onlyOriginalCallAppNotification":
             MessageLookupByLibrary.simpleMessage("元の通話アプリの通知のみ"),
         "onlyRingLocalNotification":
@@ -526,7 +519,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pattern": MessageLookupByLibrary.simpleMessage("パターン"),
         "permanentlyRemoveAllAdsInTheAppAndEnjoyA":
             MessageLookupByLibrary.simpleMessage(
-                "Permanently remove all ads in the app and enjoy a clean user experience."),
+                "アプリ内のすべての広告を永続的に削除して、クリーンなユーザー エクスペリエンスをお楽しみください。"),
         "permissionDenied": MessageLookupByLibrary.simpleMessage("権限が拒否されました"),
         "permissionGranted": MessageLookupByLibrary.simpleMessage("権限が付与されました"),
         "permissionInAppSetting":
@@ -562,8 +555,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumber":
             MessageLookupByLibrary.simpleMessage("電話番号を入力してください"),
         "pleaseEnterAPhoneNumberAndRegexPattern":
-            MessageLookupByLibrary.simpleMessage(
-                "Please enter a phone number and regex pattern"),
+            MessageLookupByLibrary.simpleMessage("電話番号と正規表現パターンを入力してください"),
+        "pleaseEnterARegexPattern":
+            MessageLookupByLibrary.simpleMessage("正規表現パターンを入力してください"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("パターンを入力してください"),
         "pleaseEnterAnUrl":
@@ -586,39 +580,40 @@ class MessageLookup extends MessageLookupByLibrary {
                 "「デフォルトに設定」をタップし、次の画面で権限を許可してください。"),
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage("データベースの初期化が完了するまでお待ちください。"),
-        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
+        "pluginData": MessageLookupByLibrary.simpleMessage("プラグイン データ:"),
         "pluginPage": MessageLookupByLibrary.simpleMessage("プラグインページ"),
         "plugins": MessageLookupByLibrary.simpleMessage("プラグイン"),
         "pluginspageview": MessageLookupByLibrary.simpleMessage("プラグインページビュー"),
-        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
+        "pluginupdate": MessageLookupByLibrary.simpleMessage("プラグインの更新"),
         "political": MessageLookupByLibrary.simpleMessage("政治"),
-        "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
-        "purchaseFailed":
-            MessageLookupByLibrary.simpleMessage("Purchase failed:"),
-        "purchaseIsBeingProcessed": MessageLookupByLibrary.simpleMessage(
-            "Purchase is being processed..."),
+        "purchase": MessageLookupByLibrary.simpleMessage("購入"),
+        "purchaseFailed": MessageLookupByLibrary.simpleMessage("購入に失敗しました:"),
+        "purchaseIsBeingProcessed":
+            MessageLookupByLibrary.simpleMessage("購入は処理中です..."),
         "purchaseSuccessful":
-            MessageLookupByLibrary.simpleMessage("Purchase successful!"),
+            MessageLookupByLibrary.simpleMessage("購入に成功しました！"),
         "quarterlySubscription":
-            MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
-        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+            MessageLookupByLibrary.simpleMessage("四半期サブスクリプション"),
+        "recordbackup": MessageLookupByLibrary.simpleMessage("レコードのバックアップ"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("リクルーター"),
         "regex": MessageLookupByLibrary.simpleMessage("正規表現"),
         "regexPage": MessageLookupByLibrary.simpleMessage("正規表現ページ"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("正規表現パターン"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("正規表現パターンの説明"),
         "regexPatternTest":
-            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
+            MessageLookupByLibrary.simpleMessage("正規表現パターン テスト"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "正規表現パターンは、電話番号の照合に使用される正規表現です。"),
         "regexPhoneNumberTest":
-            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
+            MessageLookupByLibrary.simpleMessage("正規表現電話番号テスト"),
         "regexpageview": MessageLookupByLibrary.simpleMessage("正規表現ページビュー"),
         "region": MessageLookupByLibrary.simpleMessage("地域："),
         "reject": MessageLookupByLibrary.simpleMessage("拒否"),
         "rejectAllNumbers": MessageLookupByLibrary.simpleMessage("すべての番号を拒否する"),
         "remove": MessageLookupByLibrary.simpleMessage("削除"),
-        "removeAds": MessageLookupByLibrary.simpleMessage("Remove Ads"),
+        "removeAds": MessageLookupByLibrary.simpleMessage("広告を削除"),
         "removeAdsAndEnableOnlineBackup":
             MessageLookupByLibrary.simpleMessage("広告を削除してオンラインバックアップを有効にする"),
         "removeAllowed": MessageLookupByLibrary.simpleMessage("許可から削除"),
@@ -634,13 +629,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "restoreFromOnedrive":
             MessageLookupByLibrary.simpleMessage("OneDriveから復元"),
         "restoreFromWebdav": MessageLookupByLibrary.simpleMessage("WebDAVから復元"),
-        "restorePurchase":
-            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
+        "restorePurchase": MessageLookupByLibrary.simpleMessage("購入の復元"),
         "ridesharing": MessageLookupByLibrary.simpleMessage("ライドシェア"),
         "risk": MessageLookupByLibrary.simpleMessage("リスク"),
         "robocall": MessageLookupByLibrary.simpleMessage("ロボコール"),
         "save": MessageLookupByLibrary.simpleMessage("保存"),
-        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "search": MessageLookupByLibrary.simpleMessage("検索"),
         "searchContacts": MessageLookupByLibrary.simpleMessage("連絡先を検索"),
         "searchEntries": MessageLookupByLibrary.simpleMessage("エントリを検索"),
         "selectALabel": MessageLookupByLibrary.simpleMessage("ラベルを選択："),
@@ -656,7 +650,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectedLabel": MessageLookupByLibrary.simpleMessage("選択されたラベル"),
         "selectingExportFolder":
             MessageLookupByLibrary.simpleMessage("エクスポートフォルダを選択しています"),
-        "service": MessageLookupByLibrary.simpleMessage("Service"),
+        "service": MessageLookupByLibrary.simpleMessage("サービス"),
         "serviceUpdateIntervalsDays":
             MessageLookupByLibrary.simpleMessage("サービス更新間隔（日）"),
         "settings": MessageLookupByLibrary.simpleMessage("設定"),
@@ -672,15 +666,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "showWhatsapp": MessageLookupByLibrary.simpleMessage("WhatsAppを表示"),
         "showingResultsFor": MessageLookupByLibrary.simpleMessage("結果を表示"),
         "showingSearchResultsFor":
-            MessageLookupByLibrary.simpleMessage("Showing search results for"),
+            MessageLookupByLibrary.simpleMessage("「」の検索結果を表示中"),
         "silencenoanswer": MessageLookupByLibrary.simpleMessage("サイレント、応答なし"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("無音通話（「ボイスクローン？」)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("SIMカードの色"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("SIMカードのフォントサイズ"),
         "simCardPosition": MessageLookupByLibrary.simpleMessage("SIMカードの位置"),
         "skip": MessageLookupByLibrary.simpleMessage("スキップ"),
         "sms": MessageLookupByLibrary.simpleMessage("SMS"),
-        "smsBlacklist": MessageLookupByLibrary.simpleMessage("SMS Blacklist"),
+        "smsBlacklist": MessageLookupByLibrary.simpleMessage("SMS ブラックリスト"),
         "smsBlacklistPage":
             MessageLookupByLibrary.simpleMessage("SMSブラックリストページ"),
         "smsFiltering": MessageLookupByLibrary.simpleMessage("SMSフィルタリング"),
@@ -690,15 +686,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "smsLocalNotification":
             MessageLookupByLibrary.simpleMessage("SMSローカル通知"),
         "smsNotification": MessageLookupByLibrary.simpleMessage("SMS通知"),
-        "smsSubscribe": MessageLookupByLibrary.simpleMessage("SMS Subscribe"),
+        "smsSubscribe": MessageLookupByLibrary.simpleMessage("SMS サブスクライブ"),
         "smsSubscriptionPage": MessageLookupByLibrary.simpleMessage("SMS購読ページ"),
         "smsTextBlacklist":
-            MessageLookupByLibrary.simpleMessage("SMS Text Blacklist"),
+            MessageLookupByLibrary.simpleMessage("SMS テキスト ブラックリスト"),
         "smsTextWhitelistPage":
             MessageLookupByLibrary.simpleMessage("SMSテキストホワイトリストページ"),
         "smsTextwhitelist":
-            MessageLookupByLibrary.simpleMessage("SMS TextWhitelist"),
-        "smsWhitelist": MessageLookupByLibrary.simpleMessage("SMS Whitelist"),
+            MessageLookupByLibrary.simpleMessage("SMS テキスト ホワイトリスト"),
+        "smsWhitelist": MessageLookupByLibrary.simpleMessage("SMS ホワイトリスト"),
         "smsblacklistpageview":
             MessageLookupByLibrary.simpleMessage("SmsBlacklistPageView"),
         "smssubscriptionlistview":
@@ -709,18 +705,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("SmsTextWhitelistPageView"),
         "smswhitelistpageview":
             MessageLookupByLibrary.simpleMessage("SmsWhitelistPageView"),
-        "sortBy": MessageLookupByLibrary.simpleMessage("Sort by: "),
+        "sortBy": MessageLookupByLibrary.simpleMessage("並べ替え: "),
         "spamLikely": MessageLookupByLibrary.simpleMessage("スパムの可能性が高い"),
         "startColor": MessageLookupByLibrary.simpleMessage("開始色"),
         "statisticsTimeRangeMinutes":
             MessageLookupByLibrary.simpleMessage("統計の時間範囲（分）："),
         "stirColor": MessageLookupByLibrary.simpleMessage("STIRカラー"),
         "stirFontSize": MessageLookupByLibrary.simpleMessage("STIRのフォントサイズ"),
-        "stirNotification":
-            MessageLookupByLibrary.simpleMessage("Stir Notification"),
+        "stirNotification": MessageLookupByLibrary.simpleMessage("Stir 通知"),
         "stirPosition": MessageLookupByLibrary.simpleMessage("STIRの位置"),
-        "stirRecognition":
-            MessageLookupByLibrary.simpleMessage("STIR Recognition"),
+        "stirRecognition": MessageLookupByLibrary.simpleMessage("STIR 認識"),
         "storage": MessageLookupByLibrary.simpleMessage("ストレージ"),
         "subscribe": MessageLookupByLibrary.simpleMessage("購読"),
         "subscribed": MessageLookupByLibrary.simpleMessage("購読済み"),
@@ -728,12 +722,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscriptionListPage":
             MessageLookupByLibrary.simpleMessage("購読リストページ"),
         "subscriptionValid":
-            MessageLookupByLibrary.simpleMessage("Subscription valid"),
+            MessageLookupByLibrary.simpleMessage("サブスクリプションは有効です"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("購読リストビュー"),
         "subscriptionmodel":
-            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
-        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
+            MessageLookupByLibrary.simpleMessage("サブスクリプションモデル"),
+        "successful": MessageLookupByLibrary.simpleMessage("成功"),
         "successfully": MessageLookupByLibrary.simpleMessage("成功しました"),
         "survey": MessageLookupByLibrary.simpleMessage("調査"),
         "sync": MessageLookupByLibrary.simpleMessage("同期"),
@@ -742,20 +736,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "telegram": MessageLookupByLibrary.simpleMessage("Telegram"),
         "telemarketing": MessageLookupByLibrary.simpleMessage("テレマーケティング"),
         "temporaryPurchasePrivilegeHasExpired":
-            MessageLookupByLibrary.simpleMessage(
-                "Temporary purchase privilege has expired"),
+            MessageLookupByLibrary.simpleMessage("一時的な購入権限の有効期限が切れました"),
         "temporaryVipObtained":
-            MessageLookupByLibrary.simpleMessage("Temporary VIP obtained"),
+            MessageLookupByLibrary.simpleMessage("一時的な VIP を取得しました"),
         "temporaryVipUser":
-            MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
-        "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
+            MessageLookupByLibrary.simpleMessage("一時的な VIP ユーザー"),
+        "tenantId": MessageLookupByLibrary.simpleMessage("テナント ID"),
         "test": MessageLookupByLibrary.simpleMessage("テスト"),
         "testCallerIdOverlay":
-            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
+            MessageLookupByLibrary.simpleMessage("発信者 ID オーバーレイをテスト"),
         "textLabelColors": MessageLookupByLibrary.simpleMessage("テキストとラベルの色"),
         "textType": MessageLookupByLibrary.simpleMessage("テキストタイプ"),
         "theTranslationIsNotYetComplete": MessageLookupByLibrary.simpleMessage(
-            "The translation is not yet complete, and all translations are currently done by AI. If your language is not supported, or if you find any errors or missing translations, please click this here."),
+            "翻訳はまだ完了しておらず、すべての翻訳は現在 AI によって行われています。あなたの言語がサポートされていない場合、または翻訳に誤りや欠落がある場合は、ここをクリックしてください。"),
         "thisAppIsAPowerfulCallerIdToolThatAllows":
             MessageLookupByLibrary.simpleMessage(
                 "このアプリは、未知の発信者を識別し、不要な電話をブロックできる強力な発信者番号ツールです。その機能は次のとおりです。"),
@@ -768,17 +761,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "この権限は、アプリが他のアプリの上に重要な情報を表示するために必要です。"),
-        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
-        "today": MessageLookupByLibrary.simpleMessage("Today"),
-        "translation": MessageLookupByLibrary.simpleMessage("Translation"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("ルールをテストするには"),
+        "today": MessageLookupByLibrary.simpleMessage("今日"),
+        "translation": MessageLookupByLibrary.simpleMessage("翻訳"),
         "tutorial": MessageLookupByLibrary.simpleMessage("チュートリアル"),
         "unknown": MessageLookupByLibrary.simpleMessage("不明"),
         "unlockPremiumFeaturesEveryMonthIncludingExclusiveContentAndRemoving":
             MessageLookupByLibrary.simpleMessage(
-                "Unlock premium features every month, including exclusive content and removing Ads."),
+                "限定コンテンツや広告の削除など、毎月プレミアム機能のロックを解除します。"),
         "unlockPremiumFeaturesEveryQuarterAndEnjoyABetterPrice":
             MessageLookupByLibrary.simpleMessage(
-                "Unlock premium features every quarter and enjoy a better price."),
+                "四半期ごとにプレミアム機能のロックを解除して、より良い価格をお楽しみください。"),
         "unsubscribed": MessageLookupByLibrary.simpleMessage("購読解除済み"),
         "url": MessageLookupByLibrary.simpleMessage("URL"),
         "urlFormatIsIncorrect":
@@ -795,33 +788,31 @@ class MessageLookup extends MessageLookupByLibrary {
                 "「\'[0-9]{3}-[0-9]{4}-[0-9]{4}\'」パターンを使用して、「XXX-XXXX-XXXX」形式の電話番号に一致させます。「X」を、照合する特定の数字に置き換えます。"),
         "useThePatternD3d4d4ToMatchPhoneNumbersWithHyphens":
             MessageLookupByLibrary.simpleMessage(
-                "Use the pattern \'^170 [0-9]{3} 656 [0-9]{2}\$\'to match phone numbers. ^: Matches the beginning of the string.505: Matches the literal string \'505\'. \'\' Matches a single space character. \'[0-9]{3}\': Matches exactly three digits (0-9).\'\' Matches a single space character.656: Matches the literal string \'656\'.\'[0-9]{1}\': Matches exactly one digit (0-9).\'\$\' (optional): Matches the end of the string (only if you need a full string match)."),
+                "電話番号をマッチさせるには、パターン ^170 [0-9]{3} 656 [0-9]{2}\$ を使用します。^: 文字列の先頭にマッチします。170: リテラル文字列 \'170\' にマッチします。: 単一のスペース文字にマッチします。[0-9]{3}: 3桁の数字 (0-9) に完全にマッチします。: 単一のスペース文字にマッチします。656: リテラル文字列 \'656\' にマッチします。: 単一のスペース文字にマッチします。[0-9]{2}: 2桁の数字 (0-9) に完全に一致します。\$ (オプション): 文字列の末尾にマッチします (文字列全体を一致させる必要がある場合のみ)"),
         "useThePatternToMatchAllPhoneNumbersStartingWith":
             MessageLookupByLibrary.simpleMessage(
                 "「^\\+」パターンを使用して、プラス記号で始まるすべての電話番号に一致させます。プラス記号は通常、国際番号を示します。"),
         "userName": MessageLookupByLibrary.simpleMessage("ユーザー名"),
         "verificationPageRules":
-            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
-        "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
-            "Verification Results (shouldAcceptCall Rules):"),
+            MessageLookupByLibrary.simpleMessage("確認ページ (ルール)"),
+        "verificationResultsRules":
+            MessageLookupByLibrary.simpleMessage("確認結果 (通話受付ルール):"),
         "verified": MessageLookupByLibrary.simpleMessage("確認済み"),
-        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
-        "verifyPhoneNumber":
-            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
+        "verify": MessageLookupByLibrary.simpleMessage("確認"),
+        "verifyPhoneNumber": MessageLookupByLibrary.simpleMessage("電話番号を確認"),
         "video": MessageLookupByLibrary.simpleMessage("ビデオ"),
-        "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
+        "vipUser": MessageLookupByLibrary.simpleMessage("VIP ユーザー"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":
             MessageLookupByLibrary.simpleMessage(
-                "Watch a short ad to temporarily unlock some advanced features."),
-        "watchAd": MessageLookupByLibrary.simpleMessage("Watch Ad"),
+                "短い広告を見て、一部の高度な機能を一時的にロック解除します。"),
+        "watchAd": MessageLookupByLibrary.simpleMessage("広告を見る"),
         "watchAdsToGetTemporaryPrivileges":
-            MessageLookupByLibrary.simpleMessage(
-                "Watch Ads to Get Temporary Privileges"),
+            MessageLookupByLibrary.simpleMessage("広告を見て一時的な権限を取得"),
         "webdav": MessageLookupByLibrary.simpleMessage("WebDAV設定"),
         "webdavUrl": MessageLookupByLibrary.simpleMessage("WebDAV URL"),
         "website": MessageLookupByLibrary.simpleMessage("ウェブサイト"),
-        "weeklyBlockedCallsSummary": MessageLookupByLibrary.simpleMessage(
-            "Weekly Blocked Calls Summary"),
+        "weeklyBlockedCallsSummary":
+            MessageLookupByLibrary.simpleMessage("週間着信拒否サマリー"),
         "whatsapp": MessageLookupByLibrary.simpleMessage("WhatsApp"),
         "whitelist": MessageLookupByLibrary.simpleMessage("ホワイトリスト"),
         "whitelistPage": MessageLookupByLibrary.simpleMessage("ホワイトリストページ"),
@@ -832,8 +823,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("柔軟なフィルタリングのためのワイルドカードサポート"),
         "windowSize": MessageLookupByLibrary.simpleMessage("ウィンドウサイズ"),
         "youAlreadyHaveTemporaryPrivilegesExpiryDate":
-            MessageLookupByLibrary.simpleMessage(
-                "You already have temporary privileges. Expiry date"),
+            MessageLookupByLibrary.simpleMessage("既に一時的な権限があります。有効期限"),
         "youCanUseStandardRegularExpressionSyntaxToDefinePatterns":
             MessageLookupByLibrary.simpleMessage(
                 "標準の正規表現構文を使用してパターンを定義するか、AIにFlutterのパターンを生成させることができます。"),
@@ -842,15 +832,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "youHaveEnabledThePermission":
             MessageLookupByLibrary.simpleMessage("権限を有効にしました。"),
         "youHaveObtainedTemporaryPurchasePrivilegesFor":
-            MessageLookupByLibrary.simpleMessage(
-                "You have obtained temporary purchase privileges for"),
+            MessageLookupByLibrary.simpleMessage("以下の期間、一時的な購入権限を取得しました"),
         "youHaveVipPrivilegesExceptForTurningOffAds":
-            MessageLookupByLibrary.simpleMessage(
-                "You have VIP privileges except for turning off ads."),
+            MessageLookupByLibrary.simpleMessage("広告をオフにする機能を除いて、VIP 権限があります。"),
         "youNeedToManuallyDisableThe":
             MessageLookupByLibrary.simpleMessage("手動で無効にする必要があります"),
         "youNeedToManuallyDisableThePermissionnamePermissionInThe": m6,
-        "youNeedToWatch":
-            MessageLookupByLibrary.simpleMessage("You need to watch")
+        "youNeedToWatch": MessageLookupByLibrary.simpleMessage("視聴する必要があります")
       };
 }

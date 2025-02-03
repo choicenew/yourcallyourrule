@@ -207,7 +207,7 @@
   "medical": "Medical",
   "charity": "Charity",
   "other": "Other",
-  "collection": "Collection",
+  "collection": "Debt Collection",
   "survey": "Survey",
   "political": "Political",
   "ecommerce": "Ecommerce",
@@ -554,5 +554,12 @@
   "testCallerIdOverlay": "Test Caller ID Overlay",
   "allowOtherNumbers": "Allow Other Numbers",
   "verificationPageRules": "Verification Page (Rules)",
-  "toTestRules": "To test rules"
+  "toTestRules": "To test rules",
+  "agent": "Agent",
+  "recruiter": "Recruiter",
+  "headhunter": "Headhunter",
+  "silentCallvoiceClone": "Silent Call(Voice Clone?)",
+  "regexPattern": "Regex Pattern",
+  "pleaseEnterARegexPattern": "Please enter a regex pattern",
+  "matchFailed": "Match failed!"
 }

@@ -29,6 +29,10 @@ Map<String, String> getLabelMap(BuildContext context) {
   "Political": S.of(context).political,
   "Ecommerce": S.of(context).ecommerce,
   "Risk": S.of(context).risk,
+  "Agent": S.of(context).agent,
+  "Recruiter": S.of(context).recruiter,
+  "Headhunter": S.of(context).headhunter,
+  "Silent call(Voice Clone?)": S.of(context).silentCallvoiceClone,        
     // ... 其他标签 ...
   };
 }

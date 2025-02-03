@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Beyaz Liste Sayfaları Ekle"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("başarıyla eklendi"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("Tümü"),
         "allowAllAllowedNumbers": MessageLookupByLibrary.simpleMessage(
             "Tüm İzin Verilen Numaralara İzin Ver"),
@@ -422,6 +423,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Google Drive Ayarı"),
         "grantPermission": MessageLookupByLibrary.simpleMessage("İzin Ver"),
         "group": MessageLookupByLibrary.simpleMessage("Grup"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("Yükseklik"),
         "history": MessageLookupByLibrary.simpleMessage("Geçmiş"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -544,6 +546,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("İşaretleyen"),
         "matchAnyCharacter": MessageLookupByLibrary.simpleMessage(
             "Herhangi bir karakterle eşleştir:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "Belirli basamakları içeren telefon numaralarıyla eşleştir:"),
@@ -669,6 +672,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Lütfen bir desen girin"),
         "pleaseEnterAnUrl":
@@ -709,8 +714,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Regex Sayfası"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Regex Desen Açıklaması"),
         "regexPatternTest":
@@ -797,6 +804,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("SessizCevaplama"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("SIM Kart Rengi"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("SIM Kart Yazı Tipi Boyutu"),

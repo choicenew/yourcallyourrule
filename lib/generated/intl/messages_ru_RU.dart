@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Добавить страницу белых списков"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("успешно добавлено"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("Все"),
         "allowAllAllowedNumbers": MessageLookupByLibrary.simpleMessage(
             "Разрешить все разрешенные номера"),
@@ -428,6 +429,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "grantPermission":
             MessageLookupByLibrary.simpleMessage("Предоставить разрешение"),
         "group": MessageLookupByLibrary.simpleMessage("Группа"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("Высота"),
         "history": MessageLookupByLibrary.simpleMessage("История"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -551,6 +553,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("Помечено:"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("Сопоставить любой символ:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "Сопоставлять номера телефонов, содержащие определенные цифры:"),
@@ -679,6 +682,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Введите шаблон"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("Введите URL"),
@@ -718,8 +723,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Страница Regex"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Объяснение шаблона Regex"),
         "regexPatternTest":
@@ -808,6 +815,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("Без звука, без ответа"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("Цвет SIM-карты"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("Размер шрифта SIM-карты"),

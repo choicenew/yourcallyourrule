@@ -81,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Thêm trang danh sách trắng"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("đã thêm thành công"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("Tất cả"),
         "allowAllAllowedNumbers": MessageLookupByLibrary.simpleMessage(
             "Cho phép tất cả các số được phép"),
@@ -416,6 +417,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cài đặt Google Drive"),
         "grantPermission": MessageLookupByLibrary.simpleMessage("Cấp quyền"),
         "group": MessageLookupByLibrary.simpleMessage("Nhóm"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("Chiều cao"),
         "history": MessageLookupByLibrary.simpleMessage("Lịch sử"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -530,6 +532,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("Được đánh dấu bởi"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("Khớp với bất kỳ ký tự nào:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "Khớp với số điện thoại chứa chữ số cụ thể:"),
@@ -653,6 +656,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập một mẫu"),
         "pleaseEnterAnUrl":
@@ -693,8 +698,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("Regex"),
         "regexPage": MessageLookupByLibrary.simpleMessage("Trang Regex"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("Giải thích mẫu Regex"),
         "regexPatternTest":
@@ -782,6 +789,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("Im lặng không trả lời"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("Màu thẻ SIM"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("Cỡ chữ thẻ SIM"),

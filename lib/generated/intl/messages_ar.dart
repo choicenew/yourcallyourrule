@@ -81,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إضافة صفحة قوائم بيضاء"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تمت الإضافة بنجاح"),
+        "agent": MessageLookupByLibrary.simpleMessage("وكيل"),
         "all": MessageLookupByLibrary.simpleMessage("الكل"),
         "allowAllAllowedNumbers": MessageLookupByLibrary.simpleMessage(
             "السماح بجميع الأرقام المسموح بها"),
@@ -91,7 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "allowBlockedNumbers":
             MessageLookupByLibrary.simpleMessage("السماح بالأرقام المحظورة"),
         "allowOtherNumbers":
-            MessageLookupByLibrary.simpleMessage("Allow Other Numbers"),
+            MessageLookupByLibrary.simpleMessage("السماح بأرقام أخرى"),
         "allowRegexBlacklistedPatterns": MessageLookupByLibrary.simpleMessage(
             "السماح بأنماط القائمة السوداء للتعبير العادي"),
         "allowRegexWhitelistedPatterns": MessageLookupByLibrary.simpleMessage(
@@ -119,8 +120,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تعطيل التحديث التلقائي"),
         "autoUpdateEnabled":
             MessageLookupByLibrary.simpleMessage("تم تمكين التحديث التلقائي"),
-        "autobackup": MessageLookupByLibrary.simpleMessage("AutoBackup"),
-        "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
+        "autobackup":
+            MessageLookupByLibrary.simpleMessage("النسخ الاحتياطي التلقائي"),
+        "avatar": MessageLookupByLibrary.simpleMessage("الصورة الرمزية"),
         "avatarAndIconSizes":
             MessageLookupByLibrary.simpleMessage("أحجام الصورة الرمزية والرمز"),
         "avatarBorderColor":
@@ -157,7 +159,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إجراء المكالمة المحظورة"),
         "blockedCallNotification":
             MessageLookupByLibrary.simpleMessage("إشعار المكالمة المحظورة"),
-        "blockedCalls": MessageLookupByLibrary.simpleMessage("Blocked Calls"),
+        "blockedCalls":
+            MessageLookupByLibrary.simpleMessage("المكالمات المحظورة"),
         "blockedCallsStatistics":
             MessageLookupByLibrary.simpleMessage("إحصائيات المكالمات المحظورة"),
         "blockedPage": MessageLookupByLibrary.simpleMessage("صفحة المحظورة"),
@@ -180,11 +183,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نجح طلب دور فحص المكالمات!"),
         "callerIdApp":
             MessageLookupByLibrary.simpleMessage("تطبيق معرف المتصل"),
-        "callerIdData": MessageLookupByLibrary.simpleMessage("Caller ID Data:"),
+        "callerIdData":
+            MessageLookupByLibrary.simpleMessage("بيانات معرف المتصل:"),
         "callerIdDataIsNotAvailable": MessageLookupByLibrary.simpleMessage(
-            "Caller ID Data is not available"),
+            "بيانات معرف المتصل غير متاحة"),
         "callerIdSimSource":
-            MessageLookupByLibrary.simpleMessage("Caller ID SIM Source"),
+            MessageLookupByLibrary.simpleMessage("مصدر بطاقة SIM لمعرف المتصل"),
         "callerIdStyle":
             MessageLookupByLibrary.simpleMessage("نمط معرف المتصل"),
         "callerIdStyleContent":
@@ -193,7 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لون رمز نوع المكالمة"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "cannotFindItem":
-            MessageLookupByLibrary.simpleMessage("Cannot find item"),
+            MessageLookupByLibrary.simpleMessage("لا يمكن العثور على العنصر"),
         "carrier": MessageLookupByLibrary.simpleMessage("شركة الاتصالات:"),
         "carrierColor":
             MessageLookupByLibrary.simpleMessage("لون شركة الاتصالات"),
@@ -213,7 +217,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseYourLanguage": MessageLookupByLibrary.simpleMessage("اختر لغتك"),
         "clientId": MessageLookupByLibrary.simpleMessage("معرف العميل"),
         "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
-        "cloudBackup": MessageLookupByLibrary.simpleMessage("Cloud Backup"),
+        "cloudBackup":
+            MessageLookupByLibrary.simpleMessage("النسخ الاحتياطي السحابي"),
         "cloudBackupDirectoryName": MessageLookupByLibrary.simpleMessage(
             "اسم دليل النسخ الاحتياطي السحابي"),
         "cloudBackupRequiresAutoBackup": MessageLookupByLibrary.simpleMessage(
@@ -244,16 +249,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactsWithNumber":
             MessageLookupByLibrary.simpleMessage("جهات اتصال برقم"),
         "contactsubscription":
-            MessageLookupByLibrary.simpleMessage("ContactSubscription"),
+            MessageLookupByLibrary.simpleMessage("اشتراك جهة الاتصال"),
         "contactsubscriptionlistview": MessageLookupByLibrary.simpleMessage(
             "عرض قائمة اشتراكات جهات الاتصال"),
-        "count": MessageLookupByLibrary.simpleMessage("Count"),
+        "count": MessageLookupByLibrary.simpleMessage("العدد"),
         "countColor": MessageLookupByLibrary.simpleMessage("لون العدد"),
         "countFontSize": MessageLookupByLibrary.simpleMessage("حجم خط العدد"),
         "countPosition": MessageLookupByLibrary.simpleMessage("موضع العدد"),
         "country": MessageLookupByLibrary.simpleMessage("الدولة:"),
-        "countryCode": MessageLookupByLibrary.simpleMessage("Country Code"),
-        "countryName": MessageLookupByLibrary.simpleMessage("Country Name"),
+        "countryCode": MessageLookupByLibrary.simpleMessage("رمز البلد"),
+        "countryName": MessageLookupByLibrary.simpleMessage("اسم البلد"),
         "countryNameColor":
             MessageLookupByLibrary.simpleMessage("لون اسم الدولة"),
         "countryNameFontSize":
@@ -266,7 +271,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تخصيص معرف المتصل"),
         "dark": MessageLookupByLibrary.simpleMessage("داكن"),
         "darkMode": MessageLookupByLibrary.simpleMessage("الوضع الداكن"),
-        "days": MessageLookupByLibrary.simpleMessage("days"),
+        "days": MessageLookupByLibrary.simpleMessage("أيام"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "deleteContact": MessageLookupByLibrary.simpleMessage("حذف جهة اتصال"),
         "deleted": MessageLookupByLibrary.simpleMessage("تم الحذف"),
@@ -275,11 +280,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "لقد رفضت الإذن. يمكنك تمكين الإذن يدويًا في الإعدادات."),
         "descriptionFeature1": MessageLookupByLibrary.simpleMessage(
-            "The app supports subscriptions from online links and plugins. Customize your own API or convert any website into a plugin to help you find caller ID information."),
+            "يدعم التطبيق الاشتراكات من الروابط والمكونات الإضافية عبر الإنترنت. قم بتخصيص واجهة برمجة التطبيقات الخاصة بك أو قم بتحويل أي موقع ويب إلى مكون إضافي لمساعدتك في العثور على معلومات معرف المتصل."),
         "descriptionFeature2": MessageLookupByLibrary.simpleMessage(
-            "The app supports regular expressions (Regex), allowing you to customize patterns for blocking calls."),
+            "يدعم التطبيق التعبيرات العادية (Regex)، مما يسمح لك بتخصيص أنماط حظر المكالمات."),
         "descriptionFeature3": MessageLookupByLibrary.simpleMessage(
-            "Import or export your database locally or online via WebDAV, Google Drive, or OneDrive."),
+            "قم باستيراد أو تصدير قاعدة البيانات الخاصة بك محليًا أو عبر الإنترنت عبر WebDAV أو Google Drive أو OneDrive."),
         "disableBlockedCallNotification": MessageLookupByLibrary.simpleMessage(
             "تعطيل إشعار المكالمة المحظورة"),
         "disablePermission":
@@ -287,7 +292,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "disableSmsLocalNotification":
             MessageLookupByLibrary.simpleMessage("تعطيل إشعار SMS المحلي"),
         "disableStirNotification":
-            MessageLookupByLibrary.simpleMessage("Disable Stir Notification"),
+            MessageLookupByLibrary.simpleMessage("تعطيل إشعار Stir"),
         "disableThisAppToShowCallerId": MessageLookupByLibrary.simpleMessage(
             "تعطيل هذا التطبيق لعرض معرف المتصل"),
         "disabled": MessageLookupByLibrary.simpleMessage("مُعَطَّل"),
@@ -311,17 +316,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تمكين إذن التراكب"),
         "enableSmsLocalNotification":
             MessageLookupByLibrary.simpleMessage("تمكين إشعار SMS المحلي"),
-        "enableSorting":
-            MessageLookupByLibrary.simpleMessage("Enable sorting: "),
+        "enableSorting": MessageLookupByLibrary.simpleMessage("تمكين الفرز: "),
         "enableStirNotification":
-            MessageLookupByLibrary.simpleMessage("Enable Stir Notification"),
+            MessageLookupByLibrary.simpleMessage("تمكين إشعار Stir"),
         "enableToRemoveAds":
             MessageLookupByLibrary.simpleMessage("تمكين لإزالة الإعلانات"),
         "enabled": MessageLookupByLibrary.simpleMessage("مُمَكّن"),
         "endColor": MessageLookupByLibrary.simpleMessage("لون النهاية"),
         "endcall": MessageLookupByLibrary.simpleMessage("إنهاء المكالمة"),
         "enterCountryCode": MessageLookupByLibrary.simpleMessage(
-            "Enter country code (e.g., US, CA)"),
+            "أدخل رمز البلد (على سبيل المثال، US, CA)"),
         "enterImageUrl":
             MessageLookupByLibrary.simpleMessage("أدخل عنوان URL للصورة"),
         "enterPluginCodeHere":
@@ -341,8 +345,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "خطأ في طلب دور فحص المكالمات:"),
         "expirationDate":
-            MessageLookupByLibrary.simpleMessage("Expiration date"),
-        "expiryDate": MessageLookupByLibrary.simpleMessage("Expiry Date"),
+            MessageLookupByLibrary.simpleMessage("تاريخ انتهاء الصلاحية"),
+        "expiryDate": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
         "export": MessageLookupByLibrary.simpleMessage("تصدير"),
         "exportAllowedEntryPage": MessageLookupByLibrary.simpleMessage(
             "تصدير صفحة الإدخال المسموح به"),
@@ -395,7 +399,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "featureDescription":
             MessageLookupByLibrary.simpleMessage("وصف الميزة"),
         "featureIntroduction":
-            MessageLookupByLibrary.simpleMessage("Feature Introduction"),
+            MessageLookupByLibrary.simpleMessage("مقدمة عن الميزة"),
         "filterIncomingSmsMessages":
             MessageLookupByLibrary.simpleMessage("تصفية رسائل SMS الواردة"),
         "filterRepeatedIncomingCalls": MessageLookupByLibrary.simpleMessage(
@@ -404,7 +408,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "fraudScamLikely":
             MessageLookupByLibrary.simpleMessage("احتمال الاحتيال"),
-        "function": MessageLookupByLibrary.simpleMessage("Function"),
+        "function": MessageLookupByLibrary.simpleMessage("الوظيفة"),
         "getStarted": MessageLookupByLibrary.simpleMessage("البدء"),
         "googleDriveLoginFailed": MessageLookupByLibrary.simpleMessage(
             "فشل تسجيل الدخول إلى Google Drive"),
@@ -414,12 +418,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إعداد Google Drive"),
         "grantPermission": MessageLookupByLibrary.simpleMessage("منح الإذن"),
         "group": MessageLookupByLibrary.simpleMessage("مجموعة"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("صائدو الوظائف"),
         "height": MessageLookupByLibrary.simpleMessage("الارتفاع"),
         "history": MessageLookupByLibrary.simpleMessage("السجل"),
-        "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "iconSize": MessageLookupByLibrary.simpleMessage("حجم الرمز"),
-        "ifThereIsAnErrorSelectACountry": MessageLookupByLibrary.simpleMessage(
-            "if there is an error select a country"),
+        "ifThereIsAnErrorSelectACountry":
+            MessageLookupByLibrary.simpleMessage("إذا كان هناك خطأ حدد بلدًا"),
         "import": MessageLookupByLibrary.simpleMessage("استيراد"),
         "importAllowedEntryPage": MessageLookupByLibrary.simpleMessage(
             "استيراد صفحة الإدخال المسموح به"),
@@ -459,7 +464,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "importedSuccessfullyFromUrl":
             MessageLookupByLibrary.simpleMessage("تم الاستيراد بنجاح من URL"),
         "inappPurchase":
-            MessageLookupByLibrary.simpleMessage("In-app purchase"),
+            MessageLookupByLibrary.simpleMessage("الشراء داخل التطبيق"),
         "inappPurchasesEnabled": MessageLookupByLibrary.simpleMessage(
             "تم تمكين عمليات الشراء داخل التطبيق"),
         "incomingCallInterceptAction": MessageLookupByLibrary.simpleMessage(
@@ -467,8 +472,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "initializing": MessageLookupByLibrary.simpleMessage("جارٍ التهيئة..."),
         "initializingDatabase": MessageLookupByLibrary.simpleMessage(
             "جارٍ تهيئة قاعدة البيانات..."),
-        "inputClientIdTenantId":
-            MessageLookupByLibrary.simpleMessage("Input Client ID & Tenant ID"),
+        "inputClientIdTenantId": MessageLookupByLibrary.simpleMessage(
+            "أدخل معرف العميل ومعرف المستأجر"),
         "inputOnedriveCredentials":
             MessageLookupByLibrary.simpleMessage("أدخل بيانات اعتماد OneDrive"),
         "insurance": MessageLookupByLibrary.simpleMessage("تأمين"),
@@ -497,7 +502,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "labelsPosition": MessageLookupByLibrary.simpleMessage("موضع العلامات"),
         "lastName": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
         "lifetimePurchase":
-            MessageLookupByLibrary.simpleMessage("Lifetime Purchase"),
+            MessageLookupByLibrary.simpleMessage("شراء مدى الحياة"),
         "light": MessageLookupByLibrary.simpleMessage("فاتح"),
         "link": MessageLookupByLibrary.simpleMessage("رابط"),
         "loading": MessageLookupByLibrary.simpleMessage("جارٍ التحميل..."),
@@ -529,6 +534,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("تم وضع علامة بواسطة"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("مطابقة أي حرف:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "مطابقة أرقام الهواتف التي تحتوي على أرقام محددة:"),
@@ -536,7 +542,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "مطابقة أرقام الهواتف التي تحتوي على أحرف محددة في المنتصف:"),
         "matchSuccessful":
-            MessageLookupByLibrary.simpleMessage("Match successful!"),
+            MessageLookupByLibrary.simpleMessage("التطابق ناجح!"),
         "medical": MessageLookupByLibrary.simpleMessage("طبي"),
         "merge": MessageLookupByLibrary.simpleMessage("دمج"),
         "mergeContacts":
@@ -545,10 +551,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "message": MessageLookupByLibrary.simpleMessage("رسالة"),
         "mins": MessageLookupByLibrary.simpleMessage("دقيقة"),
         "monthlySubscription":
-            MessageLookupByLibrary.simpleMessage("Monthly Subscription"),
+            MessageLookupByLibrary.simpleMessage("اشتراك شهري"),
         "moreAdsToGetTemporaryVipPrivileges":
             MessageLookupByLibrary.simpleMessage(
-                "more ads to get temporary VIP privileges."),
+                "المزيد من الإعلانات للحصول على امتيازات VIP مؤقتة."),
         "name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "nameCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "لا يمكن أن يكون الاسم فارغًا"),
@@ -557,12 +563,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "namePosition": MessageLookupByLibrary.simpleMessage("موضع الاسم"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "noDataAvailable":
-            MessageLookupByLibrary.simpleMessage("No data available."),
+            MessageLookupByLibrary.simpleMessage("لا تتوافر بيانات."),
         "noImageSelected":
             MessageLookupByLibrary.simpleMessage("لم يتم تحديد صورة"),
         "noIncomingSmsMessagesFilter": MessageLookupByLibrary.simpleMessage(
             "لا يوجد عامل تصفية لرسائل SMS الواردة"),
-        "normalUser": MessageLookupByLibrary.simpleMessage("Normal User"),
+        "normalUser": MessageLookupByLibrary.simpleMessage("مستخدم عادي"),
         "notVerified":
             MessageLookupByLibrary.simpleMessage("لم يتم التحقق منه"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
@@ -581,11 +587,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إعداد OneDrive"),
         "onetimePurchaseToPermanentlyUnlockAllAdvancedFeaturesAndFuture":
             MessageLookupByLibrary.simpleMessage(
-                "One-time purchase to permanently unlock all advanced features and future updates."),
+                "عملية شراء لمرة واحدة لفتح جميع الميزات المتقدمة والتحديثات المستقبلية بشكل دائم."),
         "onlineCallerIdSubscription": MessageLookupByLibrary.simpleMessage(
             "اشتراك معرف المتصل عبر الإنترنت"),
         "onlyForSupportedArea":
-            MessageLookupByLibrary.simpleMessage("Only for supported Area"),
+            MessageLookupByLibrary.simpleMessage("للمنطقة المدعومة فقط"),
         "onlyOriginalCallAppNotification": MessageLookupByLibrary.simpleMessage(
             "إشعار تطبيق المكالمات الأصلي فقط"),
         "onlyRingLocalNotification":
@@ -608,7 +614,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pattern": MessageLookupByLibrary.simpleMessage("النمط"),
         "permanentlyRemoveAllAdsInTheAppAndEnjoyA":
             MessageLookupByLibrary.simpleMessage(
-                "Permanently remove all ads in the app and enjoy a clean user experience."),
+                "قم بإزالة جميع الإعلانات في التطبيق نهائيًا واستمتع بتجربة مستخدم نظيفة."),
         "permissionDenied":
             MessageLookupByLibrary.simpleMessage("تم رفض الإذن"),
         "permissionGranted":
@@ -650,7 +656,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال رقم هاتف"),
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
-                "Please enter a phone number and regex pattern"),
+                "الرجاء إدخال رقم هاتف ونمط regex"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال نمط"),
         "pleaseEnterAnUrl":
@@ -674,36 +682,40 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitForDatabaseInitializationToComplete":
             MessageLookupByLibrary.simpleMessage(
                 "يرجى الانتظار حتى يكتمل تهيئة قاعدة البيانات."),
-        "pluginData": MessageLookupByLibrary.simpleMessage("Plugin Data:"),
+        "pluginData":
+            MessageLookupByLibrary.simpleMessage("بيانات البرنامج المساعد:"),
         "pluginPage":
             MessageLookupByLibrary.simpleMessage("صفحة المكون الإضافي"),
         "plugins": MessageLookupByLibrary.simpleMessage("المكونات الإضافية"),
         "pluginspageview":
             MessageLookupByLibrary.simpleMessage("عرض صفحة المكونات الإضافية"),
-        "pluginupdate": MessageLookupByLibrary.simpleMessage("PluginUpdate"),
+        "pluginupdate":
+            MessageLookupByLibrary.simpleMessage("تحديث البرنامج المساعد"),
         "political": MessageLookupByLibrary.simpleMessage("سياسي"),
-        "purchase": MessageLookupByLibrary.simpleMessage("Purchase"),
-        "purchaseFailed":
-            MessageLookupByLibrary.simpleMessage("Purchase failed:"),
-        "purchaseIsBeingProcessed": MessageLookupByLibrary.simpleMessage(
-            "Purchase is being processed..."),
+        "purchase": MessageLookupByLibrary.simpleMessage("شراء"),
+        "purchaseFailed": MessageLookupByLibrary.simpleMessage("فشل الشراء:"),
+        "purchaseIsBeingProcessed":
+            MessageLookupByLibrary.simpleMessage("جارٍ معالجة عملية الشراء..."),
         "purchaseSuccessful":
-            MessageLookupByLibrary.simpleMessage("Purchase successful!"),
+            MessageLookupByLibrary.simpleMessage("تم الشراء بنجاح!"),
         "quarterlySubscription":
-            MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
-        "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+            MessageLookupByLibrary.simpleMessage("اشتراك ربع سنوي"),
+        "recordbackup":
+            MessageLookupByLibrary.simpleMessage("تسجيل النسخ الاحتياطي"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("مسؤول التوظيف"),
         "regex": MessageLookupByLibrary.simpleMessage("تعبير عادي"),
         "regexPage":
             MessageLookupByLibrary.simpleMessage("صفحة التعبير العادي"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("شرح نمط التعبير العادي"),
         "regexPatternTest":
-            MessageLookupByLibrary.simpleMessage("Regex Pattern Test"),
+            MessageLookupByLibrary.simpleMessage("اختبار نمط Regex"),
         "regexPatternsAreRegularExpressionsUsedToMatchPhoneNumbers":
             MessageLookupByLibrary.simpleMessage(
                 "أنماط التعبير العادي هي عبارة عن تعبيرات منتظمة تستخدم لمطابقة أرقام الهواتف."),
         "regexPhoneNumberTest":
-            MessageLookupByLibrary.simpleMessage("Regex Phone Number Test"),
+            MessageLookupByLibrary.simpleMessage("اختبار رقم هاتف Regex"),
         "regexpageview":
             MessageLookupByLibrary.simpleMessage("عرض صفحة التعبير العادي"),
         "region": MessageLookupByLibrary.simpleMessage("المنطقة:"),
@@ -711,7 +723,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rejectAllNumbers":
             MessageLookupByLibrary.simpleMessage("رفض جميع الأرقام"),
         "remove": MessageLookupByLibrary.simpleMessage("إزالة"),
-        "removeAds": MessageLookupByLibrary.simpleMessage("Remove Ads"),
+        "removeAds": MessageLookupByLibrary.simpleMessage("إزالة الإعلانات"),
         "removeAdsAndEnableOnlineBackup": MessageLookupByLibrary.simpleMessage(
             "إزالة الإعلانات وتمكين النسخ الاحتياطي عبر الإنترنت"),
         "removeAllowed":
@@ -733,12 +745,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "restoreFromWebdav":
             MessageLookupByLibrary.simpleMessage("استعادة من WebDAV"),
         "restorePurchase":
-            MessageLookupByLibrary.simpleMessage("Restore Purchase"),
+            MessageLookupByLibrary.simpleMessage("استعادة الشراء"),
         "ridesharing": MessageLookupByLibrary.simpleMessage("مشاركة الركوب"),
         "risk": MessageLookupByLibrary.simpleMessage("خطر"),
         "robocall": MessageLookupByLibrary.simpleMessage("مكالمة روبوتية"),
         "save": MessageLookupByLibrary.simpleMessage("حفظ"),
-        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "search": MessageLookupByLibrary.simpleMessage("بحث"),
         "searchContacts":
             MessageLookupByLibrary.simpleMessage("بحث عن جهات اتصال"),
         "searchEntries": MessageLookupByLibrary.simpleMessage("بحث عن إدخالات"),
@@ -757,7 +769,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("العلامة المحددة"),
         "selectingExportFolder":
             MessageLookupByLibrary.simpleMessage("جارٍ تحديد مجلد التصدير"),
-        "service": MessageLookupByLibrary.simpleMessage("Service"),
+        "service": MessageLookupByLibrary.simpleMessage("الخدمة"),
         "serviceUpdateIntervalsDays":
             MessageLookupByLibrary.simpleMessage("فترات تحديث الخدمة (أيام)"),
         "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
@@ -776,8 +788,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "showingResultsFor":
             MessageLookupByLibrary.simpleMessage("عرض النتائج لـ"),
         "showingSearchResultsFor":
-            MessageLookupByLibrary.simpleMessage("Showing search results for"),
+            MessageLookupByLibrary.simpleMessage("عرض نتائج البحث عن"),
         "silencenoanswer": MessageLookupByLibrary.simpleMessage("صامت بدون رد"),
+        "silentCallvoiceClone": MessageLookupByLibrary.simpleMessage(
+            "مكالمة صامتة (استنساخ الصوت؟)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("لون بطاقة SIM"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("حجم خط بطاقة SIM"),
@@ -785,7 +799,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("موضع بطاقة SIM"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "sms": MessageLookupByLibrary.simpleMessage("رسائل قصيرة"),
-        "smsBlacklist": MessageLookupByLibrary.simpleMessage("SMS Blacklist"),
+        "smsBlacklist": MessageLookupByLibrary.simpleMessage(
+            "القائمة السوداء للرسائل القصيرة"),
         "smsBlacklistPage": MessageLookupByLibrary.simpleMessage(
             "صفحة القائمة السوداء للرسائل القصيرة"),
         "smsFiltering":
@@ -797,16 +812,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إشعار SMS المحلي"),
         "smsNotification":
             MessageLookupByLibrary.simpleMessage("إشعار الرسائل القصيرة"),
-        "smsSubscribe": MessageLookupByLibrary.simpleMessage("SMS Subscribe"),
+        "smsSubscribe": MessageLookupByLibrary.simpleMessage("اشتراك SMS"),
         "smsSubscriptionPage":
             MessageLookupByLibrary.simpleMessage("صفحة اشتراك الرسائل القصيرة"),
         "smsTextBlacklist":
-            MessageLookupByLibrary.simpleMessage("SMS Text Blacklist"),
+            MessageLookupByLibrary.simpleMessage("القائمة السوداء لنص SMS"),
         "smsTextWhitelistPage": MessageLookupByLibrary.simpleMessage(
             "صفحة القائمة البيضاء لنص الرسائل القصيرة"),
         "smsTextwhitelist":
-            MessageLookupByLibrary.simpleMessage("SMS TextWhitelist"),
-        "smsWhitelist": MessageLookupByLibrary.simpleMessage("SMS Whitelist"),
+            MessageLookupByLibrary.simpleMessage("القائمة البيضاء لنص SMS"),
+        "smsWhitelist": MessageLookupByLibrary.simpleMessage(
+            "القائمة البيضاء للرسائل القصيرة"),
         "smsblacklistpageview": MessageLookupByLibrary.simpleMessage(
             "عرض صفحة القائمة السوداء للرسائل القصيرة"),
         "smssubscriptionlistview": MessageLookupByLibrary.simpleMessage(
@@ -817,7 +833,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "عرض صفحة القوائم البيضاء لنص الرسائل القصيرة"),
         "smswhitelistpageview": MessageLookupByLibrary.simpleMessage(
             "عرض صفحة القائمة البيضاء للرسائل القصيرة"),
-        "sortBy": MessageLookupByLibrary.simpleMessage("Sort by: "),
+        "sortBy": MessageLookupByLibrary.simpleMessage("ترتيب حسب: "),
         "spamLikely":
             MessageLookupByLibrary.simpleMessage("احتمال البريد العشوائي"),
         "startColor": MessageLookupByLibrary.simpleMessage("لون البداية"),
@@ -825,11 +841,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "النطاق الزمني للإحصائيات (بالدقائق):"),
         "stirColor": MessageLookupByLibrary.simpleMessage("لون STIR"),
         "stirFontSize": MessageLookupByLibrary.simpleMessage("حجم خط STIR"),
-        "stirNotification":
-            MessageLookupByLibrary.simpleMessage("Stir Notification"),
+        "stirNotification": MessageLookupByLibrary.simpleMessage("إشعار Stir"),
         "stirPosition": MessageLookupByLibrary.simpleMessage("موضع STIR"),
         "stirRecognition":
-            MessageLookupByLibrary.simpleMessage("STIR Recognition"),
+            MessageLookupByLibrary.simpleMessage("التعرف على STIR"),
         "storage": MessageLookupByLibrary.simpleMessage("التخزين"),
         "subscribe": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "subscribed": MessageLookupByLibrary.simpleMessage("مشترك"),
@@ -837,12 +852,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscriptionListPage":
             MessageLookupByLibrary.simpleMessage("صفحة قائمة الاشتراكات"),
         "subscriptionValid":
-            MessageLookupByLibrary.simpleMessage("Subscription valid"),
+            MessageLookupByLibrary.simpleMessage("الاشتراك صالح"),
         "subscriptionlistview":
             MessageLookupByLibrary.simpleMessage("عرض قائمة الاشتراكات"),
         "subscriptionmodel":
-            MessageLookupByLibrary.simpleMessage("SubscriptionModel"),
-        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
+            MessageLookupByLibrary.simpleMessage("نموذج الاشتراك"),
+        "successful": MessageLookupByLibrary.simpleMessage("ناجح"),
         "successfully": MessageLookupByLibrary.simpleMessage("بنجاح"),
         "survey": MessageLookupByLibrary.simpleMessage("استطلاع"),
         "sync": MessageLookupByLibrary.simpleMessage("مزامنة"),
@@ -853,20 +868,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("التسويق عبر الهاتف"),
         "temporaryPurchasePrivilegeHasExpired":
             MessageLookupByLibrary.simpleMessage(
-                "Temporary purchase privilege has expired"),
+                "انتهت صلاحية امتياز الشراء المؤقت"),
         "temporaryVipObtained":
-            MessageLookupByLibrary.simpleMessage("Temporary VIP obtained"),
+            MessageLookupByLibrary.simpleMessage("تم الحصول على VIP مؤقت"),
         "temporaryVipUser":
-            MessageLookupByLibrary.simpleMessage("Temporary VIP User"),
-        "tenantId": MessageLookupByLibrary.simpleMessage("Tenant ID"),
+            MessageLookupByLibrary.simpleMessage("مستخدم VIP مؤقت"),
+        "tenantId": MessageLookupByLibrary.simpleMessage("معرف المستأجر"),
         "test": MessageLookupByLibrary.simpleMessage("اختبار"),
         "testCallerIdOverlay":
-            MessageLookupByLibrary.simpleMessage("Test Caller ID Overlay"),
+            MessageLookupByLibrary.simpleMessage("اختبار تراكب معرف المتصل"),
         "textLabelColors":
             MessageLookupByLibrary.simpleMessage("ألوان النص والعلامة"),
         "textType": MessageLookupByLibrary.simpleMessage("نوع النص"),
         "theTranslationIsNotYetComplete": MessageLookupByLibrary.simpleMessage(
-            "The translation is not yet complete, and all translations are currently done by AI. If your language is not supported, or if you find any errors or missing translations, please click this here."),
+            "الترجمة لم تكتمل بعد، وجميع الترجمات تتم حاليًا بواسطة الذكاء الاصطناعي. إذا كانت لغتك غير مدعومة، أو إذا وجدت أي أخطاء أو ترجمات مفقودة، فيرجى النقر هنا."),
         "thisAppIsAPowerfulCallerIdToolThatAllows":
             MessageLookupByLibrary.simpleMessage(
                 "هذا التطبيق عبارة عن أداة قوية لمعرف المتصل تتيح لك تحديد المتصلين غير المعروفين وحظر المكالمات غير المرغوب فيها. ويتميز بما يلي:"),
@@ -879,17 +894,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "هذا الإذن مطلوب لتطبيقنا لعرض معلومات مهمة فوق التطبيقات الأخرى.\\n\\n"),
-        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
-        "today": MessageLookupByLibrary.simpleMessage("Today"),
-        "translation": MessageLookupByLibrary.simpleMessage("Translation"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("لاختبار القواعد"),
+        "today": MessageLookupByLibrary.simpleMessage("اليوم"),
+        "translation": MessageLookupByLibrary.simpleMessage("الترجمة"),
         "tutorial": MessageLookupByLibrary.simpleMessage("برنامج تعليمي"),
         "unknown": MessageLookupByLibrary.simpleMessage("غير معروف"),
         "unlockPremiumFeaturesEveryMonthIncludingExclusiveContentAndRemoving":
             MessageLookupByLibrary.simpleMessage(
-                "Unlock premium features every month, including exclusive content and removing Ads."),
+                "افتح ميزات بريميوم كل شهر، بما في ذلك المحتوى الحصري وإزالة الإعلانات."),
         "unlockPremiumFeaturesEveryQuarterAndEnjoyABetterPrice":
             MessageLookupByLibrary.simpleMessage(
-                "Unlock premium features every quarter and enjoy a better price."),
+                "افتح ميزات بريميوم كل ربع سنة واستمتع بسعر أفضل."),
         "unsubscribed": MessageLookupByLibrary.simpleMessage("غير مشترك"),
         "url": MessageLookupByLibrary.simpleMessage("عنوان URL"),
         "urlFormatIsIncorrect":
@@ -907,34 +922,34 @@ class MessageLookup extends MessageLookupByLibrary {
                 "استخدم النمط \'[0-9]{3}-[0-9]{4}-[0-9]{4}\' لمطابقة أرقام الهواتف بتنسيق \'XXX-XXXX-XXXX\'. استبدل \'X\' بالأرقام المحددة التي تريد مطابقتها."),
         "useThePatternD3d4d4ToMatchPhoneNumbersWithHyphens":
             MessageLookupByLibrary.simpleMessage(
-                "Use the pattern \'^170 [0-9]{3} 656 [0-9]{2}\$\'to match phone numbers. ^: Matches the beginning of the string.505: Matches the literal string \'505\'. \'\' Matches a single space character. \'[0-9]{3}\': Matches exactly three digits (0-9).\'\' Matches a single space character.656: Matches the literal string \'656\'.\'[0-9]{1}\': Matches exactly one digit (0-9).\'\$\' (optional): Matches the end of the string (only if you need a full string match)."),
+                "استخدم النمط \'^170 [0-9]{3} 656 [0-9]{2}\$\' لمطابقة أرقام الهواتف. ^: يطابق بداية السلسلة. 505: يطابق السلسلة النصية الحرفية \'505\'. \' \': يطابق حرف المسافة الواحدة. \'[0-9]{3}\': يطابق بالضبط ثلاثة أرقام (0-9). \' \': يطابق حرف المسافة الواحدة. 656: يطابق السلسلة النصية الحرفية \'656\'. \'[0-9]{1}\': يطابق رقمًا واحدًا بالضبط (0-9). \'\$\' (اختياري): يطابق نهاية السلسلة (فقط إذا كنت بحاجة إلى مطابقة السلسلة بالكامل)."),
         "useThePatternToMatchAllPhoneNumbersStartingWith":
             MessageLookupByLibrary.simpleMessage(
                 "استخدم النمط \'^\\+\' لمطابقة جميع أرقام الهواتف التي تبدأ بعلامة زائد، والتي تشير عادةً إلى رقم دولي."),
         "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "verificationPageRules":
-            MessageLookupByLibrary.simpleMessage("Verification Page (Rules)"),
+            MessageLookupByLibrary.simpleMessage("صفحة التحقق (القواعد)"),
         "verificationResultsRules": MessageLookupByLibrary.simpleMessage(
-            "Verification Results (shouldAcceptCall Rules):"),
+            "نتائج التحقق (قواعد shouldAcceptCall):"),
         "verified": MessageLookupByLibrary.simpleMessage("تم التحقق منه"),
-        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
         "verifyPhoneNumber":
-            MessageLookupByLibrary.simpleMessage("Verify Phone Number"),
+            MessageLookupByLibrary.simpleMessage("التحقق من رقم الهاتف"),
         "video": MessageLookupByLibrary.simpleMessage("فيديو"),
-        "vipUser": MessageLookupByLibrary.simpleMessage("VIP User"),
+        "vipUser": MessageLookupByLibrary.simpleMessage("مستخدم VIP"),
         "watchAShortAdToTemporarilyUnlockSomeAdvancedFeatures":
             MessageLookupByLibrary.simpleMessage(
-                "Watch a short ad to temporarily unlock some advanced features."),
-        "watchAd": MessageLookupByLibrary.simpleMessage("Watch Ad"),
+                "شاهد إعلانًا قصيرًا لفتح بعض الميزات المتقدمة مؤقتًا."),
+        "watchAd": MessageLookupByLibrary.simpleMessage("مشاهدة إعلان"),
         "watchAdsToGetTemporaryPrivileges":
             MessageLookupByLibrary.simpleMessage(
-                "Watch Ads to Get Temporary Privileges"),
+                "شاهد الإعلانات للحصول على امتيازات مؤقتة"),
         "webdav": MessageLookupByLibrary.simpleMessage("إعداد WebDAV"),
         "webdavUrl":
             MessageLookupByLibrary.simpleMessage("عنوان URL لـ WebDAV"),
         "website": MessageLookupByLibrary.simpleMessage("موقع ويب"),
         "weeklyBlockedCallsSummary": MessageLookupByLibrary.simpleMessage(
-            "Weekly Blocked Calls Summary"),
+            "ملخص المكالمات المحظورة الأسبوعي"),
         "whatsapp": MessageLookupByLibrary.simpleMessage("واتساب"),
         "whitelist": MessageLookupByLibrary.simpleMessage("القائمة البيضاء"),
         "whitelistPage":
@@ -948,7 +963,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "windowSize": MessageLookupByLibrary.simpleMessage("حجم النافذة"),
         "youAlreadyHaveTemporaryPrivilegesExpiryDate":
             MessageLookupByLibrary.simpleMessage(
-                "You already have temporary privileges. Expiry date"),
+                "لديك بالفعل امتيازات مؤقتة. تاريخ الانتهاء"),
         "youCanUseStandardRegularExpressionSyntaxToDefinePatterns":
             MessageLookupByLibrary.simpleMessage(
                 "يمكنك استخدام بناء جملة التعبير العادي القياسي لتحديد الأنماط، أو مطالبة الذكاء الاصطناعي بإنشاء النمط لـ Flutter. "),
@@ -959,14 +974,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لقد قمت بتمكين الإذن."),
         "youHaveObtainedTemporaryPurchasePrivilegesFor":
             MessageLookupByLibrary.simpleMessage(
-                "You have obtained temporary purchase privileges for"),
+                "لقد حصلت على امتيازات شراء مؤقتة لـ"),
         "youHaveVipPrivilegesExceptForTurningOffAds":
             MessageLookupByLibrary.simpleMessage(
-                "You have VIP privileges except for turning off ads."),
+                "لديك امتيازات VIP باستثناء إيقاف تشغيل الإعلانات."),
         "youNeedToManuallyDisableThe":
             MessageLookupByLibrary.simpleMessage("يجب عليك تعطيل"),
         "youNeedToManuallyDisableThePermissionnamePermissionInThe": m6,
         "youNeedToWatch":
-            MessageLookupByLibrary.simpleMessage("You need to watch")
+            MessageLookupByLibrary.simpleMessage("أنت بحاجة للمشاهدة")
       };
 }

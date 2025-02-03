@@ -69,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addToLabel": MessageLookupByLibrary.simpleMessage("添加到標籤"),
         "addWhitelistsPage": MessageLookupByLibrary.simpleMessage("添加白名單頁面"),
         "addedSuccessfully": MessageLookupByLibrary.simpleMessage("添加成功"),
+        "agent": MessageLookupByLibrary.simpleMessage("經紀人"),
         "all": MessageLookupByLibrary.simpleMessage("全部"),
         "allowAllAllowedNumbers":
             MessageLookupByLibrary.simpleMessage("允許所有允許的號碼"),
@@ -175,7 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cloudBackupRequiresAutoBackup":
             MessageLookupByLibrary.simpleMessage("雲端備份需要自動備份"),
         "cloudServices": MessageLookupByLibrary.simpleMessage("雲端服務"),
-        "collection": MessageLookupByLibrary.simpleMessage("催收"),
+        "collection": MessageLookupByLibrary.simpleMessage("債務催收"),
         "configurationExportedToFile":
             MessageLookupByLibrary.simpleMessage("配置已導出到文件！"),
         "configurationImported": MessageLookupByLibrary.simpleMessage("配置已導入"),
@@ -337,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Google Drive 設定"),
         "grantPermission": MessageLookupByLibrary.simpleMessage("授予權限"),
         "group": MessageLookupByLibrary.simpleMessage("群組"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("獵頭顧問"),
         "height": MessageLookupByLibrary.simpleMessage("高度"),
         "history": MessageLookupByLibrary.simpleMessage("歷史記錄"),
         "home": MessageLookupByLibrary.simpleMessage("主頁"),
@@ -430,6 +432,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "manuallyDisablePermissionInAppSetting": m3,
         "markedBy": MessageLookupByLibrary.simpleMessage("標記者："),
         "matchAnyCharacter": MessageLookupByLibrary.simpleMessage("匹配任何字符："),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("匹配失敗!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage("匹配包含特定數字的電話號碼："),
         "matchPhoneNumbersWithSpecificCharactersInTheMiddle":
@@ -527,6 +530,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("請輸入電話號碼"),
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage("請輸入電話號碼和正則表達式"),
+        "pleaseEnterARegexPattern":
+            MessageLookupByLibrary.simpleMessage("請輸入正則表達式"),
         "pleaseEnterAnPattern": MessageLookupByLibrary.simpleMessage("請輸入一個模式"),
         "pleaseEnterAnUrl": MessageLookupByLibrary.simpleMessage("請輸入一個網址"),
         "pleaseSelectAFileOrInputAUrl":
@@ -557,8 +562,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "purchaseSuccessful": MessageLookupByLibrary.simpleMessage("購買成功！"),
         "quarterlySubscription": MessageLookupByLibrary.simpleMessage("季度訂閱"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("記錄備份"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("招聘專員"),
         "regex": MessageLookupByLibrary.simpleMessage("正則表達式"),
         "regexPage": MessageLookupByLibrary.simpleMessage("正則表達式頁面"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("正則表達式"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("正則表達式模式說明"),
         "regexPatternTest": MessageLookupByLibrary.simpleMessage("正則表達式測試"),
@@ -627,6 +634,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "showingSearchResultsFor":
             MessageLookupByLibrary.simpleMessage("顯示搜尋結果："),
         "silencenoanswer": MessageLookupByLibrary.simpleMessage("靜音無應答"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("無聲通話(語音複製)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("SIM 卡顏色"),
         "simCardFontSize": MessageLookupByLibrary.simpleMessage("SIM 卡字體大小"),
         "simCardPosition": MessageLookupByLibrary.simpleMessage("SIM 卡位置"),
@@ -706,7 +715,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPermissionIsRequiredForOurAppToDisplayImportant":
             MessageLookupByLibrary.simpleMessage(
                 "此權限是應用程式在其他應用程式之上顯示重要資訊所必需的。\\n\\n"),
-        "toTestRules": MessageLookupByLibrary.simpleMessage("To test rules"),
+        "toTestRules": MessageLookupByLibrary.simpleMessage("驗證測試規則"),
         "today": MessageLookupByLibrary.simpleMessage("今日"),
         "translation": MessageLookupByLibrary.simpleMessage("翻譯"),
         "tutorial": MessageLookupByLibrary.simpleMessage("教程"),
@@ -737,7 +746,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "userName": MessageLookupByLibrary.simpleMessage("用戶名"),
         "verificationPageRules": MessageLookupByLibrary.simpleMessage("驗證測試規則"),
         "verificationResultsRules":
-            MessageLookupByLibrary.simpleMessage("驗證結果（shouldAcceptCall 規則）："),
+            MessageLookupByLibrary.simpleMessage("驗證結果（接聽 規則）："),
         "verified": MessageLookupByLibrary.simpleMessage("已驗證"),
         "verify": MessageLookupByLibrary.simpleMessage("驗證"),
         "verifyPhoneNumber": MessageLookupByLibrary.simpleMessage("驗證電話號碼"),

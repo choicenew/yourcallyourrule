@@ -81,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("เพิ่มหน้ารายการที่อนุญาต"),
         "addedSuccessfully":
             MessageLookupByLibrary.simpleMessage("เพิ่มสำเร็จแล้ว"),
+        "agent": MessageLookupByLibrary.simpleMessage("Agent"),
         "all": MessageLookupByLibrary.simpleMessage("ทั้งหมด"),
         "allowAllAllowedNumbers": MessageLookupByLibrary.simpleMessage(
             "อนุญาตหมายเลขที่อนุญาตทั้งหมด"),
@@ -412,6 +413,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("การตั้งค่า Google Drive"),
         "grantPermission": MessageLookupByLibrary.simpleMessage("ให้สิทธิ์"),
         "group": MessageLookupByLibrary.simpleMessage("กลุ่ม"),
+        "headhunter": MessageLookupByLibrary.simpleMessage("Headhunter"),
         "height": MessageLookupByLibrary.simpleMessage("ความสูง"),
         "history": MessageLookupByLibrary.simpleMessage("ประวัติ"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -532,6 +534,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "markedBy": MessageLookupByLibrary.simpleMessage("ทำเครื่องหมายโดย"),
         "matchAnyCharacter":
             MessageLookupByLibrary.simpleMessage("จับคู่อักขระใดๆ:"),
+        "matchFailed": MessageLookupByLibrary.simpleMessage("Match failed!"),
         "matchPhoneNumbersContainingSpecificDigits":
             MessageLookupByLibrary.simpleMessage(
                 "จับคู่หมายเลขโทรศัพท์ที่มีตัวเลขเฉพาะ:"),
@@ -659,6 +662,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterAPhoneNumberAndRegexPattern":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter a phone number and regex pattern"),
+        "pleaseEnterARegexPattern": MessageLookupByLibrary.simpleMessage(
+            "Please enter a regex pattern"),
         "pleaseEnterAnPattern":
             MessageLookupByLibrary.simpleMessage("โปรดป้อนรูปแบบ"),
         "pleaseEnterAnUrl":
@@ -699,8 +704,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "quarterlySubscription":
             MessageLookupByLibrary.simpleMessage("Quarterly Subscription"),
         "recordbackup": MessageLookupByLibrary.simpleMessage("RecordBackup"),
+        "recruiter": MessageLookupByLibrary.simpleMessage("Recruiter"),
         "regex": MessageLookupByLibrary.simpleMessage("นิพจน์ทั่วไป"),
         "regexPage": MessageLookupByLibrary.simpleMessage("หน้านิพจน์ทั่วไป"),
+        "regexPattern": MessageLookupByLibrary.simpleMessage("Regex Pattern"),
         "regexPatternExplanation":
             MessageLookupByLibrary.simpleMessage("คำอธิบายรูปแบบนิพจน์ทั่วไป"),
         "regexPatternTest":
@@ -784,6 +791,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Showing search results for"),
         "silencenoanswer":
             MessageLookupByLibrary.simpleMessage("เงียบไม่รับสาย"),
+        "silentCallvoiceClone":
+            MessageLookupByLibrary.simpleMessage("Silent Call(Voice Clone?)"),
         "simCardColor": MessageLookupByLibrary.simpleMessage("สีซิมการ์ด"),
         "simCardFontSize":
             MessageLookupByLibrary.simpleMessage("ขนาดตัวอักษรซิมการ์ด"),
