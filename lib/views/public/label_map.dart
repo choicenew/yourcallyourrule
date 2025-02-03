@@ -24,7 +24,7 @@ Map<String, String> getLabelMap(BuildContext context) {
   "Medical": S.of(context).medical,
   "Charity": S.of(context).charity,
   "Other": S.of(context).other,
-  "Collection": S.of(context).collection,
+  "Debt Collection": S.of(context).collection,
   "Survey": S.of(context).survey,
   "Political": S.of(context).political,
   "Ecommerce": S.of(context).ecommerce,
@@ -32,8 +32,7 @@ Map<String, String> getLabelMap(BuildContext context) {
   "Agent": S.of(context).agent,
   "Recruiter": S.of(context).recruiter,
   "Headhunter": S.of(context).headhunter,
-  "Silent call(Voice Clone?)": S.of(context).silentCallvoiceClone,        
+  "Silent Call(Voice Clone)": S.of(context).silentCallvoiceClone,        
     // ... 其他标签 ...
   };
 }
-

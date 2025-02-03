@@ -482,12 +482,12 @@ class CallerIdMonitorService {
     // 获取来电显示信息
     CallerIdData callerIdData =
         await _callerIdService.getCallerId(phoneNumber, dlibLocale);
-    //缓存数据到list
-    await saveCallerIdDataToCache(phoneNumber, callerIdData);
+
 
     //await showCallerIdOverlay(context, callData.callerIdData);
     await showCallerIdOverlay(callerIdData, stirInfo, simInfo);
 
+/*
     return CallData(
       callerIdData: callerIdData,
       e164Number: e164Number,
@@ -495,7 +495,26 @@ class CallerIdMonitorService {
       stirInfo: stirInfoToUse,
       simInfo: simInfoToUse,
     );
+*/
+    // 创建 CallData 对象
+    CallData callData = CallData(
+      callerIdData: callerIdData,
+      e164Number: e164Number,
+      nationalNumber: nationalNumber,
+      stirInfo: stirInfoToUse,
+      simInfo: simInfoToUse,
+    );
+
+    // 将 CallData 插入数据库
+    //缓存数据到list
+    await saveCallerIdDataToCache(phoneNumber, callData);
+
+    // 返回 CallData 对象
+    return callData;
+
+
   }
+
 
   Future<void> showCallerIdOverlay(
       CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
