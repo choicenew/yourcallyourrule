@@ -2,23 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
-import 'package:webview_flutter/webview_flutter.dart';
-
-import '../utils/http_interceptor.dart';
-import '../utils/network.dart';
-import 'dart:async';
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
-import 'package:webview_flutter/webview_flutter.dart';
-// 引入 Android 平台相关的包
-import 'package:webview_flutter_android/webview_flutter_android.dart';
-import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
-
-
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key, required this.title});
@@ -31,289 +16,326 @@ class TestPage extends StatefulWidget {
 
 class _TestPageState extends State<TestPage> {
   final TextEditingController _pluginUrlController = TextEditingController(
-      text:
-          'https://xx.js');
+    text:
+        'https://raw.githubusercontent.com/haygcao/test/refs/heads/main/inappropriate.js', // 您的在线 JS 插件 URL
+  );
   final TextEditingController _phoneNumberController = TextEditingController();
   String _queryResult = '';
   String _jsLogs = '';
-  late final WebViewController _controller;
+  HeadlessInAppWebView? _headlessWebView;
+  InAppWebViewController? _webViewController;
   bool _isPluginLoaded = false;
-  String? _loadedPluginId; // 修改：添加 _loadedPluginId 变量，用于存储已加载插件的 ID
+  String? _loadedPluginId; // 存储已加载插件的 ID
   Completer<Map<String, dynamic>?>? _queryCompleter; // 用于传递查询结果
-  
-  
-  
-  
+
+  // 添加一个 Map 来存储每个请求的 requestId 和对应的 Completer
+  Map<String, Completer<Map<String, dynamic>?>> _requestCompleters = {};
+
   @override
   void initState() {
     super.initState();
-    _initializeWebView();
+    _initializeHeadlessWebView();
   }
 
-  void _initializeWebView() {
-    //  创建 PlatformWebViewControllerCreationParams 对象
-    late final PlatformWebViewControllerCreationParams params;
-    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
-      params = WebKitWebViewControllerCreationParams(
-        allowsInlineMediaPlayback: true,
-        mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
-      );
-    } else {
-      params = const PlatformWebViewControllerCreationParams();
-    }
+  Future<void> _initializeHeadlessWebView() async {
+    _headlessWebView = HeadlessInAppWebView(
+      initialUrlRequest: URLRequest(url: WebUri("about:blank")),
+      initialSettings: InAppWebViewSettings(
+        isInspectable: true,
+        javaScriptEnabled: true,
+        javaScriptCanOpenWindowsAutomatically: true,
+        allowUniversalAccessFromFileURLs: true, // 启用跨域
+        allowFileAccessFromFileURLs: true,
+      ),
+      onWebViewCreated: (controller) {
+        _webViewController = controller;
 
-    _controller = WebViewController.fromPlatformCreationParams(params)
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..addJavaScriptChannel(
-        'TestPageChannel',
-        onMessageReceived: (JavaScriptMessage message) async {
-          // 处理来自 JavaScript 的消息
-          print('message信息: ${message.message}'); // 打印 JSON 消息的原始内容
-          try {
-            final jsonData = jsonDecode(message.message);
-            print('jsonData打印: $jsonData'); // 输出解析后的 JSON 对象
-            print('jsonData type: ${jsonData.runtimeType}');
-            print('jsonData[\'type\']: ${jsonData['type']}');
-            print('jsonData[\'pluginId\']: ${jsonData['pluginId']}');
-            print('_loadedPluginId: $_loadedPluginId');
-
-            if (jsonData['type'] == 'pluginLoaded') {
-              print('Plugin loaded打印: ${jsonData['pluginId']}');
-              _jsLogs += 'Plugin loaded: ${jsonData['pluginId']}\n';
-              setState(() {
-                _loadedPluginId = jsonData['pluginId']; // 修改：存储已加载插件的 ID
-                print('Plugin loaded:${'pluginId'} $_loadedPluginId');
-              });
-            } else if (jsonData['type'] == 'pluginReady') {
-              print('Plugin ready: ${jsonData['pluginId']}');
-              setState(() {
-                _isPluginLoaded = true;
-              });
-              _jsLogs += 'Plugin ready: ${jsonData['pluginId']}\n';
-            } else if (jsonData['type'] == 'pluginResult') {
-              print('Plugin result: ${jsonData['data']}');
-              _jsLogs += 'Plugin result: ${jsonData['data']}\n';
-            } else if (jsonData['type'] == 'pluginError') {
-              print('Plugin error: ${jsonData['error']}');
-              _jsLogs += 'Plugin error: ${jsonData['error']}\n';
-            }
-          } catch (e) {
-            // 如果不是 JSON，则视为普通字符串消息
-            print('Received message: ${message.message}');
-            _jsLogs += 'Received message: ${message.message}\n';
-          }
-        },
-      )
-      ..addJavaScriptChannel(
-        'consoleLog', // 添加一个新的 JavaScriptChannel 来接收 console.log
-        onMessageReceived: (JavaScriptMessage message) {
-          print('JS Console Log: ${message.message}');
-          setState(() {
-            _jsLogs += 'JS Console Log: ${message.message}\n';
-          });
-        },
-      )
-      ..addJavaScriptChannel(
-        'consoleWarn', // 添加一个新的 JavaScriptChannel 来接收 console.warn
-        onMessageReceived: (JavaScriptMessage message) {
-          print('JS Console Warn: ${message.message}');
-          setState(() {
-            _jsLogs += 'JS Console Warn: ${message.message}\n';
-          });
-        },
-      )
-      ..addJavaScriptChannel(
-        'consoleError', // 添加一个新的 JavaScriptChannel 来接收 console.error
-        onMessageReceived: (JavaScriptMessage message) {
-          print('JS Console Error: ${message.message}');
-          setState(() {
-            _jsLogs += 'JS Console Error: ${message.message}\n';
-          });
-        },
-      )
-
-
-      // 注册 PluginResultChannel，用于接收查询结果
-      ..addJavaScriptChannel(
-        'PluginResultChannel',
-        onMessageReceived: (JavaScriptMessage message) {
-          print(
-              'Received message on PluginResultChannel: ${message.message}');
-          try {
-            final Map<String, dynamic> decodedMessage =
-                jsonDecode(message.message);
-            if (decodedMessage['type'] == 'pluginResult' &&
-                decodedMessage['pluginId'] == _loadedPluginId) {
-              final data = Map<String, dynamic>.from(decodedMessage['data']);
-              // 使用 _queryCompleter 传递结果
-              if (_queryCompleter != null && !_queryCompleter!.isCompleted) {
-                _queryCompleter!.complete(data);
-              }
-            } else if (decodedMessage['type'] == 'pluginError' &&
-                decodedMessage['pluginId'] == _loadedPluginId) {
-              // 使用 _queryCompleter 传递错误
-              if (_queryCompleter != null && !_queryCompleter!.isCompleted) {
-                _queryCompleter!.completeError(
-                    decodedMessage['error'] ?? 'Unknown error from plugin');
+        // 添加 JavaScript handlers
+        controller.addJavaScriptHandler(
+          handlerName: 'TestPageChannel',
+          callback: (args) {
+            // ...
+            if (args.isNotEmpty) {
+              print('TestPageChannel message: ${args[0]}');
+              try {
+                final jsonData = jsonDecode(args[0]);
+                print('jsonData打印: $jsonData'); // 输出解析后的 JSON 对象
+                print('jsonData type: ${jsonData.runtimeType}');
+                print('jsonData[\'type\']: ${jsonData['type']}');
+                print('jsonData[\'pluginId\']: ${jsonData['pluginId']}');
+                print('_loadedPluginId: $_loadedPluginId');
+                if (jsonData['type'] == 'pluginLoaded') {
+                  setState(() {
+                    _loadedPluginId = jsonData['pluginId'];
+                    _jsLogs += 'Plugin loaded: ${_loadedPluginId}\n';
+                    _isPluginLoaded = true;
+                  });
+                } else if (jsonData['type'] == 'pluginReady') {
+                  setState(() {
+                    _jsLogs += 'Plugin Ready: ${jsonData['pluginId']}\n';
+                  });
+                } else if (jsonData['type'] == 'pluginError') {
+                  setState(() {
+                    _jsLogs += 'Plugin error: ${jsonData['error']}\n';
+                  });
+                }
+              } catch (e) {
+                print('Received message: ${args[0]}');
+                _jsLogs += 'Received message: ${args[0]}\n';
               }
             }
-          } catch (e) {
-            print('Error processing message on PluginResultChannel: $e');
-            // 使用 _queryCompleter 传递错误
-            if (_queryCompleter != null && !_queryCompleter!.isCompleted) {
-              _queryCompleter!.completeError(e);
+          },
+        );
+
+        controller.addJavaScriptHandler(
+          handlerName: 'PluginResultChannel',
+          callback: (args) {
+            //...
+            print('Received message on PluginResultChannel: ${args[0]}');
+            if (args.isNotEmpty) {
+              try {
+                final Map<String, dynamic> decodedMessage = jsonDecode(args[0]);
+
+                // 检查消息类型、pluginId 和 requestId 是否匹配
+                if (decodedMessage['type'] == 'pluginResult' &&
+                    decodedMessage['pluginId'] == _loadedPluginId) {
+                  final requestId = decodedMessage['requestId'];
+                  final data =
+                      Map<String, dynamic>.from(decodedMessage['data']);
+
+                  // 查找并完成对应的 Completer
+                  if (_requestCompleters.containsKey(requestId)) {
+                    _requestCompleters[requestId]!.complete(data);
+                    _requestCompleters.remove(requestId); // 移除已完成的 Completer
+                  }
+                  // 更新 UI
+                  setState(() {
+                    _queryResult = 'Count: ${data?['count'] ?? ''}\n'
+                        'Source Label: ${data?['sourceLabel'] ?? ''}\n'
+                        'Match Label: ${data?['predefinedLabel'] ?? ''}\n'
+                        'Province: ${data?['province'] ?? ''}\n'
+                        'City: ${data?['city'] ?? ''}\n'
+                        'Carrier: ${data?['carrier'] ?? ''}\n'
+                        'Name: ${data?['name'] ?? ''}\n'
+                        'PhoneNumber: ${data?['phoneNumber'] ?? ''}';
+                    _jsLogs += 'Query executed, result: $_queryResult\n';
+                  });
+                } else if (decodedMessage['type'] ==
+                        'pluginError' && // 错误也可能有 requestId
+                    decodedMessage['pluginId'] == _loadedPluginId) {
+                  final requestId = decodedMessage['requestId']; // 获取 requestId
+                  if (_requestCompleters.containsKey(requestId)) {
+                    _requestCompleters[requestId]!.completeError(
+                      decodedMessage['error'] ?? 'Unknown error from plugin',
+                    );
+                    _requestCompleters.remove(requestId); // 移除已完成的 Completer
+                  }
+                }
+              } catch (e) {
+                print('Error processing message on PluginResultChannel: $e');
+              }
             }
-          }
-        },
-      )
-
-      
-      ..setBackgroundColor(const Color(0x00000000))
-      ..setNavigationDelegate(
-        NavigationDelegate(
-          onPageFinished: (String url) async {
-            print('Page finished loading: $url');
-            _jsLogs += 'Page finished loading: $url\n';
-            // 在页面加载完成后加载 JS 插件
-            //  await _loadPlugin();
           },
-          // 新增 onWebResourceError 监听
-          onWebResourceError: (WebResourceError error) {
-            print('Page loading error: ${error.description}');
-            _jsLogs += 'Page loading error: ${error.description}\n';
+        );
+
+        // 添加 RequestChannel，用于接收 JS 发送的请求信息
+        controller.addJavaScriptHandler(
+          handlerName: 'RequestChannel', // 与 JS 中的 callHandler 名称一致
+          callback: (args) async {
+            // 接收 JS 发送过来的请求信息 (args 是一个 List，第一个元素是请求信息)
+            if (args.isNotEmpty) {
+              print('Received request from JS: ${args[0]}');
+              try {
+                final requestData = jsonDecode(args[0]);
+                final String method = requestData['method'];
+                final String url = requestData['url'];
+                final Map<String, String> headers =
+                    (requestData['headers'] as Map<String, dynamic>)
+                        .cast<String, String>();
+                final String? body = requestData['body'];
+                // final String requestId = requestData['requestId'];
+                final String externalRequestId =
+                    requestData['externalRequestId']; // Correct
+                final String phoneRequestId =
+                    requestData['phoneRequestId']; //  ADD THIS!
+                // 使用 http 包发起实际的网络请求
+                final response =
+                    await _sendHttpRequest(method, url, headers, body);
+
+                print("收到响应:");
+                print("Status Code: ${response.statusCode}");
+                print('response.body.length: ${response.body.length}');
+                print('response.body.length: ${response.headers.length}');
+                print(
+                    'response.bodyBytes.length: ${response.bodyBytes.length}');
+                print('response.body type: ${response.body.runtimeType}');
+                print(
+                    'response.bodyBytes type: ${response.bodyBytes.runtimeType}');
+                debugPrint("Response Body: ${response.body}");
+                print(
+                    "Response Body: ${utf8.decode(response.bodyBytes)}"); // 将 response.bodyBytes 转换为字符串
+
+                // 将响应数据编码为 JSON 字符串
+                final responseData = {
+                  // 'requestId': requestId, // 将 requestId 返回给 JS
+                  'externalRequestId': externalRequestId, // Corrected
+                  'phoneRequestId': phoneRequestId,
+                  'status': response.statusCode,
+                  'statusText': response.reasonPhrase,
+                  'responseText': response.body,
+                  'headers': response.headers,
+                  //'phoneNumber': extractPhoneNumberFromUrl(url), // Add this!
+                };
+                final String responseJson = jsonEncode(responseData);
+
+                // 将响应数据发送回 JS
+                // 使用 evaluateJavascript，并确保转义特殊字符
+                await controller.evaluateJavascript(source: '''
+                  window.plugin.$_loadedPluginId.handleResponse($responseJson);
+                ''');
+              } catch (e) {
+                print('Error handling request: $e');
+              }
+            }
           },
-        ),
-      );
+        );
+        controller.addJavaScriptHandler(
+          handlerName: 'consoleLog',
+          callback: (args) {
+            if (args.isNotEmpty) {
+              print('JS Console Log: ${args[0]}');
+              setState(() {
+                _jsLogs += 'JS Console Log: ${args[0]}\n';
+              });
+            }
+          },
+        );
 
-    // 启用 WebView 的调试模式
-    if (_controller.platform is AndroidWebViewController) {
-      AndroidWebViewController.enableDebugging(true);
-      (_controller.platform as AndroidWebViewController)
-          .setMediaPlaybackRequiresUserGesture(false);
-    }
+        controller.addJavaScriptHandler(
+          handlerName: 'consoleWarn',
+          callback: (args) {
+            if (args.isNotEmpty) {
+              print('JS Console Warn: ${args[0]}');
+              setState(() {
+                _jsLogs += 'JS Console Warn: ${args[0]}\n';
+              });
+            }
+          },
+        );
+        controller.addJavaScriptHandler(
+          handlerName: 'consoleError',
+          callback: (args) {
+            if (args.isNotEmpty) {
+              print('JS Console Error: ${args[0]}');
+              setState(() {
+                _jsLogs += 'JS Console Error: ${args[0]}\n';
+              });
+            }
+          },
+        );
+      },
+      onConsoleMessage: (controller, consoleMessage) {
+        print(consoleMessage);
+        setState(() {
+          _jsLogs +=
+              '${consoleMessage.messageLevel.toString()}:${consoleMessage.message}\n';
+        });
+      },
+    );
 
-    // 初始化 HTTP 拦截器
-    HttpInterceptor().register(_controller);
-
-    //_controller.loadRequest(Uri.parse('about:blank'));
+    _headlessWebView?.run();
   }
 
+  Future<http.Response> _sendHttpRequest(String method, String url,
+      Map<String, String> headers, String? body) async {
+    print("打印Sending headers: $headers"); // 验证 headers
+    switch (method) {
+      case 'GET':
+        return await http.get(Uri.parse(url), headers: headers);
+      case 'POST':
+        return await http.post(Uri.parse(url), headers: headers, body: body);
+      // ... 处理其他 HTTP 方法
+      default:
+        throw Exception('Unsupported HTTP method: $method');
+    }
+  }
+
+  // 加载 JS 插件 (从 URL 加载)
   Future<void> _loadPlugin() async {
+    // ... (与之前相同)
     String pluginUrl = _pluginUrlController.text;
-
     try {
       final response = await http.get(Uri.parse(pluginUrl));
-
       if (response.statusCode == 200) {
         String jsCode = response.body;
-
-        // 执行 JS 代码
-        await _controller.runJavaScript(jsCode);
-
-        print('Plugin loading completed from URL: $pluginUrl');
+        await _webViewController?.evaluateJavascript(source: jsCode);
+        print('Plugin loaded from URL: $pluginUrl');
         setState(() {
-          _jsLogs += 'Plugin loading completed from URL: $pluginUrl\n';
-          _isPluginLoaded = true; // 设置插件加载状态
+          _jsLogs += 'Plugin loaded from URL: $pluginUrl\n';
+          _isPluginLoaded = true;
         });
       } else {
-        print('Failed to load plugin from URL: ${response.statusCode}');
+        print('Failed to load plugin. Status code: ${response.statusCode}');
         setState(() {
-          _queryResult =
-              'Failed to load plugin from URL: ${response.statusCode}';
-          _jsLogs += 'Failed to load plugin from URL: ${response.statusCode}\n';
+          _jsLogs +=
+              'Failed to load plugin. Status code: ${response.statusCode}\n';
         });
       }
     } catch (e) {
-      print('Error loading plugin from URL: $e');
+      print('Error loading plugin: $e');
       setState(() {
-        _queryResult = 'Error loading plugin from URL: $e';
-        _jsLogs += 'Error loading plugin from URL: $e\n';
+        _jsLogs += 'Error loading plugin: $e\n';
       });
     }
   }
 
-  Future<void> _checkPluginStatus(String pluginId) async {
-    // 修改：添加 pluginId 参数
-    try {
-      final result = await _controller.runJavaScriptReturningResult('''
-        window.checkPluginStatus('$pluginId'); // 修改：传入 pluginId 参数
-      ''');
-
+  // 查询电话信息 (现在只是一个触发器，调用 JS 的 generateOutput)
+  Future<Map<String, dynamic>?> _queryPhoneInfo() async {
+    // ... (与之前相同)
+    if (!_isPluginLoaded ||
+        _webViewController == null ||
+        _loadedPluginId == null) {
       setState(() {
-        _jsLogs +=
-            'Plugin status check result for $pluginId: $result\n'; // 修改：添加 pluginId 信息
+        _queryResult =
+            'Plugin is not loaded yet. Please load the plugin first.';
+        _jsLogs += 'Attempted to query before plugin was loaded\n';
       });
-    } catch (e) {
-      print(
-          'Error checking plugin status for $pluginId: $e'); // 修改：添加 pluginId 信息
-      setState(() {
-        _jsLogs +=
-            'Error checking plugin status for $pluginId: $e\n'; // 修改：添加 pluginId 信息
-      });
+      return null;
     }
-  }
 
+    String phoneNumber = _phoneNumberController.text;
+    final requestId = _generateUniqueId(); // 生成 requestId, 用于和JS中的Completer对应
+    _queryCompleter = Completer<Map<String, dynamic>?>();
+    _requestCompleters[requestId] = _queryCompleter!; //
 
-
-
-Future<Map<String, dynamic>?> _queryPhoneInfo() async {
-  if (!_isPluginLoaded) {
-    setState(() {
-      _queryResult = 'Plugin is not loaded yet. Please load the plugin first.';
-      _jsLogs += 'Attempted to query before plugin was loaded\n';
-    });
-    return null;
-  }
-
-  String phoneNumber = _phoneNumberController.text;
-  
-  // 每次调用 _queryPhoneInfo 时都创建一个新的 Completer
-  _queryCompleter = Completer<Map<String, dynamic>?>();
-
-
-
-  // 执行查询
-    // 将 pluginId 传递给 JavaScript 端
-    await _controller.runJavaScript('''
-(function(pluginId) {
-  // 调用插件的 generateOutput 函数
-  if (window.plugin && window.plugin[pluginId]) {
-    window.plugin[pluginId].generateOutput("$phoneNumber", null, null);
-  } else {
-    console.error('Plugin not found or not loaded:', pluginId);
-  }
-})('$_loadedPluginId');
+    // 调用 JS 插件中的函数
+    await _webViewController!.evaluateJavascript(source: '''
+    (function(pluginId, requestId) {
+      if (window.plugin && window.plugin[pluginId]) {
+        window.plugin[pluginId].generateOutput('$phoneNumber', '', '', '$requestId');
+      } else {
+        console.error('Plugin not found or not loaded:', pluginId);
+      }
+    })('$_loadedPluginId', '$requestId');
 ''');
-
-  // 等待查询结果或超时
     try {
-      final result = await _queryCompleter!.future.timeout(const Duration(seconds: 6));
-      if (result is Map) {
-        setState(() {
-        _queryResult = 'Count: ${result?['count'] ?? ''}\n'
-            'Source Label: ${result?['sourceLabel'] ?? ''}\n'
-            'Province: ${result?['province'] ?? ''}\n'
-            'City: ${result?['city'] ?? ''}\n'
-            'Carrier: ${result?['carrier'] ?? ''}\n'
-            'PhoneNumber: ${result?['phoneNumber'] ?? ''}';
-        _jsLogs += 'Query executed, result: $_queryResult\n';
-      });
-    } else {
+      return await _queryCompleter!.future.timeout(const Duration(seconds: 16));
+    } catch (e) {
+      print('Error or timeout waiting for result from JavaScript: $e');
       setState(() {
-        _queryResult = 'Error: Unexpected result format';
-        _jsLogs += 'Error: Unexpected result format\n';
+        _queryResult = 'Error: Timeout or other error';
+        _jsLogs += 'Error: Timeout or other error\n';
       });
+      _requestCompleters.remove(requestId); // 超时也要移除
+      return null; // 或者抛出异常，取决于你的错误处理策略
     }
-    return result;
-  } catch (e) {
-    print('Error or timeout waiting for result from JavaScript: $e');
-    setState(() {
-      _queryResult = 'Error: Timeout or other error';
-      _jsLogs += 'Error: Timeout or other error\n';
-    });
-    return null;
-  } 
-}
+  }
+
+  @override
+  void dispose() {
+    _headlessWebView?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -337,34 +359,22 @@ Future<Map<String, dynamic>?> _queryPhoneInfo() async {
               decoration: const InputDecoration(hintText: 'Enter phone number'),
             ),
             ElevatedButton(
-              onPressed: _queryPhoneInfo,
+              onPressed: _queryPhoneInfo, // 查询信息
               child: const Text('Query'),
             ),
-            ElevatedButton(
-              // onPressed: _checkPluginStatus,
-              onPressed: () => _checkPluginStatus(
-                  _loadedPluginId ?? ''), // 修改：传入 _loadedPluginId
-              child: const Text('Check Plugin Status'),
-            ),
-            Text('Query Result: $_queryResult',
-                style: const TextStyle(fontSize: 16.0)),
-            const SizedBox(height: 16.0),
+            Text('Query Result: $_queryResult'),
             Expanded(
               child: SingleChildScrollView(
-                child: Text('JS Logs:\n$_jsLogs',
-                    style: const TextStyle(fontSize: 14.0)),
+                child: Text('JS Logs: $_jsLogs'),
               ),
-            ),
-            Expanded(
-              child: WebViewWidget(controller: _controller),
-            ),
-            // 添加 Network 组件
-            const Expanded(
-              child: Network(), // 这里使用你提供的 Network 组件
             ),
           ],
         ),
       ),
     );
+  }
+
+  String _generateUniqueId() {
+    return DateTime.now().millisecondsSinceEpoch.toString();
   }
 }
