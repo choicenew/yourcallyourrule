@@ -17,7 +17,7 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   final TextEditingController _pluginUrlController = TextEditingController(
     text:
-        'https://raw.githubusercontent.com/haygcao/test/refs/heads/main/inappropriate.js', // 您的在线 JS 插件 URL
+        'https://raw.githubusercontent.com/haygcao/test/refs/heads/main/newtellows.js', // 您的在线 JS 插件 URL
   );
   final TextEditingController _phoneNumberController = TextEditingController();
   String _queryResult = '';

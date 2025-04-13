@@ -1,0 +1,29 @@
+lib/
+  ├── core/                      # 核心功能
+  │   ├── platform/              # 平台通道
+  │   ├── utils/                 # 工具类
+  │   └── constants/             # 常量
+  │
+  ├── data/                      # 数据层
+  │   ├── datasources/           # 数据源
+  │   │   ├── local/             # 本地数据源
+  │   │   └── remote/            # 远程数据源
+  │   ├── models/                # 数据模型
+  │   └── repositories/          # 仓库实现
+  │
+  ├── domain/                    # 领域层
+  │   ├── entities/              # 业务实体
+  │   └── usecases/              # 用例
+  │
+  ├── presentation/              # 表现层
+  │   ├── providers/             # 状态管理
+  │   ├── screens/               # 页面
+  │   └── widgets/               # 可复用组件
+  │
+  ├── services/                  # 服务层
+  │   ├── base/                  # 基础服务类
+  │   ├── call/                  # 通话相关服务
+  │   ├── sms/                   # 短信相关服务
+  │   └── sync/                  # 同步备份服务
+  │
+  └── main.dart                  # 应用入口
