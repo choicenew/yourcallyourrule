@@ -3,6 +3,7 @@ import '../../value_objects/phone_number.dart';
 
 /// 通话类型枚举
 enum CallType {
+  unknown,   // 未知类型
   incoming,  // 来电
   outgoing,  // 去电
   missed,    // 未接

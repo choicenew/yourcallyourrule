@@ -30,8 +30,8 @@ class PermissionException extends AppException {
 }
 
 /// 平台异常
-class PlatformException extends AppException {
-  const PlatformException(super.message, {super.code});
+class AppPlatformException extends AppException {
+  const AppPlatformException(super.message, {super.code});
 }
 
 /// 验证异常

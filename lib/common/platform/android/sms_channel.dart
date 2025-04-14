@@ -2,43 +2,43 @@ import 'package:flutter/services.dart';
 
 import '../../../common/error/exceptions.dart';
 
-/// Android平台短信通道
+/// Android SMS platform channel
 class AndroidSmsChannel {
   static const MethodChannel _channel = MethodChannel('com.yourcallyourrule.app/sms');
 
   const AndroidSmsChannel._();
 
-  /// 获取短信记录
+  /// Get SMS messages
   static Future<List<Map<String, dynamic>>> getSmsMessages({int? limit}) async {
     try {
       final result = await _channel.invokeMethod('getSmsMessages', {'limit': limit});
       return List<Map<String, dynamic>>.from(result ?? []);
     } on PlatformException catch (e) {
-      throw PlatformException('获取短信记录失败: ${e.message}', code: e.code);
+      throw AppPlatformException('Failed to get SMS messages: ${e.message}', code: e.code);
     }
   }
 
-  /// 拦截短信
+  /// Block incoming SMS
   static Future<bool> blockIncomingSms(String phoneNumber) async {
     try {
       final result = await _channel.invokeMethod('blockIncomingSms', {'phoneNumber': phoneNumber});
       return result ?? false;
     } on PlatformException catch (e) {
-      throw PlatformException('拦截短信失败: ${e.message}', code: e.code);
+      throw AppPlatformException('Failed to block SMS: ${e.message}', code: e.code);
     }
   }
 
-  /// 允许短信
+  /// Allow incoming SMS
   static Future<bool> allowIncomingSms(String phoneNumber) async {
     try {
       final result = await _channel.invokeMethod('allowIncomingSms', {'phoneNumber': phoneNumber});
       return result ?? false;
     } on PlatformException catch (e) {
-      throw PlatformException('允许短信失败: ${e.message}', code: e.code);
+      throw AppPlatformException('Failed to allow SMS: ${e.message}', code: e.code);
     }
   }
 
-  /// 发送短信
+  /// Send SMS
   static Future<bool> sendSms(String phoneNumber, String message) async {
     try {
       final result = await _channel.invokeMethod('sendSms', {
@@ -47,51 +47,51 @@ class AndroidSmsChannel {
       });
       return result ?? false;
     } on PlatformException catch (e) {
-      throw PlatformException('发送短信失败: ${e.message}', code: e.code);
+      throw AppPlatformException('Failed to send SMS: ${e.message}', code: e.code);
     }
   }
 
-  /// 注册短信监听器
+  /// Register SMS listener
   static Future<bool> registerSmsListener() async {
     try {
       final result = await _channel.invokeMethod('registerSmsListener');
       return result ?? false;
     } on PlatformException catch (e) {
-      throw PlatformException('注册短信监听器失败: ${e.message}', code: e.code);
+      throw AppPlatformException('Failed to register SMS listener: ${e.message}', code: e.code);
     }
   }
 
-  /// 取消注册短信监听器
+  /// Unregister SMS listener
   static Future<bool> unregisterSmsListener() async {
     try {
       final result = await _channel.invokeMethod('unregisterSmsListener');
       return result ?? false;
     } on PlatformException catch (e) {
-      throw PlatformException('取消注册短信监听器失败: ${e.message}', code: e.code);
+      throw AppPlatformException('Failed to unregister SMS listener: ${e.message}', code: e.code);
     }
   }
 
-  /// 检查短信权限
+  /// Check SMS permission
   static Future<bool> checkSmsPermission() async {
     try {
       final result = await _channel.invokeMethod('checkSmsPermission');
       return result ?? false;
     } on PlatformException catch (e) {
-      throw PlatformException('检查短信权限失败: ${e.message}', code: e.code);
+      throw AppPlatformException('Failed to check SMS permission: ${e.message}', code: e.code);
     }
   }
 
-  /// 请求短信权限
+  /// Request SMS permission
   static Future<bool> requestSmsPermission() async {
     try {
       final result = await _channel.invokeMethod('requestSmsPermission');
       return result ?? false;
     } on PlatformException catch (e) {
-      throw PlatformException('请求短信权限失败: ${e.message}', code: e.code);
+      throw AppPlatformException('Failed to request SMS permission: ${e.message}', code: e.code);
     }
   }
 
-  /// 过滤短信内容
+  /// Filter SMS content
   static Future<bool> filterSmsContent(String phoneNumber, String content) async {
     try {
       final result = await _channel.invokeMethod('filterSmsContent', {
@@ -100,7 +100,7 @@ class AndroidSmsChannel {
       });
       return result ?? false;
     } on PlatformException catch (e) {
-      throw PlatformException('过滤短信内容失败: ${e.message}', code: e.code);
+      throw AppPlatformException('Failed to filter SMS content: ${e.message}', code: e.code);
     }
   }
 }

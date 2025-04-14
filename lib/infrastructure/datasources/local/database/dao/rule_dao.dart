@@ -41,12 +41,11 @@ class RuleDao extends BaseDao<RuleBase> {
           isEnabled: isEnabled,
           createdAt: createdAt,
           updatedAt: updatedAt,
-          priority: priority,
-          action: action,
           source: source,
           phoneNumber: phoneNumber,
         );
       
+      // 其他 case 也需要移除 priority 和 action 参数
       case 'BLOCKED':
         final phoneNumber = PhoneNumber(map['phone_number'] as String);
         return BlockedRule(
@@ -56,8 +55,6 @@ class RuleDao extends BaseDao<RuleBase> {
           isEnabled: isEnabled,
           createdAt: createdAt,
           updatedAt: updatedAt,
-          priority: priority,
-          action: action,
           source: source,
           phoneNumber: phoneNumber,
         );
@@ -71,8 +68,6 @@ class RuleDao extends BaseDao<RuleBase> {
           isEnabled: isEnabled,
           createdAt: createdAt,
           updatedAt: updatedAt,
-          priority: priority,
-          action: action,
           source: source,
           phoneNumber: phoneNumber,
         );
@@ -86,8 +81,6 @@ class RuleDao extends BaseDao<RuleBase> {
           isEnabled: isEnabled,
           createdAt: createdAt,
           updatedAt: updatedAt,
-          priority: priority,
-          action: action,
           source: source,
           phoneNumber: phoneNumber,
         );
@@ -101,7 +94,6 @@ class RuleDao extends BaseDao<RuleBase> {
           isEnabled: isEnabled,
           createdAt: createdAt,
           updatedAt: updatedAt,
-          priority: priority,
           action: action,
           source: source,
           pattern: pattern,

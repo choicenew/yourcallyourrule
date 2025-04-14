@@ -14,6 +14,9 @@ class AppDatabase {
   // 数据访问对象
   late final LabelDao _labelDao;
   
+  // 私有构造函数
+  AppDatabase._internal();
+  
   // 标签DAO访问器
   LabelDao get labelDao => _labelDao;
   
@@ -38,7 +41,7 @@ class AppDatabase {
     );
     
     // 初始化DAO
-    final instance = AppDatabase._();
+    final instance = AppDatabase._internal();
     instance._labelDao = LabelDao();
     
     return db;

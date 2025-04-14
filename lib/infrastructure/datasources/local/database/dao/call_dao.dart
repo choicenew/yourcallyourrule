@@ -14,12 +14,16 @@ class CallDao extends BaseDao<CallLog> {
       id: map['id'] as String,
       phoneNumber: PhoneNumber(map['phone_number'] as String),
       name: map['name'] as String?,
-      duration: map['duration'] as int,
+      duration: Duration(seconds: map['duration'] as int),
       timestamp: DateTime.fromMillisecondsSinceEpoch(map['timestamp'] as int),
-      callType: map['call_type'] as String,
-      actionTaken: map['action_taken'] as String?,
+      callType: CallType.values.firstWhere(
+        (type) => type.toString() == map['call_type'],
+        orElse: () => CallType.unknown,
+      ),
+      source: map['source'] as String,
       ruleId: map['rule_id'] as String?,
       note: map['note'] as String?,
+      isRead: (map['is_read'] as int?) == 1,
     );
   }
   
@@ -29,12 +33,13 @@ class CallDao extends BaseDao<CallLog> {
       'id': callLog.id,
       'phone_number': callLog.phoneNumber.value,
       'name': callLog.name,
-      'duration': callLog.duration,
+      'duration': callLog.duration?.inSeconds,
       'timestamp': callLog.timestamp.millisecondsSinceEpoch,
-      'call_type': callLog.callType,
-      'action_taken': callLog.actionTaken,
+      'call_type': callLog.callType.toString(),
+      'source': callLog.source,
       'rule_id': callLog.ruleId,
       'note': callLog.note,
+      'is_read': callLog.isRead ? 1 : 0,
     };
   }
   
