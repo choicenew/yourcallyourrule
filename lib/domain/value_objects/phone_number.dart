@@ -5,7 +5,7 @@ class PhoneNumber {
   
   /// 创建一个电话号码值对象
   /// 如果电话号码格式无效，将抛出异常
-  const PhoneNumber(this.value) {
+  PhoneNumber(this.value) {
     if (!isValid()) {
       throw ArgumentError('Invalid phone number format: $value');
     }

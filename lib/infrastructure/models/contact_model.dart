@@ -12,6 +12,8 @@ class ContactModel extends BaseModel<ContactModel> {
   final String? avatar;
   final String source;
   final bool isFavorite;
+  final DateTime createdAt;
+  final DateTime? updatedAt;
   
   ContactModel({
     required this.id,
@@ -21,8 +23,10 @@ class ContactModel extends BaseModel<ContactModel> {
     this.avatar,
     required this.source,
     required this.isFavorite,
+    required this.createdAt,
+    this.updatedAt,
   });
-  
+
   /// 从联系人实体创建模型
   factory ContactModel.fromEntity(Contact contact) {
     return ContactModel(
@@ -33,6 +37,8 @@ class ContactModel extends BaseModel<ContactModel> {
       avatar: contact.avatar,
       source: contact.source,
       isFavorite: contact.isFavorite,
+      createdAt: contact.createdAt,
+      updatedAt: contact.updatedAt,
     );
   }
   
@@ -46,6 +52,8 @@ class ContactModel extends BaseModel<ContactModel> {
       avatar: avatar,
       source: source,
       isFavorite: isFavorite,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
     );
   }
   
@@ -59,6 +67,8 @@ class ContactModel extends BaseModel<ContactModel> {
       'avatar': avatar,
       'source': source,
       'is_favorite': isFavorite ? 1 : 0,
+      'created_at': createdAt.millisecondsSinceEpoch,
+      'updated_at': updatedAt?.millisecondsSinceEpoch,
     };
   }
   
@@ -72,6 +82,10 @@ class ContactModel extends BaseModel<ContactModel> {
       avatar: map['avatar'],
       source: map['source'],
       isFavorite: map['is_favorite'] == 1,
+      createdAt: DateTime.fromMillisecondsSinceEpoch(map['created_at']),
+      updatedAt: map['updated_at'] != null 
+          ? DateTime.fromMillisecondsSinceEpoch(map['updated_at'])
+          : null,
     );
   }
   
@@ -84,6 +98,8 @@ class ContactModel extends BaseModel<ContactModel> {
     String? avatar,
     String? source,
     bool? isFavorite,
+    DateTime? createdAt,
+    DateTime? updatedAt,
   }) {
     return ContactModel(
       id: id ?? this.id,
@@ -93,6 +109,8 @@ class ContactModel extends BaseModel<ContactModel> {
       avatar: avatar ?? this.avatar,
       source: source ?? this.source,
       isFavorite: isFavorite ?? this.isFavorite,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 }

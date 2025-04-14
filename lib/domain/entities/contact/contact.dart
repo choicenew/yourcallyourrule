@@ -8,6 +8,8 @@ class Contact extends PhoneEntry {
   final String? address;
   final bool isFavorite;
   final Map<String, dynamic>? additionalInfo;
+  final DateTime createdAt;
+  final DateTime? updatedAt;
   
   const Contact({
     required super.id,
@@ -20,6 +22,8 @@ class Contact extends PhoneEntry {
     this.address,
     this.isFavorite = false,
     this.additionalInfo,
+    required this.createdAt,
+    this.updatedAt,
   });
   
   /// 创建联系人的副本，但可以更新某些属性
@@ -34,6 +38,8 @@ class Contact extends PhoneEntry {
     String? address,
     bool? isFavorite,
     Map<String, dynamic>? additionalInfo,
+    DateTime? createdAt,
+    DateTime? updatedAt,
   }) {
     return Contact(
       id: id ?? this.id,
@@ -46,6 +52,8 @@ class Contact extends PhoneEntry {
       address: address ?? this.address,
       isFavorite: isFavorite ?? this.isFavorite,
       additionalInfo: additionalInfo ?? this.additionalInfo,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
   
@@ -56,7 +64,9 @@ class Contact extends PhoneEntry {
         other is Contact &&
         other.email == email &&
         other.address == address &&
-        other.isFavorite == isFavorite;
+        other.isFavorite == isFavorite &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt;
   }
   
   @override
@@ -65,5 +75,7 @@ class Contact extends PhoneEntry {
         email,
         address,
         isFavorite,
+        createdAt,
+        updatedAt,
       );
 }

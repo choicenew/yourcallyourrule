@@ -31,6 +31,18 @@ class CallModel extends BaseModel<CallModel> {
     required this.source,
   });
   
+  // Make the conversion methods static
+  static String _callTypeToString(CallType type) {
+    return type.toString().split('.').last;
+  }
+
+  static CallType _stringToCallType(String value) {
+    return CallType.values.firstWhere(
+      (type) => type.toString().split('.').last == value,
+      orElse: () => CallType.unknown,
+    );
+  }
+
   /// 从通话记录实体创建模型
   factory CallModel.fromEntity(CallLog callLog) {
     return CallModel(
@@ -39,15 +51,15 @@ class CallModel extends BaseModel<CallModel> {
       name: callLog.name,
       label: callLog.label,
       avatar: callLog.avatar,
-      callType: callLog.callType,
+      callType: CallModel._callTypeToString(callLog.callType),  // Use static method
       timestamp: callLog.timestamp,
-      duration: callLog.duration,
-      isBlocked: callLog.isBlocked,
+      duration: callLog.duration?.inSeconds ?? 0,
+      isBlocked: false,
       ruleId: callLog.ruleId,
       source: callLog.source,
     );
   }
-  
+
   /// 将模型转换为通话记录实体
   CallLog toEntity() {
     return CallLog(
@@ -56,10 +68,9 @@ class CallModel extends BaseModel<CallModel> {
       name: name,
       label: label,
       avatar: avatar,
-      callType: callType,
+      callType: CallModel._stringToCallType(callType),  // Use static method
       timestamp: timestamp,
-      duration: duration,
-      isBlocked: isBlocked,
+      duration: Duration(seconds: duration),
       ruleId: ruleId,
       source: source,
     );

@@ -130,6 +130,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_inappwebview: ^6.1.5
   flutter_bloc: ^9.1.0
+  geolocator: ^13.0.4
 
 dev_dependencies:
   flutter_test:

@@ -16,8 +16,11 @@ class SmsDao extends BaseDao<SmsMessage> {
       name: map['name'] as String?,
       content: map['content'] as String,
       timestamp: DateTime.fromMillisecondsSinceEpoch(map['timestamp'] as int),
-      smsType: map['sms_type'] as String,
-      actionTaken: map['action_taken'] as String?,
+      smsType: SmsType.values.firstWhere(
+        (type) => type.toString() == 'SmsType.${map['sms_type']}',
+        orElse: () => SmsType.unknown,
+      ),
+      source: map['source'] as String,  // Added required source parameter
       ruleId: map['rule_id'] as String?,
       isRead: (map['is_read'] as int) == 1,
     );
@@ -31,8 +34,8 @@ class SmsDao extends BaseDao<SmsMessage> {
       'name': smsMessage.name,
       'content': smsMessage.content,
       'timestamp': smsMessage.timestamp.millisecondsSinceEpoch,
-      'sms_type': smsMessage.smsType,
-      'action_taken': smsMessage.actionTaken,
+      'sms_type': smsMessage.smsType.toString().split('.').last,
+      'source': smsMessage.source,  // Added source field
       'rule_id': smsMessage.ruleId,
       'is_read': smsMessage.isRead ? 1 : 0,
     };

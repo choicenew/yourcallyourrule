@@ -3,6 +3,7 @@ import '../../value_objects/phone_number.dart';
 
 /// 短信类型枚举
 enum SmsType {
+  unknown,  // 未知类型
   incoming,  // 收到的短信
   outgoing,  // 发送的短信
   draft,     // 草稿
