@@ -1,4 +1,5 @@
 import '../entities/rule/rule_base.dart';
+import '../../application/dto/rule_dto.dart';
 import 'base_repository.dart';
 
 /// 规则仓库接口
@@ -17,8 +18,17 @@ abstract class RuleRepository extends BaseRepository<RuleBase> {
   Future<List<RuleBase>> matchByPhoneNumber(String phoneNumber);
   
   /// 导入规则
-  Future<int> importRules(List<RuleBase> rules);
+  Future<List<RuleBase>> importRules(List<RuleDto> ruleDtos);
   
   /// 导出规则
   Future<List<RuleBase>> exportRules();
+  
+  /// 删除规则
+  Future<bool> deleteRule(String id);
+  
+  /// 更新规则
+  Future<void> updateRule(RuleBase rule);
+  
+  /// 获取规则列表
+  Future<List<RuleBase>> getRules({String? ruleType, bool onlyEnabled = false});
 }

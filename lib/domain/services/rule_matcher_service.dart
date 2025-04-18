@@ -28,4 +28,14 @@ class RuleMatcherService {
     }
     return null;
   }
+  
+  /// 根据电话号码找出匹配的规则
+  RuleBase? findMatchingRule(List<RuleBase> rules, String phoneNumber) {
+    // 按优先级排序规则
+    final sortedRules = List<RuleBase>.from(rules);
+    sortedRules.sort((a, b) => a.priority.value.compareTo(b.priority.value));
+    
+    // 查找第一个匹配的规则
+    return findFirstMatch(sortedRules, phoneNumber);
+  }
 }

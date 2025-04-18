@@ -3,6 +3,7 @@ import '../base_usecase.dart';
 import '../../../domain/repositories/rule_repository.dart';
 import '../../../domain/entities/rule/rule_base.dart';
 import '../../../domain/entities/rule/regex_rule.dart';
+import '../../../domain/entities/rule/phone_number_rule.dart';
 import '../../../domain/value_objects/rule_priority.dart';
 import '../../../domain/value_objects/rule_action.dart';
 import '../../../domain/value_objects/phone_number.dart';
@@ -81,12 +82,4 @@ class GetRulesParams {
     this.phoneNumber,
     this.enabledOnly = false,
   });
-}
-
-/// 电话号码规则接口
-/// 用于标识包含电话号码的规则类型
-abstract class PhoneNumberRule {
-  PhoneNumber get phoneNumber;
-  String? get label;
-  String? get avatar;
 }

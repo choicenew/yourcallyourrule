@@ -27,7 +27,10 @@ abstract class BaseRepositoryImpl<T, D extends BaseDao<T>> implements BaseReposi
   
   @override
   Future<void> update(T entity) async {
-    await dao.update(entity);
+    // Extract ID from entity - this assumes entity has an 'id' property
+    // If the entity structure is different, this needs to be adjusted
+    final id = (entity as dynamic).id as String;
+    await dao.update(entity, id);
   }
   
   @override

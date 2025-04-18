@@ -27,16 +27,14 @@ class CallRepositoryImpl extends BaseRepositoryImpl<CallLog, CallDao> implements
   }
   
   @override
-  Future<List<CallLog>> getByCallType(String callType) async {
-    return await dao.getByCallType(callType);
+  Future<List<CallLog>> getByType(CallType type) async {
+    return await dao.getByCallType(type.toString());
   }
   
-  @override
   Future<List<CallLog>> getByDateRange(DateTime start, DateTime end) async {
     return await dao.getByDateRange(start, end);
   }
   
-  @override
   Future<List<CallLog>> getByRuleId(String ruleId) async {
     return await dao.getByRuleId(ruleId);
   }
@@ -50,12 +48,36 @@ class CallRepositoryImpl extends BaseRepositoryImpl<CallLog, CallDao> implements
     }
   }
   
-  @override
   Future<void> addNote(String id, String note) async {
     final call = await getById(id);
     if (call != null) {
       final updatedCall = call.copyWith(note: note);
       await update(updatedCall);
     }
+  }
+  
+  @override
+  Future<List<CallLog>> getBlocked() async {
+    return await dao.getByCallType(CallType.blocked.toString());
+  }
+  
+  @override
+  Future<List<CallLog>> getUnread() async {
+    return await dao.query(
+      where: 'is_read = ?',
+      whereArgs: [0],
+      orderBy: 'timestamp DESC',
+    );
+  }
+  
+  @override
+  Future<int> getCount() async {
+    final calls = await dao.getAll();
+    return calls.length;
+  }
+  
+  @override
+  Future<void> clearAll() async {
+    await dao.clear();
   }
 }

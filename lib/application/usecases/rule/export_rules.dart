@@ -26,7 +26,7 @@ class ExportRules implements UseCase<bool, ExportRulesParams> {
       
       // 将DTO列表转换为JSON并写入文件
       final jsonData = ruleDtos.map((dto) => dto.toMap()).toList();
-      await fileUtils.writeJsonFile(params.filePath, jsonData);
+      await FileUtils.writeJsonFile(params.filePath, jsonData);
       
       return true;
     } catch (e) {

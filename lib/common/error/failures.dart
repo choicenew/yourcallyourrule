@@ -49,6 +49,16 @@ class RuleMatchFailure extends Failure {
   const RuleMatchFailure(super.message, {super.code});
 }
 
+/// 文件操作失败
+class FileOperationFailure extends Failure {
+  const FileOperationFailure(super.message, {super.code});
+}
+
+/// 无效文件失败
+class InvalidFileFailure extends Failure {
+  const InvalidFileFailure(super.message, {super.code});
+}
+
 /// 规则优先级失败
 class RulePriorityFailure extends Failure {
   const RulePriorityFailure(super.message, {super.code});

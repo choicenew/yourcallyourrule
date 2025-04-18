@@ -17,7 +17,7 @@ class RuleRepositoryImpl extends BaseRepositoryImpl<RuleBase, RuleDao> implement
   @override
   Future<List<RuleBase>> getByPriority(String priorityName) async {
     final priority = RulePriority.fromName(priorityName);
-    return await dao.getByPriority(priority.value);
+    return await dao.getByPriority(priority);
   }
   
   @override
@@ -58,12 +58,20 @@ class RuleRepositoryImpl extends BaseRepositoryImpl<RuleBase, RuleDao> implement
   }
   
   @override
-  Future<List<RuleBase>> getRules({bool onlyEnabled = false}) async {
-    if (onlyEnabled) {
+  Future<List<RuleBase>> getRules({String? ruleType, bool onlyEnabled = false}) async {
+    if (ruleType != null) {
+      return await dao.getByType(ruleType);
+    } else if (onlyEnabled) {
       return await getAllEnabled();
     } else {
       return await getAll();
     }
+  }
+  
+  @override
+  Future<List<RuleBase>> exportRules() async {
+    // 导出所有规则
+    return await getAll();
   }
   
   @override

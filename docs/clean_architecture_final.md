@@ -13,16 +13,22 @@ lib/
   │   └── platform/                   # 平台抽象
   │       ├── android/                # Android平台
   │       │   ├── call_channel.dart   # 通话平台通道
-  │       │   └── sms_channel.dart    # 短信平台通道
+  │       │   ├── sms_channel.dart    # 短信平台通道
+  │       │   ├── caller_id_channel.dart # 新增
   │       └── ios/                    # iOS平台
   │           ├── call_platform.dart  # 通话平台接口
-  │           └── sms_platform.dart   # 短信平台接口
+  │           ├── sms_platform.dart   # 短信平台接口
   │
   ├── domain/                         # 领域层(核心业务规则)
   │   ├── entities/                   # 业务实体
   │   │   ├── base/                   # 基础实体
   │   │   │   ├── entity.dart         # 实体基类
   │   │   │   └── phone_entry.dart    # 电话条目基类
+  │   │   ├── caller/                 # 新增caller实体目录
+  │   │   │   ├── caller_id_data.dart 
+  │   │   │   ├── 
+  │   │   │   ├── stir_info.dart      
+  │   │   │   └── sim_info.dart       
   │   │   ├── contact/                # 联系人相关
   │   │   │   └── contact.dart        # 联系人实体
   │   │   ├── label/                  # 标签相关
@@ -52,6 +58,8 @@ lib/
   │   └── services/                   # 领域服务
   │       ├── rule_matcher_service.dart # 规则匹配服务
   │       ├── rule_priority_service.dart # 规则优先级服务
+  │       ├── caller_id_service_impl.dart # 拆分里面的部分函数独立dart
+  │       ├── caller_id_monitor_service_impl.dart # 拆分里面的should accept 和handle call 之类的
   │       └── label_service.dart      # 标签服务接口
   │
   ├── application/                    # 应用层(用例)
@@ -75,6 +83,15 @@ lib/
   │       ├── call/                   # 通话用例
   │       │   ├── filter_call.dart    # 过滤通话
   │       │   └── log_call.dart       # 记录通话
+  │       ├── caller_id_style/        # 来电显示样式用例
+  │       │   ├── caller_id_style.dart              # 样式实体/值对象
+  │       │   ├── position_offset.dart              # 位置坐标值对象
+  │       │   ├── caller_id_style_repository.dart    # 样式仓库接口
+  │       │   ├── caller_id_style_service.dart      # 样式服务接口
+  │       │   ├── manage_caller_id_style_usecase.dart # 样式管理用例
+  │       │   ├── caller_id_style_provider.dart      # 样式状态管理
+  │       │   ├── caller_id_style_repository_impl.dart # 样式仓库实现
+   
   │       ├── sms/                    # 短信用例
   │       │   ├── filter_sms.dart     # 过滤短信
   │       │   └── log_sms.dart        # 记录短信
@@ -175,6 +192,10 @@ lib/
   │   │   ├── sms/                    # 短信页面
   │   │   │   ├── sms_history_page.dart # 短信历史页面
   │   │   │   └── sms_detail_page.dart # 短信详情页面
+  │   │   ├── caller/                 # 新增caller页面
+  │   │   │   ├── caller_id_customization_page.dart # 来电显示定制页面
+  │   │   │   ├── overlay_preview_page.dart # 悬浮窗预览页面
+  │   │   │   └── 
   │   │   └── settings/               # 设置页面
   │   │       ├── settings_page.dart  # 设置页面
   │   │       ├── call_settings_page.dart # 通话设置页面
@@ -191,8 +212,12 @@ lib/
   │       │   └── rule_form.dart      # 规则表单
   │       ├── call/                   # 通话组件
   │       │   └── call_item.dart      # 通话项
-  │       └── sms/                    # 短信组件
-  │           └── sms_item.dart       # 短信项
+  │       ├── sms/                    # 短信组件
+  │       │   └── sms_item.dart       # 短信项
+  │       └── caller/                 # 来电识别组件
+  │           ├── caller_id_overlay.dart # 来电显示悬浮窗所有相关的
+  │           ├── overlay_position_controller.dart # 悬浮窗位置控制器
+  │           └── style_editor_panel.dart # 样式编辑面板
   │
   ├── di/                             # 依赖注入
   │   └── injection.dart              # 依赖注入容器
@@ -219,3 +244,4 @@ lib/
 - source: 来源(用户添加/订阅)
 
 
+call_handling_rules_page.dart # 通话处理规则页面

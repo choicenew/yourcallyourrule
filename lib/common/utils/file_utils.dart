@@ -64,7 +64,7 @@ class FileUtils {
   }
 
   /// 写入JSON文件
-  static Future<void> writeJsonFile(String filePath, Map<String, dynamic> data) async {
+  static Future<void> writeJsonFile(String filePath, dynamic data) async {
     try {
       final content = json.encode(data);
       await writeTextFile(filePath, content);
