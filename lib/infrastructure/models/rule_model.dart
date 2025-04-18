@@ -7,6 +7,7 @@ import '../../domain/entities/rule/regex_rule.dart';
 import '../../domain/value_objects/phone_number.dart';
 import '../../domain/value_objects/rule_action.dart';
 import '../../domain/value_objects/rule_priority.dart';
+import '../../application/dto/rule_dto.dart';
 import 'base_model.dart';
 
 /// 规则模型
@@ -153,6 +154,7 @@ class RuleModel extends BaseModel<RuleModel> {
           updatedAt: updatedAt,
           pattern: pattern!,
           caseSensitive: caseSensitive ?? false,
+          priority: priority,
           action: action,
           source: source,
         );
@@ -200,6 +202,55 @@ class RuleModel extends BaseModel<RuleModel> {
       pattern: map['pattern'],
       caseSensitive: map['case_sensitive'] != null ? map['case_sensitive'] == 1 : null,
       source: map['source'],
+    );
+  }
+  
+  /// 从DTO创建模型
+  factory RuleModel.fromDto(RuleDto dto) {
+    final priorityObj = RulePriority.fromName(dto.priority);
+    final actionObj = RuleAction.fromValue(dto.action);
+    String ruleType;
+    
+    // 根据DTO中的信息确定规则类型
+    if (dto.pattern != null) {
+      ruleType = 'regex';
+    } else if (dto.phoneNumber != null) {
+      // 根据动作值确定电话号码规则类型
+      switch (dto.action) {
+        case 'allow':
+          ruleType = 'allowed';
+          break;
+        case 'block':
+          ruleType = 'blocked';
+          break;
+        case 'whitelist':
+          ruleType = 'whitelist';
+          break;
+        case 'blacklist':
+          ruleType = 'blacklist';
+          break;
+        default:
+          throw ArgumentError('Unknown action value: ${dto.action}');
+      }
+    } else {
+      throw ArgumentError('Invalid rule DTO: missing pattern or phoneNumber');
+    }
+    
+    return RuleModel(
+      id: dto.id,
+      name: dto.name,
+      description: dto.description,
+      isEnabled: dto.isEnabled,
+      createdAt: dto.createdAt,
+      updatedAt: dto.updatedAt,
+      priorityName: dto.priority,
+      priorityValue: priorityObj.value,
+      actionValue: dto.action,
+      ruleType: ruleType,
+      phoneNumber: dto.phoneNumber,
+      pattern: dto.pattern,
+      caseSensitive: false, // 默认值，DTO中可能没有此字段
+      source: dto.source,
     );
   }
   

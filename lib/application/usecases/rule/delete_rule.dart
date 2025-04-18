@@ -1,4 +1,6 @@
-import '../../base_usecase.dart';
+import 'package:yourcallyourrule/application/usecases/base_usecase.dart';
+
+
 import '../../../domain/repositories/rule_repository.dart';
 
 /// 删除规则用例

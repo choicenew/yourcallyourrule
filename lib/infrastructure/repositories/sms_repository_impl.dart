@@ -27,16 +27,14 @@ class SmsRepositoryImpl extends BaseRepositoryImpl<SmsMessage, SmsDao> implement
   }
   
   @override
-  Future<List<SmsMessage>> getByMessageType(String messageType) async {
-    return await dao.getByMessageType(messageType);
+  Future<List<SmsMessage>> getByType(SmsType type) async {
+    return await dao.getBySmsType(type.toString().split('.').last);
   }
   
-  @override
   Future<List<SmsMessage>> getByDateRange(DateTime start, DateTime end) async {
     return await dao.getByDateRange(start, end);
   }
   
-  @override
   Future<List<SmsMessage>> getByRuleId(String ruleId) async {
     return await dao.getByRuleId(ruleId);
   }
@@ -56,6 +54,35 @@ class SmsRepositoryImpl extends BaseRepositoryImpl<SmsMessage, SmsDao> implement
   }
   
   @override
+  Future<List<SmsMessage>> getBlocked() async {
+    // Assuming blocked messages are those with SmsType.blocked
+    return await getByType(SmsType.blocked);
+  }
+  
+  @override
+  Future<void> clearAll() async {
+    // Implement logic to clear all SMS messages
+    final allMessages = await getAll();
+    for (final message in allMessages) {
+      await delete(message.id);
+    }
+  }
+  
+  @override
+  Future<int> getCount() async {
+    final allMessages = await getAll();
+    return allMessages.length;
+  }
+  
+  @override
+  Future<List<SmsMessage>> searchContent(String query) async {
+    // Basic implementation - get all messages and filter by content
+    final allMessages = await getAll();
+    return allMessages.where((message) => 
+      message.content.toLowerCase().contains(query.toLowerCase())
+    ).toList();
+  }
+  
   Future<void> markAllAsRead(String phoneNumberValue) async {
     try {
       final phoneNumber = PhoneNumber(phoneNumberValue);

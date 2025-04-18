@@ -1,7 +1,12 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
+import 'package:yourcallyourrule/infrastructure/datasources/local/database/dao/call_dao.dart';
+import 'package:yourcallyourrule/infrastructure/datasources/local/database/dao/contact_dao.dart';
+import 'package:yourcallyourrule/infrastructure/datasources/local/database/dao/sms_dao.dart';
 
 import 'dao/label_dao.dart';
+import 'dao/rule_dao.dart';
 
 /// 应用数据库管理类
 /// 负责数据库的初始化、升级和提供数据库实例
@@ -13,12 +18,28 @@ class AppDatabase {
   
   // 数据访问对象
   late final LabelDao _labelDao;
+  late final RuleDao _ruleDao;
+  late final CallDao _callDao;
+  late final ContactDao _contactDao;
+  late final SmsDao _smsDao;
   
   // 私有构造函数
   AppDatabase._internal();
   
   // 标签DAO访问器
   LabelDao get labelDao => _labelDao;
+  
+  // 规则DAO访问器
+  RuleDao get ruleDao => _ruleDao;
+  
+  // 通话记录DAO访问器
+  CallDao get callDao => _callDao;
+  
+  // 联系人DAO访问器
+  ContactDao get contactDao => _contactDao;
+  
+  // 短信DAO访问器
+  SmsDao get smsDao => _smsDao;
   
   /// 获取数据库实例
   static Future<Database> get database async {
@@ -43,6 +64,7 @@ class AppDatabase {
     // 初始化DAO
     final instance = AppDatabase._internal();
     instance._labelDao = LabelDao();
+    instance._ruleDao = RuleDao();
     
     return db;
   }

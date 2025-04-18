@@ -12,7 +12,7 @@ class ContactRepositoryImpl extends BaseRepositoryImpl<Contact, ContactDao> impl
       : super(database, database.contactDao);
   
   @override
-  Future<List<Contact>> searchContacts(String query) async {
+  Future<List<Contact>> search(String query) async {
     return await dao.search(query);
   }
   
@@ -32,9 +32,10 @@ class ContactRepositoryImpl extends BaseRepositoryImpl<Contact, ContactDao> impl
   }
   
   @override
-  Future<void> syncContacts(List<Contact> contacts) async {
+  Future<int> syncContacts(List<Contact> contacts) async {
     // 使用事务确保同步操作的原子性
-    await database.database.then((db) async {
+    int count = 0;
+    await AppDatabase.database.then((db) async {
       await db.transaction((txn) async {
         // 获取现有联系人
         final existingContacts = await getAll();
@@ -44,15 +45,22 @@ class ContactRepositoryImpl extends BaseRepositoryImpl<Contact, ContactDao> impl
         for (final contact in contacts) {
           if (existingIds.contains(contact.id)) {
             await update(contact);
+            count++;
           } else {
             await add(contact);
+            count++;
           }
         }
       });
     });
+    return count;
   }
   
   @override
+  Future<int> getCount() async {
+    return await dao.getCount();
+  }
+  
   Future<void> toggleFavorite(String id) async {
     final contact = await getById(id);
     if (contact != null) {

@@ -94,6 +94,7 @@ class RuleDao extends BaseDao<RuleBase> {
           isEnabled: isEnabled,
           createdAt: createdAt,
           updatedAt: updatedAt,
+          priority: priority,
           action: action,
           source: source,
           pattern: pattern,
@@ -169,6 +170,40 @@ class RuleDao extends BaseDao<RuleBase> {
     return await query(
       where: 'phone_number = ?',
       whereArgs: [phoneNumber],
+    );
+  }
+  
+  /// 根据动作获取规则
+  Future<List<RuleBase>> getByAction(String action) async {
+    return await query(
+      where: 'action = ?',
+      whereArgs: [action],
+    );
+  }
+  
+  /// 根据电话号码匹配规则
+  Future<List<RuleBase>> matchByPhoneNumber(String phoneNumber) async {
+    // 首先获取精确匹配的规则
+    final exactMatches = await getByPhoneNumber(phoneNumber);
+    
+    // 然后获取所有正则表达式规则
+    final regexRules = await query(
+      where: 'type = ?',
+      whereArgs: ['REGEX'],
+    );
+    
+    // 过滤出匹配的正则表达式规则
+    final matchingRegexRules = regexRules.where((rule) => rule.matches(phoneNumber)).toList();
+    
+    // 合并结果
+    return [...exactMatches, ...matchingRegexRules];
+  }
+  
+  /// 获取所有启用的规则
+  Future<List<RuleBase>> getEnabled() async {
+    return await query(
+      where: 'is_enabled = ?',
+      whereArgs: [1],
     );
   }
 }

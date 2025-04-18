@@ -1,80 +1,101 @@
-import '../../../domain/entities/call/call_log.dart';
-import '../../../domain/entities/contact/contact.dart';
-import '../../../domain/entities/rule/rule_base.dart';
-import '../../../domain/repositories/call_repository.dart';
-import '../../../domain/repositories/contact_repository.dart';
-import '../../../domain/repositories/rule_repository.dart';
-import '../../../domain/services/rule_matcher_service.dart';
-import '../../../domain/services/rule_priority_service.dart';
-import '../../../domain/value_objects/phone_number.dart';
-import '../../../domain/value_objects/rule_action.dart';
-import '../base_service_impl.dart';
+import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:flutter/material.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:flutter_contacts/flutter_contacts.dart' as flutterContact;
 
-/// 来电识别服务实现
-/// 负责识别来电号码并应用相应的规则
-class CallerIdServiceImpl extends BaseServiceImpl {
-  final RuleRepository _ruleRepository;
-  final ContactRepository _contactRepository;
-  final CallRepository _callRepository;
-  final RuleMatcherService _ruleMatcherService;
-  final RulePriorityService _rulePriorityService;
-  
-  CallerIdServiceImpl(
-    this._ruleRepository,
-    this._contactRepository,
-    this._callRepository,
-    this._ruleMatcherService,
-    this._rulePriorityService,
-  );
-  
-  /// 识别来电号码
-  /// 返回匹配的规则和联系人信息
-  Future<CallerIdResult> identifyCaller(String phoneNumber) async {
-    final normalizedNumber = PhoneNumber(phoneNumber);
-    
-    // 查找联系人
-    final contact = await _contactRepository.getByPhoneNumber(normalizedNumber);
-    
-    // 获取所有启用的规则
-    final rules = await _ruleRepository.getEnabled();
-    
-    // 找出匹配的规则
-    final matchedRules = _ruleMatcherService.findMatches(rules, normalizedNumber.normalized);
-    
-    // 按优先级排序规则
-    final sortedRules = _rulePriorityService.sortByPriority(matchedRules);
-    
-    // 获取最高优先级的规则
-    final highestPriorityRule = sortedRules.isNotEmpty ? sortedRules.first : null;
-    
-    // 确定应采取的动作
-    final action = highestPriorityRule?.action ?? RuleAction.unknown;
-    
-    return CallerIdResult(
-      phoneNumber: normalizedNumber.normalized,
-      contact: contact,
-      matchedRule: highestPriorityRule,
-      action: action,
-    );
-  }
-  
-  /// 记录通话
-  Future<void> logCall(CallLog callLog) async {
-    await _callRepository.add(callLog);
-  }
-}
+import '../../../domain/entities/caller/caller_id_data.dart';
+import '../../../domain/services/caller_id_service.dart';
 
-/// 来电识别结果
-class CallerIdResult {
-  final String phoneNumber;
-  final Contact? contact;
-  final RuleBase? matchedRule;
-  final RuleAction action;
-  
-  CallerIdResult({
-    required this.phoneNumber,
-    this.contact,
-    this.matchedRule,
-    required this.action,
+/// 来电显示服务实现
+class CallerIdServiceImpl implements ICallerIdService {
+  final Database database;
+  final _callerIdSubject = BehaviorSubject<CallerIdData>();
+
+  @override
+  Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
+
+  CallerIdServiceImpl({
+    required this.database,
   });
+
+  /// 创建CallerIdService实例的工厂方法
+  static Future<CallerIdServiceImpl> create({required Database database}) async {
+    final service = CallerIdServiceImpl(database: database);
+    await service.initialize();
+    return service;
+  }
+
+  @override
+  Future<void> initialize() async {
+    // 初始化服务
+  }
+
+  @override
+  Future<CallerIdData> getCallerId(String phoneNumber, Locale locale) async {
+    PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
+
+    // 1. 解析号码
+    // 判断号码是否包含国际区号
+    RegExp internationalPrefixRegex = RegExp(r'^\+');
+
+    // 2. 获取格式化号码
+    String e164Number = "";
+    String nationalNumber = "";
+
+    if (internationalPrefixRegex.hasMatch(phoneNumber)) {
+      // 包含国际区号，使用 null 作为国家代码
+      PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, null);
+      e164Number = phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
+      nationalNumber = phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.national);
+    } else {
+      // 不包含国际区号，使用 locale.country 作为国家代码
+      PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, locale.country);
+      e164Number = phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
+      nationalNumber = phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.national);
+    }
+
+    // 3. 查询数据
+    // 获取所有本地联系人
+    List<flutterContact.Contact> allLocalContacts = await flutterContact.FlutterContacts.getContacts();
+
+    // 使用原始号码、E164 和 National 格式分别查询
+    flutterContact.Contact? localContact;
+
+    for (var contact in allLocalContacts) {
+      for (var phone in contact.phones) {
+        String normalizedPhone = phone.number.replaceAll(' ', '');
+        if (normalizedPhone == phoneNumber.replaceAll(' ', '') ||
+            normalizedPhone == e164Number ||
+            normalizedPhone == nationalNumber) {
+          localContact = contact;
+          break; // 找到匹配的联系人，跳出循环
+        }
+      }
+      if (localContact != null) break;
+    }
+
+    // 4. 构建CallerIdData
+    CallerIdData callerIdData = CallerIdData(
+      phoneNumber: phoneNumber,
+      name: localContact?.displayName ?? "Unknown",
+      countryName: locale.countryCode,
+      region: "Unknown Region", // 这里应该从位置服务获取
+      carrier: "Unknown Carrier", // 这里应该从运营商服务获取
+      avatar: "assets/avatars/Unknown.png",
+      labels: [LabelInfo(label: "Unknown", count: 0)],
+      count: 0,
+      numberType: NumberType.unknown,
+    );
+
+    // 5. 发布数据到流
+    _callerIdSubject.add(callerIdData);
+
+    return callerIdData;
+  }
+
+  @override
+  Future<void> dispose() async {
+    await _callerIdSubject.close();
+  }
 }

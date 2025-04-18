@@ -17,11 +17,10 @@ class RegexRule extends RuleBase {
     super.updatedAt,
     required this.pattern,
     this.caseSensitive = false,
+    required super.priority,
     required super.action,
     required super.source,
-  }) : super(
-    priority: RulePriority.regex,
-  );
+  });
   
   @override
   bool matches(String input) {

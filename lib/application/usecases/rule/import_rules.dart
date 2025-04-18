@@ -16,9 +16,9 @@ class ImportRules implements UseCase<List<RuleDto>, ImportRulesParams> {
   Future<List<RuleDto>> call(ImportRulesParams params) async {
     try {
       // 从文件读取规则数据
-      final jsonData = await fileUtils.readJsonFile(params.filePath);
+      final jsonData = await FileUtils.readJsonFile(params.filePath);
       
-      if (jsonData == null || !(jsonData is List)) {
+      if (jsonData is! List) {
         throw const InvalidFileFailure('无效的规则文件格式');
       }
       

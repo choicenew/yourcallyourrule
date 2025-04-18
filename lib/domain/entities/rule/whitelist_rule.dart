@@ -2,12 +2,18 @@ import '../../value_objects/phone_number.dart';
 import '../../value_objects/rule_priority.dart';
 import '../../value_objects/rule_action.dart';
 import 'rule_base.dart';
+import 'phone_number_rule.dart';
 
 /// 白名单规则实体
 /// 用于定义订阅的白名单规则
-class WhitelistRule extends RuleBase {
+class WhitelistRule extends RuleBase implements PhoneNumberRule {
+  @override
   final PhoneNumber phoneNumber;
   final String? category; // 可选的分类信息
+  @override
+  final String? label;
+  @override
+  final String? avatar;
   
   const WhitelistRule({
     required super.id,
@@ -18,6 +24,8 @@ class WhitelistRule extends RuleBase {
     super.updatedAt,
     required this.phoneNumber,
     this.category,
+    this.label,
+    this.avatar,
     required super.source,
   }) : super(
     priority: RulePriority.whitelist,
