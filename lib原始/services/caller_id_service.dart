@@ -8,7 +8,7 @@ import 'package:flutter_contacts/flutter_contacts.dart' as flutterContact;
 import 'blacklist_whitelist_service.dart';
 import 'contact_service.dart';
 import 'label_service.dart';
-import 'location_service.dart';
+import 'phonenumber_location_service.dart';
 import 'plugin_manager_service.dart';
 
 class CallerIdService {
