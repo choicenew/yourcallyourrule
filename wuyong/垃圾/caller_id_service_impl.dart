@@ -1,14 +1,14 @@
-import '../../lib/domain/entities/call/call_log.dart';
-import '../../lib/domain/entities/contact/contact.dart';
-import '../../lib/domain/entities/rule/rule_base.dart';
-import '../../lib/domain/repositories/call_repository.dart';
-import '../../lib/domain/repositories/contact_repository.dart';
-import '../../lib/domain/repositories/rule_repository.dart';
-import '../../lib/domain/services/rule_matcher_service.dart';
-import '../../lib/domain/services/rule_priority_service.dart';
-import '../../lib/domain/value_objects/phone_number.dart';
-import '../../lib/domain/value_objects/rule_action.dart';
-import '../../lib/infrastructure/services/base_service_impl.dart';
+import '../../lib clean architecture 架构/domain/entities/call/call_log.dart';
+import '../../lib clean architecture 架构/domain/entities/contact/contact.dart';
+import '../../lib clean architecture 架构/domain/entities/rule/rule_base.dart';
+import '../../lib clean architecture 架构/domain/repositories/call_repository.dart';
+import '../../lib clean architecture 架构/domain/repositories/contact_repository.dart';
+import '../../lib clean architecture 架构/domain/repositories/rule_repository.dart';
+import '../../lib clean architecture 架构/domain/services/rule_matcher_service.dart';
+import '../../lib clean architecture 架构/domain/services/rule_priority_service.dart';
+import '../../lib clean architecture 架构/domain/value_objects/phone_number.dart';
+import '../../lib clean architecture 架构/domain/value_objects/rule_action.dart';
+import '../../lib clean architecture 架构/infrastructure/services/base_service_impl.dart';
 
 /// 来电识别服务实现
 /// 负责识别来电号码并应用相应的规则
