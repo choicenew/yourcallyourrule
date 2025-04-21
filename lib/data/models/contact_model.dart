@@ -1,6 +1,6 @@
 // 联系人数据模型，用于数据层与领域层之间的转换
 
-import '../../core/entities/phone_entry.dart';
+import '../../core/entities/phone/phone_entry.dart';
 import '../../core/value_objects/phone_number.dart';
 import 'base_model.dart';
 
@@ -78,7 +78,7 @@ class ContactModel extends BaseModel<PhoneEntry> {
   ContactEntity toEntity() {
     return ContactEntity(
       id: id,
-      phoneNumber: PhoneNumber(value:phoneNumber),
+      phoneNumber: PhoneNumber(phoneNumber),
       name: name,
       avatar: avatar,
       note: note,

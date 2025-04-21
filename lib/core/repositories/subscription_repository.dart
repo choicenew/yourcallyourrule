@@ -2,7 +2,7 @@
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
 
 
-import '../entities/subscription.dart';
+import '../entities/subscription/subscription.dart';
 
 // 补充方法参数校验
 abstract class SubscriptionRepository extends BaseRepository<Subscription, String> {

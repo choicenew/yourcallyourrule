@@ -2,7 +2,7 @@
 
 // 订阅服务基类，专注URL订阅管理
 import '../base/base_service.dart';
-import '../entities/subscription.dart';
+import '../entities/subscription/subscription.dart';
 import '../repositories/subscription_repository.dart';
 
 // 新增方法实现

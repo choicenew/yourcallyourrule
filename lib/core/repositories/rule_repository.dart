@@ -5,6 +5,26 @@ import 'base_repository.dart';
 
 /// 规则仓库接口
 abstract class RuleRepository extends BaseRepository<RuleBase, String> {
+  /// 从Map创建规则实体
+  RuleBase createRuleFromMap(Map<String, dynamic> map);
+
+  /// 创建一个空的规则实例，用于模板或验证
+  RuleBase createEmptyRule();
+
+  /// 保存规则
+  Future<void> saveRule(RuleBase rule);
+
+  /// 删除规则
+  Future<void> deleteRule(String ruleId);
+
+  /// 更新规则
+  Future<void> updateRule(RuleBase rule);
+
+  /// 根据ID获取规则
+  Future<RuleBase?> getRuleById(String ruleId);
+
+  /// 根据类型获取规则
+  Future<List<RuleBase>> getRulesByType(String type);
   /// 根据规则类型获取所有规则
   Future<List<RuleBase>> getAllByType(String type);
   

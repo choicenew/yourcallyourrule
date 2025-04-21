@@ -2,7 +2,7 @@
 
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
 
-import '../entities/phone_entry.dart';
+import '../entities/phone/phone_entry.dart';
 import '../value_objects/phone_number.dart';
 
 /// 联系人仓库接口
