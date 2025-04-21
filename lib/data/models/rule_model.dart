@@ -53,23 +53,23 @@ abstract class RuleModel extends BaseModel<RuleBase> {
 }
 
 // 黑名单规则模型
+// BlacklistRuleModel 修改
 class BlacklistRuleModel extends RuleModel {
-  // 电话号码
   final String phoneNumber;
-  
-  // 构造函数
+  final String label;
+  final String? avatar; // 新增avatar字段
+
   const BlacklistRuleModel({
     required super.id,
     required super.name,
     required super.priority,
     required super.action,
     required this.phoneNumber,
+    required this.label,
+    this.avatar, // 新增可选参数
     super.isEnabled,
-  }) : super(
-    ruleType: 'blacklist',
-  );
-  
-  // 从Map创建模型
+  }) : super(ruleType: 'blacklist');
+
   factory BlacklistRuleModel.fromMap(Map<String, dynamic> map) {
     return BlacklistRuleModel(
       id: map['id'],
@@ -77,6 +77,7 @@ class BlacklistRuleModel extends RuleModel {
       priority: map['priority'],
       action: map['action'],
       phoneNumber: map['phoneNumber'],
+      label: map['label'] ?? '', // 读取label字段
       isEnabled: map['isEnabled'] ?? true,
     );
   }
@@ -87,6 +88,8 @@ class BlacklistRuleModel extends RuleModel {
     final map = super.toMap();
     map.addAll({
       'phoneNumber': phoneNumber,
+      'label': label,
+      'avatar': avatar, // 序列化avatar
     });
     return map;
   }
@@ -99,7 +102,8 @@ class BlacklistRuleModel extends RuleModel {
       name: name,
       priority: RulePriority(priority),
       action: RuleAction.fromString(action),
-      phoneNumber: PhoneNumber.fromString(phoneNumber), // Convert string to PhoneNumber
+      phoneNumber: PhoneNumber.fromString(phoneNumber),
+      label: label, // 传递label
       isEnabled: isEnabled,
     );
   }
@@ -111,8 +115,10 @@ class BlacklistRuleModel extends RuleModel {
       name: entity.name,
       priority: entity.priority.value,
       action: entity.action.toString(),
-      phoneNumber: entity.phoneNumber.value, // Extract string from PhoneNumber
+      phoneNumber: entity.phoneNumber.value,
+      label: entity.label, // 获取实体label
       isEnabled: entity.isEnabled,
+      avatar: entity.avatar, // 获取实体avatar
     );
   }
 }
@@ -121,20 +127,20 @@ class BlacklistRuleModel extends RuleModel {
 class WhitelistRuleModel extends RuleModel {
   // 电话号码
   final String phoneNumber;
-  
-  // 构造函数
+  final String label;
+  final String? avatar; // 新增avatar字段
+
   const WhitelistRuleModel({
     required super.id,
     required super.name,
     required super.priority,
     required super.action,
     required this.phoneNumber,
+    required this.label,
+    this.avatar, // 新增可选参数
     super.isEnabled,
-  }) : super(
-    ruleType: 'whitelist',
-  );
-  
-  // 从Map创建模型
+  }) : super(ruleType: 'whitelist');
+
   factory WhitelistRuleModel.fromMap(Map<String, dynamic> map) {
     return WhitelistRuleModel(
       id: map['id'],
@@ -142,6 +148,7 @@ class WhitelistRuleModel extends RuleModel {
       priority: map['priority'],
       action: map['action'],
       phoneNumber: map['phoneNumber'],
+      label: map['label'] ?? '', // 读取label字段
       isEnabled: map['isEnabled'] ?? true,
     );
   }
@@ -152,11 +159,12 @@ class WhitelistRuleModel extends RuleModel {
     final map = super.toMap();
     map.addAll({
       'phoneNumber': phoneNumber,
+      'label': label,
+      'avatar': avatar, // 序列化avatar
     });
     return map;
   }
-  
-  // 将模型转换为实体
+
   @override
   WhitelistRule toEntity() {
     return WhitelistRule(
@@ -164,20 +172,22 @@ class WhitelistRuleModel extends RuleModel {
       name: name,
       priority: RulePriority(priority),
       action: RuleAction.fromString(action),
-      phoneNumber: PhoneNumber.fromString(phoneNumber), // Convert string to PhoneNumber
+      phoneNumber: PhoneNumber.fromString(phoneNumber),
+      label: label, // 传递label
       isEnabled: isEnabled,
     );
   }
-  
-  // 从实体创建模型
+
   static WhitelistRuleModel fromEntity(WhitelistRule entity) {
     return WhitelistRuleModel(
       id: entity.id,
       name: entity.name,
       priority: entity.priority.value,
       action: entity.action.toString(),
-      phoneNumber: entity.phoneNumber.value, // Extract string from PhoneNumber
+      phoneNumber: entity.phoneNumber.value,
+      label: entity.label, // 获取实体label
       isEnabled: entity.isEnabled,
+      avatar: entity.avatar, // 获取实体avatar
     );
   }
 }

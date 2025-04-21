@@ -24,7 +24,10 @@ abstract class BaseRepository<T, ID> {
   
   /// 批量删除实体
   Future<bool> deleteAll(List<T> entities);
-  
+
+  /// 更新实体
+  Future<T> update(T entity);
+
   /// 检查实体是否存在
   Future<bool> exists(ID id);
   

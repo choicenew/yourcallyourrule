@@ -5,67 +5,67 @@ import '../../value_objects/rule_priority.dart';
 import 'rule_base.dart';
 
 class RegexRule extends RuleBase {
-  // 正则表达式模式
+  static const String ruleType = 'regex';
   final String pattern;
-  
-  // 是否区分大小写
-  final bool caseSensitive;
-  
-  // 构造函数
-  const RegexRule({
-    required String id,
-    required String name,
+
+  RegexRule({
+    required super.id,
+    required super.name,
     required this.pattern,
-    required RulePriority priority,
-    required RuleAction action,
-    bool isEnabled = true,
-    this.caseSensitive = false,
+    required super.action,
+    RulePriority? priority, // 添加可选优先级参数
+    super.isEnabled = true,
   }) : super(
-          id: id,
-          name: name,
-          priority: priority,
-          action: action,
-          isEnabled: isEnabled,
+          priority: priority ?? _defaultPriority(action), // 优先使用传入的优先级
         );
-  
-  // 实现规则匹配方法
+
+  static RulePriority _defaultPriority(RuleAction action) {
+    return action == RuleAction.allow 
+      ? const RulePriority(10)  // allow规则默认优先级10
+      : const RulePriority(5);  // block规则默认优先级5
+  }
+
+  RegexRule copyWith({
+    bool? isEnabled,
+    RulePriority? priority,
+    RuleAction? action,
+  }) {
+    return RegexRule(
+      id: id,
+      name: name,
+      pattern: pattern,
+      action: action ?? this.action,
+      priority: priority ?? this.priority, // 正确传递优先级参数
+      isEnabled: isEnabled ?? this.isEnabled,
+    );
+  }
+
   @override
   bool matches(String input) {
     if (!isEnabled) return false;
-    
     try {
-      final regex = RegExp(
-        pattern,
-        caseSensitive: caseSensitive,
-      );
-      return regex.hasMatch(input);
+      return RegExp(pattern).hasMatch(input);
     } catch (e) {
-      // 正则表达式无效
       return false;
     }
   }
-  
-  // 重写toMap方法，添加正则规则特有的字段
+
+  // 添加缺失的序列化方法
   @override
   Map<String, dynamic> toMap() {
-    final map = super.toMap();
-    map.addAll({
+    return super.toMap()..addAll({
       'pattern': pattern,
-      'caseSensitive': caseSensitive,
     });
-    return map;
   }
-  
-  // 从Map创建实例的工厂构造函数
+
   factory RegexRule.fromMap(Map<String, dynamic> map) {
     return RegexRule(
       id: map['id'],
       name: map['name'],
       pattern: map['pattern'],
-      priority: RulePriority.fromInt(map['priority']),
       action: RuleAction.fromString(map['action']),
+      priority: RulePriority.fromInt(map['priority']),
       isEnabled: map['isEnabled'] ?? true,
-      caseSensitive: map['caseSensitive'] ?? false,
     );
   }
 }

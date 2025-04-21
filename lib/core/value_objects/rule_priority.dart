@@ -8,9 +8,13 @@ class RulePriority {
   const RulePriority(this.value);
   
   // 预定义的优先级常量
+  static const RulePriority veryLow = RulePriority(0);
   static const RulePriority low = RulePriority(1);
+  static const RulePriority belowMedium = RulePriority(3);
   static const RulePriority medium = RulePriority(5);
+  static const RulePriority aboveMedium = RulePriority(7);
   static const RulePriority high = RulePriority(10);
+  static const RulePriority veryHigh = RulePriority(50);
   static const RulePriority highest = RulePriority(100);
   
   // 相等性比较

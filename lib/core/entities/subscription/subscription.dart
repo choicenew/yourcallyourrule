@@ -1,6 +1,6 @@
 // 订阅实体类，表示用户的订阅信息
 
-import '../base/base_entity.dart';
+import '../../base/base_entity.dart';
 
 // 订阅实体类，用于管理远程黑白名单订阅
 import 'package:yourcallyourrule/core/value_objects/url.dart';

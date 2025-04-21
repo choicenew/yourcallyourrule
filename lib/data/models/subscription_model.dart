@@ -1,6 +1,6 @@
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'base_model.dart';
-import '../../core/entities/subscription.dart';
+import '../../core/entities/subscription/subscription.dart';
 
 // 基础订阅模型（包含全部字段）
 class SubscriptionModel extends BaseModel<Subscription> {

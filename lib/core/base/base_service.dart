@@ -28,7 +28,10 @@ abstract class BaseService<T extends BaseEntity, ID> {
   
   /// 删除实体
   Future<bool> delete(T entity) => repository.delete(entity);
-  
+
+  /// 更新实体
+  Future<T> update(T entity) => repository.update(entity);
+
   /// 批量删除实体
   Future<bool> deleteAll(List<T> entities) => repository.deleteAll(entities);
   

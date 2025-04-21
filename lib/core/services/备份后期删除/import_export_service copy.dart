@@ -4,10 +4,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:csv/csv.dart';
+
 import 'package:yaml/yaml.dart';
 
-import '../base/base_entity.dart';
-import '../base/base_service.dart';
+import '../../base/base_entity.dart';
+import '../../base/base_service.dart';
 
 /// 导入导出服务基类
 /// [T] 是实体类型
@@ -57,11 +58,6 @@ abstract class ImportExportService<T extends BaseEntity, ID>
       final detectedFormat = format ?? detectFileFormat(filePath, fileData);
       final entities = await parseImportData(fileData, format: detectedFormat);
 
-      // 验证导入的数据
-      if (!await validateImportData(entities)) {
-        throw const FormatException('导入数据验证失败');
-      }
-
       switch (mode) {
         case ImportMode.overwrite:
           // 如果选择覆盖，先删除所有现有数据
@@ -84,20 +80,15 @@ abstract class ImportExportService<T extends BaseEntity, ID>
   Future<List<T>> mergeEntities(List<T> entities) async {
     final result = <T>[];
     for (final entity in entities) {
-      try {
-        final existing = await getById(entity.id as ID);
-        if (existing != null) {
-          // 更新已存在的实体
-          final updated = await update(entity);
-          result.add(updated);
-        } else {
-          // 添加新实体
-          final saved = await save(entity);
-          result.add(saved);
-        }
-      } catch (e) {
-        // 处理单个实体导入错误，继续处理下一个
-        continue;
+      final existing = await getById(entity.id as ID);
+      if (existing != null) {
+        // 更新已存在的实体
+        await update(entity);
+        result.add(entity);
+      } else {
+        // 添加新实体
+        final saved = await save(entity);
+        result.add(saved);
       }
     }
     return result;
@@ -152,105 +143,21 @@ abstract class ImportExportService<T extends BaseEntity, ID>
   /// [format] 数据格式
   Future<List<T>> parseImportData(String data,
       {ExportFormat format = ExportFormat.json}) async {
-    try {
-      switch (format) {
-        case ExportFormat.json:
-          return await parseJsonData(data);
-        case ExportFormat.csv:
-          return await parseCsvData(data);
-        case ExportFormat.yaml:
-          return await parseYamlData(data);
-      }
-    } catch (e) {
-      // 尝试自动检测格式并解析
-      if (data.trim().startsWith('{') || data.trim().startsWith('[')) {
-        return await parseJsonData(data);
-      } else if (data.trim().startsWith('---')) {
-        return await parseYamlData(data);
-      } else if (data.contains(',')) {
-        return await parseCsvData(data);
-      }
-      throw FormatException('无法解析导入数据: $e');
+    switch (format) {
+      case ExportFormat.json:
+        return parseJsonData(data);
+      case ExportFormat.csv:
+        return parseCsvData(data);
+      case ExportFormat.yaml:
+        return parseYamlData(data);
     }
   }
 
   /// 解析JSON数据
-  Future<List<T>> parseJsonData(String data) async {
-    try {
-      final jsonData = jsonDecode(data);
-      List<Map<String, dynamic>> maps;
-      
-      if (jsonData is List) {
-        maps = List<Map<String, dynamic>>.from(jsonData);
-      } else if (jsonData is Map) {
-        maps = [Map<String, dynamic>.from(jsonData)];
-      } else {
-        throw const FormatException('JSON格式错误: 预期列表或映射');
-      }
-      
-      return maps.map((map) => fromMap(map)).toList();
-    } catch (e) {
-      throw FormatException('JSON解析错误: $e');
-    }
-  }
+  Future<List<T>> parseJsonData(String data);
 
   /// 解析CSV数据
-  Future<List<T>> parseCsvData(String data) async {
-    try {
-      final rows = const CsvToListConverter().convert(data);
-      if (rows.isEmpty) {
-        return [];
-      }
-      
-      // 第一行作为标题
-      final headers = rows.first.map((e) => e.toString()).toList();
-      
-      // 转换数据行为实体
-      final entities = <T>[];
-      for (var i = 1; i < rows.length; i++) {
-        final row = rows[i];
-        if (row.length != headers.length) {
-          continue; // 跳过格式不匹配的行
-        }
-        
-        final map = <String, dynamic>{};
-        for (var j = 0; j < headers.length; j++) {
-          map[headers[j]] = _convertCsvValue(row[j]);
-        }
-        
-        entities.add(fromMap(map));
-      }
-      
-      return entities;
-    } catch (e) {
-      throw FormatException('CSV解析错误: $e');
-    }
-  }
-
-  /// 转换CSV值为适当的类型
-  dynamic _convertCsvValue(dynamic value) {
-    if (value == null) return null;
-    if (value == '') return null;
-    
-    // 尝试转换为数字
-    final numValue = num.tryParse(value.toString());
-    if (numValue != null) return numValue;
-    
-    // 尝试转换为布尔值
-    final lowerValue = value.toString().toLowerCase();
-    if (lowerValue == 'true') return true;
-    if (lowerValue == 'false') return false;
-    if (lowerValue == '1') return true;
-    if (lowerValue == '0') return false;
-    
-    // 尝试转换为日期
-    try {
-      return DateTime.parse(value.toString());
-    } catch (_) {}
-    
-    // 默认返回字符串
-    return value.toString();
-  }
+  Future<List<T>> parseCsvData(String data);
 
   /// 解析YAML数据
   Future<List<T>> parseYamlData(String data) async {
@@ -259,21 +166,14 @@ abstract class ImportExportService<T extends BaseEntity, ID>
       final List<Map<String, dynamic>> maps = [];
 
       for (var doc in yamlDocs) {
-        final yamlContent = doc.contents;
-        if (yamlContent is YamlMap) {
-          maps.add(_convertYamlMapToMap(yamlContent));
-        } else if (yamlContent is YamlList) {
-          for (var item in yamlContent.nodes) {
-            if (item is YamlMap) {
-              maps.add(_convertYamlMapToMap(item));
-            }
-          }
-        }
+        final yamlMap = doc.contents.value as YamlMap;
+        maps.add(_convertYamlMapToMap(yamlMap));
       }
 
       return maps.map((map) => fromMap(map)).toList();
     } catch (e) {
-      throw FormatException('YAML解析错误: $e');
+      // 处理解析错误
+      return [];
     }
   }
 
@@ -291,27 +191,15 @@ abstract class ImportExportService<T extends BaseEntity, ID>
 
   /// 检测文件格式
   ExportFormat detectFileFormat(String filePath, String data) {
-    // 先根据文件扩展名判断
     if (filePath.toLowerCase().endsWith('.csv')) {
       return ExportFormat.csv;
     } else if (filePath.toLowerCase().endsWith('.yaml') ||
         filePath.toLowerCase().endsWith('.yml')) {
       return ExportFormat.yaml;
-    } else if (filePath.toLowerCase().endsWith('.json')) {
+    } else {
+      // 默认为JSON
       return ExportFormat.json;
     }
-    
-    // 如果文件扩展名不明确，尝试根据内容判断
-    if (data.trim().startsWith('{') || data.trim().startsWith('[')) {
-      return ExportFormat.json;
-    } else if (data.trim().startsWith('---')) {
-      return ExportFormat.yaml;
-    } else if (data.contains(',')) {
-      return ExportFormat.csv;
-    }
-    
-    // 默认为JSON
-    return ExportFormat.json;
   }
 
   /// 获取实体字段名列表
@@ -321,9 +209,6 @@ abstract class ImportExportService<T extends BaseEntity, ID>
   dynamic formatValueForCsv(dynamic value) {
     if (value == null) return '';
     if (value is bool) return value ? 1 : 0;
-    if (value is DateTime) return value.toIso8601String();
-    if (value is List) return value.join(';');
-    if (value is Map) return jsonEncode(value);
     return value.toString();
   }
 
@@ -340,15 +225,8 @@ abstract class ImportExportService<T extends BaseEntity, ID>
   String _formatYamlValue(dynamic value) {
     if (value == null) return 'null';
     if (value is String) return '"$value"';
-    if (value is DateTime) return '"${value.toIso8601String()}"';
     if (value is List) {
-      if (value.isEmpty) return '[]';
-      return '\n${value.map((v) => '  - ${_formatYamlValue(v)}').join('\n')}';
-    }
-    if (value is Map) {
-      if (value.isEmpty) return '{}';
-      return '\n${value.entries.map((e) => 
-        '  ${e.key}: ${_formatYamlValue(e.value)}').join('\n')}';
+      return value.map((v) => '- ${_formatYamlValue(v)}').join('\n');
     }
     return value.toString();
   }
@@ -368,33 +246,6 @@ abstract class ImportExportService<T extends BaseEntity, ID>
           return item;
         }).toList();
       } else {
-        // 尝试转换特殊类型
-        if (value is String) {
-          // 尝试解析为日期
-          try {
-            final date = DateTime.parse(value);
-            result[key] = date;
-            continue;
-          } catch (_) {}
-          
-          // 尝试解析为布尔值
-          if (value.toLowerCase() == 'true') {
-            result[key] = true;
-            continue;
-          }
-          if (value.toLowerCase() == 'false') {
-            result[key] = false;
-            continue;
-          }
-          
-          // 尝试解析为数字
-          final numValue = num.tryParse(value);
-          if (numValue != null) {
-            result[key] = numValue;
-            continue;
-          }
-        }
-        
         result[key] = value;
       }
     }

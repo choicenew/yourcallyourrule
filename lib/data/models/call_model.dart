@@ -100,7 +100,7 @@ class CallModel extends BaseModel<CallEntity> {
   CallEntity toEntity() {
     return CallEntity(
       id: id,
-      phoneNumber: PhoneNumber(value: phoneNumber), // Provide the required 'value' parameter
+      phoneNumber: PhoneNumber(phoneNumber), // Provide the required 'value' parameter
       contactName: contactName,
       callType: callType,
       startTime: startTime,

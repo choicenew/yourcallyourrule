@@ -19,12 +19,12 @@ abstract class RuleBase extends BaseEntity {
   
   // 构造函数
   const RuleBase({
-    required String id,
+    required super.id,
     required this.name,
     required this.priority,
     required this.action,
     this.isEnabled = true,
-  }) : super(id: id);
+  });
   
   // 规则匹配方法，子类必须实现此方法
   bool matches(String input);

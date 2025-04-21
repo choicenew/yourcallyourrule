@@ -87,7 +87,7 @@ class SmsModel extends BaseModel<SmsEntity> {
   SmsEntity toEntity() {
     return SmsEntity(
       id: id,
-      phoneNumber: PhoneNumber(value:phoneNumber),
+      phoneNumber: PhoneNumber(phoneNumber),
       contactName: contactName,
       messageType: messageType,
       content: content,
