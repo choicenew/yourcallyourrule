@@ -1,9 +1,10 @@
-import '../../value_objects/rule_action.dart';
-import '../../value_objects/rule_priority.dart';
-import '../rule/rule_base.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+
+import '../../lib/core/entities/value_objects/rule_action.dart';
+import '../../lib/core/entities/value_objects/rule_priority.dart';
+
 
 class KeywordRule extends RuleBase {
-  static const String ruleType = 'keyword';
   final String keyword;
 
   KeywordRule({
@@ -11,29 +12,20 @@ class KeywordRule extends RuleBase {
     required super.name,
     required this.keyword,
     required super.action,
-    RulePriority? priority,
+    super.priority,
     super.isEnabled = true,
-  }) : super(
-          priority: priority ?? _defaultPriority(action),
-        );
+  });
 
-  static RulePriority _defaultPriority(RuleAction action) {
-    return action == RuleAction.block 
-      ? const RulePriority(10)
-      : const RulePriority(5);
-  }
-
-  // 保持与RegexRule相同的copyWith模式
+  @override
   KeywordRule copyWith({
     bool? isEnabled,
     RulePriority? priority,
     RuleAction? action,
-    String? keyword,
   }) {
     return KeywordRule(
       id: id,
       name: name,
-      keyword: keyword ?? this.keyword,
+      keyword: keyword,
       action: action ?? this.action,
       priority: priority ?? this.priority,
       isEnabled: isEnabled ?? this.isEnabled,

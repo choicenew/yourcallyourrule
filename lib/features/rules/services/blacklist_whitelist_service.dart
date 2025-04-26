@@ -1,4 +1,3 @@
-import 'package:yourcallyourrule/core/base/base_service.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/blacklist_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';

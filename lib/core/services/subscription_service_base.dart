@@ -1,36 +1,23 @@
-// 订阅服务基类，用于处理各种类型的订阅功能
+// 订阅服务基类，所有订阅服务都应该继承自这个类
 
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:csv/csv.dart';
 import 'package:http/http.dart' as http;
-import 'package:yaml/yaml.dart';
 
 import '../base/base_entity.dart';
 import '../base/base_service.dart';
-import '../repositories/base_repository.dart';
+import 'import_export_service.dart';
 
 /// 订阅服务基类
 /// [T] 是订阅实体类型
 /// [ID] 是实体ID类型
 abstract class SubscriptionServiceBase<T extends BaseEntity, ID> extends BaseService<T, ID> {
-  const SubscriptionServiceBase(super.repository);
+  final ImportExportService<T, ID>? _importExportService;
+
+  SubscriptionServiceBase(super.repository, [this._importExportService]);
 
   /// 获取所有启用的订阅
   Future<List<T>> getEnabledSubscriptions();
-  
-  /// 添加订阅
-  Future<T> addSubscription(T subscription) => save(subscription);
-
-  /// 编辑订阅
-  Future<T> editSubscription(T subscription) => save(subscription);
-
-  /// 删除订阅
-  Future<bool> deleteSubscription(T subscription) => delete(subscription);
-
-  /// 删除订阅（通过ID）
-  Future<bool> deleteSubscriptionById(ID id) => deleteById(id);
 
   /// 启用订阅
   Future<void> enableSubscription(T subscription);
@@ -38,74 +25,93 @@ abstract class SubscriptionServiceBase<T extends BaseEntity, ID> extends BaseSer
   /// 禁用订阅
   Future<void> disableSubscription(T subscription);
 
-  /// 检查URL是否已存在
-  Future<bool> urlExists(String url);
+  /// 添加订阅
+  Future<T> addSubscription(String name, String url, {bool isEnabled = true});
 
-  /// 根据URL获取订阅
-  Future<T?> getSubscriptionByUrl(String url);
+  /// 更新订阅
+  Future<T> updateSubscription(T subscription);
 
-  /// 自动更新订阅
-  Future<void> autoUpdateSubscription(T subscription);
+  /// 删除订阅
+  Future<bool> deleteSubscription(ID id);
 
-  /// 手动更新订阅
-  Future<void> manualUpdateSubscription(T subscription);
+  /// 从URL下载订阅内容
+  Future<String> downloadFromUrl(String url) async {
+    try {
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        return response.body;
+      } else {
+        throw Exception('下载失败: HTTP状态码 ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception('下载失败: $e');
+    }
+  }
 
   /// 从URL导入订阅
-  Future<void> importSubscriptionsFromUrl(String url);
-
-  /// 从本地文件导入订阅
-  Future<void> importSubscriptionsFromLocalFile(String filePath);
-
-  /// 导出订阅到CSV
-  Future<void> exportSubscriptionsToCsv(List<T> subscriptions, String directoryPath);
-
-  /// 导出订阅到JSON
-  Future<void> exportSubscriptionsToJson(List<T> subscriptions, String directoryPath);
-
-  /// 从URL获取数据
-  Future<String> fetchData(String url) async {
-    final response = await http.get(Uri.parse(url));
-    if (response.statusCode == 200) {
-      return response.body;
-    } else {
-      throw Exception('Failed to fetch data from $url: ${response.statusCode}');
+  Future<List<T>> importFromUrl(String url, {ExportFormat? format}) async {
+    if (_importExportService == null) {
+      throw UnimplementedError('导入导出服务未实现');
     }
+    
+    final data = await downloadFromUrl(url);
+    final detectedFormat = format ?? _detectFormatFromData(data);
+    
+    return _importExportService!.parseImportData(data, format: detectedFormat);
   }
 
-  /// 解析数据（根据文件类型）
-  List<Map<String, dynamic>> parseData(String data, String source) {
-    if (source.endsWith('.csv')) return parseCsvData(data);
-    if (source.endsWith('.json')) return parseJsonData(data);
-    if (source.endsWith('.txt')) return parseTxtData(data);
-    if (source.endsWith('.yaml') || source.endsWith('.yml')) return parseYamlData(data);
-    throw UnsupportedError('Unsupported file format: $source');
-  }
-
-  /// 解析CSV数据
-  List<Map<String, dynamic>> parseCsvData(String data);
-
-  /// 解析JSON数据
-  List<Map<String, dynamic>> parseJsonData(String data) {
-    final jsonData = jsonDecode(data);
-    if (jsonData is List) {
-      return List<Map<String, dynamic>>.from(jsonData);
-    } else {
-      throw const FormatException('Unexpected JSON format: expected a list');
+  /// 导出订阅到文件
+  Future<bool> exportToFile(String filePath, {List<T>? entities, ExportFormat format = ExportFormat.json}) async {
+    if (_importExportService == null) {
+      throw UnimplementedError('导入导出服务未实现');
     }
+    
+    return _importExportService.exportToFile(filePath, entities: entities, format: format);
   }
 
-  /// 解析TXT数据
-  List<Map<String, dynamic>> parseTxtData(String data);
-
-  /// 解析YAML数据
-  List<Map<String, dynamic>> parseYamlData(String data) {
-    final yamlData = loadYaml(data);
-    if (yamlData is List) {
-      return List<Map<String, dynamic>>.from(
-        yamlData.map((item) => Map<String, dynamic>.from(item)),
-      );
-    } else {
-      throw const FormatException('Unexpected YAML format: expected a list');
+  /// 从文件导入订阅
+  Future<List<T>> importFromFile(String filePath, {ImportMode mode = ImportMode.merge, ExportFormat? format}) async {
+    if (_importExportService == null) {
+      throw UnimplementedError('导入导出服务未实现');
     }
+    
+    return _importExportService!.importFromFile(filePath, mode: mode, format: format);
   }
+
+  /// 检测数据格式
+  ExportFormat _detectFormatFromData(String data) {
+    data = data.trim();
+    
+    // 尝试解析为JSON
+    try {
+      jsonDecode(data);
+      return ExportFormat.json;
+    } catch (_) {}
+    
+    // 尝试解析为YAML
+    try {
+      if (data.contains(':') && (data.contains('- ') || data.contains('  '))) {
+        return ExportFormat.yaml;
+      }
+    } catch (_) {}
+    
+    // 尝试解析为CSV
+    try {
+      if (data.contains(',') && data.contains('\n')) {
+        return ExportFormat.csv;
+      }
+    } catch (_) {}
+    
+    // 默认为JSON
+    return ExportFormat.json;
+  }
+
+  /// 更新订阅最后更新时间
+  Future<void> updateLastUpdated(ID id, DateTime time);
+
+  /// 获取所有待更新的订阅
+  Future<List<T>> getPendingUpdateSubscriptions();
+
+  /// 清除过期订阅
+  Future<int> clearExpiredSubscriptions();
 }

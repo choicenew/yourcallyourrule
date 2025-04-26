@@ -77,7 +77,8 @@ class WhitelistRule extends RuleBase {
     bool? isEnabled,
     int? count,
     bool? isSubscribed,
-    String? avatar, // 新增avatar参数
+    String? avatar,
+    RuleAction? action, // Add action parameter
   }) {
     return WhitelistRule(
       id: id,
@@ -85,7 +86,7 @@ class WhitelistRule extends RuleBase {
       priority: priority,
       phoneNumber: phoneNumber,
       label: label ?? this.label,
-      action: action,
+      action: action ?? this.action, // Include action in copy
       isEnabled: isEnabled ?? this.isEnabled,
       isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,

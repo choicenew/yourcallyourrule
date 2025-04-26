@@ -5,10 +5,10 @@ import 'package:csv/csv.dart';
 import 'package:http/http.dart' as http;
 import 'package:yaml/yaml.dart';
 
-import '../../base/base_entity.dart';
-import '../../entities/rule/rule_base.dart';
-import '../../repositories/rule_repository.dart';
-import '../import_export_service.dart';
+import '../../lib/core/base/base_entity.dart';
+import '../../lib/core/entities/rule/rule_base.dart';
+import '../../lib/core/repositories/rule_repository.dart';
+import '../../lib/core/services/import_export_service.dart';
 
 /// 规则导入导出服务
 /// 提供规则数据的导入导出功能

@@ -43,14 +43,13 @@ class CallerIdService {
     );
   }
 
-  Future<CallerIdData> getCallerId(
-      String phoneNumber, Locale locale) async {
+  Future<CallerIdData> getCallerId(String phoneNumber, Locale locale) async {
     PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
 
 // 1. 解析号码
 // 判断号码是否包含国际区号
-   // RegExp internationalPrefixRegex = RegExp(r'^(?:\+|00)');
-RegExp internationalPrefixRegex = RegExp(r'^\+');
+    // RegExp internationalPrefixRegex = RegExp(r'^(?:\+|00)');
+    RegExp internationalPrefixRegex = RegExp(r'^\+');
 
 // 2. 获取格式化号码
     String e164Number = "";
@@ -60,7 +59,6 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
       // 包含国际区号， 使用 null 作为国家代码
       PhoneNumber parsedPhoneNumber = phoneNumberUtil.parse(phoneNumber, null);
 
-          
       e164Number =
           phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
       nationalNumber =
@@ -69,21 +67,15 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
       // 不包含国际区号， 使用 locale.country 作为国家代码
       PhoneNumber parsedPhoneNumber =
           phoneNumberUtil.parse(phoneNumber, locale.country);
-        
+
       e164Number =
           phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
       nationalNumber =
           phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.national);
     }
 
-
-
-
-
-
-
     // 3. 查询数据
-   // 获取所有本地联系人
+    // 获取所有本地联系人
     List<flutterContact.Contact> allLocalContacts =
         await flutterContact.FlutterContacts.getContacts();
 
@@ -103,9 +95,7 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
       if (localContact != null) {
         break; // 找到匹配的联系人，跳出外层循环
       }
-
     }
- 
 
     // 4. Check contact service
 
@@ -117,7 +107,6 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
     }
     if (contact == null && nationalNumber.isNotEmpty) {
       contact = await contactService.findContactByPhoneNumber(nationalNumber);
-     
     }
 
     // 5. Check whitelist
@@ -134,35 +123,29 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
     // 6. Check blacklist
     BlacklistEntry? blacklistEntry =
         await blacklistService.getEntryByPhoneNumber(phoneNumber);
-          
+
     if (blacklistEntry == null && e164Number.isNotEmpty) {
       blacklistEntry = await blacklistService.getEntryByPhoneNumber(e164Number);
-       
     }
     if (blacklistEntry == null && nationalNumber.isNotEmpty) {
       blacklistEntry =
           await blacklistService.getEntryByPhoneNumber(nationalNumber);
-         
     }
 
     // 7. Check label service
-    LabeledEntry? labeledEntry = await labelService.getEntryByPhoneNumber(phoneNumber);
-     
+    LabeledEntry? labeledEntry =
+        await labelService.getEntryByPhoneNumber(phoneNumber);
+
     if (labeledEntry == null && nationalNumber.isNotEmpty) {
       labeledEntry = await labelService.getEntryByPhoneNumber(nationalNumber);
-       
     }
     if (labeledEntry == null && e164Number.isNotEmpty) {
       labeledEntry = await labelService.getEntryByPhoneNumber(e164Number);
-        
     }
 
     // 8. Check plugin manager
     Map<String, dynamic>? pluginData = await pluginService.callPlugins(
         phoneNumber, nationalNumber, e164Number);
-    
-
-
 
     // Determine name
     String name = localContact?.displayName ??
@@ -172,16 +155,14 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
         //pluginData?['name'] ??
         'Unknown';
 
-
     // Determine label
     String finalLabel = labeledEntry?.label ??
         whitelistEntry?.label ??
         blacklistEntry?.label ??
         pluginData?['predefinedLabel'] ??
         //pluginData?['predefinedLabel'] ??
-       // pluginData?['sourceLabel'] ??
+        // pluginData?['sourceLabel'] ??
         'Unknown';
-
 
     // Determine avatar
     String? avatar = contact?.avatar ??
@@ -191,16 +172,12 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
 
     // If no avatar but label exists, use label to construct avatar path
     if (avatar == null && finalLabel != 'Unknown') {
-      avatar = 'assets/avatars/$finalLabel.png';      
+      avatar = 'assets/avatars/$finalLabel.png';
     }
-
 
     // Get location data
     LocationData? locationData =
         await locationService.getCallerLocationData(e164Number, locale);
-
-
-
 
     int? count =
         whitelistEntry?.count ?? blacklistEntry?.count ?? pluginData?['count'];
@@ -237,25 +214,26 @@ RegExp internationalPrefixRegex = RegExp(r'^\+');
 */
 
 //labeledEntry、whitelistEntry 和 blacklistEntry的label属性都为null 时，才会更新 labelService
-if (labeledEntry?.label == null && whitelistEntry?.label == null && blacklistEntry?.label == null) {
-  if (pluginData?['predefinedLabel'] != null) {
-    final entry = LabeledEntry(
-      name: name, // 使用前面确定的 name
-      phoneNumber: phoneNumber,
-      label: pluginData?['predefinedLabel'],
-    );
-   // try {
-      await labelService.addOrUpdate(entry);
-  //  } catch (e) {
-   //   print('Error adding/updating label: $e');
-   // }
-  }
-}
+    if (labeledEntry?.label == null &&
+        whitelistEntry?.label == null &&
+        blacklistEntry?.label == null) {
+      if (pluginData?['predefinedLabel'] != null) {
+        final entry = LabeledEntry(
+          name: name, // 使用前面确定的 name
+          phoneNumber: phoneNumber,
+          label: pluginData?['predefinedLabel'],
+        );
+        // try {
+        await labelService.addOrUpdate(entry);
+        //  } catch (e) {
+        //   print('Error adding/updating label: $e');
+        // }
+      }
+    }
 
     return callerIdData;
   }
 }
-
 
 //单独定义得caller id data 数据
 class CallerIdData {
@@ -320,7 +298,6 @@ class CallerIdData {
         count: json['count'],
       );
 
-
 //为了支持overlay isolate 进行的转换
 
 //显示头像，可展示网络头像
@@ -340,8 +317,6 @@ class CallerIdData {
   }
 }
 
-
-
 class Label {
   String label;
 
@@ -351,8 +326,6 @@ class Label {
   Map<String, dynamic> toJson() => {'label': label};
 
   // 从 Map 创建 Label 对象，这个就是为了展示isolate overlay的转换
-  factory Label.fromJson(Map<String, dynamic> json) => Label(label: json['label']);
+  factory Label.fromJson(Map<String, dynamic> json) =>
+      Label(label: json['label']);
 }
-
-
-

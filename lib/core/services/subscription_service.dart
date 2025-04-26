@@ -23,7 +23,7 @@ abstract class SubscriptionService extends BaseService<Subscription, String> {
   Future<Subscription> save(Subscription entity);
   
   // 切换订阅启用状态
-  Future<void> toggleSubscription(String id, bool enabled);
+  Future<void> toggleSubscription(String id, bool isEnabled);
   
   // 强制立即更新订阅
   Future<void> forceUpdateSubscription(String id);
@@ -32,8 +32,8 @@ abstract class SubscriptionService extends BaseService<Subscription, String> {
   Future<DateTime> getLastUpdateTime(String id);
   
   // 添加批量操作支持
-  Future<int> batchToggleSubscriptions(List<String> ids, bool enabled) {
-    return repository.batchUpdateStatus(ids, enabled);
+  Future<int> batchToggleSubscriptions(List<String> ids, bool isEnabled) {
+    return repository.batchUpdateStatus(ids, isEnabled);
   }
 
   // 新增URL检查方法

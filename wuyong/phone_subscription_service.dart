@@ -5,9 +5,9 @@ import 'dart:io';
 
 import 'package:csv/csv.dart';
 
-import '../core/entities/subscription/subscription.dart';
-import '../core/repositories/subscription_repository.dart';
-import '../core/services/subscription_service_base.dart';
+import '../lib/core/entities/subscription/subscription.dart';
+import '../lib/core/repositories/subscription_repository.dart';
+import '../lib/core/services/subscription_service_base.dart';
 
 /// 电话规则订阅服务
 /// 处理电话黑白名单的订阅功能

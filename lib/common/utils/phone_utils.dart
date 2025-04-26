@@ -1,0 +1,117 @@
+import 'dart:async';
+
+import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:sim_card_info/sim_card_info.dart';
+import 'package:sim_card_info/sim_info.dart' as flutter;
+
+
+import 'package:yourcallyourrule/common/error/logger.dart';
+
+/// 电话号码工具类，提供电话号码解析和格式化功能
+class PhoneUtils {
+  /// 解析电话号码，返回国家代码、E164格式和国内格式
+  static Future<Map<String, String>> parsePhoneNumber(
+      String phoneNumber) async {
+    return _parsePhoneNumber(phoneNumber, null);
+  }
+
+  /// 解析电话号码（不使用ISO国家代码）
+  static Future<Map<String, String>> parsePhoneNumberWithoutIso(
+      String phoneNumber, String? countryCode) async {
+    return _parsePhoneNumber(phoneNumber, null); // 不使用 countryCode 参数
+  }
+
+  /// 解析电话号码（使用ISO国家代码）
+  static Future<Map<String, String>> parsePhoneNumberWithIso(
+      String phoneNumber, String simCountryCode) async {
+    return _parsePhoneNumber(phoneNumber, simCountryCode);
+  }
+
+  /// 内部解析电话号码的方法
+  static Future<Map<String, String>> _parsePhoneNumber(
+      String phoneNumber, String? simCountryCode) async {
+    PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
+    String? countryCode;
+    String e164Number = "";
+    String nationalNumber = "";
+
+    // 解析和格式化电话号码的函数
+    void parseAndFormat(PhoneNumber parsedPhoneNumber) {
+      countryCode = phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
+      e164Number =
+          phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
+      nationalNumber =
+          phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.national);
+    }
+
+    try {
+      if (phoneNumber.startsWith('+')) {
+        // 处理以'+'开头的国际号码
+        PhoneNumber parsedPhoneNumber =
+            phoneNumberUtil.parse(phoneNumber, null);
+        parseAndFormat(parsedPhoneNumber);
+      } else if (phoneNumber.startsWith('00')) {
+        // 处理以'00'开头的国际号码
+        String modifiedPhoneNumber = '+${phoneNumber.substring(2)}';
+        PhoneNumber parsedPhoneNumber =
+            phoneNumberUtil.parse(modifiedPhoneNumber, null);
+        parseAndFormat(parsedPhoneNumber);
+      } else {
+        // 处理本地号码，使用SIM卡国家代码或可用的SIM信息
+        if (simCountryCode != null) {
+          PhoneNumber parsedPhoneNumber =
+              phoneNumberUtil.parse(phoneNumber, simCountryCode.toUpperCase());
+          parseAndFormat(parsedPhoneNumber);
+        } else {
+          // 如果没有提供SIM国家代码，尝试从设备获取
+          final simCardInfoPlugin = SimCardInfo();
+          List<flutter.SimInfo> simInfoList =
+              await simCardInfoPlugin.getSimInfo() ?? [];
+          List<String> simCountryCodes =
+              simInfoList.map((sim) => sim.countryIso).toList();
+
+          for (String code in simCountryCodes) {
+            try {
+              PhoneNumber parsedPhoneNumber =
+                  phoneNumberUtil.parse(phoneNumber, code.toUpperCase());
+              String? parsedCountryCode =
+                  phoneNumberUtil.getRegionCodeForNumber(parsedPhoneNumber);
+              bool isValid = phoneNumberUtil.isValidNumber(parsedPhoneNumber);
+              String nationalSignificant = phoneNumberUtil
+                  .getNationalSignificantNumber(parsedPhoneNumber);
+              String cleanedInput =
+                  phoneNumber.replaceAll(RegExp(r'[^0-9]+'), '');
+              String nationalNumber = phoneNumberUtil.format(
+                  parsedPhoneNumber, PhoneNumberFormat.national);
+              // 去除 national 中的非数字字符
+              String cleanedNational =
+                  nationalNumber.replaceAll(RegExp(r'[^0-9]+'), '');
+
+              // 验证号码：1.验证是否有效，2.验证code是否匹配，3.验证号码是否一致
+              if (isValid &&
+                  parsedCountryCode?.toUpperCase() == code.toUpperCase() &&
+                  cleanedNational == cleanedInput) {
+                parseAndFormat(parsedPhoneNumber);
+                break;
+              }
+            } catch (e) {
+              AppLogger.error('invalid_country_code', e);
+            }
+          }
+        }
+      }
+    } catch (e) {
+      AppLogger.error('电话号码解析失败', e);
+     
+     
+     
+     
+    }
+
+    return {
+      'countryCode': countryCode ?? '',
+      'e164Number': e164Number,
+      'nationalNumber': nationalNumber,
+    };
+  }
+}
