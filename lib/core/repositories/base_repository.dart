@@ -33,4 +33,7 @@ abstract class BaseRepository<T, ID> {
   
   /// 获取实体数量
   Future<int> count();
+  
+  /// 新增从Map创建实体的方法声明
+  T fromMap(Map<String, dynamic> map);
 }

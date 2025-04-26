@@ -1,4 +1,3 @@
-import 'package:yourcallyourrule/core/base/base_service.dart';
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
@@ -8,7 +7,6 @@ import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
 /// 正则规则服务类，继承自ListService，提供正则规则的管理功能
 /// 包括添加、删除、查询正则规则等操作

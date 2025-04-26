@@ -29,7 +29,7 @@ class ContactModel extends BaseModel<PhoneEntry> {
 
   // 构造函数
   const ContactModel({
-    required String id,
+    required super.id,
     required this.phoneNumber,
     required this.name,
     this.avatar,
@@ -37,7 +37,7 @@ class ContactModel extends BaseModel<PhoneEntry> {
     this.labelIds,
     this.isFavorite = false,
     required this.lastUpdated,
-  }) : super(id: id);
+  });
   
   // 从Map创建模型
   factory ContactModel.fromMap(Map<String, dynamic> map) {

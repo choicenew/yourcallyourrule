@@ -1,0 +1,206 @@
+// 电话规则订阅服务，用于处理电话黑白名单订阅
+
+
+import 'package:yourcallyourrule/core/entities/rule/blacklist_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/whitelist_rule.dart';
+import 'package:yourcallyourrule/core/services/import_export_service.dart';
+
+import '../../../core/entities/rule/rule_base.dart';
+import '../../../core/entities/subscription/subscription.dart';
+import '../../../core/repositories/rule_repository.dart';
+import '../../../core/repositories/subscription_repository.dart';
+import '../../../core/services/rule_import_export_service.dart';
+import '../../../core/services/subscription_service_base.dart';
+import '../../../core/value_objects/rule_action.dart';
+import '../../../core/value_objects/url.dart';
+
+/// 电话规则订阅服务
+/// 处理电话黑白名单的订阅功能
+class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, String> {
+  final SubscriptionRepository _repository;
+  final RuleRepository _ruleRepository;
+  final RuleImportExportService _ruleImportExportService;
+
+  PhoneSubscriptionService(
+    this._repository, 
+    this._ruleRepository
+  ) : _ruleImportExportService = RuleImportExportService(_ruleRepository),
+      super(_repository);
+
+  @override
+  Future<List<Subscription>> getEnabledSubscriptions() async {
+    final allSubscriptions = await getAll();
+    return allSubscriptions.where((subscription) => subscription.isEnabled).toList();
+  }
+
+  /// 获取白名单订阅
+  Future<List<Subscription>> getWhitelistSubscriptions() async {
+    final allSubscriptions = await getAll();
+    return allSubscriptions.where((subscription) => subscription.isWhitelist).toList();
+  }
+
+  /// 获取黑名单订阅
+  Future<List<Subscription>> getBlacklistSubscriptions() async {
+    final allSubscriptions = await getAll();
+    return allSubscriptions.where((subscription) => subscription.isBlacklist).toList();
+  }
+
+  @override
+  Future<void> enableSubscription(Subscription subscription) async {
+    subscription = Subscription(
+      id: subscription.id,
+      name: subscription.name,
+      url: subscription.url,
+      isEnabled: true,
+      isWhitelist: subscription.isWhitelist,
+      isBlacklist: subscription.isBlacklist,
+      lastUpdated: subscription.lastUpdated,
+      autoUpdate: subscription.autoUpdate,
+    );
+    await save(subscription);
+  }
+
+  @override
+  Future<void> disableSubscription(Subscription subscription) async {
+    subscription = Subscription(
+      id: subscription.id,
+      name: subscription.name,
+      url: subscription.url,
+      isEnabled: false,
+      isWhitelist: subscription.isWhitelist,
+      isBlacklist: subscription.isBlacklist,
+      lastUpdated: subscription.lastUpdated,
+      autoUpdate: subscription.autoUpdate,
+    );
+    await save(subscription);
+  }
+
+  @override
+  Future<Subscription> addSubscription(String name, String url, {bool isEnabled = true}) async {
+    final subscription = Subscription(
+      id: '',
+      name: name,
+      url: Url.fromString(url),
+      isEnabled: isEnabled,
+      isWhitelist: false,
+      isBlacklist: true,
+      lastUpdated: DateTime.now(),
+      autoUpdate: false,
+    );
+    return await save(subscription);
+  }
+
+  /// 添加白名单订阅
+  Future<Subscription> addWhitelistSubscription(String name, String url, {bool isEnabled = true}) async {
+    final subscription = Subscription(
+      id: '',
+      name: name,
+      url: Url.fromString(url),
+      isEnabled: isEnabled,
+      isWhitelist: true,
+      isBlacklist: false,
+      lastUpdated: DateTime.now(),
+      autoUpdate: false,
+    );
+    return await save(subscription);
+  }
+
+  /// 添加黑名单订阅
+  Future<Subscription> addBlacklistSubscription(String name, String url, {bool isEnabled = true}) async {
+    final subscription = Subscription(
+      id: '',
+      name: name,
+      url: Url.fromString(url),
+      isEnabled: isEnabled,
+      isWhitelist: false,
+      isBlacklist: true,
+      lastUpdated: DateTime.now(),
+      autoUpdate: false,
+    );
+    return await save(subscription);
+  }
+
+  @override
+  Future<Subscription> updateSubscription(Subscription subscription) async {
+    return await update(subscription);
+  }
+
+  @override
+  Future<bool> deleteSubscription(String id) async {
+    return await deleteById(id);
+  }
+
+  /// 从URL更新订阅规则
+  /// 核心规则更新方法（不更新时间戳）
+  Future<List<RuleBase>> _updateRulesCore(Subscription subscription) async {
+    final data = await downloadFromUrl(subscription.url.toString());
+    final rules = await _ruleImportExportService.parseImportData(data);
+    
+    final processedRules = rules.map((rule) {
+      if (subscription.isWhitelist) {
+        if (rule is BlacklistRule) {
+          return rule.copyWith(
+            action: RuleAction.allow,
+            isSubscribed: true
+          );
+        }
+        return rule;
+      } else if (subscription.isBlacklist) {
+        if (rule is WhitelistRule) {
+          return rule.copyWith(
+            action: RuleAction.block,
+            isSubscribed: true
+          );
+        }
+        return rule;
+      }
+      return rule;
+    }).toList();
+    
+    await _ruleRepository.saveAll(processedRules);
+    return processedRules;
+  }
+
+  /// 自动更新（带时间戳更新）
+  Future<List<RuleBase>> updateRulesFromSubscription(Subscription subscription) async {
+    try {
+      final result = await _updateRulesCore(subscription);
+      await updateLastUpdated(subscription.id, DateTime.now());
+      return result;
+    } catch (e) {
+      throw Exception('更新订阅规则失败: $e');
+    }
+  }
+
+  /// 手动更新（不带时间戳更新）
+  Future<List<RuleBase>> manualUpdateRulesFromSubscription(Subscription subscription) async {
+    try {
+      return await _updateRulesCore(subscription);
+    } catch (e) {
+      throw Exception('手动更新规则失败: $e');
+    }
+  }
+
+  @override
+  Future<void> updateLastUpdated(String id, DateTime time) async {
+    await _repository.updateLastUpdated(id, time);
+  }
+
+  @override
+  Future<List<Subscription>> getPendingUpdateSubscriptions() async {
+    return await _repository.getPendingUpdateSubscriptions();
+  }
+
+  @override
+  Future<int> clearExpiredSubscriptions() async {
+    return await _repository.clearExpiredSubscriptions();
+  }
+
+  // 新增导出功能
+
+  // 新增文件导入功能- 基类已通过 _importExportService 处理具体逻辑
+ //子类通过构造函数注入 RuleImportExportService 已满足依赖
+ //无任何需要覆盖的特殊场景
+
+
+}

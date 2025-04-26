@@ -1,12 +1,10 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:csv/csv.dart';
 import 'package:http/http.dart' as http;
 import 'package:yaml/yaml.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 
-import '../base/base_entity.dart';
 import '../entities/rule/rule_base.dart';
 import '../repositories/rule_repository.dart';
 import 'import_export_service.dart';

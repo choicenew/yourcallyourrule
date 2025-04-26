@@ -7,8 +7,8 @@ import 'package:csv/csv.dart';
 
 import 'package:yaml/yaml.dart';
 
-import '../../base/base_entity.dart';
-import '../../base/base_service.dart';
+import '../../lib/core/base/base_entity.dart';
+import '../../lib/core/base/base_service.dart';
 
 /// 导入导出服务基类
 /// [T] 是实体类型
