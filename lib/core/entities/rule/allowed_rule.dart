@@ -59,24 +59,29 @@ class AllowedRule extends RuleBase {
     return copyWith(count: count + 1);
   }
 
+  @override
   AllowedRule copyWith({
-    String? label, // 支持修改标签
+    RuleAction? action,
+    String? id,
     bool? isEnabled,
-    int? count,
+    String? name,
+    RulePriority? priority,
+    String? label,
     bool? isSubscribed,
-    String? avatar, // 新增avatar参数
+    int? count,
+    String? avatar,
   }) {
     return AllowedRule(
-      id: id,
-      name: name,
-      priority: priority,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      priority: priority ?? this.priority,
       phoneNumber: phoneNumber,
       label: label ?? this.label,
-      action: action,
+      action: action ?? this.action,
       isEnabled: isEnabled ?? this.isEnabled,
       isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,
-      avatar: avatar ?? this.avatar, // 传递avatar
+      avatar: avatar ?? this.avatar,
     );
   }
 }

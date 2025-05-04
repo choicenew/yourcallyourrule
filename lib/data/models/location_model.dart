@@ -20,6 +20,17 @@ class LocationModel extends BaseModel<LocationEntry> {
     required this.numberType,
   });
 
+  factory LocationModel.fromMap(Map<String, dynamic> map) {
+    return LocationModel(
+      id: map['id'] as String,
+      phoneNumber: PhoneNumber.fromString(map['phoneNumber'] as String),
+      region: map['region'] as String?,
+      countryName: map['countryName'] as String?,
+      carrier: map['carrier'] as String?,
+      numberType: PhoneNumberType.values[map['numberType'] as int],
+    );
+  }
+
   factory LocationModel.fromEntity(LocationEntry entity) {
     return LocationModel(
       id: entity.id,

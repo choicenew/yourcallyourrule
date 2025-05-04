@@ -1,0 +1,19 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// 导入所有基础提供者
+import 'basic_provider/index.dart';
+
+// 导出所有提供者
+export 'rules_provider.dart';
+export 'call_logs_provider.dart';
+export 'contacts_provider.dart';
+export 'labels_provider.dart';
+export 'lists_provider.dart';
+export 'locations_provider.dart';
+export 'plugins_provider.dart';
+export 'sms_subscriptions_provider.dart';
+export 'contact_subscriptions_provider.dart';
+export 'subscriptions_provider.dart';
+
+// 导出所有基础提供者
+export 'basic_provider/index.dart';

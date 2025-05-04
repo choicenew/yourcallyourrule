@@ -1,7 +1,181 @@
-// 通知服务基类，用于处理应用内通知
+import 'dart:convert';
 
-/// 通知服务接口
-abstract class NotificationService {
+import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+/// 通知配置类
+/// 用于配置通知的各种参数
+class NotificationConfig {
+  final String channelId;
+  final String channelName;
+  final String channelDescription;
+  final Importance importance;
+  final Priority priority;
+  final Duration autoCancelDelay;
+  final bool playSound;
+  final String? soundSource;
+  final bool enableVibration;
+  final bool showBadge;
+  final Color? color;
+  final String Function(String)? titleBuilder;
+  final String Function(String)? bodyBuilder;
+
+  const NotificationConfig({
+    required this.channelId,
+    required this.channelName,
+    this.channelDescription = '',
+    this.importance = Importance.defaultImportance,
+    this.priority = Priority.defaultPriority,
+    this.autoCancelDelay = const Duration(seconds: 5),
+    this.playSound = true,
+    this.soundSource,
+    this.enableVibration = true,
+    this.showBadge = true,
+    this.color,
+    this.titleBuilder,
+    this.bodyBuilder,
+  });
+
+  /// 创建AndroidNotificationDetails
+  AndroidNotificationDetails createAndroidDetails() {
+    return AndroidNotificationDetails(
+      channelId,
+      channelName,
+      channelDescription: channelDescription,
+      importance: importance,
+      priority: priority,
+      playSound: playSound,
+      sound: soundSource != null ? RawResourceAndroidNotificationSound(soundSource!) : null,
+      enableVibration: enableVibration,
+      channelShowBadge: showBadge,
+      color: color,
+    );
+  }
+}
+
+/// 通知服务类
+/// 负责处理应用内所有通知相关的功能
+class NotificationService {
+  static final NotificationService _instance = NotificationService._internal();
+  
+  factory NotificationService({NotificationConfig? defaultConfig}) {
+    if (defaultConfig != null) {
+      _instance._defaultConfig = defaultConfig;
+    }
+    return _instance;
+  }
+  
+  NotificationService._internal() : _plugin = FlutterLocalNotificationsPlugin() {
+    _initialize();
+  }
+
+  final FlutterLocalNotificationsPlugin _plugin;
+  NotificationConfig _defaultConfig = const NotificationConfig(
+    channelId: 'default_channel',
+    channelName: '默认通知',
+    channelDescription: '应用默认通知渠道',
+    importance: Importance.high,
+    priority: Priority.high,
+  );
+  
+  final Map<String, NotificationConfig> _configCache = {};
+  bool _isInitialized = false;
+
+  /// 预定义的通知配置
+  static final blockedCallConfig = NotificationConfig(
+    channelId: 'blocked_calls',
+    channelName: '拦截通知',
+    channelDescription: '显示被拦截的来电信息',
+    importance: Importance.max,
+    priority: Priority.high,
+    playSound: false,
+    titleBuilder: (phone) => '来电拦截',
+    bodyBuilder: (phone) => '已拦截来自 $phone 的来电',
+  );
+
+  static final stirResultConfig = NotificationConfig(
+    channelId: 'stir_results',
+    channelName: 'STIR验证',
+    channelDescription: '显示号码STIR验证结果',
+    importance: Importance.high,
+    priority: Priority.high,
+    titleBuilder: (phone) => '号码验证结果',
+    bodyBuilder: (phone) => '号码 $phone 验证完成',
+  );
+  
+  /// 初始化通知服务
+  Future<void> _initialize() async {
+    if (_isInitialized) return;
+    
+    const initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher');
+    const initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
+    
+    await _plugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: _onNotificationResponse,
+    );
+    
+    // 创建默认通知渠道
+    await _createNotificationChannel(_defaultConfig);
+    
+    // 创建预定义的通知渠道
+    await _createNotificationChannel(blockedCallConfig);
+    await _createNotificationChannel(stirResultConfig);
+    
+    _isInitialized = true;
+  }
+  
+  /// 处理通知响应
+  void _onNotificationResponse(NotificationResponse response) {
+    final payload = response.payload;
+    if (payload != null) {
+      try {
+        final Map<String, dynamic> data = jsonDecode(payload);
+        _notificationTapHandlers.forEach((handler) => handler(data));
+      } catch (e) {
+        debugPrint('通知负载解析错误: $e');
+      }
+    }
+  }
+  
+  final List<Function(Map<String, dynamic>)> _notificationTapHandlers = [];
+  final Map<String, List<Function(String, Map<String, dynamic>?)>> _actionHandlers = {};
+  
+  /// 注册通知点击处理器
+  void registerNotificationTapHandler(Function(Map<String, dynamic>) handler) {
+    _notificationTapHandlers.add(handler);
+  }
+  
+  /// 注册通知动作处理器
+  void registerActionHandler(String actionId, Function(String, Map<String, dynamic>?) handler) {
+    if (!_actionHandlers.containsKey(actionId)) {
+      _actionHandlers[actionId] = [];
+    }
+    _actionHandlers[actionId]!.add(handler);
+  }
+  
+  /// 创建通知渠道
+  Future<void> _createNotificationChannel(NotificationConfig config) async {
+    final androidChannel = AndroidNotificationChannel(
+      config.channelId,
+      config.channelName,
+      description: config.channelDescription,
+      importance: config.importance,
+      playSound: config.playSound,
+      sound: config.soundSource != null ? RawResourceAndroidNotificationSound(config.soundSource!) : null,
+      enableVibration: config.enableVibration,
+      showBadge: config.showBadge,
+    );
+
+    await _plugin
+        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(androidChannel);
+    
+    // 缓存配置
+    _configCache[config.channelId] = config;
+  }
+  
   /// 显示通知
   /// [title] 通知标题
   /// [body] 通知内容
@@ -14,60 +188,125 @@ abstract class NotificationService {
     required String channelId,
     int notificationId = 0,
     Map<String, dynamic>? payload,
-  });
-
-  /// 显示带有动作按钮的通知
-  /// [title] 通知标题
-  /// [body] 通知内容
-  /// [channelId] 通知渠道ID
-  /// [notificationId] 通知ID，用于更新或取消通知
-  /// [actions] 通知动作列表
-  /// [payload] 通知负载，可用于点击通知时传递数据
-  Future<void> showNotificationWithActions({
-    required String title,
-    required String body,
-    required String channelId,
-    required List<NotificationAction> actions,
+    List<NotificationAction>? actions,
+    bool autoCancel = true,
+    Duration? autoCancelDelay,
+  }) async {
+    if (!_isInitialized) await _initialize();
+    
+    // 获取通知配置
+    final config = _configCache[channelId] ?? _defaultConfig;
+    
+    // 创建Android通知详情
+    final androidDetails = config.createAndroidDetails();
+    
+    // 显示通知
+    await _plugin.show(
+      notificationId,
+      title,
+      body,
+      NotificationDetails(android: androidDetails),
+      payload: payload != null ? jsonEncode(payload) : null,
+    );
+    
+    // 自动取消通知
+    if (autoCancel) {
+      final delay = autoCancelDelay ?? config.autoCancelDelay;
+      await Future.delayed(delay);
+      await _plugin.cancel(notificationId);
+    }
+  }
+  
+  /// 使用预定义配置显示通知
+  Future<void> showNotificationWithConfig({
+    required NotificationConfig config,
+    required String contentData,
     int notificationId = 0,
     Map<String, dynamic>? payload,
-  });
+    bool autoCancel = true,
+    Duration? autoCancelDelay,
+  }) async {
+    final title = config.titleBuilder != null 
+        ? config.titleBuilder!(contentData) 
+        : '通知';
+    
+    final body = config.bodyBuilder != null 
+        ? config.bodyBuilder!(contentData) 
+        : contentData;
+    
+    await showNotification(
+      title: title,
+      body: body,
+      channelId: config.channelId,
+      notificationId: notificationId,
+      payload: payload,
+      autoCancel: autoCancel,
+      autoCancelDelay: autoCancelDelay,
+    );
+  }
+  
+  /// 显示拦截通知
+  Future<void> showBlockedCallNotification(String phoneNumber, {int notificationId = 0}) async {
+    await showNotificationWithConfig(
+      config: blockedCallConfig,
+      contentData: phoneNumber,
+      notificationId: notificationId,
+      payload: {'type': 'blocked_call', 'phoneNumber': phoneNumber},
+    );
+  }
+  
+  /// 显示STIR验证通知
+  Future<void> showStirResultNotification(
+    String phoneNumber, 
+    String verificationResult, 
+    {int notificationId = 0}
+  ) async {
+    await showNotificationWithConfig(
+      config: stirResultConfig,
+      contentData: phoneNumber,
+      notificationId: notificationId,
+      payload: {
+        'type': 'stir_result', 
+        'phoneNumber': phoneNumber,
+        'result': verificationResult
+      },
+    );
+  }
 
   /// 取消通知
-  /// [notificationId] 通知ID
-  Future<void> cancelNotification(int notificationId);
+  Future<void> cancelNotification(int notificationId) async {
+    await _plugin.cancel(notificationId);
+  }
 
   /// 取消所有通知
-  Future<void> cancelAllNotifications();
-
-  /// 创建通知渠道（仅Android 8.0及以上需要）
-  /// [channelId] 渠道ID
-  /// [channelName] 渠道名称
-  /// [channelDescription] 渠道描述
-  /// [importance] 重要性级别
-  Future<void> createNotificationChannel({
-    required String channelId,
-    required String channelName,
-    required String channelDescription,
-    required NotificationImportance importance,
-  });
+  Future<void> cancelAllNotifications() async {
+    await _plugin.cancelAll();
+  }
 
   /// 检查通知权限
-  Future<bool> checkNotificationPermission();
+  Future<bool> checkNotificationPermission() async {
+    // 使用permission_handler插件检查通知权限
+    final status = await Permission.notification.status;
+    return status.isGranted;
+  }
 
   /// 请求通知权限
-  Future<bool> requestNotificationPermission();
+  Future<bool> requestNotificationPermission() async {
+    // 使用permission_handler插件请求通知权限
+    final status = await Permission.notification.request();
+    return status.isGranted;
+  }
 
   /// 打开通知设置
-  Future<void> openNotificationSettings();
+  Future<void> openNotificationSettings() async {
+    // 使用permission_handler插件打开通知设置
+    await openAppSettings();
+  }
 
-  /// 初始化通知服务
-  Future<void> initialize();
-
-  /// 处理通知点击事件
-  void onNotificationTapped(Function(Map<String, dynamic>? payload) handler);
-
-  /// 处理通知动作点击事件
-  void onNotificationActionTapped(Function(String actionId, Map<String, dynamic>? payload) handler);
+  /// 重定向到页面
+  static void redirectToPage(String routeName, Map<String, dynamic>? params) {
+    // 需要结合项目路由系统实现
+  }
 }
 
 /// 通知动作类
@@ -101,4 +340,24 @@ enum NotificationImportance {
   default_,  // 有声音，状态栏和通知栏可见
   high,      // 有声音，状态栏和通知栏可见，可能会有横幅
   max,       // 有声音，状态栏和通知栏可见，会有横幅和全屏意图
+}
+
+/// 扩展方法，将自定义枚举转换为Flutter枚举
+extension NotificationImportanceExtension on NotificationImportance {
+  Importance toAndroidImportance() {
+    switch (this) {
+      case NotificationImportance.none:
+        return Importance.none;
+      case NotificationImportance.min:
+        return Importance.min;
+      case NotificationImportance.low:
+        return Importance.low;
+      case NotificationImportance.default_:
+        return Importance.defaultImportance;
+      case NotificationImportance.high:
+        return Importance.high;
+      case NotificationImportance.max:
+        return Importance.max;
+    }
+  }
 }

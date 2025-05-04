@@ -9,8 +9,8 @@ import 'base_model.dart';
 
 // 标签模型类
 class LabelModel extends BaseModel<LabelEntry> {
-  // 标签名称
-  final String name;
+  // 标签名称（可选）
+  final String? name;
   // 标签颜色（已注释）
   // final String color;
   // 标签图标（可选）
@@ -31,7 +31,7 @@ class LabelModel extends BaseModel<LabelEntry> {
   // 构造函数
   const LabelModel({
     required super.id,
-    required this.name,
+    this.name,
     // required this.color,
     this.icon,
     required this.phoneNumber,
@@ -46,7 +46,7 @@ class LabelModel extends BaseModel<LabelEntry> {
   factory LabelModel.fromMap(Map<String, dynamic> map) {
     return LabelModel(
       id: map['id'],
-      name: map['name'] ?? '',
+      name: map['name'],
       // color: map['color'],
       icon: map['icon'],
       phoneNumber: map['phoneNumber'],
@@ -99,7 +99,7 @@ class LabelModel extends BaseModel<LabelEntry> {
       id: entity.id,
       phoneNumber: entity.phoneNumber.value,
       label: entity.label,
-      name: entity.name ?? '',
+      name: entity.name,
       // color: entity.color ?? '',
       icon: entity.icon,
       avatar: entity.avatar,

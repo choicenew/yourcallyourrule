@@ -11,7 +11,6 @@ abstract class ContactRepository extends BaseRepository<Contact, String> {
   // 添加缺失的方法声明
   Future<void> deleteContactByUrl(String url);
 
-  
   // 修改参数类型为PhoneNumber
   Future<bool> contactExists(PhoneNumber phoneNumber);
   Future<bool> contactExistsAny(List<PhoneNumber> phoneNumbers);
@@ -30,7 +29,32 @@ abstract class ContactRepository extends BaseRepository<Contact, String> {
   Future<bool> addToFavorites(String contactId);
   Future<bool> removeFromFavorites(String contactId);
   Future<List<PhoneEntry>> getFavorites();
+  
+  /// 根据标签获取联系人
+  Future<List<Contact>> getContactsByLabel(String labelId);
+  
+  /// 根据列表获取联系人
+  Future<List<Contact>> getContactsByList(String listId);
+  
+  /// 添加联系人到列表
+  Future<bool> addContactToList(String contactId, String listId);
+  
+  /// 从列表中移除联系人
+  Future<bool> removeContactFromList(String contactId, String listId);
+  
+  /// 批量导入联系人
+  Future<int> importContactsList(List<Contact> contacts);
+  
+  /// 导出联系人
+  Future<List<Map<String, dynamic>>> exportContactsData();
+  
+  /// 合并重复联系人
+  Future<int> mergeDuplicates();
+
+  /// 批量导入联系人（电话条目）
   Future<List<PhoneEntry>> importContacts(List<PhoneEntry> contacts);
+  
+  /// 导出联系人（电话条目）
   Future<List<PhoneEntry>> exportContacts();
   Future<void> syncWithDeviceContacts();
   Future<int> getContactCount();

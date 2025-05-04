@@ -40,7 +40,7 @@ class CallModel extends BaseModel<CallEntity> {
 
   // 构造函数
   const CallModel({
-    required String id,
+    required super.id,
     required this.phoneNumber,
     this.contactName,
     required this.callType,
@@ -52,7 +52,7 @@ class CallModel extends BaseModel<CallEntity> {
     this.note,
     this.isMarked = false,
     this.labelIds,
-  }) : super(id: id);
+  });
   
   // 从Map创建模型
   factory CallModel.fromMap(Map<String, dynamic> map) {

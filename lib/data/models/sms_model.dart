@@ -34,7 +34,7 @@ class SmsModel extends BaseModel<SmsEntity> {
 
   // 构造函数
   const SmsModel({
-    required String id,
+    required super.id,
     required this.phoneNumber,
     this.contactName,
     required this.messageType,
@@ -44,7 +44,7 @@ class SmsModel extends BaseModel<SmsEntity> {
     this.simInfo,
     this.isMarked = false,
     this.labelIds,
-  }) : super(id: id);
+  });
   
   // 从Map创建模型
   factory SmsModel.fromMap(Map<String, dynamic> map) {

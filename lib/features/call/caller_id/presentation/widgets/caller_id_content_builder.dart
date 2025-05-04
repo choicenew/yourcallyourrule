@@ -1,0 +1,286 @@
+import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
+import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
+import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/features/call/caller_id/core/extensions/phone_number_type_extension.dart';
+import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+
+/// 来电显示内容构建器
+/// 提供共享的来电显示UI构建功能，减少代码重复
+class CallerIdContentBuilder {
+  /// 构建来电显示内容
+  static Widget buildCallerIdContent({
+    required BuildContext context,
+    required CallerIdData callerIdData,
+    required CallerIdStyleProvider styleProvider,
+    SimInfo? simInfo,
+    StirInfo? stirInfo,
+    bool isDraggable = true,
+  }) {
+    return Stack(
+      children: <Widget>[
+        // 头像
+        _buildPositionedElement(
+          child: _buildAvatar(callerIdData, styleProvider),
+          position: styleProvider.avatarPosition,
+          onPositionChanged: isDraggable ? styleProvider.updateAvatarPosition : null,
+        ),
+        // 运营商
+        _buildPositionedElement(
+          child: Text(
+            callerIdData.carrier ?? 'Unknown',
+            style: TextStyle(
+              fontSize: styleProvider.carrierFontSize,
+              color: styleProvider.textCarrierColor,
+            ),
+          ),
+          position: styleProvider.carrierPosition,
+          onPositionChanged: isDraggable ? styleProvider.updateCarrierPosition : null,
+        ),
+        // 名称
+        _buildPositionedElement(
+          child: Text(
+            callerIdData.name == null
+                ? 'Name: Unknown'
+                : 'Name: ${callerIdData.name}',
+            style: TextStyle(
+              fontSize: styleProvider.nameFontSize,
+              color: styleProvider.textNameColor,
+            ),
+          ),
+          position: styleProvider.namePosition,
+          onPositionChanged: isDraggable ? styleProvider.updateNamePosition : null,
+        ),
+        // 国家名称
+        _buildPositionedElement(
+          child: Text(
+            callerIdData.countryName ?? 'Unknown',
+            style: TextStyle(
+              fontSize: styleProvider.countryNameFontSize,
+              color: styleProvider.textCountryNameColor,
+            ),
+          ),
+          position: styleProvider.countryNamePosition,
+          onPositionChanged: isDraggable ? styleProvider.updateCountryNamePosition : null,
+        ),
+        // 标签
+        _buildPositionedElement(
+          child: Row(
+            children: [
+              Icon(Icons.policy_outlined,
+                  color: styleProvider.textIconLabelColor,
+                  size: styleProvider.iconSize),
+              const SizedBox(width: 5),
+              Text(
+                callerIdData.labels?.isNotEmpty == true
+                    ? callerIdData.labels!.map((label) => label.label).join(', ')
+                    : 'Unknown',
+                style: TextStyle(
+                  fontSize: styleProvider.labelsFontSize,
+                  color: styleProvider.textLabelsColor,
+                ),
+              ),
+            ],
+          ),
+          position: styleProvider.labelsPosition,
+          onPositionChanged: isDraggable ? styleProvider.updateLabelsPosition : null,
+        ),
+        // 计数
+        _buildPositionedElement(
+          child: Text(
+            'Marked by ${callerIdData.count}',
+            style: TextStyle(
+              fontSize: styleProvider.countFontSize,
+              color: styleProvider.textCountColor,
+            ),
+          ),
+          position: styleProvider.countPosition,
+          onPositionChanged: isDraggable ? styleProvider.updateCountPosition : null,
+        ),
+        // 号码类型
+        _buildPositionedElement(
+          child: Text(
+            callerIdData.numberType.translated(context),
+            style: TextStyle(
+              fontSize: styleProvider.numberTypeFontSize,
+              color: styleProvider.textNumberTypeColor,
+            ),
+          ),
+          position: styleProvider.numberTypePosition,
+          onPositionChanged: isDraggable ? styleProvider.updateNumberTypePosition : null,
+        ),
+        // 电话号码
+        _buildPositionedElement(
+          child: Text(
+            callerIdData.phoneNumber.value,
+            style: TextStyle(
+              fontSize: styleProvider.numberFontSize,
+              color: styleProvider.textNumberColor,
+            ),
+          ),
+          position: styleProvider.numberPosition,
+          onPositionChanged: isDraggable ? styleProvider.updateNumberPosition : null,
+        ),
+        // 地理位置
+        _buildPositionedElement(
+          child: Row(
+            children: [
+              Icon(Icons.location_on,
+                  color: styleProvider.textIconLocationColor,
+                  size: styleProvider.iconSize),
+              const SizedBox(width: 5),
+              Text(
+                callerIdData.region ?? 'Unknown',
+                style: TextStyle(
+                  fontSize: styleProvider.locationFontSize,
+                  color: styleProvider.textLocationColor,
+                ),
+              ),
+            ],
+          ),
+          position: styleProvider.locationPosition,
+          onPositionChanged: isDraggable ? styleProvider.updateLocationPosition : null,
+        ),
+        // STIR/SHAKEN验证状态
+        if (stirInfo != null)
+          _buildPositionedElement(
+            child: Text(
+              stirInfo.isVerified
+                  ? 'Verified'
+                  : (stirInfo.isNotVerified ? 'Not Verified' : 'Failed'),
+              style: TextStyle(
+                fontSize: styleProvider.stirFontSize,
+                color: styleProvider.textStirColor,
+              ),
+            ),
+            position: styleProvider.stirPosition,
+            onPositionChanged: isDraggable ? styleProvider.updateStirPosition : null,
+          ),
+        // 通话类型
+        if (simInfo != null)
+          _buildPositionedElement(
+            child: Row(
+              children: [
+                Icon(
+                  simInfo.callType == "incoming"
+                      ? Icons.call_received
+                      : Icons.call_made,
+                  color: styleProvider.textIconCallTypeColor,
+                  size: styleProvider.iconSize,
+                ),
+                const SizedBox(width: 5),
+              ],
+            ),
+            position: styleProvider.callTypePosition,
+            onPositionChanged: isDraggable ? styleProvider.updateCallTypePosition : null,
+          ),
+        // SIM卡信息
+        if (simInfo != null)
+          _buildPositionedElement(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
+              child: Row(
+                children: [
+                  Text(
+                    simInfo.simSlotIndex == 0
+                        ? "SIM 1,-${simInfo.countryIso}"
+                        : (simInfo.simSlotIndex != null
+                            ? "SIM 2,-${simInfo.countryIso}"
+                            : "Unknown"),
+                    style: TextStyle(
+                      fontSize: styleProvider.simCardFontSize,
+                      color: styleProvider.textSimCardColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            position: styleProvider.simCardPosition,
+            onPositionChanged: isDraggable ? styleProvider.updateSimCardPosition : null,
+          ),
+      ],
+    );
+  }
+
+  /// 构建头像
+  static Widget _buildAvatar(CallerIdData callerIdData, CallerIdStyleProvider styleProvider) {
+    return CircleAvatar(
+      radius: styleProvider.avatarBorderSize / 2,
+      backgroundColor: styleProvider.avatarBorderColor,
+      child: CircleAvatar(
+        radius: styleProvider.avatarSize / 2,
+        backgroundImage: _getAvatarImage(callerIdData),
+      ),
+    );
+  }
+
+  /// 获取头像图片
+  static ImageProvider _getAvatarImage(CallerIdData callerIdData) {
+    if (callerIdData.avatar != null && callerIdData.avatar!.isNotEmpty) {
+      // 如果是URL链接，则使用NetworkImage
+      if (callerIdData.avatar!.startsWith('http')) {
+        return NetworkImage(callerIdData.avatar!);
+      } else {
+        // 如果是本地资源路径，则使用AssetImage
+        return AssetImage(callerIdData.avatar!);
+      }
+    } else {
+      // 否则使用标签构建本地资源路径
+      final label = callerIdData.labels?.isNotEmpty == true 
+          ? callerIdData.labels!.first.label 
+          : 'Unknown';
+      return AssetImage('assets/avatars/$label.png');
+    }
+  }
+
+  /// 构建定位元素
+  static Widget _buildPositionedElement({
+    required Widget child,
+    required Offset position,
+    Function(Offset)? onPositionChanged,
+  }) {
+    return Positioned(
+      left: position.dx,
+      top: position.dy,
+      child: onPositionChanged != null
+          ? GestureDetector(
+              onPanUpdate: (details) {
+                onPositionChanged(position + details.delta);
+              },
+              child: child,
+            )
+          : child,
+    );
+  }
+
+  /// 构建覆盖层容器
+  static Widget buildOverlayContainer({
+    required CallerIdStyleProvider styleProvider,
+    required Widget child,
+    double opacity = 1.0,
+  }) {
+    return Opacity(
+      opacity: opacity,
+      child: Container(
+        width: styleProvider.windowWidth,
+        height: styleProvider.windowHeight,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: const Alignment(6.0, 1),
+            end: const Alignment(-1, 6.0),
+            colors: [
+              styleProvider.backgroundColorStart,
+              styleProvider.backgroundColorEnd,
+            ],
+          ),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: child,
+      ),
+    );
+  }
+}
