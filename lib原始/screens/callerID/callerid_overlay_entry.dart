@@ -12,7 +12,7 @@ import '../../utils/language_provider.dart';
 import '../../views/public/label_translation_extension.dart';
 import 'callerid_configuration.dart';
 import 'callerid_style_provider.dart';
-import 'number_type_extension.dart';
+//import 'number_type_extension.dart';
 
 class CallerIdOverlayEntry extends StatefulWidget {
   const CallerIdOverlayEntry({super.key});

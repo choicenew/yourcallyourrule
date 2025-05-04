@@ -1,10 +1,11 @@
 // 移除该行 ↓
 
 
-import 'package:yourcallyourrule/core/entities/call/call_filter_config.dart';
+
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
@@ -18,7 +19,8 @@ class CallFilterService {
   final BlacklistWhitelistService _blacklistWhitelistService;
   final ConfigRepository _configRepository;
 
-  CallFilterConfig callFilterConfig = CallFilterConfig();
+  Map<int, CallFilterConfig> simSlotConfigs = {};
+  CallFilterConfig defaultConfig = CallFilterConfig();
 
   // 构造函数明确依赖关系
   CallFilterService({
@@ -32,24 +34,26 @@ class CallFilterService {
         _configRepository = configRepository;
 
   // 修复方法定义（原代码存在结构错误）
-  Future<bool> shouldAcceptCall(String phoneNumberStr) async {
+  Future<bool> shouldAcceptCall(String phoneNumberStr, {int? simSlotIndex}) async {
+    // 根据SIM卡槽获取对应的配置
+    final config = simSlotIndex != null ? (simSlotConfigs[simSlotIndex] ?? defaultConfig) : defaultConfig;
     final phoneNumber = PhoneNumber(phoneNumberStr);
 
-    if (callFilterConfig.rejectAllNumbers) {
+    if (config.rejectAllNumbers) {
       return false;
     }
 
-    if (callFilterConfig.allowAllAllowedNumbers &&
+    if (config.allowAllAllowedNumbers &&
         await _allowedBlockedService.isInAllowed(phoneNumber)) {
       return true;
     }
 
     if (await _allowedBlockedService.isInBlocked(phoneNumber) &&
-        !callFilterConfig.allowBlockedNumbers) {
+        !config.allowBlockedNumbers) {
       return false;
     }
 
-    if (callFilterConfig.allowRegexAllowRules) {
+    if (config.allowRegexAllowRules) {
       final regexRules =
           await _regexService.getRegexRulesByAction(RuleAction.allow);
       for (var rule in regexRules) {
@@ -60,13 +64,13 @@ class CallFilterService {
     }
 
     // 检查号码是否在白名单中
-    if (callFilterConfig.allowAllWhitelistedNumbers &&
+    if (config.allowAllWhitelistedNumbers &&
         await _blacklistWhitelistService.isInWhitelist(phoneNumber)) {
       return true;
     }
 
     // 检查号码是否匹配阻止规则的正则表达式
-    if (callFilterConfig.allowRegexBlockRules) {
+    if (config.allowRegexBlockRules) {
       final regexRules =
           await _regexService.getRegexRulesByAction(RuleAction.block);
       for (var rule in regexRules) {
@@ -78,7 +82,7 @@ class CallFilterService {
 
     // 检查号码是否在黑名单中
     if (await _blacklistWhitelistService.isInBlacklist(phoneNumber) &&
-        !callFilterConfig.allowAllBlacklistedNumbers) {
+        !config.allowAllBlacklistedNumbers) {
       return false;
     }
 
@@ -90,18 +94,39 @@ class CallFilterService {
   Future<void> loadConfig() async {
     final configMap = await _configRepository.getConfig('call_filter');
     if (configMap != null) {
-      callFilterConfig = CallFilterConfig.fromMap(configMap);
+      defaultConfig = CallFilterConfig.fromMap(configMap);
+      
+      // 加载每个SIM卡槽的配置
+      final sim1ConfigMap = await _configRepository.getConfig('call_filter_sim1');
+      final sim2ConfigMap = await _configRepository.getConfig('call_filter_sim2');
+      
+      if (sim1ConfigMap != null) {
+        simSlotConfigs[0] = CallFilterConfig.fromMap(sim1ConfigMap);
+      }
+      if (sim2ConfigMap != null) {
+        simSlotConfigs[1] = CallFilterConfig.fromMap(sim2ConfigMap);
+      }
     }
   }
 
   /// 保存配置到配置仓库
   Future<void> saveConfig() async {
-    await _configRepository.saveConfig('call_filter', callFilterConfig.toMap());
+    await _configRepository.saveConfig('call_filter', defaultConfig.toMap());
+    
+    // 保存每个SIM卡槽的配置
+    for (var entry in simSlotConfigs.entries) {
+      final configKey = 'call_filter_sim${entry.key + 1}';
+      await _configRepository.saveConfig(configKey, entry.value.toMap());
+    }
   }
 
   /// 更新配置
-  Future<void> updateConfig(CallFilterConfig newConfig) async {
-    callFilterConfig = newConfig;
+  Future<void> updateConfig(CallFilterConfig newConfig, {int? simSlotIndex}) async {
+    if (simSlotIndex != null) {
+      simSlotConfigs[simSlotIndex] = newConfig;
+    } else {
+      defaultConfig = newConfig;
+    }
     await saveConfig();
   }
 

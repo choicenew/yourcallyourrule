@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/features/rules/services/call_filter_service.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 
 /// 通话过滤设置页面，用于配置通话过滤规则
 class CallFilterSettingsPage extends StatefulWidget {
@@ -17,7 +18,8 @@ class CallFilterSettingsPageState extends State<CallFilterSettingsPage> {
   @override
   void initState() {
     super.initState();
-    _config = widget.callFilterService.config;
+    // 修改第22行 config → callFilterConfig
+    _config = widget.callFilterService.callFilterConfig;
   }
 
   /// 处理配置变更
@@ -33,14 +35,14 @@ class CallFilterSettingsPageState extends State<CallFilterSettingsPage> {
         case 'allowBlockedNumbers':
           _config = _config.copyWith(allowBlockedNumbers: value);
           break;
-        case 'allowRegexWhitelistedPatterns':
-          _config = _config.copyWith(allowRegexWhitelistedPatterns: value);
+        case 'allowRegexAllowRules': // 修改配置项名称
+          _config = _config.copyWith(allowRegexAllowRules: value);
           break;
         case 'allowAllWhitelistedNumbers':
           _config = _config.copyWith(allowAllWhitelistedNumbers: value);
           break;
-        case 'allowRegexBlacklistedPatterns':
-          _config = _config.copyWith(allowRegexBlacklistedPatterns: value);
+        case 'allowRegexBlockRules': // 修改配置项名称
+          _config = _config.copyWith(allowRegexBlockRules: value);
           break;
         case 'allowAllBlacklistedNumbers':
           _config = _config.copyWith(allowAllBlacklistedNumbers: value);
@@ -86,10 +88,10 @@ class CallFilterSettingsPageState extends State<CallFilterSettingsPage> {
             (value) => _handleConfigChange('allowBlockedNumbers', value),
           ),
           _buildSwitchListTile(
-            '允许匹配白名单正则表达式的号码',
-            '允许匹配白名单正则表达式的号码',
-            _config.allowRegexWhitelistedPatterns,
-            (value) => _handleConfigChange('allowRegexWhitelistedPatterns', value),
+            '允许匹配允许规则的正则表达式',
+            '启用正则表达式匹配允许规则',
+            _config.allowRegexAllowRules,
+            (value) => _handleConfigChange('allowRegexAllowRules', value),
           ),
           _buildSwitchListTile(
             '允许所有白名单号码',
@@ -98,10 +100,10 @@ class CallFilterSettingsPageState extends State<CallFilterSettingsPage> {
             (value) => _handleConfigChange('allowAllWhitelistedNumbers', value),
           ),
           _buildSwitchListTile(
-            '允许匹配黑名单正则表达式的号码',
-            '允许匹配黑名单正则表达式的号码',
-            _config.allowRegexBlacklistedPatterns,
-            (value) => _handleConfigChange('allowRegexBlacklistedPatterns', value),
+            '允许匹配阻止规则的正则表达式', // 更新描述
+            '启用正则表达式匹配阻止规则',
+            _config.allowRegexBlockRules,
+            (value) => _handleConfigChange('allowRegexBlockRules', value),
           ),
           _buildSwitchListTile(
             '允许所有黑名单号码',

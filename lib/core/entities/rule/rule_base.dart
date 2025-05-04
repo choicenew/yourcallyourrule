@@ -26,6 +26,15 @@ abstract class RuleBase extends BaseEntity {
     this.isEnabled = true,
   });
   
+  // 抽象copyWith方法，子类必须实现
+  RuleBase copyWith({
+    String? id,
+    String? name,
+    RulePriority? priority,
+    RuleAction? action,
+    bool? isEnabled,
+  });
+  
   // 规则匹配方法，子类必须实现此方法
   bool matches(String input);
   

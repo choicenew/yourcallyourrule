@@ -205,6 +205,7 @@ class CallerIdService {
     final callerIdData = CallerIdData(
       id: phoneNumber, // 使用电话号码作为ID
       phoneNumber: vo.PhoneNumber.fromString(phoneNumber),
+      numberType: locationData?.numberType ?? PhoneNumberType.unknown,
       name: name,
       countryName: locationData?.countryName,
       region: locationData?.region,

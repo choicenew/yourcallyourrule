@@ -72,21 +72,25 @@ class WhitelistRule extends RuleBase {
   }
 
   // 添加copyWith方法代替直接修改
+  @override
   WhitelistRule copyWith({
-    String? label,
+    String? id,
+    String? name,
+    RulePriority? priority,
+    RuleAction? action,
     bool? isEnabled,
+    String? label,
     int? count,
     bool? isSubscribed,
     String? avatar,
-    RuleAction? action, // Add action parameter
   }) {
     return WhitelistRule(
-      id: id,
-      name: name,
-      priority: priority,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      priority: priority ?? this.priority,
       phoneNumber: phoneNumber,
       label: label ?? this.label,
-      action: action ?? this.action, // Include action in copy
+      action: action ?? this.action,
       isEnabled: isEnabled ?? this.isEnabled,
       isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,

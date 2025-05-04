@@ -39,20 +39,49 @@ class SmsRegexRule extends RuleBase {
   }
 
 
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'contentRegex': contentPattern.pattern,
+      'senderRegex': senderPattern?.pattern,
+      'action': action.toString(),
+      'priority': priority.value,
+      'isEnabled': isEnabled,
+      'ruleType': ruleType,
+    };
+  }
+
+  factory SmsRegexRule.fromMap(Map<String, dynamic> map) {
+    return SmsRegexRule(
+      id: map['id'],
+      name: map['name'],
+      contentRegex: map['contentRegex'],
+      senderRegex: map['senderRegex'],
+      action: RuleAction.fromString(map['action']),
+      priority: RulePriority.fromInt(map['priority']),
+      isEnabled: map['isEnabled'] ?? true,
+    );
+  }
+
+  @override
   SmsRegexRule copyWith({
     String? id,
     String? name,
-    String? contentRegex,
-    String? senderRegex,
+    RulePriority? priority,
     RuleAction? action,
     bool? isEnabled,
+    String? contentRegex,
+    String? senderRegex,
   }) {
     return SmsRegexRule(
       id: id ?? this.id,
       name: name ?? this.name,
-      contentRegex: contentRegex ?? this.contentPattern.pattern,
-      senderRegex: senderRegex ?? this.senderPattern?.pattern,
+      contentRegex: contentRegex ?? contentPattern.pattern,
+      senderRegex: senderRegex ?? senderPattern?.pattern,
       action: action ?? this.action,
+      priority: priority ?? this.priority,
       isEnabled: isEnabled ?? this.isEnabled,
     );
   }

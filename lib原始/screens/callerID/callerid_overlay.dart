@@ -9,7 +9,7 @@ import '../../services/caller_id_monitor_service.dart';
 import '../../services/caller_id_service.dart';
 
 import 'callerid_style_provider.dart';
-import 'number_type_extension.dart';
+//import 'number_type_extension.dart';
 
 
 class CallerIdOverlay extends StatefulWidget {

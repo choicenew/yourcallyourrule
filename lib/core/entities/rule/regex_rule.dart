@@ -25,17 +25,20 @@ class RegexRule extends RuleBase {
       : const RulePriority(5);  // block规则默认优先级5
   }
 
+  @override
   RegexRule copyWith({
-    bool? isEnabled,
+    String? id,
+    String? name,
     RulePriority? priority,
     RuleAction? action,
+    bool? isEnabled,
   }) {
     return RegexRule(
-      id: id,
-      name: name,
+      id: id ?? this.id,
+      name: name ?? this.name,
       pattern: pattern,
       action: action ?? this.action,
-      priority: priority ?? this.priority, // 正确传递优先级参数
+      priority: priority ?? this.priority,
       isEnabled: isEnabled ?? this.isEnabled,
     );
   }

@@ -1,11 +1,16 @@
 // 来电显示数据实体类，用于表示来电显示所需的所有信息
 
+import 'package:dlibphonenumber/enums/phone_number_type.dart';
+
 import '../base/base_entity.dart';
 import '../value_objects/phone_number.dart';
 
 class CallerIdData extends BaseEntity {
   // 电话号码值对象
   final PhoneNumber phoneNumber;
+  
+  // 新增号码类型字段
+  final PhoneNumberType numberType;
   
   // 名称（可选）
   final String? name;
@@ -28,10 +33,11 @@ class CallerIdData extends BaseEntity {
   // 计数（用于统计出现次数）
   final int count;
   
-  // 构造函数
+  // 更新构造函数
   const CallerIdData({
-    required String id,
+    required super.id,
     required this.phoneNumber,
+    required this.numberType,
     this.name,
     this.countryName,
     this.region,
@@ -39,14 +45,15 @@ class CallerIdData extends BaseEntity {
     this.labels,
     this.avatar,
     this.count = 0,
-  }) : super(id: id);
+  });
   
-  // 重写toMap方法，添加来电显示数据特有的字段
+  // 更新toMap方法
   @override
   Map<String, dynamic> toMap() {
     final map = super.toMap();
     map.addAll({
       'phoneNumber': phoneNumber.value,
+      'numberType': numberType.index, // 存储枚举索引值
       'name': name,
       'countryName': countryName,
       'region': region,
@@ -58,11 +65,12 @@ class CallerIdData extends BaseEntity {
     return map;
   }
   
-  // 从Map创建实例的工厂构造函数
+  // 更新fromMap方法
   factory CallerIdData.fromMap(Map<String, dynamic> map) {
     return CallerIdData(
       id: map['id'],
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
+      numberType: PhoneNumberType.values[map['numberType']], // 从索引值还原枚举
       name: map['name'],
       countryName: map['countryName'],
       region: map['region'],
@@ -80,13 +88,14 @@ class CallerIdData extends BaseEntity {
     return CallerIdData(
       id: id,
       phoneNumber: phoneNumber,
+      numberType: numberType,
       name: name,
       countryName: countryName,
       region: region,
       carrier: carrier,
       labels: labels,
       avatar: avatar,
-      count: count + 1,
+      count: count + 1, 
     );
   }
 }

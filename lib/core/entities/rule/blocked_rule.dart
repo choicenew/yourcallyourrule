@@ -60,23 +60,28 @@ class BlockedRule extends RuleBase {
     return copyWith(count: count + 1);
   }
 
+  @override
   BlockedRule copyWith({
-    String? label,  // 新增copyWith参数
+    String? id,
+    String? name,
+    RulePriority? priority,
+    RuleAction? action,
     bool? isEnabled,
+    String? label,
     int? count,
     bool? isSubscribed,
   }) {
     return BlockedRule(
-      id: id,
-      name: name,
-      priority: priority,
+      id: id ?? this.id,
+      name: name ?? this.name,
+      priority: priority ?? this.priority,
       phoneNumber: phoneNumber,
-            label: label ?? this.label,
-      action: action,
+      label: label ?? this.label,
+      action: action ?? this.action,
       isEnabled: isEnabled ?? this.isEnabled,
       isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,
-
+      avatar: avatar,
     );
   }
 }
