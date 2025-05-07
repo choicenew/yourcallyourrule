@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Call Your Rule - 主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0ACA6D 0%, #93CB80 100%);
+            min-height: 100vh;
+        }
+        .app-frame {
+            max-width: 430px;
+            height: 100vh;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            overflow-y: auto;
+        }
+        .nav-item {
+            transition: all 0.3s ease;
+        }
+        .nav-item.active {
+            color: #0ACA6D;
+            position: relative;
+        }
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #0ACA6D;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+    <div class="app-frame rounded-3xl shadow-2xl">
+        <!-- 状态栏 -->
+        <div class="bg-black text-white px-6 py-2 flex justify-between items-center text-sm">
+            <span>9:41</span>
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 主要内容 -->
+        <div class="p-6 space-y-8">
+            <!-- 顶部用户信息 -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-user text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-semibold text-gray-800">欢迎回来</h2>
+                        <p class="text-sm text-gray-500">让我们继续保护您的通话安全</p>
+                    </div>
+                </div>
+                <button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-bell text-gray-600"></i>
+                </button>
+            </div>
+
+            <!-- 统计卡片 -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-primary/10 p-4 rounded-2xl">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-primary"><i class="fas fa-shield-alt"></i></span>
+                        <span class="text-xs text-primary/70">本周</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">24</h3>
+                    <p class="text-sm text-gray-600">已拦截来电</p>
+                </div>
+
+                <div class="bg-secondary/10 p-4 rounded-2xl">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-secondary"><i class="fas fa-comment-slash"></i></span>
+                        <span class="text-xs text-secondary/70">本周</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">56</h3>
+                    <p class="text-sm text-gray-600">已过滤短信</p>
+                </div>
+            </div>
+
+            <!-- 快捷功能 -->
+            <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">快捷功能</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <button class="p-4 bg-white rounded-2xl shadow-lg shadow-gray-100/50 flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-plus text-primary"></i>
+                        </div>
+                        <span class="font-medium text-gray-700">添加白名单</span>
+                    </button>
+
+                    <button class="p-4 bg-white rounded-2xl shadow-lg shadow-gray-100/50 flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-slash text-red-500"></i>
+                        </div>
+                        <span class="font-medium text-gray-700">添加黑名单</span>
+                    </button>
+
+                    <button class="p-4 bg-white rounded-2xl shadow-lg shadow-gray-100/50 flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-cog text-purple-500"></i>
+                        </div>
+                        <span class="font-medium text-gray-700">拦截设置</span>
+                    </button>
+
+                    <button class="p-4 bg-white rounded-2xl shadow-lg shadow-gray-100/50 flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-history text-blue-500"></i>
+                        </div>
+                        <span class="font-medium text-gray-700">拦截记录</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 最近活动 -->
+            <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">最近活动</h3>
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded-2xl shadow-lg shadow-gray-100/50">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-ban text-red-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">拦截可疑来电</h4>
+                                <p class="text-sm text-gray-500 mt-1">来自 +86 138****1234</p>
+                                <span class="text-xs text-gray-400 mt-2 block">2分钟前</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl shadow-lg shadow-gray-100/50">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-comment-slash text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">过滤垃圾短信</h4>
+                                <p class="text-sm text-gray-500 mt-1">来自 10086</p>
+                                <span class="text-xs text-gray-400 mt-2 block">5分钟前</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="fixed bottom-0 w-full max-w-[430px] bg-white border-t border-gray-100 px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="nav-item active flex flex-col items-center">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">主页</span>
+                </a>
+                <a href="#" class="nav-item text-gray-400 flex flex-col items-center">
+                    <i class="fas fa-shield-alt text-xl"></i>
+                    <span class="text-xs mt-1">防护</span>
+                </a>
+                <a href="#" class="nav-item text-gray-400 flex flex-col items-center">
+                    <i class="fas fa-chart-bar text-xl"></i>
+                    <span class="text-xs mt-1">统计</span>
+                </a>
+                <a href="#" class="nav-item text-gray-400 flex flex-col items-center">
+                    <i class="fas fa-user text-xl"></i>
+                    <span class="text-xs mt-1">我的</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

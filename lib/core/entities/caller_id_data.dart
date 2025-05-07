@@ -1,6 +1,7 @@
 // 来电显示数据实体类，用于表示来电显示所需的所有信息
 
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
+import 'package:flutter/material.dart';
 
 import '../base/base_entity.dart';
 import '../value_objects/phone_number.dart';
@@ -32,6 +33,25 @@ class CallerIdData extends BaseEntity {
   
   // 计数（用于统计出现次数）
   final int count;
+  
+  // 获取头像图片
+  ImageProvider? get avatarImage {
+    if (avatar == null || avatar!.isEmpty) {
+      // 如果没有头像但有标签，则使用第一个标签
+      if (labels != null && labels!.isNotEmpty) {
+        return AssetImage('assets/avatars/${labels!.first.label}.png');
+      }
+      return null;
+    }
+    
+    // 如果avatar是URL链接，则使用NetworkImage
+    if (avatar!.startsWith('http')) {
+      return NetworkImage(avatar!);
+    } else {
+      // 如果avatar是本地资源路径，则使用AssetImage
+      return AssetImage(avatar!);
+    }
+  }
   
   // 更新构造函数
   const CallerIdData({

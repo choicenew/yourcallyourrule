@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系人管理 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .contact-card {
+            @apply bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow mb-4;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #FFB74D;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #FFB74D;
+        }
+        .tab-active {
+            @apply border-primary text-primary;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <a href="settings.html" class="text-gray-600 hover:text-primary mr-2">
+                        <i class="fas fa-arrow-left text-xl"></i>
+                    </a>
+                    <i class="fas fa-address-book text-primary text-xl"></i>
+                    <h1 class="text-xl font-semibold text-dark">联系人管理</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-primary hover:text-opacity-80">
+                        <i class="fas fa-plus text-xl"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-primary">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 标签页 -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex">
+                <button class="py-3 px-4 border-b-2 tab-active font-medium">
+                    所有联系人
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium">
+                    已标记
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium">
+                    已订阅
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-6">
+        <!-- 联系人同步 -->
+        <section class="mb-6 bg-white rounded-xl p-4 shadow-sm">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-medium text-dark">联系人同步</h3>
+                    <p class="text-sm text-gray-500 mt-1">从云端更新联系人信息</p>
+                </div>
+                <div class="relative inline-block w-12 align-middle select-none">
+                    <input type="checkbox" id="sync-contacts" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                    <label for="sync-contacts" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                </div>
+            </div>
+            <div class="mt-4 flex space-x-3">
+                <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg transition text-sm">
+                    <i class="fas fa-sync-alt mr-2"></i>立即同步
+                </button>
+                <button class="border border-primary text-primary hover:bg-primary/10 px-4 py-2 rounded-lg transition text-sm">
+                    <i class="fas fa-cog mr-2"></i>同步设置
+                </button>
+            </div>
+        </section>
+
+        <!-- 联系人列表 -->
+        <div class="mb-4">
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-medium text-dark">联系人列表</h3>
+                <span class="text-sm text-gray-500">共 128 个联系人</span>
+            </div>
+
+            <!-- 字母索引 -->
+            <div class="flex justify-between bg-white rounded-lg p-2 mb-4 overflow-x-auto">
+                <a href="#A" class="px-2 text-primary font-medium">A</a>
+                <a href="#B" class="px-2 text-gray-500">B</a>
+                <a href="#C" class="px-2 text-gray-500">C</a>
+                <a href="#D" class="px-2 text-gray-500">D</a>
+                <a href="#E" class="px-2 text-gray-500">E</a>
+                <a href="#F" class="px-2 text-gray-500">F</a>
+                <a href="#G" class="px-2 text-gray-500">G</a>
+                <a href="#H" class="px-2 text-gray-500">H</a>
+                <a href="#I" class="px-2 text-gray-500">I</a>
+                <a href="#J" class="px-2 text-gray-500">J</a>
+                <a href="#K" class="px-2 text-gray-500">K</a>
+                <a href="#L" class="px-2 text-gray-500">L</a>
+                <a href="#M" class="px-2 text-gray-500">M</a>
+                <a href="#N" class="px-2 text-gray-500">N</a>
+                <a href="#O" class="px-2 text-gray-500">O</a>
+                <a href="#P" class="px-2 text-gray-500">P</a>
+                <a href="#Q" class="px-2 text-gray-500">Q</a>
+                <a href="#R" class="px-2 text-gray-500">R</a>
+                <a href="#S" class="px-2 text-gray-500">S</a>
+                <a href="#T" class="px-2 text-gray-500">T</a>
+                <a href="#U" class="px-2 text-gray-500">U</a>
+                <a href="#V" class="px-2 text-gray-500">V</a>
+                <a href="#W" class="px-2 text-gray-500">W</a>
+                <a href="#X" class="px-2 text-gray-500">X</a>
+                <a href="#Y" class="px-2 text-gray-500">Y</a>
+                <a href="#Z" class="px-2 text-gray-500">Z</a>
+                <a href="#" class="px-2 text-gray-500">#</a>
+            </div>
+
+            <!-- A组联系人 -->
+            <div id="A" class="mb-4">
+                <div class="text-sm text-gray-500 mb-2 px-2">A</div>
+                
+                <!-- 联系人项 -->
+                <div class="contact-card">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="bg-primary/20 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-primary font-medium">A</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">阿里巴巴客服</h4>
+                                <p class="text-sm text-gray-500">+86 10086</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="text-primary">
+                                <i class="fas fa-tag"></i>
+                            </button>
+                            <button class="text-gray-400">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex items-center text-xs text-gray-500">
+                        <span class="bg-primary/10 text-primary px-2 py-1 rounded mr-2">已标记</span>
+                        <span>客服</span>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="bg-info/20 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-info font-medium">A</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">安妮</h4>
+                                <p class="text-sm text-gray-500">+86 13800138001</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="text-gray-400">
+                                <i class="fas fa-tag"></i>
+                            </button>
+                            <button class="text-gray-400">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B组联系人 -->
+            <div id="B" class="mb-4">
+                <div class="text-sm text-gray-500 mb-2 px-2">B</div>
+                
+                <div class="contact-card">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="bg-success/20 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-success font-medium">B</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">百度客服</h4>
+                                <p class="text-sm text-gray-500">+86 10000</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="text-primary">
+                                <i class="fas fa-tag"></i>
+                            </button>
+                            <button class="text-gray-400">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex items-center text-xs text-gray-500">
+                        <span class="bg-primary/10 text-primary px-2 py-1 rounded mr-2">已标记</span>
+                        <span>客服</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更多联系人... -->
+        </div>
+    </main>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="flex justify-around items-center py-3">
+                <a href="index.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="rules.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-list-alt text-xl"></i>
+                    <span class="text-xs mt-1">规则</span>
+                </a>
+                <a href="call_history.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-history text-xl"></i>
+                    <span class="text-xs mt-1">历史</span>
+                </a>
+                <a href="settings.html" class="flex flex-col items-center text-primary">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="text-xs mt-1">设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Call Your Rule - UI设计启动页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ACA6D',
+                        secondary: '#FF809A',
+                        accent: '#93CB80',
+                        dark: '#333333',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .page-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .page-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-10">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Your Call Your Rule</h1>
+            <p class="text-xl text-gray-600">现代化UI设计展示</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto bg-white rounded-xl p-6 card-shadow mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">欢迎使用新UI设计</h2>
+            <p class="text-gray-600 mb-4">这是使用Tailwind CSS重新设计的Your Call Your Rule应用界面。点击下方卡片查看各个页面的设计。</p>
+            <div class="flex items-center bg-blue-50 text-blue-700 p-4 rounded-lg mb-4">
+                <i class="fas fa-info-circle text-xl mr-3"></i>
+                <p>所有页面都使用在线资源，可以直接在浏览器中打开查看。</p>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <!-- 主页 -->
+            <a href="index.html" class="page-card bg-white rounded-xl overflow-hidden card-shadow">
+                <div class="h-40 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white">
+                    <i class="fas fa-home text-5xl"></i>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-2">主页</h3>
+                    <p class="text-gray-600 text-sm">应用的主界面，包含主要功能和导航</p>
+                </div>
+            </a>
+            
+            <!-- 引导页 -->
+            <a href="onboarding.html" class="page-card bg-white rounded-xl overflow-hidden card-shadow">
+                <div class="h-40 bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white">
+                    <i class="fas fa-magic text-5xl"></i>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-2">引导页</h3>
+                    <p class="text-gray-600 text-sm">新用户初始设置和功能介绍</p>
+                </div>
+            </a>
+            
+            <!-- 仪表盘 -->
+            <a href="dashboard.html" class="page-card bg-white rounded-xl overflow-hidden card-shadow">
+                <div class="h-40 bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center text-white">
+                    <i class="fas fa-chart-bar text-5xl"></i>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-2">仪表盘</h3>
+                    <p class="text-gray-600 text-sm">统计数据和任务管理</p>
+                </div>
+            </a>
+            
+            <!-- 来电识别设置 -->
+            <a href="callerid.html" class="page-card bg-white rounded-xl overflow-hidden card-shadow">
+                <div class="h-40 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center text-white">
+                    <i class="fas fa-phone-alt text-5xl"></i>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-2">来电识别设置</h3>
+                    <p class="text-gray-600 text-sm">自定义来电显示样式和行为</p>
+                </div>
+            </a>
+            
+            <!-- 黑名单管理 -->
+            <a href="blacklist.html" class="page-card bg-white rounded-xl overflow-hidden card-shadow">
+                <div class="h-40 bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center text-white">
+                    <i class="fas fa-ban text-5xl"></i>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-2">黑名单管理</h3>
+                    <p class="text-gray-600 text-sm">管理拦截的联系人</p>
+                </div>
+            </a>
+            
+            <!-- 说明文档 -->
+            <a href="README.md" class="page-card bg-white rounded-xl overflow-hidden card-shadow">
+                <div class="h-40 bg-gradient-to-r from-gray-700 to-gray-900 flex items-center justify-center text-white">
+                    <i class="fas fa-book text-5xl"></i>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-2">说明文档</h3>
+                    <p class="text-gray-600 text-sm">查看设计说明和使用指南</p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="text-center mt-12 text-gray-500 text-sm">
+            <p>使用Tailwind CSS和HTML重新设计 | Your Call Your Rule</p>
+        </div>
+    </div>
+</body>
+</html>

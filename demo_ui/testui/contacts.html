@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系人 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html" class="flex items-center">
+                        <i class="fas fa-arrow-left text-gray-600 mr-4"></i>
+                        <i class="fas fa-address-book text-accent text-xl mr-2"></i>
+                        <span class="text-xl font-bold">联系人</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 hover:text-primary transition">
+                        <i class="fas fa-upload"></i>
+                    </button>
+                    <button class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                        <i class="fas fa-plus mr-2"></i>新建
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <div class="container mx-auto px-4 py-6">
+        <!-- 搜索栏 -->
+        <div class="mb-6">
+            <div class="relative">
+                <input type="text" placeholder="搜索联系人" class="w-full px-4 py-3 pl-12 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            </div>
+        </div>
+
+        <!-- 联系人分组 -->
+        <div class="space-y-6">
+            <!-- 常用联系人 -->
+            <div>
+                <h2 class="text-lg font-semibold mb-4">常用联系人</h2>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span class="text-primary font-semibold">张</span>
+                        </div>
+                        <p class="text-sm">张三</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span class="text-accent font-semibold">李</span>
+                        </div>
+                        <p class="text-sm">李四</p>
+                    </div>
+                    <!-- 更多常用联系人... -->
+                </div>
+            </div>
+
+            <!-- 联系人列表 -->
+            <div>
+                <h2 class="text-lg font-semibold mb-4">所有联系人</h2>
+                <div class="space-y-4">
+                    <!-- 字母分组 A -->
+                    <div>
+                        <div class="text-sm text-gray-600 mb-2">A</div>
+                        <div class="bg-white rounded-xl divide-y divide-gray-100">
+                            <div class="p-4 flex justify-between items-center">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                        <span class="text-primary font-semibold">A</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold">阿明</h3>
+                                        <p class="text-sm text-gray-600">+86 13800138000</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <button class="text-gray-400 hover:text-primary transition">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="text-gray-400 hover:text-info transition">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 字母分组 B -->
+                    <div>
+                        <div class="text-sm text-gray-600 mb-2">B</div>
+                        <div class="bg-white rounded-xl divide-y divide-gray-100">
+                            <div class="p-4 flex justify-between items-center">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-accent bg-opacity-10 rounded-full flex items-center justify-center">
+                                        <span class="text-accent font-semibold">B</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold">白云</h3>
+                                        <p class="text-sm text-gray-600">+86 13900139000</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <button class="text-gray-400 hover:text-primary transition">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="text-gray-400 hover:text-info transition">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 更多字母分组... -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="flex justify-around items-center py-3">
+                <a href="index.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="blacklist.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-list-alt text-xl"></i>
+                    <span class="text-xs mt-1">规则</span>
+                </a>
+                <a href="call_history.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-history text-xl"></i>
+                    <span class="text-xs mt-1">历史</span>
+                </a>
+                <a href="settings.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="text-xs mt-1">设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

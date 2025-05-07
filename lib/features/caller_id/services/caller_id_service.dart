@@ -1,11 +1,12 @@
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 
 import 'package:rxdart/rxdart.dart';
+import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/label/label_entry.dart';
 import 'package:flutter_contacts/flutter_contacts.dart' as fluttercontact;
 import 'package:yourcallyourrule/core/entities/rule/blacklist_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/whitelist_rule.dart';
-
+import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
@@ -25,6 +26,14 @@ class CallerIdService {
   final PluginInvokerService _pluginService;
 
   final _callerIdSubject = BehaviorSubject<CallerIdData>();
+  final _pluginDataSubject = BehaviorSubject<PluginData>();
+  final _legacyPluginDataSubject = BehaviorSubject<Map<String, dynamic>>();
+
+  /// 插件数据流
+  Stream<PluginData> get pluginDataStream => _pluginDataSubject.stream;
+
+  /// 兼容性插件数据流
+  Stream<Map<String, dynamic>> get legacyPluginDataStream => _legacyPluginDataSubject.stream;
 
   /// 来电显示数据流，用于监听来电显示数据的变化
   Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
@@ -62,6 +71,14 @@ class CallerIdService {
   /// [locale] 区域设置，用于解析国际电话号码
   /// 返回包含来电显示信息的CallerIdData对象
   Future<CallerIdData> getCallerId(String phoneNumber, Locale locale) async {
+    // 使用PhoneUtils进行号码解析
+    final parsed = await PhoneUtils.parsePhoneNumberWithIso(phoneNumber, locale.country);
+    return getCallerIdWithParsed(phoneNumber, parsed['e164Number'] ?? '', parsed['nationalNumber'] ?? '', locale);
+  }
+
+  Future<CallerIdData> getCallerIdWithParsed(String phoneNumber, String e164Number, String nationalNumber, Locale locale) async {
+    
+/*
     final PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
     
     // 1. 解析号码，判断是否包含国际区号
@@ -82,7 +99,16 @@ class CallerIdService {
       e164Number = phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.e164);
       nationalNumber = phoneNumberUtil.format(parsedPhoneNumber, PhoneNumberFormat.national);
     }
+   */ 
+   
+       // 使用PhoneUtils进行号码解析，原始的解析方法
+
+    //final parsed = await PhoneUtils.parsePhoneNumberWithIso(phoneNumber, locale.country);
     
+    // 获取格式化号码
+  //  String e164Number = parsed['e164Number'] ?? "";
+  //  String nationalNumber = parsed['nationalNumber'] ?? "";
+
     // 获取手机所有本地联系人
     List<fluttercontact.Contact> allLocalContacts =
         await fluttercontact.FlutterContacts.getContacts();
@@ -158,11 +184,14 @@ class CallerIdService {
                      (e164Number.isNotEmpty ? await _labelService.getLabelByPhoneNumber(vo.PhoneNumber.fromString(e164Number)) : null);
 
     // 6. 查询插件数据
-    final pluginData = await _pluginService.callPlugins(
+    final rawPluginData = await _pluginService.callPlugins(
       phoneNumber, 
       nationalNumber, 
       e164Number
     );
+    
+    // 转换为PluginData实体
+    final pluginData = rawPluginData != null ? PluginData.fromMap(rawPluginData) : null;
     
     // 7. 查询位置数据
     final locationData = await _locationService.getCallerLocation(e164Number, locale);
@@ -173,20 +202,21 @@ class CallerIdService {
     finalContact?.name ?? 
                 whitelistRule?.name ?? 
                 blacklistRule?.name ?? 
+                pluginData?.name ?? 
                 'Unknown';
     
     // 确定标签
     final labelText = labelEntry?.label ?? 
                      whitelistRule?.label ?? 
                      blacklistRule?.label ?? 
-                     pluginData?['predefinedLabel'] ?? 
+                     pluginData?.predefinedLabel ?? 
                      'Unknown';
     
     // 确定头像
     String? avatar = finalContact?.avatar ?? 
                    whitelistRule?.avatar ?? 
                    blacklistRule?.avatar ?? 
-                   pluginData?['avatar'];
+                   pluginData?.avatar;
     
     // 如果没有头像但有标签，使用标签构建头像路径
     if (avatar == null && labelText != 'Unknown') {
@@ -196,7 +226,7 @@ class CallerIdService {
     // 确定计数
     final count = whitelistRule?.count ?? 
                  blacklistRule?.count ?? 
-                 pluginData?['count'] ?? 
+                 pluginData?.count ?? 
                  0;
     
     // 9. 创建CallerIdData对象
@@ -217,14 +247,20 @@ class CallerIdService {
     
     // 10. 发布到数据流
     _callerIdSubject.add(callerIdData);
+    if (pluginData != null) {
+      _pluginDataSubject.add(pluginData);
+      _legacyPluginDataSubject.add(pluginData.toMap());
+    } else {
+      _legacyPluginDataSubject.add({});
+    }
     
     // 11. 如果插件提供了标签且现有标签为空，则更新标签
     if (labelEntry == null && whitelistRule?.label == null && blacklistRule?.label == null) {
-      if (pluginData?['predefinedLabel'] != null) {
+      if (pluginData?.predefinedLabel != null) {
         final entry = LabelEntry(
           id: '', // ID会在保存时生成
           phoneNumber: vo.PhoneNumber.fromString(phoneNumber),
-          label: pluginData?['predefinedLabel'],
+          label: pluginData!.predefinedLabel!,
           name: name,
         );
         await _labelService.addLabel(entry);
@@ -237,5 +273,7 @@ class CallerIdService {
   /// 释放资源
   void dispose() {
     _callerIdSubject.close();
+    _pluginDataSubject.close();
+    _legacyPluginDataSubject.close();
   }
 }

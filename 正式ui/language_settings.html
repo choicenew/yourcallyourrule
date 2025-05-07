@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语言设置 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .settings-card {
+            @apply bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
+        }
+        .language-option {
+            @apply flex items-center justify-between p-3 border-b border-gray-100 hover:bg-gray-50 transition;
+        }
+        .language-option:last-child {
+            @apply border-b-0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <a href="settings.html" class="text-gray-600 hover:text-primary mr-2">
+                        <i class="fas fa-arrow-left text-xl"></i>
+                    </a>
+                    <i class="fas fa-language text-primary text-xl"></i>
+                    <h1 class="text-xl font-semibold text-dark">语言设置</h1>
+                </div>
+                <div class="flex items-center">
+                    <button class="text-primary hover:text-opacity-80">
+                        <i class="fas fa-check text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 当前语言 -->
+        <section class="mb-8 settings-card">
+            <h3 class="text-lg font-medium text-dark mb-4">当前语言</h3>
+            <div class="flex items-center justify-between p-3 bg-primary/10 rounded-lg">
+                <div class="flex items-center">
+                    <img src="https://flagcdn.com/w40/cn.png" alt="中文" class="w-8 h-6 object-cover rounded mr-3">
+                    <span class="text-dark">简体中文</span>
+                </div>
+                <i class="fas fa-check text-primary"></i>
+            </div>
+        </section>
+
+        <!-- 可选语言列表 -->
+        <section class="settings-card">
+            <h3 class="text-lg font-medium text-dark mb-4">选择语言</h3>
+            <div class="divide-y divide-gray-100">
+                <!-- 简体中文 -->
+                <div class="language-option">
+                    <div class="flex items-center">
+                        <img src="https://flagcdn.com/w40/cn.png" alt="中文" class="w-8 h-6 object-cover rounded mr-3">
+                        <span class="text-dark">简体中文</span>
+                    </div>
+                    <i class="fas fa-check text-primary"></i>
+                </div>
+                
+                <!-- 英文 -->
+                <div class="language-option">
+                    <div class="flex items-center">
+                        <img src="https://flagcdn.com/w40/us.png" alt="英文" class="w-8 h-6 object-cover rounded mr-3">
+                        <span class="text-dark">English</span>
+                    </div>
+                </div>
+                
+                <!-- 繁体中文 -->
+                <div class="language-option">
+                    <div class="flex items-center">
+                        <img src="https://flagcdn.com/w40/tw.png" alt="繁体中文" class="w-8 h-6 object-cover rounded mr-3">
+                        <span class="text-dark">繁體中文</span>
+                    </div>
+                </div>
+                
+                <!-- 日文 -->
+                <div class="language-option">
+                    <div class="flex items-center">
+                        <img src="https://flagcdn.com/w40/jp.png" alt="日文" class="w-8 h-6 object-cover rounded mr-3">
+                        <span class="text-dark">日本語</span>
+                    </div>
+                </div>
+                
+                <!-- 韩文 -->
+                <div class="language-option">
+                    <div class="flex items-center">
+                        <img src="https://flagcdn.com/w40/kr.png" alt="韩文" class="w-8 h-6 object-cover rounded mr-3">
+                        <span class="text-dark">한국어</span>
+                    </div>
+                </div>
+                
+                <!-- 西班牙文 -->
+                <div class="language-option">
+                    <div class="flex items-center">
+                        <img src="https://flagcdn.com/w40/es.png" alt="西班牙文" class="w-8 h-6 object-cover rounded mr-3">
+                        <span class="text-dark">Español</span>
+                    </div>
+                </div>
+                
+                <!-- 法文 -->
+                <div class="language-option">
+                    <div class="flex items-center">
+                        <img src="https://flagcdn.com/w40/fr.png" alt="法文" class="w-8 h-6 object-cover rounded mr-3">
+                        <span class="text-dark">Français</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 自动检测 -->
+        <section class="mt-6 settings-card">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-medium text-dark">自动检测系统语言</h3>
+                    <p class="text-sm text-gray-500 mt-1">根据系统设置自动切换应用语言</p>
+                </div>
+                <div class="relative inline-block w-12 align-middle select-none">
+                    <input type="checkbox" id="auto-detect" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                    <label for="auto-detect" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="flex justify-around items-center py-3">
+                <a href="index.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="rules.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-list-alt text-xl"></i>
+                    <span class="text-xs mt-1">规则</span>
+                </a>
+                <a href="call_history.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-history text-xl"></i>
+                    <span class="text-xs mt-1">历史</span>
+                </a>
+                <a href="settings.html" class="flex flex-col items-center text-primary">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="text-xs mt-1">设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
