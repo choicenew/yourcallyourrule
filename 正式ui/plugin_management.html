@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插件管理 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .plugin-card {
+            @apply bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow mb-4;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #FFB74D;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #FFB74D;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <a href="settings.html" class="text-gray-600 hover:text-primary mr-2">
+                        <i class="fas fa-arrow-left text-xl"></i>
+                    </a>
+                    <i class="fas fa-puzzle-piece text-primary text-xl"></i>
+                    <h1 class="text-xl font-semibold text-dark">插件管理</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-primary hover:text-opacity-80">
+                        <i class="fas fa-plus text-xl"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-primary">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                    <div class="dropdown relative">
+                        <button class="text-gray-600 hover:text-primary" id="pluginOptionsDropdown">
+                            <i class="fas fa-ellipsis-v text-xl"></i>
+                        </button>
+                        <div class="dropdown-menu hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10" id="pluginDropdownMenu">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" id="importPlugins">
+                                <i class="fas fa-file-import mr-2"></i>导入插件
+                            </a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" id="exportPlugins">
+                                <i class="fas fa-file-export mr-2"></i>导出插件
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-6">
+        <!-- 插件状态 -->
+        <div class="bg-white rounded-xl p-4 shadow-sm mb-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-medium text-dark">插件服务</h3>
+                    <p class="text-sm text-gray-500 mt-1">管理和配置第三方插件</p>
+                </div>
+                <div class="relative inline-block w-12 align-middle select-none">
+                    <input type="checkbox" id="plugin-service" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                    <label for="plugin-service" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mt-4">
+                <div class="text-center">
+                    <div class="text-xl font-bold text-dark">8</div>
+                    <div class="text-xs text-gray-600">已安装</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-xl font-bold text-success">6</div>
+                    <div class="text-xs text-gray-600">已启用</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-xl font-bold text-warning">2</div>
+                    <div class="text-xs text-gray-600">已禁用</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 标签页 -->
+        <div class="bg-white rounded-lg mb-4">
+            <div class="flex overflow-x-auto">
+                <button class="py-3 px-4 border-b-2 border-primary text-primary font-medium whitespace-nowrap">
+                    已安装
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium whitespace-nowrap">
+                    推荐
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium whitespace-nowrap">
+                    更新
+                </button>
+            </div>
+        </div>
+
+        <!-- 插件列表 -->
+        <div class="mb-4">
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-medium text-dark">已安装插件</h3>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-500">排序:</span>
+                    <select class="text-sm border-gray-300 rounded-md">
+                        <option>最近使用</option>
+                        <option>字母顺序</option>
+                        <option>状态</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 插件项 1 -->
+            <div class="plugin-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-blue-500 bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-shield-alt text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">高级来电识别</h4>
+                            <p class="text-sm text-gray-500">使用AI技术识别未知来电</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-success/10 text-success text-xs px-2 py-1 rounded mr-2">已启用</span>
+                                <span class="text-xs text-gray-500">v2.1.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="plugin-1" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="plugin-1" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-primary transition">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 插件项 2 -->
+            <div class="plugin-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-purple-500 bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-filter text-purple-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">智能短信过滤</h4>
+                            <p class="text-sm text-gray-500">自动分类和过滤垃圾短信</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-success/10 text-success text-xs px-2 py-1 rounded mr-2">已启用</span>
+                                <span class="text-xs text-gray-500">v1.5.2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="plugin-2" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="plugin-2" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-primary transition">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 插件项 3 -->
+            <div class="plugin-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-green-500 bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-sync-alt text-green-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">云同步增强</h4>
+                            <p class="text-sm text-gray-500">多设备数据同步和备份</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-success/10 text-success text-xs px-2 py-1 rounded mr-2">已启用</span>
+                                <span class="text-xs text-gray-500">v3.0.1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="plugin-3" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="plugin-3" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-primary transition">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 插件项 4 -->
+            <div class="plugin-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-500 bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-ban text-red-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">诈骗电话检测</h4>
+                            <p class="text-sm text-gray-500">实时检测和拦截诈骗电话</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-success/10 text-success text-xs px-2 py-1 rounded mr-2">已启用</span>
+                                <span class="text-xs text-gray-500">v2.3.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="plugin-4" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="plugin-4" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-primary transition">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 插件项 5 -->
+            <div class="plugin-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-amber-500 bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-clock text-amber-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">时间规则增强</h4>
+                            <p class="text-sm text-gray-500">高级时间段拦截规则</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-success/10 text-success text-xs px-2 py-1 rounded mr-2">已启用</span>
+                                <span class="text-xs text-gray-500">v1.2.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="plugin-5" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="plugin-5" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-primary transition">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 插件项 6 -->
+            <div class="plugin-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-gray-500 bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-chart-bar text-gray-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">通话统计分析</h4>
+                            <p class="text-sm text-gray-500">详细的通话数据分析和报告</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-warning/10 text-warning text-xs px-2 py-1 rounded mr-2">已禁用</span>
+                                <span class="text-xs text-gray-500">v1.0.3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="plugin-6" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="plugin-6" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-primary transition">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 插件项 7 -->
+            <div class="plugin-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-cyan-500 bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-language text-cyan-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">多语言支持</h4>
+                            <p class="text-sm text-gray-500">额外语言包和翻译功能</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-warning/10 text-warning text-xs px-2 py-1 rounded mr-2">已禁用</span>
+                                <span class="text-xs text-gray-500">v2.0.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="plugin-7" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="plugin-7" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-primary transition">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 添加新插件 -->
+        <div class="bg-white rounded-xl p-6 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center text-center mb-20">
+            <i class="fas fa-plus-circle text-primary text-3xl mb-2"></i>
+            <h4 class="font-medium text-dark">添加新插件</h4>
+            <p class="text-sm text-gray-500 mt-1 mb-4">从插件商店安装更多功能</p>
+            <button class="bg-primary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg transition">
+                <i class="fas fa-store mr-2"></i>浏览插件商店
+            </button>
+        </div>
+    </main>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="flex justify-around items-center py-3">
+                <a href="index.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="rules_management.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-list-alt text-xl"></i>
+                    <span class="text-xs mt-1">规则</span>
+                </a>
+                <a href="call_history.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-history text-xl"></i>
+                    <span class="text-xs mt-1">历史</span>
+                </a>
+                <a href="settings.html" class="flex flex-col items-center text-primary">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="text-xs mt-1">设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- 导入插件模态框 -->
+    <div id="importModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md mx-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium text-dark">导入插件</h3>
+                <button id="closeImportModal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mb-4">
+                <p class="text-sm text-gray-600 mb-4">选择插件配置文件进行导入，支持.json格式</p>
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center" id="dropZone">
+                    <i class="fas fa-file-upload text-primary text-2xl mb-2"></i>
+                    <p class="text-sm text-gray-500 mb-2">点击或拖拽文件到此处</p>
+                    <input type="file" id="pluginFileInput" class="hidden" accept=".json">
+                    <button id="browseFilesBtn" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg text-sm transition">
+                        浏览文件
+                    </button>
+                </div>
+                <div id="selectedFileName" class="mt-2 text-sm text-gray-600 hidden"></div>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button id="cancelImport" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                    取消
+                </button>
+                <button id="confirmImport" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg transition">
+                    导入
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导出插件模态框 -->
+    <div id="exportModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md mx-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium text-dark">导出插件</h3>
+                <button id="closeExportModal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mb-4">
+                <p class="text-sm text-gray-600 mb-4">选择要导出的插件：</p>
+                <div class="max-h-60 overflow-y-auto">
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="selectAllPlugins" class="form-checkbox h-5 w-5 text-primary rounded">
+                            <span class="ml-2 text-gray-700">全选</span>
+                        </label>
+                        <div class="border-t border-gray-200 my-2"></div>
+                        <div id="pluginExportList" class="space-y-2">
+                            <!-- 插件列表将通过JavaScript动态生成 -->
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded plugin-export-checkbox" value="plugin-1">
+                                <span class="ml-2 text-gray-700">高级来电识别</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded plugin-export-checkbox" value="plugin-2">
+                                <span class="ml-2 text-gray-700">智能短信过滤</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded plugin-export-checkbox" value="plugin-3">
+                                <span class="ml-2 text-gray-700">云同步增强</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded plugin-export-checkbox" value="plugin-4">
+                                <span class="ml-2 text-gray-700">诈骗电话检测</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded plugin-export-checkbox" value="plugin-5">
+                                <span class="ml-2 text-gray-700">时间规则增强</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded plugin-export-checkbox" value="plugin-6">
+                                <span class="ml-2 text-gray-700">通话统计分析</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded plugin-export-checkbox" value="plugin-7">
+                                <span class="ml-2 text-gray-700">多语言支持</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button id="cancelExport" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                    取消
+                </button>
+                <button id="confirmExport" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg transition">
+                    导出
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 下拉菜单功能
+        const dropdownButton = document.getElementById('pluginOptionsDropdown');
+        const dropdownMenu = document.getElementById('pluginDropdownMenu');
+        
+        dropdownButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+        
+        // 点击页面其他地方关闭下拉菜单
+        document.addEventListener('click', function() {
+            if (!dropdownMenu.classList.contains('hidden')) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+        
+        // 导入插件功能
+        const importPluginsBtn = document.getElementById('importPlugins');
+        const importModal = document.getElementById('importModal');
+        const closeImportModal = document.getElementById('closeImportModal');
+        const cancelImport = document.getElementById('cancelImport');
+        const confirmImport = document.getElementById('confirmImport');
+        const browseFilesBtn = document.getElementById('browseFilesBtn');
+        const pluginFileInput = document.getElementById('pluginFileInput');
+        const selectedFileName = document.getElementById('selectedFileName');
+        
+        importPluginsBtn.addEventListener('click', function() {
+            importModal.classList.remove('hidden');
+            importModal.classList.add('flex');
+            dropdownMenu.classList.add('hidden');
+        });
+        
+        function closeImportModalFunc() {
+            importModal.classList.add('hidden');
+            importModal.classList.remove('flex');
+            pluginFileInput.value = '';
+            selectedFileName.classList.add('hidden');
+            selectedFileName.textContent = '';
+        }
+        
+        closeImportModal.addEventListener('click', closeImportModalFunc);
+        cancelImport.addEventListener('click', closeImportModalFunc);
+        
+        browseFilesBtn.addEventListener('click', function() {
+            pluginFileInput.click();
+        });
+        
+        pluginFileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                selectedFileName.textContent = '已选择: ' + this.files[0].name;
+                selectedFileName.classList.remove('hidden');
+            }
+        });
+        
+        // 拖拽上传功能
+        const dropZone = document.getElementById('dropZone');
+        
+        // 添加拖拽事件监听
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        // 添加视觉反馈
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            dropZone.classList.add('border-primary');
+            dropZone.classList.add('bg-primary/5');
+        }
+        
+        function unhighlight() {
+            dropZone.classList.remove('border-primary');
+            dropZone.classList.remove('bg-primary/5');
+        }
+        
+        // 处理文件拖放
+        dropZone.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files && files.length) {
+                pluginFileInput.files = files;
+                selectedFileName.textContent = '已选择: ' + files[0].name;
+                selectedFileName.classList.remove('hidden');
+            }
+        }
+        
+        confirmImport.addEventListener('click', function() {
+            if (pluginFileInput.files && pluginFileInput.files[0]) {
+                // 这里添加实际的导入逻辑
+                // 模拟导入过程
+                const importBtn = this;
+                importBtn.disabled = true;
+                importBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>导入中...';
+                
+                setTimeout(() => {
+                    // 显示成功通知
+                    showNotification('插件导入成功！', 'success');
+                    closeImportModalFunc();
+                    importBtn.disabled = false;
+                    importBtn.innerHTML = '导入';
+                }, 1000);
+            } else {
+                showNotification('请先选择要导入的文件', 'warning');
+            }
+        });
+        
+        // 通知提示功能
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 flex items-center ${type === 'success' ? 'bg-success text-white' : type === 'warning' ? 'bg-warning text-white' : 'bg-info text-white'}`;
+            
+            const icon = document.createElement('i');
+            icon.className = `mr-2 fas ${type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle'}`;
+            
+            const text = document.createElement('span');
+            text.textContent = message;
+            
+            notification.appendChild(icon);
+            notification.appendChild(text);
+            document.body.appendChild(notification);
+            
+            // 添加动画效果
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(20px)';
+            notification.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateY(0)';
+            }, 10);
+            
+            // 自动消失
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // 导出插件功能
+        const exportPluginsBtn = document.getElementById('exportPlugins');
+        const exportModal = document.getElementById('exportModal');
+        const closeExportModal = document.getElementById('closeExportModal');
+        const cancelExport = document.getElementById('cancelExport');
+        const confirmExport = document.getElementById('confirmExport');
+        const selectAllPlugins = document.getElementById('selectAllPlugins');
+        const pluginExportCheckboxes = document.querySelectorAll('.plugin-export-checkbox');
+        
+        exportPluginsBtn.addEventListener('click', function() {
+            exportModal.classList.remove('hidden');
+            exportModal.classList.add('flex');
+            dropdownMenu.classList.add('hidden');
+        });
+        
+        function closeExportModalFunc() {
+            exportModal.classList.add('hidden');
+            exportModal.classList.remove('flex');
+            selectAllPlugins.checked = false;
+            pluginExportCheckboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }
+        
+        closeExportModal.addEventListener('click', closeExportModalFunc);
+        cancelExport.addEventListener('click', closeExportModalFunc);
+        
+        selectAllPlugins.addEventListener('change', function() {
+            pluginExportCheckboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+        
+        // 更新全选状态
+        function updateSelectAllState() {
+            const allChecked = Array.from(pluginExportCheckboxes).every(checkbox => checkbox.checked);
+            const someChecked = Array.from(pluginExportCheckboxes).some(checkbox => checkbox.checked);
+            
+            selectAllPlugins.checked = allChecked;
+            selectAllPlugins.indeterminate = someChecked && !allChecked;
+        }
+        
+        pluginExportCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateSelectAllState);
+        });
+        
+        confirmExport.addEventListener('click', function() {
+            const selectedPlugins = Array.from(pluginExportCheckboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+            
+            if (selectedPlugins.length > 0) {
+                // 这里添加实际的导出逻辑
+                // 模拟导出过程
+                const exportBtn = this;
+                exportBtn.disabled = true;
+                exportBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>导出中...';
+                
+                setTimeout(() => {
+                    const exportData = {
+                        plugins: selectedPlugins,
+                        exportDate: new Date().toISOString()
+                    };
+                    
+                    // 创建下载链接
+                    const dataStr = JSON.stringify(exportData, null, 2);
+                    const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+                    
+                    const exportFileDefaultName = 'plugins_export_' + new Date().toISOString().slice(0, 10) + '.json';
+                    
+                    const linkElement = document.createElement('a');
+                    linkElement.setAttribute('href', dataUri);
+                    linkElement.setAttribute('download', exportFileDefaultName);
+                    linkElement.click();
+                    
+                    // 显示成功通知
+                    showNotification('插件导出成功！', 'success');
+                    closeExportModalFunc();
+                    exportBtn.disabled = false;
+                    exportBtn.innerHTML = '导出';
+                }, 800);
+            } else {
+                showNotification('请至少选择一个插件进行导出', 'warning');
+            }
+        });
+    </script>
+</body>
+</html>

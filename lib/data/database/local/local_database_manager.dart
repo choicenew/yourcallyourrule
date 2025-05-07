@@ -217,6 +217,22 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         updatedAt TEXT NOT NULL
       )
     ''');
+    
+    // 创建SIM卡槽位规则表
+    await db.execute('''
+      CREATE TABLE sim_slot_rules (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        priority INTEGER NOT NULL,
+        action TEXT NOT NULL,
+        isEnabled INTEGER NOT NULL DEFAULT 1,
+        phoneNumber TEXT NOT NULL,
+        simSlotIndex INTEGER NOT NULL,
+        label TEXT,
+        avatar TEXT,
+        ruleType TEXT NOT NULL DEFAULT 'sim_slot'
+      )
+    ''');
   }
 
   // 升级数据库

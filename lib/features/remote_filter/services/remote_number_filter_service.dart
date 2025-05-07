@@ -2,11 +2,12 @@
 
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_config.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 
 /// 远程号码过滤服务类，用于根据计数规则判断是否接受来电
-class RemoteNumberFilterService {
+class RemoteNumberFilterService implements CallFilterInterface {
   // 显式声明所有依赖项
   final RemoteNumberService _remoteNumberService;
   final ConfigRepository _configRepository;
@@ -21,6 +22,7 @@ class RemoteNumberFilterService {
         _configRepository = configRepository;
 
   // 判断是否应该接受来电
+  @override
   Future<bool> shouldAcceptCall(String phoneNumberStr) async {
     // 如果未启用远程号码过滤，则默认接受
     if (!remoteNumberFilterConfig.enableRemoteNumberFilter) {
@@ -90,6 +92,7 @@ class RemoteNumberFilterService {
   }
 
   /// 初始化服务
+  @override
   Future<void> initialize() async {
     await loadConfig();
   }

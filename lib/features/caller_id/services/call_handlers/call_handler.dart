@@ -95,8 +95,10 @@ class CallHandler {
 
     // 获取来电显示信息
     CallerIdData callerIdData =
-        await _callerIdService.getCallerId(phoneNumber, dlibLocale);
-
+        await _callerIdService.getCallerIdWithParsed(
+        phoneNumber, e164Number, nationalNumber, dlibLocale);
+    // await _callerIdService.getCallerId(phoneNumber, dlibLocale); //原始的解析方法
+    
     // 显示来电显示浮窗
     await _overlayHandler.showCallerIdOverlay(callerIdData, stirInfo, simInfo);
 

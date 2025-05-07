@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/utils/global_variable.dart';
 
 import '../generated/l10n.dart';
-import '../screens/appstate_provider.dart';
-import '../services/caller_id_service.dart';
-import '../services/regex_service.dart';
-import '../utils/ad_manager.dart';
-import '../utils/call_filter.dart';
-import 'package:dlibphonenumber/dlibphonenumber.dart' as dlibphone;
 
-import '../utils/repeated_call.dart';
-import '../widgets/adwidgets/native_ads.dart';
-import '../widgets/google_ad.dart';
+import 'package:dlibphonenumber/dlibphonenumber.dart' as dlibphone;
 
 class VerificationPage extends StatefulWidget {
   const VerificationPage({super.key});
@@ -164,7 +158,7 @@ class VerificationPageState extends State<VerificationPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-                        // 新增的标题 "TO test rules"
+            // 新增的标题 "TO test rules"
             Padding(
               padding: const EdgeInsets.only(bottom: 16.0), // 添加底部间距
               child: Text(
@@ -175,14 +169,14 @@ class VerificationPageState extends State<VerificationPage> {
                 ),
               ),
             ),
-              const SizedBox(height: 8.0),
-          // 广告 - Centered with Align
-          const Align(
-            alignment: Alignment.center,
-            child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
-          ),
+            const SizedBox(height: 8.0),
+            // 广告 - Centered with Align
+            const Align(
+              alignment: Alignment.center,
+              child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            ),
 
-              const SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextField(
               controller: _phoneNumberController,
               keyboardType: TextInputType.phone,
@@ -200,13 +194,13 @@ class VerificationPageState extends State<VerificationPage> {
               ),
             ),
             const SizedBox(height: 20),
-          // 广告 - Centered with Align
-          const Align(
-            alignment: Alignment.center,
-            child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
-          ),
+            // 广告 - Centered with Align
+            const Align(
+              alignment: Alignment.center,
+              child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            ),
 
-              const SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Center(
               child: ElevatedButton(
                 onPressed: _isLoading ? null : _verifyPhoneNumber,
@@ -268,11 +262,11 @@ class VerificationPageState extends State<VerificationPage> {
               }),
             ],
 
-          // 广告 - Centered with Align
-          const Align(
-            alignment: Alignment.center,
-            child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
-          ),
+            // 广告 - Centered with Align
+            const Align(
+              alignment: Alignment.center,
+              child: GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            ),
 
             if (_callerIdData != null) ...[
               const SizedBox(height: 20),
@@ -343,12 +337,10 @@ class VerificationPageState extends State<VerificationPage> {
               ),
             ),
             //广告代码 - Centered with Align
-           Align(
-            alignment: Alignment.center,
-            child: nativeAdWidgetMedium(
-                adWidth: 320,
-                adHeight: 390),
-          ),
+            Align(
+              alignment: Alignment.center,
+              child: nativeAdWidgetMedium(adWidth: 320, adHeight: 390),
+            ),
           ],
         ),
       ),

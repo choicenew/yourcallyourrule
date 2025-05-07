@@ -2,13 +2,14 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 
 /// 通话过滤服务类，用于根据规则判断是否接受来电
-// 移除继承BaseService
-class CallFilterService {
+// 实现CallFilterInterface接口
+class CallFilterService implements CallFilterInterface {
   // 显式声明所有依赖项
   final RegexService _regexService;
   final AllowedBlockedService _allowedBlockedService;
@@ -107,4 +108,6 @@ class CallFilterService {
     // 移除旧的SharedPreferences初始化代码
     await loadConfig(); // 直接通过repository加载
   }
+
+  verifyAllRules(PhoneNumber number) {}
 }

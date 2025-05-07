@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html" class="flex items-center">
+                        <i class="fas fa-arrow-left text-gray-600 mr-4"></i>
+                        <i class="fas fa-info-circle text-primary text-xl mr-2"></i>
+                        <span class="text-xl font-bold">关于我们</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- Logo和应用名称 -->
+        <div class="text-center mb-12">
+            <img src="assets/app_logo.png" alt="App Logo" class="w-24 h-24 mx-auto mb-4 rounded-xl shadow-lg">
+            <h1 class="text-3xl font-bold text-primary">Your Call Your Rule</h1>
+            <p class="text-gray-600 mt-2">版本 1.0.0</p>
+        </div>
+
+        <!-- 应用介绍 -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">应用介绍</h2>
+            <p class="text-gray-700 leading-relaxed">
+                Your Call Your Rule 是一款功能强大的来电识别工具，为您提供智能来电防护服务。我们致力于帮助用户识别和拦截骚扰电话，保护您的通话安全。
+            </p>
+        </div>
+
+        <!-- 主要功能 -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">主要功能</h2>
+            <ul class="space-y-3">
+                <li class="flex items-center">
+                    <i class="fas fa-check text-success mr-3"></i>
+                    <span>在线来电号码订阅</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check text-success mr-3"></i>
+                    <span>支持通配符的灵活过滤</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check text-success mr-3"></i>
+                    <span>黑白名单管理</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-check text-success mr-3"></i>
+                    <span>加入Telegram频道和群组获取更多信息</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 联系我们 -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">联系我们</h2>
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/haygcao/yourcallyourruletranslation" class="text-gray-700 hover:text-primary">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://t.me/yourcallyourrule" class="text-gray-700 hover:text-primary">
+                    <i class="fab fa-telegram text-2xl"></i>
+                </a>
+                <a href="mailto:oakjeol@gmail.com" class="text-gray-700 hover:text-primary">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- 教程链接 -->
+        <div class="text-center">
+            <a href="https://github.com/haygcao/yourcallyourruletranslation" class="text-primary hover:text-opacity-80 underline">
+                查看使用教程
+            </a>
+        </div>
+    </div>
+</body>
+</html>

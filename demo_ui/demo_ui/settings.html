@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统设置 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .settings-card {
+            @apply bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #FFB74D;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #FFB74D;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-cog text-primary text-xl"></i>
+                    <h1 class="text-xl font-semibold text-dark">系统设置</h1>
+                </div>
+                <a href="index.html" class="text-primary hover:text-opacity-80">
+                    <i class="fas fa-times text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 云同步模块 -->
+        <section class="mb-8 settings-card">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h3 class="text-lg font-medium text-dark">云同步服务</h3>
+                    <p class="text-secondary text-sm">最后同步：2023-07-20 14:30</p>
+                </div>
+                <div class="relative inline-block w-10 mr-2 align-middle select-none">
+                    <input type="checkbox" id="cloud-sync" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer">
+                    <label for="cloud-sync" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg transition">
+                    <i class="fas fa-upload mr-2"></i>立即同步
+                </button>
+                <button class="border border-primary text-primary hover:bg-primary/10 px-4 py-2 rounded-lg transition">
+                    <i class="fas fa-cog mr-2"></i>同步设置
+                </button>
+            </div>
+        </section>
+
+        <!-- 其他设置项 -->
+        <div class="space-y-6">
+            <!-- 通用设置 -->
+            <div class="settings-card">
+                <h3 class="text-lg font-medium text-dark mb-4">通用设置</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-secondary">深色模式</span>
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="dark-mode" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer">
+                            <label for="dark-mode" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 账户设置 -->
+            <div class="settings-card">
+                <h3 class="text-lg font-medium text-dark mb-4">账户管理</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-secondary">当前登录</p>
+                            <p class="text-dark">user@example.com</p>
+                        </div>
+                        <button class="text-danger hover:text-opacity-80">退出登录</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="flex justify-around items-center py-3">
+                <a href="index.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="blacklist.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-list-alt text-xl"></i>
+                    <span class="text-xs mt-1">规则</span>
+                </a>
+                <a href="#" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-history text-xl"></i>
+                    <span class="text-xs mt-1">历史</span>
+                </a>
+                <a href="settings.html" class="flex flex-col items-center text-primary">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="text-xs mt-1">设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

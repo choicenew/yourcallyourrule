@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Call Your Rule - 白名单</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0ACA6D 0%, #93CB80 100%);
+            min-height: 100vh;
+        }
+        .app-frame {
+            max-width: 430px;
+            height: 100vh;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            overflow-y: auto;
+        }
+        .contact-item {
+            transition: all 0.3s ease;
+        }
+        .contact-item:hover {
+            background-color: #f8f9fa;
+        }
+        .search-bar {
+            transition: all 0.3s ease;
+        }
+        .search-bar:focus-within {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+    <div class="app-frame rounded-3xl shadow-2xl">
+        <!-- 状态栏 -->
+        <div class="bg-black text-white px-6 py-2 flex justify-between items-center text-sm">
+            <span>9:41</span>
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 主要内容 -->
+        <div class="p-6 space-y-6">
+            <!-- 顶部导航 -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <button onclick="history.back()" class="text-gray-600">
+                        <i class="fas fa-arrow-left text-lg"></i>
+                    </button>
+                    <h1 class="text-xl font-semibold text-gray-800">白名单管理</h1>
+                </div>
+                <button class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <!-- 搜索栏 -->
+            <div class="search-bar bg-gray-50 rounded-xl flex items-center px-4 py-3">
+                <i class="fas fa-search text-gray-400 mr-3"></i>
+                <input type="text" placeholder="搜索联系人或号码" class="bg-transparent w-full focus:outline-none text-gray-700 placeholder-gray-400">
+            </div>
+
+            <!-- 分类标签 -->
+            <div class="flex space-x-2 overflow-x-auto pb-2 -mx-2 px-2">
+                <button class="px-4 py-2 bg-primary text-white rounded-full text-sm whitespace-nowrap">全部</button>
+                <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm whitespace-nowrap">家人</button>
+                <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm whitespace-nowrap">朋友</button>
+                <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm whitespace-nowrap">同事</button>
+                <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm whitespace-nowrap">重要联系人</button>
+            </div>
+
+            <!-- 白名单列表 -->
+            <div class="space-y-4">
+                <!-- 联系人1 -->
+                <div class="contact-item bg-white rounded-xl p-4 shadow-lg shadow-gray-100/50">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-check text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-800">张三</h3>
+                                <span class="text-sm text-gray-500">家人 · +86 138****1234</span>
+                            </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-100">
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-500">允许任何时间来电</span>
+                            <span class="text-gray-400">添加于 2023-06-15</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 联系人2 -->
+                <div class="contact-item bg-white rounded-xl p-4 shadow-lg shadow-gray-100/50">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-check text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-800">李四</h3>
+                                <span class="text-sm text-gray-500">同事 · +86 159****5678</span>
+                            </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-100">
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-500">仅工作时间允许来电</span>
+                            <span class="text-gray-400">添加于 2023-06-14</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 联系人3 -->
+                <div class="contact-item bg-white rounded-xl p-4 shadow-lg shadow-gray-100/50">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-check text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-800">王五</h3>
+                                <span class="text-sm text-gray-500">朋友 · +86 137****4321</span>
+                            </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-100">
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-500">允许任何时间来电</span>
+                            <span class="text-gray-400">添加于 2023-06-13</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 添加白名单按钮 -->
+            <button class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-primary text-white px-6 py-3 rounded-xl shadow-lg shadow-primary/30 flex items-center space-x-2">
+                <i class="fas fa-plus"></i>
+                <span>添加白名单</span>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
