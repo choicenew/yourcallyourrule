@@ -99,12 +99,14 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         name TEXT NOT NULL,
         ruleType TEXT NOT NULL,
         phoneNumber TEXT,
-        label TEXT,
+        labelId TEXT, -- Changed from label to labelId
         priority INTEGER NOT NULL,
         action TEXT NOT NULL,
         isEnabled INTEGER NOT NULL DEFAULT 1,
         pattern TEXT,
-        avatar TEXT
+        avatar TEXT,
+        isSubscribed INTEGER NOT NULL DEFAULT 0, -- Added isSubscribed
+        count INTEGER NOT NULL DEFAULT 0 -- Added count
       )
     ''');
 
@@ -189,6 +191,16 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
       )
     ''');
 
+    // 创建预定义标签表
+    await db.execute('''
+      CREATE TABLE predefined_labels (
+        id TEXT PRIMARY KEY,
+        text TEXT NOT NULL,
+        avatar TEXT,
+        icon TEXT
+      )
+    ''');
+
     // 创建标签表
     await db.execute('''
       CREATE TABLE labels (
@@ -197,10 +209,12 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         icon TEXT,
         phoneNumber TEXT NOT NULL,
         label TEXT NOT NULL,
+        labelId TEXT NOT NULL,
         avatar TEXT,
         priority INTEGER NOT NULL DEFAULT 0,
         action TEXT NOT NULL DEFAULT 'none',
-        isEnabled INTEGER NOT NULL DEFAULT 1
+        isEnabled INTEGER NOT NULL DEFAULT 1,
+        FOREIGN KEY (labelId) REFERENCES predefined_labels (id)
       )
     ''');
 

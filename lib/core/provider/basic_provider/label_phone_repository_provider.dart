@@ -1,51 +1,51 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/label/label_entry.dart';
-import 'package:yourcallyourrule/core/provider/labels_provider.dart';
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/core/repositories/label_phone_repository.dart';
 
 import 'package:yourcallyourrule/data/database/database_service.dart';
 
 import 'database_service_provider.dart';
 
-/// 标签仓库提供者
-final labelRepositoryProvider = Provider<LabelRepository>((ref) {
+/// 电话标签仓库提供者
+final labelPhoneRepositoryProvider = Provider<LabelPhoneRepository>((ref) {
   final databaseService = ref.watch(databaseServiceProvider);
-  // 返回标签仓库实现
-  return LabelRepositoryImpl(databaseService);
+  // 返回电话标签仓库实现
+  return LabelPhoneRepositoryImpl(databaseService);
 });
 
-/// 标签仓库实现类
-class LabelRepositoryImpl implements LabelRepository {
+/// 电话标签仓库实现类
+class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
   final DatabaseService _databaseService;
 
-  LabelRepositoryImpl(this._databaseService);
+  LabelPhoneRepositoryImpl(this._databaseService);
 
   @override
-  Future<List<LabelEntry>> getAll() async {
+  Future<List<LabelPhoneEntry>> getAll() async {
     final maps = await _databaseService.queryAll('labels');
     return maps.map((map) => fromMap(map)).toList();
   }
 
   @override
-  Future<LabelEntry?> getById(String id) async {
+  Future<LabelPhoneEntry?> getById(String id) async {
     final map = await _databaseService.queryById('labels', id);
     if (map == null) return null;
     return fromMap(map);
   }
 
   @override
-  Future<LabelEntry> save(LabelEntry entity) async {
+  Future<LabelPhoneEntry> save(LabelPhoneEntry entity) async {
     await _databaseService.insert('labels', entity.toMap());
     return entity;
   }
 
   @override
-  Future<LabelEntry> update(LabelEntry entity) async {
+  Future<LabelPhoneEntry> update(LabelPhoneEntry entity) async {
     await _databaseService.update('labels', entity.id, entity.toMap());
     return entity;
   }
 
   @override
-  Future<bool> delete(LabelEntry entity) async {
+  Future<bool> delete(LabelPhoneEntry entity) async {
     return await deleteById(entity.id);
   }
 
@@ -56,7 +56,7 @@ class LabelRepositoryImpl implements LabelRepository {
   }
 
   @override
-  Future<bool> deleteAll(List<LabelEntry> entities) async {
+  Future<bool> deleteAll(List<LabelPhoneEntry> entities) async {
     for (var entity in entities) {
       await deleteById(entity.id);
     }
@@ -64,7 +64,7 @@ class LabelRepositoryImpl implements LabelRepository {
   }
 
   @override
-  Future<List<LabelEntry>> saveAll(List<LabelEntry> entities) async {
+  Future<List<LabelPhoneEntry>> saveAll(List<LabelPhoneEntry> entities) async {
     for (var entity in entities) {
       await save(entity);
     }
@@ -84,19 +84,19 @@ class LabelRepositoryImpl implements LabelRepository {
   }
 
   @override
-  LabelEntry fromMap(Map<String, dynamic> map) {
-    return LabelEntry.fromMap(map);
+  LabelPhoneEntry fromMap(Map<String, dynamic> map) {
+    return LabelPhoneEntry.fromMap(map);
   }
 
   @override
-  Future<LabelEntry?> getByName(String name) async {
+  Future<LabelPhoneEntry?> getByName(String name) async {
     final maps = await _databaseService.queryWhere('labels', 'name', name);
     if (maps.isEmpty) return null;
     return fromMap(maps.first);
   }
 
   @override
-  Future<List<LabelEntry>> getByType(String type) async {
+  Future<List<LabelPhoneEntry>> getByType(String type) async {
     final maps = await _databaseService.queryWhere('labels', 'type', type);
     return maps.map((map) => fromMap(map)).toList();
   }
@@ -108,8 +108,21 @@ class LabelRepositoryImpl implements LabelRepository {
   }
 
   @override
-  Future<List<LabelEntry>> getAllEnabled() async {
+  Future<List<LabelPhoneEntry>> getAllEnabled() async {
     final maps = await _databaseService.queryWhere('labels', 'isEnabled', true);
+    return maps.map((map) => fromMap(map)).toList();
+  }
+  
+  @override
+  Future<LabelPhoneEntry?> getByPhoneNumber(String phoneNumber) async {
+    final maps = await _databaseService.queryWhere('labels', 'phoneNumber', phoneNumber);
+    if (maps.isEmpty) return null;
+    return fromMap(maps.first);
+  }
+  
+  @override
+  Future<List<LabelPhoneEntry>> getByLabelId(String labelId) async {
+    final maps = await _databaseService.queryWhere('labels', 'labelId', labelId);
     return maps.map((map) => fromMap(map)).toList();
   }
 }

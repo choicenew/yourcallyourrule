@@ -1,13 +1,13 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
-import 'package:yourcallyourrule/core/entities/label/label_entry.dart';
+
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
 import 'package:yourcallyourrule/data/database/database_manager.dart';
-import 'package:yourcallyourrule/data/database/local/local_database_manager.dart';
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
 
 class LocalStorageService {
@@ -110,7 +110,7 @@ class LocalStorageService {
     return data.map((json) => CloudDataConverter.deserialize<CallLog>(json)).toList();
   }
 
-  Future<void> saveLabels(List<LabelEntry> labels) async {
+  Future<void> saveLabels(List<LabelPhoneEntry> labels) async {
     final db = await _dbManager.database;
     await db.transaction((txn) async {
       await txn.delete('labels');
@@ -124,10 +124,10 @@ class LocalStorageService {
     });
   }
 
-  Future<List<LabelEntry>> loadLabels() async {
+  Future<List<LabelPhoneEntry>> loadLabels() async {
     final db = await _dbManager.database;
     final data = await db.query('labels');
-    return data.map((json) => CloudDataConverter.deserialize<LabelEntry>(json)).toList();
+    return data.map((json) => CloudDataConverter.deserialize<LabelPhoneEntry>(json)).toList();
   }
 
   Future<void> saveLocations(List<LocationEntry> locations) async {

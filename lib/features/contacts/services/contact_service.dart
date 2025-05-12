@@ -62,6 +62,14 @@ class ContactService extends ListService<Contact, String> {
     final phoneNumberStrings = phoneNumbers.map((p) => p.value).toList();
     await _contactRepository.deleteContacts(phoneNumbers); // 修正参数类型
   }
+  
+  // 批量删除联系人实体
+
+  @override
+  Future<bool> deleteAll(List<Contact> entities) async {
+    await _contactRepository.deleteAll(entities);
+    return true;
+  }
 
   Future<List<Contact>> checkForDuplicateContacts(
       List<Contact> contacts) async {
@@ -175,7 +183,7 @@ class ContactService extends ListService<Contact, String> {
       phoneNumbers:
           {...contact1.phoneNumbers, ...contact2.phoneNumbers}.toList(),
       email: contact1.email ?? contact2.email,
-      label: contact1.label ?? contact2.label,
+      labelId: contact1.labelId ?? contact2.labelId,
       avatar: contact1.avatar ?? contact2.avatar,
       website: contact1.website ?? contact2.website,
       group: contact1.group ?? contact2.group,

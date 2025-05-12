@@ -5,6 +5,7 @@ import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 class SmsRegexRule extends RuleBase {
   final RegExp contentPattern;
   final RegExp? senderPattern;
+  final String labelId; // 添加labelId字段，用于关联标签
   
   // 添加静态常量 ruleType
   static const String ruleType = 'sms_regex';
@@ -17,6 +18,7 @@ class SmsRegexRule extends RuleBase {
     required super.action,
     RulePriority? priority,
     super.isEnabled = true,
+    this.labelId = '', // 添加labelId参数，默认为空字符串
   }) : 
     contentPattern = RegExp(contentRegex, caseSensitive: false, unicode: true),
     senderPattern = senderRegex != null 
@@ -50,6 +52,7 @@ class SmsRegexRule extends RuleBase {
       'priority': priority.value,
       'isEnabled': isEnabled,
       'ruleType': ruleType,
+      'labelId': labelId, // 添加labelId字段到Map
     };
   }
 
@@ -62,6 +65,7 @@ class SmsRegexRule extends RuleBase {
       action: RuleAction.fromString(map['action']),
       priority: RulePriority.fromInt(map['priority']),
       isEnabled: map['isEnabled'] ?? true,
+      labelId: map['labelId'] ?? '', // 从Map中读取labelId字段
     );
   }
 
@@ -74,6 +78,7 @@ class SmsRegexRule extends RuleBase {
     bool? isEnabled,
     String? contentRegex,
     String? senderRegex,
+    String? labelId,
   }) {
     return SmsRegexRule(
       id: id ?? this.id,
@@ -83,6 +88,7 @@ class SmsRegexRule extends RuleBase {
       action: action ?? this.action,
       priority: priority ?? this.priority,
       isEnabled: isEnabled ?? this.isEnabled,
+      labelId: labelId ?? this.labelId, // 添加labelId参数
     );
   }
 }

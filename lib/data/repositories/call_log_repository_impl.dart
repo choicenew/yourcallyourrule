@@ -102,7 +102,6 @@ class CallLogRepositoryImpl extends BaseRepositoryImpl<CallLog, CallLogModel, St
   Future<void> markAsRead(String logId) async {
     final log = await getById(logId);
     if (log != null) {
-      // 假设CallLog有一个copyWith方法来设置isRead字段
       final updatedLog = (log as dynamic).copyWith(isRead: true);
       await update(updatedLog);
     }
@@ -115,4 +114,56 @@ class CallLogRepositoryImpl extends BaseRepositoryImpl<CallLog, CallLogModel, St
       await markAsRead(log.id);
     }
   }
-}
+  
+  @override
+  Future<List<CallLog>> getLogsByLabelId(String labelId) async {
+    final models = await dataSource.getAll();
+    return models
+        .map((model) => toEntity(model as CallLogModel))
+        .where((log) {
+          // 获取通话记录的标签ID列表
+          final labelIds = (log as dynamic).labelIds ?? [];
+          // 检查是否包含指定的标签ID
+          return labelIds.contains(labelId);
+        })
+        .toList();
+  }
+  
+  @override
+  Future<List<CallLog>> getLogsWithAnyLabels(List<String> labelIds) async {
+    final models = await dataSource.getAll();
+    return models
+        .map((model) => toEntity(model as CallLogModel))
+        .where((log) {
+          // 获取通话记录的标签ID列表
+          final logLabelIds = (log as dynamic).labelIds ?? [];
+          // 检查是否包含任意一个指定的标签ID
+          return labelIds.any((labelId) => logLabelIds.contains(labelId));
+        })
+        .toList();
+  }
+  
+  @override
+  Future<List<CallLog>> getLogsWithAllLabels(List<String> labelIds) async {
+    final models = await dataSource.getAll();
+    return models
+        .map((model) => toEntity(model as CallLogModel))
+        .where((log) {
+          // 获取通话记录的标签ID列表
+          final logLabelIds = (log as dynamic).labelIds ?? [];
+          // 检查是否包含所有指定的标签ID
+          return labelIds.every((labelId) => logLabelIds.contains(labelId));
+        })
+        .toList();
+  }
+
+    }
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -15,8 +15,8 @@ class SimSlotRuleModel extends RuleBase {
   // SIM卡槽位索引
   final int simSlotIndex;
   
-  // 标签（可选）
-  final String label;
+  // 标签ID（可选）
+  final String labelId;
   
   // 头像（可选）
   final String? avatar;
@@ -28,7 +28,7 @@ class SimSlotRuleModel extends RuleBase {
     required super.action,
     required this.phoneNumber,
     required this.simSlotIndex,
-    this.label = '',
+    this.labelId = '',
     this.avatar,
     super.isEnabled = true,
   });
@@ -41,7 +41,7 @@ class SimSlotRuleModel extends RuleBase {
       action: RuleAction.fromString(map['action']),
       phoneNumber: map['phoneNumber'],
       simSlotIndex: map['simSlotIndex'],
-      label: map['label'] ?? '',
+      labelId: map['labelId'] ?? map['label'] ?? '', // 兼容旧数据
       avatar: map['avatar'],
       isEnabled: map['isEnabled'] ?? true,
     );
@@ -54,7 +54,7 @@ class SimSlotRuleModel extends RuleBase {
     map.addAll({
       'phoneNumber': phoneNumber,
       'simSlotIndex': simSlotIndex,
-      'label': label,
+      'labelId': labelId,
       'avatar': avatar,
       'ruleType': 'sim_slot', // 添加规则类型标识
     });
@@ -78,7 +78,7 @@ class SimSlotRuleModel extends RuleBase {
     bool? isEnabled,
     String? phoneNumber,
     int? simSlotIndex,
-    String? label,
+    String? labelId,
     String? avatar,
   }) {
     return SimSlotRuleModel(
@@ -89,7 +89,7 @@ class SimSlotRuleModel extends RuleBase {
       isEnabled: isEnabled ?? this.isEnabled,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       simSlotIndex: simSlotIndex ?? this.simSlotIndex,
-      label: label ?? this.label,
+      labelId: labelId ?? this.labelId,
       avatar: avatar ?? this.avatar,
     );
   }
@@ -103,7 +103,7 @@ class SimSlotRuleModel extends RuleBase {
       action: action,
       phoneNumber: PhoneNumber.fromString(phoneNumber),
       simSlotIndex: simSlotIndex,
-      label: label,
+      labelId: labelId,
       avatar: avatar,
       isEnabled: isEnabled,
     );
@@ -118,7 +118,7 @@ class SimSlotRuleModel extends RuleBase {
       action: entity.action,
       phoneNumber: entity.phoneNumber.value,
       simSlotIndex: entity.simSlotIndex,
-      label: entity.label,
+      labelId: entity.labelId,
       avatar: entity.avatar,
       isEnabled: entity.isEnabled,
     );

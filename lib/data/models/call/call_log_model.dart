@@ -1,4 +1,3 @@
-
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/data/models/base_model.dart';
 
@@ -11,6 +10,7 @@ class CallLogModel extends BaseModel<CallLog> {
   final String carrierName;
   final String countryIso;
   final int subscriptionId;
+  final List<String>? labelIds;
 
   CallLogModel({
     required super.id,
@@ -22,6 +22,7 @@ class CallLogModel extends BaseModel<CallLog> {
     required this.carrierName,
     required this.countryIso,
     required this.subscriptionId,
+    this.labelIds,
   });
 
   factory CallLogModel.fromMap(Map<String, dynamic> map) {
@@ -35,6 +36,8 @@ class CallLogModel extends BaseModel<CallLog> {
       carrierName: map['carrierName'] ?? '',
       countryIso: map['countryIso'] ?? '',
       subscriptionId: map['subscriptionId'] ?? 0,
+      labelIds:
+          map['labelIds'] != null ? List<String>.from(map['labelIds']) : null,
     );
   }
 
@@ -50,6 +53,7 @@ class CallLogModel extends BaseModel<CallLog> {
       'carrierName': carrierName,
       'countryIso': countryIso,
       'subscriptionId': subscriptionId,
+      'labelIds': labelIds,
     };
   }
 
@@ -65,6 +69,7 @@ class CallLogModel extends BaseModel<CallLog> {
       carrierName: carrierName,
       countryIso: countryIso,
       subscriptionId: subscriptionId,
+      labelIds: labelIds,
     );
   }
 
@@ -79,6 +84,7 @@ class CallLogModel extends BaseModel<CallLog> {
       carrierName: entity.carrierName,
       countryIso: entity.countryIso,
       subscriptionId: entity.subscriptionId,
+      labelIds: entity.labelIds,
     );
   }
 }

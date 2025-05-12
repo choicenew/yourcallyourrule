@@ -1,6 +1,5 @@
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/allowed_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/blocked_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
@@ -19,91 +18,90 @@ class AllowedBlockedService extends ListService {
     _importExportService = RuleImportExportService(_ruleRepository),
     super(_ruleRepository);
 
-  // 添加允许规则
-  Future<void> addAllowedRule(ListEntry entry) async {
-    final rule = AllowedRule(
-      id: '',
-      name: entry.name, // 使用entry中的name
-      priority: const RulePriority(100),
-      phoneNumber: entry.phoneNumber,
-      label: entry.label, // 使用entry中的label
-      avatar: entry.avatar, // 添加avatar参数
-    );
-    await _ruleRepository.saveRule(rule);
-  }
-
-  // 添加阻止规则
-  Future<void> addBlockedRule(ListEntry entry) async {
-    final rule = BlockedRule(
-      id: '',
+  // 添加允许/阻止规则
+  Future<void> addAllowedBlockedRule(ListEntry entry, RuleAction action) async {
+    final rule = AllowedBlockedRule(
+      id: '', // ID 将由 repository 或 datasource 生成
       name: entry.name,
-      priority: const RulePriority(50),
+      action: action,
       phoneNumber: entry.phoneNumber,
-      label: entry.label, // 使用entry中的label
-      avatar: entry.avatar, // 添加avatar参数
+      labelId: entry.labelId,
+      avatar: entry.avatar,
+      // isSubscribed 和 count 会使用默认值
     );
     await _ruleRepository.saveRule(rule);
   }
 
   // 获取所有允许规则
-  Future<List<AllowedRule>> getAllAllowedRules() async {
-    final rules = await _ruleRepository.getRulesByType('allowed');
-    return rules.whereType<AllowedRule>().toList();
+  Future<List<AllowedBlockedRule>> getAllAllowedRules() async {
+    final rules = await _ruleRepository.getRulesByType(RuleAction.allow.toString());
+    return rules.whereType<AllowedBlockedRule>().toList();
   }
 
   // 获取所有阻止规则
-  Future<List<BlockedRule>> getAllBlockedRules() async {
-    final rules = await _ruleRepository.getRulesByType('blocked');
-    return rules.whereType<BlockedRule>().toList();
+  Future<List<AllowedBlockedRule>> getAllBlockedRules() async {
+    final rules = await _ruleRepository.getRulesByType(RuleAction.block.toString());
+    return rules.whereType<AllowedBlockedRule>().toList();
   }
 
-  // 切换允许规则状态
-  Future<void> toggleAllowedRule(String ruleId, bool isEnabled) async {
-    final rule = await _ruleRepository.getRuleById(ruleId) as AllowedRule?;
+  // 切换规则状态
+  Future<void> toggleRuleStatus(String ruleId, bool isEnabled) async {
+    final rule = await _ruleRepository.getRuleById(ruleId) as AllowedBlockedRule?;
     if (rule != null) {
-      final updatedRule = rule.copyWith(isEnabled: isEnabled);
+      // AllowedBlockedRule 需要一个 copyWith 方法，或者手动创建新实例
+      final updatedRule = AllowedBlockedRule(
+        id: rule.id,
+        name: rule.name,
+        action: rule.action,
+        phoneNumber: rule.phoneNumber,
+        labelId: rule.labelId,
+        priority: rule.priority,
+        isEnabled: isEnabled, // 更新状态
+        isSubscribed: rule.isSubscribed,
+        count: rule.count,
+        avatar: rule.avatar,
+      );
       await _ruleRepository.updateRule(updatedRule);
     }
   }
 
-  // 切换阻止规则状态
-  Future<void> toggleBlockedRule(String ruleId, bool isEnabled) async {
-    final rule = await _ruleRepository.getRuleById(ruleId) as BlockedRule?;
-    if (rule != null) {
-      final updatedRule = rule.copyWith(isEnabled: isEnabled);
-      await _ruleRepository.updateRule(updatedRule);
-    }
-  }
-
-  // 删除允许规则
-  Future<void> removeAllowedRule(String ruleId) async {
-    await _ruleRepository.deleteRule(ruleId);
-  }
-
-  // 删除阻止规则
-  Future<void> removeBlockedRule(String ruleId) async {
+  // 删除规则
+  Future<void> removeRule(String ruleId) async {
     await _ruleRepository.deleteRule(ruleId);
   }
 
   // 检查号码是否被允许
   Future<bool> isInAllowed(PhoneNumber phoneNumber) async {
-    final rules = await getAllAllowedRules();
-    return rules.any((r) => r.phoneNumber.value == phoneNumber.value && r.isEnabled);
+    final rules = await _ruleRepository.getRulesByType(RuleAction.allow.toString());
+    return rules.whereType<AllowedBlockedRule>().any((r) => r.phoneNumber.value == phoneNumber.value && r.isEnabled);
   }
 
   // 检查号码是否被阻止
   Future<bool> isInBlocked(PhoneNumber phoneNumber) async {
-    final rules = await getAllBlockedRules();
-    return rules.any((r) => r.phoneNumber.value == phoneNumber.value && r.isEnabled);
+    final rules = await _ruleRepository.getRulesByType(RuleAction.block.toString());
+    return rules.whereType<AllowedBlockedRule>().any((r) => r.phoneNumber.value == phoneNumber.value && r.isEnabled);
+  }
+  
+  // 获取匹配指定号码的阻止规则
+  Future<List<AllowedBlockedRule>> getBlockedRules(PhoneNumber phoneNumber) async {
+    final rules = await _ruleRepository.getRulesByType(RuleAction.block.toString());
+    return rules
+        .whereType<AllowedBlockedRule>()
+        .where((rule) => rule.phoneNumber.value == phoneNumber.value && rule.isEnabled)
+        .toList();
   }
 
-  // 更新允许规则
-  Future<void> updateAllowedRule(AllowedRule rule) async {
-    await _ruleRepository.updateRule(rule);
+  // 获取匹配指定号码的允许规则
+  Future<List<AllowedBlockedRule>> getAllowedRules(PhoneNumber phoneNumber) async {
+    final rules = await _ruleRepository.getRulesByType(RuleAction.allow.toString());
+    return rules
+        .whereType<AllowedBlockedRule>()
+        .where((rule) => rule.phoneNumber.value == phoneNumber.value && rule.isEnabled)
+        .toList();
   }
 
-  // 更新阻止规则
-  Future<void> updateBlockedRule(BlockedRule rule) async {
+  // 更新允许/阻止规则
+  Future<void> updateAllowedBlockedRule(AllowedBlockedRule rule) async {
     await _ruleRepository.updateRule(rule);
   }
 
@@ -133,39 +131,35 @@ class AllowedBlockedService extends ListService {
   Future<List<RuleBase>> importAllowedRulesFromFile(String filePath, {bool overwrite = false}) async {
     final rules = await _importExportService.importFromFile(filePath, mode: overwrite ? ImportMode.overwrite : ImportMode.merge);
     // 过滤出允许规则
-    return rules.whereType<AllowedRule>().toList();
+    return rules.whereType<AllowedBlockedRule>().where((r) => r.action == RuleAction.allow).toList();
   }
 
   // 从文件导入阻止规则
   Future<List<RuleBase>> importBlockedRulesFromFile(String filePath, {bool overwrite = false}) async {
     final rules = await _importExportService.importFromFile(filePath, mode: overwrite ? ImportMode.overwrite : ImportMode.merge);
     // 过滤出阻止规则
-    return rules.whereType<BlockedRule>().toList();
+    return rules.whereType<AllowedBlockedRule>().where((r) => r.action == RuleAction.block).toList();
   }
 
   // 从URL导入允许规则
   Future<List<RuleBase>> importAllowedRulesFromUrl(String url) async {
     final rules = await _importExportService.importFromUrl(url);
-    return rules.whereType<AllowedRule>().toList();
+    return rules.whereType<AllowedBlockedRule>().where((r) => r.action == RuleAction.allow).toList();
   }
 
   // 从URL导入阻止规则
   Future<List<RuleBase>> importBlockedRulesFromUrl(String url) async {
     final rules = await _importExportService.importFromUrl(url);
-    return rules.whereType<BlockedRule>().toList();
+    return rules.whereType<AllowedBlockedRule>().where((r) => r.action == RuleAction.block).toList();
   }
 
   // 获取所有标签
   Future<List<String>> getAllLabels() async {
-    final allowedRules = await getAllAllowedRules();
-    final blockedRules = await getAllBlockedRules();
-    
+    final rules = await _ruleRepository.getAll(); // 使用BaseRepository中定义的getAll方法
     final labels = <String>{};
-    for (final rule in [...allowedRules, ...blockedRules]) {
-      if (rule is AllowedRule) {
-        labels.add(rule.label);
-      } else if (rule is BlockedRule) {
-        labels.add(rule.label);
+    for (final rule in rules) {
+      if (rule is AllowedBlockedRule) {
+        labels.add(rule.labelId);
       }
     }
     

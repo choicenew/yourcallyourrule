@@ -101,6 +101,33 @@ class CallLogRepositoryImpl implements CallLogRepository {
     final logs = await getAll();
     return logs.where((log) => log.number == phoneNumber).toList();
   }
+  
+  @override
+  Future<List<CallLog>> getLogsByLabelId(String labelId) async {
+    // 根据标签ID获取通话记录
+    final logs = await getAll();
+    return logs.where((log) => log.labelIds?.contains(labelId) ?? false).toList();
+  }
+  
+  @override
+  Future<List<CallLog>> getLogsWithAnyLabels(List<String> labelIds) async {
+    // 获取包含任意指定标签的通话记录
+    final logs = await getAll();
+    return logs.where((log) => 
+      log.labelIds != null && 
+      log.labelIds!.any((id) => labelIds.contains(id))
+    ).toList();
+  }
+  
+  @override
+  Future<List<CallLog>> getLogsWithAllLabels(List<String> labelIds) async {
+    // 获取包含全部指定标签的通话记录
+    final logs = await getAll();
+    return logs.where((log) => 
+      log.labelIds != null && 
+      labelIds.every((id) => log.labelIds!.contains(id))
+    ).toList();
+  }
 
   @override
   Stream<List<CallLog>> watchLogs() {

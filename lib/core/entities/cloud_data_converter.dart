@@ -1,7 +1,8 @@
 import 'package:yourcallyourrule/core/entities/contact/contact_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/allowed_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
+
 import 'package:yourcallyourrule/core/entities/rule/blacklist_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/blocked_rule.dart';
+
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
@@ -10,7 +11,7 @@ import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/label/label_entry.dart';
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/subscription/contact_subscription.dart';
@@ -29,7 +30,7 @@ class CloudDataConverter {
       return _serializeContact(entity);
     } else if (entity is CallLog) {
       return _serializeCallLog(entity);
-    } else if (entity is LabelEntry) {
+    } else if (entity is LabelPhoneEntry) {
       return _serializeLabel(entity);
     } else if (entity is LocationEntry) {
       return _serializeLocation(entity);
@@ -57,7 +58,7 @@ class CloudDataConverter {
       return _deserializeContact(data) as T;
     } else if (T == CallLog) {
       return _deserializeCallLog(data) as T;
-    } else if (T == LabelEntry) {
+    } else if (T == LabelPhoneEntry) {
       return _deserializeLabel(data) as T;
     } else if (T == LocationEntry) {
       return _deserializeLocation(data) as T;
@@ -113,7 +114,7 @@ class CloudDataConverter {
   // 新增序列化方法
   static Map<String, dynamic> _serializeContact(Contact contact) => contact.toMap();
   static Map<String, dynamic> _serializeCallLog(CallLog log) => log.toMap();
-  static Map<String, dynamic> _serializeLabel(LabelEntry label) => label.toMap();
+  static Map<String, dynamic> _serializeLabel(LabelPhoneEntry label) => label.toMap();
   static Map<String, dynamic> _serializeLocation(LocationEntry location) => location.toMap();
   static Map<String, dynamic> _serializeListEntry(ListEntry entry) => entry.toMap();
   static Map<String, dynamic> _serializeContactSubscription(ContactSubscription sub) => sub.toMap();
@@ -121,7 +122,7 @@ class CloudDataConverter {
   // 新增反序列化方法
   static Contact _deserializeContact(Map<String, dynamic> data) => Contact.fromMap(data);
   static CallLog _deserializeCallLog(Map<String, dynamic> data) => CallLog.fromMap(data);
-  static LabelEntry _deserializeLabel(Map<String, dynamic> data) => LabelEntry.fromMap(data);
+  static LabelPhoneEntry _deserializeLabel(Map<String, dynamic> data) => LabelPhoneEntry.fromMap(data);
   static LocationEntry _deserializeLocation(Map<String, dynamic> data) => LocationEntry.fromMap(data);
   static ListEntry _deserializeListEntry(Map<String, dynamic> data) => ListEntry.fromMap(data);
 
@@ -133,10 +134,10 @@ class CloudDataConverter {
   static RuleBase _deserializeRule(Map<String, dynamic> data) {
     final type = data['_type'] as String;
     switch (type) {
-      case 'BlockedRule':
-        return BlockedRule.fromMap(data);
-      case 'AllowedRule':
-        return AllowedRule.fromMap(data);
+      
+      
+      case 'AllowedBlockedRule':
+        return AllowedBlockedRule.fromMap(data);
       case 'BlacklistRule':
         return BlacklistRule.fromMap(data);
       case 'WhitelistRule':

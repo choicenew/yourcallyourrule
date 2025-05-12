@@ -36,10 +36,10 @@
         }
         .toggle-checkbox:checked {
             right: 0;
-            border-color: #FFB74D;
+            border-color: #9C27B0;
         }
         .toggle-checkbox:checked + .toggle-label {
-            background-color: #FFB74D;
+            background-color: #9C27B0;
         }
         .color-circle {
             width: 24px;
@@ -50,7 +50,7 @@
             border: 2px solid transparent;
         }
         .color-circle.selected {
-            border-color: #6D4C41;
+            border-color: #673AB7;
         }
         .caller-preview {
             border-radius: 16px;
@@ -61,18 +61,18 @@
 </head>
 <body class="bg-gray-100 font-sans">
     <!-- 顶部导航栏 -->
-    <nav class="bg-white shadow-md">
+    <nav class="bg-primary text-white shadow-md">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-2">
-                    <a href="home.html" class="flex items-center">
-                        <i class="fas fa-arrow-left text-gray-600 mr-4"></i>
-                        <i class="fas fa-id-card text-accent text-xl mr-2"></i>
+                    <a href="index.html" class="flex items-center">
+                        <i class="fas fa-arrow-left text-white mr-4"></i>
+                        <i class="fas fa-id-card text-white text-xl mr-2"></i>
                         <span class="text-xl font-bold">来电识别设置</span>
                     </a>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <button class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition">
+                    <button class="bg-white text-primary px-4 py-2 rounded-full hover:bg-opacity-90 transition">
                         <i class="fas fa-save mr-2"></i>保存
                     </button>
                 </div>
@@ -130,12 +130,12 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">主题颜色</label>
                             <div class="flex space-x-3">
-                                <div class="color-circle selected" style="background-color: #FFB74D;"></div>
+                                <div class="color-circle" style="background-color: #FFB74D;"></div>
                                 <div class="color-circle" style="background-color: #93CB80;"></div>
                                 <div class="color-circle" style="background-color: #039BE5;"></div>
                                 <div class="color-circle" style="background-color: #E53935;"></div>
-                                <div class="color-circle" style="background-color: #9C27B0;"></div>
-                                <div class="color-circle" style="background-color: #607D8B;"></div>
+                                <div class="color-circle selected" style="background-color: #9C27B0;"></div>
+                                <div class="color-circle" style="background-color: #673AB7;"></div>
                                 <div class="color-circle bg-gradient-to-r from-purple-500 to-pink-500"></div>
                                 <div class="color-circle bg-gradient-to-r from-cyan-500 to-blue-500"></div>
                             </div>
@@ -277,7 +277,7 @@
                 </div>
                 
                 <!-- 来电显示预览 -->
-                <div id="callerIdPreview" class="caller-preview bg-primary bg-opacity-80 p-4 text-white absolute top-[20%] left-[10%] right-[10%]">
+                <div id="callerIdPreview" class="caller-preview bg-primary bg-opacity-80 p-4 text-white absolute top-[20%] left-[10%] right-[10%] rounded-xl shadow-lg">
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3">
                             <i class="fas fa-user text-primary text-xl"></i>
@@ -296,10 +296,10 @@
                         <span class="text-xs bg-white bg-opacity-20 px-2 py-1 rounded-full">推销电话</span>
                     </div>
                     <div class="flex justify-between mt-3">
-                        <button class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">
+                        <button class="bg-red-500 text-white px-3 py-1 rounded-full text-sm shadow-sm">
                             <i class="fas fa-ban mr-1"></i> 拒接
                         </button>
-                        <button class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">
+                        <button class="bg-secondary text-white px-3 py-1 rounded-full text-sm shadow-sm hover:bg-secondary/90 transition-colors">
                             <i class="fas fa-phone-alt mr-1"></i> 接听
                         </button>
                     </div>
@@ -312,7 +312,7 @@
     <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200">
         <div class="container mx-auto">
             <div class="flex justify-around items-center py-3">
-                <a href="home.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                <a href="index.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
                     <i class="fas fa-home text-xl"></i>
                     <span class="text-xs mt-1">首页</span>
                 </a>

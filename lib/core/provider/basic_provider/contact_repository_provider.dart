@@ -276,8 +276,8 @@ class ContactRepositoryImpl implements ContactRepository {
     final contact = await getById(contactId);
     if (contact == null) return false;
     
-    // 假设我们在联系人中添加一个标记表示收藏
-    final updatedContact = contact.copyWith(label: 'favorite');
+    // 使用isFavorite字段标记收藏状态
+    final updatedContact = contact.copyWith(isFavorite: true);
     await update(updatedContact);
     return true;
   }
@@ -287,9 +287,9 @@ class ContactRepositoryImpl implements ContactRepository {
     final contact = await getById(contactId);
     if (contact == null) return false;
     
-    // 如果当前标签是favorite，则移除
-    if (contact.label == 'favorite') {
-      final updatedContact = contact.copyWith(label: null);
+    // 如果当前是收藏状态，则取消收藏
+    if (contact.isFavorite) {
+      final updatedContact = contact.copyWith(isFavorite: false);
       await update(updatedContact);
     }
     return true;
@@ -297,7 +297,7 @@ class ContactRepositoryImpl implements ContactRepository {
   
   @override
   Future<List<PhoneEntry>> getFavorites() async {
-    final maps = await _databaseService.queryWhere('contacts', 'label', 'favorite');
+    final maps = await _databaseService.queryWhere('contacts', 'isFavorite', true);
     List<PhoneEntry> results = [];
     for (var map in maps) {
       final contact = fromMap(map);

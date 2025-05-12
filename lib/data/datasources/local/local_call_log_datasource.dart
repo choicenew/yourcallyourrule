@@ -15,7 +15,7 @@ class LocalCallLogDataSource {
     final db = await _db;
     await db.insert(
       'calls',
-      log.toMap(),
+      log.toMap()..['labelIds'] = log.labelIds?.join(','),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
     return log.id;
@@ -25,7 +25,7 @@ class LocalCallLogDataSource {
     final db = await _db;
     final batch = db.batch();
     for (final log in logs) {
-      batch.insert('calls', log.toMap());
+      batch.insert('calls', log.toMap()..['labelIds'] = log.labelIds?.join(','));
     }
     await batch.commit(noResult: true);
   }
@@ -54,7 +54,7 @@ class LocalCallLogDataSource {
     final db = await _db;
     return db.update(
       'calls',
-      log.toMap(),
+      log.toMap()..['labelIds'] = log.labelIds?.join(','),
       where: 'id = ?',
       whereArgs: [log.id],
     );
@@ -75,7 +75,7 @@ class LocalCallLogDataSource {
       for (final log in logs) {
         await txn.update(
           'calls',
-          log.toMap(),
+          log.toMap()..['labelIds'] = log.labelIds?.join(','),
           where: 'id = ?',
           whereArgs: [log.id],
         );
@@ -90,5 +90,28 @@ class LocalCallLogDataSource {
       [pattern],
     );
     return result.map((e) => CallLogModel.fromMap(e).toEntity()).toList();
+  }
+
+  Future<List<CallLog>> getByLabelId(String labelId) async {
+    final db = await _db;
+    final maps = await db.query(
+      'calls',
+      where: 'labelIds LIKE ?',
+      whereArgs: ['%$labelId%'],
+    );
+    return maps.map((e) => CallLogModel.fromMap(e).toEntity()).toList();
+  }
+
+  Future<List<CallLog>> getWithAnyLabels(List<String> labelIds) async {
+    final db = await _db;
+    final conditions = labelIds.map((_) => 'labelIds LIKE ?').join(' OR ');
+    final args = labelIds.map((id) => '%$id%').toList();
+    
+    final maps = await db.query(
+      'calls',
+      where: conditions,
+      whereArgs: args,
+    );
+    return maps.map((e) => CallLogModel.fromMap(e).toEntity()).toList();
   }
 }

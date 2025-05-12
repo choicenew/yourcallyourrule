@@ -1,14 +1,12 @@
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/blacklist_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/core/entities/rule/whitelist_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/white_black_rule.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
 /// 黑白名单服务类，继承自ListService，提供黑白名单规则的管理功能
 /// 包括添加、删除、查询黑白名单规则等操作
@@ -23,12 +21,12 @@ class BlacklistWhitelistService extends ListService {
 
   // 添加到黑名单
   Future<void> addToBlacklist(ListEntry entry) async {
-    final rule = BlacklistRule(
+    final rule = WhiteBlackRule(
       id: '',
       name: entry.name,
-      priority: const RulePriority(3),
+      action: RuleAction.block,
       phoneNumber: entry.phoneNumber,
-      label: entry.label, // 使用entry中的label
+      labelId: entry.labelId,
       avatar: entry.avatar,
     );
     await _ruleRepository.saveRule(rule);
@@ -36,12 +34,12 @@ class BlacklistWhitelistService extends ListService {
 
   // 添加到白名单
   Future<void> addToWhitelist(ListEntry entry) async {
-    final rule = WhitelistRule(
+    final rule = WhiteBlackRule(
       id: '',
       name: entry.name,
-      priority: const RulePriority(7),
+      action: RuleAction.allow,
       phoneNumber: entry.phoneNumber,
-      label: entry.label,
+      labelId: entry.labelId,
       avatar: entry.avatar,
     );
     await _ruleRepository.saveRule(rule);
@@ -58,21 +56,37 @@ class BlacklistWhitelistService extends ListService {
   }
 
   // 获取所有黑名单规则
-  Future<List<BlacklistRule>> getAllBlacklistRules() async {
+  Future<List<WhiteBlackRule>> getAllBlacklistRules() async {
     final rules = await _ruleRepository.getRulesByType('blacklist');
-    return rules.whereType<BlacklistRule>().toList();
+    return rules.whereType<WhiteBlackRule>().where((rule) => rule.action == RuleAction.block).toList();
   }
 
   // 获取所有白名单规则
-  Future<List<WhitelistRule>> getAllWhitelistRules() async {
+  Future<List<WhiteBlackRule>> getAllWhitelistRules() async {
     final rules = await _ruleRepository.getRulesByType('whitelist');
-    return rules.whereType<WhitelistRule>().toList();
+    return rules.whereType<WhiteBlackRule>().where((rule) => rule.action == RuleAction.allow).toList();
   }
 
   // 检查是否在黑名单中
   Future<bool> isInBlacklist(PhoneNumber phoneNumber) async {
     final rules = await getAllBlacklistRules();
     return rules.any((rule) => rule.phoneNumber.value == phoneNumber.value && rule.isEnabled);
+  }
+  
+  // 获取匹配指定号码的黑名单规则
+  Future<List<WhiteBlackRule>> getBlacklistRules(PhoneNumber phoneNumber) async {
+    final rules = await getAllBlacklistRules();
+    return rules
+        .where((rule) => rule.phoneNumber.value == phoneNumber.value && rule.isEnabled)
+        .toList();
+  }
+  
+  // 获取匹配指定号码的白名单规则
+  Future<List<WhiteBlackRule>> getWhitelistRules(PhoneNumber phoneNumber) async {
+    final rules = await getAllWhitelistRules();
+    return rules
+        .where((rule) => rule.phoneNumber.value == phoneNumber.value && rule.isEnabled)
+        .toList();
   }
 
   // 检查是否在白名单中
@@ -82,19 +96,25 @@ class BlacklistWhitelistService extends ListService {
   }
 
   // 更新黑名单规则
-  Future<void> updateBlacklistRule(BlacklistRule rule) async {
+  Future<void> updateBlacklistRule(WhiteBlackRule rule) async {
+    if (rule.action != RuleAction.block) {
+      throw ArgumentError('Rule must be a blacklist rule');
+    }
     await _ruleRepository.updateRule(rule);
   }
 
   // 更新白名单规则
-  Future<void> updateWhitelistRule(WhitelistRule rule) async {
+  Future<void> updateWhitelistRule(WhiteBlackRule rule) async {
+    if (rule.action != RuleAction.allow) {
+      throw ArgumentError('Rule must be a whitelist rule');
+    }
     await _ruleRepository.updateRule(rule);
   }
 
   // 切换黑名单规则状态
   Future<void> toggleBlacklistRule(String ruleId, bool isEnabled) async {
-    final rule = await _ruleRepository.getRuleById(ruleId) as BlacklistRule?;
-    if (rule != null) {
+    final rule = await _ruleRepository.getRuleById(ruleId) as WhiteBlackRule?;
+    if (rule != null && rule.action == RuleAction.block) {
       final updatedRule = rule.copyWith(isEnabled: isEnabled);
       await _ruleRepository.updateRule(updatedRule);
     }
@@ -102,8 +122,8 @@ class BlacklistWhitelistService extends ListService {
 
   // 切换白名单规则状态
   Future<void> toggleWhitelistRule(String ruleId, bool isEnabled) async {
-    final rule = await _ruleRepository.getRuleById(ruleId) as WhitelistRule?;
-    if (rule != null) {
+    final rule = await _ruleRepository.getRuleById(ruleId) as WhiteBlackRule?;
+    if (rule != null && rule.action == RuleAction.allow) {
       final updatedRule = rule.copyWith(isEnabled: isEnabled);
       await _ruleRepository.updateRule(updatedRule);
     }
@@ -135,26 +155,26 @@ class BlacklistWhitelistService extends ListService {
   Future<List<RuleBase>> importBlacklistFromFile(String filePath, {bool overwrite = false}) async {
     final rules = await _importExportService.importFromFile(filePath, mode: overwrite ? ImportMode.overwrite : ImportMode.merge);
     // 过滤出黑名单规则
-    return rules.whereType<BlacklistRule>().toList();
+    return rules.where((r) => r.action == RuleAction.block).toList();
   }
 
   // 从文件导入白名单规则
   Future<List<RuleBase>> importWhitelistFromFile(String filePath, {bool overwrite = false}) async {
     final rules = await _importExportService.importFromFile(filePath, mode: overwrite ? ImportMode.overwrite : ImportMode.merge);
     // 过滤出白名单规则
-    return rules.whereType<WhitelistRule>().toList();
+    return rules.where((r) => r.action == RuleAction.allow).toList();
   }
 
   // 从URL导入黑名单规则
   Future<List<RuleBase>> importBlacklistFromUrl(String url) async {
     final rules = await _importExportService.importFromUrl(url);
-    return rules.whereType<BlacklistRule>().toList();
+    return rules.where((r) => r.action == RuleAction.block).toList();
   }
 
   // 从URL导入白名单规则
   Future<List<RuleBase>> importWhitelistFromUrl(String url) async {
     final rules = await _importExportService.importFromUrl(url);
-    return rules.whereType<WhitelistRule>().toList();
+    return rules.where((r) => r.action == RuleAction.allow).toList();
   }
 
   // 获取所有标签
@@ -165,10 +185,10 @@ class BlacklistWhitelistService extends ListService {
     final labels = <String>{};
     for (final rule in [...blacklistRules, ...whitelistRules]) {
       // 添加类型检查
-      if (rule is BlacklistRule) {
-        labels.add(rule.label);
-      } else if (rule is WhitelistRule) {
-        labels.add(rule.label);
+      if (rule.action == RuleAction.block) {
+        labels.add(rule.labelId);
+      } else if (rule.action == RuleAction.allow) {
+        labels.add(rule.labelId);
       }
     }
     

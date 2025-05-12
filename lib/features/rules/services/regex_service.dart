@@ -68,6 +68,22 @@ class RegexService extends ListService {
     final rules = await getAllRegexRules();
     return rules.where((rule) => rule.action == action).toList();
   }
+  
+  /// 获取匹配指定电话号码的正则规则
+  Future<List<RegexRule>> getMatchingRegexRules(String phoneNumberStr) async {
+    final rules = await getAllRegexRules();
+    return rules
+        .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
+        .toList();
+  }
+  
+  /// 获取匹配指定电话号码的特定动作类型的正则规则
+  Future<List<RegexRule>> getMatchingRegexRulesByAction(String phoneNumberStr, RuleAction action) async {
+    final rules = await getRegexRulesByAction(action);
+    return rules
+        .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
+        .toList();
+  }
 
   /// 更新正则规则
   Future<void> updateRegexRule(RegexRule rule) async {

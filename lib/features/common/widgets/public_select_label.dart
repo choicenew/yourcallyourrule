@@ -1,0 +1,288 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+
+/// 定义一个通用的标签服务接口
+abstract class SelectLabelService {
+  Future<List<String>> getAllLabelTexts();
+  Future<List<PredefinedLabel>> getAllLabels();
+  Future<String?> getLabelTextById(String labelId);
+  Future<String?> getLabelIdByText(String labelText);
+}
+
+/// 预定义标签服务适配器，将PredefinedLabelService适配到SelectLabelService接口
+class PredefinedLabelServiceAdapter implements SelectLabelService {
+  final PredefinedLabelService predefinedLabelService;
+
+  PredefinedLabelServiceAdapter(this.predefinedLabelService);
+
+  @override
+  Future<List<String>> getAllLabelTexts() {
+    return predefinedLabelService.getAllLabelTexts();
+  }
+  
+  @override
+  Future<List<PredefinedLabel>> getAllLabels() {
+    return predefinedLabelService.getAllLabels();
+  }
+  
+  @override
+  Future<String?> getLabelTextById(String labelId) async {
+    // 通过标签ID获取标签文本
+    final label = await predefinedLabelService.getLabelById(labelId);
+    return label?.text;
+  }
+  
+  @override
+  Future<String?> getLabelIdByText(String labelText) async {
+    // 通过标签文本获取标签ID
+    final labels = await predefinedLabelService.getLabelsByText(labelText);
+    return labels.isNotEmpty ? labels.first.id : null;
+  }
+}
+
+/// 可复用的标签选择组件，支持labelId
+/// 这个组件可以被各种需要标签功能的服务复用
+/// 例如：来电识别、短信过滤、规则设置等
+class PublicSelectLabel extends StatefulWidget {
+  /// 初始选中的标签ID
+  final String? initialLabelId;
+  
+  /// 初始选中的标签文本（如果没有提供initialLabelId）
+  final String? initialLabelText;
+  
+  /// 电话号码（可选）
+  final String? phoneNumber;
+  
+  /// 标签ID变更回调
+  final ValueChanged<String> onLabelIdChanged;
+  
+  /// 标签服务
+  final SelectLabelService? selectLabelService;
+  
+  /// 主题色
+  final Color themeColor;
+  
+  /// 构造函数
+  const PublicSelectLabel({
+    super.key,
+    this.initialLabelId,
+    this.initialLabelText,
+    this.phoneNumber,
+    required this.onLabelIdChanged,
+    this.selectLabelService,
+    this.themeColor = const Color(0xFFF5A623),
+  });
+
+  @override
+  State<PublicSelectLabel> createState() => _PublicSelectLabelState();
+}
+
+class _PublicSelectLabelState extends State<PublicSelectLabel> {
+  String? _selectedLabelId;
+  String? _selectedLabelText;
+  List<String> _labels = [];
+  Map<String, String> _labelTextToIdMap = {};
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeSelectedLabel();
+    _loadLabels();
+  }
+  
+  Future<void> _initializeSelectedLabel() async {
+    if (widget.initialLabelId != null) {
+      _selectedLabelId = widget.initialLabelId;
+      // 如果提供了初始标签ID，尝试获取对应的标签文本
+      final service = widget.selectLabelService ?? 
+          PredefinedLabelServiceAdapter(Provider.of<PredefinedLabelService>(context, listen: false));
+      _selectedLabelText = await service.getLabelTextById(_selectedLabelId!);
+    } else if (widget.initialLabelText != null) {
+      _selectedLabelText = widget.initialLabelText;
+    }
+  }
+
+  Future<void> _loadLabels() async {
+    setState(() {
+      _isLoading = true;
+    });
+    
+    try {
+      final SelectLabelService service = widget.selectLabelService ?? 
+          PredefinedLabelServiceAdapter(Provider.of<PredefinedLabelService>(context, listen: false));
+
+      
+      final labels = await service.getAllLabelTexts();
+      final allLabels = await service.getAllLabels();
+      
+      // 构建标签文本到ID的映射
+      final Map<String, String> textToIdMap = {};
+      for (var label in allLabels) {
+        if (label.id.isNotEmpty) {
+          textToIdMap[label.text] = label.id;
+        }
+      }
+      
+      setState(() {
+        _labels = labels;
+        _labelTextToIdMap = textToIdMap;
+        _isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('加载标签失败: $e'),
+          backgroundColor: Colors.red,
+        ));
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          '选择标签',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 12),
+        _isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : _buildLabelChips(),
+        if (_selectedLabelText != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 16),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              decoration: BoxDecoration(
+                color: widget.themeColor.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: widget.themeColor.withOpacity(0.3)),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.label, color: widget.themeColor, size: 18),
+                  const SizedBox(width: 8),
+                  Text(
+                    '已选择: $_selectedLabelText',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: widget.themeColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildLabelChips() {
+    if (_labels.isEmpty) {
+      return Center(
+        child: Column(
+          children: [
+            const Icon(Icons.label_off, color: Colors.grey, size: 48),
+            const SizedBox(height: 8),
+            const Text('暂无标签', style: TextStyle(color: Colors.grey)),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, '/labels/management').then((_) => _loadLabels());
+              },
+              icon: const Icon(Icons.add),
+              label: const Text('添加标签'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: widget.themeColor,
+                foregroundColor: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+    
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: _labels.map((labelText) {
+        final isSelected = labelText == _selectedLabelText;
+        return ChoiceChip(
+          label: Text(labelText),
+          selected: isSelected,
+          onSelected: (selected) {
+            if (selected) {
+              final labelId = _labelTextToIdMap[labelText] ?? '';
+              setState(() {
+                _selectedLabelText = labelText;
+                _selectedLabelId = labelId;
+              });
+              widget.onLabelIdChanged(labelId);
+            }
+          },
+          selectedColor: widget.themeColor,
+          backgroundColor: Colors.grey.shade200,
+          labelStyle: TextStyle(
+            color: isSelected ? Colors.white : Colors.black87,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          ),
+          avatar: isSelected ? const Icon(Icons.check, size: 18, color: Colors.white) : null,
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        );
+      }).toList(),
+    );
+  }
+}
+
+/// 标签翻译扩展
+extension LabelTranslationExtension on String {
+  String translate(BuildContext context) {
+    // 这里可以添加标签翻译逻辑
+    // 如果需要，可以使用getLabelMap函数
+    return this;
+  }
+}
+
+/// 标签选择页面
+class LabelSelectionPage extends StatelessWidget {
+  final String title;
+  final ValueChanged<String> onLabelIdSelected;
+  
+  const LabelSelectionPage({
+    super.key,
+    required this.title,
+    required this.onLabelIdSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+        backgroundColor: const Color(0xFFF5A623),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: PublicSelectLabel(
+          onLabelIdChanged: (labelId) {
+            onLabelIdSelected(labelId);
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}

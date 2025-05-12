@@ -110,16 +110,16 @@ class SimSlotRuleService implements CallFilterInterface {
   }
 
   /// 添加SIM卡槽位规则
-  Future<SimSlotRule> addSimSlotRule(String phoneNumber, int simSlotIndex, {String name = '', String label = '', RuleAction action = RuleAction.block}) async {
+  Future<SimSlotRule> addSimSlotRule(String phoneNumber, int simSlotIndex, {String name = '', String labelId = '', RuleAction action = RuleAction.block}) async {
     // 创建新规则
     final rule = SimSlotRule(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       name: name.isEmpty ? 'SIM槽位$simSlotIndex规则' : name,
-      priority: RulePriority(10), // 默认优先级
+      priority: const RulePriority(10), // 默认优先级
       action: action,
       phoneNumber: PhoneNumber.fromString(phoneNumber),
       simSlotIndex: simSlotIndex,
-      label: label,
+      labelId: labelId,
     );
     
     // 保存规则

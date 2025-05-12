@@ -29,59 +29,107 @@ class CallFilterService implements CallFilterInterface {
         _blacklistWhitelistService = blacklistWhitelistService,
         _configRepository = configRepository;
 
-  // 修复方法定义（原代码存在结构错误）
+  // 优化后的方法定义
+  @override
   Future<bool> shouldAcceptCall(String phoneNumberStr) async {
     final phoneNumber = PhoneNumber(phoneNumberStr);
+    String? interceptAction;
 
+    // 全局拒绝设置优先级最高
     if (callFilterConfig.rejectAllNumbers) {
+      _setCurrentInterceptAction(null); // 使用全局默认拦截动作
       return false;
     }
 
-    if (callFilterConfig.allowAllAllowedNumbers &&
-        await _allowedBlockedService.isInAllowed(phoneNumber)) {
-      return true;
+    // 检查允许规则（优先级高）
+    if (callFilterConfig.allowAllAllowedNumbers) {
+      final allowedRules = await _allowedBlockedService.getAllowedRules(phoneNumber);
+      if (allowedRules.isNotEmpty) {
+        return true;
+      }
     }
 
-    if (await _allowedBlockedService.isInBlocked(phoneNumber) &&
-        !callFilterConfig.allowBlockedNumbers) {
-      return false;
+    // 检查阻止规则（优先级中）
+    if (!callFilterConfig.allowBlockedNumbers) {
+      final blockedRules = await _allowedBlockedService.getBlockedRules(phoneNumber);
+      if (blockedRules.isNotEmpty) {
+        // 使用第一个匹配规则的拦截动作
+        interceptAction = _getInterceptActionFromRule(blockedRules.first.action);
+        _setCurrentInterceptAction(interceptAction);
+        return false;
+      }
     }
 
+    // 检查正则允许规则
     if (callFilterConfig.allowRegexAllowRules) {
-      final regexRules =
-          await _regexService.getRegexRulesByAction(RuleAction.allow);
-      for (var rule in regexRules) {
-        if (rule.isEnabled && rule.matches(phoneNumberStr)) {
-          return true;
-        }
+      final matchingAllowRules = await _regexService.getMatchingRegexRulesByAction(
+          phoneNumberStr, RuleAction.allow);
+      if (matchingAllowRules.isNotEmpty) {
+        return true;
       }
     }
 
-    // 检查号码是否在白名单中
-    if (callFilterConfig.allowAllWhitelistedNumbers &&
-        await _blacklistWhitelistService.isInWhitelist(phoneNumber)) {
-      return true;
+    // 检查白名单规则
+    if (callFilterConfig.allowAllWhitelistedNumbers) {
+      final whitelistRules = await _blacklistWhitelistService.getWhitelistRules(phoneNumber);
+      if (whitelistRules.isNotEmpty) {
+        return true;
+      }
     }
 
-    // 检查号码是否匹配阻止规则的正则表达式
+    // 检查正则阻止规则
     if (callFilterConfig.allowRegexBlockRules) {
-      final regexRules =
-          await _regexService.getRegexRulesByAction(RuleAction.block);
-      for (var rule in regexRules) {
-        if (rule.isEnabled && rule.matches(phoneNumberStr)) {
-          return false;
-        }
+      final matchingBlockRules = await _regexService.getMatchingRegexRulesByAction(
+          phoneNumberStr, RuleAction.block);
+      if (matchingBlockRules.isNotEmpty) {
+        // 使用第一个匹配规则的拦截动作
+        interceptAction = _getInterceptActionFromRule(matchingBlockRules.first.action);
+        _setCurrentInterceptAction(interceptAction);
+        return false;
       }
     }
 
-    // 检查号码是否在黑名单中
-    if (await _blacklistWhitelistService.isInBlacklist(phoneNumber) &&
-        !callFilterConfig.allowAllBlacklistedNumbers) {
-      return false;
+    // 检查黑名单规则
+    if (!callFilterConfig.allowAllBlacklistedNumbers) {
+      final blacklistRules = await _blacklistWhitelistService.getBlacklistRules(phoneNumber);
+      if (blacklistRules.isNotEmpty) {
+        // 使用第一个匹配规则的拦截动作
+        interceptAction = _getInterceptActionFromRule(blacklistRules.first.action);
+        _setCurrentInterceptAction(interceptAction);
+        return false;
+      }
     }
 
     // 放行所有其他号码
     return true;
+  }
+  
+  // 从规则动作中获取拦截动作
+  String? _getInterceptActionFromRule(RuleAction action) {
+    // 如果动作类型不是block，则不需要拦截
+    if (action.type != RuleActionType.block) {
+      return null;
+    }
+    
+    // 如果没有参数，使用默认拦截动作
+    if (action.parameters == null || !action.parameters!.containsKey('interceptAction')) {
+      return null;
+    }
+    
+    return action.parameters!['interceptAction'] as String?;
+  }
+  
+  // 当前拦截动作，用于在shouldAcceptCall和EndCallHandler之间传递信息
+  static String? _currentInterceptAction;
+  
+  // 设置当前拦截动作
+  void _setCurrentInterceptAction(String? action) {
+    _currentInterceptAction = action;
+  }
+  
+  // 获取当前拦截动作
+  static String? getCurrentInterceptAction() {
+    return _currentInterceptAction;
   }
 
   /// 从配置仓库加载配置
@@ -104,6 +152,7 @@ class CallFilterService implements CallFilterInterface {
   }
 
   /// 初始化服务
+  @override
   Future<void> initialize() async {
     // 移除旧的SharedPreferences初始化代码
     await loadConfig(); // 直接通过repository加载

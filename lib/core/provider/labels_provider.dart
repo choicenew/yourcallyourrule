@@ -1,104 +1,33 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/label/label_entry.dart';
-import 'package:yourcallyourrule/core/repositories/base_repository.dart';
-import 'providers.dart';
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 
-/// 标签仓库接口
-abstract class LabelRepository extends BaseRepository<LabelEntry, String> {
-  /// 根据名称获取标签
-  Future<LabelEntry?> getByName(String name);
+import 'label_phone_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/rule_repository_provider.dart';
+
+import 'predefined_labels_provider.dart';
+
+/// 标签服务提供者
+/// 提供统一的标签服务入口
+final labelServiceProvider = Provider<LabelService>((ref) {
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
   
-  /// 根据类型获取标签
-  Future<List<LabelEntry>> getByType(String type);
-  
-  /// 检查标签名称是否已存在
-  Future<bool> nameExists(String name);
-  
-  /// 获取所有启用的标签
-  Future<List<LabelEntry>> getAllEnabled();
-}
+  return LabelService(ruleRepository, predefinedLabelService);
+});
+/// 电话标签数据提供者
+final labelPhonesProvider = AsyncNotifierProvider<LabelPhoneNotifier, List<LabelPhoneEntry>>(
+  () => LabelPhoneNotifier(),
+);
 
-/// 标签数据状态的Notifier类
-class LabelsNotifier extends AsyncNotifier<List<LabelEntry>> {
-  late final LabelRepository _labelRepository;
+/// 标签数据提供者 - 直接引用labelPhonesProvider
+final labelsProvider = Provider<LabelPhoneNotifier>((ref) {
+  return ref.read(labelPhonesProvider.notifier);
+});
 
-  @override
-  Future<List<LabelEntry>> build() async {
-    // 初始化仓库
-    _initRepository();
-    // 加载所有标签
-    return _loadLabels();
-  }
-
-  void _initRepository() {
-    // 获取仓库实例
-    _labelRepository = ref.read(labelRepositoryProvider);
-  }
-
-  Future<List<LabelEntry>> _loadLabels() async {
-    try {
-      // 获取所有标签
-      return await _labelRepository.getAll();
-    } catch (e) {
-      // 错误处理
-      state = AsyncValue.error(e, StackTrace.current);
-      return [];
-    }
-  }
-
-  /// 添加标签
-  Future<void> addLabel(LabelEntry label) async {
-    state = const AsyncValue.loading();
-    try {
-      await _labelRepository.save(label);
-      state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
-    }
-  }
-
-  /// 更新标签
-  Future<void> updateLabel(LabelEntry label) async {
-    state = const AsyncValue.loading();
-    try {
-      await _labelRepository.update(label);
-      state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
-    }
-  }
-
-  /// 删除标签
-  Future<void> deleteLabel(String labelId) async {
-    state = const AsyncValue.loading();
-    try {
-      await _labelRepository.deleteById(labelId);
-      state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
-    }
-  }
-  
-  /// 获取启用的标签
-  Future<List<LabelEntry>> getEnabledLabels() async {
-    try {
-      return await _labelRepository.getAllEnabled();
-    } catch (e) {
-      return [];
-    }
-  }
-  
-  /// 根据类型获取标签
-  Future<List<LabelEntry>> getLabelsByType(String type) async {
-    try {
-      return await _labelRepository.getByType(type);
-    } catch (e) {
-      return [];
-    }
-  }
-}
-
-/// 标签数据提供者
-final labelsProvider = AsyncNotifierProvider<LabelsNotifier, List<LabelEntry>>(() {
-  return LabelsNotifier();
+/// 标签系统服务提供者
+/// 整合标签、预定义标签和电话标签服务的统一入口
+final labelSystemProvider = Provider<LabelService>((ref) {
+  final labelService = ref.watch(labelServiceProvider);
+  return labelService;
 });

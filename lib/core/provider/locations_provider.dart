@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/location_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/location_repository.dart';
-import 'providers.dart';
 
 /// 位置数据状态的Notifier类
 class LocationsNotifier extends AsyncNotifier<List<LocationEntry>> {

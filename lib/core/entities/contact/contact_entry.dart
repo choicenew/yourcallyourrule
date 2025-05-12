@@ -6,22 +6,24 @@ class Contact extends BaseEntity {
   String name;
   List<String> phoneNumbers;
   String? email;
-  String? label;
+  String? labelId; // Changed from label to labelId
   String? avatar;
   String? website;
   String? group;
   String? url;
+  bool isFavorite; // 是否为常用联系人
 
   Contact({
     required super.id,  // Add required id parameter
     required this.name,
     required this.phoneNumbers,
     this.email,
-    this.label,
+    this.labelId, // Changed from label to labelId
     this.avatar,
     this.website,
     this.group,
     this.url,
+    this.isFavorite = false, // 默认不是常用联系人
   });  // Correct super call with named parameter
 
   @override
@@ -31,11 +33,12 @@ class Contact extends BaseEntity {
       'name': name,
       'phoneNumbers': phoneNumbers,
       'email': email,
-      'label': label,
+      'labelId': labelId, // Changed from label to labelId
       'avatar': avatar,
       'website': website,
       'group': group,
       'url': url,
+      'isFavorite': isFavorite,
     };
   }
 
@@ -45,11 +48,12 @@ class Contact extends BaseEntity {
       name: map['name'] as String,
       phoneNumbers: List<String>.from(map['phoneNumbers']),
       email: map['email'] as String?,
-      label: map['label'] as String?,
+      labelId: map['labelId'] as String?, // Changed from label to labelId
       avatar: map['avatar'] as String?,
       website: map['website'] as String?,
       group: map['group'] as String?,
       url: map['url'] as String?,
+      isFavorite: map['isFavorite'] as bool? ?? false,
     );
   }
 
@@ -58,22 +62,24 @@ class Contact extends BaseEntity {
     String? name,
     List<String>? phoneNumbers,
     String? email,
-    String? label,
+    String? labelId, // Changed from label to labelId
     String? avatar,
     String? website,
     String? group,
     String? url,
+    bool? isFavorite,
   }) {
     return Contact(
       id: id ?? this.id,
       name: name ?? this.name,
       phoneNumbers: phoneNumbers ?? this.phoneNumbers,
       email: email ?? this.email,
-      label: label ?? this.label,
+      labelId: labelId ?? this.labelId, // Changed from label to labelId
       avatar: avatar ?? this.avatar,
       website: website ?? this.website,
       group: group ?? this.group,
       url: url ?? this.url,
+      isFavorite: isFavorite ?? this.isFavorite,
     );
   }
 

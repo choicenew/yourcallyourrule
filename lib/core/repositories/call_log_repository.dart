@@ -32,4 +32,13 @@ abstract class CallLogRepository extends BaseRepository<CallLog, String> {
   
   /// 批量标记通话记录为已读
   Future<void> markAllAsRead();
+  
+  /// 根据标签ID获取通话记录
+  Future<List<CallLog>> getLogsByLabelId(String labelId);
+  
+  /// 获取包含任意指定标签的通话记录
+  Future<List<CallLog>> getLogsWithAnyLabels(List<String> labelIds);
+  
+  /// 获取包含全部指定标签的通话记录 
+  Future<List<CallLog>> getLogsWithAllLabels(List<String> labelIds);
 }
