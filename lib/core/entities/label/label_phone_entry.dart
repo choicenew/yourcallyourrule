@@ -1,22 +1,19 @@
-// 标签条目实体，用于表示电话号码的标签信息
+// 电话标签条目实体，用于表示电话号码的标签信息
 
 import '../../value_objects/phone_number.dart';
 import '../../value_objects/rule_action.dart';
 import '../../value_objects/rule_priority.dart';
 import '../rule/rule_base.dart';
 
-class LabelEntry extends RuleBase {
+class LabelPhoneEntry extends RuleBase {
   // 电话号码值对象
   final PhoneNumber phoneNumber;
-
-  // 标签文本内容
-  final String label;
+  
+  // 标签ID，引用PredefinedLabel
+  final String labelId;
 
   // 头像（可选）
   final String? avatar;
-
-  // 标签颜色（可选）
-  //final String? color;
 
   // 标签图标（可选）
   final String? icon;
@@ -27,16 +24,15 @@ class LabelEntry extends RuleBase {
   static const RuleAction defaultAction = RuleAction.none;
 
   // 构造函数 - priority 和 action 提供默认值，使其在调用时可选
-  const LabelEntry({
+  const LabelPhoneEntry({
     required super.id,
     String? name, // name 仍然是可选的
     super.priority = defaultPriority, // 提供默认值
     required this.phoneNumber,
-    required this.label,
+    required this.labelId, // 必须提供labelId
     super.action = defaultAction, // 提供默认值
     super.isEnabled = true,
     this.avatar,
-   // this.color,
     this.icon,
   }) : super(
           name: name ?? '',     // 传递 action (可能是默认值)
@@ -55,59 +51,77 @@ class LabelEntry extends RuleBase {
   Map<String, dynamic> toMap() {
     final map = super.toMap(); // 获取基类的 map (id, name, priority, action, isEnabled)
     map.addAll({
-      'type': 'label_entry', // 添加类型标识符，用于反序列化
+      'type': 'label_phone_entry', // 添加类型标识符，用于反序列化
       'phoneNumber': phoneNumber.value,
-      'label': label,
+      'labelId': labelId,
       'avatar': avatar,
-    //  'color': color,
       'icon': icon,
     });
     return map;
   }
 
   // 从Map创建实例的工厂构造函数 - 处理可选字段和默认值
-  factory LabelEntry.fromMap(Map<String, dynamic> map) {
+  factory LabelPhoneEntry.fromMap(Map<String, dynamic> map) {
     // 确认类型是否匹配，如果 'type' 字段存在的话
-    // assert(map['type'] == 'label_entry', 'Map is not for LabelEntry');
+    // assert(map['type'] == 'label_phone_entry', 'Map is not for LabelPhoneEntry');
 
-    return LabelEntry(
+    return LabelPhoneEntry(
       id: map['id'],
       name: map['name'], // name 可能为 null 或空字符串
       priority: RulePriority.fromInt(map['priority'] ?? defaultPriority.value), // 使用默认值
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
-      label: map['label'],
+      labelId: map['labelId'], // 使用labelId
       action: RuleAction.fromString(map['action'] ?? defaultAction.toString().split('.').last), // 使用默认值
       isEnabled: map['isEnabled'] ?? true,
       avatar: map['avatar'],
-    //  color: map['color'],
       icon: map['icon'],
     );
-  }
-
+  }  
   // 可选的 copyWith 方法，用于方便地创建修改后的副本
-  LabelEntry copyWith({
+  @override
+  LabelPhoneEntry copyWith({
     String? id,
     String? name,
     RulePriority? priority,
     PhoneNumber? phoneNumber,
-    String? label,
+    String? labelId,
     RuleAction? action,
     bool? isEnabled,
     String? avatar,
-   // String? color,
     String? icon,
   }) {
-    return LabelEntry(
+    return LabelPhoneEntry(
       id: id ?? this.id,
       name: name ?? this.name, // 使用 this.name 访问基类的 name
       priority: priority ?? this.priority,
       phoneNumber: phoneNumber ?? this.phoneNumber,
-      label: label ?? this.label,
+      labelId: labelId ?? this.labelId,
       action: action ?? this.action,
       isEnabled: isEnabled ?? this.isEnabled,
       avatar: avatar ?? this.avatar,
-   //   color: color ?? this.color,
       icon: icon ?? this.icon,
     );
   }
+  
+  // 为了向后兼容，提供从LabelEntry转换的方法
+  factory LabelPhoneEntry.fromLabelEntry(dynamic labelEntry) {
+    if (labelEntry is LabelPhoneEntry) {
+      return labelEntry;
+    }
+    
+    return LabelPhoneEntry(
+      id: labelEntry.id,
+      name: labelEntry.name,
+      priority: labelEntry.priority,
+      phoneNumber: labelEntry.phoneNumber,
+      labelId: labelEntry.labelId,
+      action: labelEntry.action,
+      isEnabled: labelEntry.isEnabled,
+      avatar: labelEntry.avatar,
+      icon: labelEntry.icon,
+    );
+  }
 }
+
+// 为了向后兼容，保留LabelEntry类型别名
+//typedef LabelEntry = LabelPhoneEntry;

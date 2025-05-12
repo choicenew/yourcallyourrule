@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/subscription_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/subscription_repository.dart';
-import 'providers.dart';
+
 
 /// 订阅数据状态的Notifier类
 class SubscriptionsNotifier extends AsyncNotifier<List<Subscription>> {

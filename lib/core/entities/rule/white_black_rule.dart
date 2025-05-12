@@ -1,29 +1,35 @@
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
+import '../../value_objects/phone_number.dart';
+import '../../value_objects/rule_action.dart';
+import '../../value_objects/rule_priority.dart';
+import 'rule_base.dart';
 
-class BlockedRule extends RuleBase {
-  // 添加字段
-  final String? avatar;
-  
+class WhiteBlackRule extends RuleBase {
   final PhoneNumber phoneNumber;
-  final String label;
+  final String labelId;
   final bool isSubscribed;
   final int count;
+  final String? avatar;
 
-  const BlockedRule({
+  WhiteBlackRule({
     required super.id,
     required super.name,
-    required super.priority,
+    required super.action,
     required this.phoneNumber,
-    required this.label,  // 新增必填字段
-    super.action = RuleAction.block,
+    required this.labelId,
+    RulePriority? priority,
     super.isEnabled = true,
     this.isSubscribed = false,
     this.count = 0,
-    this.avatar, // 新增可选参数
-  });
+    this.avatar,
+  }) : super(
+          priority: priority ?? _defaultPriority(action),
+        );
+
+  static RulePriority _defaultPriority(RuleAction action) {
+    return action.type == RuleActionType.allow
+        ? const RulePriority(7)
+        : const RulePriority(3);
+  }
 
   @override
   bool matches(String input) {
@@ -35,53 +41,53 @@ class BlockedRule extends RuleBase {
     return super.toMap()
       ..addAll({
         'phoneNumber': phoneNumber.value,
-        'label': label,  // 添加序列化
+        'labelId': labelId,
         'isSubscribed': isSubscribed,
         'count': count,
+        'avatar': avatar,
       });
   }
 
-  factory BlockedRule.fromMap(Map<String, dynamic> map) {
-    return BlockedRule(
+  factory WhiteBlackRule.fromMap(Map<String, dynamic> map) {
+    RuleAction action = RuleAction.fromString(map['action']);
+    return WhiteBlackRule(
       id: map['id'],
       name: map['name'],
       priority: RulePriority.fromInt(map['priority']),
+      action: action,
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
-            label: map['label'] ?? '',  // 添加反序列化
-      action: RuleAction.fromString(map['action']),
+      labelId: map['labelId'],
       isEnabled: map['isEnabled'] ?? true,
       isSubscribed: map['isSubscribed'] ?? false,
       count: map['count'] ?? 0,
-
+      avatar: map['avatar'],
     );
   }
 
-  BlockedRule incrementCount() {
-    return copyWith(count: count + 1);
-  }
-
   @override
-  BlockedRule copyWith({
+  WhiteBlackRule copyWith({
     String? id,
     String? name,
     RulePriority? priority,
     RuleAction? action,
     bool? isEnabled,
-    String? label,
-    int? count,
+    PhoneNumber? phoneNumber,
+    String? labelId,
     bool? isSubscribed,
+    int? count,
+    String? avatar,
   }) {
-    return BlockedRule(
+    return WhiteBlackRule(
       id: id ?? this.id,
       name: name ?? this.name,
-      priority: priority ?? this.priority,
-      phoneNumber: phoneNumber,
-      label: label ?? this.label,
       action: action ?? this.action,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      labelId: labelId ?? this.labelId,
+      priority: priority ?? this.priority,
       isEnabled: isEnabled ?? this.isEnabled,
       isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,
-      avatar: avatar,
+      avatar: avatar ?? this.avatar,
     );
   }
 }

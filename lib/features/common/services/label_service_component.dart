@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/core/entities/label/label_entry.dart';
+
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/labeled_service_card.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
@@ -22,28 +23,28 @@ class LabelServiceComponent extends StatefulWidget {
   final List<Color> serviceGradientColors;
   
   /// 标签选择回调
-  final Function(LabelEntry) onLabelSelected;
+  final Function(LabelPhoneEntry) onLabelSelected;
   
   /// 是否启用
   final bool isEnabled;
   
   /// 构造函数
   const LabelServiceComponent({
-    Key? key,
+    super.key,
     required this.serviceTitle,
     required this.serviceDescription,
     required this.serviceIcon,
     required this.serviceGradientColors,
     required this.onLabelSelected,
     this.isEnabled = true,
-  }) : super(key: key);
+  });
 
   @override
   State<LabelServiceComponent> createState() => _LabelServiceComponentState();
 }
 
 class _LabelServiceComponentState extends State<LabelServiceComponent> {
-  List<LabelEntry> _labels = [];
+  List<LabelPhoneEntry> _labels = [];
   bool _isLoading = true;
   
   @override
@@ -208,7 +209,7 @@ class _LabelServiceComponentState extends State<LabelServiceComponent> {
                 // 创建新标签
                 final uniqueId = DateTime.now().millisecondsSinceEpoch.toString() + labelController.text.hashCode.toString();
                 final phoneNumber = PhoneNumber.fromString(phoneController.text);
-                final newLabel = LabelEntry(
+                final newLabel = LabelPhoneEntry(
                   id: uniqueId,
                   phoneNumber: phoneNumber,
                   label: labelController.text,
@@ -275,7 +276,7 @@ class LabelServicePage extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: FutureBuilder<List<LabelEntry>>(
+        child: FutureBuilder<List<LabelPhoneEntry>>(
           future: LabelService(Provider.of(context, listen: false)).getAllLabels(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
@@ -316,7 +317,7 @@ class LabelServicePage extends StatelessWidget {
             }
             
             // 按标签名称分组
-            final Map<String, List<LabelEntry>> groupedLabels = {};
+            final Map<String, List<LabelPhoneEntry>> groupedLabels = {};
             for (final label in labels) {
               if (!groupedLabels.containsKey(label.label)) {
                 groupedLabels[label.label] = [];
@@ -434,7 +435,7 @@ class LabelServicePage extends StatelessWidget {
                 // 创建新标签
                 final uniqueId = DateTime.now().millisecondsSinceEpoch.toString() + labelController.text.hashCode.toString();
                 final phoneNumber = PhoneNumber.fromString(phoneController.text);
-                final newLabel = LabelEntry(
+                final newLabel = LabelPhoneEntry(
                   id: uniqueId,
                   phoneNumber: phoneNumber,
                   label: labelController.text,
@@ -484,7 +485,7 @@ class LabelServicePage extends StatelessWidget {
   }
   
   // 确认删除标签
-  void _confirmDeleteLabel(BuildContext context, LabelEntry label) {
+  void _confirmDeleteLabel(BuildContext context, LabelPhoneEntry label) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

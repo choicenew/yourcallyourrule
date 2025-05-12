@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
-import 'package:yourcallyourrule/core/entities/label/label_entry.dart';
+
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/cloud_sync/services/local_storage_service.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
@@ -35,7 +36,7 @@ class RuleImportExportService {
     final package = await _readFromFile(file);
     
     await _storage.saveRules(_convertList<RuleBase>(package['rules']));
-    await _storage.saveLabels(_convertList<LabelEntry>(package['labels']));
+    await _storage.saveLabels(_convertList<LabelPhoneEntry>(package['labels']));
     await _storage.saveLocations(_convertList<LocationEntry>(package['locations']));
   }
 

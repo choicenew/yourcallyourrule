@@ -3,14 +3,14 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 class ListEntry {
   final String id; // 添加id属性
   final PhoneNumber phoneNumber;
-  final String label;
+  final String labelId; // 使用labelId引用PredefinedLabel
   final String name;
   final String? avatar;
 
   const ListEntry({
     required this.id,
     required this.phoneNumber,
-    required this.label,
+    required this.labelId, // 必填参数，使用labelId替代label
     required this.name,
     this.avatar,
   });
@@ -18,7 +18,7 @@ class ListEntry {
   Map<String, dynamic> toMap() => {
     'id': id,
     'phoneNumber': phoneNumber.value,
-    'label': label,
+    'labelId': labelId, // 序列化labelId
     'name': name,
     'avatar': avatar,
   };
@@ -27,7 +27,7 @@ class ListEntry {
     return ListEntry(
       id: map['id'] ?? map['phoneNumber'], // 如果没有id，使用phoneNumber作为id
       phoneNumber: PhoneNumber(map['phoneNumber']),
-      label: map['label'],
+      labelId: map['labelId'], // 反序列化labelId
       name: map['name'],
       avatar: map['avatar'],
     );

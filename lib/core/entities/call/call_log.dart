@@ -1,7 +1,7 @@
 import 'package:yourcallyourrule/core/base/base_entity.dart';
 
 class CallLog extends BaseEntity {
-
+  final List<String>? labelIds;
   final String number;
   final DateTime timestamp;
   final String simDisplayName;
@@ -13,6 +13,7 @@ class CallLog extends BaseEntity {
 
   CallLog({
     required super.id,
+    this.labelIds,
     required this.number,
     required this.timestamp,
     required this.simDisplayName,
@@ -24,8 +25,9 @@ class CallLog extends BaseEntity {
   });
 
   @override
-Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
+        'labelIds': labelIds,
         'number': number,
         'timestamp': timestamp.millisecondsSinceEpoch,
         'simDisplayName': simDisplayName,
@@ -39,6 +41,7 @@ Map<String, dynamic> toMap() => {
   factory CallLog.fromMap(Map<String, dynamic> map) {
     return CallLog(
       id: map['id'] as String,
+      labelIds: map['labelIds'] != null ? List<String>.from(map['labelIds']) : null,
       number: map['number'] as String,
       timestamp: DateTime.fromMillisecondsSinceEpoch(map['timestamp'] as int),
       simDisplayName: map['simDisplayName'] as String,
@@ -52,6 +55,7 @@ Map<String, dynamic> toMap() => {
 
   CallLog copyWith({
     String? id,
+    List<String>? labelIds,
     String? number,
     DateTime? timestamp,
     String? simDisplayName,
@@ -63,6 +67,7 @@ Map<String, dynamic> toMap() => {
   }) {
     return CallLog(
       id: id ?? this.id,
+      labelIds: labelIds ?? this.labelIds,
       number: number ?? this.number,
       timestamp: timestamp ?? this.timestamp,
       simDisplayName: simDisplayName ?? this.simDisplayName,

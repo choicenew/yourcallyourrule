@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/sms_subscription_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/sms_subscription_repository.dart';
-import 'providers.dart';
+
 
 /// 短信订阅数据状态的Notifier类
 class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {

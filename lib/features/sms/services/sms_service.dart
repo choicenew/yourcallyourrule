@@ -12,6 +12,8 @@ class SmsService extends ListService<SmsRegexRule, String> {
   final SmsSubscriptionRepository _subscriptionRepository;
   final RuleImportExportService _importExportService;
 
+  RuleImportExportService get importExportService => _importExportService;
+
   SmsService(
     this._ruleRepository,
     this._subscriptionRepository,
@@ -84,5 +86,10 @@ class SmsService extends ListService<SmsRegexRule, String> {
       throw FormatException('无效的正则表达式: ${entity.contentPattern.pattern}');
     }
     return super.save(entity);
+  }
+
+  @override
+  Future<bool> delete(SmsRegexRule entity) async {
+    return _ruleRepository.deleteById(entity.id);
   }
 }

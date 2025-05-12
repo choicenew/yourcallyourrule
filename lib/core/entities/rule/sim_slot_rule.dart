@@ -14,8 +14,8 @@ class SimSlotRule extends RuleBase {
   // SIM卡槽位索引
   final int simSlotIndex;
   
-  // 标签
-  final String label;
+  // 标签ID
+  final String labelId;
   
   // 头像（可选）
   final String? avatar;
@@ -27,7 +27,7 @@ class SimSlotRule extends RuleBase {
     required super.priority,
     required this.phoneNumber,
     required this.simSlotIndex,
-    this.label = '',
+    this.labelId = '',
     this.avatar,
     super.action = RuleAction.block,
     super.isEnabled = true,
@@ -47,7 +47,7 @@ class SimSlotRule extends RuleBase {
     map.addAll({
       'phoneNumber': phoneNumber.value,
       'simSlotIndex': simSlotIndex,
-      'label': label,
+      'labelId': labelId,
       'avatar': avatar,
     });
     return map;
@@ -63,7 +63,7 @@ class SimSlotRule extends RuleBase {
     bool? isEnabled,
     PhoneNumber? phoneNumber,
     int? simSlotIndex,
-    String? label,
+    String? labelId,
     String? avatar,
   }) {
     return SimSlotRule(
@@ -74,7 +74,7 @@ class SimSlotRule extends RuleBase {
       isEnabled: isEnabled ?? this.isEnabled,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       simSlotIndex: simSlotIndex ?? this.simSlotIndex,
-      label: label ?? this.label,
+      labelId: labelId ?? this.labelId,
       avatar: avatar ?? this.avatar,
     );
   }

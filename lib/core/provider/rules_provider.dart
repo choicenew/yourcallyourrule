@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/rule_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'providers.dart';
+
 
 /// 规则数据状态的Notifier类
 class RulesNotifier extends AsyncNotifier<List<RuleBase>> {

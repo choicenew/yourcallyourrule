@@ -1,24 +1,23 @@
 // 标签数据模型，用于数据层与领域层之间的转换
 
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
-import '../../core/entities/label/label_entry.dart';
+
 import 'base_model.dart';
 
 // 标签模型类
-class LabelModel extends BaseModel<LabelEntry> {
+class LabelModel extends BaseModel<LabelPhoneEntry> {
   // 标签名称（可选）
   final String? name;
-  // 标签颜色（已注释）
-  // final String color;
   // 标签图标（可选）
   final String? icon;
   // 电话号码
   final String phoneNumber;
-  // 标签文本内容
-  final String label;
+  // 标签ID，引用PredefinedLabel
+  final String labelId;
   // 头像（可选）
   final String? avatar;
   // 优先级
@@ -32,10 +31,9 @@ class LabelModel extends BaseModel<LabelEntry> {
   const LabelModel({
     required super.id,
     this.name,
-    // required this.color,
     this.icon,
     required this.phoneNumber,
-    required this.label,
+    required this.labelId,
     this.avatar,
     this.priority = 0, // 默认优先级为0，与LabelEntry.defaultPriority一致
     this.action = 'none', // 默认动作为none，与LabelEntry.defaultAction一致
@@ -47,10 +45,9 @@ class LabelModel extends BaseModel<LabelEntry> {
     return LabelModel(
       id: map['id'],
       name: map['name'],
-      // color: map['color'],
       icon: map['icon'],
       phoneNumber: map['phoneNumber'],
-      label: map['label'],
+      labelId: map['labelId'], // 只使用labelId，不再兼容旧数据
       avatar: map['avatar'],
       priority: map['priority'] ?? 0,
       action: map['action'] ?? 'none',
@@ -64,10 +61,9 @@ class LabelModel extends BaseModel<LabelEntry> {
     final map = super.toMap();
     map.addAll({
       'name': name,
-      // 'color': color,
       'icon': icon,
       'phoneNumber': phoneNumber,
-      'label': label,
+      'labelId': labelId,
       'avatar': avatar,
       'priority': priority,
       'action': action,
@@ -78,13 +74,12 @@ class LabelModel extends BaseModel<LabelEntry> {
 
   // 将模型转换为实体
   @override
-  LabelEntry toEntity() {
-    return LabelEntry(
+  LabelPhoneEntry toEntity() {
+    return LabelPhoneEntry(
       id: id,
       phoneNumber: PhoneNumber.fromString(phoneNumber),
-      label: label,
+      labelId: labelId,
       name: name,
-      // color: color,
       icon: icon,
       avatar: avatar,
       priority: RulePriority.fromInt(priority),
@@ -94,13 +89,12 @@ class LabelModel extends BaseModel<LabelEntry> {
   }
 
   // 从实体创建模型
-  static LabelModel fromEntity(LabelEntry entity) {
+  static LabelModel fromEntity(LabelPhoneEntry entity) {
     return LabelModel(
       id: entity.id,
       phoneNumber: entity.phoneNumber.value,
-      label: entity.label,
+      labelId: entity.labelId,
       name: entity.name,
-      // color: entity.color ?? '',
       icon: entity.icon,
       avatar: entity.avatar,
       priority: entity.priority.value,

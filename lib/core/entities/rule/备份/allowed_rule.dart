@@ -5,22 +5,22 @@ import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
 class AllowedRule extends RuleBase {
   final PhoneNumber phoneNumber;
-  final String label; // 新增标签字段
+  final String labelId; // 使用labelId引用PredefinedLabel
   final bool isSubscribed;
   final int count;
-  final String? avatar; // 新增avatar字段
+  final String? avatar; // 头像字段
 
   const AllowedRule({
     required super.id,
     required super.name,
     required super.priority,
     required this.phoneNumber,
-    required this.label, // 必填参数
+    required this.labelId, // 必填参数，使用labelId替代label
     super.action = RuleAction.allow,
     super.isEnabled = true,
     this.isSubscribed = false,
     this.count = 0,
-    this.avatar, // 新增可选参数
+    this.avatar, // 可选参数
   });
 
   @override
@@ -33,7 +33,7 @@ class AllowedRule extends RuleBase {
     return super.toMap()
       ..addAll({
         'phoneNumber': phoneNumber.value,
-        'label': label, // 序列化标签
+        'labelId': labelId, // 序列化labelId
         'isSubscribed': isSubscribed,
         'count': count,
         'avatar': avatar, // 序列化avatar
@@ -46,7 +46,7 @@ class AllowedRule extends RuleBase {
       name: map['name'],
       priority: RulePriority.fromInt(map['priority']),
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
-      label: map['label'] ?? '', // 反序列化标签
+      labelId: map['labelId'], // 反序列化labelId
       action: RuleAction.fromString(map['action']),
       isEnabled: map['isEnabled'] ?? true,
       isSubscribed: map['isSubscribed'] ?? false,
@@ -66,7 +66,7 @@ class AllowedRule extends RuleBase {
     bool? isEnabled,
     String? name,
     RulePriority? priority,
-    String? label,
+    String? labelId,
     bool? isSubscribed,
     int? count,
     String? avatar,
@@ -76,7 +76,7 @@ class AllowedRule extends RuleBase {
       name: name ?? this.name,
       priority: priority ?? this.priority,
       phoneNumber: phoneNumber,
-      label: label ?? this.label,
+      labelId: labelId ?? this.labelId,
       action: action ?? this.action,
       isEnabled: isEnabled ?? this.isEnabled,
       isSubscribed: isSubscribed ?? this.isSubscribed,

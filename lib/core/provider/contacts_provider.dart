@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/contact_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/contact_repository.dart';
-import 'providers.dart';
+
 
 /// 联系人数据状态的Notifier类
 class ContactsNotifier extends AsyncNotifier<List<Contact>> {

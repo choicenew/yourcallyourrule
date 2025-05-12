@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/plugin_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/plugin_repository.dart';
-import 'providers.dart';
 
 /// 插件数据状态的Notifier类
 class PluginsNotifier extends AsyncNotifier<List<PluginEntry>> {

@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'package:sqflite/sqflite.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../data/models/label_model.dart';
+import '../../models/label_phone_model.dart';
 import '../../database/database_manager.dart';
 import '../datasource_interface.dart';
 
@@ -75,7 +75,7 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
             name: label.name,
             icon: label.icon,
             phoneNumber: label.phoneNumber,
-            label: label.label,
+            labelId: label.labelId,
             avatar: label.avatar,
             priority: label.priority,
             action: label.action,
@@ -133,7 +133,7 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
                 name: label.name,
                 icon: label.icon,
                 phoneNumber: label.phoneNumber,
-                label: label.label,
+                labelId: label.labelId,
                 avatar: label.avatar,
                 priority: label.priority,
                 action: label.action,

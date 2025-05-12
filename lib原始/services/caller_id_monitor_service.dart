@@ -378,8 +378,6 @@ class CallerIdMonitorService {
 
       // 从 SharedPreferences 读取拦截方式
       SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-      final interceptAction =
-          await asyncPrefs.getString('intercept_action') ?? 'endCall';
 
       if (useLocalNotification) {
         await _showBlockedCallNotification(phoneNumber);

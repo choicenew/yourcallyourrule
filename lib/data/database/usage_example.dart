@@ -3,7 +3,7 @@
 import 'dart:async';
 
 import '../models/contact_model.dart';
-import '../models/label_model.dart';
+import '../models/label_phone_model.dart';
 import '../models/remote/remote_number_model.dart';
 import '../models/sync/sync_record_model.dart';
 import 'database_service.dart';
@@ -57,7 +57,7 @@ class DatabaseUsageExample {
     const labelModel = LabelModel(
       id: '',  // 空ID将自动生成UUID
       phoneNumber: '+1234567890',
-      label: '骚扰电话',
+      labelId: '骚扰电话',
       priority: 1,
       action: 'block',
     );

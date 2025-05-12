@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/list_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
-import 'providers.dart';
+
 
 /// 列表仓库接口
 abstract class ListRepository extends BaseRepository<ListEntry, String> {
