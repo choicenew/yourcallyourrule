@@ -4,17 +4,21 @@ import 'package:flutter/foundation.dart';
 
 import 'package:webdav_client/webdav_client.dart' as webdav;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
+import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/services/sync_conflict_resolver.dart';
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 import 'enhanced_cloud_sync_service.dart';
 
 /// WebDAV implementation of the CloudSyncService with conflict resolution,
 /// incremental sync, and progress tracking capabilities
 class WebDAVSyncService extends EnhancedCloudSyncService {
+  /// Reference to the Riverpod container
+  final Ref? ref;
   webdav.Client? _client;
   bool _isInitialized = false;
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
@@ -47,9 +51,11 @@ class WebDAVSyncService extends EnhancedCloudSyncService {
   @override
   String get serviceName => 'WebDAV';
   
-  /// Constructor with optional conflict resolution strategy
+  /// Constructor with required config repository and optional conflict resolution strategy
   WebDAVSyncService({
+    required super.configRepository,
     super.defaultStrategy,
+    required this.ref,
   });
   
   @override
@@ -400,12 +406,17 @@ class WebDAVSyncService extends EnhancedCloudSyncService {
         return true; // No devices to sync
       }
       
-      // Here you would typically update the local device registry
-      // This implementation depends on how your app manages devices locally
-      // For example, you might use a DeviceManagementService or similar
+      // Use DeviceManagementService to update local device registry
+      final deviceManagementService = ref!.read(deviceManagementServiceProvider);
       
-      // For now, we'll just return true to indicate successful retrieval
-      // In a real implementation, you would save these devices to local storage
+      if (deviceManagementService != null) {
+        // Register each cloud device in the local registry
+        for (final device in cloudDevices) {
+          await deviceManagementService.registerDevice(device);
+        }
+      } else {
+        debugPrint('Warning: DeviceManagementService not available for device sync');
+      }
       
       return true;
     } catch (e) {

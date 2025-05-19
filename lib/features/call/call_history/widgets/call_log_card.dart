@@ -1,0 +1,217 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
+import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/call/call_history/widgets/label_dialog.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
+
+class CallLogCard extends StatelessWidget {
+  final CallLog log;
+
+  const CallLogCard({super.key, required this.log});
+
+  @override
+  Widget build(BuildContext context) {
+    // 根据通话类型设置不同的图标和颜色
+    IconData callIcon;
+    Color iconColor;
+    String callTypeText;
+    
+    switch (log.callType) {
+      case 'incoming':
+        callIcon = Icons.call_received;
+        iconColor = Colors.green;
+        callTypeText = '来电';
+        break;
+      case 'outgoing':
+        callIcon = Icons.call_made;
+        iconColor = Colors.blue;
+        callTypeText = '去电';
+        break;
+      case 'missed':
+        callIcon = Icons.call_missed;
+        iconColor = Colors.red;
+        callTypeText = '未接';
+        break;
+      default:
+        callIcon = Icons.call;
+        iconColor = Colors.grey;
+        callTypeText = '未知';
+    }
+    
+    // 格式化通话时间
+    final callTime = log.timestamp;
+    final formattedDate = '${callTime.year}-${callTime.month.toString().padLeft(2, '0')}-${callTime.day.toString().padLeft(2, '0')} ${callTime.hour.toString().padLeft(2, '0')}:${callTime.minute.toString().padLeft(2, '0')}';
+    
+    // 获取CallLogService实例
+    final callLogService = Provider.of<CallLogService>(context, listen: false);
+    
+    return Card(
+      elevation: 2,
+      margin: const EdgeInsets.only(bottom: 12),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                // 使用FutureBuilder同时获取标签文本和头像路径
+                FutureBuilder<List<dynamic>>(
+                  future: Future.wait([
+                    _getLabelText(context, log),
+                    _getAvatarPath(context, log.number, null),
+                  ]),
+                  builder: (context, snapshot) {
+                    // 加载中显示占位符
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: iconColor.withOpacity(0.1),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Center(child: SizedBox(width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2))),
+                      );
+                    }
+                    
+                    // 获取结果
+                    final labelText = snapshot.data?[0] as String?;
+                    final avatarPath = snapshot.data?[1] as String?;
+                    
+                    // 使用AvatarUtils获取头像图片
+                    final imageProvider = AvatarUtils.getAvatarImage(avatarPath, labelText);
+                    
+                    if (imageProvider != null) {
+                      // 有头像图片
+                      return Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    } else {
+                      // 使用默认图标
+                      return Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: iconColor.withOpacity(0.1),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(callIcon, color: iconColor),
+                      );
+                    }
+                  },
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            log.number,
+                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: iconColor.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              callTypeText,
+                              style: TextStyle(fontSize: 12, color: iconColor),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        formattedDate,
+                        style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.label_outline),
+                      onPressed: () => _showLabelDialog(context, log),
+                      tooltip: '添加标签',
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.call, color: Colors.green),
+                      onPressed: () {
+                        // 回拨电话
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('回拨 ${log.number}')),
+                        );
+                      },
+                      tooltip: '回拨',
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            // 使用标签服务获取标签信息
+            if (log.labelIds != null && log.labelIds!.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0, left: 64.0),
+                child: Text(
+                  log.labelIds!.map((labelId) async {
+                    final label = await Provider.of<PredefinedLabelService>(context, listen: false).getLabelById(labelId);
+                    return label?.text ?? labelId;
+                  }).join(', '),
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// 获取标签文本
+  Future<String?> _getLabelText(BuildContext context, CallLog log) async {
+    if (log.labelIds == null || log.labelIds!.isEmpty) {
+      return null;
+    }
+    
+    // 使用LabelTextUtils工具类获取标签文本
+    return await LabelTextUtils.getLabelTextFromCallLog(context, log);
+  }
+  
+  /// 获取头像路径
+  Future<String?> _getAvatarPath(BuildContext context, String phoneNumber, String? labelText) async {
+    final callLogService = Provider.of<CallLogService>(context, listen: false);
+    // 使用CallLogService的getAvatarForNumber方法获取头像路径
+    return await callLogService.getAvatarForNumber(phoneNumber);
+  }
+  
+  /// 显示标签对话框
+  void _showLabelDialog(BuildContext context, CallLog log) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) => LabelDialog(log: log),
+    );
+  }
+}

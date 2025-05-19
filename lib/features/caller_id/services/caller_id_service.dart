@@ -5,8 +5,8 @@ import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 
 import 'package:flutter_contacts/flutter_contacts.dart' as fluttercontact;
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/blacklist_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/whitelist_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/white_black_rule.dart';
+
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 
@@ -22,28 +22,6 @@ import 'package:yourcallyourrule/features/remote_filter/services/remote_number_s
 /// 来电显示服务类，提供来电显示相关功能
 /// 包括获取来电显示信息、处理来电显示数据等
 class CallerIdService {
-  final ContactService _contactService;
-  final BlacklistWhitelistService _blacklistWhitelistService;
-  final LabelService _labelService;
-  final LocationService _locationService;
-  final PluginInvokerService _pluginService;
-  final PredefinedLabelService _predefinedLabelService;
-  final RemoteNumberService _remoteNumberService;
-
-  final _callerIdSubject = BehaviorSubject<CallerIdData>();
-  final _pluginDataSubject = BehaviorSubject<PluginData>();
-  final _legacyPluginDataSubject = BehaviorSubject<Map<String, dynamic>>();
-
-  /// 插件数据流
-  Stream<PluginData> get pluginDataStream => _pluginDataSubject.stream;
-
-  /// 兼容性插件数据流
-  Stream<Map<String, dynamic>> get legacyPluginDataStream =>
-      _legacyPluginDataSubject.stream;
-
-  /// 来电显示数据流，用于监听来电显示数据的变化
-  Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
-
   CallerIdService({
     required PluginInvokerService pluginService,
     required ContactService contactService,
@@ -59,6 +37,32 @@ class CallerIdService {
         _predefinedLabelService = predefinedLabelService,
         _pluginService = pluginService,
         _remoteNumberService = remoteNumberService;
+
+  final BlacklistWhitelistService _blacklistWhitelistService;
+  final _callerIdSubject = BehaviorSubject<CallerIdData>();
+  final ContactService _contactService;
+  final _labelPhoneEntrySubject = BehaviorSubject<LabelPhoneEntry>();
+  final LabelService _labelService;
+  final _legacyPluginDataSubject = BehaviorSubject<Map<String, dynamic>>();
+  final LocationService _locationService;
+  final _pluginDataSubject = BehaviorSubject<PluginData>();
+  final PluginInvokerService _pluginService;
+  final PredefinedLabelService _predefinedLabelService;
+  final RemoteNumberService _remoteNumberService;
+
+  /// 插件数据流
+  Stream<PluginData> get pluginDataStream => _pluginDataSubject.stream;
+
+  /// 兼容性插件数据流
+  Stream<Map<String, dynamic>> get legacyPluginDataStream =>
+      _legacyPluginDataSubject.stream;
+
+  /// 来电显示数据流，用于监听来电显示数据的变化
+  Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
+
+  /// 标签电话条目数据流，用于监听标签电话条目的变化
+  Stream<LabelPhoneEntry> get labelPhoneEntryStream =>
+      _labelPhoneEntrySubject.stream;
 
   static Future<CallerIdService> create({
     required ContactService contactService,
@@ -159,55 +163,33 @@ class CallerIdService {
                 vo.PhoneNumber.fromString(nationalNumber))
             : null);
 
-    // 4. 查询黑白名单数据 (尝试原始号码、E164、National 格式)
-    var isInBlacklist = await _blacklistWhitelistService
-            .isInBlacklist(vo.PhoneNumber.fromString(phoneNumber)) ||
-        (e164Number.isNotEmpty &&
-            await _blacklistWhitelistService
-                .isInBlacklist(vo.PhoneNumber.fromString(e164Number))) ||
-        (nationalNumber.isNotEmpty &&
-            await _blacklistWhitelistService
-                .isInBlacklist(vo.PhoneNumber.fromString(nationalNumber)));
-
-    var isInWhitelist = await _blacklistWhitelistService
-            .isInWhitelist(vo.PhoneNumber.fromString(phoneNumber)) ||
-        (e164Number.isNotEmpty &&
-            await _blacklistWhitelistService
-                .isInWhitelist(vo.PhoneNumber.fromString(e164Number))) ||
-        (nationalNumber.isNotEmpty &&
-            await _blacklistWhitelistService
-                .isInWhitelist(vo.PhoneNumber.fromString(nationalNumber)));
-
-    // 获取黑白名单规则
-    final blacklistRules =
-        await _blacklistWhitelistService.getAllBlacklistRules();
-    final whitelistRules =
-        await _blacklistWhitelistService.getAllWhitelistRules();
+    // 4. 查询规则数据 (尝试原始号码、E164、National 格式)
+    // 获取所有规则
+    final allRules = await _blacklistWhitelistService.getAllRules();
 
     // 查找匹配的规则
-    BlacklistRule? blacklistRule;
-    WhitelistRule? whitelistRule;
+    WhiteBlackRule? whiteBlackRule;
 
-    if (isInBlacklist) {
-      try {
-        blacklistRule = blacklistRules.firstWhere((rule) =>
-            rule.phoneNumber == vo.PhoneNumber.fromString(phoneNumber) ||
-            rule.phoneNumber == vo.PhoneNumber.fromString(e164Number) ||
-            rule.phoneNumber == vo.PhoneNumber.fromString(nationalNumber));
-      } catch (_) {
-        blacklistRule = null;
-      }
-    }
+    try {
+      // 尝试查找匹配的规则（按优先级排序）
+      final matchingRules = allRules
+          .where((rule) =>
+              rule.phoneNumber == vo.PhoneNumber.fromString(phoneNumber) ||
+              (e164Number.isNotEmpty &&
+                  rule.phoneNumber == vo.PhoneNumber.fromString(e164Number)) ||
+              (nationalNumber.isNotEmpty &&
+                  rule.phoneNumber ==
+                      vo.PhoneNumber.fromString(nationalNumber)))
+          .toList();
 
-    if (isInWhitelist) {
-      try {
-        whitelistRule = whitelistRules.firstWhere((rule) =>
-            rule.phoneNumber == vo.PhoneNumber.fromString(phoneNumber) ||
-            rule.phoneNumber == vo.PhoneNumber.fromString(e164Number) ||
-            rule.phoneNumber == vo.PhoneNumber.fromString(nationalNumber));
-      } catch (_) {
-        whitelistRule = null;
+      // 按优先级排序
+      if (matchingRules.isNotEmpty) {
+        matchingRules
+            .sort((a, b) => b.priority.value.compareTo(a.priority.value));
+        whiteBlackRule = matchingRules.first;
       }
+    } catch (_) {
+      whiteBlackRule = null;
     }
 
     // 5. 查询标签数据 (尝试原始号码、National、E164 格式)
@@ -242,47 +224,37 @@ class CallerIdService {
     // 确定名称
     final name = localContact?.displayName ??
         finalContact?.name ??
-        whitelistRule?.name ??
-        blacklistRule?.name ??
+        whiteBlackRule?.name ??
         remoteNumberEntry?.name ??
         pluginData?.name ??
         'Unknown';
 
     // 确定标签ID
-    final labelId = labelEntry?.labelId ??
-        whitelistRule?.labelId ??
-        blacklistRule?.labelId ??
-  
-        null;
+    final labelId = labelEntry?.labelId ?? whiteBlackRule?.labelId ?? null;
 
     // 获取标签文本
     String labelText = 'Unknown';
-    
+
     // 第一阶段：检查预定义标签ID
-    final labelFromId = labelId != null 
-        ? await _predefinedLabelService.getLabelById(labelId) 
+    final labelFromId = labelId != null
+        ? await _predefinedLabelService.getLabelById(labelId)
         : null;
-    
+
     // 第二阶段：检查远程号码标签（当ID不存在时）
-    final labelFromRemote = labelFromId == null 
-        ? remoteNumberEntry?.label 
-        : null;
-    
+    final labelFromRemote =
+        labelFromId == null ? remoteNumberEntry?.label : null;
+
     // 第三阶段：使用插件标签（当前面都未找到时）
     final labelFromPlugin = (labelFromId == null && labelFromRemote == null)
         ? pluginData?.predefinedLabel
         : null;
 
-    labelText = labelFromId?.text ??
-                labelFromRemote ??
-                labelFromPlugin ?? 
-                'Unknown';
+    labelText =
+        labelFromId?.text ?? labelFromRemote ?? labelFromPlugin ?? 'Unknown';
 
     // 确定头像
-    String? avatar = finalContact?.avatar ??
-        whitelistRule?.avatar ??
-        blacklistRule?.avatar ??
-        pluginData?.avatar;
+    String? avatar =
+        finalContact?.avatar ?? whiteBlackRule?.avatar ?? pluginData?.avatar;
 
     // 如果没有头像但有标签，使用标签构建头像路径
     if (avatar == null && labelText != 'Unknown') {
@@ -290,8 +262,10 @@ class CallerIdService {
     }
 
     // 确定计数
-    final count =
-        whitelistRule?.count ?? blacklistRule?.count ?? remoteNumberEntry?.count ?? pluginData?.count ?? 0;
+    final count = whiteBlackRule?.count ??
+        remoteNumberEntry?.count ??
+        pluginData?.count ??
+        0;
 
     // 9. 创建CallerIdData对象
     final labels = labelText != 'Unknown'
@@ -321,9 +295,7 @@ class CallerIdService {
     }
 
     // 11. 如果插件提供了标签且现有标签为空，则更新标签
-    if (labelEntry == null &&
-        whitelistRule?.labelId == null &&
-        blacklistRule?.labelId == null) {
+    if (labelEntry == null && whiteBlackRule?.labelId == null) {
       if (pluginData?.predefinedLabel != null) {
         // 通过标签文本获取labelId
         final labels = await _predefinedLabelService
@@ -331,11 +303,13 @@ class CallerIdService {
         if (labels.isNotEmpty) {
           final entry = LabelPhoneEntry(
             id: '', // ID会在保存时生成
-            phoneNumber: vo.PhoneNumber.fromString(phoneNumber),
+            phoneNumber: vo.PhoneNumber.fromString(e164Number),
             labelId: labels.first.id,
             name: name,
           );
           await _labelService.addLabel(entry);
+          // 发布标签电话条目到数据流
+          _labelPhoneEntrySubject.add(entry);
         }
       }
     }
@@ -348,5 +322,6 @@ class CallerIdService {
     _callerIdSubject.close();
     _pluginDataSubject.close();
     _legacyPluginDataSubject.close();
+    _labelPhoneEntrySubject.close();
   }
 }

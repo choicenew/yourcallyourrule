@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_filter_service.dart';
 
 class SmsFilterSettingsPage extends StatefulWidget {
-  const SmsFilterSettingsPage({Key? key}) : super(key: key);
+  const SmsFilterSettingsPage({super.key});
 
   @override
   State<SmsFilterSettingsPage> createState() => _SmsFilterSettingsPageState();

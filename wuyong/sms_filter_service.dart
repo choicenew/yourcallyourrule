@@ -1,6 +1,6 @@
 import 'package:yourcallyourrule/core/base/base_service.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/blacklist_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/%E5%A4%87%E4%BB%BD/blacklist_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/rule/whitelist_rule.dart';
 import 'package:yourcallyourrule/core/entities/sms/keyword_rule.dart';

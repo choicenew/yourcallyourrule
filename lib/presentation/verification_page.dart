@@ -7,7 +7,9 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
@@ -90,14 +92,17 @@ class VerificationPageState extends State<VerificationPage> {
         .read<CallerIdService>()
         .getCallerId(number.value, dlibLocale);
 
-    final filterResult = await _callFilterService.verifyAllRules(number);
+    
+    final rules = await _callFilterService.verifyAllRules(number);
     _verificationResults = {
-      'Allowed': filterResult.allowed,
-      'Blocked': filterResult.blocked,
+      'Allowed': rules.any((rule) => rule.action.type == RuleActionType.allow),
+      'Blocked': rules.any((rule) => rule.action.type == RuleActionType.block),
+      'Silenced': rules.any((rule) => rule.action.type == RuleActionType.silence),
+      'None Action': rules.any((rule) => rule.action.type == RuleActionType.none),
       'Global Reject': _callFilterService.callFilterConfig.rejectAllNumbers,
-      'Blacklist': filterResult.blacklisted,
-      'Whitelist': filterResult.whitelisted,
-      'Regex': filterResult.regexMatch,
+      'Blacklist': rules.any((rule) => rule.action.type == RuleActionType.block),
+      'Whitelist': rules.any((rule) => rule.action.type == RuleActionType.allow),
+      'Regex': rules.any((rule) => rule is RegexRule),
       'Time Rules': await _timeInterceptorService.shouldIntercept(number.value),
     };
 
@@ -173,6 +178,8 @@ class VerificationPageState extends State<VerificationPage> {
               'Global Reject All', _verificationResults['Global Reject']),
           _buildResultItem('Allowed', _verificationResults['Allowed']),
           _buildResultItem('Blocked', _verificationResults['Blocked']),
+          _buildResultItem('Silenced', _verificationResults['Silenced']),
+          _buildResultItem('None Action', _verificationResults['None Action']),
           _buildResultItem(
               'Blacklist Check', _verificationResults['Blacklist']),
           _buildResultItem(

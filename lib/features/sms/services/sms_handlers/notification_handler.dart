@@ -1,6 +1,6 @@
 
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/services/notification_service.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
 import 'base_sms_handler.dart';
 
@@ -8,6 +8,7 @@ import 'base_sms_handler.dart';
 /// 专门负责处理SMS通知相关的逻辑
 class SmsNotificationHandler extends BaseSmsHandler {
   final NotificationService _notificationService;
+  final ConfigRepository _configRepository;
   
   // 通知设置
   bool useLocalNotification = false;
@@ -20,7 +21,9 @@ class SmsNotificationHandler extends BaseSmsHandler {
   /// 构造函数
   SmsNotificationHandler({
     NotificationService? notificationService,
-  }) : _notificationService = notificationService ?? NotificationService();
+    ConfigRepository? configRepository,
+  }) : _notificationService = notificationService ?? NotificationService(),
+       _configRepository = configRepository ?? SharedPreferencesConfigRepository();
 
   /// 初始化通知
   @override
@@ -30,9 +33,11 @@ class SmsNotificationHandler extends BaseSmsHandler {
 
   /// 加载设置
   Future<void> loadSettings() async {
-    final prefs = await SharedPreferences.getInstance();
-    useLocalNotification = prefs.getBool(smsLocalNotificationKey) ?? false;
-    cancelLocalNotification = prefs.getBool(smsCancelLocalNotificationKey) ?? false;
+    final localNotificationConfig = await _configRepository.getConfig(smsLocalNotificationKey);
+    useLocalNotification = localNotificationConfig?['value'] as bool? ?? false;
+    
+    final cancelNotificationConfig = await _configRepository.getConfig(smsCancelLocalNotificationKey);
+    cancelLocalNotification = cancelNotificationConfig?['value'] as bool? ?? false;
   }
 
   /// 设置是否使用本地通知
@@ -40,8 +45,7 @@ class SmsNotificationHandler extends BaseSmsHandler {
     if (useLocalNotification == useLocal) return;
 
     useLocalNotification = useLocal;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(smsLocalNotificationKey, useLocal);
+    await _configRepository.saveConfig(smsLocalNotificationKey, {'value': useLocal});
   }
 
   /// 设置是否关闭本地通知
@@ -49,8 +53,7 @@ class SmsNotificationHandler extends BaseSmsHandler {
     if (cancelLocalNotification == cancelLocal) return;
 
     cancelLocalNotification = cancelLocal;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(smsCancelLocalNotificationKey, cancelLocal);
+    await _configRepository.saveConfig(smsCancelLocalNotificationKey, {'value': cancelLocal});
   }
 
   /// 显示SMS通知

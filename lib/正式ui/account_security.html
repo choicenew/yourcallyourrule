@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>账户安全 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .security-card {
+            @apply bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow mb-4;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <a href="settings.html" class="text-gray-600 hover:text-primary mr-2">
+                        <i class="fas fa-arrow-left text-xl"></i>
+                    </a>
+                    <i class="fas fa-shield-alt text-primary text-xl"></i>
+                    <h1 class="text-xl font-semibold text-dark">账户安全</h1>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-6">
+        <div class="security-card">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-medium">双重验证</h3>
+                <span class="text-sm text-success">已启用</span>
+            </div>
+            <button class="w-full bg-primary/10 text-primary rounded-md py-2">管理验证方式</button>
+        </div>
+
+        <div class="security-card">
+            <h3 class="text-lg font-medium mb-4">登录安全</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <span>密码修改</span>
+                    <button class="text-primary hover:text-opacity-80">立即修改</button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span>已登录设备</span>
+                    <button class="text-primary hover:text-opacity-80">查看设备</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

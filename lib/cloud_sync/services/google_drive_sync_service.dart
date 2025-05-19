@@ -3,12 +3,14 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
+import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 import 'enhanced_cloud_sync_service.dart';
+import 'sync_conflict_resolver.dart';
 
-
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
@@ -17,7 +19,9 @@ import 'package:http/http.dart' as http;
 
 /// Google Drive implementation of the CloudSyncService with conflict resolution,
 /// incremental sync, and progress tracking capabilities
-class GoogleDriveSyncService extends EnhancedCloudSyncService {
+class GoogleDriveSyncService extends EnhancedCloudSyncService {  
+  /// Reference to the Riverpod container
+  final Ref? ref;
   final GoogleSignIn _googleSignIn = GoogleSignIn(
     scopes: [
       'email',
@@ -58,9 +62,11 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
   @override
   String get serviceName => 'Google Drive';
   
-  /// Constructor with optional conflict resolution strategy
+  /// Constructor with required config repository and optional conflict resolution strategy
   GoogleDriveSyncService({
+    required super.configRepository,
     super.defaultStrategy,
+    required this.ref,
   });
   
   @override
@@ -651,9 +657,18 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
       final cloudDevices = await getRegisteredDevicesFromCloud();
       if (cloudDevices.isEmpty) return true;
       
-      // This method would typically update a local device registry
-      // For now, we'll just return success since the actual implementation
-      // would depend on how devices are stored locally
+      // Use DeviceManagementService to update local device registry
+      final deviceManagementService = ref?.read(deviceManagementServiceProvider);
+      
+      if (deviceManagementService != null) {
+        // Register each cloud device in the local registry
+        for (final device in cloudDevices) {
+          await deviceManagementService.registerDevice(device);
+        }
+      } else {
+        debugPrint('Warning: DeviceManagementService not available for device sync');
+      }
+      
       return true;
     } catch (e) {
       debugPrint('Error syncing devices from cloud: $e');

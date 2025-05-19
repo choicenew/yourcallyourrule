@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
+import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 import 'package:yourcallyourrule/platform/sms_channel_switcher.dart';
 
 import 'sms_handlers/base_sms_handler.dart';
@@ -18,22 +19,28 @@ class SmsFilterService {
   late final SmsFilterHandler _filterHandler;
   late final SmsNotificationHandler _notificationHandler;
   late final IncomingSmsHandler _incomingSmsHandler;
+  
+  // 拦截记录仓库
+  final BlockedCallRepository _blockedCallRepository;
 
   SmsFilterService({
     required this.smsChannelManager,
     required List<SmsRegexRule> initialRules,
-  }) {
+    BlockedCallRepository? blockedCallRepository,
+  }) : _blockedCallRepository = blockedCallRepository ?? BlockedCallRepository() {
     _initializeHandlers(initialRules);
   }
 
   static Future<SmsFilterService> create({
     required List<SmsRegexRule> rules,
+    BlockedCallRepository? blockedCallRepository,
   }) async {
     final channelManager = SmsChannelSwitcher.getPlatformChannelManager();
     
     final service = SmsFilterService(
       smsChannelManager: channelManager,
       initialRules: rules,
+      blockedCallRepository: blockedCallRepository,
     );
     
     await service.initialize();
@@ -56,6 +63,7 @@ class SmsFilterService {
       IncomingSmsHandler(
         filterHandler: _filterHandler,
         notificationHandler: _notificationHandler,
+        blockedCallRepository: _blockedCallRepository,
       )
     );
   }

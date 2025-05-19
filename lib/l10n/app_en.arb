@@ -1,0 +1,251 @@
+{
+  "@@locale": "en",
+  "phoneNumberTypeFixedLine": "Fixed line",
+  "phoneNumberTypeMobile": "Mobile",
+  "phoneNumberTypeFixedLineOrMobile": "Fixed line or mobile",
+  "phoneNumberTypeTollFree": "Toll free",
+  "phoneNumberTypePremiumRate": "Premium rate",
+  "phoneNumberTypeSharedCost": "Shared cost",
+  "phoneNumberTypeVoip": "VoIP",
+  "phoneNumberTypePersonalNumber": "Personal number",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoicemail": "Voicemail",
+  "phoneNumberTypeUnknown": "Unknown",
+  "callFilterSettings": "Call Filter Settings",
+  "enhancedFilterSettings": "Enhanced Filter Settings",
+  "globalFilterSettings": "Global Filter Settings",
+  "simSlotManagement": "SIM Slot Management",
+  "enhancedFilterSettingsTitle": "Enhanced Filter Settings",
+  "globalFilterDescription": "Configure global filters for all SIM cards:",
+  "localCounterFilter": "Local Counter Filter",
+  "localCounterFilterSubtitle": "Automatically filter spam calls based on call frequency",
+  "remoteNumberFilter": "Remote Number Filter",
+  "remoteNumberFilterSubtitle": "Identify spam calls using cloud database and community reports",
+  "basicRuleFilter": "Basic Rule Filter",
+  "basicRuleFilterSubtitle": "Filter calls using blacklist/whitelist and regular expressions",
+  "simSlotFilterDescription": "Configure independent filtering rules for each SIM card:",
+  "enhancedFilterInstructionsTitle": "Enhanced Filter System",
+  "enhancedFilterSystemDescription": "The enhanced filter system supports both global rules and per-SIM card filtering configurations.",
+  "systemFeatures": "System Features:",
+  "globalFilterFeature": "• Global Filters: Basic rules for all incoming calls",
+  "simSlotRuleFeature": "• SIM Slot Rules: Independent filtering strategies per SIM",
+  "flexibleCombinationFeature": "• Flexible Combinations: Enable/disable filters per SIM slot",
+  "configurationAdvice": "Through proper configuration, you can set different filtering strategies for work and personal SIM cards.",
+  "simSlotRuleManagement": "SIM Slot Rules",
+  "simSlotTitle": "SIM Slot {slotNumber}",
+  "ruleDeletedSuccess": "Rule deleted successfully",
+  "ruleAddedSuccess": "Rule added successfully",
+  "phoneNumberHint": "Enter phone number",
+  "ruleNameHint": "Rule name (optional)",
+  "addRuleButton": "Add Rule",
+  "simSlotRuleManagementTitle": "Rule Management",
+  "globalFilterSettings": "Global Filter Settings",
+  "enableNoneActionRules": "Enable None Action Rules",
+  "enableNoneActionRulesDesc": "Allow rule configurations with no interception actions",
+  "allowAllBlacklistedNumbers": "Allow All Blacklisted Numbers",
+  "allowAllBlacklistedNumbersDesc": "Allow calls from blocklist",
+  "simSlotFilterSettingsTitle": "SIM Slot {slotNumber} Filter Settings",
+  "filterToggleInstructions": "Enable or disable filters for this SIM slot:",
+  "simRuleInstructionsTitle": "SIM Slot Rules",
+  "simRuleInstructions": "SIM slot rules allow you to configure independent filtering rules for each SIM slot.",
+  "featureListTitle": "Features:",
+  "featureEnableDisable": "• Enable/disable different filters per SIM",
+  "featureAddRules": "• Add phone number specific rules", 
+  "featureManageRules": "• Manage rule lists per SIM",
+  "dualSimAdvice": "This feature is particularly useful for dual-SIM phones to set different filtering strategies for work and personal SIM cards.",
+  "simSlotRuleListTitle": "SIM Slot Rules List",
+  "noRulesPrompt": "No rules found, please add rules",
+  "loadingTags": "Loading tags...",
+
+  "tagLabel": "Tag: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    },
+    "description": "Tag display",
+    "placeholders": {
+      "tag": {}
+    }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+  "unknownTag": "Tag: Unknown",
+  "phoneNumberLabel": "Phone Number *",
+  "phoneNumberHintText": "Enter phone number to add rule",
+  "contactNameLabel": "Name",
+  "contactNameHint": "Enter contact name (optional)",
+  "addSimRuleButton": "Add SIM Rule",
+  "saveSettings": "Save Settings",
+  "settingsSaved": "Settings saved",
+  "serviceTypePhone": "Phone Subscription",
+  "serviceTypeSms": "SMS Subscription",
+  "serviceTypeContact": "Contact Subscription",
+  "serviceTypePlugin": "Plugin Update",
+  "autoUpdateSettings": "Auto Update Settings",
+  "updateAllNow": "Update All Now",
+  "updateInterval": "Update Interval",
+  "updateNow": "Update Now",
+  "autoUpdateDescription": "Set auto-update intervals for subscriptions or update manually",
+  "intervalSetSuccess": "{service} update interval set to {days} days",
+  "updateSuccess": "{service} updated successfully ({count} rules)",
+  "allUpdateSuccess": "All updates completed ({count} rules)",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {},
+      "days": {}
+    }
+  },
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {},
+      "count": {}
+    }
+  },
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {}
+    }
+  },
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "simCard": "SIM Card {simNumber}",
+  "simRuleManagement": "SIM Slot Rule Management",
+  "ruleAddedSuccess": "Rule added successfully",
+  "simSlotOperationFailed": "SIM slot operation failed: {error}",
+  "simSlotLoadFailed": "Failed to load SIM slots: {error}",
+  "simSlotDataLoadFailed": "Failed to load SIM data: {error}",
+  "phoneNumberRequired": "Phone number is required",
+  "phoneNumberHint": "Enter phone number to add rule",
+  "contactNameOptional": "Contact name (optional)",
+  "ruleAddButton": "Add Rule",
+  "rejectAllNumbers": "Reject All Numbers",
+  "rejectAllNumbersDesc": "Reject all incoming calls when enabled",
+  "allowAllowedNumbers": "Allow Allowed Numbers",
+  "allowAllowedNumbersDesc": "Allow calls from allowlist",
+  "allowBlockedNumbers": "Allow Blocked Numbers",
+  "allowBlockedNumbersDesc": "Allow calls from blocklist",
+  "allowRegexAllowRules": "Allow Regex Allow Rules",
+  "allowRegexAllowRulesDesc": "Enable regex pattern matching for allow rules",
+  "allowAllWhitelistedNumbers": "Allow Whitelisted Numbers",
+  "allowAllWhitelistedNumbersDesc": "Allow calls from whitelist",
+  "allowRegexBlockRules": "Allow Regex Block Rules",
+  "allowRegexBlockRulesDesc": "Enable regex pattern matching for block rules",
+  "enableMuteRules": "Enable Mute Rules",
+  "enableMuteRulesDesc": "Apply mute interception rules configuration",
+  "generalUpdateFailure": "Update failed: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "days": "{count, plural, =1{1 day} other{{count} days}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "unassignedSIMCard": "Unnamed SIM Card",
+  "dataLoadFailure": "Data load failed: {error}",
+  "filterToggleStatus": "{status} filter: {filterName}",
+  "enabled": "Enabled",
+  "disabled": "Disabled",
+  "ruleAddFailure": "Failed to add rule: {error}",
+  "ruleDeleteFailure": "Failed to delete rule: {error}",
+  "simSlotPosition": "SIM Slot Position {slotNumber}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {},
+      "filterName": {}
+    }
+  },
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  }
+}

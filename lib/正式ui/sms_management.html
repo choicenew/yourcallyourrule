@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>短信管理 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .settings-card {
+            @apply bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow mb-6;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #FFB74D;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #FFB74D;
+        }
+        .sms-card {
+            @apply bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow mb-4;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <a href="settings.html" class="text-gray-600 hover:text-primary mr-2">
+                        <i class="fas fa-arrow-left text-xl"></i>
+                    </a>
+                    <i class="fas fa-sms text-primary text-xl"></i>
+                    <h1 class="text-xl font-semibold text-dark">短信管理</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 hover:text-primary transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="text-primary hover:text-opacity-80">
+                        <i class="fas fa-cog text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 标签页 -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex overflow-x-auto">
+                <button class="py-3 px-4 border-b-2 border-primary text-primary font-medium whitespace-nowrap">
+                    全部
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium whitespace-nowrap">
+                    已拦截
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium whitespace-nowrap">
+                    已标记
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium whitespace-nowrap">
+                    关键词
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-6">
+        <!-- 短信过滤设置 -->
+        <section class="settings-card">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-medium text-dark">短信过滤</h3>
+                    <p class="text-sm text-gray-500 mt-1">自动拦截垃圾短信和诈骗短信</p>
+                </div>
+                <div class="relative inline-block w-12 align-middle select-none">
+                    <input type="checkbox" id="sms-filter" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                    <label for="sms-filter" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mt-4">
+                <div class="text-center">
+                    <div class="text-xl font-bold text-dark">256</div>
+                    <div class="text-xs text-gray-600">总短信数</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-xl font-bold text-danger">64</div>
+                    <div class="text-xs text-gray-600">已拦截</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-xl font-bold text-warning">32</div>
+                    <div class="text-xs text-gray-600">已标记</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关键词过滤 -->
+        <section class="settings-card">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-medium text-dark">关键词过滤</h3>
+                    <p class="text-sm text-gray-500 mt-1">根据关键词自动拦截短信</p>
+                </div>
+                <div class="relative inline-block w-12 align-middle select-none">
+                    <input type="checkbox" id="keyword-filter" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                    <label for="keyword-filter" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm flex items-center">
+                        贷款
+                        <button class="ml-2 text-primary/70 hover:text-primary">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </span>
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm flex items-center">
+                        中奖
+                        <button class="ml-2 text-primary/70 hover:text-primary">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </span>
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm flex items-center">
+                        发票
+                        <button class="ml-2 text-primary/70 hover:text-primary">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </span>
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm flex items-center">
+                        验证码
+                        <button class="ml-2 text-primary/70 hover:text-primary">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </span>
+                    <button class="border border-dashed border-primary text-primary px-3 py-1 rounded-full text-sm">
+                        <i class="fas fa-plus mr-1"></i> 添加关键词
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 短信列表 -->
+        <h3 class="text-lg font-medium text-dark mb-4">短信列表</h3>
+
+        <!-- 短信项 -->
+        <div class="sms-card">
+            <div class="flex justify-between items-start">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-danger bg-opacity-10 p-3 rounded-full">
+                        <i class="fas fa-ban text-danger"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center">
+                            <h4 class="font-medium">+86 10086</h4>
+                            <span class="ml-2 bg-danger/10 text-danger text-xs px-2 py-0.5 rounded">已拦截</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1">【贷款】尊敬的客户，您有一笔10万元的贷款已经审批通过，请点击链接领取：http://example.com</p>
+                        <p class="text-xs text-gray-400 mt-1">今天 14:30</p>
+                    </div>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="text-gray-400 hover:text-primary transition">
+                        <i class="fas fa-tag"></i>
+                    </button>
+                    <button class="text-gray-400 hover:text-danger transition">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sms-card">
+            <div class="flex justify-between items-start">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-warning bg-opacity-10 p-3 rounded-full">
+                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center">
+                            <h4 class="font-medium">+86 95588</h4>
+                            <span class="ml-2 bg-warning/10 text-warning text-xs px-2 py-0.5 rounded">已标记</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1">【中国银行】您的银行卡将在24小时内冻结，请立即致电客服中心处理：400-800-1234</p>
+                        <p class="text-xs text-gray-400 mt-1">今天 12:15</p>
+                    </div>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="text-gray-400 hover:text-primary transition">
+                        <i class="fas fa-tag"></i>
+                    </button>
+                    <button class="text-gray-400 hover:text-danger transition">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sms-card">
+            <div class="flex justify-between items-start">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-info bg-opacity-10 p-3 rounded-full">
+                        <i class="fas fa-sms text-info"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-medium">+86 13800138000</h4>
+                        <p class="text-sm text-gray-600 mt-1">您好，您的快递已到达XX小区快递柜，取件码：1234，请及时取件。</p>
+                        <p class="text-xs text-gray-400 mt-1">昨天 18:45</p>
+                    </div>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="text-gray-400 hover:text-primary transition">
+                        <i class="fas fa-tag"></i>
+                    </button>
+                    <button class="text-gray-400 hover:text-danger transition">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sms-card">
+            <div class="flex justify-between items-start">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-success bg-opacity-10 p-3 rounded-full">
+                        <i class="fas fa-check-circle text-success"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-medium">+86 12306</h4>
+                        <p class="text-sm text-gray-600 mt-1">【铁路12306】您已成功购买7月25日G1234次列车票，请提前到站取票。</p>
+                        <p class="text-xs text-gray-400 mt-1">7月20日 09:30</p>
+                    </div>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="text-gray-400 hover:text-primary transition">
+                        <i class="fas fa-tag"></i>
+                    </button>
+                    <button class="text-gray-400 hover:text-danger transition">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 加载更多 -->
+        <div class="text-center mt-4 mb-20">
+            <button class="text-primary hover:text-opacity-80 transition">
+                加载更多 <i class="fas fa-chevron-down ml-1"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="flex justify-around items-center py-3">
+                <a href="index.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="rules.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-list-alt text-xl"></i>
+                    <span class="text-xs mt-1">规则</span>
+                </a>
+                <a href="call_history.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-history text-xl"></i>
+                    <span class="text-xs mt-1">历史</span>
+                </a>
+                <a href="settings.html" class="flex flex-col items-center text-primary">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="text-xs mt-1">设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

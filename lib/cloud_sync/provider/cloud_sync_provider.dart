@@ -3,6 +3,8 @@ import 'package:yourcallyourrule/cloud_sync/services/cloud_sync_service.dart';
 import 'package:yourcallyourrule/cloud_sync/services/google_drive_sync_service.dart';
 import 'package:yourcallyourrule/cloud_sync/services/onedrive_sync_service.dart';
 import 'package:yourcallyourrule/cloud_sync/services/webdav_sync_service.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'device_management_provider.dart';
 
 
 
@@ -10,17 +12,20 @@ import 'package:yourcallyourrule/cloud_sync/services/webdav_sync_service.dart';
 
 /// Provider for WebDAV sync service
 final webdavSyncServiceProvider = Provider<CloudSyncService>((ref) {
-  return WebDAVSyncService();
+  final configRepository = ref.watch(configRepositoryProvider);
+  return WebDAVSyncService(configRepository: configRepository, ref: ref);
 });
 
 /// Provider for OneDrive sync service
 final onedriveSyncServiceProvider = Provider<CloudSyncService>((ref) {
-  return OneDriveSyncService();
+  final configRepository = ref.watch(configRepositoryProvider);
+  return OneDriveSyncService(configRepository: configRepository, ref: ref);
 });
 
 /// Provider for Google Drive sync service
 final googleDriveSyncServiceProvider = Provider<CloudSyncService>((ref) {
-  return GoogleDriveSyncService();
+  final configRepository = ref.watch(configRepositoryProvider);
+  return GoogleDriveSyncService(configRepository: configRepository, ref: ref);
 });
 
 /// Provider for the currently active cloud sync service

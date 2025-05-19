@@ -1,3 +1,4 @@
+import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
@@ -29,7 +30,7 @@ class CallFilterService implements CallFilterInterface {
         _blacklistWhitelistService = blacklistWhitelistService,
         _configRepository = configRepository;
 
-  // 优化后的方法定义
+  // 优化后的方法定义，支持规则优先级
   @override
   Future<bool> shouldAcceptCall(String phoneNumberStr) async {
     final phoneNumber = PhoneNumber(phoneNumberStr);
@@ -41,92 +42,69 @@ class CallFilterService implements CallFilterInterface {
       return false;
     }
 
-    // 检查允许规则（优先级高）
-    if (callFilterConfig.allowAllAllowedNumbers) {
-      final allowedRules = await _allowedBlockedService.getAllowedRules(phoneNumber);
-      if (allowedRules.isNotEmpty) {
-        return true;
-      }
+    // 获取所有适用的规则
+    final matchingRules = await _getAllMatchingRules(phoneNumber);
+
+    // 如果没有匹配规则，放行电话
+    if (matchingRules.isEmpty) {
+      return true;
     }
 
-    // 检查阻止规则（优先级中）
-    if (!callFilterConfig.allowBlockedNumbers) {
-      final blockedRules = await _allowedBlockedService.getBlockedRules(phoneNumber);
-      if (blockedRules.isNotEmpty) {
-        // 使用第一个匹配规则的拦截动作
-        interceptAction = _getInterceptActionFromRule(blockedRules.first.action);
+    // 按优先级排序规则（优先级值越高，优先级越高）
+    matchingRules.sort((a, b) => b.priority.value.compareTo(a.priority.value));
+
+    // 获取优先级最高的规则
+    final highestPriorityRule = matchingRules.first;
+
+    // 根据最高优先级规则的动作类型决定是否接受来电
+    switch (highestPriorityRule.action.type) {
+      case RuleActionType.allow:
+        return true;
+      case RuleActionType.block:
+      case RuleActionType.silence:
+        // 设置拦截动作
+        interceptAction =
+            _getInterceptActionFromRule(highestPriorityRule.action);
         _setCurrentInterceptAction(interceptAction);
         return false;
-      }
-    }
-
-    // 检查正则允许规则
-    if (callFilterConfig.allowRegexAllowRules) {
-      final matchingAllowRules = await _regexService.getMatchingRegexRulesByAction(
-          phoneNumberStr, RuleAction.allow);
-      if (matchingAllowRules.isNotEmpty) {
+      case RuleActionType.none:
+      default:
         return true;
-      }
     }
-
-    // 检查白名单规则
-    if (callFilterConfig.allowAllWhitelistedNumbers) {
-      final whitelistRules = await _blacklistWhitelistService.getWhitelistRules(phoneNumber);
-      if (whitelistRules.isNotEmpty) {
-        return true;
-      }
-    }
-
-    // 检查正则阻止规则
-    if (callFilterConfig.allowRegexBlockRules) {
-      final matchingBlockRules = await _regexService.getMatchingRegexRulesByAction(
-          phoneNumberStr, RuleAction.block);
-      if (matchingBlockRules.isNotEmpty) {
-        // 使用第一个匹配规则的拦截动作
-        interceptAction = _getInterceptActionFromRule(matchingBlockRules.first.action);
-        _setCurrentInterceptAction(interceptAction);
-        return false;
-      }
-    }
-
-    // 检查黑名单规则
-    if (!callFilterConfig.allowAllBlacklistedNumbers) {
-      final blacklistRules = await _blacklistWhitelistService.getBlacklistRules(phoneNumber);
-      if (blacklistRules.isNotEmpty) {
-        // 使用第一个匹配规则的拦截动作
-        interceptAction = _getInterceptActionFromRule(blacklistRules.first.action);
-        _setCurrentInterceptAction(interceptAction);
-        return false;
-      }
-    }
-
-    // 放行所有其他号码
-    return true;
   }
-  
+
   // 从规则动作中获取拦截动作
   String? _getInterceptActionFromRule(RuleAction action) {
-    // 如果动作类型不是block，则不需要拦截
-    if (action.type != RuleActionType.block) {
-      return null;
+    // 根据动作类型处理
+    switch (action.type) {
+      case RuleActionType.block:
+        // 如果没有参数，使用默认拦截动作
+        if (action.parameters == null ||
+            !action.parameters!.containsKey('interceptAction')) {
+          return null;
+        }
+        return action.parameters!['interceptAction'] as String?;
+
+      case RuleActionType.silence:
+        // silence类型直接返回silenceNoAnswer
+        return 'silenceNoAnswer';
+
+      case RuleActionType.none:
+      case RuleActionType.allow:
+      default:
+        // 其他类型不需要拦截
+        return null;
     }
-    
-    // 如果没有参数，使用默认拦截动作
-    if (action.parameters == null || !action.parameters!.containsKey('interceptAction')) {
-      return null;
-    }
-    
-    return action.parameters!['interceptAction'] as String?;
   }
-  
+
   // 当前拦截动作，用于在shouldAcceptCall和EndCallHandler之间传递信息
   static String? _currentInterceptAction;
-  
+
   // 设置当前拦截动作
   void _setCurrentInterceptAction(String? action) {
     _currentInterceptAction = action;
   }
-  
+
   // 获取当前拦截动作
   static String? getCurrentInterceptAction() {
     return _currentInterceptAction;
@@ -158,5 +136,39 @@ class CallFilterService implements CallFilterInterface {
     await loadConfig(); // 直接通过repository加载
   }
 
-  verifyAllRules(PhoneNumber number) {}
+  /// 获取所有匹配指定号码的规则
+  /// 直接获取所有匹配的规则，由优先级排序和动作类型判断机制决定最终行为
+  Future<List<RuleBase>> _getAllMatchingRules(PhoneNumber number) async {
+    final String phoneNumberStr = number.value;
+    List<RuleBase> matchingRules = [];
+    
+    // 从AllowedBlockedService获取所有匹配的规则
+    final allowedBlockedRules =
+        await _allowedBlockedService.getRulesByActionType(number, null);
+    matchingRules.addAll(allowedBlockedRules);
+    
+    // 从RegexService获取所有匹配的规则
+    final matchingRegexRules = await _regexService
+        .getMatchingRegexRulesByActionType(phoneNumberStr, null);
+    matchingRules.addAll(matchingRegexRules);
+    
+    // 从BlacklistWhitelistService获取所有匹配的规则
+    final blackWhiteRules =
+        await _blacklistWhitelistService.getRulesByActionType(number, null);
+    matchingRules.addAll(blackWhiteRules);
+    
+    return matchingRules;
+  }
+
+  /// 验证所有适用于指定号码的规则
+  /// 返回按优先级排序的规则列表
+  Future<List<RuleBase>> verifyAllRules(PhoneNumber number) async {
+    // 获取所有匹配的规则
+    final matchingRules = await _getAllMatchingRules(number);
+
+    // 按优先级排序规则（优先级值越高，优先级越高）
+    matchingRules.sort((a, b) => b.priority.value.compareTo(a.priority.value));
+
+    return matchingRules;
+  }
 }

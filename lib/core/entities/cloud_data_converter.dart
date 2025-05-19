@@ -1,12 +1,13 @@
 import 'package:yourcallyourrule/core/entities/contact/contact_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 
-import 'package:yourcallyourrule/core/entities/rule/blacklist_rule.dart';
+
 
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/whitelist_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/white_black_rule.dart';
+
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
@@ -138,10 +139,10 @@ class CloudDataConverter {
       
       case 'AllowedBlockedRule':
         return AllowedBlockedRule.fromMap(data);
-      case 'BlacklistRule':
-        return BlacklistRule.fromMap(data);
-      case 'WhitelistRule':
-        return WhitelistRule.fromMap(data);
+
+
+      case 'WhiteBlackRule':
+        return WhiteBlackRule.fromMap(data);
       case 'RegexRule':
         return RegexRule.fromMap(data);
       case 'sms_regex':

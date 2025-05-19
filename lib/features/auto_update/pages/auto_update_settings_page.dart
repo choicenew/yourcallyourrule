@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/services/auto_update_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class AutoUpdateSettingsPage extends StatefulWidget {
-  const AutoUpdateSettingsPage({Key? key}) : super(key: key);
+  const AutoUpdateSettingsPage({super.key});
 
   @override
   State<AutoUpdateSettingsPage> createState() => _AutoUpdateSettingsPageState();
 }
 
 class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
-  final Map<String, String> _serviceTypeNames = {
-    'phone': '电话订阅',
-    'sms': '短信订阅',
-    'contact': '联系人订阅',
-    'plugin': '插件更新',
+  Map<String, String> get _serviceTypeNames => {
+    'phone': AppLocalizations.of(context)!.serviceTypePhone,
+    'sms': AppLocalizations.of(context)!.serviceTypeSms,
+    'contact': AppLocalizations.of(context)!.serviceTypeContact,
+    'plugin': AppLocalizations.of(context)!.serviceTypePlugin,
   };
 
   final Map<String, IconData> _serviceTypeIcons = {
@@ -59,7 +60,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
     });
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('${_serviceTypeNames[type]}更新间隔已设置为$days天')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.intervalSetSuccess(_serviceTypeNames[type]!, days))),
     );
   }
 
@@ -72,11 +73,11 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
     try {
       final updatedRules = await autoUpdateService.updateByType(type);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${_serviceTypeNames[type]}更新成功，共更新${updatedRules.length}条规则')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.updateSuccess(_serviceTypeNames[type]!, updatedRules.length))),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${_serviceTypeNames[type]}更新失败: $e')),
+        SnackBar(content: Text('${_serviceTypeNames[type]}${AppLocalizations.of(context)!.serviceUpdateFailure(e)}')),
       );
     } finally {
       setState(() {
@@ -94,11 +95,11 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
     try {
       final updatedRules = await autoUpdateService.updateAll();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('全部更新成功，共更新${updatedRules.length}条规则')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.allUpdateSuccess(updatedRules.length))),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('更新失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.generalUpdateFailure(e))),
       );
     } finally {
       setState(() {
@@ -111,7 +112,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('自动更新设置'),
+        title: Text(AppLocalizations.of(context)!.autoUpdateSettings),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -120,7 +121,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _isLoading ? null : _updateAll,
-            tooltip: '立即更新全部',
+            tooltip: AppLocalizations.of(context)!.updateAllNow,
           ),
         ],
       ),
@@ -150,15 +151,15 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    '自动更新设置',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.autoUpdateSettings,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    '您可以设置各类订阅的自动更新间隔，也可以手动立即更新。',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    AppLocalizations.of(context)!.autoUpdateDescription,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -186,7 +187,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
+                  backgroundColor: Theme.of(context).primaryColor.withValues(alpha:0.2),
                   child: Icon(icon, color: Theme.of(context).primaryColor),
                 ),
                 const SizedBox(width: 12),
@@ -200,13 +201,13 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('更新间隔'),
+                Text(AppLocalizations.of(context)!.updateInterval),
                 DropdownButton<int>(
                   value: days,
                   items: [1, 3, 7, 14, 30].map((int value) {
                     return DropdownMenuItem<int>(
                       value: value,
-                      child: Text('$value天'),
+                      child: Text(AppLocalizations.of(context)!.days(value)),
                     );
                   }).toList(),
                   onChanged: (int? newValue) {
@@ -222,7 +223,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
               width: double.infinity,
               child: ElevatedButton.icon(
                 icon: const Icon(Icons.sync),
-                label: const Text('立即更新'),
+                label: Text(AppLocalizations.of(context)!.updateNow),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   shape: RoundedRectangleBorder(

@@ -158,16 +158,88 @@ class BackupRestoreService {
             : path.join(_backupDirectory.path,
                 'rules_${DateTime.now().millisecondsSinceEpoch}.json'),
         includeLabels: false,
-        includeLocations: false);
+        includeLocations: false,
+        includeConfigs: false);
 
     await _addBackupVersion('rules', file.path);
+    return file.path;
+  }
+  
+  /// 备份配置数据
+  /// [destination] 备份文件路径，如果为空则使用默认路径
+  /// [configKeys] 要备份的配置键列表，如果为空则备份所有配置
+  Future<String> backupConfigs(String destination, {List<String>? configKeys}) async {
+    _ensureInitialized();
+    
+    final file = await _ruleImportExportService.exportRulePackage(
+        destination.isNotEmpty
+            ? destination
+            : path.join(_backupDirectory.path,
+                'configs_${DateTime.now().millisecondsSinceEpoch}.json'),
+        includeLabels: false,
+        includeLocations: false,
+        includeRules: false,
+        includeConfigs: true,
+        configKeys: configKeys);
+
+    await _addBackupVersion('configs', file.path);
+    return file.path;
+  }
+  
+  /// 备份所有数据（规则、标签、位置和配置）
+  Future<String> backupAll(String destination) async {
+    _ensureInitialized();
+    
+    final file = await _ruleImportExportService.exportRulePackage(
+        destination.isNotEmpty
+            ? destination
+            : path.join(_backupDirectory.path,
+                'all_${DateTime.now().millisecondsSinceEpoch}.json'),
+        includeLabels: true,
+        includeLocations: true,
+        includeConfigs: true);
+
+    await _addBackupVersion('all', file.path);
     return file.path;
   }
 
   Future<List<RuleBase>> restoreRules(String source) async {
     _ensureInitialized();
-    await _ruleImportExportService.importRulePackage(File(source));
+    await _ruleImportExportService.importRulePackage(
+      File(source),
+      importRules: true,
+      importLabels: false,
+      importLocations: false,
+      importConfigs: false
+    );
     return _ruleImportExportService.storage.loadRules();
+  }
+  
+  /// 还原配置数据
+  /// [source] 备份文件路径
+  /// [configKeys] 要还原的配置键列表，如果为空则还原所有配置
+  Future<void> restoreConfigs(String source, {List<String>? configKeys}) async {
+    _ensureInitialized();
+    await _ruleImportExportService.importRulePackage(
+      File(source),
+      importRules: false,
+      importLabels: false,
+      importLocations: false,
+      importConfigs: true,
+      configKeys: configKeys
+    );
+  }
+  
+  /// 还原所有数据（规则、标签、位置和配置）
+  Future<void> restoreAll(String source) async {
+    _ensureInitialized();
+    await _ruleImportExportService.importRulePackage(
+      File(source),
+      importRules: true,
+      importLabels: true,
+      importLocations: true,
+      importConfigs: true
+    );
   }
 
   Future<String> backupSettings(String destination) async {

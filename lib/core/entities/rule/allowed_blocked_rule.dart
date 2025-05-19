@@ -26,9 +26,17 @@ class AllowedBlockedRule extends RuleBase {
         );
 
   static RulePriority _defaultPriority(RuleAction action) {
-    return action == RuleAction.allow
-        ? const RulePriority(100) // 允许规则默认优先级100
-        : const RulePriority(50);  // 阻止规则默认优先级50
+    switch (action.type) {
+      case RuleActionType.allow:
+        return RulePriority.highest;  // 使用预定义常量，优先级100
+      case RuleActionType.block:
+        return RulePriority.veryHigh;  // 使用预定义常量，优先级50
+      case RuleActionType.silence:
+        return RulePriority.silenceAction;  // 使用预定义常量，优先级1
+      case RuleActionType.none:
+      default:
+        return RulePriority.noneAction;  // 使用预定义常量，优先级0
+    }
   }
 
   @override

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/core/entities/label/label_entry.dart';
-import 'package:yourcallyourrule/features/common/services/label_service_component.dart';
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/features/common/widgets/labeled_service_card.dart';
+import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 /// 来电设置页面
 /// 展示如何使用可复用的标签组件和服务卡片
@@ -23,28 +24,144 @@ class _CallSettingsPageState extends State<CallSettingsPage> {
     // 构建服务卡片列表
     final serviceCards = [
       // 来电识别服务卡片
-      LabelServiceComponent(
-        serviceTitle: '来电识别',
-        serviceDescription: '识别未知来电，标记骚扰电话和诈骗电话',
-        serviceIcon: Icons.phone,
-        serviceGradientColors: const [Color(0xFF64B5F6), Color(0xFF2196F3)],
-        isEnabled: _isCallerIdEnabled,
-        onLabelSelected: (LabelEntry label) {
-          _handleCallerIdLabelSelected(label);
-        },
+      Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFF64B5F6), Color(0xFF2196F3)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.phone, color: Colors.white, size: 24),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            '来电识别',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            '识别未知来电，标记骚扰电话和诈骗电话',
+                            style: TextStyle(fontSize: 14, color: Colors.white.withOpacity(0.9)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Switch(
+                      value: _isCallerIdEnabled,
+                      onChanged: (value) {
+                        setState(() {
+                          _isCallerIdEnabled = value;
+                        });
+                      },
+                      activeColor: Colors.white,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                if (_isCallerIdEnabled)
+                  PublicSelectLabel(
+                    onLabelIdChanged: (labelId) {
+                      _handleCallerIdLabelIdSelected(labelId);
+                    },
+                    themeColor: Colors.white,
+                  ),
+              ],
+            ),
+          ),
+        ),
       ),
       const SizedBox(height: 16),
 
       // 来电过滤服务卡片
-      LabelServiceComponent(
-        serviceTitle: '来电过滤',
-        serviceDescription: '自动拦截骚扰电话和诈骗电话',
-        serviceIcon: Icons.block,
-        serviceGradientColors: const [Color(0xFFFFB74D), Color(0xFFFF9800)],
-        isEnabled: _isCallFilterEnabled,
-        onLabelSelected: (LabelEntry label) {
-          _handleCallFilterLabelSelected(label);
-        },
+      Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFFFFB74D), Color(0xFFFF9800)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.block, color: Colors.white, size: 24),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            '来电过滤',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            '自动拦截骚扰电话和诈骗电话',
+                            style: TextStyle(fontSize: 14, color: Colors.white.withOpacity(0.9)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Switch(
+                      value: _isCallFilterEnabled,
+                      onChanged: (value) {
+                        setState(() {
+                          _isCallFilterEnabled = value;
+                        });
+                      },
+                      activeColor: Colors.white,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                if (_isCallFilterEnabled)
+                  PublicSelectLabel(
+                    onLabelIdChanged: (labelId) {
+                      _handleCallFilterLabelIdSelected(labelId);
+                    },
+                    themeColor: Colors.white,
+                  ),
+              ],
+            ),
+          ),
+        ),
       ),
       const SizedBox(height: 16),
 
@@ -79,7 +196,7 @@ class _CallSettingsPageState extends State<CallSettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('来电设置'),
+        title: const Text('来电设置'),
         backgroundColor: const Color(0xFFF5A623),
         elevation: 0,
       ),
@@ -105,36 +222,48 @@ class _CallSettingsPageState extends State<CallSettingsPage> {
     );
   }
 
-  // 处理来电识别标签选择
-  void _handleCallerIdLabelSelected(LabelEntry label) {
+  // 处理来电识别标签ID选择
+  void _handleCallerIdLabelIdSelected(String labelId) async {
     setState(() {
       _isCallerIdEnabled = true;
     });
 
+    // 获取标签文本
+    final predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
+    final labelText = await predefinedLabelService.getLabelById(labelId)?.then((label) => label?.text) ?? '未知标签';
+
     // 显示成功提示
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('已将 ${label.phoneNumber} 标记为 ${label.label}'),
-      backgroundColor: Colors.green,
-      behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      margin: const EdgeInsets.all(8),
-    ));
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('已将号码标记为 $labelText'),
+        backgroundColor: Colors.green,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        margin: const EdgeInsets.all(8),
+      ));
+    }
   }
 
-  // 处理来电过滤标签选择
-  void _handleCallFilterLabelSelected(LabelEntry label) {
+  // 处理来电过滤标签ID选择
+  void _handleCallFilterLabelIdSelected(String labelId) async {
     setState(() {
       _isCallFilterEnabled = true;
     });
 
+    // 获取标签文本
+    final predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
+    final labelText = await predefinedLabelService.getLabelById(labelId)?.then((label) => label?.text) ?? '未知标签';
+
     // 显示成功提示
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('已将 ${label.phoneNumber} 添加到 ${label.label} 过滤列表'),
-      backgroundColor: Colors.green,
-      behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      margin: const EdgeInsets.all(8),
-    ));
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('已将号码添加到 $labelText 过滤列表'),
+        backgroundColor: Colors.green,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        margin: const EdgeInsets.all(8),
+      ));
+    }
   }
 
   // 切换时间拦截器状态
@@ -155,10 +284,7 @@ class _CallSettingsPageState extends State<CallSettingsPage> {
 
   // 导航到标签服务页面
   void _navigateToLabelServicePage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const LabelServicePage()),
-    );
+    Navigator.pushNamed(context, '/labels/management');
   }
 }
 
@@ -180,15 +306,73 @@ class _SmsSettingsPageState extends State<SmsSettingsPage> {
     // 构建服务卡片列表
     final serviceCards = [
       // 短信过滤服务卡片
-      LabelServiceComponent(
-        serviceTitle: '短信过滤',
-        serviceDescription: '自动拦截垃圾短信和诈骗短信',
-        serviceIcon: Icons.sms,
-        serviceGradientColors: const [Color(0xFFFFB74D), Color(0xFFFF9800)],
-        isEnabled: _isSmsFilterEnabled,
-        onLabelSelected: (LabelEntry label) {
-          _handleSmsFilterLabelSelected(label);
-        },
+      Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFFFFB74D), Color(0xFFFF9800)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.sms, color: Colors.white, size: 24),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            '短信过滤',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            '自动拦截垃圾短信和诈骗短信',
+                            style: TextStyle(fontSize: 14, color: Colors.white.withOpacity(0.9)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Switch(
+                      value: _isSmsFilterEnabled,
+                      onChanged: (value) {
+                        setState(() {
+                          _isSmsFilterEnabled = value;
+                        });
+                      },
+                      activeColor: Colors.white,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                if (_isSmsFilterEnabled)
+                  PublicSelectLabel(
+                    onLabelIdChanged: (labelId) {
+                      _handleSmsFilterLabelIdSelected(labelId);
+                    },
+                    themeColor: Colors.white,
+                  ),
+              ],
+            ),
+          ),
+        ),
       ),
       const SizedBox(height: 16),
 
@@ -223,7 +407,7 @@ class _SmsSettingsPageState extends State<SmsSettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('短信设置'),
+        title: const Text('短信设置'),
         backgroundColor: const Color(0xFFF5A623),
         elevation: 0,
       ),
@@ -249,20 +433,26 @@ class _SmsSettingsPageState extends State<SmsSettingsPage> {
     );
   }
 
-  // 处理短信过滤标签选择
-  void _handleSmsFilterLabelSelected(LabelEntry label) {
+  // 处理短信过滤标签ID选择
+  void _handleSmsFilterLabelIdSelected(String labelId) async {
     setState(() {
       _isSmsFilterEnabled = true;
     });
 
+    // 获取标签文本
+    final predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
+    final labelText = await predefinedLabelService.getLabelById(labelId)?.then((label) => label?.text) ?? '未知标签';
+
     // 显示成功提示
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('已将 ${label.phoneNumber} 添加到短信过滤列表'),
-      backgroundColor: Colors.green,
-      behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      margin: const EdgeInsets.all(8),
-    ));
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('已将号码添加到 $labelText 短信过滤列表'),
+        backgroundColor: Colors.green,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        margin: const EdgeInsets.all(8),
+      ));
+    }
   }
 
   // 切换关键词过滤状态
@@ -283,9 +473,6 @@ class _SmsSettingsPageState extends State<SmsSettingsPage> {
 
   // 导航到标签服务页面
   void _navigateToLabelServicePage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const LabelServicePage()),
-    );
+    Navigator.pushNamed(context, '/labels/management');
   }
 }

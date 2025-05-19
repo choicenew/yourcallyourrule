@@ -1,6 +1,6 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
 import 'base_sms_handler.dart';
 
@@ -9,6 +9,7 @@ import 'base_sms_handler.dart';
 class SmsFilterHandler extends BaseSmsHandler {
   final List<SmsRegexRule> smsRules;
   bool isEnabled = false;
+  final ConfigRepository _configRepository;
   
   // 设置键名
   static const String smsFilterEnabledKey = 'sms_filter_enabled';
@@ -16,7 +17,9 @@ class SmsFilterHandler extends BaseSmsHandler {
   /// 构造函数
   SmsFilterHandler({
     List<SmsRegexRule>? initialRules,
-  }) : smsRules = initialRules ?? [];
+    ConfigRepository? configRepository,
+  }) : smsRules = initialRules ?? [],
+       _configRepository = configRepository ?? SharedPreferencesConfigRepository();
 
   /// 初始化
   @override
@@ -26,8 +29,8 @@ class SmsFilterHandler extends BaseSmsHandler {
 
   /// 加载设置
   Future<void> loadSettings() async {
-    final prefs = await SharedPreferences.getInstance();
-    isEnabled = prefs.getBool(smsFilterEnabledKey) ?? false;
+    final config = await _configRepository.getConfig(smsFilterEnabledKey);
+    isEnabled = config?['enabled'] as bool? ?? false;
   }
 
   /// 设置是否启用过滤
@@ -35,8 +38,7 @@ class SmsFilterHandler extends BaseSmsHandler {
     if (isEnabled == enabled) return;
 
     isEnabled = enabled;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(smsFilterEnabledKey, enabled);
+    await _configRepository.saveConfig(smsFilterEnabledKey, {'enabled': enabled});
   }
 
   /// 添加规则
@@ -78,7 +80,18 @@ class SmsFilterHandler extends BaseSmsHandler {
     // 遍历规则并检查匹配
     for (final rule in smsRules) {
       if (rule.matches(messageContent, phoneNumber)) {
-        return rule.action == RuleAction.allow;
+        // 根据规则动作类型决定是否通知
+        // 与CallFilterService保持一致，只有block和silence才阻止通知
+        switch (rule.action.type) {
+          case RuleActionType.allow:
+            return true;
+          case RuleActionType.block:
+          case RuleActionType.silence:
+            return false;
+          case RuleActionType.none:
+          default:
+            return true;
+        }
       }
     }
 

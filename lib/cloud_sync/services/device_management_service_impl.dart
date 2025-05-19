@@ -2,14 +2,11 @@ import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
-
-
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
-
 
 import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/services/device_management_service.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
 /// Implementation of the device management service
 class DeviceManagementServiceImpl implements DeviceManagementService {
@@ -22,11 +19,19 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
   /// Shared preferences key for registered devices
   static const String _registeredDevicesKey = 'registered_devices';
   
+  /// Config repository for storing device information
+  final ConfigRepository _configRepository;
+  
+  
   /// Device info plugin
   final DeviceInfoPlugin _deviceInfo = DeviceInfoPlugin();
   
   /// UUID generator
   final Uuid _uuid = const Uuid();
+  
+  /// Constructor
+  DeviceManagementServiceImpl({required ConfigRepository configRepository})
+      : _configRepository = configRepository;
   
   /// Current device entity
   DeviceEntity? _currentDevice;
@@ -44,12 +49,12 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
   /// Get the current device ID
   @override
   Future<String> getCurrentDeviceId() async {
-    final prefs = await SharedPreferences.getInstance();
-    String? deviceId = prefs.getString(_deviceIdKey);
+    final config = await _configRepository.getConfig(_deviceIdKey);
+    String? deviceId = config?['value'] as String?;
     
     if (deviceId == null) {
       deviceId = _uuid.v4();
-      await prefs.setString(_deviceIdKey, deviceId);
+      await _configRepository.saveConfig(_deviceIdKey, {'value': deviceId});
     }
     
     return deviceId;
@@ -68,13 +73,13 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
   
   /// Load the current device information
   Future<void> _loadCurrentDevice() async {
-    final prefs = await SharedPreferences.getInstance();
     final deviceId = await getCurrentDeviceId();
-    String? deviceName = prefs.getString(_deviceNameKey);
+    final config = await _configRepository.getConfig(_deviceNameKey);
+    String? deviceName = config?['value'] as String?;
     
     if (deviceName == null) {
       deviceName = await _getDefaultDeviceName();
-      await prefs.setString(_deviceNameKey, deviceName);
+      await _configRepository.saveConfig(_deviceNameKey, {'value': deviceName});
     }
     
     final deviceModel = await _getDeviceModel();
@@ -147,8 +152,7 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
   @override
   Future<bool> updateDeviceName(String newName) async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString(_deviceNameKey, newName);
+      await _configRepository.saveConfig(_deviceNameKey, {'value': newName});
       
       if (_currentDevice != null) {
         _currentDevice = _currentDevice!.copyWith(name: newName);
@@ -226,11 +230,11 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
     }
   }
   
-  /// Load registered devices from shared preferences
+  /// Load registered devices from config repository
   Future<void> _loadRegisteredDevices() async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      final devicesJson = prefs.getString(_registeredDevicesKey);
+      final config = await _configRepository.getConfig(_registeredDevicesKey);
+      final devicesJson = config?['value'] as String?;
       
       if (devicesJson != null) {
         final List<dynamic> devicesList = jsonDecode(devicesJson);
@@ -244,15 +248,14 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
     }
   }
   
-  /// Save registered devices to shared preferences
+  /// Save registered devices to config repository
   Future<void> _saveRegisteredDevices() async {
     try {
-      final prefs = await SharedPreferences.getInstance();
       final devicesJson = jsonEncode(
         _registeredDevices.map((device) => device.toJson()).toList(),
       );
       
-      await prefs.setString(_registeredDevicesKey, devicesJson);
+      await _configRepository.saveConfig(_registeredDevicesKey, {'value': devicesJson});
     } catch (e) {
       debugPrint('Error saving registered devices: $e');
     }

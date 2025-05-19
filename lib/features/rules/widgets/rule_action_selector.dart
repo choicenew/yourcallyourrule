@@ -59,6 +59,14 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                 value: RuleActionType.block,
                 child: Text('阻止'),
               ),
+              DropdownMenuItem(
+                value: RuleActionType.silence,
+                child: Text('静音'),
+              ),
+              DropdownMenuItem(
+                value: RuleActionType.none,
+                child: Text('无动作'),
+              ),
             ],
           ),
         ),
@@ -99,25 +107,49 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
   void _onActionTypeChanged(RuleActionType? type) {
     if (type == null) return;
     
-    setState(() {
-      if (type == RuleActionType.allow) {
-        _currentAction = RuleAction.allow;
-        _selectedInterceptAction = null;
-      } else if (type == RuleActionType.block) {
-        // 如果之前已经选择了拦截动作，保留它
+    // 根据选择的动作类型创建新的动作对象
+    RuleAction newAction;
+    switch (type) {
+      case RuleActionType.block:
+        // 如果选择了阻止动作，保留之前的拦截动作参数
         if (_selectedInterceptAction != null) {
-          _currentAction = RuleAction.withParams(
-            RuleActionType.block,
-            {'interceptAction': _selectedInterceptAction},
+          newAction = RuleAction.withParams(
+            type, 
+            {'interceptAction': _selectedInterceptAction!}
           );
         } else {
-          _currentAction = RuleAction.block;
+          newAction = RuleAction(type: type);
         }
+        break;
+      case RuleActionType.silence:
+        // 如果选择了静音动作，使用预定义的silence常量
+        newAction = RuleAction.silence;
+        break;
+      case RuleActionType.none:
+        // 如果选择了无动作，使用预定义的none常量
+        newAction = RuleAction.none;
+        break;
+      case RuleActionType.allow:
+        // 如果选择了允许动作，使用预定义的allow常量
+        newAction = RuleAction.allow;
+        break;
+      default:
+        // 其他动作类型使用默认构造函数
+        newAction = RuleAction(type: type);
+    }
+    
+    setState(() {
+      _currentAction = newAction;
+      // 只有在选择block类型时才显示拦截动作选择器
+      if (type != RuleActionType.block) {
+        _selectedInterceptAction = null;
       }
     });
     
+    // 通知父组件动作已更改
     widget.onActionChanged(_currentAction);
   }
+
   
   /// 当拦截动作改变时的处理
   void _onInterceptActionChanged(String? action) {
@@ -137,4 +169,4 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
     
     widget.onActionChanged(_currentAction);
   }
-}
+  }

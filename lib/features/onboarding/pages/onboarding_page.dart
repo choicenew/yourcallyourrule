@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/core/services/permission_service.dart';
+import 'package:yourcallyourrule/features/language/widgets/language_selection_widget.dart';
+import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
 
 /// 应用引导页面
 class OnboardingPage extends StatefulWidget {
@@ -262,6 +264,20 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _buildLanguagePage() {
+    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
+    final currentLocale = localeProvider.locale;
+    
+    // 支持的语言列表
+    final supportedLocales = [
+      {'name': '简体中文', 'code': const Locale('zh', 'CN'), 'flag': 'CN'},
+      {'name': 'English', 'code': const Locale('en', 'US'), 'flag': 'US'},
+      {'name': '日本語', 'code': const Locale('ja', 'JP'), 'flag': 'JP'},
+      {'name': '한국어', 'code': const Locale('ko', 'KR'), 'flag': 'KR'},
+      {'name': 'Français', 'code': const Locale('fr', 'FR'), 'flag': 'FR'},
+      {'name': 'Deutsch', 'code': const Locale('de', 'DE'), 'flag': 'DE'},
+      {'name': 'Español', 'code': const Locale('es', 'ES'), 'flag': 'ES'},
+    ];
+    
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
       child: Column(
@@ -288,43 +304,30 @@ class _OnboardingPageState extends State<OnboardingPage> {
               color: Colors.white,
             ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 30),
           
           // 标题
           const Text(
             '选择您的语言',
             style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
           
-          // 语言选择器
+          // 使用LanguageSelectionWidget组件
           Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
+              color: Colors.white.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(16),
             ),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                value: '简体中文',
-                icon: const Icon(Icons.arrow_drop_down, color: Color(0xFFFFB74D)),
-                items: const [
-                  DropdownMenuItem(value: '简体中文', child: Text('简体中文')),
-                  DropdownMenuItem(value: 'English', child: Text('English')),
-                  DropdownMenuItem(value: '日本語', child: Text('日本語')),
-                  DropdownMenuItem(value: '한국어', child: Text('한국어')),
-                  DropdownMenuItem(value: 'Français', child: Text('Français')),
-                  DropdownMenuItem(value: 'Deutsch', child: Text('Deutsch')),
-                  DropdownMenuItem(value: 'Español', child: Text('Español')),
-                ],
-                onChanged: (value) {
-                  // 更改语言
-                },
-              ),
+            padding: const EdgeInsets.all(16),
+            child: LanguageSelectionWidget(
+              supportedLocales: supportedLocales,
+              currentLocale: currentLocale,
+              localeProvider: localeProvider,
+              showCurrentLanguage: false,
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 20),
           
           // 描述
           Text(
@@ -332,7 +335,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 16),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 30),
           
           // 页面指示器
           _buildPageIndicator(),
@@ -480,8 +483,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _buildPermissionsPage() {
-    final permissionService = Provider.of<PermissionService>(context, listen: false);
-    
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
       child: Column(
@@ -548,20 +549,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
             description: '用于识别联系人来电',
             color: const Color(0xFF43A047),
           ),
+          const SizedBox(height: 16),
+          
+          _buildPermissionItem(
+            icon: Icons.screen_lock_portrait,
+            title: '通话筛选权限',
+            description: '用于筛选和拦截骚扰电话',
+            color: const Color(0xFFE53935),
+          ),
           const SizedBox(height: 30),
           
           // 授权按钮
           ElevatedButton(
             onPressed: () async {
-              // 请求所有必要权限
-              final permissions = ['call', 'sms', 'contacts'];
-              final results = await permissionService.requestPermissions(permissions);
+              // 请求通话筛选权限
+              final result = await CallScreeningPlugin.requestCallScreeningRole();
               
               // 检查权限结果
-              final allGranted = results.values.every((granted) => granted);
-              if (!allGranted && mounted) {
+              if (!result && mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text('部分权限未授予，可能会影响应用功能'),
+                  content: Text('通话筛选权限未授予，可能会影响应用功能'),
                 ));
               }
             },

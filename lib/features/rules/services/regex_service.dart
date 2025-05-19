@@ -17,6 +17,9 @@ class RegexService extends ListService {
   RegexService(this._ruleRepository)
       : _importExportService = RuleImportExportService(_ruleRepository),
         super(_ruleRepository);
+        
+  /// 获取导入导出服务
+  RuleImportExportService get importExportService => _importExportService;
 
   // 添加模式有效性检查
   Future<void> addRegexRule(RegExPattern pattern) async {
@@ -78,11 +81,33 @@ class RegexService extends ListService {
   }
   
   /// 获取匹配指定电话号码的特定动作类型的正则规则
-  Future<List<RegexRule>> getMatchingRegexRulesByAction(String phoneNumberStr, RuleAction action) async {
-    final rules = await getRegexRulesByAction(action);
-    return rules
-        .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
-        .toList();
+  /// 如果action为null，则返回所有匹配的规则，不考虑动作类型
+  Future<List<RegexRule>> getMatchingRegexRulesByAction(String phoneNumberStr, RuleAction? action) async {
+    if (action == null) {
+      // 直接使用getMatchingRegexRules方法获取所有匹配的规则
+      return getMatchingRegexRules(phoneNumberStr);
+    } else {
+      // 获取特定动作类型的规则
+      final rules = await getRegexRulesByAction(action);
+      return rules
+          .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
+          .toList();
+    }
+  }
+  
+  /// 获取匹配指定电话号码的指定动作类型的正则规则（新方法，支持所有动作类型）
+  /// 如果action为null，则返回所有匹配的规则，不考虑动作类型
+  Future<List<RegexRule>> getMatchingRegexRulesByActionType(String phoneNumberStr, RuleAction? action) async {
+    if (action == null) {
+      // 直接使用getMatchingRegexRules方法获取所有匹配的规则
+      return getMatchingRegexRules(phoneNumberStr);
+    } else {
+      // 获取特定动作类型的规则
+      final rules = await getRegexRulesByAction(action);
+      return rules
+          .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
+          .toList();
+    }
   }
 
   /// 更新正则规则

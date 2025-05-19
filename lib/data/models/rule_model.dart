@@ -1,15 +1,9 @@
 // 规则数据模型，用于数据层与领域层之间的转换
 
-import 'package:yourcallyourrule/core/entities/rule/white_black_rule.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 
 import '../../core/entities/rule/rule_base.dart';
-import '../../core/entities/rule/blacklist_rule.dart';
-import '../../core/entities/rule/whitelist_rule.dart';
-import '../../core/entities/rule/allowed_blocked_rule.dart';
-import '../../core/entities/rule/regex_rule.dart';
-import '../../core/value_objects/rule_priority.dart';
-import '../../core/value_objects/rule_action.dart';
+
+
 import 'base_model.dart';
 
 // 规则模型基类

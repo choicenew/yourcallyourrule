@@ -20,9 +20,17 @@ class RegexRule extends RuleBase {
         );
 
   static RulePriority _defaultPriority(RuleAction action) {
-    return action == RuleAction.allow 
-      ? const RulePriority(10)  // allow规则默认优先级10
-      : const RulePriority(5);  // block规则默认优先级5
+    switch (action.type) {
+      case RuleActionType.allow:
+        return RulePriority.high;  // 使用预定义常量，优先级10
+      case RuleActionType.block:
+        return RulePriority.medium;  // 使用预定义常量，优先级5
+      case RuleActionType.silence:
+        return RulePriority.silenceAction;  // 使用预定义常量，优先级1
+      case RuleActionType.none:
+      default:
+        return RulePriority.noneAction;  // 使用预定义常量，优先级0
+    }
   }
 
   @override

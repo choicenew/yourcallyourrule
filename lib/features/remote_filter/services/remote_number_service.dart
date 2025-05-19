@@ -8,6 +8,7 @@ import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/data/database/incremental_sync_manager.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_data_access_restriction.dart';
 
 /// 远程号码服务类，继承自ListService，提供远程号码的管理功能
@@ -152,10 +153,16 @@ class RemoteNumberService extends ListService {
         return false;
       }
       
-      // 这里可以实现具体的同步逻辑
-      // ...
+      // 使用增量同步管理器执行同步
+      final syncManager = IncrementalSyncManager();
       
-      return true;
+      // 确保同步管理器已初始化
+      await syncManager.initialize();
+      
+      // 执行增量同步
+      final success = await syncManager.syncIncremental();
+      
+      return success;
     } catch (e) {
       return false;
     }
