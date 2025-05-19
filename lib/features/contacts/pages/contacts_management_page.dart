@@ -177,7 +177,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                   
                   if (isEditing) {
                     // 更新联系人
-                    final updatedContact = contact!.copyWith(
+                    final updatedContact = contact.copyWith(
                       name: nameController.text,
                       phoneNumbers: phoneController.text.split(',').map((e) => e.trim()).toList(),
                       email: emailController.text.isNotEmpty ? emailController.text : null,

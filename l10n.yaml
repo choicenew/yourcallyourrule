@@ -1,0 +1,6 @@
+arb-dir: lib/l10n
+template-arb-file: app_en.arb # 'template' 而不是 'emplate'
+output-localization-file: app_localizations.dart # 'output' 而不是 'utput'
+output-dir: lib/generated # 'output' 而不是 'utput'
+# 关键点：如果你想让文件生成到 output-dir (lib/generated)，你需要下面这行
+synthetic-package: false

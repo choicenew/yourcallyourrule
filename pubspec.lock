@@ -1229,6 +1229,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.9.5"
+  l10n_countries:
+    dependency: transitive
+    description:
+      name: l10n_countries
+      sha256: "3ce25e801479534de4c0e8ac964e1a0f3bd53837f7b06db24407c4673e9ba289"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  l10n_currencies:
+    dependency: transitive
+    description:
+      name: l10n_currencies
+      sha256: "2e3d1d7be7bc12a37ef4bcc53805a0ce218f25ea959b3386779cb220d1181340"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  l10n_languages:
+    dependency: transitive
+    description:
+      name: l10n_languages
+      sha256: "324e115dbc4d20e9bb504930e843848c233648ecbba40da59af4d6a0fc24bcfa"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   leak_tracker:
     dependency: transitive
     description:
@@ -1621,6 +1645,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.8"
+  sealed_countries:
+    dependency: transitive
+    description:
+      name: sealed_countries
+      sha256: "13909f05709a03eb6655ab4c4de9cabaa8af89c3e19d693e567db11830b81cdc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
+  sealed_currencies:
+    dependency: transitive
+    description:
+      name: sealed_currencies
+      sha256: ad767afcd3355fa6ef1a0d7bf393b6c0f8f682e4e7219dcd12fe55d5ca90b5bc
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
+  sealed_languages:
+    dependency: transitive
+    description:
+      name: sealed_languages
+      sha256: "07dc4f463eed36a208dcf251a26cdb301ecad1d3f2a178081a78524145fd60d4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   share_plus:
     dependency: "direct main"
     description:
@@ -2131,6 +2179,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  world_flags:
+    dependency: "direct main"
+    description:
+      name: world_flags
+      sha256: be96a167241fa607c79e4af4268f9a277acbd76d956550337e5fc46c027bc3e6
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   xdg_directories:
     dependency: transitive
     description:

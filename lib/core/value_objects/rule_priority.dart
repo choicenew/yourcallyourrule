@@ -17,6 +17,11 @@ class RulePriority {
   static const RulePriority veryHigh = RulePriority(50);
   static const RulePriority highest = RulePriority(100);
   
+  // 规则动作优先级常量
+  static const RulePriority blockAction = RulePriority(2);
+  static const RulePriority silenceAction = RulePriority(1);
+  static const RulePriority noneAction = RulePriority(0);
+  
   // 相等性比较
   @override
   bool operator ==(Object other) {

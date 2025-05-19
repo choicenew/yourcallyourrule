@@ -18,6 +18,8 @@ class AllowedBlockedService extends ListService {
     _importExportService = RuleImportExportService(_ruleRepository),
     super(_ruleRepository);
 
+  /// 获取导入导出服务
+  RuleImportExportService get importExportService => _importExportService;
   // 添加允许/阻止规则
   Future<void> addAllowedBlockedRule(ListEntry entry, RuleAction action) async {
     final rule = AllowedBlockedRule(
@@ -42,6 +44,31 @@ class AllowedBlockedService extends ListService {
   Future<List<AllowedBlockedRule>> getAllBlockedRules() async {
     final rules = await _ruleRepository.getRulesByType(RuleAction.block.toString());
     return rules.whereType<AllowedBlockedRule>().toList();
+  }
+  
+  // 获取所有静音规则
+  Future<List<AllowedBlockedRule>> getAllSilenceRules() async {
+    final rules = await _ruleRepository.getRulesByType(RuleAction.silence.toString());
+    return rules.whereType<AllowedBlockedRule>().toList();
+  }
+  
+  // 获取所有无动作规则
+  Future<List<AllowedBlockedRule>> getAllNoneRules() async {
+    final rules = await _ruleRepository.getRulesByType(RuleAction.none.toString());
+    return rules.whereType<AllowedBlockedRule>().toList();
+  }
+  
+  // 获取所有规则（按动作类型分类）
+  Future<List<AllowedBlockedRule>> getAllRulesByActionType(RuleActionType? actionType) async {
+    if (actionType == null) {
+      // 获取所有规则
+      final rules = await _ruleRepository.getAll();
+      return rules.whereType<AllowedBlockedRule>().toList();
+    } else {
+      // 获取特定动作类型的规则
+      final rules = await _ruleRepository.getRulesByType(RuleAction(type: actionType).toString());
+      return rules.whereType<AllowedBlockedRule>().toList();
+    }
   }
 
   // 切换规则状态
@@ -98,6 +125,26 @@ class AllowedBlockedService extends ListService {
         .whereType<AllowedBlockedRule>()
         .where((rule) => rule.phoneNumber.value == phoneNumber.value && rule.isEnabled)
         .toList();
+  }
+
+  // 获取匹配指定号码的指定动作类型的规则
+  // 如果action为null，则返回所有匹配的规则，不考虑动作类型
+  Future<List<AllowedBlockedRule>> getRulesByActionType(PhoneNumber phoneNumber, RuleAction? action) async {
+    if (action == null) {
+      // 获取所有规则
+      final rules = await _ruleRepository.getAll();
+      return rules
+          .whereType<AllowedBlockedRule>()
+          .where((rule) => rule.phoneNumber.value == phoneNumber.value && rule.isEnabled)
+          .toList();
+    } else {
+      // 获取特定动作类型的规则
+      final rules = await _ruleRepository.getRulesByType(action.toString());
+      return rules
+          .whereType<AllowedBlockedRule>()
+          .where((rule) => rule.phoneNumber.value == phoneNumber.value && rule.isEnabled)
+          .toList();
+    }
   }
 
   // 更新允许/阻止规则

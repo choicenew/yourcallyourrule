@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 import 'base_sms_handler.dart';
 import 'filter_handler.dart';
 import 'notification_handler.dart';
@@ -8,14 +9,17 @@ import 'notification_handler.dart';
 class IncomingSmsHandler extends BaseSmsHandler {
   final SmsFilterHandler _filterHandler;
   final SmsNotificationHandler _notificationHandler;
+  final BlockedCallRepository _blockedCallRepository;
 
   /// 构造函数
   IncomingSmsHandler({
     required SmsFilterHandler filterHandler,
     required SmsNotificationHandler notificationHandler,
+    BlockedCallRepository? blockedCallRepository,
   }) : 
     _filterHandler = filterHandler,
-    _notificationHandler = notificationHandler;
+    _notificationHandler = notificationHandler,
+    _blockedCallRepository = blockedCallRepository ?? BlockedCallRepository();
 
   /// 处理SMS通道调用
   @override
@@ -43,7 +47,11 @@ class IncomingSmsHandler extends BaseSmsHandler {
     if (shouldNotifyUser) {
       await _notificationHandler.showSmsNotification(phoneNumber, messageContent);
     } else {
+      // 显示拦截通知
       await _notificationHandler.showBlockedSmsNotification(phoneNumber);
+      
+      // 添加到短信拦截记录
+      await _blockedCallRepository.addBlockedSms(phoneNumber);
     }
   }
 }

@@ -1,16 +1,19 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/services/device_management_service.dart';
 import 'package:yourcallyourrule/cloud_sync/services/device_management_service_impl.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
-
-
+/// Provider for config repository
+final configRepositoryProvider = Provider<ConfigRepository>((ref) {
+  return SharedPreferencesConfigRepository();
+});
 
 /// Provider for device management service
 final deviceManagementServiceProvider = Provider<DeviceManagementService>((ref) {
-  return DeviceManagementServiceImpl();
+  final configRepository = ref.watch(configRepositoryProvider);
+  return DeviceManagementServiceImpl(configRepository: configRepository);
 });
 
 /// Provider for current device

@@ -51,6 +51,12 @@ class PredefinedLabelService {
     return await _repository.getById(id);
   }
   
+  /// 同步获取标签文本
+  /// 如果标签不存在，返回null
+  Future<String?> getLabelTextAsync(String id) async {
+    return await _repository.getLabelTextAsync(id);
+  }
+  
   /// 根据文本获取标签
   Future<List<PredefinedLabel>> getLabelsByText(String text) async {
     return await _repository.getByText(text);

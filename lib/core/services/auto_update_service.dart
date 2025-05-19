@@ -3,7 +3,8 @@ import 'package:yourcallyourrule/features/phone/services/phone_subscription_serv
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yourcallyourrule/core/services/auto_update_config.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
 /// 自动更新服务
 /// 负责整合多种订阅服务的自动更新功能
@@ -12,16 +13,19 @@ class AutoUpdateService {
   final SmsSubscriptionService _smsService;
   final ContactSubscriptionService _contactService;
   final PluginManagerService _pluginService;
+  final AutoUpdateConfig _config;
 
-  const AutoUpdateService({
+  AutoUpdateService({
     required PhoneSubscriptionService phoneService,
     required SmsSubscriptionService smsService,
     required ContactSubscriptionService contactService,
     required PluginManagerService pluginService,
+    required ConfigRepository configRepository,
   }) : _phoneService = phoneService,
        _smsService = smsService,
        _contactService = contactService,
-       _pluginService = pluginService;
+       _pluginService = pluginService,
+       _config = AutoUpdateConfig(configRepository: configRepository);
 
   /// 更新所有启用的订阅规则
   /// 返回更新的规则列表
@@ -132,8 +136,6 @@ class AutoUpdateService {
   /// [serviceType] 可选的服务类型，如果不提供则检查所有类型
   /// [updateInterval] 可选的更新间隔，如果不提供则使用默认值
   Future<bool> shouldUpdate({String? serviceType, Duration? updateInterval}) async {
-    final prefs = await SharedPreferences.getInstance();
-    
     // 获取默认更新间隔（以天为单位）
     final defaultIntervals = {
       'phone': const Duration(days: 1),
@@ -144,13 +146,10 @@ class AutoUpdateService {
     
     if (serviceType != null) {
       // 检查特定服务类型
-      final lastUpdatedKey = 'lastUpdated_$serviceType';
-      final lastUpdatedStr = prefs.getString(lastUpdatedKey);
-      final lastUpdated = lastUpdatedStr != null ? DateTime.parse(lastUpdatedStr) : null;
+      final lastUpdated = await _config.getLastUpdateTime(serviceType);
       
       // 获取用户自定义的更新间隔
-      final userIntervalKey = 'userInterval_$serviceType';
-      final userIntervalDays = prefs.getInt(userIntervalKey);
+      final userIntervalDays = await _config.getUserUpdateIntervalDays(serviceType);
       final interval = userIntervalDays != null
           ? Duration(days: userIntervalDays)
           : (updateInterval ?? defaultIntervals[serviceType] ?? const Duration(days: 1));
@@ -171,13 +170,11 @@ class AutoUpdateService {
 
   /// 设置用户自定义更新间隔（以天为单位）
   Future<void> setUserUpdateInterval(String serviceType, int days) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('userInterval_$serviceType', days);
+    await _config.setUserUpdateIntervalDays(serviceType, days);
   }
 
   /// 获取用户自定义更新间隔
   Future<Duration> getUserUpdateInterval(String serviceType) async {
-    final prefs = await SharedPreferences.getInstance();
     final defaultIntervals = {
       'phone': const Duration(days: 1),
       'sms': const Duration(days: 1),
@@ -185,7 +182,7 @@ class AutoUpdateService {
       'plugin': const Duration(days: 7),
     };
     
-    final userIntervalDays = prefs.getInt('userInterval_$serviceType');
+    final userIntervalDays = await _config.getUserUpdateIntervalDays(serviceType);
     return userIntervalDays != null
         ? Duration(days: userIntervalDays)
         : (defaultIntervals[serviceType] ?? const Duration(days: 1));
@@ -193,18 +190,17 @@ class AutoUpdateService {
 
   /// 更新最后更新时间
   Future<void> _updateLastUpdateTime({String? serviceType}) async {
-    final prefs = await SharedPreferences.getInstance();
-    final now = DateTime.now().toIso8601String();
+    final now = DateTime.now();
     
     if (serviceType != null) {
       // 更新特定服务类型的时间
-      await prefs.setString('lastUpdated_$serviceType', now);
+      await _config.saveLastUpdateTime(serviceType, now);
     } else {
       // 更新所有服务类型的时间
-      await prefs.setString('lastUpdated_phone', now);
-      await prefs.setString('lastUpdated_sms', now);
-      await prefs.setString('lastUpdated_contact', now);
-      await prefs.setString('lastUpdated_plugin', now);
+      await _config.saveLastUpdateTime('phone', now);
+      await _config.saveLastUpdateTime('sms', now);
+      await _config.saveLastUpdateTime('contact', now);
+      await _config.saveLastUpdateTime('plugin', now);
     }
   }
 }

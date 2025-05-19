@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:yourcallyourrule/common/error/logger.dart';
 
@@ -13,17 +12,21 @@ import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/repositories/plugin_repository.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/universal_import_export_service.dart';
+import 'package:yourcallyourrule/features/plugin/services/plugin_manager_config.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
 /// 插件管理服务 - 负责数据库操作
 /// 遵循单一职责原则，只负责插件的CRUD操作
 class PluginManagerService extends ListService<PluginEntry, String> {
   final PluginRepository _repository;
   final UniversalImportExportService<PluginEntry> _importExportService;
+  final PluginManagerConfig _config;
 
   // 构造函数统一到类顶部
-  PluginManagerService(this._repository)
+  PluginManagerService(this._repository, {required ConfigRepository configRepository})
       : _importExportService =
             UniversalImportExportService<PluginEntry>(_repository),
+        _config = PluginManagerConfig(configRepository: configRepository),
         super(_repository);
 
   // region 基础CRUD操作（保持与PhoneSubscriptionService一致的结构）
@@ -326,12 +329,12 @@ class PluginManagerService extends ListService<PluginEntry, String> {
   }
 }
 
+/*
 // 设置默认的外部存储目录
 Future<void> setDefaultStorageDirectory() async {
   final result = await FilePicker.platform.getDirectoryPath();
   if (result != null) {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('defaultExternalStorageDirectory', result);
+    await _config.saveDefaultStorageDirectory(result);
   }
 }
 
@@ -344,9 +347,7 @@ Future<String> getDefaultStorageDirectory() async {
   }
 
   // 其他平台，使用用户选择的目录或 App Documents 目录
-  final prefs = await SharedPreferences.getInstance();
-  final userSelectedDirectory =
-      prefs.getString('defaultExternalStorageDirectory');
+  final userSelectedDirectory = await _config.getDefaultStorageDirectory();
 
   if (userSelectedDirectory != null) {
     return userSelectedDirectory;
@@ -355,3 +356,4 @@ Future<String> getDefaultStorageDirectory() async {
   final appDocumentsDirectory = await getApplicationDocumentsDirectory();
   return appDocumentsDirectory.path;
 }
+*/

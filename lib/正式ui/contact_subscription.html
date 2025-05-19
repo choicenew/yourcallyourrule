@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系人订阅 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .subscription-card {
+            @apply bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow mb-6;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #FFB74D;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #FFB74D;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <a href="contacts_management.html" class="text-gray-600 hover:text-primary mr-2">
+                        <i class="fas fa-arrow-left text-xl"></i>
+                    </a>
+                    <i class="fas fa-rss text-primary text-xl"></i>
+                    <h1 class="text-xl font-semibold text-dark">联系人订阅</h1>
+                </div>
+                <div class="flex items-center">
+                    <button class="text-primary hover:text-opacity-80">
+                        <i class="fas fa-plus text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-6">
+        <!-- 订阅说明 -->
+        <div class="bg-white rounded-xl p-4 shadow-sm mb-6">
+            <div class="flex items-start">
+                <i class="fas fa-info-circle text-info mt-1 mr-3"></i>
+                <div>
+                    <h3 class="text-lg font-medium text-dark">关于联系人订阅</h3>
+                    <p class="text-sm text-gray-600 mt-1">通过URL订阅联系人列表，自动更新联系人信息。支持多种格式，包括CSV、JSON和XML。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 订阅列表 -->
+        <h3 class="text-lg font-medium text-dark mb-4">当前订阅</h3>
+
+        <!-- 订阅项 1 -->
+        <div class="subscription-card">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h4 class="font-medium text-dark">公司联系人</h4>
+                    <p class="text-sm text-gray-500 mt-1">https://example.com/contacts/company.json</p>
+                    <div class="flex items-center mt-2">
+                        <span class="bg-success/10 text-success text-xs px-2 py-1 rounded mr-2">已同步</span>
+                        <span class="text-xs text-gray-500">最后更新: 2023-07-20 14:30</span>
+                    </div>
+                </div>
+                <div class="relative inline-block w-12 align-middle select-none">
+                    <input type="checkbox" id="sub-1" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                    <label for="sub-1" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                </div>
+            </div>
+            <div class="mt-4 flex space-x-3">
+                <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg transition text-sm">
+                    <i class="fas fa-sync-alt mr-2"></i>立即同步
+                </button>
+                <button class="border border-primary text-primary hover:bg-primary/10 px-4 py-2 rounded-lg transition text-sm">
+                    <i class="fas fa-cog mr-2"></i>设置
+                </button>
+                <button class="border border-danger text-danger hover:bg-danger/10 px-4 py-2 rounded-lg transition text-sm ml-auto">
+                    <i class="fas fa-trash-alt mr-2"></i>删除
+                </button>
+            </div>
+        </div>
+
+        <!-- 订阅项 2 -->
+        <div class="subscription-card">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h4 class="font-medium text-dark">客户联系人</h4>
+                    <p class="text-sm text-gray-500 mt-1">https://example.com/contacts/customers.csv</p>
+                    <div class="flex items-center mt-2">
+                        <span class="bg-warning/10 text-warning text-xs px-2 py-1 rounded mr-2">同步失败</span>
+                        <span class="text-xs text-gray-500">最后尝试: 2023-07-19 09:15</span>
+                    </div>
+                </div>
+                <div class="relative inline-block w-12 align-middle select-none">
+                    <input type="checkbox" id="sub-2" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                    <label for="sub-2" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                </div>
+            </div>
+            <div class="mt-4 flex space-x-3">
+                <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg transition text-sm">
+                    <i class="fas fa-sync-alt mr-2"></i>立即同步
+                </button>
+                <button class="border border-primary text-primary hover:bg-primary/10 px-4 py-2 rounded-lg transition text-sm">
+                    <i class="fas fa-cog mr-2"></i>设置
+                </button>
+                <button class="border border-danger text-danger hover:bg-danger/10 px-4 py-2 rounded-lg transition text-sm ml-auto">
+                    <i class="fas fa-trash-alt mr-2"></i>删除
+                </button>
+            </div>
+        </div>
+
+        <!-- 添加新订阅 -->
+        <div class="bg-white rounded-xl p-6 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center text-center">
+            <i class="fas fa-plus-circle text-primary text-3xl mb-2"></i>
+            <h4 class="font-medium text-dark">添加新订阅</h4>
+            <p class="text-sm text-gray-500 mt-1 mb-4">从URL添加新的联系人订阅源</p>
+            <button class="bg-primary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg transition">
+                <i class="fas fa-plus mr-2"></i>添加订阅
+            </button>
+        </div>
+    </main>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="flex justify-around items-center py-3">
+                <a href="index.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="rules.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-list-alt text-xl"></i>
+                    <span class="text-xs mt-1">规则</span>
+                </a>
+                <a href="call_history.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-history text-xl"></i>
+                    <span class="text-xs mt-1">历史</span>
+                </a>
+                <a href="settings.html" class="flex flex-col items-center text-primary">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="text-xs mt-1">设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

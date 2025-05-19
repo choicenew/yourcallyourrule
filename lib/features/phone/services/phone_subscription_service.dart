@@ -1,11 +1,12 @@
 // 电话规则订阅服务，用于处理电话黑白名单订阅
 
 
-import 'package:yourcallyourrule/core/entities/rule/blacklist_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/whitelist_rule.dart';
+
+
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 
 import '../../../core/entities/rule/rule_base.dart';
+import '../../../core/entities/rule/white_black_rule.dart';
 import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/repositories/rule_repository.dart';
 import '../../../core/repositories/subscription_repository.dart';
@@ -137,22 +138,18 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     final rules = await _ruleImportExportService.parseImportData(data);
     
     final processedRules = rules.map((rule) {
-      if (subscription.isWhitelist) {
-        if (rule is BlacklistRule) {
+      if (rule is WhiteBlackRule) {
+        if (subscription.isWhitelist && rule.action.type == RuleActionType.block) {
           return rule.copyWith(
             action: RuleAction.allow,
             isSubscribed: true
           );
-        }
-        return rule;
-      } else if (subscription.isBlacklist) {
-        if (rule is WhitelistRule) {
+        } else if (subscription.isBlacklist && rule.action.type == RuleActionType.allow) {
           return rule.copyWith(
             action: RuleAction.block,
             isSubscribed: true
           );
         }
-        return rule;
       }
       return rule;
     }).toList();

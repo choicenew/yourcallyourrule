@@ -31,6 +31,7 @@ class LocalCountFilterService implements CallFilterInterface {
         _configRepository = configRepository;
 
   // 判断是否应该接受来电
+  @override
   Future<bool> shouldAcceptCall(String phoneNumberStr) async {
     // 如果未启用本地号码计数过滤，则默认接受
     if (!localCountFilterConfig.enableLocalCountFilter) {
@@ -86,6 +87,7 @@ class LocalCountFilterService implements CallFilterInterface {
   }
 
   /// 初始化服务
+  @override
   Future<void> initialize() async {
     await loadConfig();
     

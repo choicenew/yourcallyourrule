@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
-import 'package:yourcallyourrule/features/call_history/domain/repositories/blocked_call_repository.dart';
+import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 
 import 'call_handler.dart';
 import 'notification_handler.dart';
@@ -54,7 +54,7 @@ class IncomingCallHandler {
 
     // 如果是EnhancedCompositeFilterService，则调用initialize方法
     if (_callFilterService is EnhancedCompositeFilterService) {
-      await (_callFilterService as EnhancedCompositeFilterService).initialize();
+      await _callFilterService.initialize();
     } else {
       // 兼容旧版本的CallFilterService
       await (_callFilterService as dynamic).loadConfig();
@@ -67,7 +67,7 @@ class IncomingCallHandler {
         
         // 如果是EnhancedCompositeFilterService且有SIM卡信息，则使用带SIM卡的过滤方法
         if (_callFilterService is EnhancedCompositeFilterService && simInfo != null) {
-          shouldAccept = await (_callFilterService as EnhancedCompositeFilterService).shouldAcceptCallWithSim(number, simInfo: simInfo);
+          shouldAccept = await _callFilterService.shouldAcceptCallWithSim(number, simInfo: simInfo);
         } else {
           shouldAccept = await _callFilterService.shouldAcceptCall(number);
         }

@@ -1,59 +1,41 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
-
-import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:yourcallyourrule/cloud_sync/services/incremental_sync_manager_config.dart';
 import 'package:yourcallyourrule/cloud_sync/services/sync_conflict_resolver.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
 /// Class responsible for managing incremental synchronization
 class IncrementalSyncManager {
   /// Sync conflict resolver
   final SyncConflictResolver _conflictResolver;
   
+  /// Config manager for storing sync information
+  final IncrementalSyncManagerConfig _configManager;
+  
   /// Constructor
-  IncrementalSyncManager(this._conflictResolver);
+  IncrementalSyncManager(this._conflictResolver, {required ConfigRepository configRepository})
+      : _configManager = IncrementalSyncManagerConfig(configRepository: configRepository);
   
   /// Get last sync timestamp for a specific service and data type
   Future<DateTime?> getLastSyncTime(String serviceType, String dataType) async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'last_sync_${serviceType}_$dataType';
-    final timestamp = prefs.getString(key);
-    
-    if (timestamp == null) return null;
-    
-    try {
-      return DateTime.parse(timestamp);
-    } catch (e) {
-      debugPrint('Error parsing last sync timestamp: $e');
-      return null;
-    }
+    return await _configManager.getLastSyncTime(serviceType, dataType);
   }
   
   /// Save last sync timestamp for a specific service and data type
   Future<void> saveLastSyncTime(String serviceType, String dataType) async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'last_sync_${serviceType}_$dataType';
-    final now = DateTime.now().toIso8601String();
-    
-    await prefs.setString(key, now);
+    await _configManager.saveLastSyncTime(serviceType, dataType);
   }
   
   /// Get last sync hash for a specific service and data type
   Future<String?> getLastSyncHash(String serviceType, String dataType) async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'last_sync_hash_${serviceType}_$dataType';
-    
-    return prefs.getString(key);
+    return await _configManager.getLastSyncHash(serviceType, dataType);
   }
   
   /// Save last sync hash for a specific service and data type
   Future<void> saveLastSyncHash(String serviceType, String dataType, String hash) async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'last_sync_hash_${serviceType}_$dataType';
-    
-    await prefs.setString(key, hash);
+    await _configManager.saveLastSyncHash(serviceType, dataType, hash);
   }
   
   /// Determine if incremental sync is needed based on last sync time
@@ -157,40 +139,17 @@ class IncrementalSyncManager {
   
   /// Record sync history entry
   Future<void> recordSyncHistory(String serviceType, String dataType, Map<String, dynamic> details) async {
-    final prefs = await SharedPreferences.getInstance();
-    final historyKey = 'sync_history_${serviceType}_$dataType';
-    
-    // Get existing history
-    final historyJson = prefs.getString(historyKey) ?? '[]';
-    final List<dynamic> history = jsonDecode(historyJson);
-    
-    // Add new entry (limit to last 50 entries)
-    history.add(details);
-    if (history.length > 50) {
-      history.removeRange(0, history.length - 50);
-    }
-    
-    // Save updated history
-    await prefs.setString(historyKey, jsonEncode(history));
+    await _configManager.recordSyncHistory(serviceType, dataType, details);
   }
   
   /// Get sync history for a specific service and data type
   Future<List<Map<String, dynamic>>> getSyncHistory(String serviceType, String dataType) async {
-    final prefs = await SharedPreferences.getInstance();
-    final historyKey = 'sync_history_${serviceType}_$dataType';
-    
-    final historyJson = prefs.getString(historyKey) ?? '[]';
-    final List<dynamic> history = jsonDecode(historyJson);
-    
-    return history.map((item) => item as Map<String, dynamic>).toList();
+    return await _configManager.getSyncHistory(serviceType, dataType);
   }
   
   /// Clear sync history for a specific service and data type
   Future<void> clearSyncHistory(String serviceType, String dataType) async {
-    final prefs = await SharedPreferences.getInstance();
-    final historyKey = 'sync_history_${serviceType}_$dataType';
-    
-    await prefs.remove(historyKey);
+    await _configManager.clearSyncHistory(serviceType, dataType);
   }
   
   /// Get overall sync status for a service

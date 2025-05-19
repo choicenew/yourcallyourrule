@@ -6,7 +6,9 @@ import 'package:yourcallyourrule/cloud_sync/environment.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+//import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 import 'enhanced_cloud_sync_service.dart';
+//import 'sync_conflict_resolver.dart';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -19,6 +21,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 /// OneDrive implementation of the CloudSyncService with conflict resolution,
 /// incremental sync, and progress tracking capabilities
 class OneDriveSyncService extends EnhancedCloudSyncService {
+  /// Reference to the Riverpod container
+  final Ref? ref;
   final Dio _dio = Dio();
   bool _isInitialized = false;
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
@@ -68,9 +72,11 @@ class OneDriveSyncService extends EnhancedCloudSyncService {
   @override
   String get serviceName => 'Microsoft OneDrive';
   
-  /// Constructor with optional conflict resolution strategy
+  /// Constructor with required config repository and optional conflict resolution strategy
   OneDriveSyncService({
+    required super.configRepository,
     super.defaultStrategy,
+    required this.ref,
   });
   
   @override
@@ -679,26 +685,23 @@ class OneDriveSyncService extends EnhancedCloudSyncService {
       final cloudDevices = await getRegisteredDevicesFromCloud();
       if (cloudDevices.isEmpty) return true; // No devices to sync
       
-      // Get reference to device management service through Riverpod
-      final deviceManagementService = ProviderContainer().read(deviceManagementServiceProvider);
+      // Use DeviceManagementService to update local device registry
+      final deviceManagementService = ref!.read(deviceManagementServiceProvider);
       
-      // Get current device
-      final currentDevice = await deviceManagementService.getCurrentDevice();
-      
-      // Get all registered devices
-      final localDevices = await deviceManagementService.getRegisteredDevices();
-      
-      // Update local device registry with cloud devices
-      for (final cloudDevice in cloudDevices) {
-        // Skip current device as it's managed locally
-        if (cloudDevice.id == currentDevice.id) continue;
+      if (deviceManagementService != null) {
+        // Get current device
+        final currentDevice = await deviceManagementService.getCurrentDevice();
         
-        // Check if device exists locally
-        final existingDeviceIndex = localDevices.indexWhere((d) => d.id == cloudDevice.id);
-        if (existingDeviceIndex < 0) {
-          // Register new device locally
+        // Register each cloud device in the local registry
+        for (final cloudDevice in cloudDevices) {
+          // Skip current device as it's managed locally
+          if (cloudDevice.id == currentDevice.id) continue;
+          
+          // Register or update the device
           await deviceManagementService.registerDevice(cloudDevice);
         }
+      } else {
+        debugPrint('Warning: DeviceManagementService not available for device sync');
       }
       
       return true;
@@ -707,5 +710,4 @@ class OneDriveSyncService extends EnhancedCloudSyncService {
       return false;
     }
   }
-  
 }

@@ -43,6 +43,7 @@ class ContactRule extends RuleBase {
     );
   }
 
+  @override
   ContactRule copyWith({
     String? id,
     String? name,

@@ -9,6 +9,8 @@ class CallFilterConfig {
   bool allowAllWhitelistedNumbers;
   bool allowRegexBlockRules;
   bool allowAllBlacklistedNumbers;
+  bool allowSilenceRules;
+  bool allowNoneRules;
 
   CallFilterConfig({
     this.rejectAllNumbers = false,
@@ -18,6 +20,8 @@ class CallFilterConfig {
     this.allowAllWhitelistedNumbers = true,
     this.allowRegexBlockRules = true,
     this.allowAllBlacklistedNumbers = false,
+    this.allowSilenceRules = true,
+    this.allowNoneRules = true,
   });
 
   /// 从Map创建配置对象
@@ -30,6 +34,8 @@ class CallFilterConfig {
       allowAllWhitelistedNumbers: map['allowAllWhitelistedNumbers'] ?? true,
       allowRegexBlockRules: map['allowRegexBlockRules'] ?? true,
       allowAllBlacklistedNumbers: map['allowAllBlacklistedNumbers'] ?? false,
+      allowSilenceRules: map['allowSilenceRules'] ?? true,
+      allowNoneRules: map['allowNoneRules'] ?? true,
     );
   }
 
@@ -43,6 +49,8 @@ class CallFilterConfig {
       'allowAllWhitelistedNumbers': allowAllWhitelistedNumbers,
       'allowRegexBlockRules': allowRegexBlockRules,
       'allowAllBlacklistedNumbers': allowAllBlacklistedNumbers,
+      'allowSilenceRules': allowSilenceRules,
+      'allowNoneRules': allowNoneRules,
     };
   }
 
@@ -55,6 +63,8 @@ class CallFilterConfig {
     bool? allowAllWhitelistedNumbers,
     bool? allowRegexBlockRules,
     bool? allowAllBlacklistedNumbers,
+    bool? allowSilenceRules,
+    bool? allowNoneRules,
   }) {
     return CallFilterConfig(
       rejectAllNumbers: rejectAllNumbers ?? this.rejectAllNumbers,
@@ -67,6 +77,8 @@ class CallFilterConfig {
       allowRegexBlockRules: allowRegexBlockRules ?? this.allowRegexBlockRules,
       allowAllBlacklistedNumbers:
           allowAllBlacklistedNumbers ?? this.allowAllBlacklistedNumbers,
+      allowSilenceRules: allowSilenceRules ?? this.allowSilenceRules,
+      allowNoneRules: allowNoneRules ?? this.allowNoneRules,
     );
   }
 }

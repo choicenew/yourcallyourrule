@@ -1,10 +1,15 @@
 import 'package:flutter/foundation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
 class PurchaseState extends ChangeNotifier {
   bool _isPurchasesEnabled = false;
   bool _hasTempPurchase = false;
   DateTime? _tempPurchaseExpiryDate;
+  
+  final ConfigRepository _configRepository;
+  
+  PurchaseState({ConfigRepository? configRepository})
+      : _configRepository = configRepository ?? SharedPreferencesConfigRepository();
 
   bool get isPurchasesEnabled => _isPurchasesEnabled;
   bool get hasTempPurchase => _hasTempPurchase;
@@ -15,30 +20,31 @@ class PurchaseState extends ChangeNotifier {
   }
 
   Future<void> loadState() async {
-   SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-    _isPurchasesEnabled = await asyncPrefs.getBool('isPurchasesEnabled') ?? false;
-    _hasTempPurchase = await asyncPrefs.getBool('hasTempPurchase') ?? false;
-    int? expiryTimestamp = await asyncPrefs.getInt('tempPurchaseExpiryDate');
+    final isPurchasedConfig = await _configRepository.getConfig('isPurchasesEnabled');
+    _isPurchasesEnabled = isPurchasedConfig?['value'] as bool? ?? false;
+    
+    final hasTempConfig = await _configRepository.getConfig('hasTempPurchase');
+    _hasTempPurchase = hasTempConfig?['value'] as bool? ?? false;
+    
+    final expiryConfig = await _configRepository.getConfig('tempPurchaseExpiryDate');
+    final expiryTimestamp = expiryConfig?['value'] as int?;
     if (expiryTimestamp != null) {
-      _tempPurchaseExpiryDate =
-          DateTime.fromMillisecondsSinceEpoch(expiryTimestamp);
+      _tempPurchaseExpiryDate = DateTime.fromMillisecondsSinceEpoch(expiryTimestamp);
     }
     notifyListeners();
   }
 
   Future<void> updatePurchaseState(bool isPurchased) async {
     _isPurchasesEnabled = isPurchased;
-   SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-    await asyncPrefs.setBool('isPurchasesEnabled', isPurchased);
+    await _configRepository.saveConfig('isPurchasesEnabled', {'value': isPurchased});
     notifyListeners();
   }
 
   Future<void> updateTempPurchaseState(bool hasTempPurchase, DateTime expiryDate) async {
     _hasTempPurchase = hasTempPurchase;
     _tempPurchaseExpiryDate = expiryDate;
-   SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-    await asyncPrefs.setBool('hasTempPurchase', hasTempPurchase);
-    await asyncPrefs.setInt('tempPurchaseExpiryDate', expiryDate.millisecondsSinceEpoch);
+    await _configRepository.saveConfig('hasTempPurchase', {'value': hasTempPurchase});
+    await _configRepository.saveConfig('tempPurchaseExpiryDate', {'value': expiryDate.millisecondsSinceEpoch});
     notifyListeners();
   }
 }

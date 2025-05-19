@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../generated/l10n.dart';
 import '../utils/app_data_collection.dart';
-import '../utils/call_screen_plugin.dart';
+//import '../utils/call_screen_plugin.dart';
 import '../utils/language_provider.dart';
 import 'appstate_provider.dart';
 import 'callerID/callerid_configuration.dart';

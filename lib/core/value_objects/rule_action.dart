@@ -3,13 +3,13 @@
 enum RuleActionType {
   allow,    // 允许
   block,    // 阻止
-  silence,  // 静音
+  silence,  // 静音（作为独立动作类型）
   redirect, // 重定向
   label,    // 标记
   notify,   // 通知
   log,      // 记录
   custom,   // 自定义
-  none,     // 无动作
+  none,     // 无动作（作为独立动作类型）
 }
 
 class RuleAction {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
 
 
@@ -15,6 +15,7 @@ class EndCallSettingsPage extends StatefulWidget {
 
 class EndCallSettingsPageState extends State<EndCallSettingsPage> {
   String? _selectedInterceptAction = 'endCall';
+  final ConfigRepository _configRepository = SharedPreferencesConfigRepository();
 
   @override
   void initState() {
@@ -23,14 +24,13 @@ class EndCallSettingsPageState extends State<EndCallSettingsPage> {
   }
 
   Future<void> _loadInterceptAction() async {
-    SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-    _selectedInterceptAction = await asyncPrefs.getString('intercept_action') ?? 'endCall';
+    final config = await _configRepository.getConfig('intercept_action');
+    _selectedInterceptAction = config?['value'] as String? ?? 'endCall';
     setState(() {});
   }
 
   Future<void> _saveInterceptAction(String? newValue) async {
-    SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-    await asyncPrefs.setString('intercept_action', newValue!);
+    await _configRepository.saveConfig('intercept_action', {'value': newValue!});
   }
 
   @override

@@ -22,4 +22,8 @@ abstract class PredefinedLabelRepository {
   
   /// 根据文本获取标签
   Future<List<PredefinedLabel>> getByText(String text);
+  
+  /// 同步获取标签文本
+  /// 如果标签不存在，返回null
+  Future<String?> getLabelTextAsync(String id);
 }

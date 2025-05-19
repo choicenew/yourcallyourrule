@@ -10,7 +10,8 @@ import 'package:yourcallyourrule/features/local_filter/services/local_count_filt
 import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
-import 'package:yourcallyourrule/presentation/call_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/call_filter_settings_page.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 增强版过滤器设置页面
 /// 作为各个过滤器设置的入口点，并提供SIM卡选择功能
@@ -24,7 +25,7 @@ class EnhancedFilterSettingsPage extends StatefulWidget {
   final RuleRepository ruleRepository;
 
   const EnhancedFilterSettingsPage({
-    Key? key,
+    super.key,
     required this.enhancedCompositeFilterService,
     required this.simSlotRuleService,
     required this.localCountFilterService,
@@ -32,7 +33,7 @@ class EnhancedFilterSettingsPage extends StatefulWidget {
     required this.remoteNumberService,
     required this.configRepository,
     required this.ruleRepository,
-  }) : super(key: key);
+  });
 
   @override
   EnhancedFilterSettingsPageState createState() => EnhancedFilterSettingsPageState();
@@ -58,8 +59,8 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
     try {
       // 模拟获取SIM卡槽位信息，实际应用中应该从设备获取
       _availableSimSlots = [
-        SimInfo(simSlotIndex: 0, displayName: 'SIM卡1'),
-        SimInfo(simSlotIndex: 1, displayName: 'SIM卡2'),
+        SimInfo(simSlotIndex: 0, displayName: AppLocalizations.of(context)!.simCard(1)),
+        SimInfo(simSlotIndex: 1, displayName: AppLocalizations.of(context)!.simCard(2)),
       ];
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -131,7 +132,7 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('增强版过滤器设置'),
+        title: Text(AppLocalizations.of(context)!.enhancedFilterSettingsTitle),
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -157,32 +158,32 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '全局过滤器设置',
+              AppLocalizations.of(context)!.globalFilterSettings,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 16),
-            const Text('配置适用于所有SIM卡的全局过滤器：'),
+            Text(AppLocalizations.of(context)!.globalFilterDescription),
             const SizedBox(height: 16),
             ListTile(
               leading: const Icon(Icons.filter_list),
-              title: const Text('本地计数过滤器'),
-              subtitle: const Text('根据来电频率自动过滤骚扰电话'),
+              title: Text(AppLocalizations.of(context)!.localCounterFilter),
+              subtitle: Text(AppLocalizations.of(context)!.localCounterFilterSubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: _navigateToLocalFilterSettings,
             ),
             const Divider(),
             ListTile(
               leading: const Icon(Icons.cloud),
-              title: const Text('远程号码过滤器'),
-              subtitle: const Text('使用云端数据库和社区举报识别骚扰电话'),
+              title: Text(AppLocalizations.of(context)!.remoteNumberFilter),
+              subtitle: Text(AppLocalizations.of(context)!.remoteNumberFilterSubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: _navigateToRemoteFilterSettings,
             ),
             const Divider(),
             ListTile(
               leading: const Icon(Icons.rule),
-              title: const Text('基础规则过滤器'),
-              subtitle: const Text('使用黑白名单、正则表达式等规则过滤来电'),
+              title: Text(AppLocalizations.of(context)!.basicRuleFilter),
+              subtitle: Text(AppLocalizations.of(context)!.basicRuleFilterSubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: _navigateToCallFilterSettings,
             ),
@@ -201,18 +202,18 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'SIM卡规则管理',
+              AppLocalizations.of(context)!.simSlotManagement,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 16),
-            const Text('为每个SIM卡配置独立的过滤规则：'),
+            Text(AppLocalizations.of(context)!.simSlotFilterDescription),
             const SizedBox(height: 16),
             ..._availableSimSlots.map((simInfo) => Column(
                   children: [
                     ListTile(
                       leading: const Icon(Icons.sim_card),
-                      title: Text(simInfo.displayName ?? '未命名SIM卡'),
-                      subtitle: Text('SIM卡槽位 ${simInfo.simSlotIndex! + 1}'),
+                      title: Text(simInfo.displayName ?? AppLocalizations.of(context)!.unassignedSIMCard),
+                      subtitle: Text(AppLocalizations.of(context)!.simSlotPosition(simInfo.simSlotIndex! + 1)),
                       trailing: const Icon(Icons.chevron_right),
                       onTap: () => _navigateToSimSlotRulePage(simInfo.simSlotIndex!),
                     ),
@@ -233,18 +234,18 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text('增强版过滤器说明', 
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-            SizedBox(height: 8),
-            Text('增强版过滤器系统支持全局过滤规则和每个SIM卡独立的过滤规则配置。'),
-            SizedBox(height: 8),
-            Text('系统特点：'),
-            Text('• 全局过滤器：适用于所有来电的基础过滤规则'),
-            Text('• SIM卡规则：为每个SIM卡配置独立的过滤策略'),
-            Text('• 灵活组合：可以根据需要启用或禁用特定SIM卡的过滤器'),
-            SizedBox(height: 8),
-            Text('通过合理配置，您可以为工作和个人SIM卡设置不同的过滤策略，实现精细化的来电管理。'),
+          children: [
+            Text(AppLocalizations.of(context)!.enhancedFilterInstructionsTitle,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+            const SizedBox(height: 8),
+            Text(AppLocalizations.of(context)!.enhancedFilterSystemDescription),
+            const SizedBox(height: 8),
+            Text(AppLocalizations.of(context)!.systemFeatures),
+            Text(AppLocalizations.of(context)!.globalFilterFeature),
+            Text(AppLocalizations.of(context)!.simSlotRuleFeature),
+            Text(AppLocalizations.of(context)!.flexibleCombinationFeature),
+            const SizedBox(height: 8),
+            Text(AppLocalizations.of(context)!.configurationAdvice),
           ],
         ),
       ),

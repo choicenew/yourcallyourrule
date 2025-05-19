@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>规则管理 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .rule-card {
+            @apply bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow mb-4;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #FFB74D;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #FFB74D;
+        }
+        .tab-active {
+            @apply border-primary text-primary;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html" class="text-gray-600 hover:text-primary mr-2">
+                        <i class="fas fa-arrow-left text-xl"></i>
+                    </a>
+                    <i class="fas fa-list-alt text-primary text-xl"></i>
+                    <h1 class="text-xl font-semibold text-dark">规则管理</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-primary hover:text-opacity-80">
+                        <i class="fas fa-plus text-xl"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-primary">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 标签页 -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex overflow-x-auto">
+                <button class="py-3 px-4 border-b-2 tab-active font-medium whitespace-nowrap">
+                    黑名单
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium whitespace-nowrap">
+                    白名单
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium whitespace-nowrap">
+                    时间规则
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium whitespace-nowrap">
+                    关键词规则
+                </button>
+                <button class="py-3 px-4 border-b-2 border-transparent text-gray-500 font-medium whitespace-nowrap">
+                    正则表达式
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-4 py-6">
+        <!-- 规则统计 -->
+        <div class="bg-white rounded-xl p-4 shadow-sm mb-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-medium text-dark">黑名单规则</h3>
+                    <p class="text-sm text-gray-500 mt-1">拦截指定号码的来电和短信</p>
+                </div>
+                <div class="relative inline-block w-12 align-middle select-none">
+                    <input type="checkbox" id="blacklist-toggle" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                    <label for="blacklist-toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mt-4">
+                <div class="text-center">
+                    <div class="text-xl font-bold text-dark">128</div>
+                    <div class="text-xs text-gray-600">总规则数</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-xl font-bold text-success">112</div>
+                    <div class="text-xs text-gray-600">已启用</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-xl font-bold text-danger">16</div>
+                    <div class="text-xs text-gray-600">已禁用</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 规则列表 -->
+        <div class="mb-4">
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-medium text-dark">规则列表</h3>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-500">排序:</span>
+                    <select class="text-sm border-gray-300 rounded-md">
+                        <option>最近添加</option>
+                        <option>字母顺序</option>
+                        <option>状态</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 规则项 -->
+            <div class="rule-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-danger bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-ban text-danger"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">+86 10086</h4>
+                            <p class="text-sm text-gray-500">电信诈骗</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded mr-2">拦截来电</span>
+                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">拦截短信</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="rule-1" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="rule-1" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-danger transition">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-danger bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-ban text-danger"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">+86 400-800-1234</h4>
+                            <p class="text-sm text-gray-500">骚扰电话</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded mr-2">拦截来电</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="rule-2" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="rule-2" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-danger transition">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-danger bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-ban text-danger"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">+86 13800138000</h4>
+                            <p class="text-sm text-gray-500">推销电话</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded mr-2">拦截来电</span>
+                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">拦截短信</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="rule-3" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="rule-3" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-danger transition">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-danger bg-opacity-10 p-3 rounded-full">
+                            <i class="fas fa-ban text-danger"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">+86 95588</h4>
+                            <p class="text-sm text-gray-500">冒充银行</p>
+                            <div class="flex items-center mt-1">
+                                <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">拦截短信</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative inline-block w-10 align-middle select-none">
+                            <input type="checkbox" id="rule-4" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer right-0">
+                            <label for="rule-4" class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer"></label>
+                        </div>
+                        <button class="text-gray-400 hover:text-danger transition">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 批量操作 -->
+        <div class="fixed bottom-16 left-0 right-0 bg-white shadow-lg border-t border-gray-200 py-3 px-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <input type="checkbox" id="select-all" class="mr-2 h-4 w-4 text-primary">
+                    <label for="select-all" class="text-sm text-gray-600">全选</label>
+                </div>
+                <div class="flex space-x-3">
+                    <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-lg transition text-sm">
+                        <i class="fas fa-check mr-1"></i>启用
+                    </button>
+                    <button class="bg-gray-500 hover:bg-opacity-90 text-white px-4 py-2 rounded-lg transition text-sm">
+                        <i class="fas fa-ban mr-1"></i>禁用
+                    </button>
+                    <button class="bg-danger hover:bg-opacity-90 text-white px-4 py-2 rounded-lg transition text-sm">
+                        <i class="fas fa-trash-alt mr-1"></i>删除
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200">
+        <div class="container mx-auto">
+            <div class="flex justify-around items-center py-3">
+                <a href="index.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="rules.html" class="flex flex-col items-center text-primary">
+                    <i class="fas fa-list-alt text-xl"></i>
+                    <span class="text-xs mt-1">规则</span>
+                </a>
+                <a href="call_history.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-history text-xl"></i>
+                    <span class="text-xs mt-1">历史</span>
+                </a>
+                <a href="settings.html" class="flex flex-col items-center text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="text-xs mt-1">设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

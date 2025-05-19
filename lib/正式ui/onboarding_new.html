@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎使用 - Your Call Your Rule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB74D',
+                        secondary: '#6D4C41',
+                        accent: '#FF7043',
+                        danger: '#E53935',
+                        success: '#43A047',
+                        warning: '#FFB300',
+                        info: '#039BE5',
+                        light: '#F5F5F5',
+                        dark: '#212121'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #FFB74D 0%, #FF7043 100%);
+            min-height: 100vh;
+        }
+        .app-frame {
+            max-width: 430px;
+            height: 100vh;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            overflow-y: auto;
+        }
+        .onboarding-slide {
+            transition: all 0.5s ease;
+        }
+        .slide-enter {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        .slide-enter-active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide-exit {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide-exit-active {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+            font-size: 32px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center">
+    <div class="app-frame rounded-3xl shadow-2xl">
+        <!-- 顶部进度条 -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gray-200">
+            <div id="progressBar" class="h-full bg-primary transition-all duration-300" style="width: 16.6%"></div>
+        </div>
+
+        <!-- 跳过按钮 -->
+        <div class="absolute top-6 right-6">
+            <button id="skipButton" class="text-white bg-white/20 px-4 py-1 rounded-full text-sm font-medium hover:bg-white/30 transition">跳过</button>
+        </div>
+
+        <!-- 引导页内容 -->
+        <div class="h-full flex flex-col">
+            <div class="flex-1 flex items-center justify-center px-8">
+                <!-- 轮播内容 -->
+                <div class="w-full max-w-md">
+                    <div id="slidesContainer" class="relative">
+                        <!-- 欢迎页 -->
+                        <div class="onboarding-slide" id="slide1">
+                            <div class="text-center">
+                                <div class="feature-icon bg-primary text-white">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h2 class="text-3xl font-bold text-gray-800 mb-6">欢迎使用</h2>
+                                <p class="text-xl font-medium text-gray-700 mb-4">Your Call Your Rule</p>
+                                <p class="text-gray-600 mb-8">您的来电管理专家，为您提供全方位的来电识别与拦截服务</p>
+                            </div>
+                        </div>
+
+                        <!-- 语言选择页 -->
+                        <div class="onboarding-slide hidden" id="slide2">
+                            <div class="text-center">
+                                <div class="feature-icon bg-info text-white">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-800 mb-6">选择您的语言</h2>
+                                <div class="mb-8">
+                                    <select class="w-full max-w-xs mx-auto py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-lg">
+                                        <option value="zh">简体中文</option>
+                                        <option value="en">English</option>
+                                        <option value="ja">日本語</option>
+                                        <option value="ko">한국어</option>
+                                        <option value="fr">Français</option>
+                                        <option value="de">Deutsch</option>
+                                        <option value="es">Español</option>
+                                    </select>
+                                </div>
+                                <p class="text-gray-600 mb-4">选择您偏好的语言以获得最佳体验</p>
+                            </div>
+                        </div>
+
+                        <!-- 功能介绍页1 -->
+                        <div class="onboarding-slide hidden" id="slide3">
+                            <div class="text-center">
+                                <div class="feature-icon bg-accent text-white">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-800 mb-4">智能来电识别</h2>
+                                <div class="bg-gray-100 rounded-xl p-4 mb-6 max-w-xs mx-auto">
+                                    <img src="https://via.placeholder.com/300x200/FFB74D/FFFFFF?text=来电识别" alt="来电识别" class="mx-auto rounded-lg shadow-md">
+                                </div>
+                                <p class="text-gray-600 mb-4">自动识别未知来电，标记可疑号码，保护您的通话安全</p>
+                            </div>
+                        </div>
+
+                        <!-- 功能介绍页2 -->
+                        <div class="onboarding-slide hidden" id="slide4">
+                            <div class="text-center">
+                                <div class="feature-icon bg-danger text-white">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-800 mb-4">强力骚扰拦截</h2>
+                                <div class="bg-gray-100 rounded-xl p-4 mb-6 max-w-xs mx-auto">
+                                    <img src="https://via.placeholder.com/300x200/E53935/FFFFFF?text=骚扰拦截" alt="骚扰拦截" class="mx-auto rounded-lg shadow-md">
+                                </div>
+                                <p class="text-gray-600 mb-4">一键拦截骚扰电话和短信，自定义拦截规则，还您一个安静的环境</p>
+                            </div>
+                        </div>
+
+                        <!-- 权限请求页 -->
+                        <div class="onboarding-slide hidden" id="slide5">
+                            <div class="text-center">
+                                <div class="feature-icon bg-success text-white">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-800 mb-4">授予必要权限</h2>
+                                <p class="text-gray-600 mb-6">为了提供完整的服务，我们需要以下权限：</p>
+                                
+                                <div class="space-y-4 mb-6 text-left max-w-xs mx-auto">
+                                    <div class="flex items-center p-3 bg-gray-100 rounded-lg">
+                                        <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                            <i class="fas fa-phone text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">电话权限</h3>
+                                            <p class="text-xs text-gray-500">用于识别和拦截来电</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center p-3 bg-gray-100 rounded-lg">
+                                        <div class="w-10 h-10 bg-info/20 rounded-full flex items-center justify-center mr-3">
+                                            <i class="fas fa-comment text-info"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">短信权限</h3>
+                                            <p class="text-xs text-gray-500">用于过滤垃圾短信</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center p-3 bg-gray-100 rounded-lg">
+                                        <div class="w-10 h-10 bg-success/20 rounded-full flex items-center justify-center mr-3">
+                                            <i class="fas fa-address-book text-success"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">通讯录权限</h3>
+                                            <p class="text-xs text-gray-500">用于识别联系人来电</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button class="bg-primary text-white py-3 px-6 rounded-lg font-medium shadow-md hover:bg-opacity-90 transition duration-300 mb-4 w-full max-w-xs mx-auto">
+                                    授予权限
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 完成页 -->
+                        <div class="onboarding-slide hidden" id="slide6">
+                            <div class="text-center">
+                                <div class="feature-icon bg-primary text-white">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-800 mb-4">准备就绪！</h2>
+                                <div class="bg-success/10 text-success p-4 rounded-xl mb-6 max-w-xs mx-auto">
+                                    <i class="fas fa-check-circle text-2xl mb-2"></i>
+                                    <p class="font-medium">所有设置已完成</p>
+                                </div>
+                                <p class="text-gray-600 mb-8">您的电话安全管家已准备就绪，开始享受安全通话体验吧！</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 进度指示器 -->
+                    <div class="flex justify-center mt-8 mb-4">
+                        <div class="flex space-x-2">
+                            <span class="h-2 w-2 rounded-full bg-primary cursor-pointer progress-dot" data-slide="1"></span>
+                            <span class="h-2 w-2 rounded-full bg-gray-300 cursor-pointer progress-dot" data-slide="2"></span>
+                            <span class="h-2 w-2 rounded-full bg-gray-300 cursor-pointer progress-dot" data-slide="3"></span>
+                            <span class="h-2 w-2 rounded-full bg-gray-300 cursor-pointer progress-dot" data-slide="4"></span>
+                            <span class="h-2 w-2 rounded-full bg-gray-300 cursor-pointer progress-dot" data-slide="5"></span>
+                            <span class="h-2 w-2 rounded-full bg-gray-300 cursor-pointer progress-dot" data-slide="6"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部导航按钮 -->
+            <div class="p-8">
+                <div class="flex justify-between">
+                    <button id="prevButton" class="bg-white text-primary border border-primary py-3 px-8 rounded-lg font-medium text-lg shadow-sm hover:bg-primary/5 transition duration-300 hidden">
+                        上一步
+                    </button>
+                    <button id="nextButton" class="bg-primary text-white py-3 px-12 rounded-lg font-medium text-lg shadow-md hover:bg-opacity-90 transition duration-300 ml-auto">
+                        下一步
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 引导页轮播功能
+        const slides = document.querySelectorAll('.onboarding-slide');
+        const dots = document.querySelectorAll('.progress-dot');
+        const nextButton = document.getElementById('nextButton');
+        const prevButton = document.getElementById('prevButton');
+        const skipButton = document.getElementById('skipButton');
+        const progressBar = document.getElementById('progressBar');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        // 初始化显示第一个slide
+        showSlide(0);
+
+        // 点击下一步按钮
+        nextButton.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            } else {
+                // 最后一页，跳转到主页
+                window.location.href = 'home.html';
+            }
+        });
+
+        // 点击上一步按钮
+        prevButton.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        // 点击跳过按钮
+        skipButton.addEventListener('click', () => {
+            window.location.href = 'home.html';
+        });
+
+        // 点击进度点
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // 显示指定页面
+        function showSlide(index) {
+            // 隐藏所有slide
+            slides.forEach(slide => {
+                slide.classList.add('hidden');
+            });
+            
+            // 显示当前slide
+            slides[index].classList.remove('hidden');
+            
+            // 更新进度点
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-primary');
+                } else {
+                    dot.classList.remove('bg-primary');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+            
+            // 更新当前页索引
+            currentSlide = index;
+            
+            // 更新进度条
+            const progress = ((index + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progress}%`;
+            
+            // 更新按钮状态
+            if (currentSlide === 0) {
+                prevButton.classList.add('hidden');
+            } else {
+                prevButton.classList.remove('hidden');
+            }
+            
+            // 更新按钮文本
+            if (currentSlide === totalSlides - 1) {
+                nextButton.textContent = '开始使用';
+            } else {
+                nextButton.textContent = '下一步';
+            }
+        }
+    </script>
+</body>
+</html>

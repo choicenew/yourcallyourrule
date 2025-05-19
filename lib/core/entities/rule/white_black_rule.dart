@@ -26,9 +26,17 @@ class WhiteBlackRule extends RuleBase {
         );
 
   static RulePriority _defaultPriority(RuleAction action) {
-    return action.type == RuleActionType.allow
-        ? const RulePriority(7)
-        : const RulePriority(3);
+    switch (action.type) {
+      case RuleActionType.allow:
+        return RulePriority.aboveMedium;  // 使用预定义常量，优先级7
+      case RuleActionType.block:
+        return RulePriority.belowMedium;  // 使用预定义常量，优先级3
+      case RuleActionType.silence:
+        return RulePriority.silenceAction;  // 使用预定义常量，优先级1
+      case RuleActionType.none:
+      default:
+        return RulePriority.noneAction;  // 使用预定义常量，优先级0
+    }
   }
 
   @override

@@ -1,9 +1,9 @@
 // 黑名单规则实体，用于表示黑名单规则
 
-import '../../value_objects/phone_number.dart';
-import '../../value_objects/rule_action.dart';
-import '../../value_objects/rule_priority.dart';
-import 'rule_base.dart';
+import '../../../value_objects/phone_number.dart';
+import '../../../value_objects/rule_action.dart';
+import '../../../value_objects/rule_priority.dart';
+import '../rule_base.dart';
 
 class BlacklistRule extends RuleBase {
   // 黑名单电话号码

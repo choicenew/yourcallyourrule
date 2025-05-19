@@ -95,4 +95,18 @@ class PredefinedLabelRepositoryImpl implements PredefinedLabelRepository {
     
     return maps.map((map) => PredefinedLabelModel.fromMap(map).toEntity()).toList();
   }
+  
+  @override
+  Future<String?> getLabelTextAsync(String id) async {
+    final db = await _databaseManager.database;
+    final maps = await db.query(
+      _tableName,
+      columns: ['text'],
+      where: 'id = ?',
+      whereArgs: [id],
+      limit: 1,
+    );
+    
+    return maps.isNotEmpty ? maps.first['text'] as String? : id;
+  }
 }
