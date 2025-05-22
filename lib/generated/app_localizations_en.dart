@@ -9,6 +9,242 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get callHistoryInfoTitle => 'Call History';
+
+  @override
+  String get callHistoryInfoDesc => 'Here shows your call history, including incoming, outgoing and missed calls.';
+
+  @override
+  String get tabAll => 'All';
+
+  @override
+  String get tabAnswered => 'Answered';
+
+  @override
+  String get tabMissed => 'Missed';
+
+  @override
+  String get tabBlocked => 'Blocked';
+
+  @override
+  String get tabOutgoing => 'Outgoing';
+
+  @override
+  String get callHistoryTimelineToday => 'Today';
+
+  @override
+  String get callHistoryTimelineYesterday => 'Yesterday';
+
+  @override
+  String get callHistoryTimelineEarlier => 'Earlier';
+
+  @override
+  String get callTypeAnswered => 'Answered';
+
+  @override
+  String get callTypeOutgoing => 'Outgoing';
+
+  @override
+  String get callTypeMissed => 'Missed Call';
+
+  @override
+  String get callTypeBlocked => 'Blocked';
+
+  @override
+  String get callTypeUnknown => 'Unknown';
+
+  @override
+  String get loadMore => 'Load More';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String callHistoryInitFailed(Object error) {
+    return 'Failed to initialize call history: $error';
+  }
+
+  @override
+  String callHistoryRefreshFailed(Object error) {
+    return 'Failed to refresh call history: $error';
+  }
+
+  @override
+  String get timeInterceptorSettingsTitle => 'Call Frequency Interception Settings';
+
+  @override
+  String settingsLoadFailed(Object error) {
+    return 'Failed to load settings: $error';
+  }
+
+  @override
+  String settingsSaveFailed(Object error) {
+    return 'Failed to save settings: $error';
+  }
+
+  @override
+  String get noRecords => 'No call records';
+
+  @override
+  String get noMatchingRecords => 'No matching call records';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get labelFilter => 'Label Filter';
+
+  @override
+  String get filterClear => 'Clear Filter';
+
+  @override
+  String get noCallRecords => 'No call records';
+
+  @override
+  String get refresh => 'Refresh';
+
+  @override
+  String get clearLabelFilter => 'Clear Label Filter';
+
+  @override
+  String get today => 'Today';
+
+  @override
+  String get yesterday => 'Yesterday';
+
+  @override
+  String get earlier => 'Earlier';
+
+  @override
+  String get statBlocked => 'Blocked';
+
+  @override
+  String get statAnswered => 'Answered';
+
+  @override
+  String get filterByLabel => 'Filter by Label';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get clearFilter => 'Clear Filter';
+
+  @override
+  String get processingOperation => 'Processing...';
+
+  @override
+  String get operationSuccess => 'Operation succeeded';
+
+  @override
+  String get operationFailure => 'Operation failed';
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get configManagement => 'Configuration Management';
+
+  @override
+  String get importConfig => 'Import Configuration';
+
+  @override
+  String get exportConfig => 'Export Configuration';
+
+  @override
+  String get processing => 'Processing...';
+
+  @override
+  String get configUpdated => 'Configuration updated';
+
+  @override
+  String get checkFileFormat => 'Please check file format or permissions';
+
+  @override
+  String simInfoLoadFailure(Object error) {
+    return 'Failed to load ScM card inforaation: $error';
+  }
+
+  @override
+  String get operationFailed => 'Operation failed';
+
+  @override
+  String get importSuccess => 'Configuration imported successfully';
+
+  @override
+  String get importFailure => 'Failed to import configuration';
+
+  @override
+  String get exportSuccess => 'Configuration exported successfully';
+
+  @override
+  String get exportFailure => 'Failed to export configuration';
+
+  @override
+  String axisPosition(Object axis) {
+    return '$axis Position';
+  }
+
+  @override
+  String get colorPickerTitle => 'Choose Color';
+
+  @override
+  String get enableTimeInterceptor => 'Enable Time Interceptor';
+
+  @override
+  String get timeInterceptorDescription => 'Automatically intercept potential spam calls based on call frequency';
+
+  @override
+  String get timeInterceptorTitle => 'Enable Call Frequency Interception';
+
+  @override
+  String get timeInterceptorSubtitle => 'Automatically intercept potential spam calls based on call frequency';
+
+  @override
+  String get timeWindowSetting => 'Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted';
+
+  @override
+  String get timeInterceptorExplanationTitle => 'Call Frequency Interception Explanation';
+
+  @override
+  String get timeInterceptorExplanationContent => 'The call frequency interception feature analyzes call frequency to automatically identify and intercept frequent spam calls.';
+
+  @override
+  String get howItWorksTitle => 'How It Works:';
+
+  @override
+  String get howItWorksPoint1 => '• The system will automatically intercept calls from the same number within the set time window';
+
+  @override
+  String get howItWorksPoint2 => '• Shorter time windows result in stricter interception; longer time windows result in looser interception';
+
+  @override
+  String get howItWorksPoint3 => '• The system checks call logs to determine if it\'s a repeated call';
+
+  @override
+  String get useCasesTitle => 'Use Cases:';
+
+  @override
+  String get useCasesPoint1 => '• Identify auto-redial spam calls';
+
+  @override
+  String get useCasesPoint2 => '• Intercept marketing calls that call multiple times in a short period';
+
+  @override
+  String get useCasesPoint3 => '• Prevent phone bombing and harassment';
+
+  @override
+  String get differentFromLocalCounter => 'This feature is different from the local counter filter, as it focuses on repeated call patterns in a short time rather than long-term marking counts.';
+
+  @override
+  String timeWindowLabel(int minutes) {
+    return 'Interception Time Window (minutes): $minutes';
+  }
+
+  @override
+  String get timeWindowDescription => 'Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted';
+
+  @override
   String get phoneNumberTypeFixedLine => 'Fixed line';
 
   @override
@@ -51,10 +287,60 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enhancedFilterSettings => 'Enhanced Filter Settings';
 
   @override
-  String get globalFilterSettings => 'Global Filter Settings';
+  String get simSlotManagement => 'SIM Slot Management';
 
   @override
-  String get simSlotManagement => 'SIM Slot Management';
+  String get statisticsPageTitle => 'Data Analysis';
+
+  @override
+  String get blockedCallsTitle => 'Blocked Calls';
+
+  @override
+  String get blockTypeAnalysisTitle => 'Block Type Analysis';
+
+  @override
+  String get weeklyChartTitle => 'Weekly Blocked Calls';
+
+  @override
+  String get monthlyChartTitle => 'Monthly Blocked Calls';
+
+  @override
+  String get yearlyChartTitle => 'Yearly Blocked Calls';
+
+  @override
+  String get callerIdCustomizationTitle => 'Customize Caller ID';
+
+  @override
+  String get windowSizeSetting => 'Window Size';
+
+  @override
+  String get backgroundGradientSetting => 'Background Gradient';
+
+  @override
+  String get textColorsSetting => 'Text & Label Colors';
+
+  @override
+  String get fontSizesSetting => 'Font Sizes';
+
+  @override
+  String get avatarIconSizesSetting => 'Avatar & Icon Sizes';
+
+  @override
+  String get elementPositionsSetting => 'Element Positions';
+
+  @override
+  String get periodWeek => 'Week';
+
+  @override
+  String get periodMonth => 'Month';
+
+  @override
+  String get periodYear => 'Year';
+
+  @override
+  String loadRulesFailed(Object error) {
+    return 'Failed to load rules: $error';
+  }
 
   @override
   String get enhancedFilterSettingsTitle => 'Enhanced Filter Settings';
@@ -119,7 +405,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ruleAddedSuccess => 'Rule added successfully';
 
   @override
-  String get phoneNumberHint => 'Enter phone number to add rule';
+  String get phoneNumberHint => 'Enter phone number';
 
   @override
   String get ruleNameHint => 'Rule name (optional)';
@@ -129,6 +415,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get simSlotRuleManagementTitle => 'Rule Management';
+
+  @override
+  String get globalFilterSettings => 'Global Filter Settings';
 
   @override
   String get enableNoneActionRules => 'Enable None Action Rules';
@@ -181,59 +470,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loadingTags => 'Loading tags...';
 
   @override
-  String get callHistoryTitle => 'Call History';
-
-  @override
-  String get allTab => 'All';
-
-  @override
-  String get answeredCallsTab => 'Answered';
-
-  @override
-  String get missedCallsTab => 'Missed';
-
-  @override
-  String get blockedCallsTab => 'Blocked';
-
-  @override
-  String get outgoingCallsTab => 'Outgoing';
-
-  @override
-  String get labelFilterTooltip => 'Label Filter';
-
-  @override
-  String get searchTooltip => 'Search';
-
-  @override
-  String initializationFailed(Object error) {
-    return 'Failed to initialize call history: $error';
-  }
-
-  @override
-  String refreshFailed(Object error) {
-    return 'Failed to refresh call history: $error';
-  }
-
-  @override
-  String get todayGroup => 'Today';
-
-  @override
-  String get yesterdayGroup => 'Yesterday';
-
-  @override
-  String get thisWeekGroup => 'This Week';
-
-  @override
-  String get olderGroup => 'Older';
-
-  @override
-  String get emptyCallLogs => 'No call records found';
-
-  @override
-  String get errorLoadingLogs => 'Error loading call logs';
-
-  @override
-  String tagLabel(Object tag) {
+  String tagLabel(String tag) {
     return 'Tag: $tag';
   }
 
@@ -437,4 +674,72 @@ class AppLocalizationsEn extends AppLocalizations {
 
     return 'SIM Slot Position $slotNumberString';
   }
+
+  @override
+  String get addLabelToCall => 'Add Label to Call Record';
+
+  @override
+  String get currentLabels => 'Current Labels:';
+
+  @override
+  String get expandLabelSelector => 'Expand Label Selector';
+
+  @override
+  String get collapseLabelSelector => 'Collapse Label Selector';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get labelRemoved => 'Label removed';
+
+  @override
+  String labelRemoveFailed(Object error) {
+    return 'Failed to remove label: $error';
+  }
+
+  @override
+  String get labelUpdated => 'Label updated';
+
+  @override
+  String labelUpdateFailed(Object error) {
+    return 'Failed to update label: $error';
+  }
+
+  @override
+  String get addLabel => 'Add Label';
+
+  @override
+  String get callback => 'Call Back';
+
+  @override
+  String callbackTo(String number) {
+    return 'Call back to $number';
+  }
+
+  @override
+  String get chartToday => 'Today';
+
+  @override
+  String get chartOneDayAgo => '1 day ago';
+
+  @override
+  String get chartThreeDaysAgo => '3 days ago';
+
+  @override
+  String get chartOneWeekAgo => '1 week ago';
+
+  @override
+  String get chartTenDaysAgo => '10 days ago';
+
+  @override
+  String get chartOneMonthAgo => '1 month ago';
+
+  @override
+  String chartMonthFormat(int month) {
+    return 'Month $month';
+  }
+
+  @override
+  String get defaultPeriod => 'Week';
 }

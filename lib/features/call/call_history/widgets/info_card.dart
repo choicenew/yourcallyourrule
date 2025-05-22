@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class InfoCard extends StatelessWidget {
   const InfoCard({super.key});
@@ -9,24 +10,24 @@ class InfoCard extends StatelessWidget {
       elevation: 2,
       margin: const EdgeInsets.only(bottom: 16),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: const Padding(
-        padding: EdgeInsets.all(16.0),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            Icon(Icons.info_outline, color: Colors.blue, size: 24),
-            SizedBox(width: 16),
+            const Icon(Icons.info_outline, color: Colors.blue, size: 24),
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '通话记录',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.callHistoryInfoTitle,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    '这里显示您的通话记录，包括来电、去电和未接来电。',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    AppLocalizations.of(context)!.callHistoryInfoDesc,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),

@@ -26,12 +26,15 @@ import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remot
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/call_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page_refactored.dart';
+import 'package:yourcallyourrule/features/rules/pages/blacklist_whitelist_page_refactored.dart';
 import 'package:yourcallyourrule/features/settings/pages/settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page.dart';
 import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
-import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page%20copy.dart';
+import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page.dart';
+
 import 'package:yourcallyourrule/presentation/device_management/device_management_page.dart';
 import 'package:yourcallyourrule/presentation/plugin_test_page.dart';
 import 'package:yourcallyourrule/presentation/regex_test_page.dart';
@@ -65,6 +68,8 @@ class AppRouter {
   static const String remoteFilterSettings = 'remote-filter-settings';
   static const String simSlotRuleSettings = 'sim-slot-rule-settings';
   static const String callFilterSettings = 'call-filter-settings';
+  static const String allowedBlockedSettings = 'allowed-blocked-settings';
+  static const String blacklistWhitelistSettings = 'blacklist-whitelist-settings';
   static const String callerIdCustomization = 'caller-id-customization';
   static const String endCallSettings = 'end-call-settings';
   static const String smsFilterSettings = 'sms-filter-settings';
@@ -106,6 +111,18 @@ class AppRouter {
         builder: (context, state) => const HomePage(),
       ),
       
+    GoRoute(
+      path: '/allowed-blocked-settings',
+      name: allowedBlockedSettings,
+      builder: (context, state) => const AllowedBlockedPage(),
+    ),
+    GoRoute(
+      path: '/blacklist-whitelist-settings',
+      name: blacklistWhitelistSettings,
+      builder: (context, state) => const BlacklistWhitelistPage(),
+    ),
+
+
       // 来电频率拦截设置页面
       GoRoute(
         path: '/$timeInterceptorSettings',

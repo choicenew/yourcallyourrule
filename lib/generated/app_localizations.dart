@@ -93,6 +93,450 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
+  /// No description provided for @callHistoryInfoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Call History'**
+  String get callHistoryInfoTitle;
+
+  /// No description provided for @callHistoryInfoDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Here shows your call history, including incoming, outgoing and missed calls.'**
+  String get callHistoryInfoDesc;
+
+  /// No description provided for @tabAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get tabAll;
+
+  /// No description provided for @tabAnswered.
+  ///
+  /// In en, this message translates to:
+  /// **'Answered'**
+  String get tabAnswered;
+
+  /// No description provided for @tabMissed.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed'**
+  String get tabMissed;
+
+  /// No description provided for @tabBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked'**
+  String get tabBlocked;
+
+  /// No description provided for @tabOutgoing.
+  ///
+  /// In en, this message translates to:
+  /// **'Outgoing'**
+  String get tabOutgoing;
+
+  /// No description provided for @callHistoryTimelineToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get callHistoryTimelineToday;
+
+  /// No description provided for @callHistoryTimelineYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get callHistoryTimelineYesterday;
+
+  /// No description provided for @callHistoryTimelineEarlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier'**
+  String get callHistoryTimelineEarlier;
+
+  /// No description provided for @callTypeAnswered.
+  ///
+  /// In en, this message translates to:
+  /// **'Answered'**
+  String get callTypeAnswered;
+
+  /// No description provided for @callTypeOutgoing.
+  ///
+  /// In en, this message translates to:
+  /// **'Outgoing'**
+  String get callTypeOutgoing;
+
+  /// No description provided for @callTypeMissed.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed Call'**
+  String get callTypeMissed;
+
+  /// No description provided for @callTypeBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked'**
+  String get callTypeBlocked;
+
+  /// No description provided for @callTypeUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get callTypeUnknown;
+
+  /// No description provided for @loadMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Load More'**
+  String get loadMore;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// Call history initialization failure message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to initialize call history: {error}'**
+  String callHistoryInitFailed(Object error);
+
+  /// Call history refresh failure message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to refresh call history: {error}'**
+  String callHistoryRefreshFailed(Object error);
+
+  /// No description provided for @timeInterceptorSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Frequency Interception Settings'**
+  String get timeInterceptorSettingsTitle;
+
+  /// No description provided for @settingsLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load settings: {error}'**
+  String settingsLoadFailed(Object error);
+
+  /// No description provided for @settingsSaveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save settings: {error}'**
+  String settingsSaveFailed(Object error);
+
+  /// No description provided for @noRecords.
+  ///
+  /// In en, this message translates to:
+  /// **'No call records'**
+  String get noRecords;
+
+  /// No description provided for @noMatchingRecords.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching call records'**
+  String get noMatchingRecords;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @labelFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Label Filter'**
+  String get labelFilter;
+
+  /// No description provided for @filterClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Filter'**
+  String get filterClear;
+
+  /// No description provided for @noCallRecords.
+  ///
+  /// In en, this message translates to:
+  /// **'No call records'**
+  String get noCallRecords;
+
+  /// No description provided for @refresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get refresh;
+
+  /// No description provided for @clearLabelFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Label Filter'**
+  String get clearLabelFilter;
+
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get today;
+
+  /// No description provided for @yesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get yesterday;
+
+  /// No description provided for @earlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier'**
+  String get earlier;
+
+  /// No description provided for @statBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked'**
+  String get statBlocked;
+
+  /// No description provided for @statAnswered.
+  ///
+  /// In en, this message translates to:
+  /// **'Answered'**
+  String get statAnswered;
+
+  /// No description provided for @filterByLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by Label'**
+  String get filterByLabel;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @clearFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Filter'**
+  String get clearFilter;
+
+  /// No description provided for @processingOperation.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing...'**
+  String get processingOperation;
+
+  /// No description provided for @operationSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Operation succeeded'**
+  String get operationSuccess;
+
+  /// No description provided for @operationFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'Operation failed'**
+  String get operationFailure;
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
+
+  /// No description provided for @configManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Configuration Management'**
+  String get configManagement;
+
+  /// No description provided for @importConfig.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Configuration'**
+  String get importConfig;
+
+  /// No description provided for @exportConfig.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Configuration'**
+  String get exportConfig;
+
+  /// No description provided for @processing.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing...'**
+  String get processing;
+
+  /// No description provided for @configUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Configuration updated'**
+  String get configUpdated;
+
+  /// No description provided for @checkFileFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check file format or permissions'**
+  String get checkFileFormat;
+
+  /// No description provided for @simInfoLoadFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load ScM card inforaation: {error}'**
+  String simInfoLoadFailure(Object error);
+
+  /// No description provided for @operationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Operation failed'**
+  String get operationFailed;
+
+  /// No description provided for @importSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Configuration imported successfully'**
+  String get importSuccess;
+
+  /// No description provided for @importFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to import configuration'**
+  String get importFailure;
+
+  /// No description provided for @exportSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Configuration exported successfully'**
+  String get exportSuccess;
+
+  /// No description provided for @exportFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to export configuration'**
+  String get exportFailure;
+
+  /// No description provided for @axisPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'{axis} Position'**
+  String axisPosition(Object axis);
+
+  /// No description provided for @colorPickerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Color'**
+  String get colorPickerTitle;
+
+  /// No description provided for @enableTimeInterceptor.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Time Interceptor'**
+  String get enableTimeInterceptor;
+
+  /// No description provided for @timeInterceptorDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatically intercept potential spam calls based on call frequency'**
+  String get timeInterceptorDescription;
+
+  /// No description provided for @timeInterceptorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Call Frequency Interception'**
+  String get timeInterceptorTitle;
+
+  /// No description provided for @timeInterceptorSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatically intercept potential spam calls based on call frequency'**
+  String get timeInterceptorSubtitle;
+
+  /// No description provided for @timeWindowSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted'**
+  String get timeWindowSetting;
+
+  /// No description provided for @timeInterceptorExplanationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Frequency Interception Explanation'**
+  String get timeInterceptorExplanationTitle;
+
+  /// No description provided for @timeInterceptorExplanationContent.
+  ///
+  /// In en, this message translates to:
+  /// **'The call frequency interception feature analyzes call frequency to automatically identify and intercept frequent spam calls.'**
+  String get timeInterceptorExplanationContent;
+
+  /// No description provided for @howItWorksTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How It Works:'**
+  String get howItWorksTitle;
+
+  /// No description provided for @howItWorksPoint1.
+  ///
+  /// In en, this message translates to:
+  /// **'• The system will automatically intercept calls from the same number within the set time window'**
+  String get howItWorksPoint1;
+
+  /// No description provided for @howItWorksPoint2.
+  ///
+  /// In en, this message translates to:
+  /// **'• Shorter time windows result in stricter interception; longer time windows result in looser interception'**
+  String get howItWorksPoint2;
+
+  /// No description provided for @howItWorksPoint3.
+  ///
+  /// In en, this message translates to:
+  /// **'• The system checks call logs to determine if it\'s a repeated call'**
+  String get howItWorksPoint3;
+
+  /// No description provided for @useCasesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Cases:'**
+  String get useCasesTitle;
+
+  /// No description provided for @useCasesPoint1.
+  ///
+  /// In en, this message translates to:
+  /// **'• Identify auto-redial spam calls'**
+  String get useCasesPoint1;
+
+  /// No description provided for @useCasesPoint2.
+  ///
+  /// In en, this message translates to:
+  /// **'• Intercept marketing calls that call multiple times in a short period'**
+  String get useCasesPoint2;
+
+  /// No description provided for @useCasesPoint3.
+  ///
+  /// In en, this message translates to:
+  /// **'• Prevent phone bombing and harassment'**
+  String get useCasesPoint3;
+
+  /// No description provided for @differentFromLocalCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'This feature is different from the local counter filter, as it focuses on repeated call patterns in a short time rather than long-term marking counts.'**
+  String get differentFromLocalCounter;
+
+  /// Time window label with duration in minutes
+  ///
+  /// In en, this message translates to:
+  /// **'Interception Time Window (minutes): {minutes}'**
+  String timeWindowLabel(int minutes);
+
+  /// No description provided for @timeWindowDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted'**
+  String get timeWindowDescription;
+
   /// No description provided for @phoneNumberTypeFixedLine.
   ///
   /// In en, this message translates to:
@@ -177,17 +621,113 @@ abstract class AppLocalizations {
   /// **'Enhanced Filter Settings'**
   String get enhancedFilterSettings;
 
-  /// Global filter settings section title
-  ///
-  /// In en, this message translates to:
-  /// **'Global Filter Settings'**
-  String get globalFilterSettings;
-
   /// No description provided for @simSlotManagement.
   ///
   /// In en, this message translates to:
   /// **'SIM Slot Management'**
   String get simSlotManagement;
+
+  /// No description provided for @statisticsPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Analysis'**
+  String get statisticsPageTitle;
+
+  /// No description provided for @blockedCallsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Calls'**
+  String get blockedCallsTitle;
+
+  /// No description provided for @blockTypeAnalysisTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Block Type Analysis'**
+  String get blockTypeAnalysisTitle;
+
+  /// No description provided for @weeklyChartTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Blocked Calls'**
+  String get weeklyChartTitle;
+
+  /// No description provided for @monthlyChartTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Blocked Calls'**
+  String get monthlyChartTitle;
+
+  /// No description provided for @yearlyChartTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly Blocked Calls'**
+  String get yearlyChartTitle;
+
+  /// No description provided for @callerIdCustomizationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Customize Caller ID'**
+  String get callerIdCustomizationTitle;
+
+  /// No description provided for @windowSizeSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Window Size'**
+  String get windowSizeSetting;
+
+  /// No description provided for @backgroundGradientSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Background Gradient'**
+  String get backgroundGradientSetting;
+
+  /// No description provided for @textColorsSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Text & Label Colors'**
+  String get textColorsSetting;
+
+  /// No description provided for @fontSizesSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Font Sizes'**
+  String get fontSizesSetting;
+
+  /// No description provided for @avatarIconSizesSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar & Icon Sizes'**
+  String get avatarIconSizesSetting;
+
+  /// No description provided for @elementPositionsSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Element Positions'**
+  String get elementPositionsSetting;
+
+  /// No description provided for @periodWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Week'**
+  String get periodWeek;
+
+  /// No description provided for @periodMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get periodMonth;
+
+  /// No description provided for @periodYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get periodYear;
+
+  /// No description provided for @loadRulesFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load rules: {error}'**
+  String loadRulesFailed(Object error);
 
   /// No description provided for @enhancedFilterSettingsTitle.
   ///
@@ -312,7 +852,7 @@ abstract class AppLocalizations {
   /// No description provided for @phoneNumberHint.
   ///
   /// In en, this message translates to:
-  /// **'Enter phone number to add rule'**
+  /// **'Enter phone number'**
   String get phoneNumberHint;
 
   /// No description provided for @ruleNameHint.
@@ -332,6 +872,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rule Management'**
   String get simSlotRuleManagementTitle;
+
+  /// Global filter settings section title
+  ///
+  /// In en, this message translates to:
+  /// **'Global Filter Settings'**
+  String get globalFilterSettings;
 
   /// No description provided for @enableNoneActionRules.
   ///
@@ -429,107 +975,11 @@ abstract class AppLocalizations {
   /// **'Loading tags...'**
   String get loadingTags;
 
-  /// No description provided for @callHistoryTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Call History'**
-  String get callHistoryTitle;
-
-  /// No description provided for @allTab.
-  ///
-  /// In en, this message translates to:
-  /// **'All'**
-  String get allTab;
-
-  /// No description provided for @answeredCallsTab.
-  ///
-  /// In en, this message translates to:
-  /// **'Answered'**
-  String get answeredCallsTab;
-
-  /// No description provided for @missedCallsTab.
-  ///
-  /// In en, this message translates to:
-  /// **'Missed'**
-  String get missedCallsTab;
-
-  /// No description provided for @blockedCallsTab.
-  ///
-  /// In en, this message translates to:
-  /// **'Blocked'**
-  String get blockedCallsTab;
-
-  /// No description provided for @outgoingCallsTab.
-  ///
-  /// In en, this message translates to:
-  /// **'Outgoing'**
-  String get outgoingCallsTab;
-
-  /// No description provided for @labelFilterTooltip.
-  ///
-  /// In en, this message translates to:
-  /// **'Label Filter'**
-  String get labelFilterTooltip;
-
-  /// No description provided for @searchTooltip.
-  ///
-  /// In en, this message translates to:
-  /// **'Search'**
-  String get searchTooltip;
-
-  /// No description provided for @initializationFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to initialize call history: {error}'**
-  String initializationFailed(Object error);
-
-  /// No description provided for @refreshFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to refresh call history: {error}'**
-  String refreshFailed(Object error);
-
-  /// No description provided for @todayGroup.
-  ///
-  /// In en, this message translates to:
-  /// **'Today'**
-  String get todayGroup;
-
-  /// No description provided for @yesterdayGroup.
-  ///
-  /// In en, this message translates to:
-  /// **'Yesterday'**
-  String get yesterdayGroup;
-
-  /// No description provided for @thisWeekGroup.
-  ///
-  /// In en, this message translates to:
-  /// **'This Week'**
-  String get thisWeekGroup;
-
-  /// No description provided for @olderGroup.
-  ///
-  /// In en, this message translates to:
-  /// **'Older'**
-  String get olderGroup;
-
-  /// No description provided for @emptyCallLogs.
-  ///
-  /// In en, this message translates to:
-  /// **'No call records found'**
-  String get emptyCallLogs;
-
-  /// No description provided for @errorLoadingLogs.
-  ///
-  /// In en, this message translates to:
-  /// **'Error loading call logs'**
-  String get errorLoadingLogs;
-
-  /// Tag display
+  /// No description provided for @tagLabel.
   ///
   /// In en, this message translates to:
   /// **'Tag: {tag}'**
-  String tagLabel(Object tag);
+  String tagLabel(String tag);
 
   /// No description provided for @unknownTag.
   ///
@@ -848,6 +1298,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'SIM Slot Position {slotNumber}'**
   String simSlotPosition(int slotNumber);
+
+  /// No description provided for @addLabelToCall.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Label to Call Record'**
+  String get addLabelToCall;
+
+  /// No description provided for @currentLabels.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Labels:'**
+  String get currentLabels;
+
+  /// No description provided for @expandLabelSelector.
+  ///
+  /// In en, this message translates to:
+  /// **'Expand Label Selector'**
+  String get expandLabelSelector;
+
+  /// No description provided for @collapseLabelSelector.
+  ///
+  /// In en, this message translates to:
+  /// **'Collapse Label Selector'**
+  String get collapseLabelSelector;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @labelRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Label removed'**
+  String get labelRemoved;
+
+  /// Label removal failure message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to remove label: {error}'**
+  String labelRemoveFailed(Object error);
+
+  /// No description provided for @labelUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Label updated'**
+  String get labelUpdated;
+
+  /// Label update failure message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update label: {error}'**
+  String labelUpdateFailed(Object error);
+
+  /// No description provided for @addLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Label'**
+  String get addLabel;
+
+  /// No description provided for @callback.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Back'**
+  String get callback;
+
+  /// Callback notification message
+  ///
+  /// In en, this message translates to:
+  /// **'Call back to {number}'**
+  String callbackTo(String number);
+
+  /// No description provided for @chartToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get chartToday;
+
+  /// No description provided for @chartOneDayAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 day ago'**
+  String get chartOneDayAgo;
+
+  /// No description provided for @chartThreeDaysAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'3 days ago'**
+  String get chartThreeDaysAgo;
+
+  /// No description provided for @chartOneWeekAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 week ago'**
+  String get chartOneWeekAgo;
+
+  /// No description provided for @chartTenDaysAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'10 days ago'**
+  String get chartTenDaysAgo;
+
+  /// No description provided for @chartOneMonthAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'1 month ago'**
+  String get chartOneMonthAgo;
+
+  /// Month format for chart labels
+  ///
+  /// In en, this message translates to:
+  /// **'Month {month}'**
+  String chartMonthFormat(int month);
+
+  /// No description provided for @defaultPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Week'**
+  String get defaultPeriod;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

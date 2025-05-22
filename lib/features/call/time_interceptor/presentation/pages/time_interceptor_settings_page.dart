@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电频率拦截设置页面
 /// 用于配置来电频率拦截服务的相关参数
@@ -48,7 +49,7 @@ class TimeInterceptorSettingsPageState extends State<TimeInterceptorSettingsPage
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('加载设置失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.settingsLoadFailed(e))),
       );
     } finally {
       setState(() {
@@ -71,11 +72,11 @@ class TimeInterceptorSettingsPageState extends State<TimeInterceptorSettingsPage
       );
       
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('设置已保存')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('保存设置失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaveFailed(e))),
       );
     } finally {
       setState(() {
@@ -88,7 +89,7 @@ class TimeInterceptorSettingsPageState extends State<TimeInterceptorSettingsPage
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('来电频率拦截设置'),
+        title: Text(AppLocalizations.of(context)!.timeInterceptorSettingsTitle),
         actions: [
           if (_isLoading)
             const Padding(
@@ -103,7 +104,7 @@ class TimeInterceptorSettingsPageState extends State<TimeInterceptorSettingsPage
             IconButton(
               icon: const Icon(Icons.save),
               onPressed: _saveSettings,
-              tooltip: '保存设置',
+              tooltip: AppLocalizations.of(context)!.saveSettings,
             ),
         ],
       ),

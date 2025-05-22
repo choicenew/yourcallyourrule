@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/screens/caller_id_import_export_dialog.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class ConfigImportExportButton extends StatelessWidget {
   final Future<void> Function(String) onImport;
@@ -17,13 +18,13 @@ class ConfigImportExportButton extends StatelessWidget {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (context) => const AlertDialog(
+      builder: (context) => AlertDialog(
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            CircularProgressIndicator(),
-            SizedBox(height: 16),
-            Text('正在处理中...'),
+            const CircularProgressIndicator(),
+            const SizedBox(height: 16),
+            Text(AppLocalizations.of(context)!.processingOperation),
           ],
         ),
       ),
@@ -47,12 +48,12 @@ class ConfigImportExportButton extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(success ? '操作成功' : '操作失败'),
-        content: Text(success ? '配置文件已更新' : '请检查文件格式或权限'),
+        title: Text(success ? AppLocalizations.of(context)!.operationSuccess : AppLocalizations.of(context)!.operationFailure),
+        content: Text(success ? AppLocalizations.of(context)!.configUpdated : AppLocalizations.of(context)!.checkFileFormat),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('确定'),
+            child: Text(AppLocalizations.of(context)!.confirm),
           ),
         ],
       ),

@@ -6,6 +6,7 @@ import 'package:yourcallyourrule/features/call/call_history/services/call_log_se
 import 'package:yourcallyourrule/features/call/call_history/widgets/label_dialog.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CallLogCard extends StatelessWidget {
   final CallLog log;
@@ -23,22 +24,22 @@ class CallLogCard extends StatelessWidget {
       case 'incoming':
         callIcon = Icons.call_received;
         iconColor = Colors.green;
-        callTypeText = '来电';
+        callTypeText = AppLocalizations.of(context)!.callTypeAnswered;
         break;
       case 'outgoing':
         callIcon = Icons.call_made;
         iconColor = Colors.blue;
-        callTypeText = '去电';
+        callTypeText = AppLocalizations.of(context)!.callTypeOutgoing;
         break;
       case 'missed':
         callIcon = Icons.call_missed;
         iconColor = Colors.red;
-        callTypeText = '未接';
+        callTypeText = AppLocalizations.of(context)!.callTypeMissed;
         break;
       default:
         callIcon = Icons.call;
         iconColor = Colors.grey;
-        callTypeText = '未知';
+        callTypeText = AppLocalizations.of(context)!.callTypeUnknown;
     }
     
     // 格式化通话时间
@@ -72,7 +73,7 @@ class CallLogCard extends StatelessWidget {
                         width: 48,
                         height: 48,
                         decoration: BoxDecoration(
-                          color: iconColor.withOpacity(0.1),
+                          color: iconColor.withValues(alpha:0.1),
                           shape: BoxShape.circle,
                         ),
                         child: const Center(child: SizedBox(width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2))),
@@ -105,7 +106,7 @@ class CallLogCard extends StatelessWidget {
                         width: 48,
                         height: 48,
                         decoration: BoxDecoration(
-                          color: iconColor.withOpacity(0.1),
+                          color: iconColor.withValues(alpha:0.1),
                           shape: BoxShape.circle,
                         ),
                         child: Icon(callIcon, color: iconColor),
@@ -128,7 +129,7 @@ class CallLogCard extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: iconColor.withOpacity(0.1),
+                              color: iconColor.withValues(alpha:0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
@@ -152,17 +153,17 @@ class CallLogCard extends StatelessWidget {
                     IconButton(
                       icon: const Icon(Icons.label_outline),
                       onPressed: () => _showLabelDialog(context, log),
-                      tooltip: '添加标签',
+                      tooltip: AppLocalizations.of(context)!.addLabel,
                     ),
                     IconButton(
                       icon: const Icon(Icons.call, color: Colors.green),
                       onPressed: () {
                         // 回拨电话
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('回拨 ${log.number}')),
+                          SnackBar(content: Text(AppLocalizations.of(context)!.callbackTo(log.number))),
                         );
                       },
-                      tooltip: '回拨',
+                      tooltip: AppLocalizations.of(context)!.callback,
                     ),
                   ],
                 ),
