@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/configuration_manager.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class ButtonPanel extends StatelessWidget {
   final CallerIdStyleProvider styleProvider;
@@ -31,16 +32,15 @@ class ButtonPanel extends StatelessWidget {
                 }
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text(
-                            'Configuration imported successfully')),
+                    SnackBar(
+                        content: Text(AppLocalizations.of(context)!.importSuccess)),
                   );
                 }
               } catch (e) {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text('Failed to import configuration')),
+                    SnackBar(
+                        content: Text(AppLocalizations.of(context)!.importFailure)),
                   );
                 }
               }
@@ -56,16 +56,15 @@ class ButtonPanel extends StatelessWidget {
                 final file = await configurationManager.exportConfig();
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text(
-                            'Configuration exported successfully')),
+                   SnackBar(
+                        content: Text(AppLocalizations.of(context)!.exportSuccess)),
                   );
                 }
               } catch (e) {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text('Failed to export configuration')),
+                   SnackBar(
+                        content: Text(AppLocalizations.of(context)!.exportFailure)),
                   );
                 }
               }

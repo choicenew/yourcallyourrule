@@ -64,7 +64,7 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
       ];
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('加载SIM卡信息失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.simInfoLoadFailure(e))),
       );
     } finally {
       setState(() {

@@ -1,5 +1,96 @@
 {
   "@@locale": "en",
+  "callHistoryInfoTitle": "Call History",
+  "callHistoryInfoDesc": "Here shows your call history, including incoming, outgoing and missed calls.",
+  "tabAll": "All",
+  "tabAnswered": "Answered",
+  "tabMissed": "Missed",
+  "tabBlocked": "Blocked",
+  "tabOutgoing": "Outgoing",
+  "callHistoryTimelineToday": "Today",
+  "callHistoryTimelineYesterday": "Yesterday",
+  "callHistoryTimelineEarlier": "Earlier",
+  "callTypeAnswered": "Answered",
+  "callTypeOutgoing": "Outgoing",
+  "callTypeMissed": "Missed Call",
+  "callTypeBlocked": "Blocked",
+  "callTypeUnknown": "Unknown",
+  "loadMore": "Load More",
+  "retry": "Retry",
+  "callHistoryInitFailed": "Failed to initialize call history: {error}",
+  "callHistoryRefreshFailed": "Failed to refresh call history: {error}",
+  "timeInterceptorSettingsTitle": "Call Frequency Interception Settings",
+  "settingsLoadFailed": "Failed to load settings: {error}",
+  "settingsSaveFailed": "Failed to save settings: {error}",
+  "noRecords": "No call records",
+  "noMatchingRecords": "No matching call records",
+  "search": "Search",
+  "labelFilter": "Label Filter",
+  "filterClear": "Clear Filter",
+  "noCallRecords": "No call records",
+  "refresh": "Refresh",
+  "clearLabelFilter": "Clear Label Filter",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "earlier": "Earlier",
+  "statBlocked": "Blocked",
+  "statAnswered": "Answered",
+  "filterByLabel": "Filter by Label",
+  "cancel": "Cancel",
+  "clearFilter": "Clear Filter",
+  "processingOperation": "Processing...",
+  "operationSuccess": "Operation succeeded",
+  "operationFailure": "Operation failed",
+  "confirm": "Confirm",
+  "configManagement": "Configuration Management",
+  "importConfig": "Import Configuration",
+  "exportConfig": "Export Configuration",
+  "processing": "Processing...",
+  "configUpdated": "Configuration updated",
+  "checkFileFormat": "Please check file format or permissions",
+  "simInfoLoadFailure": "Failed to load ScM card inforaation: {error}",
+  "operationFailed": "Operation failed",
+  "importSuccess": "Configuration imported successfully",
+  "importFailure": "Failed to import configuration",
+  "exportSuccess": "Configuration exported successfully",
+  "exportFailure": "Failed to export configuration",
+ "axisPosition": "{axis} Position",
+ "colorPickerTitle": "Choose Color",
+ 
+ "enableTimeInterceptor": "Enable Time Interceptor",
+ "timeInterceptorDescription": "Automatically intercept potential spam calls based on call frequency",
+"timeInterceptorTitle": "Enable Call Frequency Interception",
+"timeInterceptorSubtitle": "Automatically intercept potential spam calls based on call frequency",
+"timeWindowSetting": "Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted",
+"timeInterceptorExplanationTitle": "Call Frequency Interception Explanation",
+"timeInterceptorExplanationContent": "The call frequency interception feature analyzes call frequency to automatically identify and intercept frequent spam calls.",
+"howItWorksTitle": "How It Works:",
+"howItWorksPoint1": "• The system will automatically intercept calls from the same number within the set time window",
+"howItWorksPoint2": "• Shorter time windows result in stricter interception; longer time windows result in looser interception",
+"howItWorksPoint3": "• The system checks call logs to determine if it's a repeated call",
+"useCasesTitle": "Use Cases:",
+"useCasesPoint1": "• Identify auto-redial spam calls",
+"useCasesPoint2": "• Intercept marketing calls that call multiple times in a short period",
+"useCasesPoint3": "• Prevent phone bombing and harassment",
+"differentFromLocalCounter": "This feature is different from the local counter filter, as it focuses on repeated call patterns in a short time rather than long-term marking counts.",
+ "timeWindowLabel": "Interception Time Window (minutes): {minutes}",
+"@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+ "timeWindowDescription": "Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted",
+
+
+
+
+
+
+
+ 
   "phoneNumberTypeFixedLine": "Fixed line",
   "phoneNumberTypeMobile": "Mobile",
   "phoneNumberTypeFixedLineOrMobile": "Fixed line or mobile",
@@ -14,8 +105,24 @@
   "phoneNumberTypeUnknown": "Unknown",
   "callFilterSettings": "Call Filter Settings",
   "enhancedFilterSettings": "Enhanced Filter Settings",
-  "globalFilterSettings": "Global Filter Settings",
   "simSlotManagement": "SIM Slot Management",
+  "statisticsPageTitle": "Data Analysis",
+  "blockedCallsTitle": "Blocked Calls",
+  "blockTypeAnalysisTitle": "Block Type Analysis",
+  "weeklyChartTitle": "Weekly Blocked Calls",
+  "monthlyChartTitle": "Monthly Blocked Calls",
+  "yearlyChartTitle": "Yearly Blocked Calls",
+  "callerIdCustomizationTitle": "Customize Caller ID",
+  "windowSizeSetting": "Window Size",
+  "backgroundGradientSetting": "Background Gradient",
+  "textColorsSetting": "Text & Label Colors",
+  "fontSizesSetting": "Font Sizes",
+  "avatarIconSizesSetting": "Avatar & Icon Sizes",
+  "elementPositionsSetting": "Element Positions",
+  "periodWeek": "Week",
+  "periodMonth": "Month",
+  "periodYear": "Year",
+  "loadRulesFailed": "Failed to load rules: {error}",
   "enhancedFilterSettingsTitle": "Enhanced Filter Settings",
   "globalFilterDescription": "Configure global filters for all SIM cards:",
   "localCounterFilter": "Local Counter Filter",
@@ -51,37 +158,20 @@
   "simRuleInstructions": "SIM slot rules allow you to configure independent filtering rules for each SIM slot.",
   "featureListTitle": "Features:",
   "featureEnableDisable": "• Enable/disable different filters per SIM",
-  "featureAddRules": "• Add phone number specific rules", 
+  "featureAddRules": "• Add phone number specific rules",
   "featureManageRules": "• Manage rule lists per SIM",
   "dualSimAdvice": "This feature is particularly useful for dual-SIM phones to set different filtering strategies for work and personal SIM cards.",
   "simSlotRuleListTitle": "SIM Slot Rules List",
   "noRulesPrompt": "No rules found, please add rules",
   "loadingTags": "Loading tags...",
-
   "tagLabel": "Tag: {tag}",
   "@tagLabel": {
     "placeholders": {
       "tag": {
         "type": "String"
       }
-    },
-    "description": "Tag display",
-    "placeholders": {
-      "tag": {}
     }
   },
-
-
-
-
-
-
-
-
-
-
-
-
   "unknownTag": "Tag: Unknown",
   "phoneNumberLabel": "Phone Number *",
   "phoneNumberHintText": "Enter phone number to add rule",
@@ -146,12 +236,10 @@
   },
   "simCard": "SIM Card {simNumber}",
   "simRuleManagement": "SIM Slot Rule Management",
-  "ruleAddedSuccess": "Rule added successfully",
   "simSlotOperationFailed": "SIM slot operation failed: {error}",
   "simSlotLoadFailed": "Failed to load SIM slots: {error}",
   "simSlotDataLoadFailed": "Failed to load SIM data: {error}",
   "phoneNumberRequired": "Phone number is required",
-  "phoneNumberHint": "Enter phone number to add rule",
   "contactNameOptional": "Contact name (optional)",
   "ruleAddButton": "Add Rule",
   "rejectAllNumbers": "Reject All Numbers",
@@ -208,6 +296,18 @@
   "ruleAddFailure": "Failed to add rule: {error}",
   "ruleDeleteFailure": "Failed to delete rule: {error}",
   "simSlotPosition": "SIM Slot Position {slotNumber}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
   "@dataLoadFailure": {
     "description": "Data loading failure message",
     "placeholders": {
@@ -247,5 +347,56 @@
         "format": "compact"
       }
     }
-  }
+  },
+
+
+  "addLabelToCall": "Add Label to Call Record",
+  "currentLabels": "Current Labels:",
+  "expandLabelSelector": "Expand Label Selector",
+  "collapseLabelSelector": "Collapse Label Selector",
+  "close": "Close",
+  "labelRemoved": "Label removed",
+  "labelRemoveFailed": "Failed to remove label: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "labelUpdated": "Label updated",
+  "labelUpdateFailed": "Failed to update label: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "addLabel": "Add Label",
+  "callback": "Call Back",
+  "callbackTo": "Call back to {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "chartToday": "Today",
+  "chartOneDayAgo": "1 day ago",
+  "chartThreeDaysAgo": "3 days ago",
+  "chartOneWeekAgo": "1 week ago",
+  "chartTenDaysAgo": "10 days ago",
+  "chartOneMonthAgo": "1 month ago",
+  "chartMonthFormat": "Month {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "defaultPeriod": "Week"
 }

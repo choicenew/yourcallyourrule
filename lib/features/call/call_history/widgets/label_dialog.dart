@@ -5,6 +5,7 @@ import 'package:yourcallyourrule/features/call/call_history/services/call_log_se
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class LabelDialog extends StatefulWidget {
   final CallLog log;
@@ -35,7 +36,7 @@ class _LabelDialogState extends State<LabelDialog> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '为通话记录添加标签',
+                AppLocalizations.of(context)!.addLabelToCall,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               IconButton(
@@ -71,7 +72,7 @@ class _LabelDialogState extends State<LabelDialog> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    _isExpanded ? '收起标签选择器' : '展开标签选择器',
+                    _isExpanded ? AppLocalizations.of(context)!.collapseLabelSelector : AppLocalizations.of(context)!.expandLabelSelector,
                     style: TextStyle(color: Theme.of(context).primaryColor),
                   ),
                   Icon(
@@ -92,7 +93,7 @@ class _LabelDialogState extends State<LabelDialog> {
               children: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('关闭'),
+                  child: Text(AppLocalizations.of(context)!.close),
                 ),
               ],
             ),
@@ -108,7 +109,7 @@ class _LabelDialogState extends State<LabelDialog> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('当前标签:', style: TextStyle(fontSize: 14, color: Colors.grey)),
+          Text(AppLocalizations.of(context)!.currentLabels, style: const TextStyle(fontSize: 14, color: Colors.grey)),
           const SizedBox(height: 8),
           FutureBuilder<List<String?>>(
             future: LabelTextUtils.getMultipleLabelTexts(context, widget.log.labelIds!),
@@ -127,7 +128,7 @@ class _LabelDialogState extends State<LabelDialog> {
                   
                   return Chip(
                     label: Text(labelText),
-                    backgroundColor: const Color(0xFFF5A623).withOpacity(0.1),
+                    backgroundColor: const Color(0xFFF5A623).withValues(alpha:0.1),
                     labelStyle: const TextStyle(color: Color(0xFFF5A623)),
                     deleteIcon: const Icon(Icons.close, size: 16),
                     onDeleted: () => _removeLabel(labelId),
@@ -178,7 +179,7 @@ class _LabelDialogState extends State<LabelDialog> {
       
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('标签已移除')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.labelRemoved)),
         );
         // 刷新状态
         setState(() {});
@@ -186,7 +187,7 @@ class _LabelDialogState extends State<LabelDialog> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('移除标签失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.labelRemoveFailed(e.toString()))),
         );
       }
     }
@@ -202,7 +203,7 @@ class _LabelDialogState extends State<LabelDialog> {
       
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('标签已更新')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.labelUpdated)),
         );
         // 刷新状态
         setState(() {});
@@ -212,7 +213,7 @@ class _LabelDialogState extends State<LabelDialog> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('更新标签失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.labelUpdateFailed(e.toString()))),
         );
       }
     }

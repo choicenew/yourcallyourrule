@@ -5,6 +5,7 @@ import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/blocked_calls_chart.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 
 class BlockedCallsPage extends StatefulWidget {
@@ -69,7 +70,7 @@ class BlockedCallsPageState extends State<BlockedCallsPage> with SingleTickerPro
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('拦截记录'),
+        title: Text(AppLocalizations.of(context)!.blockedCallsTitle),
         bottom: TabBar(
           controller: _tabController,
           tabs: const [

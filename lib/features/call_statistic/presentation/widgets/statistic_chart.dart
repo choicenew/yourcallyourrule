@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class StatisticChart extends StatefulWidget {
   final BlockedCallRepository repository;
@@ -11,7 +12,7 @@ class StatisticChart extends StatefulWidget {
     super.key,
     required this.repository,
     this.showDetailedChart = false,
-    this.period = '周',
+    this.period = '',
   });
 
   @override
@@ -27,11 +28,20 @@ class StatisticChartState extends State<StatisticChart> {
     super.initState();
     _loadData();
   }
+  
+  String get _currentPeriod {
+    if (widget.period.isEmpty) {
+      return AppLocalizations.of(context)!.defaultPeriod;
+    }
+    return widget.period;
+  }
 
   @override
   void didUpdateWidget(StatisticChart oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.period != widget.period) {
+    final oldPeriod = oldWidget.period.isEmpty ? AppLocalizations.of(context)!.defaultPeriod : oldWidget.period;
+    final currentPeriod = _currentPeriod;
+    if (oldPeriod != currentPeriod) {
       _loadData();
     }
   }
@@ -41,9 +51,9 @@ class StatisticChartState extends State<StatisticChart> {
     final now = DateTime.now();
     
     // 根据选择的周期生成数据
-    if (widget.period == '周') {
+    if (_currentPeriod == AppLocalizations.of(context)!.periodWeek) {
       _generateWeeklyData(calls, now);
-    } else if (widget.period == '月') {
+    } else if (_currentPeriod == AppLocalizations.of(context)!.periodMonth) {
       _generateMonthlyData(calls, now);
     } else {
       _generateYearlyData(calls, now);
@@ -68,13 +78,13 @@ class StatisticChartState extends State<StatisticChart> {
       
       // 生成标签
       if (i == 6) {
-        labels.add('今天');
+        labels.add(AppLocalizations.of(context)!.chartToday);
       } else if (i == 5) {
-        labels.add('1天前');
+        labels.add(AppLocalizations.of(context)!.chartOneDayAgo);
       } else if (i == 3) {
-        labels.add('3天前');
+        labels.add(AppLocalizations.of(context)!.chartThreeDaysAgo);
       } else if (i == 0) {
-        labels.add('1周前');
+        labels.add(AppLocalizations.of(context)!.chartOneWeekAgo);
       } else {
         labels.add('');
       }
@@ -107,11 +117,11 @@ class StatisticChartState extends State<StatisticChart> {
       
       // 生成标签
       if (i == 0) {
-        labels.add('今天');
+        labels.add(AppLocalizations.of(context)!.chartToday);
       } else if (i == 3) {
-        labels.add('10天前');
+        labels.add(AppLocalizations.of(context)!.chartTenDaysAgo);
       } else if (i == 9) {
-        labels.add('1月前');
+        labels.add(AppLocalizations.of(context)!.chartOneMonthAgo);
       } else {
         labels.add('');
       }
@@ -143,7 +153,7 @@ class StatisticChartState extends State<StatisticChart> {
       
       // 生成标签
       if (i == 0 || i == 3 || i == 6 || i == 11) {
-        labels.add('$month月');
+        labels.add(AppLocalizations.of(context)!.chartMonthFormat(month));
       } else {
         labels.add('');
       }
@@ -168,21 +178,21 @@ class StatisticChartState extends State<StatisticChart> {
   Widget _buildMiniChart() {
     return LineChart(
       LineChartData(
-        gridData: FlGridData(show: false),
-        titlesData: FlTitlesData(show: false),
+        gridData: const FlGridData(show: false),
+        titlesData: const FlTitlesData(show: false),
         borderData: FlBorderData(show: false),
         lineBarsData: [
           LineChartBarData(
             spots: _chartData,
             isCurved: true,
-            color: Colors.white.withOpacity(0.8),
+            color: Colors.white.withValues(alpha:0.8),
             barWidth: 2,
             isStrokeCapRound: true,
-            dotData: FlDotData(show: false),
+            dotData: const FlDotData(show: false),
             belowBarData: BarAreaData(show: false),
           ),
         ],
-        lineTouchData: LineTouchData(enabled: false),
+        lineTouchData: const LineTouchData(enabled: false),
       ),
     );
   }
@@ -196,7 +206,7 @@ class StatisticChartState extends State<StatisticChart> {
           horizontalInterval: 1,
           getDrawingHorizontalLine: (value) {
             return FlLine(
-              color: Colors.grey.withOpacity(0.1),
+              color: Colors.grey.withValues(alpha:0.1),
               strokeWidth: 1,
             );
           },
@@ -221,13 +231,13 @@ class StatisticChartState extends State<StatisticChart> {
               },
             ),
           ),
-          leftTitles: AxisTitles(
+          leftTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
-          topTitles: AxisTitles(
+          topTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
-          rightTitles: AxisTitles(
+          rightTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
         ),
@@ -239,10 +249,10 @@ class StatisticChartState extends State<StatisticChart> {
             color: const Color(0xFFFFB74D),
             barWidth: 3,
             isStrokeCapRound: true,
-            dotData: FlDotData(show: false),
+            dotData: const FlDotData(show: false),
             belowBarData: BarAreaData(
               show: true,
-              color: const Color(0xFFFFB74D).withOpacity(0.1),
+              color: const Color(0xFFFFB74D).withValues(alpha:0.1),
             ),
           ),
         ],

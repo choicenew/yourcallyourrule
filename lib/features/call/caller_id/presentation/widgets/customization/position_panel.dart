@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+
+
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class PositionPanel extends StatelessWidget {
   final String axis;
@@ -19,7 +20,7 @@ class PositionPanel extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('${axis.toUpperCase()}轴位置'),
+        Text(AppLocalizations.of(context)!.axisPosition(axis.toUpperCase())),
         Slider(
           value: currentValue,
           min: 0,

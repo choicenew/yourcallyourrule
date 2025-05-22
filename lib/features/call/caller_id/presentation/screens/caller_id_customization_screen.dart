@@ -9,6 +9,7 @@ import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
 
 
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import '../../configuration/configuration_manager.dart';
 import '../../mock_data/caller_id_mock.dart';
@@ -56,7 +57,7 @@ class _CallerIdCustomizationScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Customize Caller ID')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.callerIdCustomizationTitle)),
       body: Consumer<CallerIdStyleProvider>(
         builder: (context, styleProvider, child) {
           return Column(
@@ -83,17 +84,17 @@ class _CallerIdCustomizationScreenState
                     const GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const Divider(),
                     // Style settings
-                    _buildExpansionTile('Window Size', 0,
+                    _buildExpansionTile(AppLocalizations.of(context)!.windowSizeSetting, 0,
                         _buildWindowSizeSliders(styleProvider), styleProvider),
-                    _buildExpansionTile('Background Gradient', 1,
+                    _buildExpansionTile(AppLocalizations.of(context)!.backgroundGradientSetting, 1,
                         _buildBackgroundGradient(styleProvider), styleProvider),
-                    _buildExpansionTile('Text & Label Colors', 2,
+                    _buildExpansionTile(AppLocalizations.of(context)!.textColorsSetting, 2,
                         _buildTextColors(styleProvider), styleProvider),
-                    _buildExpansionTile('Font Sizes', 3,
+                    _buildExpansionTile(AppLocalizations.of(context)!.fontSizesSetting, 3,
                         _buildFontSizes(styleProvider), styleProvider),
-                    _buildExpansionTile('Avatar & Icon Sizes', 4,
+                    _buildExpansionTile(AppLocalizations.of(context)!.avatarIconSizesSetting, 4,
                         _buildAvatarAndIconSizes(styleProvider), styleProvider),
-                    _buildExpansionTile('Element Positions', 5,
+                    _buildExpansionTile(AppLocalizations.of(context)!.elementPositionsSetting, 5,
                         _buildElementPositions(styleProvider), styleProvider),
                     // Ad
                     nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
@@ -168,7 +169,7 @@ class _CallerIdCustomizationScreenState
     return Column(
       children: [
         _buildSlider(
-          'Width',
+          AppLocalizations.of(context)!.width,
           styleProvider.windowWidth,
           200,
           400,
@@ -176,7 +177,7 @@ class _CallerIdCustomizationScreenState
               styleProvider.setWindowSize(value, styleProvider.windowHeight),
         ),
         _buildSlider(
-          'Height',
+          AppLocalizations.of(context)!.height,
           styleProvider.windowHeight,
           100,
           300,
@@ -192,13 +193,13 @@ class _CallerIdCustomizationScreenState
     return Column(
       children: [
         ColorPanel(
-          title: 'Start Color',
+          title: AppLocalizations.of(context)!.startColor,
           currentColor: styleProvider.backgroundColorStart,
           onColorChanged: (color) =>
               styleProvider.setBackgroundColorStart(color),
         ),
         ColorPanel(
-          title: 'End Color',
+          title: AppLocalizations.of(context)!.endColor,
           currentColor: styleProvider.backgroundColorEnd,
           onColorChanged: (color) => styleProvider.setBackgroundColorEnd(color),
         ),
@@ -211,76 +212,76 @@ class _CallerIdCustomizationScreenState
     return Column(
       children: [
         ColorPanel(
-          title: 'Label Icon Color',
+          title: AppLocalizations.of(context)!.labelIconColor,
           currentColor: styleProvider.textIconLabelColor,
           onColorChanged: (color) => styleProvider.setTextIconLabelColor(color),
         ),
         ColorPanel(
-          title: 'Location Icon Color',
+          title: AppLocalizations.of(context)!.locationIconColor,
           currentColor: styleProvider.textIconLocationColor,
           onColorChanged: (color) =>
               styleProvider.setTextIconLocationColor(color),
         ),
         ColorPanel(
-          title: 'Call Type Icon Color',
+          title: AppLocalizations.of(context)!.callTypeIconColor,
           currentColor: styleProvider.textIconCallTypeColor,
           onColorChanged: (color) =>
               styleProvider.setTextIconCallTypeColor(color),
         ),
         ColorPanel(
-          title: 'Avatar Border Color',
+          title: AppLocalizations.of(context)!.avatarBorderColor,
           currentColor: styleProvider.avatarBorderColor,
           onColorChanged: (color) => styleProvider.setAvatarBorderColor(color),
         ),
         ColorPanel(
-          title: 'Name Color',
+          title: AppLocalizations.of(context)!.nameColor,
           currentColor: styleProvider.textNameColor,
           onColorChanged: (color) => styleProvider.setTextNameColor(color),
         ),
         ColorPanel(
-          title: 'Number Color',
+          title: AppLocalizations.of(context)!.numberColor,
           currentColor: styleProvider.textNumberColor,
           onColorChanged: (color) => styleProvider.setTextNumberColor(color),
         ),
         ColorPanel(
-          title: 'Location Color',
+          title: AppLocalizations.of(context)!.locationColor,
           currentColor: styleProvider.textLocationColor,
           onColorChanged: (color) => styleProvider.setTextLocationColor(color),
         ),
         ColorPanel(
-          title: 'Carrier Color',
+          title: AppLocalizations.of(context)!.carrierColor,
           currentColor: styleProvider.textCarrierColor,
           onColorChanged: (color) => styleProvider.setTextCarrierColor(color),
         ),
         ColorPanel(
-          title: 'Country Name Color',
+          title: AppLocalizations.of(context)!.countryNameColor,
           currentColor: styleProvider.textCountryNameColor,
           onColorChanged: (color) =>
               styleProvider.setTextCountryNameColor(color),
         ),
         ColorPanel(
-          title: 'Labels Color',
+          title: AppLocalizations.of(context)!.labelsColor,
           currentColor: styleProvider.textLabelsColor,
           onColorChanged: (color) => styleProvider.setTextLabelsColor(color),
         ),
         ColorPanel(
-          title: 'Count Color',
+          title: AppLocalizations.of(context)!.countColor,
           currentColor: styleProvider.textCountColor,
           onColorChanged: (color) => styleProvider.setTextCountColor(color),
         ),
         ColorPanel(
-          title: 'Number Type Color',
+          title: AppLocalizations.of(context)!.numberTypeColor,
           currentColor: styleProvider.textNumberTypeColor,
           onColorChanged: (color) =>
               styleProvider.setTextNumberTypeColor(color),
         ),
         ColorPanel(
-          title: 'STIR Color',
+          title: AppLocalizations.of(context)!.stirColor,
           currentColor: styleProvider.textStirColor,
           onColorChanged: (color) => styleProvider.setTextStirColor(color),
         ),
         ColorPanel(
-          title: 'SIM Card Color',
+          title: AppLocalizations.of(context)!.simCardColor,
           currentColor: styleProvider.textSimCardColor,
           onColorChanged: (color) => styleProvider.setTextSimCardColor(color),
         ),
@@ -293,52 +294,52 @@ class _CallerIdCustomizationScreenState
     return Column(
       children: [
         SizePanel(
-          label: 'Name Font Size',
+          label: AppLocalizations.of(context)!.nameFontSize,
           currentSize: styleProvider.nameFontSize,
           onSizeChanged: (value) => styleProvider.setNameFontSize(value),
         ),
         SizePanel(
-          label: 'Carrier Font Size',
+          label: AppLocalizations.of(context)!.carrierFontSize,
           currentSize: styleProvider.carrierFontSize,
           onSizeChanged: (value) => styleProvider.setCarrierFontSize(value),
         ),
         SizePanel(
-          label: 'Country Name Font Size',
+          label: AppLocalizations.of(context)!.countryNameFontSize,
           currentSize: styleProvider.countryNameFontSize,
           onSizeChanged: (value) => styleProvider.setCountryNameFontSize(value),
         ),
         SizePanel(
-          label: 'Labels Font Size',
+          label: AppLocalizations.of(context)!.labelsFontSize,
           currentSize: styleProvider.labelsFontSize,
           onSizeChanged: (value) => styleProvider.setLabelsFontSize(value),
         ),
         SizePanel(
-          label: 'Count Font Size',
+          label: AppLocalizations.of(context)!.countFontSize,
           currentSize: styleProvider.countFontSize,
           onSizeChanged: (value) => styleProvider.setCountFontSize(value),
         ),
         SizePanel(
-          label: 'Number Type Font Size',
+          label: AppLocalizations.of(context)!.numberTypeFontSize,
           currentSize: styleProvider.numberTypeFontSize,
           onSizeChanged: (value) => styleProvider.setNumberTypeFontSize(value),
         ),
         SizePanel(
-          label: 'Number Font Size',
+          label: AppLocalizations.of(context)!.numberFontSize,
           currentSize: styleProvider.numberFontSize,
           onSizeChanged: (value) => styleProvider.setNumberFontSize(value),
         ),
         SizePanel(
-          label: 'Location Font Size',
+          label: AppLocalizations.of(context)!.locationFontSize,
           currentSize: styleProvider.locationFontSize,
           onSizeChanged: (value) => styleProvider.setLocationFontSize(value),
         ),
         SizePanel(
-          label: 'STIR Font Size',
+          label: AppLocalizations.of(context)!.stirFontSize,
           currentSize: styleProvider.stirFontSize,
           onSizeChanged: (value) => styleProvider.setStirFontSize(value),
         ),
         SizePanel(
-          label: 'SIM Card Font Size',
+          label: AppLocalizations.of(context)!.simCardFontSize,
           currentSize: styleProvider.simCardFontSize,
           onSizeChanged: (value) => styleProvider.setSimCardFontSize(value),
         ),
@@ -351,21 +352,21 @@ class _CallerIdCustomizationScreenState
     return Column(
       children: [
         _buildSlider(
-          'Avatar Size',
+          AppLocalizations.of(context)!.avatarSize,
           styleProvider.avatarSize,
           40,
           80,
           (value) => styleProvider.setAvatarSize(value),
         ),
         _buildSlider(
-          'Avatar Border Size',
+          AppLocalizations.of(context)!.avatarBorderSize,
           styleProvider.avatarBorderSize,
           40,
           80,
           (value) => styleProvider.setAvatarBorderSize(value),
         ),
         _buildSlider(
-          'Icon Size',
+          AppLocalizations.of(context)!.iconSize,
           styleProvider.iconSize,
           16,
           32,
@@ -380,22 +381,22 @@ class _CallerIdCustomizationScreenState
     return Column(
       children: [
         _buildPositionSlider(
-          'Avatar Position',
+          AppLocalizations.of(context)!.avatarPosition,
           styleProvider.avatarPosition,
           (offset) => styleProvider.updateAvatarPosition(offset),
         ),
         _buildPositionSlider(
-          'Name Position',
+          AppLocalizations.of(context)!.namePosition,
           styleProvider.namePosition,
           (offset) => styleProvider.updateNamePosition(offset),
         ),
         _buildPositionSlider(
-          'Carrier Position',
+          AppLocalizations.of(context)!.carrierPosition,
           styleProvider.carrierPosition,
           (offset) => styleProvider.updateCarrierPosition(offset),
         ),
         _buildPositionSlider(
-          'Country Name Position',
+          AppLocalizations.of(context)!.countryRegionNamePosition,
           styleProvider.countryNamePosition,
           (offset) => styleProvider.updateCountryNamePosition(offset),
         ),

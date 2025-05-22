@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blo
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_type_analysis.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CallStatisticsPage extends ConsumerStatefulWidget {
   const CallStatisticsPage({super.key});
@@ -30,7 +31,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('数据分析'),
+        title: Text(AppLocalizations.of(context)!.statisticsPageTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),

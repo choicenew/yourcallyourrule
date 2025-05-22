@@ -6,6 +6,7 @@ import 'package:yourcallyourrule/core/provider/call_logs_provider.dart';
 import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/repositories/call_statistics_repository_impl.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class BlockTypeAnalysis extends ConsumerStatefulWidget {
   const BlockTypeAnalysis({super.key});
@@ -38,8 +39,8 @@ class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            '拦截类型分析',
+          Text(
+            AppLocalizations.of(context)!.blockTypeAnalysisTitle,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),

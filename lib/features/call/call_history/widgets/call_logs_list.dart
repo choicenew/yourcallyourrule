@@ -4,6 +4,7 @@ import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/call_log_card.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/info_card.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CallLogsList extends StatelessWidget {
   final String? selectedLabel;
@@ -35,11 +36,11 @@ class CallLogsList extends StatelessWidget {
                   children: [
                     const Icon(Icons.error_outline, size: 64, color: Colors.red),
                     const SizedBox(height: 16),
-                    Text('加载失败: ${snapshot.error}'),
+                    Text(AppLocalizations.of(context)!.dataLoadFailure(snapshot.error.toString())),
                     const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: onRefresh,
-                      child: const Text('重试'),
+                      child: Text(AppLocalizations.of(context)!.retry),
                     ),
                   ],
                 ),
@@ -61,19 +62,19 @@ class CallLogsList extends StatelessWidget {
                     const Icon(Icons.call, size: 64, color: Colors.grey),
                     const SizedBox(height: 16),
                     Text(
-                      selectedLabel != null ? '没有匹配的通话记录' : '暂无通话记录', 
+                      selectedLabel != null ? AppLocalizations.of(context)!.noMatchingRecords : AppLocalizations.of(context)!.noRecords,
                       style: const TextStyle(fontSize: 18, color: Colors.grey)
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton.icon(
                       icon: const Icon(Icons.refresh),
-                      label: const Text('刷新'),
+                      label: Text(AppLocalizations.of(context)!.refresh),
                       onPressed: onRefresh,
                     ),
                     if (selectedLabel != null && onClearFilter != null)
                       TextButton(
                         onPressed: onClearFilter,
-                        child: const Text('清除标签筛选'),
+                        child: Text(AppLocalizations.of(context)!.clearLabelFilter),
                       ),
                   ],
                 ),

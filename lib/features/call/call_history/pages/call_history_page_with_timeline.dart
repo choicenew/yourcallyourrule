@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/call_log_card.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/label_filter_chip.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 带时间轴布局的通话记录页面
 /// 参考HTML UI设计实现，包含统计卡片和时间轴布局
@@ -19,14 +21,37 @@ class CallHistoryPageWithTimeline extends StatefulWidget {
 class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimeline> with SingleTickerProviderStateMixin {
   bool _isLoading = true;
   String? _selectedLabel;
-  String _selectedTab = '全部';
+  late String _selectedTab;
   late TabController _tabController;
-  
-  final List<String> _tabs = ['全部', '已接通', '未接来电', '已拦截', '已拨出'];
+  late List<String> _tabs;
   
   @override
   void initState() {
     super.initState();
+    _tabController = TabController(length: 5, vsync: this);
+    _tabController.addListener(() {
+      if (!_tabController.indexIsChanging) {
+        setState(() {
+          _selectedTab = _tabs[_tabController.index];
+        });
+      }
+    });
+    _initializeCallLogs();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final l10n = AppLocalizations.of(context)!;
+    _tabs = [
+      l10n.tabAll,
+      l10n.tabAnswered,
+      l10n.tabMissed,
+      l10n.tabBlocked,
+      l10n.tabOutgoing
+    ];
+    _selectedTab = _tabs[0];
+    _selectedTab = _tabs[0];
     _tabController = TabController(length: _tabs.length, vsync: this);
     _tabController.addListener(() {
       if (!_tabController.indexIsChanging) {
@@ -57,7 +82,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('初始化通话记录失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.callHistoryInitFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -78,7 +103,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('刷新通话记录失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.callHistoryRefreshFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -96,7 +121,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('通话记录'),
+        title: Text(AppLocalizations.of(context)!.callHistoryInfoTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -105,12 +130,12 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
           IconButton(
             icon: const Icon(Icons.filter_list),
             onPressed: () => _showLabelFilterDialog(),
-            tooltip: '标签筛选',
+            tooltip: AppLocalizations.of(context)!.labelFilter,
           ),
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {}, // 搜索功能待实现
-            tooltip: '搜索',
+            tooltip: AppLocalizations.of(context)!.search,
           ),
         ],
       ),
@@ -164,11 +189,11 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
                   children: [
                     const Icon(Icons.error_outline, size: 64, color: Colors.red),
                     const SizedBox(height: 16),
-                    Text('加载失败: ${snapshot.error}'),
+                    Text(AppLocalizations.of(context)!.dataLoadFailure(snapshot.error.toString())),
                     const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: _refreshCallLogs,
-                      child: const Text('重试'),
+                      child: Text(AppLocalizations.of(context)!.retry),
                     ),
                   ],
                 ),
@@ -186,13 +211,13 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
             if (_selectedTab != '全部') {
               logs = logs.where((log) {
                 switch (_selectedTab) {
-                  case '已接通':
+                  case 'Answered':
                     return log.callType == 'incoming';
-                  case '未接来电':
+                  case 'Missed':
                     return log.callType == 'missed';
-                  case '已拦截':
+                  case 'Blocked':
                     return log.callType == 'blocked';
-                  case '已拨出':
+                  case 'Outgoing':
                     return log.callType == 'outgoing';
                   default:
                     return true;
@@ -208,19 +233,19 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
                     const Icon(Icons.call, size: 64, color: Colors.grey),
                     const SizedBox(height: 16),
                     Text(
-                      _selectedTab != '全部' || _selectedLabel != null ? '没有匹配的通话记录' : '暂无通话记录', 
+                      _selectedTab != AppLocalizations.of(context)!.tabAll || _selectedLabel != null ? AppLocalizations.of(context)!.noMatchingRecords : AppLocalizations.of(context)!.noCallRecords, 
                       style: const TextStyle(fontSize: 18, color: Colors.grey)
                     ),
                     const SizedBox(height: 24),
                     ElevatedButton.icon(
                       icon: const Icon(Icons.refresh),
-                      label: const Text('刷新'),
+                      label: Text(AppLocalizations.of(context)!.refresh),
                       onPressed: _refreshCallLogs,
                     ),
                     if (_selectedLabel != null)
                       TextButton(
                         onPressed: _clearLabelFilter,
-                        child: const Text('清除标签筛选'),
+                        child: Text(AppLocalizations.of(context)!.clearLabelFilter),
                       ),
                   ],
                 ),
@@ -246,8 +271,8 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
                       crossAxisSpacing: 16,
                       childAspectRatio: 2.5,
                       children: [
-                        _buildStatCard('已拦截', blockedCount.toString(), Colors.red),
-                        _buildStatCard('已接通', answeredCount.toString(), Colors.green),
+                        _buildStatCard(AppLocalizations.of(context)!.statBlocked, blockedCount.toString(), Colors.red),
+                        _buildStatCard(AppLocalizations.of(context)!.statAnswered, answeredCount.toString(), Colors.green),
                       ],
                     ),
                     const SizedBox(height: 24),
@@ -261,7 +286,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
                       child: Center(
                         child: TextButton.icon(
                           icon: const Icon(Icons.expand_more),
-                          label: const Text('加载更多'),
+                          label: Text(AppLocalizations.of(context)!.loadMore),
                           onPressed: () {}, // 加载更多功能待实现
                           style: TextButton.styleFrom(
                             foregroundColor: Theme.of(context).primaryColor,
@@ -316,11 +341,11 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
       
       String groupKey;
       if (logDay == today) {
-        groupKey = '今天';
+        groupKey = AppLocalizations.of(context)!.today;
       } else if (logDay == yesterday) {
-        groupKey = '昨天';
+        groupKey = AppLocalizations.of(context)!.yesterday;
       } else {
-        groupKey = '更早';
+        groupKey = AppLocalizations.of(context)!.earlier;
       }
       
       if (!groupedLogs.containsKey(groupKey)) {
@@ -335,7 +360,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
     // 排序日期组：今天、昨天、更早
     final sortedKeys = groupedLogs.keys.toList()
       ..sort((a, b) {
-        final order = {'今天': 0, '昨天': 1, '更早': 2};
+        final order = {AppLocalizations.of(context)!.today: 0, AppLocalizations.of(context)!.yesterday: 1, AppLocalizations.of(context)!.earlier: 2};
         return order[a]!.compareTo(order[b]!);
       });
     
@@ -390,27 +415,27 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
       case 'incoming':
         callIcon = Icons.phone;
         iconColor = Colors.green;
-        callTypeText = '已接通';
+        callTypeText = AppLocalizations.of(context)!.callTypeAnswered;
         break;
       case 'outgoing':
         callIcon = Icons.call_made;
         iconColor = Colors.blue;
-        callTypeText = '已拨出';
+        callTypeText = AppLocalizations.of(context)!.callTypeOutgoing;
         break;
       case 'missed':
         callIcon = Icons.phone_missed;
         iconColor = Colors.orange;
-        callTypeText = '未接来电';
+        callTypeText = AppLocalizations.of(context)!.callTypeMissed;
         break;
       case 'blocked':
         callIcon = Icons.block;
         iconColor = Colors.red;
-        callTypeText = '已拦截';
+        callTypeText = AppLocalizations.of(context)!.callTypeBlocked;
         break;
       default:
         callIcon = Icons.phone;
         iconColor = Colors.grey;
-        callTypeText = '未知';
+        callTypeText = AppLocalizations.of(context)!.callTypeUnknown;
     }
     
     return Padding(
@@ -444,7 +469,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: iconColor.withOpacity(0.1),
+                        color: iconColor.withValues(alpha:0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(callIcon, color: iconColor),
@@ -513,7 +538,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('按标签筛选'),
+        title: Text(AppLocalizations.of(context)!.filterByLabel),
         content: SizedBox(
           width: double.maxFinite,
           child: PublicSelectLabel(
@@ -530,7 +555,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           if (_selectedLabel != null)
             TextButton(
@@ -540,7 +565,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
                 });
                 Navigator.pop(context);
               },
-              child: const Text('清除筛选'),
+              child: Text(AppLocalizations.of(context)!.clearFilter),
             ),
         ],
       ),

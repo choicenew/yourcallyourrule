@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:yourcallyourrule/common/utils/hsv_color_picker.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class ColorPickerButton extends StatelessWidget {
   final Color color;
@@ -32,7 +33,7 @@ class ColorPickerButton extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('选择颜色'),
+        title: Text(AppLocalizations.of(context)!.colorPickerTitle),
         content: SingleChildScrollView(
           child: HSVColorPicker(
             pickerColor: color,
@@ -42,7 +43,7 @@ class ColorPickerButton extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('确定'),
+            child: Text(AppLocalizations.of(context)!.confirm),
           ),
         ],
       ),
