@@ -578,13 +578,67 @@ class AppLocalizationsEn extends AppLocalizations {
   String get callFilterSettings => 'Call Filter Settings';
 
   @override
-  String get addName => 'Add Name';
+  String get fraudScamLikely => 'Fraud/Scam Likely';
 
   @override
-  String get enterName => 'Enter contact name';
+  String get spamLikely => 'Spam Likely';
 
   @override
-  String get save => 'Save';
+  String get telemarketing => 'Telemarketing';
+
+  @override
+  String get robocall => 'Robocall';
+
+  @override
+  String get delivery => 'Delivery';
+
+  @override
+  String get takeaway => 'Takeaway';
+
+  @override
+  String get ridesharing => 'Ridesharing';
+
+  @override
+  String get insurance => 'Insurance';
+
+  @override
+  String get loan => 'Loan';
+
+  @override
+  String get customerService => 'Customer Service';
+
+  @override
+  String get financial => 'Financial';
+
+  @override
+  String get bank => 'Bank';
+
+  @override
+  String get education => 'Education';
+
+  @override
+  String get medical => 'Medical';
+
+  @override
+  String get charity => 'Charity';
+
+  @override
+  String get other => 'Other';
+
+  @override
+  String get collection => 'Debt Collection';
+
+  @override
+  String get survey => 'Survey';
+
+  @override
+  String get political => 'Political';
+
+  @override
+  String get ecommerce => 'E-commerce';
+
+  @override
+  String get risk => 'Risk';
 
   @override
   String get enhancedFilterSettings => 'Enhanced Filter Settings';
@@ -877,6 +931,24 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get unknown => 'Unknown';
+
+  @override
+  String nameLabel(Object name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String callerIdMarkedByCount(Object count) {
+    return 'Marked by $count';
+  }
+
+  @override
+  String simInfo(Object slotNumber, Object countryIso) {
+    return 'SIM $slotNumber - $countryIso';
+  }
+
+  @override
   String get simRuleManagement => 'SIM Slot Rule Management';
 
   @override
@@ -963,6 +1035,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unassignedSIMCard => 'Unnamed SIM Card';
+
+  @override
+  String get addName => 'Add Name';
+
+  @override
+  String get enterName => 'Enter contact name';
+
+  @override
+  String get save => 'Save';
 
   @override
   String dataLoadFailure(Object error) {

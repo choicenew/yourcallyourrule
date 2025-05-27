@@ -186,21 +186,42 @@
   "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeVoicemail": "Voicemail",
   "phoneNumberTypeUnknown": "Unknown",
-  "regexTesterTitle": "Regex Tester",
-  "phoneNumberLabel": "Phone Number",
-  "regexPatternLabel": "Regex Pattern",
-  "ruleNameLabel": "Rule Name",
+ 
+ 
+ 
+ 
   "testButtonLabel": "TEST",
   "saveButtonLabel": "SAVE",
   "matchSuccessfulMessage": "Match successful!",
-  "matchFailedMessage": "Match failed!",
-  "regexError": "Regex error: {error}",
+  
+  
   "ruleSaveSuccess": "Rule saved successfully!",
   "ruleSaveFailed": "Save failed: {error}",
   "ruleNamePatternRequired": "Please enter rule name and pattern",
   "phoneNumberRegexRequired": "Please enter both phone number and regex pattern",
   "callFilterSettings": "Call Filter Settings",
 
+  "fraudScamLikely": "Fraud/Scam Likely",
+  "spamLikely": "Spam Likely",
+  "telemarketing": "Telemarketing",
+  "robocall": "Robocall",
+  "delivery": "Delivery",
+  "takeaway": "Takeaway",
+  "ridesharing": "Ridesharing",
+  "insurance": "Insurance",
+  "loan": "Loan",
+  "customerService": "Customer Service",
+  "financial": "Financial",
+  "bank": "Bank",
+  "education": "Education",
+  "medical": "Medical",
+  "charity": "Charity",
+  "other": "Other",
+  "collection": "Debt Collection",
+  "survey": "Survey",
+  "political": "Political",
+  "ecommerce": "E-commerce",
+  "risk": "Risk",
 
 
   "enhancedFilterSettings": "Enhanced Filter Settings",
@@ -272,8 +293,8 @@
     }
   },
   "unknownTag": "Tag: Unknown",
-  "regexTesterTitle": "Regex Tester",
-  "phoneNumberLabel": "Phone Number",
+ 
+ 
   "regexPatternLabel": "Regex Pattern",
   "ruleNameLabel": "Rule Name",
   "testButton": "TEST",
@@ -347,6 +368,32 @@
     "description": "Title for features list section"
   },
   "simCard": "SIM Card {simNumber}",
+  "unknown": "Unknown",
+  "nameLabel": "Name: {name}",
+  "callerIdMarkedByCount": "Marked by {count}",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "@simInfo": {
+    "description": "SIM卡信息显示",
+    "placeholders": {
+      "slotNumber": {},
+      "countryIso": {}
+    }
+  },
   "simRuleManagement": "SIM Slot Rule Management",
   "simSlotOperationFailed": "SIM slot operation failed: {error}",
   "simSlotLoadFailed": "Failed to load SIM slots: {error}",

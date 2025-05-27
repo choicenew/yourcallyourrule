@@ -1,0 +1,107 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+/// 标签翻译工具类
+/// 提供统一的标签翻译方法，支持通过标签文本或标签ID进行翻译
+/// 对于自定义标签（非预设标签），将返回原始文本
+class LabelTranslationUtils {
+  /// 根据标签文本获取翻译后的文本
+  /// 如果没有对应的翻译，则返回原始文本
+  static String translateLabelText(BuildContext context, String labelText) {
+    return labelText.translate(context);
+  }
+  
+  /// 根据标签ID获取翻译后的文本
+  /// 如果标签不存在，返回null
+  /// 如果没有对应的翻译，则返回原始标签文本
+  static Future<String?> translateLabelById(BuildContext context, String labelId) async {
+    // 直接从PredefinedLabelService获取标签文本
+    final predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
+    final labelText = await predefinedLabelService.getLabelTextAsync(labelId);
+    if (labelText == null) return null;
+    
+    // 然后翻译标签文本，如果没有翻译则返回原始文本
+    return translateLabelText(context, labelText);
+  }
+  
+  /// 根据多个标签ID获取翻译后的文本列表
+  /// 返回翻译后的文本列表，如果某个标签不存在，对应位置为null
+  /// 如果某个标签没有对应的翻译，则返回原始标签文本
+  static Future<List<String?>> translateMultipleLabelsById(BuildContext context, List<String> labelIds) async {
+    // 直接从PredefinedLabelService获取所有标签文本
+    final predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
+    final labelTexts = await Future.wait(
+      labelIds.map((labelId) => predefinedLabelService.getLabelTextAsync(labelId)).toList()
+    );
+    
+    // 然后翻译每个标签文本，如果没有翻译则返回原始文本
+    return labelTexts.map((text) => text != null ? translateLabelText(context, text) : null).toList();
+  }
+}
+
+/// 标签翻译扩展
+/// 从 public_select_label.dart 移植过来，使其可以在整个应用中使用
+extension LabelTranslationExtension on String {
+  String translate(BuildContext context) {
+    // 使用AppLocalizations进行标签翻译
+    // 这种方式比使用硬编码的映射更加灵活和可维护
+    final appLocalizations = AppLocalizations.of(context);
+    if (appLocalizations == null) return this;
+    
+    // 将标签文本转换为小写并移除空格，以便匹配属性名
+    final normalizedLabel = toLowerCase().replaceAll(' ', '');
+    
+    // 使用switch语句匹配常见标签
+    switch (normalizedLabel) {
+      case 'fraudscamlikely':
+        return appLocalizations.fraudScamLikely;
+      case 'spamlikely':
+        return appLocalizations.spamLikely;
+      case 'telemarketing':
+        return appLocalizations.telemarketing;
+      case 'robocall':
+        return appLocalizations.robocall;
+      case 'delivery':
+        return appLocalizations.delivery;
+      case 'takeaway':
+        return appLocalizations.takeaway;
+      case 'ridesharing':
+        return appLocalizations.ridesharing;
+      case 'insurance':
+        return appLocalizations.insurance;
+      case 'loan':
+        return appLocalizations.loan;
+      case 'customerservice':
+        return appLocalizations.customerService;
+      case 'unknown':
+        return appLocalizations.unknown;
+      case 'financial':
+        return appLocalizations.financial;
+      case 'bank':
+        return appLocalizations.bank;
+      case 'education':
+        return appLocalizations.education;
+      case 'medical':
+        return appLocalizations.medical;
+      case 'charity':
+        return appLocalizations.charity;
+      case 'other':
+        return appLocalizations.other;
+      case 'debtcollection':
+      case 'collection':
+        return appLocalizations.collection;
+      case 'survey':
+        return appLocalizations.survey;
+      case 'political':
+        return appLocalizations.political;
+      case 'ecommerce':
+        return appLocalizations.ecommerce;
+      case 'risk':
+        return appLocalizations.risk;
+      default:
+        return this;
+    }
+  }
+}

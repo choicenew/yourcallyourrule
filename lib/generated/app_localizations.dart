@@ -1167,23 +1167,131 @@ abstract class AppLocalizations {
   /// **'Call Filter Settings'**
   String get callFilterSettings;
 
-  /// No description provided for @addName.
+  /// No description provided for @fraudScamLikely.
   ///
   /// In en, this message translates to:
-  /// **'Add Name'**
-  String get addName;
+  /// **'Fraud/Scam Likely'**
+  String get fraudScamLikely;
 
-  /// No description provided for @enterName.
+  /// No description provided for @spamLikely.
   ///
   /// In en, this message translates to:
-  /// **'Enter contact name'**
-  String get enterName;
+  /// **'Spam Likely'**
+  String get spamLikely;
 
-  /// No description provided for @save.
+  /// No description provided for @telemarketing.
   ///
   /// In en, this message translates to:
-  /// **'Save'**
-  String get save;
+  /// **'Telemarketing'**
+  String get telemarketing;
+
+  /// No description provided for @robocall.
+  ///
+  /// In en, this message translates to:
+  /// **'Robocall'**
+  String get robocall;
+
+  /// No description provided for @delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery'**
+  String get delivery;
+
+  /// No description provided for @takeaway.
+  ///
+  /// In en, this message translates to:
+  /// **'Takeaway'**
+  String get takeaway;
+
+  /// No description provided for @ridesharing.
+  ///
+  /// In en, this message translates to:
+  /// **'Ridesharing'**
+  String get ridesharing;
+
+  /// No description provided for @insurance.
+  ///
+  /// In en, this message translates to:
+  /// **'Insurance'**
+  String get insurance;
+
+  /// No description provided for @loan.
+  ///
+  /// In en, this message translates to:
+  /// **'Loan'**
+  String get loan;
+
+  /// No description provided for @customerService.
+  ///
+  /// In en, this message translates to:
+  /// **'Customer Service'**
+  String get customerService;
+
+  /// No description provided for @financial.
+  ///
+  /// In en, this message translates to:
+  /// **'Financial'**
+  String get financial;
+
+  /// No description provided for @bank.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank'**
+  String get bank;
+
+  /// No description provided for @education.
+  ///
+  /// In en, this message translates to:
+  /// **'Education'**
+  String get education;
+
+  /// No description provided for @medical.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical'**
+  String get medical;
+
+  /// No description provided for @charity.
+  ///
+  /// In en, this message translates to:
+  /// **'Charity'**
+  String get charity;
+
+  /// No description provided for @other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
+
+  /// No description provided for @collection.
+  ///
+  /// In en, this message translates to:
+  /// **'Debt Collection'**
+  String get collection;
+
+  /// No description provided for @survey.
+  ///
+  /// In en, this message translates to:
+  /// **'Survey'**
+  String get survey;
+
+  /// No description provided for @political.
+  ///
+  /// In en, this message translates to:
+  /// **'Political'**
+  String get political;
+
+  /// No description provided for @ecommerce.
+  ///
+  /// In en, this message translates to:
+  /// **'E-commerce'**
+  String get ecommerce;
+
+  /// No description provided for @risk.
+  ///
+  /// In en, this message translates to:
+  /// **'Risk'**
+  String get risk;
 
   /// Enhanced filter settings page title
   ///
@@ -1725,6 +1833,30 @@ abstract class AppLocalizations {
   /// **'SIM Card {simNumber}'**
   String simCard(Object simNumber);
 
+  /// Display text for unknown status
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get unknown;
+
+  /// Caller ID name label
+  ///
+  /// In en, this message translates to:
+  /// **'Name: {name}'**
+  String nameLabel(Object name);
+
+  /// Mark count display
+  ///
+  /// In en, this message translates to:
+  /// **'Marked by {count}'**
+  String callerIdMarkedByCount(Object count);
+
+  /// SIM卡信息显示
+  ///
+  /// In en, this message translates to:
+  /// **'SIM {slotNumber} - {countryIso}'**
+  String simInfo(Object slotNumber, Object countryIso);
+
   /// SIM slot rule management section title
   ///
   /// In en, this message translates to:
@@ -1868,6 +2000,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unnamed SIM Card'**
   String get unassignedSIMCard;
+
+  /// No description provided for @addName.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Name'**
+  String get addName;
+
+  /// No description provided for @enterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter contact name'**
+  String get enterName;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 
   /// Data loading failure message
   ///
