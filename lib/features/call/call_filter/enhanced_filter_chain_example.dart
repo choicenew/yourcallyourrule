@@ -2,7 +2,7 @@
 
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';

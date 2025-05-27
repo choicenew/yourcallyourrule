@@ -14,7 +14,8 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
   static Database? _database;
 
   // 数据库版本
-  static const int _version = 1;
+  // 数据库版本
+  static const int _version = 2;
 
   // 数据库名称
   static const String _databaseName = 'local_database.db';
@@ -76,7 +77,8 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         simInfo TEXT,
         note TEXT,
         isMarked INTEGER NOT NULL DEFAULT 0,
-        labelIds TEXT
+        labelIds TEXT,
+        name TEXT
       )
     ''');
 
@@ -145,15 +147,6 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建SMS规则表
     await db.execute('''
-      CREATE TABLE locations (
-        id TEXT PRIMARY KEY,
-        latitude REAL NOT NULL,
-        longitude REAL NOT NULL,
-        accuracy REAL,
-        timestamp TEXT NOT NULL,
-        source TEXT
-      );
-
       CREATE TABLE IF NOT EXISTS sms_rules (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,

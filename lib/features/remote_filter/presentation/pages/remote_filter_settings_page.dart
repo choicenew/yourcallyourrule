@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_config.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/widgets/remote_filter_settings_widget.dart';
@@ -24,10 +25,12 @@ class RemoteFilterSettingsPage extends StatefulWidget {
 
 class RemoteFilterSettingsPageState extends State<RemoteFilterSettingsPage> {
   // 配置参数
-  bool _isEnabled = true;
-  bool _useCloudDatabase = true;
-  bool _useCommunityReports = true;
-  int _minimumReportCount = 5;
+  bool _enableRemoteNumberFilter = true;
+  int _countThreshold = 5;
+  bool _rejectExceededNumbers = true;
+  bool _allowNonExceededNumbers = false;
+  bool _prioritizeRemoteAction = true;
+  bool _logAllRemoteQueries = true;
   bool _isLoading = false;
 
   @override
@@ -43,15 +46,18 @@ class RemoteFilterSettingsPageState extends State<RemoteFilterSettingsPage> {
     });
 
     try {
-      final configMap = await widget.configRepository.getConfig('remote_filter_settings');
-      if (configMap != null) {
-        setState(() {
-          _isEnabled = configMap['isEnabled'] ?? true;
-          _useCloudDatabase = configMap['useCloudDatabase'] ?? true;
-          _useCommunityReports = configMap['useCommunityReports'] ?? true;
-          _minimumReportCount = configMap['minimumReportCount'] ?? 5;
-        });
-      }
+      // 从过滤服务加载配置
+      await widget.remoteNumberFilterService.loadConfig();
+      final config = widget.remoteNumberFilterService.remoteNumberFilterConfig;
+      
+      setState(() {
+        _enableRemoteNumberFilter = config.enableRemoteNumberFilter;
+        _countThreshold = config.countThreshold;
+        _rejectExceededNumbers = config.rejectExceededNumbers;
+        _allowNonExceededNumbers = config.allowNonExceededNumbers;
+        _prioritizeRemoteAction = config.prioritizeRemoteAction;
+        _logAllRemoteQueries = config.logAllRemoteQueries;
+      });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('加载设置失败: $e')),
@@ -70,15 +76,18 @@ class RemoteFilterSettingsPageState extends State<RemoteFilterSettingsPage> {
     });
 
     try {
-      final configMap = {
-        'isEnabled': _isEnabled,
-        'useCloudDatabase': _useCloudDatabase,
-        'useCommunityReports': _useCommunityReports,
-        'minimumReportCount': _minimumReportCount,
-      };
+      // 创建新的配置对象
+      final newConfig = RemoteNumberFilterConfig(
+        enableRemoteNumberFilter: _enableRemoteNumberFilter,
+        countThreshold: _countThreshold,
+        rejectExceededNumbers: _rejectExceededNumbers,
+        allowNonExceededNumbers: _allowNonExceededNumbers,
+        prioritizeRemoteAction: _prioritizeRemoteAction,
+        logAllRemoteQueries: _logAllRemoteQueries,
+      );
 
-      await widget.configRepository.saveConfig('remote_filter_settings', configMap);
-      await widget.remoteNumberFilterService.initialize(); // 重新初始化服务以应用新设置
+      // 更新过滤服务的配置
+      await widget.remoteNumberFilterService.updateConfig(newConfig);
       
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('设置已保存')),
@@ -126,29 +135,41 @@ class RemoteFilterSettingsPageState extends State<RemoteFilterSettingsPage> {
               children: [
                 // 使用提取的组件
                 RemoteFilterSettingsWidget(
-                  isEnabled: _isEnabled,
-                  useCloudDatabase: _useCloudDatabase,
-                  useCommunityReports: _useCommunityReports,
-                  minimumReportCount: _minimumReportCount,
+                  enableRemoteNumberFilter: _enableRemoteNumberFilter,
+                  countThreshold: _countThreshold,
+                  rejectExceededNumbers: _rejectExceededNumbers,
+                  allowNonExceededNumbers: _allowNonExceededNumbers,
+                  prioritizeRemoteAction: _prioritizeRemoteAction,
+                  logAllRemoteQueries: _logAllRemoteQueries,
                   isLoading: _isLoading,
-                  onEnabledChanged: (value) {
+                  onEnableRemoteNumberFilterChanged: (value) {
                     setState(() {
-                      _isEnabled = value;
+                      _enableRemoteNumberFilter = value;
                     });
                   },
-                  onUseCloudDatabaseChanged: (value) {
+                  onCountThresholdChanged: (value) {
                     setState(() {
-                      _useCloudDatabase = value;
+                      _countThreshold = value;
                     });
                   },
-                  onUseCommunityReportsChanged: (value) {
+                  onRejectExceededNumbersChanged: (value) {
                     setState(() {
-                      _useCommunityReports = value;
+                      _rejectExceededNumbers = value;
                     });
                   },
-                  onMinimumReportCountChanged: (value) {
+                  onAllowNonExceededNumbersChanged: (value) {
                     setState(() {
-                      _minimumReportCount = value;
+                      _allowNonExceededNumbers = value;
+                    });
+                  },
+                  onPrioritizeRemoteActionChanged: (value) {
+                    setState(() {
+                      _prioritizeRemoteAction = value;
+                    });
+                  },
+                  onLogAllRemoteQueriesChanged: (value) {
+                    setState(() {
+                      _logAllRemoteQueries = value;
                     });
                   },
                 ),

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 class PurchaseState extends ChangeNotifier {
   bool _isPurchasesEnabled = false;

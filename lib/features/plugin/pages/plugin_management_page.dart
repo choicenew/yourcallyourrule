@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 
 class PluginManagementPage extends StatefulWidget {
-  const PluginManagementPage({Key? key}) : super(key: key);
+  const PluginManagementPage({super.key});
 
   @override
   State<PluginManagementPage> createState() => _PluginManagementPageState();
@@ -342,7 +342,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                   children: [
                     _buildPluginStatusCard(),
                     const SizedBox(height: 16),
-                    ..._plugins.map(_buildPluginCard).toList(),
+                    ..._plugins.map(_buildPluginCard),
                   ],
                 ),
     );

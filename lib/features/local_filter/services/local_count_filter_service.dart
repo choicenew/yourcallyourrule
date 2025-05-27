@@ -4,7 +4,7 @@ import 'dart:async';
 
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_config.dart';

@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/cloud_sync/services/local_storage_service.dart'
 import 'package:yourcallyourrule/cloud_sync/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/data/database/database_manager.dart';
 import 'package:yourcallyourrule/data/database/local/local_database_manager.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 
 

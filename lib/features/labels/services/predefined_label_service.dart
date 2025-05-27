@@ -5,6 +5,8 @@ import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart
 import 'package:yourcallyourrule/core/repositories/predefined_label_repository.dart';
 
 /// 预定义标签服务类
+/// 负责创建和管理预定义标签
+/// 最好使用通用的导入导出服务 [RuleImportExportService或者UniversalImportExportService] 来实现导入和导出功能
 /// 负责创建和管理标签的基本属性（文本、图标、头像等）
 class PredefinedLabelService {
   final PredefinedLabelRepository _repository;

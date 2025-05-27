@@ -423,6 +423,486 @@ abstract class AppLocalizations {
   /// **'{axis} Position'**
   String axisPosition(Object axis);
 
+  /// No description provided for @regexErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex error: {error}'**
+  String regexErrorMessage(Object error);
+
+  /// No description provided for @addToRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Rules'**
+  String get addToRules;
+
+  /// No description provided for @addToAllowedRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Allowed Rules'**
+  String get addToAllowedRules;
+
+  /// No description provided for @addToBlockedRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Blocked Rules'**
+  String get addToBlockedRules;
+
+  /// No description provided for @addToWhitelist.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Whitelist'**
+  String get addToWhitelist;
+
+  /// No description provided for @addToBlacklist.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Blacklist'**
+  String get addToBlacklist;
+
+  /// No description provided for @addedToAllowedRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to Allowed Rules'**
+  String get addedToAllowedRules;
+
+  /// No description provided for @addedToBlockedRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to Blocked Rules'**
+  String get addedToBlockedRules;
+
+  /// No description provided for @addedToWhitelist.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to Whitelist'**
+  String get addedToWhitelist;
+
+  /// No description provided for @addedToBlacklist.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to Blacklist'**
+  String get addedToBlacklist;
+
+  /// No description provided for @addRuleFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to add rule'**
+  String get addRuleFailed;
+
+  /// No description provided for @enterBothPhoneNumberAndRegexPatternMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter both phone number and regex pattern'**
+  String get enterBothPhoneNumberAndRegexPatternMessage;
+
+  /// No description provided for @enterRuleNameAndPatternMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter rule name and pattern'**
+  String get enterRuleNameAndPatternMessage;
+
+  /// No description provided for @ruleSavedSuccessMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule saved successfully!'**
+  String get ruleSavedSuccessMessage;
+
+  /// No description provided for @ruleSaveFailedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Save failed: {error}'**
+  String ruleSaveFailedMessage(Object error);
+
+  /// No description provided for @regexTesterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Tester'**
+  String get regexTesterTitle;
+
+  /// No description provided for @enterPhoneNumberHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter phone number to test'**
+  String get enterPhoneNumberHint;
+
+  /// No description provided for @enterRegexHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter regular expression'**
+  String get enterRegexHint;
+
+  /// No description provided for @enterRuleNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter name for this rule'**
+  String get enterRuleNameHint;
+
+  /// No description provided for @testButtonText.
+  ///
+  /// In en, this message translates to:
+  /// **'TEST'**
+  String get testButtonText;
+
+  /// No description provided for @saveButtonText.
+  ///
+  /// In en, this message translates to:
+  /// **'SAVE'**
+  String get saveButtonText;
+
+  /// No description provided for @startColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Color'**
+  String get startColor;
+
+  /// No description provided for @endColor.
+  ///
+  /// In en, this message translates to:
+  /// **'End Color'**
+  String get endColor;
+
+  /// No description provided for @height.
+  ///
+  /// In en, this message translates to:
+  /// **'Height'**
+  String get height;
+
+  /// No description provided for @width.
+  ///
+  /// In en, this message translates to:
+  /// **'Width'**
+  String get width;
+
+  /// No description provided for @labelIconColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Label Icon Color'**
+  String get labelIconColor;
+
+  /// No description provided for @locationIconColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Icon Color'**
+  String get locationIconColor;
+
+  /// No description provided for @callTypeIconColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Type Icon Color'**
+  String get callTypeIconColor;
+
+  /// No description provided for @avatarBorderColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Border Color'**
+  String get avatarBorderColor;
+
+  /// No description provided for @nameColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Name Color'**
+  String get nameColor;
+
+  /// No description provided for @numberColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Number Color'**
+  String get numberColor;
+
+  /// No description provided for @locationColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Color'**
+  String get locationColor;
+
+  /// No description provided for @carrierColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Carrier Color'**
+  String get carrierColor;
+
+  /// No description provided for @countryNameColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Country Name Color'**
+  String get countryNameColor;
+
+  /// No description provided for @labelsColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Labels Color'**
+  String get labelsColor;
+
+  /// No description provided for @countColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Count Color'**
+  String get countColor;
+
+  /// No description provided for @numberTypeColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Number Type Color'**
+  String get numberTypeColor;
+
+  /// No description provided for @stirColor.
+  ///
+  /// In en, this message translates to:
+  /// **'STIR Color'**
+  String get stirColor;
+
+  /// No description provided for @simCardColor.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Card Color'**
+  String get simCardColor;
+
+  /// No description provided for @nameFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Name Font Size'**
+  String get nameFontSize;
+
+  /// No description provided for @carrierFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Carrier Font Size'**
+  String get carrierFontSize;
+
+  /// No description provided for @countryNameFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Country Name Font Size'**
+  String get countryNameFontSize;
+
+  /// No description provided for @labelsFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Labels Font Size'**
+  String get labelsFontSize;
+
+  /// No description provided for @countFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Count Font Size'**
+  String get countFontSize;
+
+  /// No description provided for @numberTypeFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Number Type Font Size'**
+  String get numberTypeFontSize;
+
+  /// No description provided for @numberFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Number Font Size'**
+  String get numberFontSize;
+
+  /// No description provided for @locationFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Font Size'**
+  String get locationFontSize;
+
+  /// No description provided for @stirFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'STIR Font Size'**
+  String get stirFontSize;
+
+  /// No description provided for @simCardFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Card Font Size'**
+  String get simCardFontSize;
+
+  /// No description provided for @labelsPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Labels Position'**
+  String get labelsPosition;
+
+  /// No description provided for @countPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Count Position'**
+  String get countPosition;
+
+  /// No description provided for @subscriptionManagementTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription Management'**
+  String get subscriptionManagementTitle;
+
+  /// No description provided for @subscriptionEmptyState.
+  ///
+  /// In en, this message translates to:
+  /// **'No subscriptions available'**
+  String get subscriptionEmptyState;
+
+  /// No description provided for @subscriptionLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load subscriptions: {error}'**
+  String subscriptionLoadFailed(Object error);
+
+  /// No description provided for @subscriptionToggleFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to toggle subscription status: {error}'**
+  String subscriptionToggleFailed(Object error);
+
+  /// No description provided for @contactsPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Contacts Management'**
+  String get contactsPageTitle;
+
+  /// No description provided for @contactsLoadingFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load contacts: {error}'**
+  String contactsLoadingFailed(Object error);
+
+  /// No description provided for @contactSubscriptionPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Subscriptions'**
+  String get contactSubscriptionPageTitle;
+
+  /// No description provided for @contactSubscriptionLoadingFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load contact subscriptions: {error}'**
+  String contactSubscriptionLoadingFailed(Object error);
+
+  /// No description provided for @subscriptionPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription Management'**
+  String get subscriptionPageTitle;
+
+  /// No description provided for @subscriptionEmptyText.
+  ///
+  /// In en, this message translates to:
+  /// **'No subscriptions yet'**
+  String get subscriptionEmptyText;
+
+  /// No description provided for @subscriptionLoadingFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load subscriptions: {error}'**
+  String subscriptionLoadingFailed(Object error);
+
+  /// No description provided for @homeTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get homeTab;
+
+  /// No description provided for @callHistoryTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Call History'**
+  String get callHistoryTab;
+
+  /// No description provided for @contactsTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Contacts'**
+  String get contactsTab;
+
+  /// No description provided for @dashboardTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get dashboardTab;
+
+  /// No description provided for @settingsTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTab;
+
+  /// No description provided for @numberTypePosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Number Type Position'**
+  String get numberTypePosition;
+
+  /// No description provided for @numberPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Number Position'**
+  String get numberPosition;
+
+  /// No description provided for @locationPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Position'**
+  String get locationPosition;
+
+  /// No description provided for @stirPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'STIR Position'**
+  String get stirPosition;
+
+  /// No description provided for @simCardPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Card Position'**
+  String get simCardPosition;
+
+  /// No description provided for @callTypePosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Type Position'**
+  String get callTypePosition;
+
+  /// No description provided for @avatarSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Size'**
+  String get avatarSize;
+
+  /// No description provided for @avatarBorderSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Border Size'**
+  String get avatarBorderSize;
+
+  /// No description provided for @iconSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Icon Size'**
+  String get iconSize;
+
+  /// No description provided for @avatarPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Position'**
+  String get avatarPosition;
+
+  /// No description provided for @namePosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Name Position'**
+  String get namePosition;
+
+  /// No description provided for @carrierPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Carrier Position'**
+  String get carrierPosition;
+
+  /// No description provided for @countryRegionNamePosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Country/Region Name Position'**
+  String get countryRegionNamePosition;
+
   /// No description provided for @colorPickerTitle.
   ///
   /// In en, this message translates to:
@@ -609,11 +1089,101 @@ abstract class AppLocalizations {
   /// **'Unknown'**
   String get phoneNumberTypeUnknown;
 
+  /// No description provided for @phoneNumberLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number *'**
+  String get phoneNumberLabel;
+
+  /// No description provided for @regexPatternLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Pattern'**
+  String get regexPatternLabel;
+
+  /// No description provided for @ruleNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Name'**
+  String get ruleNameLabel;
+
+  /// No description provided for @testButtonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'TEST'**
+  String get testButtonLabel;
+
+  /// No description provided for @saveButtonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'SAVE'**
+  String get saveButtonLabel;
+
+  /// No description provided for @matchSuccessfulMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Match successful!'**
+  String get matchSuccessfulMessage;
+
+  /// No description provided for @matchFailedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Match failed!'**
+  String get matchFailedMessage;
+
+  /// No description provided for @regexError.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex error: {error}'**
+  String regexError(Object error);
+
+  /// No description provided for @ruleSaveSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule saved successfully!'**
+  String get ruleSaveSuccess;
+
+  /// No description provided for @ruleSaveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Save failed: {error}'**
+  String ruleSaveFailed(Object error);
+
+  /// No description provided for @ruleNamePatternRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter rule name and pattern'**
+  String get ruleNamePatternRequired;
+
+  /// No description provided for @phoneNumberRegexRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter both phone number and regex pattern'**
+  String get phoneNumberRegexRequired;
+
   /// No description provided for @callFilterSettings.
   ///
   /// In en, this message translates to:
   /// **'Call Filter Settings'**
   String get callFilterSettings;
+
+  /// No description provided for @addName.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Name'**
+  String get addName;
+
+  /// No description provided for @enterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter contact name'**
+  String get enterName;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 
   /// Enhanced filter settings page title
   ///
@@ -987,11 +1557,53 @@ abstract class AppLocalizations {
   /// **'Tag: Unknown'**
   String get unknownTag;
 
-  /// No description provided for @phoneNumberLabel.
+  /// No description provided for @testButton.
   ///
   /// In en, this message translates to:
-  /// **'Phone Number *'**
-  String get phoneNumberLabel;
+  /// **'TEST'**
+  String get testButton;
+
+  /// No description provided for @saveButton.
+  ///
+  /// In en, this message translates to:
+  /// **'SAVE'**
+  String get saveButton;
+
+  /// No description provided for @matchSuccessful.
+  ///
+  /// In en, this message translates to:
+  /// **'Match successful!'**
+  String get matchSuccessful;
+
+  /// No description provided for @matchFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Match failed!'**
+  String get matchFailed;
+
+  /// No description provided for @enterBothPhoneNumberAndRegexPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter both phone number and regex pattern'**
+  String get enterBothPhoneNumberAndRegexPattern;
+
+  /// No description provided for @enterRuleNameAndPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter rule name and pattern'**
+  String get enterRuleNameAndPattern;
+
+  /// No description provided for @ruleSavedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule saved successfully!'**
+  String get ruleSavedSuccessfully;
+
+  /// No description provided for @saveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Save failed: {error}'**
+  String saveFailed(Object error);
 
   /// No description provided for @phoneNumberHintText.
   ///
@@ -1418,6 +2030,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Week'**
   String get defaultPeriod;
+
+  /// Title for SIM slot selection dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Select SIM Slot'**
+  String get selectSimSlot;
+
+  /// Title for basic rule filter settings page
+  ///
+  /// In en, this message translates to:
+  /// **'Basic Rule Filter Settings'**
+  String get basicRuleFilterSettings;
+
+  /// Title for remote filter settings page
+  ///
+  /// In en, this message translates to:
+  /// **'Remote Filter Settings'**
+  String get remoteFilterSettings;
+
+  /// Title for local filter settings page
+  ///
+  /// In en, this message translates to:
+  /// **'Local Filter Settings'**
+  String get localFilterSettings;
+
+  /// Instructions for configuring global filter settings
+  ///
+  /// In en, this message translates to:
+  /// **'Configure global filter settings that apply to all SIM slots:'**
+  String get globalFilterToggleInstructions;
+
+  /// Title for SIM slot settings page
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Slot Settings'**
+  String get simSlotSettings;
+
+  /// Title for global settings page
+  ///
+  /// In en, this message translates to:
+  /// **'Global Settings'**
+  String get globalSettings;
+
+  /// Button text for updating call filter configuration
+  ///
+  /// In en, this message translates to:
+  /// **'Update Call Filter Configuration'**
+  String get updateCallFilterConfig;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -4,29 +4,37 @@ import 'package:flutter/material.dart';
 /// 用于配置远程号码过滤服务的相关参数
 class RemoteFilterSettingsWidget extends StatelessWidget {
   // 配置参数
-  final bool isEnabled;
-  final bool useCloudDatabase;
-  final bool useCommunityReports;
-  final int minimumReportCount;
+  final bool enableRemoteNumberFilter;
+  final int countThreshold;
+  final bool rejectExceededNumbers;
+  final bool allowNonExceededNumbers;
+  final bool prioritizeRemoteAction;
+  final bool logAllRemoteQueries;
   final bool isLoading;
   
   // 回调函数
-  final ValueChanged<bool> onEnabledChanged;
-  final ValueChanged<bool> onUseCloudDatabaseChanged;
-  final ValueChanged<bool> onUseCommunityReportsChanged;
-  final ValueChanged<int> onMinimumReportCountChanged;
+  final ValueChanged<bool> onEnableRemoteNumberFilterChanged;
+  final ValueChanged<int> onCountThresholdChanged;
+  final ValueChanged<bool> onRejectExceededNumbersChanged;
+  final ValueChanged<bool> onAllowNonExceededNumbersChanged;
+  final ValueChanged<bool> onPrioritizeRemoteActionChanged;
+  final ValueChanged<bool> onLogAllRemoteQueriesChanged;
 
   const RemoteFilterSettingsWidget({
     super.key,
-    required this.isEnabled,
-    required this.useCloudDatabase,
-    required this.useCommunityReports,
-    required this.minimumReportCount,
+    required this.enableRemoteNumberFilter,
+    required this.countThreshold,
+    required this.rejectExceededNumbers,
+    required this.allowNonExceededNumbers,
+    required this.prioritizeRemoteAction,
+    required this.logAllRemoteQueries,
     this.isLoading = false,
-    required this.onEnabledChanged,
-    required this.onUseCloudDatabaseChanged,
-    required this.onUseCommunityReportsChanged,
-    required this.onMinimumReportCountChanged,
+    required this.onEnableRemoteNumberFilterChanged,
+    required this.onCountThresholdChanged,
+    required this.onRejectExceededNumbersChanged,
+    required this.onAllowNonExceededNumbersChanged,
+    required this.onPrioritizeRemoteActionChanged,
+    required this.onLogAllRemoteQueriesChanged,
   });
 
   @override
@@ -35,9 +43,11 @@ class RemoteFilterSettingsWidget extends StatelessWidget {
       children: [
         _buildEnableSwitch(),
         const Divider(),
-        _buildCloudDatabaseSettings(),
+        _buildCountThresholdSettings(context),
         const Divider(),
-        _buildCommunityReportSettings(context),
+        _buildFilterActionSettings(),
+        const Divider(),
+        _buildAdvancedSettings(),
         const SizedBox(height: 32),
         _buildExplanationCard(),
       ],
@@ -48,62 +58,86 @@ class RemoteFilterSettingsWidget extends StatelessWidget {
   Widget _buildEnableSwitch() {
     return SwitchListTile(
       title: const Text('启用远程号码过滤'),
-      subtitle: const Text('使用云端数据库和社区举报识别骚扰电话'),
-      value: isEnabled,
-      onChanged: onEnabledChanged,
+      subtitle: const Text('使用远程数据库过滤号码'),
+      value: enableRemoteNumberFilter,
+      onChanged: onEnableRemoteNumberFilterChanged,
     );
   }
 
-  /// 构建云数据库设置
-  Widget _buildCloudDatabaseSettings() {
+  /// 构建计数阈值设置
+  Widget _buildCountThresholdSettings(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SwitchListTile(
-          title: const Text('使用云端数据库'),
-          subtitle: const Text('查询已知的骚扰电话号码数据库'),
-          value: useCloudDatabase,
-          onChanged: onUseCloudDatabaseChanged,
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text('计数阈值设置', 
+            style: Theme.of(context).textTheme.titleMedium),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('计数阈值: $countThreshold', 
+                style: Theme.of(context).textTheme.bodyLarge),
+              const SizedBox(height: 8),
+              Slider(
+                value: countThreshold.toDouble(),
+                min: 1,
+                max: 20,
+                divisions: 19,
+                label: countThreshold.toString(),
+                onChanged: (value) {
+                  onCountThresholdChanged(value.round());
+                },
+              ),
+              const Text('设置触发过滤动作所需的最小计数阈值'),
+            ],
+          ),
         ),
       ],
     );
   }
 
-  /// 构建社区举报设置
-  Widget _buildCommunityReportSettings(BuildContext context) {
+  /// 构建过滤动作设置
+  Widget _buildFilterActionSettings() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SwitchListTile(
-          title: const Text('使用社区举报'),
-          subtitle: const Text('根据其他用户的举报识别骚扰电话'),
-          value: useCommunityReports,
-          onChanged: onUseCommunityReportsChanged,
+          title: const Text('拒绝超过阈值的号码'),
+          subtitle: const Text('自动拒绝计数超过阈值的号码'),
+          value: rejectExceededNumbers,
+          onChanged: onRejectExceededNumbersChanged,
         ),
-        if (useCommunityReports) ...[  
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('最小举报次数: $minimumReportCount', 
-                  style: Theme.of(context).textTheme.titleMedium),
-                const SizedBox(height: 8),
-                Slider(
-                  value: minimumReportCount.toDouble(),
-                  min: 1,
-                  max: 20,
-                  divisions: 19,
-                  label: minimumReportCount.toString(),
-                  onChanged: (value) {
-                    onMinimumReportCountChanged(value.round());
-                  },
-                ),
-                const Text('设置将号码标记为骚扰电话所需的最小社区举报次数'),
-              ],
-            ),
-          ),
-        ],
+        SwitchListTile(
+          title: const Text('允许未超过阈值的号码'),
+          subtitle: const Text('自动允许计数未超过阈值的号码'),
+          value: allowNonExceededNumbers,
+          onChanged: onAllowNonExceededNumbersChanged,
+        ),
+      ],
+    );
+  }
+  
+  /// 构建高级设置
+  Widget _buildAdvancedSettings() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SwitchListTile(
+          title: const Text('优先使用远程动作设置'),
+          subtitle: const Text('优先考虑远程数据库中的动作设置'),
+          value: prioritizeRemoteAction,
+          onChanged: onPrioritizeRemoteActionChanged,
+        ),
+        SwitchListTile(
+          title: const Text('记录所有远程查询'),
+          subtitle: const Text('记录所有远程号码查询操作'),
+          value: logAllRemoteQueries,
+          onChanged: onLogAllRemoteQueriesChanged,
+        ),
       ],
     );
   }
@@ -120,14 +154,14 @@ class RemoteFilterSettingsWidget extends StatelessWidget {
             Text('远程号码过滤器说明', 
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
             SizedBox(height: 8),
-            Text('远程号码过滤器通过查询云端数据库和社区举报，识别和拦截已知的骚扰电话。'),
+            Text('远程号码过滤器通过查询远程数据库，基于号码计数来识别和拦截骚扰电话。'),
             SizedBox(height: 8),
             Text('功能特点：'),
-            Text('• 本地数据库：包含已知的骚扰电话号码'),
-            Text('• 社区举报：利用其他用户的举报信息'),
-            Text('• 定期更新：数据库定期更新以识别新的骚扰号码'),
+            Text('• 计数阈值：根据号码出现次数判断'),
+            Text('• 过滤动作：可配置对超过阈值号码的处理方式'),
+            Text('• 优先级设置：可设置远程动作的优先级'),
             SizedBox(height: 8),
-            Text('此过滤器使用本地数据库，无需实时网络连接。'),
+            Text('此过滤器使用独立远程数据库以获取最新的号码信息。'),
           ],
         ),
       ),

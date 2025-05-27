@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// 为IncrementalSyncManager提供配置存储功能的类
 class IncrementalSyncManagerConfig {

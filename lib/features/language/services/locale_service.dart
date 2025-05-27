@@ -1,5 +1,5 @@
 import 'package:yourcallyourrule/features/language/config/locale_config.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 class LocaleService {
   final ConfigRepository _configRepository;

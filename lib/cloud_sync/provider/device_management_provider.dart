@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/services/device_management_service.dart';
 import 'package:yourcallyourrule/cloud_sync/services/device_management_service_impl.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// Provider for config repository
 final configRepositoryProvider = Provider<ConfigRepository>((ref) {

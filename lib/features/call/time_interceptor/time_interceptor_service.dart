@@ -1,5 +1,5 @@
 import 'package:call_log/call_log.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'time_interceptor_config.dart';
 
 class TimeInterceptorService {

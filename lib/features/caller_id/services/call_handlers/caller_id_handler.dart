@@ -111,7 +111,7 @@ class CallHandler {
       simInfo: simInfoToUse,
     );
 
-    // 将 CallData 插入数据库或缓存
+    // 将 CallData 插入数据库或缓存或者calllog中
     await saveCallerIdDataToCache(phoneNumber, callData);
 
     // 返回 CallData 对象

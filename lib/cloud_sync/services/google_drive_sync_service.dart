@@ -6,7 +6,7 @@ import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'enhanced_cloud_sync_service.dart';
 import 'sync_conflict_resolver.dart';
 

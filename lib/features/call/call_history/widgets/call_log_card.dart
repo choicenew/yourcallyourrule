@@ -122,9 +122,27 @@ class CallLogCard extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            log.number,
-                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    log.name ?? log.number,
+                                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                // 如果没有名称，显示编辑按钮
+                                if (log.name == null)
+                                  IconButton(
+                                    icon: const Icon(Icons.edit, size: 16),
+                                    padding: EdgeInsets.zero,
+                                    constraints: const BoxConstraints(),
+                                    onPressed: () => _showNameEditDialog(context, log),
+                                    tooltip: AppLocalizations.of(context)?.addName ?? "添加名称",
+                                  ),
+                              ],
+                            ),
                           ),
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
@@ -140,6 +158,10 @@ class CallLogCard extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 4),
+                      Text(
+                        log.number, // 始终显示电话号码作为次要信息
+                        style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
                       Text(
                         formattedDate,
                         style: const TextStyle(fontSize: 12, color: Colors.grey),
@@ -193,7 +215,6 @@ class CallLogCard extends StatelessWidget {
       return null;
     }
     
-    // 使用LabelTextUtils工具类获取标签文本
     return await LabelTextUtils.getLabelTextFromCallLog(context, log);
   }
   
@@ -213,6 +234,45 @@ class CallLogCard extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (context) => LabelDialog(log: log),
+    );
+  }
+  
+  /// 显示名称编辑对话框
+  void _showNameEditDialog(BuildContext context, CallLog log) {
+    final TextEditingController nameController = TextEditingController();
+    final callLogService = Provider.of<CallLogService>(context, listen: false);
+    
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context)?.addName ?? "添加名称"),
+        content: TextField(
+          controller: nameController,
+          decoration: InputDecoration(
+            hintText: AppLocalizations.of(context)?.enterName ?? "输入联系人名称",
+            border: const OutlineInputBorder(),
+          ),
+          autofocus: true,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)?.cancel ?? "取消"),
+          ),
+          TextButton(
+            onPressed: () {
+              if (nameController.text.isNotEmpty) {
+                // 创建带有名称的新CallLog
+                final updatedLog = log.copyWith(name: nameController.text);
+                // 更新通话记录
+                callLogService.updateLog(updatedLog);
+                Navigator.pop(context);
+              }
+            },
+            child: Text(AppLocalizations.of(context)?.save ?? "保存"),
+          ),
+        ],
+      ),
     );
   }
 }

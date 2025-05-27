@@ -3,10 +3,11 @@ import 'dart:io';
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
 
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/cloud_sync/services/local_storage_service.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RuleImportExportService {
@@ -21,6 +22,7 @@ class RuleImportExportService {
   Future<File> exportRulePackage(String filePath, {
     bool includeRules = true,
     bool includeLabels = true,
+    bool includePredefinedLabels = true,
     bool includeLocations = true,
     bool includeConfigs = true,
     List<String>? configKeys,
@@ -35,6 +37,12 @@ class RuleImportExportService {
       package['labels'] = CloudDataConverter.serialize(await _storage.loadLabels());
     } else {
       package['labels'] = [];
+    }
+    
+    if (includePredefinedLabels) {
+      package['predefined_labels'] = CloudDataConverter.serialize(await _storage.loadPredefinedLabels());
+    } else {
+      package['predefined_labels'] = [];
     }
     
     if (includeLocations) {
@@ -55,6 +63,7 @@ class RuleImportExportService {
   Future<void> importRulePackage(File file, {
     bool importRules = true,
     bool importLabels = true,
+    bool importPredefinedLabels = true,
     bool importLocations = true,
     bool importConfigs = true,
     List<String>? configKeys,
@@ -67,6 +76,10 @@ class RuleImportExportService {
     
     if (importLabels && package.containsKey('labels')) {
       await _storage.saveLabels(_convertList<LabelPhoneEntry>(package['labels']));
+    }
+    
+    if (importPredefinedLabels && package.containsKey('predefined_labels')) {
+      await _storage.savePredefinedLabels(_convertList<PredefinedLabel>(package['predefined_labels']));
     }
     
     if (importLocations && package.containsKey('locations')) {

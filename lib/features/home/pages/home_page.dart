@@ -4,7 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
+import 'package:yourcallyourrule/features/home/widgets/filter_management_widget.dart';
+import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
+import 'package:yourcallyourrule/features/search/services/search_service.dart';
+import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 
 import '../models/home_stats_model.dart';
 import '../providers/home_stats_provider.dart';
@@ -20,17 +30,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _isSearchVisible = false;
   int _currentCardIndex = 0;
-  bool _isRuleManagementExpanded = false;
   final TextEditingController _searchController = TextEditingController();
   final PageController _pageController = PageController();
   Timer? _autoPlayTimer;
   int _currentIndex = 0; // 当前选中的底部导航项
+  List<SearchResult> _searchResults = [];
+  Timer? _searchDebounceTimer;
 
   @override
   void initState() {
     super.initState();
     _startAutoPlay();
-    
+
     // 加载真实数据
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<HomeStatsProvider>(context, listen: false).loadHomeStats();
@@ -42,7 +53,20 @@ class _HomePageState extends State<HomePage> {
     _searchController.dispose();
     _pageController.dispose();
     _autoPlayTimer?.cancel();
+    _searchDebounceTimer?.cancel();
     super.dispose();
+  }
+
+  void _performSearch(String query) async {
+    final searchService = Provider.of<SearchService>(context, listen: false);
+    try {
+      final results = await searchService.searchPhoneNumber(query);
+      setState(() {
+        _searchResults = results;
+      });
+    } catch (e) {
+      debugPrint('搜索出错: $e');
+    }
   }
 
   void _startAutoPlay() {
@@ -71,8 +95,26 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             _buildAppBar(),
-            Expanded(
-              child: SingleChildScrollView(
+            if (_isSearchVisible && _searchResults.isNotEmpty)
+              Expanded(
+                child: ListView.builder(
+                  itemCount: _searchResults.length,
+                  itemBuilder: (context, index) {
+                    final result = _searchResults[index];
+                    return ListTile(
+                      leading: Icon(_getIconForSearchResultType(result.type)),
+                      title: Text(result.name ?? result.phoneNumber),
+                      subtitle: Text(result.description ?? ''),
+                      onTap: () {
+                        // 处理搜索结果点击
+                      },
+                    );
+                  },
+                ),
+              )
+            else
+              Expanded(
+                child: SingleChildScrollView(
                 child: Column(
                   children: [
                     _buildCarouselCards(),
@@ -88,6 +130,27 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
+  }
+
+  IconData _getIconForSearchResultType(SearchResultType type) {
+    switch (type) {
+      case SearchResultType.contact:
+        return Icons.person;
+      case SearchResultType.label:
+        return Icons.label;
+      case SearchResultType.blacklist:
+        return Icons.block;
+      case SearchResultType.whitelist:
+        return Icons.check_circle;
+      case SearchResultType.allowed:
+        return Icons.check;
+      case SearchResultType.blocked:
+        return Icons.not_interested;
+      case SearchResultType.remoteNumber:
+        return Icons.phone;
+      case SearchResultType.notFound:
+        return Icons.help_outline;
+    }
   }
 
   Widget _buildBottomNavigationBar() {
@@ -116,17 +179,31 @@ class _HomePageState extends State<HomePage> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 16),
                       suffixIcon: IconButton(
                         icon: const Icon(Icons.close),
                         onPressed: () {
                           setState(() {
                             _isSearchVisible = false;
                             _searchController.clear();
+                            _searchResults.clear();
                           });
                         },
                       ),
                     ),
+                    onChanged: (value) {
+                      _searchDebounceTimer?.cancel();
+                      _searchDebounceTimer = Timer(const Duration(milliseconds: 500), () {
+                        if (value.isNotEmpty) {
+                          _performSearch(value);
+                        } else {
+                          setState(() {
+                            _searchResults.clear();
+                          });
+                        }
+                      });
+                    },
                   )
                 : Row(
                     children: [
@@ -147,10 +224,13 @@ class _HomePageState extends State<HomePage> {
                   ),
           ),
           IconButton(
-            icon: Icon(_isSearchVisible ? Icons.search : Icons.search),
+            icon: Icon(_isSearchVisible ? Icons.close : Icons.search),
             onPressed: () {
               setState(() {
                 _isSearchVisible = !_isSearchVisible;
+                if (!_isSearchVisible) {
+                  _searchController.clear();
+                }
               });
             },
           ),
@@ -181,21 +261,24 @@ class _HomePageState extends State<HomePage> {
           _buildCarouselCard(
             title: '来电拦截',
             description: '已拦截垃圾来电',
-            value: '${Provider.of<HomeStatsProvider>(context).stats.blockedCalls}',
+            value:
+                '${Provider.of<HomeStatsProvider>(context).stats.blockedCalls}',
             color: const Color(0xFFE57373),
             icon: Icons.call_end,
           ),
           _buildCarouselCard(
             title: '规则管理',
             description: '已创建规则',
-            value: '${Provider.of<HomeStatsProvider>(context).stats.totalRules}',
+            value:
+                '${Provider.of<HomeStatsProvider>(context).stats.totalRules}',
             color: const Color(0xFF64B5F6),
             icon: Icons.rule,
           ),
           _buildCarouselCard(
             title: '通话统计',
             description: '本月通话',
-            value: '${Provider.of<HomeStatsProvider>(context).stats.totalCalls}',
+            value:
+                '${Provider.of<HomeStatsProvider>(context).stats.totalCalls}',
             color: const Color(0xFF81C784),
             icon: Icons.insert_chart,
           ),
@@ -222,7 +305,7 @@ class _HomePageState extends State<HomePage> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [color.withValues(alpha:0.8), color],
+            colors: [color.withValues(alpha: 0.8), color],
           ),
         ),
         child: Column(
@@ -313,61 +396,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildRuleManagement() {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Column(
-        children: [
-          ListTile(
-            title: const Text(
-              '规则管理',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            trailing: IconButton(
-              icon: Icon(_isRuleManagementExpanded
-                  ? Icons.keyboard_arrow_up
-                  : Icons.keyboard_arrow_down),
-              onPressed: () {
-                setState(() {
-                  _isRuleManagementExpanded = !_isRuleManagementExpanded;
-                });
-              },
-            ),
-          ),
-          if (_isRuleManagementExpanded)
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  _buildRuleItem(
-                    title: '黑名单',
-                    icon: Icons.block,
-                    color: Colors.red,
-                    count: Provider.of<HomeStatsProvider>(context).stats.blacklistRules,
-                    onTap: () => context.push('/rules/blacklist'),
-                  ),
-                  const SizedBox(height: 16),
-                  _buildRuleItem(
-                    title: '白名单',
-                    icon: Icons.check_circle,
-                    color: Colors.green,
-                    count: Provider.of<HomeStatsProvider>(context).stats.whitelistRules,
-                    onTap: () => context.push('/rules/whitelist'),
-                  ),
-                  const SizedBox(height: 16),
-                  _buildRuleItem(
-                    title: '时间规则',
-                    icon: Icons.access_time,
-                    color: Colors.orange,
-                    count: Provider.of<HomeStatsProvider>(context).stats.timeRules,
-                    onTap: () => context.push('/rules/time'),
-                  ),
-                ],
-              ),
-            ),
-        ],
-      ),
-    );
+    // 使用新的FilterManagementWidget替代原有的规则管理UI
+    return const FilterManagementWidget();
   }
 
   Widget _buildRuleItem({
@@ -383,7 +413,7 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: color.withValues(alpha:0.1),
+          color: color.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -398,13 +428,66 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: color.withValues(alpha:0.2),
+                color: color.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
                 '$count',
                 style: TextStyle(color: color, fontWeight: FontWeight.bold),
               ),
+            ),
+            const SizedBox(width: 8),
+            const Icon(Icons.arrow_forward_ios, size: 16),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// 构建带开关的规则项
+  Widget _buildRuleItemWithSwitch({
+    required String title,
+    required IconData icon,
+    required Color color,
+    required int count,
+    required bool isEnabled,
+    required Function(bool) onToggle,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: color),
+            const SizedBox(width: 16),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            const Spacer(),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                '$count',
+                style: TextStyle(color: color, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Switch(
+              value: isEnabled,
+              onChanged: onToggle,
+              activeColor: color,
             ),
             const SizedBox(width: 8),
             const Icon(Icons.arrow_forward_ios, size: 16),
@@ -436,6 +519,46 @@ class _HomePageState extends State<HomePage> {
               crossAxisSpacing: 16,
               children: [
                 _buildFeatureItem(
+                  title: '标签管理',
+                  icon: Icons.label,
+                  onTap: () => context.push('/label-management'),
+                ),
+                _buildFeatureItem(
+                  title: '插件管理',
+                  icon: Icons.extension,
+                  onTap: () => context.push('/plugin-management'),
+                ),
+                _buildFeatureItem(
+                  title: '允许/阻止',
+                  icon: Icons.block,
+                  onTap: () => context.push('/allowed-blocked'),
+                ),
+                _buildFeatureItem(
+                  title: '黑白名单',
+                  icon: Icons.list,
+                  onTap: () => context.push('/blacklist-whitelist'),
+                ),
+                _buildFeatureItem(
+                  title: '正则规则',
+                  icon: Icons.code,
+                  onTap: () => context.push('/regex-rule'),
+                ),
+                _buildFeatureItem(
+                  title: '电话订阅',
+                  icon: Icons.phone_callback,
+                  onTap: () => context.push('/phone-subscription'),
+                ),
+                _buildFeatureItem(
+                  title: '短信订阅',
+                  icon: Icons.sms,
+                  onTap: () => context.push('/sms-subscription'),
+                ),
+                _buildFeatureItem(
+                  title: '短信管理',
+                  icon: Icons.message,
+                  onTap: () => context.push('/sms-management'),
+                ),
+                _buildFeatureItem(
                   title: '通话记录',
                   icon: Icons.call,
                   onTap: () => context.push('/call-logs'),
@@ -446,11 +569,6 @@ class _HomePageState extends State<HomePage> {
                   onTap: () => context.push('/contacts'),
                 ),
                 _buildFeatureItem(
-                  title: '短信',
-                  icon: Icons.message,
-                  onTap: () => context.push('/messages'),
-                ),
-                _buildFeatureItem(
                   title: '统计分析',
                   icon: Icons.bar_chart,
                   onTap: () => context.push('/statistics'),
@@ -459,11 +577,6 @@ class _HomePageState extends State<HomePage> {
                   title: '设置',
                   icon: Icons.settings,
                   onTap: () => context.push('/settings'),
-                ),
-                _buildFeatureItem(
-                  title: '更多',
-                  icon: Icons.more_horiz,
-                  onTap: () => context.push('/more'),
                 ),
               ],
             ),
@@ -483,7 +596,7 @@ class _HomePageState extends State<HomePage> {
       borderRadius: BorderRadius.circular(12),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey.withValues(alpha:0.1),
+          color: Colors.grey.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(

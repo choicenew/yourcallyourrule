@@ -3,6 +3,7 @@ import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
@@ -128,6 +129,26 @@ class LocalStorageService {
     final db = await _dbManager.database;
     final data = await db.query('labels');
     return data.map((json) => CloudDataConverter.deserialize<LabelPhoneEntry>(json)).toList();
+  }
+
+  Future<void> savePredefinedLabels(List<PredefinedLabel> labels) async {
+    final db = await _dbManager.database;
+    await db.transaction((txn) async {
+      await txn.delete('predefined_labels');
+      for (final label in labels) {
+        await txn.insert(
+          'predefined_labels',
+          CloudDataConverter.serialize(label),
+          conflictAlgorithm: ConflictAlgorithm.replace,
+        );
+      }
+    });
+  }
+
+  Future<List<PredefinedLabel>> loadPredefinedLabels() async {
+    final db = await _dbManager.database;
+    final data = await db.query('predefined_labels');
+    return data.map((json) => CloudDataConverter.deserialize<PredefinedLabel>(json)).toList();
   }
 
   Future<void> saveLocations(List<LocationEntry> locations) async {

@@ -3,7 +3,7 @@ import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/configuration_manager.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';

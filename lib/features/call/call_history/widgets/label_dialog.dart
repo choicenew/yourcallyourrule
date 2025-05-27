@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/features/labels/services/label_to_remote_sync_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class LabelDialog extends StatefulWidget {
   final CallLog log;
+  final Function? onLabelUpdated;
 
-  const LabelDialog({super.key, required this.log});
+  const LabelDialog({
+    super.key, 
+    required this.log, 
+    this.onLabelUpdated,
+  });
 
   @override
   State<LabelDialog> createState() => _LabelDialogState();
@@ -177,12 +184,20 @@ class _LabelDialogState extends State<LabelDialog> {
       // 更新通话记录
       await callLogService.updateLog(updatedLog);
       
+      // 同步到远程号码服务
+      await _syncLabelToRemote();
+      
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(AppLocalizations.of(context)!.labelRemoved)),
         );
         // 刷新状态
         setState(() {});
+        
+        // 调用回调函数
+        if (widget.onLabelUpdated != null) {
+          widget.onLabelUpdated!();
+        }
       }
     } catch (e) {
       if (mounted) {
@@ -201,6 +216,9 @@ class _LabelDialogState extends State<LabelDialog> {
       // 为通话记录添加标签
       await callLogService.addLabelToLog(widget.log, labelId);
       
+      // 同步到远程号码服务
+      await _syncLabelToRemote();
+      
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(AppLocalizations.of(context)!.labelUpdated)),
@@ -209,6 +227,11 @@ class _LabelDialogState extends State<LabelDialog> {
         setState(() {});
         // 关闭对话框
         Navigator.pop(context);
+        
+        // 调用回调函数
+        if (widget.onLabelUpdated != null) {
+          widget.onLabelUpdated!();
+        }
       }
     } catch (e) {
       if (mounted) {
@@ -216,6 +239,18 @@ class _LabelDialogState extends State<LabelDialog> {
           SnackBar(content: Text(AppLocalizations.of(context)!.labelUpdateFailed(e.toString()))),
         );
       }
+    }
+  }
+  
+  /// 同步标签到远程号码服务
+  Future<void> _syncLabelToRemote() async {
+    try {
+      final labelToRemoteSyncService = Provider.of<LabelToRemoteSyncService>(context, listen: false);
+      final phoneNumber = PhoneNumber.fromString(widget.log.number);
+      await labelToRemoteSyncService.syncLabelByPhoneNumber(phoneNumber);
+    } catch (e) {
+      // 同步失败不影响标签添加/删除的主要功能，所以只记录错误但不抛出异常
+      debugPrint('同步标签到远程服务失败: ${e.toString()}');
     }
   }
 }

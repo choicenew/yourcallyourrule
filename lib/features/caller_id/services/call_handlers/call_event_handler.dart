@@ -8,13 +8,13 @@ import 'outgoing_call_handler.dart';
 
 /// 来电显示调用处理器
 /// 负责处理与来电显示相关的方法调用
-class CallerIdCallHandler extends BaseCallHandler {
+class CallEventHandler extends BaseCallHandler {
   final CallChannelInterface _channelManager;
   final IncomingCallHandler _incomingCallHandler;
   final OutgoingCallHandler _outgoingCallHandler;
   final Function(CallerIdData) _onCallerIdDataReceived;
   
-  CallerIdCallHandler(
+  CallEventHandler(
     this._channelManager,
     dynamic _, {
     required IncomingCallHandler incomingCallHandler, // Add required keyword

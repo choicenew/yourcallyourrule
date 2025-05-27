@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 
 import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'incremental_sync_manager.dart';
 import 'sync_conflict_resolver.dart';
 import 'sync_progress_tracker.dart';

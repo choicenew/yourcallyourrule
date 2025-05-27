@@ -1,8 +1,6 @@
-import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// 配置云数据转换器
 /// 负责将配置数据转换为云同步兼容的格式
@@ -88,5 +86,24 @@ class ConfigCloudConverter {
     //   serialize: (data) => data,
     //   deserialize: (data) => data
     // );
+  }
+  
+  /// 获取所有配置键，包括特定模块的配置键
+  Future<List<String>> getAllConfigKeys() async {
+    // 从SharedPreferences获取所有键
+    final prefs = await SharedPreferences.getInstance();
+    final allKeys = prefs.getKeys().toList();
+    
+    // 过滤出配置键
+    final configKeys = <String>[];
+    
+    // 添加通用配置键
+    for (final key in allKeys) {
+      if (key.startsWith('config_')) {
+        configKeys.add(key);
+      }
+    }
+    
+    return configKeys;
   }
 }

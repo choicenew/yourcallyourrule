@@ -2,15 +2,15 @@
 // caller_id_monitor_service.dart
 import 'dart:async';
 
-import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
 import '../../../core/entities/caller_id_data.dart';
@@ -19,8 +19,8 @@ import '../../../features/call/time_interceptor/time_interceptor_service.dart';
 import '../../call_statistic/domain/repositories/blocked_call_repository.dart';
 import '../../../platform/call_channel_switcher.dart';
 import 'call_handlers/base_call_handler.dart';
-import 'call_handlers/call_handler.dart';
-import 'call_handlers/caller_id_call_handler.dart';
+import 'call_handlers/caller_id_handler.dart';
+import 'call_handlers/call_event_handler.dart';
 import 'call_handlers/end_call_handler.dart';
 import 'call_handlers/incoming_call_handler.dart';
 import 'call_handlers/notification_handler.dart';
@@ -66,7 +66,7 @@ class CallerIdMonitorService {
   final CallHandlerFactory _handlerFactory = CallHandlerFactory();
   
   // 调用处理器
-  late final CallerIdCallHandler _callerIdCallHandler;
+  late final CallEventHandler _callerIdCallHandler;
   late final ShouldAcceptCallHandler _shouldAcceptCallHandler;
   late final EndCallHandler _endCallHandler;
   late final StirCallHandler _stirCallHandler;
@@ -104,15 +104,19 @@ class CallerIdMonitorService {
 
   /// 初始化处理器
   void _initializeHandlers() {
+    // 创建配置仓库
+    final configRepository = CallerIdConfigRepository(SharedPreferencesConfigRepository());
+    
     // 创建调用处理器
     _shouldAcceptCallHandler = ShouldAcceptCallHandler();
-    _endCallHandler = EndCallHandler();
+    _endCallHandler = EndCallHandler(configRepository);
     _stirCallHandler = StirCallHandler(_onStirInfoUpdated);
     _simCallHandler = SimCallHandler(_onSimInfoUpdated);
     
     // 创建通知处理器
     _notificationHandler = NotificationHandler(
       notificationsPlugin: notificationsPlugin,
+      configRepository: configRepository,
     );
     
     // 创建浮窗处理器
@@ -132,6 +136,7 @@ class CallerIdMonitorService {
       timeInterceptorService: _timeInterceptorService,
       shouldAcceptCallHandler: _shouldAcceptCallHandler,
       notificationHandler: _notificationHandler,
+      configRepository: configRepository,
       blockedCallRepository: _blockedCallRepository,
     );
     
@@ -141,7 +146,7 @@ class CallerIdMonitorService {
     );
     
     // 创建来电显示调用处理器
-    _callerIdCallHandler = CallerIdCallHandler(
+    _callerIdCallHandler = CallEventHandler(
       _channelManager, 
       null, // 不再使用旧的处理器
       incomingCallHandler: _incomingCallHandler,
@@ -177,16 +182,13 @@ class CallerIdMonitorService {
 
   /// 加载设置
   Future<void> loadSettings() async {
-    final asyncPrefs = SharedPreferencesAsync();
-    useLocalNotification =
-        await asyncPrefs.getBool('call_local_notification') ?? false;
-    useStirNotification =
-        await asyncPrefs.getBool('stir_local_notification') ?? false;
+    // 从通知处理器加载设置
+    await _notificationHandler.loadSettings();
     
-    // 更新处理器中的设置
-    _notificationHandler.useLocalNotification = useLocalNotification;
-    _notificationHandler.useStirNotification = useStirNotification;
-    _notificationHandler.cancelLocalNotification = cancelLocalNotification;
+    // 更新本地变量
+    useLocalNotification = _notificationHandler.useLocalNotification;
+    cancelLocalNotification = _notificationHandler.cancelLocalNotification;
+    useStirNotification = _notificationHandler.useStirNotification;
   }
 
   /// 设置是否使用本地通知
@@ -195,8 +197,6 @@ class CallerIdMonitorService {
 
     useLocalNotification = useLocal;
     await _notificationHandler.setUseLocalNotification(useLocal);
-    final asyncPrefs = SharedPreferencesAsync();
-    await asyncPrefs.setBool(callLocalNotificationKey, useLocal);
   }
 
   /// 设置是否关闭本地通知
@@ -205,8 +205,6 @@ class CallerIdMonitorService {
 
     cancelLocalNotification = cancelLocal;
     await _notificationHandler.closeLocalNotification(cancelLocal);
-    final asyncPrefs = SharedPreferencesAsync();
-    await asyncPrefs.setBool(callCancelLocalNotificationKey, cancelLocal);
   }
 
   /// 设置是否使用STIR通知
@@ -215,8 +213,6 @@ class CallerIdMonitorService {
 
     useStirNotification = useStir;
     await _notificationHandler.setUseStirNotification(useStir);
-    final asyncPrefs = SharedPreferencesAsync();
-    await asyncPrefs.setBool(stirLocalNotificationKey, useStir);
   }
 
   /// 初始化通知
@@ -275,7 +271,8 @@ class CallerIdMonitorService {
     }
   }
 }
-
+/*
+//废弃的逻辑现在不再使用了
 /// SharedPreferences异步包装类
 /// 提供异步访问SharedPreferences的方法
 class SharedPreferencesAsync {
@@ -294,3 +291,4 @@ class SharedPreferencesAsync {
     return prefs.getBool(key);
   }
 }
+*/

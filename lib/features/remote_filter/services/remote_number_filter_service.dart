@@ -1,7 +1,7 @@
 // 远程号码过滤服务类，用于根据计数规则判断是否接受来电
 
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_config.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';

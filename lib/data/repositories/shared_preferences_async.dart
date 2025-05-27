@@ -1,4 +1,4 @@
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// 使用ConfigRepository实现的SharedPreferencesAsync
 /// 用于替代直接使用SharedPreferences的方式

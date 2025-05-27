@@ -1,4 +1,4 @@
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// 自动更新服务的配置管理类
 /// 负责存储和获取自动更新相关的配置信息

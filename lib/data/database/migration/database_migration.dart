@@ -85,7 +85,7 @@ class DatabaseMigration {
         name TEXT NOT NULL,
         ruleType TEXT NOT NULL,
         phoneNumber TEXT,
-        label TEXT,
+        labelId TEXT,
         priority INTEGER NOT NULL,
         action TEXT NOT NULL,
         isEnabled INTEGER NOT NULL DEFAULT 1,
@@ -166,10 +166,12 @@ class DatabaseMigration {
         icon TEXT,
         phoneNumber TEXT NOT NULL,
         label TEXT NOT NULL,
+        labelId TEXT NOT NULL,
         avatar TEXT,
         priority INTEGER NOT NULL DEFAULT 0,
         action TEXT NOT NULL DEFAULT 'none',
-        isEnabled INTEGER NOT NULL DEFAULT 1
+        isEnabled INTEGER NOT NULL DEFAULT 1,
+        FOREIGN KEY (labelId) REFERENCES predefined_labels (id)
       )
     ''');
     
@@ -194,7 +196,7 @@ class DatabaseMigration {
             'name': name,
             'ruleType': 'sms_regex',
             'phoneNumber': phoneNumber,
-            'label': item['label'],
+            'labelId': item['label'],
             'contentRegex': '.*${item['keyword']}.*',
             'senderRegex': '^${item['phoneNumber']}\$',
             'action': 'block',
@@ -223,7 +225,7 @@ class DatabaseMigration {
             'name': name,
             'ruleType': 'sms_regex',
             'phoneNumber': phoneNumber,
-            'label': item['label'],
+            'labelId': item['label'],
             'contentRegex': '.*${item['keyword']}.*',
             'senderRegex': '^${item['phoneNumber']}\$',
             'action': 'allow',
@@ -316,7 +318,7 @@ class DatabaseMigration {
         name TEXT NOT NULL,
         ruleType TEXT NOT NULL,
         phoneNumber TEXT,
-        label TEXT,
+        labelId TEXT,
         priority INTEGER NOT NULL,
         action TEXT NOT NULL,
         isEnabled INTEGER NOT NULL DEFAULT 1,
@@ -395,10 +397,12 @@ class DatabaseMigration {
         icon TEXT,
         phoneNumber TEXT NOT NULL,
         label TEXT NOT NULL,
+        labelId TEXT NOT NULL,
         avatar TEXT,
         priority INTEGER NOT NULL DEFAULT 0,
         action TEXT NOT NULL DEFAULT 'none',
-        isEnabled INTEGER NOT NULL DEFAULT 1
+        isEnabled INTEGER NOT NULL DEFAULT 1,
+        FOREIGN KEY (labelId) REFERENCES predefined_labels (id)
       )
     ''');
   }
@@ -407,6 +411,21 @@ class DatabaseMigration {
   static Future<void> _migrateLocalToV2(Database db) async {
     // 添加新的字段或表
     await db.execute('ALTER TABLE contacts ADD COLUMN isBlocked INTEGER NOT NULL DEFAULT 0');
+    
+    // 为calls表添加name字段
+    try {
+      // 检查calls表是否存在name列
+      final result = await db.rawQuery("PRAGMA table_info(calls)");
+      final hasNameColumn = result.any((column) => column['name'] == 'name');
+      
+      // 如果不存在name列，则添加
+      if (!hasNameColumn) {
+        await db.execute('ALTER TABLE calls ADD COLUMN name TEXT');
+        print('成功为calls表添加name字段');
+      }
+    } catch (e) {
+      print('为calls表添加name字段时出错: ${e.toString()}');
+    }
     
     // 创建SMS规则相关表（如果不存在）
     await db.execute('''
@@ -442,7 +461,7 @@ class DatabaseMigration {
       // 迁移电话黑名单数据到规则表
       if (blacklistExists) {
         await db.execute('''
-          INSERT INTO rules (id, name, ruleType, phoneNumber, label, priority, action, isEnabled, avatar)
+          INSERT INTO rules (id, name, ruleType, phoneNumber, labelId, priority, action, isEnabled, avatar)
           SELECT 
             'bl_' || rowid, 
             COALESCE(name, 'Blocked Number'), 
@@ -460,7 +479,7 @@ class DatabaseMigration {
       // 迁移电话白名单数据到规则表
       if (whitelistExists) {
         await db.execute('''
-          INSERT INTO rules (id, name, ruleType, phoneNumber, label, priority, action, isEnabled, avatar)
+          INSERT INTO rules (id, name, ruleType, phoneNumber, labelId, priority, action, isEnabled, avatar)
           SELECT 
             'wl_' || rowid, 
             COALESCE(name, 'Allowed Number'), 
@@ -489,7 +508,7 @@ class DatabaseMigration {
               'name': name,
               'ruleType': 'sms_regex',
               'phoneNumber': phoneNumber,
-              'label': item['label'],
+              'labelId': item['label'],
               'priority': 15,
               'action': 'block',
               'isEnabled': 1,
@@ -514,7 +533,7 @@ class DatabaseMigration {
               'name': name,
               'ruleType': 'sms_regex',
               'phoneNumber': phoneNumber,
-              'label': item['label'],
+              'labelId': item['label'],
               'priority': 25,
               'action': 'allow',
               'isEnabled': 1,
@@ -590,7 +609,7 @@ class DatabaseMigration {
         name TEXT NOT NULL,
         ruleType TEXT NOT NULL,
         phoneNumber TEXT,
-        label TEXT,
+        labelId TEXT,
         priority INTEGER NOT NULL DEFAULT 0,
         action TEXT NOT NULL DEFAULT 'none',
         isEnabled INTEGER NOT NULL DEFAULT 1,

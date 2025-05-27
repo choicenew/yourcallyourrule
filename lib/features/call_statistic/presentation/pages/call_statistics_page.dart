@@ -133,7 +133,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: Colors.grey.withValues(alpha:0.3),
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 3),
@@ -171,7 +171,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha:0.2),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Text(
@@ -202,7 +202,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
         StatisticCard(
           icon: Icons.phone_disabled,
           iconColor: Colors.blue,
-          backgroundColor: Colors.blue.withOpacity(0.1),
+          backgroundColor: Colors.blue.withValues(alpha:0.1),
           title: '$blockedCalls',
           subtitle: '拦截电话',
           period: '本周',
@@ -210,7 +210,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
         StatisticCard(
           icon: Icons.sms_failed,
           iconColor: Colors.purple,
-          backgroundColor: Colors.purple.withOpacity(0.1),
+          backgroundColor: Colors.purple.withValues(alpha:0.1),
           title: '$filteredSms',
           subtitle: '过滤短信',
           period: '本周',
@@ -218,7 +218,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
         StatisticCard(
           icon: Icons.person_outline,
           iconColor: Colors.green,
-          backgroundColor: Colors.green.withOpacity(0.1),
+          backgroundColor: Colors.green.withValues(alpha:0.1),
           title: '$whitelistCount',
           subtitle: '白名单',
           period: '总计',
@@ -226,7 +226,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
         StatisticCard(
           icon: Icons.person_off,
           iconColor: Colors.red,
-          backgroundColor: Colors.red.withOpacity(0.1),
+          backgroundColor: Colors.red.withValues(alpha:0.1),
           title: '$blacklistCount',
           subtitle: '黑名单',
           period: '总计',
@@ -243,7 +243,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.grey.withValues(alpha:0.1),
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 3),
@@ -294,7 +294,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFFFB74D).withOpacity(0.1) : Colors.transparent,
+          color: isSelected ? const Color(0xFFFFB74D).withValues(alpha:0.1) : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
