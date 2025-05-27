@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+// 导入标签翻译工具类，替代原有的内联实现
+import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 /// 定义一个通用的标签服务接口
 abstract class SelectLabelService {
   Future<List<String>> getAllLabelTexts();
@@ -31,7 +33,7 @@ class PredefinedLabelServiceAdapter implements SelectLabelService {
   Future<String?> getLabelTextById(String labelId) async {
     // 通过标签ID获取标签文本
     final label = await predefinedLabelService.getLabelById(labelId);
-    return label?.text;
+    return label?.text; // 注意：翻译将在UI层通过LabelTranslationUtils处理
   }
   
   @override
@@ -166,16 +168,16 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: widget.themeColor.withOpacity(0.1),
+                color: widget.themeColor.withValues(alpha:0.1),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: widget.themeColor.withOpacity(0.3)),
+                border: Border.all(color: widget.themeColor.withValues(alpha:0.3)),
               ),
               child: Row(
                 children: [
                   Icon(Icons.label, color: widget.themeColor, size: 18),
                   const SizedBox(width: 8),
                   Text(
-                    '已选择: $_selectedLabelText',
+                    '已选择: ${_selectedLabelText != null ? LabelTranslationUtils.translateLabelText(context, _selectedLabelText!) : ''}',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -219,9 +221,11 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
       spacing: 8,
       runSpacing: 8,
       children: _labels.map((labelText) {
+        // 翻译标签文本
+        final translatedText = LabelTranslationUtils.translateLabelText(context, labelText);
         final isSelected = labelText == _selectedLabelText;
         return ChoiceChip(
-          label: Text(labelText),
+          label: Text(translatedText),
           selected: isSelected,
           onSelected: (selected) {
             if (selected) {
@@ -247,14 +251,9 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
   }
 }
 
-/// 标签翻译扩展
-extension LabelTranslationExtension on String {
-  String translate(BuildContext context) {
-    // 这里可以添加标签翻译逻辑
-    // 如果需要，可以使用getLabelMap函数
-    return this;
-  }
-}
+
+
+
 
 /// 标签选择页面
 class LabelSelectionPage extends StatelessWidget {
