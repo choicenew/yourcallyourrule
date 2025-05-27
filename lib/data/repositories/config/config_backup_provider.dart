@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_backup_service.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_backup_service.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// 配置备份还原服务提供者
 /// 用于在应用中提供ConfigBackupService的实例

@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/cloud_sync/services/incremental_sync_manager_config.dart';
 import 'package:yourcallyourrule/cloud_sync/services/sync_conflict_resolver.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// Class responsible for managing incremental synchronization
 class IncrementalSyncManager {

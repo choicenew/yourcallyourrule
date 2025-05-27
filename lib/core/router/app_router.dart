@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/pages/auto_update_settings_page.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
@@ -15,8 +17,10 @@ import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call
 import 'package:yourcallyourrule/features/caller_id/pages/end_call_settings_page.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page.dart';
+import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
+import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
@@ -26,9 +30,16 @@ import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remot
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/call_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
+
 import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page_refactored.dart';
 import 'package:yourcallyourrule/features/rules/pages/blacklist_whitelist_page_refactored.dart';
-import 'package:yourcallyourrule/features/settings/pages/settings_page.dart';
+import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
+import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
+import 'package:yourcallyourrule/features/search/pages/search_page.dart';
+import 'package:yourcallyourrule/features/search/services/search_service.dart';
+import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
+import 'package:yourcallyourrule/presentation/settings/pages/settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page.dart';
@@ -51,6 +62,7 @@ class AppRouter {
   final RemoteNumberFilterService remoteNumberFilterService;
   final RemoteNumberService remoteNumberService;
   final SimSlotRuleService simSlotRuleService;
+  final EnhancedCompositeFilterService enhancedCompositeFilterService;
   
   // 构造函数
   AppRouter({
@@ -60,6 +72,7 @@ class AppRouter {
     required this.remoteNumberFilterService,
     required this.remoteNumberService,
     required this.simSlotRuleService,
+    required this.enhancedCompositeFilterService,
   });
   
   // 路由名称常量
@@ -78,6 +91,7 @@ class AppRouter {
   static const String deviceManagement = 'device-management';
   static const String purchaseSettings = 'purchase-settings';
   static const String enhancedFilterSettings = 'enhanced-filter-settings';
+  static const String enhancedCompositeFilterSettings = 'enhanced-composite-filter-settings';
   static const String verificationPage = 'verification-page';
   static const String pluginTest = 'plugin-test';
   static const String regexTest = 'regex-test';
@@ -93,6 +107,8 @@ class AppRouter {
   static const String onboarding = 'onboarding';
   static const String dashboard = 'dashboard';
   static const String home = 'home';
+  static const String filterSettings = 'filter-settings';
+  static const String search = 'search';
   
   // 创建路由器
   late final router = GoRouter(
@@ -110,6 +126,11 @@ class AppRouter {
         name: home,
         builder: (context, state) => const HomePage(),
       ),
+      GoRoute(
+        path: '/filter-settings',
+        name: filterSettings,
+        builder: (context, state) => const FilterSettingsPage(),
+      ),
       
     GoRoute(
       path: '/allowed-blocked-settings',
@@ -122,6 +143,32 @@ class AppRouter {
       builder: (context, state) => const BlacklistWhitelistPage(),
     ),
 
+    // 搜索页面路由
+    GoRoute(
+      path: '/search',
+      name: search,
+      builder: (context, state) {
+        final contactService = Provider.of<ContactService>(context, listen: false);
+        final labelService = Provider.of<LabelService>(context, listen: false);
+        final blacklistWhitelistService = Provider.of<BlacklistWhitelistService>(context, listen: false);
+        final allowedBlockedService = Provider.of<AllowedBlockedService>(context, listen: false);
+        final remoteNumberService = Provider.of<RemoteNumberService>(context, listen: false);
+        
+        final searchService = SearchService(
+          contactService: contactService,
+          labelService: labelService,
+          blacklistWhitelistService: blacklistWhitelistService,
+          allowedBlockedService: allowedBlockedService,
+          remoteNumberService: remoteNumberService,
+          context: context,
+        );
+        
+        return Provider.value(
+          value: searchService,
+          child: const SearchPage(),
+        );
+      },
+    ),
 
       // 来电频率拦截设置页面
       GoRoute(
@@ -151,6 +198,36 @@ class AppRouter {
           remoteNumberFilterService: remoteNumberFilterService,
           remoteNumberService: remoteNumberService,
           configRepository: configRepository,
+        ),
+      ),
+      
+      // 增强过滤器设置页面
+      GoRoute(
+        path: '/enhanced_filter_settings',
+        name: 'enhanced_filter_settings',
+        builder: (context, state) => EnhancedFilterSettingsPage(
+          enhancedCompositeFilterService: enhancedCompositeFilterService,
+          simSlotRuleService: simSlotRuleService,
+          localCountFilterService: localCountFilterService,
+          remoteNumberFilterService: remoteNumberFilterService,
+          remoteNumberService: remoteNumberService,
+          configRepository: configRepository,
+          ruleRepository: Provider.of<RuleRepository>(context, listen: false),
+        ),
+      ),
+        
+      // 增强版组合过滤器设置页面
+      GoRoute(
+        path: '/enhanced_composite_filter_settings',
+        name: 'enhanced_composite_filter_settings',
+        builder: (context, state) => EnhancedFilterSettingsPage(
+          enhancedCompositeFilterService: enhancedCompositeFilterService,
+          simSlotRuleService: simSlotRuleService,
+          localCountFilterService: localCountFilterService,
+          remoteNumberFilterService: remoteNumberFilterService,
+          remoteNumberService: remoteNumberService,
+          configRepository: configRepository,
+          ruleRepository: Provider.of<RuleRepository>(context, listen: false),
         ),
       ),
       
@@ -233,13 +310,13 @@ class AppRouter {
         path: '/$enhancedFilterSettings',
         name: enhancedFilterSettings,
         builder: (context, state) => EnhancedFilterSettingsPage(
-          enhancedCompositeFilterService: state.extra as dynamic,
-          simSlotRuleService: state.extra as dynamic,
-          localCountFilterService: state.extra as dynamic,
-          remoteNumberFilterService: state.extra as dynamic,
-          remoteNumberService: state.extra as dynamic,
-          configRepository: state.extra as dynamic,
-          ruleRepository: state.extra as dynamic,
+          enhancedCompositeFilterService: enhancedCompositeFilterService,
+          simSlotRuleService: simSlotRuleService,
+          localCountFilterService: localCountFilterService,
+          remoteNumberFilterService: remoteNumberFilterService,
+          remoteNumberService: remoteNumberService,
+          configRepository: configRepository,
+          ruleRepository: Provider.of<RuleRepository>(context, listen: false),
         ),
       ),
 
@@ -375,5 +452,10 @@ class AppRouter {
       callFilterSettings,
       extra: callFilterService,
     );
+  }
+
+  // 导航到搜索页面
+  void navigateToSearch(BuildContext context) {
+    context.goNamed(search);
   }
 }

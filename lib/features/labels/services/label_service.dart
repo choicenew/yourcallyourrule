@@ -14,6 +14,9 @@ import 'package:yourcallyourrule/features/labels/services/predefined_label_servi
 /// 标签服务类，继承自ListService，提供标签的管理功能
 /// 包括添加、删除、查询标签等操作
 /// 
+/// 最好使用通用的导入导出服务 [RuleImportExportService] 来实现导入和导出功能，不要创建多余的服务导入导出
+/// 使用 [LabelPhoneService] 和 [PredefinedLabelService] 来管理标签
+/// 
 /// 此服务整合了 [LabelPhoneService] 和 [PredefinedLabelService] 的功能，
 /// 作为标签系统的统一入口
 class LabelService extends ListService {

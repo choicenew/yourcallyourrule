@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class BottomNavigation extends StatelessWidget {
   final int currentIndex;
@@ -20,26 +21,26 @@ class BottomNavigation extends StatelessWidget {
       backgroundColor: Colors.white,
       selectedItemColor: const Color(0xFFFF9800),
       unselectedItemColor: Colors.grey,
-      items: const [
+      items:  [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: '首页',
+          icon: const Icon(Icons.home),
+          label: AppLocalizations.of(context)!.homeTab,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.call),
-          label: '通话历史',
+          icon: const Icon(Icons.call),
+          label: AppLocalizations.of(context)!.callHistoryTab,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.contacts),
-          label: '联系人',
+          icon: const Icon(Icons.contacts),
+          label: AppLocalizations.of(context)!.contactsTab,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.dashboard),
-          label: '仪表盘',
+          icon: const Icon(Icons.dashboard),
+          label: AppLocalizations.of(context)!.dashboardTab,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: '设置',
+          icon: const Icon(Icons.settings),
+          label: AppLocalizations.of(context)!.settingsTab,
         ),
       ],
     );

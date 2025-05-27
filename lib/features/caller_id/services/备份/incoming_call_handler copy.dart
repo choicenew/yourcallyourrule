@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.d
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 
-import '../call_handlers/call_handler.dart';
+import '../call_handlers/caller_id_handler.dart';
 import '../call_handlers/notification_handler.dart';
 import '../call_handlers/should_accept_call_handler.dart';
 

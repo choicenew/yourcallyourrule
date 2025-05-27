@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
 import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page.dart';
 import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page.dart';
+import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page.dart';
+import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
+import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page.dart';
+import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
+import 'package:yourcallyourrule/presentation/device_management/device_management_page.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
+import 'package:yourcallyourrule/features/caller_id/pages/end_call_settings_page.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +35,28 @@ class SettingsPage extends StatelessWidget {
           _buildSectionTitle('功能设置'),
           const SizedBox(height: 8),
           _buildCallSettingsCard(context),
+          const SizedBox(height: 8),
+          _buildTimeInterceptorCard(context),
           const SizedBox(height: 12),
           _buildSmsSettingsCard(context),
           const SizedBox(height: 12),
           _buildContactSettingsCard(context),
+          const SizedBox(height: 24),
+          _buildSectionTitle('云端同步与备份'),
+          const SizedBox(height: 8),
+          _buildCloudSettingsCard(context),
+          const SizedBox(height: 12),
+          _buildBackupRestoreCard(context),
+          const SizedBox(height: 12),
+          _buildDeviceManagementCard(context),
           const SizedBox(height: 24),
           _buildSectionTitle('系统设置'),
           const SizedBox(height: 8),
           _buildAutoUpdateCard(context),
           const SizedBox(height: 12),
           _buildPluginManagementCard(context),
+          const SizedBox(height: 12),
+          _buildSearchCard(context),
           const SizedBox(height: 12),
           _buildLanguageSettingsCard(context),
           const SizedBox(height: 12),
@@ -96,16 +117,91 @@ class SettingsPage extends StatelessWidget {
   }
 
   Widget _buildCallSettingsCard(BuildContext context) {
+    return Column(
+      children: [
+        _buildSettingsCard(
+          context,
+          icon: Icons.phone,
+          iconColor: Colors.blue,
+          title: '来电设置',
+          subtitle: '来电识别、过滤和拦截设置',
+          onTap: () {
+            // 导航到来电设置页面
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const PhoneSubscriptionPage()),
+            );
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildSettingsCard(
+          context,
+          icon: Icons.filter_alt,
+          iconColor: Colors.deepPurple,
+          title: '过滤器控制',
+          subtitle: '管理所有过滤器的开关状态',
+          onTap: () {
+            // 导航到过滤器设置页面
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const FilterSettingsPage()),
+            );
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildSettingsCard(
+          context,
+          icon: Icons.block,
+          iconColor: Colors.red,
+          title: '拦截动作设置',
+          subtitle: '设置被拦截来电的处理方式',
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const EndCallSettingsPage()),
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTimeInterceptorCard(BuildContext context) {
     return _buildSettingsCard(
       context,
-      icon: Icons.phone,
-      iconColor: Colors.blue,
-      title: '来电设置',
-      subtitle: '来电识别、过滤和拦截设置',
+      icon: Icons.timer,
+      iconColor: Colors.deepOrange,
+      title: '来电频率拦截',
+      subtitle: '设置来电频率限制和拦截规则',
       onTap: () {
-        // 导航到来电设置页面
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const PhoneSubscriptionPage()),
+        final timeInterceptorService = Provider.of<TimeInterceptorService>(context, listen: false);
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          builder: (context) => DraggableScrollableSheet(
+            initialChildSize: 0.7,
+            minChildSize: 0.5,
+            maxChildSize: 0.95,
+            expand: false,
+            builder: (context, scrollController) => SingleChildScrollView(
+              controller: scrollController,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TimeInterceptorSettingsWidget(
+                  isEnabled: timeInterceptorService.config.shouldIntercept,
+                  durationMinutes: timeInterceptorService.config.duration.inMinutes,
+                  onEnabledChanged: (value) => timeInterceptorService.updateConfig(
+                    timeInterceptorService.config.duration,
+                    value,
+                  ),
+                  onDurationMinutesChanged: (value) => timeInterceptorService.updateConfig(
+                    Duration(minutes: value),
+                    timeInterceptorService.config.shouldIntercept,
+                  ),
+                ),
+              ),
+            ),
+          ),
         );
       },
     );
@@ -137,6 +233,54 @@ class SettingsPage extends StatelessWidget {
       onTap: () {
         // 导航到联系人设置页面
         // 这里暂时没有实现联系人页面
+      },
+    );
+  }
+
+  Widget _buildCloudSettingsCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.cloud,
+      iconColor: Colors.lightBlue,
+      title: '云端同步设置',
+      subtitle: '配置WebDAV、OneDrive和Google Drive',
+      onTap: () {
+        // 导航到云端同步设置页面
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const CloudSettingsPage()),
+        );
+      },
+    );
+  }
+
+  Widget _buildBackupRestoreCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.backup,
+      iconColor: Colors.indigo,
+      title: '备份与恢复',
+      subtitle: '备份或恢复应用数据',
+      onTap: () {
+        // 导航到备份与恢复页面
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const BackupRestorePage()),
+        );
+      },
+    );
+  }
+
+  Widget _buildDeviceManagementCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.devices,
+      iconColor: Colors.deepOrange,
+      title: '设备管理',
+      subtitle: '管理多设备同步',
+      onTap: () {
+        // 导航到设备管理页面
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const DeviceManagementPage()),
+        );
       },
     );
   }
@@ -184,6 +328,22 @@ class SettingsPage extends StatelessWidget {
         // 导航到语言设置页面
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => const LanguageSettingsPage()),
+        );
+      },
+    );
+  }
+
+  Widget _buildSearchCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.search,
+      iconColor: Colors.blueGrey,
+      title: '全局搜索',
+      subtitle: '搜索联系人、标签、黑白名单等',
+      onTap: () {
+        // 导航到搜索页面
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const SearchPage()),
         );
       },
     );

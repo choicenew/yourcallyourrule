@@ -10,16 +10,19 @@ import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
+import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 
 class VerificationPage extends StatefulWidget {
   const VerificationPage({super.key});
@@ -40,6 +43,8 @@ class VerificationPageState extends State<VerificationPage> {
 
   late CallFilterService _callFilterService;
   late TimeInterceptorService _timeInterceptorService;
+  late LocalCountFilterService _localCountFilterService;
+  late RemoteNumberFilterService _remoteNumberFilterService;
   late StreamSubscription<Map<String, dynamic>> _legacyPluginSubscription;
   late StreamSubscription<PluginData> _pluginSubscription;
 
@@ -50,6 +55,18 @@ class VerificationPageState extends State<VerificationPage> {
     final regexService = context.read<RegexService>();
     final allowedBlockedService = context.read<AllowedBlockedService>();
     final blacklistWhitelistService = context.read<BlacklistWhitelistService>();
+    final callerIdService = context.read<CallerIdService>();
+    final remoteNumberService = context.read<RemoteNumberService>();
+
+    _localCountFilterService = LocalCountFilterService(
+      callerIdService: callerIdService,
+      configRepository: configRepo
+    );
+
+    _remoteNumberFilterService = RemoteNumberFilterService(
+      remoteNumberService: remoteNumberService,
+      configRepository: configRepo
+    );
 
     _callFilterService = CallFilterService(
         regexService: regexService,
@@ -104,6 +121,8 @@ class VerificationPageState extends State<VerificationPage> {
       'Whitelist': rules.any((rule) => rule.action.type == RuleActionType.allow),
       'Regex': rules.any((rule) => rule is RegexRule),
       'Time Rules': await _timeInterceptorService.shouldIntercept(number.value),
+      'Local Count Filter': !await _localCountFilterService.shouldAcceptCall(number.value),
+      'Remote Number Filter': !await _remoteNumberFilterService.shouldAcceptCall(number.value),
     };
 
     setState(() => _isLoading = false);
@@ -186,6 +205,8 @@ class VerificationPageState extends State<VerificationPage> {
               'Whitelist Check', _verificationResults['Whitelist']),
           _buildResultItem('Time Rules', _verificationResults['Time Rules']),
           _buildResultItem('Regex Match', _verificationResults['Regex']),
+          _buildResultItem('Local Count Filter', _verificationResults['Local Count Filter']),
+          _buildResultItem('Remote Number Filter', _verificationResults['Remote Number Filter']),
           if (_callerIdData != null) ...[
             const Divider(),
             CircleAvatar(

@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
 
 /// 来电显示配置服务

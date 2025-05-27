@@ -1,7 +1,7 @@
 // 增强版组合过滤器服务，支持每个SIM卡独立配置过滤器
 
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
 

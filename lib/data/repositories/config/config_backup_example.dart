@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_backup_provider.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_backup_service.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_cloud_converter.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_backup_provider.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_backup_service.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_cloud_converter.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// 配置备份还原示例
 /// 本文件展示了如何使用配置备份还原功能
 class ConfigBackupExample extends ConsumerWidget {
-  const ConfigBackupExample({Key? key}) : super(key: key);
+  const ConfigBackupExample({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

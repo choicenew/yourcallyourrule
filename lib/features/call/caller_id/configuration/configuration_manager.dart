@@ -4,7 +4,7 @@ import 'dart:io';
 
 
 import 'package:yourcallyourrule/common/error/logger.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
 
 import '../providers/caller_id_style_provider.dart';

@@ -3,6 +3,7 @@ import 'package:yourcallyourrule/data/models/base_model.dart';
 
 class CallLogModel extends BaseModel<CallLog> {
   final String number;
+  final String? name; // 添加name字段
   final DateTime timestamp;
   final String simDisplayName;
   final String callType;
@@ -15,6 +16,7 @@ class CallLogModel extends BaseModel<CallLog> {
   CallLogModel({
     required super.id,
     required this.number,
+    this.name, // 添加name参数
     required this.timestamp,
     required this.simDisplayName,
     required this.callType,
@@ -29,6 +31,7 @@ class CallLogModel extends BaseModel<CallLog> {
     return CallLogModel(
       id: map['id']?.toString() ?? '',
       number: map['number'] ?? '',
+      name: map['name'], // 添加name字段
       timestamp: DateTime.parse(map['timestamp']),
       simDisplayName: map['simDisplayName'] ?? '',
       callType: map['callType'] ?? '',
@@ -46,6 +49,7 @@ class CallLogModel extends BaseModel<CallLog> {
     return {
       'id': id,
       'number': number,
+      'name': name, // 添加name字段
       'timestamp': timestamp.toIso8601String(),
       'simDisplayName': simDisplayName,
       'callType': callType,
@@ -62,6 +66,7 @@ class CallLogModel extends BaseModel<CallLog> {
     return CallLog(
       id: id,
       number: number,
+      name: name, // 添加name字段
       timestamp: timestamp,
       simDisplayName: simDisplayName,
       callType: callType,
@@ -77,6 +82,7 @@ class CallLogModel extends BaseModel<CallLog> {
     return CallLogModel(
       id: entity.id,
       number: entity.number,
+      name: entity.name, // 添加name字段
       timestamp: entity.timestamp,
       simDisplayName: entity.simDisplayName,
       callType: entity.callType,

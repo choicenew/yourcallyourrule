@@ -6,8 +6,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_cloud_converter.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// 配置备份还原服务
 /// 负责将ConfigRepository中的配置数据进行备份和还原
@@ -15,11 +15,14 @@ class ConfigBackupService {
   final ConfigRepository _configRepository;
   late final Directory _backupDirectory;
   late final SharedPreferences _preferences;
+  late final ConfigCloudConverter _cloudConverter;
   bool _isInitialized = false;
 
   static const String _configBackupVersionsKey = 'config_backup_versions';
 
-  ConfigBackupService(this._configRepository);
+  ConfigBackupService(this._configRepository) {
+    _cloudConverter = ConfigCloudConverter(_configRepository);
+  }
 
   /// 初始化服务
   Future<void> initialize() async {
@@ -51,10 +54,8 @@ class ConfigBackupService {
   Future<List<String>> getAllConfigKeys() async {
     _ensureInitialized();
     
-    // 从SharedPreferences获取所有键
-    // 注意：这里只能获取到通过SharedPreferencesConfigRepository保存的键
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getKeys().toList();
+    // 使用ConfigCloudConverter获取所有配置键，包括特定模块的配置键
+    return await _cloudConverter.getAllConfigKeys();
   }
 
   /// 备份所有配置

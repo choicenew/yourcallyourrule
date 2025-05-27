@@ -7,6 +7,8 @@ import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+
 // 重构后的正则测试页面
 class RegexTestPage extends StatefulWidget {
   const RegexTestPage({super.key});
@@ -27,19 +29,19 @@ class RegexTestPageState extends State<RegexTestPage> {
       String regexPattern = _regexController.text;
 
       if (phoneNumber.isEmpty || regexPattern.isEmpty) {
-        _resultMessage = 'Please enter both phone number and regex pattern';
+        _resultMessage = AppLocalizations.of(context)!.enterBothPhoneNumberAndRegexPatternMessage;
         return;
       }
 
       try {
         RegExp regExp = RegExp(regexPattern);
         _resultMessage = regExp.hasMatch(phoneNumber) 
-            ? 'Match successful!' 
-            : 'Match failed!';
+            ? AppLocalizations.of(context)!.matchSuccessfulMessage 
+            : AppLocalizations.of(context)!.matchFailedMessage;
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Regex error: $e'),
+            content: Text(AppLocalizations.of(context)!.regexErrorMessage(e)),
             backgroundColor: Colors.red,
           ),
         );
@@ -53,7 +55,7 @@ class RegexTestPageState extends State<RegexTestPage> {
 
     if (ruleName.isEmpty || regexPattern.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter rule name and pattern')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.enterRuleNameAndPatternMessage)),
       );
       return;
     }
@@ -66,11 +68,11 @@ class RegexTestPageState extends State<RegexTestPage> {
         action: RuleAction.block, // 默认动作
       ));
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Rule saved successfully!')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.ruleSavedSuccessMessage)),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Save failed: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.saveFailed(e))),
       );
     }
   }
@@ -78,7 +80,7 @@ class RegexTestPageState extends State<RegexTestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Regex Tester')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.regexTesterTitle)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -86,26 +88,26 @@ class RegexTestPageState extends State<RegexTestPage> {
           children: [
             TextField(
               controller: _phoneNumberController,
-              decoration: const InputDecoration(
-                labelText: 'Phone Number',
-                hintText: 'Enter phone number to test',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.phoneNumberLabel,
+                hintText: AppLocalizations.of(context)!.enterPhoneNumberHint,
               ),
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 16),
             TextField(
               controller: _regexController,
-              decoration: const InputDecoration(
-                labelText: 'Regex Pattern',
-                hintText: 'Enter regular expression',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.regexPatternLabel,
+                hintText: AppLocalizations.of(context)!.enterRegexHint,
               ),
             ),
             const SizedBox(height: 16),
             TextField(
               controller: _ruleNameController,
-              decoration: const InputDecoration(
-                labelText: 'Rule Name',
-                hintText: 'Enter name for this rule',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.ruleNameLabel,
+                hintText: AppLocalizations.of(context)!.enterRuleNameHint,
               ),
             ),
             const SizedBox(height: 16),
@@ -119,7 +121,7 @@ class RegexTestPageState extends State<RegexTestPage> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: _testRegex,
-                    child: const Text('TEST'),
+                    child: Text(AppLocalizations.of(context)!.testButtonText),
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -129,7 +131,7 @@ class RegexTestPageState extends State<RegexTestPage> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
                     ),
-                    child: const Text('SAVE'),
+                    child: Text(AppLocalizations.of(context)!.saveButtonText),
                   ),
                 ),
               ],

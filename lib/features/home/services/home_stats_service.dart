@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_service.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_protection_service.dart';
 import '../models/home_stats_model.dart';

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_page.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/enhanced_composite_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
@@ -39,15 +41,32 @@ class EnhancedFilterSettingsPage extends StatefulWidget {
   EnhancedFilterSettingsPageState createState() => EnhancedFilterSettingsPageState();
 }
 
-class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> {
+class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> with SingleTickerProviderStateMixin {
   // 可用的SIM卡槽位
   List<SimInfo> _availableSimSlots = [];
   bool _isLoading = false;
-
+  
+  // 视图模式：入口点模式或详细设置模式
+  bool _isEntryPointMode = true;
+  
+  // 通话过滤器配置
+  late CallFilterConfig _callFilterConfig;
+  
+  // 标签控制器
+  late TabController _tabController;
+  
   @override
   void initState() {
     super.initState();
     _loadSimSlots();
+    _loadCallFilterConfig();
+    _tabController = TabController(length: 4, vsync: this);
+  }
+  
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 
   /// 加载SIM卡槽位信息
@@ -71,6 +90,47 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
         _isLoading = false;
       });
     }
+  }
+  
+  /// 加载通话过滤器配置
+  Future<void> _loadCallFilterConfig() async {
+    // 从EnhancedCompositeFilterService中获取CallFilterConfig
+    if (widget.enhancedCompositeFilterService.filters.isNotEmpty) {
+      for (var filter in widget.enhancedCompositeFilterService.filters) {
+        if (filter.runtimeType.toString() == 'CallFilterService') {
+          // 使用反射或其他方式获取配置
+          // 这里简化处理，实际应用中应该通过服务提供的方法获取
+          dynamic callFilterService = filter;
+          if (callFilterService != null) {
+            try {
+              // 尝试获取callFilterConfig属性
+              dynamic config = callFilterService.callFilterConfig;
+              if (config != null && config is CallFilterConfig) {
+                setState(() {
+                  _callFilterConfig = config;
+                });
+                return;
+              }
+            } catch (e) {
+              // 如果获取失败，使用默认配置
+              print('获取CallFilterConfig失败: $e');
+            }
+          }
+        }
+      }
+    }
+    
+    // 如果无法从服务中获取配置，则使用默认配置
+    setState(() {
+      _callFilterConfig = CallFilterConfig();
+    });
+  }
+  
+  /// 切换视图模式
+  void _toggleViewMode() {
+    setState(() {
+      _isEntryPointMode = !_isEntryPointMode;
+    });
   }
 
   /// 导航到本地过滤器设置页面
@@ -133,19 +193,36 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.enhancedFilterSettingsTitle),
+        actions: [
+          IconButton(
+            icon: Icon(_isEntryPointMode ? Icons.tune : Icons.list),
+            tooltip: _isEntryPointMode ? 'detailedSettings' : 'entryPointView',
+            onPressed: _toggleViewMode,
+          ),
+        ],
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : ListView(
-              padding: const EdgeInsets.all(16.0),
-              children: [
-                _buildGlobalFilterSection(),
-                const Divider(height: 32),
-                _buildSimSlotSection(),
-                const SizedBox(height: 32),
-                _buildExplanationCard(),
-              ],
-            ),
+          : _isEntryPointMode
+              ? ListView(
+                  padding: const EdgeInsets.all(16.0),
+                  children: [
+                    _buildGlobalFilterSection(),
+                    const Divider(height: 32),
+                    _buildSimSlotSection(),
+                    const SizedBox(height: 32),
+                    _buildExplanationCard(),
+                  ],
+                )
+              : _callFilterConfig == null
+                  ? const Center(child: CircularProgressIndicator())
+                  : EnhancedCompositeFilterSettingsWidget(
+                      enhancedCompositeFilterService: widget.enhancedCompositeFilterService,
+                      localCountFilterService: widget.localCountFilterService,
+                      remoteNumberFilterService: widget.remoteNumberFilterService,
+                      simSlotRuleService: widget.simSlotRuleService,
+                      callFilterConfig: _callFilterConfig,
+                    ),
     );
   }
 

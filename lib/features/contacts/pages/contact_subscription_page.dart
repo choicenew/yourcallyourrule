@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 
 class ContactSubscriptionPage extends StatefulWidget {
-  const ContactSubscriptionPage({Key? key}) : super(key: key);
+  const ContactSubscriptionPage({super.key});
 
   @override
   State<ContactSubscriptionPage> createState() => _ContactSubscriptionPageState();
@@ -221,7 +221,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
                   children: [
                     _buildInfoCard(),
                     const SizedBox(height: 16),
-                    ..._subscriptions.map(_buildSubscriptionCard).toList(),
+                    ..._subscriptions.map(_buildSubscriptionCard),
                   ],
                 ),
     );

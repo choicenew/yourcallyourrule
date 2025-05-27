@@ -3,6 +3,7 @@ import 'package:yourcallyourrule/core/base/base_entity.dart';
 class CallLog extends BaseEntity {
   final List<String>? labelIds;
   final String number;
+  final String? name; // 添加name字段
   final DateTime timestamp;
   final String simDisplayName;
   final String callType;
@@ -15,6 +16,7 @@ class CallLog extends BaseEntity {
     required super.id,
     this.labelIds,
     required this.number,
+    this.name, // 添加name参数
     required this.timestamp,
     required this.simDisplayName,
     required this.callType,
@@ -29,6 +31,7 @@ class CallLog extends BaseEntity {
         'id': id,
         'labelIds': labelIds,
         'number': number,
+        'name': name, // 添加name字段
         'timestamp': timestamp.millisecondsSinceEpoch,
         'simDisplayName': simDisplayName,
         'callType': callType,
@@ -43,6 +46,7 @@ class CallLog extends BaseEntity {
       id: map['id'] as String,
       labelIds: map['labelIds'] != null ? List<String>.from(map['labelIds']) : null,
       number: map['number'] as String,
+      name: map['name'] as String?, // 添加name字段
       timestamp: DateTime.fromMillisecondsSinceEpoch(map['timestamp'] as int),
       simDisplayName: map['simDisplayName'] as String,
       callType: map['callType'] as String,
@@ -57,6 +61,7 @@ class CallLog extends BaseEntity {
     String? id,
     List<String>? labelIds,
     String? number,
+    String? name, // 添加name参数
     DateTime? timestamp,
     String? simDisplayName,
     String? callType,
@@ -69,6 +74,7 @@ class CallLog extends BaseEntity {
       id: id ?? this.id,
       labelIds: labelIds ?? this.labelIds,
       number: number ?? this.number,
+      name: name ?? this.name, // 添加name字段
       timestamp: timestamp ?? this.timestamp,
       simDisplayName: simDisplayName ?? this.simDisplayName,
       callType: callType ?? this.callType,

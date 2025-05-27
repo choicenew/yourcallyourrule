@@ -186,6 +186,260 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String regexErrorMessage(Object error) {
+    return 'Regex error: $error';
+  }
+
+  @override
+  String get addToRules => 'Add to Rules';
+
+  @override
+  String get addToAllowedRules => 'Add to Allowed Rules';
+
+  @override
+  String get addToBlockedRules => 'Add to Blocked Rules';
+
+  @override
+  String get addToWhitelist => 'Add to Whitelist';
+
+  @override
+  String get addToBlacklist => 'Add to Blacklist';
+
+  @override
+  String get addedToAllowedRules => 'Added to Allowed Rules';
+
+  @override
+  String get addedToBlockedRules => 'Added to Blocked Rules';
+
+  @override
+  String get addedToWhitelist => 'Added to Whitelist';
+
+  @override
+  String get addedToBlacklist => 'Added to Blacklist';
+
+  @override
+  String get addRuleFailed => 'Failed to add rule';
+
+  @override
+  String get enterBothPhoneNumberAndRegexPatternMessage => 'Please enter both phone number and regex pattern';
+
+  @override
+  String get enterRuleNameAndPatternMessage => 'Please enter rule name and pattern';
+
+  @override
+  String get ruleSavedSuccessMessage => 'Rule saved successfully!';
+
+  @override
+  String ruleSaveFailedMessage(Object error) {
+    return 'Save failed: $error';
+  }
+
+  @override
+  String get regexTesterTitle => 'Regex Tester';
+
+  @override
+  String get enterPhoneNumberHint => 'Enter phone number to test';
+
+  @override
+  String get enterRegexHint => 'Enter regular expression';
+
+  @override
+  String get enterRuleNameHint => 'Enter name for this rule';
+
+  @override
+  String get testButtonText => 'TEST';
+
+  @override
+  String get saveButtonText => 'SAVE';
+
+  @override
+  String get startColor => 'Start Color';
+
+  @override
+  String get endColor => 'End Color';
+
+  @override
+  String get height => 'Height';
+
+  @override
+  String get width => 'Width';
+
+  @override
+  String get labelIconColor => 'Label Icon Color';
+
+  @override
+  String get locationIconColor => 'Location Icon Color';
+
+  @override
+  String get callTypeIconColor => 'Call Type Icon Color';
+
+  @override
+  String get avatarBorderColor => 'Avatar Border Color';
+
+  @override
+  String get nameColor => 'Name Color';
+
+  @override
+  String get numberColor => 'Number Color';
+
+  @override
+  String get locationColor => 'Location Color';
+
+  @override
+  String get carrierColor => 'Carrier Color';
+
+  @override
+  String get countryNameColor => 'Country Name Color';
+
+  @override
+  String get labelsColor => 'Labels Color';
+
+  @override
+  String get countColor => 'Count Color';
+
+  @override
+  String get numberTypeColor => 'Number Type Color';
+
+  @override
+  String get stirColor => 'STIR Color';
+
+  @override
+  String get simCardColor => 'SIM Card Color';
+
+  @override
+  String get nameFontSize => 'Name Font Size';
+
+  @override
+  String get carrierFontSize => 'Carrier Font Size';
+
+  @override
+  String get countryNameFontSize => 'Country Name Font Size';
+
+  @override
+  String get labelsFontSize => 'Labels Font Size';
+
+  @override
+  String get countFontSize => 'Count Font Size';
+
+  @override
+  String get numberTypeFontSize => 'Number Type Font Size';
+
+  @override
+  String get numberFontSize => 'Number Font Size';
+
+  @override
+  String get locationFontSize => 'Location Font Size';
+
+  @override
+  String get stirFontSize => 'STIR Font Size';
+
+  @override
+  String get simCardFontSize => 'SIM Card Font Size';
+
+  @override
+  String get labelsPosition => 'Labels Position';
+
+  @override
+  String get countPosition => 'Count Position';
+
+  @override
+  String get subscriptionManagementTitle => 'Subscription Management';
+
+  @override
+  String get subscriptionEmptyState => 'No subscriptions available';
+
+  @override
+  String subscriptionLoadFailed(Object error) {
+    return 'Failed to load subscriptions: $error';
+  }
+
+  @override
+  String subscriptionToggleFailed(Object error) {
+    return 'Failed to toggle subscription status: $error';
+  }
+
+  @override
+  String get contactsPageTitle => 'Contacts Management';
+
+  @override
+  String contactsLoadingFailed(Object error) {
+    return 'Failed to load contacts: $error';
+  }
+
+  @override
+  String get contactSubscriptionPageTitle => 'Contact Subscriptions';
+
+  @override
+  String contactSubscriptionLoadingFailed(Object error) {
+    return 'Failed to load contact subscriptions: $error';
+  }
+
+  @override
+  String get subscriptionPageTitle => 'Subscription Management';
+
+  @override
+  String get subscriptionEmptyText => 'No subscriptions yet';
+
+  @override
+  String subscriptionLoadingFailed(Object error) {
+    return 'Failed to load subscriptions: $error';
+  }
+
+  @override
+  String get homeTab => 'Home';
+
+  @override
+  String get callHistoryTab => 'Call History';
+
+  @override
+  String get contactsTab => 'Contacts';
+
+  @override
+  String get dashboardTab => 'Dashboard';
+
+  @override
+  String get settingsTab => 'Settings';
+
+  @override
+  String get numberTypePosition => 'Number Type Position';
+
+  @override
+  String get numberPosition => 'Number Position';
+
+  @override
+  String get locationPosition => 'Location Position';
+
+  @override
+  String get stirPosition => 'STIR Position';
+
+  @override
+  String get simCardPosition => 'SIM Card Position';
+
+  @override
+  String get callTypePosition => 'Call Type Position';
+
+  @override
+  String get avatarSize => 'Avatar Size';
+
+  @override
+  String get avatarBorderSize => 'Avatar Border Size';
+
+  @override
+  String get iconSize => 'Icon Size';
+
+  @override
+  String get avatarPosition => 'Avatar Position';
+
+  @override
+  String get namePosition => 'Name Position';
+
+  @override
+  String get carrierPosition => 'Carrier Position';
+
+  @override
+  String get countryRegionNamePosition => 'Country/Region Name Position';
+
+  @override
   String get colorPickerTitle => 'Choose Color';
 
   @override
@@ -281,7 +535,56 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phoneNumberTypeUnknown => 'Unknown';
 
   @override
+  String get phoneNumberLabel => 'Phone Number *';
+
+  @override
+  String get regexPatternLabel => 'Regex Pattern';
+
+  @override
+  String get ruleNameLabel => 'Rule Name';
+
+  @override
+  String get testButtonLabel => 'TEST';
+
+  @override
+  String get saveButtonLabel => 'SAVE';
+
+  @override
+  String get matchSuccessfulMessage => 'Match successful!';
+
+  @override
+  String get matchFailedMessage => 'Match failed!';
+
+  @override
+  String regexError(Object error) {
+    return 'Regex error: $error';
+  }
+
+  @override
+  String get ruleSaveSuccess => 'Rule saved successfully!';
+
+  @override
+  String ruleSaveFailed(Object error) {
+    return 'Save failed: $error';
+  }
+
+  @override
+  String get ruleNamePatternRequired => 'Please enter rule name and pattern';
+
+  @override
+  String get phoneNumberRegexRequired => 'Please enter both phone number and regex pattern';
+
+  @override
   String get callFilterSettings => 'Call Filter Settings';
+
+  @override
+  String get addName => 'Add Name';
+
+  @override
+  String get enterName => 'Enter contact name';
+
+  @override
+  String get save => 'Save';
 
   @override
   String get enhancedFilterSettings => 'Enhanced Filter Settings';
@@ -478,7 +781,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unknownTag => 'Tag: Unknown';
 
   @override
-  String get phoneNumberLabel => 'Phone Number *';
+  String get testButton => 'TEST';
+
+  @override
+  String get saveButton => 'SAVE';
+
+  @override
+  String get matchSuccessful => 'Match successful!';
+
+  @override
+  String get matchFailed => 'Match failed!';
+
+  @override
+  String get enterBothPhoneNumberAndRegexPattern => 'Please enter both phone number and regex pattern';
+
+  @override
+  String get enterRuleNameAndPattern => 'Please enter rule name and pattern';
+
+  @override
+  String get ruleSavedSuccessfully => 'Rule saved successfully!';
+
+  @override
+  String saveFailed(Object error) {
+    return 'Save failed: $error';
+  }
 
   @override
   String get phoneNumberHintText => 'Enter phone number to add rule';
@@ -742,4 +1068,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get defaultPeriod => 'Week';
+
+  @override
+  String get selectSimSlot => 'Select SIM Slot';
+
+  @override
+  String get basicRuleFilterSettings => 'Basic Rule Filter Settings';
+
+  @override
+  String get remoteFilterSettings => 'Remote Filter Settings';
+
+  @override
+  String get localFilterSettings => 'Local Filter Settings';
+
+  @override
+  String get globalFilterToggleInstructions => 'Configure global filter settings that apply to all SIM slots:';
+
+  @override
+  String get simSlotSettings => 'SIM Slot Settings';
+
+  @override
+  String get globalSettings => 'Global Settings';
+
+  @override
+  String get updateCallFilterConfig => 'Update Call Filter Configuration';
 }

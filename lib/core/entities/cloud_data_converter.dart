@@ -1,8 +1,6 @@
 import 'package:yourcallyourrule/core/entities/contact/contact_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 
-
-
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
@@ -13,6 +11,7 @@ import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/subscription/contact_subscription.dart';
@@ -33,6 +32,8 @@ class CloudDataConverter {
       return _serializeCallLog(entity);
     } else if (entity is LabelPhoneEntry) {
       return _serializeLabel(entity);
+    } else if (entity is PredefinedLabel) {
+      return _serializePredefinedLabel(entity);
     } else if (entity is LocationEntry) {
       return _serializeLocation(entity);
     } else if (entity is ListEntry) {
@@ -61,6 +62,8 @@ class CloudDataConverter {
       return _deserializeCallLog(data) as T;
     } else if (T == LabelPhoneEntry) {
       return _deserializeLabel(data) as T;
+    } else if (T == PredefinedLabel) {
+      return _deserializePredefinedLabel(data) as T;
     } else if (T == LocationEntry) {
       return _deserializeLocation(data) as T;
     } else if (T == ListEntry) {
@@ -116,6 +119,7 @@ class CloudDataConverter {
   static Map<String, dynamic> _serializeContact(Contact contact) => contact.toMap();
   static Map<String, dynamic> _serializeCallLog(CallLog log) => log.toMap();
   static Map<String, dynamic> _serializeLabel(LabelPhoneEntry label) => label.toMap();
+  static Map<String, dynamic> _serializePredefinedLabel(PredefinedLabel label) => label.toMap();
   static Map<String, dynamic> _serializeLocation(LocationEntry location) => location.toMap();
   static Map<String, dynamic> _serializeListEntry(ListEntry entry) => entry.toMap();
   static Map<String, dynamic> _serializeContactSubscription(ContactSubscription sub) => sub.toMap();
@@ -124,6 +128,7 @@ class CloudDataConverter {
   static Contact _deserializeContact(Map<String, dynamic> data) => Contact.fromMap(data);
   static CallLog _deserializeCallLog(Map<String, dynamic> data) => CallLog.fromMap(data);
   static LabelPhoneEntry _deserializeLabel(Map<String, dynamic> data) => LabelPhoneEntry.fromMap(data);
+  static PredefinedLabel _deserializePredefinedLabel(Map<String, dynamic> data) => PredefinedLabel.fromMap(data);
   static LocationEntry _deserializeLocation(Map<String, dynamic> data) => LocationEntry.fromMap(data);
   static ListEntry _deserializeListEntry(Map<String, dynamic> data) => ListEntry.fromMap(data);
 

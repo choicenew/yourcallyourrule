@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
@@ -401,42 +401,42 @@ class _CallerIdCustomizationScreenState
           (offset) => styleProvider.updateCountryNamePosition(offset),
         ),
         _buildPositionSlider(
-          'Labels Position',
+          AppLocalizations.of(context)!.labelsPosition,
           styleProvider.labelsPosition,
           (offset) => styleProvider.updateLabelsPosition(offset),
         ),
         _buildPositionSlider(
-          'Count Position',
+          AppLocalizations.of(context)!.countPosition,
           styleProvider.countPosition,
           (offset) => styleProvider.updateCountPosition(offset),
         ),
         _buildPositionSlider(
-          'Number Type Position',
+          AppLocalizations.of(context)!.numberTypePosition,
           styleProvider.numberTypePosition,
           (offset) => styleProvider.updateNumberTypePosition(offset),
         ),
         _buildPositionSlider(
-          'Number Position',
+          AppLocalizations.of(context)!.numberPosition,
           styleProvider.numberPosition,
           (offset) => styleProvider.updateNumberPosition(offset),
         ),
         _buildPositionSlider(
-          'Location Position',
+          AppLocalizations.of(context)!.locationPosition,
           styleProvider.locationPosition,
           (offset) => styleProvider.updateLocationPosition(offset),
         ),
         _buildPositionSlider(
-          'STIR Position',
+          AppLocalizations.of(context)!.stirPosition,
           styleProvider.stirPosition,
           (offset) => styleProvider.updateStirPosition(offset),
         ),
         _buildPositionSlider(
-          'SIM Card Position',
+          AppLocalizations.of(context)!.simCardPosition,
           styleProvider.simCardPosition,
           (offset) => styleProvider.updateSimCardPosition(offset),
         ),
         _buildPositionSlider(
-          'Call Type Position',
+          AppLocalizations.of(context)!.callTypePosition,
           styleProvider.callTypePosition,
           (offset) => styleProvider.updateCallTypePosition(offset),
         ),

@@ -7,8 +7,8 @@ import 'package:yourcallyourrule/features/phone/services/phone_subscription_serv
 
 /// 重构后的电话订阅页面
 /// 使用通用的GenericSubscriptionPage组件减少重复代码
-class PhoneSubscriptionPageRefactored extends StatelessWidget {
-  const PhoneSubscriptionPageRefactored({super.key});
+class PhoneSubscriptionPage extends StatelessWidget {
+  const PhoneSubscriptionPage({super.key});
 
   @override
   Widget build(BuildContext context) {

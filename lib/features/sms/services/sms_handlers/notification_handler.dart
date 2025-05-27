@@ -1,6 +1,6 @@
 
 import 'package:yourcallyourrule/core/services/notification_service.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 import 'base_sms_handler.dart';
 

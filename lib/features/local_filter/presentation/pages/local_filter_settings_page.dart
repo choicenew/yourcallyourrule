@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
+import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_config.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/widgets/local_filter_settings_widget.dart';
 
 /// 本地计数过滤器设置页面
@@ -21,11 +22,12 @@ class LocalFilterSettingsPage extends StatefulWidget {
 }
 
 class LocalFilterSettingsPageState extends State<LocalFilterSettingsPage> {
-  // 配置参数
-  bool _isEnabled = true;
-  int _minCallCount = 3;
-  int _timeWindowHours = 24;
-  bool _blockUnknownCallers = false;
+  // 配置参数 - 与LocalCountFilterConfig保持一致
+  bool _enableLocalCountFilter = true;
+  int _countThreshold = 5;
+  bool _rejectExceededNumbers = true;
+  bool _allowNonExceededNumbers = false;
+  bool _logAllLocalQueries = true;
 
   @override
   void initState() {
@@ -35,26 +37,30 @@ class LocalFilterSettingsPageState extends State<LocalFilterSettingsPage> {
 
   /// 加载设置
   Future<void> _loadSettings() async {
-    final configMap = await widget.configRepository.getConfig('local_filter_settings');
-    if (configMap != null) {
-      setState(() {
-        _isEnabled = configMap['isEnabled'] ?? true;
-        _minCallCount = configMap['minCallCount'] ?? 3;
-        _timeWindowHours = configMap['timeWindowHours'] ?? 24;
-        _blockUnknownCallers = configMap['blockUnknownCallers'] ?? false;
-      });
-    }
+    // 直接从LocalCountFilterService获取配置
+    final config = widget.localCountFilterService.localCountFilterConfig;
+    setState(() {
+      _enableLocalCountFilter = config.enableLocalCountFilter;
+      _countThreshold = config.countThreshold;
+      _rejectExceededNumbers = config.rejectExceededNumbers;
+      _allowNonExceededNumbers = config.allowNonExceededNumbers;
+      _logAllLocalQueries = config.logAllLocalQueries;
+    });
   }
 
   /// 保存设置
   Future<void> _saveSettings() async {
-    final configMap = {
-      'isEnabled': _isEnabled,
-      'minCallCount': _minCallCount,
-      'timeWindowHours': _timeWindowHours,
-      'blockUnknownCallers': _blockUnknownCallers,
-    };
-    await widget.configRepository.saveConfig('local_filter_settings', configMap);
+    // 创建新的配置对象
+    final newConfig = LocalCountFilterConfig(
+      enableLocalCountFilter: _enableLocalCountFilter,
+      countThreshold: _countThreshold,
+      rejectExceededNumbers: _rejectExceededNumbers,
+      allowNonExceededNumbers: _allowNonExceededNumbers,
+      logAllLocalQueries: _logAllLocalQueries,
+    );
+    
+    // 更新服务中的配置并保存
+    await widget.localCountFilterService.updateConfig(newConfig);
     await widget.localCountFilterService.initialize(); // 重新初始化服务以应用新设置
     
     ScaffoldMessenger.of(context).showSnackBar(
@@ -80,28 +86,34 @@ class LocalFilterSettingsPageState extends State<LocalFilterSettingsPage> {
         children: [
           // 使用提取的组件
           LocalFilterSettingsWidget(
-            isEnabled: _isEnabled,
-            minCallCount: _minCallCount,
-            timeWindowHours: _timeWindowHours,
-            blockUnknownCallers: _blockUnknownCallers,
-            onEnabledChanged: (value) {
+            enableLocalCountFilter: _enableLocalCountFilter,
+            countThreshold: _countThreshold,
+            rejectExceededNumbers: _rejectExceededNumbers,
+            allowNonExceededNumbers: _allowNonExceededNumbers,
+            logAllLocalQueries: _logAllLocalQueries,
+            onEnableLocalCountFilterChanged: (value) {
               setState(() {
-                _isEnabled = value;
+                _enableLocalCountFilter = value;
               });
             },
-            onMinCallCountChanged: (value) {
+            onCountThresholdChanged: (value) {
               setState(() {
-                _minCallCount = value;
+                _countThreshold = value;
               });
             },
-            onTimeWindowHoursChanged: (value) {
+            onRejectExceededNumbersChanged: (value) {
               setState(() {
-                _timeWindowHours = value;
+                _rejectExceededNumbers = value;
               });
             },
-            onBlockUnknownCallersChanged: (value) {
+            onAllowNonExceededNumbersChanged: (value) {
               setState(() {
-                _blockUnknownCallers = value;
+                _allowNonExceededNumbers = value;
+              });
+            },
+            onLogAllLocalQueriesChanged: (value) {
+              setState(() {
+                _logAllLocalQueries = value;
               });
             },
           ),

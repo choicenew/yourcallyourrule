@@ -3,7 +3,7 @@ import 'package:yourcallyourrule/cloud_sync/services/cloud_sync_service.dart';
 import 'package:yourcallyourrule/cloud_sync/services/google_drive_sync_service.dart';
 import 'package:yourcallyourrule/cloud_sync/services/onedrive_sync_service.dart';
 import 'package:yourcallyourrule/cloud_sync/services/webdav_sync_service.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'device_management_provider.dart';
 
 

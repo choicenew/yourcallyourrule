@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
-import 'package:yourcallyourrule/features/call/call_history/widgets/call_log_card.dart';
+import 'package:yourcallyourrule/features/call/call_history/widgets/call_logs_list.dart';
+import 'package:yourcallyourrule/features/call/call_history/widgets/call_timeline_view.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/label_filter_chip.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/features/labels/services/label_to_remote_sync_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 带时间轴布局的通话记录页面
@@ -24,6 +27,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
   late String _selectedTab;
   late TabController _tabController;
   late List<String> _tabs;
+  bool _showTimelineView = true; // 控制是否显示时间轴视图
   
   @override
   void initState() {
@@ -50,7 +54,6 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
       l10n.tabBlocked,
       l10n.tabOutgoing
     ];
-    _selectedTab = _tabs[0];
     _selectedTab = _tabs[0];
     _tabController = TabController(length: _tabs.length, vsync: this);
     _tabController.addListener(() {
@@ -110,6 +113,28 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
       });
     }
   }
+  
+  /// 为通话记录添加标签并同步到远程号码服务
+  Future<void> _addLabelToLogAndSync(CallLog log, String labelId) async {
+    try {
+      final callLogService = Provider.of<CallLogService>(context, listen: false);
+      final labelToRemoteSyncService = Provider.of<LabelToRemoteSyncService>(context, listen: false);
+      
+      // 添加标签到通话记录
+      await callLogService.addLabelToLog(log, labelId);
+      
+      // 同步标签信息到远程号码服务
+      final phoneNumber = PhoneNumber.fromString(log.number);
+      await labelToRemoteSyncService.syncLabelByPhoneNumber(phoneNumber);
+      
+      // 刷新通话记录列表
+      await _refreshCallLogs();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('添加标签失败: ${e.toString()}')),
+      );
+    }
+  }
 
   void _clearLabelFilter() {
     setState(() {
@@ -127,6 +152,16 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
           onPressed: () => Navigator.of(context).pop(),
         ),
         actions: [
+          // 添加视图切换按钮
+          IconButton(
+            icon: Icon(_showTimelineView ? Icons.view_list : Icons.timeline),
+            onPressed: () {
+              setState(() {
+                _showTimelineView = !_showTimelineView;
+              });
+            },
+            tooltip: _showTimelineView ? 'List View' : 'Timeline View',
+          ),
           IconButton(
             icon: const Icon(Icons.filter_list),
             onPressed: () => _showLabelFilterDialog(),
@@ -165,14 +200,24 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
           Expanded(
             child: _isLoading
                 ? const Center(child: CircularProgressIndicator())
-                : _buildCallLogsContent(),
+                : _showTimelineView ? _buildTimelineContent() : _buildListContent(),
           ),
         ],
       ),
     );
   }
   
-  Widget _buildCallLogsContent() {
+  // 列表视图内容
+  Widget _buildListContent() {
+    return CallLogsList(
+      selectedLabel: _selectedLabel,
+      onRefresh: _refreshCallLogs,
+      onClearFilter: _selectedLabel != null ? _clearLabelFilter : null,
+    );
+  }
+  
+  // 时间轴视图内容
+  Widget _buildTimelineContent() {
     return Consumer<CallLogService>(
       builder: (context, callLogService, child) {
         return StreamBuilder<List<CallLog>>(
@@ -225,312 +270,16 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
               }).toList();
             }
             
-            if (logs.isEmpty) {
-              return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.call, size: 64, color: Colors.grey),
-                    const SizedBox(height: 16),
-                    Text(
-                      _selectedTab != AppLocalizations.of(context)!.tabAll || _selectedLabel != null ? AppLocalizations.of(context)!.noMatchingRecords : AppLocalizations.of(context)!.noCallRecords, 
-                      style: const TextStyle(fontSize: 18, color: Colors.grey)
-                    ),
-                    const SizedBox(height: 24),
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.refresh),
-                      label: Text(AppLocalizations.of(context)!.refresh),
-                      onPressed: _refreshCallLogs,
-                    ),
-                    if (_selectedLabel != null)
-                      TextButton(
-                        onPressed: _clearLabelFilter,
-                        child: Text(AppLocalizations.of(context)!.clearLabelFilter),
-                      ),
-                  ],
-                ),
-              );
-            }
-            
-            // 计算统计数据
-            final blockedCount = logs.where((log) => log.callType == 'blocked').length;
-            final answeredCount = logs.where((log) => log.callType == 'incoming').length;
-            
-            return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // 统计卡片
-                    GridView.count(
-                      crossAxisCount: 2,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      childAspectRatio: 2.5,
-                      children: [
-                        _buildStatCard(AppLocalizations.of(context)!.statBlocked, blockedCount.toString(), Colors.red),
-                        _buildStatCard(AppLocalizations.of(context)!.statAnswered, answeredCount.toString(), Colors.green),
-                      ],
-                    ),
-                    const SizedBox(height: 24),
-                    
-                    // 时间轴布局
-                    _buildTimelineLayout(logs),
-                    
-                    // 加载更多按钮
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: Center(
-                        child: TextButton.icon(
-                          icon: const Icon(Icons.expand_more),
-                          label: Text(AppLocalizations.of(context)!.loadMore),
-                          onPressed: () {}, // 加载更多功能待实现
-                          style: TextButton.styleFrom(
-                            foregroundColor: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+            return CallTimelineView(
+              logs: logs,
+              onRefresh: _refreshCallLogs,
+              onClearFilter: _selectedLabel != null ? _clearLabelFilter : null,
+              selectedLabel: _selectedLabel,
+              selectedTab: _selectedTab,
             );
           },
         );
       },
-    );
-  }
-  
-  Widget _buildStatCard(String title, String value, Color color) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              value,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: color),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              title,
-              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-  
-  Widget _buildTimelineLayout(List<CallLog> logs) {
-    // 按日期分组
-    final Map<String, List<CallLog>> groupedLogs = {};
-    final now = DateTime.now();
-    final today = DateTime(now.year, now.month, now.day);
-    final yesterday = today.subtract(const Duration(days: 1));
-    
-    for (final log in logs) {
-      final logDate = DateTime.fromMillisecondsSinceEpoch(log.timestamp.millisecondsSinceEpoch);
-      final logDay = DateTime(logDate.year, logDate.month, logDate.day);
-      
-      String groupKey;
-      if (logDay == today) {
-        groupKey = AppLocalizations.of(context)!.today;
-      } else if (logDay == yesterday) {
-        groupKey = AppLocalizations.of(context)!.yesterday;
-      } else {
-        groupKey = AppLocalizations.of(context)!.earlier;
-      }
-      
-      if (!groupedLogs.containsKey(groupKey)) {
-        groupedLogs[groupKey] = [];
-      }
-      groupedLogs[groupKey]!.add(log);
-    }
-    
-    // 按日期分组显示
-    final List<Widget> timelineGroups = [];
-    
-    // 排序日期组：今天、昨天、更早
-    final sortedKeys = groupedLogs.keys.toList()
-      ..sort((a, b) {
-        final order = {AppLocalizations.of(context)!.today: 0, AppLocalizations.of(context)!.yesterday: 1, AppLocalizations.of(context)!.earlier: 2};
-        return order[a]!.compareTo(order[b]!);
-      });
-    
-    for (final groupKey in sortedKeys) {
-      final groupLogs = groupedLogs[groupKey]!;
-      
-      timelineGroups.add(
-        Padding(
-          padding: const EdgeInsets.only(top: 16.0, bottom: 8.0),
-          child: Text(
-            groupKey,
-            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-          ),
-        ),
-      );
-      
-      for (final log in groupLogs) {
-        timelineGroups.add(_buildTimelineItem(log));
-      }
-    }
-    
-    return Padding(
-      padding: const EdgeInsets.only(left: 12.0),
-      child: Stack(
-        children: [
-          // 时间轴线
-          Positioned(
-            left: 4,
-            top: 0,
-            bottom: 0,
-            width: 2,
-            child: Container(color: Colors.grey[300]),
-          ),
-          // 时间轴内容
-          Column(children: timelineGroups),
-        ],
-      ),
-    );
-  }
-  
-  Widget _buildTimelineItem(CallLog log) {
-    final dateTime = DateTime.fromMillisecondsSinceEpoch(log.timestamp.millisecondsSinceEpoch);
-    final timeFormat = DateFormat('HH:mm');
-    final timeString = timeFormat.format(dateTime);
-    
-    // 根据通话类型设置不同的图标和颜色
-    IconData callIcon;
-    Color iconColor;
-    String callTypeText;
-    
-    switch (log.callType) {
-      case 'incoming':
-        callIcon = Icons.phone;
-        iconColor = Colors.green;
-        callTypeText = AppLocalizations.of(context)!.callTypeAnswered;
-        break;
-      case 'outgoing':
-        callIcon = Icons.call_made;
-        iconColor = Colors.blue;
-        callTypeText = AppLocalizations.of(context)!.callTypeOutgoing;
-        break;
-      case 'missed':
-        callIcon = Icons.phone_missed;
-        iconColor = Colors.orange;
-        callTypeText = AppLocalizations.of(context)!.callTypeMissed;
-        break;
-      case 'blocked':
-        callIcon = Icons.block;
-        iconColor = Colors.red;
-        callTypeText = AppLocalizations.of(context)!.callTypeBlocked;
-        break;
-      default:
-        callIcon = Icons.phone;
-        iconColor = Colors.grey;
-        callTypeText = AppLocalizations.of(context)!.callTypeUnknown;
-    }
-    
-    return Padding(
-      padding: const EdgeInsets.only(left: 16.0, bottom: 24.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 时间轴节点
-          Positioned(
-            left: 0,
-            child: Container(
-              width: 12,
-              height: 12,
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          // 通话记录卡片
-          Expanded(
-            child: Card(
-              elevation: 1,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // 图标
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: iconColor.withValues(alpha:0.1),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(callIcon, color: iconColor),
-                    ),
-                    const SizedBox(width: 16),
-                    // 联系人信息
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            log.number,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            timeString,
-                            style: TextStyle(fontSize: 12, color: Colors.grey[400]),
-                          ),
-                          Text(
-                            '${log.simDisplayName} (${log.carrierName})',
-                            style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-                          ),
-                        ],
-                      ),
-                    ),
-                    // 通话类型和操作按钮
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          callTypeText,
-                          style: TextStyle(fontSize: 14, color: iconColor),
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              icon: const Icon(Icons.info_outline, size: 20),
-                              color: Colors.grey,
-                              onPressed: () {}, // 查看详情功能待实现
-                            ),
-                            IconButton(
-                              icon: Icon(
-                                log.callType == 'blocked' ? Icons.block : Icons.phone,
-                                size: 20,
-                              ),
-                              color: Colors.grey,
-                              onPressed: () {}, // 拦截或拨打功能待实现
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 

@@ -13,7 +13,7 @@ import 'package:yourcallyourrule/core/repositories/plugin_repository.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/universal_import_export_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_config.dart';
-import 'package:yourcallyourrule/data/repositories/call/config_repository.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// 插件管理服务 - 负责数据库操作
 /// 遵循单一职责原则，只负责插件的CRUD操作

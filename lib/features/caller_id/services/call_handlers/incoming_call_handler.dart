@@ -1,13 +1,15 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
+import 'package:yourcallyourrule/features/call/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 
-import 'call_handler.dart';
+import 'caller_id_handler.dart';
+import 'caller_id_handler_extension.dart';
 import 'notification_handler.dart';
 import 'should_accept_call_handler.dart';
 
@@ -20,6 +22,7 @@ class IncomingCallHandler {
   final ShouldAcceptCallHandler _shouldAcceptCallHandler;
   final NotificationHandler _notificationHandler;
   final BlockedCallRepository _blockedCallRepository;
+  final CallerIdConfigRepository _configRepository;
   
   /// 构造函数
   IncomingCallHandler({
@@ -28,6 +31,7 @@ class IncomingCallHandler {
     required TimeInterceptorService timeInterceptorService,
     required ShouldAcceptCallHandler shouldAcceptCallHandler,
     required NotificationHandler notificationHandler,
+    required CallerIdConfigRepository configRepository,
     BlockedCallRepository? blockedCallRepository,
   }) : 
     _callHandler = callHandler,
@@ -35,6 +39,7 @@ class IncomingCallHandler {
     _timeInterceptorService = timeInterceptorService,
     _shouldAcceptCallHandler = shouldAcceptCallHandler,
     _notificationHandler = notificationHandler,
+    _configRepository = configRepository,
     _blockedCallRepository = blockedCallRepository ?? BlockedCallRepository();
 
   /// 处理来电
@@ -86,15 +91,14 @@ class IncomingCallHandler {
 
     if (!shouldAccept) {
       // 拦截来电
-      await _handleCallRejection(phoneNumber);
+      await _handleCallRejection(phoneNumber, callData);
     }
   }
 
   /// 处理拒接来电
-  Future<void> _handleCallRejection(String phoneNumber) async {
-    // 从 SharedPreferences 读取拦截方式
-    final prefs = await SharedPreferences.getInstance();
-    final interceptAction = prefs.getString('intercept_action') ?? 'endCall';
+  Future<void> _handleCallRejection(String phoneNumber, [CallData? callData]) async {
+    // 从配置仓库读取拦截方式
+    final interceptAction = await _configRepository.getInterceptAction();
     
     // 显示通知（如果启用）
     if (_notificationHandler.useLocalNotification) {
@@ -103,5 +107,10 @@ class IncomingCallHandler {
     
     // 添加到拦截记录
     await _blockedCallRepository.addBlockedCall(phoneNumber);
+    
+    // 如果提供了 CallData，记录被阻止的通话
+    if (callData != null) {
+      this.recordBlockedCallWithOptionalRecorder(phoneNumber, callData);
+    }
   }
 }
