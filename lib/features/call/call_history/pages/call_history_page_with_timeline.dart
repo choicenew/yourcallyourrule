@@ -253,7 +253,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
             }
             
             // 根据标签页筛选
-            if (_selectedTab != '全部') {
+            if (_selectedTab != 'All') {
               logs = logs.where((log) {
                 switch (_selectedTab) {
                   case 'Answered':

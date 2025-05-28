@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
 import 'package:yourcallyourrule/features/common/widgets/rule_management_widget.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用规则管理页面组件
 /// 用于处理各种类型的规则管理页面，包括黑白名单、允许/阻止规则、正则规则等
@@ -106,7 +108,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('加载规则失败: $e'),
+          content: Text(AppLocalizations.of(context)!.ruleLoadFailed(e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -124,14 +126,14 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
       
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('规则${isEnabled ? "启用" : "禁用"}成功'),
+          content: Text(AppLocalizations.of(context)!.ruleToggleSuccess(isEnabled ? AppLocalizations.of(context)!.actionAllow : AppLocalizations.of(context)!.actionBlock)),
           backgroundColor: Colors.green,
         ));
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('操作失败: $e'),
+          content: Text(AppLocalizations.of(context)!.ruleToggleFailed(e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -142,16 +144,16 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('删除规则'),
-        content: Text('确定要删除这条${widget.emptyText}吗？'),
+        title: Text(AppLocalizations.of(context)!.ruleDeleteConfirmTitle),
+        content: Text(AppLocalizations.of(context)!.ruleDeleteConfirmContent(widget.emptyText)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('删除', style: TextStyle(color: Colors.red)),
+            child: Text(AppLocalizations.of(context)!.confirm, style: const TextStyle(color: Colors.red)),
           ),
         ],
       ),
@@ -164,15 +166,15 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
         await _loadRules();
         
         if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text('规则删除成功'),
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(AppLocalizations.of(context)!.ruleDeleteSuccess),
             backgroundColor: Colors.green,
           ));
         }
       } catch (e) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text('删除失败: $e'),
+            content: Text(AppLocalizations.of(context)!.ruleDeleteFailed(e.toString())),
             backgroundColor: Colors.red,
           ));
         }
@@ -200,12 +202,12 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('按动作类型筛选'),
+        title: Text(AppLocalizations.of(context)!.actionFilterTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              title: const Text('全部'),
+              title: Text(AppLocalizations.of(context)!.actionAll),
               leading: Radio<RuleActionType?>(
                 value: null,
                 groupValue: _selectedActionType,
@@ -235,13 +237,13 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
                   });
                 },
               ),
-            )).toList(),
+            )),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           if (_selectedActionType != null)
             TextButton(
@@ -251,7 +253,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
                 });
                 Navigator.pop(context);
               },
-              child: const Text('清除筛选'),
+              child: Text(AppLocalizations.of(context)!.clearFilter),
             ),
         ],
       ),

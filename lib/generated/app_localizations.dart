@@ -1089,24 +1089,6 @@ abstract class AppLocalizations {
   /// **'Unknown'**
   String get phoneNumberTypeUnknown;
 
-  /// No description provided for @phoneNumberLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Phone Number *'**
-  String get phoneNumberLabel;
-
-  /// No description provided for @regexPatternLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Regex Pattern'**
-  String get regexPatternLabel;
-
-  /// No description provided for @ruleNameLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Rule Name'**
-  String get ruleNameLabel;
-
   /// No description provided for @testButtonLabel.
   ///
   /// In en, this message translates to:
@@ -1128,14 +1110,8 @@ abstract class AppLocalizations {
   /// No description provided for @matchFailedMessage.
   ///
   /// In en, this message translates to:
-  /// **'Match failed!'**
+  /// **'Match Failed!'**
   String get matchFailedMessage;
-
-  /// No description provided for @regexError.
-  ///
-  /// In en, this message translates to:
-  /// **'Regex error: {error}'**
-  String regexError(Object error);
 
   /// No description provided for @ruleSaveSuccess.
   ///
@@ -1665,6 +1641,18 @@ abstract class AppLocalizations {
   /// **'Tag: Unknown'**
   String get unknownTag;
 
+  /// No description provided for @regexPatternLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Pattern'**
+  String get regexPatternLabel;
+
+  /// No description provided for @ruleNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Name'**
+  String get ruleNameLabel;
+
   /// No description provided for @testButton.
   ///
   /// In en, this message translates to:
@@ -1689,6 +1677,12 @@ abstract class AppLocalizations {
   /// **'Match failed!'**
   String get matchFailed;
 
+  /// No description provided for @regexError.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex error: {error}'**
+  String regexError(Object error);
+
   /// No description provided for @enterBothPhoneNumberAndRegexPattern.
   ///
   /// In en, this message translates to:
@@ -1712,6 +1706,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save failed: {error}'**
   String saveFailed(Object error);
+
+  /// No description provided for @phoneNumberLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number *'**
+  String get phoneNumberLabel;
 
   /// No description provided for @phoneNumberHintText.
   ///
@@ -2228,6 +2228,294 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update Call Filter Configuration'**
   String get updateCallFilterConfig;
+
+  /// No description provided for @loadLabelFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load labels: {error}'**
+  String loadLabelFailed(Object error);
+
+  /// No description provided for @selectLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Label'**
+  String get selectLabel;
+
+  /// No description provided for @selectedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected:'**
+  String get selectedLabel;
+
+  /// No description provided for @noLabels.
+  ///
+  /// In en, this message translates to:
+  /// **'No Labels'**
+  String get noLabels;
+
+  /// No description provided for @addLabelButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Label'**
+  String get addLabelButton;
+
+  /// No description provided for @ruleManagementTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Management'**
+  String get ruleManagementTitle;
+
+  /// No description provided for @ruleLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load rules: {error}'**
+  String ruleLoadFailed(Object error);
+
+  /// No description provided for @ruleToggleSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule {status} successfully'**
+  String ruleToggleSuccess(Object status);
+
+  /// No description provided for @ruleToggleFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Operation failed: {error}'**
+  String ruleToggleFailed(Object error);
+
+  /// No description provided for @ruleDeleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Rule'**
+  String get ruleDeleteConfirmTitle;
+
+  /// No description provided for @ruleDeleteConfirmContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this {ruleType}?'**
+  String ruleDeleteConfirmContent(Object ruleType);
+
+  /// No description provided for @ruleDeleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule deleted successfully'**
+  String get ruleDeleteSuccess;
+
+  /// No description provided for @ruleDeleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete failed: {error}'**
+  String ruleDeleteFailed(Object error);
+
+  /// No description provided for @actionFilterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by Action Type'**
+  String get actionFilterTitle;
+
+  /// No description provided for @actionAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get actionAll;
+
+  /// No description provided for @actionAllow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get actionAllow;
+
+  /// No description provided for @actionBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Block'**
+  String get actionBlock;
+
+  /// No description provided for @actionSilence.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence'**
+  String get actionSilence;
+
+  /// No description provided for @actionNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No Action'**
+  String get actionNone;
+
+  /// No description provided for @actionUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get actionUnknown;
+
+  /// No description provided for @labelFilterTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Label Filter'**
+  String get labelFilterTooltip;
+
+  /// No description provided for @actionFilterTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Action Filter'**
+  String get actionFilterTooltip;
+
+  /// No description provided for @refreshTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get refreshTooltip;
+
+  /// No description provided for @importRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Rules'**
+  String get importRules;
+
+  /// No description provided for @exportRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Rules'**
+  String get exportRules;
+
+  /// No description provided for @addRuleTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Rule'**
+  String get addRuleTooltip;
+
+  /// No description provided for @labelTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Label: {labelId}'**
+  String labelTag(Object labelId);
+
+  /// No description provided for @actionTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Action: {actionType}'**
+  String actionTag(Object actionType);
+
+  /// No description provided for @noMatchingRules.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching {ruleType}'**
+  String noMatchingRules(Object ruleType);
+
+  /// No description provided for @noRules.
+  ///
+  /// In en, this message translates to:
+  /// **'No {ruleType} yet'**
+  String noRules(Object ruleType);
+
+  /// No description provided for @clearLabelFilterButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Label Filter'**
+  String get clearLabelFilterButton;
+
+  /// No description provided for @subscriptionStatusChangeFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to change subscription status: {error}'**
+  String subscriptionStatusChangeFailed(Object error);
+
+  /// No description provided for @subscriptionUpdateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription updated successfully'**
+  String get subscriptionUpdateSuccess;
+
+  /// No description provided for @subscriptionUpdateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update subscription: {error}'**
+  String subscriptionUpdateFailed(Object error);
+
+  /// No description provided for @subscriptionDeleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Subscription'**
+  String get subscriptionDeleteConfirmTitle;
+
+  /// No description provided for @subscriptionDeleteConfirmContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this subscription?'**
+  String get subscriptionDeleteConfirmContent;
+
+  /// No description provided for @subscriptionDeleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription deleted'**
+  String get subscriptionDeleteSuccess;
+
+  /// No description provided for @subscriptionDeleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete subscription: {error}'**
+  String subscriptionDeleteFailed(Object error);
+
+  /// No description provided for @addSubscriptionTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Subscription'**
+  String get addSubscriptionTooltip;
+
+  /// No description provided for @addSubscriptionButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Subscription'**
+  String get addSubscriptionButton;
+
+  /// No description provided for @nameUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Name: Unknown'**
+  String get nameUnknown;
+
+  /// Text showing the name of a contact
+  ///
+  /// In en, this message translates to:
+  /// **'Name: {name}'**
+  String nameWithValue(String name);
+
+  /// Text showing how many users have marked this number
+  ///
+  /// In en, this message translates to:
+  /// **'Marked by {count}'**
+  String markedByCount(int count);
+
+  /// No description provided for @verifiedText.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get verifiedText;
+
+  /// No description provided for @notVerifiedText.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Verified'**
+  String get notVerifiedText;
+
+  /// No description provided for @verificationFailedText.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed'**
+  String get verificationFailedText;
+
+  /// Text showing SIM slot 1 with country ISO code
+  ///
+  /// In en, this message translates to:
+  /// **'SIM 1,-{countryIso}'**
+  String simSlot1(String countryIso);
+
+  /// Text showing SIM slot 2 with country ISO code
+  ///
+  /// In en, this message translates to:
+  /// **'SIM 2,-{countryIso}'**
+  String simSlot2(String countryIso);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

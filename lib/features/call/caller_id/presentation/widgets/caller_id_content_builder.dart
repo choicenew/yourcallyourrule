@@ -4,6 +4,7 @@ import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/features/call/caller_id/core/extensions/phone_number_type_extension.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示内容构建器
 /// 提供共享的来电显示UI构建功能，减少代码重复
@@ -28,7 +29,7 @@ class CallerIdContentBuilder {
         // 运营商
         _buildPositionedElement(
           child: Text(
-            callerIdData.carrier ?? 'Unknown',
+            callerIdData.carrier ?? AppLocalizations.of(context)!.unknown,
             style: TextStyle(
               fontSize: styleProvider.carrierFontSize,
               color: styleProvider.textCarrierColor,
@@ -41,8 +42,8 @@ class CallerIdContentBuilder {
         _buildPositionedElement(
           child: Text(
             callerIdData.name == null
-                ? 'Name: Unknown'
-                : 'Name: ${callerIdData.name}',
+                ? AppLocalizations.of(context)!.nameUnknown
+                : AppLocalizations.of(context)!.nameWithValue(callerIdData.name!),
             style: TextStyle(
               fontSize: styleProvider.nameFontSize,
               color: styleProvider.textNameColor,
@@ -54,7 +55,7 @@ class CallerIdContentBuilder {
         // 国家名称
         _buildPositionedElement(
           child: Text(
-            callerIdData.countryName ?? 'Unknown',
+            callerIdData.countryName ?? AppLocalizations.of(context)!.unknown,
             style: TextStyle(
               fontSize: styleProvider.countryNameFontSize,
               color: styleProvider.textCountryNameColor,
@@ -74,7 +75,7 @@ class CallerIdContentBuilder {
               Text(
                 callerIdData.labels?.isNotEmpty == true
                     ? callerIdData.labels!.map((label) => label.label).join(', ')
-                    : 'Unknown',
+                    : AppLocalizations.of(context)!.unknown,
                 style: TextStyle(
                   fontSize: styleProvider.labelsFontSize,
                   color: styleProvider.textLabelsColor,
@@ -88,7 +89,7 @@ class CallerIdContentBuilder {
         // 计数
         _buildPositionedElement(
           child: Text(
-            'Marked by ${callerIdData.count}',
+            AppLocalizations.of(context)!.markedByCount(callerIdData.count),
             style: TextStyle(
               fontSize: styleProvider.countFontSize,
               color: styleProvider.textCountColor,
@@ -130,7 +131,7 @@ class CallerIdContentBuilder {
                   size: styleProvider.iconSize),
               const SizedBox(width: 5),
               Text(
-                callerIdData.region ?? 'Unknown',
+                callerIdData.region ?? AppLocalizations.of(context)!.unknown,
                 style: TextStyle(
                   fontSize: styleProvider.locationFontSize,
                   color: styleProvider.textLocationColor,
@@ -146,8 +147,8 @@ class CallerIdContentBuilder {
           _buildPositionedElement(
             child: Text(
               stirInfo.isVerified
-                  ? 'Verified'
-                  : (stirInfo.isNotVerified ? 'Not Verified' : 'Failed'),
+                  ? AppLocalizations.of(context)!.verifiedText
+                  : (stirInfo.isNotVerified ? AppLocalizations.of(context)!.notVerifiedText : AppLocalizations.of(context)!.verificationFailedText),
               style: TextStyle(
                 fontSize: styleProvider.stirFontSize,
                 color: styleProvider.textStirColor,
@@ -187,10 +188,10 @@ class CallerIdContentBuilder {
                 children: [
                   Text(
                     simInfo.simSlotIndex == 0
-                        ? "SIM 1,-${simInfo.countryIso}"
+                        ? AppLocalizations.of(context)!.simSlot1(simInfo.countryIso ?? "")
                         : (simInfo.simSlotIndex != null
-                            ? "SIM 2,-${simInfo.countryIso}"
-                            : "Unknown"),
+                            ? AppLocalizations.of(context)!.simSlot2(simInfo.countryIso ?? "")
+                            : AppLocalizations.of(context)!.unknown),
                     style: TextStyle(
                       fontSize: styleProvider.simCardFontSize,
                       color: styleProvider.textSimCardColor,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用规则管理组件
 /// 用于处理各种类型的规则管理，包括添加、编辑、启用/禁用、删除规则等功能
@@ -71,7 +73,7 @@ class RuleManagementWidget<T extends BaseEntity> extends StatefulWidget {
   final void Function()? onClearActionFilter;
 
   const RuleManagementWidget({
-    Key? key,
+    super.key,
     required this.rules,
     required this.isLoading,
     required this.onLoadRules,
@@ -93,7 +95,7 @@ class RuleManagementWidget<T extends BaseEntity> extends StatefulWidget {
     this.selectedActionType,
     this.onShowActionFilter,
     this.onClearActionFilter,
-  }) : super(key: key);
+  });
 
   @override
   State<RuleManagementWidget<T>> createState() => _RuleManagementWidgetState<T>();
@@ -104,15 +106,15 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
   String _getActionTypeName(RuleActionType type) {
     switch (type) {
       case RuleActionType.allow:
-        return '允许';
+        return AppLocalizations.of(context)!.actionAllow;
       case RuleActionType.block:
-        return '阻止';
+        return AppLocalizations.of(context)!.actionBlock;
       case RuleActionType.silence:
-        return '静音';
+        return AppLocalizations.of(context)!.actionSilence;
       case RuleActionType.none:
-        return '无动作';
+        return AppLocalizations.of(context)!.actionNone;
       default:
-        return '未知';
+        return AppLocalizations.of(context)!.actionUnknown;
     }
   }
   
@@ -143,18 +145,18 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
             IconButton(
               icon: const Icon(Icons.label),
               onPressed: widget.onShowLabelFilter,
-              tooltip: '标签筛选',
+              tooltip: AppLocalizations.of(context)!.labelFilterTooltip,
             ),
           if (widget.useActionFilter)
             IconButton(
               icon: const Icon(Icons.filter_list),
               onPressed: widget.onShowActionFilter,
-              tooltip: '动作筛选',
+              tooltip: AppLocalizations.of(context)!.actionFilterTooltip,
             ),
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: widget.onLoadRules,
-            tooltip: '刷新',
+            tooltip: AppLocalizations.of(context)!.refreshTooltip,
           ),
           if (widget.importExportComponent != null)
             PopupMenuButton<String>(
@@ -166,23 +168,23 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
                 }
               },
               itemBuilder: (context) => [
-                const PopupMenuItem<String>(
+                PopupMenuItem<String>(
                   value: 'import',
                   child: Row(
                     children: [
-                      Icon(Icons.file_upload, color: Color(0xFFF5A623)),
-                      SizedBox(width: 8),
-                      Text('导入规则'),
+                      const Icon(Icons.file_upload, color: Color(0xFFF5A623)),
+                      const SizedBox(width: 8),
+                      Text(AppLocalizations.of(context)!.importRules),
                     ],
                   ),
                 ),
-                const PopupMenuItem<String>(
+                PopupMenuItem<String>(
                   value: 'export',
                   child: Row(
                     children: [
-                      Icon(Icons.file_download, color: Color(0xFFF5A623)),
-                      SizedBox(width: 8),
-                      Text('导出规则'),
+                      const Icon(Icons.file_download, color: Color(0xFFF5A623)),
+                      const SizedBox(width: 8),
+                      Text(AppLocalizations.of(context)!.exportRules),
                     ],
                   ),
                 ),
@@ -204,7 +206,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
                   // 标签筛选条件
                   if (widget.useLabelFilter && widget.selectedLabelId != null)
                     Chip(
-                      label: Text('标签: ${widget.selectedLabelId}'),
+                      label: Text(AppLocalizations.of(context)!.labelTag(widget.selectedLabelId!)),
                       backgroundColor: Colors.blue.withAlpha(25),
                       labelStyle: const TextStyle(color: Colors.blue),
                       deleteIcon: const Icon(Icons.close, size: 18),
@@ -213,7 +215,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
                   // 动作筛选条件
                   if (widget.useActionFilter && widget.selectedActionType != null)
                     Chip(
-                      label: Text('动作: ${_getActionTypeName(widget.selectedActionType!)}'),
+                      label: Text(AppLocalizations.of(context)!.actionTag(_getActionTypeName(widget.selectedActionType!))),
                       backgroundColor: _getActionTypeColor(widget.selectedActionType!).withAlpha(25),
                       labelStyle: TextStyle(color: _getActionTypeColor(widget.selectedActionType!)),
                       deleteIcon: const Icon(Icons.close, size: 18),
@@ -233,7 +235,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
       floatingActionButton: FloatingActionButton(
         onPressed: widget.onAddRule,
         backgroundColor: widget.themeColor,
-        tooltip: '添加规则',
+        tooltip: AppLocalizations.of(context)!.addRuleTooltip,
         child: const Icon(Icons.add),
       ),
     );
@@ -253,8 +255,8 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
             const SizedBox(height: 16),
             Text(
               (widget.selectedLabelId != null || widget.selectedActionType != null)
-                  ? '没有匹配的${widget.emptyText}'
-                  : '暂无${widget.emptyText}',
+                  ? AppLocalizations.of(context)!.noMatchingRules(widget.emptyText)
+                  : AppLocalizations.of(context)!.noRules(widget.emptyText),
               style: const TextStyle(fontSize: 18, color: Colors.grey),
             ),
             const SizedBox(height: 24),
@@ -278,7 +280,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
             if (widget.useLabelFilter && widget.selectedLabelId != null)
               TextButton(
                 onPressed: widget.onClearLabelFilter,
-                child: const Text('清除标签筛选'),
+                child: Text(AppLocalizations.of(context)!.clearLabelFilterButton),
               ),
           ],
         ),
@@ -310,7 +312,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/services/subscription_service_base.dart';
 import 'package:yourcallyourrule/features/common/widgets/subscription_management_widget.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用订阅页面组件
 /// 用于处理各种类型的订阅管理页面，包括电话、短信、联系人等订阅
@@ -71,7 +73,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('加载订阅失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionLoadFailed(e.toString()))),
         );
       }
       setState(() {
@@ -92,7 +94,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('更改订阅状态失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionStatusChangeFailed(e.toString()))),
         );
       }
     }
@@ -108,13 +110,13 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
       await widget.updateSubscription(subscription, subscriptionService);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('订阅更新成功')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateSuccess)),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('更新订阅失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateFailed(e.toString()))),
         );
       }
     } finally {
@@ -126,16 +128,16 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('删除订阅'),
-        content: const Text('确定要删除订阅吗？'),
+        title: Text(AppLocalizations.of(context)!.subscriptionDeleteConfirmTitle),
+        content: Text(AppLocalizations.of(context)!.subscriptionDeleteConfirmContent),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('删除'),
+            child: Text(AppLocalizations.of(context)!.confirm),
           ),
         ],
       ),
@@ -147,14 +149,14 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
         await subscriptionService.deleteSubscription(subscription.id as ID);
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('订阅已删除')),
+            SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteSuccess)),
           );
         }
         await _loadSubscriptions();
       } catch (e) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('删除订阅失败: $e')),
+            SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteFailed(e.toString()))),
           );
         }
       }

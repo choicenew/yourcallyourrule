@@ -535,15 +535,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phoneNumberTypeUnknown => 'Unknown';
 
   @override
-  String get phoneNumberLabel => 'Phone Number *';
-
-  @override
-  String get regexPatternLabel => 'Regex Pattern';
-
-  @override
-  String get ruleNameLabel => 'Rule Name';
-
-  @override
   String get testButtonLabel => 'TEST';
 
   @override
@@ -553,12 +544,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get matchSuccessfulMessage => 'Match successful!';
 
   @override
-  String get matchFailedMessage => 'Match failed!';
-
-  @override
-  String regexError(Object error) {
-    return 'Regex error: $error';
-  }
+  String get matchFailedMessage => 'Match Failed!';
 
   @override
   String get ruleSaveSuccess => 'Rule saved successfully!';
@@ -835,6 +821,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unknownTag => 'Tag: Unknown';
 
   @override
+  String get regexPatternLabel => 'Regex Pattern';
+
+  @override
+  String get ruleNameLabel => 'Rule Name';
+
+  @override
   String get testButton => 'TEST';
 
   @override
@@ -845,6 +837,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get matchFailed => 'Match failed!';
+
+  @override
+  String regexError(Object error) {
+    return 'Regex error: $error';
+  }
 
   @override
   String get enterBothPhoneNumberAndRegexPattern => 'Please enter both phone number and regex pattern';
@@ -859,6 +856,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String saveFailed(Object error) {
     return 'Save failed: $error';
   }
+
+  @override
+  String get phoneNumberLabel => 'Phone Number *';
 
   @override
   String get phoneNumberHintText => 'Enter phone number to add rule';
@@ -1173,4 +1173,182 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get updateCallFilterConfig => 'Update Call Filter Configuration';
+
+  @override
+  String loadLabelFailed(Object error) {
+    return 'Failed to load labels: $error';
+  }
+
+  @override
+  String get selectLabel => 'Select Label';
+
+  @override
+  String get selectedLabel => 'Selected:';
+
+  @override
+  String get noLabels => 'No Labels';
+
+  @override
+  String get addLabelButton => 'Add Label';
+
+  @override
+  String get ruleManagementTitle => 'Rule Management';
+
+  @override
+  String ruleLoadFailed(Object error) {
+    return 'Failed to load rules: $error';
+  }
+
+  @override
+  String ruleToggleSuccess(Object status) {
+    return 'Rule $status successfully';
+  }
+
+  @override
+  String ruleToggleFailed(Object error) {
+    return 'Operation failed: $error';
+  }
+
+  @override
+  String get ruleDeleteConfirmTitle => 'Delete Rule';
+
+  @override
+  String ruleDeleteConfirmContent(Object ruleType) {
+    return 'Are you sure you want to delete this $ruleType?';
+  }
+
+  @override
+  String get ruleDeleteSuccess => 'Rule deleted successfully';
+
+  @override
+  String ruleDeleteFailed(Object error) {
+    return 'Delete failed: $error';
+  }
+
+  @override
+  String get actionFilterTitle => 'Filter by Action Type';
+
+  @override
+  String get actionAll => 'All';
+
+  @override
+  String get actionAllow => 'Allow';
+
+  @override
+  String get actionBlock => 'Block';
+
+  @override
+  String get actionSilence => 'Silence';
+
+  @override
+  String get actionNone => 'No Action';
+
+  @override
+  String get actionUnknown => 'Unknown';
+
+  @override
+  String get labelFilterTooltip => 'Label Filter';
+
+  @override
+  String get actionFilterTooltip => 'Action Filter';
+
+  @override
+  String get refreshTooltip => 'Refresh';
+
+  @override
+  String get importRules => 'Import Rules';
+
+  @override
+  String get exportRules => 'Export Rules';
+
+  @override
+  String get addRuleTooltip => 'Add Rule';
+
+  @override
+  String labelTag(Object labelId) {
+    return 'Label: $labelId';
+  }
+
+  @override
+  String actionTag(Object actionType) {
+    return 'Action: $actionType';
+  }
+
+  @override
+  String noMatchingRules(Object ruleType) {
+    return 'No matching $ruleType';
+  }
+
+  @override
+  String noRules(Object ruleType) {
+    return 'No $ruleType yet';
+  }
+
+  @override
+  String get clearLabelFilterButton => 'Clear Label Filter';
+
+  @override
+  String subscriptionStatusChangeFailed(Object error) {
+    return 'Failed to change subscription status: $error';
+  }
+
+  @override
+  String get subscriptionUpdateSuccess => 'Subscription updated successfully';
+
+  @override
+  String subscriptionUpdateFailed(Object error) {
+    return 'Failed to update subscription: $error';
+  }
+
+  @override
+  String get subscriptionDeleteConfirmTitle => 'Delete Subscription';
+
+  @override
+  String get subscriptionDeleteConfirmContent => 'Are you sure you want to delete this subscription?';
+
+  @override
+  String get subscriptionDeleteSuccess => 'Subscription deleted';
+
+  @override
+  String subscriptionDeleteFailed(Object error) {
+    return 'Failed to delete subscription: $error';
+  }
+
+  @override
+  String get addSubscriptionTooltip => 'Add Subscription';
+
+  @override
+  String get addSubscriptionButton => 'Add Subscription';
+
+  @override
+  String get nameUnknown => 'Name: Unknown';
+
+  @override
+  String nameWithValue(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String markedByCount(int count) {
+    return 'Marked by $count';
+  }
+
+  @override
+  String get verifiedText => 'Verified';
+
+  @override
+  String get notVerifiedText => 'Not Verified';
+
+  @override
+  String get verificationFailedText => 'Failed';
+
+  @override
+  String simSlot1(String countryIso) {
+    return 'SIM 1,-$countryIso';
+  }
+
+  @override
+  String simSlot2(String countryIso) {
+    return 'SIM 2,-$countryIso';
+  }
 }

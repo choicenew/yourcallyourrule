@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/services/subscription_service_base.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用订阅管理组件
 /// 用于处理各种类型的订阅管理，包括加载、启用/禁用、更新、删除订阅等功能
@@ -38,7 +40,7 @@ class SubscriptionManagementWidget<T extends BaseEntity, ID> extends StatefulWid
   final String emptyText;
 
   const SubscriptionManagementWidget({
-    Key? key,
+    super.key,
     required this.subscriptionService,
     required this.subscriptions,
     required this.isLoading,
@@ -49,7 +51,7 @@ class SubscriptionManagementWidget<T extends BaseEntity, ID> extends StatefulWid
     required this.title,
     this.emptyIcon = Icons.subscriptions_outlined,
     required this.emptyText,
-  }) : super(key: key);
+  });
 
   @override
   State<SubscriptionManagementWidget<T, ID>> createState() => SubscriptionManagementWidgetState<T, ID>();
@@ -69,7 +71,7 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: widget.onAddSubscription,
-            tooltip: '添加订阅',
+            tooltip: AppLocalizations.of(context)!.addSubscriptionTooltip,
           ),
         ],
       ),
@@ -92,7 +94,7 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
           const SizedBox(height: 24),
           ElevatedButton.icon(
             icon: const Icon(Icons.add),
-            label: const Text('添加订阅'),
+            label: Text(AppLocalizations.of(context)!.addSubscriptionButton),
             onPressed: widget.onAddSubscription,
           ),
         ],
@@ -106,7 +108,7 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
       children: [
         widget.buildInfoCard(),
         const SizedBox(height: 16),
-        ...widget.subscriptions.map(widget.buildSubscriptionCard).toList(),
+        ...widget.subscriptions.map(widget.buildSubscriptionCard),
       ],
     );
   }
@@ -123,7 +125,7 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('更改订阅状态失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionStatusChangeFailed(e.toString()))),
         );
       }
     }
@@ -135,13 +137,13 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
       await updateFunction(subscription);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('订阅更新成功')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateSuccess)),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('更新订阅失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateFailed(e.toString()))),
         );
       }
     } finally {
@@ -154,16 +156,16 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('删除订阅'),
-        content: Text('确定要删除这个订阅吗？'),
+        title: Text(AppLocalizations.of(context)!.subscriptionDeleteConfirmTitle),
+        content: Text(AppLocalizations.of(context)!.subscriptionDeleteConfirmContent),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('删除'),
+            child: Text(AppLocalizations.of(context)!.confirm),
           ),
         ],
       ),
@@ -174,14 +176,14 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
         await widget.subscriptionService.deleteSubscription(subscription.id as ID);
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('订阅已删除')),
+            SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteSuccess)),
           );
         }
         await widget.onLoadSubscriptions();
       } catch (e) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('删除订阅失败: $e')),
+            SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteFailed(e.toString()))),
           );
         }
       }
