@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
 
 class PhoneSubscriptionPage extends StatefulWidget {
-  const PhoneSubscriptionPage({Key? key}) : super(key: key);
+  const PhoneSubscriptionPage({super.key});
 
   @override
   State<PhoneSubscriptionPage> createState() => _PhoneSubscriptionPageState();

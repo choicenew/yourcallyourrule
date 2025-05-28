@@ -139,7 +139,7 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
       });
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('加载标签失败: $e'),
+          content: Text(AppLocalizations.of(context)!.loadLabelFailed(e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -151,9 +151,9 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          '选择标签',
-          style: TextStyle(
+        Text(
+          AppLocalizations.of(context)!.selectLabel,
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
@@ -177,7 +177,7 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
                   Icon(Icons.label, color: widget.themeColor, size: 18),
                   const SizedBox(width: 8),
                   Text(
-                    '已选择: ${_selectedLabelText != null ? LabelTranslationUtils.translateLabelText(context, _selectedLabelText!) : ''}',
+                    '${AppLocalizations.of(context)!.selectedLabel}: ${_selectedLabelText != null ? LabelTranslationUtils.translateLabelText(context, _selectedLabelText!) : ''}',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -199,14 +199,14 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
           children: [
             const Icon(Icons.label_off, color: Colors.grey, size: 48),
             const SizedBox(height: 8),
-            const Text('暂无标签', style: TextStyle(color: Colors.grey)),
+            Text(AppLocalizations.of(context)!.noLabels, style: const TextStyle(color: Colors.grey)),
             const SizedBox(height: 16),
             ElevatedButton.icon(
               onPressed: () {
                 Navigator.pushNamed(context, '/labels/management').then((_) => _loadLabels());
               },
               icon: const Icon(Icons.add),
-              label: const Text('添加标签'),
+              label: Text(AppLocalizations.of(context)!.addLabelButton),
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.themeColor,
                 foregroundColor: Colors.white,

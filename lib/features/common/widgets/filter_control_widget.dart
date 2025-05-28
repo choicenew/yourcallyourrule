@@ -21,13 +21,13 @@ class FilterControlWidget extends StatefulWidget {
   final EnhancedCompositeFilterService? enhancedCompositeFilterService; // 增强版组合过滤器服务，支持SIM卡配置
 
   const FilterControlWidget({
-    Key? key,
+    super.key,
     required this.callFilterService,
     required this.localCountFilterService,
     required this.remoteNumberFilterService,
     required this.timeInterceptorService,
     this.enhancedCompositeFilterService, // 可选参数，如果提供则启用SIM卡配置功能
-  }) : super(key: key);
+  });
 
   @override
   State<FilterControlWidget> createState() => _FilterControlWidgetState();

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/services/auto_update_service.dart';
 
 class AutoUpdateSettingsPage extends StatefulWidget {
-  const AutoUpdateSettingsPage({Key? key}) : super(key: key);
+  const AutoUpdateSettingsPage({super.key});
 
   @override
   State<AutoUpdateSettingsPage> createState() => _AutoUpdateSettingsPageState();

@@ -165,7 +165,10 @@
  "timeWindowDescription": "Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted",
 
 
-
+ 
+ 
+ 
+ 
 
 
 
@@ -193,7 +196,7 @@
   "testButtonLabel": "TEST",
   "saveButtonLabel": "SAVE",
   "matchSuccessfulMessage": "Match successful!",
-  
+  "matchFailedMessage": "Match Failed!",
   
   "ruleSaveSuccess": "Rule saved successfully!",
   "ruleSaveFailed": "Save failed: {error}",
@@ -570,6 +573,96 @@
   "simSlotSettings": "SIM Slot Settings",
   "globalSettings": "Global Settings",
   "updateCallFilterConfig": "Update Call Filter Configuration",
+  "loadLabelFailed": "Failed to load labels: {error}",
+  "selectLabel": "Select Label",
+  "selectedLabel": "Selected:",
+  "noLabels": "No Labels",
+  "addLabelButton": "Add Label",
+  
+  "ruleManagementTitle": "Rule Management",
+  "ruleLoadFailed": "Failed to load rules: {error}",
+  "ruleToggleSuccess": "Rule {status} successfully",
+  "ruleToggleFailed": "Operation failed: {error}",
+  "ruleDeleteConfirmTitle": "Delete Rule",
+  "ruleDeleteConfirmContent": "Are you sure you want to delete this {ruleType}?",
+  "ruleDeleteSuccess": "Rule deleted successfully",
+  "ruleDeleteFailed": "Delete failed: {error}",
+  "actionFilterTitle": "Filter by Action Type",
+  "actionFilterAll": "All Filter",
+  "actionAll": "All",
+  "actionAllow": "Allow",
+  "actionBlock": "Block",
+  "actionSilence": "Silence",
+  "actionNone": "No Action",
+  "actionUnknown": "Unknown",
+  "labelFilterTooltip": "Label Filter",
+  "actionFilterTooltip": "Action Filter",
+  "refreshTooltip": "Refresh",
+  "importRules": "Import Rules",
+  "exportRules": "Export Rules",
+  "addRuleTooltip": "Add Rule",
+  "labelTag": "Label: {labelId}",
+  "actionTag": "Action: {actionType}",
+  "noMatchingRules": "No matching {ruleType}",
+  "noRules": "No {ruleType} yet",
+  "clearLabelFilterButton": "Clear Label Filter",
+  
+  "subscriptionManagementTitle": "Subscription Management",
+  "subscriptionLoadFailed": "Failed to load subscriptions: {error}",
+  "subscriptionStatusChangeFailed": "Failed to change subscription status: {error}",
+  "subscriptionUpdateSuccess": "Subscription updated successfully",
+  "subscriptionUpdateFailed": "Failed to update subscription: {error}",
+  "subscriptionDeleteConfirmTitle": "Delete Subscription",
+  "subscriptionDeleteConfirmContent": "Are you sure you want to delete this subscription?",
+  "subscriptionDeleteSuccess": "Subscription deleted",
+  "subscriptionDeleteFailed": "Failed to delete subscription: {error}",
+  "addSubscriptionTooltip": "Add Subscription",
+  "addSubscriptionButton": "Add Subscription",
+ 
+  "nameUnknown": "Name: Unknown",
+  "nameWithValue": "Name: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "markedByCount": "Marked by {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "42"
+      }
+    }
+  },
+  "verifiedText": "Verified",
+  "notVerifiedText": "Not Verified",
+  "verificationFailedText": "Failed",
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
   "@selectSimSlot": {
     "description": "Title for SIM slot selection dialog"
   },
