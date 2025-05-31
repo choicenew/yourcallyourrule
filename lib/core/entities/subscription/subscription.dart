@@ -4,14 +4,14 @@ import '../../base/base_entity.dart';
 
 // 订阅实体类，用于管理远程黑白名单订阅
 import 'package:yourcallyourrule/core/value_objects/url.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 
 // 补充实体方法
 class Subscription extends BaseEntity {
   final String name;
   final Url url;
   final bool isEnabled;
-  final bool isWhitelist;
-  final bool isBlacklist;
+  final RuleAction action; // 使用 action 属性表示规则类型
   final DateTime lastUpdated;
   final bool autoUpdate;
 
@@ -20,8 +20,7 @@ class Subscription extends BaseEntity {
     required this.name,
     required this.url,
     required this.isEnabled,
-    required this.isWhitelist,
-    required this.isBlacklist,
+    required this.action,
     required this.lastUpdated,
     required this.autoUpdate,
   });
@@ -34,8 +33,7 @@ class Subscription extends BaseEntity {
       'name': name,
       'url': url.toString(),
       'isEnabled': isEnabled,
-      'isWhitelist': isWhitelist,
-      'isBlacklist': isBlacklist,
+      'action': action.toString(),
       'lastUpdated': lastUpdated.toIso8601String(),
       'autoUpdate': autoUpdate,
     };
@@ -43,13 +41,15 @@ class Subscription extends BaseEntity {
 
   // 从Map创建实体
   factory Subscription.fromMap(Map<String, dynamic> map) {
+    // 处理 action 字段
+    RuleAction action = RuleAction.fromString(map['action']);
+    
     return Subscription(
       id: map['id'],
       name: map['name'],
       url: Url.fromString(map['url']),
       isEnabled: map['isEnabled'],
-      isWhitelist: map['isWhitelist'],
-      isBlacklist: map['isBlacklist'],
+      action: action,
       lastUpdated: DateTime.parse(map['lastUpdated']),
       autoUpdate: map['autoUpdate'],
     );
@@ -59,6 +59,7 @@ class Subscription extends BaseEntity {
   Subscription mergeUpdate(Subscription newSubscription) {
     return copyWith(
       isEnabled: newSubscription.isEnabled,
+      action: newSubscription.action,
       lastUpdated: DateTime.now(),
       autoUpdate: newSubscription.autoUpdate,
     );
@@ -66,6 +67,7 @@ class Subscription extends BaseEntity {
 
   Subscription copyWith({
     bool? isEnabled,
+    RuleAction? action,
     bool? autoUpdate,
     DateTime? lastUpdated,
   }) {
@@ -74,10 +76,15 @@ class Subscription extends BaseEntity {
       name: name,
       url: url,
       isEnabled: isEnabled ?? this.isEnabled,
-      isWhitelist: isWhitelist,
-      isBlacklist: isBlacklist,
+      action: action ?? this.action,
       lastUpdated: lastUpdated ?? this.lastUpdated,
       autoUpdate: autoUpdate ?? this.autoUpdate,
     );
   }
+  
+  // 便捷方法，判断是否为白名单订阅
+ // bool get isWhitelistSubscription => action == RuleAction.allow;
+  
+  // 便捷方法，判断是否为黑名单订阅
+ // bool get isBlacklistSubscription => action == RuleAction.block;
 }

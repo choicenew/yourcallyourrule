@@ -73,10 +73,10 @@ class BlockedCallsPageState extends State<BlockedCallsPage> with SingleTickerPro
         title: Text(AppLocalizations.of(context)!.blockedCallsTitle),
         bottom: TabBar(
           controller: _tabController,
-          tabs: const [
-            Tab(text: '全部'),
-            Tab(text: '电话'),
-            Tab(text: '短信'),
+          tabs: [
+            Tab(text: AppLocalizations.of(context)!.allCallsTab),
+            Tab(text: AppLocalizations.of(context)!.phoneCallsTab),
+            Tab(text: AppLocalizations.of(context)!.smsTab),
           ],
         ),
       ),
@@ -103,7 +103,7 @@ class BlockedCallsPageState extends State<BlockedCallsPage> with SingleTickerPro
                   ),
                   title: Text(call.phoneNumber),
                   subtitle: Text(
-                    '${call.timestamp.toString().substring(0, 16)} · ${call.type == BlockedType.call ? "电话" : "短信"}'
+                    '${call.timestamp.toString().substring(0, 16)} · ${call.type == BlockedType.call ? AppLocalizations.of(context)!.phoneCallsTab : AppLocalizations.of(context)!.smsTab}'
                   ),
                 );
               },

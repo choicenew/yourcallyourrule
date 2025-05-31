@@ -1,4 +1,4 @@
-// 电话规则订阅服务，用于处理电话黑白名单订阅
+// 电话规则订阅服务，用于处理电话规则订阅
 
 
 
@@ -6,7 +6,7 @@
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 
 import '../../../core/entities/rule/rule_base.dart';
-import '../../../core/entities/rule/white_black_rule.dart';
+import '../../../core/entities/rule/phone_rule.dart';
 import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/repositories/rule_repository.dart';
 import '../../../core/repositories/subscription_repository.dart';
@@ -16,7 +16,7 @@ import '../../../core/value_objects/rule_action.dart';
 import '../../../core/value_objects/url.dart';
 
 /// 电话规则订阅服务
-/// 处理电话黑白名单的订阅功能
+/// 处理电话规则的订阅功能
 class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, String> {
   final SubscriptionRepository _repository;
   final RuleRepository _ruleRepository;
@@ -34,92 +34,40 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     return allSubscriptions.where((subscription) => subscription.isEnabled).toList();
   }
 
-  /// 获取白名单订阅
-  Future<List<Subscription>> getWhitelistSubscriptions() async {
+  /// 获取指定动作类型的订阅
+  Future<List<Subscription>> getSubscriptionsByAction(RuleAction action) async {
     final allSubscriptions = await getAll();
-    return allSubscriptions.where((subscription) => subscription.isWhitelist).toList();
-  }
-
-  /// 获取黑名单订阅
-  Future<List<Subscription>> getBlacklistSubscriptions() async {
-    final allSubscriptions = await getAll();
-    return allSubscriptions.where((subscription) => subscription.isBlacklist).toList();
+    return allSubscriptions.where((subscription) => subscription.action == action).toList();
   }
 
   @override
   Future<void> enableSubscription(Subscription subscription) async {
-    subscription = Subscription(
-      id: subscription.id,
-      name: subscription.name,
-      url: subscription.url,
-      isEnabled: true,
-      isWhitelist: subscription.isWhitelist,
-      isBlacklist: subscription.isBlacklist,
-      lastUpdated: subscription.lastUpdated,
-      autoUpdate: subscription.autoUpdate,
-    );
+    subscription = subscription.copyWith(isEnabled: true);
     await save(subscription);
   }
 
   @override
   Future<void> disableSubscription(Subscription subscription) async {
-    subscription = Subscription(
-      id: subscription.id,
-      name: subscription.name,
-      url: subscription.url,
-      isEnabled: false,
-      isWhitelist: subscription.isWhitelist,
-      isBlacklist: subscription.isBlacklist,
-      lastUpdated: subscription.lastUpdated,
-      autoUpdate: subscription.autoUpdate,
-    );
+    subscription = subscription.copyWith(isEnabled: false);
     await save(subscription);
   }
 
   @override
-  Future<Subscription> addSubscription(String name, String url, {bool isEnabled = true}) async {
+  Future<Subscription> addSubscription(String name, String url, {bool isEnabled = true, RuleAction action = RuleAction.block}) async {
     final subscription = Subscription(
       id: '',
       name: name,
       url: Url.fromString(url),
       isEnabled: isEnabled,
-      isWhitelist: false,
-      isBlacklist: true,
+      action: action, // 使用传入的 action 参数
       lastUpdated: DateTime.now(),
       autoUpdate: false,
     );
     return await save(subscription);
   }
 
-  /// 添加白名单订阅
-  Future<Subscription> addWhitelistSubscription(String name, String url, {bool isEnabled = true}) async {
-    final subscription = Subscription(
-      id: '',
-      name: name,
-      url: Url.fromString(url),
-      isEnabled: isEnabled,
-      isWhitelist: true,
-      isBlacklist: false,
-      lastUpdated: DateTime.now(),
-      autoUpdate: false,
-    );
-    return await save(subscription);
-  }
+  // 已移除addWhitelistSubscription和addBlacklistSubscription方法，统一使用addSubscription方法
 
-  /// 添加黑名单订阅
-  Future<Subscription> addBlacklistSubscription(String name, String url, {bool isEnabled = true}) async {
-    final subscription = Subscription(
-      id: '',
-      name: name,
-      url: Url.fromString(url),
-      isEnabled: isEnabled,
-      isWhitelist: false,
-      isBlacklist: true,
-      lastUpdated: DateTime.now(),
-      autoUpdate: false,
-    );
-    return await save(subscription);
-  }
 
   @override
   Future<Subscription> updateSubscription(Subscription subscription) async {
@@ -138,15 +86,16 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     final rules = await _ruleImportExportService.parseImportData(data);
     
     final processedRules = rules.map((rule) {
-      if (rule is WhiteBlackRule) {
-        if (subscription.isWhitelist && rule.action.type == RuleActionType.block) {
+      if (rule is PhoneRule) {
+        // 如果规则的动作类型与订阅的动作类型不一致，则使用订阅的动作类型
+        if (rule.action.type != subscription.action.type) {
           return rule.copyWith(
-            action: RuleAction.allow,
+            action: subscription.action,
             isSubscribed: true
           );
-        } else if (subscription.isBlacklist && rule.action.type == RuleActionType.allow) {
+        } else {
+          // 如果动作类型一致，只需标记为已订阅
           return rule.copyWith(
-            action: RuleAction.block,
             isSubscribed: true
           );
         }

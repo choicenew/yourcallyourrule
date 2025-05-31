@@ -6,7 +6,7 @@ import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则操作对话框组件
@@ -105,7 +105,7 @@ class RuleActionDialog extends StatelessWidget {
   // 添加到黑白名单
   Future<void> _addToWhiteBlackRule(BuildContext context, CallLog log, RuleAction action) async {
     try {
-      final service = Provider.of<BlacklistWhitelistService>(context, listen: false);
+      final service = Provider.of<RuleManagementService>(context, listen: false);
       final labelId = log.labelIds?.isNotEmpty == true ? log.labelIds!.first : '';
       
       // 创建ListEntry对象
@@ -116,7 +116,7 @@ class RuleActionDialog extends StatelessWidget {
         name: log.name ?? log.number, // 优先使用name字段，如果为空则使用号码
       );
       
-      await service.addWhiteBlackRule(entry, action);
+      await service.addPhoneRule(entry, action);
       
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(

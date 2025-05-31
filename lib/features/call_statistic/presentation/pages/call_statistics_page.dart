@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blo
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_type_analysis.dart';
+import 'package:yourcallyourrule/features/call_statistic/domain/entities/statistics_data.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CallStatisticsPage extends ConsumerStatefulWidget {
@@ -21,7 +22,7 @@ class CallStatisticsPage extends ConsumerStatefulWidget {
 }
 
 class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
-  String _selectedPeriod = '周'; // 默认选择周期
+  String _selectedPeriod = 'Week'; // 默认选择周期
   final BlockedCallRepository _repository = BlockedCallRepository();
 
   @override
@@ -40,13 +41,13 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
           IconButton(
             icon: const Icon(Icons.calendar_today),
             onPressed: () {
-              // 日期选择功能
+              // 日期选择功能，你需要实现这个功能
             },
           ),
           IconButton(
             icon: const Icon(Icons.notifications),
             onPressed: () {
-              // 通知功能
+              // 通知功能 ，你需要实现这个功能
             },
           ),
         ],
@@ -55,10 +56,10 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
         data: (callLogs) => rulesAsync.when(
           data: (rules) => _buildStatisticsContent(context, callLogs, rules),
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, stack) => Center(child: Text('加载规则失败: $error')),
+          error: (error, stack) => Center(child: Text(AppLocalizations.of(context)!.loadRulesFailed(error.toString()))),
         ),
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(child: Text('加载通话记录失败: $error')),
+        error: (error, stack) => Center(child: Text(AppLocalizations.of(context)!.callHistoryRefreshFailed(error.toString()))),
       ),
     );
   }
@@ -73,6 +74,11 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     final int filteredSms = repository.getWeeklyFilteredSmsCount();
     final int whitelistCount = repository.getWhitelistRulesCount();
     final int blacklistCount = repository.getBlacklistRulesCount();
+    
+    // 获取增长率数据
+    final statisticsData = StatisticsData(
+      growthRate: repository.calculateMonthlyGrowthRate(),
+    );
 
     return SingleChildScrollView(
       child: Padding(
@@ -81,7 +87,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // 总览卡片
-            _buildOverviewCard(totalBlocked),
+            _buildOverviewCard(totalBlocked, statisticsData),
             
             // 广告位
             const SizedBox(height: 16),
@@ -107,7 +113,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
                   // 导出统计数据功能
                 },
                 icon: const Icon(Icons.file_download),
-                label: const Text('导出统计数据'),
+                label: Text(AppLocalizations.of(context)!.exportStatisticsData),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -121,7 +127,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     );
   }
 
-  Widget _buildOverviewCard(int totalBlocked) {
+  Widget _buildOverviewCard(int totalBlocked, StatisticsData statisticsData) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -149,9 +155,9 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    '本月总计',
-                    style: TextStyle(color: Colors.white70, fontSize: 14),
+                  Text(
+                    AppLocalizations.of(context)!.monthlyTotalLabel,
+                    style: const TextStyle(color: Colors.white70, fontSize: 14),
                   ),
                   const SizedBox(height: 4),
                   Text(
@@ -162,23 +168,25 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Text(
-                    '已拦截通讯',
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  Text(
+                    AppLocalizations.of(context)!.blockedCommunications,
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
                   ),
                 ],
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha:0.2),
-                  borderRadius: BorderRadius.circular(20),
+              // 从数据中获取增长率，如果有的话
+              if (statisticsData?.growthRate != null)
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha:0.2),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    '${statisticsData!.growthRate > 0 ? '+' : ''}${statisticsData!.growthRate}%',
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
+                  ),
                 ),
-                child: const Text(
-                  '+12.5%',
-                  style: TextStyle(color: Colors.white, fontSize: 14),
-                ),
-              ),
             ],
           ),
           const SizedBox(height: 16),
@@ -204,32 +212,32 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
           iconColor: Colors.blue,
           backgroundColor: Colors.blue.withValues(alpha:0.1),
           title: '$blockedCalls',
-          subtitle: '拦截电话',
-          period: '本周',
+          subtitle: AppLocalizations.of(context)!.blockedPhoneLabel,
+          period: AppLocalizations.of(context)!.periodWeek,
         ),
         StatisticCard(
           icon: Icons.sms_failed,
           iconColor: Colors.purple,
           backgroundColor: Colors.purple.withValues(alpha:0.1),
           title: '$filteredSms',
-          subtitle: '过滤短信',
-          period: '本周',
+          subtitle: AppLocalizations.of(context)!.filteredSmsLabel,
+          period: AppLocalizations.of(context)!.periodWeek,
         ),
         StatisticCard(
           icon: Icons.person_outline,
           iconColor: Colors.green,
           backgroundColor: Colors.green.withValues(alpha:0.1),
           title: '$whitelistCount',
-          subtitle: '白名单',
-          period: '总计',
+          subtitle: AppLocalizations.of(context)!.whitelistLabel,
+          period: AppLocalizations.of(context)!.tabAll,
         ),
         StatisticCard(
           icon: Icons.person_off,
           iconColor: Colors.red,
           backgroundColor: Colors.red.withValues(alpha:0.1),
           title: '$blacklistCount',
-          subtitle: '黑名单',
-          period: '总计',
+          subtitle: AppLocalizations.of(context)!.blacklistLabel,
+          period: AppLocalizations.of(context)!.tabAll,
         ),
       ],
     );
@@ -255,17 +263,30 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                '拦截趋势',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Text(
+                AppLocalizations.of(context)!.blockingTrend,
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Row(
                 children: [
-                  _periodButton('周', isSelected: _selectedPeriod == '周'),
+                  IconButton(
+                    icon: const Icon(Icons.calendar_today),
+                    onPressed: () {
+                      _showDateRangePicker(context);
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.notifications),
+                    onPressed: () {
+                      _showNotificationSettings(context);
+                    },
+                  ),
                   const SizedBox(width: 8),
-                  _periodButton('月', isSelected: _selectedPeriod == '月'),
+                  _periodButton(AppLocalizations.of(context)!.periodWeek, isSelected: _selectedPeriod == 'Week'),
                   const SizedBox(width: 8),
-                  _periodButton('年', isSelected: _selectedPeriod == '年'),
+                  _periodButton(AppLocalizations.of(context)!.periodMonth, isSelected: _selectedPeriod == 'Month'),
+                  const SizedBox(width: 8),
+                  _periodButton(AppLocalizations.of(context)!.periodYear, isSelected: _selectedPeriod == 'Year'),
                 ],
               ),
             ],
@@ -304,6 +325,119 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
             fontSize: 14,
           ),
         ),
+      ),
+    );
+  }
+
+  // 日期选择功能
+  Future<void> _showDateRangePicker(BuildContext context) async {
+    final initialDateRange = DateTimeRange(
+      start: DateTime.now().subtract(const Duration(days: 7)),
+      end: DateTime.now(),
+    );
+    
+    final pickedDateRange = await showDateRangePicker(
+      context: context,
+      firstDate: DateTime(2020),
+      lastDate: DateTime.now(),
+      initialDateRange: initialDateRange,
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: const ColorScheme.light(
+              primary: Color(0xFFFFB74D),
+              onPrimary: Colors.white,
+              onSurface: Colors.black,
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+    
+    if (pickedDateRange != null) {
+      // 处理选择的日期范围
+      setState(() {
+        // 这里可以更新日期范围并刷新数据
+        // 例如：_startDate = pickedDateRange.start;
+        //      _endDate = pickedDateRange.end;
+        // 然后重新加载数据
+      });
+      
+      // 显示选择的日期范围
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            '${AppLocalizations.of(context)!.selectedDateRange}: '
+            '${pickedDateRange.start.toString().substring(0, 10)} - '
+            '${pickedDateRange.end.toString().substring(0, 10)}',
+          ),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    }
+  }
+
+  // 通知功能
+  void _showNotificationSettings(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context)!.notificationSettings),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.dailyStatistics),
+              subtitle: Text(AppLocalizations.of(context)!.dailyStatisticsDesc),
+              value: true, // 这里应该从设置中获取实际值
+              onChanged: (value) {
+                // 保存设置
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(AppLocalizations.of(context)!.settingsSaved),
+                    duration: const Duration(seconds: 2),
+                  ),
+                );
+              },
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.weeklyReport),
+              subtitle: Text(AppLocalizations.of(context)!.weeklyReportDesc),
+              value: false, // 这里应该从设置中获取实际值
+              onChanged: (value) {
+                // 保存设置
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(AppLocalizations.of(context)!.settingsSaved),
+                    duration: const Duration(seconds: 2),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.cancel),
+          ),
+          TextButton(
+            onPressed: () {
+              // 保存所有设置
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(AppLocalizations.of(context)!.settingsSaved),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+            },
+            child: Text(AppLocalizations.of(context)!.save),
+          ),
+        ],
       ),
     );
   }

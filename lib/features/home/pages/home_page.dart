@@ -4,19 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/features/home/widgets/filter_management_widget.dart';
-import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
-import 'package:yourcallyourrule/features/search/pages/search_page.dart';
+import 'package:yourcallyourrule/features/search/utils/search_result_type_utils.dart';
 
-import '../models/home_stats_model.dart';
 import '../providers/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 
@@ -132,24 +123,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // 使用工具类获取图标
   IconData _getIconForSearchResultType(SearchResultType type) {
-    switch (type) {
-      case SearchResultType.contact:
-        return Icons.person;
-      case SearchResultType.label:
-        return Icons.label;
-      case SearchResultType.blacklist:
-        return Icons.block;
-      case SearchResultType.whitelist:
-        return Icons.check_circle;
-      case SearchResultType.allowed:
-        return Icons.check;
-      case SearchResultType.blocked:
-        return Icons.not_interested;
-      case SearchResultType.remoteNumber:
-        return Icons.phone;
-      case SearchResultType.notFound:
-        return Icons.help_outline;
+    // 特殊处理none和remoteNumber类型，其他使用工具类
+    if (type == SearchResultType.none) {
+      return Icons.not_interested; // 与工具类中的Icons.cancel_outlined不同
+    } else if (type == SearchResultType.remoteNumber) {
+      return Icons.phone; // 与工具类中的Icons.cloud不同
+    } else {
+      return SearchResultTypeUtils.getIconForType(type);
     }
   }
 

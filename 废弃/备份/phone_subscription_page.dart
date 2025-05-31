@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class PhoneSubscriptionPage extends StatefulWidget {
   const PhoneSubscriptionPage({super.key});
@@ -35,7 +36,7 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('加载订阅失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.loadSubscriptionsFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -54,7 +55,7 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
       await _loadSubscriptions();
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('更改订阅状态失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.changeSubscriptionStatusFailed(e.toString()))),
       );
     }
   }
@@ -68,11 +69,11 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
     try {
       final updatedRules = await subscriptionService.manualUpdateRulesFromSubscription(subscription);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('订阅更新成功，共更新${updatedRules.length}条规则')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateSuccess(updatedRules.length.toString()))),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('更新订阅失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.updateSubscriptionFailed(e.toString()))),
       );
     } finally {
       await _loadSubscriptions();
@@ -83,16 +84,16 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('删除订阅'),
-        content: Text('确定要删除订阅 "${subscription.name}" 吗？'),
+        title: Text(AppLocalizations.of(context)!.deleteSubscription),
+        content: Text(AppLocalizations.of(context)!.deleteSubscriptionConfirm(subscription.name)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('删除'),
+            child: Text(AppLocalizations.of(context)!.delete),
           ),
         ],
       ),
@@ -103,12 +104,12 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
       try {
         await subscriptionService.deleteSubscription(subscription.id);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('订阅已删除')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleted)),
         );
         await _loadSubscriptions();
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('删除订阅失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.deleteSubscriptionFailed(e.toString()))),
         );
       }
     }
@@ -121,23 +122,23 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(isWhitelist ? '添加白名单订阅' : '添加黑名单订阅'),
+        title: Text(isWhitelist ? AppLocalizations.of(context)!.addWhitelistSubscription : AppLocalizations.of(context)!.addBlacklistSubscription),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(
-                labelText: '订阅名称',
-                hintText: '输入订阅的名称',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.subscriptionName,
+                hintText: AppLocalizations.of(context)!.enterSubscriptionName,
               ),
             ),
             const SizedBox(height: 16),
             TextField(
               controller: urlController,
-              decoration: const InputDecoration(
-                labelText: '订阅URL',
-                hintText: '输入订阅的URL地址',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.subscriptionUrl,
+                hintText: AppLocalizations.of(context)!.enterSubscriptionUrl,
               ),
             ),
           ],
@@ -145,7 +146,7 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () async {
@@ -154,7 +155,7 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
               
               if (name.isEmpty || url.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('请输入有效的名称和URL')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.enterValidNameAndUrl)),
                 );
                 return;
               }
@@ -167,17 +168,17 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
                   await subscriptionService.addBlacklistSubscription(name, url);
                 }
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('订阅 "$name" 添加成功')),
-                );
+                    SnackBar(content: Text("subscriptionAddSuccess")),
+                  );
                 Navigator.of(context).pop();
                 await _loadSubscriptions();
               } catch (e) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('添加订阅失败: $e')),
-                );
+                    SnackBar(content: Text(AppLocalizations.of(context)!.addSubscriptionFailed(e.toString()))),
+                  );
               }
             },
-            child: const Text('添加'),
+            child: Text(AppLocalizations.of(context)!.add),
           ),
         ],
       ),
@@ -203,14 +204,14 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
               }
             },
             itemBuilder: (context) => [
-              const PopupMenuItem<String>(
-                value: 'add_blacklist',
-                child: Text('添加黑名单订阅'),
-              ),
-              const PopupMenuItem<String>(
-                value: 'add_whitelist',
-                child: Text('添加白名单订阅'),
-              ),
+              PopupMenuItem<String>(
+                    value: 'add_blacklist',
+                    child: Text(AppLocalizations.of(context)!.addBlacklistSubscription),
+                  ),
+                  PopupMenuItem<String>(
+                    value: 'add_whitelist',
+                    child: Text(AppLocalizations.of(context)!.addWhitelistSubscription),
+                  ),
             ],
             icon: const Icon(Icons.add),
           ),
@@ -224,14 +225,14 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Icon(Icons.subscriptions_outlined, size: 64, color: Colors.grey),
-                      const SizedBox(height: 16),
-                      const Text('暂无订阅', style: TextStyle(fontSize: 18, color: Colors.grey)),
-                      const SizedBox(height: 24),
-                      ElevatedButton.icon(
-                        icon: const Icon(Icons.add),
-                        label: const Text('添加订阅'),
-                        onPressed: () => _showAddSubscriptionDialog(),
-                      ),
+                  const SizedBox(height: 16),
+                  Text(AppLocalizations.of(context)!.noSubscriptions, style: const TextStyle(fontSize: 18, color: Colors.grey)),
+                  const SizedBox(height: 24),
+                  ElevatedButton.icon(
+                    icon: const Icon(Icons.add),
+                    label: Text(AppLocalizations.of(context)!.addSubscription),
+                    onPressed: () => _showAddSubscriptionDialog(),
+                  ),
                     ],
                   ),
                 )
@@ -259,15 +260,15 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    '关于电话订阅规则',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    "aboutPhoneSubscriptionRules",
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    '通过URL订阅电话规则列表，自动更新黑白名单规则。支持JSON格式规则文件。',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                   " phoneSubscriptionRulesDescription",
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -317,7 +318,7 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
-                              isWhitelist ? '白名单' : '黑名单',
+                              isWhitelist ? AppLocalizations.of(context)!.whitelist : AppLocalizations.of(context)!.blacklist,
                               style: TextStyle(
                                 fontSize: 12,
                                 color: isWhitelist ? Colors.green : Colors.red,
@@ -341,14 +342,14 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
                               color: Colors.green.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
-                            child: const Text(
-                              '已同步',
-                              style: TextStyle(fontSize: 12, color: Colors.green),
+                            child: Text(
+                              AppLocalizations.of(context)!.synced,
+                              style: const TextStyle(fontSize: 12, color: Colors.green),
                             ),
                           ),
                           const SizedBox(width: 8),
                           Text(
-                            '最后更新: $formattedDate',
+                            '${AppLocalizations.of(context)!.lastUpdated}: $formattedDate',
                             style: const TextStyle(fontSize: 12, color: Colors.grey),
                           ),
                         ],
@@ -368,7 +369,7 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
                 Expanded(
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.sync),
-                    label: const Text('立即同步'),
+                    label: Text(AppLocalizations.of(context)!.syncNow),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       shape: RoundedRectangleBorder(
@@ -381,7 +382,7 @@ class _PhoneSubscriptionPageState extends State<PhoneSubscriptionPage> {
                 const SizedBox(width: 8),
                 OutlinedButton.icon(
                   icon: const Icon(Icons.delete),
-                  label: const Text('删除'),
+                  label: Text(AppLocalizations.of(context)!.delete),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(

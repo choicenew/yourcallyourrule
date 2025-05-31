@@ -48,11 +48,11 @@
   "processing": "Processing...",
   "configUpdated": "Configuration updated",
   "checkFileFormat": "Please check file format or permissions",
-  "simInfoLoadFailure": "Failed to load ScM card inforaation: {error}",
+  "simInfoLoadFailure": "Failed to load SIM card information: {error}",
   "operationFailed": "Operation failed",
   "importSuccess": "Configuration imported successfully",
   "importFailure": "Failed to import configuration",
-  "exportSuccess": "Configuration exported successfully",
+  "exportSuccesslly": "Configuration exported successfully",
   "exportFailure": "Failed to export configuration",
  "axisPosition": "{axis} Position",
 "regexErrorMessage": "Regex error: {error}",
@@ -164,13 +164,27 @@
   },
  "timeWindowDescription": "Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted",
 
+"about": "About",
+  "callerIdApp": "Caller ID App",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "This app is a powerful caller ID tool that allows you to identify and block unwanted calls.",
+  "features": "Features",
+  "onlineCallerIdSubscription": "Online Caller ID Subscription",
+  "wildcardSupportForFlexibleFiltering": "Wildcard Support for Flexible Filtering",
+  "blacklistingAndWhitelisting": "Blacklisting and Whitelisting",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Join the Telegram Channel and Group for More Info",
+  "tutorial": "Tutorial",
+  "contactUs": "Contact Us",
+  "github": "GitHub",
+  "telegram": "Telegram",
+  "email": "Email",
+  "import": "Import",
+  "export": "Export",
+ 
+ 
+  "phoneRuleSubscription": "Phone Rule Subscription",
+ "aboutPhoneSubscriptionRules": "About Phone Subscription Rules",
 
- 
- 
- 
- 
-
-
+ "phoneSubscriptionRulesDescription" : "Subscribe to phone rule lists via URL to automatically update whitelist and blacklist rules. Supports JSON format rule files.",  
 
 
 
@@ -499,6 +513,192 @@
       "error": {}
     }
   },
+  
+  "selectedDateRange": "Selected date range",
+  "notificationSettings": "Notification Settings",
+  "dailyStatistics": "Daily Statistics",
+  "dailyStatisticsDesc": "Receive daily statistics about blocked calls and messages",
+  "weeklyReport": "Weekly Report",
+  "weeklyReportDesc": "Receive weekly summary report of call blocking activity",
+  "settingsSaved": "Settings saved",
+  
+  "phoneSubscriptionTitle": "Phone Rule Subscriptions",
+  "loadSubscriptionsFailed": "Failed to load subscriptions: {error}",
+  "changeSubscriptionStatusFailed": "Failed to change subscription status: {error}",
+  
+  "updateSubscriptionFailed": "Failed to update subscription: {error}",
+  "deleteSubscription": "Delete Subscription",
+  "deleteSubscriptionConfirm": "Are you sure you want to delete subscription \"{name}\"?",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "subscriptionDeleted": "Subscription deleted",
+  "deleteSubscriptionFailed": "Failed to delete subscription: {error}",
+  "addAllowSubscription": "Add Allow Subscription",
+  "addBlockSubscription": "Add Block Subscription",
+  "addSilenceSubscription": "Add Silence Subscription",
+  "addNoneSubscription": "Add None Subscription",
+  "subscriptionName": "Subscription Name",
+  "enterSubscriptionName": "Enter subscription name",
+  "subscriptionUrl": "Subscription URL",
+  "enterSubscriptionUrl": "Enter subscription URL",
+  "enterValidNameAndUrl": "Please enter valid name and URL",
+  "add": "Add",
+  "subscriptionAddSuccess": "Subscription \"{name}\" added successfully",
+  "addSubscriptionFailed": "Failed to add subscription: {error}",
+  "noSubscriptions": "No subscriptions",
+  "addSubscription": "Add Subscription",
+  "aboutPhoneSubscriptions": "About Phone Subscriptions",
+  "aboutPhoneSubscriptionsDesc": "Subscribe to phone rule lists via URL, automatically update blacklist and whitelist rules. Supports JSON format rule files.",
+  "aboutContactSubscription": "About Contact Subscription",
+  "contactSubscriptionDescription": "Subscribe to contact lists via URL, automatically update contact information and labels. Supports JSON format data.",
+  "whitelist": "Whitelist",
+  "blacklist": "Blacklist",
+  "synchronized": "Synchronized",
+  "lastUpdated": "Last updated: {date}",
+  "syncNow": "Sync Now",
+  
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {
+    
+    }
+  },
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
   "@ruleDeleteFailure": {
     "description": "Rule deletion failure message",
     "placeholders": {
@@ -553,6 +753,22 @@
   "chartOneDayAgo": "1 day ago",
   "chartThreeDaysAgo": "3 days ago",
   "chartOneWeekAgo": "1 week ago",
+  
+  "allCallsTab": "All",
+  "phoneCallsTab": "Phone",
+  "smsTab": "SMS",
+  "weeklyBlockedCallsSummary": "Weekly Blocked Calls Summary",
+  "monthlyTotalLabel": "Monthly Total",
+  "blockedCommunications": "Blocked Communications",
+  "blockedPhoneLabel": "Blocked Calls",
+  "filteredSmsLabel": "Filtered SMS",
+  "whitelistLabel": "Whitelist",
+  "blacklistLabel": "Blacklist",
+  "blockingTrend": "Blocking Trend",
+  "periodWeek": "Week",
+  "periodMonth": "Month",
+  "periodYear": "Year",
+  "exportStatisticsData": "Export Statistics Data",
   "chartTenDaysAgo": "10 days ago",
   "chartOneMonthAgo": "1 month ago",
   "chartMonthFormat": "Month {month}",
@@ -564,6 +780,18 @@
       }
     }
   },
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "defaultPeriod": "Week",
   "selectSimSlot": "Select SIM Slot",
   "basicRuleFilterSettings": "Basic Rule Filter Settings",
@@ -574,11 +802,18 @@
   "globalSettings": "Global Settings",
   "updateCallFilterConfig": "Update Call Filter Configuration",
   "loadLabelFailed": "Failed to load labels: {error}",
+  "addLabelFailed": "Failed to add labels: {error}",
   "selectLabel": "Select Label",
   "selectedLabel": "Selected:",
   "noLabels": "No Labels",
   "addLabelButton": "Add Label",
-  
+  "rulesImported": "Rules imported successfully",
+  "rulesImportFailed": "Failed to import rules: {error}",
+  "importRules": "Import Rules",
+  "importRulesInstructions": "Import rules from a CSV file",
+  "importRulesButton": "Import Rules",
+  "importRulesError": "Failed to import rules: {error}",
+  "importRulesSuccess": "Rules imported successfully",
   "ruleManagementTitle": "Rule Management",
   "ruleLoadFailed": "Failed to load rules: {error}",
   "ruleToggleSuccess": "Rule {status} successfully",
@@ -612,6 +847,10 @@
   "subscriptionStatusChangeFailed": "Failed to change subscription status: {error}",
   "subscriptionUpdateSuccess": "Subscription updated successfully",
   "subscriptionUpdateFailed": "Failed to update subscription: {error}",
+  "synced": "Synced",
+  "@synced": {
+    "description": "Synced status label"
+  },
   "subscriptionDeleteConfirmTitle": "Delete Subscription",
   "subscriptionDeleteConfirmContent": "Are you sure you want to delete this subscription?",
   "subscriptionDeleteSuccess": "Subscription deleted",
@@ -663,6 +902,12 @@
       }
     }
   },
+
+ 
+ 
+ 
+ 
+
   "@selectSimSlot": {
     "description": "Title for SIM slot selection dialog"
   },
@@ -686,5 +931,127 @@
   },
   "@updateCallFilterConfig": {
     "description": "Button text for updating call filter configuration"
-  }
+  },
+  "contactsManagementPageTitle": "Contacts Management Page",
+  "failedToLoadContacts": "Failed to load contacts",
+  "editContact": "Edit Contact",
+  "addContact": "Add Contact",
+  "save": "Save",
+  "add": "Add",
+  "contactUpdateSuccess": "Contact updated successfully",
+  "contactAddSuccess": "Contact added successfully",
+  "name": "Name",
+  "enterContactName": "Please enter contact name",
+  "phoneNumber": "Phone Number",
+  "enterPhoneNumber": "Please enter phone number",
+  "emailOptional": "Email (Optional)",
+  "enterEmail": "Please enter email",
+  "cancel": "Cancel",
+  "nameAndPhoneNumberRequired": "Name and phone number cannot be empty",
+  "update": "Update",
+  "failedToUpdateContact": "Failed to update contact",
+  "failedToAddContact": "Failed to add contact",
+  "manageFavoriteContacts": "Manage Favorite Contacts",
+  "done": "Done",
+  "addedToFavorites": "Added to favorite contacts",
+  "removedFromFavorites": "Removed from favorite contacts",
+  "deleteContact": "Delete Contact",
+  "confirmDeleteContact": "Are you sure you want to delete",
+  "delete": "Delete",
+  "selectTag": "Select Tag",
+  "batchDeleteContacts": "Batch Delete Contacts",
+  "confirmBatchDeleteContacts": "Are you sure you want to delete the selected",
+  "contacts": "contacts?",
+  "contactsDeleted": "Deleted {count} contacts",
+  "removeFavorite": "Remove Favorite",
+  "addFavorite": "Add Favorite",
+  "changeTag": "Change Tag",
+  "edit": "Edit",
+  "importExportContacts": "Import/Export Contacts",
+  "importContacts": "Import Contacts",
+  "exportContacts": "Export Contacts",
+  "csvFormat": "CSV Format",
+  "jsonFormat": "JSON Format",
+  "fileSavedTo": "File saved to: {path}",
+  "refresh": "Refresh",
+  "searchContacts": "Search Contacts",
+  "selectLabel": "Select Label",
+  "changeLabel": "Change Label",
+  "noContacts": "No contacts yet",
+  "noMatchingContacts": "No matching contacts",
+  "addToFavoriteContacts": "Add to Favorite Contacts",
+  "deleteContactConfirmation": "Are you sure you want to delete contact",
+  "deleteSuccess": "Delete successful",
+  "deleteFailed": "Delete failed",
+  "dataLoadingFailed": "Failed to load data: {error}",
+  "overview": "Overview",
+  "adPlaceholder": "Ad Placeholder",
+  "statisticsGrid": "Statistics Grid",
+  "trendChart": "Trend Chart",
+  "weekly": "Weekly",
+  "monthly": "Monthly",
+  "yearly": "Yearly",
+  "export": "Export",
+  "exportSuccess": "Export successful",
+  "exportFailed": "Export failed",
+  "blockedCalls": "Blocked Calls",
+  "filteredSms": "Filtered SMS",
+  "totalBlocked": "Total Blocked",
+  "totalFiltered": "Total Filtered",
+  "trend": "Trend",
+  "exportData": "Export Data",
+  "exporting": "Exporting...",
+  "exportComplete": "Export Complete",
+  "exportError": "Export Error",
+  "homePageTitle": "Home Page",
+  "callHistory": "Call History",
+  "smsHistory": "SMS History",
+  "noData": "No Data",
+  "loadingData": "Loading Data...",
+  "loadFailed": "Load Failed",
+  "retry": "Retry",
+  "searchHint": "Search...",
+  "filter": "Filter",
+  "clearFilter": "Clear Filter",
+  "all": "All",
+  "blocked": "Blocked",
+  "filtered": "Filtered",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "last7Days": "Last 7 Days",
+  "last30Days": "Last 30 Days",
+  "customRange": "Custom Range",
+  "apply": "Apply",
+  "selectDateRange": "Select Date Range",
+  "startDate": "Start Date",
+  "endDate": "End Date",
+  "reset": "Reset",
+  "filterManagement": "Filter Management",
+  "addFilter": "Add Filter",
+  "editFilter": "Edit Filter",
+  "deleteFilter": "Delete Filter",
+  "filterName": "Filter Name",
+  "enterFilterName": "Please enter filter name",
+  "filterPattern": "Filter Pattern",
+  "enterFilterPattern": "Please enter filter pattern",
+  "filterType": "Filter Type",
+  "call": "Call",
+  "sms": "SMS",
+  "both": "Both",
+  "action": "Action",
+  "block": "Block",
+  "allow": "Allow",
+  "mute": "Mute",
+  "saveFilter": "Save Filter",
+  "filterSaveSuccess": "Filter saved successfully",
+  "filterSaveFailed": "Filter save failed",
+  "confirmDeleteFilter": "Are you sure you want to delete this filter?",
+  "filterDeleteSuccess": "Filter deleted successfully",
+  "filterDeleteFailed": "Filter delete failed",
+  "noFilters": "No filters yet",
+  "searchFilters": "Search Filters",
+  "filterDetails": "Filter Details",
+  "pattern": "Pattern",
+  "type": "Type",
+  "actionType": "Action Type"
 }

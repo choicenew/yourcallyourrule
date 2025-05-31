@@ -3,8 +3,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
-import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/repositories/call_statistics_repository_impl.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_type_analysis.dart';
@@ -25,8 +26,11 @@ class _DashboardPageState extends State<DashboardPage> {
   List<CallLog> _callLogs = [];
   int _blockedCallsCount = 0;
   int _filteredSmsCount = 0;
-  int _whitelistCount = 0;
-  int _blacklistCount = 0;
+  // 四种action类型的规则数量
+  int _allowRulesCount = 0;
+  int _blockRulesCount = 0;
+  int _silenceRulesCount = 0;
+  int _noneRulesCount = 0;
   List<double> _weeklyData = [0, 0, 0, 0, 0, 0, 0]; // 最近7天的数据
   String _selectedTimeRange = '周';
 
@@ -46,10 +50,12 @@ class _DashboardPageState extends State<DashboardPage> {
       final callLogService = Provider.of<CallLogService>(context, listen: false);
       await callLogService.initialize();
       
-      // 加载黑白名单数据
-      final blacklistWhitelistService = Provider.of<BlacklistWhitelistService>(context, listen: false);
-      final blacklistRules = await blacklistWhitelistService.getAllBlacklistRules();
-      final whitelistRules = await blacklistWhitelistService.getAllWhitelistRules();
+      // 加载规则数据 - 获取四种action类型的规则
+      final ruleManagementService = Provider.of<RuleManagementService>(context, listen: false);
+      final blockRules = await ruleManagementService.getAllRulesByActionType(RuleActionType.block);
+      final allowRules = await ruleManagementService.getAllRulesByActionType(RuleActionType.allow);
+      final silenceRules = await ruleManagementService.getAllRulesByActionType(RuleActionType.silence);
+      final noneRules = await ruleManagementService.getAllRulesByActionType(RuleActionType.none);
       
       // 监听通话记录流
       callLogService.logsStream.listen((logs) {
@@ -58,14 +64,16 @@ class _DashboardPageState extends State<DashboardPage> {
             _callLogs = logs;
             
             // 使用CallStatisticsRepositoryImpl获取统计数据
-            final List<RuleBase> allRules = [...blacklistRules, ...whitelistRules];
+            final List<RuleBase> allRules = [...blockRules, ...allowRules, ...silenceRules, ...noneRules];
             final repository = CallStatisticsRepositoryImpl(_callLogs, allRules);
             
             // 获取各种统计数据
             _blockedCallsCount = repository.getWeeklyBlockedCallsCount();
             _filteredSmsCount = repository.getWeeklyFilteredSmsCount();
-            _blacklistCount = repository.getBlacklistRulesCount();
-            _whitelistCount = repository.getWhitelistRulesCount();
+            _blockRulesCount = repository.getBlockRulesCount();
+            _allowRulesCount = repository.getAllowRulesCount();
+            _silenceRulesCount = repository.getSilenceRulesCount();
+            _noneRulesCount = repository.getNoneRulesCount();
             
             // 获取每周数据
             final now = DateTime.now();
@@ -82,12 +90,14 @@ class _DashboardPageState extends State<DashboardPage> {
       });
       
       // 获取短信过滤数量
-      final callStatisticsRepository = CallStatisticsRepositoryImpl(_callLogs, [...blacklistRules, ...whitelistRules]);
+      final callStatisticsRepository = CallStatisticsRepositoryImpl(_callLogs, [...blockRules, ...allowRules, ...silenceRules, ...noneRules]);
       final filteredSmsCount = callStatisticsRepository.getWeeklyFilteredSmsCount();
       
       setState(() {
-        _blacklistCount = blacklistRules.length;
-        _whitelistCount = whitelistRules.length;
+        _blockRulesCount = blockRules.length;
+        _allowRulesCount = allowRules.length;
+        _silenceRulesCount = silenceRules.length;
+        _noneRulesCount = noneRules.length;
         _filteredSmsCount = filteredSmsCount;
       });
     } catch (e) {
@@ -354,16 +364,33 @@ class _DashboardPageState extends State<DashboardPage> {
             icon: Icons.person_add,
             iconColor: Colors.green,
             backgroundColor: Colors.green.withOpacity(0.1),
-            title: '$_whitelistCount',
-            subtitle: '白名单',
+            title: '$_allowRulesCount',
+            subtitle: '允许规则',
             period: '总计',
           ),
           StatisticCard(
             icon: Icons.person_remove,
             iconColor: Colors.red,
             backgroundColor: Colors.red.withOpacity(0.1),
-            title: '$_blacklistCount',
-            subtitle: '黑名单',
+            title: '$_blockRulesCount',
+            subtitle: '阻止规则',
+            period: '总计',
+          ),
+          // 添加静音规则和无动作规则的统计卡片
+          StatisticCard(
+            icon: Icons.volume_off,
+            iconColor: Colors.orange,
+            backgroundColor: Colors.orange.withOpacity(0.1),
+            title: '$_silenceRulesCount',
+            subtitle: '静音规则',
+            period: '总计',
+          ),
+          StatisticCard(
+            icon: Icons.do_not_disturb_alt,
+            iconColor: Colors.grey,
+            backgroundColor: Colors.grey.withOpacity(0.1),
+            title: '$_noneRulesCount',
+            subtitle: '无动作规则',
             period: '总计',
           ),
         ],

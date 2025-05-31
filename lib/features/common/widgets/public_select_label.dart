@@ -153,7 +153,7 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
       children: [
         Text(
           AppLocalizations.of(context)!.selectLabel,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
@@ -199,7 +199,7 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
           children: [
             const Icon(Icons.label_off, color: Colors.grey, size: 48),
             const SizedBox(height: 8),
-            Text(AppLocalizations.of(context)!.noLabels, style: const TextStyle(color: Colors.grey)),
+            Text(AppLocalizations.of(context)!.noLabels, style: TextStyle(color: Colors.grey)),
             const SizedBox(height: 16),
             ElevatedButton.icon(
               onPressed: () {

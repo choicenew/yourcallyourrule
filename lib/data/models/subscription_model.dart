@@ -1,41 +1,28 @@
+import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'base_model.dart';
 import '../../core/entities/subscription/subscription.dart';
+import '../../core/entities/subscription/contact_subscription.dart';
 
-// 基础订阅模型（包含全部字段）
-class SubscriptionModel extends BaseModel<Subscription> {
+// 基础订阅模型（只包含共同字段）
+abstract class BaseSubscriptionModel<T extends BaseEntity> extends BaseModel<T> {
   final String name;
   final Url url;
   final bool enabled;
-  final bool isWhitelist;
-  final bool isBlacklist;
   final DateTime lastUpdated;
   final bool autoUpdate;
 
-  const SubscriptionModel({
+  const BaseSubscriptionModel({
     required super.id,
     required this.name,
     required this.url,
     this.enabled = true,
-    this.isWhitelist = false,
-    this.isBlacklist = false,
     required this.lastUpdated,
     this.autoUpdate = false,
   });
-
-  factory SubscriptionModel.fromMap(Map<String, dynamic> map) {
-    return SubscriptionModel(
-      id: map['id'],
-      name: map['name'],
-      url: Url.fromString(map['url']),
-      enabled: map['enabled'] == 1,
-      isWhitelist: map['isWhitelist'] == 1,
-      isBlacklist: map['isBlacklist'] == 1,
-      lastUpdated: DateTime.parse(map['lastUpdated']),
-      autoUpdate: map['autoUpdate'] == 1,
-    );
-  }
-
+  
+  // 基础toMap方法
   @override
   Map<String, dynamic> toMap() {
     return {
@@ -43,11 +30,51 @@ class SubscriptionModel extends BaseModel<Subscription> {
       'name': name,
       'url': url.toString(),
       'enabled': enabled ? 1 : 0,
-      'isWhitelist': isWhitelist ? 1 : 0,
-      'isBlacklist': isBlacklist ? 1 : 0,
       'lastUpdated': lastUpdated.toIso8601String(),
       'autoUpdate': autoUpdate ? 1 : 0,
     };
+  }
+  
+  // 抽象方法，子类必须实现
+  @override
+  T toEntity();
+}
+
+// 标准订阅模型（包含action字段）
+class SubscriptionModel extends BaseSubscriptionModel<Subscription> {
+  final RuleAction action; // 使用 action 替代 isWhitelist 和 isBlacklist
+
+  const SubscriptionModel({
+    required super.id,
+    required super.name,
+    required super.url,
+    super.enabled,
+    this.action = RuleAction.none, // 默认为none
+    required super.lastUpdated,
+    super.autoUpdate,
+  });
+
+  factory SubscriptionModel.fromMap(Map<String, dynamic> map) {
+    // 处理 action 字段
+    RuleAction action = RuleAction.fromString(map['action']);
+    
+    return SubscriptionModel(
+      id: map['id'],
+      name: map['name'],
+      url: Url.fromString(map['url']),
+      enabled: map['enabled'] == 1,
+      action: action,
+      lastUpdated: DateTime.parse(map['lastUpdated']),
+      autoUpdate: map['autoUpdate'] == 1,
+    );
+  }
+
+  @override
+  Map<String, dynamic> toMap() {
+    return super.toMap()
+      ..addAll({
+        'action': action.toString(),
+      });
   }
 
   @override
@@ -57,16 +84,15 @@ class SubscriptionModel extends BaseModel<Subscription> {
       name: name,
       url: url,
       isEnabled: enabled,
-      isWhitelist: isWhitelist,
-      isBlacklist: isBlacklist,
+      action: action,
       lastUpdated: lastUpdated,
       autoUpdate: autoUpdate,
     );
   }
 }
 
-// 联系人订阅模型（继承基础模型）
-class ContactSubscriptionModel extends SubscriptionModel {
+// 联系人订阅模型（继承基础模型，不包含action字段）
+class ContactSubscriptionModel extends BaseSubscriptionModel<ContactSubscription> {
   final String? contactGroup;
 
   const ContactSubscriptionModel({
@@ -87,9 +113,21 @@ class ContactSubscriptionModel extends SubscriptionModel {
         'table_type': 'contact'
       });
   }
+  
+  @override
+  ContactSubscription toEntity() {
+    return ContactSubscription(
+      id: id,
+      name: name,
+      url: url,
+      isEnabled: enabled,
+      lastUpdated: lastUpdated,
+      autoUpdate: autoUpdate,
+    );
+  }
 }
 
-// 短信订阅模型（继承基础模型）
+// 短信订阅模型（继承标准订阅模型，包含action字段）
 class SmsSubscriptionModel extends SubscriptionModel {
   final bool isNumberType;
 
@@ -100,8 +138,7 @@ class SmsSubscriptionModel extends SubscriptionModel {
     super.enabled,
     required super.lastUpdated,
     super.autoUpdate,
-    required super.isWhitelist,
-    required super.isBlacklist,
+    required super.action,
     this.isNumberType = true,
   });
 
@@ -112,5 +149,18 @@ class SmsSubscriptionModel extends SubscriptionModel {
         'isNumberType': isNumberType ? 1 : 0,
         'table_type': 'sms'
       });
+  }
+  
+  @override
+  Subscription toEntity() {
+    return Subscription(
+      id: id,
+      name: name,
+      url: url,
+      isEnabled: enabled,
+      action: action,
+      lastUpdated: lastUpdated,
+      autoUpdate: autoUpdate,
+    );
   }
 }

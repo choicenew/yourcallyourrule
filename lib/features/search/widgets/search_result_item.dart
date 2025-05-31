@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
+import 'package:yourcallyourrule/features/search/utils/search_result_type_utils.dart';
 
 /// 搜索结果项组件
 /// 用于显示搜索结果的单个项目
@@ -13,49 +14,7 @@ class SearchResultItem extends StatelessWidget {
     required this.onTap,
   });
 
-  /// 获取结果类型对应的图标
-  IconData _getIconForType(SearchResultType type) {
-    switch (type) {
-      case SearchResultType.contact:
-        return Icons.person;
-      case SearchResultType.label:
-        return Icons.label;
-      case SearchResultType.blacklist:
-        return Icons.block;
-      case SearchResultType.whitelist:
-        return Icons.check_circle;
-      case SearchResultType.allowed:
-        return Icons.check_circle_outline;
-      case SearchResultType.blocked:
-        return Icons.cancel_outlined;
-      case SearchResultType.remoteNumber:
-        return Icons.cloud;
-      case SearchResultType.notFound:
-        return Icons.help_outline;
-    }
-  }
-
-  /// 获取结果类型对应的颜色
-  Color _getColorForType(SearchResultType type) {
-    switch (type) {
-      case SearchResultType.contact:
-        return Colors.blue;
-      case SearchResultType.label:
-        return Colors.purple;
-      case SearchResultType.blacklist:
-        return Colors.red;
-      case SearchResultType.whitelist:
-        return Colors.green;
-      case SearchResultType.allowed:
-        return Colors.teal;
-      case SearchResultType.blocked:
-        return Colors.orange;
-      case SearchResultType.remoteNumber:
-        return Colors.indigo;
-      case SearchResultType.notFound:
-        return Colors.grey;
-    }
-  }
+  // 使用工具类获取图标和颜色
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +22,9 @@ class SearchResultItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: _getColorForType(result.type),
+          backgroundColor: SearchResultTypeUtils.getColorForType(result.type),
           child: Icon(
-            _getIconForType(result.type),
+            SearchResultTypeUtils.getIconForType(result.type),
             color: Colors.white,
           ),
         ),
@@ -81,7 +40,7 @@ class SearchResultItem extends StatelessWidget {
               Text(
                 result.description!,
                 style: TextStyle(
-                  color: _getColorForType(result.type),
+                  color: SearchResultTypeUtils.getColorForType(result.type),
                   fontSize: 12,
                 ),
               ),

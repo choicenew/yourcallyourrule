@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:path/path.dart' as path;
 import 'package:provider/provider.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_subscription_page.dart';
 import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 重构后的电话订阅页面
 /// 使用通用的GenericSubscriptionPage组件减少重复代码
@@ -13,9 +18,9 @@ class PhoneSubscriptionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenericSubscriptionPage<Subscription, String, PhoneSubscriptionService>(
-      title: '电话规则订阅',
-      emptyText: '暂无订阅',
-      buildInfoCard: _buildInfoCard,
+      title: AppLocalizations.of(context)!.phoneRuleSubscription,
+      emptyText: AppLocalizations.of(context)!.noSubscriptions,
+      buildInfoCard: () => _buildInfoCard(context),
       buildSubscriptionCard: _buildSubscriptionCard,
       showAddDialog: _showAddDialog,
       updateSubscription: _updateSubscription,
@@ -23,28 +28,28 @@ class PhoneSubscriptionPage extends StatelessWidget {
   }
 
   /// 构建信息卡片
-  Widget _buildInfoCard() {
+  Widget _buildInfoCard(BuildContext context) {
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: const Padding(
-        padding: EdgeInsets.all(16.0),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            Icon(Icons.info_outline, color: Colors.blue, size: 24),
-            SizedBox(width: 16),
+            const Icon(Icons.info_outline, color: Colors.blue, size: 24),
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '关于电话订阅规则',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.aboutPhoneSubscriptionRules,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    '通过URL订阅电话规则列表，自动更新黑白名单规则。支持JSON格式规则文件。',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    AppLocalizations.of(context)!.phoneSubscriptionRulesDescription,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -57,7 +62,6 @@ class PhoneSubscriptionPage extends StatelessWidget {
 
   /// 构建订阅卡片
   Widget _buildSubscriptionCard(Subscription subscription, GenericSubscriptionPageState<Subscription, String, PhoneSubscriptionService> state) {
-    final isWhitelist = subscription.isWhitelist;
     final lastUpdated = subscription.lastUpdated;
     final formattedDate = '${lastUpdated.year}-${lastUpdated.month.toString().padLeft(2, '0')}-${lastUpdated.day.toString().padLeft(2, '0')} ${lastUpdated.hour.toString().padLeft(2, '0')}:${lastUpdated.minute.toString().padLeft(2, '0')}';
 
@@ -88,16 +92,32 @@ class PhoneSubscriptionPage extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: isWhitelist
-                                  ? Colors.green.withOpacity(0.1)
-                                  : Colors.red.withOpacity(0.1),
+                              color: subscription.action == RuleAction.allow
+                                  ? Colors.green.withValues(alpha:0.1)
+                                  : subscription.action == RuleAction.block
+                                      ? Colors.red.withValues(alpha:0.1)
+                                      : Colors.grey.withValues(alpha:0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
-                              isWhitelist ? '白名单' : '黑名单',
+                              subscription.action == RuleAction.allow 
+                                ? '允许' 
+                                : subscription.action == RuleAction.block 
+                                  ? '阻止' 
+                                  : subscription.action == RuleAction.silence
+                                    ? '静音'
+                                    : subscription.action == RuleAction.none
+                                      ? '无动作'
+                                      : '其他',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: isWhitelist ? Colors.green : Colors.red,
+                                color: subscription.action == RuleAction.allow 
+                                  ? Colors.green 
+                                  : subscription.action == RuleAction.block 
+                                    ? Colors.red 
+                                    : subscription.action == RuleAction.silence
+                                      ? Colors.orange
+                                      : Colors.grey,
                               ),
                             ),
                           ),
@@ -115,7 +135,7 @@ class PhoneSubscriptionPage extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: Colors.green.withOpacity(0.1),
+                              color: Colors.green.withValues(alpha:0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: const Text(
@@ -141,32 +161,44 @@ class PhoneSubscriptionPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.sync),
-                    label: const Text('立即同步'),
-                    style: ElevatedButton.styleFrom(
+                children: [
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.sync),
+                      label: Text(AppLocalizations.of(state.context)!.syncNow),
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      onPressed: () => state.updateSubscription(subscription),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  OutlinedButton.icon(
+                    icon: const Icon(Icons.file_download),
+                    label: Text(AppLocalizations.of(state.context)!.import),
+                    style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    onPressed: () => state.updateSubscription(subscription),
+                    onPressed: () => _importRulesToRuleSystem(state.context, subscription, Provider.of<PhoneSubscriptionService>(state.context, listen: false)),
                   ),
-                ),
-                const SizedBox(width: 8),
-                OutlinedButton.icon(
-                  icon: const Icon(Icons.delete),
-                  label: const Text('删除'),
-                  style: OutlinedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                  const SizedBox(width: 8),
+                  OutlinedButton.icon(
+                    icon: const Icon(Icons.delete),
+                    label: Text(AppLocalizations.of(state.context)!.delete),
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
+                    onPressed: () => state.deleteSubscription(subscription),
                   ),
-                  onPressed: () => state.deleteSubscription(subscription),
-                ),
               ],
             ),
           ],
@@ -181,49 +213,74 @@ class PhoneSubscriptionPage extends StatelessWidget {
       context: context,
       position: const RelativeRect.fromLTRB(100, 100, 0, 0),
       items: [
-        const PopupMenuItem<String>(
-          value: 'add_blacklist',
-          child: Text('添加黑名单订阅'),
+        PopupMenuItem<String>(
+          value: 'add_block',
+          child: Text(AppLocalizations.of(context)!.addBlockSubscription),
         ),
-        const PopupMenuItem<String>(
-          value: 'add_whitelist',
-          child: Text('添加白名单订阅'),
+        PopupMenuItem<String>(
+          value: 'add_allow',
+          child: Text(AppLocalizations.of(context)!.addAllowSubscription),
+        ),
+        PopupMenuItem<String>(
+          value: 'add_silence',
+          child: Text(AppLocalizations.of(context)!.addSilenceSubscription),
+        ),
+        PopupMenuItem<String>(
+          value: 'add_none',
+          child: Text(AppLocalizations.of(context)!.addNoneSubscription),
         ),
       ],
     ).then((value) {
-      if (value == 'add_blacklist') {
-        _showAddSubscriptionDialog(context, service, refreshCallback, isWhitelist: false);
-      } else if (value == 'add_whitelist') {
-        _showAddSubscriptionDialog(context, service, refreshCallback, isWhitelist: true);
+      if (value == 'add_block') {
+        _showAddSubscriptionDialog(context, service, refreshCallback, action: RuleAction.block);
+      } else if (value == 'add_allow') {
+        _showAddSubscriptionDialog(context, service, refreshCallback, action: RuleAction.allow);
+      } else if (value == 'add_silence') {
+        _showAddSubscriptionDialog(context, service, refreshCallback, action: RuleAction.silence);
+      } else if (value == 'add_none') {
+        _showAddSubscriptionDialog(context, service, refreshCallback, action: RuleAction.none);
       }
     });
   }
 
   /// 显示添加订阅对话框
-  void _showAddSubscriptionDialog(BuildContext context, PhoneSubscriptionService service, Function refreshCallback, {bool isWhitelist = false}) {
+  void _showAddSubscriptionDialog(BuildContext context, PhoneSubscriptionService service, Function refreshCallback, {RuleAction action = RuleAction.block}) {
     final nameController = TextEditingController();
     final urlController = TextEditingController();
+
+    String dialogTitle;
+    if (action == RuleAction.allow) {
+      dialogTitle = AppLocalizations.of(context)!.addAllowSubscription;
+    } else if (action == RuleAction.block) {
+      dialogTitle = AppLocalizations.of(context)!.addBlockSubscription;
+    } else if (action == RuleAction.silence) {
+      dialogTitle = AppLocalizations.of(context)!.addSilenceSubscription;
+    } else if (action == RuleAction.none) {
+      dialogTitle = AppLocalizations.of(context)!.addNoneSubscription;
+    } else {
+      dialogTitle = AppLocalizations.of(context)!.addSubscription;
+    }
 
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(isWhitelist ? '添加白名单订阅' : '添加黑名单订阅'),
+        title: Text(dialogTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(
-                labelText: '订阅名称',
-                hintText: '输入订阅的名称',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.subscriptionName,
+                hintText: AppLocalizations.of(context)!.enterSubscriptionName,
               ),
             ),
             const SizedBox(height: 16),
             TextField(
               controller: urlController,
-              decoration: const InputDecoration(
-                labelText: '订阅URL',
-                hintText: '输入订阅的URL地址',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.subscriptionUrl,
+                hintText: AppLocalizations.of(context)!.enterSubscriptionUrl,
               ),
             ),
           ],
@@ -231,7 +288,7 @@ class PhoneSubscriptionPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () async {
@@ -240,17 +297,13 @@ class PhoneSubscriptionPage extends StatelessWidget {
               
               if (name.isEmpty || url.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('请输入有效的名称和URL')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.enterValidNameAndUrl)),
                 );
                 return;
               }
 
               try {
-                if (isWhitelist) {
-                  await service.addWhitelistSubscription(name, url);
-                } else {
-                  await service.addBlacklistSubscription(name, url);
-                }
+                await service.addSubscription(name, url, action: action);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('订阅 "$name" 添加成功')),
                 );
@@ -258,11 +311,11 @@ class PhoneSubscriptionPage extends StatelessWidget {
                 refreshCallback();
               } catch (e) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('添加订阅失败: $e')),
+                  SnackBar(content: Text('${AppLocalizations.of(context)!.addSubscriptionFailed}: $e')),
                 );
               }
             },
-            child: const Text('添加'),
+            child: Text(AppLocalizations.of(context)!.add),
           ),
         ],
       ),
@@ -272,5 +325,51 @@ class PhoneSubscriptionPage extends StatelessWidget {
   /// 更新订阅
   Future<void> _updateSubscription(Subscription subscription, PhoneSubscriptionService service) async {
     await service.manualUpdateRulesFromSubscription(subscription);
+  }
+  
+  /// 导入规则到规则系统
+  Future<void> _importRulesToRuleSystem(BuildContext dialogContext, Subscription subscription, PhoneSubscriptionService service) async {
+    try {
+      // 显示加载对话框
+      showDialog(
+        context: dialogContext,
+        barrierDismissible: false,
+        builder: (context) => AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const CircularProgressIndicator(),
+              const SizedBox(height: 16),
+              Text(AppLocalizations.of(context)!.importRules),
+            ],
+          ),
+        ),
+      );
+      
+      // 获取规则
+      final rules = await service.manualUpdateRulesFromSubscription(subscription);
+      
+      // 获取规则管理服务
+      final ruleManagementService = Provider.of<RuleManagementService>(dialogContext, listen: false);
+      
+      // 导入规则
+      final count = await ruleManagementService.importRulesFromSubscription(rules, subscription.action);
+      
+      // 关闭加载对话框
+      Navigator.of(dialogContext).pop();
+      
+      // 显示结果
+      ScaffoldMessenger.of(dialogContext).showSnackBar(
+        SnackBar(content: Text('${AppLocalizations.of(dialogContext)!.importSuccess}: $count ${AppLocalizations.of(dialogContext)!.rulesImported}')),
+      );
+    } catch (e) {
+      // 关闭加载对话框
+      Navigator.of(dialogContext).pop();
+      
+      // 显示错误
+      ScaffoldMessenger.of(dialogContext).showSnackBar(
+        SnackBar(content: Text('${AppLocalizations.of(dialogContext)!.importFailure}: $e')),
+      );
+    }
   }
 }

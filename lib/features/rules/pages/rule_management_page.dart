@@ -1,57 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_rule_page.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
-import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 
-/// 重构后的允许/阻止规则管理页面
+/// 规则管理页面
 /// 使用通用的GenericRulePage组件减少重复代码
-class AllowedBlockedPage extends StatelessWidget {
-  const AllowedBlockedPage({super.key});
+class RuleManagementPage extends StatelessWidget {
+  const RuleManagementPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final allowedBlockedService = Provider.of<AllowedBlockedService>(context, listen: false);
+    final ruleManagementService = Provider.of<RuleManagementService>(context, listen: false);
 
     // 创建导入导出组件
     final importExportComponent =
-        ImportExportServiceComponent<AllowedBlockedRule, String>(
-      importExportService: allowedBlockedService.importExportService
-          as ImportExportService<AllowedBlockedRule, String>,
-      entityTypeName: '允许/阻止规则',
+        ImportExportServiceComponent<PhoneRule, String>(
+      importExportService: ruleManagementService.importExportService
+          as ImportExportService<PhoneRule, String>,
+      entityTypeName: '电话规则',
       onEntitiesImported: (rules) async {
         // 保存导入的规则
         for (final rule in rules) {
           // 使用服务类的公共方法而不是直接访问私有成员
-          await allowedBlockedService.updateAllowedBlockedRule(rule);
+          await ruleManagementService.updatePhoneNumberRule(rule);
         }
       },
       getEntitiesToExport: () async {
-        final allowedRules = await allowedBlockedService.getAllAllowedRules();
-        final blockedRules = await allowedBlockedService.getAllBlockedRules();
-        return [...allowedRules, ...blockedRules];
+        // 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
+        return await ruleManagementService.getAllRulesByActionType(null);
       },
     );
 
-    return GenericRulePage<AllowedBlockedRule, AllowedBlockedService>(
-      title: '允许/阻止规则管理',
+    return GenericRulePage<PhoneRule, RuleManagementService>(
+      title: '电话规则管理',
       themeColor: const Color(0xFFF5A623),
-      emptyText: '允许/阻止规则',
-      emptyIcon: Icons.phone_android,
+      emptyText: '电话规则',
+      emptyIcon: Icons.person,
       addButtonText: '添加规则',
       buildRuleCard: _buildRuleCard,
       showAddDialog: _showAddRuleDialog,
       getAllRules: (service) async {
         // 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
-        // 不再仅限于允许(allow)和阻止(block)规则
+        // 不再仅限于白名单(allow)和黑名单(block)规则
         return await service.getAllRulesByActionType(null);
       },
       toggleRule: (service, ruleId, isEnabled) =>
@@ -66,7 +65,7 @@ class AllowedBlockedPage extends StatelessWidget {
   }
 
   /// 构建规则卡片
-  Widget _buildRuleCard(AllowedBlockedRule rule) {
+  Widget _buildRuleCard(PhoneRule rule) {
     final actionText = RuleActionDisplayUtils.getActionTypeName(rule.action.type);
     final actionColor = RuleActionDisplayUtils.getActionTypeColor(rule.action.type);
 
@@ -89,7 +88,7 @@ class AllowedBlockedPage extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
-                    Icons.phone,
+                    rule.action.type == RuleActionType.allow ? Icons.check_circle_outline : Icons.block,
                     color: actionColor,
                   ),
                 ),
@@ -144,7 +143,7 @@ class AllowedBlockedPage extends StatelessWidget {
 
   /// 显示添加规则对话框
   void _showAddRuleDialog(
-      BuildContext context, AllowedBlockedService service, Function refreshCallback) {
+      BuildContext context, RuleManagementService service, Function refreshCallback) {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController phoneController = TextEditingController();
     String? selectedLabelId;
@@ -154,7 +153,7 @@ class AllowedBlockedPage extends StatelessWidget {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          title: const Text('添加允许/阻止规则'),
+          title: const Text('添加号码名单规则'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -220,7 +219,7 @@ class AllowedBlockedPage extends StatelessWidget {
                   );
                   
                   // 添加规则
-                  await service.addAllowedBlockedRule(entry, selectedAction);
+                  await service.addPhoneRule(entry, selectedAction);
                   
                   // 刷新规则列表
                   Navigator.pop(context);

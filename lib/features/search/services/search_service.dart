@@ -1,20 +1,67 @@
 import 'package:flutter/material.dart';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
-import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 
 /// 搜索结果类型枚举
 enum SearchResultType {
   contact,      // 联系人
   label,        // 标签
-  blacklist,    // 黑名单
-  whitelist,    // 白名单
-  allowed,      // 允许
-  blocked,      // 阻止
+  allow,        // 允许
+  block,        // 阻止
+  silence,      // 静音
+  none,         // 无动作
   remoteNumber, // 远程号码
   notFound      // 未找到
 }
@@ -43,7 +90,7 @@ class SearchResult {
 class SearchService {
   final ContactService _contactService;
   final LabelService _labelService;
-  final BlacklistWhitelistService _blacklistWhitelistService;
+  final RuleManagementService _ruleManagementService;
   final AllowedBlockedService _allowedBlockedService;
   final RemoteNumberService _remoteNumberService;
   final BuildContext context;
@@ -51,14 +98,14 @@ class SearchService {
   SearchService({
     required ContactService contactService,
     required LabelService labelService,
-    required BlacklistWhitelistService blacklistWhitelistService,
+    required RuleManagementService ruleManagementService,
     required AllowedBlockedService allowedBlockedService,
     required RemoteNumberService remoteNumberService,
     required this.context,
   }) : 
     _contactService = contactService,
     _labelService = labelService,
-    _blacklistWhitelistService = blacklistWhitelistService,
+    _ruleManagementService = ruleManagementService,
     _allowedBlockedService = allowedBlockedService,
     _remoteNumberService = remoteNumberService;
 
@@ -102,17 +149,49 @@ class SearchService {
         }
       }
       
-      // 搜索黑白名单
-      final blacklistWhitelistRules = await _blacklistWhitelistService.getAllRulesByActionType(null);
-      for (final rule in blacklistWhitelistRules) {
+      // 搜索号码规则管理
+      final ruleManagementRules = await _ruleManagementService.getAllRulesByActionType(null);
+      for (final rule in ruleManagementRules) {
         if (rule.phoneNumber.toString().contains(phoneNumberStr)) {
-          final isWhitelist = rule.action.type.toString().contains('allow');
+          // 根据规则的action类型确定搜索结果类型
+          final actionType = rule.action.type;
+          final SearchResultType resultType;
+          String actionName;
+          String actionDescription;
+          
+          switch (actionType) {
+            case RuleActionType.allow:
+              resultType = SearchResultType.allow;
+              actionName = '允许';
+              actionDescription = '允许规则';
+              break;
+            case RuleActionType.block:
+              resultType = SearchResultType.block;
+              actionName = '阻止';
+              actionDescription = '阻止规则';
+              break;
+            case RuleActionType.silence:
+              resultType = SearchResultType.silence;
+              actionName = '静音';
+              actionDescription = '静音规则';
+              break;
+            case RuleActionType.none:
+              resultType = SearchResultType.none;
+              actionName = '无动作';
+              actionDescription = '无动作规则';
+              break;
+            default:
+              resultType = SearchResultType.notFound;
+              actionName = '未知';
+              actionDescription = '未知规则';
+          }
+          
           results.add(SearchResult(
             id: rule.id,
             phoneNumber: rule.phoneNumber.toString(),
-            name: isWhitelist ? '白名单' : '黑名单',
-            description: isWhitelist ? '白名单规则' : '黑名单规则',
-            type: isWhitelist ? SearchResultType.whitelist : SearchResultType.blacklist,
+            name: actionName,
+            description: actionDescription,
+            type: resultType,
             data: rule,
           ));
         }
@@ -122,13 +201,45 @@ class SearchService {
       final allowedBlockedRules = await _allowedBlockedService.getAllRulesByActionType(null);
       for (final rule in allowedBlockedRules) {
         if (rule.phoneNumber.toString().contains(phoneNumberStr)) {
-          final isAllowed = rule.action.type.toString().contains('allow');
+          // 根据规则的action类型确定搜索结果类型
+          final actionType = rule.action.type;
+          final SearchResultType resultType;
+          String actionName;
+          String actionDescription;
+          
+          switch (actionType) {
+            case RuleActionType.allow:
+              resultType = SearchResultType.allow;
+              actionName = '允许';
+              actionDescription = '允许规则';
+              break;
+            case RuleActionType.block:
+              resultType = SearchResultType.block;
+              actionName = '阻止';
+              actionDescription = '阻止规则';
+              break;
+            case RuleActionType.silence:
+              resultType = SearchResultType.silence;
+              actionName = '静音';
+              actionDescription = '静音规则';
+              break;
+            case RuleActionType.none:
+              resultType = SearchResultType.none;
+              actionName = '无动作';
+              actionDescription = '无动作规则';
+              break;
+            default:
+              resultType = SearchResultType.notFound;
+              actionName = '未知';
+              actionDescription = '未知规则';
+          }
+          
           results.add(SearchResult(
             id: rule.id,
             phoneNumber: rule.phoneNumber.toString(),
-            name: isAllowed ? '允许' : '阻止',
-            description: isAllowed ? '允许规则' : '阻止规则',
-            type: isAllowed ? SearchResultType.allowed : SearchResultType.blocked,
+            name: actionName,
+            description: actionDescription,
+            type: resultType,
             data: rule,
           ));
         }
@@ -148,10 +259,30 @@ class SearchService {
           ));
         }
       } catch (e) {
-        debugPrint('搜索远程号码失败: $e');
+        // 远程号码搜索失败，忽略错误
+      }
+      
+      // 如果没有找到任何结果，添加一个未找到的结果
+      if (results.isEmpty) {
+        results.add(SearchResult(
+          id: 'not_found',
+          phoneNumber: phoneNumberStr,
+          name: '未找到',
+          description: '未找到匹配的号码',
+          type: SearchResultType.notFound,
+          data: null,
+        ));
       }
     } catch (e) {
-      debugPrint('搜索过程中出错: $e');
+      // 处理搜索过程中的错误
+      results.add(SearchResult(
+        id: 'error',
+        phoneNumber: phoneNumberStr,
+        name: '搜索错误',
+        description: '搜索过程中发生错误: $e',
+        type: SearchResultType.notFound,
+        data: null,
+      ));
     }
     
     return results;

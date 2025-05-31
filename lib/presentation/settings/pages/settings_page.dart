@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
-import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page.dart';
+import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored.dart';
+
 import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page.dart';
 import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page.dart';

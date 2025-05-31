@@ -162,7 +162,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String simInfoLoadFailure(Object error) {
-    return 'Failed to load ScM card inforaation: $error';
+    return 'Failed to load SIM card information: $error';
   }
 
   @override
@@ -175,7 +175,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get importFailure => 'Failed to import configuration';
 
   @override
-  String get exportSuccess => 'Configuration exported successfully';
+  String get exportSuccesslly => 'Configuration exported successfully';
 
   @override
   String get exportFailure => 'Failed to export configuration';
@@ -497,6 +497,60 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get timeWindowDescription => 'Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get callerIdApp => 'Caller ID App';
+
+  @override
+  String get thisAppIsAPowerfulCallerIdToolThatAllows => 'This app is a powerful caller ID tool that allows you to identify and block unwanted calls.';
+
+  @override
+  String get features => 'Features';
+
+  @override
+  String get onlineCallerIdSubscription => 'Online Caller ID Subscription';
+
+  @override
+  String get wildcardSupportForFlexibleFiltering => 'Wildcard Support for Flexible Filtering';
+
+  @override
+  String get blacklistingAndWhitelisting => 'Blacklisting and Whitelisting';
+
+  @override
+  String get joinTheTelegramChannelAndGroupForMoreInfo => 'Join the Telegram Channel and Group for More Info';
+
+  @override
+  String get tutorial => 'Tutorial';
+
+  @override
+  String get contactUs => 'Contact Us';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get telegram => 'Telegram';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get import => 'Import';
+
+  @override
+  String get export => 'Export';
+
+  @override
+  String get phoneRuleSubscription => 'Phone Rule Subscription';
+
+  @override
+  String get aboutPhoneSubscriptionRules => 'About Phone Subscription Rules';
+
+  @override
+  String get phoneSubscriptionRulesDescription => 'Subscribe to phone rule lists via URL to automatically update whitelist and blacklist rules. Supports JSON format rule files.';
 
   @override
   String get phoneNumberTypeFixedLine => 'Fixed line';
@@ -1083,6 +1137,136 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get selectedDateRange => 'Selected date range';
+
+  @override
+  String get notificationSettings => 'Notification Settings';
+
+  @override
+  String get dailyStatistics => 'Daily Statistics';
+
+  @override
+  String get dailyStatisticsDesc => 'Receive daily statistics about blocked calls and messages';
+
+  @override
+  String get weeklyReport => 'Weekly Report';
+
+  @override
+  String get weeklyReportDesc => 'Receive weekly summary report of call blocking activity';
+
+  @override
+  String get phoneSubscriptionTitle => 'Phone Rule Subscriptions';
+
+  @override
+  String loadSubscriptionsFailed(Object error) {
+    return 'Failed to load subscriptions: $error';
+  }
+
+  @override
+  String changeSubscriptionStatusFailed(Object error) {
+    return 'Failed to change subscription status: $error';
+  }
+
+  @override
+  String updateSubscriptionFailed(Object error) {
+    return 'Failed to update subscription: $error';
+  }
+
+  @override
+  String get deleteSubscription => 'Delete Subscription';
+
+  @override
+  String deleteSubscriptionConfirm(Object name) {
+    return 'Are you sure you want to delete subscription \"$name\"?';
+  }
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get subscriptionDeleted => 'Subscription deleted';
+
+  @override
+  String deleteSubscriptionFailed(Object error) {
+    return 'Failed to delete subscription: $error';
+  }
+
+  @override
+  String get addAllowSubscription => 'Add Allow Subscription';
+
+  @override
+  String get addBlockSubscription => 'Add Block Subscription';
+
+  @override
+  String get addSilenceSubscription => 'Add Silence Subscription';
+
+  @override
+  String get addNoneSubscription => 'Add None Subscription';
+
+  @override
+  String get subscriptionName => 'Subscription Name';
+
+  @override
+  String get enterSubscriptionName => 'Enter subscription name';
+
+  @override
+  String get subscriptionUrl => 'Subscription URL';
+
+  @override
+  String get enterSubscriptionUrl => 'Enter subscription URL';
+
+  @override
+  String get enterValidNameAndUrl => 'Please enter valid name and URL';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String subscriptionAddSuccess(Object name) {
+    return 'Subscription \"$name\" added successfully';
+  }
+
+  @override
+  String addSubscriptionFailed(Object error) {
+    return 'Failed to add subscription: $error';
+  }
+
+  @override
+  String get noSubscriptions => 'No subscriptions';
+
+  @override
+  String get addSubscription => 'Add Subscription';
+
+  @override
+  String get aboutPhoneSubscriptions => 'About Phone Subscriptions';
+
+  @override
+  String get aboutPhoneSubscriptionsDesc => 'Subscribe to phone rule lists via URL, automatically update blacklist and whitelist rules. Supports JSON format rule files.';
+
+  @override
+  String get aboutContactSubscription => 'About Contact Subscription';
+
+  @override
+  String get contactSubscriptionDescription => 'Subscribe to contact lists via URL, automatically update contact information and labels. Supports JSON format data.';
+
+  @override
+  String get whitelist => 'Whitelist';
+
+  @override
+  String get blacklist => 'Blacklist';
+
+  @override
+  String get synchronized => 'Synchronized';
+
+  @override
+  String lastUpdated(Object date) {
+    return 'Last updated: $date';
+  }
+
+  @override
+  String get syncNow => 'Sync Now';
+
+  @override
   String get addLabelToCall => 'Add Label to Call Record';
 
   @override
@@ -1137,6 +1321,42 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chartOneWeekAgo => '1 week ago';
 
   @override
+  String get allCallsTab => 'All';
+
+  @override
+  String get phoneCallsTab => 'Phone';
+
+  @override
+  String get smsTab => 'SMS';
+
+  @override
+  String get weeklyBlockedCallsSummary => 'Weekly Blocked Calls Summary';
+
+  @override
+  String get monthlyTotalLabel => 'Monthly Total';
+
+  @override
+  String get blockedCommunications => 'Blocked Communications';
+
+  @override
+  String get blockedPhoneLabel => 'Blocked Calls';
+
+  @override
+  String get filteredSmsLabel => 'Filtered SMS';
+
+  @override
+  String get whitelistLabel => 'Whitelist';
+
+  @override
+  String get blacklistLabel => 'Blacklist';
+
+  @override
+  String get blockingTrend => 'Blocking Trend';
+
+  @override
+  String get exportStatisticsData => 'Export Statistics Data';
+
+  @override
   String get chartTenDaysAgo => '10 days ago';
 
   @override
@@ -1180,6 +1400,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String addLabelFailed(Object error) {
+    return 'Failed to add labels: $error';
+  }
+
+  @override
   String get selectLabel => 'Select Label';
 
   @override
@@ -1190,6 +1415,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addLabelButton => 'Add Label';
+
+  @override
+  String get rulesImported => 'Rules imported successfully';
+
+  @override
+  String rulesImportFailed(Object error) {
+    return 'Failed to import rules: $error';
+  }
+
+  @override
+  String get importRules => 'Import Rules';
+
+  @override
+  String get importRulesInstructions => 'Import rules from a CSV file';
+
+  @override
+  String get importRulesButton => 'Import Rules';
+
+  @override
+  String importRulesError(Object error) {
+    return 'Failed to import rules: $error';
+  }
+
+  @override
+  String get importRulesSuccess => 'Rules imported successfully';
 
   @override
   String get ruleManagementTitle => 'Rule Management';
@@ -1229,6 +1479,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get actionFilterTitle => 'Filter by Action Type';
 
   @override
+  String get actionFilterAll => 'All Filter';
+
+  @override
   String get actionAll => 'All';
 
   @override
@@ -1254,9 +1507,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Refresh';
-
-  @override
-  String get importRules => 'Import Rules';
 
   @override
   String get exportRules => 'Export Rules';
@@ -1299,6 +1549,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String subscriptionUpdateFailed(Object error) {
     return 'Failed to update subscription: $error';
   }
+
+  @override
+  String get synced => 'Synced';
 
   @override
   String get subscriptionDeleteConfirmTitle => 'Delete Subscription';
@@ -1351,4 +1604,346 @@ class AppLocalizationsEn extends AppLocalizations {
   String simSlot2(String countryIso) {
     return 'SIM 2,-$countryIso';
   }
+
+  @override
+  String get updatePhoneNumberRule => 'Update PhoneNumber Rule';
+
+  @override
+  String get contactsManagementPageTitle => 'Contacts Management Page';
+
+  @override
+  String get failedToLoadContacts => 'Failed to load contacts';
+
+  @override
+  String get editContact => 'Edit Contact';
+
+  @override
+  String get addContact => 'Add Contact';
+
+  @override
+  String get contactUpdateSuccess => 'Contact updated successfully';
+
+  @override
+  String get contactAddSuccess => 'Contact added successfully';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get enterContactName => 'Please enter contact name';
+
+  @override
+  String get phoneNumber => 'Phone Number';
+
+  @override
+  String get enterPhoneNumber => 'Please enter phone number';
+
+  @override
+  String get emailOptional => 'Email (Optional)';
+
+  @override
+  String get enterEmail => 'Please enter email';
+
+  @override
+  String get nameAndPhoneNumberRequired => 'Name and phone number cannot be empty';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get failedToUpdateContact => 'Failed to update contact';
+
+  @override
+  String get failedToAddContact => 'Failed to add contact';
+
+  @override
+  String get manageFavoriteContacts => 'Manage Favorite Contacts';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get addedToFavorites => 'Added to favorite contacts';
+
+  @override
+  String get removedFromFavorites => 'Removed from favorite contacts';
+
+  @override
+  String get deleteContact => 'Delete Contact';
+
+  @override
+  String get confirmDeleteContact => 'Are you sure you want to delete';
+
+  @override
+  String get selectTag => 'Select Tag';
+
+  @override
+  String get batchDeleteContacts => 'Batch Delete Contacts';
+
+  @override
+  String get confirmBatchDeleteContacts => 'Are you sure you want to delete the selected';
+
+  @override
+  String get contacts => 'contacts?';
+
+  @override
+  String contactsDeleted(Object count) {
+    return 'Deleted $count contacts';
+  }
+
+  @override
+  String get removeFavorite => 'Remove Favorite';
+
+  @override
+  String get addFavorite => 'Add Favorite';
+
+  @override
+  String get changeTag => 'Change Tag';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get importExportContacts => 'Import/Export Contacts';
+
+  @override
+  String get importContacts => 'Import Contacts';
+
+  @override
+  String get exportContacts => 'Export Contacts';
+
+  @override
+  String get csvFormat => 'CSV Format';
+
+  @override
+  String get jsonFormat => 'JSON Format';
+
+  @override
+  String fileSavedTo(Object path) {
+    return 'File saved to: $path';
+  }
+
+  @override
+  String get searchContacts => 'Search Contacts';
+
+  @override
+  String get changeLabel => 'Change Label';
+
+  @override
+  String get noContacts => 'No contacts yet';
+
+  @override
+  String get noMatchingContacts => 'No matching contacts';
+
+  @override
+  String get addToFavoriteContacts => 'Add to Favorite Contacts';
+
+  @override
+  String get deleteContactConfirmation => 'Are you sure you want to delete contact';
+
+  @override
+  String get deleteSuccess => 'Delete successful';
+
+  @override
+  String get deleteFailed => 'Delete failed';
+
+  @override
+  String dataLoadingFailed(Object error) {
+    return 'Failed to load data: $error';
+  }
+
+  @override
+  String get overview => 'Overview';
+
+  @override
+  String get adPlaceholder => 'Ad Placeholder';
+
+  @override
+  String get statisticsGrid => 'Statistics Grid';
+
+  @override
+  String get trendChart => 'Trend Chart';
+
+  @override
+  String get weekly => 'Weekly';
+
+  @override
+  String get monthly => 'Monthly';
+
+  @override
+  String get yearly => 'Yearly';
+
+  @override
+  String get exportSuccess => 'Export successful';
+
+  @override
+  String get exportFailed => 'Export failed';
+
+  @override
+  String get blockedCalls => 'Blocked Calls';
+
+  @override
+  String get filteredSms => 'Filtered SMS';
+
+  @override
+  String get totalBlocked => 'Total Blocked';
+
+  @override
+  String get totalFiltered => 'Total Filtered';
+
+  @override
+  String get trend => 'Trend';
+
+  @override
+  String get exportData => 'Export Data';
+
+  @override
+  String get exporting => 'Exporting...';
+
+  @override
+  String get exportComplete => 'Export Complete';
+
+  @override
+  String get exportError => 'Export Error';
+
+  @override
+  String get homePageTitle => 'Home Page';
+
+  @override
+  String get callHistory => 'Call History';
+
+  @override
+  String get smsHistory => 'SMS History';
+
+  @override
+  String get noData => 'No Data';
+
+  @override
+  String get loadingData => 'Loading Data...';
+
+  @override
+  String get loadFailed => 'Load Failed';
+
+  @override
+  String get searchHint => 'Search...';
+
+  @override
+  String get filter => 'Filter';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get blocked => 'Blocked';
+
+  @override
+  String get filtered => 'Filtered';
+
+  @override
+  String get last7Days => 'Last 7 Days';
+
+  @override
+  String get last30Days => 'Last 30 Days';
+
+  @override
+  String get customRange => 'Custom Range';
+
+  @override
+  String get apply => 'Apply';
+
+  @override
+  String get selectDateRange => 'Select Date Range';
+
+  @override
+  String get startDate => 'Start Date';
+
+  @override
+  String get endDate => 'End Date';
+
+  @override
+  String get reset => 'Reset';
+
+  @override
+  String get filterManagement => 'Filter Management';
+
+  @override
+  String get addFilter => 'Add Filter';
+
+  @override
+  String get editFilter => 'Edit Filter';
+
+  @override
+  String get deleteFilter => 'Delete Filter';
+
+  @override
+  String get filterName => 'Filter Name';
+
+  @override
+  String get enterFilterName => 'Please enter filter name';
+
+  @override
+  String get filterPattern => 'Filter Pattern';
+
+  @override
+  String get enterFilterPattern => 'Please enter filter pattern';
+
+  @override
+  String get filterType => 'Filter Type';
+
+  @override
+  String get call => 'Call';
+
+  @override
+  String get sms => 'SMS';
+
+  @override
+  String get both => 'Both';
+
+  @override
+  String get action => 'Action';
+
+  @override
+  String get block => 'Block';
+
+  @override
+  String get allow => 'Allow';
+
+  @override
+  String get mute => 'Mute';
+
+  @override
+  String get saveFilter => 'Save Filter';
+
+  @override
+  String get filterSaveSuccess => 'Filter saved successfully';
+
+  @override
+  String get filterSaveFailed => 'Filter save failed';
+
+  @override
+  String get confirmDeleteFilter => 'Are you sure you want to delete this filter?';
+
+  @override
+  String get filterDeleteSuccess => 'Filter deleted successfully';
+
+  @override
+  String get filterDeleteFailed => 'Filter delete failed';
+
+  @override
+  String get noFilters => 'No filters yet';
+
+  @override
+  String get searchFilters => 'Search Filters';
+
+  @override
+  String get filterDetails => 'Filter Details';
+
+  @override
+  String get pattern => 'Pattern';
+
+  @override
+  String get type => 'Type';
+
+  @override
+  String get actionType => 'Action Type';
 }

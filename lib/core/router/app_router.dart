@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/core/pages/auto_update_settings_page.dart';
+import 'package:yourcallyourrule/features/auto_update/pages/pages/auto_update_settings_page.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
@@ -33,9 +33,10 @@ import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/ca
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 
 import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page_refactored.dart';
-import 'package:yourcallyourrule/features/rules/pages/blacklist_whitelist_page_refactored.dart';
+
+import 'package:yourcallyourrule/features/rules/pages/rule_management_page.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
@@ -82,7 +83,7 @@ class AppRouter {
   static const String simSlotRuleSettings = 'sim-slot-rule-settings';
   static const String callFilterSettings = 'call-filter-settings';
   static const String allowedBlockedSettings = 'allowed-blocked-settings';
-  static const String blacklistWhitelistSettings = 'blacklist-whitelist-settings';
+  static const String ruleManagementSettings = 'rule-management-settings';
   static const String callerIdCustomization = 'caller-id-customization';
   static const String endCallSettings = 'end-call-settings';
   static const String smsFilterSettings = 'sms-filter-settings';
@@ -138,9 +139,9 @@ class AppRouter {
       builder: (context, state) => const AllowedBlockedPage(),
     ),
     GoRoute(
-      path: '/blacklist-whitelist-settings',
-      name: blacklistWhitelistSettings,
-      builder: (context, state) => const BlacklistWhitelistPage(),
+      path: '/rule-management-settings',
+      name: ruleManagementSettings,
+      builder: (context, state) => const RuleManagementPage(),
     ),
 
     // 搜索页面路由
@@ -150,14 +151,14 @@ class AppRouter {
       builder: (context, state) {
         final contactService = Provider.of<ContactService>(context, listen: false);
         final labelService = Provider.of<LabelService>(context, listen: false);
-        final blacklistWhitelistService = Provider.of<BlacklistWhitelistService>(context, listen: false);
+        final ruleManagementService = Provider.of<RuleManagementService>(context, listen: false);
         final allowedBlockedService = Provider.of<AllowedBlockedService>(context, listen: false);
         final remoteNumberService = Provider.of<RemoteNumberService>(context, listen: false);
         
         final searchService = SearchService(
           contactService: contactService,
           labelService: labelService,
-          blacklistWhitelistService: blacklistWhitelistService,
+          ruleManagementService: ruleManagementService,
           allowedBlockedService: allowedBlockedService,
           remoteNumberService: remoteNumberService,
           context: context,

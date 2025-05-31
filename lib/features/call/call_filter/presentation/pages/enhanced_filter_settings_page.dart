@@ -3,6 +3,7 @@ import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_page.dart';
@@ -97,23 +98,21 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
     // 从EnhancedCompositeFilterService中获取CallFilterConfig
     if (widget.enhancedCompositeFilterService.filters.isNotEmpty) {
       for (var filter in widget.enhancedCompositeFilterService.filters) {
-        if (filter.runtimeType.toString() == 'CallFilterService') {
-          // 使用反射或其他方式获取配置
-          // 这里简化处理，实际应用中应该通过服务提供的方法获取
-          dynamic callFilterService = filter;
-          if (callFilterService != null) {
-            try {
-              // 尝试获取callFilterConfig属性
-              dynamic config = callFilterService.callFilterConfig;
-              if (config != null && config is CallFilterConfig) {
-                setState(() {
-                  _callFilterConfig = config;
-                });
-                return;
-              }
-            } catch (e) {
-              // 如果获取失败，使用默认配置
-              print('获取CallFilterConfig失败: $e');
+        // 使用类型检查代替反射
+        if (filter is CallFilterService) {
+          try {
+            // 直接获取配置，不需要使用反射
+            CallFilterConfig config = filter.callFilterConfig;
+            setState(() {
+              _callFilterConfig = config;
+            });
+            return;
+          } catch (e) {
+            // 如果获取失败，使用默认配置
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(AppLocalizations.of(context)!.settingsLoadFailed(e.toString()))),
+              );
             }
           }
         }

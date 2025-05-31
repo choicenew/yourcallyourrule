@@ -18,11 +18,12 @@ import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.d
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
+
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
 class VerificationPage extends StatefulWidget {
   const VerificationPage({super.key});
@@ -54,7 +55,7 @@ class VerificationPageState extends State<VerificationPage> {
     final configRepo = context.read<ConfigRepository>();
     final regexService = context.read<RegexService>();
     final allowedBlockedService = context.read<AllowedBlockedService>();
-    final blacklistWhitelistService = context.read<BlacklistWhitelistService>();
+    final ruleManagementService = context.read<RuleManagementService>();
     final callerIdService = context.read<CallerIdService>();
     final remoteNumberService = context.read<RemoteNumberService>();
 
@@ -71,7 +72,7 @@ class VerificationPageState extends State<VerificationPage> {
     _callFilterService = CallFilterService(
         regexService: regexService,
         allowedBlockedService: allowedBlockedService,
-        blacklistWhitelistService: blacklistWhitelistService,
+        ruleManagementService: ruleManagementService,
         configRepository: configRepo);
 
     _timeInterceptorService = TimeInterceptorService(configRepo);
