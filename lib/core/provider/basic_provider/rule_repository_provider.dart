@@ -1,4 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
@@ -26,7 +29,20 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   RuleBase createRuleFromMap(Map<String, dynamic> map) {
-    throw UnimplementedError();
+    final ruleType = map['ruleType'] as String;
+    
+    switch (ruleType) {
+      case 'phone_rule':
+      case 'white_black': // 兼容旧数据
+        return PhoneRule.fromMap(map);
+      case 'regex':
+        return RegexRule.fromMap(map);
+      case 'alloworblock':
+      case 'allow_block':
+        return AllowedBlockedRule.fromMap(map);
+      default:
+        throw Exception('Unknown rule type: $ruleType');
+    }
   }
 
   @override

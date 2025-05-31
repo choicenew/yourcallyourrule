@@ -13,8 +13,9 @@ import 'package:yourcallyourrule/features/local_filter/services/local_count_filt
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
+
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
 /// 增强版过滤链架构示例类
 /// 展示如何初始化和使用支持每个SIM卡独立配置的过滤链架构
@@ -26,7 +27,7 @@ class EnhancedFilterChainExample {
     RuleRepository ruleRepository,
     RegexService regexService,
     AllowedBlockedService allowedBlockedService,
-    BlacklistWhitelistService blacklistWhitelistService,
+    RuleManagementService ruleManagementService,
     RemoteNumberService remoteNumberService,
     CallerIdService callerIdService,
   ) async {
@@ -35,7 +36,7 @@ class EnhancedFilterChainExample {
     final callFilterService = CallFilterService(
       regexService: regexService,
       allowedBlockedService: allowedBlockedService,
-      blacklistWhitelistService: blacklistWhitelistService,
+      ruleManagementService: ruleManagementService,
       configRepository: configRepository,
     );
     

@@ -124,8 +124,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         is_auto_update INTEGER NOT NULL DEFAULT 0,
         contact_group TEXT,
         keyword_filters TEXT,
-        is_whitelist INTEGER DEFAULT 0,
-        is_blacklist INTEGER DEFAULT 0
+        action TEXT NOT NULL DEFAULT 'none'
       )
     ''');
 

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/entities/subscription/contact_subscription.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class ContactSubscriptionPage extends StatefulWidget {
   const ContactSubscriptionPage({super.key});
@@ -35,7 +36,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('加载订阅失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.loadSubscriptionsFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -54,7 +55,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
       await _loadSubscriptions();
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('更改订阅状态失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.changeSubscriptionStatusFailed(e.toString()))),
       );
     }
   }
@@ -68,11 +69,11 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
     try {
       final updatedRules = await subscriptionService.updateRulesFromSubscription(subscription);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('订阅更新成功，共更新${updatedRules.length}条规则')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.updateSuccess('Contact', updatedRules.length))),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('更新订阅失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.updateSubscriptionFailed(e.toString()))),
       );
     } finally {
       await _loadSubscriptions();
@@ -83,16 +84,16 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('删除订阅'),
-        content: Text('确定要删除订阅 "${subscription.name}" 吗？'),
+        title: Text(AppLocalizations.of(context)!.deleteSubscription),
+        content: Text(AppLocalizations.of(context)!.deleteSubscriptionConfirm(subscription.name)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('删除'),
+            child: Text(AppLocalizations.of(context)!.delete),
           ),
         ],
       ),
@@ -103,12 +104,12 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
       try {
         await subscriptionService.deleteSubscription(subscription.id);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('订阅已删除')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleted)),
         );
         await _loadSubscriptions();
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('删除订阅失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.deleteSubscriptionFailed(e.toString()))),
         );
       }
     }
@@ -121,23 +122,23 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('添加联系人订阅'),
+        title: Text(AppLocalizations.of(context)!.addSubscription),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(
-                labelText: '订阅名称',
-                hintText: '输入订阅的名称',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.subscriptionName,
+                hintText: AppLocalizations.of(context)!.enterSubscriptionName,
               ),
             ),
             const SizedBox(height: 16),
             TextField(
               controller: urlController,
-              decoration: const InputDecoration(
-                labelText: '订阅URL',
-                hintText: '输入订阅的URL地址',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.subscriptionUrl,
+                hintText: AppLocalizations.of(context)!.enterSubscriptionUrl,
               ),
             ),
           ],
@@ -145,7 +146,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () async {
@@ -154,7 +155,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
               
               if (name.isEmpty || url.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('请输入有效的名称和URL')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.enterValidNameAndUrl)),
                 );
                 return;
               }
@@ -163,17 +164,17 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
               try {
                 await subscriptionService.addSubscription(name, url);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('订阅 "$name" 添加成功')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionAddSuccess(name))),
                 );
                 Navigator.of(context).pop();
                 await _loadSubscriptions();
               } catch (e) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('添加订阅失败: $e')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.addSubscriptionFailed(e.toString()))),
                 );
               }
             },
-            child: const Text('添加'),
+            child: Text(AppLocalizations.of(context)!.add),
           ),
         ],
       ),
@@ -184,7 +185,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('联系人订阅'),
+        title: Text(AppLocalizations.of(context)!.serviceTypeContact),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -193,7 +194,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: _showAddSubscriptionDialog,
-            tooltip: '添加订阅',
+            tooltip: AppLocalizations.of(context)!.addSubscription,
           ),
         ],
       ),
@@ -206,11 +207,11 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
                     children: [
                       const Icon(Icons.contacts_outlined, size: 64, color: Colors.grey),
                       const SizedBox(height: 16),
-                      const Text('暂无订阅', style: TextStyle(fontSize: 18, color: Colors.grey)),
+                      Text(AppLocalizations.of(context)!.noSubscriptions, style: const TextStyle(fontSize: 18, color: Colors.grey)),
                       const SizedBox(height: 24),
                       ElevatedButton.icon(
                         icon: const Icon(Icons.add),
-                        label: const Text('添加订阅'),
+                        label: Text(AppLocalizations.of(context)!.addSubscription),
                         onPressed: _showAddSubscriptionDialog,
                       ),
                     ],
@@ -240,15 +241,15 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    '关于联系人订阅',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.aboutContactSubscription,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    '通过URL订阅联系人列表，自动更新联系人信息和标签。支持JSON格式数据。',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    AppLocalizations.of(context)!.contactSubscriptionDescription,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -299,14 +300,14 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
                               color: Colors.green.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
-                            child: const Text(
-                              '已同步',
-                              style: TextStyle(fontSize: 12, color: Colors.green),
+                            child: Text(
+                              AppLocalizations.of(context)!.synchronized,
+                              style: const TextStyle(fontSize: 12, color: Colors.green),
                             ),
                           ),
                           const SizedBox(width: 8),
                           Text(
-                            '最后更新: $formattedDate',
+                            '${AppLocalizations.of(context)!.lastUpdated}: $formattedDate',
                             style: const TextStyle(fontSize: 12, color: Colors.grey),
                           ),
                         ],
@@ -326,7 +327,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
                 Expanded(
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.sync),
-                    label: const Text('立即同步'),
+                    label: Text(AppLocalizations.of(context)!.syncNow),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       shape: RoundedRectangleBorder(
@@ -339,7 +340,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
                 const SizedBox(width: 8),
                 OutlinedButton.icon(
                   icon: const Icon(Icons.delete),
-                  label: const Text('删除'),
+                  label: Text(AppLocalizations.of(context)!.delete),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(

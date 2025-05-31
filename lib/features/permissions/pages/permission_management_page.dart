@@ -4,7 +4,7 @@ import 'package:yourcallyourrule/core/services/permission_service.dart';
 
 /// 权限管理页面
 class PermissionManagementPage extends StatefulWidget {
-  const PermissionManagementPage({Key? key}) : super(key: key);
+  const PermissionManagementPage({super.key});
 
   @override
   State<PermissionManagementPage> createState() => _PermissionManagementPageState();

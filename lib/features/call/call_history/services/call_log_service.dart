@@ -7,7 +7,8 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
+
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
 class CallLogService {
   final CallLogRepository _repository;
@@ -17,7 +18,7 @@ class CallLogService {
   final ContactService? _contactService;
   final LabelService? _labelService;
   final AllowedBlockedService? _allowedBlockedService;
-  final BlacklistWhitelistService? _blacklistWhitelistService;
+  final RuleManagementService? _blacklistWhitelistService;
   
   // 头像缓存，避免重复查询
   final Map<String, String?> _avatarCache = {};
@@ -27,12 +28,12 @@ class CallLogService {
     ContactService? contactService,
     LabelService? labelService,
     AllowedBlockedService? allowedBlockedService,
-    BlacklistWhitelistService? blacklistWhitelistService,
+    RuleManagementService? ruleManagementService,
   }) : 
     _contactService = contactService,
     _labelService = labelService,
     _allowedBlockedService = allowedBlockedService,
-    _blacklistWhitelistService = blacklistWhitelistService;
+    _blacklistWhitelistService = ruleManagementService;
 
   Stream<List<CallLog>> get logsStream => _logController.stream;
 
@@ -151,23 +152,21 @@ class CallLogService {
       }
     }
     
-    // 3. 如果规则中没有头像，从黑白名单中获取
+    // 3. 如果规则中没有头像，从规则管理服务中获取
     if (avatar == null && _blacklistWhitelistService != null) {
-      final whitelistRules = await _blacklistWhitelistService!.getAllWhitelistRules();
-      final blacklistRules = await _blacklistWhitelistService!.getAllBlacklistRules();
+      // 获取所有规则，不再区分黑白名单
+      final allRules = await _blacklistWhitelistService!.getAllRulesByActionType(null);
       
       // 查找匹配的规则
-      final matchingWhitelist = whitelistRules.where((rule) => rule.phoneNumber.value == phoneNumber);
-      final matchingBlacklist = blacklistRules.where((rule) => rule.phoneNumber.value == phoneNumber);
+      final matchingRules = allRules.where((rule) => rule.phoneNumber.value == phoneNumber);
       
-      if (matchingWhitelist.isNotEmpty && matchingWhitelist.first.avatar != null) {
-        avatar = matchingWhitelist.first.avatar;
-      } else if (matchingBlacklist.isNotEmpty && matchingBlacklist.first.avatar != null) {
-        avatar = matchingBlacklist.first.avatar;
+      // 如果找到匹配的规则并且有头像，使用第一个匹配规则的头像
+      if (matchingRules.isNotEmpty && matchingRules.first.avatar != null) {
+        avatar = matchingRules.first.avatar;
       }
     }
     
-    // 4. 如果黑白名单中没有头像，从标签中获取
+    // 4. 如果规则中没有头像，从标签中获取
     if (avatar == null && _labelService != null) {
       final label = await _labelService!.getLabelByPhoneNumber(phone);
       if (label != null && label.avatar != null && label.avatar!.isNotEmpty) {

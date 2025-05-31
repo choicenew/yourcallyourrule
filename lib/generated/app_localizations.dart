@@ -384,7 +384,7 @@ abstract class AppLocalizations {
   /// No description provided for @simInfoLoadFailure.
   ///
   /// In en, this message translates to:
-  /// **'Failed to load ScM card inforaation: {error}'**
+  /// **'Failed to load SIM card information: {error}'**
   String simInfoLoadFailure(Object error);
 
   /// No description provided for @operationFailed.
@@ -405,11 +405,11 @@ abstract class AppLocalizations {
   /// **'Failed to import configuration'**
   String get importFailure;
 
-  /// No description provided for @exportSuccess.
+  /// No description provided for @exportSuccesslly.
   ///
   /// In en, this message translates to:
   /// **'Configuration exported successfully'**
-  String get exportSuccess;
+  String get exportSuccesslly;
 
   /// No description provided for @exportFailure.
   ///
@@ -1016,6 +1016,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted'**
   String get timeWindowDescription;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @callerIdApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Caller ID App'**
+  String get callerIdApp;
+
+  /// No description provided for @thisAppIsAPowerfulCallerIdToolThatAllows.
+  ///
+  /// In en, this message translates to:
+  /// **'This app is a powerful caller ID tool that allows you to identify and block unwanted calls.'**
+  String get thisAppIsAPowerfulCallerIdToolThatAllows;
+
+  /// No description provided for @features.
+  ///
+  /// In en, this message translates to:
+  /// **'Features'**
+  String get features;
+
+  /// No description provided for @onlineCallerIdSubscription.
+  ///
+  /// In en, this message translates to:
+  /// **'Online Caller ID Subscription'**
+  String get onlineCallerIdSubscription;
+
+  /// No description provided for @wildcardSupportForFlexibleFiltering.
+  ///
+  /// In en, this message translates to:
+  /// **'Wildcard Support for Flexible Filtering'**
+  String get wildcardSupportForFlexibleFiltering;
+
+  /// No description provided for @blacklistingAndWhitelisting.
+  ///
+  /// In en, this message translates to:
+  /// **'Blacklisting and Whitelisting'**
+  String get blacklistingAndWhitelisting;
+
+  /// No description provided for @joinTheTelegramChannelAndGroupForMoreInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Join the Telegram Channel and Group for More Info'**
+  String get joinTheTelegramChannelAndGroupForMoreInfo;
+
+  /// No description provided for @tutorial.
+  ///
+  /// In en, this message translates to:
+  /// **'Tutorial'**
+  String get tutorial;
+
+  /// No description provided for @contactUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Us'**
+  String get contactUs;
+
+  /// No description provided for @github.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub'**
+  String get github;
+
+  /// No description provided for @telegram.
+  ///
+  /// In en, this message translates to:
+  /// **'Telegram'**
+  String get telegram;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @import.
+  ///
+  /// In en, this message translates to:
+  /// **'Import'**
+  String get import;
+
+  /// No description provided for @export.
+  ///
+  /// In en, this message translates to:
+  /// **'Export'**
+  String get export;
+
+  /// No description provided for @phoneRuleSubscription.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Rule Subscription'**
+  String get phoneRuleSubscription;
+
+  /// No description provided for @aboutPhoneSubscriptionRules.
+  ///
+  /// In en, this message translates to:
+  /// **'About Phone Subscription Rules'**
+  String get aboutPhoneSubscriptionRules;
+
+  /// No description provided for @phoneSubscriptionRulesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe to phone rule lists via URL to automatically update whitelist and blacklist rules. Supports JSON format rule files.'**
+  String get phoneSubscriptionRulesDescription;
 
   /// No description provided for @phoneNumberTypeFixedLine.
   ///
@@ -1743,7 +1851,7 @@ abstract class AppLocalizations {
   /// **'Save Settings'**
   String get saveSettings;
 
-  /// No description provided for @settingsSaved.
+  /// Settings saved confirmation message
   ///
   /// In en, this message translates to:
   /// **'Settings saved'**
@@ -2061,6 +2169,234 @@ abstract class AppLocalizations {
   /// **'SIM Slot Position {slotNumber}'**
   String simSlotPosition(int slotNumber);
 
+  /// Selected date range text
+  ///
+  /// In en, this message translates to:
+  /// **'Selected date range'**
+  String get selectedDateRange;
+
+  /// Notification settings title
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Settings'**
+  String get notificationSettings;
+
+  /// Daily statistics notification option
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Statistics'**
+  String get dailyStatistics;
+
+  /// Description for daily statistics option
+  ///
+  /// In en, this message translates to:
+  /// **'Receive daily statistics about blocked calls and messages'**
+  String get dailyStatisticsDesc;
+
+  /// Weekly report notification option
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Report'**
+  String get weeklyReport;
+
+  /// Description for weekly report option
+  ///
+  /// In en, this message translates to:
+  /// **'Receive weekly summary report of call blocking activity'**
+  String get weeklyReportDesc;
+
+  /// Phone subscription page title
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Rule Subscriptions'**
+  String get phoneSubscriptionTitle;
+
+  /// Failed to load subscriptions error message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load subscriptions: {error}'**
+  String loadSubscriptionsFailed(Object error);
+
+  /// Failed to change subscription status error message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to change subscription status: {error}'**
+  String changeSubscriptionStatusFailed(Object error);
+
+  /// Failed to update subscription error message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update subscription: {error}'**
+  String updateSubscriptionFailed(Object error);
+
+  /// Delete subscription dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Subscription'**
+  String get deleteSubscription;
+
+  /// Delete subscription confirmation message
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete subscription \"{name}\"?'**
+  String deleteSubscriptionConfirm(Object name);
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// Subscription deleted success message
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription deleted'**
+  String get subscriptionDeleted;
+
+  /// Failed to delete subscription error message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete subscription: {error}'**
+  String deleteSubscriptionFailed(Object error);
+
+  /// Add allow subscription dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Add Allow Subscription'**
+  String get addAllowSubscription;
+
+  /// Add block subscription dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Add Block Subscription'**
+  String get addBlockSubscription;
+
+  /// Add silence subscription dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Add Silence Subscription'**
+  String get addSilenceSubscription;
+
+  /// Add none subscription dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Add None Subscription'**
+  String get addNoneSubscription;
+
+  /// Subscription name field label
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription Name'**
+  String get subscriptionName;
+
+  /// Subscription name field hint
+  ///
+  /// In en, this message translates to:
+  /// **'Enter subscription name'**
+  String get enterSubscriptionName;
+
+  /// Subscription URL field label
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription URL'**
+  String get subscriptionUrl;
+
+  /// Subscription URL field hint
+  ///
+  /// In en, this message translates to:
+  /// **'Enter subscription URL'**
+  String get enterSubscriptionUrl;
+
+  /// Enter valid name and URL error message
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter valid name and URL'**
+  String get enterValidNameAndUrl;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// Subscription added success message
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription \"{name}\" added successfully'**
+  String subscriptionAddSuccess(Object name);
+
+  /// Failed to add subscription error message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to add subscription: {error}'**
+  String addSubscriptionFailed(Object error);
+
+  /// No subscriptions message
+  ///
+  /// In en, this message translates to:
+  /// **'No subscriptions'**
+  String get noSubscriptions;
+
+  /// Add subscription button text
+  ///
+  /// In en, this message translates to:
+  /// **'Add Subscription'**
+  String get addSubscription;
+
+  /// About phone subscriptions title
+  ///
+  /// In en, this message translates to:
+  /// **'About Phone Subscriptions'**
+  String get aboutPhoneSubscriptions;
+
+  /// About phone subscriptions description
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe to phone rule lists via URL, automatically update blacklist and whitelist rules. Supports JSON format rule files.'**
+  String get aboutPhoneSubscriptionsDesc;
+
+  /// About contact subscription title
+  ///
+  /// In en, this message translates to:
+  /// **'About Contact Subscription'**
+  String get aboutContactSubscription;
+
+  /// About contact subscription description
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe to contact lists via URL, automatically update contact information and labels. Supports JSON format data.'**
+  String get contactSubscriptionDescription;
+
+  /// Whitelist label
+  ///
+  /// In en, this message translates to:
+  /// **'Whitelist'**
+  String get whitelist;
+
+  /// Blacklist label
+  ///
+  /// In en, this message translates to:
+  /// **'Blacklist'**
+  String get blacklist;
+
+  /// Synchronized status label
+  ///
+  /// In en, this message translates to:
+  /// **'Synchronized'**
+  String get synchronized;
+
+  /// Last updated label
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated: {date}'**
+  String lastUpdated(Object date);
+
+  /// Sync now button text
+  ///
+  /// In en, this message translates to:
+  /// **'Sync Now'**
+  String get syncNow;
+
   /// No description provided for @addLabelToCall.
   ///
   /// In en, this message translates to:
@@ -2157,6 +2493,78 @@ abstract class AppLocalizations {
   /// **'1 week ago'**
   String get chartOneWeekAgo;
 
+  /// No description provided for @allCallsTab.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get allCallsTab;
+
+  /// No description provided for @phoneCallsTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phoneCallsTab;
+
+  /// No description provided for @smsTab.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS'**
+  String get smsTab;
+
+  /// No description provided for @weeklyBlockedCallsSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Blocked Calls Summary'**
+  String get weeklyBlockedCallsSummary;
+
+  /// No description provided for @monthlyTotalLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Total'**
+  String get monthlyTotalLabel;
+
+  /// No description provided for @blockedCommunications.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Communications'**
+  String get blockedCommunications;
+
+  /// No description provided for @blockedPhoneLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Calls'**
+  String get blockedPhoneLabel;
+
+  /// No description provided for @filteredSmsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Filtered SMS'**
+  String get filteredSmsLabel;
+
+  /// No description provided for @whitelistLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Whitelist'**
+  String get whitelistLabel;
+
+  /// No description provided for @blacklistLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Blacklist'**
+  String get blacklistLabel;
+
+  /// No description provided for @blockingTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocking Trend'**
+  String get blockingTrend;
+
+  /// No description provided for @exportStatisticsData.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Statistics Data'**
+  String get exportStatisticsData;
+
   /// No description provided for @chartTenDaysAgo.
   ///
   /// In en, this message translates to:
@@ -2235,6 +2643,12 @@ abstract class AppLocalizations {
   /// **'Failed to load labels: {error}'**
   String loadLabelFailed(Object error);
 
+  /// No description provided for @addLabelFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to add labels: {error}'**
+  String addLabelFailed(Object error);
+
   /// No description provided for @selectLabel.
   ///
   /// In en, this message translates to:
@@ -2258,6 +2672,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add Label'**
   String get addLabelButton;
+
+  /// No description provided for @rulesImported.
+  ///
+  /// In en, this message translates to:
+  /// **'Rules imported successfully'**
+  String get rulesImported;
+
+  /// No description provided for @rulesImportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to import rules: {error}'**
+  String rulesImportFailed(Object error);
+
+  /// No description provided for @importRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Rules'**
+  String get importRules;
+
+  /// No description provided for @importRulesInstructions.
+  ///
+  /// In en, this message translates to:
+  /// **'Import rules from a CSV file'**
+  String get importRulesInstructions;
+
+  /// No description provided for @importRulesButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Rules'**
+  String get importRulesButton;
+
+  /// No description provided for @importRulesError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to import rules: {error}'**
+  String importRulesError(Object error);
+
+  /// No description provided for @importRulesSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Rules imported successfully'**
+  String get importRulesSuccess;
 
   /// No description provided for @ruleManagementTitle.
   ///
@@ -2313,6 +2769,12 @@ abstract class AppLocalizations {
   /// **'Filter by Action Type'**
   String get actionFilterTitle;
 
+  /// No description provided for @actionFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All Filter'**
+  String get actionFilterAll;
+
   /// No description provided for @actionAll.
   ///
   /// In en, this message translates to:
@@ -2367,12 +2829,6 @@ abstract class AppLocalizations {
   /// **'Refresh'**
   String get refreshTooltip;
 
-  /// No description provided for @importRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Import Rules'**
-  String get importRules;
-
   /// No description provided for @exportRules.
   ///
   /// In en, this message translates to:
@@ -2421,7 +2877,7 @@ abstract class AppLocalizations {
   /// **'Failed to change subscription status: {error}'**
   String subscriptionStatusChangeFailed(Object error);
 
-  /// No description provided for @subscriptionUpdateSuccess.
+  /// Subscription update success message
   ///
   /// In en, this message translates to:
   /// **'Subscription updated successfully'**
@@ -2432,6 +2888,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to update subscription: {error}'**
   String subscriptionUpdateFailed(Object error);
+
+  /// Synced status label
+  ///
+  /// In en, this message translates to:
+  /// **'Synced'**
+  String get synced;
 
   /// No description provided for @subscriptionDeleteConfirmTitle.
   ///
@@ -2516,6 +2978,678 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'SIM 2,-{countryIso}'**
   String simSlot2(String countryIso);
+
+  /// Update PhoneNumber Rule
+  ///
+  /// In en, this message translates to:
+  /// **'Update PhoneNumber Rule'**
+  String get updatePhoneNumberRule;
+
+  /// No description provided for @contactsManagementPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Contacts Management Page'**
+  String get contactsManagementPageTitle;
+
+  /// No description provided for @failedToLoadContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load contacts'**
+  String get failedToLoadContacts;
+
+  /// No description provided for @editContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Contact'**
+  String get editContact;
+
+  /// No description provided for @addContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Contact'**
+  String get addContact;
+
+  /// No description provided for @contactUpdateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact updated successfully'**
+  String get contactUpdateSuccess;
+
+  /// No description provided for @contactAddSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact added successfully'**
+  String get contactAddSuccess;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @enterContactName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter contact name'**
+  String get enterContactName;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// No description provided for @enterPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter phone number'**
+  String get enterPhoneNumber;
+
+  /// No description provided for @emailOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Email (Optional)'**
+  String get emailOptional;
+
+  /// No description provided for @enterEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter email'**
+  String get enterEmail;
+
+  /// No description provided for @nameAndPhoneNumberRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Name and phone number cannot be empty'**
+  String get nameAndPhoneNumberRequired;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
+
+  /// No description provided for @failedToUpdateContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update contact'**
+  String get failedToUpdateContact;
+
+  /// No description provided for @failedToAddContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to add contact'**
+  String get failedToAddContact;
+
+  /// No description provided for @manageFavoriteContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage Favorite Contacts'**
+  String get manageFavoriteContacts;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @addedToFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Added to favorite contacts'**
+  String get addedToFavorites;
+
+  /// No description provided for @removedFromFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed from favorite contacts'**
+  String get removedFromFavorites;
+
+  /// No description provided for @deleteContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Contact'**
+  String get deleteContact;
+
+  /// No description provided for @confirmDeleteContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete'**
+  String get confirmDeleteContact;
+
+  /// No description provided for @selectTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Tag'**
+  String get selectTag;
+
+  /// No description provided for @batchDeleteContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Batch Delete Contacts'**
+  String get batchDeleteContacts;
+
+  /// No description provided for @confirmBatchDeleteContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the selected'**
+  String get confirmBatchDeleteContacts;
+
+  /// No description provided for @contacts.
+  ///
+  /// In en, this message translates to:
+  /// **'contacts?'**
+  String get contacts;
+
+  /// No description provided for @contactsDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted {count} contacts'**
+  String contactsDeleted(Object count);
+
+  /// No description provided for @removeFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove Favorite'**
+  String get removeFavorite;
+
+  /// No description provided for @addFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Favorite'**
+  String get addFavorite;
+
+  /// No description provided for @changeTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Tag'**
+  String get changeTag;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @importExportContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Import/Export Contacts'**
+  String get importExportContacts;
+
+  /// No description provided for @importContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Contacts'**
+  String get importContacts;
+
+  /// No description provided for @exportContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Contacts'**
+  String get exportContacts;
+
+  /// No description provided for @csvFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'CSV Format'**
+  String get csvFormat;
+
+  /// No description provided for @jsonFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'JSON Format'**
+  String get jsonFormat;
+
+  /// No description provided for @fileSavedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'File saved to: {path}'**
+  String fileSavedTo(Object path);
+
+  /// No description provided for @searchContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Contacts'**
+  String get searchContacts;
+
+  /// No description provided for @changeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Label'**
+  String get changeLabel;
+
+  /// No description provided for @noContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'No contacts yet'**
+  String get noContacts;
+
+  /// No description provided for @noMatchingContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching contacts'**
+  String get noMatchingContacts;
+
+  /// No description provided for @addToFavoriteContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Favorite Contacts'**
+  String get addToFavoriteContacts;
+
+  /// No description provided for @deleteContactConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete contact'**
+  String get deleteContactConfirmation;
+
+  /// No description provided for @deleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete successful'**
+  String get deleteSuccess;
+
+  /// No description provided for @deleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete failed'**
+  String get deleteFailed;
+
+  /// No description provided for @dataLoadingFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load data: {error}'**
+  String dataLoadingFailed(Object error);
+
+  /// No description provided for @overview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get overview;
+
+  /// No description provided for @adPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Ad Placeholder'**
+  String get adPlaceholder;
+
+  /// No description provided for @statisticsGrid.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics Grid'**
+  String get statisticsGrid;
+
+  /// No description provided for @trendChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Trend Chart'**
+  String get trendChart;
+
+  /// No description provided for @weekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get weekly;
+
+  /// No description provided for @monthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get monthly;
+
+  /// No description provided for @yearly.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly'**
+  String get yearly;
+
+  /// No description provided for @exportSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Export successful'**
+  String get exportSuccess;
+
+  /// No description provided for @exportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Export failed'**
+  String get exportFailed;
+
+  /// No description provided for @blockedCalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Calls'**
+  String get blockedCalls;
+
+  /// No description provided for @filteredSms.
+  ///
+  /// In en, this message translates to:
+  /// **'Filtered SMS'**
+  String get filteredSms;
+
+  /// No description provided for @totalBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Blocked'**
+  String get totalBlocked;
+
+  /// No description provided for @totalFiltered.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Filtered'**
+  String get totalFiltered;
+
+  /// No description provided for @trend.
+  ///
+  /// In en, this message translates to:
+  /// **'Trend'**
+  String get trend;
+
+  /// No description provided for @exportData.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Data'**
+  String get exportData;
+
+  /// No description provided for @exporting.
+  ///
+  /// In en, this message translates to:
+  /// **'Exporting...'**
+  String get exporting;
+
+  /// No description provided for @exportComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Complete'**
+  String get exportComplete;
+
+  /// No description provided for @exportError.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Error'**
+  String get exportError;
+
+  /// No description provided for @homePageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Page'**
+  String get homePageTitle;
+
+  /// No description provided for @callHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Call History'**
+  String get callHistory;
+
+  /// No description provided for @smsHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS History'**
+  String get smsHistory;
+
+  /// No description provided for @noData.
+  ///
+  /// In en, this message translates to:
+  /// **'No Data'**
+  String get noData;
+
+  /// No description provided for @loadingData.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading Data...'**
+  String get loadingData;
+
+  /// No description provided for @loadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Load Failed'**
+  String get loadFailed;
+
+  /// No description provided for @searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search...'**
+  String get searchHint;
+
+  /// No description provided for @filter.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter'**
+  String get filter;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
+
+  /// No description provided for @blocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked'**
+  String get blocked;
+
+  /// No description provided for @filtered.
+  ///
+  /// In en, this message translates to:
+  /// **'Filtered'**
+  String get filtered;
+
+  /// No description provided for @last7Days.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 7 Days'**
+  String get last7Days;
+
+  /// No description provided for @last30Days.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 30 Days'**
+  String get last30Days;
+
+  /// No description provided for @customRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom Range'**
+  String get customRange;
+
+  /// No description provided for @apply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get apply;
+
+  /// No description provided for @selectDateRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Date Range'**
+  String get selectDateRange;
+
+  /// No description provided for @startDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date'**
+  String get startDate;
+
+  /// No description provided for @endDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date'**
+  String get endDate;
+
+  /// No description provided for @reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get reset;
+
+  /// No description provided for @filterManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Management'**
+  String get filterManagement;
+
+  /// No description provided for @addFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Filter'**
+  String get addFilter;
+
+  /// No description provided for @editFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Filter'**
+  String get editFilter;
+
+  /// No description provided for @deleteFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Filter'**
+  String get deleteFilter;
+
+  /// No description provided for @filterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Name'**
+  String get filterName;
+
+  /// No description provided for @enterFilterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter filter name'**
+  String get enterFilterName;
+
+  /// No description provided for @filterPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Pattern'**
+  String get filterPattern;
+
+  /// No description provided for @enterFilterPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter filter pattern'**
+  String get enterFilterPattern;
+
+  /// No description provided for @filterType.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Type'**
+  String get filterType;
+
+  /// No description provided for @call.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get call;
+
+  /// No description provided for @sms.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS'**
+  String get sms;
+
+  /// No description provided for @both.
+  ///
+  /// In en, this message translates to:
+  /// **'Both'**
+  String get both;
+
+  /// No description provided for @action.
+  ///
+  /// In en, this message translates to:
+  /// **'Action'**
+  String get action;
+
+  /// No description provided for @block.
+  ///
+  /// In en, this message translates to:
+  /// **'Block'**
+  String get block;
+
+  /// No description provided for @allow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get allow;
+
+  /// No description provided for @mute.
+  ///
+  /// In en, this message translates to:
+  /// **'Mute'**
+  String get mute;
+
+  /// No description provided for @saveFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Filter'**
+  String get saveFilter;
+
+  /// No description provided for @filterSaveSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter saved successfully'**
+  String get filterSaveSuccess;
+
+  /// No description provided for @filterSaveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter save failed'**
+  String get filterSaveFailed;
+
+  /// No description provided for @confirmDeleteFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this filter?'**
+  String get confirmDeleteFilter;
+
+  /// No description provided for @filterDeleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter deleted successfully'**
+  String get filterDeleteSuccess;
+
+  /// No description provided for @filterDeleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter delete failed'**
+  String get filterDeleteFailed;
+
+  /// No description provided for @noFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'No filters yet'**
+  String get noFilters;
+
+  /// No description provided for @searchFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Filters'**
+  String get searchFilters;
+
+  /// No description provided for @filterDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Details'**
+  String get filterDetails;
+
+  /// No description provided for @pattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern'**
+  String get pattern;
+
+  /// No description provided for @type.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get type;
+
+  /// No description provided for @actionType.
+  ///
+  /// In en, this message translates to:
+  /// **'Action Type'**
+  String get actionType;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

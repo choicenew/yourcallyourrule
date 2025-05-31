@@ -25,10 +25,32 @@ class CallStatisticsRepositoryImpl implements CallStatisticsRepository {
     return _statisticsService.getWeeklyFilteredSmsCount(_callLogs);
   }
 
+  // 获取允许规则数量
+  int getAllowRulesCount() {
+    return _statisticsService.getAllowRulesCount(_rules);
+  }
+
+  // 获取阻止规则数量
+  int getBlockRulesCount() {
+    return _statisticsService.getBlockRulesCount(_rules);
+  }
+
+  // 获取静音规则数量
+  int getSilenceRulesCount() {
+    return _statisticsService.getSilenceRulesCount(_rules);
+  }
+
+  // 获取无动作规则数量
+  int getNoneRulesCount() {
+    return _statisticsService.getNoneRulesCount(_rules);
+  }
+
+  // 兼容旧代码的方法
   int getWhitelistRulesCount() {
     return _statisticsService.getWhitelistRulesCount(_rules);
   }
 
+  // 兼容旧代码的方法
   int getBlacklistRulesCount() {
     return _statisticsService.getBlacklistRulesCount(_rules);
   }

@@ -131,7 +131,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
       await _refreshCallLogs();
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('添加标签失败: ${e.toString()}')),
+        SnackBar(content: Text('AppLocalizations.of(context)!.addLabelFailed: ${e.toString()}')),
       );
     }
   }

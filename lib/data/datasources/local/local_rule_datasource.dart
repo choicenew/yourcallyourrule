@@ -8,8 +8,8 @@ import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/data/models/allow_block_rule_model.dart';
 import 'package:yourcallyourrule/data/models/regex_rule_model.dart';
 
+import '../../../data/models/phone_rule_model.dart';
 import '../../../data/models/rule_model.dart';
-import '../../../data/models/white_black_rule_model.dart';
 import '../../database/database_manager.dart';
 import '../datasource_interface.dart';
 
@@ -34,8 +34,9 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
       final map = maps[i];
       // 根据规则类型创建不同的规则模型
       switch (map['ruleType']) {
-        case 'white_black':
-          return WhiteBlackRuleModel.fromMap(map);
+        case 'phone_rule':
+       // case 'white_black': // 兼容旧数据
+          return PhoneRuleModel.fromMap(map);
         case 'regex':
           return RegexRuleModel.fromMap(map);
         case 'alloworblock':
@@ -60,8 +61,9 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
       final map = maps.first;
       // 根据规则类型创建不同的规则模型
       switch (map['ruleType']) {
-        case 'white_black':
-          return WhiteBlackRuleModel.fromMap(map);
+        case 'phone_rule':
+        case 'white_black': // 兼容旧数据
+          return PhoneRuleModel.fromMap(map);
         case 'regex':
           return RegexRuleModel.fromMap(map);
         case 'alloworblock':
@@ -84,8 +86,8 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
 
     // 根据规则类型创建不同的规则模型
     if (rule.id.isEmpty) {
-      if (rule is WhiteBlackRuleModel) {
-        ruleWithId = WhiteBlackRuleModel(
+      if (rule is PhoneRuleModel) {
+        ruleWithId = PhoneRuleModel(
           id: id,
           name: rule.name,
           priority: rule.priority,
@@ -175,8 +177,8 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
 
         // 根据规则类型创建不同的规则模型
         if (rule.id.isEmpty) {
-          if (rule is WhiteBlackRuleModel) {
-            ruleWithId = WhiteBlackRuleModel(
+          if (rule is PhoneRuleModel) {
+            ruleWithId = PhoneRuleModel(
               id: id,
               name: rule.name,
               priority: rule.priority,
@@ -301,8 +303,9 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
         final ruleMap = map as Map<String, dynamic>;
         // 根据规则类型创建不同的规则模型
         switch (ruleMap['ruleType']) {
-          case 'white_black':
-            rules.add(WhiteBlackRuleModel.fromMap(ruleMap));
+          case 'phone_rule':
+          case 'white_black': // 兼容旧数据
+            rules.add(PhoneRuleModel.fromMap(ruleMap));
             break;
           case 'regex':
             rules.add(RegexRuleModel.fromMap(ruleMap));
@@ -337,8 +340,9 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
       final map = maps[i];
       // 根据规则类型创建不同的规则模型
       switch (ruleType) {
-        case 'white_black':
-          return WhiteBlackRuleModel.fromMap(map);
+        case 'phone_rule':
+        case 'white_black': // 兼容旧数据
+          return PhoneRuleModel.fromMap(map);
         case 'regex':
           return RegexRuleModel.fromMap(map);
 
@@ -364,8 +368,9 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
       final map = maps[i];
       // 根据规则类型创建不同的规则模型
       switch (map['ruleType']) {
-        case 'white_black':
-          return WhiteBlackRuleModel.fromMap(map);
+        case 'phone_rule':
+        case 'white_black': // 兼容旧数据
+          return PhoneRuleModel.fromMap(map);
         case 'regex':
           return RegexRuleModel.fromMap(map);
 
@@ -391,8 +396,9 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
       final map = maps[i];
       // 根据规则类型创建不同的规则模型
       switch (map['ruleType']) {
-        case 'white_black':
-          return WhiteBlackRuleModel.fromMap(map);
+        case 'phone_rule':
+        case 'white_black': // 兼容旧数据
+          return PhoneRuleModel.fromMap(map);
         case 'regex':
           return RegexRuleModel.fromMap(map);
 

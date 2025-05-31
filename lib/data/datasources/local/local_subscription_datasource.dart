@@ -5,13 +5,14 @@ import 'dart:convert';
 
 import 'package:sqflite/sqflite.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 
 import '../../../data/models/subscription_model.dart';
 import '../../database/database_manager.dart';
 import '../datasource_interface.dart';
 
 // 本地订阅数据源实现
-class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> {
+class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionModel> {
   // 数据库管理器
   final LocalDatabaseManager _databaseManager;
   
@@ -23,7 +24,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   
   // 获取所有订阅
   @override
-  Future<List<SubscriptionModel>> getAll() async {
+  Future<List<BaseSubscriptionModel>> getAll() async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(_tableName);
     
@@ -49,8 +50,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
           enabled: map['enabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
-          isWhitelist: map['isWhitelist'] == 1,
-          isBlacklist: map['isBlacklist'] == 1,
+          action: RuleAction.fromString(map['action']),
           isNumberType: map['isNumberType'] == 1,
         );
       } else {
@@ -61,7 +61,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   
   // 根据ID获取订阅
   @override
-  Future<SubscriptionModel?> getById(String id) async {
+  Future<BaseSubscriptionModel?> getById(String id) async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(
       _tableName,
@@ -91,8 +91,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
           enabled: map['enabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
-          isWhitelist: map['isWhitelist'] == 1,
-          isBlacklist: map['isBlacklist'] == 1,
+          action: RuleAction.fromString(map['action']),
           isNumberType: map['isNumberType'] == 1,
         );
       } else {
@@ -104,12 +103,12 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   
   // 插入订阅
   @override
-  Future<String> insert(SubscriptionModel subscription) async {
+  Future<String> insert(BaseSubscriptionModel subscription) async {
     final db = await _databaseManager.database;
     
     // 如果没有ID，生成一个新的UUID
     final String id = subscription.id.isEmpty ? const Uuid().v4() : subscription.id;
-    final SubscriptionModel subscriptionWithId;
+    final BaseSubscriptionModel subscriptionWithId;
     
     // 根据订阅类型创建不同的订阅模型
     if (subscription.id.isEmpty) {
@@ -131,21 +130,24 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
           enabled: subscription.enabled,
           lastUpdated: subscription.lastUpdated,
           autoUpdate: subscription.autoUpdate,
-          isWhitelist: subscription.isWhitelist,
-          isBlacklist: subscription.isBlacklist,
+          action: subscription.action,
           isNumberType: subscription.isNumberType,
         );
-      } else {
+      } else if (subscription is SubscriptionModel) {
         subscriptionWithId = SubscriptionModel(
           id: id,
           name: subscription.name,
           url: subscription.url,
           enabled: subscription.enabled,
-          isWhitelist: subscription.isWhitelist,
-          isBlacklist: subscription.isBlacklist,
+          action: subscription.action,
           lastUpdated: subscription.lastUpdated,
           autoUpdate: subscription.autoUpdate,
         );
+      } else {
+        // 如果是其他类型的BaseSubscriptionModel，抛出异常
+        // 这里的异常表示当前只支持ContactSubscriptionModel、SmsSubscriptionModel和SubscriptionModel三种类型
+        // 如果传入了其他类型的BaseSubscriptionModel子类，则会抛出此异常
+        throw Exception('不支持的订阅类型：${subscription.runtimeType}。当前仅支持ContactSubscriptionModel、SmsSubscriptionModel和SubscriptionModel');
       }
     } else {
       subscriptionWithId = subscription;
@@ -162,7 +164,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   
   // 更新订阅
   @override
-  Future<int> update(SubscriptionModel subscription) async {
+  Future<int> update(BaseSubscriptionModel subscription) async {
     final db = await _databaseManager.database;
     
     return await db.update(
@@ -187,7 +189,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   
   // 批量插入订阅
   @override
-  Future<List<String>> insertAll(List<SubscriptionModel> subscriptions) async {
+  Future<List<String>> insertAll(List<BaseSubscriptionModel> subscriptions) async {
     final List<String> ids = [];
     final db = await _databaseManager.database;
     
@@ -195,7 +197,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
       for (final subscription in subscriptions) {
         // 如果没有ID，生成一个新的UUID
         final String id = subscription.id.isEmpty ? const Uuid().v4() : subscription.id;
-        final SubscriptionModel subscriptionWithId;
+        final BaseSubscriptionModel subscriptionWithId;
         
         // 根据订阅类型创建不同的订阅模型
         if (subscription.id.isEmpty) {
@@ -217,21 +219,24 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
               enabled: subscription.enabled,
               lastUpdated: subscription.lastUpdated,
               autoUpdate: subscription.autoUpdate,
-              isWhitelist: subscription.isWhitelist,
-              isBlacklist: subscription.isBlacklist,
+              action: subscription.action,
               isNumberType: subscription.isNumberType,
             );
-          } else {
+          } else if (subscription is SubscriptionModel) {
             subscriptionWithId = SubscriptionModel(
               id: id,
               name: subscription.name,
               url: subscription.url,
               enabled: subscription.enabled,
-              isWhitelist: subscription.isWhitelist,
-              isBlacklist: subscription.isBlacklist,
+              action: subscription.action,
               lastUpdated: subscription.lastUpdated,
               autoUpdate: subscription.autoUpdate,
             );
+          } else {
+            // 如果是其他类型的BaseSubscriptionModel，抛出异常
+            // 这里的异常表示当前只支持ContactSubscriptionModel、SmsSubscriptionModel和SubscriptionModel三种类型
+            // 如果传入了其他类型的BaseSubscriptionModel子类，则会抛出此异常
+            throw Exception('不支持的订阅类型：${subscription.runtimeType}。当前仅支持ContactSubscriptionModel、SmsSubscriptionModel和SubscriptionModel');
           }
         } else {
           subscriptionWithId = subscription;
@@ -252,7 +257,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   
   // 批量更新订阅
   @override
-  Future<int> updateAll(List<SubscriptionModel> subscriptions) async {
+  Future<int> updateAll(List<BaseSubscriptionModel> subscriptions) async {
     int count = 0;
     final db = await _databaseManager.database;
     
@@ -313,7 +318,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> subscriptionMaps = jsonDecode(data) as List<dynamic>;
-      final List<SubscriptionModel> subscriptions = [];
+      final List<BaseSubscriptionModel> subscriptions = [];
       
       for (final map in subscriptionMaps) {
         final subscriptionMap = map as Map<String, dynamic>;
@@ -337,8 +342,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
             enabled: subscriptionMap['enabled'] == 1,
             lastUpdated: DateTime.parse(subscriptionMap['lastUpdated']),
             autoUpdate: subscriptionMap['autoUpdate'] == 1,
-            isWhitelist: subscriptionMap['isWhitelist'] == 1,
-            isBlacklist: subscriptionMap['isBlacklist'] == 1,
+            action: RuleAction.fromString(subscriptionMap['action']),
             isNumberType: subscriptionMap['isNumberType'] == 1,
           ));
         } else {
@@ -354,7 +358,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   }
   
   // 获取启用的订阅
-  Future<List<SubscriptionModel>> getEnabledSubscriptions() async {
+  Future<List<BaseSubscriptionModel>> getEnabledSubscriptions() async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(
       _tableName,
@@ -384,8 +388,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
           enabled: map['enabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
-          isWhitelist: map['isWhitelist'] == 1,
-          isBlacklist: map['isBlacklist'] == 1,
+          action: RuleAction.fromString(map['action']),
           isNumberType: map['isNumberType'] == 1,
         );
       } else {
@@ -395,7 +398,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   }
   
   // 获取自动更新的订阅
-  Future<List<SubscriptionModel>> getAutoUpdateSubscriptions() async {
+  Future<List<BaseSubscriptionModel>> getAutoUpdateSubscriptions() async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(
       _tableName,
@@ -425,8 +428,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
           enabled: map['enabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
-          isWhitelist: map['isWhitelist'] == 1,
-          isBlacklist: map['isBlacklist'] == 1,
+          action: RuleAction.fromString(map['action']),
           isNumberType: map['isNumberType'] == 1,
         );
       } else {
@@ -436,7 +438,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
   }
   
   // 根据类型获取订阅
-  Future<List<SubscriptionModel>> getByType(String type) async {
+  Future<List<BaseSubscriptionModel>> getByType(String type) async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(
       _tableName,
@@ -465,8 +467,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<SubscriptionModel> 
           enabled: map['enabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
-          isWhitelist: map['isWhitelist'] == 1,
-          isBlacklist: map['isBlacklist'] == 1,
+          action: RuleAction.fromString(map['action']),
           isNumberType: map['isNumberType'] == 1,
         );
       } else {

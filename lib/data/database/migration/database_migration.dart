@@ -104,8 +104,7 @@ class DatabaseMigration {
         url TEXT NOT NULL,
         type TEXT NOT NULL,
         enabled INTEGER NOT NULL DEFAULT 1,
-        isWhitelist INTEGER NOT NULL DEFAULT 0,
-        isBlacklist INTEGER NOT NULL DEFAULT 0,
+        action TEXT NOT NULL DEFAULT 'none',
         lastUpdated TEXT NOT NULL,
         autoUpdate INTEGER NOT NULL DEFAULT 0,
         contactGroup TEXT,
@@ -335,8 +334,7 @@ class DatabaseMigration {
         url TEXT NOT NULL,
         type TEXT NOT NULL,
         enabled INTEGER NOT NULL DEFAULT 1,
-        isWhitelist INTEGER NOT NULL DEFAULT 0,
-        isBlacklist INTEGER NOT NULL DEFAULT 0,
+        action TEXT NOT NULL DEFAULT 'none',
         lastUpdated TEXT NOT NULL,
         autoUpdate INTEGER NOT NULL DEFAULT 0,
         contactGroup TEXT,
@@ -457,6 +455,37 @@ class DatabaseMigration {
       final smsWhitelistExists = await _tableExists(db, 'sms_whitelisted');
       final smsTextBlacklistExists = await _tableExists(db, 'sms_text_blacklisted');
       final smsTextWhitelistExists = await _tableExists(db, 'sms_text_whitelisted');
+      
+      // 迁移 subscriptions 表中的 isWhitelist 和 isBlacklist 字段到 action 字段
+      try {
+        // 获取所有订阅记录
+        final subscriptions = await db.query('subscriptions');
+        
+        // 更新每个订阅记录的 action 字段
+        for (final subscription in subscriptions) {
+          final isWhitelist = subscription['isWhitelist'] == 1;
+          final isBlacklist = subscription['isBlacklist'] == 1;
+          String action = 'none';
+          
+          if (isWhitelist) {
+            action = 'allow';
+          } else if (isBlacklist) {
+            action = 'block';
+          }
+          
+          // 更新记录
+          await db.update(
+            'subscriptions',
+            {'action': action},
+            where: 'id = ?',
+            whereArgs: [subscription['id']]
+          );
+        }
+        
+        print('成功迁移 subscriptions 表中的 isWhitelist 和 isBlacklist 字段到 action 字段');
+      } catch (e) {
+        print('迁移 subscriptions 表数据时出错: ${e.toString()}');
+      }
       
       // 迁移电话黑名单数据到规则表
       if (blacklistExists) {

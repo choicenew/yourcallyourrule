@@ -39,20 +39,46 @@ class CallStatisticsService {
     ).length;
   }
 
-  // 获取白名单规则数量
-  int getWhitelistRulesCount(List<RuleBase> rules) {
+  // 获取允许规则数量
+  int getAllowRulesCount(List<RuleBase> rules) {
     return rules.where((rule) => 
-      rule.action == RuleAction.allow && 
+      rule.action.type == RuleActionType.allow && 
       rule.isEnabled
     ).length;
   }
 
-  // 获取黑名单规则数量
-  int getBlacklistRulesCount(List<RuleBase> rules) {
+  // 获取阻止规则数量
+  int getBlockRulesCount(List<RuleBase> rules) {
     return rules.where((rule) => 
-      rule.action == RuleAction.block && 
+      rule.action.type == RuleActionType.block && 
       rule.isEnabled
     ).length;
+  }
+  
+  // 获取静音规则数量
+  int getSilenceRulesCount(List<RuleBase> rules) {
+    return rules.where((rule) => 
+      rule.action.type == RuleActionType.silence && 
+      rule.isEnabled
+    ).length;
+  }
+  
+  // 获取无动作规则数量
+  int getNoneRulesCount(List<RuleBase> rules) {
+    return rules.where((rule) => 
+      rule.action.type == RuleActionType.none && 
+      rule.isEnabled
+    ).length;
+  }
+  
+  // 兼容旧代码的方法
+  int getWhitelistRulesCount(List<RuleBase> rules) {
+    return getAllowRulesCount(rules);
+  }
+
+  // 兼容旧代码的方法
+  int getBlacklistRulesCount(List<RuleBase> rules) {
+    return getBlockRulesCount(rules);
   }
   
   // 获取时间规则数量 - 通过检查TimeInterceptorConfig配置判断

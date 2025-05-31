@@ -2,6 +2,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 
 class BlockedCallsChart extends StatefulWidget {
@@ -76,19 +77,19 @@ class BlockedCallsChartState extends State<BlockedCallsChart> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ChoiceChip(
-              label: const Text('全部'),
+              label: Text(AppLocalizations.of(context)!.allCallsTab),
               selected: _currentType == null,
               onSelected: (_) => _changeChartType(null),
             ),
             const SizedBox(width: 8),
             ChoiceChip(
-              label: const Text('电话'),
+              label: Text(AppLocalizations.of(context)!.phoneCallsTab),
               selected: _currentType == BlockedType.call,
               onSelected: (_) => _changeChartType(BlockedType.call),
             ),
             const SizedBox(width: 8),
             ChoiceChip(
-              label: const Text('短信'),
+              label: Text(AppLocalizations.of(context)!.smsTab),
               selected: _currentType == BlockedType.sms,
               onSelected: (_) => _changeChartType(BlockedType.sms),
             ),
@@ -129,13 +130,13 @@ class BlockedCallsChartState extends State<BlockedCallsChart> {
                         getTitlesWidget: (double value, TitleMeta meta) {
                           switch (value.toInt()) {
                             case 0:
-                              return Text('Today');
+                              return Text(AppLocalizations.of(context)!.chartToday);
                             case 1:
-                              return Text('1d ago');
+                              return Text(AppLocalizations.of(context)!.chartOneDayAgo);
                             case 3:
-                              return Text('3d ago');
+                              return Text(AppLocalizations.of(context)!.chartThreeDaysAgo);
                             case 6:
-                              return Text('1w ago');
+                              return Text(AppLocalizations.of(context)!.chartOneWeekAgo);
                             default:
                               return const Text('');
                           }
@@ -154,7 +155,7 @@ class BlockedCallsChartState extends State<BlockedCallsChart> {
                 ),
               ),
             ),
-            Text('Weekly Blocked Calls Summary',
+            Text(AppLocalizations.of(context)!.weeklyBlockedCallsSummary,
                 style:
                     const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
           ],

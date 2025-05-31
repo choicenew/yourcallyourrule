@@ -32,7 +32,6 @@ import 'package:yourcallyourrule/features/local_filter/services/local_count_filt
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
-import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 
 // 数据提供者
@@ -55,7 +54,7 @@ import 'package:yourcallyourrule/features/remote_filter/services/remote_number_s
 import '../../data/database/database_service.dart';
 import '../../data/database/local/local_database_manager.dart';
 import '../../features/call/call_history/services/call_log_service.dart';
-import '../../features/rules/services/blacklist_whitelist_service.dart';
+import '../../features/rules/services/rule_management_service.dart';
 import '../../features/language/services/locale_service.dart';
 
 // 功能模块
@@ -96,7 +95,7 @@ List<SingleChildStatelessWidget> getAppProviders() {
 
   // 核心服务初始化
   final callLogService = CallLogService(callLogRepository);
-  final blacklistWhitelistService = BlacklistWhitelistService(ruleRepository);
+  final ruleManagementService = RuleManagementService(ruleRepository);
   final localeService = LocaleService(configRepository);
   // 初始化插件WebView服务
   final pluginWebViewService = PluginWebViewService();
@@ -135,7 +134,7 @@ List<SingleChildStatelessWidget> getAppProviders() {
   final callerIdService = CallerIdService(
     pluginService: pluginService,
     contactService: contactService,
-    blacklistWhitelistService: blacklistWhitelistService,
+    ruleManagementService: ruleManagementService,
     labelService: labelService,
     locationService: locationService,
     predefinedLabelService: predefinedLabelService,
@@ -212,7 +211,7 @@ List<SingleChildStatelessWidget> getAppProviders() {
     // 核心服务 - 这些是真正的ChangeNotifier子类
     ChangeNotifierProvider(
         create: (_) =>
-            HomeStatsProvider(callLogService, blacklistWhitelistService)),
+            HomeStatsProvider(callLogService, ruleManagementService)),
     ChangeNotifierProvider(create: (_) => LocaleProvider(localeService)),
     ChangeNotifierProvider(create: (_) => CallerIdStyleProvider()),
     // 提供路由器
@@ -234,7 +233,7 @@ List<SingleChildStatelessWidget> getAppProviders() {
   // 注意：以下服务和仓库已经初始化，可以在应用中直接使用：
   // callerIdService, contactService, labelService, locationService,
   // predefinedLabelService, remoteNumberService, pluginService,
-  // callLogService, blacklistWhitelistService, labelPhoneService, labelToRemoteSyncService
+  // callLogService, ruleManagementService, labelPhoneService, labelToRemoteSyncService
 
   // 注意：以下Riverpod提供者在此处不能直接注册为ChangeNotifierProvider
   // callLogsProvider, contactsProvider, rulesProvider, pluginsProvider,
@@ -266,7 +265,7 @@ List<Provider> getServiceProviders() {
   
   // 核心服务初始化
   final callLogService = CallLogService(callLogRepository);
-  final blacklistWhitelistService = BlacklistWhitelistService(ruleRepository);
+  final ruleManagementService = RuleManagementService(ruleRepository);
   final localeService = LocaleService(configRepository);
   final pluginWebViewService = PluginWebViewService();
   final pluginManagerService = PluginManagerService(pluginRepository,
@@ -291,7 +290,7 @@ List<Provider> getServiceProviders() {
   final callerIdService = CallerIdService(
     pluginService: pluginService,
     contactService: contactService,
-    blacklistWhitelistService: blacklistWhitelistService,
+    ruleManagementService: ruleManagementService,
     labelService: labelService,
     locationService: locationService,
     predefinedLabelService: predefinedLabelService,
@@ -356,7 +355,7 @@ List<Provider> getServiceProviders() {
     Provider.value(value: labelToRemoteSyncService),
     Provider.value(value: callLogService),
     Provider.value(value: enhancedCompositeFilterService),
-    Provider.value(value: blacklistWhitelistService),
+    Provider.value(value: ruleManagementService),
     Provider.value(value: contactService),
     Provider.value(value: locationService),
     Provider.value(value: predefinedLabelService),

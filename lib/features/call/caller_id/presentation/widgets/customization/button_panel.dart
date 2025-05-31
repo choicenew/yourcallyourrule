@@ -48,7 +48,7 @@ class ButtonPanel extends StatelessWidget {
             style: FilledButton.styleFrom(
               backgroundColor: Colors.amber,
             ),
-            child: const Text('Import'),
+            child: Text(AppLocalizations.of(context)!.import),
           ),
           FilledButton(
             onPressed: () async {
@@ -57,7 +57,7 @@ class ButtonPanel extends StatelessWidget {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                    SnackBar(
-                        content: Text(AppLocalizations.of(context)!.exportSuccess)),
+                        content: Text(AppLocalizations.of(context)!.exportSuccesslly)),
                   );
                 }
               } catch (e) {
@@ -72,7 +72,7 @@ class ButtonPanel extends StatelessWidget {
             style: FilledButton.styleFrom(
               backgroundColor: Colors.green[400],
             ),
-            child: const Text('Export'),
+            child: Text(AppLocalizations.of(context)!.export),
           ),
           FilledButton(
             onPressed: () async {

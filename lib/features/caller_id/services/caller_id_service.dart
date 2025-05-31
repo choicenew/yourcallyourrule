@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 
 import 'package:flutter_contacts/flutter_contacts.dart' as fluttercontact;
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/white_black_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
@@ -15,9 +15,10 @@ import 'package:yourcallyourrule/features/contacts/services/contact_service.dart
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/location/services/location_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart';
-import 'package:yourcallyourrule/features/rules/services/blacklist_whitelist_service.dart';
+
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
 /// 来电显示服务类，提供来电显示相关功能
 /// 包括获取来电显示信息、处理来电显示数据等
@@ -25,20 +26,20 @@ class CallerIdService {
   CallerIdService({
     required PluginInvokerService pluginService,
     required ContactService contactService,
-    required BlacklistWhitelistService blacklistWhitelistService,
+    required RuleManagementService ruleManagementService,
     required LabelService labelService,
     required LocationService locationService,
     required PredefinedLabelService predefinedLabelService,
     required RemoteNumberService remoteNumberService,
   })  : _contactService = contactService,
-        _blacklistWhitelistService = blacklistWhitelistService,
+        _blacklistWhitelistService = ruleManagementService,
         _labelService = labelService,
         _locationService = locationService,
         _predefinedLabelService = predefinedLabelService,
         _pluginService = pluginService,
         _remoteNumberService = remoteNumberService;
 
-  final BlacklistWhitelistService _blacklistWhitelistService;
+  final RuleManagementService _blacklistWhitelistService;
   final _callerIdSubject = BehaviorSubject<CallerIdData>();
   final ContactService _contactService;
   final _labelPhoneEntrySubject = BehaviorSubject<LabelPhoneEntry>();
@@ -66,7 +67,7 @@ class CallerIdService {
 
   static Future<CallerIdService> create({
     required ContactService contactService,
-    required BlacklistWhitelistService blacklistWhitelistService,
+    required RuleManagementService ruleManagementService,
     required LabelService labelService,
     required LocationService locationService,
     required PluginInvokerService pluginService,
@@ -75,7 +76,7 @@ class CallerIdService {
   }) async {
     return CallerIdService(
       contactService: contactService,
-      blacklistWhitelistService: blacklistWhitelistService,
+      ruleManagementService: ruleManagementService,
       labelService: labelService,
       locationService: locationService,
       pluginService: pluginService,
@@ -168,7 +169,7 @@ class CallerIdService {
     final allRules = await _blacklistWhitelistService.getAllRules();
 
     // 查找匹配的规则
-    WhiteBlackRule? whiteBlackRule;
+    PhoneRule? phoneRule;
 
     try {
       // 尝试查找匹配的规则（按优先级排序）
@@ -186,10 +187,10 @@ class CallerIdService {
       if (matchingRules.isNotEmpty) {
         matchingRules
             .sort((a, b) => b.priority.value.compareTo(a.priority.value));
-        whiteBlackRule = matchingRules.first;
+        phoneRule = matchingRules.first;
       }
     } catch (_) {
-      whiteBlackRule = null;
+      phoneRule = null;
     }
 
     // 5. 查询标签数据 (尝试原始号码、National、E164 格式)
@@ -224,13 +225,13 @@ class CallerIdService {
     // 确定名称
     final name = localContact?.displayName ??
         finalContact?.name ??
-        whiteBlackRule?.name ??
+        phoneRule?.name ??
         remoteNumberEntry?.name ??
         pluginData?.name ??
         'Unknown';
 
     // 确定标签ID
-    final labelId = labelEntry?.labelId ?? whiteBlackRule?.labelId ?? null;
+    final labelId = labelEntry?.labelId ?? phoneRule?.labelId ?? null;
 
     // 获取标签文本
     String labelText = 'Unknown';
@@ -254,7 +255,7 @@ class CallerIdService {
 
     // 确定头像
     String? avatar =
-        finalContact?.avatar ?? whiteBlackRule?.avatar ?? pluginData?.avatar;
+        finalContact?.avatar ?? phoneRule?.avatar ?? pluginData?.avatar;
 
     // 如果没有头像但有标签，使用标签构建头像路径
     if (avatar == null && labelText != 'Unknown') {
@@ -262,7 +263,7 @@ class CallerIdService {
     }
 
     // 确定计数
-    final count = whiteBlackRule?.count ??
+    final count = phoneRule?.count ??
         remoteNumberEntry?.count ??
         pluginData?.count ??
         0;
@@ -295,7 +296,7 @@ class CallerIdService {
     }
 
     // 11. 如果插件提供了标签且现有标签为空，则更新标签
-    if (labelEntry == null && whiteBlackRule?.labelId == null) {
+    if (labelEntry == null && phoneRule?.labelId == null) {
       if (pluginData?.predefinedLabel != null) {
         // 通过标签文本获取labelId
         final labels = await _predefinedLabelService
