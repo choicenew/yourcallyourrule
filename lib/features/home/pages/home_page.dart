@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/home/widgets/filter_management_widget.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
-import 'package:yourcallyourrule/features/search/utils/search_result_type_utils.dart';
+import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
+import 'package:yourcallyourrule/presentation/verification_page.dart';
+import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/callerid_overlay_mock.dart';
 
 import '../providers/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
@@ -62,7 +66,8 @@ class _HomePageState extends State<HomePage> {
 
   void _startAutoPlay() {
     _autoPlayTimer = Timer.periodic(const Duration(seconds: 5), (timer) {
-      if (_currentCardIndex < 2) {
+      if (_currentCardIndex < 5) {
+        // 修改为6个卡片
         _pageController.animateToPage(
           _currentCardIndex + 1,
           duration: const Duration(milliseconds: 500),
@@ -92,12 +97,18 @@ class _HomePageState extends State<HomePage> {
                   itemCount: _searchResults.length,
                   itemBuilder: (context, index) {
                     final result = _searchResults[index];
-                    return ListTile(
-                      leading: Icon(_getIconForSearchResultType(result.type)),
-                      title: Text(result.name ?? result.phoneNumber),
-                      subtitle: Text(result.description ?? ''),
+                    return SearchResultItem(
+                      result: result,
                       onTap: () {
-                        // 处理搜索结果点击
+                        // 直接处理搜索结果
+                        // 关闭搜索框并清除结果
+                        setState(() {
+                          _isSearchVisible = false;
+                          _searchController.clear();
+                          _searchResults.clear();
+                        });
+                        // 导航到搜索页面并传递当前结果的电话号码
+                        context.push('/search', extra: result.phoneNumber);
                       },
                     );
                   },
@@ -106,33 +117,21 @@ class _HomePageState extends State<HomePage> {
             else
               Expanded(
                 child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    _buildCarouselCards(),
-                    _buildRuleVerification(),
-                    _buildRuleManagement(),
-                    _buildFeatureCenter(),
-                  ],
+                  child: Column(
+                    children: [
+                      _buildCarouselCards(),
+                      _buildRuleVerification(),
+                      _buildRuleManagement(),
+                      _buildFeatureCenter(),
+                    ],
+                  ),
                 ),
               ),
-            ),
           ],
         ),
       ),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
-  }
-
-  // 使用工具类获取图标
-  IconData _getIconForSearchResultType(SearchResultType type) {
-    // 特殊处理none和remoteNumber类型，其他使用工具类
-    if (type == SearchResultType.none) {
-      return Icons.not_interested; // 与工具类中的Icons.cancel_outlined不同
-    } else if (type == SearchResultType.remoteNumber) {
-      return Icons.phone; // 与工具类中的Icons.cloud不同
-    } else {
-      return SearchResultTypeUtils.getIconForType(type);
-    }
   }
 
   Widget _buildBottomNavigationBar() {
@@ -176,15 +175,21 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onChanged: (value) {
                       _searchDebounceTimer?.cancel();
-                      _searchDebounceTimer = Timer(const Duration(milliseconds: 500), () {
+                      _searchDebounceTimer =
+                          Timer(const Duration(milliseconds: 500), () {
                         if (value.isNotEmpty) {
-                          _performSearch(value);
+                          _performSearch(value); // 保留实时搜索功能，显示可能存在的号码
                         } else {
                           setState(() {
                             _searchResults.clear();
                           });
                         }
                       });
+                    },
+                    onSubmitted: (value) {
+                      if (value.isNotEmpty) {
+                        _navigateToSearchPage(value); // 提交搜索时跳转到搜索页面
+                      }
                     },
                   )
                 : Row(
@@ -212,20 +217,38 @@ class _HomePageState extends State<HomePage> {
                 _isSearchVisible = !_isSearchVisible;
                 if (!_isSearchVisible) {
                   _searchController.clear();
+                  _searchResults.clear();
                 }
               });
             },
           ),
-          IconButton(
-            icon: const Icon(Icons.notifications_none),
-            onPressed: () {
-              // 导航到通知页面
-              context.push('/notifications');
-            },
-          ),
+          if (_isSearchVisible)
+            IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () {
+                final searchText = _searchController.text.trim();
+                if (searchText.isNotEmpty) {
+                  _navigateToSearchPage(searchText); // 点击搜索按钮时跳转到搜索页面
+                }
+              },
+            ),
+          if (!_isSearchVisible)
+            IconButton(
+              icon: const Icon(Icons.notifications_none),
+              onPressed: () {
+                // 导航到通知页面
+                context.push('/notifications');
+              },
+            ),
         ],
       ),
     );
+  }
+
+  // 导航到搜索页面
+  void _navigateToSearchPage(String searchText) {
+    // 使用 GoRouter 导航到搜索页面，并传递搜索文本
+    context.push('/search', extra: searchText);
   }
 
   Widget _buildCarouselCards() {
@@ -248,6 +271,7 @@ class _HomePageState extends State<HomePage> {
             color: const Color(0xFFE57373),
             icon: Icons.call_end,
           ),
+
           _buildCarouselCard(
             title: '规则管理',
             description: '已创建规则',
@@ -264,7 +288,137 @@ class _HomePageState extends State<HomePage> {
             color: const Color(0xFF81C784),
             icon: Icons.insert_chart,
           ),
+          
+          //广告卡片
+          const InlineAdaptiveBannerAdWidget(
+            adInfo: AdManager.adaptiveBannerAd,
+            //width: 300,
+          ),
+
+          // 添加数据源提醒卡片
+          _buildCarouselCard(
+            title: '数据源提醒',
+            description: '请选择受到信任的数据源',
+            value: '重要',
+            color: const Color(0xFFFFA726),
+            icon: Icons.warning_amber_rounded,
+          ),
+          // 添加来电显示模拟卡片
+          _buildCallerIdMockCard(),
+                   //广告卡片
+         const InlineAdaptiveBannerAdWidget(
+           adInfo: AdManager.adaptiveBannerAd,
+           //width: 300,
+         ),
+          // 添加应用推广卡片
+          _buildPromotionCard(),
         ],
+      ),
+    );
+  }
+
+  // 来电显示模拟卡片
+  Widget _buildCallerIdMockCard() {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 4,
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFF9575CD), Color(0xFF7986CB)],
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(left: 8.0, top: 4.0),
+              child: Text(
+                '来电显示预览',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 4),
+            // 使用Expanded确保CallerIdSample可以适应卡片大小
+            Expanded(
+              child: Center(
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    child: const CallerIdSample(),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // 应用推广卡片
+  Widget _buildPromotionCard() {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 4,
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFF26A69A), Color(0xFF00897B)],
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  '我们的其他应用',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Icon(Icons.apps, color: Colors.white),
+              ],
+            ),
+            const Spacer(),
+            // 应用图片展示
+            Center(
+              child: Image.asset(
+                'assets/images/app_promo.png', // 确保有这个资源文件
+                height: 60,
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    height: 60,
+                    width: 60,
+                    color: Colors.white24,
+                    child: const Icon(Icons.image_not_supported,
+                        color: Colors.white),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
       ),
     );
   }
@@ -356,7 +510,13 @@ class _HomePageState extends State<HomePage> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // 验证规则逻辑
+                  // 导航到验证页面
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const VerificationPage(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).primaryColor,

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
-import 'package:yourcallyourrule/core/provider/label_phone_service_provider.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';

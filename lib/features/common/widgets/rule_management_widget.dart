@@ -24,6 +24,9 @@ class RuleManagementWidget<T extends BaseEntity> extends StatefulWidget {
   /// 添加规则的回调
   final void Function() onAddRule;
   
+  /// 编辑规则的回调
+  final void Function(T rule)? onEditRule;
+  
   /// 切换规则状态的回调
   final Future<void> Function(String ruleId, bool isEnabled) onToggleRule;
   
@@ -79,6 +82,7 @@ class RuleManagementWidget<T extends BaseEntity> extends StatefulWidget {
     required this.onLoadRules,
     required this.buildRuleCard,
     required this.onAddRule,
+    this.onEditRule,
     required this.onToggleRule,
     required this.onDeleteRule,
     this.importExportComponent,
@@ -292,7 +296,15 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
       itemCount: widget.rules.length,
       itemBuilder: (context, index) {
         final rule = widget.rules[index];
-        return widget.buildRuleCard(rule);
+        // 如果提供了编辑回调，则使规则卡片可点击进行编辑
+        if (widget.onEditRule != null) {
+          return InkWell(
+            onTap: () => widget.onEditRule!(rule),
+            child: widget.buildRuleCard(rule),
+          );
+        } else {
+          return widget.buildRuleCard(rule);
+        }
       },
     );
   }

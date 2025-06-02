@@ -43,6 +43,9 @@ class GenericRulePage<T extends BaseEntity, S> extends StatefulWidget {
   /// 添加规则对话框函数
   final void Function(BuildContext context, S service, Function refreshCallback) showAddDialog;
   
+  /// 编辑规则对话框函数
+  final void Function(BuildContext context, S service, T rule, Function refreshCallback)? showEditDialog;
+  
   /// 获取所有规则函数
   final Future<List<T>> Function(S service) getAllRules;
   
@@ -70,6 +73,7 @@ class GenericRulePage<T extends BaseEntity, S> extends StatefulWidget {
     this.getRuleAction,
     required this.buildRuleCard,
     required this.showAddDialog,
+    this.showEditDialog,
     required this.getAllRules,
     required this.toggleRule,
     required this.deleteRule,
@@ -302,6 +306,9 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
       onLoadRules: _loadRules,
       buildRuleCard: widget.buildRuleCard,
       onAddRule: () => widget.showAddDialog(context, service, _loadRules),
+      onEditRule: widget.showEditDialog != null
+          ? (rule) => widget.showEditDialog!(context, service, rule, _loadRules)
+          : null,
       onToggleRule: _toggleRule,
       onDeleteRule: _deleteRule,
       importExportComponent: widget.importExportComponent,
