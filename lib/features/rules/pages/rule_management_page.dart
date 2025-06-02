@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
+import 'package:yourcallyourrule/features/search/dialogs/phone_rule_edit_dialog.dart';
 
 /// 规则管理页面
 /// 使用通用的GenericRulePage组件减少重复代码
@@ -48,6 +49,7 @@ class RuleManagementPage extends StatelessWidget {
       addButtonText: '添加规则',
       buildRuleCard: _buildRuleCard,
       showAddDialog: _showAddRuleDialog,
+      showEditDialog: _showEditRuleDialog,
       getAllRules: (service) async {
         // 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
         // 不再仅限于白名单(allow)和黑名单(block)规则
@@ -259,7 +261,7 @@ class RuleManagementPage extends StatelessWidget {
               onLabelSelected(labelId);
               Navigator.pop(context);
             },
-            themeColor: Colors.blue,
+            themeColor: const Color(0xFFF5A623),
           ),
         ),
         actions: [
@@ -277,5 +279,11 @@ class RuleManagementPage extends StatelessWidget {
         ],
       ),
     );
+  }
+  
+  /// 显示编辑规则对话框
+  void _showEditRuleDialog(
+      BuildContext context, RuleManagementService service, PhoneRule rule, Function refreshCallback) {
+    PhoneRuleEditDialog.show(context, rule, onRuleUpdated: refreshCallback);
   }
 }

@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
+import 'package:yourcallyourrule/features/search/dialogs/allowed_blocked_rule_edit_dialog.dart';
 
 /// 重构后的允许/阻止规则管理页面
 /// 使用通用的GenericRulePage组件减少重复代码
@@ -43,12 +44,13 @@ class AllowedBlockedPage extends StatelessWidget {
 
     return GenericRulePage<AllowedBlockedRule, AllowedBlockedService>(
       title: '允许/阻止规则管理',
-      themeColor: const Color(0xFFF5A623),
+      themeColor: Colors.blue,
       emptyText: '允许/阻止规则',
-      emptyIcon: Icons.phone_android,
+      emptyIcon: Icons.person,
       addButtonText: '添加规则',
       buildRuleCard: _buildRuleCard,
       showAddDialog: _showAddRuleDialog,
+      showEditDialog: _showEditRuleDialog,
       getAllRules: (service) async {
         // 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
         // 不再仅限于允许(allow)和阻止(block)规则
@@ -277,6 +279,16 @@ class AllowedBlockedPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+  
+  /// 显示编辑规则对话框
+  void _showEditRuleDialog(
+      BuildContext context, AllowedBlockedService service, AllowedBlockedRule rule, Function refreshCallback) {
+    AllowedBlockedRuleEditDialog.show(
+      context, 
+      rule, 
+      onRuleUpdated: refreshCallback,
     );
   }
 }

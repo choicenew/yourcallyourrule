@@ -6,6 +6,7 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/features/search/dialogs/label_edit_dialog.dart';
 
 class LabelManagementPage extends StatefulWidget {
   const LabelManagementPage({super.key});
@@ -177,88 +178,11 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
   }
 
   void _showEditLabelDialog(LabelPhoneEntry label) {
-    String? selectedLabelId = label.labelId;
-    final phoneController = TextEditingController(text: label.phoneNumber.toString());
-    final iconController = TextEditingController(text: label.icon ?? '');
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('编辑标签'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            PublicSelectLabel(
-              initialLabelId: label.labelId,
-              onLabelIdChanged: (labelId) {
-                selectedLabelId = labelId;
-              },
-              selectLabelService: PredefinedLabelServiceAdapter(_predefinedLabelService),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: phoneController,
-              decoration: const InputDecoration(
-                labelText: '电话号码',
-                hintText: '输入电话号码',
-              ),
-              keyboardType: TextInputType.phone,
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: iconController,
-              decoration: const InputDecoration(
-                labelText: '图标代码（可选）',
-                hintText: '输入图标代码',
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消'),
-          ),
-          TextButton(
-            onPressed: () async {
-              final phoneText = phoneController.text.trim();
-              final iconText = iconController.text.trim();
-              
-              if (selectedLabelId == null || phoneText.isEmpty) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('请选择标签并输入有效的电话号码')),
-                );
-                return;
-              }
-
-              try {
-                final phoneNumber = PhoneNumber.fromString(phoneText);
-                final labelService = Provider.of<LabelService>(context, listen: false);
-                
-                final updatedLabel = LabelPhoneEntry(
-                  id: label.id,
-                  phoneNumber: phoneNumber,
-                  labelId: selectedLabelId!,
-                  icon: iconText.isNotEmpty ? iconText : null,
-                );
-                
-                await labelService.updateLabel(updatedLabel);
-                final labelText = await _predefinedLabelService.getLabelById(selectedLabelId!);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('标签 "${labelText?.text ?? selectedLabelId}" 更新成功')),
-                );
-                Navigator.of(context).pop();
-                await _loadLabels();
-              } catch (e) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('更新标签失败: $e')),
-                );
-              }
-            },
-            child: const Text('保存'),
-          ),
-        ],
-      ),
+    LabelEditDialog.show(
+      context,
+      label,
+      onLabelUpdated: () => _loadLabels(),
+      themeColor: Theme.of(context).primaryColor,
     );
   }
 

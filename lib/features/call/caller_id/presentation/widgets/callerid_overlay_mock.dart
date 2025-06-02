@@ -1,12 +1,10 @@
 //import 'package:dlibphonenumber/dlibphonenumber.dart';
-import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/configuration_manager.dart';
 

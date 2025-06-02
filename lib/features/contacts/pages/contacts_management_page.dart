@@ -9,6 +9,7 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/search/dialogs/contact_edit_dialog.dart';
 
 /// 通讯录管理页面
 class ContactsManagementPage extends StatefulWidget {
@@ -95,125 +96,14 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
 
   // 显示联系人表单对话框（添加或编辑）
   void _showContactFormDialog({Contact? contact}) {
-    final bool isEditing = contact != null;
-    final String title = isEditing ? '编辑联系人' : '添加联系人';
-    final String actionText = isEditing ? '保存' : '添加';
-    final String successMessage = isEditing ? '联系人更新成功' : '联系人添加成功';
-    
-    // 初始化控制器
-    final TextEditingController nameController = TextEditingController(text: contact?.name ?? '');
-    final TextEditingController phoneController = TextEditingController(
-      text: contact?.phoneNumbers.join(', ') ?? ''
-    );
-    final TextEditingController emailController = TextEditingController(text: contact?.email ?? '');
-    String? currentSelectedLabelId = contact?.labelId ?? _selectedLabelId;
-
-    showDialog(
-      context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setStateDialog) => AlertDialog(
-          title: Text(title),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextField(
-                  controller: nameController,
-                  decoration: const InputDecoration(
-                    labelText: '姓名',
-                    hintText: '请输入联系人姓名',
-                  ),
-                ),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: phoneController,
-                  decoration: const InputDecoration(
-                    labelText: '电话号码',
-                    hintText: '请输入电话号码',
-                  ),
-                  keyboardType: TextInputType.phone,
-                ),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: emailController,
-                  decoration: const InputDecoration(
-                    labelText: '电子邮箱（可选）',
-                    hintText: '请输入电子邮箱',
-                  ),
-                  keyboardType: TextInputType.emailAddress,
-                ),
-                const SizedBox(height: 16),
-                // 标签选择
-                PublicSelectLabel(
-                  initialLabelId: currentSelectedLabelId,
-                  onLabelIdChanged: (labelId) {
-                    setStateDialog(() {
-                      currentSelectedLabelId = labelId;
-                    });
-                  },
-                  themeColor: const Color(0xFFF5A623),
-                ),
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('取消'),
-            ),
-            TextButton(
-              onPressed: () async {
-                // 验证表单
-                if (nameController.text.isEmpty || phoneController.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('姓名和电话号码不能为空'),
-                    backgroundColor: Colors.orange,
-                  ));
-                  return;
-                }
-
-                try {
-                  final contactService = Provider.of<ContactService>(context, listen: false);
-                  
-                  if (isEditing) {
-                    // 更新联系人
-                    final updatedContact = contact.copyWith(
-                      name: nameController.text,
-                      phoneNumbers: phoneController.text.split(',').map((e) => e.trim()).toList(),
-                      email: emailController.text.isNotEmpty ? emailController.text : null,
-                      labelId: currentSelectedLabelId,
-                    );
-                    await contactService.update(updatedContact);
-                  } else {
-                    // 添加新联系人
-                    final newContact = Contact(
-                      id: DateTime.now().millisecondsSinceEpoch.toString(),
-                      name: nameController.text,
-                      phoneNumbers: [phoneController.text],
-                      email: emailController.text.isNotEmpty ? emailController.text : null,
-                      labelId: currentSelectedLabelId,
-                    );
-                    await contactService.addContact(newContact);
-                  }
-                  
-                  _loadContacts(); // 刷新列表
-                  Navigator.pop(context); // 关闭对话框
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(successMessage),
-                    backgroundColor: Colors.green,
-                  ));
-                } catch (e) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('${isEditing ? "更新" : "添加"}联系人失败: $e'),
-                    backgroundColor: Colors.red,
-                  ));
-                }
-              },
-              child: Text(actionText),
-            ),
-          ],
-        ),
-      ),
+    // 使用增强的ContactEditDialog替代内联对话框实现
+    ContactEditDialog.show(
+      context,
+      contact: contact,
+      themeColor: const Color(0xFFF5A623),
+      onContactUpdated: () {
+        _loadContacts(); // 刷新列表
+      },
     );
   }
   
