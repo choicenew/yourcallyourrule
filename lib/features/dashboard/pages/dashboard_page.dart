@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:provider/provider.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -12,8 +14,9 @@ import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/bl
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 数据分析仪表盘页面
+/// Data Analysis Dashboard Page
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
 
@@ -32,11 +35,12 @@ class _DashboardPageState extends State<DashboardPage> {
   int _silenceRulesCount = 0;
   int _noneRulesCount = 0;
   List<double> _weeklyData = [0, 0, 0, 0, 0, 0, 0]; // 最近7天的数据
-  String _selectedTimeRange = '周';
+  late String _selectedTimeRange;
 
   @override
   void initState() {
     super.initState();
+    _selectedTimeRange = AppLocalizations.of(context)!.week;
     _loadData();
   }
 
@@ -103,7 +107,7 @@ class _DashboardPageState extends State<DashboardPage> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('加载数据失败: $e'),
+          content: Text('${AppLocalizations.of(context)!.loadDataFailed}: $e'),
           backgroundColor: Colors.red,
         ));
         setState(() {
@@ -138,7 +142,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('数据分析'),
+        title: Text(AppLocalizations.of(context)!.dataAnalysis),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -221,7 +225,7 @@ class _DashboardPageState extends State<DashboardPage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black..withValues(alpha:0.1),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -238,24 +242,24 @@ class _DashboardPageState extends State<DashboardPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '本月总计',
-                    style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 14),
+                    AppLocalizations.of(context)!.monthlyTotal,
+                    style: TextStyle(color: Colors.white..withValues(alpha:0.8), fontSize: 14),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     '$_blockedCallsCount',
                     style: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
                   ),
-                  const Text(
-                    '已拦截通讯',
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  Text(
+                    AppLocalizations.of(context)!.blockedCommunications,
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
                   ),
                 ],
               ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white..withValues(alpha:0.2),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Text(
@@ -270,8 +274,8 @@ class _DashboardPageState extends State<DashboardPage> {
             height: 60,
             child: LineChart(
               LineChartData(
-                gridData: FlGridData(show: false),
-                titlesData: FlTitlesData(show: false),
+                gridData: const FlGridData(show: false),
+                titlesData: const FlTitlesData(show: false),
                 borderData: FlBorderData(show: false),
                 lineBarsData: [
                   LineChartBarData(
@@ -279,17 +283,17 @@ class _DashboardPageState extends State<DashboardPage> {
                       return FlSpot(entry.key.toDouble(), entry.value);
                     }).toList(),
                     isCurved: true,
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white..withValues(alpha:0.8),
                     barWidth: 2,
                     isStrokeCapRound: true,
-                    dotData: FlDotData(show: false),
+                    dotData: const FlDotData(show: false),
                     belowBarData: BarAreaData(
                       show: true,
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white..withValues(alpha:0.1),
                     ),
                   ),
                 ],
-                lineTouchData: LineTouchData(enabled: false),
+                lineTouchData: const LineTouchData(enabled: false),
               ),
             ),
           ),
@@ -301,35 +305,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget _buildAdPlaceholder() {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFFF6D365), Color(0xFFFDA085)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Column(
-        children: const [
-          Text(
-            'Google Ad 展示位置',
-            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 4),
-          Text(
-            '这里可以集成 Google AdMob 广告',
-            style: TextStyle(color: Colors.white, fontSize: 12),
-          ),
-        ],
-      ),
+      child: const GoogleAdWidget(adInfo: AdManager.bannerAd),
     );
   }
 
@@ -347,51 +323,51 @@ class _DashboardPageState extends State<DashboardPage> {
           StatisticCard(
             icon: Icons.phone_disabled,
             iconColor: Colors.blue,
-            backgroundColor: Colors.blue.withOpacity(0.1),
+            backgroundColor: Colors.blue..withValues(alpha:0.1),
             title: '$_blockedCallsCount',
-            subtitle: '拦截电话',
-            period: '本周',
+            subtitle: AppLocalizations.of(context)!.blockCalls,
+            period: AppLocalizations.of(context)!.thisWeek,
           ),
           StatisticCard(
             icon: Icons.sms_failed,
             iconColor: Colors.purple,
-            backgroundColor: Colors.purple.withOpacity(0.1),
+            backgroundColor: Colors.purple..withValues(alpha:0.1),
             title: '$_filteredSmsCount',
-            subtitle: '过滤短信',
-            period: '本周',
+            subtitle: AppLocalizations.of(context)!.filterSMS,
+            period: AppLocalizations.of(context)!.thisWeek,
           ),
           StatisticCard(
             icon: Icons.person_add,
             iconColor: Colors.green,
-            backgroundColor: Colors.green.withOpacity(0.1),
+            backgroundColor: Colors.green..withValues(alpha:0.1),
             title: '$_allowRulesCount',
-            subtitle: '允许规则',
-            period: '总计',
+            subtitle: AppLocalizations.of(context)!.allowRules,
+            period: AppLocalizations.of(context)!.total,
           ),
           StatisticCard(
             icon: Icons.person_remove,
             iconColor: Colors.red,
-            backgroundColor: Colors.red.withOpacity(0.1),
+            backgroundColor: Colors.red..withValues(alpha:0.1),
             title: '$_blockRulesCount',
-            subtitle: '阻止规则',
-            period: '总计',
+            subtitle: AppLocalizations.of(context)!.blockRules,
+            period: AppLocalizations.of(context)!.total,
           ),
           // 添加静音规则和无动作规则的统计卡片
           StatisticCard(
             icon: Icons.volume_off,
             iconColor: Colors.orange,
-            backgroundColor: Colors.orange.withOpacity(0.1),
+            backgroundColor: Colors.orange..withValues(alpha:0.1),
             title: '$_silenceRulesCount',
-            subtitle: '静音规则',
-            period: '总计',
+            subtitle: AppLocalizations.of(context)!.silentRules,
+            period: AppLocalizations.of(context)!.total,
           ),
           StatisticCard(
             icon: Icons.do_not_disturb_alt,
             iconColor: Colors.grey,
-            backgroundColor: Colors.grey.withOpacity(0.1),
+            backgroundColor: Colors.grey..withValues(alpha:0.1),
             title: '$_noneRulesCount',
-            subtitle: '无动作规则',
-            period: '总计',
+            subtitle: AppLocalizations.of(context)!.noActionRules,
+            period: AppLocalizations.of(context)!.total,
           ),
         ],
       ),
@@ -407,7 +383,7 @@ class _DashboardPageState extends State<DashboardPage> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black..withValues(alpha:0.05),
             blurRadius: 5,
             offset: const Offset(0, 2),
           ),
@@ -418,17 +394,17 @@ class _DashboardPageState extends State<DashboardPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                '拦截趋势',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              Text(
+                AppLocalizations.of(context)!.blockingTrend,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Row(
                 children: [
-                  _buildTimeRangeButton('周', isSelected: _selectedTimeRange == '周'),
+                  _buildTimeRangeButton(AppLocalizations.of(context)!.week, isSelected: _selectedTimeRange == 'week'),
                   const SizedBox(width: 8),
-                  _buildTimeRangeButton('月', isSelected: _selectedTimeRange == '月'),
+                  _buildTimeRangeButton(AppLocalizations.of(context)!.month, isSelected: _selectedTimeRange == 'month'),
                   const SizedBox(width: 8),
-                  _buildTimeRangeButton('年', isSelected: _selectedTimeRange == '年'),
+                  _buildTimeRangeButton(AppLocalizations.of(context)!.year, isSelected: _selectedTimeRange == 'year'),
                 ],
               ),
             ],
@@ -456,7 +432,7 @@ class _DashboardPageState extends State<DashboardPage> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFFFB74D).withOpacity(0.1) : Colors.transparent,
+          color: isSelected ? const Color(0xFFFFB74D).withValues(alpha:0.1) : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
@@ -473,7 +449,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
   Widget _buildBlockTypeAnalysis() {
     // 使用call_statistic中的BlockTypeAnalysis组件
-    return BlockTypeAnalysis();
+    return const BlockTypeAnalysis();
   }
 
   Widget _buildExportButton() {
@@ -481,12 +457,12 @@ class _DashboardPageState extends State<DashboardPage> {
       child: ElevatedButton.icon(
         onPressed: () {
           // 导出统计数据
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text('统计数据导出功能即将上线'),
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(AppLocalizations.of(context)!.statisticsExportFeatureComingSoon),
           ));
         },
         icon: const Icon(Icons.file_download),
-        label: const Text('导出统计数据'),
+        label: Text(AppLocalizations.of(context)!.exportStatisticsData),
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFFFFB74D),
           foregroundColor: Colors.white,

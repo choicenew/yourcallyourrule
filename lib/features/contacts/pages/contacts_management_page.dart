@@ -10,6 +10,7 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/search/dialogs/contact_edit_dialog.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通讯录管理页面
 class ContactsManagementPage extends StatefulWidget {
@@ -52,7 +53,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('加载联系人失败: $e'),
+          content: Text('${AppLocalizations.of(context)!.loadContactsFailed}: $e'),
           backgroundColor: Colors.red,
         ));
       }
@@ -122,7 +123,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('管理常用联系人'),
+        title: Text(AppLocalizations.of(context)!.manageFavoriteContacts),
         content: SizedBox(
           width: double.maxFinite,
           child: ListView.builder(
@@ -148,7 +149,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('完成'),
+            child: Text(AppLocalizations.of(context)!.done),
           ),
         ],
       ),
@@ -164,7 +165,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     required Contact contact,
     required Future<void> Function() operation,
     required String successMessage,
-    String errorPrefix = '操作',
+    String? errorPrefix,
   }) async {
     try {
       await operation();
@@ -178,7 +179,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('$errorPrefix失败: $e'),
+          content: Text('${errorPrefix ?? AppLocalizations.of(context)!.operationFailed}: $e'),
           backgroundColor: Colors.red,
         ));
       }
@@ -189,22 +190,24 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
   Future<void> _toggleFavorite(Contact contact) async {
     final contactService = Provider.of<ContactService>(context, listen: false);
     final updatedContact = contact.copyWith(isFavorite: !contact.isFavorite);
-    final message = updatedContact.isFavorite ? '已添加到常用联系人' : '已从常用联系人中移除';
+    final message = updatedContact.isFavorite ? 
+      AppLocalizations.of(context)!.addedToFavorites : 
+      AppLocalizations.of(context)!.removedFromFavorites;
     
     await _handleContactOperation(
       contact: contact,
       operation: () => contactService.update(updatedContact),
       successMessage: message,
-      errorPrefix: '更新收藏状态',
+      errorPrefix: AppLocalizations.of(context)!.updateFavoriteStatus,
     );
   }
   
   // 删除单个联系人
   Future<void> _deleteContact(Contact contact) async {
     final confirmed = await _showConfirmDialog(
-      title: '删除联系人',
-      content: '确定要删除 ${contact.name} 吗？',
-      confirmText: '删除',
+      title: AppLocalizations.of(context)!.deleteContact,
+      content: AppLocalizations.of(context)!.deleteContactConfirm(contact.name),
+      confirmText: AppLocalizations.of(context)!.delete,
     );
     
     if (!confirmed) return;
@@ -213,8 +216,8 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     await _handleContactOperation(
       contact: contact,
       operation: () => contactService.delete(contact),
-      successMessage: '联系人已删除',
-      errorPrefix: '删除',
+      successMessage: AppLocalizations.of(context)!.contactDeleted,
+      errorPrefix: AppLocalizations.of(context)!.deleteContact,
     );
   }
   
@@ -223,7 +226,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('选择标签'),
+        title: Text(AppLocalizations.of(context)!.selectTags),
         content: PublicSelectLabel(
           initialLabelId: contact.labelId,
           onLabelIdChanged: (labelId) async {
@@ -234,8 +237,8 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
             await _handleContactOperation(
               contact: contact,
               operation: () => contactService.update(updatedContact),
-              successMessage: '标签已更新',
-              errorPrefix: '更新标签',
+              successMessage: AppLocalizations.of(context)!.tagsUpdated,
+              errorPrefix: AppLocalizations.of(context)!.updateTags,
             );
             
             Navigator.pop(context);
@@ -261,7 +264,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
@@ -279,9 +282,9 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     
     // 显示确认对话框
     final confirmed = await _showConfirmDialog(
-      title: '批量删除联系人',
-      content: '确定要删除选中的 ${_selectedContactIds.length} 个联系人吗？',
-      confirmText: '删除',
+      title: AppLocalizations.of(context)!.bulkDeleteContacts,
+      content: AppLocalizations.of(context)!.batchDeleteContactsConfirm(_selectedContactIds.length),
+      confirmText: AppLocalizations.of(context)!.delete,
     );
     
     if (!confirmed) return;
@@ -297,8 +300,8 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     await _handleContactOperation(
       contact: selectedContacts.first, // 只是为了满足参数要求，实际上不使用这个联系人
       operation: () => contactService.deleteAll(selectedContacts),
-      successMessage: '已删除 ${selectedContacts.length} 个联系人',
-      errorPrefix: '批量删除',
+      successMessage: AppLocalizations.of(context)!.contactsDeleted(selectedContacts.length),
+      errorPrefix: AppLocalizations.of(context)!.bulkDelete,
     );
     
     // 退出多选模式
@@ -387,37 +390,37 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
             contact.isFavorite ? Icons.star : Icons.star_border,
             color: contact.isFavorite ? const Color(0xFFF5A623) : null,
           ),
-          title: Text(contact.isFavorite ? '取消收藏' : '添加收藏'),
+          title: Text(contact.isFavorite ? AppLocalizations.of(context)!.removeFromFavorites : AppLocalizations.of(context)!.addToFavorites),
           contentPadding: EdgeInsets.zero,
         ),
       ),
-      const PopupMenuItem(
+      PopupMenuItem(
         value: 'label',
         child: Row(
           children: [
-            Icon(Icons.label_outline, color: Color(0xFFF5A623)),
-            SizedBox(width: 8),
-            Text('修改标签'),
+            const Icon(Icons.label_outline, color: Color(0xFFF5A623)),
+            const SizedBox(width: 8),
+            Text(AppLocalizations.of(context)!.changeLabel),
           ],
         ),
       ),
-      const PopupMenuItem(
+      PopupMenuItem(
         value: 'edit',
         child: Row(
           children: [
-            Icon(Icons.edit, color: Color(0xFFF5A623)),
-            SizedBox(width: 8),
-            Text('编辑'),
+            const Icon(Icons.edit, color: Color(0xFFF5A623)),
+            const SizedBox(width: 8),
+            Text(AppLocalizations.of(context)!.edit),
           ],
         ),
       ),
-      const PopupMenuItem(
+      PopupMenuItem(
         value: 'delete',
         child: Row(
           children: [
-            Icon(Icons.delete, color: Colors.red),
-            SizedBox(width: 8),
-            Text('删除', style: TextStyle(color: Colors.red)),
+            const Icon(Icons.delete, color: Colors.red),
+            const SizedBox(width: 8),
+            Text(AppLocalizations.of(context)!.delete, style: const TextStyle(color: Colors.red)),
           ],
         ),
       ),
@@ -491,7 +494,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     });
     return Scaffold(
       appBar: AppBar(
-        title: Text(_isMultiSelectMode ? '已选择 ${_selectedContactIds.length} 项' : '通讯录管理'),
+        title: Text(_isMultiSelectMode ? AppLocalizations.of(context)!.selectedItems(_selectedContactIds.length) : AppLocalizations.of(context)!.contactsManagement),
         backgroundColor: const Color(0xFFF5A623),
         elevation: 0,
         leading: _isMultiSelectMode
@@ -519,13 +522,13 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: const Text('导入/导出联系人'),
+                  title: Text(AppLocalizations.of(context)!.importExportContacts),
                   content: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ListTile(
                         leading: const Icon(Icons.file_upload),
-                        title: const Text('导入联系人'),
+                        title: Text(AppLocalizations.of(context)!.importContacts),
                         onTap: () async {
                           Navigator.pop(context);
                           try {
@@ -537,36 +540,36 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                               final file = File(result.files.single.path!);
                               final content = await file.readAsString();
                               final extension = result.files.single.extension?.toLowerCase();
-                              final contactService = Provider.of<ContactService>(context, listen: false);
-                              final directory = await getExternalStorageDirectory();
-                              switch (extension) {
-                                case 'vcf':
-                                  await contactService.importContactsFromVcf(content, directory!);
-                                  break;
-                                case 'csv':
-                                  await contactService.importContactsFromCsv(content);
-                                  break;
-                                case 'yaml':
-                                  await contactService.importContactsFromYaml(content);
-                                  break;
-                                case 'json':
-                                  final jsonData = jsonDecode(content) as List<dynamic>;
-                                  await contactService.importContactsFromJson(jsonData);
-                                  break;
-                                default:
-                                  throw Exception('不支持的文件格式');
+                                  final contactService = Provider.of<ContactService>(context, listen: false);
+                                  final directory = await getExternalStorageDirectory();
+                                  switch (extension) {
+                                    case 'vcf':
+                                      await contactService.importContactsFromVcf(content, directory!);
+                                      break;
+                                    case 'csv':
+                                      await contactService.importContactsFromCsv(content);
+                                      break;
+                                    case 'yaml':
+                                      await contactService.importContactsFromYaml(content);
+                                      break;
+                                    case 'json':
+                                      final jsonData = jsonDecode(content) as List<dynamic>;
+                                      await contactService.importContactsFromJson(jsonData);
+                                      break;
+                                    default:
+                                      throw Exception(AppLocalizations.of(context)!.unsupportedFileFormat);
                               }
                               await _loadContacts(); // 刷新列表
                               if (mounted) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('导入成功'), backgroundColor: Colors.green),
+                                  SnackBar(content: Text(AppLocalizations.of(context)!.importSuccess), backgroundColor: Colors.green),
                                 );
                               }
                             }
                           } catch (e) {
                             if (mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('导入失败: $e'), backgroundColor: Colors.red),
+                                SnackBar(content: Text('${AppLocalizations.of(context)!.importFailed}: $e'), backgroundColor: Colors.red),
                               );
                             }
                           }
@@ -574,7 +577,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                       ),
                       ListTile(
                         leading: const Icon(Icons.file_download),
-                        title: const Text('导出联系人'),
+                        title: Text(AppLocalizations.of(context)!.exportContacts),
                         onTap: () async {
                           Navigator.pop(context);
                           try {
@@ -583,13 +586,13 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: const Text('选择导出格式'),
+                                title: Text(AppLocalizations.of(context)!.selectExportFormat),
                                 content: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     ListTile(
                                       leading: const Icon(Icons.description),
-                                      title: const Text('CSV格式'),
+                                      title: Text(AppLocalizations.of(context)!.csvFormat),
                                       onTap: () async {
                                         Navigator.pop(context);
                                         final csvContent = await contactService.exportContactsToCsv();
@@ -599,17 +602,17 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
 
                                         if (mounted) {
                                           ScaffoldMessenger.of(context).showSnackBar(
-                                            SnackBar(
-                                              content: Text('文件已保存到: ${file.path}'),
-                                              backgroundColor: Colors.green,
-                                            ),
-                                          );
+                                          SnackBar(
+                                            content: Text('${AppLocalizations.of(context)!.fileSavedTo}: ${file.path}'),
+                                            backgroundColor: Colors.green,
+                                          ),
+                                        );
                                         }
                                       },
                                     ),
                                     ListTile(
                                       leading: const Icon(Icons.code),
-                                      title: const Text('JSON格式'),
+                                      title: Text(AppLocalizations.of(context)!.jsonFormat),
                                       onTap: () async {
                                         Navigator.pop(context);
                                         final jsonContent = await contactService.exportContactsToJson();
@@ -619,11 +622,11 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
 
                                         if (mounted) {
                                           ScaffoldMessenger.of(context).showSnackBar(
-                                            SnackBar(
-                                              content: Text('文件已保存到: ${file.path}'),
-                                              backgroundColor: Colors.green,
-                                            ),
-                                          );
+                                          SnackBar(
+                                            content: Text('${AppLocalizations.of(context)!.fileSavedTo}: ${file.path}'),
+                                            backgroundColor: Colors.green,
+                                          ),
+                                        );
                                         }
                                       },
                                     ),
@@ -634,7 +637,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                           } catch (e) {
                             if (mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('导出失败: $e'), backgroundColor: Colors.red),
+                                SnackBar(content: Text('${AppLocalizations.of(context)!.exportFailed}: $e'), backgroundColor: Colors.red),
                               );
                             }
                           }
@@ -645,12 +648,12 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                 ),
               );
             },
-            tooltip: '导入/导出联系人',
+            tooltip: AppLocalizations.of(context)!.importExportContactsTooltip,
           ),
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _loadContacts,
-            tooltip: '刷新',
+            tooltip: AppLocalizations.of(context)!.refresh,
           ),
         ],
     ]  ),
@@ -675,15 +678,15 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          '常用联系人',
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        Text(
+                          AppLocalizations.of(context)!.favoriteContacts,
+                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         TextButton(
                           onPressed: () {
                             _manageFavoriteContacts();
                           },
-                          child: const Text('管理'),
+                          child: Text(AppLocalizations.of(context)!.manage),
                         ),
                       ],
                     ),
@@ -751,7 +754,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
               padding: const EdgeInsets.all(16),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: '搜索联系人',
+                  hintText: AppLocalizations.of(context)!.searchContacts,
                   prefixIcon: const Icon(Icons.search),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
@@ -793,7 +796,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                         showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                            title: const Text('选择标签'),
+                            title: Text(AppLocalizations.of(context)!.selectTags),
                             content: PublicSelectLabel(
                               initialLabelId: _selectedLabelId,
                               onLabelIdChanged: (labelId) async {
@@ -810,7 +813,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                           ),
                         );
                       },
-                      child: const Text('更改标签'),
+                      child: Text(AppLocalizations.of(context)!.changeLabel),
                     ),
                   ],
                 ),
@@ -848,7 +851,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
             ),
             const SizedBox(height: 16),
             Text(
-              _contacts.isEmpty ? '暂无联系人' : '没有匹配的联系人',
+              _contacts.isEmpty ? AppLocalizations.of(context)!.noContactsYet : AppLocalizations.of(context)!.noMatchingContactsFound,
               style: const TextStyle(fontSize: 18, color: Colors.grey),
             ),
             const SizedBox(height: 24),
@@ -856,7 +859,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
               ElevatedButton.icon(
                 onPressed: _showAddContactDialog,
                 icon: const Icon(Icons.add),
-                label: const Text('添加联系人'),
+                label: Text(AppLocalizations.of(context)!.addContactButton),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFF5A623),
                   foregroundColor: Colors.white,
@@ -963,12 +966,12 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                     color: contact.isFavorite ? const Color(0xFFF5A623) : Colors.grey,
                   ),
                   onPressed: () => _toggleFavorite(contact),
-                  tooltip: contact.isFavorite ? '取消收藏' : '添加到常用联系人',
+                  tooltip: contact.isFavorite ? AppLocalizations.of(context)!.removeFromFavorites : AppLocalizations.of(context)!.addToFavorites,
                 ),
                 IconButton(
                   icon: const Icon(Icons.edit, color: Color(0xFFF5A623)),
                   onPressed: () => _showEditContactDialog(contact),
-                  tooltip: '编辑',
+                  tooltip: AppLocalizations.of(context)!.edit,
                 ),
                 IconButton(
                   icon: const Icon(Icons.delete, color: Colors.red),
@@ -976,12 +979,12 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                        title: const Text('删除联系人'),
-                        content: Text('确定要删除联系人 ${contact.name} 吗？'),
+                        title: Text(AppLocalizations.of(context)!.deleteContact),
+                        content: Text(AppLocalizations.of(context)!.deleteContactConfirm(contact.name)),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(context),
-                            child: const Text('取消'),
+                            child: Text(AppLocalizations.of(context)!.cancel),
                           ),
                           TextButton(
                             onPressed: () async {
@@ -992,24 +995,24 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                                 await _loadContacts(); // 刷新列表
                                 if (mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(content: Text('删除成功'), backgroundColor: Colors.green),
+                                    SnackBar(content: Text(AppLocalizations.of(context)!.deleteSuccess), backgroundColor: Colors.green),
                                   );
                                 }
                               } catch (e) {
                                 if (mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text('删除失败: $e'), backgroundColor: Colors.red),
+                                    SnackBar(content: Text('${AppLocalizations.of(context)!.deleteFailed}: $e'), backgroundColor: Colors.red),
                                   );
                                 }
                               }
                             },
-                            child: const Text('删除'),
+                            child: Text(AppLocalizations.of(context)!.delete),
                           ),
                         ],
                       ),
                     );
                   },
-                  tooltip: '删除',
+                  tooltip: AppLocalizations.of(context)!.delete,
                 ),
               ],
             ),
