@@ -93,6 +93,540 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
+  /// No description provided for @contactsManagementTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Contacts Management'**
+  String get contactsManagementTitle;
+
+  /// No description provided for @selectedItemsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items selected'**
+  String selectedItemsCount(Object count);
+
+  /// No description provided for @editContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Contact'**
+  String get editContact;
+
+  /// No description provided for @deleteContactTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Contact'**
+  String get deleteContactTitle;
+
+  /// No description provided for @deleteContactConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete contact'**
+  String get deleteContactConfirmation;
+
+  /// No description provided for @deleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete successful'**
+  String get deleteSuccess;
+
+  /// No description provided for @deleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete failed'**
+  String get deleteFailed;
+
+  /// No description provided for @contactDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact deleted'**
+  String get contactDeleted;
+
+  /// No description provided for @deleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deleteError;
+
+  /// No description provided for @selectLabelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Label'**
+  String get selectLabelTitle;
+
+  /// No description provided for @cancelButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancelButton;
+
+  /// No description provided for @batchDeleteContactsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Batch Delete Contacts'**
+  String get batchDeleteContactsTitle;
+
+  /// No description provided for @batchDeleteContactsConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the selected contacts?'**
+  String get batchDeleteContactsConfirmation;
+
+  /// No description provided for @addToFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Favorites'**
+  String get addToFavorites;
+
+  /// No description provided for @removeFromFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from Favorites'**
+  String get removeFromFavorites;
+
+  /// No description provided for @editLabelButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Label'**
+  String get editLabelButton;
+
+  /// No description provided for @deleteButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deleteButton;
+
+  /// No description provided for @searchContactsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search contacts'**
+  String get searchContactsHint;
+
+  /// No description provided for @frequentContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequent Contacts'**
+  String get frequentContacts;
+
+  /// No description provided for @manageButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage'**
+  String get manageButton;
+
+  /// No description provided for @noContactsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No contacts'**
+  String get noContactsMessage;
+
+  /// No description provided for @noMatchingContactsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching contacts'**
+  String get noMatchingContactsMessage;
+
+  /// No description provided for @addContactButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Contact'**
+  String get addContactButton;
+
+  /// No description provided for @importExportContactsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Import/Export Contacts'**
+  String get importExportContactsTitle;
+
+  /// No description provided for @importContactsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Contacts'**
+  String get importContactsButton;
+
+  /// No description provided for @exportContactsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Contacts'**
+  String get exportContactsButton;
+
+  /// No description provided for @refreshButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get refreshButton;
+
+  /// No description provided for @fileFormatCSV.
+  ///
+  /// In en, this message translates to:
+  /// **'CSV Format'**
+  String get fileFormatCSV;
+
+  /// No description provided for @fileFormatJSON.
+  ///
+  /// In en, this message translates to:
+  /// **'JSON Format'**
+  String get fileFormatJSON;
+
+  /// No description provided for @fileSavedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'File saved to: {path}'**
+  String fileSavedMessage(Object path);
+
+  /// No description provided for @unsupportedFileFormatMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsupported file format'**
+  String get unsupportedFileFormatMessage;
+
+  /// No description provided for @changeLabelButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Label'**
+  String get changeLabelButton;
+
+  /// No description provided for @dashboardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Analysis'**
+  String get dashboardTitle;
+
+  /// No description provided for @monthlyTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Total'**
+  String get monthlyTotal;
+
+  /// No description provided for @interceptedCommunications.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercepted Communications'**
+  String get interceptedCommunications;
+
+  /// No description provided for @adPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Ad Placeholder'**
+  String get adPlaceholder;
+
+  /// No description provided for @adPlaceholderDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Google AdMob ads can be integrated here'**
+  String get adPlaceholderDesc;
+
+  /// No description provided for @interceptedCalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercepted Calls'**
+  String get interceptedCalls;
+
+  /// No description provided for @filteredSMS.
+  ///
+  /// In en, this message translates to:
+  /// **'Filtered SMS'**
+  String get filteredSMS;
+
+  /// No description provided for @allowRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Rules'**
+  String get allowRules;
+
+  /// No description provided for @blockRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Block Rules'**
+  String get blockRules;
+
+  /// No description provided for @silenceRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence Rules'**
+  String get silenceRules;
+
+  /// No description provided for @noneActionRules.
+  ///
+  /// In en, this message translates to:
+  /// **'None Action Rules'**
+  String get noneActionRules;
+
+  /// No description provided for @thisWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'This Week'**
+  String get thisWeek;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @interceptTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercept Trend'**
+  String get interceptTrend;
+
+  /// No description provided for @weekPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Week'**
+  String get weekPeriod;
+
+  /// No description provided for @monthPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get monthPeriod;
+
+  /// No description provided for @yearPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get yearPeriod;
+
+  /// No description provided for @exportStatisticsButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Statistics Data'**
+  String get exportStatisticsButton;
+
+  /// No description provided for @statisticsExportComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics export feature coming soon'**
+  String get statisticsExportComingSoon;
+
+  /// No description provided for @filterControlPanelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Control Panel'**
+  String get filterControlPanelTitle;
+
+  /// No description provided for @configureSimCardFilterRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure SIM Card Filter Rules'**
+  String get configureSimCardFilterRules;
+
+  /// No description provided for @selectSimCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Select SIM Card'**
+  String get selectSimCard;
+
+  /// Title for global settings page
+  ///
+  /// In en, this message translates to:
+  /// **'Global Settings'**
+  String get globalSettings;
+
+  /// No description provided for @unassignedSIMCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Unnamed SIM Card'**
+  String get unassignedSIMCard;
+
+  /// No description provided for @basicRuleFiltering.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic Rule Filtering'**
+  String get basicRuleFiltering;
+
+  /// No description provided for @rejectAllCalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject All Calls'**
+  String get rejectAllCalls;
+
+  /// No description provided for @rejectAllCallsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'When enabled, all calls will be rejected with highest priority'**
+  String get rejectAllCallsDescription;
+
+  /// No description provided for @allowWhitelistedNumbers.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Whitelisted Numbers'**
+  String get allowWhitelistedNumbers;
+
+  /// No description provided for @allowWhitelistedNumbersDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow all numbers in the whitelist'**
+  String get allowWhitelistedNumbersDescription;
+
+  /// No description provided for @allowRegexAllowRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Regex Allow Rules'**
+  String get allowRegexAllowRules;
+
+  /// No description provided for @allowRegexAllowRulesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable regex-based allow rules'**
+  String get allowRegexAllowRulesDescription;
+
+  /// No description provided for @allowRegexBlockRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Regex Block Rules'**
+  String get allowRegexBlockRules;
+
+  /// No description provided for @allowRegexBlockRulesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable regex-based block rules'**
+  String get allowRegexBlockRulesDescription;
+
+  /// No description provided for @localCountFiltering.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Count Filtering'**
+  String get localCountFiltering;
+
+  /// No description provided for @enableLocalCountFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Local Count Filter'**
+  String get enableLocalCountFilter;
+
+  /// No description provided for @enableLocalCountFilterDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatically filter spam calls based on local marking count'**
+  String get enableLocalCountFilterDescription;
+
+  /// No description provided for @rejectExceededNumbers.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject Exceeded Numbers'**
+  String get rejectExceededNumbers;
+
+  /// No description provided for @rejectExceededNumbersDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatically reject all numbers exceeding the count threshold'**
+  String get rejectExceededNumbersDescription;
+
+  /// No description provided for @allowNonExceededNumbers.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Non-Exceeded Numbers'**
+  String get allowNonExceededNumbers;
+
+  /// No description provided for @allowNonExceededNumbersDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatically allow all numbers not exceeding the count threshold'**
+  String get allowNonExceededNumbersDescription;
+
+  /// No description provided for @remoteNumberFiltering.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote Number Filtering'**
+  String get remoteNumberFiltering;
+
+  /// No description provided for @enableRemoteNumberFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Remote Number Filter'**
+  String get enableRemoteNumberFilter;
+
+  /// No description provided for @enableRemoteNumberFilterDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatically filter spam calls based on remote database information'**
+  String get enableRemoteNumberFilterDescription;
+
+  /// No description provided for @prioritizeRemoteAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Prioritize Remote Action'**
+  String get prioritizeRemoteAction;
+
+  /// No description provided for @prioritizeRemoteActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Prioritize action settings from the remote database'**
+  String get prioritizeRemoteActionDescription;
+
+  /// No description provided for @timeInterceptor.
+  ///
+  /// In en, this message translates to:
+  /// **'Time Interceptor'**
+  String get timeInterceptor;
+
+  /// No description provided for @enableTimeInterception.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Time Interception'**
+  String get enableTimeInterception;
+
+  /// No description provided for @enableTimeInterceptionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercept repeated calls within a short time'**
+  String get enableTimeInterceptionDescription;
+
+  /// No description provided for @interceptionTimeInterval.
+  ///
+  /// In en, this message translates to:
+  /// **'Interception Time Interval'**
+  String get interceptionTimeInterval;
+
+  /// No description provided for @minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'minutes'**
+  String get minutes;
+
+  /// No description provided for @filterExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Explanation'**
+  String get filterExplanation;
+
+  /// No description provided for @basicRuleFilteringExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'• Basic Rule Filtering: Filtering rules based on blacklist, whitelist, and regex'**
+  String get basicRuleFilteringExplanation;
+
+  /// No description provided for @localCountFilteringExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'• Local Count Filtering: Filtering rules based on local marking count'**
+  String get localCountFilteringExplanation;
+
+  /// No description provided for @remoteNumberFilteringExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'• Remote Number Filtering: Filtering rules based on remote database information'**
+  String get remoteNumberFilteringExplanation;
+
+  /// No description provided for @timeInterceptorExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'• Time Interceptor: Intercept repeated calls within a short time'**
+  String get timeInterceptorExplanation;
+
+  /// No description provided for @simCardConfigurationExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'• SIM Card Configuration: Set independent filtering rules for each SIM card'**
+  String get simCardConfigurationExplanation;
+
+  /// No description provided for @filterPriorityNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Note: There are priority relationships between filters, please refer to the help documentation for details'**
+  String get filterPriorityNote;
+
   /// No description provided for @callHistoryInfoTitle.
   ///
   /// In en, this message translates to:
@@ -396,7 +930,7 @@ abstract class AppLocalizations {
   /// No description provided for @importSuccess.
   ///
   /// In en, this message translates to:
-  /// **'Configuration imported successfully'**
+  /// **'Import successful'**
   String get importSuccess;
 
   /// No description provided for @importFailure.
@@ -758,6 +1292,186 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Contacts Management'**
   String get contactsPageTitle;
+
+  /// No description provided for @manageContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage'**
+  String get manageContacts;
+
+  /// No description provided for @favoriteContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite Contacts'**
+  String get favoriteContacts;
+
+  /// No description provided for @deleteContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Contact'**
+  String get deleteContact;
+
+  /// No description provided for @deleteContactConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete {name}?'**
+  String deleteContactConfirm(Object name);
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @selectLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Label'**
+  String get selectLabel;
+
+  /// No description provided for @labelUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Label updated'**
+  String get labelUpdated;
+
+  /// No description provided for @updateLabelFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update label'**
+  String get updateLabelFailed;
+
+  /// No description provided for @batchDeleteContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Batch Delete Contacts'**
+  String get batchDeleteContacts;
+
+  /// No description provided for @batchDeleteContactsConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete {count} selected contacts?'**
+  String batchDeleteContactsConfirm(Object count);
+
+  /// No description provided for @contactsDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted {count} contacts'**
+  String contactsDeleted(Object count);
+
+  /// No description provided for @batchDeleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Batch delete failed'**
+  String get batchDeleteFailed;
+
+  /// No description provided for @editLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Label'**
+  String get editLabel;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @searchContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Contacts'**
+  String get searchContacts;
+
+  /// No description provided for @changeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Label'**
+  String get changeLabel;
+
+  /// No description provided for @noContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'No contacts yet'**
+  String get noContacts;
+
+  /// No description provided for @noMatchingContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching contacts'**
+  String get noMatchingContacts;
+
+  /// No description provided for @addContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Contact'**
+  String get addContact;
+
+  /// No description provided for @importExportContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Import/Export Contacts'**
+  String get importExportContacts;
+
+  /// No description provided for @importContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Contacts'**
+  String get importContacts;
+
+  /// No description provided for @exportContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Contacts'**
+  String get exportContacts;
+
+  /// No description provided for @importFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Import failed: {error}'**
+  String importFailed(Object error);
+
+  /// No description provided for @selectExportFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Export Format'**
+  String get selectExportFormat;
+
+  /// No description provided for @csvFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'CSV Format'**
+  String get csvFormat;
+
+  /// No description provided for @jsonFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'JSON Format'**
+  String get jsonFormat;
+
+  /// No description provided for @fileSavedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'File saved to: {path}'**
+  String fileSavedTo(Object path);
+
+  /// No description provided for @exportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Export failed'**
+  String get exportFailed;
+
+  /// No description provided for @unsupportedFileFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsupported file format'**
+  String get unsupportedFileFormat;
+
+  /// No description provided for @selectedItems.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items selected'**
+  String selectedItems(Object count);
 
   /// No description provided for @contactsLoadingFailed.
   ///
@@ -1665,6 +2379,18 @@ abstract class AppLocalizations {
   /// **'Allow calls from blocklist'**
   String get allowAllBlacklistedNumbersDesc;
 
+  /// No description provided for @allowAllBlockRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow All Block Rules'**
+  String get allowAllBlockRules;
+
+  /// No description provided for @allowAllBlockRulesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow calls from block rules'**
+  String get allowAllBlockRulesDesc;
+
   /// Title for SIM slot filter settings
   ///
   /// In en, this message translates to:
@@ -2043,35 +2769,23 @@ abstract class AppLocalizations {
   /// **'Allow calls from blocklist'**
   String get allowBlockedNumbersDesc;
 
-  /// No description provided for @allowRegexAllowRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Allow Regex Allow Rules'**
-  String get allowRegexAllowRules;
-
   /// No description provided for @allowRegexAllowRulesDesc.
   ///
   /// In en, this message translates to:
   /// **'Enable regex pattern matching for allow rules'**
   String get allowRegexAllowRulesDesc;
 
-  /// No description provided for @allowAllWhitelistedNumbers.
+  /// No description provided for @allowAllAllowRules.
   ///
   /// In en, this message translates to:
-  /// **'Allow Whitelisted Numbers'**
-  String get allowAllWhitelistedNumbers;
+  /// **'Allow All Allow Rules'**
+  String get allowAllAllowRules;
 
-  /// No description provided for @allowAllWhitelistedNumbersDesc.
+  /// No description provided for @allowAllAllowRulesDesc.
   ///
   /// In en, this message translates to:
-  /// **'Allow calls from whitelist'**
-  String get allowAllWhitelistedNumbersDesc;
-
-  /// No description provided for @allowRegexBlockRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Allow Regex Block Rules'**
-  String get allowRegexBlockRules;
+  /// **'Allow calls from allow rules'**
+  String get allowAllAllowRulesDesc;
 
   /// No description provided for @allowRegexBlockRulesDesc.
   ///
@@ -2102,12 +2816,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =1{1 day} other{{count} days}}'**
   String days(num count);
-
-  /// No description provided for @unassignedSIMCard.
-  ///
-  /// In en, this message translates to:
-  /// **'Unnamed SIM Card'**
-  String get unassignedSIMCard;
 
   /// No description provided for @addName.
   ///
@@ -2240,12 +2948,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Are you sure you want to delete subscription \"{name}\"?'**
   String deleteSubscriptionConfirm(Object name);
-
-  /// No description provided for @delete.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete'**
-  String get delete;
 
   /// Subscription deleted success message
   ///
@@ -2439,12 +3141,6 @@ abstract class AppLocalizations {
   /// **'Failed to remove label: {error}'**
   String labelRemoveFailed(Object error);
 
-  /// No description provided for @labelUpdated.
-  ///
-  /// In en, this message translates to:
-  /// **'Label updated'**
-  String get labelUpdated;
-
   /// Label update failure message
   ///
   /// In en, this message translates to:
@@ -2625,12 +3321,6 @@ abstract class AppLocalizations {
   /// **'SIM Slot Settings'**
   String get simSlotSettings;
 
-  /// Title for global settings page
-  ///
-  /// In en, this message translates to:
-  /// **'Global Settings'**
-  String get globalSettings;
-
   /// Button text for updating call filter configuration
   ///
   /// In en, this message translates to:
@@ -2648,12 +3338,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to add labels: {error}'**
   String addLabelFailed(Object error);
-
-  /// No description provided for @selectLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Select Label'**
-  String get selectLabel;
 
   /// No description provided for @selectedLabel.
   ///
@@ -2979,12 +3663,6 @@ abstract class AppLocalizations {
   /// **'SIM 2,-{countryIso}'**
   String simSlot2(String countryIso);
 
-  /// Update PhoneNumber Rule
-  ///
-  /// In en, this message translates to:
-  /// **'Update PhoneNumber Rule'**
-  String get updatePhoneNumberRule;
-
   /// No description provided for @contactsManagementPageTitle.
   ///
   /// In en, this message translates to:
@@ -2996,18 +3674,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to load contacts'**
   String get failedToLoadContacts;
-
-  /// No description provided for @editContact.
-  ///
-  /// In en, this message translates to:
-  /// **'Edit Contact'**
-  String get editContact;
-
-  /// No description provided for @addContact.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Contact'**
-  String get addContact;
 
   /// No description provided for @contactUpdateSuccess.
   ///
@@ -3105,12 +3771,6 @@ abstract class AppLocalizations {
   /// **'Removed from favorite contacts'**
   String get removedFromFavorites;
 
-  /// No description provided for @deleteContact.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete Contact'**
-  String get deleteContact;
-
   /// No description provided for @confirmDeleteContact.
   ///
   /// In en, this message translates to:
@@ -3123,12 +3783,6 @@ abstract class AppLocalizations {
   /// **'Select Tag'**
   String get selectTag;
 
-  /// No description provided for @batchDeleteContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Batch Delete Contacts'**
-  String get batchDeleteContacts;
-
   /// No description provided for @confirmBatchDeleteContacts.
   ///
   /// In en, this message translates to:
@@ -3140,12 +3794,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'contacts?'**
   String get contacts;
-
-  /// No description provided for @contactsDeleted.
-  ///
-  /// In en, this message translates to:
-  /// **'Deleted {count} contacts'**
-  String contactsDeleted(Object count);
 
   /// No description provided for @removeFavorite.
   ///
@@ -3165,95 +3813,11 @@ abstract class AppLocalizations {
   /// **'Change Tag'**
   String get changeTag;
 
-  /// No description provided for @edit.
-  ///
-  /// In en, this message translates to:
-  /// **'Edit'**
-  String get edit;
-
-  /// No description provided for @importExportContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Import/Export Contacts'**
-  String get importExportContacts;
-
-  /// No description provided for @importContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Import Contacts'**
-  String get importContacts;
-
-  /// No description provided for @exportContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Export Contacts'**
-  String get exportContacts;
-
-  /// No description provided for @csvFormat.
-  ///
-  /// In en, this message translates to:
-  /// **'CSV Format'**
-  String get csvFormat;
-
-  /// No description provided for @jsonFormat.
-  ///
-  /// In en, this message translates to:
-  /// **'JSON Format'**
-  String get jsonFormat;
-
-  /// No description provided for @fileSavedTo.
-  ///
-  /// In en, this message translates to:
-  /// **'File saved to: {path}'**
-  String fileSavedTo(Object path);
-
-  /// No description provided for @searchContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Search Contacts'**
-  String get searchContacts;
-
-  /// No description provided for @changeLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Change Label'**
-  String get changeLabel;
-
-  /// No description provided for @noContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'No contacts yet'**
-  String get noContacts;
-
-  /// No description provided for @noMatchingContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'No matching contacts'**
-  String get noMatchingContacts;
-
   /// No description provided for @addToFavoriteContacts.
   ///
   /// In en, this message translates to:
   /// **'Add to Favorite Contacts'**
   String get addToFavoriteContacts;
-
-  /// No description provided for @deleteContactConfirmation.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete contact'**
-  String get deleteContactConfirmation;
-
-  /// No description provided for @deleteSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete successful'**
-  String get deleteSuccess;
-
-  /// No description provided for @deleteFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete failed'**
-  String get deleteFailed;
 
   /// No description provided for @dataLoadingFailed.
   ///
@@ -3266,12 +3830,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Overview'**
   String get overview;
-
-  /// No description provided for @adPlaceholder.
-  ///
-  /// In en, this message translates to:
-  /// **'Ad Placeholder'**
-  String get adPlaceholder;
 
   /// No description provided for @statisticsGrid.
   ///
@@ -3308,12 +3866,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Export successful'**
   String get exportSuccess;
-
-  /// No description provided for @exportFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Export failed'**
-  String get exportFailed;
 
   /// No description provided for @blockedCalls.
   ///
@@ -3650,6 +4202,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Action Type'**
   String get actionType;
+
+  /// No description provided for @blockedCallAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Call Action'**
+  String get blockedCallAction;
+
+  /// No description provided for @incomingCallInterceptAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Incoming Call Intercept Action'**
+  String get incomingCallInterceptAction;
+
+  /// No description provided for @chooseDefaultInterceptAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the default intercept action'**
+  String get chooseDefaultInterceptAction;
+
+  /// No description provided for @endCallImmediately.
+  ///
+  /// In en, this message translates to:
+  /// **'End call immediately'**
+  String get endCallImmediately;
+
+  /// No description provided for @answerThenHangup.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer then hang up'**
+  String get answerThenHangup;
+
+  /// No description provided for @silenceAndNoAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence and no answer'**
+  String get silenceAndNoAnswer;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -48,10 +48,10 @@ class CallFilterSettingsWidget extends StatelessWidget {
           (value) => onConfigChanged('allowRegexAllowRules', value),
         ),
         _buildSwitchListTile(
-          AppLocalizations.of(context)!.allowAllWhitelistedNumbers,
-          AppLocalizations.of(context)!.allowAllWhitelistedNumbersDesc,
-          config.allowAllWhitelistedNumbers,
-          (value) => onConfigChanged('allowAllWhitelistedNumbers', value),
+          AppLocalizations.of(context)!.allowAllAllowRules,
+          AppLocalizations.of(context)!.allowAllAllowRulesDesc,
+          config.allowAllAllowRules,
+          (value) => onConfigChanged('allowAllAllowRules', value),
         ),
         _buildSwitchListTile(
           AppLocalizations.of(context)!.allowRegexBlockRules,
@@ -72,10 +72,10 @@ class CallFilterSettingsWidget extends StatelessWidget {
           (value) => onConfigChanged('allowNoneRules', value),
         ),
         _buildSwitchListTile(
-          AppLocalizations.of(context)!.allowAllBlacklistedNumbers,
-          AppLocalizations.of(context)!.allowAllBlacklistedNumbersDesc,
-          config.allowAllBlacklistedNumbers,
-          (value) => onConfigChanged('allowAllBlacklistedNumbers', value),
+          AppLocalizations.of(context)!.allowAllBlockRules,
+          AppLocalizations.of(context)!.allowAllBlockRulesDesc,
+          config.allowAllBlockRules,
+          (value) => onConfigChanged('allowAllBlockRules', value),
         ),
         Padding(
           padding: const EdgeInsets.all(16.0),

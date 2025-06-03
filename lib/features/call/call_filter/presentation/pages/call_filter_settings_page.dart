@@ -62,20 +62,20 @@ class CallFilterSettingsPageState extends State<CallFilterSettingsPage> {
         case 'allowAllAllowedNumbers':
           _config = _config.copyWith(allowAllAllowedNumbers: value);
           break;
+        case 'allowRegexAllowRules':
+          _config = _config.copyWith(allowRegexAllowRules: value);
+          break;
         case 'allowBlockedNumbers':
           _config = _config.copyWith(allowBlockedNumbers: value);
           break;
-        case 'allowRegexAllowRules': // 修改配置项名称
-          _config = _config.copyWith(allowRegexAllowRules: value);
+        case 'allowAllAllowRules':
+          _config = _config.copyWith(allowAllAllowRules: value);
           break;
-        case 'allowAllWhitelistedNumbers':
-          _config = _config.copyWith(allowAllWhitelistedNumbers: value);
-          break;
-        case 'allowRegexBlockRules': // 修改配置项名称
+        case 'allowRegexBlockRules':
           _config = _config.copyWith(allowRegexBlockRules: value);
           break;
-        case 'allowAllBlacklistedNumbers':
-          _config = _config.copyWith(allowAllBlacklistedNumbers: value);
+        case 'allowAllBlockRules':
+          _config = _config.copyWith(allowAllBlockRules: value);
           break;
         case 'allowSilenceRules':
           _config = _config.copyWith(allowSilenceRules: value);

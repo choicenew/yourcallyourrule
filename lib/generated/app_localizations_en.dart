@@ -9,6 +9,277 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get contactsManagementTitle => 'Contacts Management';
+
+  @override
+  String selectedItemsCount(Object count) {
+    return '$count items selected';
+  }
+
+  @override
+  String get editContact => 'Edit Contact';
+
+  @override
+  String get deleteContactTitle => 'Delete Contact';
+
+  @override
+  String get deleteContactConfirmation => 'Are you sure you want to delete contact';
+
+  @override
+  String get deleteSuccess => 'Delete successful';
+
+  @override
+  String get deleteFailed => 'Delete failed';
+
+  @override
+  String get contactDeleted => 'Contact deleted';
+
+  @override
+  String get deleteError => 'Delete';
+
+  @override
+  String get selectLabelTitle => 'Select Label';
+
+  @override
+  String get cancelButton => 'Cancel';
+
+  @override
+  String get batchDeleteContactsTitle => 'Batch Delete Contacts';
+
+  @override
+  String get batchDeleteContactsConfirmation => 'Are you sure you want to delete the selected contacts?';
+
+  @override
+  String get addToFavorites => 'Add to Favorites';
+
+  @override
+  String get removeFromFavorites => 'Remove from Favorites';
+
+  @override
+  String get editLabelButton => 'Edit Label';
+
+  @override
+  String get deleteButton => 'Delete';
+
+  @override
+  String get searchContactsHint => 'Search contacts';
+
+  @override
+  String get frequentContacts => 'Frequent Contacts';
+
+  @override
+  String get manageButton => 'Manage';
+
+  @override
+  String get noContactsMessage => 'No contacts';
+
+  @override
+  String get noMatchingContactsMessage => 'No matching contacts';
+
+  @override
+  String get addContactButton => 'Add Contact';
+
+  @override
+  String get importExportContactsTitle => 'Import/Export Contacts';
+
+  @override
+  String get importContactsButton => 'Import Contacts';
+
+  @override
+  String get exportContactsButton => 'Export Contacts';
+
+  @override
+  String get refreshButton => 'Refresh';
+
+  @override
+  String get fileFormatCSV => 'CSV Format';
+
+  @override
+  String get fileFormatJSON => 'JSON Format';
+
+  @override
+  String fileSavedMessage(Object path) {
+    return 'File saved to: $path';
+  }
+
+  @override
+  String get unsupportedFileFormatMessage => 'Unsupported file format';
+
+  @override
+  String get changeLabelButton => 'Change Label';
+
+  @override
+  String get dashboardTitle => 'Data Analysis';
+
+  @override
+  String get monthlyTotal => 'Monthly Total';
+
+  @override
+  String get interceptedCommunications => 'Intercepted Communications';
+
+  @override
+  String get adPlaceholder => 'Ad Placeholder';
+
+  @override
+  String get adPlaceholderDesc => 'Google AdMob ads can be integrated here';
+
+  @override
+  String get interceptedCalls => 'Intercepted Calls';
+
+  @override
+  String get filteredSMS => 'Filtered SMS';
+
+  @override
+  String get allowRules => 'Allow Rules';
+
+  @override
+  String get blockRules => 'Block Rules';
+
+  @override
+  String get silenceRules => 'Silence Rules';
+
+  @override
+  String get noneActionRules => 'None Action Rules';
+
+  @override
+  String get thisWeek => 'This Week';
+
+  @override
+  String get total => 'Total';
+
+  @override
+  String get interceptTrend => 'Intercept Trend';
+
+  @override
+  String get weekPeriod => 'Week';
+
+  @override
+  String get monthPeriod => 'Month';
+
+  @override
+  String get yearPeriod => 'Year';
+
+  @override
+  String get exportStatisticsButton => 'Export Statistics Data';
+
+  @override
+  String get statisticsExportComingSoon => 'Statistics export feature coming soon';
+
+  @override
+  String get filterControlPanelTitle => 'Filter Control Panel';
+
+  @override
+  String get configureSimCardFilterRules => 'Configure SIM Card Filter Rules';
+
+  @override
+  String get selectSimCard => 'Select SIM Card';
+
+  @override
+  String get globalSettings => 'Global Settings';
+
+  @override
+  String get unassignedSIMCard => 'Unnamed SIM Card';
+
+  @override
+  String get basicRuleFiltering => 'Basic Rule Filtering';
+
+  @override
+  String get rejectAllCalls => 'Reject All Calls';
+
+  @override
+  String get rejectAllCallsDescription => 'When enabled, all calls will be rejected with highest priority';
+
+  @override
+  String get allowWhitelistedNumbers => 'Allow Whitelisted Numbers';
+
+  @override
+  String get allowWhitelistedNumbersDescription => 'Allow all numbers in the whitelist';
+
+  @override
+  String get allowRegexAllowRules => 'Allow Regex Allow Rules';
+
+  @override
+  String get allowRegexAllowRulesDescription => 'Enable regex-based allow rules';
+
+  @override
+  String get allowRegexBlockRules => 'Allow Regex Block Rules';
+
+  @override
+  String get allowRegexBlockRulesDescription => 'Enable regex-based block rules';
+
+  @override
+  String get localCountFiltering => 'Local Count Filtering';
+
+  @override
+  String get enableLocalCountFilter => 'Enable Local Count Filter';
+
+  @override
+  String get enableLocalCountFilterDescription => 'Automatically filter spam calls based on local marking count';
+
+  @override
+  String get rejectExceededNumbers => 'Reject Exceeded Numbers';
+
+  @override
+  String get rejectExceededNumbersDescription => 'Automatically reject all numbers exceeding the count threshold';
+
+  @override
+  String get allowNonExceededNumbers => 'Allow Non-Exceeded Numbers';
+
+  @override
+  String get allowNonExceededNumbersDescription => 'Automatically allow all numbers not exceeding the count threshold';
+
+  @override
+  String get remoteNumberFiltering => 'Remote Number Filtering';
+
+  @override
+  String get enableRemoteNumberFilter => 'Enable Remote Number Filter';
+
+  @override
+  String get enableRemoteNumberFilterDescription => 'Automatically filter spam calls based on remote database information';
+
+  @override
+  String get prioritizeRemoteAction => 'Prioritize Remote Action';
+
+  @override
+  String get prioritizeRemoteActionDescription => 'Prioritize action settings from the remote database';
+
+  @override
+  String get timeInterceptor => 'Time Interceptor';
+
+  @override
+  String get enableTimeInterception => 'Enable Time Interception';
+
+  @override
+  String get enableTimeInterceptionDescription => 'Intercept repeated calls within a short time';
+
+  @override
+  String get interceptionTimeInterval => 'Interception Time Interval';
+
+  @override
+  String get minutes => 'minutes';
+
+  @override
+  String get filterExplanation => 'Filter Explanation';
+
+  @override
+  String get basicRuleFilteringExplanation => '• Basic Rule Filtering: Filtering rules based on blacklist, whitelist, and regex';
+
+  @override
+  String get localCountFilteringExplanation => '• Local Count Filtering: Filtering rules based on local marking count';
+
+  @override
+  String get remoteNumberFilteringExplanation => '• Remote Number Filtering: Filtering rules based on remote database information';
+
+  @override
+  String get timeInterceptorExplanation => '• Time Interceptor: Intercept repeated calls within a short time';
+
+  @override
+  String get simCardConfigurationExplanation => '• SIM Card Configuration: Set independent filtering rules for each SIM card';
+
+  @override
+  String get filterPriorityNote => 'Note: There are priority relationships between filters, please refer to the help documentation for details';
+
+  @override
   String get callHistoryInfoTitle => 'Call History';
 
   @override
@@ -169,7 +440,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get operationFailed => 'Operation failed';
 
   @override
-  String get importSuccess => 'Configuration imported successfully';
+  String get importSuccess => 'Import successful';
 
   @override
   String get importFailure => 'Failed to import configuration';
@@ -360,6 +631,108 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contactsPageTitle => 'Contacts Management';
+
+  @override
+  String get manageContacts => 'Manage';
+
+  @override
+  String get favoriteContacts => 'Favorite Contacts';
+
+  @override
+  String get deleteContact => 'Delete Contact';
+
+  @override
+  String deleteContactConfirm(Object name) {
+    return 'Are you sure you want to delete $name?';
+  }
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get selectLabel => 'Select Label';
+
+  @override
+  String get labelUpdated => 'Label updated';
+
+  @override
+  String get updateLabelFailed => 'Failed to update label';
+
+  @override
+  String get batchDeleteContacts => 'Batch Delete Contacts';
+
+  @override
+  String batchDeleteContactsConfirm(Object count) {
+    return 'Are you sure you want to delete $count selected contacts?';
+  }
+
+  @override
+  String contactsDeleted(Object count) {
+    return 'Deleted $count contacts';
+  }
+
+  @override
+  String get batchDeleteFailed => 'Batch delete failed';
+
+  @override
+  String get editLabel => 'Edit Label';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get searchContacts => 'Search Contacts';
+
+  @override
+  String get changeLabel => 'Change Label';
+
+  @override
+  String get noContacts => 'No contacts yet';
+
+  @override
+  String get noMatchingContacts => 'No matching contacts';
+
+  @override
+  String get addContact => 'Add Contact';
+
+  @override
+  String get importExportContacts => 'Import/Export Contacts';
+
+  @override
+  String get importContacts => 'Import Contacts';
+
+  @override
+  String get exportContacts => 'Export Contacts';
+
+  @override
+  String importFailed(Object error) {
+    return 'Import failed: $error';
+  }
+
+  @override
+  String get selectExportFormat => 'Select Export Format';
+
+  @override
+  String get csvFormat => 'CSV Format';
+
+  @override
+  String get jsonFormat => 'JSON Format';
+
+  @override
+  String fileSavedTo(Object path) {
+    return 'File saved to: $path';
+  }
+
+  @override
+  String get exportFailed => 'Export failed';
+
+  @override
+  String get unsupportedFileFormat => 'Unsupported file format';
+
+  @override
+  String selectedItems(Object count) {
+    return '$count items selected';
+  }
 
   @override
   String contactsLoadingFailed(Object error) {
@@ -829,6 +1202,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allowAllBlacklistedNumbersDesc => 'Allow calls from blocklist';
 
   @override
+  String get allowAllBlockRules => 'Allow All Block Rules';
+
+  @override
+  String get allowAllBlockRulesDesc => 'Allow calls from block rules';
+
+  @override
   String simSlotFilterSettingsTitle(Object slotNumber) {
     return 'SIM Slot $slotNumber Filter Settings';
   }
@@ -1048,19 +1427,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allowBlockedNumbersDesc => 'Allow calls from blocklist';
 
   @override
-  String get allowRegexAllowRules => 'Allow Regex Allow Rules';
-
-  @override
   String get allowRegexAllowRulesDesc => 'Enable regex pattern matching for allow rules';
 
   @override
-  String get allowAllWhitelistedNumbers => 'Allow Whitelisted Numbers';
+  String get allowAllAllowRules => 'Allow All Allow Rules';
 
   @override
-  String get allowAllWhitelistedNumbersDesc => 'Allow calls from whitelist';
-
-  @override
-  String get allowRegexBlockRules => 'Allow Regex Block Rules';
+  String get allowAllAllowRulesDesc => 'Allow calls from allow rules';
 
   @override
   String get allowRegexBlockRulesDesc => 'Enable regex pattern matching for block rules';
@@ -1086,9 +1459,6 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0';
   }
-
-  @override
-  String get unassignedSIMCard => 'Unnamed SIM Card';
 
   @override
   String get addName => 'Add Name';
@@ -1179,9 +1549,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String deleteSubscriptionConfirm(Object name) {
     return 'Are you sure you want to delete subscription \"$name\"?';
   }
-
-  @override
-  String get delete => 'Delete';
 
   @override
   String get subscriptionDeleted => 'Subscription deleted';
@@ -1290,9 +1657,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Label updated';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Failed to update label: $error';
   }
@@ -1389,9 +1753,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get simSlotSettings => 'SIM Slot Settings';
 
   @override
-  String get globalSettings => 'Global Settings';
-
-  @override
   String get updateCallFilterConfig => 'Update Call Filter Configuration';
 
   @override
@@ -1403,9 +1764,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String addLabelFailed(Object error) {
     return 'Failed to add labels: $error';
   }
-
-  @override
-  String get selectLabel => 'Select Label';
 
   @override
   String get selectedLabel => 'Selected:';
@@ -1606,19 +1964,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get updatePhoneNumberRule => 'Update PhoneNumber Rule';
-
-  @override
   String get contactsManagementPageTitle => 'Contacts Management Page';
 
   @override
   String get failedToLoadContacts => 'Failed to load contacts';
-
-  @override
-  String get editContact => 'Edit Contact';
-
-  @override
-  String get addContact => 'Add Contact';
 
   @override
   String get contactUpdateSuccess => 'Contact updated successfully';
@@ -1669,27 +2018,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get removedFromFavorites => 'Removed from favorite contacts';
 
   @override
-  String get deleteContact => 'Delete Contact';
-
-  @override
   String get confirmDeleteContact => 'Are you sure you want to delete';
 
   @override
   String get selectTag => 'Select Tag';
 
   @override
-  String get batchDeleteContacts => 'Batch Delete Contacts';
-
-  @override
   String get confirmBatchDeleteContacts => 'Are you sure you want to delete the selected';
 
   @override
   String get contacts => 'contacts?';
-
-  @override
-  String contactsDeleted(Object count) {
-    return 'Deleted $count contacts';
-  }
 
   @override
   String get removeFavorite => 'Remove Favorite';
@@ -1701,51 +2039,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get changeTag => 'Change Tag';
 
   @override
-  String get edit => 'Edit';
-
-  @override
-  String get importExportContacts => 'Import/Export Contacts';
-
-  @override
-  String get importContacts => 'Import Contacts';
-
-  @override
-  String get exportContacts => 'Export Contacts';
-
-  @override
-  String get csvFormat => 'CSV Format';
-
-  @override
-  String get jsonFormat => 'JSON Format';
-
-  @override
-  String fileSavedTo(Object path) {
-    return 'File saved to: $path';
-  }
-
-  @override
-  String get searchContacts => 'Search Contacts';
-
-  @override
-  String get changeLabel => 'Change Label';
-
-  @override
-  String get noContacts => 'No contacts yet';
-
-  @override
-  String get noMatchingContacts => 'No matching contacts';
-
-  @override
   String get addToFavoriteContacts => 'Add to Favorite Contacts';
-
-  @override
-  String get deleteContactConfirmation => 'Are you sure you want to delete contact';
-
-  @override
-  String get deleteSuccess => 'Delete successful';
-
-  @override
-  String get deleteFailed => 'Delete failed';
 
   @override
   String dataLoadingFailed(Object error) {
@@ -1754,9 +2048,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get overview => 'Overview';
-
-  @override
-  String get adPlaceholder => 'Ad Placeholder';
 
   @override
   String get statisticsGrid => 'Statistics Grid';
@@ -1775,9 +2066,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exportSuccess => 'Export successful';
-
-  @override
-  String get exportFailed => 'Export failed';
 
   @override
   String get blockedCalls => 'Blocked Calls';
@@ -1946,4 +2234,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get actionType => 'Action Type';
+
+  @override
+  String get blockedCallAction => 'Blocked Call Action';
+
+  @override
+  String get incomingCallInterceptAction => 'Incoming Call Intercept Action';
+
+  @override
+  String get chooseDefaultInterceptAction => 'Choose the default intercept action';
+
+  @override
+  String get endCallImmediately => 'End call immediately';
+
+  @override
+  String get answerThenHangup => 'Answer then hang up';
+
+  @override
+  String get silenceAndNoAnswer => 'Silence and no answer';
 }

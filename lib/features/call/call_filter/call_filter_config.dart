@@ -1,14 +1,12 @@
-// 移除该行 ↓
-
 /// 通话过滤配置类，用于控制过滤规则的应用逻辑
 class CallFilterConfig {
   bool rejectAllNumbers;
   bool allowAllAllowedNumbers;
   bool allowRegexAllowRules;
   bool allowBlockedNumbers;
-  bool allowAllWhitelistedNumbers;
+  bool allowAllAllowRules; // 替换allowAllWhitelistedNumbers
   bool allowRegexBlockRules;
-  bool allowAllBlacklistedNumbers;
+  bool allowAllBlockRules; // 替换allowAllBlacklistedNumbers
   bool allowSilenceRules;
   bool allowNoneRules;
 
@@ -17,9 +15,9 @@ class CallFilterConfig {
     this.allowAllAllowedNumbers = true,
     this.allowRegexAllowRules = true,
     this.allowBlockedNumbers = false,
-    this.allowAllWhitelistedNumbers = true,
+    this.allowAllAllowRules = true, // 替换allowAllWhitelistedNumbers
     this.allowRegexBlockRules = true,
-    this.allowAllBlacklistedNumbers = false,
+    this.allowAllBlockRules = false, // 替换allowAllBlacklistedNumbers
     this.allowSilenceRules = true,
     this.allowNoneRules = true,
   });
@@ -31,9 +29,9 @@ class CallFilterConfig {
       allowAllAllowedNumbers: map['allowAllAllowedNumbers'] ?? true,
       allowRegexAllowRules: map['allowRegexAllowRules'] ?? true,
       allowBlockedNumbers: map['allowBlockedNumbers'] ?? false,
-      allowAllWhitelistedNumbers: map['allowAllWhitelistedNumbers'] ?? true,
+      allowAllAllowRules: map['allowAllAllowRules'] ?? true,
       allowRegexBlockRules: map['allowRegexBlockRules'] ?? true,
-      allowAllBlacklistedNumbers: map['allowAllBlacklistedNumbers'] ?? false,
+      allowAllBlockRules: map['allowAllBlockRules'] ?? false,
       allowSilenceRules: map['allowSilenceRules'] ?? true,
       allowNoneRules: map['allowNoneRules'] ?? true,
     );
@@ -46,9 +44,9 @@ class CallFilterConfig {
       'allowAllAllowedNumbers': allowAllAllowedNumbers,
       'allowRegexAllowRules': allowRegexAllowRules,
       'allowBlockedNumbers': allowBlockedNumbers,
-      'allowAllWhitelistedNumbers': allowAllWhitelistedNumbers,
+      'allowAllAllowRules': allowAllAllowRules,
       'allowRegexBlockRules': allowRegexBlockRules,
-      'allowAllBlacklistedNumbers': allowAllBlacklistedNumbers,
+      'allowAllBlockRules': allowAllBlockRules,
       'allowSilenceRules': allowSilenceRules,
       'allowNoneRules': allowNoneRules,
     };
@@ -60,9 +58,9 @@ class CallFilterConfig {
     bool? allowAllAllowedNumbers,
     bool? allowRegexAllowRules,
     bool? allowBlockedNumbers,
-    bool? allowAllWhitelistedNumbers,
+    bool? allowAllAllowRules,
     bool? allowRegexBlockRules,
-    bool? allowAllBlacklistedNumbers,
+    bool? allowAllBlockRules,
     bool? allowSilenceRules,
     bool? allowNoneRules,
   }) {
@@ -72,11 +70,9 @@ class CallFilterConfig {
           allowAllAllowedNumbers ?? this.allowAllAllowedNumbers,
       allowRegexAllowRules: allowRegexAllowRules ?? this.allowRegexAllowRules,
       allowBlockedNumbers: allowBlockedNumbers ?? this.allowBlockedNumbers,
-      allowAllWhitelistedNumbers:
-          allowAllWhitelistedNumbers ?? this.allowAllWhitelistedNumbers,
+      allowAllAllowRules: allowAllAllowRules ?? this.allowAllAllowRules,
       allowRegexBlockRules: allowRegexBlockRules ?? this.allowRegexBlockRules,
-      allowAllBlacklistedNumbers:
-          allowAllBlacklistedNumbers ?? this.allowAllBlacklistedNumbers,
+      allowAllBlockRules: allowAllBlockRules ?? this.allowAllBlockRules,
       allowSilenceRules: allowSilenceRules ?? this.allowSilenceRules,
       allowNoneRules: allowNoneRules ?? this.allowNoneRules,
     );
