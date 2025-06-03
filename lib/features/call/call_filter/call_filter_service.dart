@@ -15,7 +15,7 @@ class CallFilterService implements CallFilterInterface {
   // 显式声明所有依赖项
   final RegexService _regexService;
   final AllowedBlockedService _allowedBlockedService;
-  final RuleManagementService _blacklistWhitelistService;
+  final RuleManagementService _ruleManagementService;
   final ConfigRepository _configRepository;
 
   CallFilterConfig callFilterConfig = CallFilterConfig();
@@ -28,16 +28,16 @@ class CallFilterService implements CallFilterInterface {
     required ConfigRepository configRepository,
   })  : _regexService = regexService,
         _allowedBlockedService = allowedBlockedService,
-        _blacklistWhitelistService = ruleManagementService,
+        _ruleManagementService = ruleManagementService,
         _configRepository = configRepository;
 
-  // 优化后的方法定义，支持规则优先级
+  ///// 优化后的方法定义，支持规则优先级 检查是否接受来电
   @override
   Future<bool> shouldAcceptCall(String phoneNumberStr) async {
     final phoneNumber = PhoneNumber(phoneNumberStr);
     String? interceptAction;
 
-    // 全局拒绝设置优先级最高
+    // 全局拒绝设置优先级最高如果配置为拒绝所有号码，直接返回false
     if (callFilterConfig.rejectAllNumbers) {
       _setCurrentInterceptAction(null); // 使用全局默认拦截动作
       return false;
@@ -153,10 +153,10 @@ class CallFilterService implements CallFilterInterface {
         .getMatchingRegexRulesByActionType(phoneNumberStr, null);
     matchingRules.addAll(matchingRegexRules);
     
-    // 从BlacklistWhitelistService获取所有匹配的规则
-    final blackWhiteRules =
-        await _blacklistWhitelistService.getRulesByActionType(number, null);
-    matchingRules.addAll(blackWhiteRules);
+    // 从RuleManagementService获取所有匹配的规则
+    final phoneRules =
+        await _ruleManagementService.getRulesByActionType(number, null);
+    matchingRules.addAll(phoneRules);
     
     return matchingRules;
   }

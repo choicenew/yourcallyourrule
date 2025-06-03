@@ -6,6 +6,7 @@ import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 过滤管理组件
 /// 用于集中管理各种通话过滤功能的开关设置
@@ -152,8 +153,8 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
       leading: const Icon(Icons.call_end, color: Colors.red),
       children: [
         SwitchListTile(
-          title: const Text('拒绝所有号码'),
-          subtitle: const Text('启用后将拒绝所有来电'),
+          title: Text(AppLocalizations.of(context)!.rejectAllCalls),
+          subtitle: Text(AppLocalizations.of(context)!.rejectAllCallsDescription),
           value: callFilterService.callFilterConfig.rejectAllNumbers,
           onChanged: (value) async {
             final newConfig = callFilterService.callFilterConfig;
@@ -163,8 +164,8 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
           },
         ),
         SwitchListTile(
-          title: const Text('允许所有已允许号码'),
-          subtitle: const Text('允许所有在允许列表中的号码'),
+          title: Text(AppLocalizations.of(context)!.allowAllowedNumbers),
+          subtitle: Text(AppLocalizations.of(context)!.allowAllowedNumbersDesc),
           value: callFilterService.callFilterConfig.allowAllAllowedNumbers,
           onChanged: (value) async {
             final newConfig = callFilterService.callFilterConfig;
@@ -174,19 +175,8 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
           },
         ),
         SwitchListTile(
-          title: const Text('允许被阻止号码'),
-          subtitle: const Text('允许所有在阻止列表中的号码'),
-          value: callFilterService.callFilterConfig.allowBlockedNumbers,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowBlockedNumbers = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: const Text('允许正则表达式允许规则'),
-          subtitle: const Text('使用正则表达式规则允许号码'),
+          title: Text(AppLocalizations.of(context)!.allowRegexAllowRules),
+          subtitle: Text(AppLocalizations.of(context)!.allowRegexAllowRulesDescription),
           value: callFilterService.callFilterConfig.allowRegexAllowRules,
           onChanged: (value) async {
             final newConfig = callFilterService.callFilterConfig;
@@ -196,19 +186,30 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
           },
         ),
         SwitchListTile(
-          title: const Text('允许所有白名单号码'),
-          subtitle: const Text('允许所有在白名单中的号码'),
-          value: callFilterService.callFilterConfig.allowAllWhitelistedNumbers,
+          title: Text(AppLocalizations.of(context)!.allowBlockedNumbers),
+          subtitle: Text(AppLocalizations.of(context)!.allowBlockedNumbersDesc),
+          value: callFilterService.callFilterConfig.allowBlockedNumbers,
           onChanged: (value) async {
             final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowAllWhitelistedNumbers = value;
+            newConfig.allowBlockedNumbers = value;
             await callFilterService.updateConfig(newConfig);
             setState(() {});
           },
         ),
         SwitchListTile(
-          title: const Text('允许正则表达式阻止规则'),
-          subtitle: const Text('使用正则表达式规则阻止号码'),
+          title: Text(AppLocalizations.of(context)!.allowAllAllowRules),
+          subtitle: Text(AppLocalizations.of(context)!.allowAllAllowRulesDesc),
+          value: callFilterService.callFilterConfig.allowAllAllowRules,
+          onChanged: (value) async {
+            final newConfig = callFilterService.callFilterConfig;
+            newConfig.allowAllAllowRules = value;
+            await callFilterService.updateConfig(newConfig);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: Text(AppLocalizations.of(context)!.allowRegexBlockRules),
+          subtitle: Text(AppLocalizations.of(context)!.allowRegexBlockRulesDescription),
           value: callFilterService.callFilterConfig.allowRegexBlockRules,
           onChanged: (value) async {
             final newConfig = callFilterService.callFilterConfig;
@@ -218,8 +219,19 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
           },
         ),
         SwitchListTile(
-          title: const Text('启用静音规则'),
-          subtitle: const Text('启用静音来电的规则'),
+          title: Text(AppLocalizations.of(context)!.allowAllBlockRules),
+          subtitle: Text(AppLocalizations.of(context)!.allowAllBlockRulesDesc),
+          value: callFilterService.callFilterConfig.allowAllBlockRules,
+          onChanged: (value) async {
+            final newConfig = callFilterService.callFilterConfig;
+            newConfig.allowAllBlockRules = value;
+            await callFilterService.updateConfig(newConfig);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: Text(AppLocalizations.of(context)!.enableMuteRules),
+          subtitle: Text(AppLocalizations.of(context)!.enableMuteRulesDesc),
           value: callFilterService.callFilterConfig.allowSilenceRules,
           onChanged: (value) async {
             final newConfig = callFilterService.callFilterConfig;
@@ -229,23 +241,12 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
           },
         ),
         SwitchListTile(
-          title: const Text('启用无动作规则'),
-          subtitle: const Text('启用不执行任何动作的规则'),
+          title: Text(AppLocalizations.of(context)!.enableNoneActionRules),
+          subtitle: Text(AppLocalizations.of(context)!.enableNoneActionRulesDesc),
           value: callFilterService.callFilterConfig.allowNoneRules,
           onChanged: (value) async {
             final newConfig = callFilterService.callFilterConfig;
             newConfig.allowNoneRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: const Text('允许所有黑名单号码'),
-          subtitle: const Text('允许所有在黑名单中的号码'),
-          value: callFilterService.callFilterConfig.allowAllBlacklistedNumbers,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowAllBlacklistedNumbers = value;
             await callFilterService.updateConfig(newConfig);
             setState(() {});
           },

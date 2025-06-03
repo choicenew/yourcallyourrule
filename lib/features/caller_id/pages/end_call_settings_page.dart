@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 
 
@@ -37,16 +38,16 @@ class EndCallSettingsPageState extends State<EndCallSettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Blocked Call Action'),
+        title: Text(AppLocalizations.of(context)!.blockedCallAction),
       ),
       body: ListView(
         children: [
           ListTile(
-            title: const Text(
-              'Incoming Call Intercept Action',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            title: Text(
+              AppLocalizations.of(context)!.incomingCallInterceptAction,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            subtitle: const Text('Choose the default intercept action'),
+            subtitle: Text(AppLocalizations.of(context)!.chooseDefaultInterceptAction),
             trailing: DropdownButton<String>(
               value: _selectedInterceptAction,
               onChanged: (String? newValue) {
@@ -55,18 +56,18 @@ class EndCallSettingsPageState extends State<EndCallSettingsPage> {
                 });
                 _saveInterceptAction(newValue);
               },
-              items: const <DropdownMenuItem<String>>[
+              items: <DropdownMenuItem<String>>[
                 DropdownMenuItem<String>(
                   value: 'endCall',
-                  child: Text('End call immediately'),
+                  child: Text(AppLocalizations.of(context)!.endCallImmediately),
                 ),
                 DropdownMenuItem<String>(
                   value: 'answerThenHangup',
-                  child: Text('Answer then hang up'),
+                  child: Text(AppLocalizations.of(context)!.answerThenHangup),
                 ),
                 DropdownMenuItem<String>(
                   value: 'silenceNoAnswer',
-                  child: Text('Silence and no answer'),
+                  child: Text(AppLocalizations.of(context)!.silenceAndNoAnswer),
                 ),
               ],
             ),
