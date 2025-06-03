@@ -2230,4 +2230,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get actionType => 'Action Type';
+
+  @override
+  String get blockedCallAction => 'Blocked Call Action';
+
+  @override
+  String get incomingCallInterceptAction => 'Incoming Call Intercept Action';
+
+  @override
+  String get chooseDefaultInterceptAction => 'Choose the default intercept action';
+
+  @override
+  String get endCallImmediately => 'End call immediately';
+
+  @override
+  String get answerThenHangup => 'Answer then hang up';
+
+  @override
+  String get silenceAndNoAnswer => 'Silence and no answer';
 }

@@ -1183,7 +1183,12 @@
   "pattern": "Pattern",
   "type": "Type",
   "actionType": "Action Type",
-
+  "blockedCallAction": "Blocked Call Action",
+  "incomingCallInterceptAction": "Incoming Call Intercept Action",
+  "chooseDefaultInterceptAction": "Choose the default intercept action",
+  "endCallImmediately": "End call immediately",
+  "answerThenHangup": "Answer then hang up",
+  "silenceAndNoAnswer": "Silence and no answer",
   "deleteFailed": "Delete failed",
   "deleteSuccess": "Delete success",
   "cancel": "Cancel",
@@ -1192,4 +1197,7 @@
   "noContactsYet": "No contacts yet",
   "noMatchingContactsFound": "No matching contacts found",
   "addContactButton": "Add Contact"
+
+
+  
 }

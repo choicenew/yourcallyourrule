@@ -167,7 +167,7 @@ List<SingleChildStatelessWidget> getAppProviders() {
    remoteNumberFilterService.initialize();
    
   // 初始化时间拦截服务
-  final timeInterceptorService = TimeInterceptorService(configRepository);
+  final timeInterceptorService = TimeInterceptorService(configRepository, callLogRepository);
   // 初始化服务
   timeInterceptorService.initialize();
 

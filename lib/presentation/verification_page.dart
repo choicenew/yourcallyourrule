@@ -8,6 +8,7 @@ import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
+import 'package:yourcallyourrule/core/repositories/call_log_repository.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
@@ -18,7 +19,7 @@ import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.d
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-
+import 'package:yourcallyourrule/core/repositories/call_log_repository.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
@@ -75,7 +76,9 @@ class VerificationPageState extends State<VerificationPage> {
         ruleManagementService: ruleManagementService,
         configRepository: configRepo);
 
-    _timeInterceptorService = TimeInterceptorService(configRepo);
+    // 获取CallLogRepository实例
+    final callLogRepository = context.read<CallLogRepository>();
+    _timeInterceptorService = TimeInterceptorService(configRepo, callLogRepository);
     _legacyPluginSubscription =
         context.read<CallerIdService>().legacyPluginDataStream.listen((data) {
       setState(() => _legacyPluginData = data);
