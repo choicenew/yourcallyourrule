@@ -4,7 +4,7 @@ class Environment {
 
   // MSAL Configuration (OneDrive)
   static const msalClientId = String.fromEnvironment('MSAL_CLIENT_ID', 
-      defaultValue: 'your-client-id');
+      defaultValue: 'b08dc19f-e5f4-4203-bf20-2fd4cf2a4206');
   
   static const msalAndroidRedirectUri = String.fromEnvironment('MSAL_ANDROID_REDIRECT_URI',
       defaultValue: "msauth://com.yours.yourcallyourrule/vTPqTKTC03RK8cQfxyK0j3CRkJs%3D");
