@@ -9,163 +9,6 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get contactsManagementTitle => 'Contacts Management';
-
-  @override
-  String selectedItemsCount(Object count) {
-    return '$count items selected';
-  }
-
-  @override
-  String get editContact => 'Edit Contact';
-
-  @override
-  String get deleteContactTitle => 'Delete Contact';
-
-  @override
-  String get deleteContactConfirmation => 'Are you sure you want to delete contact';
-
-  @override
-  String get deleteSuccess => 'Delete successful';
-
-  @override
-  String get deleteFailed => 'Delete failed';
-
-  @override
-  String get contactDeleted => 'Contact deleted';
-
-  @override
-  String get deleteError => 'Delete';
-
-  @override
-  String get selectLabelTitle => 'Select Label';
-
-  @override
-  String get cancelButton => 'Cancel';
-
-  @override
-  String get batchDeleteContactsTitle => 'Batch Delete Contacts';
-
-  @override
-  String get batchDeleteContactsConfirmation => 'Are you sure you want to delete the selected contacts?';
-
-  @override
-  String get addToFavorites => 'Add to Favorites';
-
-  @override
-  String get removeFromFavorites => 'Remove from Favorites';
-
-  @override
-  String get editLabelButton => 'Edit Label';
-
-  @override
-  String get deleteButton => 'Delete';
-
-  @override
-  String get searchContactsHint => 'Search contacts';
-
-  @override
-  String get frequentContacts => 'Frequent Contacts';
-
-  @override
-  String get manageButton => 'Manage';
-
-  @override
-  String get noContactsMessage => 'No contacts';
-
-  @override
-  String get noMatchingContactsMessage => 'No matching contacts';
-
-  @override
-  String get addContactButton => 'Add Contact';
-
-  @override
-  String get importExportContactsTitle => 'Import/Export Contacts';
-
-  @override
-  String get importContactsButton => 'Import Contacts';
-
-  @override
-  String get exportContactsButton => 'Export Contacts';
-
-  @override
-  String get refreshButton => 'Refresh';
-
-  @override
-  String get fileFormatCSV => 'CSV Format';
-
-  @override
-  String get fileFormatJSON => 'JSON Format';
-
-  @override
-  String fileSavedMessage(Object path) {
-    return 'File saved to: $path';
-  }
-
-  @override
-  String get unsupportedFileFormatMessage => 'Unsupported file format';
-
-  @override
-  String get changeLabelButton => 'Change Label';
-
-  @override
-  String get dashboardTitle => 'Data Analysis';
-
-  @override
-  String get monthlyTotal => 'Monthly Total';
-
-  @override
-  String get interceptedCommunications => 'Intercepted Communications';
-
-  @override
-  String get adPlaceholder => 'Ad Placeholder';
-
-  @override
-  String get adPlaceholderDesc => 'Google AdMob ads can be integrated here';
-
-  @override
-  String get interceptedCalls => 'Intercepted Calls';
-
-  @override
-  String get filteredSMS => 'Filtered SMS';
-
-  @override
-  String get allowRules => 'Allow Rules';
-
-  @override
-  String get blockRules => 'Block Rules';
-
-  @override
-  String get silenceRules => 'Silence Rules';
-
-  @override
-  String get noneActionRules => 'None Action Rules';
-
-  @override
-  String get thisWeek => 'This Week';
-
-  @override
-  String get total => 'Total';
-
-  @override
-  String get interceptTrend => 'Intercept Trend';
-
-  @override
-  String get weekPeriod => 'Week';
-
-  @override
-  String get monthPeriod => 'Month';
-
-  @override
-  String get yearPeriod => 'Year';
-
-  @override
-  String get exportStatisticsButton => 'Export Statistics Data';
-
-  @override
-  String get statisticsExportComingSoon => 'Statistics export feature coming soon';
-
-  @override
   String get filterControlPanelTitle => 'Filter Control Panel';
 
   @override
@@ -437,7 +280,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get operationFailed => 'Operation failed';
+  String operationFailed(Object error) {
+    return 'Operation failed: $error';
+  }
 
   @override
   String get importSuccess => 'Import successful';
@@ -675,6 +520,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get batchDeleteFailed => 'Batch delete failed';
 
   @override
+  String get addToFavorites => 'Add to Favorites';
+
+  @override
+  String get removeFromFavorites => 'Remove from Favorites';
+
+  @override
   String get editLabel => 'Edit Label';
 
   @override
@@ -738,6 +589,126 @@ class AppLocalizationsEn extends AppLocalizations {
   String contactsLoadingFailed(Object error) {
     return 'Failed to load contacts: $error';
   }
+
+  @override
+  String get contactsManagementPageTitle => 'Contacts Management Page';
+
+  @override
+  String loadContactsFailed(Object error) {
+    return 'Failed to load contacts: $error';
+  }
+
+  @override
+  String get manageFrequentContacts => 'Manage Frequent Contacts';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get addedToFavoriteContacts => 'Added to favorite contacts';
+
+  @override
+  String get removedFromFavoriteContacts => 'Removed from favorite contacts';
+
+  @override
+  String updateFavoriteStatusFailed(Object error) {
+    return 'Failed to update favorite status: $error';
+  }
+
+  @override
+  String get contactDeleted => 'Contact deleted';
+
+  @override
+  String get deleteFailed => 'Delete failed';
+
+  @override
+  String get searchForContacts => 'Search for contacts';
+
+  @override
+  String get importExportContactsTooltip => 'Import/Export Contacts';
+
+  @override
+  String get noContactsYet => 'No contacts yet';
+
+  @override
+  String get noMatchingContactsFound => 'No matching contacts found';
+
+  @override
+  String get addContactButton => 'Add Contact';
+
+  @override
+  String get dataAnalysis => 'Data Analysis';
+
+  @override
+  String get loadDataFailed => 'Failed to load data';
+
+  @override
+  String get week => 'Week';
+
+  @override
+  String get month => 'Month';
+
+  @override
+  String get year => 'Year';
+
+  @override
+  String get dataAnalysisDashboardPage => 'Data Analysis Dashboard Page';
+
+  @override
+  String get monthlyTotal => 'Monthly Total';
+
+  @override
+  String get blockedCommunications => 'Blocked Communications';
+
+  @override
+  String get googleAdDisplayPosition => 'Google Ad Display Position';
+
+  @override
+  String get googleAdMobIntegrationText => 'Google AdMob ads can be integrated here';
+
+  @override
+  String get ruleStatistics => 'Rule Statistics';
+
+  @override
+  String loadRulesFailed(Object error) {
+    return 'Failed to load rules: $error';
+  }
+
+  @override
+  String get blockCalls => 'Block Calls';
+
+  @override
+  String get filterSMS => 'Filter SMS';
+
+  @override
+  String get allowRules => 'Allow Rules';
+
+  @override
+  String get blockRules => 'Block Rules';
+
+  @override
+  String get silentRules => 'Silent Rules';
+
+  @override
+  String get noActionRules => 'No Action Rules';
+
+  @override
+  String get blockingTrend => 'Blocking Trend';
+
+  @override
+  String get dataExport => 'Data Export';
+
+  @override
+  String get statisticsExportFeatureComingSoon => 'Statistics export feature coming soon';
+
+  @override
+  String get exportStatisticsData => 'Export Statistics Data';
+
+  @override
+  String get thisWeek => 'This Week';
+
+  @override
+  String get total => 'Total';
 
   @override
   String get contactSubscriptionPageTitle => 'Contact Subscriptions';
@@ -917,6 +888,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get export => 'Export';
 
   @override
+  String get failure => 'Failure';
+
+  @override
   String get phoneRuleSubscription => 'Phone Rule Subscription';
 
   @override
@@ -960,6 +934,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get phoneNumberTypeUnknown => 'Unknown';
+
+  @override
+  String get contactsManagement => 'Contacts Management';
+
+  @override
+  String get manage => 'Manage Contacts';
 
   @override
   String get testButtonLabel => 'TEST';
@@ -1054,6 +1034,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get risk => 'Risk';
 
   @override
+  String get confirmDeleteContactName => 'Confirm delete?';
+
+  @override
+  String get updateFavoriteStatus => 'Update Favorite Status';
+
+  @override
+  String get bulkDelete => 'Batch Delete Contacts';
+
+  @override
+  String get tagsUpdated => 'Tags updated';
+
+  @override
+  String get updateTags => 'Update Tags';
+
+  @override
+  String get selectTags => 'Select Tags';
+
+  @override
+  String get bulkDeleteContacts => 'Batch Delete Contacts';
+
+  @override
+  String get confirmDeleteSelectedContacts => 'Are you sure to delete selected contacts?';
+
+  @override
   String get enhancedFilterSettings => 'Enhanced Filter Settings';
 
   @override
@@ -1106,11 +1110,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get periodYear => 'Year';
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Failed to load rules: $error';
-  }
 
   @override
   String get enhancedFilterSettingsTitle => 'Enhanced Filter Settings';
@@ -1700,9 +1699,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get monthlyTotalLabel => 'Monthly Total';
 
   @override
-  String get blockedCommunications => 'Blocked Communications';
-
-  @override
   String get blockedPhoneLabel => 'Blocked Calls';
 
   @override
@@ -1713,12 +1709,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get blacklistLabel => 'Blacklist';
-
-  @override
-  String get blockingTrend => 'Blocking Trend';
-
-  @override
-  String get exportStatisticsData => 'Export Statistics Data';
 
   @override
   String get chartTenDaysAgo => '10 days ago';
@@ -1964,10 +1954,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get contactsManagementPageTitle => 'Contacts Management Page';
+  String get failedToLoadContacts => 'Failed to load contacts';
 
   @override
-  String get failedToLoadContacts => 'Failed to load contacts';
+  String get editContact => 'Edit Contact';
 
   @override
   String get contactUpdateSuccess => 'Contact updated successfully';
@@ -2009,9 +1999,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get manageFavoriteContacts => 'Manage Favorite Contacts';
 
   @override
-  String get done => 'Done';
-
-  @override
   String get addedToFavorites => 'Added to favorite contacts';
 
   @override
@@ -2042,12 +2029,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addToFavoriteContacts => 'Add to Favorite Contacts';
 
   @override
+  String get deleteContactConfirmation => 'Are you sure you want to delete contact';
+
+  @override
+  String get deleteSuccess => 'Delete success';
+
+  @override
   String dataLoadingFailed(Object error) {
     return 'Failed to load data: $error';
   }
 
   @override
   String get overview => 'Overview';
+
+  @override
+  String get adPlaceholder => 'Ad Placeholder';
 
   @override
   String get statisticsGrid => 'Statistics Grid';
@@ -2234,22 +2230,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get actionType => 'Action Type';
-
-  @override
-  String get blockedCallAction => 'Blocked Call Action';
-
-  @override
-  String get incomingCallInterceptAction => 'Incoming Call Intercept Action';
-
-  @override
-  String get chooseDefaultInterceptAction => 'Choose the default intercept action';
-
-  @override
-  String get endCallImmediately => 'End call immediately';
-
-  @override
-  String get answerThenHangup => 'Answer then hang up';
-
-  @override
-  String get silenceAndNoAnswer => 'Silence and no answer';
 }
