@@ -4190,6 +4190,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Action Type'**
   String get actionType;
+
+  /// No description provided for @blockedCallAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Call Action'**
+  String get blockedCallAction;
+
+  /// No description provided for @incomingCallInterceptAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Incoming Call Intercept Action'**
+  String get incomingCallInterceptAction;
+
+  /// No description provided for @chooseDefaultInterceptAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the default intercept action'**
+  String get chooseDefaultInterceptAction;
+
+  /// No description provided for @endCallImmediately.
+  ///
+  /// In en, this message translates to:
+  /// **'End call immediately'**
+  String get endCallImmediately;
+
+  /// No description provided for @answerThenHangup.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer then hang up'**
+  String get answerThenHangup;
+
+  /// No description provided for @silenceAndNoAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence and no answer'**
+  String get silenceAndNoAnswer;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
