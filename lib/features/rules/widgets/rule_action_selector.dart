@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/caller_id/services/rule_action_mapper.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则动作选择器
 /// 用于在创建或编辑规则时选择规则动作和拦截动作
@@ -45,27 +46,27 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
       children: [
         // 规则动作选择
         ListTile(
-          title: const Text('规则动作'),
-          subtitle: const Text('选择当规则匹配时要执行的动作'),
+          title: Text(AppLocalizations.of(context)!.ruleAction),
+          subtitle: Text(AppLocalizations.of(context)!.selectActionWhenRuleMatches),
           trailing: DropdownButton<RuleActionType>(
             value: _currentAction.type,
             onChanged: _onActionTypeChanged,
-            items: const [
+            items: [
               DropdownMenuItem(
                 value: RuleActionType.allow,
-                child: Text('允许'),
+                child: Text(AppLocalizations.of(context)!.allow),
               ),
               DropdownMenuItem(
                 value: RuleActionType.block,
-                child: Text('阻止'),
+                child: Text(AppLocalizations.of(context)!.block),
               ),
               DropdownMenuItem(
                 value: RuleActionType.silence,
-                child: Text('静音'),
+                child: Text(AppLocalizations.of(context)!.silence),
               ),
               DropdownMenuItem(
                 value: RuleActionType.none,
-                child: Text('无动作'),
+                child: Text(AppLocalizations.of(context)!.noAction),
               ),
             ],
           ),
@@ -76,17 +77,17 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
           Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: ListTile(
-              title: const Text('拦截动作'),
-              subtitle: const Text('选择当阻止来电时要执行的具体动作'),
+              title: Text(AppLocalizations.of(context)!.interceptAction),
+              subtitle: Text(AppLocalizations.of(context)!.selectActionWhenBlockingCalls),
               trailing: DropdownButton<String>(
                 value: _selectedInterceptAction,
-                hint: const Text('使用全局设置'),
+                hint: Text(AppLocalizations.of(context)!.useGlobalSettings),
                 onChanged: _onInterceptActionChanged,
                 items: [
                   // 添加一个null选项，表示使用全局设置
-                  const DropdownMenuItem<String>(
+                  DropdownMenuItem<String>(
                     value: null,
-                    child: Text('使用全局设置'),
+                    child: Text(AppLocalizations.of(context)!.useGlobalSettings),
                   ),
                   // 添加所有可用的拦截动作
                   ...RuleActionMapper.getAvailableInterceptActions().map((action) {

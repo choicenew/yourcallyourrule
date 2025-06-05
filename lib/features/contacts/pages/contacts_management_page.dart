@@ -9,7 +9,7 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/features/search/dialogs/contact_edit_dialog.dart';
+import 'package:yourcallyourrule/features/common/widgets/dialogs/contact_edit_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通讯录管理页面

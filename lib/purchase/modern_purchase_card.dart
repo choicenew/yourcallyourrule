@@ -145,7 +145,7 @@ class ModernPurchaseCard extends StatelessWidget {
                 description,
                 style: TextStyle(
                   fontSize: isSmall ? 12.0 : 14.0,
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha:0.9),
                 ),
               ),
               if (labels != null && labels!.isNotEmpty) ...[
@@ -211,8 +211,8 @@ class ModernPurchaseCard extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
-      backgroundColor: Colors.white.withOpacity(0.2),
-      side: BorderSide(color: Colors.white.withOpacity(0.5), width: 1),
+      backgroundColor: Colors.white.withValues(alpha:0.2),
+      side: BorderSide(color: Colors.white.withValues(alpha:0.5), width: 1),
       padding: const EdgeInsets.symmetric(horizontal: 4.0),
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );

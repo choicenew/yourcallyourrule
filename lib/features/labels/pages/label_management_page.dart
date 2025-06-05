@@ -6,7 +6,8 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
-import 'package:yourcallyourrule/features/search/dialogs/label_edit_dialog.dart';
+import 'package:yourcallyourrule/features/common/widgets/dialogs/label_edit_dialog.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class LabelManagementPage extends StatefulWidget {
   const LabelManagementPage({super.key});
@@ -44,7 +45,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('加载标签失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.loadLabelsFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -60,16 +61,16 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('删除标签'),
-        content: Text('确定要删除标签 "$displayText" 吗？'),
+        title: Text(AppLocalizations.of(context)!.deleteLabel),
+        content: Text(AppLocalizations.of(context)!.confirmDeleteLabel(displayText)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('删除'),
+            child: Text(AppLocalizations.of(context)!.delete),
           ),
         ],
       ),
@@ -80,12 +81,12 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
       try {
         await labelService.removeLabel(label.id);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('标签已删除')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.labelDeleted)),
         );
         await _loadLabels();
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('删除标签失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.deleteLabelFailed(e.toString()))),
         );
       }
     }
@@ -99,7 +100,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('添加标签'),
+        title: Text(AppLocalizations.of(context)!.addLabel),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -112,18 +113,18 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
             const SizedBox(height: 16),
             TextField(
               controller: phoneController,
-              decoration: const InputDecoration(
-                labelText: '电话号码',
-                hintText: '输入电话号码',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.phoneNumber,
+                hintText: AppLocalizations.of(context)!.enterPhoneNumber,
               ),
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 16),
             TextField(
               controller: iconController,
-              decoration: const InputDecoration(
-                labelText: '图标代码（可选）',
-                hintText: '输入图标代码',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.iconCodeOptional,
+                hintText: AppLocalizations.of(context)!.enterIconCode,
               ),
             ),
           ],
@@ -131,7 +132,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () async {
@@ -140,7 +141,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
               
               if (selectedLabelId == null || phoneText.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('请选择标签并输入有效的电话号码')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.selectLabelAndEnterPhoneNumber)),
                 );
                 return;
               }
@@ -160,13 +161,13 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
                 await labelService.addLabel(label);
                 final labelText = await _predefinedLabelService.getLabelById(selectedLabelId!);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('标签 "${labelText?.text ?? selectedLabelId}" 添加成功')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.labelAddedSuccessfully(labelText?.text ?? selectedLabelId!))),
                 );
                 Navigator.of(context).pop();
                 await _loadLabels();
               } catch (e) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('添加标签失败: $e')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.addLabelFailed(e.toString()))),
                 );
               }
             },
@@ -191,12 +192,12 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
       final labelService = Provider.of<LabelService>(context, listen: false);
       final result = await labelService.importLabelsFromFile('labels.json');
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('成功导入 ${result.length} 个标签')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.labelsImportedSuccessfully(result.length))),
       );
       await _loadLabels();
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('导入标签失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.importLabelsFailed(e.toString()))),
       );
     }
   }
@@ -207,14 +208,14 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
       final success = await labelService.exportLabelsToFile('labels.json');
       if (success) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('标签导出成功')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.labelsExportedSuccessfully)),
         );
       } else {
-        throw Exception('导出失败');
+        throw Exception(AppLocalizations.of(context)!.exportFailed);
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('导出标签失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.exportLabelsFailed(e.toString()))),
       );
     }
   }
@@ -223,7 +224,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('标签管理'),
+        title: Text(AppLocalizations.of(context)!.labelManagement),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -232,17 +233,17 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
           IconButton(
             icon: const Icon(Icons.file_download),
             onPressed: _importLabels,
-            tooltip: '导入标签',
+            tooltip: AppLocalizations.of(context)!.importLabels,
           ),
           IconButton(
             icon: const Icon(Icons.file_upload),
             onPressed: _exportLabels,
-            tooltip: '导出标签',
+            tooltip: AppLocalizations.of(context)!.exportLabels,
           ),
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: _showAddLabelDialog,
-            tooltip: '添加标签',
+            tooltip: AppLocalizations.of(context)!.addLabel,
           ),
         ],
       ),
@@ -255,11 +256,11 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
                     children: [
                       const Icon(Icons.label_outline, size: 64, color: Colors.grey),
                       const SizedBox(height: 16),
-                      const Text('暂无标签', style: TextStyle(fontSize: 18, color: Colors.grey)),
+                      Text(AppLocalizations.of(context)!.noLabels, style: const TextStyle(fontSize: 18, color: Colors.grey)),
                       const SizedBox(height: 24),
                       ElevatedButton.icon(
                         icon: const Icon(Icons.add),
-                        label: const Text('添加标签'),
+                        label: Text(AppLocalizations.of(context)!.addLabel),
                         onPressed: _showAddLabelDialog,
                       ),
                     ],
@@ -282,24 +283,24 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: const Padding(
-        padding: EdgeInsets.all(16.0),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            Icon(Icons.info_outline, color: Colors.blue, size: 24),
-            SizedBox(width: 16),
+            const Icon(Icons.info_outline, color: Colors.blue, size: 24),
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '关于标签',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.aboutLabels,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    '标签可以帮助您更好地管理联系人，为电话号码添加自定义标签，方便识别来电和短信。',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    AppLocalizations.of(context)!.labelDescription,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -319,9 +320,9 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '标签分类',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.labelCategories,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             Wrap(
@@ -454,12 +455,12 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
                     IconButton(
                       icon: const Icon(Icons.edit, color: Colors.blue),
                       onPressed: () => _showEditLabelDialog(label),
-                      tooltip: '编辑',
+                      tooltip: AppLocalizations.of(context)!.edit,
                     ),
                     IconButton(
                       icon: const Icon(Icons.delete, color: Colors.red),
                       onPressed: () => _deleteLabel(label),
-                      tooltip: '删除',
+                      tooltip: AppLocalizations.of(context)!.delete,
                     ),
                   ],
                 ),

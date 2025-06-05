@@ -3,7 +3,9 @@ import 'package:provider/single_child_widget.dart';
 
 // 广告和购买相关
 import 'package:yourcallyourrule/ads/ad_state.dart';
+import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/call/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_phone_service.dart';
 import 'package:yourcallyourrule/purchase/purchase_provider.dart';
@@ -95,6 +97,7 @@ List<SingleChildStatelessWidget> getAppProviders() {
 
   // 核心服务初始化
   final callLogService = CallLogService(callLogRepository);
+  final callLogRecorder = CallLogRecorder(callLogService);
   final ruleManagementService = RuleManagementService(ruleRepository);
   final localeService = LocaleService(configRepository);
   // 初始化插件WebView服务
@@ -222,6 +225,12 @@ List<SingleChildStatelessWidget> getAppProviders() {
     ChangeNotifierProvider(
         create: (_) => PurchaseState(configRepository: configRepository)),
     ChangeNotifierProvider(create: (_) => AdState()),
+    // 添加广告控制服务
+    ChangeNotifierProvider(
+        create: (context) => AdControlService(
+            Provider.of<PurchaseState>(context, listen: false),
+            Provider.of<AdState>(context, listen: false))),
+    Provider<CallLogRecorder>.value(value: callLogRecorder),
   ];
   
  
@@ -265,6 +274,7 @@ List<Provider> getServiceProviders() {
   
   // 核心服务初始化
   final callLogService = CallLogService(callLogRepository);
+  final callLogRecorder = CallLogRecorder(callLogService);
   final ruleManagementService = RuleManagementService(ruleRepository);
   final localeService = LocaleService(configRepository);
   final pluginWebViewService = PluginWebViewService();
@@ -343,6 +353,11 @@ List<Provider> getServiceProviders() {
   // 初始化允许/阻止规则服务
   final allowedBlockedService = AllowedBlockedService(ruleRepository);
   
+  // 初始化广告控制服务
+  final purchaseState = PurchaseState(configRepository: configRepository);
+  final adState = AdState();
+  final adControlService = AdControlService(purchaseState, adState);
+  
   // 注意：SearchService 需要 BuildContext，所以我们在使用时创建实例
   // 这里只提供必要的服务，让使用方能够创建 SearchService
   
@@ -351,6 +366,7 @@ List<Provider> getServiceProviders() {
     Provider.value(value: callerIdService),
     Provider.value(value: labelService),
     Provider.value(value: remoteNumberService),
+    Provider.value(value: callLogRecorder),
     Provider.value(value: remoteNumberFilterService),
     Provider.value(value: labelToRemoteSyncService),
     Provider.value(value: callLogService),
@@ -364,6 +380,7 @@ List<Provider> getServiceProviders() {
     Provider.value(value: localCountFilterService),
     Provider.value(value: simSlotRuleService),
     Provider.value(value: allowedBlockedService),
+    Provider.value(value: adControlService),
   ];
 
 

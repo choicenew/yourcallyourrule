@@ -146,6 +146,7 @@ dependencies:
   dio: ^5.8.0+1
   collection: ^1.19.1
   world_flags: ^2.3.0
+  flutter_native_splash: ^2.4.6
 
 
 

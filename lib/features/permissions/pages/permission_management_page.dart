@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/services/permission_service.dart';
 
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+
 /// 权限管理页面
 class PermissionManagementPage extends StatefulWidget {
   const PermissionManagementPage({super.key});
@@ -13,50 +15,56 @@ class PermissionManagementPage extends StatefulWidget {
 class _PermissionManagementPageState extends State<PermissionManagementPage> {
   bool _isLoading = true;
   Map<String, bool> _permissionStatus = {};
-  final List<PermissionItem> _permissionItems = [
-    PermissionItem(
-      name: 'call',
-      title: '电话权限',
-      description: '用于识别和拦截来电',
-      icon: Icons.phone,
-      color: Colors.green,
-    ),
-    PermissionItem(
-      name: 'sms',
-      title: '短信权限',
-      description: '用于过滤垃圾短信',
-      icon: Icons.sms,
-      color: Colors.blue,
-    ),
-    PermissionItem(
-      name: 'contacts',
-      title: '通讯录权限',
-      description: '用于识别联系人来电',
-      icon: Icons.contacts,
-      color: Colors.orange,
-    ),
-    PermissionItem(
-      name: 'storage',
-      title: '存储权限',
-      description: '用于保存设置和规则',
-      icon: Icons.storage,
-      color: Colors.purple,
-    ),
-    PermissionItem(
-      name: 'overlay',
-      title: '悬浮窗权限',
-      description: '用于显示来电悬浮窗',
-      icon: Icons.picture_in_picture,
-      color: Colors.teal,
-    ),
-    PermissionItem(
-      name: 'notification',
-      title: '通知权限',
-      description: '用于显示来电和短信通知',
-      icon: Icons.notifications,
-      color: Colors.red,
-    ),
-  ];
+  late List<PermissionItem> _permissionItems;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _permissionItems = [
+      PermissionItem(
+        name: 'call',
+        title: AppLocalizations.of(context)!.phonePermission,
+        description: AppLocalizations.of(context)!.phonePermissionDescription,
+        icon: Icons.phone,
+        color: Colors.green,
+      ),
+      PermissionItem(
+        name: 'sms',
+        title: AppLocalizations.of(context)!.smsPermission,
+        description: AppLocalizations.of(context)!.smsPermissionDescription,
+        icon: Icons.sms,
+        color: Colors.blue,
+      ),
+      PermissionItem(
+        name: 'contacts',
+        title: AppLocalizations.of(context)!.contactsPermission,
+        description: AppLocalizations.of(context)!.contactsPermissionDescription,
+        icon: Icons.contacts,
+        color: Colors.orange,
+      ),
+      PermissionItem(
+        name: 'storage',
+        title: AppLocalizations.of(context)!.storagePermission,
+        description: AppLocalizations.of(context)!.storagePermissionDescription,
+        icon: Icons.storage,
+        color: Colors.purple,
+      ),
+      PermissionItem(
+        name: 'overlay',
+        title: AppLocalizations.of(context)!.overlayPermission,
+        description: AppLocalizations.of(context)!.overlayPermissionDescription,
+        icon: Icons.picture_in_picture,
+        color: Colors.teal,
+      ),
+      PermissionItem(
+        name: 'notification',
+        title: AppLocalizations.of(context)!.notificationPermission,
+        description: AppLocalizations.of(context)!.notificationPermissionDescription,
+        icon: Icons.notifications,
+        color: Colors.red,
+      ),
+    ];
+  }
 
   @override
   void initState() {
@@ -84,7 +92,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('检查权限失败: $e'),
+          content: Text(AppLocalizations.of(context)!.checkPermissionFailed(e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -104,12 +112,12 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(granted ? '权限已授予' : '权限请求被拒绝'),
+        content: Text(granted ? AppLocalizations.of(context)!.permissionGranted : AppLocalizations.of(context)!.permissionDenied),
         backgroundColor: granted ? Colors.green : Colors.orange,
       ));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('请求权限失败: $e'),
+        content: Text(AppLocalizations.of(context)!.requestPermissionFailed(e.toString())),
         backgroundColor: Colors.red,
       ));
     }
@@ -127,12 +135,12 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
 
       final allGranted = results.values.every((granted) => granted);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(allGranted ? '所有权限已授予' : '部分权限请求被拒绝'),
+        content: Text(allGranted ? AppLocalizations.of(context)!.allPermissionsGranted : AppLocalizations.of(context)!.somePermissionsDenied),
         backgroundColor: allGranted ? Colors.green : Colors.orange,
       ));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('请求权限失败: $e'),
+        content: Text(AppLocalizations.of(context)!.requestPermissionFailed(e.toString())),
         backgroundColor: Colors.red,
       ));
     }
@@ -144,7 +152,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
       await permissionService.openAppSettings();
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('打开应用设置失败: $e'),
+        content: Text(AppLocalizations.of(context)!.openAppSettingsFailed(e.toString())),
         backgroundColor: Colors.red,
       ));
     }
@@ -154,19 +162,19 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('权限管理'),
+        title: Text(AppLocalizations.of(context)!.permissionManagement),
         backgroundColor: const Color(0xFFF5A623),
         elevation: 0,
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _checkPermissions,
-            tooltip: '刷新权限状态',
+            tooltip: AppLocalizations.of(context)!.refreshPermissionStatus,
           ),
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: _openAppSettings,
-            tooltip: '打开应用设置',
+            tooltip: AppLocalizations.of(context)!.openAppSettings,
           ),
         ],
       ),
@@ -192,7 +200,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
-          child: const Text('请求所有权限', style: TextStyle(fontSize: 16)),
+          child: Text(AppLocalizations.of(context)!.requestAllPermissions, style: const TextStyle(fontSize: 16)),
         ),
       ),
     );
@@ -224,7 +232,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF5A623).withOpacity(0.2),
+                    color: const Color(0xFFF5A623).withValues(alpha:0.2),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
@@ -233,18 +241,18 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
                   ),
                 ),
                 const SizedBox(width: 16),
-                const Expanded(
+                Expanded(
                   child: Text(
-                    '权限说明',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.permissionManagement,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 16),
-            const Text(
-              '为了提供完整的来电和短信管理服务，应用需要以下权限。您可以单独授予或拒绝每个权限，但某些功能可能会受到限制。',
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+            Text(
+              AppLocalizations.of(context)!.onboardingPermissionsDescription,
+              style: const TextStyle(fontSize: 14, color: Colors.grey),
             ),
           ],
         ),
@@ -267,7 +275,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
               width: 48,
               height: 48,
               decoration: BoxDecoration(
-                color: item.color.withOpacity(0.1),
+                color: item.color.withValues(alpha:0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(item.icon, color: item.color),
@@ -292,11 +300,11 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: isGranted ? Colors.green.withOpacity(0.1) : Colors.red.withOpacity(0.1),
+                color: isGranted ? Colors.green.withValues(alpha:0.1) : Colors.red.withValues(alpha:0.1),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
-                isGranted ? '已授权' : '未授权',
+                isGranted ? AppLocalizations.of(context)!.granted : AppLocalizations.of(context)!.notGranted,
                 style: TextStyle(
                   fontSize: 12,
                   color: isGranted ? Colors.green : Colors.red,
@@ -311,7 +319,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
                 color: isGranted ? Colors.green : const Color(0xFFF5A623),
               ),
               onPressed: () => _requestPermission(item.name),
-              tooltip: isGranted ? '已授权' : '请求权限',
+              tooltip: isGranted ? AppLocalizations.of(context)!.granted : AppLocalizations.of(context)!.requestPermission,
             ),
           ],
         ),

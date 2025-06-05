@@ -5,9 +5,10 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
-
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 /// 允许/阻止规则编辑对话框
 /// 用于编辑允许/阻止规则
+/// Used to edit allowed/blocked rules
 class AllowedBlockedRuleEditDialog extends StatefulWidget {
   final AllowedBlockedRule rule;
   final Function? onRuleUpdated;
@@ -22,8 +23,8 @@ class AllowedBlockedRuleEditDialog extends StatefulWidget {
 
   @override
   State<AllowedBlockedRuleEditDialog> createState() => _AllowedBlockedRuleEditDialogState();
-
   /// 显示允许/阻止规则编辑对话框的静态方法
+  /// Static method to show the Allowed/Blocked Rule Edit Dialog
   static void show(BuildContext context, AllowedBlockedRule rule, {Function? onRuleUpdated, Color themeColor = const Color(0xFFF5A623)}) {
     showDialog(
       context: context,
@@ -63,8 +64,8 @@ class _AllowedBlockedRuleEditDialogState extends State<AllowedBlockedRuleEditDia
     // 验证输入
     if (_nameController.text.isEmpty || _phoneController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('规则名称和电话号码不能为空'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.ruleNameAndPhoneNumberCannotBeEmpty),
           backgroundColor: Colors.red,
         ),
       );
@@ -100,8 +101,8 @@ class _AllowedBlockedRuleEditDialogState extends State<AllowedBlockedRuleEditDia
 
         // 显示成功提示
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('规则更新成功'),
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.ruleUpdateSuccess),
             backgroundColor: Colors.green,
           ),
         );
@@ -111,7 +112,7 @@ class _AllowedBlockedRuleEditDialogState extends State<AllowedBlockedRuleEditDia
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('更新规则失败: $e'),
+            content: Text(AppLocalizations.of(context)!.updateRuleFailed(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -128,23 +129,23 @@ class _AllowedBlockedRuleEditDialogState extends State<AllowedBlockedRuleEditDia
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('编辑允许/阻止规则'),
+      title: Text(AppLocalizations.of(context)!.allowedBlockedRuleEditDialogTitle),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           TextField(
             controller: _nameController,
-            decoration: const InputDecoration(
-              labelText: '规则名称',
-              hintText: '例如：家人、朋友等',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.ruleName,
+              hintText: AppLocalizations.of(context)!.exampleFamilyFriends,
             ),
           ),
           const SizedBox(height: 16),
           TextField(
             controller: _phoneController,
-            decoration: const InputDecoration(
-              labelText: '电话号码',
-              hintText: '例如：10086、12345等',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.phoneNumber,
+              hintText: AppLocalizations.of(context)!.examplePhoneNumber,
             ),
             keyboardType: TextInputType.phone,
           ),
@@ -172,13 +173,13 @@ class _AllowedBlockedRuleEditDialogState extends State<AllowedBlockedRuleEditDia
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('取消'),
+          child: Text(AppLocalizations.of(context)!.cancel),
         ),
         _isProcessing
             ? const CircularProgressIndicator()
             : TextButton(
                 onPressed: _saveRule,
-                child: const Text('保存'),
+                child: Text(AppLocalizations.of(context)!.save),
               ),
       ],
     );

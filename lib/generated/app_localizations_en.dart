@@ -57,19 +57,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableLocalCountFilter => 'Enable Local Count Filter';
 
   @override
-  String get enableLocalCountFilterDescription => 'Automatically filter spam calls based on local marking count';
+  String get enableLocalCountFilterDescription => 'Automatically filter spam calls based on call marking count';
 
   @override
   String get rejectExceededNumbers => 'Reject Exceeded Numbers';
 
   @override
-  String get rejectExceededNumbersDescription => 'Automatically reject all numbers exceeding the count threshold';
+  String get rejectExceededNumbersDescription => 'Automatically reject numbers exceeding the count threshold';
 
   @override
   String get allowNonExceededNumbers => 'Allow Non-Exceeded Numbers';
 
   @override
-  String get allowNonExceededNumbersDescription => 'Automatically allow all numbers not exceeding the count threshold';
+  String get allowNonExceededNumbersDescription => 'Automatically allow numbers not exceeding the count threshold';
 
   @override
   String get remoteNumberFiltering => 'Remote Number Filtering';
@@ -78,10 +78,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableRemoteNumberFilter => 'Enable Remote Number Filter';
 
   @override
-  String get enableRemoteNumberFilterDescription => 'Automatically filter spam calls based on remote database information';
+  String get enableRemoteNumberFilterDescription => 'Use remote database to filter numbers';
 
   @override
-  String get prioritizeRemoteAction => 'Prioritize Remote Action';
+  String get prioritizeRemoteAction => 'Prioritize Remote Action Settings';
 
   @override
   String get prioritizeRemoteActionDescription => 'Prioritize action settings from the remote database';
@@ -334,7 +334,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addedToBlacklist => 'Added to Blacklist';
 
   @override
-  String get addRuleFailed => 'Failed to add rule';
+  String addRuleFailed(Object error) {
+    return 'Failed to add rule: $error';
+  }
 
   @override
   String get enterBothPhoneNumberAndRegexPatternMessage => 'Please enter both phone number and regex pattern';
@@ -637,6 +639,94 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addContactButton => 'Add Contact';
 
   @override
+  String loadLabelsFailed(Object error) {
+    return 'Failed to load labels: $error';
+  }
+
+  @override
+  String get deleteLabel => 'Delete Label';
+
+  @override
+  String confirmDeleteLabel(Object name) {
+    return 'Are you sure you want to delete label \"$name\"';
+  }
+
+  @override
+  String get labelDeleted => 'Label deleted';
+
+  @override
+  String deleteLabelFailed(Object error) {
+    return 'Failed to delete label: $error';
+  }
+
+  @override
+  String get addLabel => 'Add Label';
+
+  @override
+  String get phoneNumber => 'Phone Number';
+
+  @override
+  String get enterPhoneNumber => 'Enter phone number';
+
+  @override
+  String get iconCodeOptional => 'Icon Code (Optional)';
+
+  @override
+  String get enterIconCode => 'Enter icon code';
+
+  @override
+  String get selectLabelAndEnterPhoneNumber => 'Please select a label and enter a valid phone number';
+
+  @override
+  String labelAddedSuccessfully(Object name) {
+    return 'Label \"$name\" added successfully';
+  }
+
+  @override
+  String addLabelFailed(Object error) {
+    return 'Failed to add label: $error';
+  }
+
+  @override
+  String labelsImportedSuccessfully(Object count) {
+    return 'Successfully imported $count labels';
+  }
+
+  @override
+  String importLabelsFailed(Object error) {
+    return 'Failed to import labels: $error';
+  }
+
+  @override
+  String get labelsExportedSuccessfully => 'Labels exported successfully';
+
+  @override
+  String exportLabelsFailed(Object error) {
+    return 'Failed to export labels: $error';
+  }
+
+  @override
+  String get labelManagement => 'Label Management';
+
+  @override
+  String get importLabels => 'Import Labels';
+
+  @override
+  String get exportLabels => 'Export Labels';
+
+  @override
+  String get noLabels => 'No labels yet';
+
+  @override
+  String get aboutLabels => 'About Labels';
+
+  @override
+  String get labelDescription => 'Labels help you better manage contacts, add custom labels to phone numbers for easy identification of calls and messages.';
+
+  @override
+  String get labelCategories => 'Label Categories';
+
+  @override
   String get dataAnalysis => 'Data Analysis';
 
   @override
@@ -790,7 +880,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableTimeInterceptor => 'Enable Time Interceptor';
 
   @override
-  String get timeInterceptorDescription => 'Automatically intercept potential spam calls based on call frequency';
+  String get timeInterceptorDescription => 'Intercept frequent calls within a short period';
 
   @override
   String get timeInterceptorTitle => 'Enable Call Frequency Interception';
@@ -898,6 +988,186 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get phoneSubscriptionRulesDescription => 'Subscribe to phone rule lists via URL to automatically update whitelist and blacklist rules. Supports JSON format rule files.';
+
+  @override
+  String get ruleAction => 'Rule Action';
+
+  @override
+  String get selectActionToPerform => 'Select the action to perform when the rule matches';
+
+  @override
+  String get allow => 'Allow';
+
+  @override
+  String get block => 'Block';
+
+  @override
+  String get silence => 'Silence';
+
+  @override
+  String get noAction => 'No Action';
+
+  @override
+  String get interceptAction => 'Intercept Action';
+
+  @override
+  String get selectSpecificActionForBlockedCalls => 'Select the specific action to perform when blocking calls';
+
+  @override
+  String get useGlobalSettings => 'Use Global Settings';
+
+  @override
+  String get allowedBlockedRuleEditDialogTitle => 'Edit Allow/Block Rule';
+
+  @override
+  String get ruleNameAndPhoneNumberCannotBeEmpty => 'Rule name and phone number cannot be empty';
+
+  @override
+  String get ruleUpdateSuccess => 'Rule updated successfully';
+
+  @override
+  String updateRuleFailed(Object error) {
+    return 'Failed to update rule: $error';
+  }
+
+  @override
+  String get ruleName => 'Rule Name';
+
+  @override
+  String get exampleFamilyFriends => 'e.g. Family, Friends, etc.';
+
+  @override
+  String get examplePhoneNumber => 'e.g. 10086, 12345, etc.';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get endCallImmediately => 'End call immediately';
+
+  @override
+  String get answerThenHangUp => 'Answer Then Hang Up';
+
+  @override
+  String get silenceNoAnswer => 'Silence No Answer';
+
+  @override
+  String get unknownAction => 'Unknown Action';
+
+  @override
+  String get contactEditDialog => 'Contact Edit Dialog';
+
+  @override
+  String get addOrEditContactInfo => 'Used to add or edit contact information';
+
+  @override
+  String get showContactEditDialogStaticMethod => 'Static method to display contact edit dialog';
+
+  @override
+  String get nameAndPhoneNumberCannotBeEmpty => 'Name and phone number cannot be empty';
+
+  @override
+  String updateContactFailed(Object error) {
+    return 'Failed to update contact: $error';
+  }
+
+  @override
+  String addContactFailed(Object error) {
+    return 'Failed to add contact: $error';
+  }
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get enterContactName => 'Please enter contact name';
+
+  @override
+  String get enterPhoneNumberMultiple => 'Please enter phone number, multiple numbers separated by commas';
+
+  @override
+  String get enterEmailOptional => 'Please enter email (optional)';
+
+  @override
+  String get editContact => 'Edit Contact';
+
+  @override
+  String get contactUpdateSuccess => 'Contact updated successfully';
+
+  @override
+  String get contactAddSuccess => 'Contact added successfully';
+
+  @override
+  String get countrySelectionDialog => 'Country Selection Dialog';
+
+  @override
+  String get enterSearchContent => 'Please enter search content';
+
+  @override
+  String get noMatchingNumbersFound => 'No matching numbers found';
+
+  @override
+  String searchError(Object error) {
+    return 'Search error: $error';
+  }
+
+  @override
+  String get contactNotFound => 'Contact not found';
+
+  @override
+  String get labelNotFound => 'Label not found';
+
+  @override
+  String ruleNotFound(Object error) {
+    return 'Rule not found: $error';
+  }
+
+  @override
+  String get numberSearch => 'Number Search';
+
+  @override
+  String get enterPhoneNumberToStartSearch => 'Enter phone number to start search';
+
+  @override
+  String get countrySelectionDialogDescription => 'Used to select a country to query caller ID information';
+
+  @override
+  String get staticMethodToDisplayCountrySelectionDialog => 'Static method to display country selection dialog';
+
+  @override
+  String get selectCountry => 'Select Country';
+
+  @override
+  String get phoneRuleEditDialog => 'Phone Rule Edit Dialog';
+
+  @override
+  String get editPhoneRules => 'Used to edit phone rules';
+
+  @override
+  String get staticMethodToDisplayDialog => 'Static method to display dialog';
+
+  @override
+  String get editPhoneRule => 'Edit Phone Rule';
+
+  @override
+  String get editPhoneRuleTitle => 'Edit Phone Rule';
+
+  @override
+  String get pleaseSelectLabelAndEnterValidPhone => 'Please select a label and enter a valid phone number';
+
+  @override
+  String get labelUpdateSuccess => 'Label \"\$labelText\" updated successfully';
+
+  @override
+  String labelUpdateFailed(Object error) {
+    return 'Failed to update label: $error';
+  }
+
+  @override
+  String get selectActionWhenRuleMatches => 'Select action when rule matches';
+
+  @override
+  String get selectActionWhenBlockingCalls => 'Select action when blocking calls';
 
   @override
   String get phoneNumberTypeFixedLine => 'Fixed line';
@@ -1145,6 +1415,102 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enhancedFilterSystemDescription => 'The enhanced filter system supports both global rules and per-SIM card filtering configurations.';
 
   @override
+  String get statistics => 'Statistics';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get callBlocking => 'Call Blocking';
+
+  @override
+  String get blockedSpamCalls => 'Blocked Spam Calls';
+
+  @override
+  String get filterManagement => 'Filter Management';
+
+  @override
+  String get simCardFilterRules => 'SIM Card Filter Rules';
+
+  @override
+  String get simCardFilterRulesDescription => 'Set different filtering rules based on SIM card slots';
+
+  @override
+  String get localCountFilter => 'Local Count Filter';
+
+  @override
+  String get localCountFilterDescription => 'Intercept frequent calls based on local number counts';
+
+  @override
+  String get remoteNumberFilterDescription => 'Intercept harassing calls based on remote database information';
+
+  @override
+  String get callFilterRules => 'Call Filter Rules';
+
+  @override
+  String get callFilterRulesDescription => 'Set basic rules for call filtering';
+
+  @override
+  String get ruleManagement => 'Rule Management';
+
+  @override
+  String get createdRules => 'Created Rules';
+
+  @override
+  String get callStatistics => 'Call Statistics';
+
+  @override
+  String get monthlyCallCount => 'Monthly Calls';
+
+  @override
+  String get dataSourceReminder => 'Data Source Reminder';
+
+  @override
+  String get selectTrustedDataSource => 'Please select trusted data sources';
+
+  @override
+  String get important => 'Important';
+
+  @override
+  String get callerIdPreview => 'Caller ID Preview';
+
+  @override
+  String get ourOtherApps => 'Our Other Apps';
+
+  @override
+  String get ruleVerification => 'Rule Verification';
+
+  @override
+  String get enterPhoneNumberToVerify => 'Enter phone number to verify';
+
+  @override
+  String get verify => 'Verify';
+
+  @override
+  String get featureCenter => 'Feature Center';
+
+  @override
+  String get pluginManagement => 'Plugin Management';
+
+  @override
+  String get allowBlock => 'Allow/Block';
+
+  @override
+  String get blackWhiteList => 'Black/White List';
+
+  @override
+  String get regexRules => 'Regex Rules';
+
+  @override
+  String get phoneSubscription => 'Phone Subscription';
+
+  @override
+  String get smsSubscription => 'SMS Subscription';
+
+  @override
+  String get smsManagement => 'SMS Management';
+
+  @override
   String get systemFeatures => 'System Features:';
 
   @override
@@ -1174,10 +1540,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ruleAddedSuccess => 'Rule added successfully';
 
   @override
-  String get phoneNumberHint => 'Enter phone number';
+  String get phoneNumberHint => 'e.g., 10086, 12345, etc.';
 
   @override
-  String get ruleNameHint => 'Rule name (optional)';
+  String get ruleNameHint => 'e.g., Family, Friends, etc.';
 
   @override
   String get addRuleButton => 'Add Rule';
@@ -1466,9 +1832,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterName => 'Enter contact name';
 
   @override
-  String get save => 'Save';
-
-  @override
   String dataLoadFailure(Object error) {
     return 'Data load failed: $error';
   }
@@ -1656,14 +2019,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String labelUpdateFailed(Object error) {
-    return 'Failed to update label: $error';
-  }
-
-  @override
-  String get addLabel => 'Add Label';
-
-  @override
   String get callback => 'Call Back';
 
   @override
@@ -1751,15 +2106,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String addLabelFailed(Object error) {
-    return 'Failed to add labels: $error';
-  }
-
-  @override
   String get selectedLabel => 'Selected:';
-
-  @override
-  String get noLabels => 'No Labels';
 
   @override
   String get addLabelButton => 'Add Label';
@@ -1820,7 +2167,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Delete failed: $error';
+    return 'Failed to delete rule: $error';
   }
 
   @override
@@ -1957,25 +2304,33 @@ class AppLocalizationsEn extends AppLocalizations {
   String get failedToLoadContacts => 'Failed to load contacts';
 
   @override
-  String get editContact => 'Edit Contact';
+  String get callerIdDialogTitle => 'Caller ID Information';
 
   @override
-  String get contactUpdateSuccess => 'Contact updated successfully';
+  String get staticMethodShowCallerIdDialog => 'Static method to show the Caller ID Information Dialog';
 
   @override
-  String get contactAddSuccess => 'Contact added successfully';
+  String get fetchingCallerIdInfo => 'Fetching caller ID information...';
 
   @override
-  String get name => 'Name';
+  String failedToGetCallerIdInfo(Object error) {
+    return 'Failed to get caller ID information: $error';
+  }
 
   @override
-  String get enterContactName => 'Please enter contact name';
+  String get number => 'Number';
 
   @override
-  String get phoneNumber => 'Phone Number';
+  String get country => 'Country';
 
   @override
-  String get enterPhoneNumber => 'Please enter phone number';
+  String get region => 'Region';
+
+  @override
+  String get carrier => 'Carrier';
+
+  @override
+  String get labels => 'Labels';
 
   @override
   String get emailOptional => 'Email (Optional)';
@@ -2148,9 +2503,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reset => 'Reset';
 
   @override
-  String get filterManagement => 'Filter Management';
-
-  @override
   String get addFilter => 'Add Filter';
 
   @override
@@ -2185,12 +2537,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get action => 'Action';
-
-  @override
-  String get block => 'Block';
-
-  @override
-  String get allow => 'Allow';
 
   @override
   String get mute => 'Mute';
@@ -2241,11 +2587,546 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chooseDefaultInterceptAction => 'Choose the default intercept action';
 
   @override
-  String get endCallImmediately => 'End call immediately';
-
-  @override
   String get answerThenHangup => 'Answer then hang up';
 
   @override
   String get silenceAndNoAnswer => 'Silence and no answer';
+
+  @override
+  String get languageSettings => 'Language Settings';
+
+  @override
+  String get currentLanguage => 'Current Language';
+
+  @override
+  String get selectLanguage => 'Select Language';
+
+  @override
+  String get localCountFilterSettings => 'Local Count Filter Settings';
+
+  @override
+  String get countThresholdLabel => 'Count Threshold';
+
+  @override
+  String get countThresholdDescription => 'Set the minimum count threshold required to trigger filtering actions';
+
+  @override
+  String get logAllLocalQueries => 'Log All Local Queries';
+
+  @override
+  String get logAllLocalQueriesDescription => 'Record logs for all local number queries';
+
+  @override
+  String get localCountFilterExplanationTitle => 'Local Count Filter Explanation';
+
+  @override
+  String get localCountFilterExplanationContent => 'The local count filter analyzes call history records to automatically identify and block frequent spam calls.';
+
+  @override
+  String get localCountFilterHowItWorksPoint1 => '• Determine whether to block based on the number\'s count value';
+
+  @override
+  String get localCountFilterHowItWorksPoint2 => '• When a number\'s count exceeds the set threshold, you can choose to automatically block it';
+
+  @override
+  String get localCountFilterHowItWorksPoint3 => '• You can selectively allow numbers that don\'t exceed the threshold';
+
+  @override
+  String get localCountFilterHowItWorksPoint4 => '• You can choose whether to record all query logs';
+
+  @override
+  String get localCountFilterUseCases => 'This filter is particularly suitable for identifying auto-dialed spam calls and marketing calls.';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get previousStep => 'Previous';
+
+  @override
+  String get nextStep => 'Next';
+
+  @override
+  String get startUsing => 'Get Started';
+
+  @override
+  String get welcome => 'Welcome';
+
+  @override
+  String get onboardingWelcomeDescription => 'Your call management expert, providing comprehensive call identification and blocking services.';
+
+  @override
+  String get selectYourLanguage => 'Select Your Language';
+
+  @override
+  String get onboardingLanguageDescription => 'Choose your preferred language for the best experience.';
+
+  @override
+  String get smartCallerId => 'Smart Call Identification';
+
+  @override
+  String get onboardingSmartCallerIdDescription => 'Automatically identify unknown calls, mark suspicious numbers, and protect your call safety.';
+
+  @override
+  String get powerfulSpamBlocking => 'Powerful Spam Blocking';
+
+  @override
+  String get onboardingPowerfulSpamBlockingDescription => 'One-click blocking of spam calls and messages, customize blocking rules, and give you a quiet environment.';
+
+  @override
+  String get grantNecessaryPermissions => 'Grant Necessary Permissions';
+
+  @override
+  String get onboardingPermissionsDescription => 'To provide full service, we need the following permissions:';
+
+  @override
+  String get phonePermission => 'Phone Permission';
+
+  @override
+  String get phonePermissionDescription => 'Used to identify and block incoming calls.';
+
+  @override
+  String get smsPermission => 'SMS Permission';
+
+  @override
+  String get smsPermissionDescription => 'Used to filter spam messages.';
+
+  @override
+  String get contactsPermission => 'Contacts Permission';
+
+  @override
+  String get contactsPermissionDescription => 'Used to identify contact calls.';
+
+  @override
+  String get callScreeningPermission => 'Call Screening Permission';
+
+  @override
+  String get callScreeningPermissionDescription => 'Used to screen and block spam calls.';
+
+  @override
+  String get callScreeningPermissionNotGranted => 'Call screening permission not granted, may affect app functionality.';
+
+  @override
+  String get grantPermissions => 'Grant Permissions';
+
+  @override
+  String get ready => 'Ready!';
+
+  @override
+  String get allSettingsCompleted => 'All settings completed.';
+
+  @override
+  String get onboardingCompleteDescription => 'Your call security manager is ready, start enjoying a secure call experience!';
+
+  @override
+  String get storagePermission => 'Storage Permission';
+
+  @override
+  String get storagePermissionDescription => 'Used to save settings and rules.';
+
+  @override
+  String get overlayPermission => 'Overlay Permission';
+
+  @override
+  String get overlayPermissionDescription => 'Used to display incoming call overlay.';
+
+  @override
+  String get notificationPermission => 'Notification Permission';
+
+  @override
+  String get notificationPermissionDescription => 'Used to display incoming call and message notifications.';
+
+  @override
+  String checkPermissionFailed(Object error) {
+    return 'Failed to check permissions: $error';
+  }
+
+  @override
+  String get permissionGranted => 'Permission granted';
+
+  @override
+  String get permissionDenied => 'Permission request denied';
+
+  @override
+  String requestPermissionFailed(Object error) {
+    return 'Failed to request permission: $error';
+  }
+
+  @override
+  String get allPermissionsGranted => 'All permissions granted';
+
+  @override
+  String get somePermissionsDenied => 'Some permission requests denied';
+
+  @override
+  String openAppSettingsFailed(Object error) {
+    return 'Failed to open app settings: $error';
+  }
+
+  @override
+  String get permissionManagement => 'Permission Management';
+
+  @override
+  String get refreshPermissionStatus => 'Refresh permission status';
+
+  @override
+  String get openAppSettings => 'Open app settings';
+
+  @override
+  String get requestAllPermissions => 'Request All Permissions';
+
+  @override
+  String get granted => 'Granted';
+
+  @override
+  String get notGranted => 'Not Granted';
+
+  @override
+  String get requestPermission => 'Request Permission';
+
+  @override
+  String get pluginService => 'Plugin Service';
+
+  @override
+  String loadPluginsFailed(Object error) {
+    return 'Failed to load plugins: $error';
+  }
+
+  @override
+  String changePluginStatusFailed(Object error) {
+    return 'Failed to change plugin status: $error';
+  }
+
+  @override
+  String get pluginUpdateSuccess => 'Plugin updated successfully';
+
+  @override
+  String get pluginLatestVersion => 'Plugin is already the latest version';
+
+  @override
+  String updatePluginFailed(Object error) {
+    return 'Failed to update plugin: $error';
+  }
+
+  @override
+  String get deletePlugin => 'Delete Plugin';
+
+  @override
+  String confirmDeletePlugin(Object name) {
+    return 'Are you sure you want to delete plugin \"$name\"?';
+  }
+
+  @override
+  String get pluginDeleted => 'Plugin deleted';
+
+  @override
+  String deletePluginFailed(Object error) {
+    return 'Failed to delete plugin: $error';
+  }
+
+  @override
+  String get enterValidUrl => 'Please enter a valid URL';
+
+  @override
+  String pluginAddedSuccess(Object name) {
+    return 'Plugin \"$name\" added successfully';
+  }
+
+  @override
+  String get addPluginFailed => 'Failed to add plugin';
+
+  @override
+  String addPluginFailedWithError(Object error) {
+    return 'Failed to add plugin: $error';
+  }
+
+  @override
+  String get addPlugin => 'Add Plugin';
+
+  @override
+  String get pluginUrl => 'Plugin URL';
+
+  @override
+  String get enterPluginUrl => 'Enter plugin URL address';
+
+  @override
+  String get addPluginFromUrl => 'Add Plugin from URL';
+
+  @override
+  String get addPluginFromLocalFile => 'Add Plugin from Local File';
+
+  @override
+  String get exportPluginList => 'Export Plugin List';
+
+  @override
+  String get importPluginList => 'Import Plugin List';
+
+  @override
+  String get pluginListExportSuccess => 'Plugin list exported successfully';
+
+  @override
+  String exportPluginListFailed(Object error) {
+    return 'Failed to export plugin list: $error';
+  }
+
+  @override
+  String importPluginSuccess(Object count) {
+    return 'Successfully imported $count plugins';
+  }
+
+  @override
+  String importPluginListFailed(Object error) {
+    return 'Failed to import plugin list: $error';
+  }
+
+  @override
+  String get moreOptions => 'More Options';
+
+  @override
+  String get noPlugins => 'No plugins yet';
+
+  @override
+  String get installed => 'Installed';
+
+  @override
+  String get autoUpdate => 'Auto Update';
+
+  @override
+  String version(Object version) {
+    return 'Version: $version';
+  }
+
+  @override
+  String get updatePlugin => 'Update Plugin';
+
+  @override
+  String get enableGlobalPlugins => 'Enable global plugins';
+
+  @override
+  String get disableGlobalPlugins => 'Disable global plugins';
+
+  @override
+  String get selectAll => 'Select All';
+
+  @override
+  String get remoteFilterSettingsPageTitle => 'Remote Number Filter Settings';
+
+  @override
+  String get settingsLoaded => 'Settings loaded';
+
+  @override
+  String loadSettingsFailed(Object error) {
+    return 'Failed to load settings: $error';
+  }
+
+  @override
+  String saveSettingsFailed(Object error) {
+    return 'Failed to save settings: $error';
+  }
+
+  @override
+  String get countThresholdSettings => 'Count Threshold Settings';
+
+  @override
+  String countThresholdValue(Object count) {
+    return 'Count Threshold: $count';
+  }
+
+  @override
+  String get logAllRemoteQueries => 'Log All Remote Queries';
+
+  @override
+  String get logAllRemoteQueriesDescription => 'Record all remote number query operations';
+
+  @override
+  String get remoteNumberFilterExplanationTitle => 'Remote Number Filter Explanation';
+
+  @override
+  String get remoteNumberFilterExplanationContent => 'The remote number filter identifies and blocks spam calls by querying a remote database based on number count.';
+
+  @override
+  String get remoteNumberFilterFeatures => 'Features:';
+
+  @override
+  String get remoteNumberFilterFeatureCountThreshold => '• Count Threshold: Determine based on number occurrence frequency';
+
+  @override
+  String get remoteNumberFilterFeatureFilterAction => '• Filter Actions: Configure how to handle numbers exceeding threshold';
+
+  @override
+  String get remoteNumberFilterFeaturePriority => '• Priority Settings: Set priority for remote actions';
+
+  @override
+  String get remoteNumberFilterDatabaseInfo => 'This filter uses an independent remote database to get the latest number information.';
+
+  @override
+  String get confirmDelete => 'Confirm Delete';
+
+  @override
+  String get confirmDeleteRuleMessage => 'Are you sure you want to delete this rule? This action cannot be undone.';
+
+  @override
+  String get editRule => 'Edit Rule';
+
+  @override
+  String get deleteRule => 'Delete Rule';
+
+  @override
+  String get ruleNotExist => 'Rule does not exist or has been deleted';
+
+  @override
+  String get basicInfo => 'Basic Information';
+
+  @override
+  String get label => 'Label';
+
+  @override
+  String get loading => 'Loading...';
+
+  @override
+  String get none => 'None';
+
+  @override
+  String get ruleNameRequired => 'Rule name and phone number cannot be empty';
+
+  @override
+  String ruleUpdateFailed(Object error) {
+    return 'Failed to update rule: $error';
+  }
+
+  @override
+  String get phoneRule => 'Phone Rule';
+
+  @override
+  String get phoneRuleManagement => 'Phone Rule Management';
+
+  @override
+  String get addPhoneNumberRule => 'Add Phone Number Rule';
+
+  @override
+  String get ruleAddSuccess => 'Rule added successfully';
+
+  @override
+  String get addRule => 'Add Rule';
+
+  @override
+  String get allowedBlockedRule => 'Allow/Block Rule';
+
+  @override
+  String get allowedBlockedRuleManagement => 'Allow/Block Rule Management';
+
+  @override
+  String get addAllowedBlockedRule => 'Add Allow/Block Rule';
+
+  @override
+  String get regexRule => 'Regex Rule';
+
+  @override
+  String get regexRuleManagement => 'Regex Rule Management';
+
+  @override
+  String get addRegexRule => 'Add Regex Rule';
+
+  @override
+  String get regexPattern => 'Regex Pattern';
+
+  @override
+  String get validateRegex => 'Validate Regex';
+
+  @override
+  String get regexValidationSuccess => 'Regex validation successful';
+
+  @override
+  String regexValidationFailed(Object error) {
+    return 'Regex validation failed: $error';
+  }
+
+  @override
+  String get regexRuleAddSuccess => 'Regex rule added successfully';
+
+  @override
+  String regexRuleAddFailed(Object error) {
+    return 'Failed to add regex rule: $error';
+  }
+
+  @override
+  String get regexRuleNamePatternRequired => 'Rule name and regex pattern cannot be empty';
+
+  @override
+  String get invalidRegexPattern => 'Invalid regex pattern';
+
+  @override
+  String get regexPatternExplanation => 'Regex Pattern Explanation';
+
+  @override
+  String get regexPatternExplanationButton => 'Regex Pattern Explanation';
+
+  @override
+  String get regexPatternsForPhoneNumberMatching => 'Regex Patterns for Phone Number Matching';
+
+  @override
+  String get regexPatternsExamples => 'Use standard regex syntax to define patterns. Examples:';
+
+  @override
+  String get blockInternationalCalls => 'matches numbers that don\'t start with + or 00';
+
+  @override
+  String get blockPremiumRateNumbers => 'matches numbers that don\'t start with 118 or 120-190';
+
+  @override
+  String get blockMobileNumbers => 'matches numbers that don\'t start with 13-19';
+
+  @override
+  String get useStandardRegexSyntaxToDefinePatternsExamples => 'Use standard regex syntax to define patterns. Examples:';
+
+  @override
+  String get blockInternationalCallsTitle => 'Block International Calls';
+
+  @override
+  String get blockPremiumRateNumbersTitle => 'Block Premium Rate Numbers';
+
+  @override
+  String get blockMobileNumbersTitle => 'Block Mobile Numbers';
+
+  @override
+  String get blockLandlineNumbersTitle => 'Block Landline Numbers';
+
+  @override
+  String get blockSpecificAreaCodesTitle => 'Block specific area codes:';
+
+  @override
+  String get matchSpecificDigitPatternsTitle => 'Match specific digit patterns:';
+
+  @override
+  String get matchNumbersWithSpecialCharactersTitle => 'Match numbers with special characters:';
+
+  @override
+  String get dialogTitle => 'Regex Pattern Explanation';
+
+  @override
+  String get closeButton => 'Close';
+
+  @override
+  String get showExplanation => 'Show Explanation';
+
+  @override
+  String get blockSpecificAreaCodes => 'matches numbers starting with 0 + 2-3 digits';
+
+  @override
+  String get matchSpecificDigitPatterns => 'matches XXX-XXXX-XXXX format';
+
+  @override
+  String get matchNumbersWithSpecialCharacters => 'matches specific number format';
+
+  @override
+  String get exampleBlock400Prefix => 'e.g. Block 400 prefix numbers';
+
+  @override
+  String get exampleRegex400Prefix => 'Example regex for 400 prefix';
+
+  @override
+  String get wildcardMatchingTitle => 'Wildcard matching:';
+
+  @override
+  String get wildcardMatchingDescription => 'Use \'.\' to match any character (e.g. \'123.456\' matches 123-456)';
 }

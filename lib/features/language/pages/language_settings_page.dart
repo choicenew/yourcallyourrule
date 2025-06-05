@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/language/language_data.dart';
 import 'package:yourcallyourrule/features/language/widgets/language_selection_widget.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class LanguageSettingsPage extends StatefulWidget {
   const LanguageSettingsPage({super.key});
@@ -21,7 +22,7 @@ class _LanguageSettingsPageState extends State<LanguageSettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('语言设置'),
+        title: Text(AppLocalizations.of(context)!.languageSettings),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -30,7 +31,7 @@ class _LanguageSettingsPageState extends State<LanguageSettingsPage> {
           IconButton(
             icon: const Icon(Icons.check),
             onPressed: () => Navigator.of(context).pop(),
-            tooltip: '保存',
+            tooltip: AppLocalizations.of(context)!.save,
           ),
         ],
       ),

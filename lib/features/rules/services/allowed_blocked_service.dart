@@ -7,7 +7,6 @@ import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
 // 重构后的允许/阻止规则服务
 class AllowedBlockedService extends ListService {

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
+
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+
 
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
-import 'package:yourcallyourrule/features/search/dialogs/dialogs.dart';
+import 'package:yourcallyourrule/features/common/widgets/dialogs/dialogs.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 搜索页面
 /// 用于搜索本地和远程数据库中的号码
@@ -65,7 +67,7 @@ class _SearchPageState extends State<SearchPage> {
     final searchText = _searchController.text.trim();
     if (searchText.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('请输入搜索内容')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.enterSearchContent)),
       );
       return;
     }
@@ -87,7 +89,7 @@ class _SearchPageState extends State<SearchPage> {
       // 如果没有找到结果，显示提示
       if (results.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('未找到匹配的号码')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.noMatchingNumbersFound)),
         );
       }
     } catch (e) {
@@ -95,7 +97,7 @@ class _SearchPageState extends State<SearchPage> {
         _isLoading = false;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('搜索出错: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.searchError(e.toString()))),
       );
     }
   }
@@ -119,7 +121,7 @@ class _SearchPageState extends State<SearchPage> {
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('无法找到联系人')),
+            SnackBar(content: Text(AppLocalizations.of(context)!.contactNotFound)),
           );
         }
       });
@@ -137,7 +139,7 @@ class _SearchPageState extends State<SearchPage> {
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('无法找到标签')),
+            SnackBar(content: Text(AppLocalizations.of(context)!.labelNotFound)),
           );
         }
       });
@@ -164,7 +166,7 @@ class _SearchPageState extends State<SearchPage> {
           );
         }).catchError((error) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('无法找到规则: $error')),
+            SnackBar(content: Text(AppLocalizations.of(context)!.ruleNotFound(error.toString()))),
           );
         });
       } else if (result.ruleType == 'allowedBlocked') {
@@ -182,7 +184,7 @@ class _SearchPageState extends State<SearchPage> {
           );
         }).catchError((error) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('无法找到规则: $error')),
+            SnackBar(content: Text(AppLocalizations.of(context)!.ruleNotFound(error.toString()))),
           );
         });
       }
@@ -193,7 +195,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('号码搜索'),
+        title: Text(AppLocalizations.of(context)!.numberSearch),
       ),
       body: Column(
         children: [
@@ -205,10 +207,10 @@ class _SearchPageState extends State<SearchPage> {
                 Expanded(
                   child: TextField(
                     controller: _searchController,
-                    decoration: const InputDecoration(
-                      hintText: '输入电话号码',
-                      prefixIcon: Icon(Icons.search),
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.enterPhoneNumber,
+                      prefixIcon: const Icon(Icons.search),
+                      border: const OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.phone,
                     onSubmitted: (_) => _performSearch(),
@@ -223,7 +225,7 @@ class _SearchPageState extends State<SearchPage> {
                           height: 20,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : const Text('搜索'),
+                      : Text(AppLocalizations.of(context)!.search),
                 ),
               ],
             ),
@@ -235,7 +237,7 @@ class _SearchPageState extends State<SearchPage> {
                 ? _isLoading
                     ? const Center(child: CircularProgressIndicator())
                     : _searchResults.isEmpty
-                        ? const Center(child: Text('未找到匹配的号码'))
+                        ? Center(child: Text(AppLocalizations.of(context)!.noMatchingNumbersFound))
                         : ListView.builder(
                             itemCount: _searchResults.length,
                             itemBuilder: (context, index) {
@@ -246,8 +248,8 @@ class _SearchPageState extends State<SearchPage> {
                               );
                             },
                           )
-                : const Center(
-                    child: Text('输入电话号码开始搜索'),
+                : Center(
+                    child: Text(AppLocalizations.of(context)!.enterPhoneNumberToStartSearch),
                   ),
           ),
         ],

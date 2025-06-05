@@ -65,7 +65,7 @@ class _PhoneRuleEditDialogState extends State<PhoneRuleEditDialog> {
     if (_nameController.text.isEmpty || _phoneController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('规则名称和电话号码不能为空'),
+          content: Text(AppLocalizations.of(context)!.ruleNameAndPhoneNumberCannotBeEmpty),
           backgroundColor: Colors.red,
         ),
       );
@@ -102,7 +102,7 @@ class _PhoneRuleEditDialogState extends State<PhoneRuleEditDialog> {
         // 显示成功提示
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('规则更新成功'),
+            content: Text(AppLocalizations.of(context)!.ruleUpdateSuccess),
             backgroundColor: Colors.green,
           ),
         );
@@ -112,7 +112,7 @@ class _PhoneRuleEditDialogState extends State<PhoneRuleEditDialog> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('更新规则失败: $e'),
+            content: Text(AppLocalizations.of(context)!.updateRuleFailed(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -129,23 +129,23 @@ class _PhoneRuleEditDialogState extends State<PhoneRuleEditDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('编辑电话规则'),
+      title: Text(AppLocalizations.of(context)!.editPhoneRule),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           TextField(
             controller: _nameController,
             decoration: InputDecoration(
-              labelText: '规则名称',
-              hintText: AppLocalizations.of(context)?.ruleNameHint ?? '例如：家人、朋友等',
+              labelText: AppLocalizations.of(context)!.ruleName,
+              hintText: AppLocalizations.of(context)!.exampleFamilyFriends,
             ),
           ),
           const SizedBox(height: 16),
           TextField(
             controller: _phoneController,
             decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)?.phoneNumber ?? '电话号码',
-              hintText: AppLocalizations.of(context)?.phoneNumberHint ?? '例如：10086、12345等',
+              labelText: AppLocalizations.of(context)!.phoneNumber,
+              hintText: AppLocalizations.of(context)!.examplePhoneNumber,
             ),
             keyboardType: TextInputType.phone,
           ),
@@ -175,7 +175,7 @@ class _PhoneRuleEditDialogState extends State<PhoneRuleEditDialog> {
       actions: [
         TextButton(
           onPressed: _isProcessing ? null : () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)?.cancel ?? '取消'),
+          child: Text(AppLocalizations.of(context)!.cancel),
         ),
         TextButton(
           onPressed: _isProcessing ? null : _saveRule,
@@ -185,7 +185,7 @@ class _PhoneRuleEditDialogState extends State<PhoneRuleEditDialog> {
                   height: 20,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text(AppLocalizations.of(context)?.save ?? '保存'),
+              : Text(AppLocalizations.of(context)!.save),
         ),
       ],
     );

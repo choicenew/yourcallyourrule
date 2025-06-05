@@ -6,7 +6,6 @@ import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
-import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
 
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
@@ -142,8 +141,8 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
 
     // 验证输入
     if (_nameController.text.isEmpty || _phoneController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('规则名称和电话号码不能为空'),
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(AppLocalizations.of(context)!.ruleNameRequired),
         backgroundColor: Colors.red,
       ));
       return;
@@ -180,15 +179,15 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
       });
 
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('规则更新成功'),
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(context)!.ruleUpdateSuccess),
           backgroundColor: Colors.green,
         ));
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('更新规则失败: $e'),
+          content: Text(AppLocalizations.of(context)!.ruleUpdateFailed(e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -199,16 +198,16 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('确认删除'),
-        content: const Text('确定要删除这条规则吗？此操作不可撤销。'),
+        title: Text(AppLocalizations.of(context)!.confirmDelete),
+        content: Text(AppLocalizations.of(context)!.confirmDeleteRuleMessage),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('删除', style: TextStyle(color: Colors.red)),
+            child: Text(AppLocalizations.of(context)!.delete, style: const TextStyle(color: Colors.red)),
           ),
         ],
       ),
@@ -219,8 +218,8 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
       try {
         await widget.deleteRule(service, widget.ruleId);
         if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text('规则删除成功'),
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(AppLocalizations.of(context)!.ruleDeleteSuccess),
             backgroundColor: Colors.green,
           ));
           context.pop(); // 返回上一页
@@ -228,7 +227,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
       } catch (e) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text('删除规则失败: $e'),
+            content: Text(AppLocalizations.of(context)!.ruleDeleteFailed(e.toString())),
             backgroundColor: Colors.red,
           ));
         }
@@ -247,20 +246,20 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
             IconButton(
               icon: const Icon(Icons.edit),
               onPressed: _startEditing,
-              tooltip: '编辑规则',
+              tooltip: AppLocalizations.of(context)!.editRule,
             ),
           if (!_isEditing && _rule != null)
             IconButton(
               icon: const Icon(Icons.delete),
               onPressed: _deleteRule,
-              tooltip: '删除规则',
+              tooltip: AppLocalizations.of(context)!.deleteRule,
             ),
         ],
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : _rule == null
-              ? const Center(child: Text('规则不存在或已被删除'))
+              ? Center(child: Text(AppLocalizations.of(context)!.ruleNotExist))
               : _isEditing
                   ? _buildEditForm()
                   : _buildRuleDetails(),
@@ -274,7 +273,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
                     Expanded(
                       child: OutlinedButton(
                         onPressed: _cancelEditing,
-                        child: const Text('取消'),
+                        child: Text(AppLocalizations.of(context)!.cancel),
                       ),
                     ),
                     const SizedBox(width: 16),
@@ -284,7 +283,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
                         style: ElevatedButton.styleFrom(
                           backgroundColor: widget.themeColor,
                         ),
-                        child: const Text('保存'),
+                        child: Text(AppLocalizations.of(context)!.save),
                       ),
                     ),
                   ],
@@ -335,24 +334,24 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
                     children: [
                       const Icon(Icons.info, color: Colors.blue),
                       const SizedBox(width: 8),
-                      const Text(
-                        '基本信息',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
+                      Text(
+                    AppLocalizations.of(context)!.basicInfo,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                     ],
                   ),
                   const Divider(),
                   const SizedBox(height: 8),
-                  _buildInfoRow('规则名称', name),
-                  _buildInfoRow('电话号码', phoneNumber),
+                  _buildInfoRow(AppLocalizations.of(context)!.ruleName, name),
+                  _buildInfoRow(AppLocalizations.of(context)!.phoneNumber, phoneNumber),
                   FutureBuilder<String?>(
                     future: labelId.isNotEmpty
                         ? LabelTextUtils.getLabelTextById(context, labelId)
-                        : Future.value('无'),
+                        : Future.value(AppLocalizations.of(context)!.none),
                     builder: (context, snapshot) {
                       return _buildInfoRow(
-                        '标签',
-                        snapshot.data ?? (snapshot.connectionState == ConnectionState.waiting ? '加载中...' : '无'),
+                        AppLocalizations.of(context)!.label,
+                        snapshot.data ?? (snapshot.connectionState == ConnectionState.waiting ? AppLocalizations.of(context)!.loading : AppLocalizations.of(context)!.none),
                       );
                     },
                   ),
@@ -372,9 +371,9 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
                     children: [
                       Icon(Icons.rule, color: actionColor),
                       const SizedBox(width: 8),
-                      const Text(
-                        '规则动作',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      Text(
+                        AppLocalizations.of(context)!.ruleAction,
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -441,24 +440,24 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
         children: [
           TextField(
             controller: _nameController,
-            decoration: const InputDecoration(
-              labelText: '规则名称',
-              hintText: '例如：家人、朋友等',
-              border: OutlineInputBorder(),
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.ruleName,
+              hintText: AppLocalizations.of(context)!.ruleNameHint,
+              border: const OutlineInputBorder(),
             ),
           ),
           const SizedBox(height: 16),
           TextField(
             controller: _phoneController,
-            decoration: const InputDecoration(
-              labelText: '电话号码',
-              hintText: '例如：10086、12345等',
-              border: OutlineInputBorder(),
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.phoneNumber,
+              hintText: AppLocalizations.of(context)!.phoneNumberHint,
+              border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.phone,
           ),
           const SizedBox(height: 16),
-          const Text('标签', style: TextStyle(fontSize: 16)),
+          Text(AppLocalizations.of(context)!.label, style: const TextStyle(fontSize: 16)),
           PublicSelectLabel(
             initialLabelId: _selectedLabelId,
             onLabelIdChanged: (labelId) {
@@ -469,9 +468,9 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
             themeColor: widget.themeColor,
           ),
           const SizedBox(height: 16),
-          const Text('规则动作', style: TextStyle(fontSize: 16)),
+          Text(AppLocalizations.of(context)!.ruleAction, style: const TextStyle(fontSize: 16)),
           RuleActionSelector(
-            initialAction: _selectedAction ?? RuleAction(type: RuleActionType.block),
+            initialAction: _selectedAction ?? const RuleAction(type: RuleActionType.block),
             onActionChanged: (action) {
               setState(() {
                 _selectedAction = action;

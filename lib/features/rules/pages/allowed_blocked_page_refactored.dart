@@ -11,7 +11,9 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
-import 'package:yourcallyourrule/features/search/dialogs/allowed_blocked_rule_edit_dialog.dart';
+import 'package:yourcallyourrule/features/common/widgets/dialogs/allowed_blocked_rule_edit_dialog.dart';
+
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 重构后的允许/阻止规则管理页面
 /// 使用通用的GenericRulePage组件减少重复代码
@@ -27,7 +29,7 @@ class AllowedBlockedPage extends StatelessWidget {
         ImportExportServiceComponent<AllowedBlockedRule, String>(
       importExportService: allowedBlockedService.importExportService
           as ImportExportService<AllowedBlockedRule, String>,
-      entityTypeName: '允许/阻止规则',
+      entityTypeName: AppLocalizations.of(context)!.allowedBlockedRule,
       onEntitiesImported: (rules) async {
         // 保存导入的规则
         for (final rule in rules) {
@@ -43,11 +45,11 @@ class AllowedBlockedPage extends StatelessWidget {
     );
 
     return GenericRulePage<AllowedBlockedRule, AllowedBlockedService>(
-      title: '允许/阻止规则管理',
+      title: AppLocalizations.of(context)!.allowedBlockedRuleManagement,
       themeColor: Colors.blue,
-      emptyText: '允许/阻止规则',
+      emptyText: AppLocalizations.of(context)!.allowedBlockedRule,
       emptyIcon: Icons.person,
-      addButtonText: '添加规则',
+      addButtonText: AppLocalizations.of(context)!.addRule,
       buildRuleCard: _buildRuleCard,
       showAddDialog: _showAddRuleDialog,
       showEditDialog: _showEditRuleDialog,
@@ -156,23 +158,23 @@ class AllowedBlockedPage extends StatelessWidget {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          title: const Text('添加允许/阻止规则'),
+          title: Text(AppLocalizations.of(context)!.addAllowedBlockedRule),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 controller: nameController,
-                decoration: const InputDecoration(
-                  labelText: '规则名称',
-                  hintText: '例如：家人、朋友等',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.ruleName,
+                  hintText: AppLocalizations.of(context)!.ruleNameHint,
                 ),
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: phoneController,
-                decoration: const InputDecoration(
-                  labelText: '电话号码',
-                  hintText: '例如：10086、12345等',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.phoneNumber,
+                  hintText: AppLocalizations.of(context)!.phoneNumberHint,
                 ),
                 keyboardType: TextInputType.phone,
               ),
@@ -199,13 +201,13 @@ class AllowedBlockedPage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('取消'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () async {
                 if (nameController.text.isEmpty || phoneController.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('规则名称和电话号码不能为空'),
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(AppLocalizations.of(context)!.ruleNameRequired),
                     backgroundColor: Colors.red,
                   ));
                   return;
@@ -229,19 +231,19 @@ class AllowedBlockedPage extends StatelessWidget {
                   refreshCallback();
                   
                   // 显示成功提示
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('规则添加成功'),
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(AppLocalizations.of(context)!.ruleAddSuccess),
                     backgroundColor: Colors.green,
                   ));
                 } catch (e) {
                   // 显示错误提示
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('添加规则失败: $e'),
+                    content: Text(AppLocalizations.of(context)!.regexRuleAddFailed(e.toString())),
                     backgroundColor: Colors.red,
                   ));
                 }
               },
-              child: const Text('保存'),
+              child: Text(AppLocalizations.of(context)!.save),
             ),
           ],
         ),
@@ -254,7 +256,7 @@ class AllowedBlockedPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('按标签筛选'),
+        title: Text(AppLocalizations.of(context)!.filterByLabel),
         content: SizedBox(
           width: double.maxFinite,
           child: PublicSelectLabel(
@@ -268,14 +270,14 @@ class AllowedBlockedPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () {
               onLabelSelected(null);
               Navigator.pop(context);
             },
-            child: const Text('清除筛选'),
+            child: Text(AppLocalizations.of(context)!.clearFilter),
           ),
         ],
       ),
