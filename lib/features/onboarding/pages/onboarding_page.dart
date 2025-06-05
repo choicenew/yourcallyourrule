@@ -3,10 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/features/language/widgets/language_selection_widget.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 应用引导页面
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({Key? key}) : super(key: key);
+  const OnboardingPage({super.key});
 
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();
@@ -104,7 +105,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             height: 4,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha:0.2),
               borderRadius: BorderRadius.circular(2),
             ),
             child: FractionallySizedBox(
@@ -127,15 +128,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: TextButton(
                 onPressed: _skipOnboarding,
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.white.withOpacity(0.2),
+                  backgroundColor: Colors.white.withValues(alpha:0.2),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                child: const Text(
-                  '跳过',
-                  style: TextStyle(color: Colors.white, fontSize: 14),
-                ),
+                child: Text(
+                    AppLocalizations.of(context)!.skip,
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
+                  ),
               ),
             ),
           ),
@@ -162,7 +163,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: const Text('上一步', style: TextStyle(fontSize: 16)),
+                  child: Text(AppLocalizations.of(context)!.previousStep, style: const TextStyle(fontSize: 16)),
                 )
               : const SizedBox(width: 100),
           
@@ -178,7 +179,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
             ),
             child: Text(
-              _currentPage == _totalPages - 1 ? '开始使用' : '下一步',
+              _currentPage == _totalPages - 1 ? AppLocalizations.of(context)!.startUsing : AppLocalizations.of(context)!.nextStep,
               style: const TextStyle(fontSize: 16),
             ),
           ),
@@ -197,7 +198,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           margin: const EdgeInsets.symmetric(horizontal: 4),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: i == _currentPage ? Colors.white : Colors.white.withOpacity(0.3),
+            color: i == _currentPage ? Colors.white : Colors.white.withValues(alpha:0.3),
           ),
         ),
       );
@@ -220,7 +221,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha:0.1),
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -235,9 +236,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           const SizedBox(height: 40),
           
           // 标题
-          const Text(
-            '欢迎使用',
-            style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.welcome,
+            style: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           
@@ -250,9 +251,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           
           // 描述
           Text(
-            '您的来电管理专家，为您提供全方位的来电识别与拦截服务',
+            AppLocalizations.of(context)!.onboardingWelcomeDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 16),
+            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
           ),
           const SizedBox(height: 40),
           
@@ -292,7 +293,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha:0.1),
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -307,16 +308,16 @@ class _OnboardingPageState extends State<OnboardingPage> {
           const SizedBox(height: 30),
           
           // 标题
-          const Text(
-            '选择您的语言',
-            style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.selectYourLanguage,
+            style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 20),
           
           // 使用LanguageSelectionWidget组件
           Container(
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.1),
+              color: Colors.white.withValues(alpha:0.1),
               borderRadius: BorderRadius.circular(16),
             ),
             padding: const EdgeInsets.all(16),
@@ -331,9 +332,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           
           // 描述
           Text(
-            '选择您偏好的语言以获得最佳体验',
+            AppLocalizations.of(context)!.onboardingLanguageDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 16),
+            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
           ),
           const SizedBox(height: 30),
           
@@ -359,7 +360,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha:0.1),
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -374,9 +375,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           const SizedBox(height: 40),
           
           // 标题
-          const Text(
-            '智能来电识别',
-            style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.smartCallerId,
+            style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 24),
           
@@ -385,7 +386,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             height: 200,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha:0.2),
               borderRadius: BorderRadius.circular(16),
             ),
             child: const Center(
@@ -400,9 +401,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           
           // 描述
           Text(
-            '自动识别未知来电，标记可疑号码，保护您的通话安全',
+            AppLocalizations.of(context)!.onboardingSmartCallerIdDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 16),
+            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
           ),
           const SizedBox(height: 40),
           
@@ -428,7 +429,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha:0.1),
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -443,9 +444,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           const SizedBox(height: 40),
           
           // 标题
-          const Text(
-            '强力骚扰拦截',
-            style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.powerfulSpamBlocking,
+            style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 24),
           
@@ -454,7 +455,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             height: 200,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha:0.2),
               borderRadius: BorderRadius.circular(16),
             ),
             child: const Center(
@@ -469,9 +470,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           
           // 描述
           Text(
-            '一键拦截骚扰电话和短信，自定义拦截规则，还您一个安静的环境',
+            AppLocalizations.of(context)!.onboardingPowerfulSpamBlockingDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 16),
+            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
           ),
           const SizedBox(height: 40),
           
@@ -497,7 +498,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha:0.1),
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -512,49 +513,49 @@ class _OnboardingPageState extends State<OnboardingPage> {
           const SizedBox(height: 30),
           
           // 标题
-          const Text(
-            '授予必要权限',
-            style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.grantNecessaryPermissions,
+            style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           
           // 描述
           Text(
-            '为了提供完整的服务，我们需要以下权限：',
+            AppLocalizations.of(context)!.onboardingPermissionsDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 16),
+            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
           ),
           const SizedBox(height: 30),
           
           // 权限列表
           _buildPermissionItem(
             icon: Icons.phone,
-            title: '电话权限',
-            description: '用于识别和拦截来电',
+            title: AppLocalizations.of(context)!.phonePermission,
+            description: AppLocalizations.of(context)!.phonePermissionDescription,
             color: const Color(0xFFFFB74D),
           ),
           const SizedBox(height: 16),
           
           _buildPermissionItem(
             icon: Icons.sms,
-            title: '短信权限',
-            description: '用于过滤垃圾短信',
+            title: AppLocalizations.of(context)!.smsPermission,
+            description: AppLocalizations.of(context)!.smsPermissionDescription,
             color: const Color(0xFF039BE5),
           ),
           const SizedBox(height: 16),
           
           _buildPermissionItem(
             icon: Icons.contacts,
-            title: '通讯录权限',
-            description: '用于识别联系人来电',
+            title: AppLocalizations.of(context)!.contactsPermission,
+            description: AppLocalizations.of(context)!.contactsPermissionDescription,
             color: const Color(0xFF43A047),
           ),
           const SizedBox(height: 16),
           
           _buildPermissionItem(
             icon: Icons.screen_lock_portrait,
-            title: '通话筛选权限',
-            description: '用于筛选和拦截骚扰电话',
+            title: AppLocalizations.of(context)!.callScreeningPermission,
+            description: AppLocalizations.of(context)!.callScreeningPermissionDescription,
             color: const Color(0xFFE53935),
           ),
           const SizedBox(height: 30),
@@ -567,8 +568,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
               
               // 检查权限结果
               if (!result && mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text('通话筛选权限未授予，可能会影响应用功能'),
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(AppLocalizations.of(context)!.callScreeningPermissionNotGranted),
                 ));
               }
             },
@@ -580,7 +581,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-            child: const Text('授予权限', style: TextStyle(fontSize: 16)),
+            child: Text(AppLocalizations.of(context)!.grantPermissions, style: const TextStyle(fontSize: 16)),
           ),
           const SizedBox(height: 30),
           
@@ -600,7 +601,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
+        color: Colors.white.withValues(alpha:0.2),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -609,7 +610,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: color.withOpacity(0.2),
+              color: color.withValues(alpha:0.2),
               shape: BoxShape.circle,
             ),
             child: Icon(icon, color: color),
@@ -625,7 +626,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
                 Text(
                   description,
-                  style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 12),
+                  style: TextStyle(color: Colors.white.withValues(alpha:0.7), fontSize: 12),
                 ),
               ],
             ),
@@ -650,7 +651,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha:0.1),
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -665,9 +666,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           const SizedBox(height: 40),
           
           // 标题
-          const Text(
-            '准备就绪！',
-            style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.ready,
+            style: const TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 24),
           
@@ -675,20 +676,20 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: const Color(0xFF43A047).withOpacity(0.2),
+              color: const Color(0xFF43A047).withValues(alpha:0.2),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
-              children: const [
-                Icon(
+              children: [
+                const Icon(
                   Icons.check_circle,
                   color: Color(0xFF43A047),
                   size: 40,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
-                  '所有设置已完成',
-                  style: TextStyle(color: Color(0xFF43A047), fontWeight: FontWeight.bold),
+                  AppLocalizations.of(context)!.allSettingsCompleted,
+                  style: const TextStyle(color: Color(0xFF43A047), fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -697,9 +698,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           
           // 描述
           Text(
-            '您的电话安全管家已准备就绪，开始享受安全通话体验吧！',
+            AppLocalizations.of(context)!.onboardingCompleteDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 16),
+            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
           ),
           const SizedBox(height: 40),
           

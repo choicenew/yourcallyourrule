@@ -5,6 +5,7 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 标签编辑对话框
 /// 用于编辑标签信息，通过 PublicSelectLabel 组件来选择标签
@@ -64,8 +65,8 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
     
     if (_selectedLabelId.isEmpty || phoneText.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('请选择标签并输入有效的电话号码'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.pleaseSelectLabelAndEnterValidPhone),
           backgroundColor: Colors.red,
         ),
       );
@@ -105,7 +106,7 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
         // 显示成功提示
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('标签 "${labelText?.text ?? _selectedLabelId}" 更新成功'),
+            content: Text('${AppLocalizations.of(context)!.labelUpdateSuccess}: $labelText?.text ?? _selectedLabelId}'),
             backgroundColor: Colors.green,
           ),
         );
@@ -115,7 +116,7 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('更新标签失败: $e'),
+            content: Text(AppLocalizations.of(context)!.labelUpdateFailed(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -135,7 +136,7 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
     final selectLabelService = PredefinedLabelServiceAdapter(predefinedLabelService);
     
     return AlertDialog(
-      title: const Text('编辑标签'),
+      title: Text(AppLocalizations.of(context)!.editLabel),
       content: Container(
         width: MediaQuery.of(context).size.width * 0.8,
         padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -155,18 +156,18 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
             const SizedBox(height: 16),
             TextField(
               controller: _phoneController,
-              decoration: const InputDecoration(
-                labelText: '电话号码',
-                hintText: '输入电话号码',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.phoneNumber,
+                hintText: AppLocalizations.of(context)!.enterPhoneNumber,
               ),
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 16),
             TextField(
               controller: _iconController,
-              decoration: const InputDecoration(
-                labelText: '图标代码（可选）',
-                hintText: '输入图标代码',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.iconCodeOptional,
+                hintText: AppLocalizations.of(context)!.enterIconCode,
               ),
             ),
           ],
@@ -175,7 +176,7 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('取消'),
+          child: Text(AppLocalizations.of(context)!.cancel),
         ),
         TextButton(
           onPressed: _isProcessing ? null : _saveLabel,
@@ -185,7 +186,7 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
                   height: 20,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text('保存', style: TextStyle(color: widget.themeColor)),
+              : Text(AppLocalizations.of(context)!.save, style: TextStyle(color: widget.themeColor)),
         ),
       ],
     );

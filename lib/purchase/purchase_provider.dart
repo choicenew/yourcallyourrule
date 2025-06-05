@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/ads/ad_state.dart';
+import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/purchase/modern_purchase_card.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/purchase/services/membership_feature_service.dart';
@@ -49,12 +49,12 @@ class PurchaseProvider extends ChangeNotifier {
       if (purchaseDetails.status == PurchaseStatus.purchased) {
         // 根据 productID 区分不同的套餐
         if (_membershipService.isRemoveAds(purchaseDetails.productID)) {
-          // 去除广告套餐
-          Provider.of<AdState>(context, listen: false).disableAds();
+          // 去除广告套餐 - 使用AdControlService
+          Provider.of<AdControlService>(context, listen: false).toggleAdState();
         } else if (_membershipService.isSubscriptionOrLifetime(purchaseDetails.productID)) {
           // 订阅或永久购买套餐
           purchaseState.updatePurchaseState(true);
-          Provider.of<AdState>(context, listen: false).disableAds();
+          // AdControlService会自动处理广告状态，不需要手动调用
         }
 
         // 显示购买成功提示
@@ -84,9 +84,9 @@ class PurchaseProvider extends ChangeNotifier {
         // 恢复购买状态
         if (_membershipService.isSubscriptionOrLifetime(purchaseDetails.productID)) {
           purchaseState.updatePurchaseState(true);
-          Provider.of<AdState>(context, listen: false).disableAds();
+          // AdControlService会自动处理广告状态，不需要手动调用
         } else if (_membershipService.isRemoveAds(purchaseDetails.productID)) {
-          Provider.of<AdState>(context, listen: false).disableAds();
+          Provider.of<AdControlService>(context, listen: false).toggleAdState();
         }
         InAppPurchase.instance.completePurchase(purchaseDetails);
       }
@@ -167,16 +167,7 @@ class PurchaseProvider extends ChangeNotifier {
     );
   }
 
-  // 提供一个公共方法来切换广告状态
-  void toggleAdState(BuildContext context) {
-    final adState = Provider.of<AdState>(context, listen: false);
-    // 只有正式购买时才禁用广告
-    if (purchaseState.isPurchasesEnabled) {
-      adState.disableAds();
-    } else {
-      adState.enableAds();
-    }
-  }
+  // 移除toggleAdState方法，该功能已移至AdControlService
 
   // 手动恢复购买
   Future<void> restorePurchases() async {

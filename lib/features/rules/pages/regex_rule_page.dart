@@ -10,6 +10,8 @@ import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+
 /// 重构后的正则规则管理页面
 /// 使用通用的GenericRulePage组件减少重复代码
 class RegexRulePage extends StatelessWidget {
@@ -24,7 +26,7 @@ class RegexRulePage extends StatelessWidget {
         ImportExportServiceComponent<RegexRule, String>(
       importExportService: regexService.importExportService
           as ImportExportService<RegexRule, String>,
-      entityTypeName: '正则规则',
+      entityTypeName: AppLocalizations.of(context)!.regexRule,
       onEntitiesImported: (rules) async {
         // 使用服务类的公共方法保存规则
         for (final rule in rules) {
@@ -35,11 +37,11 @@ class RegexRulePage extends StatelessWidget {
     );
 
     return GenericRulePage<RegexRule, RegexService>(
-      title: '正则规则管理',
+      title: AppLocalizations.of(context)!.regexRuleManagement,
       themeColor: const Color(0xFFF5A623),
-      emptyText: '正则规则',
+      emptyText: AppLocalizations.of(context)!.regexRule,
       emptyIcon: Icons.code,
-      addButtonText: '添加正则规则',
+      addButtonText: AppLocalizations.of(context)!.addRegexRule,
       buildRuleCard: _buildRuleCard,
       showAddDialog: _showAddRuleDialog,
       getAllRules: (service) => service.getAllRegexRules(),
@@ -72,7 +74,7 @@ class RegexRulePage extends StatelessWidget {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: actionColor.withOpacity(0.2),
+                    color: actionColor.withValues(alpha:0.2),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
@@ -107,7 +109,7 @@ class RegexRulePage extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8),
               child: Chip(
                 label: Text(actionText),
-                backgroundColor: actionColor.withOpacity(0.1),
+                backgroundColor: actionColor.withValues(alpha:0.1),
                 labelStyle: TextStyle(color: actionColor),
               ),
             ),
@@ -128,23 +130,23 @@ class RegexRulePage extends StatelessWidget {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          title: const Text('添加正则规则'),
+          title: Text(AppLocalizations.of(context)!.addRegexRule),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 controller: nameController,
-                decoration: const InputDecoration(
-                  labelText: '规则名称',
-                  hintText: '例如：屏蔽400开头号码',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.ruleName,
+                  hintText: AppLocalizations.of(context)!.exampleBlock400Prefix,
                 ),
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: patternController,
-                decoration: const InputDecoration(
-                  labelText: '正则表达式',
-                  hintText: '例如：^400\\\\d{7}\$',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.regexPattern,
+                  hintText: "${AppLocalizations.of(context)!.exampleRegex400Prefix}:'^400\\d{7}\$'",
                 ),
               ),
               const SizedBox(height: 16),
@@ -162,14 +164,14 @@ class RegexRulePage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('取消'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () async {
                 if (nameController.text.isEmpty ||
                     patternController.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('规则名称和正则表达式不能为空'),
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(AppLocalizations.of(context)!.regexRuleNamePatternRequired),
                     backgroundColor: Colors.red,
                   ));
                   return;
@@ -178,8 +180,8 @@ class RegexRulePage extends StatelessWidget {
                 try {
                   // 验证正则表达式
                   if (!service.isValidRegex(patternController.text)) {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text('无效的正则表达式'),
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(AppLocalizations.of(context)!.invalidRegexPattern),
                       backgroundColor: Colors.red,
                     ));
                     return;
@@ -200,19 +202,19 @@ class RegexRulePage extends StatelessWidget {
                   refreshCallback();
 
                   // 显示成功提示
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('正则规则添加成功'),
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(AppLocalizations.of(context)!.regexRuleAddSuccess),
                     backgroundColor: Colors.green,
                   ));
                 } catch (e) {
                   // 显示错误提示
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('添加规则失败: $e'),
+                    content: Text(AppLocalizations.of(context)!.regexRuleAddFailed(e.toString())),
                     backgroundColor: Colors.red,
                   ));
                 }
               },
-              child: const Text('保存'),
+              child: Text(AppLocalizations.of(context)!.save),
             ),
           ],
         ),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_config.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/widgets/local_filter_settings_widget.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 本地计数过滤器设置页面
 /// 用于配置本地计数过滤器的相关参数
@@ -64,7 +65,7 @@ class LocalFilterSettingsPageState extends State<LocalFilterSettingsPage> {
     await widget.localCountFilterService.initialize(); // 重新初始化服务以应用新设置
     
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('设置已保存')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
     );
   }
 
@@ -72,12 +73,12 @@ class LocalFilterSettingsPageState extends State<LocalFilterSettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('本地计数过滤器设置'),
+        title: Text(AppLocalizations.of(context)!.localCountFilterSettings),
         actions: [
           IconButton(
             icon: const Icon(Icons.save),
             onPressed: _saveSettings,
-            tooltip: '保存设置',
+            tooltip: AppLocalizations.of(context)!.saveSettings,
           ),
         ],
       ),

@@ -29,9 +29,9 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
         children: [
           // 标题栏
           ListTile(
-            title: const Text(
-              '过滤器管理',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            title: Text(
+              AppLocalizations.of(context)!.filterManagement,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             trailing: IconButton(
               icon: Icon(_isExpanded
@@ -80,8 +80,8 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
       builder: (context, snapshot) {
         int ruleCount = snapshot.hasData ? snapshot.data!.length : 0;
         return _buildFilterSwitchItem(
-          title: 'SIM卡过滤规则',
-          subtitle: '根据SIM卡槽位设置不同的过滤规则',
+          title: AppLocalizations.of(context)!.simCardFilterRules,
+          subtitle: AppLocalizations.of(context)!.simCardFilterRulesDescription,
           icon: Icons.sim_card,
           color: Colors.blue,
           count: ruleCount,
@@ -108,8 +108,8 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
     final localCountFilterService =
         Provider.of<LocalCountFilterService>(context);
     return _buildFilterSwitchItem(
-      title: '本地计数过滤器',
-      subtitle: '根据本地号码计数拦截频繁来电',
+      title: AppLocalizations.of(context)!.localCountFilter,
+      subtitle: AppLocalizations.of(context)!.localCountFilterDescription,
       icon: Icons.filter_list,
       color: Colors.orange,
       count: localCountFilterService.localCountFilterConfig.countThreshold,
@@ -128,8 +128,8 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
     final remoteNumberFilterService =
         Provider.of<RemoteNumberFilterService>(context);
     return _buildFilterSwitchItem(
-      title: '远程号码过滤器',
-      subtitle: '根据远程数据库信息拦截骚扰电话',
+      title: AppLocalizations.of(context)!.remoteNumberFilter,
+      subtitle: AppLocalizations.of(context)!.remoteNumberFilterDescription,
       icon: Icons.filter,
       color: Colors.purple,
       count: remoteNumberFilterService.remoteNumberFilterConfig.countThreshold,
@@ -148,8 +148,8 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
     final callFilterService =
         Provider.of<CallFilterService>(context);
     return ExpansionTile(
-      title: const Text('通话过滤规则'),
-      subtitle: const Text('设置通话过滤的基本规则'),
+      title: Text(AppLocalizations.of(context)!.callFilterRules),
+      subtitle: Text(AppLocalizations.of(context)!.callFilterRulesDescription),
       leading: const Icon(Icons.call_end, color: Colors.red),
       children: [
         SwitchListTile(
@@ -260,8 +260,8 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
     final timeInterceptorService =
         Provider.of<TimeInterceptorService>(context);
     return _buildFilterSwitchItem(
-      title: '时间拦截器',
-      subtitle: '拦截短时间内的频繁来电',
+      title: AppLocalizations.of(context)!.timeInterceptor,
+      subtitle: AppLocalizations.of(context)!.timeInterceptorDescription,
       icon: Icons.timer,
       color: Colors.teal,
       count: timeInterceptorService.config.duration.inMinutes,
@@ -289,7 +289,7 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha:0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -315,7 +315,7 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.2),
+              color: color.withValues(alpha:0.2),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(

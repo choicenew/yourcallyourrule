@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_config.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/widgets/remote_filter_settings_widget.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 远程号码过滤器设置页面
 /// 用于配置远程号码过滤服务的相关参数
@@ -60,7 +62,7 @@ class RemoteFilterSettingsPageState extends State<RemoteFilterSettingsPage> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('加载设置失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.loadSettingsFailed(e.toString()))),
       );
     } finally {
       setState(() {
@@ -90,11 +92,11 @@ class RemoteFilterSettingsPageState extends State<RemoteFilterSettingsPage> {
       await widget.remoteNumberFilterService.updateConfig(newConfig);
       
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('设置已保存')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('保存设置失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.saveSettingsFailed(e.toString()))),
       );
     } finally {
       setState(() {
@@ -109,7 +111,7 @@ class RemoteFilterSettingsPageState extends State<RemoteFilterSettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('远程号码过滤器设置'),
+        title: Text(AppLocalizations.of(context)!.remoteFilterSettingsPageTitle),
         actions: [
           if (_isLoading)
             const Padding(
@@ -124,7 +126,7 @@ class RemoteFilterSettingsPageState extends State<RemoteFilterSettingsPage> {
             IconButton(
               icon: const Icon(Icons.save),
               onPressed: _saveSettings,
-              tooltip: '保存设置',
+              tooltip: AppLocalizations.of(context)!.saveSettings,
             ),
         ],
       ),

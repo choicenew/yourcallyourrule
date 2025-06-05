@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ... RegexPatternHint Widget ...
 
@@ -11,7 +12,7 @@ class RegexPatternExplanationButton extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            "Regex Pattern Explanation",
+            AppLocalizations.of(context)!.regexPatternExplanation,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
                 fontWeight: FontWeight.w600),
@@ -29,7 +30,7 @@ class RegexPatternExplanationButton extends StatelessWidget {
                   foregroundColor: Theme.of(context).colorScheme.onSurface,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 12)),
-              child: const Text("Close"),
+              child: Text(AppLocalizations.of(context)!.close),
             ),
           ],
           shape:
@@ -56,7 +57,7 @@ class RegexPatternExplanationButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Regex Pattern Explanation',
+                AppLocalizations.of(context)!.regexPatternExplanationButton,
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.w600),
@@ -82,41 +83,100 @@ class RegexPatternHint extends StatelessWidget {
       children: [
         _buildHintItem(
           context,
-          "Regular expressions for phone number matching:",
-          "Use standard regex syntax to define patterns. Examples:",
+          AppLocalizations.of(context)!.regexPatternsForPhoneNumberMatching,
+          description: Text(
+            AppLocalizations.of(context)!.useStandardRegexSyntaxToDefinePatternsExamples,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
         ),
         const SizedBox(height: 10),
         _buildHintItem(
           context,
-          "Block international calls:",
-          "Use '^\\+' to match numbers starting with international prefix",
+          AppLocalizations.of(context)!.blockInternationalCallsTitle,
+          description: Text(
+            "'^(?!\\+|00)' ${AppLocalizations.of(context)!.blockInternationalCalls}",
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
         ),
         _buildHintItem(
           context,
-          "Block specific area codes:",
-          "Pattern '^0[0-9]{2,3}' matches numbers starting with 0 + 2-3 digits",
+          AppLocalizations.of(context)!.blockPremiumRateNumbersTitle,
+          description: Text(
+            "'^(?!118|1[2-9]0)' ${AppLocalizations.of(context)!.blockPremiumRateNumbers}",
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
         ),
         _buildHintItem(
           context,
-          "Match specific digit patterns:",
-          "Pattern '[0-9]{3}-[0-9]{4}-[0-9]{4}' matches XXX-XXXX-XXXX format",
+          AppLocalizations.of(context)!.blockMobileNumbersTitle,
+          description: Text(
+            "'^(?!1[3-9])' ${AppLocalizations.of(context)!.blockMobileNumbers}",
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
+        ),
+
+
+
+
+
+
+
+
+
+
+        _buildHintItem(
+          context,
+          AppLocalizations.of(context)!.blockSpecificAreaCodesTitle,
+          description: Text(
+            "'^0[0-9]{2,3}' ${AppLocalizations.of(context)!.blockSpecificAreaCodes}",
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
         ),
         _buildHintItem(
           context,
-          "Match numbers with special characters:",
-          "Pattern '^170 [0-9]{3} 656 [0-9]{2}\$' matches specific number format",
+          AppLocalizations.of(context)!.matchSpecificDigitPatternsTitle,
+          description: Text(
+            "'[0-9]{3}-[0-9]{4}-[0-9]{4}' ${AppLocalizations.of(context)!.matchSpecificDigitPatterns}",
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
         ),
         _buildHintItem(
           context,
-          "Wildcard matching:",
-          "Use '.' to match any character (e.g. '123.456' matches 123-456)",
+          AppLocalizations.of(context)!.matchNumbersWithSpecialCharactersTitle,
+          description: Text(
+            "'^170 [0-9]{3} 656 [0-9]{2}\$' ${AppLocalizations.of(context)!.matchNumbersWithSpecialCharacters}",
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
+        ),
+        _buildHintItem(
+          context,
+          AppLocalizations.of(context)!.wildcardMatchingTitle,
+          description: Text(
+            AppLocalizations.of(context)!.wildcardMatchingDescription,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
         ),
       ],
     );
   }
 
-  Widget _buildHintItem(
-      BuildContext context, String title, String description) {
+  Widget _buildHintItem(BuildContext context, String title, {Widget? description}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Column(
@@ -144,12 +204,15 @@ class RegexPatternHint extends StatelessWidget {
                           fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(height: 4),
-                    Text(
+                    /*
+                     Text(
                       description,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color:
                               Theme.of(context).colorScheme.onSurfaceVariant),
                     ),
+                    */
+                    if (description != null) description,
                   ],
                 ),
               )

@@ -7,7 +7,7 @@ final List<Map<String, dynamic>> languages = [
   {'name': '繁體中文 (台湾)', 'code': const Locale('zh', 'TW')},
   {'name': '繁體中文 (香港)', 'code': const Locale('zh', 'HK')},
   {'name': '繁體中文 (澳门)', 'code': const Locale('zh', 'MO')},
-
+  {'name': '日本語', 'code': const Locale('ja', 'JP')},
   {'name': 'العربية', 'code': const Locale('ar')},
   {'name': 'Bahasa Malaysia', 'code': const Locale('ms', 'MY')},
   {'name': 'Bahasa Indonesia', 'code': const Locale('id', 'ID')},
@@ -28,7 +28,7 @@ final List<Map<String, dynamic>> languages = [
   {'name': 'עברית', 'code': const Locale('he', 'IL')},
   {'name': 'Українська', 'code': const Locale('uk', 'UA')},
   {'name': 'ภาษาไทย', 'code': const Locale('th', 'TH')},
-  {'name': '日本語', 'code': const Locale('ja', 'JP')},
+
   {'name': '한국어', 'code': const Locale('ko', 'KR')},
   {'name': 'မြန်မာ', 'code': const Locale('my', 'MM')},
 

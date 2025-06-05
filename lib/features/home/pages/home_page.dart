@@ -9,6 +9,7 @@ import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/home/widgets/filter_management_widget.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/presentation/verification_page.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/callerid_overlay_mock.dart';
 
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
         _searchResults = results;
       });
     } catch (e) {
-      debugPrint('搜索出错: $e');
+      debugPrint('${AppLocalizations.of(context)!.operationFailure}: $e');
     }
   }
 
@@ -156,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                 ? TextField(
                     controller: _searchController,
                     decoration: InputDecoration(
-                      hintText: '搜索...',
+                      hintText: AppLocalizations.of(context)!.search,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -264,8 +265,8 @@ class _HomePageState extends State<HomePage> {
         },
         children: [
           _buildCarouselCard(
-            title: '来电拦截',
-            description: '已拦截垃圾来电',
+            title: AppLocalizations.of(context)!.callBlocking,
+            description: AppLocalizations.of(context)!.blockedSpamCalls,
             value:
                 '${Provider.of<HomeStatsProvider>(context).stats.blockedCalls}',
             color: const Color(0xFFE57373),
@@ -273,16 +274,16 @@ class _HomePageState extends State<HomePage> {
           ),
 
           _buildCarouselCard(
-            title: '规则管理',
-            description: '已创建规则',
+            title: AppLocalizations.of(context)!.ruleManagement,
+            description: AppLocalizations.of(context)!.createdRules,
             value:
                 '${Provider.of<HomeStatsProvider>(context).stats.totalRules}',
             color: const Color(0xFF64B5F6),
             icon: Icons.rule,
           ),
           _buildCarouselCard(
-            title: '通话统计',
-            description: '本月通话',
+            title: AppLocalizations.of(context)!.callStatistics,
+            description: AppLocalizations.of(context)!.monthlyCallCount,
             value:
                 '${Provider.of<HomeStatsProvider>(context).stats.totalCalls}',
             color: const Color(0xFF81C784),
@@ -297,9 +298,9 @@ class _HomePageState extends State<HomePage> {
 
           // 添加数据源提醒卡片
           _buildCarouselCard(
-            title: '数据源提醒',
-            description: '请选择受到信任的数据源',
-            value: '重要',
+            title: AppLocalizations.of(context)!.dataSourceReminder,
+            description: AppLocalizations.of(context)!.selectTrustedDataSource,
+            value: AppLocalizations.of(context)!.important,
             color: const Color(0xFFFFA726),
             icon: Icons.warning_amber_rounded,
           ),
@@ -336,11 +337,11 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 8.0, top: 4.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, top: 4.0),
               child: Text(
-                '来电显示预览',
-                style: TextStyle(
+                AppLocalizations.of(context)!.callerIdPreview,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -388,15 +389,15 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '我们的其他应用',
-                  style: TextStyle(
+                Text(
+                  AppLocalizations.of(context)!.ourOtherApps,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Icon(Icons.apps, color: Colors.white),
+                const Icon(Icons.apps, color: Colors.white),
               ],
             ),
             const Spacer(),
@@ -490,14 +491,14 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '规则验证',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+           Text(
+              AppLocalizations.of(context)!.ruleVerification,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             TextField(
               decoration: InputDecoration(
-                hintText: '输入电话号码进行验证',
+                hintText: AppLocalizations.of(context)!.enterPhoneNumberToVerify,
                 prefixIcon: const Icon(Icons.phone),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
@@ -525,9 +526,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 12),
                 ),
-                child: const Text(
-                  '验证',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                child: Text(
+                  AppLocalizations.of(context)!.verify,
+                  style: const TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
             ),
@@ -648,9 +649,9 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '功能中心',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.featureCenter,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             GridView.count(
@@ -661,62 +662,62 @@ class _HomePageState extends State<HomePage> {
               crossAxisSpacing: 16,
               children: [
                 _buildFeatureItem(
-                  title: '标签管理',
+                  title: AppLocalizations.of(context)!.labelManagement,
                   icon: Icons.label,
                   onTap: () => context.push('/label-management'),
                 ),
                 _buildFeatureItem(
-                  title: '插件管理',
+                  title: AppLocalizations.of(context)!.pluginManagement,
                   icon: Icons.extension,
                   onTap: () => context.push('/plugin-management'),
                 ),
                 _buildFeatureItem(
-                  title: '允许/阻止',
+                  title: AppLocalizations.of(context)!.allowBlock,
                   icon: Icons.block,
                   onTap: () => context.push('/allowed-blocked'),
                 ),
                 _buildFeatureItem(
-                  title: '黑白名单',
+                  title: AppLocalizations.of(context)!.blackWhiteList,
                   icon: Icons.list,
                   onTap: () => context.push('/blacklist-whitelist'),
                 ),
                 _buildFeatureItem(
-                  title: '正则规则',
+                  title: AppLocalizations.of(context)!.regexRules,
                   icon: Icons.code,
                   onTap: () => context.push('/regex-rule'),
                 ),
                 _buildFeatureItem(
-                  title: '电话订阅',
+                  title: AppLocalizations.of(context)!.phoneSubscription,
                   icon: Icons.phone_callback,
                   onTap: () => context.push('/phone-subscription'),
                 ),
                 _buildFeatureItem(
-                  title: '短信订阅',
+                  title: AppLocalizations.of(context)!.smsSubscription,
                   icon: Icons.sms,
                   onTap: () => context.push('/sms-subscription'),
                 ),
                 _buildFeatureItem(
-                  title: '短信管理',
+                  title: AppLocalizations.of(context)!.smsManagement,
                   icon: Icons.message,
                   onTap: () => context.push('/sms-management'),
                 ),
                 _buildFeatureItem(
-                  title: '通话记录',
+                  title: AppLocalizations.of(context)!.callHistory,
                   icon: Icons.call,
                   onTap: () => context.push('/call-logs'),
                 ),
                 _buildFeatureItem(
-                  title: '联系人',
+                  title: AppLocalizations.of(context)!.contacts,
                   icon: Icons.contacts,
                   onTap: () => context.push('/contacts'),
                 ),
                 _buildFeatureItem(
-                  title: '统计分析',
+                  title: AppLocalizations.of(context)!.statistics,
                   icon: Icons.bar_chart,
                   onTap: () => context.push('/statistics'),
                 ),
                 _buildFeatureItem(
-                  title: '设置',
+                  title: AppLocalizations.of(context)!.settings,
                   icon: Icons.settings,
                   onTap: () => context.push('/settings'),
                 ),

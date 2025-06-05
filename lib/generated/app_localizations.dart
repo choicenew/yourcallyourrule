@@ -192,7 +192,7 @@ abstract class AppLocalizations {
   /// No description provided for @enableLocalCountFilterDescription.
   ///
   /// In en, this message translates to:
-  /// **'Automatically filter spam calls based on local marking count'**
+  /// **'Automatically filter spam calls based on call marking count'**
   String get enableLocalCountFilterDescription;
 
   /// No description provided for @rejectExceededNumbers.
@@ -204,7 +204,7 @@ abstract class AppLocalizations {
   /// No description provided for @rejectExceededNumbersDescription.
   ///
   /// In en, this message translates to:
-  /// **'Automatically reject all numbers exceeding the count threshold'**
+  /// **'Automatically reject numbers exceeding the count threshold'**
   String get rejectExceededNumbersDescription;
 
   /// No description provided for @allowNonExceededNumbers.
@@ -216,7 +216,7 @@ abstract class AppLocalizations {
   /// No description provided for @allowNonExceededNumbersDescription.
   ///
   /// In en, this message translates to:
-  /// **'Automatically allow all numbers not exceeding the count threshold'**
+  /// **'Automatically allow numbers not exceeding the count threshold'**
   String get allowNonExceededNumbersDescription;
 
   /// No description provided for @remoteNumberFiltering.
@@ -234,13 +234,13 @@ abstract class AppLocalizations {
   /// No description provided for @enableRemoteNumberFilterDescription.
   ///
   /// In en, this message translates to:
-  /// **'Automatically filter spam calls based on remote database information'**
+  /// **'Use remote database to filter numbers'**
   String get enableRemoteNumberFilterDescription;
 
   /// No description provided for @prioritizeRemoteAction.
   ///
   /// In en, this message translates to:
-  /// **'Prioritize Remote Action'**
+  /// **'Prioritize Remote Action Settings'**
   String get prioritizeRemoteAction;
 
   /// No description provided for @prioritizeRemoteActionDescription.
@@ -714,8 +714,8 @@ abstract class AppLocalizations {
   /// No description provided for @addRuleFailed.
   ///
   /// In en, this message translates to:
-  /// **'Failed to add rule'**
-  String get addRuleFailed;
+  /// **'Failed to add rule: {error}'**
+  String addRuleFailed(Object error);
 
   /// No description provided for @enterBothPhoneNumberAndRegexPatternMessage.
   ///
@@ -1269,6 +1269,150 @@ abstract class AppLocalizations {
   /// **'Add Contact'**
   String get addContactButton;
 
+  /// No description provided for @loadLabelsFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load labels: {error}'**
+  String loadLabelsFailed(Object error);
+
+  /// No description provided for @deleteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Label'**
+  String get deleteLabel;
+
+  /// No description provided for @confirmDeleteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete label \"{name}\"'**
+  String confirmDeleteLabel(Object name);
+
+  /// No description provided for @labelDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Label deleted'**
+  String get labelDeleted;
+
+  /// No description provided for @deleteLabelFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete label: {error}'**
+  String deleteLabelFailed(Object error);
+
+  /// No description provided for @addLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Label'**
+  String get addLabel;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// No description provided for @enterPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter phone number'**
+  String get enterPhoneNumber;
+
+  /// No description provided for @iconCodeOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Icon Code (Optional)'**
+  String get iconCodeOptional;
+
+  /// No description provided for @enterIconCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter icon code'**
+  String get enterIconCode;
+
+  /// No description provided for @selectLabelAndEnterPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a label and enter a valid phone number'**
+  String get selectLabelAndEnterPhoneNumber;
+
+  /// No description provided for @labelAddedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Label \"{name}\" added successfully'**
+  String labelAddedSuccessfully(Object name);
+
+  /// No description provided for @addLabelFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to add label: {error}'**
+  String addLabelFailed(Object error);
+
+  /// No description provided for @labelsImportedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Successfully imported {count} labels'**
+  String labelsImportedSuccessfully(Object count);
+
+  /// No description provided for @importLabelsFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to import labels: {error}'**
+  String importLabelsFailed(Object error);
+
+  /// No description provided for @labelsExportedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Labels exported successfully'**
+  String get labelsExportedSuccessfully;
+
+  /// No description provided for @exportLabelsFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to export labels: {error}'**
+  String exportLabelsFailed(Object error);
+
+  /// No description provided for @labelManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Label Management'**
+  String get labelManagement;
+
+  /// No description provided for @importLabels.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Labels'**
+  String get importLabels;
+
+  /// No description provided for @exportLabels.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Labels'**
+  String get exportLabels;
+
+  /// No description provided for @noLabels.
+  ///
+  /// In en, this message translates to:
+  /// **'No labels yet'**
+  String get noLabels;
+
+  /// No description provided for @aboutLabels.
+  ///
+  /// In en, this message translates to:
+  /// **'About Labels'**
+  String get aboutLabels;
+
+  /// No description provided for @labelDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Labels help you better manage contacts, add custom labels to phone numbers for easy identification of calls and messages.'**
+  String get labelDescription;
+
+  /// No description provided for @labelCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Label Categories'**
+  String get labelCategories;
+
   /// No description provided for @dataAnalysis.
   ///
   /// In en, this message translates to:
@@ -1566,7 +1710,7 @@ abstract class AppLocalizations {
   /// No description provided for @timeInterceptorDescription.
   ///
   /// In en, this message translates to:
-  /// **'Automatically intercept potential spam calls based on call frequency'**
+  /// **'Intercept frequent calls within a short period'**
   String get timeInterceptorDescription;
 
   /// No description provided for @timeInterceptorTitle.
@@ -1778,6 +1922,342 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Subscribe to phone rule lists via URL to automatically update whitelist and blacklist rules. Supports JSON format rule files.'**
   String get phoneSubscriptionRulesDescription;
+
+  /// No description provided for @ruleAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Action'**
+  String get ruleAction;
+
+  /// No description provided for @selectActionToPerform.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the action to perform when the rule matches'**
+  String get selectActionToPerform;
+
+  /// No description provided for @allow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get allow;
+
+  /// No description provided for @block.
+  ///
+  /// In en, this message translates to:
+  /// **'Block'**
+  String get block;
+
+  /// No description provided for @silence.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence'**
+  String get silence;
+
+  /// No description provided for @noAction.
+  ///
+  /// In en, this message translates to:
+  /// **'No Action'**
+  String get noAction;
+
+  /// No description provided for @interceptAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercept Action'**
+  String get interceptAction;
+
+  /// No description provided for @selectSpecificActionForBlockedCalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the specific action to perform when blocking calls'**
+  String get selectSpecificActionForBlockedCalls;
+
+  /// No description provided for @useGlobalSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Global Settings'**
+  String get useGlobalSettings;
+
+  /// No description provided for @allowedBlockedRuleEditDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Allow/Block Rule'**
+  String get allowedBlockedRuleEditDialogTitle;
+
+  /// No description provided for @ruleNameAndPhoneNumberCannotBeEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule name and phone number cannot be empty'**
+  String get ruleNameAndPhoneNumberCannotBeEmpty;
+
+  /// No description provided for @ruleUpdateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule updated successfully'**
+  String get ruleUpdateSuccess;
+
+  /// No description provided for @updateRuleFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update rule: {error}'**
+  String updateRuleFailed(Object error);
+
+  /// No description provided for @ruleName.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Name'**
+  String get ruleName;
+
+  /// No description provided for @exampleFamilyFriends.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Family, Friends, etc.'**
+  String get exampleFamilyFriends;
+
+  /// No description provided for @examplePhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. 10086, 12345, etc.'**
+  String get examplePhoneNumber;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @endCallImmediately.
+  ///
+  /// In en, this message translates to:
+  /// **'End call immediately'**
+  String get endCallImmediately;
+
+  /// No description provided for @answerThenHangUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer Then Hang Up'**
+  String get answerThenHangUp;
+
+  /// No description provided for @silenceNoAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence No Answer'**
+  String get silenceNoAnswer;
+
+  /// No description provided for @unknownAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Action'**
+  String get unknownAction;
+
+  /// No description provided for @contactEditDialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Edit Dialog'**
+  String get contactEditDialog;
+
+  /// No description provided for @addOrEditContactInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to add or edit contact information'**
+  String get addOrEditContactInfo;
+
+  /// No description provided for @showContactEditDialogStaticMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'Static method to display contact edit dialog'**
+  String get showContactEditDialogStaticMethod;
+
+  /// No description provided for @nameAndPhoneNumberCannotBeEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Name and phone number cannot be empty'**
+  String get nameAndPhoneNumberCannotBeEmpty;
+
+  /// No description provided for @updateContactFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update contact: {error}'**
+  String updateContactFailed(Object error);
+
+  /// No description provided for @addContactFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to add contact: {error}'**
+  String addContactFailed(Object error);
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @enterContactName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter contact name'**
+  String get enterContactName;
+
+  /// No description provided for @enterPhoneNumberMultiple.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter phone number, multiple numbers separated by commas'**
+  String get enterPhoneNumberMultiple;
+
+  /// No description provided for @enterEmailOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter email (optional)'**
+  String get enterEmailOptional;
+
+  /// No description provided for @editContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Contact'**
+  String get editContact;
+
+  /// No description provided for @contactUpdateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact updated successfully'**
+  String get contactUpdateSuccess;
+
+  /// No description provided for @contactAddSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact added successfully'**
+  String get contactAddSuccess;
+
+  /// No description provided for @countrySelectionDialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Country Selection Dialog'**
+  String get countrySelectionDialog;
+
+  /// No description provided for @enterSearchContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter search content'**
+  String get enterSearchContent;
+
+  /// No description provided for @noMatchingNumbersFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching numbers found'**
+  String get noMatchingNumbersFound;
+
+  /// No description provided for @searchError.
+  ///
+  /// In en, this message translates to:
+  /// **'Search error: {error}'**
+  String searchError(Object error);
+
+  /// No description provided for @contactNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact not found'**
+  String get contactNotFound;
+
+  /// No description provided for @labelNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Label not found'**
+  String get labelNotFound;
+
+  /// No description provided for @ruleNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule not found: {error}'**
+  String ruleNotFound(Object error);
+
+  /// No description provided for @numberSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Number Search'**
+  String get numberSearch;
+
+  /// No description provided for @enterPhoneNumberToStartSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter phone number to start search'**
+  String get enterPhoneNumberToStartSearch;
+
+  /// No description provided for @countrySelectionDialogDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to select a country to query caller ID information'**
+  String get countrySelectionDialogDescription;
+
+  /// No description provided for @staticMethodToDisplayCountrySelectionDialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Static method to display country selection dialog'**
+  String get staticMethodToDisplayCountrySelectionDialog;
+
+  /// No description provided for @selectCountry.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Country'**
+  String get selectCountry;
+
+  /// No description provided for @phoneRuleEditDialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Rule Edit Dialog'**
+  String get phoneRuleEditDialog;
+
+  /// No description provided for @editPhoneRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to edit phone rules'**
+  String get editPhoneRules;
+
+  /// No description provided for @staticMethodToDisplayDialog.
+  ///
+  /// In en, this message translates to:
+  /// **'Static method to display dialog'**
+  String get staticMethodToDisplayDialog;
+
+  /// No description provided for @editPhoneRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Phone Rule'**
+  String get editPhoneRule;
+
+  /// No description provided for @editPhoneRuleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Phone Rule'**
+  String get editPhoneRuleTitle;
+
+  /// No description provided for @pleaseSelectLabelAndEnterValidPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a label and enter a valid phone number'**
+  String get pleaseSelectLabelAndEnterValidPhone;
+
+  /// No description provided for @labelUpdateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Label \"\$labelText\" updated successfully'**
+  String get labelUpdateSuccess;
+
+  /// Label update failure message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update label: {error}'**
+  String labelUpdateFailed(Object error);
+
+  /// No description provided for @selectActionWhenRuleMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'Select action when rule matches'**
+  String get selectActionWhenRuleMatches;
+
+  /// No description provided for @selectActionWhenBlockingCalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Select action when blocking calls'**
+  String get selectActionWhenBlockingCalls;
 
   /// No description provided for @phoneNumberTypeFixedLine.
   ///
@@ -2265,6 +2745,198 @@ abstract class AppLocalizations {
   /// **'The enhanced filter system supports both global rules and per-SIM card filtering configurations.'**
   String get enhancedFilterSystemDescription;
 
+  /// No description provided for @statistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get statistics;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @callBlocking.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Blocking'**
+  String get callBlocking;
+
+  /// No description provided for @blockedSpamCalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Spam Calls'**
+  String get blockedSpamCalls;
+
+  /// No description provided for @filterManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Management'**
+  String get filterManagement;
+
+  /// No description provided for @simCardFilterRules.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Card Filter Rules'**
+  String get simCardFilterRules;
+
+  /// No description provided for @simCardFilterRulesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Set different filtering rules based on SIM card slots'**
+  String get simCardFilterRulesDescription;
+
+  /// No description provided for @localCountFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Count Filter'**
+  String get localCountFilter;
+
+  /// No description provided for @localCountFilterDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercept frequent calls based on local number counts'**
+  String get localCountFilterDescription;
+
+  /// No description provided for @remoteNumberFilterDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Intercept harassing calls based on remote database information'**
+  String get remoteNumberFilterDescription;
+
+  /// No description provided for @callFilterRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Filter Rules'**
+  String get callFilterRules;
+
+  /// No description provided for @callFilterRulesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Set basic rules for call filtering'**
+  String get callFilterRulesDescription;
+
+  /// No description provided for @ruleManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Management'**
+  String get ruleManagement;
+
+  /// No description provided for @createdRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Created Rules'**
+  String get createdRules;
+
+  /// No description provided for @callStatistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Statistics'**
+  String get callStatistics;
+
+  /// No description provided for @monthlyCallCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Calls'**
+  String get monthlyCallCount;
+
+  /// No description provided for @dataSourceReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Source Reminder'**
+  String get dataSourceReminder;
+
+  /// No description provided for @selectTrustedDataSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select trusted data sources'**
+  String get selectTrustedDataSource;
+
+  /// No description provided for @important.
+  ///
+  /// In en, this message translates to:
+  /// **'Important'**
+  String get important;
+
+  /// No description provided for @callerIdPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Caller ID Preview'**
+  String get callerIdPreview;
+
+  /// No description provided for @ourOtherApps.
+  ///
+  /// In en, this message translates to:
+  /// **'Our Other Apps'**
+  String get ourOtherApps;
+
+  /// No description provided for @ruleVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Verification'**
+  String get ruleVerification;
+
+  /// No description provided for @enterPhoneNumberToVerify.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter phone number to verify'**
+  String get enterPhoneNumberToVerify;
+
+  /// No description provided for @verify.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify'**
+  String get verify;
+
+  /// No description provided for @featureCenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Feature Center'**
+  String get featureCenter;
+
+  /// No description provided for @pluginManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin Management'**
+  String get pluginManagement;
+
+  /// No description provided for @allowBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow/Block'**
+  String get allowBlock;
+
+  /// No description provided for @blackWhiteList.
+  ///
+  /// In en, this message translates to:
+  /// **'Black/White List'**
+  String get blackWhiteList;
+
+  /// No description provided for @regexRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Rules'**
+  String get regexRules;
+
+  /// No description provided for @phoneSubscription.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Subscription'**
+  String get phoneSubscription;
+
+  /// No description provided for @smsSubscription.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS Subscription'**
+  String get smsSubscription;
+
+  /// No description provided for @smsManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS Management'**
+  String get smsManagement;
+
   /// No description provided for @systemFeatures.
   ///
   /// In en, this message translates to:
@@ -2322,13 +2994,13 @@ abstract class AppLocalizations {
   /// No description provided for @phoneNumberHint.
   ///
   /// In en, this message translates to:
-  /// **'Enter phone number'**
+  /// **'e.g., 10086, 12345, etc.'**
   String get phoneNumberHint;
 
   /// No description provided for @ruleNameHint.
   ///
   /// In en, this message translates to:
-  /// **'Rule name (optional)'**
+  /// **'e.g., Family, Friends, etc.'**
   String get ruleNameHint;
 
   /// No description provided for @addRuleButton.
@@ -2823,12 +3495,6 @@ abstract class AppLocalizations {
   /// **'Enter contact name'**
   String get enterName;
 
-  /// No description provided for @save.
-  ///
-  /// In en, this message translates to:
-  /// **'Save'**
-  String get save;
-
   /// Data loading failure message
   ///
   /// In en, this message translates to:
@@ -3135,18 +3801,6 @@ abstract class AppLocalizations {
   /// **'Failed to remove label: {error}'**
   String labelRemoveFailed(Object error);
 
-  /// Label update failure message
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to update label: {error}'**
-  String labelUpdateFailed(Object error);
-
-  /// No description provided for @addLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Label'**
-  String get addLabel;
-
   /// No description provided for @callback.
   ///
   /// In en, this message translates to:
@@ -3309,23 +3963,11 @@ abstract class AppLocalizations {
   /// **'Failed to load labels: {error}'**
   String loadLabelFailed(Object error);
 
-  /// No description provided for @addLabelFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to add labels: {error}'**
-  String addLabelFailed(Object error);
-
   /// No description provided for @selectedLabel.
   ///
   /// In en, this message translates to:
   /// **'Selected:'**
   String get selectedLabel;
-
-  /// No description provided for @noLabels.
-  ///
-  /// In en, this message translates to:
-  /// **'No Labels'**
-  String get noLabels;
 
   /// No description provided for @addLabelButton.
   ///
@@ -3420,7 +4062,7 @@ abstract class AppLocalizations {
   /// No description provided for @ruleDeleteFailed.
   ///
   /// In en, this message translates to:
-  /// **'Delete failed: {error}'**
+  /// **'Failed to delete rule: {error}'**
   String ruleDeleteFailed(Object error);
 
   /// No description provided for @actionFilterTitle.
@@ -3645,47 +4287,59 @@ abstract class AppLocalizations {
   /// **'Failed to load contacts'**
   String get failedToLoadContacts;
 
-  /// No description provided for @editContact.
+  /// No description provided for @callerIdDialogTitle.
   ///
   /// In en, this message translates to:
-  /// **'Edit Contact'**
-  String get editContact;
+  /// **'Caller ID Information'**
+  String get callerIdDialogTitle;
 
-  /// No description provided for @contactUpdateSuccess.
+  /// No description provided for @staticMethodShowCallerIdDialog.
   ///
   /// In en, this message translates to:
-  /// **'Contact updated successfully'**
-  String get contactUpdateSuccess;
+  /// **'Static method to show the Caller ID Information Dialog'**
+  String get staticMethodShowCallerIdDialog;
 
-  /// No description provided for @contactAddSuccess.
+  /// No description provided for @fetchingCallerIdInfo.
   ///
   /// In en, this message translates to:
-  /// **'Contact added successfully'**
-  String get contactAddSuccess;
+  /// **'Fetching caller ID information...'**
+  String get fetchingCallerIdInfo;
 
-  /// No description provided for @name.
+  /// No description provided for @failedToGetCallerIdInfo.
   ///
   /// In en, this message translates to:
-  /// **'Name'**
-  String get name;
+  /// **'Failed to get caller ID information: {error}'**
+  String failedToGetCallerIdInfo(Object error);
 
-  /// No description provided for @enterContactName.
+  /// No description provided for @number.
   ///
   /// In en, this message translates to:
-  /// **'Please enter contact name'**
-  String get enterContactName;
+  /// **'Number'**
+  String get number;
 
-  /// No description provided for @phoneNumber.
+  /// No description provided for @country.
   ///
   /// In en, this message translates to:
-  /// **'Phone Number'**
-  String get phoneNumber;
+  /// **'Country'**
+  String get country;
 
-  /// No description provided for @enterPhoneNumber.
+  /// No description provided for @region.
   ///
   /// In en, this message translates to:
-  /// **'Please enter phone number'**
-  String get enterPhoneNumber;
+  /// **'Region'**
+  String get region;
+
+  /// No description provided for @carrier.
+  ///
+  /// In en, this message translates to:
+  /// **'Carrier'**
+  String get carrier;
+
+  /// No description provided for @labels.
+  ///
+  /// In en, this message translates to:
+  /// **'Labels'**
+  String get labels;
 
   /// No description provided for @emailOptional.
   ///
@@ -4023,12 +4677,6 @@ abstract class AppLocalizations {
   /// **'Reset'**
   String get reset;
 
-  /// No description provided for @filterManagement.
-  ///
-  /// In en, this message translates to:
-  /// **'Filter Management'**
-  String get filterManagement;
-
   /// No description provided for @addFilter.
   ///
   /// In en, this message translates to:
@@ -4100,18 +4748,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Action'**
   String get action;
-
-  /// No description provided for @block.
-  ///
-  /// In en, this message translates to:
-  /// **'Block'**
-  String get block;
-
-  /// No description provided for @allow.
-  ///
-  /// In en, this message translates to:
-  /// **'Allow'**
-  String get allow;
 
   /// No description provided for @mute.
   ///
@@ -4209,12 +4845,6 @@ abstract class AppLocalizations {
   /// **'Choose the default intercept action'**
   String get chooseDefaultInterceptAction;
 
-  /// No description provided for @endCallImmediately.
-  ///
-  /// In en, this message translates to:
-  /// **'End call immediately'**
-  String get endCallImmediately;
-
   /// No description provided for @answerThenHangup.
   ///
   /// In en, this message translates to:
@@ -4226,6 +4856,1002 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Silence and no answer'**
   String get silenceAndNoAnswer;
+
+  /// No description provided for @languageSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Language Settings'**
+  String get languageSettings;
+
+  /// No description provided for @currentLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Language'**
+  String get currentLanguage;
+
+  /// No description provided for @selectLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get selectLanguage;
+
+  /// No description provided for @localCountFilterSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Count Filter Settings'**
+  String get localCountFilterSettings;
+
+  /// No description provided for @countThresholdLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Count Threshold'**
+  String get countThresholdLabel;
+
+  /// No description provided for @countThresholdDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Set the minimum count threshold required to trigger filtering actions'**
+  String get countThresholdDescription;
+
+  /// No description provided for @logAllLocalQueries.
+  ///
+  /// In en, this message translates to:
+  /// **'Log All Local Queries'**
+  String get logAllLocalQueries;
+
+  /// No description provided for @logAllLocalQueriesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Record logs for all local number queries'**
+  String get logAllLocalQueriesDescription;
+
+  /// No description provided for @localCountFilterExplanationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Count Filter Explanation'**
+  String get localCountFilterExplanationTitle;
+
+  /// No description provided for @localCountFilterExplanationContent.
+  ///
+  /// In en, this message translates to:
+  /// **'The local count filter analyzes call history records to automatically identify and block frequent spam calls.'**
+  String get localCountFilterExplanationContent;
+
+  /// No description provided for @localCountFilterHowItWorksPoint1.
+  ///
+  /// In en, this message translates to:
+  /// **'• Determine whether to block based on the number\'s count value'**
+  String get localCountFilterHowItWorksPoint1;
+
+  /// No description provided for @localCountFilterHowItWorksPoint2.
+  ///
+  /// In en, this message translates to:
+  /// **'• When a number\'s count exceeds the set threshold, you can choose to automatically block it'**
+  String get localCountFilterHowItWorksPoint2;
+
+  /// No description provided for @localCountFilterHowItWorksPoint3.
+  ///
+  /// In en, this message translates to:
+  /// **'• You can selectively allow numbers that don\'t exceed the threshold'**
+  String get localCountFilterHowItWorksPoint3;
+
+  /// No description provided for @localCountFilterHowItWorksPoint4.
+  ///
+  /// In en, this message translates to:
+  /// **'• You can choose whether to record all query logs'**
+  String get localCountFilterHowItWorksPoint4;
+
+  /// No description provided for @localCountFilterUseCases.
+  ///
+  /// In en, this message translates to:
+  /// **'This filter is particularly suitable for identifying auto-dialed spam calls and marketing calls.'**
+  String get localCountFilterUseCases;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @previousStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get previousStep;
+
+  /// No description provided for @nextStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get nextStep;
+
+  /// No description provided for @startUsing.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get startUsing;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// No description provided for @onboardingWelcomeDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your call management expert, providing comprehensive call identification and blocking services.'**
+  String get onboardingWelcomeDescription;
+
+  /// No description provided for @selectYourLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Your Language'**
+  String get selectYourLanguage;
+
+  /// No description provided for @onboardingLanguageDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your preferred language for the best experience.'**
+  String get onboardingLanguageDescription;
+
+  /// No description provided for @smartCallerId.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart Call Identification'**
+  String get smartCallerId;
+
+  /// No description provided for @onboardingSmartCallerIdDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatically identify unknown calls, mark suspicious numbers, and protect your call safety.'**
+  String get onboardingSmartCallerIdDescription;
+
+  /// No description provided for @powerfulSpamBlocking.
+  ///
+  /// In en, this message translates to:
+  /// **'Powerful Spam Blocking'**
+  String get powerfulSpamBlocking;
+
+  /// No description provided for @onboardingPowerfulSpamBlockingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'One-click blocking of spam calls and messages, customize blocking rules, and give you a quiet environment.'**
+  String get onboardingPowerfulSpamBlockingDescription;
+
+  /// No description provided for @grantNecessaryPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Grant Necessary Permissions'**
+  String get grantNecessaryPermissions;
+
+  /// No description provided for @onboardingPermissionsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'To provide full service, we need the following permissions:'**
+  String get onboardingPermissionsDescription;
+
+  /// No description provided for @phonePermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Permission'**
+  String get phonePermission;
+
+  /// No description provided for @phonePermissionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to identify and block incoming calls.'**
+  String get phonePermissionDescription;
+
+  /// No description provided for @smsPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'SMS Permission'**
+  String get smsPermission;
+
+  /// No description provided for @smsPermissionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to filter spam messages.'**
+  String get smsPermissionDescription;
+
+  /// No description provided for @contactsPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Contacts Permission'**
+  String get contactsPermission;
+
+  /// No description provided for @contactsPermissionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to identify contact calls.'**
+  String get contactsPermissionDescription;
+
+  /// No description provided for @callScreeningPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Screening Permission'**
+  String get callScreeningPermission;
+
+  /// No description provided for @callScreeningPermissionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to screen and block spam calls.'**
+  String get callScreeningPermissionDescription;
+
+  /// No description provided for @callScreeningPermissionNotGranted.
+  ///
+  /// In en, this message translates to:
+  /// **'Call screening permission not granted, may affect app functionality.'**
+  String get callScreeningPermissionNotGranted;
+
+  /// No description provided for @grantPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Grant Permissions'**
+  String get grantPermissions;
+
+  /// No description provided for @ready.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready!'**
+  String get ready;
+
+  /// No description provided for @allSettingsCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'All settings completed.'**
+  String get allSettingsCompleted;
+
+  /// No description provided for @onboardingCompleteDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your call security manager is ready, start enjoying a secure call experience!'**
+  String get onboardingCompleteDescription;
+
+  /// No description provided for @storagePermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Storage Permission'**
+  String get storagePermission;
+
+  /// No description provided for @storagePermissionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to save settings and rules.'**
+  String get storagePermissionDescription;
+
+  /// No description provided for @overlayPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Overlay Permission'**
+  String get overlayPermission;
+
+  /// No description provided for @overlayPermissionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to display incoming call overlay.'**
+  String get overlayPermissionDescription;
+
+  /// No description provided for @notificationPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Permission'**
+  String get notificationPermission;
+
+  /// No description provided for @notificationPermissionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Used to display incoming call and message notifications.'**
+  String get notificationPermissionDescription;
+
+  /// No description provided for @checkPermissionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to check permissions: {error}'**
+  String checkPermissionFailed(Object error);
+
+  /// No description provided for @permissionGranted.
+  ///
+  /// In en, this message translates to:
+  /// **'Permission granted'**
+  String get permissionGranted;
+
+  /// No description provided for @permissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Permission request denied'**
+  String get permissionDenied;
+
+  /// No description provided for @requestPermissionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to request permission: {error}'**
+  String requestPermissionFailed(Object error);
+
+  /// No description provided for @allPermissionsGranted.
+  ///
+  /// In en, this message translates to:
+  /// **'All permissions granted'**
+  String get allPermissionsGranted;
+
+  /// No description provided for @somePermissionsDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Some permission requests denied'**
+  String get somePermissionsDenied;
+
+  /// No description provided for @openAppSettingsFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open app settings: {error}'**
+  String openAppSettingsFailed(Object error);
+
+  /// No description provided for @permissionManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Permission Management'**
+  String get permissionManagement;
+
+  /// No description provided for @refreshPermissionStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh permission status'**
+  String get refreshPermissionStatus;
+
+  /// No description provided for @openAppSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open app settings'**
+  String get openAppSettings;
+
+  /// No description provided for @requestAllPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Request All Permissions'**
+  String get requestAllPermissions;
+
+  /// No description provided for @granted.
+  ///
+  /// In en, this message translates to:
+  /// **'Granted'**
+  String get granted;
+
+  /// No description provided for @notGranted.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Granted'**
+  String get notGranted;
+
+  /// No description provided for @requestPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Permission'**
+  String get requestPermission;
+
+  /// No description provided for @pluginService.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin Service'**
+  String get pluginService;
+
+  /// No description provided for @loadPluginsFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load plugins: {error}'**
+  String loadPluginsFailed(Object error);
+
+  /// No description provided for @changePluginStatusFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to change plugin status: {error}'**
+  String changePluginStatusFailed(Object error);
+
+  /// No description provided for @pluginUpdateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin updated successfully'**
+  String get pluginUpdateSuccess;
+
+  /// No description provided for @pluginLatestVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin is already the latest version'**
+  String get pluginLatestVersion;
+
+  /// No description provided for @updatePluginFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update plugin: {error}'**
+  String updatePluginFailed(Object error);
+
+  /// No description provided for @deletePlugin.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Plugin'**
+  String get deletePlugin;
+
+  /// No description provided for @confirmDeletePlugin.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete plugin \"{name}\"?'**
+  String confirmDeletePlugin(Object name);
+
+  /// No description provided for @pluginDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin deleted'**
+  String get pluginDeleted;
+
+  /// No description provided for @deletePluginFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete plugin: {error}'**
+  String deletePluginFailed(Object error);
+
+  /// No description provided for @enterValidUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid URL'**
+  String get enterValidUrl;
+
+  /// No description provided for @pluginAddedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin \"{name}\" added successfully'**
+  String pluginAddedSuccess(Object name);
+
+  /// No description provided for @addPluginFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to add plugin'**
+  String get addPluginFailed;
+
+  /// No description provided for @addPluginFailedWithError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to add plugin: {error}'**
+  String addPluginFailedWithError(Object error);
+
+  /// No description provided for @addPlugin.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Plugin'**
+  String get addPlugin;
+
+  /// No description provided for @pluginUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin URL'**
+  String get pluginUrl;
+
+  /// No description provided for @enterPluginUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter plugin URL address'**
+  String get enterPluginUrl;
+
+  /// No description provided for @addPluginFromUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Plugin from URL'**
+  String get addPluginFromUrl;
+
+  /// No description provided for @addPluginFromLocalFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Plugin from Local File'**
+  String get addPluginFromLocalFile;
+
+  /// No description provided for @exportPluginList.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Plugin List'**
+  String get exportPluginList;
+
+  /// No description provided for @importPluginList.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Plugin List'**
+  String get importPluginList;
+
+  /// No description provided for @pluginListExportSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin list exported successfully'**
+  String get pluginListExportSuccess;
+
+  /// No description provided for @exportPluginListFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to export plugin list: {error}'**
+  String exportPluginListFailed(Object error);
+
+  /// No description provided for @importPluginSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Successfully imported {count} plugins'**
+  String importPluginSuccess(Object count);
+
+  /// No description provided for @importPluginListFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to import plugin list: {error}'**
+  String importPluginListFailed(Object error);
+
+  /// No description provided for @moreOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'More Options'**
+  String get moreOptions;
+
+  /// No description provided for @noPlugins.
+  ///
+  /// In en, this message translates to:
+  /// **'No plugins yet'**
+  String get noPlugins;
+
+  /// No description provided for @installed.
+  ///
+  /// In en, this message translates to:
+  /// **'Installed'**
+  String get installed;
+
+  /// No description provided for @autoUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto Update'**
+  String get autoUpdate;
+
+  /// No description provided for @version.
+  ///
+  /// In en, this message translates to:
+  /// **'Version: {version}'**
+  String version(Object version);
+
+  /// No description provided for @updatePlugin.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Plugin'**
+  String get updatePlugin;
+
+  /// No description provided for @enableGlobalPlugins.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable global plugins'**
+  String get enableGlobalPlugins;
+
+  /// No description provided for @disableGlobalPlugins.
+  ///
+  /// In en, this message translates to:
+  /// **'Disable global plugins'**
+  String get disableGlobalPlugins;
+
+  /// No description provided for @selectAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Select All'**
+  String get selectAll;
+
+  /// No description provided for @remoteFilterSettingsPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote Number Filter Settings'**
+  String get remoteFilterSettingsPageTitle;
+
+  /// No description provided for @settingsLoaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings loaded'**
+  String get settingsLoaded;
+
+  /// No description provided for @loadSettingsFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load settings: {error}'**
+  String loadSettingsFailed(Object error);
+
+  /// No description provided for @saveSettingsFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save settings: {error}'**
+  String saveSettingsFailed(Object error);
+
+  /// No description provided for @countThresholdSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Count Threshold Settings'**
+  String get countThresholdSettings;
+
+  /// No description provided for @countThresholdValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Count Threshold: {count}'**
+  String countThresholdValue(Object count);
+
+  /// No description provided for @logAllRemoteQueries.
+  ///
+  /// In en, this message translates to:
+  /// **'Log All Remote Queries'**
+  String get logAllRemoteQueries;
+
+  /// No description provided for @logAllRemoteQueriesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Record all remote number query operations'**
+  String get logAllRemoteQueriesDescription;
+
+  /// No description provided for @remoteNumberFilterExplanationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote Number Filter Explanation'**
+  String get remoteNumberFilterExplanationTitle;
+
+  /// No description provided for @remoteNumberFilterExplanationContent.
+  ///
+  /// In en, this message translates to:
+  /// **'The remote number filter identifies and blocks spam calls by querying a remote database based on number count.'**
+  String get remoteNumberFilterExplanationContent;
+
+  /// No description provided for @remoteNumberFilterFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Features:'**
+  String get remoteNumberFilterFeatures;
+
+  /// No description provided for @remoteNumberFilterFeatureCountThreshold.
+  ///
+  /// In en, this message translates to:
+  /// **'• Count Threshold: Determine based on number occurrence frequency'**
+  String get remoteNumberFilterFeatureCountThreshold;
+
+  /// No description provided for @remoteNumberFilterFeatureFilterAction.
+  ///
+  /// In en, this message translates to:
+  /// **'• Filter Actions: Configure how to handle numbers exceeding threshold'**
+  String get remoteNumberFilterFeatureFilterAction;
+
+  /// No description provided for @remoteNumberFilterFeaturePriority.
+  ///
+  /// In en, this message translates to:
+  /// **'• Priority Settings: Set priority for remote actions'**
+  String get remoteNumberFilterFeaturePriority;
+
+  /// No description provided for @remoteNumberFilterDatabaseInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'This filter uses an independent remote database to get the latest number information.'**
+  String get remoteNumberFilterDatabaseInfo;
+
+  /// No description provided for @confirmDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Delete'**
+  String get confirmDelete;
+
+  /// No description provided for @confirmDeleteRuleMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this rule? This action cannot be undone.'**
+  String get confirmDeleteRuleMessage;
+
+  /// No description provided for @editRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Rule'**
+  String get editRule;
+
+  /// No description provided for @deleteRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Rule'**
+  String get deleteRule;
+
+  /// No description provided for @ruleNotExist.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule does not exist or has been deleted'**
+  String get ruleNotExist;
+
+  /// No description provided for @basicInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic Information'**
+  String get basicInfo;
+
+  /// No description provided for @label.
+  ///
+  /// In en, this message translates to:
+  /// **'Label'**
+  String get label;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loading;
+
+  /// No description provided for @none.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get none;
+
+  /// No description provided for @ruleNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule name and phone number cannot be empty'**
+  String get ruleNameRequired;
+
+  /// No description provided for @ruleUpdateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update rule: {error}'**
+  String ruleUpdateFailed(Object error);
+
+  /// No description provided for @phoneRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Rule'**
+  String get phoneRule;
+
+  /// No description provided for @phoneRuleManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Rule Management'**
+  String get phoneRuleManagement;
+
+  /// No description provided for @addPhoneNumberRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Phone Number Rule'**
+  String get addPhoneNumberRule;
+
+  /// No description provided for @ruleAddSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule added successfully'**
+  String get ruleAddSuccess;
+
+  /// No description provided for @addRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Rule'**
+  String get addRule;
+
+  /// No description provided for @allowedBlockedRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow/Block Rule'**
+  String get allowedBlockedRule;
+
+  /// No description provided for @allowedBlockedRuleManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow/Block Rule Management'**
+  String get allowedBlockedRuleManagement;
+
+  /// No description provided for @addAllowedBlockedRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Allow/Block Rule'**
+  String get addAllowedBlockedRule;
+
+  /// No description provided for @regexRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Rule'**
+  String get regexRule;
+
+  /// No description provided for @regexRuleManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Rule Management'**
+  String get regexRuleManagement;
+
+  /// No description provided for @addRegexRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Regex Rule'**
+  String get addRegexRule;
+
+  /// No description provided for @regexPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Pattern'**
+  String get regexPattern;
+
+  /// No description provided for @validateRegex.
+  ///
+  /// In en, this message translates to:
+  /// **'Validate Regex'**
+  String get validateRegex;
+
+  /// No description provided for @regexValidationSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex validation successful'**
+  String get regexValidationSuccess;
+
+  /// No description provided for @regexValidationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex validation failed: {error}'**
+  String regexValidationFailed(Object error);
+
+  /// No description provided for @regexRuleAddSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex rule added successfully'**
+  String get regexRuleAddSuccess;
+
+  /// No description provided for @regexRuleAddFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to add regex rule: {error}'**
+  String regexRuleAddFailed(Object error);
+
+  /// No description provided for @regexRuleNamePatternRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule name and regex pattern cannot be empty'**
+  String get regexRuleNamePatternRequired;
+
+  /// No description provided for @invalidRegexPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid regex pattern'**
+  String get invalidRegexPattern;
+
+  /// No description provided for @regexPatternExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Pattern Explanation'**
+  String get regexPatternExplanation;
+
+  /// No description provided for @regexPatternExplanationButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Pattern Explanation'**
+  String get regexPatternExplanationButton;
+
+  /// No description provided for @regexPatternsForPhoneNumberMatching.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Patterns for Phone Number Matching'**
+  String get regexPatternsForPhoneNumberMatching;
+
+  /// No description provided for @regexPatternsExamples.
+  ///
+  /// In en, this message translates to:
+  /// **'Use standard regex syntax to define patterns. Examples:'**
+  String get regexPatternsExamples;
+
+  /// No description provided for @blockInternationalCalls.
+  ///
+  /// In en, this message translates to:
+  /// **'matches numbers that don\'t start with + or 00'**
+  String get blockInternationalCalls;
+
+  /// No description provided for @blockPremiumRateNumbers.
+  ///
+  /// In en, this message translates to:
+  /// **'matches numbers that don\'t start with 118 or 120-190'**
+  String get blockPremiumRateNumbers;
+
+  /// No description provided for @blockMobileNumbers.
+  ///
+  /// In en, this message translates to:
+  /// **'matches numbers that don\'t start with 13-19'**
+  String get blockMobileNumbers;
+
+  /// No description provided for @useStandardRegexSyntaxToDefinePatternsExamples.
+  ///
+  /// In en, this message translates to:
+  /// **'Use standard regex syntax to define patterns. Examples:'**
+  String get useStandardRegexSyntaxToDefinePatternsExamples;
+
+  /// No description provided for @blockInternationalCallsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Block International Calls'**
+  String get blockInternationalCallsTitle;
+
+  /// No description provided for @blockPremiumRateNumbersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Block Premium Rate Numbers'**
+  String get blockPremiumRateNumbersTitle;
+
+  /// No description provided for @blockMobileNumbersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Block Mobile Numbers'**
+  String get blockMobileNumbersTitle;
+
+  /// No description provided for @blockLandlineNumbersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Block Landline Numbers'**
+  String get blockLandlineNumbersTitle;
+
+  /// No description provided for @blockSpecificAreaCodesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Block specific area codes:'**
+  String get blockSpecificAreaCodesTitle;
+
+  /// No description provided for @matchSpecificDigitPatternsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Match specific digit patterns:'**
+  String get matchSpecificDigitPatternsTitle;
+
+  /// No description provided for @matchNumbersWithSpecialCharactersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Match numbers with special characters:'**
+  String get matchNumbersWithSpecialCharactersTitle;
+
+  /// No description provided for @dialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex Pattern Explanation'**
+  String get dialogTitle;
+
+  /// No description provided for @closeButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get closeButton;
+
+  /// No description provided for @showExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Explanation'**
+  String get showExplanation;
+
+  /// No description provided for @blockSpecificAreaCodes.
+  ///
+  /// In en, this message translates to:
+  /// **'matches numbers starting with 0 + 2-3 digits'**
+  String get blockSpecificAreaCodes;
+
+  /// No description provided for @matchSpecificDigitPatterns.
+  ///
+  /// In en, this message translates to:
+  /// **'matches XXX-XXXX-XXXX format'**
+  String get matchSpecificDigitPatterns;
+
+  /// No description provided for @matchNumbersWithSpecialCharacters.
+  ///
+  /// In en, this message translates to:
+  /// **'matches specific number format'**
+  String get matchNumbersWithSpecialCharacters;
+
+  /// No description provided for @exampleBlock400Prefix.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Block 400 prefix numbers'**
+  String get exampleBlock400Prefix;
+
+  /// No description provided for @exampleRegex400Prefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Example regex for 400 prefix'**
+  String get exampleRegex400Prefix;
+
+  /// No description provided for @wildcardMatchingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Wildcard matching:'**
+  String get wildcardMatchingTitle;
+
+  /// No description provided for @wildcardMatchingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \'.\' to match any character (e.g. \'123.456\' matches 123-456)'**
+  String get wildcardMatchingDescription;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

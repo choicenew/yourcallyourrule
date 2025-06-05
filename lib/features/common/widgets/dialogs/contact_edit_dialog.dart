@@ -68,7 +68,7 @@ class _ContactEditDialogState extends State<ContactEditDialog> {
     if (_nameController.text.isEmpty || _phoneController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('姓名和电话号码不能为空'),
+          content: Text(AppLocalizations.of(context)!.nameAndPhoneNumberCannotBeEmpty),
           backgroundColor: Colors.orange,
         ),
       );
@@ -113,12 +113,12 @@ class _ContactEditDialogState extends State<ContactEditDialog> {
       if (mounted) {
         Navigator.pop(context);
 
-        // 显示成功提示
+        // Show success message
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(isEditing 
-              ? (AppLocalizations.of(context)?.contactUpdateSuccess ?? '联系人更新成功')
-              : (AppLocalizations.of(context)?.contactAddSuccess ?? '联系人添加成功')),
+              ? AppLocalizations.of(context)!.contactUpdateSuccess
+              : AppLocalizations.of(context)!.contactAddSuccess),
             backgroundColor: Colors.green,
           ),
         );
@@ -129,8 +129,8 @@ class _ContactEditDialogState extends State<ContactEditDialog> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(widget.contact != null 
-              ? ('更新联系人失败: $e')
-              : ('添加联系人失败: $e')),
+              ? AppLocalizations.of(context)!.updateContactFailed( e.toString())
+              : AppLocalizations.of(context)!.addContactFailed(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -148,11 +148,11 @@ class _ContactEditDialogState extends State<ContactEditDialog> {
   Widget build(BuildContext context) {
     final bool isEditing = widget.contact != null;
     final String title = isEditing 
-      ? (AppLocalizations.of(context)?.editContact ?? '编辑联系人')
-      : (AppLocalizations.of(context)?.addContact ?? '添加联系人');
+      ? AppLocalizations.of(context)!.editContact
+      : AppLocalizations.of(context)!.addContact;
     final String actionText = isEditing 
-      ? (AppLocalizations.of(context)?.save ?? '保存')
-      : (AppLocalizations.of(context)?.add ?? '添加');
+      ? AppLocalizations.of(context)!.save
+      : AppLocalizations.of(context)!.add;
 
     return Dialog(
       child: Container(
@@ -165,8 +165,8 @@ class _ContactEditDialogState extends State<ContactEditDialog> {
             TextField(
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)?.name ?? '姓名',
-                hintText: AppLocalizations.of(context)?.enterContactName ?? '请输入联系人姓名',
+                labelText: AppLocalizations.of(context)!.name,
+                hintText: AppLocalizations.of(context)!.enterContactName,
                 border: const OutlineInputBorder(),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: widget.themeColor),
@@ -177,8 +177,8 @@ class _ContactEditDialogState extends State<ContactEditDialog> {
             TextField(
               controller: _phoneController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)?.phoneNumber ?? '电话号码',
-                hintText: AppLocalizations.of(context)?.enterPhoneNumber ?? '请输入电话号码，多个号码用逗号分隔',
+                labelText: AppLocalizations.of(context)!.phoneNumber,
+                hintText: AppLocalizations.of(context)!.enterPhoneNumberMultiple,
                 border: const OutlineInputBorder(),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: widget.themeColor),
@@ -190,8 +190,8 @@ class _ContactEditDialogState extends State<ContactEditDialog> {
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)?.email ?? '电子邮件',
-                hintText: AppLocalizations.of(context)?.enterEmail ?? '请输入电子邮箱（可选）',
+                labelText: AppLocalizations.of(context)!.email,
+                hintText: AppLocalizations.of(context)!.enterEmailOptional,
                 border: const OutlineInputBorder(),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: widget.themeColor),
@@ -215,16 +215,16 @@ class _ContactEditDialogState extends State<ContactEditDialog> {
               children: [
                 TextButton(
                   onPressed: _isProcessing ? null : () => Navigator.pop(context),
-                  child: Text(AppLocalizations.of(context)?.cancel ?? '取消'),
+                  child: Text(AppLocalizations.of(context)!.cancel),
                 ),
                 ElevatedButton(
                   onPressed: _isProcessing ? null : _saveContact,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: widget.themeColor,
-                    disabledBackgroundColor: widget.themeColor.withOpacity(0.5),
+                    disabledBackgroundColor: widget.themeColor.withValues(alpha:0.5),
                   ),
                   child: _isProcessing
-                    ? SizedBox(
+                    ? const SizedBox(
                         width: 20,
                         height: 20,
                         child: CircularProgressIndicator(

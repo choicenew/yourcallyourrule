@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:world_flags/world_flags.dart';
-import 'package:yourcallyourrule/features/search/dialogs/caller_id_dialog.dart';
+import 'package:yourcallyourrule/features/common/widgets/dialogs/caller_id_dialog.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 国家选择对话框
 /// 用于选择国家以查询来电显示信息
@@ -20,7 +21,7 @@ class CountrySelectionDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text('选择国家', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            Text(AppLocalizations.of(context)!.selectCountry),
             const SizedBox(height: 16),
             SizedBox(
               height: 400,

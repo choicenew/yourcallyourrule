@@ -4,6 +4,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+
 class PluginManagementPage extends StatefulWidget {
   const PluginManagementPage({super.key});
 
@@ -42,7 +44,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('加载插件失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.loadPluginsFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -57,7 +59,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       await _loadPlugins(); // 重新加载插件列表
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('更改插件状态失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.changePluginStatusFailed(e.toString()))),
       );
     }
   }
@@ -71,11 +73,11 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
     try {
       final updated = await pluginService.updatePluginFromUrl(plugin);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(updated ? '插件更新成功' : '插件已是最新版本')),
+        SnackBar(content: Text(updated ? AppLocalizations.of(context)!.pluginUpdateSuccess : AppLocalizations.of(context)!.pluginLatestVersion)),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('更新插件失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.updatePluginFailed(e.toString()))),
       );
     } finally {
       await _loadPlugins();
@@ -86,16 +88,16 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('删除插件'),
-        content: Text('确定要删除插件 "${plugin.name}" 吗？'),
+        title: Text(AppLocalizations.of(context)!.deletePlugin),
+        content: Text(AppLocalizations.of(context)!.confirmDeletePlugin(plugin.name)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('删除'),
+            child: Text(AppLocalizations.of(context)!.deletePlugin),
           ),
         ],
       ),
@@ -106,12 +108,12 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       try {
         await pluginService.deletePlugin(plugin);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('插件已删除')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.pluginDeleted)),
         );
         await _loadPlugins();
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('删除插件失败: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.deletePluginFailed(e.toString()))),
         );
       }
     }
@@ -121,7 +123,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
     final url = _urlController.text.trim();
     if (url.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('请输入有效的URL')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.enterValidUrl)),
       );
       return;
     }
@@ -135,18 +137,18 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       final plugin = await pluginService.addPluginFromUrl(url);
       if (plugin != null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('插件 "${plugin.name}" 添加成功')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.pluginAddedSuccess(plugin.name))),
         );
         _urlController.clear();
         Navigator.of(context).pop(); // 关闭对话框
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('添加插件失败')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.addPluginFailed)),
         );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('添加插件失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.addPluginFailedWithError(e.toString()))),
       );
     } finally {
       await _loadPlugins();
@@ -170,17 +172,17 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
 
         if (plugin != null) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('插件 "${plugin.name}" 添加成功')),
+           SnackBar(content: Text(AppLocalizations.of(context)!.pluginAddedSuccess(plugin.name))),
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('添加插件失败')),
+            SnackBar(content: Text(AppLocalizations.of(context)!.addPluginFailed)),
           );
         }
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('添加插件失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.addPluginFailedWithError(e.toString()))),
       );
     } finally {
       await _loadPlugins();
@@ -191,15 +193,15 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('添加插件'),
+        title: Text(AppLocalizations.of(context)!.addPlugin),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: _urlController,
-              decoration: const InputDecoration(
-                labelText: '插件URL',
-                hintText: '输入插件的URL地址',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.pluginUrl,
+                hintText: AppLocalizations.of(context)!.enterPluginUrl,
               ),
             ),
           ],
@@ -207,11 +209,11 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: _addPluginFromUrl,
-            child: const Text('添加'),
+            child: Text(AppLocalizations.of(context)!.add),
           ),
         ],
       ),
@@ -227,7 +229,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
           children: [
             ListTile(
               leading: const Icon(Icons.add_link),
-              title: const Text('从URL添加插件'),
+              title: Text(AppLocalizations.of(context)!.addPluginFromUrl),
               onTap: () {
                 Navigator.of(context).pop();
                 _showAddPluginDialog();
@@ -235,7 +237,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
             ),
             ListTile(
               leading: const Icon(Icons.file_upload),
-              title: const Text('从本地文件添加插件'),
+              title: Text(AppLocalizations.of(context)!.addPluginFromLocalFile),
               onTap: () {
                 Navigator.of(context).pop();
                 _addPluginFromLocal();
@@ -243,7 +245,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
             ),
             ListTile(
               leading: const Icon(Icons.file_download),
-              title: const Text('导出插件列表'),
+              title: Text(AppLocalizations.of(context)!.exportPluginList),
               onTap: () async {
                 Navigator.of(context).pop();
                 // 导出插件列表的逻辑
@@ -253,11 +255,11 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                   try {
                     await pluginService.exportToFile('$path/plugins_export.json');
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('插件列表导出成功')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.pluginListExportSuccess)),
                     );
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('导出插件列表失败: $e')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.exportPluginListFailed(e.toString()))),
                     );
                   }
                 }
@@ -265,7 +267,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
             ),
             ListTile(
               leading: const Icon(Icons.file_upload),
-              title: const Text('导入插件列表'),
+              title: Text(AppLocalizations.of(context)!.importPluginList),
               onTap: () async {
                 Navigator.of(context).pop();
                 // 导入插件列表的逻辑
@@ -279,12 +281,12 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                   try {
                     final plugins = await pluginService.importFromFile(result.files.single.path!);
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('成功导入${plugins.length}个插件')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.importPluginSuccess(plugins.length.toString()))),
                     );
                     await _loadPlugins();
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('导入插件列表失败: $e')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.importPluginListFailed(e.toString()))),
                     );
                   }
                 }
@@ -300,7 +302,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('插件管理'),
+        title: Text(AppLocalizations.of(context)!.pluginManagement),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -309,12 +311,12 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: _showAddPluginDialog,
-            tooltip: '添加插件',
+            tooltip: AppLocalizations.of(context)!.addPlugin,
           ),
           IconButton(
             icon: const Icon(Icons.more_vert),
             onPressed: _showOptionsMenu,
-            tooltip: '更多选项',
+            tooltip: AppLocalizations.of(context)!.moreOptions,
           ),
         ],
       ),
@@ -327,11 +329,11 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                     children: [
                       const Icon(Icons.extension_off, size: 64, color: Colors.grey),
                       const SizedBox(height: 16),
-                      const Text('暂无插件', style: TextStyle(fontSize: 18, color: Colors.grey)),
+                      Text(AppLocalizations.of(context)!.noPlugins, style: const TextStyle(fontSize: 18, color: Colors.grey)),
                       const SizedBox(height: 24),
                       ElevatedButton.icon(
                         icon: const Icon(Icons.add),
-                        label: const Text('添加插件'),
+                        label: Text(AppLocalizations.of(context)!.addPlugin),
                         onPressed: _showAddPluginDialog,
                       ),
                     ],
@@ -351,6 +353,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
   Widget _buildPluginStatusCard() {
     final enabledCount = _plugins.where((p) => p.isEnabled).length;
     final autoUpdateCount = _plugins.where((p) => p.isAutoUpdate).length;
+    final allEnabled = _plugins.isNotEmpty && enabledCount == _plugins.length;
 
     return Card(
       elevation: 2,
@@ -360,6 +363,31 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // 添加全局操作选框
+            Row(
+              children: [
+                Checkbox(
+                  value: allEnabled,
+                  onChanged: (value) {
+                    if (value != null) {
+                      // 全局启用/禁用插件的逻辑
+                      final pluginService = Provider.of<PluginManagerService>(context, listen: false);
+                      pluginService.toggleAllPluginsStatus(value).then((_) {
+                        _loadPlugins(); // 重新加载插件列表
+                        // 显示提示信息
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(value ? 
+                            AppLocalizations.of(context)!.enableGlobalPlugins : 
+                            AppLocalizations.of(context)!.disableGlobalPlugins)),
+                        );
+                      });
+                    }
+                  },
+                ),
+                Text(AppLocalizations.of(context)!.selectAll),
+              ],
+            ),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -367,21 +395,11 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                   children: [
                     Icon(Icons.extension, color: Theme.of(context).primaryColor),
                     const SizedBox(width: 8),
-                    const Text(
-                      '插件服务',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    Text(
+                      AppLocalizations.of(context)!.pluginService,
+                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ],
-                ),
-                Switch(
-                  value: _plugins.isNotEmpty && enabledCount > 0,
-                  onChanged: (value) {
-                    // 全局启用/禁用插件的逻辑
-                    // 这里简化处理，实际可能需要更复杂的逻辑
-                    for (final plugin in _plugins) {
-                      _togglePluginStatus(plugin, value);
-                    }
-                  },
                 ),
               ],
             ),
@@ -389,9 +407,9 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildStatusItem('已安装', _plugins.length.toString()),
-                _buildStatusItem('已启用', enabledCount.toString()),
-                _buildStatusItem('自动更新', autoUpdateCount.toString()),
+                _buildStatusItem(AppLocalizations.of(context)!.installed, _plugins.length.toString()),
+                _buildStatusItem(AppLocalizations.of(context)!.enabled, enabledCount.toString()),
+                _buildStatusItem(AppLocalizations.of(context)!.autoUpdate, autoUpdateCount.toString()),
               ],
             ),
           ],
@@ -439,7 +457,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        '版本: ${plugin.version}',
+                        AppLocalizations.of(context)!.version(plugin.version),
                         style: const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
@@ -465,7 +483,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
               children: [
                 Row(
                   children: [
-                    const Text('自动更新'),
+                    Text(AppLocalizations.of(context)!.autoUpdate),
                     Switch(
                       value: plugin.isAutoUpdate,
                       onChanged: (value) {
@@ -481,12 +499,12 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                     IconButton(
                       icon: const Icon(Icons.refresh),
                       onPressed: () => _updatePlugin(plugin),
-                      tooltip: '更新插件',
+                      tooltip: AppLocalizations.of(context)!.updatePlugin,
                     ),
                     IconButton(
                       icon: const Icon(Icons.delete, color: Colors.red),
                       onPressed: () => _deletePlugin(plugin),
-                      tooltip: '删除插件',
+                      tooltip: AppLocalizations.of(context)!.deletePlugin,
                     ),
                   ],
                 ),

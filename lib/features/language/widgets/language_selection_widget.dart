@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:world_flags/world_flags.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class LanguageSelectionWidget extends StatelessWidget {
   final List<Map<String, dynamic>> supportedLocales;
@@ -45,15 +45,15 @@ class LanguageSelectionWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '当前语言',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.currentLanguage,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor.withOpacity(0.1),
+                color: Theme.of(context).primaryColor.withValues(alpha:0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
@@ -88,9 +88,9 @@ class LanguageSelectionWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '选择语言',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.selectLanguage,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             ...supportedLocales.map((language) {

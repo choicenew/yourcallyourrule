@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart' as dlibphone;
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示信息对话框
 /// 用于显示来电显示信息
@@ -62,7 +63,7 @@ class _CallerIdDialogState extends State<CallerIdDialog> {
       });
     } catch (e) {
       setState(() {
-        _errorMessage = '获取来电显示信息失败: $e';
+        _errorMessage = AppLocalizations.of(context)!.failedToGetCallerIdInfo(e.toString());
         _isLoading = false;
       });
     }
@@ -71,15 +72,15 @@ class _CallerIdDialogState extends State<CallerIdDialog> {
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
-      return const Dialog(
+      return Dialog(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CircularProgressIndicator(),
-              SizedBox(height: 16),
-              Text('正在获取来电显示信息...'),
+              const CircularProgressIndicator(),
+              const SizedBox(height: 16),
+              Text(AppLocalizations.of(context)!.fetchingCallerIdInfo),
             ],
           ),
         ),
@@ -99,7 +100,7 @@ class _CallerIdDialogState extends State<CallerIdDialog> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('关闭'),
+                child: Text(AppLocalizations.of(context)!.close),
               ),
             ],
           ),
@@ -114,24 +115,24 @@ class _CallerIdDialogState extends State<CallerIdDialog> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('号码: ${_callerIdData.phoneNumber}'),
+            Text('${AppLocalizations.of(context)!.number}: ${_callerIdData.phoneNumber}'),
             const SizedBox(height: 8),
-            Text('名称: ${_callerIdData.name}'),
+            Text('${AppLocalizations.of(context)!.name}: ${_callerIdData.name}'),
             if (_callerIdData.countryName != null) ...[                  
               const SizedBox(height: 8),
-              Text('国家: ${_callerIdData.countryName}'),
+              Text('${AppLocalizations.of(context)!.country}: ${_callerIdData.countryName}'),
             ],
             if (_callerIdData.region != null) ...[                  
               const SizedBox(height: 8),
-              Text('地区: ${_callerIdData.region}'),
+              Text('${AppLocalizations.of(context)!.region}: ${_callerIdData.region}'),
             ],
             if (_callerIdData.carrier != null) ...[                  
               const SizedBox(height: 8),
-              Text('运营商: ${_callerIdData.carrier}'),
+              Text('${AppLocalizations.of(context)!.carrier}: ${_callerIdData.carrier}'),
             ],
             if (_callerIdData.labels != null) ...[                  
               const SizedBox(height: 8),
-              Text('标签: ${_callerIdData.labels!.map((l) => l.label).join(', ')}'),
+              Text('${AppLocalizations.of(context)!.labels}: ${_callerIdData.labels!.map((l) => l.label).join(', ')}'),
             ],
             const SizedBox(height: 16),
             Row(
@@ -139,7 +140,7 @@ class _CallerIdDialogState extends State<CallerIdDialog> {
               children: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('关闭'),
+                  child: Text(AppLocalizations.of(context)!.close),
                 ),
               ],
             ),

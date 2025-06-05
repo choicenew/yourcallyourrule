@@ -11,7 +11,9 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
-import 'package:yourcallyourrule/features/search/dialogs/phone_rule_edit_dialog.dart';
+import 'package:yourcallyourrule/features/common/widgets/dialogs/phone_rule_edit_dialog.dart';
+
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则管理页面
 /// 使用通用的GenericRulePage组件减少重复代码
@@ -27,7 +29,7 @@ class RuleManagementPage extends StatelessWidget {
         ImportExportServiceComponent<PhoneRule, String>(
       importExportService: ruleManagementService.importExportService
           as ImportExportService<PhoneRule, String>,
-      entityTypeName: '电话规则',
+      entityTypeName: AppLocalizations.of(context)!.phoneRule,
       onEntitiesImported: (rules) async {
         // 保存导入的规则
         for (final rule in rules) {
@@ -42,11 +44,11 @@ class RuleManagementPage extends StatelessWidget {
     );
 
     return GenericRulePage<PhoneRule, RuleManagementService>(
-      title: '电话规则管理',
+      title: AppLocalizations.of(context)!.phoneRuleManagement,
       themeColor: const Color(0xFFF5A623),
-      emptyText: '电话规则',
+      emptyText: AppLocalizations.of(context)!.phoneRule,
       emptyIcon: Icons.person,
-      addButtonText: '添加规则',
+      addButtonText: AppLocalizations.of(context)!.addRule,
       buildRuleCard: _buildRuleCard,
       showAddDialog: _showAddRuleDialog,
       showEditDialog: _showEditRuleDialog,
@@ -129,11 +131,11 @@ class RuleManagementPage extends StatelessWidget {
                   ),
                   // 如果有标签，显示标签
                   if (rule.labelId.isNotEmpty)
-                    Chip(
-                      label: Text('标签: ${rule.labelId}'),
+                    Builder(builder: (context) => Chip(
+                      label: Text('${AppLocalizations.of(context)!.label}: ${rule.labelId}'),
                       backgroundColor: Colors.blue.withValues(alpha:0.1),
                       labelStyle: const TextStyle(color: Colors.blue),
-                    ),
+                    )),
                 ],
               ),
             ),
@@ -155,23 +157,23 @@ class RuleManagementPage extends StatelessWidget {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          title: const Text('添加号码名单规则'),
+          title: Text(AppLocalizations.of(context)!.addPhoneNumberRule),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 controller: nameController,
-                decoration: const InputDecoration(
-                  labelText: '规则名称',
-                  hintText: '例如：家人、朋友等',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.ruleName,
+                  hintText: AppLocalizations.of(context)!.ruleNameHint,
                 ),
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: phoneController,
-                decoration: const InputDecoration(
-                  labelText: '电话号码',
-                  hintText: '例如：10086、12345等',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.phoneNumber,
+                  hintText: AppLocalizations.of(context)!.phoneNumberHint,
                 ),
                 keyboardType: TextInputType.phone,
               ),
@@ -198,13 +200,13 @@ class RuleManagementPage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('取消'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () async {
                 if (nameController.text.isEmpty || phoneController.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('规则名称和电话号码不能为空'),
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(AppLocalizations.of(context)!.ruleNameRequired),
                     backgroundColor: Colors.red,
                   ));
                   return;
@@ -228,19 +230,19 @@ class RuleManagementPage extends StatelessWidget {
                   refreshCallback();
                   
                   // 显示成功提示
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('规则添加成功'),
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(AppLocalizations.of(context)!.ruleAddSuccess),
                     backgroundColor: Colors.green,
                   ));
                 } catch (e) {
                   // 显示错误提示
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('添加规则失败: $e'),
+                    content: Text(AppLocalizations.of(context)!.addRuleFailed(e.toString())),
                     backgroundColor: Colors.red,
                   ));
                 }
               },
-              child: const Text('保存'),
+              child: Text(AppLocalizations.of(context)!.save),
             ),
           ],
         ),
@@ -253,7 +255,7 @@ class RuleManagementPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('按标签筛选'),
+        title: Text(AppLocalizations.of(context)!.filterByLabel),
         content: SizedBox(
           width: double.maxFinite,
           child: PublicSelectLabel(
@@ -267,14 +269,14 @@ class RuleManagementPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () {
               onLabelSelected(null);
               Navigator.pop(context);
             },
-            child: const Text('清除筛选'),
+            child: Text(AppLocalizations.of(context)!.clearFilter),
           ),
         ],
       ),

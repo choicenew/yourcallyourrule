@@ -75,6 +75,14 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     final updatedEntry = entry.copyWith(isEnabled: isEnabled);
     await _repository.update(updatedEntry);
   }
+/*
+  /// 批量切换所有插件状态
+  Future<void> toggleAllPluginsStatus(bool isEnabled) async {
+    final plugins = await getAll();
+    final updatedPlugins = plugins.map((plugin) => plugin.copyWith(isEnabled: isEnabled)).toList();
+    await _repository.saveAll(updatedPlugins);
+  }
+*/
 
   // region 文件操作方法（集中管理文件相关操作）
   /// 获取插件目录（保持与PhoneSubscriptionService类似的静态方法结构）
@@ -315,6 +323,19 @@ class PluginManagerService extends ListService<PluginEntry, String> {
         await autoUpdatePlugin(entry);
       }
     }
+  }
+  
+  // 批量启用/禁用所有插件
+  Future<void> toggleAllPluginsStatus(bool isEnabled) async {
+    final plugins = await getAll();
+    if (plugins.isEmpty) return;
+    
+    // 创建更新后的插件列表
+    final updatedPlugins = plugins.map((plugin) => 
+      plugin.copyWith(isEnabled: isEnabled)).toList();
+    
+    // 批量更新到数据库
+    await _repository.saveAll(updatedPlugins);
   }
 
 
