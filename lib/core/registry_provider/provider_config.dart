@@ -1,6 +1,9 @@
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
+// Firebase服务
+import 'package:yourcallyourrule/core/services/firebase_service.dart';
+
 // 广告和购买相关
 import 'package:yourcallyourrule/ads/ad_state.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
@@ -371,6 +374,10 @@ List<SingleChildStatelessWidget> getServiceProviders() {
   
   // 返回所有服务的Provider
   return [
+    // Firebase服务
+    Provider.value(value: FirebaseService()),
+    
+    // 应用核心服务
     Provider.value(value: callerIdService),
     Provider.value(value: labelService),
     Provider.value(value: remoteNumberService),
