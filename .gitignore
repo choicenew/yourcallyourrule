@@ -10,6 +10,7 @@
 .svn/
 migrate_working_dir/
  /build
+ /android/app/build
 # IntelliJ related
 *.iml
 *.ipr
