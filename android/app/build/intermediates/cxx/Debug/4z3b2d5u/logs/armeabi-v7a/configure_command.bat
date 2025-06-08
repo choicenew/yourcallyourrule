@@ -1,0 +1,20 @@
+@echo off
+"D:\\android-studio-2024.1.2.8-windows\\Android\\cmake\\3.22.1\\bin\\cmake.exe" ^
+  "-HD:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy" ^
+  "-DCMAKE_SYSTEM_NAME=Android" ^
+  "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON" ^
+  "-DCMAKE_SYSTEM_VERSION=30" ^
+  "-DANDROID_PLATFORM=android-30" ^
+  "-DANDROID_ABI=armeabi-v7a" ^
+  "-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a" ^
+  "-DANDROID_NDK=D:\\android-studio-2024.1.2.8-windows\\Android\\ndk\\27.1.12297006" ^
+  "-DCMAKE_ANDROID_NDK=D:\\android-studio-2024.1.2.8-windows\\Android\\ndk\\27.1.12297006" ^
+  "-DCMAKE_TOOLCHAIN_FILE=D:\\android-studio-2024.1.2.8-windows\\Android\\ndk\\27.1.12297006\\build\\cmake\\android.toolchain.cmake" ^
+  "-DCMAKE_MAKE_PROGRAM=D:\\android-studio-2024.1.2.8-windows\\Android\\cmake\\3.22.1\\bin\\ninja.exe" ^
+  "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\build\\intermediates\\cxx\\Debug\\4z3b2d5u\\obj\\armeabi-v7a" ^
+  "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=C:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\build\\intermediates\\cxx\\Debug\\4z3b2d5u\\obj\\armeabi-v7a" ^
+  "-DCMAKE_BUILD_TYPE=Debug" ^
+  "-BC:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\.cxx\\Debug\\4z3b2d5u\\armeabi-v7a" ^
+  -GNinja ^
+  -Wno-dev ^
+  --no-warn-unused-cli

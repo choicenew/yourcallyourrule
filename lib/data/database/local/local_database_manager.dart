@@ -6,6 +6,7 @@ import 'dart:async';
 
 import '../database_manager.dart';
 import '../migration/database_migration.dart';
+import '../../../main.dart' show isOverlayMode;
 
 // 本地数据库管理器实现类
 class LocalDatabaseManagerImpl implements LocalDatabaseManager {
@@ -39,19 +40,37 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
   // 初始化数据库
   Future<Database> _initDatabase() async {
     final String path = join(await getDatabasesPath(), _databaseName);
-    return await openDatabase(
-      path,
-      version: _version,
-      onCreate: _onCreate,
-      onUpgrade: _onUpgrade,
-    );
+    int retryCount = 0;
+    const maxRetries = 5;
+    
+    while (retryCount < maxRetries) {
+      try {
+        // 根据是否处于覆盖层模式决定是否以只读模式打开数据库
+        return await openDatabase(
+          path,
+          version: _version,
+          onCreate: _onCreate,
+          onUpgrade: _onUpgrade,
+          readOnly: isOverlayMode, // 在覆盖层模式下以只读方式打开
+        );
+      } catch (e) {
+        if (e.toString().contains('database is locked') && retryCount < maxRetries - 1) {
+          retryCount++;
+          await Future.delayed(Duration(milliseconds: 200 * retryCount));
+        } else {
+          rethrow;
+        }
+      }
+    }
+    
+    throw Exception('无法打开数据库，重试次数已达上限');
   }
 
   // 创建数据库表
   Future<void> _onCreate(Database db, int version) async {
     // 创建联系人表
     await db.execute('''
-      CREATE TABLE contacts (
+      CREATE TABLE IF NOT EXISTS contacts (
         id TEXT PRIMARY KEY,
         phoneNumber TEXT NOT NULL,
         name TEXT NOT NULL,
@@ -65,7 +84,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建通话记录表
     await db.execute('''
-      CREATE TABLE calls (
+      CREATE TABLE IF NOT EXISTS calls (
         id TEXT PRIMARY KEY,
         phoneNumber TEXT NOT NULL,
         contactName TEXT,
@@ -84,7 +103,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建正则规则表
     await db.execute('''
-      CREATE TABLE regex_rules (
+      CREATE TABLE IF NOT EXISTS regex_rules (
         id TEXT PRIMARY KEY,
         pattern TEXT NOT NULL,
         action TEXT NOT NULL,
@@ -96,7 +115,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建规则表（统一处理黑白名单/allow/block）
     await db.execute('''
-      CREATE TABLE rules (
+      CREATE TABLE IF NOT EXISTS rules (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,
         ruleType TEXT NOT NULL,
@@ -114,7 +133,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建订阅表（处理三种订阅类型）
     await db.execute('''
-      CREATE TABLE subscriptions (
+      CREATE TABLE IF NOT EXISTS subscriptions (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,
         url TEXT NOT NULL,
@@ -130,7 +149,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建短信表 - 更新结构以支持正则规则
     await db.execute('''
-      CREATE TABLE sms (
+      CREATE TABLE IF NOT EXISTS sms (
         id TEXT PRIMARY KEY,
         phoneNumber TEXT NOT NULL,
         contactName TEXT,
@@ -160,7 +179,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建插件表
     await db.execute('''
-      CREATE TABLE plugins (
+      CREATE TABLE IF NOT EXISTS plugins (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,
         url TEXT NOT NULL,
@@ -173,7 +192,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建位置表
     await db.execute('''
-      CREATE TABLE locations (
+      CREATE TABLE IF NOT EXISTS locations (
         id TEXT PRIMARY KEY,
         phoneNumber TEXT NOT NULL,
         region TEXT,
@@ -185,7 +204,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建预定义标签表
     await db.execute('''
-      CREATE TABLE predefined_labels (
+      CREATE TABLE IF NOT EXISTS predefined_labels (
         id TEXT PRIMARY KEY,
         text TEXT NOT NULL,
         avatar TEXT,
@@ -195,7 +214,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建标签表
     await db.execute('''
-      CREATE TABLE labels (
+      CREATE TABLE IF NOT EXISTS labels (
         id TEXT PRIMARY KEY,
         name TEXT,
         icon TEXT,
@@ -212,7 +231,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建规则表
     await db.execute('''
-      CREATE TABLE rules (
+      CREATE TABLE IF NOT EXISTS rules (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,
         conditions TEXT NOT NULL,
@@ -226,7 +245,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
     
     // 创建SIM卡槽位规则表
     await db.execute('''
-      CREATE TABLE sim_slot_rules (
+      CREATE TABLE IF NOT EXISTS sim_slot_rules (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,
         priority INTEGER NOT NULL,
@@ -259,7 +278,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
             !columnNames.contains('sender')) {
           // 创建临时表
           await db.execute('''
-            CREATE TABLE sms_temp (
+            CREATE TABLE IF NOT EXISTS sms_temp (
               id TEXT PRIMARY KEY,
               phoneNumber TEXT NOT NULL,
               contactName TEXT,
@@ -293,7 +312,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
             "SELECT name FROM sqlite_master WHERE type='table' AND name='rules'");
         if (tables.isEmpty) {
           await db.execute('''
-            CREATE TABLE rules (
+            CREATE TABLE IF NOT EXISTS rules (
               id TEXT PRIMARY KEY,
               name TEXT NOT NULL,
               contentRegex TEXT NOT NULL,

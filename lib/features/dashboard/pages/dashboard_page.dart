@@ -35,13 +35,18 @@ class _DashboardPageState extends State<DashboardPage> {
   int _silenceRulesCount = 0;
   int _noneRulesCount = 0;
   List<double> _weeklyData = [0, 0, 0, 0, 0, 0, 0]; // 最近7天的数据
-  late String _selectedTimeRange;
+  String _selectedTimeRange = 'week'; // 默认值，直接在UI中使用翻译
 
   @override
   void initState() {
     super.initState();
-    _selectedTimeRange = AppLocalizations.of(context)!.week;
     _loadData();
+  }
+
+  // 移除didChangeDependencies中的翻译设置，改为在UI中直接使用翻译
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
   }
 
   Future<void> _loadData() async {

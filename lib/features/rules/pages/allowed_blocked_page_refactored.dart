@@ -133,7 +133,7 @@ class AllowedBlockedPage extends StatelessWidget {
                   // 如果有标签，显示标签
                   if (rule.labelId.isNotEmpty)
                     Chip(
-                      label: Text('标签: ${rule.labelId}'),
+                      label: Text('AppLocalizations.of(context)!.label: ${rule.labelId}'),
                       backgroundColor: Colors.blue.withValues(alpha:0.1),
                       labelStyle: const TextStyle(color: Colors.blue),
                     ),

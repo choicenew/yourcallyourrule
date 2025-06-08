@@ -81,21 +81,20 @@ dependencies:
     sdk: flutter
 
   flutter_secure_storage: ^9.0.0
-  flutter_svg: ^2.0.16
-
+  
   floor: ^1.4.2
   flex_color_scheme: ^7.3.1
   fl_country_code_picker: ^0.1.9+1
 
 
 
-  google_mobile_ads: ^5.1.0
+  google_mobile_ads: ^6.0.0
   google_sign_in: ^6.2.1
   googleapis: ^13.2.0
   http: ^1.2.2
   image_cropper: ^8.0.1
   image_picker: ^1.1.0
-  in_app_purchase: ^3.2.0
+  in_app_purchase: ^3.2.3
   intl: any
   intl_translation: ^0.20.0
   json_annotation: ^4.9.0
@@ -118,11 +117,11 @@ dependencies:
 
   share_plus: ^10.0.0
   shared_preferences: ^2.3.2
-  smooth_page_indicator: ^1.2.0+3
+
   sqflite: ^2.3.3+1
   url_launcher: ^6.3.0
   webdav_client: ^1.2.2
-  webview_flutter: ^4.8.0
+
   yaml: ^3.1.2
   another_flutter_splash_screen: ^1.2.1
 
@@ -172,10 +171,10 @@ flutter:
     - assets/avatars/
     - assets/
 
-  fonts:
-    - family: NewSet
-      fonts:
-        - asset: assets/fonts/NewSet.ttf
+ 
+ 
+ 
+ 
 
 
 

@@ -7,6 +7,7 @@ import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/enhanced_composite_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 过滤器设置页面
 /// 用于展示和控制所有过滤器的设置
@@ -19,7 +20,7 @@ class FilterSettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('过滤器设置'),
+        title: Text(AppLocalizations.of(context)!.filterSettingsTitle),
       ),
       body: SingleChildScrollView(
         child: Padding(

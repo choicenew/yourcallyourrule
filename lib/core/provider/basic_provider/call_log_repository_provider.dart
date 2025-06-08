@@ -20,26 +20,26 @@ class CallLogRepositoryImpl implements CallLogRepository {
 
   @override
   Future<List<CallLog>> getAll() async {
-    final maps = await _databaseService.queryAll('call_logs');
+    final maps = await _databaseService.queryAll('calls');
     return maps.map((map) => fromMap(map)).toList();
   }
 
   @override
   Future<CallLog?> getById(String id) async {
-    final map = await _databaseService.queryById('call_logs', id);
+    final map = await _databaseService.queryById('calls', id);
     if (map == null) return null;
     return fromMap(map);
   }
 
   @override
   Future<CallLog> save(CallLog entity) async {
-    await _databaseService.insert('call_logs', entity.toMap());
+    await _databaseService.insert('calls', entity.toMap());
     return entity;
   }
 
   @override
   Future<CallLog> update(CallLog entity) async {
-    await _databaseService.update('call_logs', entity.id, entity.toMap());
+    await _databaseService.update('calls', entity.id, entity.toMap());
     return entity;
   }
 
@@ -50,7 +50,7 @@ class CallLogRepositoryImpl implements CallLogRepository {
 
   @override
   Future<bool> deleteById(String id) async {
-    await _databaseService.delete('call_logs', id);
+    await _databaseService.delete('calls', id);
     return true;
   }
 
@@ -134,7 +134,7 @@ class CallLogRepositoryImpl implements CallLogRepository {
     // 监视通话日志变化
     // 使用数据库变更监控机制
     return _databaseService
-        .watchTable('call_logs')
+        .watchTable('calls')
         .map((maps) => maps.map((map) => fromMap(map)).toList());
   }
 
@@ -176,7 +176,7 @@ class CallLogRepositoryImpl implements CallLogRepository {
     if (log != null) {
       final map = log.toMap();
       map['isRead'] = true;
-      await _databaseService.update('call_logs', logId, map);
+      await _databaseService.update('calls', logId, map);
     }
   }
 

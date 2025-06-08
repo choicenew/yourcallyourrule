@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_filter_service.dart';
+
+
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class SmsFilterSettingsPage extends StatefulWidget {
   const SmsFilterSettingsPage({super.key});
@@ -37,7 +41,7 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('加载设置失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.loadSettingsFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -60,11 +64,11 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('短信过滤已${value ? '启用' : '禁用'}')),
+        SnackBar(content: Text(value ? AppLocalizations.of(context)!.smsFilterEnabled : AppLocalizations.of(context)!.smsFilterDisabled)),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('设置失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaveFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -87,11 +91,11 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('本地通知已${value ? '启用' : '禁用'}')),
+        SnackBar(content: Text(value ? AppLocalizations.of(context)!.localNotificationEnabled : AppLocalizations.of(context)!.localNotificationDisabled)),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('设置失败: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaveFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -103,7 +107,7 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('短信过滤设置'),
+        title: Text(AppLocalizations.of(context)!.smsFilterSettings),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -137,15 +141,15 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    '关于短信过滤',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.aboutSmsFilter,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    '短信过滤功能可以帮助您自动筛选垃圾短信，保持您的短信列表整洁。您可以设置过滤规则和通知方式。',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    AppLocalizations.of(context)!.smsFilterDescription,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -165,14 +169,14 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '过滤设置',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.filterSettings,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             SwitchListTile(
-              title: const Text('启用短信过滤'),
-              subtitle: const Text('开启后将根据规则自动过滤短信'),
+              title: Text(AppLocalizations.of(context)!.enableSmsFilter),
+              subtitle: Text(AppLocalizations.of(context)!.enableSmsFilterDescription),
               value: _filterEnabled,
               onChanged: _toggleFilterEnabled,
               secondary: const Icon(Icons.filter_alt, color: Colors.blue),
@@ -180,14 +184,14 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
             const Divider(),
             ListTile(
               leading: const Icon(Icons.rule, color: Colors.orange),
-              title: const Text('管理过滤规则'),
-              subtitle: const Text('添加、编辑或删除短信过滤规则'),
+              title: Text(AppLocalizations.of(context)!.manageFilterRules),
+              subtitle: Text(AppLocalizations.of(context)!.manageFilterRulesDescription),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 // 导航到规则管理页面
-                // Navigator.of(context).push(MaterialPageRoute(
-                //   builder: (context) => SmsRuleManagementPage(),
-                // ));
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const SmsManagementPage(),
+                ));
               },
             ),
           ],
@@ -205,14 +209,14 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '通知设置',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.notificationSettings,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             SwitchListTile(
-              title: const Text('使用本地通知'),
-              subtitle: const Text('开启后将在设备上显示过滤短信的通知'),
+              title: Text(AppLocalizations.of(context)!.enableLocalNotification),
+              subtitle: Text(AppLocalizations.of(context)!.enableLocalNotificationDescription),
               value: _useLocalNotification,
               onChanged: _toggleLocalNotification,
               secondary: const Icon(Icons.notifications, color: Colors.purple),
@@ -225,9 +229,9 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 // 导航到通知优先级设置页面
-                // Navigator.of(context).push(MaterialPageRoute(
-                //   builder: (context) => NotificationPriorityPage(),
-                // ));
+              //  Navigator.of(context).push(MaterialPageRoute(
+             //     builder: (context) => const NotificationPriorityPage(),
+             //   ));
               },
             ),
           ],

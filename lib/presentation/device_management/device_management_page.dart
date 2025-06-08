@@ -7,6 +7,7 @@ import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/cloud_sync_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/services/cloud_sync_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// Page for managing devices and multi-device synchronization
 class DeviceManagementPage extends ConsumerStatefulWidget {
@@ -36,7 +37,7 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Device Management'),
+        title: Text(AppLocalizations.of(context)!.deviceManagementTitle),
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -64,9 +65,9 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Current Device',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.currentDeviceTitle,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             currentDeviceAsync.when(
@@ -74,7 +75,7 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ListTile(
-                    title: const Text('Device Name'),
+                    title: Text(AppLocalizations.of(context)!.deviceNameLabel),
                     subtitle: Text(device.name),
                     trailing: IconButton(
                       icon: const Icon(Icons.edit),
@@ -82,15 +83,15 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
                     ),
                   ),
                   ListTile(
-                    title: const Text('Device Model'),
+                    title: Text(AppLocalizations.of(context)!.deviceModelLabel),
                     subtitle: Text(device.model),
                   ),
                   ListTile(
-                    title: const Text('Device ID'),
+                    title: Text(AppLocalizations.of(context)!.deviceIDLabel),
                     subtitle: Text(device.id),
                   ),
                   ListTile(
-                    title: const Text('Last Sync'),
+                    title: Text(AppLocalizations.of(context)!.lastSyncLabel),
                     subtitle: Text(
                       DateFormat('yyyy-MM-dd HH:mm:ss')
                           .format(device.lastSyncTime),
@@ -99,7 +100,7 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
                 ],
               ),
               loading: () => const Center(child: CircularProgressIndicator()),
-              error: (error, stack) => Text('Error: $error'),
+              error: (error, stack) => Text(AppLocalizations.of(context)!.errorOccurredMessage(error.toString())),
             ),
           ],
         ),
@@ -120,32 +121,32 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Registered Devices',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Text(
+                  AppLocalizations.of(context)!.registeredDevicesTitle,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 if (activeService != null)
                   ElevatedButton.icon(
                     icon: const Icon(Icons.sync),
-                    label: const Text('Sync Devices'),
+                    label: Text(AppLocalizations.of(context)!.syncDevicesButton),
                     onPressed: () => _syncDevices(activeService),
                   ),
               ],
             ),
             const SizedBox(height: 16),
             if (activeService == null)
-              const Padding(
-                padding: EdgeInsets.all(8.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  'Please configure a cloud sync service to enable multi-device synchronization.',
-                  style: TextStyle(color: Colors.orange),
+                  AppLocalizations.of(context)!.configureCloudSyncServiceMessage,
+                  style: const TextStyle(color: Colors.orange),
                 ),
               ),
             registeredDevicesAsync.when(
               data: (devices) => devices.isEmpty
-                  ? const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('No devices registered yet.'),
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(AppLocalizations.of(context)!.noDevicesRegisteredMessage),
                     )
                   : ListView.builder(
                       shrinkWrap: true,
@@ -157,7 +158,7 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
                       },
                     ),
               loading: () => const Center(child: CircularProgressIndicator()),
-              error: (error, stack) => Text('Error: $error'),
+              error: (error, stack) => Text(AppLocalizations.of(context)!.errorOccurredMessage(error.toString())),
             ),
           ],
         ),
@@ -178,12 +179,12 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
         children: [
           Text(device.name),
           if (isCurrentDevice)
-            const Padding(
-              padding: EdgeInsets.only(left: 8.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
               child: Chip(
-                label: Text('Current'),
+                label: Text(AppLocalizations.of(context)!.currentDeviceLabel),
                 backgroundColor: Colors.green,
-                labelStyle: TextStyle(color: Colors.white, fontSize: 12),
+                labelStyle: const TextStyle(color: Colors.white, fontSize: 12),
               ),
             ),
         ],
@@ -193,7 +194,7 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
         children: [
           Text(device.model),
           Text(
-              'Last Sync: ${DateFormat('yyyy-MM-dd HH:mm:ss').format(device.lastSyncTime)}'),
+              '${AppLocalizations.of(context)!.lastSyncLabel}: ${DateFormat('yyyy-MM-dd HH:mm:ss').format(device.lastSyncTime)}'),
         ],
       ),
       trailing: !isCurrentDevice
@@ -213,24 +214,24 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Rename Device'),
+          title: Text(AppLocalizations.of(context)!.renameDeviceTitle),
           content: TextField(
             controller: _deviceNameController,
-            decoration: const InputDecoration(
-              labelText: 'Device Name',
-              hintText: 'Enter a new name for this device',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.deviceNameLabel,
+              hintText: AppLocalizations.of(context)!.enterNewDeviceNameHint,
             ),
             autofocus: true,
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context)!.cancelButton),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text('Save'),
+              child: Text(AppLocalizations.of(context)!.saveButton),
               onPressed: () async {
                 if (_deviceNameController.text.trim().isNotEmpty) {
                   setState(() {
@@ -251,14 +252,14 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
 
                     if (mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                            content: Text('Device renamed successfully')),
+                        SnackBar(
+                            content: Text(AppLocalizations.of(context)!.deviceRenamedSuccessfullyMessage)),
                       );
                     }
                   } catch (e) {
                     if (mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Error renaming device: $e')),
+                        SnackBar(content: Text(AppLocalizations.of(context)!.errorRenamingDeviceMessage(e.toString()))),
                       );
                     }
                   } finally {
@@ -283,17 +284,17 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Unregister Device'),
-          content: Text('Are you sure you want to unregister ${device.name}?'),
+          title: Text(AppLocalizations.of(context)!.unregisterDeviceTitle),
+          content: Text(AppLocalizations.of(context)!.unregisterDeviceConfirmationMessage(device.name)),
           actions: <Widget>[
             TextButton(
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context)!.cancelButton),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text('Unregister'),
+              child: Text(AppLocalizations.of(context)!.unregisterButton),
               onPressed: () async {
                 setState(() {
                   _isLoading = true;
@@ -311,14 +312,14 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
 
                   if (mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                          content: Text('Device unregistered successfully')),
+                      SnackBar(
+                          content: Text(AppLocalizations.of(context)!.deviceUnregisteredSuccessfullyMessage)),
                     );
                   }
                 } catch (e) {
                   if (mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Error unregistering device: $e')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.errorUnregisteringDeviceMessage(e.toString()))),
                     );
                   }
                 } finally {
@@ -363,13 +364,13 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Devices synchronized successfully')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.devicesSynchronizedSuccessfullyMessage)),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error synchronizing devices: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.errorSynchronizingDevicesMessage(e.toString()))),
         );
       }
     } finally {

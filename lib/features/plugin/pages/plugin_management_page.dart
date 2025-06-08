@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 
@@ -17,6 +18,9 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
   List<PluginEntry> _plugins = [];
   bool _isLoading = true;
   final TextEditingController _urlController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _versionController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
 
   @override
   void initState() {
@@ -27,6 +31,9 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
   @override
   void dispose() {
     _urlController.dispose();
+    _nameController.dispose();
+    _versionController.dispose();
+    _descriptionController.dispose();
     super.dispose();
   }
 
@@ -35,7 +42,8 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       _isLoading = true;
     });
 
-    final pluginService = Provider.of<PluginManagerService>(context, listen: false);
+    final pluginService =
+        Provider.of<PluginManagerService>(context, listen: false);
     try {
       final plugins = await pluginService.getAll();
       setState(() {
@@ -44,7 +52,9 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.loadPluginsFailed(e.toString()))),
+        SnackBar(
+            content: Text(
+                AppLocalizations.of(context)!.loadPluginsFailed(e.toString()))),
       );
       setState(() {
         _isLoading = false;
@@ -53,13 +63,16 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
   }
 
   Future<void> _togglePluginStatus(PluginEntry plugin, bool isEnabled) async {
-    final pluginService = Provider.of<PluginManagerService>(context, listen: false);
+    final pluginService =
+        Provider.of<PluginManagerService>(context, listen: false);
     try {
       await pluginService.togglePluginStatus(plugin, isEnabled);
       await _loadPlugins(); // 重新加载插件列表
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.changePluginStatusFailed(e.toString()))),
+        SnackBar(
+            content: Text(AppLocalizations.of(context)!
+                .changePluginStatusFailed(e.toString()))),
       );
     }
   }
@@ -69,15 +82,21 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       _isLoading = true;
     });
 
-    final pluginService = Provider.of<PluginManagerService>(context, listen: false);
+    final pluginService =
+        Provider.of<PluginManagerService>(context, listen: false);
     try {
       final updated = await pluginService.updatePluginFromUrl(plugin);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(updated ? AppLocalizations.of(context)!.pluginUpdateSuccess : AppLocalizations.of(context)!.pluginLatestVersion)),
+        SnackBar(
+            content: Text(updated
+                ? AppLocalizations.of(context)!.pluginUpdateSuccess
+                : AppLocalizations.of(context)!.pluginLatestVersion)),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.updatePluginFailed(e.toString()))),
+        SnackBar(
+            content: Text(AppLocalizations.of(context)!
+                .updatePluginFailed(e.toString()))),
       );
     } finally {
       await _loadPlugins();
@@ -89,7 +108,8 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context)!.deletePlugin),
-        content: Text(AppLocalizations.of(context)!.confirmDeletePlugin(plugin.name)),
+        content: Text(
+            AppLocalizations.of(context)!.confirmDeletePlugin(plugin.name)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -104,7 +124,8 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
     );
 
     if (confirmed == true) {
-      final pluginService = Provider.of<PluginManagerService>(context, listen: false);
+      final pluginService =
+          Provider.of<PluginManagerService>(context, listen: false);
       try {
         await pluginService.deletePlugin(plugin);
         ScaffoldMessenger.of(context).showSnackBar(
@@ -113,7 +134,9 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
         await _loadPlugins();
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.deletePluginFailed(e.toString()))),
+          SnackBar(
+              content: Text(AppLocalizations.of(context)!
+                  .deletePluginFailed(e.toString()))),
         );
       }
     }
@@ -132,23 +155,29 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       _isLoading = true;
     });
 
-    final pluginService = Provider.of<PluginManagerService>(context, listen: false);
+    final pluginService =
+        Provider.of<PluginManagerService>(context, listen: false);
     try {
       final plugin = await pluginService.addPluginFromUrl(url);
       if (plugin != null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.pluginAddedSuccess(plugin.name))),
+          SnackBar(
+              content: Text(AppLocalizations.of(context)!
+                  .pluginAddedSuccess(plugin.name))),
         );
         _urlController.clear();
         Navigator.of(context).pop(); // 关闭对话框
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.addPluginFailed)),
+          SnackBar(
+              content: Text(AppLocalizations.of(context)!.addPluginFailed)),
         );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.addPluginFailedWithError(e.toString()))),
+        SnackBar(
+            content: Text(AppLocalizations.of(context)!
+                .addPluginFailedWithError(e.toString()))),
       );
     } finally {
       await _loadPlugins();
@@ -167,22 +196,67 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
           _isLoading = true;
         });
 
-        final pluginService = Provider.of<PluginManagerService>(context, listen: false);
-        final plugin = await pluginService.addPluginFromLocal(result.files.single.path!);
+        final pluginService =
+            Provider.of<PluginManagerService>(context, listen: false);
+        final plugin =
+            await pluginService.addPluginFromLocal(result.files.single.path!);
 
         if (plugin != null) {
           ScaffoldMessenger.of(context).showSnackBar(
-           SnackBar(content: Text(AppLocalizations.of(context)!.pluginAddedSuccess(plugin.name))),
+            SnackBar(
+                content: Text(AppLocalizations.of(context)!
+                    .pluginAddedSuccess(plugin.name))),
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.addPluginFailed)),
+            SnackBar(
+                content: Text(AppLocalizations.of(context)!.addPluginFailed)),
           );
         }
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.addPluginFailedWithError(e.toString()))),
+        SnackBar(
+            content: Text(AppLocalizations.of(context)!
+                .addPluginFailedWithError(e.toString()))),
+      );
+    } finally {
+      await _loadPlugins();
+    }
+  }
+
+  // 添加新插件
+  Future<void> _addNewPlugin() async {
+    try {
+      setState(() {
+        _isLoading = true;
+      });
+
+      // 创建一个新的插件条目
+      final pluginService =
+          Provider.of<PluginManagerService>(context, listen: false);
+      final newPlugin = PluginEntry(
+        id: Uuid().v4(),
+        name: _nameController.text,
+        version: _versionController.text,
+        url: _urlController.text,
+        isEnabled: true,
+        pluginOrder: _plugins.length, // 使用当前插件列表长度作为顺序
+      );
+
+      // 保存插件条目
+      await pluginService.addPlugin(newPlugin);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text(AppLocalizations.of(context)!
+                .pluginAddedSuccess(newPlugin.name))),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text(AppLocalizations.of(context)!
+                .addPluginFailedWithError(e.toString()))),
       );
     } finally {
       await _loadPlugins();
@@ -190,21 +264,45 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
   }
 
   void _showAddPluginDialog() {
+    // 重置控制器
+    _nameController.text = '';
+    _versionController.text = '1.0.0';
+    _descriptionController.text = '';
+    _urlController.text = '';
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context)!.addPlugin),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              controller: _urlController,
-              decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.pluginUrl,
-                hintText: AppLocalizations.of(context)!.enterPluginUrl,
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.pluginName,
+                  hintText: AppLocalizations.of(context)!.enterPluginName,
+                ),
               ),
-            ),
-          ],
+              const SizedBox(height: 8),
+              TextField(
+                controller: _versionController,
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.pluginVersion,
+                  hintText: AppLocalizations.of(context)!.enterVersion,
+                ),
+              ),
+              const SizedBox(height: 8),
+              TextField(
+                controller: _urlController,
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.pluginUrl,
+                  hintText: AppLocalizations.of(context)!.enterPluginUrl,
+                ),
+              ),
+            ],
+          ),
         ),
         actions: [
           TextButton(
@@ -212,7 +310,10 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
             child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
-            onPressed: _addPluginFromUrl,
+            onPressed: () {
+              Navigator.of(context).pop();
+              _addNewPlugin();
+            },
             child: Text(AppLocalizations.of(context)!.add),
           ),
         ],
@@ -232,7 +333,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
               title: Text(AppLocalizations.of(context)!.addPluginFromUrl),
               onTap: () {
                 Navigator.of(context).pop();
-                _showAddPluginDialog();
+                _addPluginFromUrl();
               },
             ),
             ListTile(
@@ -251,15 +352,21 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                 // 导出插件列表的逻辑
                 final path = await FilePicker.platform.getDirectoryPath();
                 if (path != null) {
-                  final pluginService = Provider.of<PluginManagerService>(context, listen: false);
+                  final pluginService =
+                      Provider.of<PluginManagerService>(context, listen: false);
                   try {
-                    await pluginService.exportToFile('$path/plugins_export.json');
+                    await pluginService
+                        .exportToFile('$path/plugins_export.json');
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.pluginListExportSuccess)),
+                      SnackBar(
+                          content: Text(AppLocalizations.of(context)!
+                              .pluginListExportSuccess)),
                     );
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.exportPluginListFailed(e.toString()))),
+                      SnackBar(
+                          content: Text(AppLocalizations.of(context)!
+                              .exportPluginListFailed(e.toString()))),
                     );
                   }
                 }
@@ -277,16 +384,22 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                 );
 
                 if (result != null && result.files.single.path != null) {
-                  final pluginService = Provider.of<PluginManagerService>(context, listen: false);
+                  final pluginService =
+                      Provider.of<PluginManagerService>(context, listen: false);
                   try {
-                    final plugins = await pluginService.importFromFile(result.files.single.path!);
+                    final plugins = await pluginService
+                        .importFromFile(result.files.single.path!);
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.importPluginSuccess(plugins.length.toString()))),
+                      SnackBar(
+                          content: Text(AppLocalizations.of(context)!
+                              .importPluginSuccess(plugins.length.toString()))),
                     );
                     await _loadPlugins();
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.importPluginListFailed(e.toString()))),
+                      SnackBar(
+                          content: Text(AppLocalizations.of(context)!
+                              .importPluginListFailed(e.toString()))),
                     );
                   }
                 }
@@ -303,15 +416,16 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.pluginManagement),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: _showAddPluginDialog,
+            onPressed: _showAddPluginDialog, // 直接调用添加插件对话框
             tooltip: AppLocalizations.of(context)!.addPlugin,
+          ),
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: _loadPlugins,
+            tooltip: AppLocalizations.of(context)!.refresh,
           ),
           IconButton(
             icon: const Icon(Icons.more_vert),
@@ -327,9 +441,12 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.extension_off, size: 64, color: Colors.grey),
+                      const Icon(Icons.extension_off,
+                          size: 64, color: Colors.grey),
                       const SizedBox(height: 16),
-                      Text(AppLocalizations.of(context)!.noPlugins, style: const TextStyle(fontSize: 18, color: Colors.grey)),
+                      Text(AppLocalizations.of(context)!.noPlugins,
+                          style: const TextStyle(
+                              fontSize: 18, color: Colors.grey)),
                       const SizedBox(height: 24),
                       ElevatedButton.icon(
                         icon: const Icon(Icons.add),
@@ -371,14 +488,19 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                   onChanged: (value) {
                     if (value != null) {
                       // 全局启用/禁用插件的逻辑
-                      final pluginService = Provider.of<PluginManagerService>(context, listen: false);
+                      final pluginService = Provider.of<PluginManagerService>(
+                          context,
+                          listen: false);
                       pluginService.toggleAllPluginsStatus(value).then((_) {
                         _loadPlugins(); // 重新加载插件列表
                         // 显示提示信息
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(value ? 
-                            AppLocalizations.of(context)!.enableGlobalPlugins : 
-                            AppLocalizations.of(context)!.disableGlobalPlugins)),
+                          SnackBar(
+                              content: Text(value
+                                  ? AppLocalizations.of(context)!
+                                      .enableGlobalPlugins
+                                  : AppLocalizations.of(context)!
+                                      .disableGlobalPlugins)),
                         );
                       });
                     }
@@ -393,11 +515,13 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.extension, color: Theme.of(context).primaryColor),
+                    Icon(Icons.extension,
+                        color: Theme.of(context).primaryColor),
                     const SizedBox(width: 8),
                     Text(
                       AppLocalizations.of(context)!.pluginService,
-                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -407,9 +531,12 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildStatusItem(AppLocalizations.of(context)!.installed, _plugins.length.toString()),
-                _buildStatusItem(AppLocalizations.of(context)!.enabled, enabledCount.toString()),
-                _buildStatusItem(AppLocalizations.of(context)!.autoUpdate, autoUpdateCount.toString()),
+                _buildStatusItem(AppLocalizations.of(context)!.installed,
+                    _plugins.length.toString()),
+                _buildStatusItem(AppLocalizations.of(context)!.enabled,
+                    enabledCount.toString()),
+                _buildStatusItem(AppLocalizations.of(context)!.autoUpdate,
+                    autoUpdateCount.toString()),
               ],
             ),
           ],
@@ -452,13 +579,15 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                     children: [
                       Text(
                         plugin.name,
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 4),
                       Text(
                         AppLocalizations.of(context)!.version(plugin.version),
-                        style: const TextStyle(fontSize: 14, color: Colors.grey),
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
                   ),
@@ -469,7 +598,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                 ),
               ],
             ),
-            if (plugin.url.isNotEmpty) ...[  
+            if (plugin.url.isNotEmpty) ...[
               const SizedBox(height: 8),
               Text(
                 plugin.url,
@@ -487,9 +616,14 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                     Switch(
                       value: plugin.isAutoUpdate,
                       onChanged: (value) {
-                        final updatedPlugin = plugin.copyWith(isAutoUpdate: value);
-                        final pluginService = Provider.of<PluginManagerService>(context, listen: false);
-                        pluginService.updatePlugin(updatedPlugin).then((_) => _loadPlugins());
+                        final updatedPlugin =
+                            plugin.copyWith(isAutoUpdate: value);
+                        final pluginService = Provider.of<PluginManagerService>(
+                            context,
+                            listen: false);
+                        pluginService
+                            .updatePlugin(updatedPlugin)
+                            .then((_) => _loadPlugins());
                       },
                     ),
                   ],
