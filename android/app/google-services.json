@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "213507864895",
     "project_id": "yourcallyourrule-b2bfa",
-    "storage_bucket": "yourcallyourrule-b2bfa.appspot.com"
+    "storage_bucket": "yourcallyourrule-b2bfa.firebasestorage.app"
   },
   "client": [
     {
@@ -22,7 +22,8 @@
         "appinvite_service": {
           "other_platform_oauth_client": []
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-7500321599129263~1001443362"
     }
   ],
   "configuration_version": "1"
