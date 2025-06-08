@@ -60,7 +60,7 @@ android {
     
     namespace = "com.yours.yourcallyourrule"
     compileSdk 35
-    ndkVersion = '27.1.12297006'
+    //ndkVersion = '27.1.12297006'
 
     compileOptions {
         coreLibraryDesugaringEnabled true
