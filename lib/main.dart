@@ -7,6 +7,8 @@ import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/services/firebase_service.dart';
+import 'package:yourcallyourrule/common/error/logger.dart';
 
 Future<void> main() async {
   // 确保 Flutter 绑定初始化
@@ -15,12 +17,22 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   try {
+    // 初始化Firebase服务
+    final firebaseService = FirebaseService();
+    await firebaseService.initialize();
+    
+    // 初始化应用日志服务
+    AppLogger.initialize();
+    
     // 获取服务提供者列表
     final serviceProviders = getServiceProviders();
     final appProviders = getAppProviders();
 
     // 初始化广告SDK
     await MobileAds.instance.initialize();
+    
+    // 记录应用启动事件
+    firebaseService.logAppOpen();
 
     runApp(MultiProvider(
       providers: [
@@ -33,6 +45,13 @@ Future<void> main() async {
     // 记录错误但不中断应用启动
     print('初始化错误: $e');
     print('堆栈跟踪: $stackTrace');
+    
+    // 尝试记录错误到Firebase Crashlytics
+    try {
+      FirebaseService().recordError(e, stackTrace);
+    } catch (_) {
+      // 如果Crashlytics也无法初始化，则忽略错误
+    }
   } finally {
     // 无论初始化是否成功，都确保移除原生启动屏幕
     // 这样可以防止应用卡在启动屏幕
