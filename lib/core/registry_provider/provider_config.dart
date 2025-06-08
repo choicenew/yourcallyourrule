@@ -209,6 +209,12 @@ List<SingleChildStatelessWidget> getAppProviders() {
     enhancedCompositeFilterService: enhancedCompositeFilterService,
   );
 
+ // 初始化广告控制服务
+ final purchaseState = PurchaseState(configRepository: configRepository);
+ final adState = AdState();
+ final adControlService = AdControlService(purchaseState, adState);
+ 
+
   // 返回ChangeNotifierProvider列表
   final changeNotifierProviders = [
     // 核心服务 - 这些是真正的ChangeNotifier子类
@@ -231,6 +237,8 @@ List<SingleChildStatelessWidget> getAppProviders() {
             Provider.of<PurchaseState>(context, listen: false),
             Provider.of<AdState>(context, listen: false))),
     Provider<CallLogRecorder>.value(value: callLogRecorder),
+
+     ChangeNotifierProvider.value(value: adControlService),
   ];
   
  
@@ -253,7 +261,7 @@ List<SingleChildStatelessWidget> getAppProviders() {
 
 /// 获取所有服务的Provider列表，用于在应用的根MultiProvider中使用
 /// 这些服务不是ChangeNotifier的子类，不能直接注册为ChangeNotifierProvider
-List<Provider> getServiceProviders() {
+List<SingleChildStatelessWidget> getServiceProviders() {
   // 初始化核心服务
   final databaseService = DatabaseService();
   final localDatabaseManager = LocalDatabaseManagerImpl();
@@ -380,7 +388,8 @@ List<Provider> getServiceProviders() {
     Provider.value(value: localCountFilterService),
     Provider.value(value: simSlotRuleService),
     Provider.value(value: allowedBlockedService),
-    Provider.value(value: adControlService),
+    // Change this line to use ChangeNotifierProvider.value
+  //  ChangeNotifierProvider.value(value: adControlService),
   ];
 
 

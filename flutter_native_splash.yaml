@@ -1,6 +1,6 @@
 flutter_native_splash:
-  # 背景颜色
-  color: "#FFFFFF"
+  # 背景颜色 - 使用不透明的颜色
+  color: "#FAE636"
   # 或者使用背景图片
   # background_image: "assets/background.png"
   
@@ -10,11 +10,12 @@ flutter_native_splash:
   # 图片的大小，单位是px
   # 默认为原始图片大小的一半
   # 如果图片太大或太小，可以调整这个值
-  branding: assets/app_logo.png
-  branding_mode: bottom
+  # 移除 branding 配置，避免与主图片冲突
+  # branding: assets/app_logo.png
+  # branding_mode: bottom
   
-  # 可以添加品牌文本
-  branding_dark: assets/app_logo.png
+  # 移除 branding_dark 配置，避免冲突
+  # branding_dark: assets/app_logo.png
   
   # Android 12 特定配置
   android_12:
@@ -29,7 +30,8 @@ flutter_native_splash:
     
   # 设置启动屏幕的持续时间（毫秒）
   # 默认为0，表示不延迟
-  # 设置为3000毫秒（3秒）以确保启动屏幕有足够时间显示
+  # 设置为2000毫秒（2秒）以确保启动屏幕有足够时间显示但不会卡死
+  duration_milliseconds: 2000
   android_screen_orientation: portrait
   fullscreen: true
   

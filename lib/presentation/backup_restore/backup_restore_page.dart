@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'package:yourcallyourrule/cloud_sync/entities/backup_config_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/backup_restore_provider.dart';
@@ -25,19 +26,19 @@ class BackupRestorePage extends ConsumerWidget {
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('备份设置'),
+        title: Text(AppLocalizations.of(context)!.backupSettings),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             SwitchListTile(
-              title: const Text('保留所有版本'),
-              subtitle: const Text('开启后将保留每次备份的历史版本'),
+              title: Text(AppLocalizations.of(context)!.keepAllVersions),
+              subtitle: Text(AppLocalizations.of(context)!.keepAllVersionsDescription),
               value: keepAllVersions,
               onChanged: (value) => keepAllVersions = value,
             ),
             SwitchListTile(
-              title: const Text('启用加密'),
-              subtitle: const Text('开启后备份文件将被加密保存'),
+              title: Text(AppLocalizations.of(context)!.enableEncryption),
+              subtitle: Text(AppLocalizations.of(context)!.enableEncryptionDescription),
               value: encryptionEnabled,
               onChanged: (value) {
                 encryptionEnabled = value;
@@ -53,9 +54,9 @@ class BackupRestorePage extends ConsumerWidget {
             ),
             const SizedBox(height: 16),
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: '设备名称',
-                hintText: '请输入设备名称',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.deviceName,
+                hintText: AppLocalizations.of(context)!.enterDeviceName,
               ),
               initialValue: deviceName,
               onChanged: (value) => deviceName = value,
@@ -65,7 +66,7 @@ class BackupRestorePage extends ConsumerWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () async {
@@ -79,7 +80,7 @@ class BackupRestorePage extends ConsumerWidget {
               );
               Navigator.pop(context);
             },
-            child: const Text('保存'),
+            child: Text(AppLocalizations.of(context)!.save)
           ),
         ],
       ),
@@ -90,7 +91,7 @@ class BackupRestorePage extends ConsumerWidget {
     final cloudService = ref.read(activeSyncServiceProvider);
     if (cloudService == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('请先在云端同步设置中配置同步服务')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.configureCloudSyncService)),
       );
       return;
     }
@@ -98,13 +99,13 @@ class BackupRestorePage extends ConsumerWidget {
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('云端同步'),
+        title: Text(AppLocalizations.of(context)!.cloudSync),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
               leading: const Icon(Icons.cloud_upload),
-              title: const Text('备份到云端'),
+              title: Text(AppLocalizations.of(context)!.backupToCloud),
               onTap: () async {
                 Navigator.pop(context);
                 try {
@@ -123,21 +124,21 @@ class BackupRestorePage extends ConsumerWidget {
 
                   if (rulesSuccess && settingsSuccess) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('成功备份到云端')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.backupToCloudSuccess)),
                     );
                   } else {
-                    throw Exception('备份失败');
+                    throw Exception(AppLocalizations.of(context)!.backupFailed);
                   }
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('备份到云端失败: $e')),
+                    SnackBar(content: Text(AppLocalizations.of(context)!.backupToCloudFailed(e.toString()))),
                   );
                 }
               },
             ),
             ListTile(
               leading: const Icon(Icons.cloud_download),
-              title: const Text('从云端恢复'),
+              title: Text(AppLocalizations.of(context)!.restoreFromCloud),
               onTap: () async {
                 Navigator.pop(context);
                 try {
@@ -160,11 +161,11 @@ class BackupRestorePage extends ConsumerWidget {
                   }
 
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('成功从云端恢复')),
+                    SnackBar(content: Text(AppLocalizations.of(context)!.restoreFromCloudSuccess)),
                   );
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('从云端恢复失败: $e')),
+                    SnackBar(content: Text(AppLocalizations.of(context)!.restoreFromCloudFailed(e.toString()))),
                   );
                 }
               },
@@ -181,7 +182,7 @@ class BackupRestorePage extends ConsumerWidget {
     final rulesAsync = ref.watch(rulesProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Backup & Restore'),
+        title: Text(AppLocalizations.of(context)!.backupAndRestore),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -207,36 +208,36 @@ class BackupRestorePage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Backup',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.backup,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             ListTile(
               leading: const Icon(Icons.settings),
-              title: const Text('Backup Settings'),
-              subtitle: const Text('Configure backup options'),
+              title: Text(AppLocalizations.of(context)!.backupSettings),
+              subtitle: Text(AppLocalizations.of(context)!.configureBackupOptions),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _showBackupConfigDialog(context, ref),
             ),
             ListTile(
               leading: const Icon(Icons.rule),
-              title: const Text('Export Rules'),
-              subtitle: const Text('Export all rule configurations'),
+              title: Text(AppLocalizations.of(context)!.exportRules),
+              subtitle: Text(AppLocalizations.of(context)!.exportAllRuleConfigurations),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _exportRules(context, ref, backupService),
             ),
             ListTile(
               leading: const Icon(Icons.settings_backup_restore),
-              title: const Text('Backup Settings'),
-              subtitle: const Text('Export all application settings'),
+              title: Text(AppLocalizations.of(context)!.backupSettings),
+              subtitle: Text(AppLocalizations.of(context)!.exportAllApplicationSettings),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _backupSettings(context, ref, backupService),
             ),
             ListTile(
               leading: const Icon(Icons.cloud_upload),
-              title: const Text('Cloud Sync'),
-              subtitle: const Text('Sync with cloud storage'),
+              title: Text(AppLocalizations.of(context)!.cloudSync),
+              subtitle: Text(AppLocalizations.of(context)!.syncWithCloudStorage),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _showCloudSyncDialog(context, ref),
             ),
@@ -254,22 +255,22 @@ class BackupRestorePage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Restore',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.restore,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             ListTile(
               leading: const Icon(Icons.upload_file),
-              title: const Text('Import Rules'),
-              subtitle: const Text('Import rule configurations from file'),
+              title: Text(AppLocalizations.of(context)!.importRules),
+              subtitle: Text(AppLocalizations.of(context)!.importRuleConfigurationsFromFile),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _importRules(context, ref, backupService),
             ),
             ListTile(
               leading: const Icon(Icons.restore),
-              title: const Text('Restore Settings'),
-              subtitle: const Text('Restore application settings from backup'),
+              title: Text(AppLocalizations.of(context)!.restoreSettings),
+              subtitle: Text(AppLocalizations.of(context)!.restoreApplicationSettingsFromBackup),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _restoreSettings(context, ref, backupService),
             ),
@@ -287,16 +288,16 @@ class BackupRestorePage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Data Migration',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.dataMigration,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             ListTile(
               leading: const Icon(Icons.compare_arrows),
-              title: const Text('Migration Tool'),
+              title: Text(AppLocalizations.of(context)!.migrationTool),
               subtitle:
-                  const Text('Transfer data between devices or platforms'),
+                  Text(AppLocalizations.of(context)!.transferDataBetweenDevicesOrPlatforms),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _showDataMigrationDialog(context),
             ),
@@ -312,25 +313,25 @@ class BackupRestorePage extends ConsumerWidget {
       final rules = ref.read(rulesProvider).value;
       if (rules == null || rules.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No rules to export')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.noRulesToExport)),
         );
         return;
       }
 
       final result = await FilePicker.platform.saveFile(
-        dialogTitle: 'Export Rules',
+        dialogTitle: AppLocalizations.of(context)!.exportRules,
         fileName: 'rules_${DateTime.now().millisecondsSinceEpoch}.json',
       );
 
       if (result != null) {
         final path = await backupService.backupRules(rules, result);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Rules exported to: $path')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.rulesExportedTo(path))),
         );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to export rules: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.failedToExportRules(e.toString()))),
       );
     }
   }
@@ -339,19 +340,19 @@ class BackupRestorePage extends ConsumerWidget {
       BackupRestoreService backupService) async {
     try {
       final result = await FilePicker.platform.saveFile(
-        dialogTitle: 'Backup Settings',
+        dialogTitle: AppLocalizations.of(context)!.backupSettings,
         fileName: 'settings_${DateTime.now().millisecondsSinceEpoch}.json',
       );
 
       if (result != null) {
         final path = await backupService.backupSettings(result);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Settings backed up to: $path')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.settingsBackedUpTo(path))),
         );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to backup settings: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.failedToBackupSettings(e.toString()))),
       );
     }
   }
@@ -373,18 +374,26 @@ class BackupRestorePage extends ConsumerWidget {
           final shouldImport = await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: const Text('Import Rules'),
+                  title: Text(AppLocalizations.of(context)!.importRules),
                   content: Text(
-                      'Found ${rules.length} rules. Do you want to import them?'),
+                      AppLocalizations.of(context)!.foundRules(rules.length)),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context, false),
-                      child: const Text('Cancel'),
+                      child: Text(AppLocalizations.of(context)!.cancel),
                     ),
                     TextButton(
                       onPressed: () => Navigator.pop(context, true),
-                      child: const Text('Import'),
+                      child: Text(AppLocalizations.of(context)!.import),
                     ),
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
                   ],
                 ),
               ) ??
@@ -397,7 +406,7 @@ class BackupRestorePage extends ConsumerWidget {
 
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                  content: Text('${rules.length} rules imported successfully')),
+                  content: Text(AppLocalizations.of(context)!.rulesImportedSuccessfully(rules.length))),
             );
           }
         } catch (error) {
@@ -413,7 +422,7 @@ class BackupRestorePage extends ConsumerWidget {
               await _importRules(context, ref, backupService);
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Failed to decrypt backup file')),
+                SnackBar(content: Text(AppLocalizations.of(context)!.failedToDecryptBackupFile)),
               );
             }
           } else {
@@ -423,7 +432,7 @@ class BackupRestorePage extends ConsumerWidget {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to import rules: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.failedToImportRules(e.toString()))),
       );
     }
   }
@@ -443,19 +452,27 @@ class BackupRestorePage extends ConsumerWidget {
         final shouldRestore = await showDialog<bool>(
               context: context,
               builder: (context) => AlertDialog(
-                title: const Text('Restore Settings'),
-                content: const Text(
-                  'This will replace all your current settings. Are you sure you want to continue?',
+                title: Text(AppLocalizations.of(context)!.restoreSettings),
+                content: Text(
+                  AppLocalizations.of(context)!.restoreSettingsConfirmation,
                 ),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context, false),
-                    child: const Text('Cancel'),
+                    child: Text(AppLocalizations.of(context)!.cancel),
                   ),
                   TextButton(
                     onPressed: () => Navigator.pop(context, true),
-                    child: const Text('Restore'),
+                    child: Text(AppLocalizations.of(context)!.restore),
                   ),
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
                 ],
               ),
             ) ??
@@ -466,13 +483,13 @@ class BackupRestorePage extends ConsumerWidget {
             final success = await backupService.restoreSettings(file.path);
             if (success) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
+                SnackBar(
                     content: Text(
-                        'Settings restored successfully. Please restart the app for changes to take effect.')),
+                        AppLocalizations.of(context)!.settingsRestoredSuccessfully)),
               );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Failed to restore settings')),
+                SnackBar(content: Text(AppLocalizations.of(context)!.failedToRestoreSettings)),
               );
             }
           } catch (error) {
@@ -488,8 +505,8 @@ class BackupRestorePage extends ConsumerWidget {
                 await _restoreSettings(context, ref, backupService);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                      content: Text('Failed to decrypt backup file')),
+                SnackBar(
+                    content: Text(AppLocalizations.of(context)!.failedToDecryptBackupFile)),
                 );
               }
             }
@@ -498,7 +515,7 @@ class BackupRestorePage extends ConsumerWidget {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to restore settings: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.failedToRestoreSettingsWithError(e.toString()))),
       );
     }
   }
@@ -507,16 +524,19 @@ class BackupRestorePage extends ConsumerWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Data Migration'),
-        content: const Text(
-          'This feature allows you to transfer all your data between devices. '
-          'Currently, you can use the backup and restore features to manually migrate your data.',
+        title: Text(AppLocalizations.of(context)!.dataMigration),
+        content: Text(
+          AppLocalizations.of(context)!.dataMigrationDescription,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
+            child: Text(AppLocalizations.of(context)!.ok),
           ),
+
+
+
+
         ],
       ),
     );
@@ -534,14 +554,14 @@ class BackupRestorePage extends ConsumerWidget {
       barrierDismissible: false,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          title: Text(isSettingPassword ? '设置加密密码' : '输入加密密码'),
+          title: Text(isSettingPassword ? AppLocalizations.of(context)!.setEncryptionPassword : AppLocalizations.of(context)!.enterEncryptionPasswordHint),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
-                decoration: const InputDecoration(
-                  labelText: '密码',
-                  hintText: '请输入加密密码',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.password,
+                  hintText: AppLocalizations.of(context)!.enterEncryptionPasswordHint,
                 ),
                 obscureText: true,
                 onChanged: (value) {
@@ -556,9 +576,9 @@ class BackupRestorePage extends ConsumerWidget {
               if (isSettingPassword) ...[
                 const SizedBox(height: 16),
                 TextField(
-                  decoration: const InputDecoration(
-                    labelText: '确认密码',
-                    hintText: '请再次输入密码',
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.confirmPassword,
+                    hintText: AppLocalizations.of(context)!.enterPasswordAgain,
                   ),
                   obscureText: true,
                   onChanged: (value) {
@@ -569,11 +589,11 @@ class BackupRestorePage extends ConsumerWidget {
                   },
                 ),
                 if (!passwordsMatch && confirmPassword.isNotEmpty)
-                  const Padding(
-                    padding: EdgeInsets.only(top: 8.0),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
-                      '两次输入的密码不一致',
-                      style: TextStyle(color: Colors.red),
+                      AppLocalizations.of(context)!.passwordsDoNotMatch,
+                      style: const TextStyle(color: Colors.red),
                     ),
                   ),
               ],
@@ -582,21 +602,21 @@ class BackupRestorePage extends ConsumerWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context, false),
-              child: const Text('取消'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () async {
                 if (isSettingPassword) {
                   if (password.isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('密码不能为空')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.passwordCannotBeEmpty)),
                     );
                     return;
                   }
 
                   if (!passwordsMatch) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('两次输入的密码不一致')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.passwordsDoNotMatch)),
                     );
                     return;
                   }
@@ -608,7 +628,7 @@ class BackupRestorePage extends ConsumerWidget {
                   // Validating password
                   if (password.isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('密码不能为空')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.passwordCannotBeEmpty)),
                     );
                     return;
                   }
@@ -619,12 +639,12 @@ class BackupRestorePage extends ConsumerWidget {
                     Navigator.pop(context, true);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('密码错误')),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.incorrectPassword)),
                     );
                   }
                 }
               },
-              child: Text(isSettingPassword ? '设置' : '确认'),
+              child: Text(isSettingPassword ? AppLocalizations.of(context)!.setup : AppLocalizations.of(context)!.confirm),
             ),
           ],
         ),

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/cloud_sync_provider.dart';
 import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 final webdavConfigProvider = StateProvider<Map<String, String>>((ref) => {});
 final oneDriveConfigProvider = StateProvider<Map<String, String>>((ref) => {});
@@ -17,7 +18,7 @@ class CloudSettingsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('云端同步'),
+        title: Text(AppLocalizations.of(context)!.cloudSyncTitle),
       ),
       body: ListView(
         children: [
@@ -33,8 +34,8 @@ class CloudSettingsPage extends ConsumerWidget {
           const Divider(),
           ListTile(
             leading: const Icon(Icons.backup),
-            title: const Text('备份与恢复'),
-            subtitle: const Text('备份或恢复应用数据'),
+            title: Text(AppLocalizations.of(context)!.backupRestoreTitle),
+            subtitle: Text(AppLocalizations.of(context)!.backupRestoreSubtitle),
             trailing: IconButton(
               icon: const Icon(Icons.arrow_forward_ios),
               onPressed: () {},
@@ -52,15 +53,15 @@ class CloudSettingsPage extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'WebDAV配置',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.webDAVConfigTitle,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           TextFormField(
-            decoration: const InputDecoration(
-              labelText: '服务器地址',
-              hintText: '请输入WebDAV服务器地址',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.serverAddressLabel,
+              hintText: AppLocalizations.of(context)!.enterWebDAVServerAddressHint,
             ),
             initialValue: config['server_url'],
             onChanged: (value) {
@@ -71,9 +72,9 @@ class CloudSettingsPage extends ConsumerWidget {
           ),
           const SizedBox(height: 8),
           TextFormField(
-            decoration: const InputDecoration(
-              labelText: '用户名',
-              hintText: '请输入WebDAV用户名',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.usernameLabel,
+              hintText: AppLocalizations.of(context)!.enterWebDAVUsernameHint,
             ),
             initialValue: config['username'],
             onChanged: (value) {
@@ -84,9 +85,9 @@ class CloudSettingsPage extends ConsumerWidget {
           ),
           const SizedBox(height: 8),
           TextFormField(
-            decoration: const InputDecoration(
-              labelText: '密码',
-              hintText: '请输入WebDAV密码',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.passwordLabel,
+              hintText: AppLocalizations.of(context)!.enterWebDAVPasswordHint,
             ),
             obscureText: true,
             initialValue: config['password'],
@@ -97,9 +98,9 @@ class CloudSettingsPage extends ConsumerWidget {
             },
           ),
           TextFormField(
-            decoration: const InputDecoration(
-              labelText: '同步文件夹名称',
-              hintText: '请输入同步文件夹名称（默认：NotificationManager）',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.syncFolderNameLabel,
+              hintText: AppLocalizations.of(context)!.enterSyncFolderNameHint,
             ),
             initialValue: config['folder_name'],
             onChanged: (value) {
@@ -111,7 +112,7 @@ class CloudSettingsPage extends ConsumerWidget {
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: () => _testWebDAVConnection(context, config),
-            child: const Text('测试连接'),
+            child: Text(AppLocalizations.of(context)!.testConnectionButton),
           ),
         ],
       ),
@@ -125,19 +126,19 @@ class CloudSettingsPage extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'OneDrive配置',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.oneDriveConfigTitle,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
            const SizedBox(height: 16),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
-            child: Text('使用系统配置的OneDrive客户端ID和密钥进行授权'),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(AppLocalizations.of(context)!.oneDriveAuthDescription),
           ),
           TextFormField(
-            decoration: const InputDecoration(
-              labelText: '同步文件夹名称',
-              hintText: '请输入同步文件夹名称（默认：NotificationManager）',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.syncFolderNameLabel,
+              hintText: AppLocalizations.of(context)!.enterSyncFolderNameHint,
             ),
             initialValue: config['folder_name'],
             onChanged: (value) {
@@ -149,7 +150,7 @@ class CloudSettingsPage extends ConsumerWidget {
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: () => _authorizeOneDrive(context, config, ref),
-            child: const Text('授权登录'),
+            child: Text(AppLocalizations.of(context)!.authorizeLoginButton),
           ),
         ],
       ),
@@ -163,19 +164,19 @@ class CloudSettingsPage extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Google Drive配置',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.googleDriveConfigTitle,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
-            child: Text('使用系统配置的Google Drive客户端ID和密钥进行授权'),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(AppLocalizations.of(context)!.googleDriveAuthDescription),
           ),
           TextFormField(
-            decoration: const InputDecoration(
-              labelText: '同步文件夹名称',
-              hintText: '请输入同步文件夹名称（默认：NotificationManager）',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.syncFolderNameLabel,
+              hintText: AppLocalizations.of(context)!.enterSyncFolderNameHint,
             ),
             initialValue: config['folder_name'],
             onChanged: (value) {
@@ -187,7 +188,7 @@ class CloudSettingsPage extends ConsumerWidget {
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: () => _authorizeGoogleDrive(context, config, ref),
-            child: const Text('授权登录'),
+            child: Text(AppLocalizations.of(context)!.authorizeLoginButton),
           ),
         ],
       ),
@@ -226,11 +227,11 @@ class CloudSettingsPage extends ConsumerWidget {
 
       if (result) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('连接成功')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.connectionSuccessMessage)),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('连接失败: 请检查服务器地址、用户名和密码')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.connectionFailedCheckCredentialsMessage)),
         );
       }
     } catch (e) {
@@ -238,7 +239,7 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('连接失败: $e')),
+        SnackBar(content: Text('${AppLocalizations.of(context)!.connectionFailedMessage}: $e')),
       );
     }
   }
@@ -277,11 +278,11 @@ class CloudSettingsPage extends ConsumerWidget {
         ref.read(activeSyncServiceProvider.notifier).state = onedriveService;
 
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('授权成功')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.authorizationSuccessMessage)),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('授权失败: 请检查客户端ID和密钥')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.authorizationFailedCheckCredentialsMessage)),
         );
       }
     } catch (e) {
@@ -289,7 +290,7 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('授权失败: $e')),
+        SnackBar(content: Text('${AppLocalizations.of(context)!.authorizationFailedMessage}: $e')),
       );
     }
   }
@@ -328,11 +329,11 @@ class CloudSettingsPage extends ConsumerWidget {
         ref.read(activeSyncServiceProvider.notifier).state = googleDriveService;
 
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('授权成功')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.authorizationSuccessMessage)),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('授权失败: 请检查客户端ID和密钥')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.authorizationFailedCheckCredentialsMessage)),
         );
       }
     } catch (e) {
@@ -340,7 +341,7 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('授权失败: $e')),
+        SnackBar(content: Text('${AppLocalizations.of(context)!.authorizationFailedMessage}: $e')),
       );
     }
   }
@@ -351,9 +352,9 @@ class CloudSettingsPage extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            '同步状态',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.syncStatusTitle,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           Consumer(
@@ -374,9 +375,9 @@ class CloudSettingsPage extends ConsumerWidget {
                           isConnected ? Icons.cloud_done : Icons.cloud_off,
                           color: isConnected ? Colors.green : Colors.red,
                         ),
-                        title: Text('连接状态: ${isConnected ? "已连接" : "未连接"}'),
+                        title: Text('${AppLocalizations.of(context)!.connectionStatusLabel}: ${isConnected ? AppLocalizations.of(context)!.connectedStatus : AppLocalizations.of(context)!.disconnectedStatus}'),
                         subtitle: Text(
-                            '服务类型: ${serviceType == "none" ? "无" : serviceType}'),
+                            '${AppLocalizations.of(context)!.serviceTypeLabel}: ${serviceType == "none" ? AppLocalizations.of(context)!.noneServiceType : serviceType}'),
                       ),
                       if (isConnected) ...[
                         ListTile(
@@ -385,7 +386,7 @@ class CloudSettingsPage extends ConsumerWidget {
                             color: autoSyncEnabled ? Colors.green : Colors.grey,
                           ),
                           title:
-                              Text('自动同步: ${autoSyncEnabled ? "已启用" : "未启用"}'),
+                              Text('${AppLocalizations.of(context)!.autoSyncLabel}: ${autoSyncEnabled ? AppLocalizations.of(context)!.enabledStatus : AppLocalizations.of(context)!.disabledStatus}'),
                         ),
                         const SizedBox(height: 8),
                         Row(
@@ -393,12 +394,12 @@ class CloudSettingsPage extends ConsumerWidget {
                           children: [
                             ElevatedButton.icon(
                               icon: const Icon(Icons.sync),
-                              label: const Text('立即同步'),
+                              label: Text(AppLocalizations.of(context)!.syncNowButton),
                               onPressed: () => _syncNow(context, ref),
                             ),
                             ElevatedButton.icon(
                               icon: const Icon(Icons.sync_disabled),
-                              label: const Text('断开连接'),
+                              label: Text(AppLocalizations.of(context)!.disconnectButton),
                               onPressed: () => _disconnectCloud(context, ref),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.red,
@@ -412,7 +413,7 @@ class CloudSettingsPage extends ConsumerWidget {
                   );
                 },
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, stack) => Text('加载状态失败: $error'),
+                error: (error, stack) => Text('${AppLocalizations.of(context)!.loadStatusFailedMessage}: $error'),
               );
             },
           ),
@@ -425,7 +426,7 @@ class CloudSettingsPage extends ConsumerWidget {
     final activeService = ref.read(activeSyncServiceProvider);
     if (activeService == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('没有活动的云同步服务')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.noActiveCloudSyncServiceMessage)),
       );
       return;
     }
@@ -451,7 +452,7 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('同步成功')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.syncSuccessMessage)),
       );
 
       // 刷新状态并等待完成
@@ -459,7 +460,7 @@ class CloudSettingsPage extends ConsumerWidget {
       // 使用刷新结果更新UI
       if (refreshResult['connected'] == true) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('同步状态已更新')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.syncStatusUpdatedMessage)),
         );
       }
     } catch (e) {
@@ -467,7 +468,7 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('同步失败: $e')),
+        SnackBar(content: Text('${AppLocalizations.of(context)!.syncFailedMessage}: $e')),
       );
     }
   }
@@ -476,7 +477,7 @@ class CloudSettingsPage extends ConsumerWidget {
     final activeService = ref.read(activeSyncServiceProvider);
     if (activeService == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('没有活动的云同步服务')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.noActiveCloudSyncServiceMessage)),
       );
       return;
     }
@@ -499,7 +500,7 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('已断开连接')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.disconnectedMessage)),
       );
 
       // 刷新状态并等待完成
@@ -507,7 +508,7 @@ class CloudSettingsPage extends ConsumerWidget {
       // 使用刷新结果更新UI
       if (refreshResult['connected'] == true) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('同步状态已更新')),
+          SnackBar(content: Text(AppLocalizations.of(context)!.syncStatusUpdatedMessage)),
         );
       }
     } catch (e) {
@@ -515,7 +516,7 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('断开连接失败: $e')),
+        SnackBar(content: Text('${AppLocalizations.of(context)!.disconnectFailedMessage}: $e')),
       );
     }
   }

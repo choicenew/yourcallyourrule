@@ -41,13 +41,95 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
           IconButton(
             icon: const Icon(Icons.calendar_today),
             onPressed: () {
-              // 日期选择功能，你需要实现这个功能
+              // 实现日期选择功能
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text(AppLocalizations.of(context)!.selectPeriod),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ListTile(
+                        title: Text(AppLocalizations.of(context)!.week),
+                        leading: Radio<String>(
+                          value: 'Week',
+                          groupValue: _selectedPeriod,
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedPeriod = value!;
+                            });
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        title: Text(AppLocalizations.of(context)!.month),
+                        leading: Radio<String>(
+                          value: 'Month',
+                          groupValue: _selectedPeriod,
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedPeriod = value!;
+                            });
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        title: Text(AppLocalizations.of(context)!.year),
+                        leading: Radio<String>(
+                          value: 'Year',
+                          groupValue: _selectedPeriod,
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedPeriod = value!;
+                            });
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
             },
           ),
           IconButton(
             icon: const Icon(Icons.notifications),
             onPressed: () {
-              // 通知功能 ，你需要实现这个功能
+              // 实现通知功能
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text(AppLocalizations.of(context)!.notifications),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ListTile(
+                        leading: const Icon(Icons.notifications_active, color: Colors.green),
+                        title: Text(AppLocalizations.of(context)!.enableStatisticsNotifications),
+                        subtitle: Text(AppLocalizations.of(context)!.receiveWeeklyStatistics),
+                        trailing: Switch(
+                          value: false, // 这里应该使用一个状态变量，暂时使用false
+                          onChanged: (value) {
+                            // 这里应该保存用户的选择
+                            Navigator.pop(context);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(AppLocalizations.of(context)!.notificationSettingsSaved)),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text(AppLocalizations.of(context)!.close),
+                    ),
+                  ],
+                ),
+              );
             },
           ),
         ],

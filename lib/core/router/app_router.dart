@@ -20,11 +20,17 @@ import 'package:yourcallyourrule/features/contacts/pages/contacts_management_pag
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
+import 'package:yourcallyourrule/features/labels/pages/label_management_page.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored.dart';
+import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page.dart';
+import 'package:yourcallyourrule/features/rules/pages/regex_rule_page.dart';
+import 'package:yourcallyourrule/features/sms/pages/sms_filter_page.dart';
 
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/onboarding/pages/onboarding_page.dart';
+import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/permissions/pages/permission_management_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
@@ -110,11 +116,23 @@ class AppRouter {
   static const String home = 'home';
   static const String filterSettings = 'filter-settings';
   static const String search = 'search';
+  static const String pluginManagement = 'plugin-management';
+  static const String phoneSubscription = 'phone-subscription';
+  static const String regexRule = 'regex-rule';
+  static const String smsFilter = 'sms-filter';
+  static const String labelManagement = 'label-management';
+  static const String splash = 'splash';
   
   // 创建路由器
   late final router = GoRouter(
-    initialLocation: '/',
+    initialLocation: '/splash',
     routes: [
+      // 启动屏幕路由
+      GoRoute(
+        path: '/splash',
+        name: splash,
+        builder: (context, state) => const SplashScreen(),
+      ),
       // 设置页面路由
       GoRoute(
         path: '/settings',
@@ -419,6 +437,41 @@ class AppRouter {
         path: '/$dashboard',
         name: dashboard,
         builder: (context, state) => const DashboardPage(),
+      ),
+
+      // 插件管理页面
+      GoRoute(
+        path: '/plugin-management',
+        name: pluginManagement,
+        builder: (context, state) => const PluginManagementPage(),
+      ),
+
+      // 电话订阅页面
+      GoRoute(
+        path: '/phone-subscription',
+        name: phoneSubscription,
+        builder: (context, state) => const PhoneSubscriptionPage(),
+      ),
+
+      // 正则规则页面
+      GoRoute(
+        path: '/regex-rule',
+        name: regexRule,
+        builder: (context, state) => const RegexRulePage(),
+      ),
+
+      // 短信过滤页面
+      GoRoute(
+        path: '/sms-filter',
+        name: smsFilter,
+        builder: (context, state) => const SmsFilterPage(),
+      ),
+
+      // 标签管理页面
+      GoRoute(
+        path: '/label-management',
+        name: labelManagement,
+        builder: (context, state) => const LabelManagementPage(),
       ),
     ],
   );

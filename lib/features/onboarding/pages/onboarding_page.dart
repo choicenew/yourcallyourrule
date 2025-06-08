@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:yourcallyourrule/features/language/language_data.dart';
 import 'package:yourcallyourrule/features/language/widgets/language_selection_widget.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
@@ -18,6 +20,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   int _currentPage = 0;
   final int _totalPages = 6;
 
+
+
   @override
   void dispose() {
     _pageController.dispose();
@@ -31,8 +35,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         curve: Curves.easeInOut,
       );
     } else {
-      // 最后一页，跳转到主页
-      Navigator.of(context).pushReplacementNamed('/home');
+      GoRouter.of(context).goNamed('home');
     }
   }
 
@@ -46,7 +49,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   void _skipOnboarding() {
-    Navigator.of(context).pushReplacementNamed('/home');
+    GoRouter.of(context).goNamed('home');
   }
 
   @override
@@ -63,10 +66,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         child: SafeArea(
           child: Column(
             children: [
-              // 顶部进度条和跳过按钮
               _buildTopBar(),
-              
-              // 页面内容
               Expanded(
                 child: PageView(
                   controller: _pageController,
@@ -85,8 +85,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ],
                 ),
               ),
-              
-              // 底部导航按钮
               _buildBottomBar(),
             ],
           ),
@@ -105,7 +103,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             height: 4,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha:0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(2),
             ),
             child: FractionallySizedBox(
@@ -119,7 +117,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
             ),
           ),
-          
           // 跳过按钮
           Align(
             alignment: Alignment.centerRight,
@@ -128,15 +125,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: TextButton(
                 onPressed: _skipOnboarding,
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.white.withValues(alpha:0.2),
+                  backgroundColor: Colors.white.withValues(alpha: 0.2),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
                 child: Text(
-                    AppLocalizations.of(context)!.skip,
-                    style: const TextStyle(color: Colors.white, fontSize: 14),
-                  ),
+                  AppLocalizations.of(context)!.skip,
+                  style: const TextStyle(color: Colors.white, fontSize: 14),
+                ),
               ),
             ),
           ),
@@ -163,10 +160,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: Text(AppLocalizations.of(context)!.previousStep, style: const TextStyle(fontSize: 16)),
+                  child: Text(
+                    AppLocalizations.of(context)!.previousStep,
+                    style: const TextStyle(fontSize: 16),
+                  ),
                 )
               : const SizedBox(width: 100),
-          
           // 下一步按钮
           ElevatedButton(
             onPressed: _nextPage,
@@ -179,7 +178,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
             ),
             child: Text(
-              _currentPage == _totalPages - 1 ? AppLocalizations.of(context)!.startUsing : AppLocalizations.of(context)!.nextStep,
+              _currentPage == _totalPages - 1
+                  ? AppLocalizations.of(context)!.startUsing
+                  : AppLocalizations.of(context)!.nextStep,
               style: const TextStyle(fontSize: 16),
             ),
           ),
@@ -189,344 +190,240 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _buildPageIndicator() {
-    List<Widget> indicators = [];
-    for (int i = 0; i < _totalPages; i++) {
-      indicators.add(
-        Container(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(_totalPages, (index) {
+        return Container(
           width: 8,
           height: 8,
           margin: const EdgeInsets.symmetric(horizontal: 4),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: i == _currentPage ? Colors.white : Colors.white.withValues(alpha:0.3),
+            color: index == _currentPage
+                ? Colors.white
+                : Colors.white.withValues(alpha: 0.3),
           ),
-        ),
-      );
-    }
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: indicators);
+        );
+      }),
+    );
   }
 
-  Widget _buildWelcomePage() {
+  // 提取通用的图标容器构建方法
+  Widget _buildIconContainer({
+    required IconData icon,
+    required Color backgroundColor,
+    double size = 120,
+    double iconSize = 60,
+  }) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.1),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Icon(
+        icon,
+        size: iconSize,
+        color: backgroundColor == Colors.white ? const Color(0xFFFFB74D) : Colors.white,
+      ),
+    );
+  }
+
+  // 提取通用的页面构建方法
+  Widget _buildPageTemplate({
+    required Widget icon,
+    required String title,
+    Widget? content,
+    String? description,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // 图标
-          Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
+          icon,
+          const SizedBox(height: 40),
+          Text(
+            title,
+            style: const TextStyle(
               color: Colors.white,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha:0.1),
-                  blurRadius: 20,
-                  offset: const Offset(0, 10),
-                ),
-              ],
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
             ),
-            child: const Icon(
-              Icons.shield,
-              size: 60,
-              color: Color(0xFFFFB74D),
-            ),
-          ),
-          const SizedBox(height: 40),
-          
-          // 标题
-          Text(
-            AppLocalizations.of(context)!.welcome,
-            style: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 16),
-          
-          // 副标题
-          const Text(
-            'Your Call Your Rule',
-            style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(height: 24),
-          
-          // 描述
-          Text(
-            AppLocalizations.of(context)!.onboardingWelcomeDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
           ),
+          if (content != null) ...[
+            const SizedBox(height: 24),
+            content,
+          ],
+          if (description != null) ...[
+            const SizedBox(height: 24),
+            Text(
+              description,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.9),
+                fontSize: 16,
+              ),
+            ),
+          ],
           const SizedBox(height: 40),
-          
-          // 页面指示器
           _buildPageIndicator(),
         ],
       ),
+    );
+  }
+
+  Widget _buildWelcomePage() {
+    return _buildPageTemplate(
+      icon: _buildIconContainer(
+        icon: Icons.shield,
+        backgroundColor: Colors.white,
+      ),
+      title: AppLocalizations.of(context)!.welcome,
+      content: Column(
+        children: [
+          const Text(
+            'Your Call Your Rule',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+      description: AppLocalizations.of(context)!.onboardingWelcomeDescription,
     );
   }
 
   Widget _buildLanguagePage() {
     final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
     final currentLocale = localeProvider.locale;
-    
-    // 支持的语言列表
-    final supportedLocales = [
-      {'name': '简体中文', 'code': const Locale('zh', 'CN'), 'flag': 'CN'},
-      {'name': 'English', 'code': const Locale('en', 'US'), 'flag': 'US'},
-      {'name': '日本語', 'code': const Locale('ja', 'JP'), 'flag': 'JP'},
-      {'name': '한국어', 'code': const Locale('ko', 'KR'), 'flag': 'KR'},
-      {'name': 'Français', 'code': const Locale('fr', 'FR'), 'flag': 'FR'},
-      {'name': 'Deutsch', 'code': const Locale('de', 'DE'), 'flag': 'DE'},
-      {'name': 'Español', 'code': const Locale('es', 'ES'), 'flag': 'ES'},
-    ];
-    
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // 图标
-          Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              color: const Color(0xFF039BE5),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha:0.1),
-                  blurRadius: 20,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-            ),
-            child: const Icon(
-              Icons.language,
-              size: 50,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 30),
-          
-          // 标题
-          Text(
-            AppLocalizations.of(context)!.selectYourLanguage,
-            style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 20),
-          
-          // 使用LanguageSelectionWidget组件
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha:0.1),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            padding: const EdgeInsets.all(16),
-            child: LanguageSelectionWidget(
-              supportedLocales: supportedLocales,
-              currentLocale: currentLocale,
-              localeProvider: localeProvider,
-              showCurrentLanguage: false,
-            ),
-          ),
-          const SizedBox(height: 20),
-          
-          // 描述
-          Text(
-            AppLocalizations.of(context)!.onboardingLanguageDescription,
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
-          ),
-          const SizedBox(height: 30),
-          
-          // 页面指示器
-          _buildPageIndicator(),
-        ],
+      final List<Map<String, dynamic>> supportedLocales = languages;
+
+    return _buildPageTemplate(
+      icon: _buildIconContainer(
+        icon: Icons.language,
+        backgroundColor: const Color(0xFF039BE5),
+        size: 100,
+        iconSize: 50,
       ),
+      title: AppLocalizations.of(context)!.selectYourLanguage,
+      content: Container(
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        padding: const EdgeInsets.all(16),
+        child: 
+        LanguageSelectionWidget(
+          supportedLocales: supportedLocales,
+          currentLocale: currentLocale,
+          localeProvider: localeProvider,
+          showCurrentLanguage: false,
+        ),
+      ),
+      description: AppLocalizations.of(context)!.onboardingLanguageDescription,
     );
   }
 
   Widget _buildFeaturePage1() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // 图标
-          Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              color: const Color(0xFFFF7043),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha:0.1),
-                  blurRadius: 20,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-            ),
-            child: const Icon(
-              Icons.contact_phone,
-              size: 50,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 40),
-          
-          // 标题
-          Text(
-            AppLocalizations.of(context)!.smartCallerId,
-            style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 24),
-          
-          // 功能图片
-          Container(
-            height: 200,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha:0.2),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: const Center(
-              child: Icon(
-                Icons.phone_callback,
-                size: 80,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const SizedBox(height: 24),
-          
-          // 描述
-          Text(
-            AppLocalizations.of(context)!.onboardingSmartCallerIdDescription,
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
-          ),
-          const SizedBox(height: 40),
-          
-          // 页面指示器
-          _buildPageIndicator(),
-        ],
+    return _buildPageTemplate(
+      icon: _buildIconContainer(
+        icon: Icons.contact_phone,
+        backgroundColor: const Color(0xFFFF7043),
+        size: 100,
+        iconSize: 50,
       ),
+      title: AppLocalizations.of(context)!.smartCallerId,
+      content: Container(
+        height: 200,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.2),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Center(
+          child: Icon(
+            Icons.phone_callback,
+            size: 80,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      description: AppLocalizations.of(context)!.onboardingSmartCallerIdDescription,
     );
   }
 
   Widget _buildFeaturePage2() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // 图标
-          Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              color: const Color(0xFFE53935),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha:0.1),
-                  blurRadius: 20,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-            ),
-            child: const Icon(
-              Icons.block,
-              size: 50,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 40),
-          
-          // 标题
-          Text(
-            AppLocalizations.of(context)!.powerfulSpamBlocking,
-            style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 24),
-          
-          // 功能图片
-          Container(
-            height: 200,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha:0.2),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: const Center(
-              child: Icon(
-                Icons.phonelink_erase,
-                size: 80,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const SizedBox(height: 24),
-          
-          // 描述
-          Text(
-            AppLocalizations.of(context)!.onboardingPowerfulSpamBlockingDescription,
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
-          ),
-          const SizedBox(height: 40),
-          
-          // 页面指示器
-          _buildPageIndicator(),
-        ],
+    return _buildPageTemplate(
+      icon: _buildIconContainer(
+        icon: Icons.block,
+        backgroundColor: const Color(0xFFE53935),
+        size: 100,
+        iconSize: 50,
       ),
+      title: AppLocalizations.of(context)!.powerfulSpamBlocking,
+      content: Container(
+        height: 200,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.2),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Center(
+          child: Icon(
+            Icons.phonelink_erase,
+            size: 80,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      description: AppLocalizations.of(context)!.onboardingPowerfulSpamBlockingDescription,
     );
   }
 
   Widget _buildPermissionsPage() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // 图标
-          Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              color: const Color(0xFF43A047),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha:0.1),
-                  blurRadius: 20,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-            ),
-            child: const Icon(
-              Icons.verified_user,
-              size: 50,
-              color: Colors.white,
-            ),
+          _buildIconContainer(
+            icon: Icons.verified_user,
+            backgroundColor: const Color(0xFF43A047),
+            size: 100,
+            iconSize: 50,
           ),
           const SizedBox(height: 30),
-          
-          // 标题
           Text(
             AppLocalizations.of(context)!.grantNecessaryPermissions,
-            style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-          
-          // 描述
           Text(
             AppLocalizations.of(context)!.onboardingPermissionsDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
+            style: TextStyle(
+              color: Colors.white.withValues(alpha: 0.9),
+              fontSize: 16,
+            ),
           ),
           const SizedBox(height: 30),
-          
           // 权限列表
           _buildPermissionItem(
             icon: Icons.phone,
@@ -535,7 +432,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
             color: const Color(0xFFFFB74D),
           ),
           const SizedBox(height: 16),
-          
           _buildPermissionItem(
             icon: Icons.sms,
             title: AppLocalizations.of(context)!.smsPermission,
@@ -543,7 +439,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
             color: const Color(0xFF039BE5),
           ),
           const SizedBox(height: 16),
-          
           _buildPermissionItem(
             icon: Icons.contacts,
             title: AppLocalizations.of(context)!.contactsPermission,
@@ -551,7 +446,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
             color: const Color(0xFF43A047),
           ),
           const SizedBox(height: 16),
-          
           _buildPermissionItem(
             icon: Icons.screen_lock_portrait,
             title: AppLocalizations.of(context)!.callScreeningPermission,
@@ -559,18 +453,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
             color: const Color(0xFFE53935),
           ),
           const SizedBox(height: 30),
-          
           // 授权按钮
           ElevatedButton(
             onPressed: () async {
-              // 请求通话筛选权限
               final result = await CallScreeningPlugin.requestCallScreeningRole();
-              
-              // 检查权限结果
               if (!result && mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(AppLocalizations.of(context)!.callScreeningPermissionNotGranted),
-                ));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      AppLocalizations.of(context)!.callScreeningPermissionNotGranted,
+                    ),
+                  ),
+                );
               }
             },
             style: ElevatedButton.styleFrom(
@@ -581,11 +475,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-            child: Text(AppLocalizations.of(context)!.grantPermissions, style: const TextStyle(fontSize: 16)),
+            child: Text(
+              AppLocalizations.of(context)!.grantPermissions,
+              style: const TextStyle(fontSize: 16),
+            ),
           ),
           const SizedBox(height: 30),
-          
-          // 页面指示器
           _buildPageIndicator(),
         ],
       ),
@@ -601,7 +496,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha:0.2),
+        color: Colors.white.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -610,7 +505,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: color.withValues(alpha:0.2),
+              color: color.withValues(alpha: 0.2),
               shape: BoxShape.circle,
             ),
             child: Icon(icon, color: color),
@@ -622,11 +517,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
                   description,
-                  style: TextStyle(color: Colors.white.withValues(alpha:0.7), fontSize: 12),
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.7),
+                    fontSize: 12,
+                  ),
                 ),
               ],
             ),
@@ -637,77 +538,39 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _buildCompletePage() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // 图标
-          Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              color: const Color(0xFFFFB74D),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha:0.1),
-                  blurRadius: 20,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-            ),
-            child: const Icon(
-              Icons.rocket_launch,
-              size: 50,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 40),
-          
-          // 标题
-          Text(
-            AppLocalizations.of(context)!.ready,
-            style: const TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 24),
-          
-          // 成功提示
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: const Color(0xFF43A047).withValues(alpha:0.2),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Column(
-              children: [
-                const Icon(
-                  Icons.check_circle,
-                  color: Color(0xFF43A047),
-                  size: 40,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  AppLocalizations.of(context)!.allSettingsCompleted,
-                  style: const TextStyle(color: Color(0xFF43A047), fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 24),
-          
-          // 描述
-          Text(
-            AppLocalizations.of(context)!.onboardingCompleteDescription,
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white.withValues(alpha:0.9), fontSize: 16),
-          ),
-          const SizedBox(height: 40),
-          
-          // 页面指示器
-          _buildPageIndicator(),
-        ],
+    return _buildPageTemplate(
+      icon: _buildIconContainer(
+        icon: Icons.rocket_launch,
+        backgroundColor: const Color(0xFFFFB74D),
+        size: 100,
+        iconSize: 50,
       ),
+      title: AppLocalizations.of(context)!.ready,
+      content: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: const Color(0xFF43A047).withValues(alpha: 0.2),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          children: [
+            const Icon(
+              Icons.check_circle,
+              color: Color(0xFF43A047),
+              size: 40,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              AppLocalizations.of(context)!.allSettingsCompleted,
+              style: const TextStyle(
+                color: Color(0xFF43A047),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+      description: AppLocalizations.of(context)!.onboardingCompleteDescription,
     );
   }
 }

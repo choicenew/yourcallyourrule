@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/data/database/local/local_database_manager.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database_manager.dart';
 
@@ -44,9 +45,27 @@ class DatabaseService {
   
   // 初始化数据库
   Future<void> initialize() async {
-    // 确保数据库已初始化
-    await _localDatabaseManager.database;
-    await _remoteDatabaseManager.database;
+    try {
+      // 使用 compute 函数在后台线程初始化数据库
+      await compute(_initializeDatabase, null);
+    } catch (e) {
+      print('数据库初始化错误: $e');
+      // 如果后台初始化失败，尝试在主线程初始化
+      await _initializeDatabase(null);
+    }
+  }
+  
+  // 静态方法用于在后台线程执行
+  static Future<void> _initializeDatabase(_) async {
+    try {
+      final instance = DatabaseService._instance;
+      await instance._localDatabaseManager.database;
+      await instance._remoteDatabaseManager.database;
+      print('数据库初始化完成');
+    } catch (e) {
+      print('数据库初始化错误: $e');
+      rethrow;
+    }
   }
   
   // 关闭数据库

@@ -5,6 +5,8 @@ import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_subscription_page.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+
 
 /// 重构后的短信订阅页面
 /// 使用通用的GenericSubscriptionPage组件减少重复代码
@@ -14,10 +16,10 @@ class SmsSubscriptionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenericSubscriptionPage<SmsSubscription, String, SmsSubscriptionService>(
-      title: '短信规则订阅',
-      emptyText: '暂无订阅',
+      title: AppLocalizations.of(context)!.smsRuleSubscription,
+      emptyText: AppLocalizations.of(context)!.noSubscriptionsYet,
       emptyIcon: Icons.sms_outlined,
-      buildInfoCard: _buildInfoCard,
+      buildInfoCard: () => _buildInfoCard(context),
       buildSubscriptionCard: _buildSubscriptionCard,
       showAddDialog: _showAddSubscriptionDialog,
       updateSubscription: (subscription, service) => service.updateRulesFromSubscription(subscription),
@@ -25,7 +27,7 @@ class SmsSubscriptionPage extends StatelessWidget {
   }
 
   /// 构建信息卡片
-  Widget _buildInfoCard() {
+  Widget _buildInfoCard(BuildContext context) {
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -38,15 +40,15 @@ class SmsSubscriptionPage extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    '关于短信订阅规则',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.aboutSmsSubscriptionRules,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    '通过URL订阅短信规则列表，支持正则表达式匹配。可设置拦截或放行动作。',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    AppLocalizations.of(context)!.smsSubscriptionRulesDescription,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -91,12 +93,12 @@ class SmsSubscriptionPage extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
                               color: isBlock
-                                  ? Colors.red.withOpacity(0.1)
-                                  : Colors.green.withOpacity(0.1),
+                                  ? Colors.red.withValues(alpha:0.1)
+                                  : Colors.green.withValues(alpha:0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
-                              isBlock ? '拦截规则' : '放行规则',
+                              isBlock ? AppLocalizations.of(state.context)!.blockRule : AppLocalizations.of(state.context)!.allowRule,
                               style: TextStyle(
                                 fontSize: 12,
                                 color: isBlock ? Colors.red : Colors.green,
@@ -117,17 +119,17 @@ class SmsSubscriptionPage extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: Colors.orange.withOpacity(0.1),
+                              color: Colors.orange.withValues(alpha:0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
-                            child: const Text(
-                              '待同步',
-                              style: TextStyle(fontSize: 12, color: Colors.orange),
+                            child: Text(
+                              AppLocalizations.of(state.context)!.pendingSync,
+                              style: const TextStyle(fontSize: 12, color: Colors.orange),
                             ),
                           ),
                           const SizedBox(width: 8),
                           Text(
-                            '最后更新: $formattedDate',
+                            '${AppLocalizations.of(state.context)!.lastUpdated}: $formattedDate',
                             style: const TextStyle(fontSize: 12, color: Colors.grey),
                           ),
                         ],
@@ -137,7 +139,7 @@ class SmsSubscriptionPage extends StatelessWidget {
                 ),
                 Switch(
                   value: subscription.isEnabled,
-                  onChanged: (value) {
+                  onChanged: (value) async {
                     final service = Provider.of<SmsSubscriptionService>(state.context, listen: false);
                     if (value) {
                       service.enableSubscription(subscription);
@@ -154,7 +156,7 @@ class SmsSubscriptionPage extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.sync),
-                    label: const Text('立即同步'),
+                    label: Text(AppLocalizations.of(state.context)!.syncNow),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       shape: RoundedRectangleBorder(
@@ -169,7 +171,7 @@ class SmsSubscriptionPage extends StatelessWidget {
                 const SizedBox(width: 8),
                 OutlinedButton.icon(
                   icon: const Icon(Icons.delete),
-                  label: const Text('删除'),
+                  label: Text(AppLocalizations.of(state.context)!.delete),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(
@@ -198,30 +200,30 @@ class SmsSubscriptionPage extends StatelessWidget {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          title: const Text('添加短信订阅'),
+          title: Text(AppLocalizations.of(context)!.addSmsSubscription),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 controller: nameController,
-                decoration: const InputDecoration(
-                  labelText: '订阅名称',
-                  hintText: '输入订阅的名称',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.subscriptionName,
+                  hintText: AppLocalizations.of(context)!.subscriptionNameHint,
                 ),
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: urlController,
-                decoration: const InputDecoration(
-                  labelText: '订阅URL',
-                  hintText: '输入订阅的URL地址',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.subscriptionUrl,
+                  hintText: AppLocalizations.of(context)!.subscriptionUrlHint,
                 ),
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<RuleAction>(
                 value: selectedAction,
-                decoration: const InputDecoration(
-                  labelText: '规则动作',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.ruleAction,
                 ),
                 items: [
                   DropdownMenuItem(
@@ -230,7 +232,7 @@ class SmsSubscriptionPage extends StatelessWidget {
                       children: [
                         Icon(Icons.block, color: Colors.red.shade300, size: 20),
                         const SizedBox(width: 8),
-                        const Text('拦截'),
+                        Text(AppLocalizations.of(context)!.block),
                       ],
                     ),
                   ),
@@ -240,7 +242,7 @@ class SmsSubscriptionPage extends StatelessWidget {
                       children: [
                         Icon(Icons.check_circle, color: Colors.green.shade300, size: 20),
                         const SizedBox(width: 8),
-                        const Text('放行'),
+                        Text(AppLocalizations.of(context)!.allow),
                       ],
                     ),
                   ),
@@ -258,7 +260,7 @@ class SmsSubscriptionPage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('取消'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () async {
@@ -267,7 +269,7 @@ class SmsSubscriptionPage extends StatelessWidget {
                 
                 if (name.isEmpty || url.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('请输入有效的名称和URL')),
+                    SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionNameAndUrlCannotBeEmpty)),
                   );
                   return;
                 }
@@ -285,17 +287,17 @@ class SmsSubscriptionPage extends StatelessWidget {
                   
                   await service.save(subscription);
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('订阅 "$name" 添加成功')),
+                    SnackBar(content: Text(AppLocalizations.of(context)!.smsSubscriptionAddedSuccessfully)),
                   );
                   Navigator.of(context).pop();
                   refreshCallback();
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('添加订阅失败: $e')),
+                    SnackBar(content: Text(AppLocalizations.of(context)!.failedToAddSmsSubscription(e.toString()))),
                   );
                 }
               },
-              child: const Text('添加'),
+              child: Text(AppLocalizations.of(context)!.add),
             ),
           ],
         ),

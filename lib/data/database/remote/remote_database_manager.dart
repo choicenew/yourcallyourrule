@@ -5,6 +5,7 @@ import 'package:path/path.dart';
 import 'dart:async';
 
 import '../database_manager.dart';
+import '../../../main.dart' show isOverlayMode;
 
 // 远程数据库管理器实现类
 class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
@@ -36,19 +37,37 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   // 初始化数据库
   Future<Database> _initDatabase() async {
     final String path = join(await getDatabasesPath(), _databaseName);
-    return await openDatabase(
-      path,
-      version: _version,
-      onCreate: _onCreate,
-      onUpgrade: _onUpgrade,
-    );
+    int retryCount = 0;
+    const maxRetries = 5;
+    
+    while (retryCount < maxRetries) {
+      try {
+        // 根据是否处于覆盖层模式决定是否以只读模式打开数据库
+        return await openDatabase(
+          path,
+          version: _version,
+          onCreate: _onCreate,
+          onUpgrade: _onUpgrade,
+          readOnly: isOverlayMode, // 在覆盖层模式下以只读方式打开
+        );
+      } catch (e) {
+        if (e.toString().contains('database is locked') && retryCount < maxRetries - 1) {
+          retryCount++;
+          await Future.delayed(Duration(milliseconds: 200 * retryCount));
+        } else {
+          rethrow;
+        }
+      }
+    }
+    
+    throw Exception('无法打开数据库，重试次数已达上限');
   }
   
   // 创建数据库表
   Future<void> _onCreate(Database db, int version) async {
     // 创建远程号码表
     await db.execute('''
-      CREATE TABLE remote_numbers (
+      CREATE TABLE IF NOT EXISTS remote_numbers (
         id TEXT PRIMARY KEY,
         name TEXT,
         phoneNumber TEXT NOT NULL,
@@ -61,7 +80,7 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
     
     // 创建同步记录表
     await db.execute('''
-      CREATE TABLE sync_records (
+      CREATE TABLE IF NOT EXISTS sync_records (
         id TEXT PRIMARY KEY,
         syncTime TEXT NOT NULL,
         syncType TEXT NOT NULL,
@@ -72,7 +91,7 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
     
     // 创建同步配置表
     await db.execute('''
-      CREATE TABLE sync_config (
+      CREATE TABLE IF NOT EXISTS sync_config (
         id TEXT PRIMARY KEY,
         lastSyncTime TEXT,
         syncInterval INTEGER NOT NULL DEFAULT 24,

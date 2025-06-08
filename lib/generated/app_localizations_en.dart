@@ -1,5 +1,5 @@
-// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -21,7 +21,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalSettings => 'Global Settings';
 
   @override
-  String get unassignedSIMCard => 'Unnamed SIM Card';
+  String get unassignedSIMCard => 'Unassigned SIM Card';
 
   @override
   String get basicRuleFiltering => 'Basic Rule Filtering';
@@ -339,10 +339,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get enterBothPhoneNumberAndRegexPatternMessage => 'Please enter both phone number and regex pattern';
+  String get enterBothPhoneNumberAndRegexPatternMessage => 'Please enter both phone number and regex pattern.';
 
   @override
-  String get enterRuleNameAndPatternMessage => 'Please enter rule name and pattern';
+  String get enterRuleNameAndPatternMessage => 'Please enter both rule name and regex pattern.';
 
   @override
   String get ruleSavedSuccessMessage => 'Rule saved successfully!';
@@ -359,16 +359,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterPhoneNumberHint => 'Enter phone number to test';
 
   @override
-  String get enterRegexHint => 'Enter regular expression';
+  String get enterRegexHint => 'Enter regex pattern';
 
   @override
-  String get enterRuleNameHint => 'Enter name for this rule';
+  String get enterRuleNameHint => 'Enter rule name';
 
   @override
-  String get testButtonText => 'TEST';
+  String get testButtonText => 'Test';
 
   @override
-  String get saveButtonText => 'SAVE';
+  String get saveButtonText => 'Save';
 
   @override
   String get startColor => 'Start Color';
@@ -630,6 +630,253 @@ class AppLocalizationsEn extends AppLocalizations {
   String get importExportContactsTooltip => 'Import/Export Contacts';
 
   @override
+  String loadSmsRulesFailed(Object error) {
+    return 'Failed to load SMS rules: $error';
+  }
+
+  @override
+  String get addSmsRule => 'Add SMS Rule';
+
+  @override
+  String get ruleName => 'Rule Name';
+
+  @override
+  String get ruleNameHint => 'e.g., Family, Friends, etc.';
+
+  @override
+  String get senderRegexOptional => 'Sender Regex (Optional)';
+
+  @override
+  String get exampleRegexFormat => 'Example: ^10086\$ format';
+
+  @override
+  String get contentRegex => 'Content Regex';
+
+  @override
+  String get exampleContentRegex => 'e.g., .*offer.*';
+
+  @override
+  String get ruleAction => 'Rule Action';
+
+  @override
+  String get ruleNameAndContentRegexCannotBeEmpty => 'Rule name and content regex cannot be empty';
+
+  @override
+  String get invalidContentRegex => 'Invalid content regex';
+
+  @override
+  String get invalidSenderRegex => 'Invalid sender regex';
+
+  @override
+  String get smsRuleAddedSuccessfully => 'SMS rule added successfully';
+
+  @override
+  String failedToAddSmsRule(Object error) {
+    return 'Failed to add SMS rule: $error';
+  }
+
+  @override
+  String get editSmsRule => 'Edit SMS Rule';
+
+  @override
+  String get smsRuleUpdatedSuccessfully => 'SMS rule updated successfully';
+
+  @override
+  String failedToUpdateSmsRule(Object error) {
+    return 'Failed to update SMS rule: $error';
+  }
+
+  @override
+  String get deleteSmsRule => 'Delete SMS Rule';
+
+  @override
+  String get confirmDeleteSmsRule => 'Are you sure you want to delete this SMS rule?';
+
+  @override
+  String get smsRuleDeletedSuccessfully => 'SMS rule deleted successfully';
+
+  @override
+  String get smsRuleSubscription => 'SMS Rule Subscription';
+
+  @override
+  String get noSubscriptionsYet => 'No Subscriptions Yet';
+
+  @override
+  String get aboutSmsSubscriptionRules => 'About SMS Subscription Rules';
+
+  @override
+  String get smsSubscriptionRulesDescription => 'Subscribe to SMS rule lists via URL, supporting regular expression matching. You can set block or allow actions.';
+
+  @override
+  String get blockRule => 'Block Rule';
+
+  @override
+  String get allowRule => 'Allow Rule';
+
+  @override
+  String get pendingSync => 'Pending Sync';
+
+  @override
+  String lastUpdated(Object date) {
+    return 'Last updated: $date';
+  }
+
+  @override
+  String get syncNow => 'Sync Now';
+
+  @override
+  String get addSmsSubscription => 'Add SMS Subscription';
+
+  @override
+  String get subscriptionName => 'Subscription Name';
+
+  @override
+  String get subscriptionNameHint => 'Enter subscription name';
+
+  @override
+  String get subscriptionUrl => 'Subscription URL';
+
+  @override
+  String get subscriptionUrlHint => 'Enter subscription URL';
+
+  @override
+  String get subscriptionNameAndUrlCannotBeEmpty => 'Subscription name and URL cannot be empty';
+
+  @override
+  String failedToAddSmsSubscription(Object error) {
+    return 'Failed to add SMS subscription: $error';
+  }
+
+  @override
+  String get smsSubscriptionAddedSuccessfully => 'SMS subscription added successfully';
+
+  @override
+  String get deleteSubscription => 'Delete Subscription';
+
+  @override
+  String get confirmDeleteSubscription => 'Are you sure you want to delete this subscription?';
+
+  @override
+  String get subscriptionDeletedSuccessfully => 'Subscription deleted successfully';
+
+  @override
+  String get syncing => 'Syncing...';
+
+  @override
+  String get syncSuccessful => 'Sync successful';
+
+  @override
+  String get syncFailed => 'Sync failed';
+
+  @override
+  String get enableSubscriptionSuccessfully => 'Enable subscription successfully';
+
+  @override
+  String get disableSubscriptionSuccessfully => 'Disable subscription successfully';
+
+  @override
+  String get failedToToggleSubscriptionStatus => 'Failed to toggle subscription status';
+
+  @override
+  String failedToDeleteSmsRule(Object error) {
+    return 'Failed to delete SMS rule: $error';
+  }
+
+  @override
+  String get smsRulesImportedSuccessfully => 'SMS rules imported successfully';
+
+  @override
+  String failedToImportSmsRules(Object error) {
+    return 'Failed to import SMS rules: $error';
+  }
+
+  @override
+  String smsRulesExportedSuccessfully(Object filePath) {
+    return 'SMS rules exported successfully to $filePath';
+  }
+
+  @override
+  String failedToExportSmsRules(Object error) {
+    return 'Failed to export SMS rules: $error';
+  }
+
+  @override
+  String get smsRuleManagement => 'SMS Rule Management';
+
+  @override
+  String get noSmsRulesYet => 'No SMS rules yet';
+
+  @override
+  String get sender => 'Sender';
+
+  @override
+  String get content => 'Content';
+
+  @override
+  String get action => 'Action';
+
+  @override
+  String get label => 'Label';
+
+  @override
+  String get notSet => 'Not Set';
+
+  @override
+  String get enableRule => 'Enable Rule';
+
+  @override
+  String get ruleEnabledSuccessfully => 'Rule enabled successfully';
+
+  @override
+  String get ruleDisabledSuccessfully => 'Rule disabled successfully';
+
+  @override
+  String failedToToggleRuleStatus(Object error) {
+    return 'Failed to toggle rule status: $error';
+  }
+
+  @override
+  String get editRule => 'Edit Rule';
+
+  @override
+  String get deleteRule => 'Delete Rule';
+
+  @override
+  String successfullyImportedRules(Object count) {
+    return 'Successfully imported $count rules';
+  }
+
+  @override
+  String failedToExportRules(Object error) {
+    return 'Failed to export rules: $error';
+  }
+
+  @override
+  String failedToImportRules(Object error) {
+    return 'Failed to import rules: $error';
+  }
+
+  @override
+  String failedToAddRule(Object error) {
+    return 'Failed to add rule: $error';
+  }
+
+  @override
+  String get exportSmsRules => 'Export SMS Rules';
+
+  @override
+  String get rulesExportedSuccessfully => 'Rules exported successfully';
+
+  @override
+  String get noValidSmsRulesFoundInFile => 'No valid SMS rules found in file';
+
+  @override
+  String get exampleSenderRegexHint => 'Example';
+
+  @override
+  String get exampleContentRegexHint => 'Example Content Regex';
+
+  @override
   String get noContactsYet => 'No contacts yet';
 
   @override
@@ -760,11 +1007,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ruleStatistics => 'Rule Statistics';
 
   @override
-  String loadRulesFailed(Object error) {
-    return 'Failed to load rules: $error';
-  }
-
-  @override
   String get blockCalls => 'Block Calls';
 
   @override
@@ -799,6 +1041,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get total => 'Total';
+
+  @override
+  String get appName => 'Your Call Your Rule';
+
+  @override
+  String get initializing => 'Initializing';
+
+  @override
+  String get loading => 'Loading...';
 
   @override
   String get contactSubscriptionPageTitle => 'Contact Subscriptions';
@@ -880,7 +1131,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableTimeInterceptor => 'Enable Time Interceptor';
 
   @override
-  String get timeInterceptorDescription => 'Intercept frequent calls within a short period';
+  String get timeInterceptorDescription => 'Automatically intercept potential spam calls based on call frequency';
 
   @override
   String get timeInterceptorTitle => 'Enable Call Frequency Interception';
@@ -990,9 +1241,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phoneSubscriptionRulesDescription => 'Subscribe to phone rule lists via URL to automatically update whitelist and blacklist rules. Supports JSON format rule files.';
 
   @override
-  String get ruleAction => 'Rule Action';
-
-  @override
   String get selectActionToPerform => 'Select the action to perform when the rule matches';
 
   @override
@@ -1029,9 +1277,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String updateRuleFailed(Object error) {
     return 'Failed to update rule: $error';
   }
-
-  @override
-  String get ruleName => 'Rule Name';
 
   @override
   String get exampleFamilyFriends => 'e.g. Family, Friends, etc.';
@@ -1101,6 +1346,119 @@ class AppLocalizationsEn extends AppLocalizations {
   String get countrySelectionDialog => 'Country Selection Dialog';
 
   @override
+  String smsRuleLoadFailed(Object error) {
+    return 'Failed to load SMS rules: $error';
+  }
+
+  @override
+  String get addSmsFilterRule => 'Add SMS Filter Rule';
+
+  @override
+  String get exampleBlockMarketingSms => 'e.g. Block marketing SMS';
+
+  @override
+  String get exampleCouponPromotionDiscount => 'e.g. .*(coupon|promotion|discount).*';
+
+  @override
+  String get smsFilterRuleAddedSuccessfully => 'SMS filter rule added successfully';
+
+  @override
+  String ruleStatusChanged(Object status) {
+    return 'Rule $status successfully';
+  }
+
+  @override
+  String get enabled => 'Enabled';
+
+  @override
+  String get disabled => 'Disabled';
+
+  @override
+  String get confirmDeleteSmsFilterRule => 'Are you sure you want to delete this SMS filter rule?';
+
+  @override
+  String get ruleDeletedSuccessfully => 'Rule deleted successfully';
+
+  @override
+  String deleteRuleFailed(Object error) {
+    return 'Delete failed: $error';
+  }
+
+  @override
+  String get importRules => 'Import Rules';
+
+  @override
+  String get importFeatureComingSoon => 'Import feature coming soon';
+
+  @override
+  String get exportRules => 'Export Rules';
+
+  @override
+  String get exportFeatureComingSoon => 'Export feature coming soon';
+
+  @override
+  String get unknown => 'Unknown';
+
+  @override
+  String get smsFilterRules => 'SMS Filter Rules';
+
+  @override
+  String get importExportRules => 'Import/Export Rules';
+
+  @override
+  String get noSmsFilterRulesYet => 'No SMS filter rules yet';
+
+  @override
+  String loadSettingsFailed(Object error) {
+    return 'Failed to load settings: $error';
+  }
+
+  @override
+  String get smsFilterEnabled => 'SMS filtering enabled';
+
+  @override
+  String get smsFilterDisabled => 'SMS filtering disabled';
+
+  @override
+  String get localNotificationEnabled => 'Local notification enabled';
+
+  @override
+  String get localNotificationDisabled => 'Local notification disabled';
+
+  @override
+  String get smsFilterSettings => 'SMS Filter Settings';
+
+  @override
+  String get aboutSmsFilter => 'About SMS Filtering';
+
+  @override
+  String get smsFilterDescription => 'SMS filtering helps you automatically filter spam messages and keep your message list clean. You can set filter rules and notification methods.';
+
+  @override
+  String get filterSettings => 'Filter Settings';
+
+  @override
+  String get enableSmsFilter => 'Enable SMS Filtering';
+
+  @override
+  String get enableSmsFilterDescription => 'When enabled, messages will be automatically filtered according to the rules';
+
+  @override
+  String get manageFilterRules => 'Manage Filter Rules';
+
+  @override
+  String get manageFilterRulesDescription => 'Add, edit, or delete SMS filter rules';
+
+  @override
+  String get notificationSettings => 'Notification Settings';
+
+  @override
+  String get enableLocalNotification => 'Use Local Notification';
+
+  @override
+  String get enableLocalNotificationDescription => 'When enabled, notifications for filtered messages will be displayed on the device';
+
+  @override
   String get enterSearchContent => 'Please enter search content';
 
   @override
@@ -1127,6 +1485,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get enterPhoneNumberToStartSearch => 'Enter phone number to start search';
+
+  @override
+  String loadRulesFailed(Object error) {
+    return 'Failed to load rules: $error';
+  }
 
   @override
   String get countrySelectionDialogDescription => 'Used to select a country to query caller ID information';
@@ -1157,11 +1520,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get labelUpdateSuccess => 'Label \"\$labelText\" updated successfully';
-
-  @override
-  String labelUpdateFailed(Object error) {
-    return 'Failed to update label: $error';
-  }
 
   @override
   String get selectActionWhenRuleMatches => 'Select action when rule matches';
@@ -1221,7 +1579,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get matchSuccessfulMessage => 'Match successful!';
 
   @override
-  String get matchFailedMessage => 'Match Failed!';
+  String get matchFailedMessage => 'Match failed.';
 
   @override
   String get ruleSaveSuccess => 'Rule saved successfully!';
@@ -1373,15 +1731,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get elementPositionsSetting => 'Element Positions';
 
   @override
-  String get periodWeek => 'Week';
-
-  @override
-  String get periodMonth => 'Month';
-
-  @override
-  String get periodYear => 'Year';
-
-  @override
   String get enhancedFilterSettingsTitle => 'Enhanced Filter Settings';
 
   @override
@@ -1392,9 +1741,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get localCounterFilterSubtitle => 'Automatically filter spam calls based on call frequency';
-
-  @override
-  String get remoteNumberFilter => 'Remote Number Filter';
 
   @override
   String get remoteNumberFilterSubtitle => 'Identify spam calls using cloud database and community reports';
@@ -1427,9 +1773,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get blockedSpamCalls => 'Blocked Spam Calls';
 
   @override
-  String get filterManagement => 'Filter Management';
-
-  @override
   String get simCardFilterRules => 'SIM Card Filter Rules';
 
   @override
@@ -1440,6 +1783,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get localCountFilterDescription => 'Intercept frequent calls based on local number counts';
+
+  @override
+  String get remoteNumberFilter => 'Remote Number Filter';
 
   @override
   String get remoteNumberFilterDescription => 'Intercept harassing calls based on remote database information';
@@ -1490,9 +1836,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get featureCenter => 'Feature Center';
 
   @override
-  String get pluginManagement => 'Plugin Management';
-
-  @override
   String get allowBlock => 'Allow/Block';
 
   @override
@@ -1538,12 +1881,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ruleAddedSuccess => 'Rule added successfully';
-
-  @override
-  String get phoneNumberHint => 'e.g., 10086, 12345, etc.';
-
-  @override
-  String get ruleNameHint => 'e.g., Family, Friends, etc.';
 
   @override
   String get addRuleButton => 'Add Rule';
@@ -1628,7 +1965,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get testButton => 'TEST';
 
   @override
-  String get saveButton => 'SAVE';
+  String get saveButton => 'Save';
 
   @override
   String get matchSuccessful => 'Match successful!';
@@ -1656,7 +1993,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get phoneNumberLabel => 'Phone Number *';
+  String get phoneNumberLabel => 'Phone Number';
 
   @override
   String get phoneNumberHintText => 'Enter phone number to add rule';
@@ -1669,12 +2006,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addSimRuleButton => 'Add SIM Rule';
-
-  @override
-  String get saveSettings => 'Save Settings';
-
-  @override
-  String get settingsSaved => 'Settings saved';
 
   @override
   String get serviceTypePhone => 'Phone Subscription';
@@ -1727,9 +2058,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String simCard(Object simNumber) {
     return 'SIM Card $simNumber';
   }
-
-  @override
-  String get unknown => 'Unknown';
 
   @override
   String nameLabel(Object name) {
@@ -1842,12 +2170,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get enabled => 'Enabled';
-
-  @override
-  String get disabled => 'Disabled';
-
-  @override
   String ruleAddFailure(Object error) {
     return 'Failed to add rule: $error';
   }
@@ -1870,9 +2192,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get selectedDateRange => 'Selected date range';
-
-  @override
-  String get notificationSettings => 'Notification Settings';
 
   @override
   String get dailyStatistics => 'Daily Statistics';
@@ -1905,9 +2224,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get deleteSubscription => 'Delete Subscription';
-
-  @override
   String deleteSubscriptionConfirm(Object name) {
     return 'Are you sure you want to delete subscription \"$name\"?';
   }
@@ -1933,22 +2249,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addNoneSubscription => 'Add None Subscription';
 
   @override
-  String get subscriptionName => 'Subscription Name';
-
-  @override
   String get enterSubscriptionName => 'Enter subscription name';
-
-  @override
-  String get subscriptionUrl => 'Subscription URL';
 
   @override
   String get enterSubscriptionUrl => 'Enter subscription URL';
 
   @override
   String get enterValidNameAndUrl => 'Please enter valid name and URL';
-
-  @override
-  String get add => 'Add';
 
   @override
   String subscriptionAddSuccess(Object name) {
@@ -1988,14 +2295,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get synchronized => 'Synchronized';
 
   @override
-  String lastUpdated(Object date) {
-    return 'Last updated: $date';
-  }
-
-  @override
-  String get syncNow => 'Sync Now';
-
-  @override
   String get addLabelToCall => 'Add Label to Call Record';
 
   @override
@@ -2008,14 +2307,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get collapseLabelSelector => 'Collapse Label Selector';
 
   @override
-  String get close => 'Close';
-
-  @override
   String get labelRemoved => 'Label removed';
 
   @override
   String labelRemoveFailed(Object error) {
     return 'Failed to remove label: $error';
+  }
+
+  @override
+  String labelUpdateFailed(Object error) {
+    return 'Failed to update label: $error';
   }
 
   @override
@@ -2064,6 +2365,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get blacklistLabel => 'Blacklist';
+
+  @override
+  String get periodWeek => 'Week';
+
+  @override
+  String get periodMonth => 'Month';
+
+  @override
+  String get periodYear => 'Year';
 
   @override
   String get chartTenDaysAgo => '10 days ago';
@@ -2118,9 +2428,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String rulesImportFailed(Object error) {
     return 'Failed to import rules: $error';
   }
-
-  @override
-  String get importRules => 'Import Rules';
 
   @override
   String get importRulesInstructions => 'Import rules from a CSV file';
@@ -2202,9 +2509,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Refresh';
-
-  @override
-  String get exportRules => 'Export Rules';
 
   @override
   String get addRuleTooltip => 'Add Rule';
@@ -2318,6 +2622,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get close => 'Close';
+
+  @override
   String get number => 'Number';
 
   @override
@@ -2331,6 +2638,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get labels => 'Labels';
+
+  @override
+  String get add => 'Add';
 
   @override
   String get emailOptional => 'Email (Optional)';
@@ -2503,6 +2813,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reset => 'Reset';
 
   @override
+  String get filterManagement => 'Filter Management';
+
+  @override
   String get addFilter => 'Add Filter';
 
   @override
@@ -2534,9 +2847,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get both => 'Both';
-
-  @override
-  String get action => 'Action';
 
   @override
   String get mute => 'Mute';
@@ -2603,6 +2913,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get localCountFilterSettings => 'Local Count Filter Settings';
+
+  @override
+  String get saveSettings => 'Save Settings';
+
+  @override
+  String get settingsSaved => 'Settings saved';
 
   @override
   String get countThresholdLabel => 'Count Threshold';
@@ -2785,6 +3101,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get requestPermission => 'Request Permission';
 
   @override
+  String get pluginName => 'Plugin Name';
+
+  @override
+  String get enterPluginName => 'Enter Plugin Name';
+
+  @override
+  String get enterVersion => 'Enter Version';
+
+  @override
+  String get pluginVersion => 'Plugin Version';
+
+  @override
+  String get selectPeriod => 'Select Period';
+
+  @override
+  String get pluginManagement => 'Plugin Management';
+
+  @override
   String get pluginService => 'Plugin Service';
 
   @override
@@ -2915,11 +3249,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsLoaded => 'Settings loaded';
 
   @override
-  String loadSettingsFailed(Object error) {
-    return 'Failed to load settings: $error';
-  }
-
-  @override
   String saveSettingsFailed(Object error) {
     return 'Failed to save settings: $error';
   }
@@ -2960,28 +3289,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get remoteNumberFilterDatabaseInfo => 'This filter uses an independent remote database to get the latest number information.';
 
   @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get enableNotifications => 'Enable Notifications';
+
+  @override
+  String get incomingCallNotification => 'Incoming Call Notification';
+
+  @override
+  String get enableStatisticsNotifications => 'Enable Statistics Notifications';
+
+  @override
+  String get receiveWeeklyStatistics => 'Receive weekly statistics';
+
+  @override
+  String get notificationSettingsSaved => 'Notification settings saved successfully';
+
+  @override
   String get confirmDelete => 'Confirm Delete';
 
   @override
   String get confirmDeleteRuleMessage => 'Are you sure you want to delete this rule? This action cannot be undone.';
 
   @override
-  String get editRule => 'Edit Rule';
-
-  @override
-  String get deleteRule => 'Delete Rule';
-
-  @override
   String get ruleNotExist => 'Rule does not exist or has been deleted';
 
   @override
   String get basicInfo => 'Basic Information';
-
-  @override
-  String get label => 'Label';
-
-  @override
-  String get loading => 'Loading...';
 
   @override
   String get none => 'None';
@@ -2993,6 +3328,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String ruleUpdateFailed(Object error) {
     return 'Failed to update rule: $error';
   }
+
+  @override
+  String get phoneNumberHint => 'Enter phone number';
 
   @override
   String get phoneRule => 'Phone Rule';
@@ -3129,4 +3467,879 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wildcardMatchingDescription => 'Use \'.\' to match any character (e.g. \'123.456\' matches 123-456)';
+
+  @override
+  String get backupRestoreTitle => 'Backup & Restore';
+
+  @override
+  String get backupSettingsTitle => 'Backup Settings';
+
+  @override
+  String get keepAllVersionsTitle => 'Keep All Versions';
+
+  @override
+  String get keepAllVersionsSubtitle => 'Keep historical versions of each backup';
+
+  @override
+  String get enableEncryptionTitle => 'Enable Encryption';
+
+  @override
+  String get enableEncryptionSubtitle => 'Backup files will be encrypted';
+
+  @override
+  String get deviceNameLabel => 'Device Name';
+
+  @override
+  String get deviceNameHint => 'Please enter device name';
+
+  @override
+  String get cancelButton => 'Cancel';
+
+  @override
+  String get configureSyncServiceHint => 'Please configure sync service in cloud sync settings first';
+
+  @override
+  String get cloudSyncTitle => 'Cloud Sync';
+
+  @override
+  String get backupToCloudTitle => 'Backup to Cloud';
+
+  @override
+  String get backupToCloudSuccess => 'Successfully backed up to cloud';
+
+  @override
+  String backupToCloudFailed(Object error) {
+    return 'Failed to backup to cloud: $error';
+  }
+
+  @override
+  String get restoreFromCloudTitle => 'Restore from Cloud';
+
+  @override
+  String get restoreFromCloudSuccess => 'Successfully restored from cloud';
+
+  @override
+  String restoreFromCloudFailed(Object error) {
+    return 'Failed to restore from cloud: $error';
+  }
+
+  @override
+  String get backupSectionTitle => 'Backup';
+
+  @override
+  String get configureBackupOptionsSubtitle => 'Configure backup options';
+
+  @override
+  String get exportRulesTitle => 'Export Rules';
+
+  @override
+  String get exportAllRuleConfigurationsSubtitle => 'Export all rule configurations';
+
+  @override
+  String get exportAllApplicationSettingsSubtitle => 'Export all application settings';
+
+  @override
+  String get syncWithCloudStorageSubtitle => 'Sync with cloud storage';
+
+  @override
+  String get restoreSectionTitle => 'Restore';
+
+  @override
+  String get importRulesTitle => 'Import Rules';
+
+  @override
+  String get importRuleConfigurationsFromFileSubtitle => 'Import rule configurations from file';
+
+  @override
+  String get restoreSettingsTitle => 'Restore Settings';
+
+  @override
+  String get restoreApplicationSettingsFromBackupSubtitle => 'Restore application settings from backup';
+
+  @override
+  String get dataMigrationSectionTitle => 'Data Migration';
+
+  @override
+  String get migrationToolTitle => 'Migration Tool';
+
+  @override
+  String get transferDataBetweenDevicesOrPlatformsSubtitle => 'Transfer data between devices or platforms';
+
+  @override
+  String get noRulesToExport => 'No rules to export';
+
+  @override
+  String get exportRulesDialogTitle => 'Export Rules';
+
+  @override
+  String rulesExportedTo(Object path) {
+    return 'Rules exported to: $path';
+  }
+
+  @override
+  String get backupSettingsDialogTitle => 'Backup Settings';
+
+  @override
+  String settingsBackedUpTo(Object path) {
+    return 'Settings backed up to: $path';
+  }
+
+  @override
+  String failedToBackupSettings(Object error) {
+    return 'Failed to backup settings: $error';
+  }
+
+  @override
+  String get importRulesDialogTitle => 'Import Rules';
+
+  @override
+  String foundRulesToImport(Object count) {
+    return 'Found $count rules. Do you want to import them?';
+  }
+
+  @override
+  String foundRules(Object count) {
+    return 'Found $count rules';
+  }
+
+  @override
+  String get importButton => 'Import';
+
+  @override
+  String rulesImportedSuccessfully(Object count) {
+    return '$count rules imported successfully';
+  }
+
+  @override
+  String get failedToDecryptBackupFile => 'Failed to decrypt backup file';
+
+  @override
+  String get restoreSettingsDialogTitle => 'Restore Settings';
+
+  @override
+  String get restoreSettingsConfirmation => 'This will replace all your current settings. Are you sure you want to continue?';
+
+  @override
+  String get restoreButton => 'Restore';
+
+  @override
+  String get settingsRestoredSuccessfully => 'Settings restored successfully. Please restart the app for changes to take effect.';
+
+  @override
+  String get failedToRestoreSettings => 'Failed to restore settings';
+
+  @override
+  String failedToRestoreSettingsWithError(Object error) {
+    return 'Failed to restore settings: $error';
+  }
+
+  @override
+  String get dataMigrationDialogTitle => 'Data Migration';
+
+  @override
+  String get dataMigrationDialogContent => 'This feature allows you to transfer all your data between devices. Currently, you can use the backup and restore features to manually migrate your data.';
+
+  @override
+  String get okButton => 'OK';
+
+  @override
+  String get setEncryptionPasswordTitle => 'Set Encryption Password';
+
+  @override
+  String get enterEncryptionPasswordTitle => 'Enter Encryption Password';
+
+  @override
+  String get passwordLabel => 'Password';
+
+  @override
+  String get backupFailed => 'Backup failed';
+
+  @override
+  String get backupRestoreSubtitle => 'Backup or restore application data';
+
+  @override
+  String get webDAVConfigTitle => 'WebDAV Configuration';
+
+  @override
+  String get serverAddressLabel => 'Server Address';
+
+  @override
+  String get enterWebDAVServerAddressHint => 'Please enter WebDAV server address';
+
+  @override
+  String get usernameLabel => 'Username';
+
+  @override
+  String get enterWebDAVUsernameHint => 'Please enter WebDAV username';
+
+  @override
+  String get enterWebDAVPasswordHint => 'Please enter WebDAV password';
+
+  @override
+  String get syncFolderNameLabel => 'Sync Folder Name';
+
+  @override
+  String get enterSyncFolderNameHint => 'Please enter sync folder name (default: NotificationManager)';
+
+  @override
+  String get testConnectionButton => 'Test Connection';
+
+  @override
+  String get oneDriveConfigTitle => 'OneDrive Configuration';
+
+  @override
+  String get oneDriveAuthDescription => 'Authorize using system-configured OneDrive client ID and key';
+
+  @override
+  String get authorizeLoginButton => 'Authorize Login';
+
+  @override
+  String get googleDriveConfigTitle => 'Google Drive Configuration';
+
+  @override
+  String get googleDriveAuthDescription => 'Authorize using system-configured Google Drive client ID and key';
+
+  @override
+  String get connectionSuccessMessage => 'Connection successful';
+
+  @override
+  String get connectionFailedCheckCredentialsMessage => 'Connection failed: Please check server address, username, and password';
+
+  @override
+  String get connectionFailedMessage => 'Connection failed';
+
+  @override
+  String get authorizationSuccessMessage => 'Authorization successful';
+
+  @override
+  String get authorizationFailedCheckCredentialsMessage => 'Authorization failed: Please check client ID and key';
+
+  @override
+  String get authorizationFailedMessage => 'Authorization failed';
+
+  @override
+  String get syncStatusTitle => 'Sync Status';
+
+  @override
+  String get connectionStatusLabel => 'Connection Status';
+
+  @override
+  String get connectedStatus => 'Connected';
+
+  @override
+  String get disconnectedStatus => 'Disconnected';
+
+  @override
+  String get serviceTypeLabel => 'Service Type';
+
+  @override
+  String get noneServiceType => 'None';
+
+  @override
+  String get autoSyncLabel => 'Auto Sync';
+
+  @override
+  String get enabledStatus => 'Enabled';
+
+  @override
+  String get disabledStatus => 'Disabled';
+
+  @override
+  String get syncNowButton => 'Sync Now';
+
+  @override
+  String get disconnectButton => 'Disconnect';
+
+  @override
+  String get loadStatusFailedMessage => 'Failed to load status';
+
+  @override
+  String get noActiveCloudSyncServiceMessage => 'No active cloud sync service';
+
+  @override
+  String get syncSuccessMessage => 'Sync successful';
+
+  @override
+  String get syncStatusUpdatedMessage => 'Sync status updated';
+
+  @override
+  String get syncFailedMessage => 'Sync failed';
+
+  @override
+  String get disconnectedMessage => 'Disconnected';
+
+  @override
+  String get disconnectFailedMessage => 'Disconnect failed';
+
+  @override
+  String get pluginTestPageTitle => 'Plugin Test';
+
+  @override
+  String get pluginUrlLabel => 'Plugin URL';
+
+  @override
+  String get pluginUrlHint => 'Enter plugin URL';
+
+  @override
+  String get loadPluginButton => 'Load Plugin';
+
+  @override
+  String get queryButton => 'Query';
+
+  @override
+  String get queryResultTitle => 'Query Result';
+
+  @override
+  String get jsLogsTitle => 'JS Logs';
+
+  @override
+  String get pluginUrlCannotBeEmpty => 'Plugin URL cannot be empty';
+
+  @override
+  String get pluginLoadedSuccessfully => 'Plugin loaded successfully';
+
+  @override
+  String get failedToLoadPlugin => 'Failed to load plugin';
+
+  @override
+  String get errorLoadingPlugin => 'Error loading plugin';
+
+  @override
+  String get pluginNotLoaded => 'Plugin is not loaded yet. Please load the plugin first.';
+
+  @override
+  String get phoneNumberCannotBeEmpty => 'Phone number cannot be empty';
+
+  @override
+  String get querying => 'Querying...';
+
+  @override
+  String get queryingPhoneNumber => 'Querying phone number';
+
+  @override
+  String get noResultReturned => 'No result returned';
+
+  @override
+  String get noResultReturnedLog => 'No result returned from plugin';
+
+  @override
+  String get queryFailed => 'Query failed';
+
+  @override
+  String get queryFailedLog => 'Query failed';
+
+  @override
+  String get backupAndRestoreTitle => 'Backup & Restore';
+
+  @override
+  String get backupAndRestoreSubtitle => 'Backup or restore application data';
+
+  @override
+  String get webdavConfigurationTitle => 'WebDAV Configuration';
+
+  @override
+  String get webdavServerAddressHint => 'Please enter WebDAV server address';
+
+  @override
+  String get webdavUsernameHint => 'Please enter WebDAV username';
+
+  @override
+  String get webdavPasswordHint => 'Please enter WebDAV password';
+
+  @override
+  String get syncFolderNameHint => 'Please enter sync folder name (default: NotificationManager)';
+
+  @override
+  String get oneDriveConfigurationTitle => 'OneDrive Configuration';
+
+  @override
+  String get oneDriveAuthorizationHint => 'Authorize using system-configured OneDrive client ID and key';
+
+  @override
+  String get googleDriveConfigurationTitle => 'Google Drive Configuration';
+
+  @override
+  String get googleDriveAuthorizationHint => 'Authorize using system-configured Google Drive client ID and key';
+
+  @override
+  String get deviceManagementTitle => 'Device Management';
+
+  @override
+  String get currentDeviceTitle => 'Current Device';
+
+  @override
+  String get deviceModelLabel => 'Device Model';
+
+  @override
+  String get deviceIdLabel => 'Device ID';
+
+  @override
+  String get lastSyncLabel => 'Last Sync';
+
+  @override
+  String get errorText => 'Error';
+
+  @override
+  String get registeredDevicesTitle => 'Registered Devices';
+
+  @override
+  String get syncDevicesButton => 'Sync Devices';
+
+  @override
+  String get configureCloudSyncServiceHint => 'Please configure a cloud sync service to enable multi-device synchronization.';
+
+  @override
+  String get noDevicesRegisteredYet => 'No devices registered yet.';
+
+  @override
+  String get currentDeviceChip => 'Current';
+
+  @override
+  String get renameDeviceDialogTitle => 'Rename Device';
+
+  @override
+  String get enterNewDeviceNameHint => 'Enter a new name for this device';
+
+  @override
+  String get renameButton => 'Rename';
+
+  @override
+  String get deviceNameCannotBeEmpty => 'Device name cannot be empty';
+
+  @override
+  String get deleteDeviceDialogTitle => 'Delete Device';
+
+  @override
+  String deleteDeviceConfirmation(Object deviceName) {
+    return 'Are you sure you want to delete $deviceName?';
+  }
+
+  @override
+  String get deleteButton => 'Delete';
+
+  @override
+  String get deviceRenamedSuccessfully => 'Device renamed successfully';
+
+  @override
+  String get failedToRenameDevice => 'Failed to rename device';
+
+  @override
+  String get deviceDeletedSuccessfully => 'Device deleted successfully';
+
+  @override
+  String get failedToDeleteDevice => 'Failed to delete device';
+
+  @override
+  String get devicesSyncedSuccessfully => 'Devices synchronized successfully';
+
+  @override
+  String get failedToSyncDevices => 'Failed to sync devices';
+
+  @override
+  String get enterEncryptionPasswordHint => 'Enter encryption password';
+
+  @override
+  String get keepAllVersions => 'Keep All Versions';
+
+  @override
+  String get enableEncryption => 'Enable Encryption';
+
+  @override
+  String get enterDeviceNameHint => 'Please enter device name';
+
+  @override
+  String get backupToCloud => 'Backup to Cloud';
+
+  @override
+  String get backupSuccessMessage => 'Successfully backed up to cloud';
+
+  @override
+  String get backupFailedMessage => 'Backup failed';
+
+  @override
+  String backupFailedWithError(Object error) {
+    return 'Backup failed: $error';
+  }
+
+  @override
+  String get restoreFromCloud => 'Restore from Cloud';
+
+  @override
+  String get restoreSuccessMessage => 'Successfully restored from cloud';
+
+  @override
+  String restoreFailedWithError(Object error) {
+    return 'Restore from cloud failed: $error';
+  }
+
+  @override
+  String get localBackupTitle => 'Local Backup';
+
+  @override
+  String backupSuccessToLocal(Object path) {
+    return 'Backup successful to: $path';
+  }
+
+  @override
+  String get restoreFromLocal => 'Restore from Local';
+
+  @override
+  String get restoreSuccessFromLocal => 'Successfully restored from local';
+
+  @override
+  String get setEncryptionPassword => 'Set Encryption Password';
+
+  @override
+  String get clearAllData => 'Clear All Data';
+
+  @override
+  String get currentPasswordLabel => 'Current Password';
+
+  @override
+  String get enterCurrentPasswordHint => 'Please enter current password';
+
+  @override
+  String get newPasswordLabel => 'New Password';
+
+  @override
+  String get enterNewPasswordHint => 'Please enter new password';
+
+  @override
+  String get passwordSetSuccessfully => 'Password set successfully';
+
+  @override
+  String failedToSetPassword(Object error) {
+    return 'Failed to set password: $error';
+  }
+
+  @override
+  String get clearAllDataConfirmation => 'Are you sure you want to clear all application data? This action cannot be undone.';
+
+  @override
+  String get allDataClearedSuccessfully => 'All data cleared successfully';
+
+  @override
+  String get confirmButton => 'Confirm';
+
+  @override
+  String get confirmPasswordLabel => 'Confirm Password';
+
+  @override
+  String get reEnterPasswordHint => 'Please re-enter password';
+
+  @override
+  String get passwordsDoNotMatch => 'Passwords do not match';
+
+  @override
+  String get passwordCannotBeEmpty => 'Password cannot be empty';
+
+  @override
+  String get incorrectPassword => 'Incorrect password';
+
+  @override
+  String get setButton => 'Set';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get functionSettingsTitle => 'Function Settings';
+
+  @override
+  String get cloudSyncAndBackupTitle => 'Cloud Sync & Backup';
+
+  @override
+  String get systemSettingsTitle => 'System Settings';
+
+  @override
+  String get userEmail => 'user@example.com';
+
+  @override
+  String get callSettingsTitle => 'Call Settings';
+
+  @override
+  String get callSettingsSubtitle => 'Caller ID, filtering and blocking settings';
+
+  @override
+  String get filterControlTitle => 'Filter Control';
+
+  @override
+  String get filterControlSubtitle => 'Manage on/off status of all filters';
+
+  @override
+  String get interceptionActionSettingsTitle => 'Interception Action Settings';
+
+  @override
+  String get interceptionActionSettingsSubtitle => 'Set how blocked calls are handled';
+
+  @override
+  String get callFrequencyInterceptionTitle => 'Call Frequency Interception';
+
+  @override
+  String get callFrequencyInterceptionSubtitle => 'Set call frequency limits and blocking rules';
+
+  @override
+  String get smsSettingsTitle => 'SMS Settings';
+
+  @override
+  String get smsSettingsSubtitle => 'SMS filtering and keyword blocking';
+
+  @override
+  String get contactSettingsTitle => 'Contact Settings';
+
+  @override
+  String get contactSettingsSubtitle => 'Contact management and label settings';
+
+  @override
+  String get cloudSyncSettingsTitle => 'Cloud Sync Settings';
+
+  @override
+  String get cloudSyncSettingsSubtitle => 'Configure WebDAV, OneDrive and Google Drive';
+
+  @override
+  String get deviceManagementSubtitle => 'Manage multi-device synchronization';
+
+  @override
+  String get autoUpdateSettingsTitle => 'Auto Update Settings';
+
+  @override
+  String get autoUpdateSettingsSubtitle => 'Manage automatic updates for rules and plugins';
+
+  @override
+  String get pluginManagementTitle => 'Plugin Management';
+
+  @override
+  String get pluginManagementSubtitle => 'Manage and configure third-party plugins';
+
+  @override
+  String get languageSettingsTitle => 'Language Settings';
+
+  @override
+  String get languageSettingsSubtitle => 'Change application display language';
+
+  @override
+  String get globalSearchTitle => 'Global Search';
+
+  @override
+  String get globalSearchSubtitle => 'Search contacts, labels, blacklists, whitelists, etc.';
+
+  @override
+  String get aboutTitle => 'About';
+
+  @override
+  String get aboutSubtitle => 'Application version and legal information';
+
+  @override
+  String get appLegalese => '© 2023 Your Call Your Rule. All rights reserved.';
+
+  @override
+  String get filterSettingsTitle => 'Filter Settings';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get confirmPassword => 'Confirm Password';
+
+  @override
+  String get enterPasswordAgain => 'Enter Password Again';
+
+  @override
+  String get backup => 'Backup';
+
+  @override
+  String get backupSettings => 'Backup Settings';
+
+  @override
+  String get configureBackupOptions => 'Configure Backup Options';
+
+  @override
+  String get exportAllRuleConfigurations => 'Export All Rule Configurations';
+
+  @override
+  String get exportAllApplicationSettings => 'Export all application settings';
+
+  @override
+  String get cloudSync => 'Cloud Sync';
+
+  @override
+  String get syncWithCloudStorage => 'Sync with Cloud Storage';
+
+  @override
+  String get restore => 'Restore';
+
+  @override
+  String get importRuleConfigurationsFromFile => 'Import Rule Configurations from File';
+
+  @override
+  String get restoreSettings => 'Restore Settings';
+
+  @override
+  String get restoreApplicationSettingsFromBackup => 'Restore Application Settings from Backup';
+
+  @override
+  String get dataMigration => 'Data Migration';
+
+  @override
+  String get migrationTool => 'Migration Tool';
+
+  @override
+  String get transferDataBetweenDevicesOrPlatforms => 'Transfer data between devices or platforms';
+
+  @override
+  String foundRulesDoYouWantToImport(Object count) {
+    return 'Found $count rules. Do you want to import them?';
+  }
+
+  @override
+  String get replaceCurrentSettingsConfirmation => 'This will replace all your current settings. Are you sure you want to continue?';
+
+  @override
+  String get dataMigrationDescription => 'This feature allows you to transfer all your data between devices. Currently, you can use the backup and restore features to manually migrate your data.';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get enterPasswordHint => 'Please enter password';
+
+  @override
+  String get setPasswordButton => 'Set';
+
+  @override
+  String get autoUpdateTitle => 'Auto Update';
+
+  @override
+  String get autoUpdateSubtitle => 'Manage automatic updates for rules and plugins';
+
+  @override
+  String get searchSettingsTitle => 'Search Settings';
+
+  @override
+  String get searchSettingsSubtitle => 'Search contacts, labels, blacklists, whitelists, etc.';
+
+  @override
+  String get deviceIDLabel => 'Device ID';
+
+  @override
+  String get configureCloudSyncServiceMessage => 'Please configure a cloud sync service to enable multi-device synchronization.';
+
+  @override
+  String get noDevicesRegisteredMessage => 'No devices registered';
+
+  @override
+  String get currentDeviceLabel => 'Current Device Label';
+
+  @override
+  String get deviceRenamedSuccessfullyMessage => 'Device renamed successfully';
+
+  @override
+  String errorRenamingDeviceMessage(Object error) {
+    return 'Error renaming device: $error';
+  }
+
+  @override
+  String get deviceDeletedSuccessfullyMessage => 'Device deleted successfully';
+
+  @override
+  String get unregisterDeviceTitle => 'Unregister Device';
+
+  @override
+  String unregisterDeviceConfirmationMessage(Object deviceName) {
+    return 'Are you sure you want to unregister $deviceName?';
+  }
+
+  @override
+  String get unregisterButton => 'Unregister';
+
+  @override
+  String get deviceUnregisteredSuccessfullyMessage => 'Device unregistered successfully';
+
+  @override
+  String errorUnregisteringDeviceMessage(Object error) {
+    return 'Error unregistering device: $error';
+  }
+
+  @override
+  String get devicesSynchronizedSuccessfullyMessage => 'Devices synchronized successfully';
+
+  @override
+  String errorSynchronizingDevicesMessage(Object error) {
+    return 'Error synchronizing devices: $error';
+  }
+
+  @override
+  String errorDeletingDeviceMessage(Object error) {
+    return 'Error deleting device: $error';
+  }
+
+  @override
+  String get devicesSyncedSuccessfullyMessage => 'Devices synchronized successfully';
+
+  @override
+  String errorSyncingDevicesMessage(Object error) {
+    return 'Error syncing devices: $error';
+  }
+
+  @override
+  String get keepAllVersionsLabel => 'Keep All Versions';
+
+  @override
+  String get keepAllVersionsDescription => 'Keep all historical versions of each backup';
+
+  @override
+  String get enableEncryptionLabel => 'Enable Encryption';
+
+  @override
+  String get enableEncryptionDescription => 'Encrypt backup files';
+
+  @override
+  String get backupToCloudLabel => 'Backup to Cloud';
+
+  @override
+  String get backupToCloudDescription => 'Backup settings and rules to cloud storage';
+
+  @override
+  String get restoreFromCloudLabel => 'Restore from Cloud';
+
+  @override
+  String get restoreFromCloudDescription => 'Restore settings and rules from cloud storage';
+
+  @override
+  String get setEncryptionPasswordLabel => 'Set Encryption Password';
+
+  @override
+  String get setEncryptionPasswordDescription => 'Set encryption password for backup and restore';
+
+  @override
+  String get clearAllDataLabel => 'Clear All Data';
+
+  @override
+  String get clearAllDataDescription => 'Clear all application data';
+
+  @override
+  String get backupToLocalLabel => 'Backup to Local';
+
+  @override
+  String get deviceName => 'Device Name';
+
+  @override
+  String get renameDeviceTitle => 'Rename Device';
+
+  @override
+  String get enterDeviceName => 'Enter Device Name';
+
+  @override
+  String get configureCloudSyncService => 'Configure Cloud Sync Service';
+
+  @override
+  String get backupAndRestore => 'Backup and Restore';
+
+  @override
+  String errorOccurredMessage(Object error) {
+    return 'An error occurred: $error';
+  }
+
+  @override
+  String get setup => 'Setup';
 }

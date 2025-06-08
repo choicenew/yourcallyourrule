@@ -1,0 +1,145 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 30 min SDK version: x86",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "rebuilding JSON C:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\.cxx\\Debug\\4z3b2d5u\\x86\\android_gradle_build.json due to:",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "- no fingerprint file, will remove stale configuration folder",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "removing stale contents from \u0027C:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\.cxx\\Debug\\4z3b2d5u\\x86\u0027",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "created folder \u0027C:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\.cxx\\Debug\\4z3b2d5u\\x86\u0027",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "executing cmake @echo off\n\"D:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HD:\\\\flutter_windows_3.29.0-stable\\\\flutter\\\\packages\\\\flutter_tools\\\\gradle\\\\src\\\\main\\\\groovy\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d30\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-30\" ^\n  \"-DANDROID_ABI\u003dx86\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003dx86\" ^\n  \"-DANDROID_NDK\u003dD:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\ndk\\\\27.1.12297006\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dD:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\ndk\\\\27.1.12297006\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dD:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\ndk\\\\27.1.12297006\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dD:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\\\Users\\\\Ngokel\\\\Desktop\\\\en\\\\test\\\\github\\\\yourcallyourrulemixhistory\\\\android\\\\app\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\4z3b2d5u\\\\obj\\\\x86\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\\\Users\\\\Ngokel\\\\Desktop\\\\en\\\\test\\\\github\\\\yourcallyourrulemixhistory\\\\android\\\\app\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\4z3b2d5u\\\\obj\\\\x86\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dDebug\" ^\n  \"-BC:\\\\Users\\\\Ngokel\\\\Desktop\\\\en\\\\test\\\\github\\\\yourcallyourrulemixhistory\\\\android\\\\app\\\\.cxx\\\\Debug\\\\4z3b2d5u\\\\x86\" ^\n  -GNinja ^\n  -Wno-dev ^\n  --no-warn-unused-cli\n",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "@echo off\n\"D:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HD:\\\\flutter_windows_3.29.0-stable\\\\flutter\\\\packages\\\\flutter_tools\\\\gradle\\\\src\\\\main\\\\groovy\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d30\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-30\" ^\n  \"-DANDROID_ABI\u003dx86\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003dx86\" ^\n  \"-DANDROID_NDK\u003dD:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\ndk\\\\27.1.12297006\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dD:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\ndk\\\\27.1.12297006\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dD:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\ndk\\\\27.1.12297006\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dD:\\\\android-studio-2024.1.2.8-windows\\\\Android\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\\\Users\\\\Ngokel\\\\Desktop\\\\en\\\\test\\\\github\\\\yourcallyourrulemixhistory\\\\android\\\\app\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\4z3b2d5u\\\\obj\\\\x86\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\\\Users\\\\Ngokel\\\\Desktop\\\\en\\\\test\\\\github\\\\yourcallyourrulemixhistory\\\\android\\\\app\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\4z3b2d5u\\\\obj\\\\x86\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dDebug\" ^\n  \"-BC:\\\\Users\\\\Ngokel\\\\Desktop\\\\en\\\\test\\\\github\\\\yourcallyourrulemixhistory\\\\android\\\\app\\\\.cxx\\\\Debug\\\\4z3b2d5u\\\\x86\" ^\n  -GNinja ^\n  -Wno-dev ^\n  --no-warn-unused-cli\n",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "Received process result: 0",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "C:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\.cxx\\Debug\\4z3b2d5u\\x86\\compile_commands.json.bin existed but not C:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\.cxx\\Debug\\4z3b2d5u\\x86\\compile_commands.json",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "done executing cmake",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "D:\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt",
+    "tag_": "profile|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  }
+]

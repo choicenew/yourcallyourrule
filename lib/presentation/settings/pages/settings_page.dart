@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
-import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
-import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored.dart';
 
-import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page.dart';
-import 'package:yourcallyourrule/features/search/pages/search_page.dart';
-import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page.dart';
-import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
-import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page.dart';
-import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
-import 'package:yourcallyourrule/presentation/device_management/device_management_page.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
-import 'package:yourcallyourrule/features/caller_id/pages/end_call_settings_page.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -22,7 +13,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('设置'),
+        title: Text(AppLocalizations.of(context)!.settingsTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -33,7 +24,8 @@ class SettingsPage extends StatelessWidget {
         children: [
           _buildUserInfoCard(context),
           const SizedBox(height: 24),
-          _buildSectionTitle('功能设置'),
+          _buildSectionTitle(
+              AppLocalizations.of(context)!.functionSettingsTitle),
           const SizedBox(height: 8),
           _buildCallSettingsCard(context),
           const SizedBox(height: 8),
@@ -43,7 +35,8 @@ class SettingsPage extends StatelessWidget {
           const SizedBox(height: 12),
           _buildContactSettingsCard(context),
           const SizedBox(height: 24),
-          _buildSectionTitle('云端同步与备份'),
+          _buildSectionTitle(
+              AppLocalizations.of(context)!.cloudSyncAndBackupTitle),
           const SizedBox(height: 8),
           _buildCloudSettingsCard(context),
           const SizedBox(height: 12),
@@ -51,7 +44,7 @@ class SettingsPage extends StatelessWidget {
           const SizedBox(height: 12),
           _buildDeviceManagementCard(context),
           const SizedBox(height: 24),
-          _buildSectionTitle('系统设置'),
+          _buildSectionTitle(AppLocalizations.of(context)!.systemSettingsTitle),
           const SizedBox(height: 8),
           _buildAutoUpdateCard(context),
           const SizedBox(height: 12),
@@ -94,18 +87,19 @@ class SettingsPage extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 16),
-            const Expanded(
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '用户名',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    AppLocalizations.of(context)!.usernameLabel,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    'user@example.com',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    AppLocalizations.of(context)!.userEmail,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -124,13 +118,11 @@ class SettingsPage extends StatelessWidget {
           context,
           icon: Icons.phone,
           iconColor: Colors.blue,
-          title: '来电设置',
-          subtitle: '来电识别、过滤和拦截设置',
+          title: AppLocalizations.of(context)!.callSettingsTitle,
+          subtitle: AppLocalizations.of(context)!.callSettingsSubtitle,
           onTap: () {
-            // 导航到来电设置页面
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const PhoneSubscriptionPage()),
-            );
+            // 使用GoRouter导航到来电设置页面
+            GoRouter.of(context).push('/phone-subscription');
           },
         ),
         const SizedBox(height: 8),
@@ -138,13 +130,11 @@ class SettingsPage extends StatelessWidget {
           context,
           icon: Icons.filter_alt,
           iconColor: Colors.deepPurple,
-          title: '过滤器控制',
-          subtitle: '管理所有过滤器的开关状态',
+          title: AppLocalizations.of(context)!.filterControlTitle,
+          subtitle: AppLocalizations.of(context)!.filterControlSubtitle,
           onTap: () {
-            // 导航到过滤器设置页面
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const FilterSettingsPage()),
-            );
+            // 使用GoRouter导航到过滤器设置页面
+            GoRouter.of(context).push('/filter-settings');
           },
         ),
         const SizedBox(height: 8),
@@ -152,12 +142,11 @@ class SettingsPage extends StatelessWidget {
           context,
           icon: Icons.block,
           iconColor: Colors.red,
-          title: '拦截动作设置',
-          subtitle: '设置被拦截来电的处理方式',
+          title: AppLocalizations.of(context)!.interceptionActionSettingsTitle,
+          subtitle:
+              AppLocalizations.of(context)!.interceptionActionSettingsSubtitle,
           onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const EndCallSettingsPage()),
-            );
+            GoRouter.of(context).push('/end-call-settings');
           },
         ),
       ],
@@ -169,8 +158,8 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.timer,
       iconColor: Colors.deepOrange,
-      title: '来电频率拦截',
-      subtitle: '设置来电频率限制和拦截规则',
+      title: AppLocalizations.of(context)!.callFrequencyInterceptionTitle,
+      subtitle: AppLocalizations.of(context)!.callFrequencyInterceptionSubtitle,
       onTap: () {
         final timeInterceptorService = Provider.of<TimeInterceptorService>(context, listen: false);
         showModalBottomSheet(
@@ -213,13 +202,11 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.sms,
       iconColor: Colors.orange,
-      title: '短信设置',
-      subtitle: '短信过滤和关键词拦截',
+      title: AppLocalizations.of(context)!.smsSettingsTitle,
+      subtitle: AppLocalizations.of(context)!.smsSettingsSubtitle,
       onTap: () {
-        // 导航到短信设置页面
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const SmsSubscriptionPage()),
-        );
+        // 使用GoRouter导航到短信设置页面
+        GoRouter.of(context).push('/sms-subscription');
       },
     );
   }
@@ -229,8 +216,8 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.contacts,
       iconColor: Colors.green,
-      title: '联系人设置',
-      subtitle: '联系人管理和标签设置',
+      title: AppLocalizations.of(context)!.contactSettingsTitle,
+      subtitle: AppLocalizations.of(context)!.contactSettingsSubtitle,
       onTap: () {
         // 导航到联系人设置页面
         // 这里暂时没有实现联系人页面
@@ -243,13 +230,11 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.cloud,
       iconColor: Colors.lightBlue,
-      title: '云端同步设置',
-      subtitle: '配置WebDAV、OneDrive和Google Drive',
+      title: AppLocalizations.of(context)!.cloudSyncSettingsTitle,
+      subtitle: AppLocalizations.of(context)!.cloudSyncSettingsSubtitle,
       onTap: () {
-        // 导航到云端同步设置页面
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const CloudSettingsPage()),
-        );
+        // 使用GoRouter导航到云端同步设置页面
+        GoRouter.of(context).push('/cloud-settings');
       },
     );
   }
@@ -259,13 +244,11 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.backup,
       iconColor: Colors.indigo,
-      title: '备份与恢复',
-      subtitle: '备份或恢复应用数据',
+      title: AppLocalizations.of(context)!.backupAndRestoreTitle,
+      subtitle: AppLocalizations.of(context)!.backupAndRestoreSubtitle,
       onTap: () {
-        // 导航到备份与恢复页面
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const BackupRestorePage()),
-        );
+        // 使用GoRouter导航到备份与恢复页面
+        GoRouter.of(context).push('/backup-restore');
       },
     );
   }
@@ -275,13 +258,11 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.devices,
       iconColor: Colors.deepOrange,
-      title: '设备管理',
-      subtitle: '管理多设备同步',
+      title: AppLocalizations.of(context)!.deviceManagementTitle,
+      subtitle: AppLocalizations.of(context)!.deviceManagementSubtitle,
       onTap: () {
-        // 导航到设备管理页面
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const DeviceManagementPage()),
-        );
+        // 使用GoRouter导航到设备管理页面
+        GoRouter.of(context).push('/device-management');
       },
     );
   }
@@ -291,13 +272,11 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.update,
       iconColor: Colors.purple,
-      title: '自动更新设置',
-      subtitle: '管理规则和插件的自动更新',
+      title: AppLocalizations.of(context)!.autoUpdateTitle,
+      subtitle: AppLocalizations.of(context)!.autoUpdateSubtitle,
       onTap: () {
-        // 导航到自动更新设置页面
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const AutoUpdateSettingsPage()),
-        );
+        // 使用GoRouter导航到自动更新设置页面
+        GoRouter.of(context).push('/auto-update-settings');
       },
     );
   }
@@ -307,13 +286,11 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.extension,
       iconColor: Colors.amber,
-      title: '插件管理',
-      subtitle: '管理和配置第三方插件',
+      title: AppLocalizations.of(context)!.pluginManagementTitle,
+      subtitle: AppLocalizations.of(context)!.pluginManagementSubtitle,
       onTap: () {
-        // 导航到插件管理页面
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const PluginManagementPage()),
-        );
+        // 使用GoRouter导航到插件管理页面
+        GoRouter.of(context).push('/plugin-management');
       },
     );
   }
@@ -323,13 +300,11 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.language,
       iconColor: Colors.teal,
-      title: '语言设置',
-      subtitle: '更改应用显示语言',
+      title: AppLocalizations.of(context)!.languageSettingsTitle,
+      subtitle: AppLocalizations.of(context)!.languageSettingsSubtitle,
       onTap: () {
-        // 导航到语言设置页面
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const LanguageSettingsPage()),
-        );
+        // 使用GoRouter导航到语言设置页面
+        GoRouter.of(context).push('/language-settings');
       },
     );
   }
@@ -339,13 +314,11 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.search,
       iconColor: Colors.blueGrey,
-      title: '全局搜索',
-      subtitle: '搜索联系人、标签、黑白名单等',
+      title: AppLocalizations.of(context)!.searchSettingsTitle,
+      subtitle: AppLocalizations.of(context)!.searchSettingsSubtitle,
       onTap: () {
-        // 导航到搜索页面
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const SearchPage()),
-        );
+        // 使用GoRouter导航到搜索页面
+        GoRouter.of(context).push('/search');
       },
     );
   }
@@ -355,8 +328,8 @@ class SettingsPage extends StatelessWidget {
       context,
       icon: Icons.info_outline,
       iconColor: Colors.blue,
-      title: '关于',
-      subtitle: '应用版本和法律信息',
+      title: AppLocalizations.of(context)!.aboutTitle,
+      subtitle: AppLocalizations.of(context)!.aboutSubtitle,
       onTap: () {
         // 显示关于对话框
         showAboutDialog(
