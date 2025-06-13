@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/label_dialog.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class CallLogCard extends StatelessWidget {
+class CallLogCard extends ConsumerWidget {
   final CallLog log;
 
   const CallLogCard({super.key, required this.log});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // 根据通话类型设置不同的图标和颜色
     IconData callIcon;
     Color iconColor;
@@ -47,7 +49,7 @@ class CallLogCard extends StatelessWidget {
     final formattedDate = '${callTime.year}-${callTime.month.toString().padLeft(2, '0')}-${callTime.day.toString().padLeft(2, '0')} ${callTime.hour.toString().padLeft(2, '0')}:${callTime.minute.toString().padLeft(2, '0')}';
     
     // 获取CallLogService实例
-    final callLogService = Provider.of<CallLogService>(context, listen: false);
+    final callLogService = ref.read(callLogServiceProvider);
     
     return Card(
       elevation: 2,
@@ -63,8 +65,8 @@ class CallLogCard extends StatelessWidget {
                 // 使用FutureBuilder同时获取标签文本和头像路径
                 FutureBuilder<List<dynamic>>(
                   future: Future.wait([
-                    _getLabelText(context, log),
-                    _getAvatarPath(context, log.number, null),
+                    _getLabelText(context, ref, log),
+                    _getAvatarPath(context, ref, log.number, null),
                   ]),
                   builder: (context, snapshot) {
                     // 加载中显示占位符
@@ -138,7 +140,7 @@ class CallLogCard extends StatelessWidget {
                                     icon: const Icon(Icons.edit, size: 16),
                                     padding: EdgeInsets.zero,
                                     constraints: const BoxConstraints(),
-                                    onPressed: () => _showNameEditDialog(context, log),
+                                    onPressed: () => _showNameEditDialog(context, log, ref),
                                     tooltip: AppLocalizations.of(context)?.addName ?? "添加名称",
                                   ),
                               ],
@@ -197,7 +199,8 @@ class CallLogCard extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 8.0, left: 64.0),
                 child: Text(
                   log.labelIds!.map((labelId) async {
-                    final label = await Provider.of<PredefinedLabelService>(context, listen: false).getLabelById(labelId);
+                    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
+                    final label = await predefinedLabelService.getLabelById(labelId);
                     return label?.text ?? labelId;
                   }).join(', '),
                   style: Theme.of(context).textTheme.bodySmall,
@@ -210,17 +213,17 @@ class CallLogCard extends StatelessWidget {
   }
 
   /// 获取标签文本
-  Future<String?> _getLabelText(BuildContext context, CallLog log) async {
+  Future<String?> _getLabelText(BuildContext context, WidgetRef ref, CallLog log) async {
     if (log.labelIds == null || log.labelIds!.isEmpty) {
       return null;
     }
     
-    return await LabelTextUtils.getLabelTextFromCallLog(context, log);
+    return await LabelTextUtils.getLabelTextFromCallLog(context, ref, log);
   }
   
   /// 获取头像路径
-  Future<String?> _getAvatarPath(BuildContext context, String phoneNumber, String? labelText) async {
-    final callLogService = Provider.of<CallLogService>(context, listen: false);
+  Future<String?> _getAvatarPath(BuildContext context, WidgetRef ref, String phoneNumber, String? labelText) async {
+    final callLogService = ref.read(callLogServiceProvider);
     // 使用CallLogService的getAvatarForNumber方法获取头像路径
     return await callLogService.getAvatarForNumber(phoneNumber);
   }
@@ -238,9 +241,9 @@ class CallLogCard extends StatelessWidget {
   }
   
   /// 显示名称编辑对话框
-  void _showNameEditDialog(BuildContext context, CallLog log) {
+  void _showNameEditDialog(BuildContext context, CallLog log, WidgetRef ref) {
     final TextEditingController nameController = TextEditingController();
-    final callLogService = Provider.of<CallLogService>(context, listen: false);
+    final callLogService = ref.read(callLogServiceProvider);
     
     showDialog(
       context: context,

@@ -1,17 +1,27 @@
 // ad_state.dart
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AdState with ChangeNotifier {
-  bool _isAdEnabled = true;
+// 使用 StateNotifier 替代 ChangeNotifier
+class AdState extends StateNotifier<bool> {
+  // 初始状态为广告启用
+  AdState() : super(true);
 
-  bool get isAdEnabled => _isAdEnabled;
+  // 获取当前广告状态
+  bool get isAdEnabled => state;
 
+  // 禁用广告
   void disableAds() {
-    _isAdEnabled = false;
-    notifyListeners(); // 通知监听器状态已更新
+    state = false;
   }
-    void enableAds() { // 添加 enableAds 方法
-    _isAdEnabled = true;
-    notifyListeners();
+
+  // 启用广告
+  void enableAds() {
+    state = true;
   }
 }
+
+// 创建 AdState 的 Provider
+final adStateProvider = StateNotifierProvider<AdState, bool>((ref) {
+  return AdState();
+});

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart' as dlibphone;
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/provider/providers/caller_id_service_provider.dart';
 
 /// 来电显示信息对话框
 /// 用于显示来电显示信息
-class CallerIdDialog extends StatefulWidget {
+class CallerIdDialog extends ConsumerStatefulWidget {
   final String phoneNumber;
   final String? countryCode;
 
@@ -18,7 +19,7 @@ class CallerIdDialog extends StatefulWidget {
   });
 
   @override
-  State<CallerIdDialog> createState() => _CallerIdDialogState();
+  ConsumerState<CallerIdDialog> createState() => _CallerIdDialogState();
 
   /// 显示来电显示信息对话框的静态方法
   static void show(BuildContext context, String phoneNumber, {String? countryCode}) {
@@ -32,7 +33,7 @@ class CallerIdDialog extends StatefulWidget {
   }
 }
 
-class _CallerIdDialogState extends State<CallerIdDialog> {
+class _CallerIdDialogState extends ConsumerState<CallerIdDialog> {
   bool _isLoading = true;
   String? _errorMessage;
   dynamic _callerIdData;
@@ -44,13 +45,13 @@ class _CallerIdDialogState extends State<CallerIdDialog> {
   }
 
   Future<void> _fetchCallerIdData() async {
-    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
-    final callerIdService = Provider.of<CallerIdService>(context, listen: false);
+    final localeState = ref.read(localeProvider);
+    final callerIdService = ref.read(callerIdServiceProvider);
 
     // 创建 dlibphone.Locale
     final dlibLocale = dlibphone.Locale(
-      language: localeProvider.locale.languageCode,
-      country: widget.countryCode ?? localeProvider.locale.countryCode ?? 'US',
+      language: localeState.locale.languageCode,
+      country: widget.countryCode ?? localeState.locale.countryCode ?? 'US',
     );
 
     try {

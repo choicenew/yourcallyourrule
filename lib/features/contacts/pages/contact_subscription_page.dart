@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/subscription/contact_subscription.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
+import 'package:yourcallyourrule/features/contacts/di/contact_subscription_service_provider.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class ContactSubscriptionPage extends StatefulWidget {
+class ContactSubscriptionPage extends ConsumerStatefulWidget {
   const ContactSubscriptionPage({super.key});
 
   @override
-  State<ContactSubscriptionPage> createState() => _ContactSubscriptionPageState();
+  ConsumerState<ContactSubscriptionPage> createState() => _ContactSubscriptionPageState();
 }
 
-class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
+class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPage> {
   List<ContactSubscription> _subscriptions = [];
   bool _isLoading = true;
 
@@ -27,7 +28,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
       _isLoading = true;
     });
 
-    final subscriptionService = Provider.of<ContactSubscriptionService>(context, listen: false);
+    final subscriptionService = ref.read(contactSubscriptionServiceProvider);
     try {
       final subscriptions = await subscriptionService.getAll();
       setState(() {
@@ -45,7 +46,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
   }
 
   Future<void> _toggleSubscriptionStatus(ContactSubscription subscription) async {
-    final subscriptionService = Provider.of<ContactSubscriptionService>(context, listen: false);
+    final subscriptionService = ref.read(contactSubscriptionServiceProvider);
     try {
       if (subscription.isEnabled) {
         await subscriptionService.disableSubscription(subscription);
@@ -65,7 +66,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
       _isLoading = true;
     });
 
-    final subscriptionService = Provider.of<ContactSubscriptionService>(context, listen: false);
+    final subscriptionService = ref.read(contactSubscriptionServiceProvider);
     try {
       final updatedRules = await subscriptionService.updateRulesFromSubscription(subscription);
       ScaffoldMessenger.of(context).showSnackBar(
@@ -100,7 +101,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
     );
 
     if (confirmed == true) {
-      final subscriptionService = Provider.of<ContactSubscriptionService>(context, listen: false);
+      final subscriptionService = ref.read(contactSubscriptionServiceProvider);
       try {
         await subscriptionService.deleteSubscription(subscription.id);
         ScaffoldMessenger.of(context).showSnackBar(
@@ -160,7 +161,7 @@ class _ContactSubscriptionPageState extends State<ContactSubscriptionPage> {
                 return;
               }
 
-              final subscriptionService = Provider.of<ContactSubscriptionService>(context, listen: false);
+              final subscriptionService = ref.read(contactSubscriptionServiceProvider);
               try {
                 await subscriptionService.addSubscription(name, url);
                 ScaffoldMessenger.of(context).showSnackBar(

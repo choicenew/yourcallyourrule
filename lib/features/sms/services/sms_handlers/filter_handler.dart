@@ -70,6 +70,19 @@ class SmsFilterHandler extends BaseSmsHandler {
     smsRules.removeWhere((rule) => rule.id == ruleId);
   }
 
+  /// 更新规则列表
+  Future<void> updateRules(List<SmsRegexRule> rules) async {
+    // 清空现有规则
+    smsRules.clear();
+    // 添加新规则
+    addRules(rules);
+  }
+
+  /// 获取所有规则
+  Future<List<SmsRegexRule>> getRules() async {
+    return List<SmsRegexRule>.from(smsRules);
+  }
+
   /// 判断是否应该通知
   Future<bool> shouldNotify(String phoneNumber, String messageContent) async {
     if (!isEnabled) return true;

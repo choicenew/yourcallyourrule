@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 
 /// 标签编辑对话框
 /// 用于编辑标签信息，通过 PublicSelectLabel 组件来选择标签
-class LabelEditDialog extends StatefulWidget {
+class LabelEditDialog extends ConsumerStatefulWidget {
   final LabelPhoneEntry label;
   final Function? onLabelUpdated;
   final Color? themeColor;
@@ -22,7 +24,7 @@ class LabelEditDialog extends StatefulWidget {
   });
 
   @override
-  State<LabelEditDialog> createState() => _LabelEditDialogState();
+  ConsumerState<LabelEditDialog> createState() => _LabelEditDialogState();
 
   /// 显示标签编辑对话框的静态方法
   static void show(BuildContext context, LabelPhoneEntry label, {Function? onLabelUpdated, Color? themeColor}) {
@@ -37,7 +39,7 @@ class LabelEditDialog extends StatefulWidget {
   }
 }
 
-class _LabelEditDialogState extends State<LabelEditDialog> {
+class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
   String _selectedLabelId = '';
   bool _isProcessing = false;
   late TextEditingController _phoneController;
@@ -87,7 +89,7 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
         icon: iconText.isNotEmpty ? iconText : null,
       );
 
-      final labelService = Provider.of<LabelService>(context, listen: false);
+      final labelService = ref.read(labelServiceProvider);
       await labelService.updateLabel(updatedLabel);
 
       // 调用回调函数
@@ -100,7 +102,7 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
         Navigator.pop(context);
 
         // 获取标签文本
-        final predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
+        final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
         final labelText = await predefinedLabelService.getLabelById(_selectedLabelId);
 
         // 显示成功提示
@@ -132,7 +134,7 @@ class _LabelEditDialogState extends State<LabelEditDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final selectLabelService = PredefinedLabelServiceAdapter(predefinedLabelService);
     
     return AlertDialog(

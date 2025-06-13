@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 // 导入标签翻译工具类，替代原有的内联实现
@@ -47,7 +48,7 @@ class PredefinedLabelServiceAdapter implements SelectLabelService {
 /// 可复用的标签选择组件，支持labelId
 /// 这个组件可以被各种需要标签功能的服务复用
 /// 例如：来电识别、短信过滤、规则设置等
-class PublicSelectLabel extends StatefulWidget {
+class PublicSelectLabel extends ConsumerStatefulWidget {
   /// 初始选中的标签ID
   final String? initialLabelId;
   
@@ -78,10 +79,10 @@ class PublicSelectLabel extends StatefulWidget {
   });
 
   @override
-  State<PublicSelectLabel> createState() => _PublicSelectLabelState();
+  ConsumerState<PublicSelectLabel> createState() => _PublicSelectLabelState();
 }
 
-class _PublicSelectLabelState extends State<PublicSelectLabel> {
+class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
   String? _selectedLabelId;
   String? _selectedLabelText;
   List<String> _labels = [];
@@ -100,7 +101,7 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
       _selectedLabelId = widget.initialLabelId;
       // 如果提供了初始标签ID，尝试获取对应的标签文本
       final service = widget.selectLabelService ?? 
-          PredefinedLabelServiceAdapter(Provider.of<PredefinedLabelService>(context, listen: false));
+          PredefinedLabelServiceAdapter(ref.read(predefinedLabelServiceProvider));
       _selectedLabelText = await service.getLabelTextById(_selectedLabelId!);
     } else if (widget.initialLabelText != null) {
       _selectedLabelText = widget.initialLabelText;
@@ -114,7 +115,7 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
     
     try {
       final SelectLabelService service = widget.selectLabelService ?? 
-          PredefinedLabelServiceAdapter(Provider.of<PredefinedLabelService>(context, listen: false));
+          PredefinedLabelServiceAdapter(ref.read(predefinedLabelServiceProvider));
 
       
       final labels = await service.getAllLabelTexts();
@@ -146,6 +147,7 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
     }
   }
 
+  @override
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -256,7 +258,7 @@ class _PublicSelectLabelState extends State<PublicSelectLabel> {
 
 
 /// 标签选择页面
-class LabelSelectionPage extends StatelessWidget {
+class LabelSelectionPage extends ConsumerWidget {
   final String title;
   final ValueChanged<String> onLabelIdSelected;
   
@@ -267,7 +269,8 @@ class LabelSelectionPage extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),

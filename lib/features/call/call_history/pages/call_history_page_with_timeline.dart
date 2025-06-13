@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/call_logs_list.dart';
@@ -14,14 +16,14 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 带时间轴布局的通话记录页面
 /// 参考HTML UI设计实现，包含统计卡片和时间轴布局
-class CallHistoryPageWithTimeline extends StatefulWidget {
+class CallHistoryPageWithTimeline extends ConsumerStatefulWidget {
   const CallHistoryPageWithTimeline({super.key});
 
   @override
-  State<CallHistoryPageWithTimeline> createState() => _CallHistoryPageWithTimelineState();
+  ConsumerState<CallHistoryPageWithTimeline> createState() => _CallHistoryPageWithTimelineState();
 }
 
-class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimeline> with SingleTickerProviderStateMixin {
+class _CallHistoryPageWithTimelineState extends ConsumerState<CallHistoryPageWithTimeline> with SingleTickerProviderStateMixin {
   bool _isLoading = true;
   String? _selectedLabel;
   late String _selectedTab;
@@ -78,7 +80,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
     });
     
     try {
-      final callLogService = Provider.of<CallLogService>(context, listen: false);
+      final callLogService = ref.read(callLogServiceProvider);
       await callLogService.initialize();
       setState(() {
         _isLoading = false;
@@ -99,7 +101,7 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
     });
     
     try {
-      final callLogService = Provider.of<CallLogService>(context, listen: false);
+      final callLogService = ref.read(callLogServiceProvider);
       await callLogService.refresh();
       setState(() {
         _isLoading = false;
@@ -117,8 +119,8 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
   /// 为通话记录添加标签并同步到远程号码服务
   Future<void> _addLabelToLogAndSync(CallLog log, String labelId) async {
     try {
-      final callLogService = Provider.of<CallLogService>(context, listen: false);
-      final labelToRemoteSyncService = Provider.of<LabelToRemoteSyncService>(context, listen: false);
+      final callLogService = ref.read(callLogServiceProvider);
+      final labelToRemoteSyncService = ref.read(labelToRemoteSyncServiceProvider);
       
       // 添加标签到通话记录
       await callLogService.addLabelToLog(log, labelId);
@@ -218,10 +220,9 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
   
   // 时间轴视图内容
   Widget _buildTimelineContent() {
-    return Consumer<CallLogService>(
-      builder: (context, callLogService, child) {
-        return StreamBuilder<List<CallLog>>(
-          stream: callLogService.logsStream,
+    final callLogService = ref.watch(callLogServiceProvider);
+    return StreamBuilder<List<CallLog>>(
+      stream: callLogService.logsStream,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
@@ -279,9 +280,9 @@ class _CallHistoryPageWithTimelineState extends State<CallHistoryPageWithTimelin
             );
           },
         );
-      },
-    );
-  }
+      }
+    
+  
 
   void _showLabelFilterDialog() {
     showDialog(

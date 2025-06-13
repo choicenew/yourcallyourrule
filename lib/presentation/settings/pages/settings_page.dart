@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
+import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.settingsTitle),
@@ -29,7 +30,7 @@ class SettingsPage extends StatelessWidget {
           const SizedBox(height: 8),
           _buildCallSettingsCard(context),
           const SizedBox(height: 8),
-          _buildTimeInterceptorCard(context),
+          _buildTimeInterceptorCard(context, ref),
           const SizedBox(height: 12),
           _buildSmsSettingsCard(context),
           const SizedBox(height: 12),
@@ -153,7 +154,7 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildTimeInterceptorCard(BuildContext context) {
+  Widget _buildTimeInterceptorCard(BuildContext context, WidgetRef ref) {
     return _buildSettingsCard(
       context,
       icon: Icons.timer,
@@ -161,7 +162,7 @@ class SettingsPage extends StatelessWidget {
       title: AppLocalizations.of(context)!.callFrequencyInterceptionTitle,
       subtitle: AppLocalizations.of(context)!.callFrequencyInterceptionSubtitle,
       onTap: () {
-        final timeInterceptorService = Provider.of<TimeInterceptorService>(context, listen: false);
+        final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,

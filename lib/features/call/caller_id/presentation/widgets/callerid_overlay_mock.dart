@@ -1,9 +1,10 @@
 //import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
+import 'package:yourcallyourrule/core/provider/providers/caller_id_style_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/configuration_manager.dart';
@@ -16,14 +17,14 @@ import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_sty
 
 
 
-class CallerIdSample extends StatefulWidget {
+class CallerIdSample extends ConsumerStatefulWidget {
   const CallerIdSample({super.key});
 
   @override
   CallerIdSampleState createState() => CallerIdSampleState();
 }
 
-class CallerIdSampleState extends State<CallerIdSample> {
+class CallerIdSampleState extends ConsumerState<CallerIdSample> {
   late final ConfigRepository _configRepository;
   
   @override
@@ -34,8 +35,7 @@ class CallerIdSampleState extends State<CallerIdSample> {
     final configurationManager = ConfigurationManager(_configRepository);
     
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final styleProvider =
-          Provider.of<CallerIdStyleProvider>(context, listen: false);
+      final styleProvider = ref.read(callerIdStyleProvider);
       try {
         configurationManager.loadFromRepository(styleProvider);
       } catch (e) {
@@ -47,49 +47,46 @@ class CallerIdSampleState extends State<CallerIdSample> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<CallerIdStyleProvider>(
-      create: (context) => CallerIdStyleProvider(),
-      child: Builder(builder: (context) {
-        return OrientationBuilder(
-          builder: (context, orientation) {
-            final mediaQuery = MediaQuery.of(context);
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        final mediaQuery = MediaQuery.of(context);
 
-            // Calculate width and height based on screen orientation and size
-            final overlayWidth = (orientation == Orientation.portrait
-                ? (mediaQuery.size.width < 600
-                    ? mediaQuery.size.width * 0.95
-                    : mediaQuery.size.width < 1000
-                        ? mediaQuery.size.width * 0.7
-                        : mediaQuery.size.width * 0.5)
-                : (mediaQuery.size.width < 900
-                    ? mediaQuery.size.width * 0.6
-                    : mediaQuery.size.width * 0.4));
-            final overlayHeight = overlayWidth *
-                (mediaQuery.size.width < 600
-                    ? 0.4
-                    : 0.3); // Adjust height ratio as needed // Adjust height ratio as needed
+        // Calculate width and height based on screen orientation and size
+        final overlayWidth = (orientation == Orientation.portrait
+            ? (mediaQuery.size.width < 600
+                ? mediaQuery.size.width * 0.95
+                : mediaQuery.size.width < 1000
+                    ? mediaQuery.size.width * 0.7
+                    : mediaQuery.size.width * 0.5)
+            : (mediaQuery.size.width < 900
+                ? mediaQuery.size.width * 0.6
+                : mediaQuery.size.width * 0.4));
+        final overlayHeight = overlayWidth *
+            (mediaQuery.size.width < 600
+                ? 0.4
+                : 0.3); // Adjust height ratio as needed // Adjust height ratio as needed
 
-            final styleProvider = Provider.of<CallerIdStyleProvider>(context);
-            return SizedBox(
-              width: overlayWidth,
-              height: overlayHeight,
-              child: CallerIdContentBuilder.buildOverlayContainer(
-                styleProvider: styleProvider,
-                child: CallerIdContentBuilder.buildCallerIdContent(
-                  context: context,
-                  callerIdData: _mockCallerIdData(),
-                  styleProvider: styleProvider,
-                  simInfo: _mockSimInfoData(),
-                  stirInfo: _mockStirInfoData(),
-                  isDraggable: false,
-                ),
-              ),
-            );
+        final styleProvider = ref.watch(callerIdStyleProvider);
+        return SizedBox(
+          width: overlayWidth,
+          height: overlayHeight,
+          child: CallerIdContentBuilder.buildOverlayContainer(
+            styleProvider: styleProvider,
+            child: CallerIdContentBuilder.buildCallerIdContent(
+              context: context,
+              callerIdData: _mockCallerIdData(),
+              styleProvider: styleProvider,
+              simInfo: _mockSimInfoData(),
+              stirInfo: _mockStirInfoData(),
+              isDraggable: false,
+            ),
+          ),
+        );
           },
         );
-      }),
-    );
-  }
+      }
+    
+  
 
   CallerIdData _mockCallerIdData() => CallerIdMockData.mockCallerIdData();
   StirInfo _mockStirInfoData() => CallerIdMockData.mockStirInfoData();

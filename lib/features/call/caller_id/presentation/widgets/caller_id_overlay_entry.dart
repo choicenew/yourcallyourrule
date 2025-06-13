@@ -4,10 +4,12 @@ import 'dart:ui';
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/core/provider/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/locale_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
@@ -19,14 +21,14 @@ import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/ca
 
 /// 来电显示覆盖层入口组件
 /// 在独立进程中显示来电信息的入口点
-class CallerIdOverlayEntry extends StatefulWidget {
+class CallerIdOverlayEntry extends ConsumerStatefulWidget {
   const CallerIdOverlayEntry({super.key});
 
   @override
-  State<CallerIdOverlayEntry> createState() => _CallerIdOverlayEntryState();
+  ConsumerState<CallerIdOverlayEntry> createState() => _CallerIdOverlayEntryState();
 }
 
-class _CallerIdOverlayEntryState extends State<CallerIdOverlayEntry> {
+class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
   CallerIdData? _callerIdData;
   CallerIdStyleProvider? styleProvider;
   SimInfo? _simInfo;
@@ -54,8 +56,7 @@ class _CallerIdOverlayEntryState extends State<CallerIdOverlayEntry> {
     receivePort.listen((dynamic message) {
       if (message is Map && message.containsKey('locale')) {
         // 更新LocaleProvider
-        Provider.of<LocaleProvider>(context, listen: false)
-            .updateLocale(message['locale']);
+        ref.read(localeProvider.notifier).updateLocale(message['locale']);
       }
     });
     
@@ -64,7 +65,7 @@ class _CallerIdOverlayEntryState extends State<CallerIdOverlayEntry> {
     final configurationManager = ConfigurationManager(_configRepository);
 
     // 获取CallerIdStyleProvider实例
-    styleProvider = Provider.of<CallerIdStyleProvider>(context, listen: false);
+    styleProvider = ref.read(callerIdStyleProvider);
 
     // 监听覆盖层消息
     FlutterOverlayWindow.overlayListener.listen((event) {
@@ -135,8 +136,9 @@ class _CallerIdOverlayEntryState extends State<CallerIdOverlayEntry> {
     if (styleProvider != null && _callerIdData != null) {
       return Material(
         color: Colors.transparent,
-        child: Consumer<CallerIdStyleProvider>(
-          builder: (context, styleProvider, child) {
+        child: Consumer(
+          builder: (context, ref, child) {
+            final styleProvider = ref.watch(callerIdStyleProvider);
             return IsolateCallerIdOverlay(
               callerIdData: _callerIdData!,
               simInfo: _simInfo,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
+import 'package:yourcallyourrule/core/provider/providers/sms_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_service.dart';
@@ -9,14 +10,14 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 
 /// 短信规则管理页面
-class SmsManagementPage extends StatefulWidget {
+class SmsManagementPage extends ConsumerStatefulWidget {
   const SmsManagementPage({super.key});
 
   @override
-  State<SmsManagementPage> createState() => _SmsManagementPageState();
+  ConsumerState<SmsManagementPage> createState() => _SmsManagementPageState();
 }
 
-class _SmsManagementPageState extends State<SmsManagementPage> {
+class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
   bool _isLoading = true;
   List<SmsRegexRule> _smsRules = [];
   String? _selectedLabel;
@@ -33,7 +34,7 @@ class _SmsManagementPageState extends State<SmsManagementPage> {
     });
 
     try {
-      final service = Provider.of<SmsService>(context, listen: false);
+      final service = ref.read(smsServiceProvider);
       final rules = await service.getAll();
 
       setState(() {
@@ -149,7 +150,7 @@ class _SmsManagementPageState extends State<SmsManagementPage> {
                 }
                 
                 try {
-                  final service = Provider.of<SmsService>(context, listen: false);
+                  final service = ref.read(smsServiceProvider);
                   
                   // 验证正则表达式
                   if (!service.validateRegexPattern(contentPatternController.text)) {
@@ -216,7 +217,7 @@ class _SmsManagementPageState extends State<SmsManagementPage> {
 
   Future<void> _toggleRule(String ruleId, bool isEnabled) async {
     try {
-      final service = Provider.of<SmsService>(context, listen: false);
+      final service = ref.read(smsServiceProvider);
       final rule = _smsRules.firstWhere((r) => r.id == ruleId);
       final updatedRule = rule.copyWith(
         isEnabled: isEnabled,
@@ -258,7 +259,7 @@ class _SmsManagementPageState extends State<SmsManagementPage> {
     
     if (confirmed == true) {
       try {
-        final service = Provider.of<SmsService>(context, listen: false);
+        final service = ref.read(smsServiceProvider);
         final rule = _smsRules.firstWhere((r) => r.id == ruleId);
         await service.delete(rule);
         await _loadRules();
@@ -284,7 +285,7 @@ class _SmsManagementPageState extends State<SmsManagementPage> {
       );
 
       if (result != null && result.files.single.path != null) {
-        final service = Provider.of<SmsService>(context, listen: false);
+        final service = ref.read(smsServiceProvider);
         final importExportService = service.importExportService;
         final rules = await importExportService.importFromFile(result.files.single.path!);
         
@@ -324,7 +325,7 @@ class _SmsManagementPageState extends State<SmsManagementPage> {
       );
 
       if (result != null) {
-        final service = Provider.of<SmsService>(context, listen: false);
+        final service = ref.read(smsServiceProvider);
         final importExportService = service.importExportService;
         final success = await importExportService.exportToFile(result, entities: _smsRules);
         

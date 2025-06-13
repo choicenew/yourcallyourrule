@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
+import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
@@ -90,7 +91,9 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en')
+    Locale('en'),
+    Locale('zh'),
+    Locale('zh', 'CN')
   ];
 
   /// No description provided for @filterControlPanelTitle.
@@ -1491,24 +1494,6 @@ abstract class AppLocalizations {
   /// **'Subscription deleted successfully'**
   String get subscriptionDeletedSuccessfully;
 
-  /// No description provided for @syncing.
-  ///
-  /// In en, this message translates to:
-  /// **'Syncing...'**
-  String get syncing;
-
-  /// No description provided for @syncSuccessful.
-  ///
-  /// In en, this message translates to:
-  /// **'Sync successful'**
-  String get syncSuccessful;
-
-  /// No description provided for @syncFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Sync failed'**
-  String get syncFailed;
-
   /// No description provided for @enableSubscriptionSuccessfully.
   ///
   /// In en, this message translates to:
@@ -1526,6 +1511,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to toggle subscription status'**
   String get failedToToggleSubscriptionStatus;
+
+  /// No description provided for @syncing.
+  ///
+  /// In en, this message translates to:
+  /// **'Syncing...'**
+  String get syncing;
+
+  /// No description provided for @syncSuccessful.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync successful'**
+  String get syncSuccessful;
+
+  /// No description provided for @syncFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync failed'**
+  String syncFailed(Object error);
 
   /// No description provided for @failedToDeleteSmsRule.
   ///
@@ -8137,7 +8140,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'zh'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -8145,10 +8148,20 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
 
+  // Lookup logic when language+country codes are specified.
+  switch (locale.languageCode) {
+    case 'zh': {
+  switch (locale.countryCode) {
+    case 'CN': return AppLocalizationsZhCn();
+   }
+  break;
+   }
+  }
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en': return AppLocalizationsEn();
+    case 'zh': return AppLocalizationsZh();
   }
 
   throw FlutterError(

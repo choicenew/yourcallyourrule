@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
@@ -17,14 +19,14 @@ import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart'
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// Data Analysis Dashboard Page
-class DashboardPage extends StatefulWidget {
+class DashboardPage extends ConsumerStatefulWidget {
   const DashboardPage({super.key});
 
   @override
-  State<DashboardPage> createState() => _DashboardPageState();
+  ConsumerState<DashboardPage> createState() => _DashboardPageState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _DashboardPageState extends ConsumerState<DashboardPage> {
   bool _isLoading = true;
   List<CallLog> _callLogs = [];
   int _blockedCallsCount = 0;
@@ -56,11 +58,11 @@ class _DashboardPageState extends State<DashboardPage> {
 
     try {
       // 加载通话记录
-      final callLogService = Provider.of<CallLogService>(context, listen: false);
+      final callLogService = ref.read(callLogServiceProvider);
       await callLogService.initialize();
       
       // 加载规则数据 - 获取四种action类型的规则
-      final ruleManagementService = Provider.of<RuleManagementService>(context, listen: false);
+      final ruleManagementService = ref.read(ruleManagementServiceProvider);
       final blockRules = await ruleManagementService.getAllRulesByActionType(RuleActionType.block);
       final allowRules = await ruleManagementService.getAllRulesByActionType(RuleActionType.allow);
       final silenceRules = await ruleManagementService.getAllRulesByActionType(RuleActionType.silence);

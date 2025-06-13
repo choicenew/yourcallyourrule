@@ -1,19 +1,21 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/features/search/providers/search_service_provider.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
+
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class HomeAppBar extends StatefulWidget {
+class HomeAppBar extends ConsumerStatefulWidget {
   const HomeAppBar({super.key});
 
   @override
-  State<HomeAppBar> createState() => _HomeAppBarState();
+  ConsumerState<HomeAppBar> createState() => _HomeAppBarState();
 }
 
-class _HomeAppBarState extends State<HomeAppBar> {
+class _HomeAppBarState extends ConsumerState<HomeAppBar> {
   bool _isSearchVisible = false;
   final TextEditingController _searchController = TextEditingController();
   List<SearchResult> _searchResults = [];
@@ -27,7 +29,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
   }
 
   void _performSearch(String query) async {
-    final searchService = Provider.of<SearchService>(context, listen: false);
+    final searchService = ref.read(searchServiceProvider(context));
     try {
       final results = await searchService.searchPhoneNumber(query);
       setState(() {

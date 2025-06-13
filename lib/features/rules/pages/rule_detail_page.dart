@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:yourcallyourrule/core/base/base_entity.dart';
@@ -16,7 +16,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 /// 用于显示规则详情，并提供编辑和删除功能
 /// [T] 是规则实体类型
 /// [S] 是规则服务类型
-class RuleDetailPage<T extends BaseEntity, S> extends StatefulWidget {
+class RuleDetailPage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
   final String ruleId;
   final String title;
   final Color themeColor;
@@ -35,6 +35,9 @@ class RuleDetailPage<T extends BaseEntity, S> extends StatefulWidget {
   
   /// 设置规则动作函数
   final T Function(T rule, RuleAction action) setRuleAction;
+  
+  /// 从Ref获取服务的函数，用于Riverpod迁移
+  final S Function(WidgetRef ref)? getServiceFromRef;
 
   const RuleDetailPage({
     super.key,
@@ -46,13 +49,14 @@ class RuleDetailPage<T extends BaseEntity, S> extends StatefulWidget {
     required this.deleteRule,
     required this.getRuleAction,
     required this.setRuleAction,
+    this.getServiceFromRef,
   });
 
   @override
-  State<RuleDetailPage<T, S>> createState() => _RuleDetailPageState<T, S>();
+  ConsumerState<RuleDetailPage<T, S>> createState() => _RuleDetailPageState<T, S>();
 }
 
-class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage<T, S>> {
+class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDetailPage<T, S>> {
   T? _rule;
   bool _isLoading = true;
   bool _isEditing = false;
@@ -79,7 +83,12 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
       _isLoading = true;
     });
 
-    final service = Provider.of<S>(context, listen: false);
+    // 使用Riverpod获取服务实例
+    // 如果提供了getServiceFromRef函数，则使用它从ref获取服务
+    // 这样可以确保在迁移过程中的兼容性
+    final service = widget.getServiceFromRef != null 
+        ? widget.getServiceFromRef!(ref) 
+        : throw Exception('getServiceFromRef must be provided when using Riverpod');
     try {
       final rule = await widget.getRule(service, widget.ruleId);
       setState(() {
@@ -170,7 +179,10 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
       }
 
       // 保存规则
-      final service = Provider.of<S>(context, listen: false);
+      // 使用Riverpod获取服务实例
+      final service = widget.getServiceFromRef != null 
+        ? widget.getServiceFromRef!(ref) 
+        : throw Exception('getServiceFromRef must be provided when using Riverpod');
       await widget.updateRule(service, updatedRule);
 
       setState(() {
@@ -214,7 +226,10 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
     );
 
     if (confirmed == true) {
-      final service = Provider.of<S>(context, listen: false);
+      // 使用Riverpod获取服务实例
+      final service = widget.getServiceFromRef != null 
+        ? widget.getServiceFromRef!(ref) 
+        : throw Exception('getServiceFromRef must be provided when using Riverpod');
       try {
         await widget.deleteRule(service, widget.ruleId);
         if (mounted) {
@@ -346,7 +361,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends State<RuleDetailPage
                   _buildInfoRow(AppLocalizations.of(context)!.phoneNumber, phoneNumber),
                   FutureBuilder<String?>(
                     future: labelId.isNotEmpty
-                        ? LabelTextUtils.getLabelTextById(context, labelId)
+                        ? LabelTextUtils.getLabelTextById(context, ref, labelId)
                         : Future.value(AppLocalizations.of(context)!.none),
                     builder: (context, snapshot) {
                       return _buildInfoRow(

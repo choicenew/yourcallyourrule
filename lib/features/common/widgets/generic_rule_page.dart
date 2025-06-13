@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
@@ -12,7 +11,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 /// 用于处理各种类型的规则管理页面，包括黑白名单、允许/阻止规则、正则规则等
 /// [T] 是规则实体类型
 /// [S] 是规则服务类型
-class GenericRulePage<T extends BaseEntity, S> extends StatefulWidget {
+class GenericRulePage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
   /// 页面标题
   final String title;
   
@@ -61,8 +60,12 @@ class GenericRulePage<T extends BaseEntity, S> extends StatefulWidget {
   /// 标签筛选对话框函数
   final void Function(BuildContext context, Function(String?) onLabelSelected)? showLabelFilterDialog;
 
+  /// 服务提供者
+  final ProviderBase<S> serviceProvider;
+
   const GenericRulePage({
     super.key,
+    required this.serviceProvider,
     required this.title,
     this.themeColor = const Color(0xFFF5A623),
     required this.emptyText,
@@ -82,10 +85,10 @@ class GenericRulePage<T extends BaseEntity, S> extends StatefulWidget {
   });
 
   @override
-  State<GenericRulePage<T, S>> createState() => _GenericRulePageState<T, S>();
+  ConsumerState<GenericRulePage<T, S>> createState() => _GenericRulePageState<T, S>();
 }
 
-class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePage<T, S>> {
+class _GenericRulePageState<T extends BaseEntity, S> extends ConsumerState<GenericRulePage<T, S>> {
   List<T> _rules = [];
   bool _isLoading = true;
   String? _selectedLabelId;
@@ -102,7 +105,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
       _isLoading = true;
     });
 
-    final service = Provider.of<S>(context, listen: false);
+    final service = ref.read(widget.serviceProvider);
     try {
       final rules = await widget.getAllRules(service);
       setState(() {
@@ -123,7 +126,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
   }
 
   Future<void> _toggleRule(String ruleId, bool isEnabled) async {
-    final service = Provider.of<S>(context, listen: false);
+    final service = ref.read(widget.serviceProvider);
     try {
       await widget.toggleRule(service, ruleId, isEnabled);
       await _loadRules();
@@ -164,7 +167,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
     );
     
     if (confirmed == true) {
-      final service = Provider.of<S>(context, listen: false);
+      final service = ref.read(widget.serviceProvider);
       try {
         await widget.deleteRule(service, ruleId);
         await _loadRules();
@@ -272,7 +275,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends State<GenericRulePa
 
   @override
   Widget build(BuildContext context) {
-    final service = Provider.of<S>(context, listen: false);
+    final service = ref.read(widget.serviceProvider);
     
     // 根据标签和动作类型筛选规则
     List<T> filteredRules = _rules;

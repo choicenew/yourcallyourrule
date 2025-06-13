@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 
 /// SIM卡槽位规则管理组件
 /// 用于管理每个SIM卡槽位的过滤规则
-class SimSlotRuleWidget extends StatefulWidget {
+class SimSlotRuleWidget extends ConsumerStatefulWidget {
   final SimSlotRuleService simSlotRuleService;
   final EnhancedCompositeFilterService enhancedCompositeFilterService;
   final int simSlotIndex;
@@ -34,7 +35,7 @@ class SimSlotRuleWidget extends StatefulWidget {
   SimSlotRuleWidgetState createState() => SimSlotRuleWidgetState();
 }
 
-class SimSlotRuleWidgetState extends State<SimSlotRuleWidget> {
+class SimSlotRuleWidgetState extends ConsumerState<SimSlotRuleWidget> {
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   String? _selectedLabelId;
@@ -208,7 +209,7 @@ class SimSlotRuleWidgetState extends State<SimSlotRuleWidget> {
                             Text(rule['phoneNumber']),
                             if (rule['labelId'] != null && rule['labelId'].isNotEmpty)
                               FutureBuilder<String?>(
-                                future: Provider.of<PredefinedLabelService>(context, listen: false)
+                                future: ref.read(predefinedLabelServiceProvider)
                                     .getLabelById(rule['labelId'])
                                     .then((label) => label?.text),
                                 builder: (context, snapshot) {

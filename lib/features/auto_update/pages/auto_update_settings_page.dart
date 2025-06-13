@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/services/auto_update_service.dart';
+import 'package:yourcallyourrule/features/auto_update/di/auto_update_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class AutoUpdateSettingsPage extends StatefulWidget {
+class AutoUpdateSettingsPage extends ConsumerStatefulWidget {
   const AutoUpdateSettingsPage({super.key});
 
   @override
-  State<AutoUpdateSettingsPage> createState() => _AutoUpdateSettingsPageState();
+  ConsumerState<AutoUpdateSettingsPage> createState() => _AutoUpdateSettingsPageState();
 }
 
-class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
+class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage> {
   Map<String, String> get _serviceTypeNames => {
     'phone': AppLocalizations.of(context)!.serviceTypePhone,
     'sms': AppLocalizations.of(context)!.serviceTypeSms,
@@ -39,7 +40,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
       _isLoading = true;
     });
 
-    final autoUpdateService = Provider.of<AutoUpdateService>(context, listen: false);
+    final autoUpdateService = ref.read(autoUpdateServiceProvider);
     
     for (final type in _serviceTypeNames.keys) {
       final interval = await autoUpdateService.getUserUpdateInterval(type);
@@ -52,7 +53,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
   }
 
   Future<void> _updateInterval(String type, int days) async {
-    final autoUpdateService = Provider.of<AutoUpdateService>(context, listen: false);
+    final autoUpdateService = ref.read(autoUpdateServiceProvider);
     await autoUpdateService.setUserUpdateInterval(type, days);
     
     setState(() {
@@ -69,7 +70,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
       _isLoading = true;
     });
 
-    final autoUpdateService = Provider.of<AutoUpdateService>(context, listen: false);
+    final autoUpdateService = ref.read(autoUpdateServiceProvider);
     try {
       final updatedRules = await autoUpdateService.updateByType(type);
       ScaffoldMessenger.of(context).showSnackBar(
@@ -91,7 +92,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
       _isLoading = true;
     });
 
-    final autoUpdateService = Provider.of<AutoUpdateService>(context, listen: false);
+    final autoUpdateService = ref.read(autoUpdateServiceProvider);
     try {
       final updatedRules = await autoUpdateService.updateAll();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -187,7 +188,7 @@ class _AutoUpdateSettingsPageState extends State<AutoUpdateSettingsPage> {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: Theme.of(context).primaryColor.withValues(alpha:0.2),
+                  backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
                   child: Icon(icon, color: Theme.of(context).primaryColor),
                 ),
                 const SizedBox(width: 12),

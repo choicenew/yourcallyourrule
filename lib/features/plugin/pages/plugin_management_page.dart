@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class PluginManagementPage extends StatefulWidget {
+class PluginManagementPage extends ConsumerStatefulWidget {
   const PluginManagementPage({super.key});
 
   @override
-  State<PluginManagementPage> createState() => _PluginManagementPageState();
+  ConsumerState<PluginManagementPage> createState() => _PluginManagementPageState();
 }
 
-class _PluginManagementPageState extends State<PluginManagementPage> {
+class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
   List<PluginEntry> _plugins = [];
   bool _isLoading = true;
   final TextEditingController _urlController = TextEditingController();
@@ -42,8 +43,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       _isLoading = true;
     });
 
-    final pluginService =
-        Provider.of<PluginManagerService>(context, listen: false);
+    final pluginService = ref.read(pluginManagerServiceProvider);
     try {
       final plugins = await pluginService.getAll();
       setState(() {
@@ -63,8 +63,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
   }
 
   Future<void> _togglePluginStatus(PluginEntry plugin, bool isEnabled) async {
-    final pluginService =
-        Provider.of<PluginManagerService>(context, listen: false);
+    final pluginService = ref.read(pluginManagerServiceProvider);
     try {
       await pluginService.togglePluginStatus(plugin, isEnabled);
       await _loadPlugins(); // 重新加载插件列表
@@ -82,8 +81,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       _isLoading = true;
     });
 
-    final pluginService =
-        Provider.of<PluginManagerService>(context, listen: false);
+    final pluginService = ref.read(pluginManagerServiceProvider);
     try {
       final updated = await pluginService.updatePluginFromUrl(plugin);
       ScaffoldMessenger.of(context).showSnackBar(
@@ -124,8 +122,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
     );
 
     if (confirmed == true) {
-      final pluginService =
-          Provider.of<PluginManagerService>(context, listen: false);
+      final pluginService = ref.read(pluginManagerServiceProvider);
       try {
         await pluginService.deletePlugin(plugin);
         ScaffoldMessenger.of(context).showSnackBar(
@@ -155,8 +152,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       _isLoading = true;
     });
 
-    final pluginService =
-        Provider.of<PluginManagerService>(context, listen: false);
+    final pluginService = ref.read(pluginManagerServiceProvider);
     try {
       final plugin = await pluginService.addPluginFromUrl(url);
       if (plugin != null) {
@@ -196,8 +192,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
           _isLoading = true;
         });
 
-        final pluginService =
-            Provider.of<PluginManagerService>(context, listen: false);
+        final pluginService = ref.read(pluginManagerServiceProvider);
         final plugin =
             await pluginService.addPluginFromLocal(result.files.single.path!);
 
@@ -233,8 +228,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
       });
 
       // 创建一个新的插件条目
-      final pluginService =
-          Provider.of<PluginManagerService>(context, listen: false);
+      final pluginService = ref.read(pluginManagerServiceProvider);
       final newPlugin = PluginEntry(
         id: Uuid().v4(),
         name: _nameController.text,
@@ -352,8 +346,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                 // 导出插件列表的逻辑
                 final path = await FilePicker.platform.getDirectoryPath();
                 if (path != null) {
-                  final pluginService =
-                      Provider.of<PluginManagerService>(context, listen: false);
+                  final pluginService = ref.read(pluginManagerServiceProvider);
                   try {
                     await pluginService
                         .exportToFile('$path/plugins_export.json');
@@ -384,8 +377,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                 );
 
                 if (result != null && result.files.single.path != null) {
-                  final pluginService =
-                      Provider.of<PluginManagerService>(context, listen: false);
+                  final pluginService = ref.read(pluginManagerServiceProvider);
                   try {
                     final plugins = await pluginService
                         .importFromFile(result.files.single.path!);
@@ -488,9 +480,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                   onChanged: (value) {
                     if (value != null) {
                       // 全局启用/禁用插件的逻辑
-                      final pluginService = Provider.of<PluginManagerService>(
-                          context,
-                          listen: false);
+                      final pluginService = ref.read(pluginManagerServiceProvider);
                       pluginService.toggleAllPluginsStatus(value).then((_) {
                         _loadPlugins(); // 重新加载插件列表
                         // 显示提示信息
@@ -618,9 +608,7 @@ class _PluginManagementPageState extends State<PluginManagementPage> {
                       onChanged: (value) {
                         final updatedPlugin =
                             plugin.copyWith(isAutoUpdate: value);
-                        final pluginService = Provider.of<PluginManagerService>(
-                            context,
-                            listen: false);
+                        final pluginService = ref.read(pluginManagerServiceProvider);
                         pluginService
                             .updatePlugin(updatedPlugin)
                             .then((_) => _loadPlugins());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
@@ -7,17 +7,23 @@ import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/provider/providers/sim_slot_rule_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/enhanced_composite_filter_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/call_filter_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/local_count_filter_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
 
 /// 过滤管理组件
 /// 用于集中管理各种通话过滤功能的开关设置
-class FilterManagementWidget extends StatefulWidget {
+class FilterManagementWidget extends ConsumerStatefulWidget {
   const FilterManagementWidget({super.key});
 
   @override
-  State<FilterManagementWidget> createState() => _FilterManagementWidgetState();
+  ConsumerState<FilterManagementWidget> createState() => _FilterManagementWidgetState();
 }
 
-class _FilterManagementWidgetState extends State<FilterManagementWidget> {
+class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget> {
   bool _isExpanded = false;
 
   @override
@@ -75,7 +81,7 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
   /// 构建SIM卡过滤规则开关
   Widget _buildSimCardFilterSwitch() {
     return FutureBuilder<List<dynamic>>(
-      future: Provider.of<SimSlotRuleService>(context, listen: false)
+      future: ref.read(simSlotRuleServiceProvider)
           .getAllSimSlotRules(),
       builder: (context, snapshot) {
         int ruleCount = snapshot.hasData ? snapshot.data!.length : 0;
@@ -85,12 +91,10 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
           icon: Icons.sim_card,
           color: Colors.blue,
           count: ruleCount,
-          isEnabled: Provider.of<EnhancedCompositeFilterService>(context)
+          isEnabled: ref.watch(enhancedCompositeFilterServiceProvider)
               .isFilterEnabled('CallFilterService'),
           onToggle: (value) {
-            final service = Provider.of<EnhancedCompositeFilterService>(
-                context,
-                listen: false);
+            final service = ref.read(enhancedCompositeFilterServiceProvider);
             if (value) {
               service.enableFilter('CallFilterService');
             } else {
@@ -106,7 +110,7 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
   /// 构建本地计数过滤器开关
   Widget _buildLocalCountFilterSwitch() {
     final localCountFilterService =
-        Provider.of<LocalCountFilterService>(context);
+        ref.watch(localCountFilterServiceProvider);
     return _buildFilterSwitchItem(
       title: AppLocalizations.of(context)!.localCountFilter,
       subtitle: AppLocalizations.of(context)!.localCountFilterDescription,
@@ -126,7 +130,7 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
   /// 构建远程号码过滤器开关
   Widget _buildRemoteNumberFilterSwitch() {
     final remoteNumberFilterService =
-        Provider.of<RemoteNumberFilterService>(context);
+        ref.watch(remoteNumberFilterServiceProvider);
     return _buildFilterSwitchItem(
       title: AppLocalizations.of(context)!.remoteNumberFilter,
       subtitle: AppLocalizations.of(context)!.remoteNumberFilterDescription,
@@ -146,7 +150,7 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
   /// 构建通话过滤规则开关
   Widget _buildCallFilterSwitch() {
     final callFilterService =
-        Provider.of<CallFilterService>(context);
+        ref.watch(callFilterServiceProvider);
     return ExpansionTile(
       title: Text(AppLocalizations.of(context)!.callFilterRules),
       subtitle: Text(AppLocalizations.of(context)!.callFilterRulesDescription),
@@ -258,7 +262,7 @@ class _FilterManagementWidgetState extends State<FilterManagementWidget> {
   /// 构建时间拦截器开关
   Widget _buildTimeInterceptorSwitch() {
     final timeInterceptorService =
-        Provider.of<TimeInterceptorService>(context);
+        ref.watch(timeInterceptorServiceProvider);
     return _buildFilterSwitchItem(
       title: AppLocalizations.of(context)!.timeInterceptor,
       subtitle: AppLocalizations.of(context)!.timeInterceptorDescription,

@@ -1,29 +1,21 @@
 //独立的广告
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_state.dart';
-
 import 'package:yourcallyourrule/ads/ad_manager.dart';
-
 import 'package:yourcallyourrule/ads/google_ad.dart';
 
-
-
-
-
-
-
-
-// Modified widgets using Provider
+// 使用Riverpod的Consumer Widget
 Widget nativeAdWidgetSmall({required double adWidth, required double adHeight}) {
-  return Consumer<AdState>(
-    builder: (context, adState, child) {
+  return Consumer(
+    builder: (context, ref, child) {
+      final adState = ref.watch(adStateProvider);
       return ConstrainedBox(
         constraints: BoxConstraints(
-          minWidth: adState.isAdEnabled ? adWidth : 0,
-          minHeight: adState.isAdEnabled ? adHeight : 0,
+          minWidth: adState ? adWidth : 0,
+          minHeight: adState ? adHeight : 0,
         ),
-        child: adState.isAdEnabled
+        child: adState
             ? GoogleAdWidget(
                 adInfo: AdManager.nativeAdvancedAd,
                 width: adWidth,
@@ -40,14 +32,15 @@ Widget nativeAdWidgetSmall({required double adWidth, required double adHeight}) 
 }
 
 Widget nativeAdWidgetMedium({required double adWidth, required double adHeight}) {
-  return Consumer<AdState>(
-    builder: (context, adState, child) {
+  return Consumer(
+    builder: (context, ref, child) {
+      final adState = ref.watch(adStateProvider);
       return ConstrainedBox(
         constraints: BoxConstraints(
-          minWidth: adState.isAdEnabled ? adWidth : 0,
-          minHeight: adState.isAdEnabled ? adHeight : 0,
+          minWidth: adState ? adWidth : 0,
+          minHeight: adState ? adHeight : 0,
         ),
-        child: adState.isAdEnabled
+        child: adState
             ? GoogleAdWidget(
                 adInfo: AdManager.nativeAdvancedAd,
                 width: adWidth,

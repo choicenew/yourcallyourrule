@@ -1,6 +1,9 @@
+
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+
+
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
@@ -147,3 +150,8 @@ class RegexService extends ListService {
     }
   }
 }
+
+
+
+
+

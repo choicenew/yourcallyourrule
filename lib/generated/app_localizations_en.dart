@@ -760,15 +760,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get subscriptionDeletedSuccessfully => 'Subscription deleted successfully';
 
   @override
-  String get syncing => 'Syncing...';
-
-  @override
-  String get syncSuccessful => 'Sync successful';
-
-  @override
-  String get syncFailed => 'Sync failed';
-
-  @override
   String get enableSubscriptionSuccessfully => 'Enable subscription successfully';
 
   @override
@@ -776,6 +767,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get failedToToggleSubscriptionStatus => 'Failed to toggle subscription status';
+
+  @override
+  String get syncing => 'Syncing...';
+
+  @override
+  String get syncSuccessful => 'Sync successful';
+
+  @override
+  String syncFailed(Object error) {
+    return 'Sync failed';
+  }
 
   @override
   String failedToDeleteSmsRule(Object error) {

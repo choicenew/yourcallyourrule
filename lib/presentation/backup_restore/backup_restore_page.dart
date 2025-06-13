@@ -15,7 +15,9 @@ class BackupRestorePage extends ConsumerWidget {
   const BackupRestorePage({super.key});
 
   Future<void> _showBackupConfigDialog(
-      BuildContext context, WidgetRef ref) async {
+    BuildContext context,
+    WidgetRef ref,
+  ) async {
     final backupService = ref.read(backupRestoreServiceProvider);
     final config = await backupService.getBackupConfig();
 
@@ -25,65 +27,72 @@ class BackupRestorePage extends ConsumerWidget {
 
     await showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.backupSettings),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.keepAllVersions),
-              subtitle: Text(AppLocalizations.of(context)!.keepAllVersionsDescription),
-              value: keepAllVersions,
-              onChanged: (value) => keepAllVersions = value,
-            ),
-            SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.enableEncryption),
-              subtitle: Text(AppLocalizations.of(context)!.enableEncryptionDescription),
-              value: encryptionEnabled,
-              onChanged: (value) {
-                encryptionEnabled = value;
-                if (value) {
-                  // If enabling encryption, prompt for password
-                  Navigator.pop(context);
-                  _showEncryptionPasswordDialog(context, ref, true).then((_) {
-                    // Re-open the backup config dialog after setting password
-                    _showBackupConfigDialog(context, ref);
-                  });
-                }
-              },
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.deviceName,
-                hintText: AppLocalizations.of(context)!.enterDeviceName,
-              ),
-              initialValue: deviceName,
-              onChanged: (value) => deviceName = value,
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.cancel),
-          ),
-          TextButton(
-            onPressed: () async {
-              await backupService.updateBackupConfig(
-                BackupConfigEntity(
-                  keepAllVersions: keepAllVersions,
-                  deviceName: deviceName,
-                  localBackupPath: config.localBackupPath,
-                  encryptionEnabled: encryptionEnabled,
+      builder:
+          (context) => AlertDialog(
+            title: Text(AppLocalizations.of(context)!.backupSettings),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SwitchListTile(
+                  title: Text(AppLocalizations.of(context)!.keepAllVersions),
+                  subtitle: Text(
+                    AppLocalizations.of(context)!.keepAllVersionsDescription,
+                  ),
+                  value: keepAllVersions,
+                  onChanged: (value) => keepAllVersions = value,
                 ),
-              );
-              Navigator.pop(context);
-            },
-            child: Text(AppLocalizations.of(context)!.save)
+                SwitchListTile(
+                  title: Text(AppLocalizations.of(context)!.enableEncryption),
+                  subtitle: Text(
+                    AppLocalizations.of(context)!.enableEncryptionDescription,
+                  ),
+                  value: encryptionEnabled,
+                  onChanged: (value) {
+                    encryptionEnabled = value;
+                    if (value) {
+                      // If enabling encryption, prompt for password
+                      Navigator.pop(context);
+                      _showEncryptionPasswordDialog(context, ref, true).then((
+                        _,
+                      ) {
+                        // Re-open the backup config dialog after setting password
+                        _showBackupConfigDialog(context, ref);
+                      });
+                    }
+                  },
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.deviceName,
+                    hintText: AppLocalizations.of(context)!.enterDeviceName,
+                  ),
+                  initialValue: deviceName,
+                  onChanged: (value) => deviceName = value,
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(AppLocalizations.of(context)!.cancel),
+              ),
+              TextButton(
+                onPressed: () async {
+                  await backupService.updateBackupConfig(
+                    BackupConfigEntity(
+                      keepAllVersions: keepAllVersions,
+                      deviceName: deviceName,
+                      localBackupPath: config.localBackupPath,
+                      encryptionEnabled: encryptionEnabled,
+                    ),
+                  );
+                  Navigator.pop(context);
+                },
+                child: Text(AppLocalizations.of(context)!.save),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 
@@ -91,88 +100,126 @@ class BackupRestorePage extends ConsumerWidget {
     final cloudService = ref.read(activeSyncServiceProvider);
     if (cloudService == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.configureCloudSyncService)),
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(context)!.configureCloudSyncService,
+          ),
+        ),
       );
       return;
     }
 
     await showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.cloudSync),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              leading: const Icon(Icons.cloud_upload),
-              title: Text(AppLocalizations.of(context)!.backupToCloud),
-              onTap: () async {
-                Navigator.pop(context);
-                try {
-                  final cloudService = ref.read(activeSyncServiceProvider);
-                  if (cloudService == null) return;
+      builder:
+          (context) => AlertDialog(
+            title: Text(AppLocalizations.of(context)!.cloudSync),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.cloud_upload),
+                  title: Text(AppLocalizations.of(context)!.backupToCloud),
+                  onTap: () async {
+                    Navigator.pop(context);
+                    try {
+                      final cloudService = ref.read(activeSyncServiceProvider);
+                      if (cloudService == null) return;
 
-                  // 备份规则
-                  final rules = ref.read(rulesProvider).value ?? [];
-                  final rulesSuccess = await cloudService.syncRules(rules);
+                      // 备份规则
+                      final rules = ref.read(rulesProvider).value ?? [];
+                      final rulesSuccess = await cloudService.syncRules(rules);
 
-                  // 备份设置
-                  final backupService = ref.read(backupRestoreServiceProvider);
-                  final settings = await backupService.getBackupConfig();
-                  final settingsSuccess =
-                      await cloudService.syncSettings(settings.toJson());
+                      // 备份设置
+                      final backupService = ref.read(
+                        backupRestoreServiceProvider,
+                      );
+                      final settings = await backupService.getBackupConfig();
+                      final settingsSuccess = await cloudService.syncSettings(
+                        settings.toJson(),
+                      );
 
-                  if (rulesSuccess && settingsSuccess) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.backupToCloudSuccess)),
-                    );
-                  } else {
-                    throw Exception(AppLocalizations.of(context)!.backupFailed);
-                  }
-                } catch (e) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(AppLocalizations.of(context)!.backupToCloudFailed(e.toString()))),
-                  );
-                }
-              },
+                      if (rulesSuccess && settingsSuccess) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              AppLocalizations.of(
+                                context,
+                              )!.backupToCloudSuccess,
+                            ),
+                          ),
+                        );
+                      } else {
+                        throw Exception(
+                          AppLocalizations.of(context)!.backupFailed,
+                        );
+                      }
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            AppLocalizations.of(
+                              context,
+                            )!.backupToCloudFailed(e.toString()),
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.cloud_download),
+                  title: Text(AppLocalizations.of(context)!.restoreFromCloud),
+                  onTap: () async {
+                    Navigator.pop(context);
+                    try {
+                      final cloudService = ref.read(activeSyncServiceProvider);
+                      if (cloudService == null) return;
+
+                      // 从云端获取规则
+                      final rules = await cloudService.getRulesFromCloud();
+                      if (rules.isNotEmpty) {
+                        final rulesNotifier = ref.read(rulesProvider.notifier);
+                        await rulesNotifier.importRules(rules);
+                      }
+
+                      // 从云端获取设置
+                      final settings =
+                          await cloudService.getSettingsFromCloud();
+                      if (settings != null) {
+                        final backupService = ref.read(
+                          backupRestoreServiceProvider,
+                        );
+                        await backupService.restoreSettings(
+                          jsonEncode(settings),
+                        );
+                      }
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            AppLocalizations.of(
+                              context,
+                            )!.restoreFromCloudSuccess,
+                          ),
+                        ),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            AppLocalizations.of(
+                              context,
+                            )!.restoreFromCloudFailed(e.toString()),
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                ),
+              ],
             ),
-            ListTile(
-              leading: const Icon(Icons.cloud_download),
-              title: Text(AppLocalizations.of(context)!.restoreFromCloud),
-              onTap: () async {
-                Navigator.pop(context);
-                try {
-                  final cloudService = ref.read(activeSyncServiceProvider);
-                  if (cloudService == null) return;
-
-                  // 从云端获取规则
-                  final rules = await cloudService.getRulesFromCloud();
-                  if (rules.isNotEmpty) {
-                    final rulesNotifier = ref.read(rulesProvider.notifier);
-                    await rulesNotifier.importRules(rules);
-                  }
-
-                  // 从云端获取设置
-                  final settings = await cloudService.getSettingsFromCloud();
-                  if (settings != null) {
-                    final backupService =
-                        ref.read(backupRestoreServiceProvider);
-                    await backupService.restoreSettings(jsonEncode(settings));
-                  }
-
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(AppLocalizations.of(context)!.restoreFromCloudSuccess)),
-                  );
-                } catch (e) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(AppLocalizations.of(context)!.restoreFromCloudFailed(e.toString()))),
-                  );
-                }
-              },
-            ),
-          ],
-        ),
-      ),
+          ),
     );
   }
 
@@ -201,7 +248,10 @@ class BackupRestorePage extends ConsumerWidget {
   }
 
   Widget _buildBackupSection(
-      BuildContext context, WidgetRef ref, BackupRestoreService backupService) {
+    BuildContext context,
+    WidgetRef ref,
+    BackupRestoreService backupService,
+  ) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -216,28 +266,36 @@ class BackupRestorePage extends ConsumerWidget {
             ListTile(
               leading: const Icon(Icons.settings),
               title: Text(AppLocalizations.of(context)!.backupSettings),
-              subtitle: Text(AppLocalizations.of(context)!.configureBackupOptions),
+              subtitle: Text(
+                AppLocalizations.of(context)!.configureBackupOptions,
+              ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _showBackupConfigDialog(context, ref),
             ),
             ListTile(
               leading: const Icon(Icons.rule),
               title: Text(AppLocalizations.of(context)!.exportRules),
-              subtitle: Text(AppLocalizations.of(context)!.exportAllRuleConfigurations),
+              subtitle: Text(
+                AppLocalizations.of(context)!.exportAllRuleConfigurations,
+              ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _exportRules(context, ref, backupService),
             ),
             ListTile(
               leading: const Icon(Icons.settings_backup_restore),
               title: Text(AppLocalizations.of(context)!.backupSettings),
-              subtitle: Text(AppLocalizations.of(context)!.exportAllApplicationSettings),
+              subtitle: Text(
+                AppLocalizations.of(context)!.exportAllApplicationSettings,
+              ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _backupSettings(context, ref, backupService),
             ),
             ListTile(
               leading: const Icon(Icons.cloud_upload),
               title: Text(AppLocalizations.of(context)!.cloudSync),
-              subtitle: Text(AppLocalizations.of(context)!.syncWithCloudStorage),
+              subtitle: Text(
+                AppLocalizations.of(context)!.syncWithCloudStorage,
+              ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _showCloudSyncDialog(context, ref),
             ),
@@ -248,7 +306,10 @@ class BackupRestorePage extends ConsumerWidget {
   }
 
   Widget _buildRestoreSection(
-      BuildContext context, WidgetRef ref, BackupRestoreService backupService) {
+    BuildContext context,
+    WidgetRef ref,
+    BackupRestoreService backupService,
+  ) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -263,14 +324,20 @@ class BackupRestorePage extends ConsumerWidget {
             ListTile(
               leading: const Icon(Icons.upload_file),
               title: Text(AppLocalizations.of(context)!.importRules),
-              subtitle: Text(AppLocalizations.of(context)!.importRuleConfigurationsFromFile),
+              subtitle: Text(
+                AppLocalizations.of(context)!.importRuleConfigurationsFromFile,
+              ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _importRules(context, ref, backupService),
             ),
             ListTile(
               leading: const Icon(Icons.restore),
               title: Text(AppLocalizations.of(context)!.restoreSettings),
-              subtitle: Text(AppLocalizations.of(context)!.restoreApplicationSettingsFromBackup),
+              subtitle: Text(
+                AppLocalizations.of(
+                  context,
+                )!.restoreApplicationSettingsFromBackup,
+              ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _restoreSettings(context, ref, backupService),
             ),
@@ -281,7 +348,10 @@ class BackupRestorePage extends ConsumerWidget {
   }
 
   Widget _buildDataMigrationSection(
-      BuildContext context, WidgetRef ref, BackupRestoreService backupService) {
+    BuildContext context,
+    WidgetRef ref,
+    BackupRestoreService backupService,
+  ) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -296,8 +366,11 @@ class BackupRestorePage extends ConsumerWidget {
             ListTile(
               leading: const Icon(Icons.compare_arrows),
               title: Text(AppLocalizations.of(context)!.migrationTool),
-              subtitle:
-                  Text(AppLocalizations.of(context)!.transferDataBetweenDevicesOrPlatforms),
+              subtitle: Text(
+                AppLocalizations.of(
+                  context,
+                )!.transferDataBetweenDevicesOrPlatforms,
+              ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () => _showDataMigrationDialog(context),
             ),
@@ -307,13 +380,18 @@ class BackupRestorePage extends ConsumerWidget {
     );
   }
 
-  Future<void> _exportRules(BuildContext context, WidgetRef ref,
-      BackupRestoreService backupService) async {
+  Future<void> _exportRules(
+    BuildContext context,
+    WidgetRef ref,
+    BackupRestoreService backupService,
+  ) async {
     try {
       final rules = ref.read(rulesProvider).value;
       if (rules == null || rules.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.noRulesToExport)),
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.noRulesToExport),
+          ),
         );
         return;
       }
@@ -326,18 +404,27 @@ class BackupRestorePage extends ConsumerWidget {
       if (result != null) {
         final path = await backupService.backupRules(rules, result);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.rulesExportedTo(path))),
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.rulesExportedTo(path)),
+          ),
         );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.failedToExportRules(e.toString()))),
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(context)!.failedToExportRules(e.toString()),
+          ),
+        ),
       );
     }
   }
 
-  Future<void> _backupSettings(BuildContext context, WidgetRef ref,
-      BackupRestoreService backupService) async {
+  Future<void> _backupSettings(
+    BuildContext context,
+    WidgetRef ref,
+    BackupRestoreService backupService,
+  ) async {
     try {
       final result = await FilePicker.platform.saveFile(
         dialogTitle: AppLocalizations.of(context)!.backupSettings,
@@ -347,18 +434,29 @@ class BackupRestorePage extends ConsumerWidget {
       if (result != null) {
         final path = await backupService.backupSettings(result);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.settingsBackedUpTo(path))),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(context)!.settingsBackedUpTo(path),
+            ),
+          ),
         );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.failedToBackupSettings(e.toString()))),
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(context)!.failedToBackupSettings(e.toString()),
+          ),
+        ),
       );
     }
   }
 
-  Future<void> _importRules(BuildContext context, WidgetRef ref,
-      BackupRestoreService backupService) async {
+  Future<void> _importRules(
+    BuildContext context,
+    WidgetRef ref,
+    BackupRestoreService backupService,
+  ) async {
     try {
       final result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
@@ -371,31 +469,26 @@ class BackupRestorePage extends ConsumerWidget {
           final rules = await backupService.restoreRules(file.path);
 
           // Show confirmation dialog with rule count
-          final shouldImport = await showDialog<bool>(
+          final shouldImport =
+              await showDialog<bool>(
                 context: context,
-                builder: (context) => AlertDialog(
-                  title: Text(AppLocalizations.of(context)!.importRules),
-                  content: Text(
-                      AppLocalizations.of(context)!.foundRules(rules.length)),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context, false),
-                      child: Text(AppLocalizations.of(context)!.cancel),
+                builder:
+                    (context) => AlertDialog(
+                      title: Text(AppLocalizations.of(context)!.importRules),
+                      content: Text(
+                        AppLocalizations.of(context)!.foundRules(rules.length),
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, false),
+                          child: Text(AppLocalizations.of(context)!.cancel),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, true),
+                          child: Text(AppLocalizations.of(context)!.import),
+                        ),
+                      ],
                     ),
-                    TextButton(
-                      onPressed: () => Navigator.pop(context, true),
-                      child: Text(AppLocalizations.of(context)!.import),
-                    ),
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                  ],
-                ),
               ) ??
               false;
 
@@ -406,7 +499,12 @@ class BackupRestorePage extends ConsumerWidget {
 
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                  content: Text(AppLocalizations.of(context)!.rulesImportedSuccessfully(rules.length))),
+                content: Text(
+                  AppLocalizations.of(
+                    context,
+                  )!.rulesImportedSuccessfully(rules.length),
+                ),
+              ),
             );
           }
         } catch (error) {
@@ -415,14 +513,21 @@ class BackupRestorePage extends ConsumerWidget {
               error.toString().contains('decrypt') ||
               error.toString().contains('password')) {
             // Show password dialog
-            final passwordValid =
-                await _showEncryptionPasswordDialog(context, ref, false);
+            final passwordValid = await _showEncryptionPasswordDialog(
+              context,
+              ref,
+              false,
+            );
             if (passwordValid) {
               // Try again with the correct password
               await _importRules(context, ref, backupService);
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(AppLocalizations.of(context)!.failedToDecryptBackupFile)),
+                SnackBar(
+                  content: Text(
+                    AppLocalizations.of(context)!.failedToDecryptBackupFile,
+                  ),
+                ),
               );
             }
           } else {
@@ -432,13 +537,20 @@ class BackupRestorePage extends ConsumerWidget {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.failedToImportRules(e.toString()))),
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(context)!.failedToImportRules(e.toString()),
+          ),
+        ),
       );
     }
   }
 
-  Future<void> _restoreSettings(BuildContext context, WidgetRef ref,
-      BackupRestoreService backupService) async {
+  Future<void> _restoreSettings(
+    BuildContext context,
+    WidgetRef ref,
+    BackupRestoreService backupService,
+  ) async {
     try {
       final result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
@@ -449,32 +561,26 @@ class BackupRestorePage extends ConsumerWidget {
         final file = File(result.files.single.path!);
 
         // Show confirmation dialog
-        final shouldRestore = await showDialog<bool>(
+        final shouldRestore =
+            await showDialog<bool>(
               context: context,
-              builder: (context) => AlertDialog(
-                title: Text(AppLocalizations.of(context)!.restoreSettings),
-                content: Text(
-                  AppLocalizations.of(context)!.restoreSettingsConfirmation,
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context, false),
-                    child: Text(AppLocalizations.of(context)!.cancel),
+              builder:
+                  (context) => AlertDialog(
+                    title: Text(AppLocalizations.of(context)!.restoreSettings),
+                    content: Text(
+                      AppLocalizations.of(context)!.restoreSettingsConfirmation,
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, false),
+                        child: Text(AppLocalizations.of(context)!.cancel),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, true),
+                        child: Text(AppLocalizations.of(context)!.restore),
+                      ),
+                    ],
                   ),
-                  TextButton(
-                    onPressed: () => Navigator.pop(context, true),
-                    child: Text(AppLocalizations.of(context)!.restore),
-                  ),
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                ],
-              ),
             ) ??
             false;
 
@@ -484,12 +590,18 @@ class BackupRestorePage extends ConsumerWidget {
             if (success) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                    content: Text(
-                        AppLocalizations.of(context)!.settingsRestoredSuccessfully)),
+                  content: Text(
+                    AppLocalizations.of(context)!.settingsRestoredSuccessfully,
+                  ),
+                ),
               );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(AppLocalizations.of(context)!.failedToRestoreSettings)),
+                SnackBar(
+                  content: Text(
+                    AppLocalizations.of(context)!.failedToRestoreSettings,
+                  ),
+                ),
               );
             }
           } catch (error) {
@@ -498,15 +610,21 @@ class BackupRestorePage extends ConsumerWidget {
                 error.toString().contains('decrypt') ||
                 error.toString().contains('password')) {
               // Show password dialog
-              final passwordValid =
-                  await _showEncryptionPasswordDialog(context, ref, false);
+              final passwordValid = await _showEncryptionPasswordDialog(
+                context,
+                ref,
+                false,
+              );
               if (passwordValid) {
                 // Try again with the correct password
                 await _restoreSettings(context, ref, backupService);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                    content: Text(AppLocalizations.of(context)!.failedToDecryptBackupFile)),
+                  SnackBar(
+                    content: Text(
+                      AppLocalizations.of(context)!.failedToDecryptBackupFile,
+                    ),
+                  ),
                 );
               }
             }
@@ -515,7 +633,13 @@ class BackupRestorePage extends ConsumerWidget {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.failedToRestoreSettingsWithError(e.toString()))),
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(
+              context,
+            )!.failedToRestoreSettingsWithError(e.toString()),
+          ),
+        ),
       );
     }
   }
@@ -523,27 +647,27 @@ class BackupRestorePage extends ConsumerWidget {
   void _showDataMigrationDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.dataMigration),
-        content: Text(
-          AppLocalizations.of(context)!.dataMigrationDescription,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.ok),
+      builder:
+          (context) => AlertDialog(
+            title: Text(AppLocalizations.of(context)!.dataMigration),
+            content: Text(
+              AppLocalizations.of(context)!.dataMigrationDescription,
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(AppLocalizations.of(context)!.ok),
+              ),
+            ],
           ),
-
-
-
-
-        ],
-      ),
     );
   }
 
   Future<bool> _showEncryptionPasswordDialog(
-      BuildContext context, WidgetRef ref, bool isSettingPassword) async {
+    BuildContext context,
+    WidgetRef ref,
+    bool isSettingPassword,
+  ) async {
     final backupService = ref.read(backupRestoreServiceProvider);
     String password = '';
     String confirmPassword = '';
@@ -552,103 +676,146 @@ class BackupRestorePage extends ConsumerWidget {
     final result = await showDialog<bool>(
       context: context,
       barrierDismissible: false,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setState) => AlertDialog(
-          title: Text(isSettingPassword ? AppLocalizations.of(context)!.setEncryptionPassword : AppLocalizations.of(context)!.enterEncryptionPasswordHint),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                decoration: InputDecoration(
-                  labelText: AppLocalizations.of(context)!.password,
-                  hintText: AppLocalizations.of(context)!.enterEncryptionPasswordHint,
-                ),
-                obscureText: true,
-                onChanged: (value) {
-                  password = value;
-                  if (isSettingPassword) {
-                    setState(() {
-                      passwordsMatch = password == confirmPassword;
-                    });
-                  }
-                },
-              ),
-              if (isSettingPassword) ...[
-                const SizedBox(height: 16),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: AppLocalizations.of(context)!.confirmPassword,
-                    hintText: AppLocalizations.of(context)!.enterPasswordAgain,
+      builder:
+          (context) => StatefulBuilder(
+            builder:
+                (context, setState) => AlertDialog(
+                  title: Text(
+                    isSettingPassword
+                        ? AppLocalizations.of(context)!.setEncryptionPassword
+                        : AppLocalizations.of(
+                          context,
+                        )!.enterEncryptionPasswordHint,
                   ),
-                  obscureText: true,
-                  onChanged: (value) {
-                    confirmPassword = value;
-                    setState(() {
-                      passwordsMatch = password == confirmPassword;
-                    });
-                  },
-                ),
-                if (!passwordsMatch && confirmPassword.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      AppLocalizations.of(context)!.passwordsDoNotMatch,
-                      style: const TextStyle(color: Colors.red),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context)!.password,
+                          hintText:
+                              AppLocalizations.of(
+                                context,
+                              )!.enterEncryptionPasswordHint,
+                        ),
+                        obscureText: true,
+                        onChanged: (value) {
+                          password = value;
+                          if (isSettingPassword) {
+                            setState(() {
+                              passwordsMatch = password == confirmPassword;
+                            });
+                          }
+                        },
+                      ),
+                      if (isSettingPassword) ...[
+                        const SizedBox(height: 16),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText:
+                                AppLocalizations.of(context)!.confirmPassword,
+                            hintText:
+                                AppLocalizations.of(
+                                  context,
+                                )!.enterPasswordAgain,
+                          ),
+                          obscureText: true,
+                          onChanged: (value) {
+                            confirmPassword = value;
+                            setState(() {
+                              passwordsMatch = password == confirmPassword;
+                            });
+                          },
+                        ),
+                        if (!passwordsMatch && confirmPassword.isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Text(
+                              AppLocalizations.of(context)!.passwordsDoNotMatch,
+                              style: const TextStyle(color: Colors.red),
+                            ),
+                          ),
+                      ],
+                    ],
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: Text(AppLocalizations.of(context)!.cancel),
                     ),
-                  ),
-              ],
-            ],
+                    TextButton(
+                      onPressed: () async {
+                        if (isSettingPassword) {
+                          if (password.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  AppLocalizations.of(
+                                    context,
+                                  )!.passwordCannotBeEmpty,
+                                ),
+                              ),
+                            );
+                            return;
+                          }
+
+                          if (!passwordsMatch) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  AppLocalizations.of(
+                                    context,
+                                  )!.passwordsDoNotMatch,
+                                ),
+                              ),
+                            );
+                            return;
+                          }
+
+                          await backupService.setEncryptionPassword(password);
+                          await backupService.setEncryptionEnabled(true);
+                          Navigator.pop(context, true);
+                        } else {
+                          // Validating password
+                          if (password.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  AppLocalizations.of(
+                                    context,
+                                  )!.passwordCannotBeEmpty,
+                                ),
+                              ),
+                            );
+                            return;
+                          }
+
+                          final isValid = await backupService
+                              .validateEncryptionPassword(password);
+                          if (isValid) {
+                            Navigator.pop(context, true);
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  AppLocalizations.of(
+                                    context,
+                                  )!.incorrectPassword,
+                                ),
+                              ),
+                            );
+                          }
+                        }
+                      },
+                      child: Text(
+                        isSettingPassword
+                            ? AppLocalizations.of(context)!.setup
+                            : AppLocalizations.of(context)!.confirm,
+                      ),
+                    ),
+                  ],
+                ),
           ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: Text(AppLocalizations.of(context)!.cancel),
-            ),
-            TextButton(
-              onPressed: () async {
-                if (isSettingPassword) {
-                  if (password.isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.passwordCannotBeEmpty)),
-                    );
-                    return;
-                  }
-
-                  if (!passwordsMatch) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.passwordsDoNotMatch)),
-                    );
-                    return;
-                  }
-
-                  await backupService.setEncryptionPassword(password);
-                  await backupService.setEncryptionEnabled(true);
-                  Navigator.pop(context, true);
-                } else {
-                  // Validating password
-                  if (password.isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.passwordCannotBeEmpty)),
-                    );
-                    return;
-                  }
-
-                  final isValid =
-                      await backupService.validateEncryptionPassword(password);
-                  if (isValid) {
-                    Navigator.pop(context, true);
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.incorrectPassword)),
-                    );
-                  }
-                }
-              },
-              child: Text(isSettingPassword ? AppLocalizations.of(context)!.setup : AppLocalizations.of(context)!.confirm),
-            ),
-          ],
-        ),
-      ),
     );
 
     return result ?? false;

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
+import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
@@ -10,13 +12,13 @@ import 'package:yourcallyourrule/features/rules/services/rule_management_service
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则操作对话框组件
-class RuleActionDialog extends StatelessWidget {
+class RuleActionDialog extends ConsumerWidget {
   final CallLog log;
 
   const RuleActionDialog({super.key, required this.log});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return AlertDialog(
       title: Text(AppLocalizations.of(context)!.addToRules),
       content: Column(
@@ -27,7 +29,7 @@ class RuleActionDialog extends StatelessWidget {
             leading: const Icon(Icons.check_circle_outline, color: Colors.green),
             title: Text(AppLocalizations.of(context)!.addToAllowedRules),
             onTap: () {
-              _addToAllowedBlockedRule(context, log, RuleAction.allow);
+              _addToAllowedBlockedRule(context, ref, log, RuleAction.allow);
               Navigator.pop(context);
             },
           ),
@@ -35,7 +37,7 @@ class RuleActionDialog extends StatelessWidget {
             leading: const Icon(Icons.block, color: Colors.red),
             title: Text(AppLocalizations.of(context)!.addToBlockedRules),
             onTap: () {
-              _addToAllowedBlockedRule(context, log, RuleAction.block);
+              _addToAllowedBlockedRule(context, ref, log, RuleAction.block);
               Navigator.pop(context);
             },
           ),
@@ -45,7 +47,7 @@ class RuleActionDialog extends StatelessWidget {
             leading: const Icon(Icons.check_circle_outline, color: Colors.blue),
             title: Text(AppLocalizations.of(context)!.addToWhitelist),
             onTap: () {
-              _addToWhiteBlackRule(context, log, RuleAction.allow);
+              _addToWhiteBlackRule(context, ref, log, RuleAction.allow);
               Navigator.pop(context);
             },
           ),
@@ -53,7 +55,7 @@ class RuleActionDialog extends StatelessWidget {
             leading: const Icon(Icons.block, color: Colors.orange),
             title: Text(AppLocalizations.of(context)!.addToBlacklist),
             onTap: () {
-              _addToWhiteBlackRule(context, log, RuleAction.block);
+              _addToWhiteBlackRule(context, ref, log, RuleAction.block);
               Navigator.pop(context);
             },
           ),
@@ -69,9 +71,9 @@ class RuleActionDialog extends StatelessWidget {
   }
 
   // 添加到允许/阻止规则
-  Future<void> _addToAllowedBlockedRule(BuildContext context, CallLog log, RuleAction action) async {
+  Future<void> _addToAllowedBlockedRule(BuildContext context, WidgetRef ref, CallLog log, RuleAction action) async {
     try {
-      final service = Provider.of<AllowedBlockedService>(context, listen: false);
+      final service = ref.read(allowedBlockedServiceProvider);
       final labelId = log.labelIds?.isNotEmpty == true ? log.labelIds!.first : '';
       
       // 创建ListEntry对象
@@ -103,9 +105,9 @@ class RuleActionDialog extends StatelessWidget {
   }
 
   // 添加到黑白名单
-  Future<void> _addToWhiteBlackRule(BuildContext context, CallLog log, RuleAction action) async {
+  Future<void> _addToWhiteBlackRule(BuildContext context, WidgetRef ref, CallLog log, RuleAction action) async {
     try {
-      final service = Provider.of<RuleManagementService>(context, listen: false);
+      final service = ref.read(ruleManagementServiceProvider);
       final labelId = log.labelIds?.isNotEmpty == true ? log.labelIds!.first : '';
       
       // 创建ListEntry对象

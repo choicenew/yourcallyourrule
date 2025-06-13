@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
+
+import 'package:yourcallyourrule/core/provider/providers/sms_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_service.dart';
@@ -8,14 +10,14 @@ import 'package:yourcallyourrule/common/utils/hint.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 短信过滤规则管理页面
-class SmsFilterPage extends StatefulWidget {
+class SmsFilterPage extends ConsumerStatefulWidget {
   const SmsFilterPage({super.key});
 
   @override
-  State<SmsFilterPage> createState() => _SmsFilterPageState();
+  ConsumerState<SmsFilterPage> createState() => _SmsFilterPageState();
 }
 
-class _SmsFilterPageState extends State<SmsFilterPage> {
+class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
   bool _isLoading = true;
   List<SmsRegexRule> _smsRules = [];
   String? _selectedLabel;
@@ -32,7 +34,7 @@ class _SmsFilterPageState extends State<SmsFilterPage> {
     });
 
     try {
-      final service = Provider.of<SmsService>(context, listen: false);
+      final service = ref.read(smsServiceProvider);
       final rules = await service.getAll();
 
       setState(() {
@@ -157,8 +159,7 @@ class _SmsFilterPageState extends State<SmsFilterPage> {
                 }
 
                 try {
-                  final service =
-                      Provider.of<SmsService>(context, listen: false);
+                  final service = ref.read(smsServiceProvider);
 
                   // 验证正则表达式
                   if (!service
@@ -231,7 +232,7 @@ class _SmsFilterPageState extends State<SmsFilterPage> {
 
   Future<void> _toggleRule(String ruleId, bool isEnabled) async {
     try {
-      final service = Provider.of<SmsService>(context, listen: false);
+      final service = ref.read(smsServiceProvider);
       final rule = _smsRules.firstWhere((r) => r.id == ruleId);
       final updatedRule = SmsRegexRule(
         id: rule.id,
@@ -283,7 +284,7 @@ class _SmsFilterPageState extends State<SmsFilterPage> {
 
     if (confirmed == true) {
       try {
-        final service = Provider.of<SmsService>(context, listen: false);
+        final service = ref.read(smsServiceProvider);
         final rule = _smsRules.firstWhere((r) => r.id == ruleId);
         await service.delete(rule);
         await _loadRules();

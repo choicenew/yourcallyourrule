@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
@@ -9,17 +9,18 @@ import 'package:yourcallyourrule/features/common/widgets/generic_rule_page.dart'
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
+import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 重构后的正则规则管理页面
 /// 使用通用的GenericRulePage组件减少重复代码
-class RegexRulePage extends StatelessWidget {
+class RegexRulePage extends ConsumerWidget {
   const RegexRulePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final regexService = Provider.of<RegexService>(context, listen: false);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final regexService = ref.read(regexServiceProvider);
 
     // 创建导入导出组件
     final importExportComponent =
@@ -37,6 +38,7 @@ class RegexRulePage extends StatelessWidget {
     );
 
     return GenericRulePage<RegexRule, RegexService>(
+      serviceProvider: regexServiceProvider,
       title: AppLocalizations.of(context)!.regexRuleManagement,
       themeColor: const Color(0xFFF5A623),
       emptyText: AppLocalizations.of(context)!.regexRule,

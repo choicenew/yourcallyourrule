@@ -121,4 +121,10 @@ class SmsSubscriptionService
     final all = await _repository.getAll();
     return all.where((s) => s.isEnabled).toList();
   }
+  
+  /// 保存订阅
+  @override
+  Future<SmsSubscription> save(SmsSubscription subscription) async {
+    return await _repository.save(subscription);
+  }
 }

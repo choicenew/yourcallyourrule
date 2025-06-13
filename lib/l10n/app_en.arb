@@ -92,63 +92,63 @@
   "importFailure": "Failed to import configuration",
   "exportSuccesslly": "Configuration exported successfully",
   "exportFailure": "Failed to export configuration",
- "axisPosition": "{axis} Position",
-"regexErrorMessage": "Regex error: {error}",
-"addToRules": "Add to Rules",
-"addToAllowedRules": "Add to Allowed Rules",
-"addToBlockedRules": "Add to Blocked Rules",
-"addToWhitelist": "Add to Whitelist",
-"addToBlacklist": "Add to Blacklist",
-"addedToAllowedRules": "Added to Allowed Rules",
-"addedToBlockedRules": "Added to Blocked Rules",
-"addedToWhitelist": "Added to Whitelist",
-"addedToBlacklist": "Added to Blacklist",
-"addRuleFailed": "Failed to add rule",
-"enterBothPhoneNumberAndRegexPatternMessage": "Please enter both phone number and regex pattern",
-"enterRuleNameAndPatternMessage": "Please enter rule name and pattern",
-"ruleSavedSuccessMessage": "Rule saved successfully!",
-"ruleSaveFailedMessage": "Save failed: {error}",
-"regexTesterTitle": "Regex Tester",
-"enterPhoneNumberHint": "Enter phone number to test",
-"enterRegexHint": "Enter regular expression",
-"enterRuleNameHint": "Enter name for this rule",
-"testButtonText": "TEST",
-"saveButtonText": "SAVE",
-"startColor": "Start Color",
-"endColor": "End Color",
-"height": "Height",
-"width": "Width",
-"labelIconColor": "Label Icon Color",
-"locationIconColor": "Location Icon Color",
-"callTypeIconColor": "Call Type Icon Color",
-"avatarBorderColor": "Avatar Border Color",
-"nameColor": "Name Color",
-"numberColor": "Number Color",
-"locationColor": "Location Color",
-"carrierColor": "Carrier Color",
-"countryNameColor": "Country Name Color",
-"labelsColor": "Labels Color",
-"countColor": "Count Color",
-"numberTypeColor": "Number Type Color",
-"stirColor": "STIR Color",
-"simCardColor": "SIM Card Color",
-"nameFontSize": "Name Font Size",
-"carrierFontSize": "Carrier Font Size",
-"countryNameFontSize": "Country Name Font Size",
-"labelsFontSize": "Labels Font Size",
-"countFontSize": "Count Font Size",
-"numberTypeFontSize": "Number Type Font Size",
-"numberFontSize": "Number Font Size",
-"locationFontSize": "Location Font Size",
-"stirFontSize": "STIR Font Size",
-"simCardFontSize": "SIM Card Font Size",
-"labelsPosition": "Labels Position",
-"countPosition": "Count Position",
-"subscriptionManagementTitle": "Subscription Management",
-"subscriptionEmptyState": "No subscriptions available",
-"subscriptionLoadFailed": "Failed to load subscriptions: {error}",
-"subscriptionToggleFailed": "Failed to toggle subscription status: {error}",
-"contactsPageTitle": "Contacts Management",
+  "axisPosition": "{axis} Position",
+  "regexErrorMessage": "Regex error: {error}",
+  "addToRules": "Add to Rules",
+  "addToAllowedRules": "Add to Allowed Rules",
+  "addToBlockedRules": "Add to Blocked Rules",
+  "addToWhitelist": "Add to Whitelist",
+  "addToBlacklist": "Add to Blacklist",
+  "addedToAllowedRules": "Added to Allowed Rules",
+  "addedToBlockedRules": "Added to Blocked Rules",
+  "addedToWhitelist": "Added to Whitelist",
+  "addedToBlacklist": "Added to Blacklist",
+  "addRuleFailed": "Failed to add rule",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Please enter both phone number and regex pattern",
+  "enterRuleNameAndPatternMessage": "Please enter rule name and pattern",
+  "ruleSavedSuccessMessage": "Rule saved successfully!",
+  "ruleSaveFailedMessage": "Save failed: {error}",
+  "regexTesterTitle": "Regex Tester",
+  "enterPhoneNumberHint": "Enter phone number to test",
+  "enterRegexHint": "Enter regular expression",
+  "enterRuleNameHint": "Enter name for this rule",
+  "testButtonText": "TEST",
+  "saveButtonText": "SAVE",
+  "startColor": "Start Color",
+  "endColor": "End Color",
+  "height": "Height",
+  "width": "Width",
+  "labelIconColor": "Label Icon Color",
+  "locationIconColor": "Location Icon Color",
+  "callTypeIconColor": "Call Type Icon Color",
+  "avatarBorderColor": "Avatar Border Color",
+  "nameColor": "Name Color",
+  "numberColor": "Number Color",
+  "locationColor": "Location Color",
+  "carrierColor": "Carrier Color",
+  "countryNameColor": "Country Name Color",
+  "labelsColor": "Labels Color",
+  "countColor": "Count Color",
+  "numberTypeColor": "Number Type Color",
+  "stirColor": "STIR Color",
+  "simCardColor": "SIM Card Color",
+  "nameFontSize": "Name Font Size",
+  "carrierFontSize": "Carrier Font Size",
+  "countryNameFontSize": "Country Name Font Size",
+  "labelsFontSize": "Labels Font Size",
+  "countFontSize": "Count Font Size",
+  "numberTypeFontSize": "Number Type Font Size",
+  "numberFontSize": "Number Font Size",
+  "locationFontSize": "Location Font Size",
+  "stirFontSize": "STIR Font Size",
+  "simCardFontSize": "SIM Card Font Size",
+  "labelsPosition": "Labels Position",
+  "countPosition": "Count Position",
+  "subscriptionManagementTitle": "Subscription Management",
+  "subscriptionEmptyState": "No subscriptions available",
+  "subscriptionLoadFailed": "Failed to load subscriptions: {error}",
+  "subscriptionToggleFailed": "Failed to toggle subscription status: {error}",
+  "contactsPageTitle": "Contacts Management",
   "manageContacts": "Manage",
   "favoriteContacts": "Favorite Contacts",
   "deleteContact": "Delete Contact",
@@ -239,39 +239,39 @@
   "deleteSubscription": "Delete Subscription",
   "confirmDeleteSubscription": "Are you sure you want to delete this subscription?",
   "subscriptionDeletedSuccessfully": "Subscription deleted successfully",
-  "syncing": "Syncing...",
-  "syncSuccessful": "Sync successful",
-  "syncFailed": "Sync failed: {error}",
+
+
+
   "enableSubscriptionSuccessfully": "Subscription enabled successfully",
   "disableSubscriptionSuccessfully": "Subscription disabled successfully",
   "failedToToggleSubscriptionStatus": "Failed to toggle subscription status: {error}",
-    "smsRuleSubscription": "SMS Rule Subscription",
-    "noSubscriptionsYet": "No Subscriptions Yet",
-    "aboutSmsSubscriptionRules": "About SMS Subscription Rules",
-    "smsSubscriptionRulesDescription": "Subscribe to SMS rule lists via URL, supporting regular expression matching. You can set block or allow actions.",
-    "blockRule": "Block Rule",
-    "allowRule": "Allow Rule",
-    "pendingSync": "Pending Sync",
-    "lastUpdated": "Last Updated",
-    "syncNow": "Sync Now",
-    "delete": "Delete",
-    "addSmsSubscription": "Add SMS Subscription",
-    "subscriptionName": "Subscription Name",
-    "subscriptionNameHint": "Enter subscription name",
-    "subscriptionUrl": "Subscription URL",
-    "subscriptionUrlHint": "Enter subscription URL",
-    "subscriptionNameAndUrlCannotBeEmpty": "Subscription name and URL cannot be empty",
-    "failedToAddSmsSubscription": "Failed to add SMS subscription: {error}",
-    "smsSubscriptionAddedSuccessfully": "SMS subscription added successfully",
-    "deleteSubscription": "Delete Subscription",
-    "confirmDeleteSubscription": "Are you sure you want to delete this subscription?",
-    "subscriptionDeletedSuccessfully": "Subscription deleted successfully",
-    "syncing": "Syncing...",
-    "syncSuccessful": "Sync successful",
-    "syncFailed": "Sync failed",
-    "enableSubscriptionSuccessfully": "Enable subscription successfully",
-    "disableSubscriptionSuccessfully": "Disable subscription successfully",
-    "failedToToggleSubscriptionStatus": "Failed to toggle subscription status",
+  "smsRuleSubscription": "SMS Rule Subscription",
+  "noSubscriptionsYet": "No Subscriptions Yet",
+  "aboutSmsSubscriptionRules": "About SMS Subscription Rules",
+  "smsSubscriptionRulesDescription": "Subscribe to SMS rule lists via URL, supporting regular expression matching. You can set block or allow actions.",
+  "blockRule": "Block Rule",
+  "allowRule": "Allow Rule",
+  "pendingSync": "Pending Sync",
+  "lastUpdated": "Last Updated",
+
+  "delete": "Delete",
+  "addSmsSubscription": "Add SMS Subscription",
+  "subscriptionName": "Subscription Name",
+  "subscriptionNameHint": "Enter subscription name",
+  "subscriptionUrl": "Subscription URL",
+  "subscriptionUrlHint": "Enter subscription URL",
+  "subscriptionNameAndUrlCannotBeEmpty": "Subscription name and URL cannot be empty",
+  "failedToAddSmsSubscription": "Failed to add SMS subscription: {error}",
+  "smsSubscriptionAddedSuccessfully": "SMS subscription added successfully",
+  "deleteSubscription": "Delete Subscription",
+  "confirmDeleteSubscription": "Are you sure you want to delete this subscription?",
+  "subscriptionDeletedSuccessfully": "Subscription deleted successfully",
+  "syncing": "Syncing...",
+  "syncSuccessful": "Sync successful",
+  "syncFailed": "Sync failed",
+  "enableSubscriptionSuccessfully": "Enable subscription successfully",
+  "disableSubscriptionSuccessfully": "Disable subscription successfully",
+  "failedToToggleSubscriptionStatus": "Failed to toggle subscription status",
   "failedToDeleteSmsRule": "Failed to delete SMS rule: {error}",
   "smsRulesImportedSuccessfully": "SMS rules imported successfully",
   "failedToImportSmsRules": "Failed to import SMS rules: {error}",
@@ -290,23 +290,16 @@
   "failedToToggleRuleStatus": "Failed to toggle rule status: {error}",
   "editRule": "Edit Rule",
   "deleteRule": "Delete Rule",
-
   "successfullyImportedRules": "Successfully imported {count} rules",
   "failedToExportRules": "Failed to export rules: {error}",
   "failedToImportRules": "Failed to import rules: {error}",
   "failedToAddRule": "Failed to add rule: {error}",
   "exportSmsRules": "Export SMS Rules",
-
   "rulesExportedSuccessfully": "Rules exported successfully",
-
   "confirmDeleteSmsRule": "Are you sure you want to delete this SMS rule?",
-
-
   "noValidSmsRulesFoundInFile": "No valid SMS rules found in file",
-
   "exampleSenderRegexHint": "Example",
   "exampleContentRegexHint": "Example Content Regex",
-
   "noContactsYet": "No contacts yet",
   "noMatchingContactsFound": "No matching contacts found",
   "addContactButton": "Add Contact",
@@ -345,7 +338,6 @@
   "googleAdDisplayPosition": "Google Ad Display Position",
   "googleAdMobIntegrationText": "Google AdMob ads can be integrated here",
   "ruleStatistics": "Rule Statistics",
-
   "blockCalls": "Block Calls",
   "filterSMS": "Filter SMS",
   "allowRules": "Allow Rules",
@@ -361,49 +353,48 @@
   "appName": "Your Call Your Rule",
   "initializing": "Initializing...",
   "loading": "Loading...",
-"contactSubscriptionPageTitle": "Contact Subscriptions",
-"contactSubscriptionLoadingFailed": "Failed to load contact subscriptions: {error}",
-"subscriptionPageTitle": "Subscription Management",
-"subscriptionEmptyText": "No subscriptions yet",
-"subscriptionLoadingFailed": "Failed to load subscriptions: {error}",
-"homeTab": "Home",
-"callHistoryTab": "Call History",
-"contactsTab": "Contacts",
-"dashboardTab": "Dashboard",
-"settingsTab": "Settings",
-"numberTypePosition": "Number Type Position",
-"numberPosition": "Number Position",
-"locationPosition": "Location Position",
-"stirPosition": "STIR Position",
-"simCardPosition": "SIM Card Position",
-"callTypePosition": "Call Type Position",
-"avatarSize": "Avatar Size",
-"avatarBorderSize": "Avatar Border Size",
-"iconSize": "Icon Size",
-"avatarPosition": "Avatar Position",
-"namePosition": "Name Position",
-"carrierPosition": "Carrier Position",
-"countryRegionNamePosition": "Country/Region Name Position",
- "colorPickerTitle": "Choose Color",
- 
- "enableTimeInterceptor": "Enable Time Interceptor",
- "timeInterceptorDescription": "Automatically intercept potential spam calls based on call frequency",
-"timeInterceptorTitle": "Enable Call Frequency Interception",
-"timeInterceptorSubtitle": "Automatically intercept potential spam calls based on call frequency",
-"timeWindowSetting": "Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted",
-"timeInterceptorExplanationTitle": "Call Frequency Interception Explanation",
-"timeInterceptorExplanationContent": "The call frequency interception feature analyzes call frequency to automatically identify and intercept frequent spam calls.",
-"howItWorksTitle": "How It Works:",
-"howItWorksPoint1": "• The system will automatically intercept calls from the same number within the set time window",
-"howItWorksPoint2": "• Shorter time windows result in stricter interception; longer time windows result in looser interception",
-"howItWorksPoint3": "• The system checks call logs to determine if it's a repeated call",
-"useCasesTitle": "Use Cases:",
-"useCasesPoint1": "• Identify auto-redial spam calls",
-"useCasesPoint2": "• Intercept marketing calls that call multiple times in a short period",
-"useCasesPoint3": "• Prevent phone bombing and harassment",
-"differentFromLocalCounter": "This feature is different from the local counter filter, as it focuses on repeated call patterns in a short time rather than long-term marking counts.",
- "timeWindowLabel": "Interception Time Window (minutes): {minutes}",
-"@timeWindowLabel": {
+  "contactSubscriptionPageTitle": "Contact Subscriptions",
+  "contactSubscriptionLoadingFailed": "Failed to load contact subscriptions: {error}",
+  "subscriptionPageTitle": "Subscription Management",
+  "subscriptionEmptyText": "No subscriptions yet",
+  "subscriptionLoadingFailed": "Failed to load subscriptions: {error}",
+  "homeTab": "Home",
+  "callHistoryTab": "Call History",
+  "contactsTab": "Contacts",
+  "dashboardTab": "Dashboard",
+  "settingsTab": "Settings",
+  "numberTypePosition": "Number Type Position",
+  "numberPosition": "Number Position",
+  "locationPosition": "Location Position",
+  "stirPosition": "STIR Position",
+  "simCardPosition": "SIM Card Position",
+  "callTypePosition": "Call Type Position",
+  "avatarSize": "Avatar Size",
+  "avatarBorderSize": "Avatar Border Size",
+  "iconSize": "Icon Size",
+  "avatarPosition": "Avatar Position",
+  "namePosition": "Name Position",
+  "carrierPosition": "Carrier Position",
+  "countryRegionNamePosition": "Country/Region Name Position",
+  "colorPickerTitle": "Choose Color",
+  "enableTimeInterceptor": "Enable Time Interceptor",
+  "timeInterceptorDescription": "Automatically intercept potential spam calls based on call frequency",
+  "timeInterceptorTitle": "Enable Call Frequency Interception",
+  "timeInterceptorSubtitle": "Automatically intercept potential spam calls based on call frequency",
+  "timeWindowSetting": "Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted",
+  "timeInterceptorExplanationTitle": "Call Frequency Interception Explanation",
+  "timeInterceptorExplanationContent": "The call frequency interception feature analyzes call frequency to automatically identify and intercept frequent spam calls.",
+  "howItWorksTitle": "How It Works:",
+  "howItWorksPoint1": "• The system will automatically intercept calls from the same number within the set time window",
+  "howItWorksPoint2": "• Shorter time windows result in stricter interception; longer time windows result in looser interception",
+  "howItWorksPoint3": "• The system checks call logs to determine if it's a repeated call",
+  "useCasesTitle": "Use Cases:",
+  "useCasesPoint1": "• Identify auto-redial spam calls",
+  "useCasesPoint2": "• Intercept marketing calls that call multiple times in a short period",
+  "useCasesPoint3": "• Prevent phone bombing and harassment",
+  "differentFromLocalCounter": "This feature is different from the local counter filter, as it focuses on repeated call patterns in a short time rather than long-term marking counts.",
+  "timeWindowLabel": "Interception Time Window (minutes): {minutes}",
+  "@timeWindowLabel": {
     "description": "Time window label with duration in minutes",
     "placeholders": {
       "minutes": {
@@ -411,9 +402,8 @@
       }
     }
   },
- "timeWindowDescription": "Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted",
-
-"about": "About",
+  "timeWindowDescription": "Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted",
+  "about": "About",
   "callerIdApp": "Caller ID App",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "This app is a powerful caller ID tool that allows you to identify and block unwanted calls.",
   "features": "Features",
@@ -428,12 +418,10 @@
   "email": "Email",
   "import": "Import",
   "export": "Export",
- 
   "failure": "Failure",
   "phoneRuleSubscription": "Phone Rule Subscription",
- "aboutPhoneSubscriptionRules": "About Phone Subscription Rules",
-
- "phoneSubscriptionRulesDescription" : "Subscribe to phone rule lists via URL to automatically update whitelist and blacklist rules. Supports JSON format rule files.",
+  "aboutPhoneSubscriptionRules": "About Phone Subscription Rules",
+  "phoneSubscriptionRulesDescription": "Subscribe to phone rule lists via URL to automatically update whitelist and blacklist rules. Supports JSON format rule files.",
   "ruleAction": "Rule Action",
   "selectActionToPerform": "Select the action to perform when the rule matches",
   "allow": "Allow",
@@ -453,10 +441,10 @@
   "examplePhoneNumber": "e.g. 10086, 12345, etc.",
   "cancel": "Cancel",
   "save": "Save",
-   "endCallImmediately": "End Call Immediately",
-   "answerThenHangUp": "Answer Then Hang Up",
-   "silenceNoAnswer": "Silence No Answer",
-   "unknownAction": "Unknown Action",
+  "endCallImmediately": "End Call Immediately",
+  "answerThenHangUp": "Answer Then Hang Up",
+  "silenceNoAnswer": "Silence No Answer",
+  "unknownAction": "Unknown Action",
   "contactEditDialog": "Contact Edit Dialog",
   "addOrEditContactInfo": "Used to add or edit contact information",
   "showContactEditDialogStaticMethod": "Static method to display contact edit dialog",
@@ -473,7 +461,6 @@
   "addContact": "Add Contact",
   "contactUpdateSuccess": "Contact updated successfully",
   "contactAddSuccess": "Contact added successfully",
-
   "countrySelectionDialog": "Country Selection Dialog",
   "smsRuleLoadFailed": "Failed to load SMS rules: {error}",
   "addSmsFilterRule": "Add SMS Filter Rule",
@@ -539,24 +526,18 @@
   "numberSearch": "Number Search",
   "enterPhoneNumberToStartSearch": "Enter phone number to start search",
   "loadRulesFailed": "Failed to load rules: {error}",
-  
   "countrySelectionDialogDescription": "Used to select a country to query caller ID information",
   "staticMethodToDisplayCountrySelectionDialog": "Static method to display country selection dialog",
   "selectCountry": "Select Country",
-
   "phoneRuleEditDialog": "Phone Rule Edit Dialog",
   "editPhoneRules": "Used to edit phone rules",
   "staticMethodToDisplayDialog": "Static method to display dialog",
   "editPhoneRule": "Edit Phone Rule",
   "editPhoneRuleTitle": "Edit Phone Rule",
-
   "pleaseSelectLabelAndEnterValidPhone": "Please select a label and enter a valid phone number",
   "labelUpdateSuccess": "Label \"$labelText\" updated successfully",
-
-
   "selectActionWhenRuleMatches": "Select action when rule matches",
   "selectActionWhenBlockingCalls": "Select action when blocking calls",
-
   "phoneNumberTypeFixedLine": "Fixed line",
   "phoneNumberTypeMobile": "Mobile",
   "phoneNumberTypeFixedLineOrMobile": "Fixed line or mobile",
@@ -569,21 +550,17 @@
   "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeVoicemail": "Voicemail",
   "phoneNumberTypeUnknown": "Unknown",
- 
   "contactsManagement": "Contacts Management",
   "manage": "Manage Contacts",
- 
   "testButtonLabel": "TEST",
   "saveButtonLabel": "SAVE",
   "matchSuccessfulMessage": "Match successful!",
   "matchFailedMessage": "Match Failed!",
-  
   "ruleSaveSuccess": "Rule saved successfully!",
   "ruleSaveFailed": "Save failed: {error}",
   "ruleNamePatternRequired": "Please enter rule name and pattern",
   "phoneNumberRegexRequired": "Please enter both phone number and regex pattern",
   "callFilterSettings": "Call Filter Settings",
-
   "fraudScamLikely": "Fraud/Scam Likely",
   "spamLikely": "Spam Likely",
   "telemarketing": "Telemarketing",
@@ -607,15 +584,11 @@
   "risk": "Risk",
   "confirmDeleteContactName": "Confirm delete?",
   "updateFavoriteStatus": "Update Favorite Status",
-
   "bulkDelete": "Batch Delete Contacts",
-"tagsUpdated": "Tags updated",
+  "tagsUpdated": "Tags updated",
   "updateTags": "Update Tags",
-
   "selectTags": "Select Tags",
-
   "bulkDeleteContacts": "Batch Delete Contacts",
-
   "confirmDeleteSelectedContacts": "Are you sure to delete selected contacts?",
   "enhancedFilterSettings": "Enhanced Filter Settings",
   "simSlotManagement": "SIM Slot Management",
@@ -632,15 +605,10 @@
   "fontSizesSetting": "Font Sizes",
   "avatarIconSizesSetting": "Avatar & Icon Sizes",
   "elementPositionsSetting": "Element Positions",
-
-
-
-
   "enhancedFilterSettingsTitle": "Enhanced Filter Settings",
   "globalFilterDescription": "Configure global filters for all SIM cards:",
   "localCounterFilter": "Local Counter Filter",
   "localCounterFilterSubtitle": "Automatically filter spam calls based on call frequency",
-
   "remoteNumberFilterSubtitle": "Identify spam calls using cloud database and community reports",
   "basicRuleFilter": "Basic Rule Filter",
   "basicRuleFilterSubtitle": "Filter calls using blacklist/whitelist and regular expressions",
@@ -651,7 +619,6 @@
   "settings": "Settings",
   "callBlocking": "Call Blocking",
   "blockedSpamCalls": "Blocked Spam Calls",
- 
   "simCardFilterRules": "SIM Card Filter Rules",
   "simCardFilterRulesDescription": "Set different filtering rules based on SIM card slots",
   "localCountFilter": "Local Count Filter",
@@ -660,8 +627,6 @@
   "remoteNumberFilterDescription": "Intercept harassing calls based on remote database information",
   "callFilterRules": "Call Filter Rules",
   "callFilterRulesDescription": "Set basic rules for call filtering",
-  
-  
   "ruleManagement": "Rule Management",
   "createdRules": "Created Rules",
   "callStatistics": "Call Statistics",
@@ -675,8 +640,6 @@
   "enterPhoneNumberToVerify": "Enter phone number to verify",
   "verify": "Verify",
   "featureCenter": "Feature Center",
- 
- 
   "allowBlock": "Allow/Block",
   "blackWhiteList": "Black/White List",
   "regexRules": "Regex Rules",
@@ -692,8 +655,6 @@
   "simSlotTitle": "SIM Slot {slotNumber}",
   "ruleDeletedSuccess": "Rule deleted successfully",
   "ruleAddedSuccess": "Rule added successfully",
- 
- 
   "addRuleButton": "Add Rule",
   "simSlotRuleManagementTitle": "Rule Management",
   "globalFilterSettings": "Global Filter Settings",
@@ -724,8 +685,6 @@
     }
   },
   "unknownTag": "Tag: Unknown",
- 
- 
   "regexPatternLabel": "Regex Pattern",
   "ruleNameLabel": "Rule Name",
   "testButton": "TEST",
@@ -742,8 +701,6 @@
   "contactNameLabel": "Name",
   "contactNameHint": "Enter contact name (optional)",
   "addSimRuleButton": "Add SIM Rule",
-  
-  
   "serviceTypePhone": "Phone Subscription",
   "serviceTypeSms": "SMS Subscription",
   "serviceTypeContact": "Contact Subscription",
@@ -838,13 +795,9 @@
   "allowAllowedNumbersDesc": "Allow calls from allowlist",
   "allowBlockedNumbers": "Allow Blocked Numbers",
   "allowBlockedNumbersDesc": "Allow calls from blocklist",
-  
   "allowRegexAllowRulesDesc": "Enable regex pattern matching for allow rules",
- 
- 
   "allowAllAllowRules": "Allow All Allow Rules",
   "allowAllAllowRulesDesc": "Allow calls from allow rules",
- 
   "allowRegexBlockRulesDesc": "Enable regex pattern matching for block rules",
   "enableMuteRules": "Enable Mute Rules",
   "enableMuteRulesDesc": "Apply mute interception rules configuration",
@@ -880,15 +833,10 @@
       "error": {}
     }
   },
-  
   "addName": "Add Name",
-
   "enterName": "Enter contact name",
-  
   "dataLoadFailure": "Data load failed: {error}",
   "filterToggleStatus": "{status} filter: {filterName}",
- 
- 
   "ruleAddFailure": "Failed to add rule: {error}",
   "ruleDeleteFailure": "Failed to delete rule: {error}",
   "simSlotPosition": "SIM Slot Position {slotNumber}",
@@ -929,24 +877,18 @@
       "error": {}
     }
   },
-  
   "selectedDateRange": "Selected date range",
   "notificationSettings": "Notification Settings",
   "dailyStatistics": "Daily Statistics",
   "dailyStatisticsDesc": "Receive daily statistics about blocked calls and messages",
   "weeklyReport": "Weekly Report",
   "weeklyReportDesc": "Receive weekly summary report of call blocking activity",
-  
-  
   "phoneSubscriptionTitle": "Phone Rule Subscriptions",
   "loadSubscriptionsFailed": "Failed to load subscriptions: {error}",
   "changeSubscriptionStatusFailed": "Failed to change subscription status: {error}",
-  
   "updateSubscriptionFailed": "Failed to update subscription: {error}",
   "deleteSubscription": "Delete Subscription",
   "deleteSubscriptionConfirm": "Are you sure you want to delete subscription \"{name}\"?",
-  
-  
   "subscriptionDeleted": "Subscription deleted",
   "deleteSubscriptionFailed": "Failed to delete subscription: {error}",
   "addAllowSubscription": "Add Allow Subscription",
@@ -958,7 +900,6 @@
   "subscriptionUrl": "Subscription URL",
   "enterSubscriptionUrl": "Enter subscription URL",
   "enterValidNameAndUrl": "Please enter valid name and URL",
- 
   "subscriptionAddSuccess": "Subscription \"{name}\" added successfully",
   "addSubscriptionFailed": "Failed to add subscription: {error}",
   "noSubscriptions": "No subscriptions",
@@ -971,8 +912,7 @@
   "blacklist": "Blacklist",
   "synchronized": "Synchronized",
   "lastUpdated": "Last updated: {date}",
-  "syncNow": "Sync Now",
-  
+
   "@selectedDateRange": {
     "description": "Selected date range text"
   },
@@ -1011,9 +951,7 @@
   },
   "@subscriptionUpdateSuccess": {
     "description": "Subscription update success message",
-    "placeholders": {
-    
-    }
+    "placeholders": {}
   },
   "@updateSubscriptionFailed": {
     "description": "Failed to update subscription error message",
@@ -1051,7 +989,6 @@
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
@@ -1130,13 +1067,10 @@
       }
     }
   },
-
-
   "addLabelToCall": "Add Label to Call Record",
   "currentLabels": "Current Labels:",
   "expandLabelSelector": "Expand Label Selector",
   "collapseLabelSelector": "Collapse Label Selector",
- 
   "labelRemoved": "Label removed",
   "labelRemoveFailed": "Failed to remove label: {error}",
   "@labelRemoveFailed": {
@@ -1145,7 +1079,6 @@
       "error": {}
     }
   },
- 
   "labelUpdateFailed": "Failed to update label: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -1153,7 +1086,6 @@
       "error": {}
     }
   },
-  
   "callback": "Call Back",
   "callbackTo": "Call back to {number}",
   "@callbackTo": {
@@ -1164,23 +1096,19 @@
       }
     }
   },
-  
   "chartToday": "Today",
   "chartOneDayAgo": "1 day ago",
   "chartThreeDaysAgo": "3 days ago",
   "chartOneWeekAgo": "1 week ago",
-  
   "allCallsTab": "All",
   "phoneCallsTab": "Phone",
   "smsTab": "SMS",
   "weeklyBlockedCallsSummary": "Weekly Blocked Calls Summary",
   "monthlyTotalLabel": "Monthly Total",
- 
   "blockedPhoneLabel": "Blocked Calls",
   "filteredSmsLabel": "Filtered SMS",
   "whitelistLabel": "Whitelist",
   "blacklistLabel": "Blacklist",
- 
   "periodWeek": "Week",
   "periodMonth": "Month",
   "periodYear": "Year",
@@ -1201,18 +1129,6 @@
       }
     }
   },
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   "defaultPeriod": "Week",
   "selectSimSlot": "Select SIM Slot",
   "basicRuleFilterSettings": "Basic Rule Filter Settings",
@@ -1262,7 +1178,6 @@
   "noMatchingRules": "No matching {ruleType}",
   "noRules": "No {ruleType} yet",
   "clearLabelFilterButton": "Clear Label Filter",
-  
   "subscriptionManagementTitle": "Subscription Management",
   "subscriptionLoadFailed": "Failed to load subscriptions: {error}",
   "subscriptionStatusChangeFailed": "Failed to change subscription status: {error}",
@@ -1278,7 +1193,6 @@
   "subscriptionDeleteFailed": "Failed to delete subscription: {error}",
   "addSubscriptionTooltip": "Add Subscription",
   "addSubscriptionButton": "Add Subscription",
- 
   "nameUnknown": "Name: Unknown",
   "nameWithValue": "Name: {name}",
   "@nameWithValue": {
@@ -1323,12 +1237,6 @@
       }
     }
   },
-
- 
- 
- 
- 
-
   "@selectSimSlot": {
     "description": "Title for SIM slot selection dialog"
   },
@@ -1358,10 +1266,10 @@
   "editContact": "Edit Contact",
   "addContact": "Add Contact",
   "save": "Save",
-   "endCallImmediately": "End Call Immediately",
-   "answerThenHangUp": "Answer Then Hang Up",
-   "silenceNoAnswer": "Silence No Answer",
-   "unknownAction": "Unknown Action",
+  "endCallImmediately": "End Call Immediately",
+  "answerThenHangUp": "Answer Then Hang Up",
+  "silenceNoAnswer": "Silence No Answer",
+  "unknownAction": "Unknown Action",
   "callerIdDialogTitle": "Caller ID Information",
   "staticMethodShowCallerIdDialog": "Static method to show the Caller ID Information Dialog",
   "fetchingCallerIdInfo": "Fetching caller ID information...",
@@ -1532,7 +1440,6 @@
   "save": "Save",
   "currentLanguage": "Current Language",
   "selectLanguage": "Select Language",
-  
   "localCountFilterSettings": "Local Count Filter Settings",
   "saveSettings": "Save Settings",
   "settingsSaved": "Settings saved",
@@ -1644,30 +1551,25 @@
   "enableGlobalPlugins": "Enable global plugins",
   "disableGlobalPlugins": "Disable global plugins",
   "selectAll": "Select All",
-
   "remoteFilterSettingsPageTitle": "Remote Number Filter Settings",
   "saveSettings": "Save Settings",
   "settingsLoaded": "Settings loaded",
   "loadSettingsFailed": "Failed to load settings: {error}",
   "settingsSaved": "Settings saved",
   "saveSettingsFailed": "Failed to save settings: {error}",
-  
   "enableRemoteNumberFilter": "Enable Remote Number Filter",
   "enableRemoteNumberFilterDescription": "Use remote database to filter numbers",
   "countThresholdSettings": "Count Threshold Settings",
   "countThresholdValue": "Count Threshold: {count}",
   "countThresholdDescription": "Set the minimum count threshold required to trigger filtering actions",
-  
   "rejectExceededNumbers": "Reject Exceeded Numbers",
   "rejectExceededNumbersDescription": "Automatically reject numbers exceeding the count threshold",
   "allowNonExceededNumbers": "Allow Non-Exceeded Numbers",
   "allowNonExceededNumbersDescription": "Automatically allow numbers not exceeding the count threshold",
-  
   "prioritizeRemoteAction": "Prioritize Remote Action Settings",
   "prioritizeRemoteActionDescription": "Prioritize action settings from the remote database",
   "logAllRemoteQueries": "Log All Remote Queries",
   "logAllRemoteQueriesDescription": "Record all remote number query operations",
-  
   "remoteNumberFilterExplanationTitle": "Remote Number Filter Explanation",
   "remoteNumberFilterExplanationContent": "The remote number filter identifies and blocks spam calls by querying a remote database based on number count.",
   "remoteNumberFilterFeatures": "Features:",
@@ -1675,16 +1577,13 @@
   "remoteNumberFilterFeatureFilterAction": "• Filter Actions: Configure how to handle numbers exceeding threshold",
   "remoteNumberFilterFeaturePriority": "• Priority Settings: Set priority for remote actions",
   "remoteNumberFilterDatabaseInfo": "This filter uses an independent remote database to get the latest number information.",
-  
   "notifications": "Notifications",
   "notificationSettings": "Notification Settings",
   "enableNotifications": "Enable Notifications",
-  
- "incomingCallNotification": "Incoming Call Notification",
-  "enableStatisticsNotifications" : "Enable Statistics Notifications",
+  "incomingCallNotification": "Incoming Call Notification",
+  "enableStatisticsNotifications": "Enable Statistics Notifications",
   "receiveWeeklyStatistics": "Receive weekly statistics",
   "notificationSettingsSaved": "Notification settings saved successfully",
-
   "confirmDelete": "Confirm Delete",
   "confirmDeleteRuleMessage": "Are you sure you want to delete this rule? This action cannot be undone.",
   "cancel": "Cancel",
@@ -1722,8 +1621,6 @@
   "regexRuleManagement": "Regex Rule Management",
   "addRegexRule": "Add Regex Rule",
   "regexPattern": "Regex Pattern",
-  
-  
   "validateRegex": "Validate Regex",
   "regexValidationSuccess": "Regex validation successful",
   "regexValidationFailed": "Regex validation failed: {error}",
@@ -1731,7 +1628,6 @@
   "regexRuleAddFailed": "Failed to add regex rule: {error}",
   "regexRuleNamePatternRequired": "Rule name and regex pattern cannot be empty",
   "invalidRegexPattern": "Invalid regex pattern",
-
   "regexPatternExplanation": "Regex Pattern Explanation",
   "close": "Close",
   "regexPatternExplanationButton": "Regex Pattern Explanation",
@@ -1740,7 +1636,6 @@
   "blockInternationalCalls": "matches numbers that don't start with + or 00",
   "blockPremiumRateNumbers": "matches numbers that don't start with 118 or 120-190",
   "blockMobileNumbers": "matches numbers that don't start with 13-19",
-
   "regexPatternsForPhoneNumberMatching": "Regex Patterns for Phone Number Matching",
   "useStandardRegexSyntaxToDefinePatternsExamples": "Use standard regex syntax to define patterns. Examples:",
   "blockInternationalCallsTitle": "Block International Calls",
@@ -2016,9 +1911,6 @@
   "aboutTitle": "About",
   "aboutSubtitle": "Application version and legal information",
   "appName": "Your Call Your Rule",
-
-
-
   "appLegalese": "© 2023 Your Call Your Rule. All rights reserved.",
   "filterSettingsTitle": "Filter Settings",
   "deviceManagementTitle": "Device Management",
@@ -2110,7 +2002,6 @@
   "failedToImportRules": "Failed to import rules: {error}",
   "replaceCurrentSettingsConfirmation": "This will replace all your current settings. Are you sure you want to continue?",
   "settingsRestoredSuccessfully": "Settings restored successfully. Please restart the app for changes to take effect.",
-
   "dataMigrationDescription": "This feature allows you to transfer all your data between devices. Currently, you can use the backup and restore features to manually migrate your data.",
   "ok": "OK",
   "setEncryptionPasswordTitle": "Set Encryption Password",
@@ -2128,12 +2019,12 @@
   "pluginManagementSubtitle": "Manage and configure third-party plugins",
   "languageSettingsTitle": "Language Settings",
   "languageSettingsSubtitle": "Change application display language",
- "globalSearchTitle": "Global Search",
+  "globalSearchTitle": "Global Search",
   "searchSettingsTitle": "Search Settings",
   "searchSettingsSubtitle": "Search contacts, labels, blacklists, whitelists, etc.",
   "deviceIDLabel": "Device ID",
   "configureCloudSyncServiceMessage": "Please configure a cloud sync service to enable multi-device synchronization.",
-  "noDevicesRegisteredMessage": "No devices registered",  
+  "noDevicesRegisteredMessage": "No devices registered",
   "currentDeviceLabel": "Current Device Label",
   "deviceRenamedSuccessfullyMessage": "Device renamed successfully",
   "errorRenamingDeviceMessage": "Error renaming device: {error}",
@@ -2178,7 +2069,7 @@
   "syncWithCloudStorage": "Sync with Cloud Storage",
   "restore": "Restore",
   "importRuleConfigurationsFromFile": "Import Rule Configurations from File",
-  "restoreSettings": "Restore Settings", 
+  "restoreSettings": "Restore Settings",
   "restoreApplicationSettingsFromBackup": "Restore Application Settings from Backup",
   "dataMigration": "Data Migration",
   "errorOccurredMessage": "An error occurred: {error}",
@@ -2186,6 +2077,5 @@
   "transferDataBetweenDevicesOrPlatforms": "Transfer data between devices or platforms",
   "initializing": "Initializing",
   "setup": "Setup",
-
   "incorrectPassword": "Incorrect password"
 }
