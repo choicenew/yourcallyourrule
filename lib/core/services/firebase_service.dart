@@ -71,9 +71,9 @@ class FirebaseService {
   Future<void> _initializeAppCheck() async {
     await FirebaseAppCheck.instance.activate(
       // 使用调试提供程序进行开发，生产环境使用适当的提供程序
-      webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
+    //  webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
       androidProvider: kDebugMode ? AndroidProvider.debug : AndroidProvider.playIntegrity,
-      appleProvider: kDebugMode ? AppleProvider.debug : AppleProvider.deviceCheck,
+    //  appleProvider: kDebugMode ? AppleProvider.debug : AppleProvider.deviceCheck,
     );
   }
   

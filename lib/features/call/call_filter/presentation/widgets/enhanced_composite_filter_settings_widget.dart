@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/call_filter_settings_widget.dart';
@@ -13,7 +13,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 增强版组合过滤器设置组件
 /// 集成所有过滤器设置，提供统一的界面来管理所有过滤规则
-class EnhancedCompositeFilterSettingsWidget extends StatefulWidget {
+class EnhancedCompositeFilterSettingsWidget extends ConsumerStatefulWidget {
   final EnhancedCompositeFilterService enhancedCompositeFilterService;
   final LocalCountFilterService localCountFilterService;
   final RemoteNumberFilterService remoteNumberFilterService;
@@ -33,7 +33,7 @@ class EnhancedCompositeFilterSettingsWidget extends StatefulWidget {
   EnhancedCompositeFilterSettingsWidgetState createState() => EnhancedCompositeFilterSettingsWidgetState();
 }
 
-class EnhancedCompositeFilterSettingsWidgetState extends State<EnhancedCompositeFilterSettingsWidget> with SingleTickerProviderStateMixin {
+class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedCompositeFilterSettingsWidget> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   
   // 本地过滤器配置参数

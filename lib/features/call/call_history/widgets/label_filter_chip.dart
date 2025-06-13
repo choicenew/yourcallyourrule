@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
 
 /// 标签过滤芯片组件
 /// 显示当前选中的标签文本，并提供删除功能
-class LabelFilterChip extends StatelessWidget {
+class LabelFilterChip extends ConsumerWidget {
   final String labelId;
   final VoidCallback onDeleted;
   final Color themeColor;
@@ -18,14 +18,14 @@ class LabelFilterChip extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FutureBuilder<String>(
-            future: _getLabelText(context),
+            future: _getLabelText(context, ref),
             builder: (context, snapshot) {
               final labelText = snapshot.data ?? labelId;
               return Chip(
@@ -43,9 +43,9 @@ class LabelFilterChip extends StatelessWidget {
   }
 
   /// 根据标签ID获取标签文本
-  Future<String> _getLabelText(BuildContext context) async {
+  Future<String> _getLabelText(BuildContext context, WidgetRef ref) async {
     // 使用LabelTextUtils工具类获取标签文本
-    final labelText = await LabelTextUtils.getLabelTextById(context, labelId);
+    final labelText = await LabelTextUtils.getLabelTextById(context, ref, labelId);
     return labelText ?? labelId;
   }
 }

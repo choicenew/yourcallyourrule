@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/ad_state.dart';
 
-
-
-
-
-class GoogleAdWidget extends StatefulWidget {
+class GoogleAdWidget extends ConsumerStatefulWidget {
   final AdInfo adInfo;
-    final double? width;  // 添加 width 参数
+  final double? width;  // 添加 width 参数
   final double? height; // 添加 height 参数
   final NativeAdConfig? nativeAdConfig;
   
@@ -26,7 +22,7 @@ class GoogleAdWidget extends StatefulWidget {
   GoogleAdWidgetState createState() => GoogleAdWidgetState();
 }
 
-class GoogleAdWidgetState extends State<GoogleAdWidget> {
+class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> {
   dynamic _ad; // 存储不同类型的广告
   bool _isAdLoaded = false; // 广告是否加载完成
 
@@ -49,9 +45,9 @@ class GoogleAdWidgetState extends State<GoogleAdWidget> {
 
   // 根据广告类型创建相应的广告
   void _createAd() {
-    final adState = Provider.of<AdState>(context, listen: false);
+    final adState = ref.read(adStateProvider);
 
-    if (!adState.isAdEnabled) return; // 如果广告被禁用，不创建广告
+    if (!adState) return; // 如果广告被禁用，不创建广告
 
     switch (widget.adInfo.type) {
       case AdType.banner:
@@ -112,26 +108,6 @@ class GoogleAdWidgetState extends State<GoogleAdWidget> {
       ),
     );
   }
-
-/*
-  // 创建奖励插页式广告
-  void _createRewardedInterstitialAd() {
-    RewardedInterstitialAd.load(
-      adUnitId: widget.adInfo.adUnitId,
-      request: const AdRequest(),
-      rewardedInterstitialAdLoadCallback: RewardedInterstitialAdLoadCallback(
-        onAdLoaded: (RewardedInterstitialAd ad) {
-          _ad = ad;
-          _isAdLoaded = true;
-          setState(() {});
-        },
-        onAdFailedToLoad: (LoadAdError error) {
-          print('RewardedInterstitialAd failed to load: $error');
-        },
-      ),
-    );
-  }
-*/
 
 // 在 GoogleAdWidgetState 中修改 _createRewardedInterstitialAd() 方法
 void _createRewardedInterstitialAd() {
@@ -225,9 +201,9 @@ void _createRewardedInterstitialAd() {
 
   // 显示广告
   void _showAd() {
-    final adState = Provider.of<AdState>(context, listen: false);
+    final adState = ref.read(adStateProvider);
 
-    if (!adState.isAdEnabled) return; // 如果广告被禁用，不显示广告
+    if (!adState) return; // 如果广告被禁用，不显示广告
 
     if (_ad is InterstitialAd) {
       _ad.show();
@@ -247,33 +223,17 @@ void _createRewardedInterstitialAd() {
       _createAppOpenAd(); // 显示后重新加载
     }
   }
-/*
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<AdState>(
-      builder: (context, adState, child) {
-        // 根据广告状态决定是否显示广告
-        return Visibility(
-          visible: adState.isAdEnabled && _isAdLoaded,
-          child: _buildAdWidget(width: widget.width, height: widget.height),
-        );
-      },
-    );
-  }
-*/
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AdState>(
-      builder: (context, adState, child) {
-        // 根据广告状态决定是否显示广告
-        if (adState.isAdEnabled && _isAdLoaded) {
-          return _buildAdWidget(width: widget.width, height: widget.height);
-        } else {
-          return const SizedBox(); // 不显示广告时返回一个空的 SizedBox
-        }
-      },
-    );
+    final adState = ref.watch(adStateProvider);
+    
+    // 根据广告状态决定是否显示广告
+    if (adState && _isAdLoaded) {
+      return _buildAdWidget(width: widget.width, height: widget.height);
+    } else {
+      return const SizedBox(); // 不显示广告时返回一个空的 SizedBox
+    }
   }
 
   // 根据广告类型构建相应的广告 Widget

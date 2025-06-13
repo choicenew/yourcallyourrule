@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
+
+import 'package:yourcallyourrule/core/provider/providers/sms_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_subscription_page.dart';
@@ -10,14 +12,15 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 重构后的短信订阅页面
 /// 使用通用的GenericSubscriptionPage组件减少重复代码
-class SmsSubscriptionPage extends StatelessWidget {
+class SmsSubscriptionPage extends ConsumerWidget {
   const SmsSubscriptionPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return GenericSubscriptionPage<SmsSubscription, String, SmsSubscriptionService>(
       title: AppLocalizations.of(context)!.smsRuleSubscription,
-      emptyText: AppLocalizations.of(context)!.noSubscriptionsYet,
+      emptyText: AppLocalizations.of(context)!.noSubscriptions,
+      serviceBuilder: (context) => ref.read(smsSubscriptionServiceProvider),
       emptyIcon: Icons.sms_outlined,
       buildInfoCard: () => _buildInfoCard(context),
       buildSubscriptionCard: _buildSubscriptionCard,
@@ -137,17 +140,19 @@ class SmsSubscriptionPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Switch(
-                  value: subscription.isEnabled,
-                  onChanged: (value) async {
-                    final service = Provider.of<SmsSubscriptionService>(state.context, listen: false);
-                    if (value) {
-                      service.enableSubscription(subscription);
-                    } else {
-                      service.disableSubscription(subscription);
-                    }
-                  },
-                ),
+                Consumer(builder: (context, ref, _) {
+                  return Switch(
+                    value: subscription.isEnabled,
+                    onChanged: (value) async {
+                      final service = ref.read(smsSubscriptionServiceProvider);
+                      if (value) {
+                        service.enableSubscription(subscription);
+                      } else {
+                        service.disableSubscription(subscription);
+                      }
+                    },
+                  );
+                }),
               ],
             ),
             const SizedBox(height: 16),

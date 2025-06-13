@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:world_flags/world_flags.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -6,7 +7,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class LanguageSelectionWidget extends StatelessWidget {
   final List<Map<String, dynamic>> supportedLocales;
   final Locale currentLocale;
-  final LocaleProvider localeProvider;
+  final LocaleNotifier localeNotifier; // Riverpod 的 Notifier
   final bool showCurrentLanguage;
   final bool showSelectionList;
 
@@ -14,7 +15,7 @@ class LanguageSelectionWidget extends StatelessWidget {
     super.key,
     required this.supportedLocales,
     required this.currentLocale,
-    required this.localeProvider,
+    required this.localeNotifier,
     this.showCurrentLanguage = true,
     this.showSelectionList = true,
   });
@@ -61,7 +62,7 @@ class LanguageSelectionWidget extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      _buildFlagImage(currentLanguage['flag']),
+                      _buildFlagImage(currentLanguage['flag'] ?? ''),
                       const SizedBox(width: 12),
                       Text(
                         currentLanguage['name'],
@@ -93,22 +94,30 @@ class LanguageSelectionWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            ...supportedLocales.map((language) {
-              final isSelected =
-                  language['code'].languageCode == currentLocale.languageCode &&
-                  language['code'].countryCode == currentLocale.countryCode;
-              return _buildLanguageOption(
-                context,
-                language['name'],
-                language['flag'],
-                isSelected,
-                () {
-                  if (!isSelected) {
-                    localeProvider.updateLocale(language['code']);
-                  }
+            SizedBox(
+              height: 200.0, // Adjust height as needed
+              child: ListView.builder(
+                itemCount: supportedLocales.length,
+                itemBuilder: (context, index) {
+                  final language = supportedLocales[index];
+                  final isSelected =
+                      currentLocale.languageCode == language['code'].languageCode &&
+                      (currentLocale.countryCode == null || language['code'].countryCode == null || currentLocale.countryCode == language['code'].countryCode);
+                  return _buildLanguageOption(
+                    context,
+                    language['name'],
+                    language['flag'] ?? '',
+                    isSelected,
+                    () {
+                      if (!isSelected) {
+                        // 使用 Riverpod 的 Notifier 更新语言
+                        localeNotifier.updateLocale(language['code']);
+                      }
+                    },
+                  );
                 },
-              );
-            }),
+              ),
+            ),
           ],
         ),
       ),

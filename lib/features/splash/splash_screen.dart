@@ -1,26 +1,23 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/ad_state.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/features/onboarding/pages/onboarding_page.dart';
-import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/purchase/purchase_provider.dart';
+import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerProviderStateMixin {
   bool _isFirstLaunch = true;
   bool _isVipUser = false;
   bool _isInitialized = false;
@@ -312,12 +309,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       
       if (mounted) {
         try {
-          final purchaseProvider = Provider.of<PurchaseProvider>(
-            context, 
-            listen: false
-          );
+          final purchaseProvider = ref.read(purchaseProviderProvider);
           
-          final isVip = purchaseProvider.purchaseState.isPurchasesEnabled;
+          final isVip = ref.read(purchaseStateProvider).isPurchasesEnabled;
           
           if (mounted) {
             setState(() {

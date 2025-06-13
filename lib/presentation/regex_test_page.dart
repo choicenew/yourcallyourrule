@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
+
+import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // 重构后的正则测试页面
-class RegexTestPage extends StatefulWidget {
+class RegexTestPage extends ConsumerStatefulWidget {
   const RegexTestPage({super.key});
 
   @override
   RegexTestPageState createState() => RegexTestPageState();
 }
 
-class RegexTestPageState extends State<RegexTestPage> {
+class RegexTestPageState extends ConsumerState<RegexTestPage> {
   final _phoneNumberController = TextEditingController();
   final _regexController = TextEditingController();
   final _ruleNameController = TextEditingController();
@@ -61,7 +63,7 @@ class RegexTestPageState extends State<RegexTestPage> {
     }
 
     try {
-      final service = Provider.of<RegexService>(context, listen: false);
+      final service = ref.read(regexServiceProvider);
       service.addRegexRule(RegExPattern(
         name: ruleName,
         pattern: regexPattern,

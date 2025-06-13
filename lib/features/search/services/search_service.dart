@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -51,6 +52,7 @@ class SearchService {
   final AllowedBlockedService _allowedBlockedService;
   final RemoteNumberService _remoteNumberService;
   final BuildContext context;
+  final WidgetRef? ref;
 
   SearchService({
     required ContactService contactService,
@@ -58,12 +60,14 @@ class SearchService {
     required RuleManagementService ruleManagementService,
     required AllowedBlockedService allowedBlockedService,
     required RemoteNumberService remoteNumberService,
-    required this.context,
+    BuildContext? context,
+    this.ref,
   })  : _contactService = contactService,
         _labelService = labelService,
         _ruleManagementService = ruleManagementService,
         _allowedBlockedService = allowedBlockedService,
-        _remoteNumberService = remoteNumberService;
+        _remoteNumberService = remoteNumberService,
+        context = context ?? (throw ArgumentError('context is required'));
 
   /// 搜索电话号码
   /// 返回搜索结果列表
@@ -98,7 +102,7 @@ class SearchService {
           results.add(SearchResult(
             id: label.id,
             phoneNumber: label.phoneNumber.toString(),
-            name: await _getLabelName(label.labelId),
+            name: await _getLabelName(label.labelId, ref: ref),
             description: '标签',
             type: SearchResultType.label,
             ruleType: null,
@@ -255,9 +259,15 @@ class SearchService {
   }
 
   /// 获取标签名称
-  Future<String?> _getLabelName(String labelId) async {
+  /// 需要传入WidgetRef参数以使用LabelTextUtils.getLabelTextById
+  Future<String?> _getLabelName(String labelId, {WidgetRef? ref}) async {
     try {
-      return await LabelTextUtils.getLabelTextById(context, labelId) ?? labelId;
+      if (ref != null) {
+        // 使用LabelTextUtils获取标签文本
+        return await LabelTextUtils.getLabelTextById(context, ref, labelId);
+      }
+      // 如果没有提供ref，则返回labelId作为后备
+      return labelId;
     } catch (e) {
       return labelId;
     }

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/provider/providers/sms_filter_service_provider.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_filter_service.dart';
 
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class SmsFilterSettingsPage extends StatefulWidget {
+class SmsFilterSettingsPage extends ConsumerStatefulWidget {
   const SmsFilterSettingsPage({super.key});
 
   @override
-  State<SmsFilterSettingsPage> createState() => _SmsFilterSettingsPageState();
+  ConsumerState<SmsFilterSettingsPage> createState() => _SmsFilterSettingsPageState();
 }
 
-class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
+class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
   bool _isLoading = true;
   bool _filterEnabled = true;
   bool _useLocalNotification = true;
@@ -30,7 +31,7 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
     });
 
     try {
-      final smsFilterService = Provider.of<SmsFilterService>(context, listen: false);
+      final smsFilterService = ref.read(smsFilterServiceProvider);
       // 这里假设SmsFilterService有获取当前设置的方法
       // 实际实现可能需要根据服务的API调整
       _filterEnabled = await smsFilterService.shouldNotify('', '');
@@ -55,7 +56,7 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
     });
 
     try {
-      final smsFilterService = Provider.of<SmsFilterService>(context, listen: false);
+      final smsFilterService = ref.read(smsFilterServiceProvider);
       await smsFilterService.setEnabled(value);
       
       setState(() {
@@ -82,7 +83,7 @@ class _SmsFilterSettingsPageState extends State<SmsFilterSettingsPage> {
     });
 
     try {
-      final smsFilterService = Provider.of<SmsFilterService>(context, listen: false);
+      final smsFilterService = ref.read(smsFilterServiceProvider);
       await smsFilterService.setUseLocalNotification(value);
       
       setState(() {

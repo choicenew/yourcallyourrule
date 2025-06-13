@@ -109,7 +109,7 @@ dependencies:
   permission_handler: ^11.3.1
   pigeon: ^22.0.0
   pinyin: ^3.3.0
-  provider: ^6.1.2
+  #provider: ^6.1.2
   rxdart: ^0.28.0
  # sim_card_info: ^1.0.2
   sim_card_info:

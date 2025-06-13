@@ -32,19 +32,28 @@ class SmsFilterService {
   }
 
   static Future<SmsFilterService> create({
+    required SmsChannelInterface smsChannelManager,
     required List<SmsRegexRule> rules,
     BlockedCallRepository? blockedCallRepository,
   }) async {
-    final channelManager = SmsChannelSwitcher.getPlatformChannelManager();
-    
     final service = SmsFilterService(
-      smsChannelManager: channelManager,
+      smsChannelManager: smsChannelManager,
       initialRules: rules,
       blockedCallRepository: blockedCallRepository,
     );
     
     await service.initialize();
     return service;
+  }
+  
+  /// 判断是否应该通知
+  Future<bool> shouldNotify(String phoneNumber, String messageContent) async {
+    return _filterHandler.shouldNotify(phoneNumber, messageContent);
+  }
+  
+  /// 处理接收到的SMS
+  Future<void> handleIncomingSms(String phoneNumber, String messageContent) async {
+    await _incomingSmsHandler.handleIncomingSms(phoneNumber, messageContent);
   }
 
   void _initializeHandlers(List<SmsRegexRule> initialRules) {
@@ -101,15 +110,16 @@ class SmsFilterService {
     await _notificationHandler.closeLocalNotification(cancelLocal);
   }
 
-  Future<bool> shouldNotify(String phoneNumber, String messageContent) async {
-    return await _filterHandler.shouldNotify(phoneNumber, messageContent);
+  Future<void> updateRules(List<SmsRegexRule> rules) async {
+    await _filterHandler.updateRules(rules);
   }
 
-  Future<void> handleIncomingSms(String phoneNumber, String messageContent) async {
-    await _incomingSmsHandler.handleIncomingSms(phoneNumber, messageContent);
+  Future<List<SmsRegexRule>> getRules() async {
+    return _filterHandler.getRules();
   }
 
-  void addRules(List<SmsRegexRule> rules) {
+  /// 添加规则
+  Future<void> addRules(List<SmsRegexRule> rules) async {
     _filterHandler.addRules(rules);
   }
 }

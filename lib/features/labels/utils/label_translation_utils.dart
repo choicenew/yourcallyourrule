@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/provider/predefined_labels_provider.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -16,9 +17,9 @@ class LabelTranslationUtils {
   /// 根据标签ID获取翻译后的文本
   /// 如果标签不存在，返回null
   /// 如果没有对应的翻译，则返回原始标签文本
-  static Future<String?> translateLabelById(BuildContext context, String labelId) async {
+  static Future<String?> translateLabelById(BuildContext context, WidgetRef ref, String labelId) async {
     // 直接从PredefinedLabelService获取标签文本
-    final predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final labelText = await predefinedLabelService.getLabelTextAsync(labelId);
     if (labelText == null) return null;
     
@@ -29,9 +30,9 @@ class LabelTranslationUtils {
   /// 根据多个标签ID获取翻译后的文本列表
   /// 返回翻译后的文本列表，如果某个标签不存在，对应位置为null
   /// 如果某个标签没有对应的翻译，则返回原始标签文本
-  static Future<List<String?>> translateMultipleLabelsById(BuildContext context, List<String> labelIds) async {
+  static Future<List<String?>> translateMultipleLabelsById(BuildContext context, WidgetRef ref, List<String> labelIds) async {
     // 直接从PredefinedLabelService获取所有标签文本
-    final predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final labelTexts = await Future.wait(
       labelIds.map((labelId) => predefinedLabelService.getLabelTextAsync(labelId)).toList()
     );

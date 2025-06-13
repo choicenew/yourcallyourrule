@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/ad_state.dart';
 
 
 
 
-class InlineAdaptiveBannerAdWidget extends StatefulWidget {
+class InlineAdaptiveBannerAdWidget extends ConsumerStatefulWidget {
   final AdInfo adInfo;
   final double? width;
 
@@ -19,7 +21,7 @@ class InlineAdaptiveBannerAdWidget extends StatefulWidget {
   InlineAdaptiveBannerAdWidgetState createState() => InlineAdaptiveBannerAdWidgetState();
 }
 
-class InlineAdaptiveBannerAdWidgetState extends State<InlineAdaptiveBannerAdWidget> {
+class InlineAdaptiveBannerAdWidgetState extends ConsumerState<InlineAdaptiveBannerAdWidget> {
   BannerAd? _inlineAdaptiveAd;
   bool _isLoaded = false;
   AdSize? _adSize;
@@ -33,6 +35,10 @@ class InlineAdaptiveBannerAdWidgetState extends State<InlineAdaptiveBannerAdWidg
   }
 
   void _loadAd() async {
+    // 检查广告状态
+    final adState = ref.read(adStateProvider);
+    if (!adState) return;
+    
     await _inlineAdaptiveAd?.dispose();
     setState(() {
       _inlineAdaptiveAd = null;
@@ -52,22 +58,13 @@ class InlineAdaptiveBannerAdWidgetState extends State<InlineAdaptiveBannerAdWidg
       request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) async {
-         
           if (!mounted) return; // 检查 Widget 是否已销毁
 
           BannerAd bannerAd = (ad as BannerAd);
           final AdSize? size = await bannerAd.getPlatformAdSize();
           if (size == null) {
-            
             return;
           }
-/*
-          setState(() {
-            _inlineAdaptiveAd = bannerAd;
-            _isLoaded = true;
-            _adSize = size;
-          });
-*/
 
           if (mounted) { // 再次检查 Widget 是否已销毁
             setState(() {
@@ -76,10 +73,8 @@ class InlineAdaptiveBannerAdWidgetState extends State<InlineAdaptiveBannerAdWidg
               _adSize = size;
             });
           }
-
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
-        
           ad.dispose();
         },
       ),
@@ -89,6 +84,10 @@ class InlineAdaptiveBannerAdWidgetState extends State<InlineAdaptiveBannerAdWidg
 
   @override
   Widget build(BuildContext context) {
+    final adState = ref.watch(adStateProvider);
+    
+    if (!adState) return Container(); // 如果广告被禁用，返回空容器
+    
     return OrientationBuilder(
       builder: (context, orientation) {
         if (_currentOrientation == orientation &&
@@ -111,19 +110,10 @@ class InlineAdaptiveBannerAdWidgetState extends State<InlineAdaptiveBannerAdWidg
     );
   }
 
-/*
-  @override
-  void dispose() {
-    super.dispose();
-    _inlineAdaptiveAd?.dispose();
-  }
-*/
-
   @override
   void dispose() {
     _inlineAdaptiveAd?.dispose();
     _inlineAdaptiveAd = null; // 释放广告对象
     super.dispose();
   }
-
 }

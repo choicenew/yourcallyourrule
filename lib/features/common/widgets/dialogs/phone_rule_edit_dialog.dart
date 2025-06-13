@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 
 /// 电话规则编辑对话框
 /// 用于编辑电话规则
-class PhoneRuleEditDialog extends StatefulWidget {
+class PhoneRuleEditDialog extends ConsumerStatefulWidget {
   final PhoneRule rule;
   final Function? onRuleUpdated;
   final Color themeColor;
@@ -22,7 +23,7 @@ class PhoneRuleEditDialog extends StatefulWidget {
   });
 
   @override
-  State<PhoneRuleEditDialog> createState() => _PhoneRuleEditDialogState();
+  ConsumerState<PhoneRuleEditDialog> createState() => _PhoneRuleEditDialogState();
 
   /// 显示电话规则编辑对话框的静态方法
   static void show(BuildContext context, PhoneRule rule, {Function? onRuleUpdated, Color themeColor = const Color(0xFFF5A623)}) {
@@ -37,7 +38,7 @@ class PhoneRuleEditDialog extends StatefulWidget {
   }
 }
 
-class _PhoneRuleEditDialogState extends State<PhoneRuleEditDialog> {
+class _PhoneRuleEditDialogState extends ConsumerState<PhoneRuleEditDialog> {
   late TextEditingController _nameController;
   late TextEditingController _phoneController;
   String? _selectedLabelId;
@@ -87,7 +88,7 @@ class _PhoneRuleEditDialogState extends State<PhoneRuleEditDialog> {
         isEnabled: widget.rule.isEnabled,
       );
 
-      final ruleService = Provider.of<RuleManagementService>(context, listen: false);
+      final ruleService = ref.read(ruleManagementServiceProvider);
       await ruleService.updatePhoneNumberRule(updatedRule);
 
       // 调用回调函数

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
-import 'package:yourcallyourrule/features/auto_update/pages/pages/auto_update_settings_page.dart';
+import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/remote_number_service_provider.dart';
+import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
+
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
@@ -47,7 +51,13 @@ import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
 import 'package:yourcallyourrule/presentation/settings/pages/settings_page.dart';
+
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
+import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
+import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
+
+import 'package:yourcallyourrule/features/sms/services/sms_filter_service.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page.dart';
 import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
@@ -70,6 +80,13 @@ class AppRouter {
   final RemoteNumberService remoteNumberService;
   final SimSlotRuleService simSlotRuleService;
   final EnhancedCompositeFilterService enhancedCompositeFilterService;
+  final SmsSubscriptionService smsSubscriptionService;
+  final ContactSubscriptionService contactSubscriptionService;
+  final AllowedBlockedService allowedBlockedService;
+  final RegexService regexService;
+  final CallFilterService callFilterService;
+  final SmsFilterService smsFilterService;
+  final ProviderRef ref;
   
   // 构造函数
   AppRouter({
@@ -80,6 +97,13 @@ class AppRouter {
     required this.remoteNumberService,
     required this.simSlotRuleService,
     required this.enhancedCompositeFilterService,
+    required this.smsSubscriptionService,
+    required this.contactSubscriptionService,
+    required this.allowedBlockedService,
+    required this.regexService,
+    required this.callFilterService,
+    required this.smsFilterService,
+    required this.ref,
   });
   
   // 路由名称常量
@@ -167,11 +191,12 @@ class AppRouter {
       path: '/search',
       name: search,
       builder: (context, state) {
-        final contactService = Provider.of<ContactService>(context, listen: false);
-        final labelService = Provider.of<LabelService>(context, listen: false);
-        final ruleManagementService = Provider.of<RuleManagementService>(context, listen: false);
-        final allowedBlockedService = Provider.of<AllowedBlockedService>(context, listen: false);
-        final remoteNumberService = Provider.of<RemoteNumberService>(context, listen: false);
+        // 使用Riverpod获取服务
+        final contactService = ref.read(contactServiceProvider);
+        final labelService = ref.read(labelServiceProvider);
+        final ruleManagementService = ref.read(ruleManagementServiceProvider);
+        final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
+        final remoteNumberService = ref.read(remoteNumberServiceProvider);
         
         final searchService = SearchService(
           contactService: contactService,
@@ -182,9 +207,10 @@ class AppRouter {
           context: context,
         );
         
-        return Provider.value(
-          value: searchService,
-          child: const SearchPage(),
+        return Consumer(
+          builder: (context, ref, _) {
+            return SearchPage();
+          },
         );
       },
     ),
@@ -193,10 +219,7 @@ class AppRouter {
       GoRoute(
         path: '/$timeInterceptorSettings',
         name: timeInterceptorSettings,
-        builder: (context, state) => TimeInterceptorSettingsPage(
-          timeInterceptorService: timeInterceptorService,
-          configRepository: configRepository,
-        ),
+        builder: (context, state) => const TimeInterceptorSettingsPage(),
       ),
       
       // 本地过滤器设置页面
@@ -224,14 +247,19 @@ class AppRouter {
       GoRoute(
         path: '/enhanced_filter_settings',
         name: 'enhanced_filter_settings',
-        builder: (context, state) => EnhancedFilterSettingsPage(
-          enhancedCompositeFilterService: enhancedCompositeFilterService,
-          simSlotRuleService: simSlotRuleService,
-          localCountFilterService: localCountFilterService,
-          remoteNumberFilterService: remoteNumberFilterService,
-          remoteNumberService: remoteNumberService,
-          configRepository: configRepository,
-          ruleRepository: Provider.of<RuleRepository>(context, listen: false),
+        builder: (context, state) => Consumer(
+          builder: (context, ref, _) {
+            final ruleRepository = ref.watch(ruleRepositoryProvider);
+            return EnhancedFilterSettingsPage(
+              enhancedCompositeFilterService: enhancedCompositeFilterService,
+              simSlotRuleService: simSlotRuleService,
+              localCountFilterService: localCountFilterService,
+              remoteNumberFilterService: remoteNumberFilterService,
+              remoteNumberService: remoteNumberService,
+              configRepository: configRepository,
+              ruleRepository: ruleRepository,
+            );
+          },
         ),
       ),
         
@@ -239,14 +267,19 @@ class AppRouter {
       GoRoute(
         path: '/enhanced_composite_filter_settings',
         name: 'enhanced_composite_filter_settings',
-        builder: (context, state) => EnhancedFilterSettingsPage(
-          enhancedCompositeFilterService: enhancedCompositeFilterService,
-          simSlotRuleService: simSlotRuleService,
-          localCountFilterService: localCountFilterService,
-          remoteNumberFilterService: remoteNumberFilterService,
-          remoteNumberService: remoteNumberService,
-          configRepository: configRepository,
-          ruleRepository: Provider.of<RuleRepository>(context, listen: false),
+        builder: (context, state) => Consumer(
+          builder: (context, ref, _) {
+            final ruleRepository = ref.watch(ruleRepositoryProvider);
+            return EnhancedFilterSettingsPage(
+              enhancedCompositeFilterService: enhancedCompositeFilterService,
+              simSlotRuleService: simSlotRuleService,
+              localCountFilterService: localCountFilterService,
+              remoteNumberFilterService: remoteNumberFilterService,
+              remoteNumberService: remoteNumberService,
+              configRepository: configRepository,
+              ruleRepository: ruleRepository,
+            );
+          },
         ),
       ),
       
@@ -256,12 +289,17 @@ class AppRouter {
         name: simSlotRuleSettings,
         builder: (context, state) {
           final simSlotIndex = int.parse(state.pathParameters['simSlotIndex'] ?? '0');
-          return SimSlotRulePage(
-            simSlotRuleService: simSlotRuleService,
-            enhancedCompositeFilterService: state.extra as dynamic,
-            configRepository: configRepository,
-            ruleRepository: state.extra as dynamic,
-            simSlotIndex: simSlotIndex,
+          return Consumer(
+            builder: (context, ref, _) {
+              final ruleRepository = ref.watch(ruleRepositoryProvider);
+              return SimSlotRulePage(
+                simSlotRuleService: simSlotRuleService,
+                enhancedCompositeFilterService: state.extra as dynamic,
+                configRepository: configRepository,
+                ruleRepository: ruleRepository,
+                simSlotIndex: simSlotIndex,
+              );
+            },
           );
         },
       ),
@@ -328,14 +366,19 @@ class AppRouter {
       GoRoute(
         path: '/$enhancedFilterSettings',
         name: enhancedFilterSettings,
-        builder: (context, state) => EnhancedFilterSettingsPage(
-          enhancedCompositeFilterService: enhancedCompositeFilterService,
-          simSlotRuleService: simSlotRuleService,
-          localCountFilterService: localCountFilterService,
-          remoteNumberFilterService: remoteNumberFilterService,
-          remoteNumberService: remoteNumberService,
-          configRepository: configRepository,
-          ruleRepository: Provider.of<RuleRepository>(context, listen: false),
+        builder: (context, state) => Consumer(
+          builder: (context, ref, _) {
+            final ruleRepository = ref.watch(ruleRepositoryProvider);
+            return EnhancedFilterSettingsPage(
+              enhancedCompositeFilterService: enhancedCompositeFilterService,
+              simSlotRuleService: simSlotRuleService,
+              localCountFilterService: localCountFilterService,
+              remoteNumberFilterService: remoteNumberFilterService,
+              remoteNumberService: remoteNumberService,
+              configRepository: configRepository,
+              ruleRepository: ruleRepository,
+            );
+          },
         ),
       ),
 
@@ -513,3 +556,20 @@ class AppRouter {
     context.goNamed(search);
   }
 }
+
+// 为Riverpod定义Provider
+final contactServiceProvider = Provider<ContactService>((ref) {
+  throw UnimplementedError('需要在应用中提供ContactService的实现');
+});
+
+final labelServiceProvider = Provider<LabelService>((ref) {
+  throw UnimplementedError('需要在应用中提供LabelService的实现');
+});
+
+final ruleManagementServiceProvider = Provider<RuleManagementService>((ref) {
+  throw UnimplementedError('需要在应用中提供RuleManagementService的实现');
+});
+
+final ruleRepositoryProvider = Provider<RuleRepository>((ref) {
+  throw UnimplementedError('需要在应用中提供RuleRepository的实现');
+});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/home/pages/carousel_cards.dart';
 import 'package:yourcallyourrule/features/home/pages/feature_center.dart';
 import 'package:yourcallyourrule/features/home/pages/home_app_bar.dart';
 import 'package:yourcallyourrule/features/home/pages/rule_verification_card.dart';
-import 'package:yourcallyourrule/features/home/providers/home_stats_provider.dart';
+import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 
 
@@ -12,14 +12,14 @@ import 'package:yourcallyourrule/features/home/widgets/filter_management_widget.
 
 
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
   int _currentIndex = 0; // 当前选中的底部导航项
 
   @override
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
 
     // 加载真实数据
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<HomeStatsProvider>(context, listen: false).loadHomeStats();
+      ref.read(homeStatsProvider.notifier).loadHomeStats();
     });
   }
 

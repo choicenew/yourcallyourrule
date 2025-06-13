@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
+import 'package:yourcallyourrule/core/provider/providers/phone_subscription_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_subscription_page.dart';
 import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
@@ -9,18 +11,19 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 重构后的电话订阅页面
 /// 使用通用的GenericSubscriptionPage组件减少重复代码
-class PhoneSubscriptionPage extends StatelessWidget {
+class PhoneSubscriptionPage extends ConsumerWidget {
   const PhoneSubscriptionPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return GenericSubscriptionPage<Subscription, String, PhoneSubscriptionService>(
       title: AppLocalizations.of(context)!.phoneRuleSubscription,
       emptyText: AppLocalizations.of(context)!.noSubscriptions,
       buildInfoCard: () => _buildInfoCard(context),
-      buildSubscriptionCard: _buildSubscriptionCard,
+      buildSubscriptionCard: (subscription, state) => _buildSubscriptionCard(subscription, state, ref),
       showAddDialog: _showAddDialog,
       updateSubscription: _updateSubscription,
+      serviceBuilder: (_) => ref.read(phoneSubscriptionServiceProvider),
     );
   }
 
@@ -58,7 +61,7 @@ class PhoneSubscriptionPage extends StatelessWidget {
   }
 
   /// 构建订阅卡片
-  Widget _buildSubscriptionCard(Subscription subscription, GenericSubscriptionPageState<Subscription, String, PhoneSubscriptionService> state) {
+  Widget _buildSubscriptionCard(Subscription subscription, GenericSubscriptionPageState<Subscription, String, PhoneSubscriptionService> state, WidgetRef ref) {
     final lastUpdated = subscription.lastUpdated;
     final formattedDate = '${lastUpdated.year}-${lastUpdated.month.toString().padLeft(2, '0')}-${lastUpdated.day.toString().padLeft(2, '0')} ${lastUpdated.hour.toString().padLeft(2, '0')}:${lastUpdated.minute.toString().padLeft(2, '0')}';
 
@@ -182,7 +185,7 @@ class PhoneSubscriptionPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    onPressed: () => _importRulesToRuleSystem(state.context, subscription, Provider.of<PhoneSubscriptionService>(state.context, listen: false)),
+                    onPressed: () => _importRulesToRuleSystem(state.context, subscription, ref.read(phoneSubscriptionServiceProvider), ref),
                   ),
                   const SizedBox(width: 8),
                   OutlinedButton.icon(
@@ -325,7 +328,7 @@ class PhoneSubscriptionPage extends StatelessWidget {
   }
   
   /// 导入规则到规则系统
-  Future<void> _importRulesToRuleSystem(BuildContext dialogContext, Subscription subscription, PhoneSubscriptionService service) async {
+  Future<void> _importRulesToRuleSystem(BuildContext dialogContext, Subscription subscription, PhoneSubscriptionService service, WidgetRef ref) async {
     try {
       // 显示加载对话框
       showDialog(
@@ -347,7 +350,7 @@ class PhoneSubscriptionPage extends StatelessWidget {
       final rules = await service.manualUpdateRulesFromSubscription(subscription);
       
       // 获取规则管理服务
-      final ruleManagementService = Provider.of<RuleManagementService>(dialogContext, listen: false);
+      final ruleManagementService = ref.read(ruleManagementServiceProvider);
       
       // 导入规则
       final count = await ruleManagementService.importRulesFromSubscription(rules, subscription.action);

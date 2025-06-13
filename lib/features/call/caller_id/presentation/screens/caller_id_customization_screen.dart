@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/core/provider/providers/caller_id_style_provider.dart';
 
 
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
@@ -21,16 +22,16 @@ import '../widgets/customization/size_panel.dart';
 
 /// 来电显示自定义页面
 /// 允许用户自定义来电显示的样式、颜色、位置等
-class CallerIdCustomizationScreen extends StatefulWidget {
+class CallerIdCustomizationScreen extends ConsumerStatefulWidget {
   const CallerIdCustomizationScreen({super.key});
 
   @override
-  State<CallerIdCustomizationScreen> createState() =>
+  ConsumerState<CallerIdCustomizationScreen> createState() =>
       _CallerIdCustomizationScreenState();
 }
 
 class _CallerIdCustomizationScreenState
-    extends State<CallerIdCustomizationScreen> {
+    extends ConsumerState<CallerIdCustomizationScreen> {
   // 用于控制各个设置项的展开/收起状态
   final List<bool> _isExpanded = List.generate(6, (_) => false);
   OverlayPosition? storedPosition;
@@ -45,8 +46,7 @@ class _CallerIdCustomizationScreenState
     _configurationManager = ConfigurationManager(_configRepository);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final styleProvider =
-          Provider.of<CallerIdStyleProvider>(context, listen: false);
+      final styleProvider = ref.read(callerIdStyleProvider);
       _configurationManager.loadFromRepository(styleProvider).catchError((e) {
         // If loading fails (e.g., no saved config), save the default config
         _configurationManager.saveToRepository(styleProvider);
@@ -58,8 +58,9 @@ class _CallerIdCustomizationScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(AppLocalizations.of(context)!.callerIdCustomizationTitle)),
-      body: Consumer<CallerIdStyleProvider>(
-        builder: (context, styleProvider, child) {
+      body: Consumer(
+        builder: (context, ref, child) {
+          final styleProvider = ref.watch(callerIdStyleProvider);
           return Column(
             children: [
               // Preview Area

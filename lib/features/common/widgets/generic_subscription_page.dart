@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/services/subscription_service_base.dart';
 import 'package:yourcallyourrule/features/common/widgets/subscription_management_widget.dart';
@@ -32,6 +31,9 @@ class GenericSubscriptionPage<T extends BaseEntity, ID, S extends SubscriptionSe
   
   /// 更新订阅函数
   final Future<void> Function(T subscription, S service) updateSubscription;
+  
+  /// 服务构建函数，用于获取服务实例
+  final S Function(BuildContext context) serviceBuilder;
 
   const GenericSubscriptionPage({
     super.key,
@@ -42,6 +44,7 @@ class GenericSubscriptionPage<T extends BaseEntity, ID, S extends SubscriptionSe
     required this.buildSubscriptionCard,
     required this.showAddDialog,
     required this.updateSubscription,
+    required this.serviceBuilder,
   });
 
   @override
@@ -63,7 +66,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
       _isLoading = true;
     });
 
-    final subscriptionService = Provider.of<S>(context, listen: false);
+    final subscriptionService = widget.serviceBuilder(context);
     try {
       final subscriptions = await subscriptionService.getAll();
       setState(() {
@@ -83,7 +86,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
   }
 
   Future<void> toggleSubscriptionStatus(T subscription, bool isEnabled) async {
-    final subscriptionService = Provider.of<S>(context, listen: false);
+    final subscriptionService = widget.serviceBuilder(context);
     try {
       if (isEnabled) {
         await subscriptionService.enableSubscription(subscription);
@@ -105,7 +108,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
       _isLoading = true;
     });
 
-    final subscriptionService = Provider.of<S>(context, listen: false);
+    final subscriptionService = widget.serviceBuilder(context);
     try {
       await widget.updateSubscription(subscription, subscriptionService);
       if (mounted) {
@@ -144,7 +147,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
     );
 
     if (confirmed == true) {
-      final subscriptionService = Provider.of<S>(context, listen: false);
+      final subscriptionService = widget.serviceBuilder(context);
       try {
         await subscriptionService.deleteSubscription(subscription.id as ID);
         if (mounted) {
@@ -165,7 +168,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
 
   @override
   Widget build(BuildContext context) {
-    final subscriptionService = Provider.of<S>(context, listen: false);
+    final subscriptionService = widget.serviceBuilder(context);
     
     return SubscriptionManagementWidget<T, ID>(
       subscriptionService: subscriptionService,

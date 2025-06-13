@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
@@ -11,16 +11,18 @@ import 'package:yourcallyourrule/features/contacts/services/contact_service.dart
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/contact_edit_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/provider/providers/contact_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 
 /// 通讯录管理页面
-class ContactsManagementPage extends StatefulWidget {
+class ContactsManagementPage extends ConsumerStatefulWidget {
   const ContactsManagementPage({super.key});
 
   @override
-  State<ContactsManagementPage> createState() => _ContactsManagementPageState();
+  ConsumerState<ContactsManagementPage> createState() => _ContactsManagementPageState();
 }
 
-class _ContactsManagementPageState extends State<ContactsManagementPage> {
+class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage> {
   bool _isLoading = true;
   List<Contact> _contacts = [];
   String? _selectedLabelId;
@@ -43,7 +45,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     });
 
     try {
-      final contactService = Provider.of<ContactService>(context, listen: false);
+      final contactService = ref.read(contactServiceProvider);
       final contacts = await contactService.getAll();
 
       setState(() {
@@ -188,7 +190,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
 
   // 切换联系人收藏状态
   Future<void> _toggleFavorite(Contact contact) async {
-    final contactService = Provider.of<ContactService>(context, listen: false);
+    final contactService = ref.read(contactServiceProvider);
     final updatedContact = contact.copyWith(isFavorite: !contact.isFavorite);
     final message = updatedContact.isFavorite ? 
       AppLocalizations.of(context)!.addedToFavorites : 
@@ -212,7 +214,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     
     if (!confirmed) return;
     
-    final contactService = Provider.of<ContactService>(context, listen: false);
+    final contactService = ref.read(contactServiceProvider);
     await _handleContactOperation(
       contact: contact,
       operation: () => contactService.delete(contact),
@@ -230,7 +232,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
         content: PublicSelectLabel(
           initialLabelId: contact.labelId,
           onLabelIdChanged: (labelId) async {
-            final contactService = Provider.of<ContactService>(context, listen: false);
+            final contactService = ref.read(contactServiceProvider);
             final updatedContact = contact.copyWith(labelId: labelId);
             
             // 使用通用操作处理方法
@@ -289,7 +291,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     
     if (!confirmed) return;
     
-    final contactService = Provider.of<ContactService>(context, listen: false);
+    final contactService = ref.read(contactServiceProvider);
     
     // 获取选中的联系人
     final selectedContacts = _contacts.where(
@@ -354,7 +356,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
     if (labelId == null) return const SizedBox.shrink();
     
     return FutureBuilder<String?>(
-      future: Provider.of<PredefinedLabelService>(context, listen: false)
+      future: ref.read(predefinedLabelServiceProvider)
           .getLabelById(labelId)
           .then((label) => label?.text),
       builder: (context, snapshot) {
@@ -540,7 +542,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                               final file = File(result.files.single.path!);
                               final content = await file.readAsString();
                               final extension = result.files.single.extension?.toLowerCase();
-                                  final contactService = Provider.of<ContactService>(context, listen: false);
+                                  final contactService = ref.read(contactServiceProvider);
                                   final directory = await getExternalStorageDirectory();
                                   switch (extension) {
                                     case 'vcf':
@@ -581,7 +583,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                         onTap: () async {
                           Navigator.pop(context);
                           try {
-                            final contactService = Provider.of<ContactService>(context, listen: false);
+                            final contactService = ref.read(contactServiceProvider);
 
                             showDialog(
                               context: context,
@@ -706,7 +708,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                                   children: [
                                     CircleAvatar(
                                       radius: 30,
-                                      backgroundColor: const Color(0xFFF5A623).withValues(alpha:0.1),
+                                      backgroundColor: const Color(0xFFF5A623).withOpacity(0.1),
                                       child: Text(
                                         contact.name.isNotEmpty ? contact.name[0].toUpperCase() : '?',
                                         style: const TextStyle(
@@ -780,7 +782,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                   children: [
                     Chip(
                       label: Text(_selectedLabelText!),
-                      backgroundColor: const Color(0xFFF5A623).withValues(alpha:0.1),
+                      backgroundColor: const Color(0xFFF5A623).withOpacity(0.1),
                       labelStyle: const TextStyle(color: Color(0xFFF5A623)),
                       deleteIcon: const Icon(Icons.close, size: 18),
                       onDeleted: () {
@@ -800,7 +802,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                             content: PublicSelectLabel(
                               initialLabelId: _selectedLabelId,
                               onLabelIdChanged: (labelId) async {
-                                final labelService = Provider.of<PredefinedLabelService>(context, listen: false);
+                                final labelService = ref.read(predefinedLabelServiceProvider);
                                 final label = await labelService.getLabelById(labelId);
                                 setState(() {
                                   _selectedLabelId = labelId;
@@ -892,7 +894,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF5A623).withValues(alpha:0.2),
+                    color: const Color(0xFFF5A623).withOpacity(0.2),
                     shape: BoxShape.circle,
                   ),
                   child: contact.avatar != null
@@ -950,8 +952,8 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                         PublicSelectLabel(
                           initialLabelId: contact.labelId,
                           onLabelIdChanged: (labelId) async {
-                            final contactService = Provider.of<ContactService>(context, listen: false);
-                            await contactService.updateContact(contact.copyWith(labelId: labelId));
+                            final contactService = ref.read(contactServiceProvider);
+                            await contactService.update(contact.copyWith(labelId: labelId));
                             _loadContacts();
                           },
                           themeColor: Colors.blue,
@@ -990,7 +992,7 @@ class _ContactsManagementPageState extends State<ContactsManagementPage> {
                             onPressed: () async {
                               Navigator.pop(context);
                               try {
-                                final contactService = Provider.of<ContactService>(context, listen: false);
+                                final contactService = ref.read(contactServiceProvider);
                                 await contactService.deleteContact(PhoneNumber(contact.phoneNumbers.first));
                                 await _loadContacts(); // 刷新列表
                                 if (mounted) {

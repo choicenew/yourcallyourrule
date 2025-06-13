@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 
 /// 来电频率拦截设置页面
 /// 用于配置来电频率拦截服务的相关参数
-class TimeInterceptorSettingsPage extends StatefulWidget {
-  final TimeInterceptorService timeInterceptorService;
-  final ConfigRepository configRepository;
-
-  const TimeInterceptorSettingsPage({
-    super.key,
-    required this.timeInterceptorService,
-    required this.configRepository,
-  });
+class TimeInterceptorSettingsPage extends ConsumerStatefulWidget {
+  const TimeInterceptorSettingsPage({super.key});
 
   @override
   TimeInterceptorSettingsPageState createState() => TimeInterceptorSettingsPageState();
 }
 
-class TimeInterceptorSettingsPageState extends State<TimeInterceptorSettingsPage> {
+class TimeInterceptorSettingsPageState extends ConsumerState<TimeInterceptorSettingsPage> {
   // 配置参数
   bool _isEnabled = true;
   int _durationMinutes = 30;
@@ -39,9 +35,10 @@ class TimeInterceptorSettingsPageState extends State<TimeInterceptorSettingsPage
     });
 
     try {
+      final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
       // 从服务中加载配置
-      await widget.timeInterceptorService.loadConfig();
-      final config = widget.timeInterceptorService.config;
+      await timeInterceptorService.loadConfig();
+      final config = timeInterceptorService.config;
       
       setState(() {
         _isEnabled = config.shouldIntercept;
@@ -66,7 +63,8 @@ class TimeInterceptorSettingsPageState extends State<TimeInterceptorSettingsPage
 
     try {
       // 更新服务配置
-      await widget.timeInterceptorService.updateConfig(
+      final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
+      await timeInterceptorService.updateConfig(
         Duration(minutes: _durationMinutes),
         _isEnabled,
       );

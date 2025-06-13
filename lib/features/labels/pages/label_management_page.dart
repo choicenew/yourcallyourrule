@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
@@ -8,24 +8,24 @@ import 'package:yourcallyourrule/features/labels/services/predefined_label_servi
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/label_edit_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 
-class LabelManagementPage extends StatefulWidget {
+class LabelManagementPage extends ConsumerStatefulWidget {
   const LabelManagementPage({super.key});
 
   @override
-  State<LabelManagementPage> createState() => _LabelManagementPageState();
+  ConsumerState<LabelManagementPage> createState() => _LabelManagementPageState();
 }
 
-class _LabelManagementPageState extends State<LabelManagementPage> {
+class _LabelManagementPageState extends ConsumerState<LabelManagementPage> {
   List<LabelPhoneEntry> _labels = [];
   List<String> _uniqueLabelTexts = [];
   bool _isLoading = true;
-  late final PredefinedLabelService _predefinedLabelService;
 
   @override
   void initState() {
     super.initState();
-    _predefinedLabelService = Provider.of<PredefinedLabelService>(context, listen: false);
     _loadLabels();
   }
 
@@ -34,10 +34,11 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
       _isLoading = true;
     });
 
-    final labelService = Provider.of<LabelService>(context, listen: false);
+    final labelService = ref.read(labelServiceProvider);
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     try {
       final labels = await labelService.getAllLabels();
-      final labelTexts = await _predefinedLabelService.getAllLabelTexts();
+      final labelTexts = await predefinedLabelService.getAllLabelTexts();
       setState(() {
         _labels = labels;
         _uniqueLabelTexts = labelTexts;
@@ -55,7 +56,8 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
 
   Future<void> _deleteLabel(LabelPhoneEntry label) async {
     // 获取标签文本
-    final labelText = await _predefinedLabelService.getLabelById(label.labelId);
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
+    final labelText = await predefinedLabelService.getLabelById(label.labelId);
     final displayText = labelText?.text ?? label.labelId;
     
     final confirmed = await showDialog<bool>(
@@ -77,7 +79,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
     );
 
     if (confirmed == true) {
-      final labelService = Provider.of<LabelService>(context, listen: false);
+      final labelService = ref.read(labelServiceProvider);
       try {
         await labelService.removeLabel(label.id);
         ScaffoldMessenger.of(context).showSnackBar(
@@ -96,6 +98,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
     String? selectedLabelId;
     final phoneController = TextEditingController();
     final iconController = TextEditingController();
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
 
     showDialog(
       context: context,
@@ -108,7 +111,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
               onLabelIdChanged: (labelId) {
                 selectedLabelId = labelId;
               },
-              selectLabelService: PredefinedLabelServiceAdapter(_predefinedLabelService),
+              selectLabelService: PredefinedLabelServiceAdapter(predefinedLabelService),
             ),
             const SizedBox(height: 16),
             TextField(
@@ -148,7 +151,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
 
               try {
                 final phoneNumber = PhoneNumber.fromString(phoneText);
-                final labelService = Provider.of<LabelService>(context, listen: false);
+                final labelService = ref.read(labelServiceProvider);
                 
                 final uniqueId = DateTime.now().millisecondsSinceEpoch.toString();
                 final label = LabelPhoneEntry(
@@ -159,7 +162,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
                 );
                 
                 await labelService.addLabel(label);
-                final labelText = await _predefinedLabelService.getLabelById(selectedLabelId!);
+                final labelText = await predefinedLabelService.getLabelById(selectedLabelId!);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text(AppLocalizations.of(context)!.labelAddedSuccessfully(labelText?.text ?? selectedLabelId!))),
                 );
@@ -189,7 +192,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
 
   Future<void> _importLabels() async {
     try {
-      final labelService = Provider.of<LabelService>(context, listen: false);
+      final labelService = ref.read(labelServiceProvider);
       final result = await labelService.importLabelsFromFile('labels.json');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(AppLocalizations.of(context)!.labelsImportedSuccessfully(result.length))),
@@ -204,7 +207,7 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
 
   Future<void> _exportLabels() async {
     try {
-      final labelService = Provider.of<LabelService>(context, listen: false);
+      final labelService = ref.read(labelServiceProvider);
       final success = await labelService.exportLabelsToFile('labels.json');
       if (success) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -338,7 +341,8 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
 
   // 辅助方法：根据labelId获取标签文本
   Future<String> _getLabelText(LabelPhoneEntry label) async {
-    final labelText = await _predefinedLabelService.getLabelById(label.labelId);
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
+    final labelText = await predefinedLabelService.getLabelById(label.labelId);
     return labelText?.text ?? label.labelId;
   }
   
@@ -349,8 +353,9 @@ class _LabelManagementPageState extends State<LabelManagementPage> {
     
     // 首先尝试找到与此标签文本对应的预定义标签
     Future<int> getCount() async {
+      final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
       // 获取所有预定义标签
-      final predefinedLabels = await _predefinedLabelService.getAllLabels();
+      final predefinedLabels = await predefinedLabelService.getAllLabels();
       // 找到与当前标签文本匹配的预定义标签
       final matchingLabels = predefinedLabels.where((pl) => pl.text == label).toList();
       

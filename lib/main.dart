@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:yourcallyourrule/core/registry_provider/provider_config.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
+
+
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
-import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
@@ -24,22 +24,14 @@ Future<void> main() async {
     // 初始化应用日志服务
     AppLogger.initialize();
     
-    // 获取服务提供者列表
-    final serviceProviders = getServiceProviders();
-    final appProviders = getAppProviders();
-
     // 初始化广告SDK
     await MobileAds.instance.initialize();
     
     // 记录应用启动事件
     firebaseService.logAppOpen();
 
-    runApp(MultiProvider(
-      providers: [
-        ...appProviders,
-        ...serviceProviders,
-      ],
-      child: const MyApp(),
+    runApp(const ProviderScope(
+      child: MyApp(),
     ));
   } catch (e, stackTrace) {
     // 记录错误但不中断应用启动
@@ -69,45 +61,23 @@ void overlayMain() {
   // 设置为覆盖层模式（只读模式）
   isOverlayMode = true;
 
-  // 获取服务提供者列表
-  final serviceProviders = getServiceProviders();
-  final appProviders = getAppProviders();
-
-  runApp(MultiProvider(
-    providers: [
-      ...appProviders,
-      ...serviceProviders,
-    ],
+  runApp(const ProviderScope(
     child: MaterialApp(
       title: 'Caller ID Overlay',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-        primaryColor: const Color(0xFFFF9800),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      home: CallerIdOverlayEntry(), // 展示overlay内容
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CallerIdOverlayEntry(), // 展示overlay内容
     ),
   ));
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    // 原生启动屏幕已在main函数的finally块中移除
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appRouter = ref.watch(appRouterProvider);
+    
     return MaterialApp.router(
       title: 'Your Call Your Rule',
       theme: ThemeData(
@@ -115,7 +85,7 @@ class _MyAppState extends State<MyApp> {
         primaryColor: const Color(0xFFFF9800),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      routerConfig: Provider.of<AppRouter>(context, listen: false).router,
+      routerConfig: appRouter.router,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
     );

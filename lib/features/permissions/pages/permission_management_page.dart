@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/services/permission_service.dart';
+import 'package:yourcallyourrule/core/provider/providers/permission_service_provider.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 权限管理页面
-class PermissionManagementPage extends StatefulWidget {
+class PermissionManagementPage extends ConsumerStatefulWidget {
   const PermissionManagementPage({super.key});
 
   @override
-  State<PermissionManagementPage> createState() => _PermissionManagementPageState();
+  ConsumerState<PermissionManagementPage> createState() => _PermissionManagementPageState();
 }
 
-class _PermissionManagementPageState extends State<PermissionManagementPage> {
+class _PermissionManagementPageState extends ConsumerState<PermissionManagementPage> {
   bool _isLoading = true;
   Map<String, bool> _permissionStatus = {};
   late List<PermissionItem> _permissionItems;
@@ -78,7 +79,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
     });
 
     try {
-      final permissionService = Provider.of<PermissionService>(context, listen: false);
+      final permissionService = ref.read(permissionServiceProvider);
       final Map<String, bool> status = {};
 
       for (final item in _permissionItems) {
@@ -104,7 +105,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
 
   Future<void> _requestPermission(String permission) async {
     try {
-      final permissionService = Provider.of<PermissionService>(context, listen: false);
+      final permissionService = ref.read(permissionServiceProvider);
       final granted = await permissionService.requestPermission(permission);
 
       setState(() {
@@ -125,7 +126,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
 
   Future<void> _requestAllPermissions() async {
     try {
-      final permissionService = Provider.of<PermissionService>(context, listen: false);
+      final permissionService = ref.read(permissionServiceProvider);
       final permissions = _permissionItems.map((item) => item.name).toList();
       final results = await permissionService.requestPermissions(permissions);
 
@@ -148,7 +149,7 @@ class _PermissionManagementPageState extends State<PermissionManagementPage> {
 
   Future<void> _openAppSettings() async {
     try {
-      final permissionService = Provider.of<PermissionService>(context, listen: false);
+      final permissionService = ref.read(permissionServiceProvider);
       await permissionService.openAppSettings();
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(

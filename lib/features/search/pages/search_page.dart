@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:yourcallyourrule/features/search/providers/search_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/contact_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 
-
-import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
-import 'package:yourcallyourrule/features/labels/services/label_service.dart';
-import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/dialogs.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
@@ -16,16 +16,16 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 搜索页面
 /// 用于搜索本地和远程数据库中的号码
-class SearchPage extends StatefulWidget {
+class SearchPage extends ConsumerStatefulWidget {
   final String? initialSearchText; // 添加初始搜索文本参数
   
   const SearchPage({super.key, this.initialSearchText});
 
   @override
-  State<SearchPage> createState() => _SearchPageState();
+  ConsumerState<SearchPage> createState() => _SearchPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class _SearchPageState extends ConsumerState<SearchPage> {
   final TextEditingController _searchController = TextEditingController();
   List<SearchResult> _searchResults = [];
   bool _isLoading = false;
@@ -78,7 +78,7 @@ class _SearchPageState extends State<SearchPage> {
     });
 
     try {
-      final searchService = Provider.of<SearchService>(context, listen: false);
+      final searchService = ref.read(searchServiceProvider(context));
       final results = await searchService.searchPhoneNumber(searchText);
 
       setState(() {
@@ -110,7 +110,7 @@ class _SearchPageState extends State<SearchPage> {
       CountrySelectionDialog.show(context, result.phoneNumber);
     } else if (result.type == SearchResultType.contact) {
       // 处理联系人结果，打开联系人编辑对话框
-      final contactService = Provider.of<ContactService>(context, listen: false);
+      final contactService = ref.read(contactServiceProvider);
       // 使用正确的方法：getContactByPhoneNumber 或 findContactByPhoneNumber
       contactService.findContactByPhoneNumber(PhoneNumber(result.phoneNumber)).then((contact) {
         if (contact != null) {
@@ -127,7 +127,7 @@ class _SearchPageState extends State<SearchPage> {
       });
     } else if (result.type == SearchResultType.label) {
       // 处理标签结果，打开标签编辑对话框
-      final labelService = Provider.of<LabelService>(context, listen: false);
+      final labelService = ref.read(labelServiceProvider);
       // 使用正确的方法：getLabelByPhoneNumber 或 getLabelByPhoneNumberString
       labelService.getLabelByPhoneNumberString(result.phoneNumber).then((label) {
         if (label != null) {
@@ -148,8 +148,8 @@ class _SearchPageState extends State<SearchPage> {
                result.type == SearchResultType.silence || 
                result.type == SearchResultType.none) {
       // 处理规则结果，打开规则编辑对话框
-      final ruleService = Provider.of<RuleManagementService>(context, listen: false);
-      final allowedBlockedService = Provider.of<AllowedBlockedService>(context, listen: false);
+      final ruleService = ref.read(ruleManagementServiceProvider);
+      final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
       
       if (result.ruleType == 'phone') {
         // 使用正确的方法：getAllRulesByActionType 并过滤

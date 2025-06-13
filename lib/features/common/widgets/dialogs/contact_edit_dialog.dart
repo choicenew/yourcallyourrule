@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/provider/providers/contact_service_provider.dart';
 
 /// 联系人编辑对话框
 /// 用于添加或编辑联系人信息
-class ContactEditDialog extends StatefulWidget {
+class ContactEditDialog extends ConsumerStatefulWidget {
   final Contact? contact; // 可为null，表示添加新联系人
   final Function? onContactUpdated;
   final Color themeColor;
@@ -20,7 +21,7 @@ class ContactEditDialog extends StatefulWidget {
   });
 
   @override
-  State<ContactEditDialog> createState() => _ContactEditDialogState();
+  ConsumerState<ContactEditDialog> createState() => _ContactEditDialogState();
 
   /// 显示联系人编辑对话框的静态方法
   static void show(BuildContext context, {Contact? contact, Function? onContactUpdated, Color themeColor = Colors.blue}) {
@@ -35,7 +36,7 @@ class ContactEditDialog extends StatefulWidget {
   }
 }
 
-class _ContactEditDialogState extends State<ContactEditDialog> {
+class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
   late TextEditingController _nameController;
   late TextEditingController _phoneController;
   late TextEditingController _emailController;
@@ -80,7 +81,7 @@ class _ContactEditDialogState extends State<ContactEditDialog> {
     });
 
     try {
-      final contactService = Provider.of<ContactService>(context, listen: false);
+      final contactService = ref.read(contactServiceProvider);
       final bool isEditing = widget.contact != null;
       
       if (isEditing) {

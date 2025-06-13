@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
@@ -9,7 +11,7 @@ import 'package:yourcallyourrule/features/labels/services/predefined_label_servi
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class LabelDialog extends StatefulWidget {
+class LabelDialog extends ConsumerStatefulWidget {
   final CallLog log;
   final Function? onLabelUpdated;
 
@@ -20,10 +22,10 @@ class LabelDialog extends StatefulWidget {
   });
 
   @override
-  State<LabelDialog> createState() => _LabelDialogState();
+  ConsumerState<LabelDialog> createState() => _LabelDialogState();
 }
 
-class _LabelDialogState extends State<LabelDialog> {
+class _LabelDialogState extends ConsumerState<LabelDialog> {
   bool _isExpanded = false;
 
   @override
@@ -119,7 +121,7 @@ class _LabelDialogState extends State<LabelDialog> {
           Text(AppLocalizations.of(context)!.currentLabels, style: const TextStyle(fontSize: 14, color: Colors.grey)),
           const SizedBox(height: 8),
           FutureBuilder<List<String?>>(
-            future: LabelTextUtils.getMultipleLabelTexts(context, widget.log.labelIds!),
+            future: LabelTextUtils.getMultipleLabelTexts(context, ref, widget.log.labelIds!),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator(strokeWidth: 2));
@@ -162,7 +164,7 @@ class _LabelDialogState extends State<LabelDialog> {
 
   Future<void> _removeLabel(String labelId) async {
     try {
-      final callLogService = Provider.of<CallLogService>(context, listen: false);
+      final callLogService = ref.read(callLogServiceProvider);
       // 创建一个新的标签列表，排除要删除的标签
       final newLabelIds = List<String>.from(widget.log.labelIds ?? [])
         ..remove(labelId);
@@ -211,7 +213,7 @@ class _LabelDialogState extends State<LabelDialog> {
   Future<void> _addLabel(String labelId) async {
     try {
       // 获取标签服务和通话记录服务
-      final callLogService = Provider.of<CallLogService>(context, listen: false);
+      final callLogService = ref.read(callLogServiceProvider);
       
       // 为通话记录添加标签
       await callLogService.addLabelToLog(widget.log, labelId);
@@ -245,7 +247,7 @@ class _LabelDialogState extends State<LabelDialog> {
   /// 同步标签到远程号码服务
   Future<void> _syncLabelToRemote() async {
     try {
-      final labelToRemoteSyncService = Provider.of<LabelToRemoteSyncService>(context, listen: false);
+      final labelToRemoteSyncService = ref.read(labelToRemoteSyncServiceProvider);
       final phoneNumber = PhoneNumber.fromString(widget.log.number);
       await labelToRemoteSyncService.syncLabelByPhoneNumber(phoneNumber);
     } catch (e) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
+import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
@@ -9,7 +10,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 /// 允许/阻止规则编辑对话框
 /// 用于编辑允许/阻止规则
 /// Used to edit allowed/blocked rules
-class AllowedBlockedRuleEditDialog extends StatefulWidget {
+class AllowedBlockedRuleEditDialog extends ConsumerStatefulWidget {
   final AllowedBlockedRule rule;
   final Function? onRuleUpdated;
   final Color themeColor;
@@ -22,7 +23,7 @@ class AllowedBlockedRuleEditDialog extends StatefulWidget {
   });
 
   @override
-  State<AllowedBlockedRuleEditDialog> createState() => _AllowedBlockedRuleEditDialogState();
+  ConsumerState<AllowedBlockedRuleEditDialog> createState() => _AllowedBlockedRuleEditDialogState();
   /// 显示允许/阻止规则编辑对话框的静态方法
   /// Static method to show the Allowed/Blocked Rule Edit Dialog
   static void show(BuildContext context, AllowedBlockedRule rule, {Function? onRuleUpdated, Color themeColor = const Color(0xFFF5A623)}) {
@@ -37,7 +38,7 @@ class AllowedBlockedRuleEditDialog extends StatefulWidget {
   }
 }
 
-class _AllowedBlockedRuleEditDialogState extends State<AllowedBlockedRuleEditDialog> {
+class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRuleEditDialog> {
   late TextEditingController _nameController;
   late TextEditingController _phoneController;
   String? _selectedLabelId;
@@ -87,7 +88,7 @@ class _AllowedBlockedRuleEditDialogState extends State<AllowedBlockedRuleEditDia
         isEnabled: widget.rule.isEnabled,
       );
 
-      final service = Provider.of<AllowedBlockedService>(context, listen: false);
+      final service = ref.read(allowedBlockedServiceProvider);
       await service.updateAllowedBlockedRule(updatedRule);
 
       // 调用回调函数

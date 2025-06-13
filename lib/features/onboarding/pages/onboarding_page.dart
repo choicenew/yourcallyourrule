@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 import 'package:yourcallyourrule/features/language/language_data.dart';
 import 'package:yourcallyourrule/features/language/widgets/language_selection_widget.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
@@ -8,14 +8,14 @@ import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 应用引导页面
-class OnboardingPage extends StatefulWidget {
+class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
 
   @override
-  State<OnboardingPage> createState() => _OnboardingPageState();
+  ConsumerState<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _OnboardingPageState extends State<OnboardingPage> {
+class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
   final int _totalPages = 6;
@@ -289,9 +289,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
         backgroundColor: Colors.white,
       ),
       title: AppLocalizations.of(context)!.welcome,
-      content: Column(
+      content: const Column(
         children: [
-          const Text(
+          Text(
             'Your Call Your Rule',
             style: TextStyle(
               color: Colors.white,
@@ -306,8 +306,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _buildLanguagePage() {
-    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
-    final currentLocale = localeProvider.locale;
+    final localeState = ref.watch(localeProvider);
+    final currentLocale = localeState.locale;
       final List<Map<String, dynamic>> supportedLocales = languages;
 
     return _buildPageTemplate(
@@ -328,11 +328,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
         LanguageSelectionWidget(
           supportedLocales: supportedLocales,
           currentLocale: currentLocale,
-          localeProvider: localeProvider,
+          localeNotifier: ref.read(localeProvider.notifier),
           showCurrentLanguage: false,
         ),
       ),
-      description: AppLocalizations.of(context)!.onboardingLanguageDescription,
+      description: AppLocalizations.of(context)?.onboardingLanguageDescription ?? '',
     );
   }
 

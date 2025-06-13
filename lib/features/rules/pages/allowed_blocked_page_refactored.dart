@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
+import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -17,12 +18,12 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 重构后的允许/阻止规则管理页面
 /// 使用通用的GenericRulePage组件减少重复代码
-class AllowedBlockedPage extends StatelessWidget {
+class AllowedBlockedPage extends ConsumerWidget {
   const AllowedBlockedPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final allowedBlockedService = Provider.of<AllowedBlockedService>(context, listen: false);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
 
     // 创建导入导出组件
     final importExportComponent =
@@ -45,6 +46,7 @@ class AllowedBlockedPage extends StatelessWidget {
     );
 
     return GenericRulePage<AllowedBlockedRule, AllowedBlockedService>(
+      serviceProvider: allowedBlockedServiceProvider,
       title: AppLocalizations.of(context)!.allowedBlockedRuleManagement,
       themeColor: Colors.blue,
       emptyText: AppLocalizations.of(context)!.allowedBlockedRule,

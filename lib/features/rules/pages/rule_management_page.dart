@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
@@ -17,12 +18,12 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则管理页面
 /// 使用通用的GenericRulePage组件减少重复代码
-class RuleManagementPage extends StatelessWidget {
+class RuleManagementPage extends ConsumerWidget {
   const RuleManagementPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final ruleManagementService = Provider.of<RuleManagementService>(context, listen: false);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ruleManagementService = ref.watch(ruleManagementServiceProvider);
 
     // 创建导入导出组件
     final importExportComponent =
@@ -44,6 +45,7 @@ class RuleManagementPage extends StatelessWidget {
     );
 
     return GenericRulePage<PhoneRule, RuleManagementService>(
+      serviceProvider: ruleManagementServiceProvider,
       title: AppLocalizations.of(context)!.phoneRuleManagement,
       themeColor: const Color(0xFFF5A623),
       emptyText: AppLocalizations.of(context)!.phoneRule,

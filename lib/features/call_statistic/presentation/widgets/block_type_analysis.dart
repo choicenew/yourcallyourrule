@@ -143,7 +143,7 @@ class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
   Future<String> _getLabelDisplayText(BuildContext context, String labelId) async {
     try {
       // 使用LabelTextUtils获取标签文本
-      final labelText = await LabelTextUtils.getLabelTextById(context, labelId);
+      final labelText = await LabelTextUtils.getLabelTextById(context, ref, labelId);
       return labelText ?? labelId;
     } catch (e) {
       // 如果获取失败，返回标签ID作为显示文本
