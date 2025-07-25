@@ -94,6 +94,7 @@
     "exportFailure": "导出配置失败",
     "axisPosition": "{axis} 位置",
     "regexErrorMessage": "正则表达式错误：{error}",
+    "securityMessage": "不要相信任何电话，客服电话要自己二次确认，不要分享任何密码或验证码或卡号或个人信息。",
     "addToRules": "加入规则",
     "addToAllowedRules": "加入允许规则",
     "addToBlockedRules": "加入阻止规则",

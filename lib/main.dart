@@ -4,11 +4,12 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
 
-
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/core/provider/providers/background_sync_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/plugin_to_remote_sync_service_provider.dart';
 
 Future<void> main() async {
   // 确保 Flutter 绑定初始化
@@ -26,6 +27,8 @@ Future<void> main() async {
     
     // 初始化广告SDK
     await MobileAds.instance.initialize();
+    
+    // 后台同步服务将通过Provider系统初始化
     
     // 记录应用启动事件
     firebaseService.logAppOpen();
@@ -77,6 +80,15 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
+    
+    // 仅在非覆盖层模式下初始化后台同步服务
+    // 后台同步服务已包含通话记录同步任务，不需要再单独初始化前台同步服务
+    if (!isOverlayMode) {
+      // 初始化后台同步服务
+      ref.watch(backgroundSyncInitProvider);
+      // 初始化插件数据同步服务
+      ref.watch(pluginToRemoteSyncInitProvider);
+    }
     
     return MaterialApp.router(
       title: 'Your Call Your Rule',

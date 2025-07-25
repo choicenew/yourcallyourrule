@@ -125,7 +125,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
-                      child: Text(AppLocalizations.of(context)!.close),
+                      child: Text(AppLocalizations.of(context)!.closeButton),
                     ),
                   ],
                 ),
@@ -349,38 +349,50 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
                 AppLocalizations.of(context)!.blockingTrend,
                 style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.calendar_today),
-                    onPressed: () {
-                      _showDateRangePicker(context);
-                    },
+              Flexible(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.calendar_today),
+                        onPressed: () {
+                          _showDateRangePicker(context);
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.notifications),
+                        onPressed: () {
+                          _showNotificationSettings(context);
+                        },
+                      ),
+                      const SizedBox(width: 8),
+                      _periodButton(AppLocalizations.of(context)!.periodWeek, isSelected: _selectedPeriod == 'Week'),
+                      const SizedBox(width: 8),
+                      _periodButton(AppLocalizations.of(context)!.periodMonth, isSelected: _selectedPeriod == 'Month'),
+                      const SizedBox(width: 8),
+                      _periodButton(AppLocalizations.of(context)!.periodYear, isSelected: _selectedPeriod == 'Year'),
+                    ],
                   ),
-                  IconButton(
-                    icon: const Icon(Icons.notifications),
-                    onPressed: () {
-                      _showNotificationSettings(context);
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  _periodButton(AppLocalizations.of(context)!.periodWeek, isSelected: _selectedPeriod == 'Week'),
-                  const SizedBox(width: 8),
-                  _periodButton(AppLocalizations.of(context)!.periodMonth, isSelected: _selectedPeriod == 'Month'),
-                  const SizedBox(width: 8),
-                  _periodButton(AppLocalizations.of(context)!.periodYear, isSelected: _selectedPeriod == 'Year'),
-                ],
+                ),
               ),
             ],
           ),
           const SizedBox(height: 16),
-          SizedBox(
-            height: 200,
-            child: StatisticChart(
-              repository: _repository,
-              showDetailedChart: true,
-              period: _selectedPeriod,
-            ),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              // 根据可用宽度调整图表高度
+              final chartHeight = constraints.maxWidth < 350 ? 180.0 : 200.0;
+              
+              return SizedBox(
+                height: chartHeight,
+                child: StatisticChart(
+                  repository: _repository,
+                  showDetailedChart: true,
+                  period: _selectedPeriod,
+                ),
+              );
+            }
           ),
         ],
       ),

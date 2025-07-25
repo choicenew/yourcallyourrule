@@ -165,7 +165,7 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(AppLocalizations.of(context)!.confirm),
+            child: Text(AppLocalizations.of(context)!.confirmButton),
           ),
         ],
       ),

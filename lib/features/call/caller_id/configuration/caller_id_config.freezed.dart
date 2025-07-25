@@ -81,6 +81,8 @@ mixin _$CallerIdConfig {
   Offset get simCardPosition;
   @OffsetConverter()
   Offset get stirPosition;
+  @OffsetConverter()
+  Offset get securityMessagePosition;
 
   /// Create a copy of CallerIdConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -173,7 +175,10 @@ mixin _$CallerIdConfig {
             (identical(other.simCardPosition, simCardPosition) ||
                 other.simCardPosition == simCardPosition) &&
             (identical(other.stirPosition, stirPosition) ||
-                other.stirPosition == stirPosition));
+                other.stirPosition == stirPosition) &&
+            (identical(
+                    other.securityMessagePosition, securityMessagePosition) ||
+                other.securityMessagePosition == securityMessagePosition));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -217,12 +222,13 @@ mixin _$CallerIdConfig {
         locationPosition,
         callTypePosition,
         simCardPosition,
-        stirPosition
+        stirPosition,
+        securityMessagePosition
       ]);
 
   @override
   String toString() {
-    return 'CallerIdConfig(backgroundColorStart: $backgroundColorStart, backgroundColorEnd: $backgroundColorEnd, textNameColor: $textNameColor, textNumberColor: $textNumberColor, textLocationColor: $textLocationColor, textCarrierColor: $textCarrierColor, textCountryNameColor: $textCountryNameColor, textLabelsColor: $textLabelsColor, textCountColor: $textCountColor, textNumberTypeColor: $textNumberTypeColor, textIconLabelColor: $textIconLabelColor, textIconLocationColor: $textIconLocationColor, textIconCallTypeColor: $textIconCallTypeColor, avatarBorderColor: $avatarBorderColor, textStirColor: $textStirColor, textSimCardColor: $textSimCardColor, nameFontSize: $nameFontSize, numberFontSize: $numberFontSize, locationFontSize: $locationFontSize, carrierFontSize: $carrierFontSize, countryNameFontSize: $countryNameFontSize, labelsFontSize: $labelsFontSize, countFontSize: $countFontSize, numberTypeFontSize: $numberTypeFontSize, stirFontSize: $stirFontSize, simCardFontSize: $simCardFontSize, avatarPosition: $avatarPosition, namePosition: $namePosition, carrierPosition: $carrierPosition, countryNamePosition: $countryNamePosition, labelsPosition: $labelsPosition, countPosition: $countPosition, numberTypePosition: $numberTypePosition, numberPosition: $numberPosition, locationPosition: $locationPosition, callTypePosition: $callTypePosition, simCardPosition: $simCardPosition, stirPosition: $stirPosition)';
+    return 'CallerIdConfig(backgroundColorStart: $backgroundColorStart, backgroundColorEnd: $backgroundColorEnd, textNameColor: $textNameColor, textNumberColor: $textNumberColor, textLocationColor: $textLocationColor, textCarrierColor: $textCarrierColor, textCountryNameColor: $textCountryNameColor, textLabelsColor: $textLabelsColor, textCountColor: $textCountColor, textNumberTypeColor: $textNumberTypeColor, textIconLabelColor: $textIconLabelColor, textIconLocationColor: $textIconLocationColor, textIconCallTypeColor: $textIconCallTypeColor, avatarBorderColor: $avatarBorderColor, textStirColor: $textStirColor, textSimCardColor: $textSimCardColor, nameFontSize: $nameFontSize, numberFontSize: $numberFontSize, locationFontSize: $locationFontSize, carrierFontSize: $carrierFontSize, countryNameFontSize: $countryNameFontSize, labelsFontSize: $labelsFontSize, countFontSize: $countFontSize, numberTypeFontSize: $numberTypeFontSize, stirFontSize: $stirFontSize, simCardFontSize: $simCardFontSize, avatarPosition: $avatarPosition, namePosition: $namePosition, carrierPosition: $carrierPosition, countryNamePosition: $countryNamePosition, labelsPosition: $labelsPosition, countPosition: $countPosition, numberTypePosition: $numberTypePosition, numberPosition: $numberPosition, locationPosition: $locationPosition, callTypePosition: $callTypePosition, simCardPosition: $simCardPosition, stirPosition: $stirPosition, securityMessagePosition: $securityMessagePosition)';
   }
 }
 
@@ -270,7 +276,8 @@ abstract mixin class $CallerIdConfigCopyWith<$Res> {
       @OffsetConverter() Offset locationPosition,
       @OffsetConverter() Offset callTypePosition,
       @OffsetConverter() Offset simCardPosition,
-      @OffsetConverter() Offset stirPosition});
+      @OffsetConverter() Offset stirPosition,
+      @OffsetConverter() Offset securityMessagePosition});
 }
 
 /// @nodoc
@@ -324,6 +331,7 @@ class _$CallerIdConfigCopyWithImpl<$Res>
     Object? callTypePosition = null,
     Object? simCardPosition = null,
     Object? stirPosition = null,
+    Object? securityMessagePosition = null,
   }) {
     return _then(_self.copyWith(
       backgroundColorStart: null == backgroundColorStart
@@ -478,6 +486,10 @@ class _$CallerIdConfigCopyWithImpl<$Res>
           ? _self.stirPosition
           : stirPosition // ignore: cast_nullable_to_non_nullable
               as Offset,
+      securityMessagePosition: null == securityMessagePosition
+          ? _self.securityMessagePosition
+          : securityMessagePosition // ignore: cast_nullable_to_non_nullable
+              as Offset,
     ));
   }
 }
@@ -523,7 +535,8 @@ class _CallerIdConfig implements CallerIdConfig {
       @OffsetConverter() required this.locationPosition,
       @OffsetConverter() required this.callTypePosition,
       @OffsetConverter() required this.simCardPosition,
-      @OffsetConverter() required this.stirPosition});
+      @OffsetConverter() required this.stirPosition,
+      @OffsetConverter() required this.securityMessagePosition});
   factory _CallerIdConfig.fromJson(Map<String, dynamic> json) =>
       _$CallerIdConfigFromJson(json);
 
@@ -631,6 +644,9 @@ class _CallerIdConfig implements CallerIdConfig {
   @override
   @OffsetConverter()
   final Offset stirPosition;
+  @override
+  @OffsetConverter()
+  final Offset securityMessagePosition;
 
   /// Create a copy of CallerIdConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -727,7 +743,10 @@ class _CallerIdConfig implements CallerIdConfig {
             (identical(other.simCardPosition, simCardPosition) ||
                 other.simCardPosition == simCardPosition) &&
             (identical(other.stirPosition, stirPosition) ||
-                other.stirPosition == stirPosition));
+                other.stirPosition == stirPosition) &&
+            (identical(
+                    other.securityMessagePosition, securityMessagePosition) ||
+                other.securityMessagePosition == securityMessagePosition));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -771,12 +790,13 @@ class _CallerIdConfig implements CallerIdConfig {
         locationPosition,
         callTypePosition,
         simCardPosition,
-        stirPosition
+        stirPosition,
+        securityMessagePosition
       ]);
 
   @override
   String toString() {
-    return 'CallerIdConfig(backgroundColorStart: $backgroundColorStart, backgroundColorEnd: $backgroundColorEnd, textNameColor: $textNameColor, textNumberColor: $textNumberColor, textLocationColor: $textLocationColor, textCarrierColor: $textCarrierColor, textCountryNameColor: $textCountryNameColor, textLabelsColor: $textLabelsColor, textCountColor: $textCountColor, textNumberTypeColor: $textNumberTypeColor, textIconLabelColor: $textIconLabelColor, textIconLocationColor: $textIconLocationColor, textIconCallTypeColor: $textIconCallTypeColor, avatarBorderColor: $avatarBorderColor, textStirColor: $textStirColor, textSimCardColor: $textSimCardColor, nameFontSize: $nameFontSize, numberFontSize: $numberFontSize, locationFontSize: $locationFontSize, carrierFontSize: $carrierFontSize, countryNameFontSize: $countryNameFontSize, labelsFontSize: $labelsFontSize, countFontSize: $countFontSize, numberTypeFontSize: $numberTypeFontSize, stirFontSize: $stirFontSize, simCardFontSize: $simCardFontSize, avatarPosition: $avatarPosition, namePosition: $namePosition, carrierPosition: $carrierPosition, countryNamePosition: $countryNamePosition, labelsPosition: $labelsPosition, countPosition: $countPosition, numberTypePosition: $numberTypePosition, numberPosition: $numberPosition, locationPosition: $locationPosition, callTypePosition: $callTypePosition, simCardPosition: $simCardPosition, stirPosition: $stirPosition)';
+    return 'CallerIdConfig(backgroundColorStart: $backgroundColorStart, backgroundColorEnd: $backgroundColorEnd, textNameColor: $textNameColor, textNumberColor: $textNumberColor, textLocationColor: $textLocationColor, textCarrierColor: $textCarrierColor, textCountryNameColor: $textCountryNameColor, textLabelsColor: $textLabelsColor, textCountColor: $textCountColor, textNumberTypeColor: $textNumberTypeColor, textIconLabelColor: $textIconLabelColor, textIconLocationColor: $textIconLocationColor, textIconCallTypeColor: $textIconCallTypeColor, avatarBorderColor: $avatarBorderColor, textStirColor: $textStirColor, textSimCardColor: $textSimCardColor, nameFontSize: $nameFontSize, numberFontSize: $numberFontSize, locationFontSize: $locationFontSize, carrierFontSize: $carrierFontSize, countryNameFontSize: $countryNameFontSize, labelsFontSize: $labelsFontSize, countFontSize: $countFontSize, numberTypeFontSize: $numberTypeFontSize, stirFontSize: $stirFontSize, simCardFontSize: $simCardFontSize, avatarPosition: $avatarPosition, namePosition: $namePosition, carrierPosition: $carrierPosition, countryNamePosition: $countryNamePosition, labelsPosition: $labelsPosition, countPosition: $countPosition, numberTypePosition: $numberTypePosition, numberPosition: $numberPosition, locationPosition: $locationPosition, callTypePosition: $callTypePosition, simCardPosition: $simCardPosition, stirPosition: $stirPosition, securityMessagePosition: $securityMessagePosition)';
   }
 }
 
@@ -826,7 +846,8 @@ abstract mixin class _$CallerIdConfigCopyWith<$Res>
       @OffsetConverter() Offset locationPosition,
       @OffsetConverter() Offset callTypePosition,
       @OffsetConverter() Offset simCardPosition,
-      @OffsetConverter() Offset stirPosition});
+      @OffsetConverter() Offset stirPosition,
+      @OffsetConverter() Offset securityMessagePosition});
 }
 
 /// @nodoc
@@ -880,6 +901,7 @@ class __$CallerIdConfigCopyWithImpl<$Res>
     Object? callTypePosition = null,
     Object? simCardPosition = null,
     Object? stirPosition = null,
+    Object? securityMessagePosition = null,
   }) {
     return _then(_CallerIdConfig(
       backgroundColorStart: null == backgroundColorStart
@@ -1033,6 +1055,10 @@ class __$CallerIdConfigCopyWithImpl<$Res>
       stirPosition: null == stirPosition
           ? _self.stirPosition
           : stirPosition // ignore: cast_nullable_to_non_nullable
+              as Offset,
+      securityMessagePosition: null == securityMessagePosition
+          ? _self.securityMessagePosition
+          : securityMessagePosition // ignore: cast_nullable_to_non_nullable
               as Offset,
     ));
   }

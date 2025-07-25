@@ -230,7 +230,7 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
       // 创建一个新的插件条目
       final pluginService = ref.read(pluginManagerServiceProvider);
       final newPlugin = PluginEntry(
-        id: Uuid().v4(),
+        id: const Uuid().v4(),
         name: _nameController.text,
         version: _versionController.text,
         url: _urlController.text,

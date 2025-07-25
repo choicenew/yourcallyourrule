@@ -10,6 +10,11 @@ class PhoneNumber {
     return PhoneNumber(cleaned);
   }
 
+  /// 检查电话号码是否包含指定的字符串
+  bool contains(String other) {
+    return value.contains(other);
+  }
+
   @override
   bool operator ==(Object other) => identical(this, other) || 
     (other is PhoneNumber && value == other.value);

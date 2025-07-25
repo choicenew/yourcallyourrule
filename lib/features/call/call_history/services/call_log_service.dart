@@ -117,6 +117,17 @@ class CallLogService {
     await refresh();
   }
   
+  /// 获取最后一条通话记录
+  /// 按时间戳排序，返回最新的一条记录
+  Future<CallLog?> getLastLog() async {
+    final logs = await _repository.getRecentLogs();
+    if (logs.isEmpty) return null;
+    
+    // 按时间戳排序
+    logs.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+    return logs.first;
+  }
+  
   /// 根据电话号码获取头像
   /// 按照优先级从联系人、规则、标签中获取头像
   Future<String?> getAvatarForNumber(String phoneNumber) async {

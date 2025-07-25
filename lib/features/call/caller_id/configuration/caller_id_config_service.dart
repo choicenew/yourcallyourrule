@@ -67,6 +67,7 @@ class CallerIdConfigService {
       callTypePosition: Offset(300, 40),
       simCardPosition: Offset(300, 70),
       stirPosition: Offset(300, 100),
+      securityMessagePosition: Offset(10, 190),
     );
     await saveConfig(defaultConfig);
     return defaultConfig;

@@ -211,4 +211,10 @@ class AllowedBlockedService extends ListService {
     
     return labels.toList();
   }
+
+  // 获取所有允许/阻止规则（包括所有动作类型）
+  Future<List<AllowedBlockedRule>> getAllAllowedBlockedRules() async {
+    // 使用已有的方法获取所有规则
+    return await getAllRulesByActionType(null);
+  }
 }

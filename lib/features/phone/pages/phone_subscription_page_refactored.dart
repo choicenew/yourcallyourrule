@@ -190,7 +190,7 @@ class PhoneSubscriptionPage extends ConsumerWidget {
                   const SizedBox(width: 8),
                   OutlinedButton.icon(
                     icon: const Icon(Icons.delete),
-                    label: Text(AppLocalizations.of(state.context)!.delete),
+                    label: Text(AppLocalizations.of(state.context)!.deleteButton),
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       shape: RoundedRectangleBorder(

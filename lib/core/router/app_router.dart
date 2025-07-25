@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/rule_repository_provider.dart';
+import 'package:yourcallyourrule/core/provider/labels_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/contact_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/remote_number_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
 
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
@@ -25,11 +29,16 @@ import 'package:yourcallyourrule/features/contacts/services/contact_service.dart
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page.dart';
+import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
+import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page.dart';
+import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored.dart';
 import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page.dart';
+import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page.dart';
 import 'package:yourcallyourrule/features/rules/pages/regex_rule_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_page.dart';
+import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page_with_ads.dart';
 
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
@@ -42,7 +51,7 @@ import 'package:yourcallyourrule/features/remote_filter/services/remote_number_s
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/call_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 
-import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page_refactored.dart';
+
 
 import 'package:yourcallyourrule/features/rules/pages/rule_management_page.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
@@ -68,6 +77,7 @@ import 'package:yourcallyourrule/presentation/plugin_test_page.dart';
 import 'package:yourcallyourrule/presentation/regex_test_page.dart';
 import 'package:yourcallyourrule/presentation/verification_page.dart';
 import 'package:yourcallyourrule/purchase/purchase_page.dart';
+import 'package:yourcallyourrule/purchase/pages/vip_exchange_page.dart';
 
 /// 应用路由配置
 /// 使用GoRouter管理全局路由表
@@ -86,7 +96,7 @@ class AppRouter {
   final RegexService regexService;
   final CallFilterService callFilterService;
   final SmsFilterService smsFilterService;
-  final ProviderRef ref;
+  final Ref ref;
   
   // 构造函数
   AppRouter({
@@ -128,9 +138,11 @@ class AppRouter {
   static const String regexTest = 'regex-test';
   static const String smsManagement = 'sms-management';
   static const String smsSubscription = 'sms-subscription';
+  static const String smsSubscriptionWithAds = 'sms-subscription-with-ads';
   static const String contactSubscription = 'contact-subscription';
   static const String contactsManagement = 'contacts-management';
   static const String blockedCalls = 'blocked-calls';
+
   static const String callStatistics = 'call-statistics';
   static const String callHistory = 'call-history';
   static const String autoUpdate = 'auto-update';
@@ -145,8 +157,13 @@ class AppRouter {
   static const String regexRule = 'regex-rule';
   static const String smsFilter = 'sms-filter';
   static const String labelManagement = 'label-management';
+  static const String labelManagementWithAds = 'label-management-with-ads';
   static const String splash = 'splash';
-  
+  static const String markPhoneManagement = 'mark-phone-management';
+  static const String markPhoneManagementWithAds = 'mark-phone-management-with-ads';
+  static const String vipExchange = 'vip-exchange';
+
+
   // 创建路由器
   late final router = GoRouter(
     initialLocation: '/splash',
@@ -417,6 +434,13 @@ class AppRouter {
         builder: (context, state) => const SmsSubscriptionPage(),
       ),
 
+      // 带广告的短信订阅页面
+      GoRoute(
+        path: '/sms-subscription-with-ads',
+        name: smsSubscriptionWithAds,
+        builder: (context, state) => const SmsSubscriptionPageWithAds(),
+      ),
+
       // 联系人订阅页面
       GoRoute(
         path: '/$contactSubscription',
@@ -516,6 +540,34 @@ class AppRouter {
         name: labelManagement,
         builder: (context, state) => const LabelManagementPage(),
       ),
+
+      // 带广告的标签管理页面
+      GoRoute(
+        path: '/label-management-with-ads',
+        name: labelManagementWithAds,
+        builder: (context, state) => const LabelManagementPageWithAds(),
+      ),
+
+      // 号码标记管理页面
+      GoRoute(
+        path: '/mark-phone-management',
+        name: markPhoneManagement,
+        builder: (context, state) => const MarkPhoneManagementPage(),
+      ),
+      
+      // 带广告的号码标记管理页面
+      GoRoute(
+        path: '/mark-phone-management-with-ads',
+        name: markPhoneManagementWithAds,
+        builder: (context, state) => const MarkPhoneManagementPageWithAds(),
+      ),
+
+      // VIP兑换页面
+      GoRoute(
+        path: '/vip-exchange',
+        name: vipExchange,
+        builder: (context, state) => const VipExchangePage(),
+      ),
     ],
   );
   
@@ -555,21 +607,32 @@ class AppRouter {
   void navigateToSearch(BuildContext context) {
     context.goNamed(search);
   }
+
+  // 导航到号码标记管理页面
+  void navigateToMarkPhoneManagement(BuildContext context) {
+    context.goNamed(markPhoneManagement);
+  }
+
+  // 导航到带广告的标签管理页面
+  void navigateToLabelManagementWithAds(BuildContext context) {
+    context.goNamed(labelManagementWithAds);
+  }
+
+  // 导航到带广告的号码标记管理页面
+  void navigateToMarkPhoneManagementWithAds(BuildContext context) {
+    context.goNamed(markPhoneManagementWithAds);
+  }
 }
 
-// 为Riverpod定义Provider
-final contactServiceProvider = Provider<ContactService>((ref) {
-  throw UnimplementedError('需要在应用中提供ContactService的实现');
-});
 
-final labelServiceProvider = Provider<LabelService>((ref) {
-  throw UnimplementedError('需要在应用中提供LabelService的实现');
-});
 
-final ruleManagementServiceProvider = Provider<RuleManagementService>((ref) {
-  throw UnimplementedError('需要在应用中提供RuleManagementService的实现');
-});
 
-final ruleRepositoryProvider = Provider<RuleRepository>((ref) {
-  throw UnimplementedError('需要在应用中提供RuleRepository的实现');
-});
+
+
+
+
+
+
+
+
+

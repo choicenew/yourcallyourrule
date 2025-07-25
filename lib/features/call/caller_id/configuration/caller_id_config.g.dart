@@ -74,6 +74,8 @@ _CallerIdConfig _$CallerIdConfigFromJson(Map<String, dynamic> json) =>
           .fromJson(json['simCardPosition'] as Map<String, dynamic>),
       stirPosition: const OffsetConverter()
           .fromJson(json['stirPosition'] as Map<String, dynamic>),
+      securityMessagePosition: const OffsetConverter()
+          .fromJson(json['securityMessagePosition'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CallerIdConfigToJson(_CallerIdConfig instance) =>
@@ -135,4 +137,6 @@ Map<String, dynamic> _$CallerIdConfigToJson(_CallerIdConfig instance) =>
       'simCardPosition':
           const OffsetConverter().toJson(instance.simCardPosition),
       'stirPosition': const OffsetConverter().toJson(instance.stirPosition),
+      'securityMessagePosition':
+          const OffsetConverter().toJson(instance.securityMessagePosition),
     };

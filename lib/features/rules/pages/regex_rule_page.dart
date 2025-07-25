@@ -10,6 +10,7 @@ import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
+import 'package:yourcallyourrule/features/rules/services/regex_rule_import_export_adapter.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -25,8 +26,7 @@ class RegexRulePage extends ConsumerWidget {
     // 创建导入导出组件
     final importExportComponent =
         ImportExportServiceComponent<RegexRule, String>(
-      importExportService: regexService.importExportService
-          as ImportExportService<RegexRule, String>,
+      importExportService: RegexRuleImportExportAdapter(regexService.importExportService),
       entityTypeName: AppLocalizations.of(context)!.regexRule,
       onEntitiesImported: (rules) async {
         // 使用服务类的公共方法保存规则

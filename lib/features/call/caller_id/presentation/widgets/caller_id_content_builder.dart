@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/core/provider/providers/security_message_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/core/extensions/phone_number_type_extension.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/scrolling_security_message.dart';
+import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service_new.dart';
+import 'package:yourcallyourrule/features/call/caller_id/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示内容构建器
@@ -18,8 +23,27 @@ class CallerIdContentBuilder {
     StirInfo? stirInfo,
     bool isDraggable = true,
   }) {
+    // 检查是否包含诈骗相关标签
+    final bool isFraudulent = FraudDetectionService.checkForFraudLabels(callerIdData);
+    
     return Stack(
       children: <Widget>[
+        // Scrolling security message with fraud warning if needed
+        Consumer(builder: (context, ref, _) {
+          // 如果是诈骗电话，设置警告消息
+          if (isFraudulent) {
+            // 获取 SecurityMessageProvider 实例
+            final securityMessageState = ref.read(securityMessageProvider);
+            // 设置诈骗警告消息（使用国际化字符串）
+            securityMessageState.setMessage(AppLocalizations.of(context)!.fraudAlert);
+            securityMessageState.setTextColor(Colors.red);
+            securityMessageState.setEnabled(true);
+            
+            // 增强反诈骗提醒 - 添加震动和闪烁效果
+            FraudDetectionService.triggerFraudAlertDialog(callerIdData.phoneNumber.value);
+          }
+          return ScrollingSecurityMessage(isDraggable: isDraggable);
+        }),
         // 头像
         _buildPositionedElement(
           child: _buildAvatar(callerIdData, styleProvider),
@@ -74,7 +98,9 @@ class CallerIdContentBuilder {
               const SizedBox(width: 5),
               Text(
                 callerIdData.labels?.isNotEmpty == true
-                    ? callerIdData.labels!.map((label) => label.label).join(', ')
+                    ? callerIdData.labels!
+                        .map((label) => LabelTranslationUtils.translatePredefinedLabel(label.label, context))
+                        .join(', ')
                     : AppLocalizations.of(context)!.unknown,
                 style: TextStyle(
                   fontSize: styleProvider.labelsFontSize,
@@ -209,6 +235,15 @@ class CallerIdContentBuilder {
 
   /// 构建头像
   static Widget _buildAvatar(CallerIdData callerIdData, CallerIdStyleProvider styleProvider) {
+    // 检查是否包含诈骗相关标签
+    final bool isFraudulent = FraudDetectionService.checkForFraudLabels(callerIdData);
+    
+    // 如果是诈骗电话，使用红色边框并添加闪烁效果
+    if (isFraudulent) {
+      return _buildFlashingAvatar(callerIdData, styleProvider);
+    }
+    
+    // 正常显示头像
     return CircleAvatar(
       radius: styleProvider.avatarBorderSize / 2,
       backgroundColor: styleProvider.avatarBorderColor,
@@ -216,6 +251,33 @@ class CallerIdContentBuilder {
         radius: styleProvider.avatarSize / 2,
         backgroundImage: _getAvatarImage(callerIdData),
       ),
+    );
+  }
+  
+  // 诈骗检测逻辑已移至 FraudDetectionService
+  
+  /// 构建闪烁头像
+  static Widget _buildFlashingAvatar(CallerIdData callerIdData, CallerIdStyleProvider styleProvider) {
+    return TweenAnimationBuilder<double>(
+      tween: Tween<double>(begin: 0.5, end: 1.0),
+      duration: const Duration(milliseconds: 500),
+      builder: (context, value, child) {
+        return CircleAvatar(
+          radius: styleProvider.avatarBorderSize / 2,
+          backgroundColor: Colors.red.withOpacity(value),
+          child: CircleAvatar(
+            radius: styleProvider.avatarSize / 2,
+            backgroundImage: _getAvatarImage(callerIdData),
+          ),
+        );
+      },
+      onEnd: () {
+        // 动画结束后反向播放，实现闪烁效果
+        styleProvider.setAvatarBorderColor(
+          styleProvider.avatarBorderColor == Colors.red ? 
+          const Color.fromARGB(255, 76, 175, 80) : Colors.red
+        );
+      },
     );
   }
 

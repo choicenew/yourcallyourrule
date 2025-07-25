@@ -172,7 +172,13 @@ class StatisticChartState extends State<StatisticChart> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return widget.showDetailedChart ? _buildDetailedChart() : _buildMiniChart();
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return widget.showDetailedChart 
+          ? _buildDetailedChart(constraints.maxWidth) 
+          : _buildMiniChart();
+      },
+    );
   }
 
   Widget _buildMiniChart() {
@@ -197,7 +203,10 @@ class StatisticChartState extends State<StatisticChart> {
     );
   }
 
-  Widget _buildDetailedChart() {
+  Widget _buildDetailedChart(double maxWidth) {
+    // 根据可用宽度确定要显示的标签数量
+    final bool isSmallScreen = maxWidth < 350;
+    
     return LineChart(
       LineChartData(
         gridData: FlGridData(
@@ -219,11 +228,20 @@ class StatisticChartState extends State<StatisticChart> {
               reservedSize: 30,
               getTitlesWidget: (value, meta) {
                 if (value.toInt() >= 0 && value.toInt() < _chartLabels.length) {
+                  // 在小屏幕上只显示部分标签
+                  final String label = _chartLabels[value.toInt()];
+                  if (isSmallScreen && label.isEmpty) {
+                    return const SizedBox();
+                  }
+                  
                   return Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
-                      _chartLabels[value.toInt()],
-                      style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      label,
+                      style: TextStyle(
+                        fontSize: isSmallScreen ? 10 : 12, 
+                        color: Colors.grey
+                      ),
                     ),
                   );
                 }
@@ -247,9 +265,9 @@ class StatisticChartState extends State<StatisticChart> {
             spots: _chartData,
             isCurved: true,
             color: const Color(0xFFFFB74D),
-            barWidth: 3,
+            barWidth: isSmallScreen ? 2 : 3,
             isStrokeCapRound: true,
-            dotData: const FlDotData(show: false),
+            dotData: FlDotData(show: !isSmallScreen),
             belowBarData: BarAreaData(
               show: true,
               color: const Color(0xFFFFB74D).withValues(alpha:0.1),
@@ -268,6 +286,8 @@ class StatisticChartState extends State<StatisticChart> {
               }).toList();
             },
           ),
+          // 在小屏幕上减少触摸区域大小
+          touchSpotThreshold: isSmallScreen ? 15 : 10,
         ),
       ),
     );

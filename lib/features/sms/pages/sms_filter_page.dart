@@ -275,7 +275,7 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text(AppLocalizations.of(context)!.delete,
+            child: Text(AppLocalizations.of(context)!.deleteButton,
                 style: const TextStyle(color: Colors.red)),
           ),
         ],

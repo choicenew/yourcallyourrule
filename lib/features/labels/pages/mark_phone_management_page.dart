@@ -1,0 +1,468 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/ads/ad_control_service.dart';
+import 'package:yourcallyourrule/ads/ad_list_utils.dart';
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
+
+import 'package:yourcallyourrule/features/labels/providers/label_mark_statistics_sync_service_provider.dart';
+import 'package:yourcallyourrule/features/labels/providers/mark_phone_service_provider.dart';
+
+import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+/// 号码标记管理页面
+/// 用于用户添加号码标记，查看标记次数，以及兑换VIP功能
+class MarkPhoneManagementPage extends ConsumerStatefulWidget {
+  const MarkPhoneManagementPage({super.key});
+
+  @override
+  ConsumerState<MarkPhoneManagementPage> createState() => _MarkPhoneManagementPageState();
+}
+
+class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPage> {
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  String? _selectedLabelId;
+  int _markCount = 0;
+  bool _isLoading = false;
+  late LabelMarkStatisticsService _statisticsService;
+  StreamSubscription? _markCountSubscription;
+  
+  // 标记号码列表
+  List<LabelPhoneEntry> _markedPhones = [];
+  bool _isLoadingMarkedPhones = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // 初始化时不直接创建服务实例，而是在didChangeDependencies中通过Provider获取
+    _loadMarkCount();
+    _loadMarkedPhones();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    
+    // 通过Provider获取服务实例
+    _statisticsService = ref.read(labelMarkStatisticsServiceProvider);
+    
+    // 监听标记计数变化
+    _markCountSubscription?.cancel();
+    _markCountSubscription = _statisticsService.markCountStream.listen((count) {
+      setState(() {
+        _markCount = count;
+      });
+    });
+  }
+
+  Future<void> _loadMarkCount() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      final count = await _statisticsService.getMarkCount();
+      setState(() {
+        _markCount = count;
+      });
+    } catch (e) {
+      _showSnackBar('${AppLocalizations.of(context)!
+.loadMarkCountFailed}: $e');
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        margin: const EdgeInsets.all(8),
+      ),
+    );
+  }
+
+  /// 加载标记过的号码列表
+  Future<void> _loadMarkedPhones() async {
+    setState(() {
+      _isLoadingMarkedPhones = true;
+    });
+
+    try {
+      final markPhoneService = ref.read(markPhoneServiceProvider);
+      final markedPhones = await markPhoneService.getAllPhoneMarks();
+      
+      setState(() {
+        _markedPhones = markedPhones;
+      });
+    } catch (e) {
+      _showSnackBar(AppLocalizations.of(context)!.loadMarkedPhonesFailed( e.toString()));
+    } finally {
+      setState(() {
+        _isLoadingMarkedPhones = false;
+      });
+    }
+  }
+
+  Future<void> _markPhone() async {
+    final phoneText = _phoneController.text.trim();
+    final name = _nameController.text.trim();
+
+    if (phoneText.isEmpty) {
+      _showSnackBar(AppLocalizations.of(context)!.phoneNumber);
+      return;
+    }
+
+    if (_selectedLabelId == null || _selectedLabelId!.isEmpty) {
+      _showSnackBar(AppLocalizations.of(context)!.selectLabel);
+      return;
+    }
+
+    // 检查标签ID是否有效
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
+    final label = await predefinedLabelService.getLabelById(_selectedLabelId!);
+    if (label == null) {
+      _showSnackBar(AppLocalizations.of(context)!.invalidLabel);
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      final phoneNumber = PhoneNumber.fromString(phoneText);
+      final markPhoneService = ref.read(markPhoneServiceProvider);
+
+      // 使用markPhoneService标记电话号码
+      final labelPhoneEntry = await markPhoneService.markPhone(
+        phoneNumber,
+        _selectedLabelId!,
+        name: name,
+      );
+      
+      // 使用标记统计同步服务记录标记
+      final statisticsSyncService = ref.read(labelMarkStatisticsSyncServiceProvider);
+      await statisticsSyncService.syncSingleLabel(labelPhoneEntry);
+
+      // 清空输入框
+      _phoneController.clear();
+      _nameController.clear();
+      setState(() {
+        _selectedLabelId = null;
+      });
+
+      // 重新加载标记号码列表
+      _loadMarkedPhones();
+
+      _showSnackBar(AppLocalizations.of(context)!.markPhoneSuccess);
+    } catch (e) {
+      _showSnackBar('${AppLocalizations.of(context)!
+.markPhoneFailed}: $e');
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  Future<void> _navigateToVipExchangePage() async {
+    // 导航到VIP兑换页面
+    await Navigator.of(context).pushNamed('/vip-exchange');
+    
+    // 返回后刷新标记次数
+    await _loadMarkCount();
+  }
+
+  // _exchangeVip 方法已移除，兑换功能现在在 VipExchangePage 中处理
+
+  @override
+  void dispose() {
+    _phoneController.dispose();
+    _nameController.dispose();
+    _markCountSubscription?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.markPhoneManagement),
+        backgroundColor: const Color(0xFFF5A623),
+        actions: [
+          // 添加兑换菜单按钮
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              if (value == 'exchange') {
+                _navigateToVipExchangePage();
+              }
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem<String>(
+                value: 'exchange',
+                child: Row(
+                  children: [
+                    const Icon(Icons.card_membership, color: Color(0xFFF5A623)),
+                    const SizedBox(width: 8),
+                    Text(AppLocalizations.of(context)!.exchangeVip),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : SingleChildScrollView(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // 标记次数卡片
+                  _buildMarkCountCard(),
+                  const SizedBox(height: 24),
+                  // 添加号码标记表单
+                  _buildMarkPhoneForm(),
+                  const SizedBox(height: 24),
+                  // 标记号码列表
+                  _buildMarkedPhonesList(),
+                ],
+              ),
+            ),
+    );
+  }
+
+  Widget _buildMarkCountCard() {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.markCount,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '$_markCount',
+                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFFF5A623)),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: _navigateToVipExchangePage,
+              icon: const Icon(Icons.card_membership),
+              label: Text(AppLocalizations.of(context)!
+.exchangeVip),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFF5A623),
+                foregroundColor: Colors.white,
+                minimumSize: const Size(double.infinity, 48),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMarkPhoneForm() {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              AppLocalizations.of(context)!.addPhoneMark,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: _phoneController,
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.phoneNumber,
+                border: const OutlineInputBorder(),
+                prefixIcon: const Icon(Icons.phone),
+              ),
+              keyboardType: TextInputType.phone,
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: _nameController,
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.name,
+                border: const OutlineInputBorder(),
+                prefixIcon: const Icon(Icons.person),
+              ),
+            ),
+            const SizedBox(height: 16),
+            PublicSelectLabel(
+              onLabelIdChanged: (labelId) {
+                setState(() {
+                  _selectedLabelId = labelId;
+                });
+              },
+              themeColor: const Color(0xFFF5A623),
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton.icon(
+              onPressed: _markPhone,
+              icon: const Icon(Icons.label),
+              label: Text(AppLocalizations.of(context)!.markPhone),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFF5A623),
+                foregroundColor: Colors.white,
+                minimumSize: const Size(double.infinity, 48),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+  
+  /// 构建标记号码列表
+  Widget _buildMarkedPhonesList() {
+    // 如果正在加载，显示加载指示器
+    if (_isLoadingMarkedPhones) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    
+    // 如果列表为空，显示空状态
+    if (_markedPhones.isEmpty) {
+      return Card(
+        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.label_off, size: 48, color: Colors.grey),
+                const SizedBox(height: 16),
+                Text(
+                  AppLocalizations.of(context)!.noMarkedPhones,
+                  style: const TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+    
+    // 构建标记号码列表，每隔3个项目插入一个广告
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              AppLocalizations.of(context)!.markedPhonesList,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            SizedBox(
+              height: 400, // 设置一个固定高度，避免无限高度问题
+              child: AdListUtils.buildListViewWithAds(
+                items: _markedPhones,
+                adBuilder: () => Container(
+                  height: 90,
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Center(child: Text('Ad')),
+                ),
+                itemBuilder: (context, item) => _buildMarkedPhoneItem(item),
+                adInterval: 3,
+                ref: ref,
+                adControlServiceProvider: adControlServiceProvider,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+  
+  /// 构建单个标记号码项
+  Widget _buildMarkedPhoneItem(LabelPhoneEntry entry) {
+    return Card(
+      elevation: 2,
+      margin: const EdgeInsets.symmetric(vertical: 4),
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundColor: const Color(0xFFF5A623),
+          child: Text(
+            entry.name.isNotEmpty ? entry.name[0] : '?',
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+        title: Text(entry.phoneNumber.value),
+        subtitle: FutureBuilder<String>(
+          future: _getLabelName(entry.labelId),
+          builder: (context, snapshot) {
+            return Text(snapshot.data ?? AppLocalizations.of(context)!.loading);
+          },
+        ),
+        trailing: IconButton(
+          icon: const Icon(Icons.delete),
+          onPressed: () => _deleteMarkedPhone(entry),
+        ),
+      ),
+    );
+  }
+  
+  /// 获取标签名称
+  Future<String> _getLabelName(String labelId) async {
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
+    final label = await predefinedLabelService.getLabelById(labelId);
+    return label?.text ?? AppLocalizations.of(context)!.unknown;
+  }
+  
+  /// 删除标记号码
+  Future<void> _deleteMarkedPhone(LabelPhoneEntry entry) async {
+    try {
+      final markPhoneService = ref.read(markPhoneServiceProvider);
+      await markPhoneService.removePhoneMark(entry.id);
+      
+      // 重新加载标记号码列表
+      _loadMarkedPhones();
+      
+      _showSnackBar(AppLocalizations.of(context)!.deleteSuccess);
+    } catch (e) {
+      _showSnackBar(AppLocalizations.of(context)!.deleteFailed(e.toString()));
+    }
+  }
+}

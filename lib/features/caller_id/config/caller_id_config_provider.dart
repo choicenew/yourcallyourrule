@@ -25,11 +25,13 @@ class CallerIdConfig {
   final bool useLocalNotification;
   final bool cancelLocalNotification;
   final bool useStirNotification;
+  final String displayMode; // 来电显示模式：'overlay'或'notification'
   
   const CallerIdConfig({
     this.useLocalNotification = false,
     this.cancelLocalNotification = false,
     this.useStirNotification = false,
+    this.displayMode = 'overlay', // 默认使用浮窗模式
   });
   
   /// 创建配置副本
@@ -37,11 +39,13 @@ class CallerIdConfig {
     bool? useLocalNotification,
     bool? cancelLocalNotification,
     bool? useStirNotification,
+    String? displayMode,
   }) {
     return CallerIdConfig(
       useLocalNotification: useLocalNotification ?? this.useLocalNotification,
       cancelLocalNotification: cancelLocalNotification ?? this.cancelLocalNotification,
       useStirNotification: useStirNotification ?? this.useStirNotification,
+      displayMode: displayMode ?? this.displayMode,
     );
   }
   
@@ -51,6 +55,7 @@ class CallerIdConfig {
       useLocalNotification: map[CallerIdConfigRepository.useLocalNotificationKey] as bool? ?? false,
       cancelLocalNotification: map[CallerIdConfigRepository.cancelLocalNotificationKey] as bool? ?? false,
       useStirNotification: map[CallerIdConfigRepository.useStirNotificationKey] as bool? ?? false,
+      displayMode: map[CallerIdConfigRepository.displayModeKey] as String? ?? 'overlay',
     );
   }
   
@@ -60,6 +65,7 @@ class CallerIdConfig {
       CallerIdConfigRepository.useLocalNotificationKey: useLocalNotification,
       CallerIdConfigRepository.cancelLocalNotificationKey: cancelLocalNotification,
       CallerIdConfigRepository.useStirNotificationKey: useStirNotification,
+      CallerIdConfigRepository.displayModeKey: displayMode,
     };
   }
 }
@@ -95,5 +101,11 @@ class CallerIdConfigNotifier extends StateNotifier<CallerIdConfig> {
   Future<void> setUseStirNotification(bool value) async {
     await _repository.setUseStirNotification(value);
     state = state.copyWith(useStirNotification: value);
+  }
+  
+  /// 设置来电显示模式
+  Future<void> setDisplayMode(String value) async {
+    await _repository.setDisplayMode(value);
+    state = state.copyWith(displayMode: value);
   }
 }

@@ -209,7 +209,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
     final confirmed = await _showConfirmDialog(
       title: AppLocalizations.of(context)!.deleteContact,
       content: AppLocalizations.of(context)!.deleteContactConfirm(contact.name),
-      confirmText: AppLocalizations.of(context)!.delete,
+      confirmText: AppLocalizations.of(context)!.deleteButton,
     );
     
     if (!confirmed) return;
@@ -286,7 +286,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
     final confirmed = await _showConfirmDialog(
       title: AppLocalizations.of(context)!.bulkDeleteContacts,
       content: AppLocalizations.of(context)!.batchDeleteContactsConfirm(_selectedContactIds.length),
-      confirmText: AppLocalizations.of(context)!.delete,
+      confirmText: AppLocalizations.of(context)!.deleteButton,
     );
     
     if (!confirmed) return;
@@ -422,7 +422,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
           children: [
             const Icon(Icons.delete, color: Colors.red),
             const SizedBox(width: 8),
-            Text(AppLocalizations.of(context)!.delete, style: const TextStyle(color: Colors.red)),
+            Text(AppLocalizations.of(context)!.deleteButton, style: const TextStyle(color: Colors.red)),
           ],
         ),
       ),
@@ -1008,13 +1008,13 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
                                 }
                               }
                             },
-                            child: Text(AppLocalizations.of(context)!.delete),
+                            child: Text(AppLocalizations.of(context)!.deleteButton),
                           ),
                         ],
                       ),
                     );
                   },
-                  tooltip: AppLocalizations.of(context)!.delete,
+                  tooltip: AppLocalizations.of(context)!.deleteButton,
                 ),
               ],
             ),

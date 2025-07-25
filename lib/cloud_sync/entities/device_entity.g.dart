@@ -6,8 +6,8 @@ part of 'device_entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DeviceEntityImpl _$$DeviceEntityImplFromJson(Map<String, dynamic> json) =>
-    _$DeviceEntityImpl(
+_DeviceEntity _$DeviceEntityFromJson(Map<String, dynamic> json) =>
+    _DeviceEntity(
       id: json['id'] as String,
       name: json['name'] as String,
       model: json['model'] as String,
@@ -16,7 +16,7 @@ _$DeviceEntityImpl _$$DeviceEntityImplFromJson(Map<String, dynamic> json) =>
       deviceInfo: json['deviceInfo'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$DeviceEntityImplToJson(_$DeviceEntityImpl instance) =>
+Map<String, dynamic> _$DeviceEntityToJson(_DeviceEntity instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

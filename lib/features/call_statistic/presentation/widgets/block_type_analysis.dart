@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
@@ -22,43 +23,49 @@ class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
     final callLogsAsync = ref.watch(callLogsProvider);
     final rulesAsync = ref.watch(rulesProvider);
 
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isSmallScreen = constraints.maxWidth < 350;
+        
+        return Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.1),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, 3),
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            AppLocalizations.of(context)!.blockTypeAnalysisTitle,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.blockTypeAnalysisTitle,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              callLogsAsync.when(
+                data: (callLogs) => rulesAsync.when(
+                  data: (rules) => _buildAnalysisContent(context, callLogs, rules, isSmallScreen),
+                  loading: () => const Center(child: CircularProgressIndicator()),
+                  error: (error, stack) => Center(child: Text('加载规则失败: $error')),
+                ),
+                loading: () => const Center(child: CircularProgressIndicator()),
+                error: (error, stack) => Center(child: Text('加载通话记录失败: $error')),
+              ),
+            ],
           ),
-          const SizedBox(height: 16),
-          callLogsAsync.when(
-            data: (callLogs) => rulesAsync.when(
-              data: (rules) => _buildAnalysisContent(context, callLogs, rules),
-              loading: () => const Center(child: CircularProgressIndicator()),
-              error: (error, stack) => Center(child: Text('加载规则失败: $error')),
-            ),
-            loading: () => const Center(child: CircularProgressIndicator()),
-            error: (error, stack) => Center(child: Text('加载通话记录失败: $error')),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 
-  Widget _buildAnalysisContent(BuildContext context, List<CallLog> callLogs, List<RuleBase> rules) {
+  Widget _buildAnalysisContent(BuildContext context, List<CallLog> callLogs, List<RuleBase> rules, bool isSmallScreen) {
     // 创建repository实例并获取拦截类型分析数据
     final repository = CallStatisticsRepositoryImpl(callLogs, rules);
     final typeAnalysis = repository.getBlockTypeAnalysis();
@@ -135,7 +142,7 @@ class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
     }
 
     return Column(
-      children: blockTypes.map((type) => _buildTypeItem(type)).toList(),
+      children: blockTypes.map((type) => _buildTypeItem(type, isSmallScreen)).toList(),
     );
   }
 
@@ -151,41 +158,48 @@ class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
     }
   }
 
-  Widget _buildTypeItem(BlockTypeData data) {
+  Widget _buildTypeItem(BlockTypeData data, bool isSmallScreen) {
+    final textStyle = TextStyle(fontSize: isSmallScreen ? 14 : 16);
+    final percentageStyle = TextStyle(color: Colors.grey, fontSize: isSmallScreen ? 12 : 14);
+    final iconSize = isSmallScreen ? 16.0 : 18.0;
+    final containerSize = isSmallScreen ? 32.0 : 36.0;
+    final progressBarWidth = isSmallScreen ? 60.0 : 80.0;
+    
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Row(
         children: [
           // 图标
           Container(
-            width: 36,
-            height: 36,
+            width: containerSize,
+            height: containerSize,
             decoration: BoxDecoration(
               color: data.backgroundColor,
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(containerSize / 2),
             ),
-            child: Icon(data.icon, color: data.iconColor, size: 18),
+            child: Icon(data.icon, color: data.iconColor, size: iconSize),
           ),
           const SizedBox(width: 12),
           
           // 标签
-          Text(
-            data.label,
-            style: const TextStyle(fontSize: 16),
+          Expanded(
+            child: Text(
+              data.label,
+              style: textStyle,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-          
-          const Spacer(),
           
           // 百分比
           Text(
             '${data.percentage}%',
-            style: const TextStyle(color: Colors.grey),
+            style: percentageStyle,
           ),
           const SizedBox(width: 12),
           
           // 进度条
           SizedBox(
-            width: 80,
+            width: progressBarWidth,
             height: 4,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(2),

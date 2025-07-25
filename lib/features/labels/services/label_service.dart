@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/features/labels/services/label_phone_service.dart';
+import 'package:yourcallyourrule/features/labels/services/mark_phone_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 /// 标签服务类，继承自ListService，提供标签的管理功能

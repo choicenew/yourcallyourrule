@@ -4,6 +4,7 @@ import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
+import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
@@ -13,6 +14,7 @@ import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/allowed_blocked_rule_edit_dialog.dart';
+import 'package:yourcallyourrule/features/rules/services/allowed_blocked_rule_import_export_adapter.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -28,8 +30,7 @@ class AllowedBlockedPage extends ConsumerWidget {
     // 创建导入导出组件
     final importExportComponent =
         ImportExportServiceComponent<AllowedBlockedRule, String>(
-      importExportService: allowedBlockedService.importExportService
-          as ImportExportService<AllowedBlockedRule, String>,
+      importExportService: AllowedBlockedRuleImportExportAdapter(allowedBlockedService.importExportService),
       entityTypeName: AppLocalizations.of(context)!.allowedBlockedRule,
       onEntitiesImported: (rules) async {
         // 保存导入的规则
@@ -38,11 +39,7 @@ class AllowedBlockedPage extends ConsumerWidget {
           await allowedBlockedService.updateAllowedBlockedRule(rule);
         }
       },
-      getEntitiesToExport: () async {
-        final allowedRules = await allowedBlockedService.getAllAllowedRules();
-        final blockedRules = await allowedBlockedService.getAllBlockedRules();
-        return [...allowedRules, ...blockedRules];
-      },
+      getEntitiesToExport: () => allowedBlockedService.getAllAllowedBlockedRules(),
     );
 
     return GenericRulePage<AllowedBlockedRule, AllowedBlockedService>(
@@ -55,11 +52,7 @@ class AllowedBlockedPage extends ConsumerWidget {
       buildRuleCard: _buildRuleCard,
       showAddDialog: _showAddRuleDialog,
       showEditDialog: _showEditRuleDialog,
-      getAllRules: (service) async {
-        // 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
-        // 不再仅限于允许(allow)和阻止(block)规则
-        return await service.getAllRulesByActionType(null);
-      },
+      getAllRules: (service) => service.getAllAllowedBlockedRules(),
       toggleRule: (service, ruleId, isEnabled) =>
           service.toggleRuleStatus(ruleId, isEnabled),
       deleteRule: (service, ruleId) => service.removeRule(ruleId),
@@ -95,7 +88,7 @@ class AllowedBlockedPage extends ConsumerWidget {
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
-                    Icons.phone,
+                    rule.action.type == RuleActionType.allow ? Icons.check_circle_outline : Icons.block,
                     color: actionColor,
                   ),
                 ),
@@ -186,7 +179,7 @@ class AllowedBlockedPage extends ConsumerWidget {
                 onLabelIdChanged: (labelId) {
                   selectedLabelId = labelId;
                 },
-                themeColor: const Color(0xFFF5A623),
+                themeColor: Colors.blue,
               ),
               
               const SizedBox(height: 16),
@@ -240,7 +233,7 @@ class AllowedBlockedPage extends ConsumerWidget {
                 } catch (e) {
                   // 显示错误提示
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(AppLocalizations.of(context)!.regexRuleAddFailed(e.toString())),
+                    content: Text(AppLocalizations.of(context)!.addRuleFailed(e.toString())),
                     backgroundColor: Colors.red,
                   ));
                 }

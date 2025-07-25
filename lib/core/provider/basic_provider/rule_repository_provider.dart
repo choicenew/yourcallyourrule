@@ -52,7 +52,7 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   Future<List<RuleBase>> getAllByType(String type) async {
-    final maps = await _databaseService.queryWhere('rules', 'type', type);
+    final maps = await _databaseService.queryWhere('rules', 'ruleType', type);
     return maps.map((map) => createRuleFromMap(map)).toList();
   }
 

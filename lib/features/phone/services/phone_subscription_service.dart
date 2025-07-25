@@ -79,6 +79,15 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     return await deleteById(id);
   }
 
+  /// 切换订阅状态
+  Future<void> toggleSubscriptionStatus(Subscription subscription, bool isEnabled) async {
+    if (isEnabled) {
+      await enableSubscription(subscription);
+    } else {
+      await disableSubscription(subscription);
+    }
+  }
+
   /// 从URL更新订阅规则
   /// 核心规则更新方法（不更新时间戳）
   Future<List<RuleBase>> _updateRulesCore(Subscription subscription) async {

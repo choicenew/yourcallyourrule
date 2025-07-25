@@ -5,7 +5,7 @@ part 'device_entity.g.dart';
 
 /// Entity representing a device for multi-device synchronization
 @freezed
-class DeviceEntity with _$DeviceEntity {
+abstract class DeviceEntity with _$DeviceEntity {
   /// Default constructor
   const factory DeviceEntity({
     /// Unique device identifier

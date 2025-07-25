@@ -3,6 +3,7 @@
 const List<Map<String, dynamic>> predefinedLabels = [
   {'text': 'Fraud Scam Likely'},
   {'text': 'Spam Likely'},
+  {'text': 'Scams Likely'},
   {'text': 'Telemarketing'},
   {'text': 'Robocall'},
   {'text': 'Delivery'},
@@ -28,7 +29,7 @@ const List<Map<String, dynamic>> predefinedLabels = [
   {'text': 'Headhunter'},
   {'text': 'Silent Call Voice Clone'},
   {'text': 'Internet'},
-  {'text': 'Travel & Ticketing'},
+  {'text': 'Travel Ticketing'},
   {'text': 'Application Software'},
   {'text': 'Entertainment'},
   {'text': 'Government'},

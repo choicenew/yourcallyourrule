@@ -171,7 +171,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.filterSettings,
+              AppLocalizations.of(context)!.filterSettingsTitle,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),

@@ -140,7 +140,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(AppLocalizations.of(context)!.confirm),
+            child: Text(AppLocalizations.of(context)!.confirmButton),
           ),
         ],
       ),
