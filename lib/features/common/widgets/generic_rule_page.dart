@@ -160,7 +160,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends ConsumerState<Gener
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text(AppLocalizations.of(context)!.confirm, style: const TextStyle(color: Colors.red)),
+            child: Text(AppLocalizations.of(context)!.confirmButton, style: const TextStyle(color: Colors.red)),
           ),
         ],
       ),

@@ -61,6 +61,7 @@ class CallerIdStyleProvider with ChangeNotifier {
   Offset _callTypePosition = const Offset(60, 150); // calltype 位置
   Offset _simCardPosition = const Offset(150, 170);  // simcard 位置
   Offset _stirPosition = const Offset(200, 130);  // stir 位置
+  Offset _securityMessagePosition = const Offset(10, 190);  // 安全消息位置
 
   // Getters
   Color get backgroundColorStart => _backgroundColorStart;
@@ -113,6 +114,7 @@ class CallerIdStyleProvider with ChangeNotifier {
   Offset get callTypePosition => _callTypePosition;      // calltype 位置
   Offset get simCardPosition => _simCardPosition;  // simcard 位置
   Offset get stirPosition => _stirPosition;  // stir 位置
+  Offset get securityMessagePosition => _securityMessagePosition;  // 安全消息位置
 
   // Setters with notifyListeners
   void setBackgroundColorStart(Color color) {
@@ -324,6 +326,11 @@ class CallerIdStyleProvider with ChangeNotifier {
 
   void updateStirPosition(Offset newPosition) {
     _stirPosition = newPosition;
+    notifyListeners();
+  }
+
+  void updateSecurityMessagePosition(Offset newPosition) {
+    _securityMessagePosition = newPosition;
     notifyListeners();
   }
 }

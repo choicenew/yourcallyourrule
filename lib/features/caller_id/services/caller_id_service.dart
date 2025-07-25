@@ -1,6 +1,10 @@
-import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'dart:async';
+import 'dart:math' as math;
 
+
+import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:yourcallyourrule/common/error/logger.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 
 import 'package:flutter_contacts/flutter_contacts.dart' as fluttercontact;
@@ -205,13 +209,18 @@ class CallerIdService {
                 .getLabelByPhoneNumber(vo.PhoneNumber.fromString(e164Number))
             : null);
 
-    // 6. 查询插件数据
-    final rawPluginData = await _pluginService.callPlugins(
+    // 6. 查询插件数据 - 使用callPluginsAll方法获取第一个有效结果并在后台获取所有数据
+    final (firstResult, allResultsFuture) = await _pluginService.callPluginsAll(
         phoneNumber, nationalNumber, e164Number);
-
-    // 转换为PluginData实体
-    final pluginData =
-        rawPluginData != null ? PluginData.fromMap(rawPluginData) : null;
+    
+    // 转换为PluginData实体（仅用于构建CallerIdData，不发布到数据流）
+    PluginData? pluginData;
+    if (firstResult != null) {
+      pluginData = PluginData.fromMap(firstResult);
+    }
+    
+    // 异步处理所有插件的完整数据（包括发布到数据流）
+    unawaited(_processAllPluginData(allResultsFuture));
 
     // 7. 查询远程号码数据
     final remoteNumberEntry = await _remoteNumberService
@@ -231,7 +240,7 @@ class CallerIdService {
         'Unknown';
 
     // 确定标签ID
-    final labelId = labelEntry?.labelId ?? phoneRule?.labelId ?? null;
+    final labelId = labelEntry?.labelId ?? phoneRule?.labelId;
 
     // 获取标签文本
     String labelText = 'Unknown';
@@ -286,36 +295,158 @@ class CallerIdService {
       count: count,
     );
 
-    // 10. 发布到数据流
+    // 10. 发布初始数据到数据流
+    // 注意：插件数据会在 _processAllPluginData 方法中处理和发布
     _callerIdSubject.add(callerIdData);
-    if (pluginData != null) {
-      _pluginDataSubject.add(pluginData);
-      _legacyPluginDataSubject.add(pluginData.toMap());
-    } else {
-      _legacyPluginDataSubject.add({});
-    }
 
-    // 11. 如果插件提供了标签且现有标签为空，则更新标签
-    if (labelEntry == null && phoneRule?.labelId == null) {
-      if (pluginData?.predefinedLabel != null) {
-        // 通过标签文本获取labelId
-        final labels = await _predefinedLabelService
-            .getLabelsByText(pluginData!.predefinedLabel!);
-        if (labels.isNotEmpty) {
-          final entry = LabelPhoneEntry(
-            id: '', // ID会在保存时生成
-            phoneNumber: vo.PhoneNumber.fromString(e164Number),
-            labelId: labels.first.id,
-            name: name,
-          );
-          await _labelService.addLabel(entry);
-          // 发布标签电话条目到数据流
-          _labelPhoneEntrySubject.add(entry);
-        }
-      }
-    }
+    // 注意：标签更新逻辑已移至 _processAllPluginData 方法中
+    // 在那里会使用完整的插件数据进行处理，避免重复处理
+    // 原有逻辑：
+    // if (labelEntry == null && phoneRule?.labelId == null) {
+    //   if (pluginData?.predefinedLabel != null) {
+    //     final labels = await _predefinedLabelService.getLabelsByText(pluginData!.predefinedLabel!);
+    //     if (labels.isNotEmpty) {
+    //       final entry = LabelPhoneEntry(
+    //         id: '',
+    //         phoneNumber: vo.PhoneNumber.fromString(e164Number),
+    //         labelId: labels.first.id,
+    //         name: name,
+    //       );
+    //       await _labelService.addLabel(entry);
+    //       _labelPhoneEntrySubject.add(entry);
+    //     }
+    //   }
+    // }
 
     return callerIdData;
+  }
+
+  /// 异步处理所有插件的完整数据
+  /// 该方法接收一个包含所有插件结果的Future，等待其完成后处理数据
+  /// 并将结果发布到数据流中，以便其他服务可以使用完整数据
+  /// 同时处理标签更新逻辑
+  Future<void> _processAllPluginData(Future<List<Map<String, dynamic>>> allResultsFuture) async {
+    try {
+      // 等待所有结果完成
+      final allResults = await allResultsFuture;
+      if (allResults.isEmpty) return;
+      
+      // 合并所有插件结果
+      final mergedData = _mergePluginResults(allResults);
+      
+      // 转换为PluginData实体并发布到数据流
+      final completePluginData = PluginData.fromMap(mergedData);
+      
+      // 检查是否已经发布过相同的数据，避免重复发布
+      if (_pluginDataSubject.hasValue && 
+          _pluginDataSubject.value.phoneNumber == completePluginData.phoneNumber) {
+        // 只有当新数据包含更多信息时才更新
+        if (completePluginData.name != null && completePluginData.name!.isNotEmpty && 
+            completePluginData.name != 'Unknown') {
+          _pluginDataSubject.add(completePluginData);
+          _legacyPluginDataSubject.add(mergedData);
+        }
+      } else {
+        // 首次发布数据
+        _pluginDataSubject.add(completePluginData);
+        _legacyPluginDataSubject.add(mergedData);
+      }
+      
+      // 使用完整数据处理标签更新逻辑
+      // 检查是否有预定义标签，并且当前没有标签和规则
+      if (completePluginData.predefinedLabel != null) {
+        // 查询是否已存在标签
+        final e164Number = completePluginData.phoneNumber ?? '';
+        if (e164Number.isNotEmpty) {
+          final existingLabel = await _labelService.getLabelByPhoneNumber(
+              vo.PhoneNumber.fromString(e164Number));
+          
+          // 查询是否存在规则
+          final allRules = await _blacklistWhitelistService.getAllRules();
+          final matchingRule = allRules.where((rule) =>
+              rule.phoneNumber == vo.PhoneNumber.fromString(e164Number)).firstOrNull;
+          
+          // 如果没有现有标签和规则，则创建新标签
+          if (existingLabel == null && matchingRule?.labelId == null) {
+            final labels = await _predefinedLabelService
+                .getLabelsByText(completePluginData.predefinedLabel!);
+            if (labels.isNotEmpty) {
+              final entry = LabelPhoneEntry(
+                id: '', // ID会在保存时生成
+                phoneNumber: vo.PhoneNumber.fromString(e164Number),
+                labelId: labels.first.id,
+                name: completePluginData.name ?? 'Unknown',
+              );
+              // 检查是否已经添加过相同的标签
+              if (!_labelPhoneEntrySubject.hasValue || 
+                  _labelPhoneEntrySubject.value.phoneNumber != entry.phoneNumber) {
+                await _labelService.addLabel(entry);
+                // 发布标签电话条目到数据流
+                _labelPhoneEntrySubject.add(entry);
+              }
+            }
+          }
+        }
+      }
+    } catch (e) {
+      AppLogger.error('处理所有插件数据失败', e);
+      print('处理所有插件数据失败: $e');
+    }
+  }
+  
+  /// 合并多个插件结果
+  Map<String, dynamic> _mergePluginResults(List<Map<String, dynamic>> results) {
+    if (results.isEmpty) return {};
+    if (results.length == 1) return results.first;
+    
+    // 创建合并结果
+    final merged = <String, dynamic>{};
+    
+    // 合并所有字段
+    for (final result in results) {
+      result.forEach((key, value) {
+        // 如果是数组类型，合并数组
+        if (value is List && merged[key] is List) {
+          (merged[key] as List).addAll(value);
+        }
+        // 如果是数字类型，取最大值
+        else if (value is int && merged[key] is int) {
+          merged[key] = math.max(merged[key] as int, value);
+        }
+        // 如果是字符串类型，优先使用非 unknown 的值
+        else if (value is String) {
+          final newValue = value.toLowerCase();
+          final isNewValueUnknown = newValue == 'unknown' || newValue.isEmpty;
+          
+          if (merged[key] is String) {
+            final currentValue = (merged[key] as String).toLowerCase();
+            final isCurrentValueUnknown = currentValue == 'unknown' || currentValue.isEmpty;
+            
+            // 如果当前值是 unknown 而新值不是，则使用新值
+            if (isCurrentValueUnknown && !isNewValueUnknown) {
+              merged[key] = value;
+            }
+            // 如果两者都不是 unknown，保留较长的值（可能包含更多信息）
+            else if (!isCurrentValueUnknown && !isNewValueUnknown && value.length > (merged[key] as String).length) {
+              merged[key] = value;
+            }
+            // 其他情况保留当前值
+          } else if (merged[key] == null || merged[key] == '') {
+            // 如果当前字段为空或不存在，且新值不是 unknown，则使用新值
+            if (!isNewValueUnknown) {
+              merged[key] = value;
+            }
+          }
+        }
+        // 如果当前字段为空或不存在，直接使用新值
+        else if (merged[key] == null || merged[key] == '') {
+          merged[key] = value;
+        }
+        // 其他情况，优先保留已有值
+      });
+    }
+    
+    return merged;
   }
 
   /// 释放资源

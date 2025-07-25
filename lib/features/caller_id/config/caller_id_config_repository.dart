@@ -13,6 +13,7 @@ class CallerIdConfigRepository {
   static const String cancelLocalNotificationKey = 'cancel_local_notification';
   static const String useStirNotificationKey = 'use_stir_notification';
   static const String interceptActionKey = 'intercept_action';
+  static const String displayModeKey = 'display_mode'; // 来电显示模式：overlay或notification
   
   /// 构造函数
   CallerIdConfigRepository(this._configRepository);
@@ -80,6 +81,19 @@ class CallerIdConfigRepository {
     await saveConfig(config);
   }
   
+  /// 获取来电显示模式
+  Future<String> getDisplayMode() async {
+    final config = await getConfig();
+    return config[displayModeKey] as String? ?? 'overlay'; // 默认使用浮窗模式
+  }
+  
+  /// 设置来电显示模式
+  Future<void> setDisplayMode(String value) async {
+    final config = await getConfig();
+    config[displayModeKey] = value;
+    await saveConfig(config);
+  }
+
   /// 获取默认配置
   Map<String, dynamic> _getDefaultConfig() {
     return {
@@ -87,6 +101,7 @@ class CallerIdConfigRepository {
       useLocalNotificationKey: false,
       cancelLocalNotificationKey: false,
       useStirNotificationKey: false,
+      displayModeKey: 'overlay', // 默认使用浮窗模式
     };
   }
 }

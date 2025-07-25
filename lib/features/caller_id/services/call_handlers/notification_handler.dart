@@ -1,6 +1,12 @@
+import 'dart:typed_data';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
+import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+
 import 'package:yourcallyourrule/core/services/notification_service.dart';
+import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service_new.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 
 /// 通知处理器
@@ -134,5 +140,103 @@ class NotificationHandler {
       stirInfo.isNotVerified,
       stirInfo.isFailed
     );
+  }
+  
+  /// 显示诈骗警告通知
+  Future<void> showFraudAlertNotification(String phoneNumber) async {
+    final androidDetails = AndroidNotificationDetails(
+      'fraud_alert_channel',
+      'Fraud Alert Notifications',
+      importance: Importance.max,
+      priority: Priority.high,
+      fullScreenIntent: true,
+      category: AndroidNotificationCategory.call,
+      playSound: true,
+      enableVibration: true,
+      vibrationPattern: Int64List.fromList([0, 500, 200, 500]), // 特殊震动模式
+      color: Colors.red, // 红色通知
+    );
+    final notificationDetails = NotificationDetails(android: androidDetails);
+    
+    await _notificationsPlugin.show(
+      2, // 使用不同的ID，避免与其他通知冲突
+      '⚠️ 诈骗警告',
+      '来自 $phoneNumber 的电话可能是诈骗电话，请注意防范',
+      notificationDetails,
+      payload: '{"type":"fraud_alert","phone":"$phoneNumber"}'
+    );
+    
+    // 触发震动警告
+    FraudDetectionService.triggerFraudAlertNotification();
+  }
+  
+  /// 显示来电信息通知
+  Future<void> showCallerIdNotification(CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
+    // 检查是否为诈骗电话
+    final isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
+    
+    // 构建通知标题
+    String title = callerIdData.name ?? callerIdData.phoneNumber.value;
+    if (isFraudCall) {
+      title = '⚠️ $title';
+    }
+    
+    // 构建通知内容
+    final List<String> contentParts = [];
+    
+    // 添加标签信息
+    if (callerIdData.labels != null && callerIdData.labels!.isNotEmpty) {
+      final labelTexts = callerIdData.labels!.map((label) => label.label).join(', ');
+      contentParts.add(labelTexts);
+    }
+    
+    // 添加STIR信息
+    if (stirInfo != null) {
+      String stirStatus = '';
+      if (stirInfo.isVerified) {
+        stirStatus = 'STIR Verified';
+      } else if (stirInfo.isNotVerified) {
+        stirStatus = 'STIR Not Verified';
+      } else if (stirInfo.isFailed) {
+        stirStatus = 'STIR Failed';
+      }
+      
+      if (stirStatus.isNotEmpty) {
+        contentParts.add(stirStatus);
+      }
+    }
+    
+    // 添加SIM卡信息
+    if (simInfo != null && simInfo.simSlotIndex != null) {
+      contentParts.add('SIM ${simInfo.simSlotIndex! + 1}');
+    }
+    
+    // 合并内容
+    final content = contentParts.isEmpty ? 'Incoming call' : contentParts.join(' | ');
+    
+    // 设置通知详情
+    const androidDetails = AndroidNotificationDetails(
+      'caller_id_channel',
+      'Caller ID Notifications',
+      importance: Importance.max,
+      priority: Priority.high,
+      fullScreenIntent: true,
+      category: AndroidNotificationCategory.call,
+    );
+    const notificationDetails = NotificationDetails(android: androidDetails);
+    
+    // 显示通知
+    await _notificationsPlugin.show(
+      1, // 使用不同的ID，避免与其他通知冲突
+      title,
+      content,
+      notificationDetails,
+      payload: '{"type":"caller_id","phone":"${callerIdData.phoneNumber.value}"}'
+    );
+    
+    // 如果是诈骗电话，触发额外的震动警告
+    if (isFraudCall) {
+      FraudDetectionService.triggerFraudAlertNotification();
+    }
   }
 }

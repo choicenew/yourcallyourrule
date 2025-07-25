@@ -656,7 +656,7 @@ class BackupRestorePage extends ConsumerWidget {
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text(AppLocalizations.of(context)!.ok),
+                child: Text(AppLocalizations.of(context)!.okButton),
               ),
             ],
           ),
@@ -810,7 +810,7 @@ class BackupRestorePage extends ConsumerWidget {
                       child: Text(
                         isSettingPassword
                             ? AppLocalizations.of(context)!.setup
-                            : AppLocalizations.of(context)!.confirm,
+                            : AppLocalizations.of(context)!.confirmButton,
                       ),
                     ),
                   ],

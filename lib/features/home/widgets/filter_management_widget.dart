@@ -85,20 +85,20 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
           .getAllSimSlotRules(),
       builder: (context, snapshot) {
         int ruleCount = snapshot.hasData ? snapshot.data!.length : 0;
+        final enhancedService = ref.watch(enhancedCompositeFilterServiceProvider);
         return _buildFilterSwitchItem(
           title: AppLocalizations.of(context)!.simCardFilterRules,
           subtitle: AppLocalizations.of(context)!.simCardFilterRulesDescription,
           icon: Icons.sim_card,
           color: Colors.blue,
           count: ruleCount,
-          isEnabled: ref.watch(enhancedCompositeFilterServiceProvider)
-              .isFilterEnabled('CallFilterService'),
+          isEnabled: enhancedService.isFilterEnabled('SimSlotRuleService'),
           onToggle: (value) {
             final service = ref.read(enhancedCompositeFilterServiceProvider);
             if (value) {
-              service.enableFilter('CallFilterService');
+              service.enableFilter('SimSlotRuleService');
             } else {
-              service.disableFilter('CallFilterService');
+              service.disableFilter('SimSlotRuleService');
             }
             setState(() {});
           },
@@ -151,110 +151,223 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
   Widget _buildCallFilterSwitch() {
     final callFilterService =
         ref.watch(callFilterServiceProvider);
-    return ExpansionTile(
-      title: Text(AppLocalizations.of(context)!.callFilterRules),
-      subtitle: Text(AppLocalizations.of(context)!.callFilterRulesDescription),
-      leading: const Icon(Icons.call_end, color: Colors.red),
+    final enhancedService = ref.watch(enhancedCompositeFilterServiceProvider);
+    
+    // 获取可用的SIM卡槽位
+    // 这里假设有两个SIM卡槽位，实际应用中可能需要从设备获取
+    final availableSimSlots = [0, 1];
+    
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.rejectAllCalls),
-          subtitle: Text(AppLocalizations.of(context)!.rejectAllCallsDescription),
-          value: callFilterService.callFilterConfig.rejectAllNumbers,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.rejectAllNumbers = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
+        // 全局通话过滤规则开关
+        ExpansionTile(
+          title: Text(AppLocalizations.of(context)!.callFilterRules),
+          subtitle: Text(AppLocalizations.of(context)!.callFilterRulesDescription),
+          leading: const Icon(Icons.call_end, color: Colors.red),
+          children: [
+            // 全局过滤器开关
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.enableCallFilter),
+              subtitle: Text(AppLocalizations.of(context)!.enableCallFilterDescription),
+              value: enhancedService.isFilterEnabled('CallFilterService'),
+              onChanged: (value) async {
+                if (value) {
+                  await enhancedService.enableFilter('CallFilterService');
+                } else {
+                  await enhancedService.disableFilter('CallFilterService');
+                }
+                setState(() {});
+              },
+            ),
+            
+            // 全局规则配置
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.rejectAllCalls),
+              subtitle: Text(AppLocalizations.of(context)!.rejectAllCallsDescription),
+              value: callFilterService.callFilterConfig.rejectAllNumbers,
+              onChanged: (value) async {
+                final newConfig = callFilterService.callFilterConfig;
+                newConfig.rejectAllNumbers = value;
+                await callFilterService.updateConfig(newConfig);
+                setState(() {});
+              },
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.allowAllowedNumbers),
+              subtitle: Text(AppLocalizations.of(context)!.allowAllowedNumbersDesc),
+              value: callFilterService.callFilterConfig.allowAllAllowedNumbers,
+              onChanged: (value) async {
+                final newConfig = callFilterService.callFilterConfig;
+                newConfig.allowAllAllowedNumbers = value;
+                await callFilterService.updateConfig(newConfig);
+                setState(() {});
+              },
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.allowRegexAllowRules),
+              subtitle: Text(AppLocalizations.of(context)!.allowRegexAllowRulesDescription),
+              value: callFilterService.callFilterConfig.allowRegexAllowRules,
+              onChanged: (value) async {
+                final newConfig = callFilterService.callFilterConfig;
+                newConfig.allowRegexAllowRules = value;
+                await callFilterService.updateConfig(newConfig);
+                setState(() {});
+              },
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.allowBlockedNumbers),
+              subtitle: Text(AppLocalizations.of(context)!.allowBlockedNumbersDesc),
+              value: callFilterService.callFilterConfig.allowBlockedNumbers,
+              onChanged: (value) async {
+                final newConfig = callFilterService.callFilterConfig;
+                newConfig.allowBlockedNumbers = value;
+                await callFilterService.updateConfig(newConfig);
+                setState(() {});
+              },
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.allowAllAllowRules),
+              subtitle: Text(AppLocalizations.of(context)!.allowAllAllowRulesDesc),
+              value: callFilterService.callFilterConfig.allowAllAllowRules,
+              onChanged: (value) async {
+                final newConfig = callFilterService.callFilterConfig;
+                newConfig.allowAllAllowRules = value;
+                await callFilterService.updateConfig(newConfig);
+                setState(() {});
+              },
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.allowRegexBlockRules),
+              subtitle: Text(AppLocalizations.of(context)!.allowRegexBlockRulesDescription),
+              value: callFilterService.callFilterConfig.allowRegexBlockRules,
+              onChanged: (value) async {
+                final newConfig = callFilterService.callFilterConfig;
+                newConfig.allowRegexBlockRules = value;
+                await callFilterService.updateConfig(newConfig);
+                setState(() {});
+              },
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.allowAllBlockRules),
+              subtitle: Text(AppLocalizations.of(context)!.allowAllBlockRulesDesc),
+              value: callFilterService.callFilterConfig.allowAllBlockRules,
+              onChanged: (value) async {
+                final newConfig = callFilterService.callFilterConfig;
+                newConfig.allowAllBlockRules = value;
+                await callFilterService.updateConfig(newConfig);
+                setState(() {});
+              },
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.enableMuteRules),
+              subtitle: Text(AppLocalizations.of(context)!.enableMuteRulesDesc),
+              value: callFilterService.callFilterConfig.allowSilenceRules,
+              onChanged: (value) async {
+                final newConfig = callFilterService.callFilterConfig;
+                newConfig.allowSilenceRules = value;
+                await callFilterService.updateConfig(newConfig);
+                setState(() {});
+              },
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.enableNoneActionRules),
+              subtitle: Text(AppLocalizations.of(context)!.enableNoneActionRulesDesc),
+              value: callFilterService.callFilterConfig.allowNoneRules,
+              onChanged: (value) async {
+                final newConfig = callFilterService.callFilterConfig;
+                newConfig.allowNoneRules = value;
+                await callFilterService.updateConfig(newConfig);
+                setState(() {});
+              },
+            ),
+          ],
         ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowAllowedNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.allowAllowedNumbersDesc),
-          value: callFilterService.callFilterConfig.allowAllAllowedNumbers,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowAllAllowedNumbers = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
+        
+        // 按SIM卡槽位配置过滤器
+        const SizedBox(height: 16),
+        Text(
+          AppLocalizations.of(context)!.simSlotFilterConfiguration,
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowRegexAllowRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowRegexAllowRulesDescription),
-          value: callFilterService.callFilterConfig.allowRegexAllowRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowRegexAllowRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
+        const SizedBox(height: 8),
+        Text(
+          AppLocalizations.of(context)!.simSlotFilterConfigurationDescription,
+          style: TextStyle(fontSize: 14, color: Colors.grey[600]),
         ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowBlockedNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.allowBlockedNumbersDesc),
-          value: callFilterService.callFilterConfig.allowBlockedNumbers,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowBlockedNumbers = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowAllAllowRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowAllAllowRulesDesc),
-          value: callFilterService.callFilterConfig.allowAllAllowRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowAllAllowRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowRegexBlockRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowRegexBlockRulesDescription),
-          value: callFilterService.callFilterConfig.allowRegexBlockRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowRegexBlockRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowAllBlockRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowAllBlockRulesDesc),
-          value: callFilterService.callFilterConfig.allowAllBlockRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowAllBlockRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableMuteRules),
-          subtitle: Text(AppLocalizations.of(context)!.enableMuteRulesDesc),
-          value: callFilterService.callFilterConfig.allowSilenceRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowSilenceRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableNoneActionRules),
-          subtitle: Text(AppLocalizations.of(context)!.enableNoneActionRulesDesc),
-          value: callFilterService.callFilterConfig.allowNoneRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowNoneRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
+        const SizedBox(height: 16),
+        
+        // 为每个SIM卡槽位创建配置面板
+        for (final simSlot in availableSimSlots)
+          Card(
+            margin: const EdgeInsets.only(bottom: 16),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.sim_card, color: simSlot == 0 ? Colors.blue : Colors.green),
+                      const SizedBox(width: 8),
+                      Text(
+                        '${AppLocalizations.of(context)!.simCard} ${simSlot + 1}',
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  
+                  // 为该SIM卡槽位配置各个过滤器
+                  // 通话过滤器
+                  SwitchListTile(
+                    title: Text(AppLocalizations.of(context)!.callFilter),
+                    subtitle: Text(AppLocalizations.of(context)!.callFilterDescription),
+                    value: enhancedService.isFilterEnabledForSimSlot(simSlot, 'CallFilterService'),
+                    onChanged: (value) async {
+                      if (value) {
+                        await enhancedService.enableFilterForSimSlot(simSlot, 'CallFilterService');
+                      } else {
+                        await enhancedService.disableFilterForSimSlot(simSlot, 'CallFilterService');
+                      }
+                      setState(() {});
+                    },
+                  ),
+                  
+                  // 本地计数过滤器
+                  SwitchListTile(
+                    title: Text(AppLocalizations.of(context)!.localCountFilter),
+                    subtitle: Text(AppLocalizations.of(context)!.localCountFilterDescription),
+                    value: enhancedService.isFilterEnabledForSimSlot(simSlot, 'LocalCountFilterService'),
+                    onChanged: (value) async {
+                      if (value) {
+                        await enhancedService.enableFilterForSimSlot(simSlot, 'LocalCountFilterService');
+                      } else {
+                        await enhancedService.disableFilterForSimSlot(simSlot, 'LocalCountFilterService');
+                      }
+                      setState(() {});
+                    },
+                  ),
+                  
+                  // 远程号码过滤器
+                  SwitchListTile(
+                    title: Text(AppLocalizations.of(context)!.remoteNumberFilter),
+                    subtitle: Text(AppLocalizations.of(context)!.remoteNumberFilterDescription),
+                    value: enhancedService.isFilterEnabledForSimSlot(simSlot, 'RemoteNumberFilterService'),
+                    onChanged: (value) async {
+                      if (value) {
+                        await enhancedService.enableFilterForSimSlot(simSlot, 'RemoteNumberFilterService');
+                      } else {
+                        await enhancedService.disableFilterForSimSlot(simSlot, 'RemoteNumberFilterService');
+                      }
+                      setState(() {});
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
       ],
     );
   }

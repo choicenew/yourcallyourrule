@@ -106,7 +106,7 @@ class PluginInvokerService {
     }
   }
 
-  // 调用所有启用的插件
+  // 调用所有启用的插件，返回第一个有效结果（用于快速显示）
   Future<Map<String, dynamic>?> callPlugins(
     String phoneNumber,
     String nationalNumber,
@@ -157,6 +157,137 @@ class PluginInvokerService {
       print('调用插件失败: $e');
       return null;
     }
+  }
+  
+  /// 调用所有启用的插件并返回所有结果（用于获取完整数据）
+  /// 使用并行调用方式，一旦有第一个有效结果就立即返回，同时在后台继续获取所有数据
+  /// 返回值是一个包含两个元素的元组：第一个元素是第一个有效结果，第二个元素是所有结果的Future
+  Future<(Map<String, dynamic>?, Future<List<Map<String, dynamic>>>)> callPluginsAll(
+    String phoneNumber,
+    String nationalNumber,
+    String e164Number,
+  ) async {
+    final results = <Map<String, dynamic>>[];
+    final allResultsCompleter = Completer<List<Map<String, dynamic>>>();
+    final firstResultCompleter = Completer<Map<String, dynamic>?>();
+    Map<String, dynamic>? firstValidResult;
+    
+    try {
+      // 获取所有启用的插件
+      final plugins = await _managerService.getEnabledPlugins();
+      if (plugins.isEmpty) {
+        firstResultCompleter.complete(null);
+        allResultsCompleter.complete(results);
+        return (null, allResultsCompleter.future);
+      }
+
+      // 创建一个计数器，用于跟踪完成的插件数量
+      var completedCount = 0;
+      final totalCount = plugins.length;
+      
+      // 并行调用所有插件
+      for (final plugin in plugins) {
+        // 加载插件
+        final loaded = await loadPlugin(plugin);
+        if (loaded) {
+          // 异步调用插件并立即处理结果
+          _webViewService.generatePluginOutput(
+            plugin.id,
+            phoneNumber,
+            nationalNumber,
+            e164Number,
+          ).then((result) {
+            if (result != null) {
+              // 使用锁确保线程安全
+              synchronized(() {
+                results.add(result);
+                
+                // 如果这是第一个有效结果且尚未完成firstResultCompleter
+                if (!firstResultCompleter.isCompleted && isValidResult(result)) {
+                  firstValidResult = result;
+                  firstResultCompleter.complete(result);
+                }
+              });
+            }
+            
+            // 增加完成计数
+            completedCount++;
+            
+            // 当所有插件都完成时，完成Future
+            if (completedCount >= totalCount) {
+              allResultsCompleter.complete(results);
+            }
+          }).catchError((e) {
+            AppLogger.error('调用插件失败: ${plugin.id}', e);
+            print('调用插件失败: ${plugin.id} - $e');
+            
+            // 增加完成计数，即使出错也算作完成
+            completedCount++;
+            
+            // 当所有插件都完成时，完成Future
+            if (completedCount >= totalCount) {
+              allResultsCompleter.complete(results);
+            }
+          });
+        } else {
+          // 如果插件加载失败，也算作完成
+          completedCount++;
+          
+          // 当所有插件都完成时，完成Future
+          if (completedCount >= totalCount) {
+            allResultsCompleter.complete(results);
+          }
+        }
+      }
+      
+      // 设置超时，确保不会无限等待
+      Timer(const Duration(seconds: 10), () {
+        if (!allResultsCompleter.isCompleted) {
+          allResultsCompleter.complete(results);
+        }
+        if (!firstResultCompleter.isCompleted) {
+          firstResultCompleter.complete(null);
+        }
+      });
+      
+      // 等待第一个有效结果（最多等待3秒）
+      try {
+        firstValidResult = await firstResultCompleter.future.timeout(const Duration(seconds: 3));
+      } catch (e) {
+        // 超时后，如果没有有效结果，则设置为null
+        firstValidResult = null;
+        if (!firstResultCompleter.isCompleted) {
+          firstResultCompleter.complete(null);
+        }
+      }
+      
+      // 返回第一个有效结果和所有结果的Future
+      return (firstValidResult, allResultsCompleter.future);
+    } catch (e) {
+      AppLogger.error('调用所有插件失败', e);
+      print('调用所有插件失败: $e');
+      
+      if (!firstResultCompleter.isCompleted) {
+        firstResultCompleter.complete(null);
+      }
+      if (!allResultsCompleter.isCompleted) {
+        allResultsCompleter.complete(results);
+      }
+      
+      return (null, allResultsCompleter.future);
+    }
+  }
+  
+  // 用于同步访问共享资源的简单锁
+  final _lock = Object();
+  void synchronized(Function() fn) {
+    _synchronizedInternal(_lock, fn);
+  }
+  
+  void _synchronizedInternal(Object lock, Function() fn) {
+    // 在实际应用中，这里应该使用适当的锁机制
+    // 但在Dart中，单线程事件循环模型使得这种简单实现在大多数情况下是安全的
+    fn();
   }
 
   // 定义一个函数来检查结果是否有效

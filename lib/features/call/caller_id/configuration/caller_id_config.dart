@@ -48,6 +48,7 @@ abstract class CallerIdConfig with _$CallerIdConfig {
     @OffsetConverter() required Offset callTypePosition,
     @OffsetConverter() required Offset simCardPosition,
     @OffsetConverter() required Offset stirPosition,
+    @OffsetConverter() required Offset securityMessagePosition,
   }) = _CallerIdConfig;
 
   factory CallerIdConfig.fromJson(Map<String, dynamic> json) => _$CallerIdConfigFromJson(json);
@@ -102,6 +103,7 @@ extension CallerIdConfigX on CallerIdConfig {
       callTypePosition: provider.callTypePosition,
       simCardPosition: provider.simCardPosition,
       stirPosition: provider.stirPosition,
+      securityMessagePosition: provider.securityMessagePosition,
     );
   }
 
@@ -144,6 +146,7 @@ extension CallerIdConfigX on CallerIdConfig {
       ..updateLocationPosition(locationPosition)
       ..updateCallTypePosition(callTypePosition)
       ..updateSimCardPosition(simCardPosition)
-      ..updateStirPosition(stirPosition);
+      ..updateStirPosition(stirPosition)
+      ..updateSecurityMessagePosition(securityMessagePosition);
   }
 }

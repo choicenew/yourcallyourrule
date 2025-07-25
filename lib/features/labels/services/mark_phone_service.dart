@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:sqflite/sqflite.dart';
+
 import 'package:uuid/uuid.dart';
 
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';

@@ -94,7 +94,7 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(AppLocalizations.of(context)!.delete),
+            child: Text(AppLocalizations.of(context)!.deleteButton),
           ),
         ],
       ),
@@ -341,7 +341,7 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
                 const SizedBox(width: 8),
                 OutlinedButton.icon(
                   icon: const Icon(Icons.delete),
-                  label: Text(AppLocalizations.of(context)!.delete),
+                  label: Text(AppLocalizations.of(context)!.deleteButton),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(

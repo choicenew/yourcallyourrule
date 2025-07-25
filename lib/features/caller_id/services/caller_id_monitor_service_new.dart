@@ -25,6 +25,7 @@ import 'call_handlers/end_call_handler.dart';
 import 'call_handlers/incoming_call_handler.dart';
 import 'call_handlers/notification_handler.dart';
 import 'call_handlers/outgoing_call_handler.dart';
+import 'call_handlers/display_mode_handler.dart';
 import 'call_handlers/overlay_handler.dart';
 import 'call_handlers/should_accept_call_handler.dart';
 import 'call_handlers/sim_call_handler.dart';
@@ -77,7 +78,7 @@ class CallerIdMonitorService {
   late final IncomingCallHandler _incomingCallHandler;
   late final OutgoingCallHandler _outgoingCallHandler;
   late final NotificationHandler _notificationHandler;
-  late final OverlayHandler _overlayHandler;
+  late final DisplayModeHandler _displayModeHandler;
   
   // 来电显示数据流
   Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
@@ -119,14 +120,17 @@ class CallerIdMonitorService {
       configRepository: configRepository,
     );
     
-    // 创建浮窗处理器
-    _overlayHandler = OverlayHandler();
+    // 创建显示模式处理器
+    _displayModeHandler = DisplayModeHandler(
+      configRepository: configRepository,
+      notificationHandler: _notificationHandler
+    );
     
     // 创建通话处理器
     _callHandler = CallHandler(
       callerIdService: _callerIdService,
-      localeProvider: _localeProvider,  // Add missing required parameter
-      overlayHandler: _overlayHandler,
+      localeProvider: _localeProvider,
+      displayModeHandler: _displayModeHandler,
     );
     
     // 创建来电处理器

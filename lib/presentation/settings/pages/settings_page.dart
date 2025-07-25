@@ -35,6 +35,8 @@ class SettingsPage extends ConsumerWidget {
           _buildSmsSettingsCard(context),
           const SizedBox(height: 12),
           _buildContactSettingsCard(context),
+          const SizedBox(height: 12),
+          _buildMarkPhoneManagementCard(context),
           const SizedBox(height: 24),
           _buildSectionTitle(
               AppLocalizations.of(context)!.cloudSyncAndBackupTitle),
@@ -206,8 +208,8 @@ class SettingsPage extends ConsumerWidget {
       title: AppLocalizations.of(context)!.smsSettingsTitle,
       subtitle: AppLocalizations.of(context)!.smsSettingsSubtitle,
       onTap: () {
-        // 使用GoRouter导航到短信设置页面
-        GoRouter.of(context).push('/sms-subscription');
+        // 使用GoRouter导航到带广告的短信订阅页面
+        GoRouter.of(context).push('/sms-subscription-with-ads');
       },
     );
   }
@@ -222,6 +224,20 @@ class SettingsPage extends ConsumerWidget {
       onTap: () {
         // 导航到联系人设置页面
         // 这里暂时没有实现联系人页面
+      },
+    );
+  }
+
+  Widget _buildMarkPhoneManagementCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.label,
+      iconColor: Colors.deepPurple,
+      title: AppLocalizations.of(context)!.markPhoneManagementTitle,
+      subtitle: AppLocalizations.of(context)!.markPhoneManagementSubtitle,
+      onTap: () {
+        // 使用GoRouter导航到号码标记管理页面
+        GoRouter.of(context).push('/mark-phone-management');
       },
     );
   }
@@ -277,7 +293,7 @@ class SettingsPage extends ConsumerWidget {
       subtitle: AppLocalizations.of(context)!.autoUpdateSubtitle,
       onTap: () {
         // 使用GoRouter导航到自动更新设置页面
-        GoRouter.of(context).push('/auto-update-settings');
+        GoRouter.of(context).push('/auto-update');
       },
     );
   }

@@ -9,7 +9,7 @@ import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/display_mode_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
@@ -20,7 +20,7 @@ import 'package:yourcallyourrule/features/language/provider/language_provider.da
 /// 负责处理通话的核心逻辑，包括号码解析和来电显示信息获取
 class CallHandler {
   final CallerIdService _callerIdService;
-  final OverlayHandler _overlayHandler;
+  final DisplayModeHandler _displayModeHandler;
   final LocaleProvider _localeProvider;
   
   // 状态数据
@@ -31,11 +31,12 @@ class CallHandler {
   CallHandler({
     required CallerIdService callerIdService,
     required LocaleProvider localeProvider,
-    OverlayHandler? overlayHandler,
+    required DisplayModeHandler displayModeHandler,
   }) : 
     _callerIdService = callerIdService,
     _localeProvider = localeProvider,
-    _overlayHandler = overlayHandler ?? OverlayHandler();
+    _displayModeHandler = displayModeHandler;
+
 
   /// 处理通话的公共方法
   Future<CallData> handleCall(String phoneNumber) async {
@@ -99,8 +100,8 @@ class CallHandler {
         phoneNumber, e164Number, nationalNumber, dlibLocale);
     // await _callerIdService.getCallerId(phoneNumber, dlibLocale); //原始的解析方法
     
-    // 显示来电显示浮窗
-    await _overlayHandler.showCallerIdOverlay(callerIdData, stirInfo, simInfo);
+    // 显示来电信息（浮窗或通知，由DisplayModeHandler决定）
+    await _displayModeHandler.showCallerIdInfo(callerIdData, stirInfo, simInfo);
 
     // 创建 CallData 对象
     CallData callData = CallData(
@@ -118,9 +119,14 @@ class CallHandler {
     return callData;
   }
 
-  /// 关闭浮窗
+  /// 关闭浮窗和通知
   void closeOverlay() {
-    _overlayHandler.closeOverlay();
+    _displayModeHandler.closeDisplay();
+  }
+  
+  /// 设置显示模式
+  Future<void> setDisplayMode(String mode) async {
+    await _displayModeHandler.setDisplayMode(mode);
   }
 
   /// 保存来电显示数据到缓存
@@ -141,6 +147,9 @@ class CallHandler {
   
   /// 设置像素比例
   void setPixelRatio(double ratio) {
-    _overlayHandler.setPixelRatio(ratio);
+    _displayModeHandler.setPixelRatio(ratio);
   }
+  
+  /// 获取显示模式处理器
+  DisplayModeHandler get displayModeHandler => _displayModeHandler;
 }

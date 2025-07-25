@@ -47,12 +47,15 @@ class FilterSettingsPage extends ConsumerWidget {
     final simSlotRuleService = ref.read(simSlotRuleServiceProvider);
 
     // 使用EnhancedCompositeFilterSettingsWidget显示所有过滤器控制
-    return EnhancedCompositeFilterSettingsWidget(
-      enhancedCompositeFilterService: enhancedCompositeFilterService,
-      localCountFilterService: localCountFilterService,
-      remoteNumberFilterService: remoteNumberFilterService,
-      simSlotRuleService: simSlotRuleService,
-      callFilterConfig: callFilterService.callFilterConfig,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height - 100, // 设置固定高度
+      child: EnhancedCompositeFilterSettingsWidget(
+        enhancedCompositeFilterService: enhancedCompositeFilterService,
+        localCountFilterService: localCountFilterService,
+        remoteNumberFilterService: remoteNumberFilterService,
+        simSlotRuleService: simSlotRuleService,
+        callFilterConfig: callFilterService.callFilterConfig,
+      ),
     );
   }
 }

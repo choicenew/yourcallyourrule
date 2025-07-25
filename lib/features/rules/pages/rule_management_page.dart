@@ -13,6 +13,7 @@ import 'package:yourcallyourrule/features/rules/services/rule_management_service
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/phone_rule_edit_dialog.dart';
+import 'package:yourcallyourrule/features/rules/services/phone_rule_import_export_adapter.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -23,42 +24,35 @@ class RuleManagementPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ruleManagementService = ref.watch(ruleManagementServiceProvider);
+    final ruleManagementService = ref.read(ruleManagementServiceProvider);
 
     // 创建导入导出组件
     final importExportComponent =
         ImportExportServiceComponent<PhoneRule, String>(
-      importExportService: ruleManagementService.importExportService
-          as ImportExportService<PhoneRule, String>,
+      importExportService: PhoneRuleImportExportAdapter(ruleManagementService.importExportService),
       entityTypeName: AppLocalizations.of(context)!.phoneRule,
       onEntitiesImported: (rules) async {
-        // 保存导入的规则
+        // 使用服务类的公共方法保存规则
         for (final rule in rules) {
           // 使用服务类的公共方法而不是直接访问私有成员
           await ruleManagementService.updatePhoneNumberRule(rule);
         }
       },
-      getEntitiesToExport: () async {
-        // 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
-        return await ruleManagementService.getAllRulesByActionType(null);
-      },
+       // 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
+      getEntitiesToExport: () => ruleManagementService.getAllRulesByActionType(null),
     );
 
     return GenericRulePage<PhoneRule, RuleManagementService>(
       serviceProvider: ruleManagementServiceProvider,
       title: AppLocalizations.of(context)!.phoneRuleManagement,
-      themeColor: const Color(0xFFF5A623),
+      themeColor: Colors.green,
       emptyText: AppLocalizations.of(context)!.phoneRule,
-      emptyIcon: Icons.person,
+      emptyIcon: Icons.phone,
       addButtonText: AppLocalizations.of(context)!.addRule,
       buildRuleCard: _buildRuleCard,
       showAddDialog: _showAddRuleDialog,
       showEditDialog: _showEditRuleDialog,
-      getAllRules: (service) async {
-        // 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
-        // 不再仅限于白名单(allow)和黑名单(block)规则
-        return await service.getAllRulesByActionType(null);
-      },
+      getAllRules: (service) => service.getAllRulesByActionType(null),// 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
       toggleRule: (service, ruleId, isEnabled) =>
           service.toggleRuleStatus(ruleId, isEnabled),
       deleteRule: (service, ruleId) => service.removeRule(ruleId),
@@ -135,8 +129,8 @@ class RuleManagementPage extends ConsumerWidget {
                   if (rule.labelId.isNotEmpty)
                     Builder(builder: (context) => Chip(
                       label: Text('${AppLocalizations.of(context)!.label}: ${rule.labelId}'),
-                      backgroundColor: Colors.blue.withValues(alpha:0.1),
-                      labelStyle: const TextStyle(color: Colors.blue),
+                      backgroundColor: Colors.green.withValues(alpha:0.1),
+                      labelStyle: const TextStyle(color: Colors.green),
                     )),
                 ],
               ),
@@ -185,7 +179,7 @@ class RuleManagementPage extends ConsumerWidget {
                 onLabelIdChanged: (labelId) {
                   selectedLabelId = labelId;
                 },
-                themeColor: const Color(0xFFF5A623),
+                themeColor: Colors.green,
               ),
               
               const SizedBox(height: 16),
@@ -265,7 +259,7 @@ class RuleManagementPage extends ConsumerWidget {
               onLabelSelected(labelId);
               Navigator.pop(context);
             },
-            themeColor: const Color(0xFFF5A623),
+            themeColor: Colors.green,
           ),
         ),
         actions: [

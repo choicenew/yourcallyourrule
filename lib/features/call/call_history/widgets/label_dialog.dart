@@ -102,7 +102,7 @@ class _LabelDialogState extends ConsumerState<LabelDialog> {
               children: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text(AppLocalizations.of(context)!.close),
+                  child: Text(AppLocalizations.of(context)!.closeButton),
                 ),
               ],
             ),

@@ -12,12 +12,8 @@ class AutoUpdateSettingsPage extends ConsumerStatefulWidget {
 }
 
 class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage> {
-  Map<String, String> get _serviceTypeNames => {
-    'phone': AppLocalizations.of(context)!.serviceTypePhone,
-    'sms': AppLocalizations.of(context)!.serviceTypeSms,
-    'contact': AppLocalizations.of(context)!.serviceTypeContact,
-    'plugin': AppLocalizations.of(context)!.serviceTypePlugin,
-  };
+  // 将_serviceTypeNames改为late变量，在didChangeDependencies中初始化
+  late Map<String, String> _serviceTypeNames;
 
   final Map<String, IconData> _serviceTypeIcons = {
     'phone': Icons.phone,
@@ -28,11 +24,30 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
 
   final Map<String, int> _userIntervals = {};
   bool _isLoading = true;
+  bool _initialized = false;
 
   @override
   void initState() {
     super.initState();
-    _loadUserIntervals();
+    // 不在这里调用依赖context的方法
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // 在这里初始化依赖context的内容
+    _serviceTypeNames = {
+      'phone': AppLocalizations.of(context)!.serviceTypePhone,
+      'sms': AppLocalizations.of(context)!.serviceTypeSms,
+      'contact': AppLocalizations.of(context)!.serviceTypeContact,
+      'plugin': AppLocalizations.of(context)!.serviceTypePlugin,
+    };
+    
+    // 只在第一次调用时加载间隔
+    if (!_initialized) {
+      _loadUserIntervals();
+      _initialized = true;
+    }
   }
 
   Future<void> _loadUserIntervals() async {

@@ -1,16 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
 import 'package:yourcallyourrule/common/error/logger.dart';
 
+// 特殊的代理前缀，JS插件会用这个前缀构建iframe的src
+const String PROXY_SCHEME = "https";
+const String PROXY_HOST = "flutter-webview-proxy.internal";
+const String PROXY_PATH_FETCH = "/fetch";
+
 /// 插件WebView服务 - 负责WebView核心管理
 /// 遵循单一职责原则，只负责WebView的初始化和基本操作
 class PluginWebViewService {
   // WebView控制器
-  HeadlessInAppWebView? _headlessWebView;
   InAppWebViewController? _webViewController;
 
   // 跟踪每个插件的就绪状态
@@ -31,36 +35,22 @@ class PluginWebViewService {
   // 获取插件就绪状态流
   Stream<String> get pluginReadyStream => _pluginReadyController.stream;
 
-  // 构造函数
-  PluginWebViewService() {
-    _initializeHeadlessWebView();
+  void _addLog(String log) {
+    print(log);
   }
 
-  // 初始化HeadlessWebView
-  Future<void> _initializeHeadlessWebView() async {
-    _headlessWebView = HeadlessInAppWebView(
-      initialUrlRequest: URLRequest(url: WebUri("about:blank")),
-      initialSettings: InAppWebViewSettings(
-        isInspectable: true,
-        javaScriptEnabled: true,
-        javaScriptCanOpenWindowsAutomatically: true,
-        allowUniversalAccessFromFileURLs: true, // 启用跨域
-        allowFileAccessFromFileURLs: true,
-      ),
-      onWebViewCreated: (controller) {
-        _webViewController = controller;
-        _setupJavaScriptHandlers(controller);
-      },
-      onConsoleMessage: (controller, consoleMessage) {
-        print(consoleMessage);
-      },
-    );
+  // 构造函数
+  PluginWebViewService();
 
-    await _headlessWebView?.run();
+  // 初始化WebView
+  Future<void> initializeWebView(InAppWebViewController controller) async {
+    _webViewController = controller;
+    await _setupJavaScriptHandlers(controller);
+    _addLog('WebView initialized and handlers setup complete');
   }
 
   // 设置JavaScript处理程序
-  void _setupJavaScriptHandlers(InAppWebViewController controller) {
+  Future<void> _setupJavaScriptHandlers(InAppWebViewController controller) async {
     // 插件通信通道
     controller.addJavaScriptHandler(
       handlerName: 'TestPageChannel',
@@ -361,10 +351,133 @@ class PluginWebViewService {
     }
   }
 
+  Future<WebResourceResponse?> handleInterceptedRequest(
+      WebResourceRequest request) async {
+    final uri = request.url;
+
+    _addLog('Intercepted request: ${uri.toString()}');
+
+    if (uri.scheme == PROXY_SCHEME &&
+        uri.host == PROXY_HOST &&
+        uri.path.startsWith(PROXY_PATH_FETCH)) {
+      _addLog('Proxy request matched for URL: ${uri.toString()}');
+
+      final targetUrlParam = uri.queryParameters['targetUrl'];
+      final headersParam = uri.queryParameters['headers'];
+
+      if (targetUrlParam == null || targetUrlParam.isEmpty) {
+        _addLog('Proxy Error: Missing targetUrl parameter.');
+        return WebResourceResponse(
+          contentType: 'text/plain',
+          data: Uint8List.fromList('Proxy Error: Missing targetUrl parameter'.codeUnits),
+          statusCode: 400,
+        );
+      }
+
+      try {
+        final targetUrl = Uri.parse(targetUrlParam);
+        _addLog('Proxying to target: $targetUrl');
+
+        Map<String, String> requestHeaders = {};
+        if (headersParam != null && headersParam.isNotEmpty) {
+          try {
+            final decodedHeaders =
+                jsonDecode(Uri.decodeComponent(headersParam)) as Map<String, dynamic>;
+            decodedHeaders
+                .forEach((key, value) => requestHeaders[key] = value.toString());
+            _addLog('Using custom headers from plugin: $requestHeaders');
+          } catch (e) {
+            _addLog('Error decoding headers: $e');
+          }
+        }
+        
+        final cookieManager = CookieManager.instance();
+        final cookies = await cookieManager.getCookies(url: WebUri.uri(targetUrl));
+        if (cookies.isNotEmpty) {
+          requestHeaders['Cookie'] = cookies.map((c) => '${c.name}=${c.value}').join('; ');
+        }
+
+        _addLog('Making backend HTTP GET to: $targetUrl with headers: $requestHeaders');
+        final response = await http.get(targetUrl, headers: requestHeaders);
+        _addLog('Backend response received: ${response.statusCode} for $targetUrl');
+
+        String htmlBody = utf8.decode(response.bodyBytes, allowMalformed: true);
+
+        String injectionScript = '''
+          <script type="text/javascript">
+            (function() {
+              console.log('[Injected-Receiver] Hello from the script injected by Flutter!');
+
+              function handleMessage(event) {
+                if (event.data && event.data.type === 'executeScript') {
+                    console.log('[Injected-Receiver] Received a script to execute from parent window.');
+                    try {
+                      eval(event.data.script);
+                      console.log('[Injected-Receiver] Script execution started.');
+                    } catch (e) {
+                      console.error('[Injected-Receiver] Error executing script via eval:', e);
+                      window.parent.postMessage({ type: 'phoneQueryResult', data: { success: false, error: 'Eval execution failed: ' + e.toString() } }, '*');
+                    }
+                }
+              }
+
+              window.removeEventListener('message', handleMessage);
+              window.addEventListener('message', handleMessage, false);
+
+              console.log('[Injected-Receiver] Message listener is now active and waiting for commands.');
+            })();
+          </script>
+        ''';
+
+        if (htmlBody.contains('<head>')) {
+          htmlBody = htmlBody.replaceFirst('<head>', '<head>$injectionScript');
+          _addLog('Injection successful into <head>.');
+        } else if (htmlBody.contains('<html>')) {
+          htmlBody =
+              htmlBody.replaceFirst('<html>', '<html><head>$injectionScript</head>');
+          _addLog('Injection successful by creating a <head> tag.');
+        } else {
+          htmlBody = injectionScript + htmlBody;
+          _addLog('Injection successful by prepending to the document.');
+        }
+        
+        final Map<String, String> responseHeaders = {};
+        bool cspRemoved = false;
+        response.headers.forEach((key, value) {
+          if (key.toLowerCase() != 'content-security-policy') {
+            responseHeaders[key] = value;
+          } else {
+            cspRemoved = true;
+          }
+        });
+
+        if (cspRemoved) {
+          _addLog('Found and REMOVED Content-Security-Policy header.');
+        }
+
+        return WebResourceResponse(
+          contentType: 'text/html',
+          contentEncoding: 'utf-8',
+          data: Uint8List.fromList(utf8.encode(htmlBody)),
+          statusCode: response.statusCode,
+          headers: responseHeaders,
+        );
+      } catch (e) {
+        _addLog('Proxy request failed entirely: $e');
+        return WebResourceResponse(
+          contentType: 'text/plain',
+          data: Uint8List.fromList('Proxy request failed: $e'.codeUnits),
+          statusCode: 500,
+        );
+      }
+    }
+
+    return null;
+  }
+
   // 释放资源
   void dispose() {
     _pluginReadyController.close();
-    _headlessWebView?.dispose();
   }
 
 

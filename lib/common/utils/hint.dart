@@ -30,7 +30,7 @@ class RegexPatternExplanationButton extends StatelessWidget {
                   foregroundColor: Theme.of(context).colorScheme.onSurface,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 12)),
-              child: Text(AppLocalizations.of(context)!.close),
+              child: Text(AppLocalizations.of(context)!.closeButton),
             ),
           ],
           shape:

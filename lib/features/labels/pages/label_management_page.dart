@@ -3,8 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/features/labels/services/label_service.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/label_edit_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -72,7 +70,7 @@ class _LabelManagementPageState extends ConsumerState<LabelManagementPage> {
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(AppLocalizations.of(context)!.delete),
+            child: Text(AppLocalizations.of(context)!.deleteButton),
           ),
         ],
       ),
@@ -465,7 +463,7 @@ class _LabelManagementPageState extends ConsumerState<LabelManagementPage> {
                     IconButton(
                       icon: const Icon(Icons.delete, color: Colors.red),
                       onPressed: () => _deleteLabel(label),
-                      tooltip: AppLocalizations.of(context)!.delete,
+                      tooltip: AppLocalizations.of(context)!.deleteButton,
                     ),
                   ],
                 ),

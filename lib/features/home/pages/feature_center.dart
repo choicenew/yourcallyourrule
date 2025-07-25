@@ -13,7 +13,7 @@ class FeatureCenter extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               AppLocalizations.of(context)!.featureCenter,
@@ -43,13 +43,13 @@ class FeatureCenter extends StatelessWidget {
                   context: context,
                   title: AppLocalizations.of(context)!.allowBlock,
                   icon: Icons.block,
-                  onTap: () => context.push('/allowed-blocked'),
+                  onTap: () => context.push('/allowed-blocked-settings'),
                 ),
                 _buildFeatureItem(
                   context: context,
                   title: AppLocalizations.of(context)!.blackWhiteList,
                   icon: Icons.list,
-                  onTap: () => context.push('/blacklist-whitelist'),
+                  onTap: () => context.push('/rule-management-settings'),
                 ),
                 _buildFeatureItem(
                   context: context,
@@ -79,19 +79,19 @@ class FeatureCenter extends StatelessWidget {
                   context: context,
                   title: AppLocalizations.of(context)!.callHistory,
                   icon: Icons.call,
-                  onTap: () => context.push('/call-logs'),
+                  onTap: () => context.push('/call-history'),
                 ),
                 _buildFeatureItem(
                   context: context,
                   title: AppLocalizations.of(context)!.contacts,
                   icon: Icons.contacts,
-                  onTap: () => context.push('/contacts'),
+                  onTap: () => context.push('/contacts-management'),
                 ),
                 _buildFeatureItem(
                   context: context,
                   title: AppLocalizations.of(context)!.statistics,
                   icon: Icons.bar_chart,
-                  onTap: () => context.push('/statistics'),
+                  onTap: () => context.push('/call-statistics'),
                 ),
                 _buildFeatureItem(
                   context: context,
