@@ -86,8 +86,8 @@ class MyApp extends ConsumerWidget {
     if (!isOverlayMode) {
       // 初始化后台同步服务
       ref.watch(backgroundSyncInitProvider);
-      // 初始化插件数据同步服务
-      ref.watch(pluginToRemoteSyncInitProvider);
+
+
     }
     
     return MaterialApp.router(
