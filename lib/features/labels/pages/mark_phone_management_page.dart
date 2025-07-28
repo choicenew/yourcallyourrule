@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/ads/ad_list_utils.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 
 import 'package:yourcallyourrule/features/labels/providers/label_mark_statistics_sync_service_provider.dart';
@@ -156,6 +156,10 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
       // 使用标记统计同步服务记录标记
       final statisticsSyncService = ref.read(labelMarkStatisticsSyncServiceProvider);
       await statisticsSyncService.syncSingleLabel(labelPhoneEntry);
+      
+      // 使用标签到远程号码同步服务同步标记
+      final labelToRemoteSyncService = ref.read(labelToRemoteSyncServiceProvider);
+      await labelToRemoteSyncService.syncSingleLabel(labelPhoneEntry);
 
       // 清空输入框
       _phoneController.clear();

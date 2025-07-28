@@ -9,7 +9,6 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
-import 'package:yourcallyourrule/ads/ad_control_service.dart';
 
 /// 标签管理页面 - 集成广告功能
 /// 使用GenericListWithAdsPage组件减少重复代码并集成广告

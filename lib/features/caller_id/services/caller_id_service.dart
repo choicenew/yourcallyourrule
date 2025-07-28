@@ -23,6 +23,11 @@ import 'package:yourcallyourrule/features/plugin/services/plugin_invoker_service
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/caller_id/services/plugin_to_remote_sync_service.dart';
+
+/// 插件同步服务触发器接口
+/// 用于解耦CallerIdService和PluginToRemoteSyncService之间的依赖
+typedef PluginSyncTrigger = PluginToRemoteSyncService Function();
 
 /// 来电显示服务类，提供来电显示相关功能
 /// 包括获取来电显示信息、处理来电显示数据等
@@ -35,6 +40,7 @@ class CallerIdService {
     required LocationService locationService,
     required PredefinedLabelService predefinedLabelService,
     required RemoteNumberService remoteNumberService,
+    this.pluginSyncTrigger,
   })  : _contactService = contactService,
         _blacklistWhitelistService = ruleManagementService,
         _labelService = labelService,
@@ -54,6 +60,13 @@ class CallerIdService {
   final PluginInvokerService _pluginService;
   final PredefinedLabelService _predefinedLabelService;
   final RemoteNumberService _remoteNumberService;
+  
+  /// 插件同步服务触发器
+  /// 用于在需要时触发PluginToRemoteSyncService的初始化
+  final PluginSyncTrigger? pluginSyncTrigger;
+  
+  /// 是否已触发插件同步服务
+  bool _pluginSyncTriggered = false;
 
   /// 插件数据流
   Stream<PluginData> get pluginDataStream => _pluginDataSubject.stream;
@@ -77,6 +90,7 @@ class CallerIdService {
     required PluginInvokerService pluginService,
     required PredefinedLabelService predefinedLabelService,
     required RemoteNumberService remoteNumberService,
+    PluginSyncTrigger? pluginSyncTrigger,
   }) async {
     return CallerIdService(
       contactService: contactService,
@@ -86,6 +100,7 @@ class CallerIdService {
       pluginService: pluginService,
       predefinedLabelService: predefinedLabelService,
       remoteNumberService: remoteNumberService,
+      pluginSyncTrigger: pluginSyncTrigger,
     );
   }
 
@@ -94,6 +109,9 @@ class CallerIdService {
   /// [locale] 区域设置，用于解析国际电话号码
   /// 返回包含来电显示信息的CallerIdData对象
   Future<CallerIdData> getCallerId(String phoneNumber, Locale locale) async {
+    // 触发插件同步服务初始化（如果有）
+    _triggerPluginSync();
+    
     // 使用PhoneUtils进行号码解析
     final parsed =
         await PhoneUtils.parsePhoneNumberWithIso(phoneNumber, locale.country);
@@ -103,6 +121,8 @@ class CallerIdService {
 
   Future<CallerIdData> getCallerIdWithParsed(String phoneNumber,
       String e164Number, String nationalNumber, Locale locale) async {
+    // 触发插件同步服务初始化（如果有）
+    _triggerPluginSync();
 /*
     final PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
     
@@ -455,5 +475,20 @@ class CallerIdService {
     _pluginDataSubject.close();
     _legacyPluginDataSubject.close();
     _labelPhoneEntrySubject.close();
+  }
+  
+  /// 触发插件同步服务初始化
+  /// 如果插件同步触发器存在且尚未触发，则触发插件同步服务初始化
+  void _triggerPluginSync() {
+    if (pluginSyncTrigger != null && !_pluginSyncTriggered) {
+      try {
+        // 触发插件同步服务初始化
+        pluginSyncTrigger!();
+        _pluginSyncTriggered = true;
+        AppLogger.error('PluginToRemoteSyncService initialized on demand');
+      } catch (e) {
+        AppLogger.error('Failed to initialize PluginToRemoteSyncService: $e');
+      }
+    }
   }
 }
