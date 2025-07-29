@@ -1,4 +1,6 @@
 
+import '../../value_objects/rule_action.dart';
+
 class PluginData {
   final String? predefinedLabel;
   final String? sourceLabel;
@@ -9,6 +11,7 @@ class PluginData {
   final String? carrier;
   final String? name;
   final String? phoneNumber;
+  final RuleAction action;
   final Map<String, dynamic> extra;
 
   PluginData({
@@ -21,6 +24,7 @@ class PluginData {
     this.carrier,
     this.name,
     this.phoneNumber,
+    this.action = RuleAction.none,
     Map<String, dynamic>? extra,
   }) : extra = extra ?? {};
 
@@ -38,6 +42,13 @@ class PluginData {
     final carrier = extra.remove('carrier');
     final name = extra.remove('name');
     final phoneNumber = extra.remove('phoneNumber');
+    final actionStr = extra.remove('action');
+    
+    // 解析action字段，如果存在
+    RuleAction action = RuleAction.none;
+    if (actionStr != null && actionStr is String && actionStr.isNotEmpty) {
+      action = RuleAction.fromString(actionStr);
+    }
 
     return PluginData(
       predefinedLabel: predefinedLabel,
@@ -49,6 +60,7 @@ class PluginData {
       carrier: carrier,
       name: name,
       phoneNumber: phoneNumber,
+      action: action,
       extra: extra,
     );
   }
@@ -65,6 +77,7 @@ class PluginData {
       'carrier': carrier,
       'name': name,
       'phoneNumber': phoneNumber,
+      'action': action.toString(),
     }..addAll(extra);
   }
 
@@ -78,6 +91,7 @@ class PluginData {
     String? carrier,
     String? name,
     String? phoneNumber,
+    RuleAction? action,
     Map<String, dynamic>? extra,
   }) {
     return PluginData(
@@ -90,14 +104,22 @@ class PluginData {
       carrier: carrier ?? this.carrier,
       name: name ?? this.name,
       phoneNumber: phoneNumber ?? this.phoneNumber,
+      action: action ?? this.action,
       extra: extra != null ? {...this.extra, ...extra} : this.extra,
     );
   }
 
   // 保留现有fromJson方法
   factory PluginData.fromJson(Map<String, dynamic> json) {
+    // 解析action字段，如果存在
+    RuleAction action = RuleAction.none;
+    if (json['action'] != null && json['action'] is String && json['action'].isNotEmpty) {
+      action = RuleAction.fromString(json['action']);
+    }
+    
     return PluginData(
       predefinedLabel: json['predefinedLabel'],
+      action: action,
       sourceLabel: json['sourceLabel'],
       avatar: json['avatar'],
       count: json['count'] != null ? int.tryParse(json['count'].toString()) : null,

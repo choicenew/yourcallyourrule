@@ -15,6 +15,7 @@ import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/location/services/location_service.dart';
@@ -302,6 +303,13 @@ class CallerIdService {
         ? [Label(label: labelText, color: null, icon: null)]
         : null;
 
+    // 确定动作
+    final action = phoneRule?.action ?? 
+                  remoteNumberEntry?.action ?? 
+                  pluginData?.action ?? 
+                  labelEntry?.action ?? 
+                  RuleAction.none;
+    
     final callerIdData = CallerIdData(
       id: phoneNumber, // 使用电话号码作为ID
       phoneNumber: vo.PhoneNumber.fromString(phoneNumber),
@@ -313,6 +321,7 @@ class CallerIdService {
       labels: labels,
       avatar: avatar,
       count: count,
+      action: action,
     );
 
     // 10. 发布初始数据到数据流
@@ -396,6 +405,7 @@ class CallerIdService {
                 phoneNumber: vo.PhoneNumber.fromString(e164Number),
                 labelId: labels.first.id,
                 name: completePluginData.name ?? 'Unknown',
+                action: completePluginData.action, // 使用插件数据中的动作
               );
               // 检查是否已经添加过相同的标签
               if (!_labelPhoneEntrySubject.hasValue || 
