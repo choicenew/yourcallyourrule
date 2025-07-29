@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../base/base_entity.dart';
 import '../value_objects/phone_number.dart';
+import '../value_objects/rule_action.dart';
 
 class CallerIdData extends BaseEntity {
   // 电话号码值对象
@@ -33,6 +34,9 @@ class CallerIdData extends BaseEntity {
   
   // 计数（用于统计出现次数）
   final int count;
+  
+  // 规则动作（用于指定如何处理该号码）
+  final RuleAction action;
   
   // 获取头像图片
   ImageProvider? get avatarImage {
@@ -65,6 +69,7 @@ class CallerIdData extends BaseEntity {
     this.labels,
     this.avatar,
     this.count = 0,
+    this.action = RuleAction.none,
   });
   
   // 更新toMap方法
@@ -81,12 +86,19 @@ class CallerIdData extends BaseEntity {
       'labels': labels?.map((label) => label.toMap()).toList(),
       'avatar': avatar,
       'count': count,
+      'action': action.toString(),
     });
     return map;
   }
   
   // 更新fromMap方法
   factory CallerIdData.fromMap(Map<String, dynamic> map) {
+    // 解析action字段，如果存在
+    RuleAction action = RuleAction.none;
+    if (map['action'] != null && map['action'] is String && map['action'].isNotEmpty) {
+      action = RuleAction.fromString(map['action']);
+    }
+    
     return CallerIdData(
       id: map['id'],
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
@@ -98,6 +110,7 @@ class CallerIdData extends BaseEntity {
       labels: (map['labels'] as List?)
           ?.map((labelMap) => Label.fromMap(labelMap))
           .toList(),
+      action: action,
       avatar: map['avatar'],
       count: map['count'] ?? 0,
     );
@@ -115,7 +128,8 @@ class CallerIdData extends BaseEntity {
       carrier: carrier,
       labels: labels,
       avatar: avatar,
-      count: count + 1, 
+      count: count + 1,
+      action: action,
     );
   }
 }

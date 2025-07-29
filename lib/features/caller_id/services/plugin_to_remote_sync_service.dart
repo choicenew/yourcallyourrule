@@ -63,7 +63,7 @@ class PluginToRemoteSyncService {
         label: _determineLabel(pluginData, existingEntry),
         priority: existingEntry.priority,
         count: pluginData?.count ?? existingEntry.count,
-        action: existingEntry.action,
+        action: _determineAction(pluginData, labelPhoneEntry, existingEntry),
         isEnabled: existingEntry.isEnabled,
       );
       await _remoteNumberService.updateRemoteNumber(updatedEntry);
@@ -76,7 +76,7 @@ class PluginToRemoteSyncService {
         label: pluginData?.predefinedLabel ?? '',
         priority: const RulePriority(0),
         count: pluginData?.count ?? 0,
-        action: RuleAction.none,
+        action: _determineAction(pluginData, labelPhoneEntry, null),
         isEnabled: true,
       );
       await _remoteNumberService.addRemoteNumber(newEntry);
@@ -98,8 +98,25 @@ class PluginToRemoteSyncService {
     if (pluginData?.predefinedLabel != null && pluginData!.predefinedLabel!.isNotEmpty) {
       return pluginData.predefinedLabel!;
     }
+    
     return existingEntry.label;
-  }
+   }
+   
+   /// 确定动作
+   RuleAction _determineAction(PluginData? pluginData, LabelPhoneEntry? labelPhoneEntry, RemoteNumberEntry? existingEntry) {
+     // 优先使用插件数据中的动作
+     if (pluginData != null && pluginData.action != RuleAction.none) {
+       return pluginData.action;
+     }
+     
+     // 其次使用标签电话条目中的动作
+     if (labelPhoneEntry != null && labelPhoneEntry.action != RuleAction.none) {
+       return labelPhoneEntry.action;
+     }
+     
+     // 最后使用现有条目中的动作或默认值
+     return existingEntry?.action ?? RuleAction.none;
+   }
 
   /// 停止同步服务
   void dispose() {
