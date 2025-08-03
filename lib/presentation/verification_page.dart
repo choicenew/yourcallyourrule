@@ -237,6 +237,7 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
             Text('Location: ${[_pluginData?.province, _pluginData?.city].where((e) => e != null).join(", ")}'),
             Text('Carrier: ${_pluginData?.carrier ?? "Unknown"}'),
             Text('Count: ${_pluginData?.count ?? 0}'),
+            Text('Action: ${_pluginData?.action.toString() ?? "RuleAction.none"}'),
           ],
           ...[
             const Divider(),

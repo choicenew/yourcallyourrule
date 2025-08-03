@@ -32,7 +32,6 @@ class _TestPageState extends State<TestPage> {
   bool _isPluginJsLoaded = false;
   String? _loadedPluginId;
   final Map<String, Completer<Map<String, dynamic>?>> _requestCompleters = {};
-  String _selectedNumberFormat = 'phoneNumber'; // 默认使用 phoneNumber 格式
 
   @override
   void initState() {
@@ -323,28 +322,6 @@ class _TestPageState extends State<TestPage> {
               ),
             ),
             const SizedBox(height: 8),
-            Row(
-              children: [
-                const Text('Number Format: '),
-                const SizedBox(width: 8),
-                DropdownButton<String>(
-                  value: _selectedNumberFormat,
-                  items: const [
-                    DropdownMenuItem(value: 'phoneNumber', child: Text('Phone Number')),
-                    DropdownMenuItem(value: 'nationalNumber', child: Text('National Number')),
-                    DropdownMenuItem(value: 'e164Number', child: Text('E164 Number')),
-                  ],
-                  onChanged: (value) {
-                    if (value != null) {
-                      setState(() {
-                        _selectedNumberFormat = value;
-                      });
-                    }
-                  },
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
             ElevatedButton(
               onPressed: _isPluginJsLoaded ? _queryPhoneNumber : null,
               child: const Text('Query Phone Info'),
@@ -452,28 +429,11 @@ class _TestPageState extends State<TestPage> {
       final completer = Completer<Map<String, dynamic>?>();
       _requestCompleters[requestId] = completer;
 
-      // 根据选择的格式准备参数
-      String phoneParam = 'null';
-      String nationalParam = 'null';
-      String e164Param = 'null';
-      
-      switch (_selectedNumberFormat) {
-        case 'phoneNumber':
-          phoneParam = "'$phoneNumber'";
-          break;
-        case 'nationalNumber':
-          nationalParam = "'$phoneNumber'";
-          break;
-        case 'e164Number':
-          e164Param = "'$phoneNumber'";
-          break;
-      }
-      
       await _webViewController!.evaluateJavascript(source: '''
         (function(pluginId, requestId) {
           if (window.plugin && window.plugin[pluginId] && window.plugin[pluginId].generateOutput) {
-            console.log(`Calling plugin[pluginId].generateOutput with format: ${_selectedNumberFormat}, phone: $phoneNumber, requestId: ${requestId}`);
-            window.plugin[pluginId].generateOutput($phoneParam, $nationalParam, $e164Param, '$requestId');
+            console.log(`Calling plugin[pluginId].generateOutput with phone: $phoneNumber, requestId: ${requestId}`);
+            window.plugin[pluginId].generateOutput('$phoneNumber', null, null, '$requestId');
           } else {
             console.error('Plugin or generateOutput function not found for pluginId:', pluginId);
             window.flutter_inappwebview.callHandler('PluginResultChannel', JSON.stringify({
