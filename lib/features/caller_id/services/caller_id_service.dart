@@ -432,9 +432,35 @@ class CallerIdService {
     // 创建合并结果
     final merged = <String, dynamic>{};
     
+    // 用于统计 action 类型的计数
+    int allowCount = 0;
+    int blockCount = 0;
+    int noneCount = 0;
+    String? currentAction;
+    
     // 合并所有字段
     for (final result in results) {
       result.forEach((key, value) {
+        // 特殊处理 action 字段
+        if (key == 'action') {
+          // 统计各类型 action 的数量
+          if (value is String) {
+            final actionStr = value.toLowerCase();
+            if (actionStr.contains('block')) {
+              blockCount++;
+              // 优先级最高，立即设置
+              if (currentAction == null || !currentAction!.toLowerCase().contains('block')) {
+                currentAction = value;
+              }
+            } else if (actionStr.contains('allow')) {
+              allowCount++;
+            } else if (actionStr.contains('none')) {
+              noneCount++;
+            }
+          }
+          return; // 跳过常规处理，稍后根据统计结果设置 action
+        }
+        
         // 如果是数组类型，合并数组
         if (value is List && merged[key] is List) {
           (merged[key] as List).addAll(value);
@@ -474,6 +500,22 @@ class CallerIdService {
         }
         // 其他情况，优先保留已有值
       });
+    }
+    
+    // 根据统计结果和优先级规则设置最终的 action
+    // 优先级顺序：block > none > allow
+    // 特殊规则：如果 allow 数量大于 block 数量，则取 allow
+    if (allowCount > blockCount) {
+      merged['action'] = 'allow';
+    } else if (blockCount > 0) {
+      merged['action'] = 'block';
+    } else if (noneCount > 0) {
+      merged['action'] = 'none';
+    } else if (allowCount > 0) {
+      merged['action'] = 'allow';
+    } else if (currentAction != null) {
+      // 如果有设置过 action 但不属于上述类型，保留最后设置的值
+      merged['action'] = currentAction;
     }
     
     return merged;
