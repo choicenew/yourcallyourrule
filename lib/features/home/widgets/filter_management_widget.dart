@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
-import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
+import 'package:sim_card_info/sim_card_info.dart';
+import 'package:sim_card_info/sim_info.dart' as flutter;
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/provider/providers/sim_slot_rule_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/enhanced_composite_filter_service_provider.dart';
@@ -13,6 +10,7 @@ import 'package:yourcallyourrule/core/provider/providers/call_filter_service_pro
 import 'package:yourcallyourrule/core/provider/providers/local_count_filter_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
+import 'package:yourcallyourrule/common/error/logger.dart';
 
 /// 过滤管理组件
 /// 用于集中管理各种通话过滤功能的开关设置
@@ -25,6 +23,39 @@ class FilterManagementWidget extends ConsumerStatefulWidget {
 
 class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget> {
   bool _isExpanded = false;
+  final SimCardInfo _simCardInfoPlugin = SimCardInfo();
+  List<flutter.SimInfo> _simInfo = [];
+  bool isSupported = true;
+  
+  @override
+  void initState() {
+    super.initState();
+    initSimInfoState();
+  }
+  
+  /// 初始化SIM卡信息
+  Future<void> initSimInfoState() async {
+    List<flutter.SimInfo>? simCardInfo;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    // We also handle the message potentially returning null.
+    try {
+      simCardInfo = await _simCardInfoPlugin.getSimInfo() ?? [];
+    } on PlatformException {
+      simCardInfo = [];
+      setState(() {
+        isSupported = false;
+      });
+      AppLogger.error('获取SIM卡信息失败', 'SIM卡信息不受支持');
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+    setState(() {
+      _simInfo = simCardInfo!;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -154,8 +185,10 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     final enhancedService = ref.watch(enhancedCompositeFilterServiceProvider);
     
     // 获取可用的SIM卡槽位
-    // 这里假设有两个SIM卡槽位，实际应用中可能需要从设备获取
-    final availableSimSlots = [0, 1];
+    // 使用实际获取的SIM卡信息
+    final availableSimSlots = _simInfo.isNotEmpty
+        ? List.generate(_simInfo.length, (index) => index)
+        : isSupported ? [0, 1] : []; // 如果不支持或获取失败，使用默认值或空列表
     
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -312,7 +345,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                       Icon(Icons.sim_card, color: simSlot == 0 ? Colors.blue : Colors.green),
                       const SizedBox(width: 8),
                       Text(
-                        '${AppLocalizations.of(context)!.simCard} ${simSlot + 1}',
+                        _simInfo.isNotEmpty && simSlot < _simInfo.length
+                            ? '${AppLocalizations.of(context)!.simCard} ${simSlot + 1} (${_simInfo[simSlot].carrierName})'
+                            : '${AppLocalizations.of(context)!.simCard} ${simSlot + 1}',
                         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     ],
