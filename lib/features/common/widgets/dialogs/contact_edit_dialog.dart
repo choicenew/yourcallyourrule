@@ -150,7 +150,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
     final bool isEditing = widget.contact != null;
     final String title = isEditing 
       ? AppLocalizations.of(context)!.editContact
-      : AppLocalizations.of(context)!.addContact;
+      : AppLocalizations.of(context)!.addContactButton;
     final String actionText = isEditing 
       ? AppLocalizations.of(context)!.save
       : AppLocalizations.of(context)!.add;

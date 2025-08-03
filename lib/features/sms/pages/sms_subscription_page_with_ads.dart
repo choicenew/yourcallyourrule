@@ -19,22 +19,22 @@ class SmsSubscriptionPageWithAds extends ConsumerStatefulWidget {
 }
 
 class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPageWithAds> {
-  List<SmsSubscription> _subscriptions = [];
   bool _isLoading = true;
   final TextEditingController _nameController = TextEditingController();
+  List<SmsSubscription> _subscriptions = [];
   final TextEditingController _urlController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _loadSubscriptions();
-  }
 
   @override
   void dispose() {
     _nameController.dispose();
     _urlController.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSubscriptions();
   }
 
   Future<void> _loadSubscriptions() async {
@@ -235,30 +235,6 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return GenericListWithAdsPage<SmsSubscription>(
-      title: AppLocalizations.of(context)!.smsRuleSubscription,
-      items: _subscriptions,
-      itemBuilder: (context, subscription) => _buildSubscriptionCard(subscription),
-      adBuilder: () => const Card(
-        margin: EdgeInsets.symmetric(vertical: 8.0),
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text('广告位', textAlign: TextAlign.center),
-        ),
-      ),
-      adInterval: 3,
-      emptyText: AppLocalizations.of(context)!.noSubscriptions,
-      emptyIcon: Icons.sms_outlined,
-      themeColor: Theme.of(context).primaryColor,
-      isLoading: _isLoading,
-      onRefresh: _loadSubscriptions,
-      onAdd: _showAddDialog,
-      headerContent: _buildInfoCard(),
-    );
-  }
-
   Widget _buildInfoCard() {
     return Card(
       elevation: 2,
@@ -410,6 +386,30 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
           ],
         ),
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GenericListWithAdsPage<SmsSubscription>(
+      title: AppLocalizations.of(context)!.smsRuleSubscription,
+      items: _subscriptions,
+      itemBuilder: (context, subscription) => _buildSubscriptionCard(subscription),
+      adBuilder: () => const Card(
+        margin: EdgeInsets.symmetric(vertical: 8.0),
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text('广告位', textAlign: TextAlign.center),
+        ),
+      ),
+      adInterval: 3,
+      emptyText: AppLocalizations.of(context)!.noSubscriptions,
+      emptyIcon: Icons.sms_outlined,
+      themeColor: Theme.of(context).primaryColor,
+      isLoading: _isLoading,
+      onRefresh: _loadSubscriptions,
+      onAdd: _showAddDialog,
+      headerContent: _buildInfoCard(),
     );
   }
 }

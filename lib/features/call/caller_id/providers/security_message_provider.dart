@@ -10,8 +10,8 @@ class SecurityMessageProvider extends ChangeNotifier {
   
   // Get default message from localizations
   String getDefaultMessage(BuildContext context) {
-    return AppLocalizations.of(context)?.securityMessage ?? 
-      "Do not trust any phone calls. Always verify customer service numbers independently. Never share passwords, verification codes, card numbers, or personal information.";
+    return AppLocalizations.of(context)!.securityMessage;
+   
   }
   
   // Scrolling speed (pixels per second)
