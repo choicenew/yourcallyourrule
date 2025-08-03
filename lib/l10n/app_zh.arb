@@ -1,5 +1,5 @@
 {
-  "@@locale": "en",
+  "@@locale": "zh",
   "about": "About",
   "aboutContactSubscription": "About Contact Subscription",
   "@aboutContactSubscription": {
@@ -786,8 +786,8 @@
   "@filterToggleStatus": {
     "description": "Filter enable/disable status change notification",
     "placeholders": {
-      "status": {},
-      "filterName": {}
+      "status": {"type": "Object"},
+      "filterName": {"type": "Object"}
     }
   },
   "filterType": "Filter Type",
@@ -889,7 +889,7 @@
     "description": "Update interval confirmation message",
     "placeholders": {
       "service": {"type": "Object"},
-      "days": {}
+      "days": {"type": "Object"}
     }
   },
   "invalidContentRegex": "Invalid content regex",
@@ -949,7 +949,7 @@
   "@lastUpdated": {
     "description": "Last updated label",
     "placeholders": {
-      "date": {}
+      "date": {"type": "Object"}
     }
   },
   "lifetimeMembership": "Lifetime Membership",
@@ -1491,7 +1491,7 @@
     "description": "SIM Card information",
     "placeholders": {
       "slotNumber": {"type": "Object"},
-      "countryIso": {}
+      "countryIso": {"type": "Object"}
     }
   },
   "simInfoLoadFailure": "Failed to load SIM card information: {error}",
@@ -1532,7 +1532,7 @@
   "@simSlotFilterSettingsTitle": {
     "description": "Title for SIM slot filter settings",
     "placeholders": {
-      "slotNumber": {}
+      "slotNumber": {"type": "Object"}
     }
   },
   "simSlotLoadFailed": "Failed to load SIM slots: {error}",

@@ -20,10 +20,12 @@ class MarkPhoneManagementPageWithAds extends ConsumerStatefulWidget {
   const MarkPhoneManagementPageWithAds({super.key});
 
   @override
-  ConsumerState<MarkPhoneManagementPageWithAds> createState() => _MarkPhoneManagementPageWithAdsState();
+  ConsumerState<MarkPhoneManagementPageWithAds> createState() =>
+      _MarkPhoneManagementPageWithAdsState();
 }
 
-class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManagementPageWithAds> {
+class _MarkPhoneManagementPageWithAdsState
+    extends ConsumerState<MarkPhoneManagementPageWithAds> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   String? _selectedLabelId;
@@ -31,7 +33,7 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
   bool _isLoading = false;
   late LabelMarkStatisticsService _statisticsService;
   StreamSubscription? _markCountSubscription;
-  
+
   // 标记号码列表
   List<LabelPhoneEntry> _markedPhones = [];
   bool _isLoadingMarkedPhones = true;
@@ -47,10 +49,10 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    
+
     // 通过Provider获取服务实例
     _statisticsService = ref.read(labelMarkStatisticsServiceProvider);
-    
+
     // 监听标记计数变化
     _markCountSubscription?.cancel();
     _markCountSubscription = _statisticsService.markCountStream.listen((count) {
@@ -99,13 +101,15 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
     try {
       final markPhoneService = ref.read(markPhoneServiceProvider);
       final markedPhones = await markPhoneService.getAllPhoneMarks();
-      
+
       setState(() {
         _markedPhones = markedPhones;
         _isLoadingMarkedPhones = false;
       });
     } catch (e) {
-      _showSnackBar(AppLocalizations.of(context)!.loadMarkedPhonesFailed(e.toString()));
+      _showSnackBar(
+        AppLocalizations.of(context)!.loadMarkedPhonesFailed(e.toString()),
+      );
       setState(() {
         _isLoadingMarkedPhones = false;
       });
@@ -148,13 +152,17 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
         _selectedLabelId!,
         name: name,
       );
-      
+
       // 使用标记统计同步服务记录标记
-      final statisticsSyncService = ref.read(labelMarkStatisticsSyncServiceProvider);
+      final statisticsSyncService = ref.read(
+        labelMarkStatisticsSyncServiceProvider,
+      );
       await statisticsSyncService.syncSingleLabel(labelPhoneEntry);
-      
+
       // 使用标签到远程号码同步服务同步标记
-      final labelToRemoteSyncService = ref.read(labelToRemoteSyncServiceProvider);
+      final labelToRemoteSyncService = ref.read(
+        labelToRemoteSyncServiceProvider,
+      );
       await labelToRemoteSyncService.syncSingleLabel(labelPhoneEntry);
 
       // 清空输入框
@@ -180,7 +188,7 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
   Future<void> _navigateToVipExchangePage() async {
     // 导航到VIP兑换页面
     await Navigator.of(context).pushNamed('/vip-exchange');
-    
+
     // 返回后刷新标记次数
     await _loadMarkCount();
   }
@@ -190,10 +198,10 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
     try {
       final markPhoneService = ref.read(markPhoneServiceProvider);
       await markPhoneService.removePhoneMark(entry.id);
-      
+
       // 重新加载标记号码列表
       _loadMarkedPhones();
-      
+
       _showSnackBar(AppLocalizations.of(context)!.deleteSuccess);
     } catch (e) {
       _showSnackBar(AppLocalizations.of(context)!.deleteFailed(e.toString()));
@@ -222,11 +230,18 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
               children: [
                 Text(
                   AppLocalizations.of(context)!.markCount,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
                   '$_markCount',
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFFF5A623)),
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFF5A623),
+                  ),
                 ),
               ],
             ),
@@ -239,7 +254,9 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
                 backgroundColor: const Color(0xFFF5A623),
                 foregroundColor: Colors.white,
                 minimumSize: const Size(double.infinity, 48),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
             ),
           ],
@@ -298,7 +315,9 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
                 backgroundColor: const Color(0xFFF5A623),
                 foregroundColor: Colors.white,
                 minimumSize: const Size(double.infinity, 48),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
             ),
           ],
@@ -342,7 +361,10 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
                 children: [
                   Text(
                     entry.phoneNumber.value,
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 4),
                   FutureBuilder<String>(
@@ -350,11 +372,14 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
                     builder: (context, snapshot) {
                       return Text(
                         snapshot.data ?? AppLocalizations.of(context)!.loading,
-                        style: const TextStyle(fontSize: 14, color: Colors.grey),
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
                       );
                     },
                   ),
-                  if (entry.name.isNotEmpty) ...[  
+                  if (entry.name.isNotEmpty) ...[
                     const SizedBox(height: 4),
                     Text(
                       entry.name,
@@ -385,16 +410,17 @@ class _MarkPhoneManagementPageWithAdsState extends ConsumerState<MarkPhoneManage
   @override
   Widget build(BuildContext context) {
     return GenericListWithAdsPage<LabelPhoneEntry>(
-      title: AppLocalizations.of(context)!.markPhoneManagement,
+      title: AppLocalizations.of(context)!.markPhoneManagementTitle,
       items: _markedPhones,
       itemBuilder: (context, entry) => _buildMarkedPhoneCard(entry),
-      adBuilder: () => const Card(
-        margin: EdgeInsets.symmetric(vertical: 8.0),
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text('广告位', textAlign: TextAlign.center),
-        ),
-      ),
+      adBuilder:
+          () => const Card(
+            margin: EdgeInsets.symmetric(vertical: 8.0),
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text('广告位', textAlign: TextAlign.center),
+            ),
+          ),
       adInterval: 3,
       emptyText: AppLocalizations.of(context)!.noMarkedPhones,
       emptyIcon: Icons.label_off,

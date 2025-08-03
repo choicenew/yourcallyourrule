@@ -123,7 +123,7 @@ class RegexTestPageState extends ConsumerState<RegexTestPage> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: _testRegex,
-                    child: Text(AppLocalizations.of(context)!.testButtonText),
+                    child: Text(AppLocalizations.of(context)!.testButton),
                   ),
                 ),
                 const SizedBox(width: 10),

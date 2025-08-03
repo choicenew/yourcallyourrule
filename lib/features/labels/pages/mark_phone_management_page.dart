@@ -205,7 +205,7 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.markPhoneManagement),
+        title: Text(AppLocalizations.of(context)!.markPhoneManagementTitle),
         backgroundColor: const Color(0xFFF5A623),
         actions: [
           // 添加兑换菜单按钮
