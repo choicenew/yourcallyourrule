@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则动作映射服务
 /// 负责将RuleAction映射到具体的拦截动作
@@ -58,15 +61,16 @@ class RuleActionMapper {
   
   /// 获取拦截动作的显示名称
   static String getInterceptActionDisplayName(String interceptAction) {
+    final context = AppRouter.navigatorKey.currentContext!;
     switch (interceptAction) {
       case 'endCall':
-        return '立即结束通话';
+        return AppLocalizations.of(context)!.endCallImmediately;
       case 'answerThenHangup':
-        return '接听后挂断';
+        return AppLocalizations.of(context)!.answerThenHangup;
       case 'silenceNoAnswer':
-        return '静音不接听';
+        return AppLocalizations.of(context)!.silenceAndNoAnswer;
       default:
-        return '未知动作';
+        return AppLocalizations.of(context)!.unknownAction;
     }
   }
 }

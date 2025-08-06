@@ -13,6 +13,7 @@ class LanguageSelectionWidget extends StatelessWidget {
   final LocaleNotifier localeNotifier; // Riverpod 的 Notifier
   final bool showCurrentLanguage;
   final bool showSelectionList;
+  final bool showAds;
 
   const LanguageSelectionWidget({
     super.key,
@@ -21,20 +22,26 @@ class LanguageSelectionWidget extends StatelessWidget {
     required this.localeNotifier,
     this.showCurrentLanguage = true,
     this.showSelectionList = true,
+    this.showAds = true, // 默认显示广告
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (showCurrentLanguage) ...[_buildCurrentLanguageCard(context), 
-        const SizedBox(height: 16)],
-                    GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd), //插入广告
-             const SizedBox(height: 16),
+        if (showCurrentLanguage) ...[
+          _buildCurrentLanguageCard(context),
+          const SizedBox(height: 16)
+        ],
+        if (showAds) ...[
+          GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd), //插入广告
+          const SizedBox(height: 16),
+        ],
         if (showSelectionList) _buildLanguageSelectionCard(context),
-                   //插入广告
-            const SizedBox(height: 16),
-             nativeAdWidgetMedium(adWidth: 400, adHeight: 320)
+        if (showAds) ...[
+          const SizedBox(height: 16),
+          nativeAdWidgetMedium(adWidth: 400, adHeight: 320) //插入广告
+        ]
       ],
     );
   }

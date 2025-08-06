@@ -258,6 +258,36 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         ruleType TEXT NOT NULL DEFAULT 'sim_slot'
       )
     ''');
+
+    // 创建标记统计表
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS label_mark_statistics (
+        id TEXT PRIMARY KEY,
+        phone_number TEXT NOT NULL,
+        label_id TEXT NOT NULL,
+        marked_at TEXT NOT NULL,
+        is_counted INTEGER NOT NULL DEFAULT 1
+      )
+    ''');
+
+    // 创建用户标记计数表
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS user_mark_count (
+        id TEXT PRIMARY KEY,
+        total_count INTEGER NOT NULL DEFAULT 0,
+        last_updated TEXT NOT NULL
+      )
+    ''');
+
+    // 初始化用户标记计数
+    final countRecords = await db.query('user_mark_count');
+    if (countRecords.isEmpty) {
+      await db.insert('user_mark_count', {
+        'id': 'user_mark_count',
+        'total_count': 0,
+        'last_updated': DateTime.now().toIso8601String()
+      });
+    }
   }
 
   // 升级数据库

@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
+
+
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 会员特权管理服务
 /// 负责管理所有与会员特权相关的功能和标签
 class MembershipFeatureService {
   // 获取会员特权标签
   List<String> getMembershipLabels() {
-    return ['无广告', '云备份', '来电识别增强', '语音识别'];
+    final context = AppRouter.navigatorKey.currentContext!;
+    return [
+      AppLocalizations.of(context)!.noAds,
+      AppLocalizations.of(context)!.cloudBackup,
+      AppLocalizations.of(context)!.callerIdEnhancement,
+      AppLocalizations.of(context)!.voiceRecognition
+    ];
   }
 
   // 获取临时会员特权标签
   List<String> getTempMembershipLabels() {
-    return ['云备份', '来电识别增强', '语音识别'];
+    final context = AppRouter.navigatorKey.currentContext!;
+    return [
+      AppLocalizations.of(context)!.cloudBackup,
+      AppLocalizations.of(context)!.callerIdEnhancement,
+      AppLocalizations.of(context)!.voiceRecognition
+    ];
   }
   
   // 构建功能表格行
@@ -49,18 +64,19 @@ class MembershipFeatureService {
 
   // 获取功能表格行列表
   List<TableRow> getFeatureTableRows() {
+    final context = AppRouter.navigatorKey.currentContext!;
     return [
       buildTableRow(
-        '功能',
-        '普通用户',
-        'VIP用户',
-        '临时VIP',
+        AppLocalizations.of(context)!.feature,
+        AppLocalizations.of(context)!.normalUser,
+        AppLocalizations.of(context)!.vipUser,
+        AppLocalizations.of(context)!.temporaryVip,
         isHeader: true,
       ),
-      buildTableRow('移除广告', '❌', '✅', '❌'),
-      buildTableRow('云备份', '❌', '✅', '✅'),
-      buildTableRow('来电识别增强', '❌', '✅', '✅'),
-      buildTableRow('语音识别', '❌', '✅', '✅'),
+      buildTableRow(AppLocalizations.of(context)!.removeAds, '❌', '✅', '❌'),
+      buildTableRow(AppLocalizations.of(context)!.cloudBackup, '❌', '✅', '✅'),
+      buildTableRow(AppLocalizations.of(context)!.callerIdEnhancement, '❌', '✅', '✅'),
+      buildTableRow(AppLocalizations.of(context)!.voiceRecognition, '❌', '✅', '✅'),
     ];
   }
 

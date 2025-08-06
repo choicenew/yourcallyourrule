@@ -121,6 +121,7 @@ dependencies:
   shared_preferences: ^2.3.2
 
   sqflite: ^2.3.3+1
+  sqflite_common_ffi: ^2.3.3
   url_launcher: ^6.3.2
   webdav_client: ^1.2.2
 

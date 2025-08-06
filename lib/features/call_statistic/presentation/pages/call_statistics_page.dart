@@ -24,6 +24,8 @@ class CallStatisticsPage extends ConsumerStatefulWidget {
 
 class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
   String _selectedPeriod = 'Week'; // 默认选择周期
+  DateTime? _startDate;
+  DateTime? _endDate;
   final BlockedCallRepository _repository = BlockedCallRepository();
 
   @override
@@ -152,8 +154,16 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
   }
 
   Widget _buildStatisticsContent(BuildContext context, List<CallLog> callLogs, List<RuleBase> rules) {
+    // 根据选择的日期范围过滤通话记录
+    final filteredCallLogs = callLogs.where((log) {
+      if (_startDate != null && _endDate != null) {
+        return log.timestamp.isAfter(_startDate!) && log.timestamp.isBefore(_endDate!.add(const Duration(days: 1)));
+      }
+      return true; // 如果没有选择日期范围，则不过滤
+    }).toList();
+
     // 创建repository实例
-    final repository = CallStatisticsRepositoryImpl(callLogs, rules);
+    final repository = CallStatisticsRepositoryImpl(filteredCallLogs, rules);
     
     // 获取实际统计数据
     final int totalBlocked = repository.getTotalBlockedCount();
@@ -457,10 +467,10 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     if (pickedDateRange != null) {
       // 处理选择的日期范围
       setState(() {
-        // 这里可以更新日期范围并刷新数据
-        // 例如：_startDate = pickedDateRange.start;
-        //      _endDate = pickedDateRange.end;
-        // 然后重新加载数据
+        _startDate = pickedDateRange.start;
+        _endDate = pickedDateRange.end;
+        // 将周期设置为自定义，以便图表可以处理
+        _selectedPeriod = 'Custom'; 
       });
       
       // 显示选择的日期范围

@@ -537,14 +537,14 @@ class _CallerIdCustomizationScreenState
             children: [
               _buildSlider(
                 'X',
-                position.dx,
+                position.dx.clamp(0, 300),
                 0,
                 300,
                 (value) => onChanged(Offset(value, position.dy)),
               ),
               _buildSlider(
                 'Y',
-                position.dy,
+                position.dy.clamp(0, 300),
                 0,
                 300,
                 (value) => onChanged(Offset(position.dx, value)),

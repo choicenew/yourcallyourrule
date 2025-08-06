@@ -45,7 +45,7 @@ class PurchaseCardFactory {
     return ModernPurchaseCard(
       title: AppLocalizations.of(context)!.monthlyMembership,
       description: AppLocalizations.of(context)!.monthlyMembershipDescription,
-      price: 'USD2.99/月',
+      price: 'USD2.99 / ${AppLocalizations.of(context)!.monthly}',
       buttonText: AppLocalizations.of(context)!.subscribe,
       onTap: () {
         _purchaseProvider.purchaseNonConsumable(_purchaseProvider.membershipService.getProductIds()['monthly']!);
@@ -63,7 +63,7 @@ class PurchaseCardFactory {
     return ModernPurchaseCard(
       title: AppLocalizations.of(context)!.quarterlyMembership,
       description: AppLocalizations.of(context)!.quarterlyMembershipDescription,
-      price: 'USD6.99/季',
+      price: 'USD6.99 / 3${AppLocalizations.of(context)!.month}',
       buttonText: AppLocalizations.of(context)!.subscribe,
       onTap: () {
         _purchaseProvider.purchaseNonConsumable(_purchaseProvider.membershipService.getProductIds()['quarterly']!);

@@ -64,6 +64,7 @@ class FeatureCenter extends StatelessWidget {
                   icon: Icons.phone_callback,
                   onTap: () => context.push('/phone-subscription'),
                 ),
+/*
                 _buildFeatureItem(
                   context: context,
                   title: AppLocalizations.of(context)!.smsSubscription,
@@ -76,6 +77,7 @@ class FeatureCenter extends StatelessWidget {
                   icon: Icons.message,
                   onTap: () => context.push('/sms-management'),
                 ),
+                */
                 _buildFeatureItem(
                   context: context,
                   title: AppLocalizations.of(context)!.callHistory,
@@ -94,12 +96,14 @@ class FeatureCenter extends StatelessWidget {
                   icon: Icons.bar_chart,
                   onTap: () => context.push('/call-statistics'),
                 ),
+/*
                 _buildFeatureItem(
                   context: context,
                   title: AppLocalizations.of(context)!.settings,
                   icon: Icons.settings,
                   onTap: () => context.push('/settings'),
                 ),
+                */
               ],
             ),
           ],

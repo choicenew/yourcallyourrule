@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/purchase/models/vip_exchange_rule_model.dart';
 import 'package:yourcallyourrule/purchase/services/vip_exchange_service.dart';
 import 'package:yourcallyourrule/purchase/widgets/vip_exchange_card.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 
 /// VIP兑换页面
 /// 用于显示VIP兑换规则和执行兑换操作
@@ -81,12 +83,13 @@ class _VipExchangePageState extends ConsumerState<VipExchangePage> {
 
   @override
   Widget build(BuildContext context) {
+    final context = AppRouter.navigatorKey.currentContext!;
     final vipExchangeService = ref.watch(vipExchangeServiceProvider);
     final rules = vipExchangeService.getAvailableExchangeRules();
     
     return Scaffold(
       appBar: AppBar(
-        title: const Text('标记兑换VIP'),
+        title: Text(AppLocalizations.of(context)!.redeemVipWithMarks),
         elevation: 0,
       ),
       body: _isLoading
@@ -120,6 +123,7 @@ class _VipExchangePageState extends ConsumerState<VipExchangePage> {
   
   // 构建标记计数头部
   Widget _buildMarkCountHeader() {
+    final context = AppRouter.navigatorKey.currentContext!;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -131,7 +135,7 @@ class _VipExchangePageState extends ConsumerState<VipExchangePage> {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -139,8 +143,9 @@ class _VipExchangePageState extends ConsumerState<VipExchangePage> {
       ),
       child: Column(
         children: [
-          const Text(
-            '当前标记次数',
+          Text(
+AppLocalizations.of(context)!.currentMarkCount,
+            
             style: TextStyle(color: Colors.white, fontSize: 16),
           ),
           const SizedBox(height: 8),
@@ -153,8 +158,8 @@ class _VipExchangePageState extends ConsumerState<VipExchangePage> {
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
-            '标记更多电话号码以获取更多次数',
+          Text(
+            AppLocalizations.of(context)!.markMoreNumbersForMore,
             style: TextStyle(color: Colors.white70, fontSize: 14),
           ),
         ],

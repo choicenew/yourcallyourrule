@@ -864,7 +864,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get configUpdated => 'Configuration updated';
 
   @override
-  String get configurationAdvice => 'Through proper configuration, you can set different filtering strategies for work and personal SIM cards.';
+  String get configurationAdvice => '通过正确的配置，您可以为工作和个人SIM卡设置不同的过滤策略。';
 
   @override
   String get configureBackupOptions => 'Configure Backup Options';
@@ -4666,34 +4666,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get blockedCallTitle => 'Blocked Call';
-
-  @override
-  String blockedCallBody(String phoneNumber) {
-    return 'Blocked call from $phoneNumber';
-  }
-
-  @override
-  String get stirVerified => 'Verified';
-
-  @override
-  String get stirNotVerified => 'Not Verified';
-
-  @override
-  String get stirFailed => 'Verification Failed';
-
-  @override
-  String get stirUnknown => 'Unknown Verification Status';
-
-  @override
-  String get stirVerificationTitle => 'STIR/SHAKEN Verification';
-
-  @override
-  String stirVerificationBody(String stirResultMessage, String phoneNumber) {
-    return '$stirResultMessage for number $phoneNumber';
-  }
-
-  @override
   String get scrollingSecurityMessageSettings => 'Scrolling Security Message Settings';
 
   @override
@@ -4721,6 +4693,83 @@ class AppLocalizationsZh extends AppLocalizations {
   String fraudAlertBody(String phoneNumber) {
     return '来自$phoneNumber的潜在诈骗电话';
   }
+
+  @override
+  String loadCallLogFailed(Object error) {
+    return '加载通话记录失败: $error';
+  }
+
+  @override
+  String get noBlockedTypeData => '暂无拦截类型数据';
+
+  @override
+  String importEntity(Object entityTypeName) {
+    return 'Import $entityTypeName';
+  }
+
+  @override
+  String entityImportSuccess(Object entityTypeName, Object count) {
+    return '$entityTypeName imported successfully, total $count records imported';
+  }
+
+  @override
+  String entityImportFailed(Object entityTypeName, Object error) {
+    return 'Failed to import $entityTypeName: $error';
+  }
+
+  @override
+  String exportEntity(Object entityTypeName) {
+    return 'Export $entityTypeName';
+  }
+
+  @override
+  String entityExportSuccess(Object entityTypeName) {
+    return '$entityTypeName exported successfully';
+  }
+
+  @override
+  String entityExportFailed(Object entityTypeName, Object error) {
+    return 'Failed to export $entityTypeName: $error';
+  }
+
+  @override
+  String get cloudSyncService => 'Cloud Sync Service';
+
+  @override
+  String get membershipCenter => 'Membership Center';
+
+  @override
+  String get redeemVipWithMarks => 'Redeem VIP with Marks';
+
+  @override
+  String get currentMarkCount => 'Current Mark Count';
+
+  @override
+  String get markMoreNumbersForMore => 'Mark more numbers for more marks';
+
+  @override
+  String get cloudBackup => 'Cloud Backup';
+
+  @override
+  String get callerIdEnhancement => 'Caller ID Enhancement';
+
+  @override
+  String get voiceRecognition => 'Voice Recognition';
+
+  @override
+  String get feature => 'Feature';
+
+  @override
+  String get normalUser => 'Normal User';
+
+  @override
+  String get vipUser => 'VIP User';
+
+  @override
+  String get temporaryVip => 'Temporary VIP';
+
+  @override
+  String get removeAds => 'Remove Ads';
 
   @override
   String get yesterday => 'Yesterday';
@@ -9388,34 +9437,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   }
 
   @override
-  String get blockedCallTitle => 'Blocked Call';
-
-  @override
-  String blockedCallBody(String phoneNumber) {
-    return 'Blocked call from $phoneNumber';
-  }
-
-  @override
-  String get stirVerified => 'Verified';
-
-  @override
-  String get stirNotVerified => 'Not Verified';
-
-  @override
-  String get stirFailed => 'Verification Failed';
-
-  @override
-  String get stirUnknown => 'Unknown Verification Status';
-
-  @override
-  String get stirVerificationTitle => 'STIR/SHAKEN Verification';
-
-  @override
-  String stirVerificationBody(String stirResultMessage, String phoneNumber) {
-    return '$stirResultMessage for number $phoneNumber';
-  }
-
-  @override
   String get scrollingSecurityMessageSettings => 'Scrolling Security Message Settings';
 
   @override
@@ -9443,6 +9464,83 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String fraudAlertBody(String phoneNumber) {
     return 'Potential fraud call from $phoneNumber';
   }
+
+  @override
+  String loadCallLogFailed(Object error) {
+    return 'Failed to load call log: $error';
+  }
+
+  @override
+  String get noBlockedTypeData => 'No blocked type data available';
+
+  @override
+  String importEntity(Object entityTypeName) {
+    return 'Import $entityTypeName';
+  }
+
+  @override
+  String entityImportSuccess(Object entityTypeName, Object count) {
+    return '$entityTypeName imported successfully, total $count records imported';
+  }
+
+  @override
+  String entityImportFailed(Object entityTypeName, Object error) {
+    return 'Failed to import $entityTypeName: $error';
+  }
+
+  @override
+  String exportEntity(Object entityTypeName) {
+    return 'Export $entityTypeName';
+  }
+
+  @override
+  String entityExportSuccess(Object entityTypeName) {
+    return '$entityTypeName exported successfully';
+  }
+
+  @override
+  String entityExportFailed(Object entityTypeName, Object error) {
+    return 'Failed to export $entityTypeName: $error';
+  }
+
+  @override
+  String get cloudSyncService => 'Cloud Sync Service';
+
+  @override
+  String get membershipCenter => 'Membership Center';
+
+  @override
+  String get redeemVipWithMarks => 'Redeem VIP with Marks';
+
+  @override
+  String get currentMarkCount => 'Current Mark Count';
+
+  @override
+  String get markMoreNumbersForMore => 'Mark more numbers for more marks';
+
+  @override
+  String get cloudBackup => 'Cloud Backup';
+
+  @override
+  String get callerIdEnhancement => 'Caller ID Enhancement';
+
+  @override
+  String get voiceRecognition => 'Voice Recognition';
+
+  @override
+  String get feature => 'Feature';
+
+  @override
+  String get normalUser => 'Normal User';
+
+  @override
+  String get vipUser => 'VIP User';
+
+  @override
+  String get temporaryVip => 'Temporary VIP';
+
+  @override
+  String get removeAds => 'Remove Ads';
 
   @override
   String get yesterday => 'Yesterday';
