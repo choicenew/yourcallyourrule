@@ -266,7 +266,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
@@ -986,7 +986,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(context),
-                            child: Text(AppLocalizations.of(context)!.cancel),
+                            child: Text(AppLocalizations.of(context)!.cancelButton),
                           ),
                           TextButton(
                             onPressed: () async {

@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/core/services/auto_update_service.dart';
 import 'package:yourcallyourrule/features/auto_update/di/auto_update_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -17,7 +20,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
 
   final Map<String, IconData> _serviceTypeIcons = {
     'phone': Icons.phone,
-    'sms': Icons.sms,
+    //'sms': Icons.sms,
     'contact': Icons.contacts,
     'plugin': Icons.extension,
   };
@@ -38,7 +41,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     // 在这里初始化依赖context的内容
     _serviceTypeNames = {
       'phone': AppLocalizations.of(context)!.serviceTypePhone,
-      'sms': AppLocalizations.of(context)!.serviceTypeSms,
+    //  'sms': AppLocalizations.of(context)!.serviceTypeSms,
       'contact': AppLocalizations.of(context)!.serviceTypeContact,
       'plugin': AppLocalizations.of(context)!.serviceTypePlugin,
     };
@@ -149,6 +152,8 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
                 _buildInfoCard(),
                 const SizedBox(height: 16),
                 ..._serviceTypeNames.keys.map((type) => _buildServiceCard(type)),
+                const SizedBox(height: 16),
+                nativeAdWidgetMedium(adWidth: 320, adHeight: 320)
               ],
             ),
     );
@@ -195,6 +200,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
       elevation: 2,
       margin: const EdgeInsets.only(bottom: 16),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      color: Color((Random().nextDouble() * 0xFFFFFF).toInt()).withValues(alpha: 0.2),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -203,7 +209,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
+                  backgroundColor: Color((Random().nextDouble() * 0xFFFFFF).toInt()).withValues(alpha: 0.2),
                   child: Icon(icon, color: Theme.of(context).primaryColor),
                 ),
                 const SizedBox(width: 12),

@@ -174,7 +174,7 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.cancel),
+          child: Text(AppLocalizations.of(context)!.cancelButton),
         ),
         _isProcessing
             ? const CircularProgressIndicator()

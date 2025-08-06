@@ -12,6 +12,7 @@ import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/st
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_type_analysis.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/entities/statistics_data.dart';
+import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CallStatisticsPage extends ConsumerStatefulWidget {
@@ -31,6 +32,10 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     final rulesAsync = ref.watch(rulesProvider);
 
     return Scaffold(
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 3, // 统计页面标签索引
+        onTap: (index) => AppRouter.handleNavigation(context, index),
+      ),
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.statisticsPageTitle),
         leading: IconButton(
@@ -516,7 +521,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           TextButton(
             onPressed: () {

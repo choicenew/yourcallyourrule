@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:yourcallyourrule/common/utils/color_converter.dart';
 import 'package:yourcallyourrule/common/utils/offset_converter.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
 
 part 'caller_id_config.freezed.dart';
 part 'caller_id_config.g.dart';
@@ -49,6 +50,13 @@ abstract class CallerIdConfig with _$CallerIdConfig {
     @OffsetConverter() required Offset simCardPosition,
     @OffsetConverter() required Offset stirPosition,
     @OffsetConverter() required Offset securityMessagePosition,
+
+    // Security Message Fields
+    @ColorConverter() required Color securityMessageTextColor,
+    required double securityMessageFontSize,
+    required double securityMessageContainerWidth,
+    required double securityMessageScrollSpeed,
+    required bool securityMessageEnabled,
   }) = _CallerIdConfig;
 
   factory CallerIdConfig.fromJson(Map<String, dynamic> json) => _$CallerIdConfigFromJson(json);
@@ -63,52 +71,58 @@ extension CallerIdConfigX on CallerIdConfig {
   /// 这是toJson方法的别名，用于保持与旧代码的兼容性
   Map<String, dynamic> toMap() => toJson();
   
-  static CallerIdConfig fromStyleProvider(CallerIdStyleProvider provider) {
+  static CallerIdConfig fromProviders(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) {
     return CallerIdConfig(
-      backgroundColorStart: provider.backgroundColorStart,
-      backgroundColorEnd: provider.backgroundColorEnd,
-      textNameColor: provider.textNameColor,
-      textNumberColor: provider.textNumberColor,
-      textLocationColor: provider.textLocationColor,
-      textCarrierColor: provider.textCarrierColor,
-      textCountryNameColor: provider.textCountryNameColor,
-      textLabelsColor: provider.textLabelsColor,
-      textCountColor: provider.textCountColor,
-      textNumberTypeColor: provider.textNumberTypeColor,
-      textIconLabelColor: provider.textIconLabelColor,
-      textIconLocationColor: provider.textIconLocationColor,
-      textIconCallTypeColor: provider.textIconCallTypeColor,
-      avatarBorderColor: provider.avatarBorderColor,
-      textStirColor: provider.textStirColor,
-      textSimCardColor: provider.textSimCardColor,
-      nameFontSize: provider.nameFontSize,
-      numberFontSize: provider.numberFontSize,
-      locationFontSize: provider.locationFontSize,
-      carrierFontSize: provider.carrierFontSize,
-      countryNameFontSize: provider.countryNameFontSize,
-      labelsFontSize: provider.labelsFontSize,
-      countFontSize: provider.countFontSize,
-      numberTypeFontSize: provider.numberTypeFontSize,
-      stirFontSize: provider.stirFontSize,
-      simCardFontSize: provider.simCardFontSize,
-      avatarPosition: provider.avatarPosition,
-      namePosition: provider.namePosition,
-      carrierPosition: provider.carrierPosition,
-      countryNamePosition: provider.countryNamePosition,
-      labelsPosition: provider.labelsPosition,
-      countPosition: provider.countPosition,
-      numberTypePosition: provider.numberTypePosition,
-      numberPosition: provider.numberPosition,
-      locationPosition: provider.locationPosition,
-      callTypePosition: provider.callTypePosition,
-      simCardPosition: provider.simCardPosition,
-      stirPosition: provider.stirPosition,
-      securityMessagePosition: provider.securityMessagePosition,
+      backgroundColorStart: styleProvider.backgroundColorStart,
+      backgroundColorEnd: styleProvider.backgroundColorEnd,
+      textNameColor: styleProvider.textNameColor,
+      textNumberColor: styleProvider.textNumberColor,
+      textLocationColor: styleProvider.textLocationColor,
+      textCarrierColor: styleProvider.textCarrierColor,
+      textCountryNameColor: styleProvider.textCountryNameColor,
+      textLabelsColor: styleProvider.textLabelsColor,
+      textCountColor: styleProvider.textCountColor,
+      textNumberTypeColor: styleProvider.textNumberTypeColor,
+      textIconLabelColor: styleProvider.textIconLabelColor,
+      textIconLocationColor: styleProvider.textIconLocationColor,
+      textIconCallTypeColor: styleProvider.textIconCallTypeColor,
+      avatarBorderColor: styleProvider.avatarBorderColor,
+      textStirColor: styleProvider.textStirColor,
+      textSimCardColor: styleProvider.textSimCardColor,
+      nameFontSize: styleProvider.nameFontSize,
+      numberFontSize: styleProvider.numberFontSize,
+      locationFontSize: styleProvider.locationFontSize,
+      carrierFontSize: styleProvider.carrierFontSize,
+      countryNameFontSize: styleProvider.countryNameFontSize,
+      labelsFontSize: styleProvider.labelsFontSize,
+      countFontSize: styleProvider.countFontSize,
+      numberTypeFontSize: styleProvider.numberTypeFontSize,
+      stirFontSize: styleProvider.stirFontSize,
+      simCardFontSize: styleProvider.simCardFontSize,
+      avatarPosition: styleProvider.avatarPosition,
+      namePosition: styleProvider.namePosition,
+      carrierPosition: styleProvider.carrierPosition,
+      countryNamePosition: styleProvider.countryNamePosition,
+      labelsPosition: styleProvider.labelsPosition,
+      countPosition: styleProvider.countPosition,
+      numberTypePosition: styleProvider.numberTypePosition,
+      numberPosition: styleProvider.numberPosition,
+      locationPosition: styleProvider.locationPosition,
+      callTypePosition: styleProvider.callTypePosition,
+      simCardPosition: styleProvider.simCardPosition,
+      stirPosition: styleProvider.stirPosition,
+      securityMessagePosition: styleProvider.securityMessagePosition,
+      // Security Message Fields
+      securityMessageTextColor: securityProvider.textColor,
+      securityMessageFontSize: securityProvider.fontSize,
+      securityMessageContainerWidth: securityProvider.containerWidth,
+      securityMessageScrollSpeed: securityProvider.scrollSpeed,
+      securityMessageEnabled: securityProvider.isEnabled,
     );
   }
 
-  void applyToProvider(CallerIdStyleProvider provider) {
-    provider
+  void applyToProviders(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) {
+    styleProvider
       ..setBackgroundColorStart(backgroundColorStart)
       ..setBackgroundColorEnd(backgroundColorEnd)
       ..setTextNameColor(textNameColor)
@@ -148,5 +162,14 @@ extension CallerIdConfigX on CallerIdConfig {
       ..updateSimCardPosition(simCardPosition)
       ..updateStirPosition(stirPosition)
       ..updateSecurityMessagePosition(securityMessagePosition);
+
+    securityProvider
+      ..setTextColor(securityMessageTextColor)
+      ..setFontSize(securityMessageFontSize)
+      ..updatePosition(securityMessagePosition) // Note: Security message position is linked to styleProvider's
+      ..setContainerWidth(securityMessageContainerWidth)
+      ..setScrollSpeed(securityMessageScrollSpeed)
+      ..setEnabled(securityMessageEnabled);
   }
+
 }

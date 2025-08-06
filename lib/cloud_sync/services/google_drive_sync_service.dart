@@ -2,11 +2,13 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/cloud_sync/environment.dart';
 import 'enhanced_cloud_sync_service.dart';
 import 'sync_conflict_resolver.dart';
 
@@ -22,12 +24,15 @@ import 'package:http/http.dart' as http;
 class GoogleDriveSyncService extends EnhancedCloudSyncService {  
   /// Reference to the Riverpod container
   final Ref? ref;
-  final GoogleSignIn _googleSignIn = GoogleSignIn(
-    scopes: [
-      'email',
-      'https://www.googleapis.com/auth/drive.file',
-    ],
-  );
+  late final GoogleSignIn _googleSignIn;
+  
+  // 初始化 GoogleSignIn 实例
+  void _initGoogleSignIn() {
+    _googleSignIn = GoogleSignIn.instance;
+    // 根据 google_sign_in_android 文档，如果项目中使用 google-services.json，
+    // 则无需在 Dart 代码中传递客户端 ID。插件会自动进行配置。
+    _googleSignIn.initialize();
+  }
   
   drive.DriveApi? _driveApi;
   bool _isInitialized = false;
@@ -80,11 +85,36 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
     
     _updateFolderPaths();
     
+    // 初始化 GoogleSignIn 实例
+    _initGoogleSignIn();
+    
+    // 监听认证事件
+    _googleSignIn.authenticationEvents.listen((event) {
+      debugPrint('Google认证事件: $event');
+      if (event is GoogleSignInAuthenticationEventSignIn) {
+        _currentUser = event.user;
+        if (_currentUser != null) {
+          _initDriveApi();
+        }
+      } else if (event is GoogleSignInAuthenticationEventSignOut) {
+        _currentUser = null;
+        _driveApi = null;
+      }
+    }, onError: (error) {
+      debugPrint('Google认证事件错误: $error');
+      _currentUser = null;
+      _driveApi = null;
+    });
+    
     // Try to sign in silently if user was previously signed in
     try {
-      _currentUser = await _googleSignIn.signInSilently();
-      if (_currentUser != null) {
-        await _initDriveApi();
+      // 尝试轻量级认证
+      final future = _googleSignIn.attemptLightweightAuthentication();
+      if (future != null) {
+        _currentUser = await future;
+        if (_currentUser != null) {
+          await _initDriveApi();
+        }
       }
     } catch (e) {
       debugPrint('Error signing in silently: $e');
@@ -95,14 +125,30 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
   
   Future<void> _initDriveApi() async {
     if (_currentUser == null) return;
-    
-    final authHeaders = await _currentUser!.authHeaders;
-    final authenticatedClient = _AuthenticatedClient(
-      http.Client(),
-      authHeaders,
-    );
-    
-    _driveApi = drive.DriveApi(authenticatedClient);
+
+    try {
+      // 获取认证头
+      final authHeaders = await _currentUser!.authorizationClient.authorizationHeaders(
+        const ['https://www.googleapis.com/auth/drive.file'],
+      );
+
+      if (authHeaders == null) {
+        debugPrint('获取授权头失败，可能需要重新授权。');
+        _driveApi = null; // 确保API客户端状态一致
+        return;
+      }
+
+      final authenticatedClient = _AuthenticatedClient(
+        http.Client(),
+        authHeaders,
+      );
+
+      _driveApi = drive.DriveApi(authenticatedClient);
+      debugPrint('Drive API初始化成功');
+    } catch (e) {
+      debugPrint('初始化Drive API失败: $e');
+      _driveApi = null; // 确保API客户端状态一致
+    }
   }
   
   @override
@@ -113,19 +159,60 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
   @override
   Future<bool> doConnect(Map<String, dynamic> credentials) async {
     try {
-      // Sign in with Google
-      _currentUser = await _googleSignIn.signIn();
-      if (_currentUser == null) return false;
-      
-      // Initialize Drive API
+      if (!_isInitialized) {
+        await doInitialize({});
+      }
+
+      // 步骤 1: 认证用户
+      // 这将触发 Google 登录界面
+      final GoogleSignInAccount? account = await _googleSignIn.authenticate();
+      if (account == null) {
+        debugPrint('Google Sign-In was cancelled by the user.');
+        return false;
+      }
+      _currentUser = account;
+      debugPrint('Authentication successful for ${_currentUser!.email}');
+
+      // 步骤 2: 请求授权
+      // 检查是否已经拥有所需的权限
+      final isAuthorized = await _currentUser!.authorizationClient.authorizationForScopes(
+        const ['https://www.googleapis.com/auth/drive.file'],
+      );
+
+      if (isAuthorized == null) {
+        // 如果没有，则请求权限
+        debugPrint('Requesting authorization for Google Drive...');
+        final requestedAuth = await _currentUser!.authorizationClient.authorizeScopes(
+          const ['https://www.googleapis.com/auth/drive.file'],
+        );
+        if (requestedAuth == null) {
+          debugPrint('Authorization for Google Drive was denied.');
+          await doDisconnect(); // 清理状态
+          return false;
+        }
+      }
+      debugPrint('Authorization for Google Drive granted.');
+
+      // 初始化 Drive API
       await _initDriveApi();
-      
-      // Create necessary folders
+      if (_driveApi == null) {
+        debugPrint('Failed to initialize Drive API after authorization.');
+        return false;
+      }
+
+      // 创建云端文件夹
       await _createAppFolders();
-      
+
       return true;
     } catch (e) {
-      debugPrint('Google Drive connection error: $e');
+      debugPrint('An error occurred during Google Drive connection: $e');
+      if (e is PlatformException && e.message != null && e.message!.contains('28444')) {
+        debugPrint('Error [28444]: Developer console is not set up correctly. This is a configuration issue. Please verify the following in your Google Cloud/Firebase console:');
+        debugPrint('1. The package name in google-services.json matches your app\'s package name.');
+        debugPrint('2. The SHA-1 fingerprint for your signing key is correctly added to the Firebase project settings.');
+        debugPrint('3. The Google Drive API is enabled for your project.');
+      }
+      await doDisconnect();
       return false;
     }
   }
@@ -186,10 +273,10 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
   @override
   Future<bool> doDisconnect() async {
     try {
-      // Sign out from Google
-      await _googleSignIn.signOut();
-      
-      // Reset instance variables
+      // disconnect 会撤销授权并登出，比 signOut 更彻底
+      await _googleSignIn.disconnect();
+
+      // 重置实例变量
       _currentUser = null;
       _driveApi = null;
       _appFolderId = null;
@@ -197,7 +284,7 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
       _settingsFolderId = null;
       _notificationsFolderId = null;
       _devicesFolderId = null;
-      
+
       return true;
     } catch (e) {
       debugPrint('Error disconnecting from Google Drive: $e');

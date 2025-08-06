@@ -12,7 +12,12 @@
           "package_name": "com.yours.yourcallyourrule"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "213507864895-bg2c1q8glbkalonm7ovgfggln2dsl3k7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC0HQiX40ERefoU_bOQexkNn7VL20x9UZI"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213507864895-8iepblmk0j3ejj4urd9o1rj9qb5c8k5g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213507864895-q70ar3cpdm9l06udd3gp6hier8u2esse.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yours.yourcallyourrule"
+              }
+            }
+          ]
         }
       },
       "admob_app_id": "ca-app-pub-7500321599129263~1001443362"

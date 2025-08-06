@@ -76,6 +76,15 @@ _CallerIdConfig _$CallerIdConfigFromJson(Map<String, dynamic> json) =>
           .fromJson(json['stirPosition'] as Map<String, dynamic>),
       securityMessagePosition: const OffsetConverter()
           .fromJson(json['securityMessagePosition'] as Map<String, dynamic>),
+      securityMessageTextColor: const ColorConverter()
+          .fromJson((json['securityMessageTextColor'] as num).toInt()),
+      securityMessageFontSize:
+          (json['securityMessageFontSize'] as num).toDouble(),
+      securityMessageContainerWidth:
+          (json['securityMessageContainerWidth'] as num).toDouble(),
+      securityMessageScrollSpeed:
+          (json['securityMessageScrollSpeed'] as num).toDouble(),
+      securityMessageEnabled: json['securityMessageEnabled'] as bool,
     );
 
 Map<String, dynamic> _$CallerIdConfigToJson(_CallerIdConfig instance) =>
@@ -139,4 +148,10 @@ Map<String, dynamic> _$CallerIdConfigToJson(_CallerIdConfig instance) =>
       'stirPosition': const OffsetConverter().toJson(instance.stirPosition),
       'securityMessagePosition':
           const OffsetConverter().toJson(instance.securityMessagePosition),
+      'securityMessageTextColor':
+          const ColorConverter().toJson(instance.securityMessageTextColor),
+      'securityMessageFontSize': instance.securityMessageFontSize,
+      'securityMessageContainerWidth': instance.securityMessageContainerWidth,
+      'securityMessageScrollSpeed': instance.securityMessageScrollSpeed,
+      'securityMessageEnabled': instance.securityMessageEnabled,
     };

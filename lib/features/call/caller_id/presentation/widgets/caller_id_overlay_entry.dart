@@ -15,6 +15,8 @@ import 'package:yourcallyourrule/data/repositories/config/config_repository.dart
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/configuration_manager.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_content_builder.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay.dart';
 
@@ -31,6 +33,7 @@ class CallerIdOverlayEntry extends ConsumerStatefulWidget {
 class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
   CallerIdData? _callerIdData;
   CallerIdStyleProvider? styleProvider;
+  SecurityMessageProvider? securityProvider;
   SimInfo? _simInfo;
   StirInfo? _stirInfo;
   late final ConfigRepository _configRepository;
@@ -64,9 +67,10 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
     _configRepository = SharedPreferencesConfigRepository();
     final configurationManager = ConfigurationManager(_configRepository);
 
-    // 获取CallerIdStyleProvider实例
+    // 获取Provider实例
     styleProvider = ref.read(callerIdStyleProvider);
-
+    securityProvider = ref.read(coreSecurityMessageProvider);
+    styleProvider = ref.read(callerIdStyleProvider);
     // 监听覆盖层消息
     FlutterOverlayWindow.overlayListener.listen((event) {
       setState(() {
@@ -76,7 +80,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
 
           if (configType == "callerIdStyle") {
             // 处理配置数据
-            ConfigurationManager.updateConfigFromMap(event, styleProvider!);
+            ConfigurationManager.updateConfigFromMap(event, styleProvider!, securityProvider!);
           } else if (configType == "callerIdData") {
             // 处理CallerIdData数据
             _processCallerIdData(event);

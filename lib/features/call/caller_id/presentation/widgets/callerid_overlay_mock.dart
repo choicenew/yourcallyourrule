@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/features/call/caller_id/configuration/configura
 
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_content_builder.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
 
 
 
@@ -36,11 +37,12 @@ class CallerIdSampleState extends ConsumerState<CallerIdSample> {
     
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final styleProvider = ref.read(callerIdStyleProvider);
+      final securityProvider = ref.read(coreSecurityMessageProvider);
       try {
-        configurationManager.loadFromRepository(styleProvider);
+        configurationManager.loadFromRepository(styleProvider, securityProvider);
       } catch (e) {
         // Create and save a default configuration
-        configurationManager.saveToRepository(styleProvider);
+        configurationManager.saveToRepository(styleProvider, securityProvider);
       }
     });
   }

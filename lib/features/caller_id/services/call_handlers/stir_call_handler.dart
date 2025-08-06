@@ -19,10 +19,10 @@ class StirCallHandler extends BaseCallHandler {
         return _handleInitializationComplete();
       case "onStirResult":
         return _handleStirResult(
-          call.arguments['isVerified'] as bool,
-          call.arguments['isNotVerified'] as bool,
-          call.arguments['isFailed'] as bool,
-          call.arguments['phoneNumber'] as String?,
+          call.arguments['isVerified'],
+          call.arguments['isNotVerified'],
+          call.arguments['isFailed'],
+          call.arguments['phoneNumber'],
         );
       default:
         throw UnimplementedError('未实现的方法: ${call.method}');
@@ -36,17 +36,23 @@ class StirCallHandler extends BaseCallHandler {
 
   /// 处理STIR验证结果
   void _handleStirResult(
-    bool isVerified,
-    bool isNotVerified,
-    bool isFailed,
-    String? phoneNumber,
+    dynamic isVerified,
+    dynamic isNotVerified,
+    dynamic isFailed,
+    dynamic phoneNumber,
   ) {
+    // 安全地转换类型并提供默认值
+    final bool verified = isVerified is bool ? isVerified : false;
+    final bool notVerified = isNotVerified is bool ? isNotVerified : false;
+    final bool failed = isFailed is bool ? isFailed : false;
+    final String? phoneNum = phoneNumber is String ? phoneNumber : null;
+
     // 存储 STIR 信息
     stirInfo = StirInfo(
-      isVerified: isVerified,
-      isNotVerified: isNotVerified,
-      isFailed: isFailed,
-      phoneNumber: phoneNumber,
+      isVerified: verified,
+      isNotVerified: notVerified,
+      isFailed: failed,
+      phoneNumber: phoneNum,
     );
 
     // 通知监听器

@@ -7,8 +7,8 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 class CallerIdMockData {
   static CallerIdData mockCallerIdData() {
     return CallerIdData(
-      id: '+1 234 567 8900',
-      phoneNumber: PhoneNumber.fromString('+1 234 567 8900'),
+      id: '0011 234 567 8900',
+      phoneNumber: PhoneNumber.fromString('0011 234 567 8900'),
       countryName: 'United States',
       region: 'New York',
       carrier: 'Example Carrier',
@@ -25,7 +25,7 @@ class CallerIdMockData {
       isVerified: true,
       isNotVerified: false,
       isFailed: false,
-      phoneNumber: '+1 234 567 8900',
+      phoneNumber: '0011 234 567 8900',
     );
   }
 
@@ -40,7 +40,7 @@ class CallerIdMockData {
       subscriptionId: 1,
       mccString: '310',
       mncString: '410',
-      simPhoneNumber: '+1 123 456 7890',
+      simPhoneNumber: '0011 123 456 7890',
       callType: "audio",
     );
   }

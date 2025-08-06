@@ -9,9 +9,6 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get about => 'About';
-
-  @override
   String get aboutContactSubscription => 'About Contact Subscription';
 
   @override
@@ -742,9 +739,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get callTypeUnknown => 'Unknown';
 
   @override
-  String get cancel => 'Cancel';
-
-  @override
   String get cancelButton => 'Cancel';
 
   @override
@@ -835,9 +829,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get clearLabelFilterButton => 'Clear Label Filter';
-
-  @override
-  String get close => 'Close';
 
   @override
   String get closeButton => 'Close';
@@ -995,7 +986,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get contactNotFound => 'Contact not found';
 
   @override
-  String get contacts => 'contacts?';
+  String get contacts => 'contacts';
 
   @override
   String contactsDeleted(Object count) {
@@ -1915,19 +1906,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get favoriteContacts => 'Favorite Contacts';
 
   @override
-  String get featureAddRules => '�?Add phone number specific rules';
+  String get featureAddRules => '• Add phone number specific rules';
 
   @override
   String get featureCenter => 'Feature Center';
 
   @override
-  String get featureEnableDisable => '�?Enable/disable different filters per SIM';
+  String get featureEnableDisable => '• Enable/disable different filters per SIM';
 
   @override
   String get featureListTitle => 'Features:';
 
   @override
-  String get featureManageRules => '�?Manage rule lists per SIM';
+  String get featureManageRules => '• Manage rule lists per SIM';
 
   @override
   String get features => 'Features';
@@ -2021,7 +2012,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get financial => 'Financial';
 
   @override
-  String get flexibleCombinationFeature => '�?Flexible Combinations: Enable/disable filters per SIM slot';
+  String get flexibleCombinationFeature => '• Flexible Combinations: Enable/disable filters per SIM slot';
 
   @override
   String get fontSizesSetting => 'Font Sizes';
@@ -2068,7 +2059,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalFilterDescription => 'Configure global filters for all SIM cards:';
 
   @override
-  String get globalFilterFeature => '�?Global Filters: Basic rules for all incoming calls';
+  String get globalFilterFeature => '• Global Filters: Basic rules for all incoming calls';
 
   @override
   String get globalFilterSettings => 'Global Filter Settings';
@@ -2128,13 +2119,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeTab => 'Home';
 
   @override
-  String get howItWorksPoint1 => '�?The system will automatically intercept calls from the same number within the set time window';
+  String get howItWorksPoint1 => '• The system will automatically intercept calls from the same number within the set time window';
 
   @override
-  String get howItWorksPoint2 => '�?Shorter time windows result in stricter interception; longer time windows result in looser interception';
+  String get howItWorksPoint2 => '• Shorter time windows result in stricter interception; longer time windows result in looser interception';
 
   @override
-  String get howItWorksPoint3 => '�?The system checks call logs to determine if it\'s a repeated call';
+  String get howItWorksPoint3 => '• The system checks call logs to determine if it\'s a repeated call';
 
   @override
   String get howItWorksTitle => 'How It Works:';
@@ -4605,6 +4596,131 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get yearlyChartTitle => 'Yearly Blocked Calls';
+
+  @override
+  String get noSimCardsDetected => 'No SIM cards detected';
+
+  @override
+  String get filterManagementDescription => 'Set Call Filters';
+
+  @override
+  String get callerIdCustomizationSubtitle => 'Customize Caller ID Layout';
+
+  @override
+  String get fraudAlerSettingTitle => 'Fraud Alert Setting';
+
+  @override
+  String get fraudAlerSettingSubtitle => 'To Set Fraud Alert';
+
+  @override
+  String get enableFraudAlert => 'Enable Fraud Alert';
+
+  @override
+  String get enableFraudAlertDescription => 'Alert for suspected scam calls';
+
+  @override
+  String get enableVibration => 'Enable Vibration';
+
+  @override
+  String get enableVibrationDescription => 'Vibrate when call is suspected scam calls';
+
+  @override
+  String get notificationSettingsTitle => 'Notification Settings';
+
+  @override
+  String get useLocalNotification => 'Use Local Notifications';
+
+  @override
+  String get useLocalNotificationDescription => 'Enable local notifications for incoming calls';
+
+  @override
+  String get cancelLocalNotification => 'Close Local Notifications';
+
+  @override
+  String get useStirNotification => 'Use Notification from STIR';
+
+  @override
+  String get useStirNotificationDescription => 'Enable STIR notifications for incoming calls';
+
+  @override
+  String get cancelLocalNotificationDescription => 'Close Local Notifications Automatically';
+
+  @override
+  String get callerIdSettingsTitle => 'Caller ID Settings';
+
+  @override
+  String get callerIdSettingsSubtitle => 'To Set up Incoming Call Notification & Display Mode';
+
+  @override
+  String get purchaseTitle => 'Purchase';
+
+  @override
+  String get purchaseSubtitle => 'To Purchase the Service';
+
+  @override
+  String get callerIdNotificationTitle => 'Incoming Call Info';
+
+  @override
+  String callerIdBody(String phoneNumber) {
+    return 'Number: $phoneNumber';
+  }
+
+  @override
+  String get blockedCallTitle => 'Blocked Call';
+
+  @override
+  String blockedCallBody(String phoneNumber) {
+    return 'Blocked call from $phoneNumber';
+  }
+
+  @override
+  String get stirVerified => 'Verified';
+
+  @override
+  String get stirNotVerified => 'Not Verified';
+
+  @override
+  String get stirFailed => 'Verification Failed';
+
+  @override
+  String get stirUnknown => 'Unknown Verification Status';
+
+  @override
+  String get stirVerificationTitle => 'STIR/SHAKEN Verification';
+
+  @override
+  String stirVerificationBody(String stirResultMessage, String phoneNumber) {
+    return '$stirResultMessage for number $phoneNumber';
+  }
+
+  @override
+  String get scrollingSecurityMessageSettings => 'Scrolling Security Message Settings';
+
+  @override
+  String get messageColor => 'Message Color';
+
+  @override
+  String get messageFontSize => 'Message Font Size';
+
+  @override
+  String get messagePosition => 'Message Position';
+
+  @override
+  String get containerWidth => 'Container Width';
+
+  @override
+  String get scrollSpeed => 'Scroll Speed';
+
+  @override
+  String get enableSecurityMessage => 'Enable Security Message';
+
+  @override
+  String get fraudAlertTitle => 'Fraud Alert';
+
+  @override
+  String fraudAlertBody(String phoneNumber) {
+    return 'Potential fraud call from $phoneNumber';
+  }
 
   @override
   String get yesterday => 'Yesterday';

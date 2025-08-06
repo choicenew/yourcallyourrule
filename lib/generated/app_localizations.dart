@@ -92,14 +92,9 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('zh')
+    Locale('zh'),
+    Locale('zh', 'CN')
   ];
-
-  /// No description provided for @about.
-  ///
-  /// In en, this message translates to:
-  /// **'About'**
-  String get about;
 
   /// About contact subscription title
   ///
@@ -1493,12 +1488,6 @@ abstract class AppLocalizations {
   /// **'Unknown'**
   String get callTypeUnknown;
 
-  /// No description provided for @cancel.
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
-
   /// No description provided for @cancelButton.
   ///
   /// In en, this message translates to:
@@ -1666,12 +1655,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Clear Label Filter'**
   String get clearLabelFilterButton;
-
-  /// No description provided for @close.
-  ///
-  /// In en, this message translates to:
-  /// **'Close'**
-  String get close;
 
   /// No description provided for @closeButton.
   ///
@@ -1970,7 +1953,7 @@ abstract class AppLocalizations {
   /// No description provided for @contacts.
   ///
   /// In en, this message translates to:
-  /// **'contacts?'**
+  /// **'contacts'**
   String get contacts;
 
   /// No description provided for @contactsDeleted.
@@ -3638,7 +3621,7 @@ abstract class AppLocalizations {
   /// No description provided for @featureAddRules.
   ///
   /// In en, this message translates to:
-  /// **'�?Add phone number specific rules'**
+  /// **'• Add phone number specific rules'**
   String get featureAddRules;
 
   /// No description provided for @featureCenter.
@@ -3650,7 +3633,7 @@ abstract class AppLocalizations {
   /// No description provided for @featureEnableDisable.
   ///
   /// In en, this message translates to:
-  /// **'�?Enable/disable different filters per SIM'**
+  /// **'• Enable/disable different filters per SIM'**
   String get featureEnableDisable;
 
   /// Title for features list section
@@ -3662,7 +3645,7 @@ abstract class AppLocalizations {
   /// No description provided for @featureManageRules.
   ///
   /// In en, this message translates to:
-  /// **'�?Manage rule lists per SIM'**
+  /// **'• Manage rule lists per SIM'**
   String get featureManageRules;
 
   /// No description provided for @features.
@@ -3842,7 +3825,7 @@ abstract class AppLocalizations {
   /// No description provided for @flexibleCombinationFeature.
   ///
   /// In en, this message translates to:
-  /// **'�?Flexible Combinations: Enable/disable filters per SIM slot'**
+  /// **'• Flexible Combinations: Enable/disable filters per SIM slot'**
   String get flexibleCombinationFeature;
 
   /// No description provided for @fontSizesSetting.
@@ -3920,7 +3903,7 @@ abstract class AppLocalizations {
   /// No description provided for @globalFilterFeature.
   ///
   /// In en, this message translates to:
-  /// **'�?Global Filters: Basic rules for all incoming calls'**
+  /// **'• Global Filters: Basic rules for all incoming calls'**
   String get globalFilterFeature;
 
   /// Global filter settings section title
@@ -4040,19 +4023,19 @@ abstract class AppLocalizations {
   /// No description provided for @howItWorksPoint1.
   ///
   /// In en, this message translates to:
-  /// **'�?The system will automatically intercept calls from the same number within the set time window'**
+  /// **'• The system will automatically intercept calls from the same number within the set time window'**
   String get howItWorksPoint1;
 
   /// No description provided for @howItWorksPoint2.
   ///
   /// In en, this message translates to:
-  /// **'�?Shorter time windows result in stricter interception; longer time windows result in looser interception'**
+  /// **'• Shorter time windows result in stricter interception; longer time windows result in looser interception'**
   String get howItWorksPoint2;
 
   /// No description provided for @howItWorksPoint3.
   ///
   /// In en, this message translates to:
-  /// **'�?The system checks call logs to determine if it\'s a repeated call'**
+  /// **'• The system checks call logs to determine if it\'s a repeated call'**
   String get howItWorksPoint3;
 
   /// No description provided for @howItWorksTitle.
@@ -8603,6 +8586,240 @@ abstract class AppLocalizations {
   /// **'Yearly Blocked Calls'**
   String get yearlyChartTitle;
 
+  /// No description provided for @noSimCardsDetected.
+  ///
+  /// In en, this message translates to:
+  /// **'No SIM cards detected'**
+  String get noSimCardsDetected;
+
+  /// No description provided for @filterManagementDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Call Filters'**
+  String get filterManagementDescription;
+
+  /// No description provided for @callerIdCustomizationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Customize Caller ID Layout'**
+  String get callerIdCustomizationSubtitle;
+
+  /// No description provided for @fraudAlerSettingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Fraud Alert Setting'**
+  String get fraudAlerSettingTitle;
+
+  /// No description provided for @fraudAlerSettingSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'To Set Fraud Alert'**
+  String get fraudAlerSettingSubtitle;
+
+  /// No description provided for @enableFraudAlert.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Fraud Alert'**
+  String get enableFraudAlert;
+
+  /// No description provided for @enableFraudAlertDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Alert for suspected scam calls'**
+  String get enableFraudAlertDescription;
+
+  /// No description provided for @enableVibration.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Vibration'**
+  String get enableVibration;
+
+  /// No description provided for @enableVibrationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Vibrate when call is suspected scam calls'**
+  String get enableVibrationDescription;
+
+  /// No description provided for @notificationSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Settings'**
+  String get notificationSettingsTitle;
+
+  /// No description provided for @useLocalNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Local Notifications'**
+  String get useLocalNotification;
+
+  /// No description provided for @useLocalNotificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable local notifications for incoming calls'**
+  String get useLocalNotificationDescription;
+
+  /// No description provided for @cancelLocalNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Close Local Notifications'**
+  String get cancelLocalNotification;
+
+  /// No description provided for @useStirNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Notification from STIR'**
+  String get useStirNotification;
+
+  /// No description provided for @useStirNotificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable STIR notifications for incoming calls'**
+  String get useStirNotificationDescription;
+
+  /// No description provided for @cancelLocalNotificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Close Local Notifications Automatically'**
+  String get cancelLocalNotificationDescription;
+
+  /// No description provided for @callerIdSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Caller ID Settings'**
+  String get callerIdSettingsTitle;
+
+  /// No description provided for @callerIdSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'To Set up Incoming Call Notification & Display Mode'**
+  String get callerIdSettingsSubtitle;
+
+  /// No description provided for @purchaseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase'**
+  String get purchaseTitle;
+
+  /// No description provided for @purchaseSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'To Purchase the Service'**
+  String get purchaseSubtitle;
+
+  /// Title for the Incoming Call Info
+  ///
+  /// In en, this message translates to:
+  /// **'Incoming Call Info'**
+  String get callerIdNotificationTitle;
+
+  /// Body for the caller ID notification, showing the phone number
+  ///
+  /// In en, this message translates to:
+  /// **'Number: {phoneNumber}'**
+  String callerIdBody(String phoneNumber);
+
+  /// Title for blocked call notification
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Call'**
+  String get blockedCallTitle;
+
+  /// Body for blocked call notification, showing the phone number
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked call from {phoneNumber}'**
+  String blockedCallBody(String phoneNumber);
+
+  /// STIR/SHAKEN verification status: Verified
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get stirVerified;
+
+  /// STIR/SHAKEN verification status: Not Verified
+  ///
+  /// In en, this message translates to:
+  /// **'Not Verified'**
+  String get stirNotVerified;
+
+  /// STIR/SHAKEN verification status: Verification Failed
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Failed'**
+  String get stirFailed;
+
+  /// STIR/SHAKEN verification status: Unknown
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Verification Status'**
+  String get stirUnknown;
+
+  /// Title for STIR/SHAKEN verification notification
+  ///
+  /// In en, this message translates to:
+  /// **'STIR/SHAKEN Verification'**
+  String get stirVerificationTitle;
+
+  /// Body for STIR/SHAKEN verification notification, showing result and phone number
+  ///
+  /// In en, this message translates to:
+  /// **'{stirResultMessage} for number {phoneNumber}'**
+  String stirVerificationBody(String stirResultMessage, String phoneNumber);
+
+  /// No description provided for @scrollingSecurityMessageSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Scrolling Security Message Settings'**
+  String get scrollingSecurityMessageSettings;
+
+  /// No description provided for @messageColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Message Color'**
+  String get messageColor;
+
+  /// No description provided for @messageFontSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Message Font Size'**
+  String get messageFontSize;
+
+  /// No description provided for @messagePosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Message Position'**
+  String get messagePosition;
+
+  /// No description provided for @containerWidth.
+  ///
+  /// In en, this message translates to:
+  /// **'Container Width'**
+  String get containerWidth;
+
+  /// No description provided for @scrollSpeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Scroll Speed'**
+  String get scrollSpeed;
+
+  /// No description provided for @enableSecurityMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Security Message'**
+  String get enableSecurityMessage;
+
+  /// Title for the fraud alert notification
+  ///
+  /// In en, this message translates to:
+  /// **'Fraud Alert'**
+  String get fraudAlertTitle;
+
+  /// Body for the fraud alert notification
+  ///
+  /// In en, this message translates to:
+  /// **'Potential fraud call from {phoneNumber}'**
+  String fraudAlertBody(String phoneNumber);
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:
@@ -8627,6 +8844,15 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
 
+  // Lookup logic when language+country codes are specified.
+  switch (locale.languageCode) {
+    case 'zh': {
+  switch (locale.countryCode) {
+    case 'CN': return AppLocalizationsZhCn();
+   }
+  break;
+   }
+  }
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {

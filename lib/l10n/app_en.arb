@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "about": "About",
+
   "aboutContactSubscription": "About Contact Subscription",
   "@aboutContactSubscription": {
     "description": "About contact subscription title"
@@ -198,6 +198,44 @@
   "basicRuleFilter": "Basic Rule Filter",
   "basicRuleFiltering": "Basic Rule Filtering",
   "basicRuleFilteringExplanation": "• Basic Rule Filtering: Filtering rules based on blacklist, whitelist, and regex",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "basicRuleFilterSettings": "Basic Rule Filter Settings",
   "@basicRuleFilterSettings": {
     "description": "Title for basic rule filter settings page"
@@ -305,7 +343,6 @@
   "callTypeOutgoing": "Outgoing",
   "callTypePosition": "Call Type Position",
   "callTypeUnknown": "Unknown",
-  "cancel": "Cancel",
   "cancelButton": "Cancel",
   "carRental": "Car Rental",
   "carrier": "Carrier",
@@ -348,7 +385,7 @@
   "clearFilter": "Clear Filter",
   "clearLabelFilter": "Clear Label Filter",
   "clearLabelFilterButton": "Clear Label Filter",
-  "close": "Close",
+
   "closeButton": "Close",
   "cloudSync": "Cloud Sync",
   "cloudSyncAndBackupTitle": "Cloud Sync & Backup",
@@ -416,7 +453,7 @@
   "contactNameLabel": "Name",
   "contactNameOptional": "Contact name (optional)",
   "contactNotFound": "Contact not found",
-  "contacts": "contacts?",
+  "contacts": "contacts",
   "contactsDeleted": "Deleted {count} contacts",
   "contactSettingsSubtitle": "Contact management and label settings",
   "contactSettingsTitle": "Contact Settings",
@@ -786,8 +823,8 @@
   "@filterToggleStatus": {
     "description": "Filter enable/disable status change notification",
     "placeholders": {
-      "status": {},
-      "filterName": {}
+      "status": {"type": "Object"},
+      "filterName": {"type": "Object"}
     }
   },
   "filterType": "Filter Type",
@@ -889,7 +926,7 @@
     "description": "Update interval confirmation message",
     "placeholders": {
       "service": {"type": "Object"},
-      "days": {}
+      "days": {"type": "Object"}
     }
   },
   "invalidContentRegex": "Invalid content regex",
@@ -949,7 +986,7 @@
   "@lastUpdated": {
     "description": "Last updated label",
     "placeholders": {
-      "date": {}
+      "date": {"type": "Object"}
     }
   },
   "lifetimeMembership": "Lifetime Membership",
@@ -1491,7 +1528,7 @@
     "description": "SIM Card information",
     "placeholders": {
       "slotNumber": {"type": "Object"},
-      "countryIso": {}
+      "countryIso": {"type": "Object"}
     }
   },
   "simInfoLoadFailure": "Failed to load SIM card information: {error}",
@@ -1532,7 +1569,7 @@
   "@simSlotFilterSettingsTitle": {
     "description": "Title for SIM slot filter settings",
     "placeholders": {
-      "slotNumber": {}
+      "slotNumber": {"type": "Object"}
     }
   },
   "simSlotLoadFailed": "Failed to load SIM slots: {error}",
@@ -1827,5 +1864,64 @@
   "year": "Year",
   "yearly": "Yearly",
   "yearlyChartTitle": "Yearly Blocked Calls",
-  "yesterday": "Yesterday"
+    "noSimCardsDetected": "No SIM cards detected",
+  "filterManagementDescription": "Set Call Filters",
+  "callerIdCustomizationSubtitle": "Customize Caller ID Layout",
+              "fraudAlerSettingTitle": "Fraud Alert Setting",
+              "fraudAlerSettingSubtitle": "To Set Fraud Alert",
+  "enableFraudAlert": "Enable Fraud Alert",
+  "enableFraudAlertDescription": "Alert for suspected scam calls",
+      "enableVibration": "Enable Vibration",
+      "enableVibrationDescription": "Vibrate when call is suspected scam calls",
+  "notificationSettingsTitle": "Notification Settings",
+  "useLocalNotification": "Use Local Notifications",
+  "useLocalNotificationDescription": "Enable local notifications for incoming calls",
+  "cancelLocalNotification": "Close Local Notifications",
+  "useStirNotification": "Use Notification from STIR",
+  "useStirNotificationDescription": "Enable STIR notifications for incoming calls",
+  "cancelLocalNotificationDescription": "Close Local Notifications Automatically",
+  "callerIdSettingsTitle": "Caller ID Settings",
+    "callerIdSettingsSubtitle": "To Set up Incoming Call Notification & Display Mode", 
+    "purchaseTitle": "Purchase",
+
+    "purchaseSubtitle": "To Purchase the Service",
+       "callerIdNotificationTitle": "Incoming Call Info",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Number: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+ 
+ 
+ 
+  "scrollingSecurityMessageSettings": "Scrolling Security Message Settings",
+  "messageColor": "Message Color",
+  "messageFontSize": "Message Font Size",
+  "messagePosition": "Message Position",
+  "containerWidth": "Container Width",
+  "scrollSpeed": "Scroll Speed",
+  "enableSecurityMessage": "Enable Security Message",
+  "fraudAlertTitle": "Fraud Alert",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "Potential fraud call from {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+      "yesterday": "Yesterday"
 }

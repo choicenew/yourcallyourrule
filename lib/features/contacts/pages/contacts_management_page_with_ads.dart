@@ -10,6 +10,7 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/contact_edit_dialog.dart';
+import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/provider/providers/contact_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
@@ -269,7 +270,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
@@ -346,7 +347,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
     }
     
     return CircleAvatar(
-      backgroundColor: const Color(0xFFF5A623).withOpacity(0.2),
+      backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.2),
       child: Text(
         contact.name.isNotEmpty ? contact.name[0].toUpperCase() : '#',
         style: const TextStyle(color: Color(0xFFF5A623)),
@@ -368,7 +369,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
             margin: const EdgeInsets.only(top: 4),
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             decoration: BoxDecoration(
-              color: const Color(0xFFF5A623).withOpacity(0.1),
+              color: const Color(0xFFF5A623).withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
@@ -613,7 +614,12 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
 
   @override
   Widget build(BuildContext context) {
-    return GenericListWithAdsPage<Contact>(
+    return Scaffold(
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 2, // 联系人页面标签索引
+        onTap: (index) => AppRouter.handleNavigation(context, index),
+      ),
+      body: GenericListWithAdsPage<Contact>(
       title: _isMultiSelectMode 
         ? AppLocalizations.of(context)!.selectedItems(_selectedContactIds.length) 
         : AppLocalizations.of(context)!.contactsManagement,
@@ -649,6 +655,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
           tooltip: AppLocalizations.of(context)!.importExportContactsTooltip,
         ),
       ],
+    )
     );
   }
 
@@ -693,7 +700,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                               children: [
                                 CircleAvatar(
                                   radius: 30,
-                                  backgroundColor: const Color(0xFFF5A623).withOpacity(0.1),
+                                  backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.1),
                                   child: Text(
                                     contact.name.isNotEmpty ? contact.name[0].toUpperCase() : '?',
                                     style: const TextStyle(
@@ -768,7 +775,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
               children: [
                 Chip(
                   label: Text(_selectedLabelText!),
-                  backgroundColor: const Color(0xFFF5A623).withOpacity(0.1),
+                  backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.1),
                   labelStyle: const TextStyle(color: Color(0xFFF5A623)),
                   deleteIcon: const Icon(Icons.close, size: 18),
                   onDeleted: () {
@@ -808,5 +815,6 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
           ),
       ],
     );
+    
   }
 }

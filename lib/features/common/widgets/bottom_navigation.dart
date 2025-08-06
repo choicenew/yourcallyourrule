@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart' as app_router;
 
 class BottomNavigation extends StatelessWidget {
   final int currentIndex;
@@ -54,16 +55,16 @@ class AppRouter {
         context.go('/');
         break;
       case 1:
-        context.go('/call-history');
+        context.go('/${app_router.AppRouter.callHistory}');
         break;
       case 2:
-        context.go('/contacts');
+        context.go('/${app_router.AppRouter.contactsManagement}');
         break;
       case 3:
-        context.go('/dashboard');
+        context.go('/${app_router.AppRouter.callStatistics}');
         break;
       case 4:
-        context.go('/settings');
+        context.go('/${app_router.AppRouter.settings}');
         break;
     }
   }
