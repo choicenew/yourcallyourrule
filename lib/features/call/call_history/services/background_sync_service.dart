@@ -118,7 +118,6 @@ class BackgroundSyncService {
       ),
     );
     
-    // 初始化同步管理器
-    await _syncManager.initialize();
+
   }
 }

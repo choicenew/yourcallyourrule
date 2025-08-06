@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 /// 现代化设计的购买页面
 class ModernPurchasePage extends StatelessWidget {
   /// 页面标题
@@ -107,7 +108,8 @@ class ModernPurchaseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 8,
+      elevation: 0, // 移除阴影
+      color: Colors.transparent, // 使卡片背景透明
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Container(
         width: double.infinity,
@@ -134,7 +136,7 @@ class ModernPurchaseCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: isSmall ? 16.0 : 18.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: Colors.white,  
                       ),
                     ),
                   ),
@@ -145,7 +147,7 @@ class ModernPurchaseCard extends StatelessWidget {
                 description,
                 style: TextStyle(
                   fontSize: isSmall ? 12.0 : 14.0,
-                  color: Colors.white.withValues(alpha:0.9),
+                  color: Colors.white.withAlpha(230),
                 ),
               ),
               if (labels != null && labels!.isNotEmpty) ...[
@@ -153,34 +155,64 @@ class ModernPurchaseCard extends StatelessWidget {
                 _buildLabels(),
               ],
               const SizedBox(height: 12.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    price,
+              LayoutBuilder(builder: (context, constraints) {
+                // 计算价格和按钮的最小宽度
+                final priceWidget = Text(price,
                     style: TextStyle(
                       fontSize: isSmall ? 16.0 : 20.0,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                    ));
+                final buttonWidget = ElevatedButton(
+                  onPressed: onTap,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: gradientColors[0],
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isSmall ? 12.0 : 16.0,
+                      vertical: isSmall ? 6.0 : 8.0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: onTap,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: gradientColors[0],
-                      padding: EdgeInsets.symmetric(
-                        horizontal: isSmall ? 12.0 : 16.0,
-                        vertical: isSmall ? 6.0 : 8.0,
+                  child: Text(buttonText),
+                );
+
+                final pricePainter = TextPainter(
+                  text: TextSpan(text: price, style: priceWidget.style),
+                  textDirection: TextDirection.ltr,
+                )..layout();
+
+                final buttonSize = (buttonWidget.style?.padding
+                        ?.resolve({WidgetState.selected}) as EdgeInsets? ??
+                    EdgeInsets.zero)
+                    .horizontal;
+
+                final minWidth =
+                    pricePainter.width + buttonSize + 100; // 100 是一个估算的按钮和其他间距的宽度
+
+                if (constraints.maxWidth < minWidth) {
+                  // 空间不足，垂直排列
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      priceWidget,
+                      const SizedBox(height: 8.0),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: buttonWidget,
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text(buttonText),
-                  ),
-                ],
-              ),
+                    ],
+                  );
+                } else {
+                  // 空间充足，水平排列
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [Flexible(child: priceWidget), buttonWidget],
+                  );
+                }
+              }),
             ],
           ),
         ),
@@ -202,19 +234,24 @@ class ModernPurchaseCard extends StatelessWidget {
 
   /// 构建单个标签
   Widget _buildLabelChip(String label) {
-    return Chip(
-      label: Text(
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(20.0),
+        border: Border.all(
+          color: Colors.white.withOpacity(0.5),
+          width: 1.0,
+        ),
+      ),
+      child: Text(
         label,
         style: const TextStyle(
           fontSize: 10.0,
           color: Colors.white,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w900,
         ),
       ),
-      backgroundColor: Colors.white.withValues(alpha:0.2),
-      side: BorderSide(color: Colors.white.withValues(alpha:0.5), width: 1),
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
 }

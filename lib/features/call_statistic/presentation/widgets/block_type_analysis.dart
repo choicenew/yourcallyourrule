@@ -34,7 +34,7 @@ class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
+                color: Colors.grey.withValues(alpha: 0.1),
                 spreadRadius: 1,
                 blurRadius: 5,
                 offset: const Offset(0, 3),
@@ -53,10 +53,10 @@ class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
                 data: (callLogs) => rulesAsync.when(
                   data: (rules) => _buildAnalysisContent(context, callLogs, rules, isSmallScreen),
                   loading: () => const Center(child: CircularProgressIndicator()),
-                  error: (error, stack) => Center(child: Text('加载规则失败: $error')),
+                  error: (error, stack) => Center(child: Text(AppLocalizations.of(context)!.loadRulesFailed(error.toString()))),
                 ),
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, stack) => Center(child: Text('加载通话记录失败: $error')),
+                error: (error, stack) => Center(child: Text(AppLocalizations.of(context)!.loadCallLogFailed(error.toString()))),
               ),
             ],
           ),
@@ -136,8 +136,8 @@ class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
     
     // 如果没有数据，显示提示信息
     if (typeAnalysis.isEmpty) {
-      return const Center(
-        child: Text('暂无拦截类型数据', style: TextStyle(color: Colors.grey)),
+      return Center(
+        child: Text(AppLocalizations.of(context)!.noBlockedTypeData, style: const TextStyle(color: Colors.grey)),
       );
     }
 

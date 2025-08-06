@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用导入导出服务组件
 /// 提供通用的导入导出功能，可以在不同的规则管理页面中复用
@@ -25,7 +26,7 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
   Future<void> importFromFile(BuildContext context) async {
     try {
       final result = await FilePicker.platform.pickFiles(
-        dialogTitle: '导入${entityTypeName}',
+        dialogTitle: AppLocalizations.of(context)!.importEntity(entityTypeName),
         type: FileType.custom,
         allowedExtensions: ['json'],
       );
@@ -37,13 +38,13 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
         await onEntitiesImported(entities);
         
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('${entityTypeName}导入成功，共导入${entities.length}条记录'),
+          content: Text(AppLocalizations.of(context)!.entityImportSuccess(entityTypeName, entities.length)),
           backgroundColor: Colors.green,
         ));
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('导入${entityTypeName}失败: $e'),
+        content: Text(AppLocalizations.of(context)!.entityImportFailed(entityTypeName, e.toString())),
         backgroundColor: Colors.red,
       ));
     }
@@ -53,7 +54,7 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
   Future<void> exportToFile(BuildContext context) async {
     try {
       final result = await FilePicker.platform.saveFile(
-        dialogTitle: '导出${entityTypeName}',
+        dialogTitle: AppLocalizations.of(context)!.exportEntity(entityTypeName),
         fileName: '${entityTypeName.toLowerCase().replaceAll(' ', '_')}_export.json',
       );
       
@@ -66,16 +67,16 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
         
         if (success) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text('${entityTypeName}导出成功'),
+            content: Text(AppLocalizations.of(context)!.entityExportSuccess(entityTypeName)),
             backgroundColor: Colors.green,
           ));
         } else {
-          throw Exception('导出失败');
+          throw Exception(AppLocalizations.of(context)!.exportFailed);
         }
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('导出${entityTypeName}失败: $e'),
+        content: Text(AppLocalizations.of(context)!.entityExportFailed(entityTypeName, e.toString())),
         backgroundColor: Colors.red,
       ));
     }
@@ -88,7 +89,7 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
       children: [
         ElevatedButton.icon(
           icon: const Icon(Icons.file_upload),
-          label: const Text('导入'),
+          label: Text(AppLocalizations.of(context)!.import),
           onPressed: () => importFromFile(context),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue,
@@ -97,7 +98,7 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
         const SizedBox(width: 16),
         ElevatedButton.icon(
           icon: const Icon(Icons.file_download),
-          label: const Text('导出'),
+          label: Text(AppLocalizations.of(context)!.export),
           onPressed: () => exportToFile(context),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.green,

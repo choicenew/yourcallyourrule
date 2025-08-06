@@ -57,7 +57,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const FilterManagementWidget(),
                                         GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const FeatureCenter(),
-                    nativeAdWidgetMedium(adWidth: 320, adHeight: 320)
+                    nativeAdWidgetMedium(adWidth: 400, adHeight: 320)
                   ],
                 ),
               ),

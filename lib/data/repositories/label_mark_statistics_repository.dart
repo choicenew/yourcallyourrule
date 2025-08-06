@@ -21,7 +21,7 @@ abstract class LabelMarkStatisticsRepository {
   Future<void> resetMarkCount();
   
   // 获取所有标记记录
-  Future<List<LabelMarkRecordModel>> getAllMarks();
+  Future<List<LabelMarkRecordModel>> getAll();
   
   // 释放资源
   void dispose();
@@ -67,8 +67,8 @@ class LabelMarkStatisticsRepositoryImpl implements LabelMarkStatisticsRepository
   
   // 获取所有标记记录
   @override
-  Future<List<LabelMarkRecordModel>> getAllMarks() {
-    return _dataSource.getAllMarks();
+  Future<List<LabelMarkRecordModel>> getAll() {
+    return _dataSource.getAll();
   }
   
   // 释放资源

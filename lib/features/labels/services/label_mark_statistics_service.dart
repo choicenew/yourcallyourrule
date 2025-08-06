@@ -47,7 +47,7 @@ class LabelMarkStatisticsService {
   
   // 获取所有标记记录
   Future<List<dynamic>> getAllMarks() {
-    return _repository.getAllMarks();
+    return _repository.getAll();
   }
   
   // 释放资源

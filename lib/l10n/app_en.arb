@@ -1512,7 +1512,7 @@
   "showContactEditDialogStaticMethod": "Static method to display contact edit dialog",
   "showExplanation": "Show Explanation",
   "silence": "Silence",
-  "silenceAndNoAnswer": "Silence and no answer",
+  "silenceAndNoAnswer": "Silence and No Answer",
   "silenceNoAnswer": "Silence No Answer",
   "silentCallVoiceClone": "Silent Call Voice Clone",
   "silentRules": "Silent Rules",
@@ -1923,5 +1923,91 @@
       }
     }
   },
+
+  "loadRulesFailed": "Failed to load rules: {error}",
+  "loadCallLogFailed": "Failed to load call log: {error}",
+  "noBlockedTypeData": "No blocked type data available",
+ "importEntity": "Import {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} imported successfully, total {count} records imported",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "Failed to import {entityTypeName}: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Export {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} exported successfully",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "Failed to export {entityTypeName}: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+
+
+ "cloudSyncService": "Cloud Sync Service",
+  "membershipCenter": "Membership Center",
+  "redeemVipWithMarks": "Redeem VIP with Marks",
+  "currentMarkCount": "Current Mark Count",
+  "markMoreNumbersForMore": "Mark more numbers for more marks",
+  "noAds": "No Ads",
+  "cloudBackup": "Cloud Backup",
+  "callerIdEnhancement": "Caller ID Enhancement",
+  "voiceRecognition": "Voice Recognition",
+  "feature": "Feature",
+  "normalUser": "Normal User",
+  "vipUser": "VIP User",
+  "temporaryVip": "Temporary VIP",
+  "removeAds": "Remove Ads",
+  "unknownAction": "Unknown Action",
+
       "yesterday": "Yesterday"
 }

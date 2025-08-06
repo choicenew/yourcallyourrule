@@ -198,6 +198,44 @@
   "basicRuleFilter": "Basic Rule Filter",
   "basicRuleFiltering": "Basic Rule Filtering",
   "basicRuleFilteringExplanation": "• Basic Rule Filtering: Filtering rules based on blacklist, whitelist, and regex",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "basicRuleFilterSettings": "Basic Rule Filter Settings",
   "@basicRuleFilterSettings": {
     "description": "Title for basic rule filter settings page"
@@ -1862,54 +1900,7 @@
     }
   },
  
-   "blockedCallTitle": "Blocked Call",
-  "@blockedCallTitle": {
-    "description": "Title for blocked call notification"
-  },
-  "blockedCallBody": "Blocked call from {phoneNumber}",
-  "@blockedCallBody": {
-    "description": "Body for blocked call notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "stirVerified": "Verified",
-  "@stirVerified": {
-    "description": "STIR/SHAKEN verification status: Verified"
-  },
-  "stirNotVerified": "Not Verified",
-  "@stirNotVerified": {
-    "description": "STIR/SHAKEN verification status: Not Verified"
-  },
-  "stirFailed": "Verification Failed",
-  "@stirFailed": {
-    "description": "STIR/SHAKEN verification status: Verification Failed"
-  },
-  "stirUnknown": "Unknown Verification Status",
-  "@stirUnknown": {
-    "description": "STIR/SHAKEN verification status: Unknown"
-  },
-  "stirVerificationTitle": "STIR/SHAKEN Verification",
-  "@stirVerificationTitle": {
-    "description": "Title for STIR/SHAKEN verification notification"
-  },
-  "stirVerificationBody": "{stirResultMessage} for number {phoneNumber}",
-  "@stirVerificationBody": {
-    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
-    "placeholders": {
-      "stirResultMessage": {
-        "type": "String",
-        "example": "Verified"
-      },
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
+ 
  
   "scrollingSecurityMessageSettings": "Scrolling Security Message Settings",
   "messageColor": "Message Color",
@@ -1932,5 +1923,91 @@
       }
     }
   },
+
+  "loadRulesFailed": "Failed to load rules: {error}",
+  "loadCallLogFailed": "Failed to load call log: {error}",
+  "noBlockedTypeData": "No blocked type data available",
+ "importEntity": "Import {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} imported successfully, total {count} records imported",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "Failed to import {entityTypeName}: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Export {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} exported successfully",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "Failed to export {entityTypeName}: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+
+
+ "cloudSyncService": "Cloud Sync Service",
+  "membershipCenter": "Membership Center",
+  "redeemVipWithMarks": "Redeem VIP with Marks",
+  "currentMarkCount": "Current Mark Count",
+  "markMoreNumbersForMore": "Mark more numbers for more marks",
+  "noAds": "No Ads",
+  "cloudBackup": "Cloud Backup",
+  "callerIdEnhancement": "Caller ID Enhancement",
+  "voiceRecognition": "Voice Recognition",
+  "feature": "Feature",
+  "normalUser": "Normal User",
+  "vipUser": "VIP User",
+  "temporaryVip": "Temporary VIP",
+  "removeAds": "Remove Ads",
+
+
       "yesterday": "Yesterday"
 }

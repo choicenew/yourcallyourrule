@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/purchase/modern_purchase_card.dart';
 import 'package:yourcallyourrule/purchase/purchase_provider.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/purchase/providers/purchase_card_provider.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
+
 
 
 /// 重构后的购买页面
@@ -34,6 +37,7 @@ class PurchasePageState extends ConsumerState<PurchasePage> {
 
   @override
   Widget build(BuildContext context) {
+     final context = AppRouter.navigatorKey.currentContext!;
     // 监听购买状态变化
     final purchaseStateModel = ref.watch(purchaseStateProvider);
     // 获取购买卡片工厂
@@ -80,11 +84,11 @@ class PurchasePageState extends ConsumerState<PurchasePage> {
     
     // 使用ModernPurchasePage组件
     return ModernPurchasePage(
-      title: '会员中心',
+      title: AppLocalizations.of(context)!.membershipCenter,
       featureCard: cardFactory.createFeatureCard(context),
       purchaseCards: purchaseCards,
       bottomButtons: bottomButtons,
-      backgroundGradient: const [Colors.white, Color(0xFFFFF3E0)],
+      backgroundGradient: const [Color.fromARGB(255, 233, 11, 11), Color(0xFFFFF3E0)],
     );
   }
     

@@ -330,6 +330,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           currentLocale: currentLocale,
           localeNotifier: ref.read(localeProvider.notifier),
           showCurrentLanguage: false,
+          showAds: false, // 在引导页不显示广告
         ),
       ),
       description: AppLocalizations.of(context)?.onboardingLanguageDescription ?? '',
@@ -432,6 +433,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             color: const Color(0xFFFFB74D),
           ),
           const SizedBox(height: 16),
+ /*      
           _buildPermissionItem(
             icon: Icons.sms,
             title: AppLocalizations.of(context)!.smsPermission,
@@ -439,6 +441,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             color: const Color(0xFF039BE5),
           ),
           const SizedBox(height: 16),
+*/
+
           _buildPermissionItem(
             icon: Icons.contacts,
             title: AppLocalizations.of(context)!.contactsPermission,
@@ -549,7 +553,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       content: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const Color(0xFF43A047).withValues(alpha: 0.2),
+          color: const Color.fromARGB(255, 253, 206, 0).withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(

@@ -11,7 +11,7 @@ import '../../database/database_manager.dart';
 import '../datasource_interface.dart';
 
 // 本地标记统计数据源实现
-class LocalLabelMarkStatisticsDataSource {
+class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRecordModel> {
   // 数据库管理器
   final LocalDatabaseManager _databaseManager;
   
@@ -26,44 +26,7 @@ class LocalLabelMarkStatisticsDataSource {
   final StreamController<int> _markCountController = StreamController<int>.broadcast();
   
   // 构造函数
-  LocalLabelMarkStatisticsDataSource(this._databaseManager) {
-    _initDatabase();
-  }
-  
-  // 初始化数据库
-  Future<void> _initDatabase() async {
-    final db = await _databaseManager.database;
-    
-    // 创建标记统计表
-    await db.execute('''
-      CREATE TABLE IF NOT EXISTS $_markTableName (
-        id TEXT PRIMARY KEY,
-        phone_number TEXT NOT NULL,
-        label_id TEXT NOT NULL,
-        marked_at TEXT NOT NULL,
-        is_counted INTEGER NOT NULL DEFAULT 1
-      )
-    ''');
-    
-    // 创建用户标记计数表
-    await db.execute('''
-      CREATE TABLE IF NOT EXISTS $_countTableName (
-        id TEXT PRIMARY KEY,
-        total_count INTEGER NOT NULL DEFAULT 0,
-        last_updated TEXT NOT NULL
-      )
-    ''');
-    
-    // 初始化用户标记计数
-    final countRecords = await db.query(_countTableName);
-    if (countRecords.isEmpty) {
-      await db.insert(_countTableName, {
-        'id': 'user_mark_count',
-        'total_count': 0,
-        'last_updated': DateTime.now().toIso8601String()
-      });
-    }
-  }
+  LocalLabelMarkStatisticsDataSource(this._databaseManager);
   
   // 获取标记流
   Stream<int> get markCountStream => _markCountController.stream;
@@ -163,13 +126,137 @@ class LocalLabelMarkStatisticsDataSource {
   }
   
   // 获取所有标记记录
-  Future<List<LabelMarkRecordModel>> getAllMarks() async {
+  @override
+  Future<List<LabelMarkRecordModel>> getAll() async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(_markTableName);
     
     return List.generate(maps.length, (i) {
       return LabelMarkRecordModel.fromMap(maps[i]);
     });
+  }
+
+  @override
+  Future<void> clear() async {
+    final db = await _databaseManager.database;
+    await db.delete(_markTableName);
+    await db.delete(_countTableName);
+  }
+
+  @override
+  Future<int> delete(String id) async {
+    final db = await _databaseManager.database;
+    return await db.delete(_markTableName, where: 'id = ?', whereArgs: [id]);
+  }
+
+  @override
+  Future<int> deleteAll(List<String> ids) async {
+    final db = await _databaseManager.database;
+    int count = 0;
+    await db.transaction((txn) async {
+      for (final id in ids) {
+        count += await txn.delete(_markTableName, where: 'id = ?', whereArgs: [id]);
+      }
+    });
+    return count;
+  }
+
+  @override
+  Future<String> exportData() async {
+    final marks = await getAll();
+    final List<Map<String, dynamic>> markMaps = marks.map((mark) => mark.toMap()).toList();
+    return jsonEncode(markMaps);
+  }
+
+  @override
+  Future<LabelMarkRecordModel?> getById(String id) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _markTableName,
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+
+    if (maps.isNotEmpty) {
+      return LabelMarkRecordModel.fromMap(maps.first);
+    }
+    return null;
+  }
+
+  @override
+  Future<bool> importData(String data) async {
+    try {
+      final List<dynamic> markMaps = jsonDecode(data) as List<dynamic>;
+      final List<LabelMarkRecordModel> marks = markMaps.map((map) => LabelMarkRecordModel.fromMap(map as Map<String, dynamic>)).toList();
+      await insertAll(marks);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  @override
+  Future<String> insert(LabelMarkRecordModel item) async {
+    final db = await _databaseManager.database;
+    final id = item.id.isEmpty ? _uuid.v4() : item.id;
+    final newItem = LabelMarkRecordModel(
+      id: id,
+      phoneNumber: item.phoneNumber,
+      labelId: item.labelId,
+      markedAt: item.markedAt,
+      isCounted: item.isCounted,
+    );
+    await db.insert(_markTableName, newItem.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
+    return id;
+  }
+
+  @override
+  Future<List<String>> insertAll(List<LabelMarkRecordModel> items) async {
+    final List<String> ids = [];
+    final db = await _databaseManager.database;
+    await db.transaction((txn) async {
+      for (final item in items) {
+        final id = item.id.isEmpty ? _uuid.v4() : item.id;
+        final newItem = LabelMarkRecordModel(
+          id: id,
+          phoneNumber: item.phoneNumber,
+          labelId: item.labelId,
+          markedAt: item.markedAt,
+          isCounted: item.isCounted,
+        );
+        await txn.insert(_markTableName, newItem.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
+        ids.add(id);
+      }
+    });
+    return ids;
+  }
+
+  @override
+  Future<int> update(LabelMarkRecordModel item) async {
+    final db = await _databaseManager.database;
+    return await db.update(
+      _markTableName,
+      item.toMap(),
+      where: 'id = ?',
+      whereArgs: [item.id],
+    );
+  }
+
+  @override
+  Future<int> updateAll(List<LabelMarkRecordModel> items) async {
+    int count = 0;
+    final db = await _databaseManager.database;
+    await db.transaction((txn) async {
+      for (final item in items) {
+        count += await txn.update(
+          _markTableName,
+          item.toMap(),
+          where: 'id = ?',
+          whereArgs: [item.id],
+        );
+      }
+    });
+    return count;
   }
   
   // 释放资源

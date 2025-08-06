@@ -1,36 +1,66 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:permission_handler/permission_handler.dart';
+import 'package:permission_handler/permission_handler.dart' as permission_handler show openAppSettings;
 import 'package:yourcallyourrule/core/services/permission_service.dart';
 
 /// PermissionService的具体实现类
 class PermissionServiceImpl implements PermissionService {
+  final Map<String, Permission> _stringToPermission = {
+    'call': Permission.phone,
+    'sms': Permission.sms,
+    'contacts': Permission.contacts,
+    'storage': Permission.storage,
+    'overlay': Permission.systemAlertWindow,
+    'notification': Permission.notification,
+  };
+
+  Permission _getPermission(String permission) {
+    return _stringToPermission[permission] ?? Permission.unknown;
+  }
+
   @override
   Future<bool> hasPermission(String permission) async {
-    // 实现权限检查逻辑
-    // 这里应该根据不同平台使用相应的权限检查API
-    return true; // 临时返回，实际应该根据权限状态返回
+    final p = _getPermission(permission);
+    if (p == Permission.unknown) return false;
+    return await p.isGranted;
   }
 
   @override
   Future<bool> requestPermission(String permission) async {
-    // 实现权限请求逻辑
-    // 这里应该根据不同平台使用相应的权限请求API
-    return true; // 临时返回，实际应该根据权限授予状态返回
+    final p = _getPermission(permission);
+    if (p == Permission.unknown) return false;
+    final status = await p.request();
+    return status.isGranted;
   }
 
   @override
   Future<Map<String, bool>> requestPermissions(List<String> permissions) async {
-    // 实现多权限请求逻辑
-    Map<String, bool> results = {};
-    for (var permission in permissions) {
-      results[permission] = await requestPermission(permission);
+    final Map<String, bool> results = {};
+    final List<Permission> permsToRequest = [];
+    for (var pStr in permissions) {
+      final p = _getPermission(pStr);
+      if (p != Permission.unknown) {
+        permsToRequest.add(p);
+      }
     }
+
+    if (permsToRequest.isNotEmpty) {
+      final statuses = await permsToRequest.request();
+      statuses.forEach((p, status) {
+        final pStr = _stringToPermission.entries.firstWhere((e) => e.value == p, orElse: () => const MapEntry('', Permission.unknown)).key;
+        if (pStr.isNotEmpty) {
+          results[pStr] = status.isGranted;
+        }
+      });
+    }
+    
     return results;
   }
 
   @override
   Future<void> openAppSettings() async {
-    // 实现打开应用设置页面逻辑
-    // 这里应该根据不同平台使用相应的API
+    await permission_handler.openAppSettings();
   }
 
   @override
@@ -70,8 +100,8 @@ class PermissionServiceImpl implements PermissionService {
   Future<bool> requestNotificationPermission() => requestPermission('notification');
 }
 
-/// PermissionService的Provider
+/// permissionServiceProvider
+/// 提供PermissionService的实例
 final permissionServiceProvider = Provider<PermissionService>((ref) {
-  // 创建PermissionServiceImpl实例
   return PermissionServiceImpl();
 });

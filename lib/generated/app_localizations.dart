@@ -7233,7 +7233,7 @@ abstract class AppLocalizations {
   /// No description provided for @silenceAndNoAnswer.
   ///
   /// In en, this message translates to:
-  /// **'Silence and no answer'**
+  /// **'Silence and No Answer'**
   String get silenceAndNoAnswer;
 
   /// No description provided for @silenceNoAnswer.
@@ -8718,54 +8718,6 @@ abstract class AppLocalizations {
   /// **'Number: {phoneNumber}'**
   String callerIdBody(String phoneNumber);
 
-  /// Title for blocked call notification
-  ///
-  /// In en, this message translates to:
-  /// **'Blocked Call'**
-  String get blockedCallTitle;
-
-  /// Body for blocked call notification, showing the phone number
-  ///
-  /// In en, this message translates to:
-  /// **'Blocked call from {phoneNumber}'**
-  String blockedCallBody(String phoneNumber);
-
-  /// STIR/SHAKEN verification status: Verified
-  ///
-  /// In en, this message translates to:
-  /// **'Verified'**
-  String get stirVerified;
-
-  /// STIR/SHAKEN verification status: Not Verified
-  ///
-  /// In en, this message translates to:
-  /// **'Not Verified'**
-  String get stirNotVerified;
-
-  /// STIR/SHAKEN verification status: Verification Failed
-  ///
-  /// In en, this message translates to:
-  /// **'Verification Failed'**
-  String get stirFailed;
-
-  /// STIR/SHAKEN verification status: Unknown
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown Verification Status'**
-  String get stirUnknown;
-
-  /// Title for STIR/SHAKEN verification notification
-  ///
-  /// In en, this message translates to:
-  /// **'STIR/SHAKEN Verification'**
-  String get stirVerificationTitle;
-
-  /// Body for STIR/SHAKEN verification notification, showing result and phone number
-  ///
-  /// In en, this message translates to:
-  /// **'{stirResultMessage} for number {phoneNumber}'**
-  String stirVerificationBody(String stirResultMessage, String phoneNumber);
-
   /// No description provided for @scrollingSecurityMessageSettings.
   ///
   /// In en, this message translates to:
@@ -8819,6 +8771,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Potential fraud call from {phoneNumber}'**
   String fraudAlertBody(String phoneNumber);
+
+  /// No description provided for @loadCallLogFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load call log: {error}'**
+  String loadCallLogFailed(Object error);
+
+  /// No description provided for @noBlockedTypeData.
+  ///
+  /// In en, this message translates to:
+  /// **'No blocked type data available'**
+  String get noBlockedTypeData;
+
+  /// Dialog title for importing an entity
+  ///
+  /// In en, this message translates to:
+  /// **'Import {entityTypeName}'**
+  String importEntity(Object entityTypeName);
+
+  /// Success message after importing entities
+  ///
+  /// In en, this message translates to:
+  /// **'{entityTypeName} imported successfully, total {count} records imported'**
+  String entityImportSuccess(Object entityTypeName, Object count);
+
+  /// Error message when importing entities fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to import {entityTypeName}: {error}'**
+  String entityImportFailed(Object entityTypeName, Object error);
+
+  /// Dialog title for exporting an entity
+  ///
+  /// In en, this message translates to:
+  /// **'Export {entityTypeName}'**
+  String exportEntity(Object entityTypeName);
+
+  /// Success message after exporting entities
+  ///
+  /// In en, this message translates to:
+  /// **'{entityTypeName} exported successfully'**
+  String entityExportSuccess(Object entityTypeName);
+
+  /// Error message when exporting entities fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to export {entityTypeName}: {error}'**
+  String entityExportFailed(Object entityTypeName, Object error);
+
+  /// No description provided for @cloudSyncService.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud Sync Service'**
+  String get cloudSyncService;
+
+  /// No description provided for @membershipCenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Membership Center'**
+  String get membershipCenter;
+
+  /// No description provided for @redeemVipWithMarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Redeem VIP with Marks'**
+  String get redeemVipWithMarks;
+
+  /// No description provided for @currentMarkCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Mark Count'**
+  String get currentMarkCount;
+
+  /// No description provided for @markMoreNumbersForMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark more numbers for more marks'**
+  String get markMoreNumbersForMore;
+
+  /// No description provided for @cloudBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud Backup'**
+  String get cloudBackup;
+
+  /// No description provided for @callerIdEnhancement.
+  ///
+  /// In en, this message translates to:
+  /// **'Caller ID Enhancement'**
+  String get callerIdEnhancement;
+
+  /// No description provided for @voiceRecognition.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice Recognition'**
+  String get voiceRecognition;
+
+  /// No description provided for @feature.
+  ///
+  /// In en, this message translates to:
+  /// **'Feature'**
+  String get feature;
+
+  /// No description provided for @normalUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal User'**
+  String get normalUser;
+
+  /// No description provided for @vipUser.
+  ///
+  /// In en, this message translates to:
+  /// **'VIP User'**
+  String get vipUser;
+
+  /// No description provided for @temporaryVip.
+  ///
+  /// In en, this message translates to:
+  /// **'Temporary VIP'**
+  String get temporaryVip;
+
+  /// No description provided for @removeAds.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove Ads'**
+  String get removeAds;
 
   /// No description provided for @yesterday.
   ///
