@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/providers/security_message_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
 
 /// A widget that displays a horizontally scrolling security message
@@ -28,7 +28,7 @@ class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMess
     // Start scrolling after the widget is built
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // Set the default message from localizations if message is empty
-      final securityMessageState = ref.read(securityMessageProvider);
+      final securityMessageState = ref.read(coreSecurityMessageProvider);
       if (securityMessageState.message.isEmpty) {
         securityMessageState.setMessage(securityMessageState.getDefaultMessage(context));
       }
@@ -44,7 +44,7 @@ class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMess
   }
 
   void _startScrolling() {
-    final securityMessageState = ref.read(securityMessageProvider);
+    final securityMessageState = ref.read(coreSecurityMessageProvider);
     
     // If the message is not enabled, don't start scrolling
     if (!securityMessageState.isEnabled) return;
@@ -94,7 +94,7 @@ class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMess
 
   @override
   Widget build(BuildContext context) {
-    final securityMessageState = ref.watch(securityMessageProvider);
+    final securityMessageState = ref.watch(coreSecurityMessageProvider);
     
     // If the message is not enabled, return an empty widget
     if (!securityMessageState.isEnabled) {
@@ -107,7 +107,7 @@ class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMess
       child: widget.isDraggable
           ? GestureDetector(
               onPanUpdate: (details) {
-                ref.read(securityMessageProvider).updatePosition(
+                ref.read(coreSecurityMessageProvider).updatePosition(
                       securityMessageState.position + details.delta,
                     );
               },
@@ -122,7 +122,7 @@ class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMess
       width: securityMessageState.containerWidth,
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.7),
+        color: Colors.black.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(4.0),
       ),
       child: SingleChildScrollView(

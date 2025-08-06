@@ -32,6 +32,7 @@ class CloudSettingsPage extends ConsumerWidget {
           _buildGoogleDriveSection(
               context, ref.watch(googleDriveConfigProvider), ref),
           const Divider(),
+        /*
           ListTile(
             leading: const Icon(Icons.backup),
             title: Text(AppLocalizations.of(context)!.backupRestoreTitle),
@@ -41,6 +42,7 @@ class CloudSettingsPage extends ConsumerWidget {
               onPressed: () {},
             ),
           ),
+          */
         ],
       ),
     );

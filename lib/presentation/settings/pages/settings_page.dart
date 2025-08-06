@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/presentation/about.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
@@ -17,14 +19,33 @@ class SettingsPage extends ConsumerWidget {
         title: Text(AppLocalizations.of(context)!.settingsTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () {
+            if (GoRouter.of(context).canPop()) {
+              context.pop();
+            } else {
+              GoRouter.of(context).goNamed(AppRouter.home);
+            }
+          },
         ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-          _buildUserInfoCard(context),
-          const SizedBox(height: 24),
+        //  _buildUserInfoCard(context),
+       //   const SizedBox(height: 24),
+                 _buildSectionTitle(AppLocalizations.of(context)!.systemSettingsTitle),
+                    const SizedBox(height: 12),
+          _buildLanguageSettingsCard(context),
+                    const SizedBox(height: 12),
+          _buildPurchaseCard(context),
+          const SizedBox(height: 8),
+          _buildAutoUpdateCard(context),
+        //  const SizedBox(height: 12),
+        //  _buildPluginManagementCard(context),
+       //   const SizedBox(height: 12),
+        //  _buildSearchCard(context),
+
+
           _buildSectionTitle(
               AppLocalizations.of(context)!.functionSettingsTitle),
           const SizedBox(height: 8),
@@ -32,12 +53,12 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(height: 8),
           _buildTimeInterceptorCard(context, ref),
           const SizedBox(height: 12),
-          _buildSmsSettingsCard(context),
-          const SizedBox(height: 12),
-          _buildContactSettingsCard(context),
-          const SizedBox(height: 12),
-          _buildMarkPhoneManagementCard(context),
-          const SizedBox(height: 24),
+        //  _buildSmsSettingsCard(context),
+       //   const SizedBox(height: 12),
+       //   _buildContactSettingsCard(context),
+       //   const SizedBox(height: 12),
+       //   _buildMarkPhoneManagementCard(context),
+       //   const SizedBox(height: 24),
           _buildSectionTitle(
               AppLocalizations.of(context)!.cloudSyncAndBackupTitle),
           const SizedBox(height: 8),
@@ -46,16 +67,18 @@ class SettingsPage extends ConsumerWidget {
           _buildBackupRestoreCard(context),
           const SizedBox(height: 12),
           _buildDeviceManagementCard(context),
+
+
           const SizedBox(height: 24),
-          _buildSectionTitle(AppLocalizations.of(context)!.systemSettingsTitle),
-          const SizedBox(height: 8),
-          _buildAutoUpdateCard(context),
-          const SizedBox(height: 12),
-          _buildPluginManagementCard(context),
-          const SizedBox(height: 12),
-          _buildSearchCard(context),
-          const SizedBox(height: 12),
-          _buildLanguageSettingsCard(context),
+
+
+
+
+
+
+
+
+
           const SizedBox(height: 12),
           _buildAboutCard(context),
         ],
@@ -117,6 +140,9 @@ class SettingsPage extends ConsumerWidget {
   Widget _buildCallSettingsCard(BuildContext context) {
     return Column(
       children: [
+
+/*
+//无效的老的册罗直接屏蔽
         _buildSettingsCard(
           context,
           icon: Icons.phone,
@@ -125,10 +151,11 @@ class SettingsPage extends ConsumerWidget {
           subtitle: AppLocalizations.of(context)!.callSettingsSubtitle,
           onTap: () {
             // 使用GoRouter导航到来电设置页面
-            GoRouter.of(context).push('/phone-subscription');
+            GoRouter.of(context).push('/${AppRouter.enhancedFilterSettings}');
           },
         ),
         const SizedBox(height: 8),
+        */
         _buildSettingsCard(
           context,
           icon: Icons.filter_alt,
@@ -150,6 +177,39 @@ class SettingsPage extends ConsumerWidget {
               AppLocalizations.of(context)!.interceptionActionSettingsSubtitle,
           onTap: () {
             GoRouter.of(context).push('/end-call-settings');
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildSettingsCard(
+          context,
+          icon: Icons.call_end,
+          iconColor: Colors.orange,
+          title: AppLocalizations.of(context)!.callerIdCustomizationTitle,
+          subtitle: AppLocalizations.of(context)!.callerIdCustomizationSubtitle,
+          onTap: () {
+            GoRouter.of(context).push('/caller-id-customization');
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildSettingsCard(
+          context,
+          icon: Icons.notifications,
+          iconColor: Colors.blue,
+          title: AppLocalizations.of(context)!.callerIdSettingsTitle,
+          subtitle: AppLocalizations.of(context)!.callerIdSettingsSubtitle,
+          onTap: () {
+            GoRouter.of(context).push('/caller-id-settings');
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildSettingsCard(
+          context,
+          icon: Icons.warning_amber_rounded,
+          iconColor: Colors.amber,
+          title: AppLocalizations.of(context)!.fraudAlerSettingTitle,
+          subtitle: AppLocalizations.of(context)!.fraudAlerSettingSubtitle,
+          onTap: () {
+            GoRouter.of(context).push('/fraud-alert-settings');
           },
         ),
       ],
@@ -340,6 +400,19 @@ class SettingsPage extends ConsumerWidget {
     );
   }
 
+  Widget _buildPurchaseCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.shopping_cart,
+      iconColor: Colors.green,
+      title: AppLocalizations.of(context)!.purchaseTitle,
+      subtitle: AppLocalizations.of(context)!.purchaseSubtitle,
+      onTap: () {
+        GoRouter.of(context).push('/purchase');
+      },
+    );
+  }
+
   Widget _buildAboutCard(BuildContext context) {
     return _buildSettingsCard(
       context,
@@ -348,17 +421,12 @@ class SettingsPage extends ConsumerWidget {
       title: AppLocalizations.of(context)!.aboutTitle,
       subtitle: AppLocalizations.of(context)!.aboutSubtitle,
       onTap: () {
-        // 显示关于对话框
-        showAboutDialog(
-          context: context,
-          applicationName: 'Your Call Your Rule',
-          applicationVersion: '1.0.0',
-          applicationIcon: Icon(
-            Icons.phone_android,
-            color: Theme.of(context).primaryColor,
-            size: 48,
+        // 导航到关于页面
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const AboutPage(),
           ),
-          applicationLegalese: '© 2023 Your Call Your Rule. 保留所有权利。',
         );
       },
     );
@@ -383,7 +451,7 @@ class SettingsPage extends ConsumerWidget {
           child: Row(
             children: [
               CircleAvatar(
-                backgroundColor: iconColor.withOpacity(0.1),
+                backgroundColor: iconColor.withValues(alpha: 0.1),
                 child: Icon(icon, color: iconColor),
               ),
               const SizedBox(width: 16),

@@ -10,6 +10,7 @@ import 'package:yourcallyourrule/features/call/call_history/widgets/call_timelin
 import 'package:yourcallyourrule/features/call/call_history/widgets/label_filter_chip.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
+import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
 
@@ -22,25 +23,17 @@ class CallHistoryPageWithTimelineWithAds extends ConsumerStatefulWidget {
   ConsumerState<CallHistoryPageWithTimelineWithAds> createState() => _CallHistoryPageWithTimelineWithAdsState();
 }
 
-class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistoryPageWithTimelineWithAds> with SingleTickerProviderStateMixin {
+class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistoryPageWithTimelineWithAds> with TickerProviderStateMixin {
   bool _isLoading = true;
   String? _selectedLabel;
   late String _selectedTab;
-  late TabController _tabController;
+  TabController? _tabController;
   late List<String> _tabs;
   bool _showTimelineView = true; // 控制是否显示时间轴视图
   
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
-    _tabController.addListener(() {
-      if (!_tabController.indexIsChanging) {
-        setState(() {
-          _selectedTab = _tabs[_tabController.index];
-        });
-      }
-    });
     _initializeCallLogs();
   }
 
@@ -56,20 +49,32 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
       l10n.tabOutgoing
     ];
     _selectedTab = _tabs[0];
+    
+    // 处理旧的 TabController
+    if (_tabController != null) {
+      _tabController!.removeListener(_handleTabSelection);
+      _tabController!.dispose();
+    }
+    
+    // 创建新的 TabController
     _tabController = TabController(length: _tabs.length, vsync: this);
-    _tabController.addListener(() {
-      if (!_tabController.indexIsChanging) {
-        setState(() {
-          _selectedTab = _tabs[_tabController.index];
-        });
-      }
-    });
-    _initializeCallLogs();
+    _tabController!.addListener(_handleTabSelection);
+  }
+  
+  // TabController 监听器回调
+  void _handleTabSelection() {
+    if (_tabController != null && !_tabController!.indexIsChanging) {
+      setState(() {
+        _selectedTab = _tabs[_tabController!.index];
+      });
+    }
   }
   
   @override
   void dispose() {
-    _tabController.dispose();
+    if (_tabController != null) {
+      _tabController!.dispose();
+    }
     super.dispose();
   }
 
@@ -146,14 +151,17 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
   @override
   Widget build(BuildContext context) {
     final callLogService = ref.watch(callLogServiceProvider);
-    return StreamBuilder<List<CallLog>>(
-      stream: callLogService.logsStream,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting && _isLoading) {
-          return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          );
-        }
+    return Scaffold(
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 1, // 通话记录页面标签索引
+        onTap: (index) => AppRouter.handleNavigation(context, index),
+      ),
+      body: StreamBuilder<List<CallLog>>(
+        stream: callLogService.logsStream,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting && _isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
         
         var logs = snapshot.data ?? [];
         
@@ -219,7 +227,7 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
             children: [
               // 标签页
               TabBar(
-                controller: _tabController,
+                controller: _tabController!,
                 isScrollable: true,
                 tabs: _tabs.map((tab) => Tab(text: tab)).toList(),
                 labelColor: Theme.of(context).primaryColor,
@@ -270,7 +278,8 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
             ),
           ],
         );
-      },
+        },
+      ),
     );
   }
 
@@ -295,7 +304,7 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           if (_selectedLabel != null)
             TextButton(

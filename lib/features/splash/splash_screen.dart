@@ -1,13 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/purchase/purchase_provider.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -28,14 +26,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Timer? _splashTimer;
   Timer? _timeoutTimer;
   Timer? _adTimeoutTimer; // 广告加载超时定时器
-  AppOpenAd? _appOpenAd;
-  bool _isAppOpenAdLoaded = false;
   bool _adLoadFailed = false;
   bool _shouldLoadAd = false;
+  
+  // 使用 AppOpenAdManager 来管理开屏广告
+  final AppOpenAdManager _appOpenAdManager = AppOpenAdManager.instance;
 
   // 时间配置
   static const Duration _splashTimeout = Duration(seconds: 6);
-  static const Duration _minSplashDuration = Duration(milliseconds: 2500);
+  static const Duration _minSplashDuration = Duration(milliseconds: 6500);
   static const Duration _adLoadTimeout = Duration(seconds: 3); // 广告加载超时
 
   @override
@@ -135,11 +134,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     }
 
     // 检查是否应该显示广告
-    if (_shouldLoadAd && _isAppOpenAdLoaded && _appOpenAd != null) {
+    if (_shouldLoadAd && _appOpenAdManager.isAdLoaded) {
       debugPrint('显示开屏广告');
       _showAppOpenAd();
     } else {
-      debugPrint('跳过广告，直接导航 - shouldLoadAd: $_shouldLoadAd, adLoaded: $_isAppOpenAdLoaded, adFailed: $_adLoadFailed');
+      debugPrint('跳过广告，直接导航 - shouldLoadAd: $_shouldLoadAd, adLoaded: ${_appOpenAdManager.isAdLoaded}, adFailed: $_adLoadFailed');
       _navigateToNextScreen();
     }
   }
@@ -180,7 +179,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     
     // 设置广告加载超时
     _adTimeoutTimer = Timer(_adLoadTimeout, () {
-      if (mounted && !_isAppOpenAdLoaded && !_adLoadFailed) {
+      if (mounted && !_appOpenAdManager.isAdLoaded && !_adLoadFailed) {
         debugPrint('广告加载超时');
         _adLoadFailed = true;
         // 不阻塞导航流程
@@ -192,95 +191,92 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   
   void _loadAppOpenAd() {
     try {
-      AppOpenAd.load(
-        adUnitId: AdManager.appOpenAd.adUnitId,
-        request: const AdRequest(),
-        adLoadCallback: AppOpenAdLoadCallback(
-          onAdLoaded: (ad) {
+      // 使用 AppOpenAdManager 加载广告
+      _appOpenAdManager.loadAd().then((success) {
+        if (mounted) {
+          if (success) {
             debugPrint('开屏广告加载成功');
-            if (mounted && !_hasNavigated) {
-              _adTimeoutTimer?.cancel();
-              _appOpenAd = ad;
-              _isAppOpenAdLoaded = true;
-              _adLoadFailed = false;
-              
-              // 设置广告回调
-              _setupAdCallbacks(ad);
-            } else {
-              debugPrint('页面已销毁或已导航，释放广告');
-              ad.dispose();
+            // 如果最小显示时间已过，检查是否可以显示广告
+            if (_splashTimer?.isActive == false && !_hasNavigated) {
+              _handleSplashComplete();
             }
-          },
-          onAdFailedToLoad: (error) {
-            debugPrint('开屏广告加载失败: ${error.message} (代码: ${error.code})');
-            if (mounted) {
-              _adTimeoutTimer?.cancel();
-              _adLoadFailed = true;
-              _isAppOpenAdLoaded = false;
-              
-              // 广告加载失败不应该阻塞用户继续使用应用
-              // 如果最小显示时间已过，立即导航
-              if (_splashTimer?.isActive == false) {
-                _navigateToNextScreen();
-              }
+          } else {
+            debugPrint('开屏广告加载失败');
+            _adLoadFailed = true;
+            // 如果最小显示时间已过，直接导航
+            if (_splashTimer?.isActive == false && !_hasNavigated) {
+              _navigateToNextScreen();
             }
-          },
-        ),
-      );
+          }
+        }
+      });
     } catch (e) {
-      debugPrint('广告加载异常: $e');
+      debugPrint('加载开屏广告异常: $e');
       _adLoadFailed = true;
-    }
-  }
-
-  void _setupAdCallbacks(AppOpenAd ad) {
-    ad.fullScreenContentCallback = FullScreenContentCallback(
-      onAdDismissedFullScreenContent: (ad) {
-        debugPrint('开屏广告被关闭');
-        _cleanupAd();
-        if (mounted && !_hasNavigated) {
-          _navigateToNextScreen();
-        }
-      },
-      onAdFailedToShowFullScreenContent: (ad, error) {
-        debugPrint('开屏广告显示失败: ${error.message}');
-        _cleanupAd();
-        if (mounted && !_hasNavigated) {
-          _navigateToNextScreen();
-        }
-      },
-      onAdShowedFullScreenContent: (ad) {
-        debugPrint('开屏广告开始显示');
-      },
-      onAdImpression: (ad) {
-        debugPrint('开屏广告产生展示');
-      },
-    );
-  }
-  
-  void _cleanupAd() {
-    try {
-      _appOpenAd?.dispose();
-      _appOpenAd = null;
-    } catch (e) {
-      debugPrint('清理广告资源失败: $e');
     }
   }
   
   void _showAppOpenAd() {
-    if (_appOpenAd != null && mounted && !_hasNavigated) {
+    if (_appOpenAdManager.isAdLoaded && mounted && !_hasNavigated) {
       try {
-        _appOpenAd!.show();
+        // 显示广告前设置回调，确保广告关闭后导航到下一个页面
+        if (_appOpenAdManager.appOpenAd != null) {
+          _appOpenAdManager.appOpenAd!.fullScreenContentCallback = FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (ad) {
+              debugPrint('开屏广告被关闭，导航到下一页面');
+              _navigateToNextScreen();
+            },
+            onAdFailedToShowFullScreenContent: (ad, error) {
+              debugPrint('开屏广告显示失败: ${error.message}，导航到下一页面');
+              _navigateToNextScreen();
+            },
+            onAdShowedFullScreenContent: (ad) {
+              debugPrint('开屏广告开始显示');
+            },
+            onAdImpression: (ad) {
+              debugPrint('开屏广告产生展示');
+            },
+          );
+          
+          // 直接调用广告的show方法
+          _appOpenAdManager.appOpenAd!.show();
+          debugPrint('开屏广告显示成功');
+        } else {
+          debugPrint('开屏广告实例为null，直接导航');
+          _navigateToNextScreen();
+        }
       } catch (e) {
         debugPrint('显示开屏广告异常: $e');
-        _cleanupAd();
         _navigateToNextScreen();
       }
     } else {
-      debugPrint('广告不可用，直接导航');
+      debugPrint('广告不可用，直接导航 - isAdLoaded: ${_appOpenAdManager.isAdLoaded}, mounted: $mounted, hasNavigated: $_hasNavigated');
       _navigateToNextScreen();
     }
   }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   Future<void> _checkFirstLaunch() async {
     try {
@@ -309,15 +305,32 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
       
       if (mounted) {
         try {
-          final purchaseProvider = ref.read(purchaseProviderProvider);
+          final purchaseStateNotifier = ref.read(purchaseStateProvider.notifier);
+          // 确保先加载状态
+          await purchaseStateNotifier.loadState();
           
-          final isVip = ref.read(purchaseStateProvider).isPurchasesEnabled;
+          // 检查配置是否正确加载
+          debugPrint('购买状态加载完成，检查配置...');
+          
+          // 获取 VIP 状态 - 从配置中读取的实际值
+          final isVip = purchaseStateNotifier.isPurchasesEnabled;
+          final hasTempAccess = purchaseStateNotifier.hasTempPurchase;
+          
+          // 检查是否有临时访问权限或已购买
+          final isPurchasedOrHasTempAccess = purchaseStateNotifier.isPurchasedOrHasTempAccess();
           
           if (mounted) {
             setState(() {
-              _isVipUser = isVip;
+              _isVipUser = isPurchasedOrHasTempAccess;
             });
-            debugPrint('VIP状态检查: $isVip');
+            debugPrint('VIP状态检查: 已购买=$isVip, 临时访问=$hasTempAccess, 最终VIP状态=$isPurchasedOrHasTempAccess');
+            
+            // 添加更多日志以便调试
+            if (isPurchasedOrHasTempAccess) {
+              debugPrint('用户有VIP权限，广告将被禁用');
+            } else {
+              debugPrint('用户无VIP权限，广告将被启用');
+            }
           }
         } catch (e) {
           debugPrint('获取VIP状态失败: $e');
@@ -404,8 +417,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
                 ],
               ),
             ),
-           
+
+        /*   
             // 底部广告 - 仅对非 VIP 用户显示且已初始化
+            // 原始的底部广告 我们已经不再使用了
             if (_isInitialized && !_isVipUser)
               Positioned(
                 bottom: 0,
@@ -416,6 +431,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
                   child: const GoogleAdWidget(adInfo: AdManager.appOpenAd),
                 ),
               ),
+*/
+
           ],
         ),
       ),
@@ -433,7 +450,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
       );
     }
     
-    if (_shouldLoadAd && !_isAppOpenAdLoaded && !_adLoadFailed) {
+    if (_shouldLoadAd && !_appOpenAdManager.isAdLoaded && !_adLoadFailed) {
       return Text(
         AppLocalizations.of(context)!.loading,
         style: const TextStyle(
@@ -464,7 +481,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     }
     
     // 释放广告资源
-    _cleanupAd();
+    _appOpenAdManager.dispose();
     
     super.dispose();
   }

@@ -302,7 +302,7 @@ class _CallHistoryPageWithTimelineState extends ConsumerState<CallHistoryPageWit
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           if (_selectedLabel != null)
             TextButton(

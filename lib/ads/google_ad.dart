@@ -103,7 +103,7 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> {
           setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
-         // print('InterstitialAd failed to load: $error');
+          debugPrint('InterstitialAd failed to load: $error');
         },
       ),
     );
@@ -153,7 +153,7 @@ void _createRewardedInterstitialAd() {
           setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
-          //print('RewardedAd failed to load: $error');
+          debugPrint('RewardedAd failed to load: $error');
         },
       ),
     );
@@ -173,7 +173,7 @@ void _createRewardedInterstitialAd() {
         },
         onAdFailedToLoad: (ad, error) {
           ad.dispose();
-          //print('NativeAd failed to load: $error');
+          debugPrint('NativeAd failed to load: $error');
         },
       ),
             nativeTemplateStyle: widget.nativeAdConfig!.style,
@@ -193,7 +193,7 @@ void _createRewardedInterstitialAd() {
           setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
-        //  print('AppOpenAd failed to load: $error');
+          debugPrint('AppOpenAd failed to load: $error');
         },
       ),
     );

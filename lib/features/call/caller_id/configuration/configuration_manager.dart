@@ -7,6 +7,8 @@ import 'package:yourcallyourrule/common/error/logger.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
 
+import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
+import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
 import '../providers/caller_id_style_provider.dart';
 
 import 'caller_id_config_service.dart';
@@ -25,35 +27,35 @@ class ConfigurationManager {
             CallerIdConfigService(_configRepository));
 
   /// 保存配置到仓库
-  Future<void> saveToRepository(CallerIdStyleProvider styleProvider) async {
-    final config = CallerIdConfigX.fromStyleProvider(styleProvider);
+  Future<void> saveToRepository(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
+    final config = CallerIdConfigX.fromProviders(styleProvider, securityProvider);
     await _configService.saveConfig(config);
   }
 
   /// 从仓库加载配置
-  Future<void> loadFromRepository(CallerIdStyleProvider styleProvider) async {
+  Future<void> loadFromRepository(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
     final config = await _configService.loadConfig();
     if (config != null) {
-      config.applyToProvider(styleProvider);
+      config.applyToProviders(styleProvider, securityProvider);
     } else {
       // 如果没有保存的配置，初始化默认配置
       final defaultConfig = await _configService.initializeDefault();
-      defaultConfig.applyToProvider(styleProvider);
+      defaultConfig.applyToProviders(styleProvider, securityProvider);
     }
   }
 
   /// 重置为默认配置
-  Future<void> resetToDefault(CallerIdStyleProvider styleProvider) async {
+  Future<void> resetToDefault(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
     final defaultConfig = await _configService.initializeDefault();
-    defaultConfig.applyToProvider(styleProvider);
+    defaultConfig.applyToProviders(styleProvider, securityProvider);
   }
 
   /// 导入配置
-  Future<void> importConfig(String filePath, CallerIdStyleProvider styleProvider) async {
+  Future<void> importConfig(String filePath, CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
     final file = File(filePath);
     await _importExportService.importConfig(file);
     // 导入后重新加载配置
-    await loadFromRepository(styleProvider);
+    await loadFromRepository(styleProvider, securityProvider);
   }
 
   /// 导出配置
@@ -64,9 +66,9 @@ class ConfigurationManager {
   /// 静态方法：更新配置从Map
   /// 用于跨进程通信时更新配置
   static void updateConfigFromMap(
-      Map<String, dynamic> config, CallerIdStyleProvider styleProvider) {
+      Map<String, dynamic> config, CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) {
     final callerIdConfig = CallerIdConfig.fromMap(config);
-    callerIdConfig.applyToProvider(styleProvider);
+    callerIdConfig.applyToProviders(styleProvider, securityProvider);
   }
 }
 

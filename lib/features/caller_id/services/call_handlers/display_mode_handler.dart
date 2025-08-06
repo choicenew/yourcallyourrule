@@ -1,9 +1,12 @@
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service_new.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/notification_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 
 /// 显示模式处理器
 /// 负责管理来电信息的显示方式（浮窗或通知）
@@ -39,8 +42,18 @@ class DisplayModeHandler {
       // 显示来电显示浮窗
       await _overlayHandler.showCallerIdOverlay(callerIdData, stirInfo, simInfo);
     } else if (_displayMode == 'notification') {
+      final context = AppRouter.navigatorKey.currentContext;
+      if (context == null) return;
+
+      final isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData); 
+
       // 显示来电显示通知
-      await _notificationHandler.showCallerIdNotification(callerIdData, stirInfo, simInfo);
+      await _notificationHandler.showCallerIdNotification(
+        title: AppLocalizations.of(context)!.callerIdNotificationTitle,
+        body: AppLocalizations.of(context)!.callerIdBody(callerIdData.phoneNumber.value),
+        callerIdData: callerIdData,
+        isFraudCall: isFraudCall,
+      );
     }
   }
   

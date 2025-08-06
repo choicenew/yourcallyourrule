@@ -1,6 +1,6 @@
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
@@ -8,13 +8,14 @@ import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/services/notification_service.dart';
 import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service_new.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通知处理器
 /// 专门负责处理通知相关的逻辑
 class NotificationHandler {
-  final FlutterLocalNotificationsPlugin _notificationsPlugin;
+  final NotificationService _notificationService;
   final CallerIdConfigRepository _configRepository;
-  
+
   // 通知设置
   bool useLocalNotification = false;
   bool cancelLocalNotification = false;
@@ -22,34 +23,16 @@ class NotificationHandler {
 
   /// 构造函数
   NotificationHandler({
-    FlutterLocalNotificationsPlugin? notificationsPlugin,
+    NotificationService? notificationService,
     required CallerIdConfigRepository configRepository,
-  }) : 
-    _notificationsPlugin = notificationsPlugin ?? FlutterLocalNotificationsPlugin(),
-    _configRepository = configRepository;
+    FlutterLocalNotificationsPlugin? notificationsPlugin,
+  })  : _notificationService = notificationService ?? NotificationService(notificationsPlugin: notificationsPlugin),
+        _configRepository = configRepository;
 
   /// 初始化通知
   Future<void> initialize() async {
     await loadSettings();
-    
-    const initializationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
-    const initializationSettings =
-        InitializationSettings(android: initializationSettingsAndroid);
-    await _notificationsPlugin.initialize(initializationSettings);
-  }
-
-  /// 处理通知点击
-  void _handleNotificationTap(Map<String, dynamic> payload) {
-    final type = payload['type'] as String?;
-    
-    if (type == 'blocked_call') {
-      // 处理拦截通知点击
-      NotificationService.redirectToPage('callHistory', payload);
-    } else if (type == 'stir_result') {
-      // 处理STIR验证通知点击
-      NotificationService.redirectToPage('callHistory', payload);
-    }
+    // 初始化操作已移至NotificationService
   }
 
   /// 加载设置
@@ -85,158 +68,77 @@ class NotificationHandler {
 
   /// 显示拦截通知
   Future<void> showBlockedCallNotification(String phoneNumber) async {
-    const androidDetails = AndroidNotificationDetails(
-      'call_blocker_channel',
-      'Call Blocker Notifications',
-      playSound: false, // 设置为 false 以禁用声音
-      importance: Importance.max,
-      priority: Priority.high,
+    final context = AppRouter.navigatorKey.currentContext;
+    if (context == null) return;
+    await _notificationService.showNotification(
+      config: NotificationService.blockedCallConfig,
+      title: AppLocalizations.of(context)!.blockedCallTitle,
+      body: AppLocalizations.of(context)!.blockedCallBody(phoneNumber),
+      notificationId: phoneNumber.hashCode,
+      payload: {'type': 'call_history'},
+      autoCancel: cancelLocalNotification,
     );
-    const notificationDetails = NotificationDetails(android: androidDetails);
-    await _notificationsPlugin.show(0, 'Call Blocked',
-        'Blocked call from $phoneNumber', notificationDetails,
-        payload: 'goToCallHistory');
-    
-    if (cancelLocalNotification) {
-      await Future.delayed(const Duration(seconds: 5)); // 延迟5秒
-      await _notificationsPlugin.cancel(0); // 取消ID为0的通知
-    }
   }
 
   /// 显示STIR验证通知
   Future<void> showStirCallNotification(String phoneNumber, bool isVerified,
       bool isNotVerified, bool isFailed) async {
-    String stirResultMessage = "";
+    final context = AppRouter.navigatorKey.currentContext;
+    if (context == null) return;
+
+    String stirResultMessage;
 
     if (isVerified) {
-      stirResultMessage = "STIR Verified";
+      stirResultMessage = AppLocalizations.of(context)!.stirVerified;
     } else if (isNotVerified) {
-      stirResultMessage = "STIR Not Verified";
+      stirResultMessage = AppLocalizations.of(context)!.stirNotVerified;
     } else if (isFailed) {
-      stirResultMessage = "STIR Failed";
+      stirResultMessage = AppLocalizations.of(context)!.stirFailed;
     } else {
-      stirResultMessage = "STIR Unknown";
+      stirResultMessage = AppLocalizations.of(context)!.stirUnknown;
     }
 
-    const androidDetails = AndroidNotificationDetails(
-      'call_blocker_channel',
-      'Call Blocker Notifications',
-      importance: Importance.max,
-      priority: Priority.high,
+    await _notificationService.showNotification(
+      config: NotificationService.stirResultConfig,
+      title: AppLocalizations.of(context)!.stirVerificationTitle,
+      body: AppLocalizations.of(context)!.stirVerificationBody(stirResultMessage, phoneNumber),
+      notificationId: phoneNumber.hashCode,
+      payload: {'type': 'call_history'},
     );
-    const notificationDetails = NotificationDetails(android: androidDetails);
-    await _notificationsPlugin.show(0, 'Stir Verification',
-        '$stirResultMessage from $phoneNumber', notificationDetails,
-        payload: 'goToCallHistory');
   }
 
   /// 处理STIR信息
   Future<void> processStirInfo(StirInfo stirInfo) async {
     if (!useStirNotification) return;
-    
+
     await showStirCallNotification(
       stirInfo.phoneNumber!,
       stirInfo.isVerified,
       stirInfo.isNotVerified,
-      stirInfo.isFailed
+      stirInfo.isFailed,
     );
   }
   
-  /// 显示诈骗警告通知
-  Future<void> showFraudAlertNotification(String phoneNumber) async {
-    final androidDetails = AndroidNotificationDetails(
-      'fraud_alert_channel',
-      'Fraud Alert Notifications',
-      importance: Importance.max,
-      priority: Priority.high,
-      fullScreenIntent: true,
-      category: AndroidNotificationCategory.call,
-      playSound: true,
-      enableVibration: true,
-      vibrationPattern: Int64List.fromList([0, 500, 200, 500]), // 特殊震动模式
-      color: Colors.red, // 红色通知
-    );
-    final notificationDetails = NotificationDetails(android: androidDetails);
-    
-    await _notificationsPlugin.show(
-      2, // 使用不同的ID，避免与其他通知冲突
-      '⚠️ 诈骗警告',
-      '来自 $phoneNumber 的电话可能是诈骗电话，请注意防范',
-      notificationDetails,
-      payload: '{"type":"fraud_alert","phone":"$phoneNumber"}'
-    );
-    
-    // 触发震动警告
-    FraudDetectionService.triggerFraudAlertNotification();
-  }
-  
+
   /// 显示来电信息通知
-  Future<void> showCallerIdNotification(CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
-    // 检查是否为诈骗电话
-    final isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
-    
-    // 构建通知标题
-    String title = callerIdData.name ?? callerIdData.phoneNumber.value;
+  Future<void> showCallerIdNotification({
+    required String title,
+    required String body,
+    required CallerIdData callerIdData,
+    required bool isFraudCall,
+  }) async {
     if (isFraudCall) {
-      title = '⚠️ $title';
+      await FraudDetectionService.triggerFraudAlert(callerIdData.phoneNumber.value);
     }
-    
-    // 构建通知内容
-    final List<String> contentParts = [];
-    
-    // 添加标签信息
-    if (callerIdData.labels != null && callerIdData.labels!.isNotEmpty) {
-      final labelTexts = callerIdData.labels!.map((label) => label.label).join(', ');
-      contentParts.add(labelTexts);
-    }
-    
-    // 添加STIR信息
-    if (stirInfo != null) {
-      String stirStatus = '';
-      if (stirInfo.isVerified) {
-        stirStatus = 'STIR Verified';
-      } else if (stirInfo.isNotVerified) {
-        stirStatus = 'STIR Not Verified';
-      } else if (stirInfo.isFailed) {
-        stirStatus = 'STIR Failed';
-      }
-      
-      if (stirStatus.isNotEmpty) {
-        contentParts.add(stirStatus);
-      }
-    }
-    
-    // 添加SIM卡信息
-    if (simInfo != null && simInfo.simSlotIndex != null) {
-      contentParts.add('SIM ${simInfo.simSlotIndex! + 1}');
-    }
-    
-    // 合并内容
-    final content = contentParts.isEmpty ? 'Incoming call' : contentParts.join(' | ');
-    
-    // 设置通知详情
-    const androidDetails = AndroidNotificationDetails(
-      'caller_id_channel',
-      'Caller ID Notifications',
-      importance: Importance.max,
-      priority: Priority.high,
-      fullScreenIntent: true,
-      category: AndroidNotificationCategory.call,
-    );
-    const notificationDetails = NotificationDetails(android: androidDetails);
-    
+
     // 显示通知
-    await _notificationsPlugin.show(
-      1, // 使用不同的ID，避免与其他通知冲突
-      title,
-      content,
-      notificationDetails,
-      payload: '{"type":"caller_id","phone":"${callerIdData.phoneNumber.value}"}'
+    await _notificationService.showNotification(
+      config: isFraudCall ? NotificationService.fraudAlertConfig : NotificationService.blockedCallConfig,
+      title: title,
+      body: body,
+      notificationId: callerIdData.phoneNumber.value.hashCode,
+      payload: {'type': 'call_history'},
+      autoCancel: cancelLocalNotification,
     );
-    
-    // 如果是诈骗电话，触发额外的震动警告
-    if (isFraudCall) {
-      FraudDetectionService.triggerFraudAlertNotification();
-    }
   }
 }

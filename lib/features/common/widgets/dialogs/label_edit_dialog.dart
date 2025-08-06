@@ -178,7 +178,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.cancel),
+          child: Text(AppLocalizations.of(context)!.cancelButton),
         ),
         TextButton(
           onPressed: _isProcessing ? null : _saveLabel,

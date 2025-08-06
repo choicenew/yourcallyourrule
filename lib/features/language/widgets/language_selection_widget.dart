@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:world_flags/world_flags.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -24,8 +27,14 @@ class LanguageSelectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (showCurrentLanguage) ...[_buildCurrentLanguageCard(context), const SizedBox(height: 16)],
+        if (showCurrentLanguage) ...[_buildCurrentLanguageCard(context), 
+        const SizedBox(height: 16)],
+                    GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd), //插入广告
+             const SizedBox(height: 16),
         if (showSelectionList) _buildLanguageSelectionCard(context),
+                   //插入广告
+            const SizedBox(height: 16),
+             nativeAdWidgetMedium(adWidth: 400, adHeight: 320)
       ],
     );
   }
@@ -51,6 +60,9 @@ class LanguageSelectionWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
+
+
+
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
@@ -74,6 +86,9 @@ class LanguageSelectionWidget extends StatelessWidget {
                 ],
               ),
             ),
+ 
+ 
+ 
           ],
         ),
       ),

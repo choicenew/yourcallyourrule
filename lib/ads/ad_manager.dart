@@ -57,13 +57,15 @@ class NativeAdConfig {
 
 class AdManager {
   static const AdInfo bannerAd = AdInfo(
-    adUnitId: 'ca-app-pub-7500321599129263/7861430370',
+    //adUnitId: 'ca-app-pub-7500321599129263/7861430370',// formal
+    adUnitId: 'ca-app-pub-3940256099942544/9214589741', //demo
     type: AdType.banner,
     size: AdSize.banner,
   );
 
   static const AdInfo adaptiveBannerAd = AdInfo(
-    adUnitId: 'ca-app-pub-7500321599129263/2198040152',
+    //adUnitId: 'ca-app-pub-7500321599129263/2198040152',
+    adUnitId: 'ca-app-pub-3940256099942544/9214589741', //demo
     type: AdType.banner,
     //size: AdSize.banner,
   );
@@ -74,7 +76,8 @@ class AdManager {
   );
 
   static const AdInfo rewardedInterstitialAd = AdInfo(
-    adUnitId: 'ca-app-pub-7500321599129263/1982417737',
+    //adUnitId: 'ca-app-pub-7500321599129263/1982417737',
+    adUnitId: 'ca-app-pub-3940256099942544/5354046379', //demo
     type: AdType.rewardedInterstitial,
   );
 
@@ -84,12 +87,14 @@ class AdManager {
   );
 
   static const AdInfo nativeAdvancedAd = AdInfo(
-    adUnitId: 'ca-app-pub-7500321599129263/2757981774',
+    //adUnitId: 'ca-app-pub-7500321599129263/2757981774',
+    adUnitId: 'ca-app-pub-3940256099942544/2247696110', //demo
     type: AdType.nativeAdvanced,
   );
 
   static const AdInfo appOpenAd = AdInfo(
-    adUnitId: 'ca-app-pub-7500321599129263/3319550135',
+    //adUnitId: 'ca-app-pub-7500321599129263/3319550135',
+    adUnitId: 'ca-app-pub-3940256099942544/9257395921', //demo
     type: AdType.appOpen,
   );
 }

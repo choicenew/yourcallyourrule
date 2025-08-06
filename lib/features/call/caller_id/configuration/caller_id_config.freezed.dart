@@ -82,7 +82,13 @@ mixin _$CallerIdConfig {
   @OffsetConverter()
   Offset get stirPosition;
   @OffsetConverter()
-  Offset get securityMessagePosition;
+  Offset get securityMessagePosition; // Security Message Fields
+  @ColorConverter()
+  Color get securityMessageTextColor;
+  double get securityMessageFontSize;
+  double get securityMessageContainerWidth;
+  double get securityMessageScrollSpeed;
+  bool get securityMessageEnabled;
 
   /// Create a copy of CallerIdConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -176,9 +182,17 @@ mixin _$CallerIdConfig {
                 other.simCardPosition == simCardPosition) &&
             (identical(other.stirPosition, stirPosition) ||
                 other.stirPosition == stirPosition) &&
-            (identical(
-                    other.securityMessagePosition, securityMessagePosition) ||
-                other.securityMessagePosition == securityMessagePosition));
+            (identical(other.securityMessagePosition, securityMessagePosition) ||
+                other.securityMessagePosition == securityMessagePosition) &&
+            (identical(other.securityMessageTextColor, securityMessageTextColor) ||
+                other.securityMessageTextColor == securityMessageTextColor) &&
+            (identical(other.securityMessageFontSize, securityMessageFontSize) ||
+                other.securityMessageFontSize == securityMessageFontSize) &&
+            (identical(other.securityMessageContainerWidth, securityMessageContainerWidth) ||
+                other.securityMessageContainerWidth ==
+                    securityMessageContainerWidth) &&
+            (identical(other.securityMessageScrollSpeed, securityMessageScrollSpeed) || other.securityMessageScrollSpeed == securityMessageScrollSpeed) &&
+            (identical(other.securityMessageEnabled, securityMessageEnabled) || other.securityMessageEnabled == securityMessageEnabled));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -223,12 +237,17 @@ mixin _$CallerIdConfig {
         callTypePosition,
         simCardPosition,
         stirPosition,
-        securityMessagePosition
+        securityMessagePosition,
+        securityMessageTextColor,
+        securityMessageFontSize,
+        securityMessageContainerWidth,
+        securityMessageScrollSpeed,
+        securityMessageEnabled
       ]);
 
   @override
   String toString() {
-    return 'CallerIdConfig(backgroundColorStart: $backgroundColorStart, backgroundColorEnd: $backgroundColorEnd, textNameColor: $textNameColor, textNumberColor: $textNumberColor, textLocationColor: $textLocationColor, textCarrierColor: $textCarrierColor, textCountryNameColor: $textCountryNameColor, textLabelsColor: $textLabelsColor, textCountColor: $textCountColor, textNumberTypeColor: $textNumberTypeColor, textIconLabelColor: $textIconLabelColor, textIconLocationColor: $textIconLocationColor, textIconCallTypeColor: $textIconCallTypeColor, avatarBorderColor: $avatarBorderColor, textStirColor: $textStirColor, textSimCardColor: $textSimCardColor, nameFontSize: $nameFontSize, numberFontSize: $numberFontSize, locationFontSize: $locationFontSize, carrierFontSize: $carrierFontSize, countryNameFontSize: $countryNameFontSize, labelsFontSize: $labelsFontSize, countFontSize: $countFontSize, numberTypeFontSize: $numberTypeFontSize, stirFontSize: $stirFontSize, simCardFontSize: $simCardFontSize, avatarPosition: $avatarPosition, namePosition: $namePosition, carrierPosition: $carrierPosition, countryNamePosition: $countryNamePosition, labelsPosition: $labelsPosition, countPosition: $countPosition, numberTypePosition: $numberTypePosition, numberPosition: $numberPosition, locationPosition: $locationPosition, callTypePosition: $callTypePosition, simCardPosition: $simCardPosition, stirPosition: $stirPosition, securityMessagePosition: $securityMessagePosition)';
+    return 'CallerIdConfig(backgroundColorStart: $backgroundColorStart, backgroundColorEnd: $backgroundColorEnd, textNameColor: $textNameColor, textNumberColor: $textNumberColor, textLocationColor: $textLocationColor, textCarrierColor: $textCarrierColor, textCountryNameColor: $textCountryNameColor, textLabelsColor: $textLabelsColor, textCountColor: $textCountColor, textNumberTypeColor: $textNumberTypeColor, textIconLabelColor: $textIconLabelColor, textIconLocationColor: $textIconLocationColor, textIconCallTypeColor: $textIconCallTypeColor, avatarBorderColor: $avatarBorderColor, textStirColor: $textStirColor, textSimCardColor: $textSimCardColor, nameFontSize: $nameFontSize, numberFontSize: $numberFontSize, locationFontSize: $locationFontSize, carrierFontSize: $carrierFontSize, countryNameFontSize: $countryNameFontSize, labelsFontSize: $labelsFontSize, countFontSize: $countFontSize, numberTypeFontSize: $numberTypeFontSize, stirFontSize: $stirFontSize, simCardFontSize: $simCardFontSize, avatarPosition: $avatarPosition, namePosition: $namePosition, carrierPosition: $carrierPosition, countryNamePosition: $countryNamePosition, labelsPosition: $labelsPosition, countPosition: $countPosition, numberTypePosition: $numberTypePosition, numberPosition: $numberPosition, locationPosition: $locationPosition, callTypePosition: $callTypePosition, simCardPosition: $simCardPosition, stirPosition: $stirPosition, securityMessagePosition: $securityMessagePosition, securityMessageTextColor: $securityMessageTextColor, securityMessageFontSize: $securityMessageFontSize, securityMessageContainerWidth: $securityMessageContainerWidth, securityMessageScrollSpeed: $securityMessageScrollSpeed, securityMessageEnabled: $securityMessageEnabled)';
   }
 }
 
@@ -277,7 +296,12 @@ abstract mixin class $CallerIdConfigCopyWith<$Res> {
       @OffsetConverter() Offset callTypePosition,
       @OffsetConverter() Offset simCardPosition,
       @OffsetConverter() Offset stirPosition,
-      @OffsetConverter() Offset securityMessagePosition});
+      @OffsetConverter() Offset securityMessagePosition,
+      @ColorConverter() Color securityMessageTextColor,
+      double securityMessageFontSize,
+      double securityMessageContainerWidth,
+      double securityMessageScrollSpeed,
+      bool securityMessageEnabled});
 }
 
 /// @nodoc
@@ -332,6 +356,11 @@ class _$CallerIdConfigCopyWithImpl<$Res>
     Object? simCardPosition = null,
     Object? stirPosition = null,
     Object? securityMessagePosition = null,
+    Object? securityMessageTextColor = null,
+    Object? securityMessageFontSize = null,
+    Object? securityMessageContainerWidth = null,
+    Object? securityMessageScrollSpeed = null,
+    Object? securityMessageEnabled = null,
   }) {
     return _then(_self.copyWith(
       backgroundColorStart: null == backgroundColorStart
@@ -490,6 +519,26 @@ class _$CallerIdConfigCopyWithImpl<$Res>
           ? _self.securityMessagePosition
           : securityMessagePosition // ignore: cast_nullable_to_non_nullable
               as Offset,
+      securityMessageTextColor: null == securityMessageTextColor
+          ? _self.securityMessageTextColor
+          : securityMessageTextColor // ignore: cast_nullable_to_non_nullable
+              as Color,
+      securityMessageFontSize: null == securityMessageFontSize
+          ? _self.securityMessageFontSize
+          : securityMessageFontSize // ignore: cast_nullable_to_non_nullable
+              as double,
+      securityMessageContainerWidth: null == securityMessageContainerWidth
+          ? _self.securityMessageContainerWidth
+          : securityMessageContainerWidth // ignore: cast_nullable_to_non_nullable
+              as double,
+      securityMessageScrollSpeed: null == securityMessageScrollSpeed
+          ? _self.securityMessageScrollSpeed
+          : securityMessageScrollSpeed // ignore: cast_nullable_to_non_nullable
+              as double,
+      securityMessageEnabled: null == securityMessageEnabled
+          ? _self.securityMessageEnabled
+          : securityMessageEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -536,7 +585,12 @@ class _CallerIdConfig implements CallerIdConfig {
       @OffsetConverter() required this.callTypePosition,
       @OffsetConverter() required this.simCardPosition,
       @OffsetConverter() required this.stirPosition,
-      @OffsetConverter() required this.securityMessagePosition});
+      @OffsetConverter() required this.securityMessagePosition,
+      @ColorConverter() required this.securityMessageTextColor,
+      required this.securityMessageFontSize,
+      required this.securityMessageContainerWidth,
+      required this.securityMessageScrollSpeed,
+      required this.securityMessageEnabled});
   factory _CallerIdConfig.fromJson(Map<String, dynamic> json) =>
       _$CallerIdConfigFromJson(json);
 
@@ -647,6 +701,18 @@ class _CallerIdConfig implements CallerIdConfig {
   @override
   @OffsetConverter()
   final Offset securityMessagePosition;
+// Security Message Fields
+  @override
+  @ColorConverter()
+  final Color securityMessageTextColor;
+  @override
+  final double securityMessageFontSize;
+  @override
+  final double securityMessageContainerWidth;
+  @override
+  final double securityMessageScrollSpeed;
+  @override
+  final bool securityMessageEnabled;
 
   /// Create a copy of CallerIdConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -744,9 +810,17 @@ class _CallerIdConfig implements CallerIdConfig {
                 other.simCardPosition == simCardPosition) &&
             (identical(other.stirPosition, stirPosition) ||
                 other.stirPosition == stirPosition) &&
-            (identical(
-                    other.securityMessagePosition, securityMessagePosition) ||
-                other.securityMessagePosition == securityMessagePosition));
+            (identical(other.securityMessagePosition, securityMessagePosition) ||
+                other.securityMessagePosition == securityMessagePosition) &&
+            (identical(other.securityMessageTextColor, securityMessageTextColor) ||
+                other.securityMessageTextColor == securityMessageTextColor) &&
+            (identical(other.securityMessageFontSize, securityMessageFontSize) ||
+                other.securityMessageFontSize == securityMessageFontSize) &&
+            (identical(other.securityMessageContainerWidth, securityMessageContainerWidth) ||
+                other.securityMessageContainerWidth ==
+                    securityMessageContainerWidth) &&
+            (identical(other.securityMessageScrollSpeed, securityMessageScrollSpeed) || other.securityMessageScrollSpeed == securityMessageScrollSpeed) &&
+            (identical(other.securityMessageEnabled, securityMessageEnabled) || other.securityMessageEnabled == securityMessageEnabled));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -791,12 +865,17 @@ class _CallerIdConfig implements CallerIdConfig {
         callTypePosition,
         simCardPosition,
         stirPosition,
-        securityMessagePosition
+        securityMessagePosition,
+        securityMessageTextColor,
+        securityMessageFontSize,
+        securityMessageContainerWidth,
+        securityMessageScrollSpeed,
+        securityMessageEnabled
       ]);
 
   @override
   String toString() {
-    return 'CallerIdConfig(backgroundColorStart: $backgroundColorStart, backgroundColorEnd: $backgroundColorEnd, textNameColor: $textNameColor, textNumberColor: $textNumberColor, textLocationColor: $textLocationColor, textCarrierColor: $textCarrierColor, textCountryNameColor: $textCountryNameColor, textLabelsColor: $textLabelsColor, textCountColor: $textCountColor, textNumberTypeColor: $textNumberTypeColor, textIconLabelColor: $textIconLabelColor, textIconLocationColor: $textIconLocationColor, textIconCallTypeColor: $textIconCallTypeColor, avatarBorderColor: $avatarBorderColor, textStirColor: $textStirColor, textSimCardColor: $textSimCardColor, nameFontSize: $nameFontSize, numberFontSize: $numberFontSize, locationFontSize: $locationFontSize, carrierFontSize: $carrierFontSize, countryNameFontSize: $countryNameFontSize, labelsFontSize: $labelsFontSize, countFontSize: $countFontSize, numberTypeFontSize: $numberTypeFontSize, stirFontSize: $stirFontSize, simCardFontSize: $simCardFontSize, avatarPosition: $avatarPosition, namePosition: $namePosition, carrierPosition: $carrierPosition, countryNamePosition: $countryNamePosition, labelsPosition: $labelsPosition, countPosition: $countPosition, numberTypePosition: $numberTypePosition, numberPosition: $numberPosition, locationPosition: $locationPosition, callTypePosition: $callTypePosition, simCardPosition: $simCardPosition, stirPosition: $stirPosition, securityMessagePosition: $securityMessagePosition)';
+    return 'CallerIdConfig(backgroundColorStart: $backgroundColorStart, backgroundColorEnd: $backgroundColorEnd, textNameColor: $textNameColor, textNumberColor: $textNumberColor, textLocationColor: $textLocationColor, textCarrierColor: $textCarrierColor, textCountryNameColor: $textCountryNameColor, textLabelsColor: $textLabelsColor, textCountColor: $textCountColor, textNumberTypeColor: $textNumberTypeColor, textIconLabelColor: $textIconLabelColor, textIconLocationColor: $textIconLocationColor, textIconCallTypeColor: $textIconCallTypeColor, avatarBorderColor: $avatarBorderColor, textStirColor: $textStirColor, textSimCardColor: $textSimCardColor, nameFontSize: $nameFontSize, numberFontSize: $numberFontSize, locationFontSize: $locationFontSize, carrierFontSize: $carrierFontSize, countryNameFontSize: $countryNameFontSize, labelsFontSize: $labelsFontSize, countFontSize: $countFontSize, numberTypeFontSize: $numberTypeFontSize, stirFontSize: $stirFontSize, simCardFontSize: $simCardFontSize, avatarPosition: $avatarPosition, namePosition: $namePosition, carrierPosition: $carrierPosition, countryNamePosition: $countryNamePosition, labelsPosition: $labelsPosition, countPosition: $countPosition, numberTypePosition: $numberTypePosition, numberPosition: $numberPosition, locationPosition: $locationPosition, callTypePosition: $callTypePosition, simCardPosition: $simCardPosition, stirPosition: $stirPosition, securityMessagePosition: $securityMessagePosition, securityMessageTextColor: $securityMessageTextColor, securityMessageFontSize: $securityMessageFontSize, securityMessageContainerWidth: $securityMessageContainerWidth, securityMessageScrollSpeed: $securityMessageScrollSpeed, securityMessageEnabled: $securityMessageEnabled)';
   }
 }
 
@@ -847,7 +926,12 @@ abstract mixin class _$CallerIdConfigCopyWith<$Res>
       @OffsetConverter() Offset callTypePosition,
       @OffsetConverter() Offset simCardPosition,
       @OffsetConverter() Offset stirPosition,
-      @OffsetConverter() Offset securityMessagePosition});
+      @OffsetConverter() Offset securityMessagePosition,
+      @ColorConverter() Color securityMessageTextColor,
+      double securityMessageFontSize,
+      double securityMessageContainerWidth,
+      double securityMessageScrollSpeed,
+      bool securityMessageEnabled});
 }
 
 /// @nodoc
@@ -902,6 +986,11 @@ class __$CallerIdConfigCopyWithImpl<$Res>
     Object? simCardPosition = null,
     Object? stirPosition = null,
     Object? securityMessagePosition = null,
+    Object? securityMessageTextColor = null,
+    Object? securityMessageFontSize = null,
+    Object? securityMessageContainerWidth = null,
+    Object? securityMessageScrollSpeed = null,
+    Object? securityMessageEnabled = null,
   }) {
     return _then(_CallerIdConfig(
       backgroundColorStart: null == backgroundColorStart
@@ -1060,6 +1149,26 @@ class __$CallerIdConfigCopyWithImpl<$Res>
           ? _self.securityMessagePosition
           : securityMessagePosition // ignore: cast_nullable_to_non_nullable
               as Offset,
+      securityMessageTextColor: null == securityMessageTextColor
+          ? _self.securityMessageTextColor
+          : securityMessageTextColor // ignore: cast_nullable_to_non_nullable
+              as Color,
+      securityMessageFontSize: null == securityMessageFontSize
+          ? _self.securityMessageFontSize
+          : securityMessageFontSize // ignore: cast_nullable_to_non_nullable
+              as double,
+      securityMessageContainerWidth: null == securityMessageContainerWidth
+          ? _self.securityMessageContainerWidth
+          : securityMessageContainerWidth // ignore: cast_nullable_to_non_nullable
+              as double,
+      securityMessageScrollSpeed: null == securityMessageScrollSpeed
+          ? _self.securityMessageScrollSpeed
+          : securityMessageScrollSpeed // ignore: cast_nullable_to_non_nullable
+              as double,
+      securityMessageEnabled: null == securityMessageEnabled
+          ? _self.securityMessageEnabled
+          : securityMessageEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }

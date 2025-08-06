@@ -144,7 +144,7 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text(AppLocalizations.of(context)!.cancel),
+              child: Text(AppLocalizations.of(context)!.cancelButton),
             ),
             TextButton(
               onPressed: () async {
@@ -271,7 +271,7 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),

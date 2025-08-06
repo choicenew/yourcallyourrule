@@ -156,7 +156,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends ConsumerState<Gener
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
@@ -250,7 +250,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends ConsumerState<Gener
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           if (_selectedActionType != null)
             TextButton(

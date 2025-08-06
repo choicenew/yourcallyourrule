@@ -7,6 +7,7 @@ import 'package:yourcallyourrule/ads/google_ad.dart';
 
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/core/provider/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
 
 
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
@@ -33,7 +34,7 @@ class CallerIdCustomizationScreen extends ConsumerStatefulWidget {
 class _CallerIdCustomizationScreenState
     extends ConsumerState<CallerIdCustomizationScreen> {
   // 用于控制各个设置项的展开/收起状态
-  final List<bool> _isExpanded = List.generate(6, (_) => false);
+  final List<bool> _isExpanded = List.generate(7, (_) => false);
   OverlayPosition? storedPosition;
   late final ConfigRepository _configRepository;
   late final ConfigurationManager _configurationManager;
@@ -47,9 +48,10 @@ class _CallerIdCustomizationScreenState
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final styleProvider = ref.read(callerIdStyleProvider);
-      _configurationManager.loadFromRepository(styleProvider).catchError((e) {
+      final securityProvider = ref.read(coreSecurityMessageProvider);
+      _configurationManager.loadFromRepository(styleProvider, securityProvider).catchError((e) {
         // If loading fails (e.g., no saved config), save the default config
-        _configurationManager.saveToRepository(styleProvider);
+        _configurationManager.saveToRepository(styleProvider, securityProvider);
       });
     });
   }
@@ -61,6 +63,8 @@ class _CallerIdCustomizationScreenState
       body: Consumer(
         builder: (context, ref, child) {
           final styleProvider = ref.watch(callerIdStyleProvider);
+          final securityProvider = ref.watch(coreSecurityMessageProvider);
+
           return Column(
             children: [
               // Preview Area
@@ -86,17 +90,20 @@ class _CallerIdCustomizationScreenState
                     const Divider(),
                     // Style settings
                     _buildExpansionTile(AppLocalizations.of(context)!.windowSizeSetting, 0,
-                        _buildWindowSizeSliders(styleProvider), styleProvider),
+                        _buildWindowSizeSliders()),
                     _buildExpansionTile(AppLocalizations.of(context)!.backgroundGradientSetting, 1,
-                        _buildBackgroundGradient(styleProvider), styleProvider),
+                        _buildBackgroundGradient()),
                     _buildExpansionTile(AppLocalizations.of(context)!.textColorsSetting, 2,
-                        _buildTextColors(styleProvider), styleProvider),
+                        _buildTextColors()),
                     _buildExpansionTile(AppLocalizations.of(context)!.fontSizesSetting, 3,
-                        _buildFontSizes(styleProvider), styleProvider),
+                        _buildFontSizes()),
                     _buildExpansionTile(AppLocalizations.of(context)!.avatarIconSizesSetting, 4,
-                        _buildAvatarAndIconSizes(styleProvider), styleProvider),
+                        _buildAvatarAndIconSizes()),
                     _buildExpansionTile(AppLocalizations.of(context)!.elementPositionsSetting, 5,
-                        _buildElementPositions(styleProvider), styleProvider),
+                        _buildElementPositions()),
+                    _buildExpansionTile(
+                        AppLocalizations.of(context)!.scrollingSecurityMessageSettings, 6, _buildSecurityMessageSettings()),
+
                     // Ad
                     nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
                   ],
@@ -105,9 +112,8 @@ class _CallerIdCustomizationScreenState
 
               // Button Area
               ButtonPanel(
-                styleProvider: styleProvider,
                 configurationManager: _configurationManager,
-                onPreviewPressed: _showPreview,
+                onPreviewPressed: () => _showPreview(context),
               ),
             ],
           );
@@ -134,8 +140,7 @@ class _CallerIdCustomizationScreenState
 */
  
   /// Show preview
-  Future<void> _showPreview(
-      BuildContext context, CallerIdStyleProvider styleProvider) async {
+  Future<void> _showPreview(BuildContext context) async {
     // 使用 OverlayHandler 替代原有实现
     final overlayHandler = OverlayHandler();
     final mockData = CallerIdMockData.mockCallerIdData();
@@ -147,15 +152,16 @@ class _CallerIdCustomizationScreenState
     overlayHandler.setPixelRatio(mediaQuery.devicePixelRatio);
 
     // 调用OverlayHandler的统一配置更新方法
-    await overlayHandler.updateAndShareConfiguration(styleProvider);
+    final styleProvider = ref.read(callerIdStyleProvider);
+    final securityProvider = ref.read(coreSecurityMessageProvider);
+    await overlayHandler.updateAndShareConfiguration(styleProvider, securityProvider);
 
     // 显示标准化浮窗
     await overlayHandler.showCallerIdOverlay(mockData, stirInfo, simInfo);
   }
 
   /// Build collapsible setting item
-  Widget _buildExpansionTile(String title, int index, Widget content,
-      CallerIdStyleProvider styleProvider) {
+  Widget _buildExpansionTile(String title, int index, Widget content) {
     return ExpansionTile(
       title: Text(title),
       initiallyExpanded: _isExpanded[index],
@@ -166,7 +172,8 @@ class _CallerIdCustomizationScreenState
   }
 
   /// Build window size setting sliders
-  Widget _buildWindowSizeSliders(CallerIdStyleProvider styleProvider) {
+  Widget _buildWindowSizeSliders() {
+    final styleProvider = ref.read(callerIdStyleProvider);
     return Column(
       children: [
         _buildSlider(
@@ -190,7 +197,8 @@ class _CallerIdCustomizationScreenState
   }
 
   /// Build background gradient settings
-  Widget _buildBackgroundGradient(CallerIdStyleProvider styleProvider) {
+  Widget _buildBackgroundGradient() {
+    final styleProvider = ref.read(callerIdStyleProvider);
     return Column(
       children: [
         ColorPanel(
@@ -209,7 +217,8 @@ class _CallerIdCustomizationScreenState
   }
 
   /// Build text color settings
-  Widget _buildTextColors(CallerIdStyleProvider styleProvider) {
+  Widget _buildTextColors() {
+    final styleProvider = ref.read(callerIdStyleProvider);
     return Column(
       children: [
         ColorPanel(
@@ -291,7 +300,8 @@ class _CallerIdCustomizationScreenState
   }
 
   /// Build font size settings
-  Widget _buildFontSizes(CallerIdStyleProvider styleProvider) {
+  Widget _buildFontSizes() {
+    final styleProvider = ref.read(callerIdStyleProvider);
     return Column(
       children: [
         SizePanel(
@@ -349,7 +359,8 @@ class _CallerIdCustomizationScreenState
   }
 
   /// Build avatar and icon size settings
-  Widget _buildAvatarAndIconSizes(CallerIdStyleProvider styleProvider) {
+  Widget _buildAvatarAndIconSizes() {
+    final styleProvider = ref.read(callerIdStyleProvider);
     return Column(
       children: [
         _buildSlider(
@@ -378,7 +389,8 @@ class _CallerIdCustomizationScreenState
   }
 
   /// Build element position settings
-  Widget _buildElementPositions(CallerIdStyleProvider styleProvider) {
+  Widget _buildElementPositions() {
+    final styleProvider = ref.read(callerIdStyleProvider);
     return Column(
       children: [
         _buildPositionSlider(
@@ -464,6 +476,52 @@ class _CallerIdCustomizationScreenState
           SizedBox(width: 50, child: Text(value.toStringAsFixed(1))),
         ],
       ),
+    );
+  }
+
+  /// Build position slider
+  /// Build security message settings
+  Widget _buildSecurityMessageSettings() {
+    final securityMessageState = ref.watch(coreSecurityMessageProvider);
+    final securityMessageNotifier = ref.read(coreSecurityMessageProvider.notifier);
+
+    return Column(
+      children: [
+        ColorPanel(
+          title: AppLocalizations.of(context)!.messageColor,
+          currentColor: securityMessageState.textColor,
+          onColorChanged: (color) => securityMessageNotifier.setTextColor(color),
+        ),
+        SizePanel(
+          label: AppLocalizations.of(context)!.messageFontSize,
+          currentSize: securityMessageState.fontSize,
+          onSizeChanged: (size) => securityMessageNotifier.setFontSize(size),
+        ),
+        _buildPositionSlider(
+          AppLocalizations.of(context)!.messagePosition,
+          securityMessageState.position,
+          (offset) => ref.read(coreSecurityMessageProvider).updatePosition(offset),
+        ),
+        _buildSlider(
+          AppLocalizations.of(context)!.containerWidth,
+          securityMessageState.containerWidth,
+          100,
+          400,
+          (value) => ref.read(coreSecurityMessageProvider).setContainerWidth(value),
+        ),
+        _buildSlider(
+          AppLocalizations.of(context)!.scrollSpeed,
+          securityMessageState.scrollSpeed,
+          10,
+          100,
+          (value) => ref.read(coreSecurityMessageProvider).setScrollSpeed(value),
+        ),
+        SwitchListTile(
+          title: Text(AppLocalizations.of(context)!.enableSecurityMessage),
+          value: securityMessageState.isEnabled,
+          onChanged: (value) => ref.read(coreSecurityMessageProvider).setEnabled(value),
+        )
+      ],
     );
   }
 

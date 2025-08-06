@@ -15,26 +15,27 @@ import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.d
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
-import 'package:yourcallyourrule/features/call/call_history/pages/call_history_page_with_timeline.dart';
+import 'package:yourcallyourrule/features/call/call_history/pages/call_history_page_with_timeline_with_ads.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/screens/caller_id_customization_screen.dart';
+import 'package:yourcallyourrule/features/call/caller_id/presentation/pages/fraud_alert_settings_page.dart';
+import 'package:yourcallyourrule/features/caller_id/presentation/pages/caller_id_settings_page.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/pages/time_interceptor_settings_page.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call_statistics_page.dart';
 import 'package:yourcallyourrule/features/caller_id/pages/end_call_settings_page.dart';
-import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page.dart';
-import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page.dart';
+import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page_with_ads.dart';
+import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
-import 'package:yourcallyourrule/features/labels/pages/label_management_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
-import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page.dart';
+import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
-import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored.dart';
-import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page.dart';
+import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored_with_ads.dart';
+import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page.dart';
 import 'package:yourcallyourrule/features/rules/pages/regex_rule_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_page.dart';
@@ -58,6 +59,7 @@ import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
+import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
 import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
 import 'package:yourcallyourrule/presentation/settings/pages/settings_page.dart';
 
@@ -68,8 +70,8 @@ import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 
 import 'package:yourcallyourrule/features/sms/services/sms_filter_service.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
-import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page.dart';
-import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
+import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
+
 import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page.dart';
 
 import 'package:yourcallyourrule/presentation/device_management/device_management_page.dart';
@@ -82,6 +84,7 @@ import 'package:yourcallyourrule/purchase/pages/vip_exchange_page.dart';
 /// 应用路由配置
 /// 使用GoRouter管理全局路由表
 class AppRouter {
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   // 服务依赖
   final ConfigRepository configRepository;
   final TimeInterceptorService timeInterceptorService;
@@ -125,6 +128,7 @@ class AppRouter {
   static const String allowedBlockedSettings = 'allowed-blocked-settings';
   static const String ruleManagementSettings = 'rule-management-settings';
   static const String callerIdCustomization = 'caller-id-customization';
+  static const String callerIdSettings = 'caller-id-settings';
   static const String endCallSettings = 'end-call-settings';
   static const String smsFilterSettings = 'sms-filter-settings';
   static const String backupRestore = 'backup-restore';
@@ -162,10 +166,14 @@ class AppRouter {
   static const String markPhoneManagement = 'mark-phone-management';
   static const String markPhoneManagementWithAds = 'mark-phone-management-with-ads';
   static const String vipExchange = 'vip-exchange';
+  static const String purchase = 'purchase';
+  static const String settings = 'settings';
+  static const String languageSettings = 'language-settings';
 
 
   // 创建路由器
   late final router = GoRouter(
+    navigatorKey: navigatorKey,
     initialLocation: '/splash',
     routes: [
       // 启动屏幕路由
@@ -177,14 +185,24 @@ class AppRouter {
       // 设置页面路由
       GoRoute(
         path: '/settings',
-        name: 'settings',
+        name: settings,
         builder: (context, state) => const SettingsPage(),
+      ),
+      GoRoute(
+        path: '/$languageSettings',
+        name: languageSettings,
+        builder: (context, state) => const LanguageSettingsPage(),
       ),
       // 主页路由
       GoRoute(
         path: '/',
         name: home,
         builder: (context, state) => const HomePage(),
+      ),
+      GoRoute(
+        path: '/purchase',
+        name: purchase,
+        builder: (context, state) => const PurchasePage(),
       ),
       GoRoute(
         path: '/filter-settings',
@@ -237,6 +255,13 @@ class AppRouter {
         path: '/$timeInterceptorSettings',
         name: timeInterceptorSettings,
         builder: (context, state) => const TimeInterceptorSettingsPage(),
+      ),
+      
+      // 来电显示设置页面
+      GoRoute(
+        path: '/caller-id-settings',
+        name: callerIdSettings,
+        builder: (context, state) => const CallerIdSettingsPage(),
       ),
       
       // 本地过滤器设置页面
@@ -337,6 +362,13 @@ class AppRouter {
         builder: (context, state) => const CallerIdCustomizationScreen(),
       ),
 
+      // 欺诈警报设置页面
+      GoRoute(
+        path: '/fraud-alert-settings',
+        name: 'fraudAlertSettings',
+        builder: (context, state) => const FraudAlertSettingsPage(),
+      ),
+
       // 结束通话设置页面
       GoRoute(
         path: '/$endCallSettings',
@@ -410,7 +442,7 @@ class AppRouter {
       GoRoute(
         path: '/$pluginTest',
         name: pluginTest,
-        builder: (context, state) => const TestPage(title: '插件测试'),
+        builder: (context, state) => const TestPage(title: 'PluginTest'),
       ),
 
       // 正则测试页面
@@ -431,7 +463,7 @@ class AppRouter {
       GoRoute(
         path: '/$smsSubscription',
         name: smsSubscription,
-        builder: (context, state) => const SmsSubscriptionPage(),
+        builder: (context, state) => const SmsSubscriptionPageWithAds(),
       ),
 
       // 带广告的短信订阅页面
@@ -445,14 +477,14 @@ class AppRouter {
       GoRoute(
         path: '/$contactSubscription',
         name: contactSubscription,
-        builder: (context, state) => const ContactSubscriptionPage(),
+        builder: (context, state) => const ContactSubscriptionPageWithAds(),
       ),
 
       // 联系人管理页面
       GoRoute(
         path: '/$contactsManagement',
         name: contactsManagement,
-        builder: (context, state) => const ContactsManagementPage(),
+        builder: (context, state) => const ContactsManagementPageWithAds(),
       ),
 
       // 已拦截通话页面
@@ -475,7 +507,7 @@ class AppRouter {
       GoRoute(
         path: '/$callHistory',
         name: callHistory,
-        builder: (context, state) => const CallHistoryPageWithTimeline(),
+        builder: (context, state) => const CallHistoryPageWithTimelineWithAds(),
       ),
 
       // 自动更新设置页面
@@ -510,14 +542,14 @@ class AppRouter {
       GoRoute(
         path: '/plugin-management',
         name: pluginManagement,
-        builder: (context, state) => const PluginManagementPage(),
+        builder: (context, state) => const PluginManagementPageWithAds(),
       ),
 
       // 电话订阅页面
       GoRoute(
         path: '/phone-subscription',
         name: phoneSubscription,
-        builder: (context, state) => const PhoneSubscriptionPage(),
+        builder: (context, state) => const PhoneSubscriptionPageRefactoredWithAds(),
       ),
 
       // 正则规则页面
@@ -538,7 +570,7 @@ class AppRouter {
       GoRoute(
         path: '/label-management',
         name: labelManagement,
-        builder: (context, state) => const LabelManagementPage(),
+        builder: (context, state) => const LabelManagementPageWithAds(),
       ),
 
       // 带广告的标签管理页面
@@ -552,7 +584,7 @@ class AppRouter {
       GoRoute(
         path: '/mark-phone-management',
         name: markPhoneManagement,
-        builder: (context, state) => const MarkPhoneManagementPage(),
+        builder: (context, state) => const MarkPhoneManagementPageWithAds(),
       ),
       
       // 带广告的号码标记管理页面
@@ -610,7 +642,7 @@ class AppRouter {
 
   // 导航到号码标记管理页面
   void navigateToMarkPhoneManagement(BuildContext context) {
-    context.goNamed(markPhoneManagement);
+    context.goNamed(markPhoneManagementWithAds);
   }
 
   // 导航到带广告的标签管理页面

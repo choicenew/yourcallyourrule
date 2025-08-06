@@ -7,6 +7,7 @@ import 'package:yourcallyourrule/data/repositories/config/config_repository.dart
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/configuration_manager.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
 
 /// 浮窗处理器
 /// 负责处理来电显示浮窗的显示和关闭
@@ -30,12 +31,13 @@ class OverlayHandler {
       CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
     // 创建样式提供者
     final styleProvider = CallerIdStyleProvider();
+    final securityProvider = SecurityMessageProvider();
     
     // 从仓库加载配置
-    await _configManager.loadFromRepository(styleProvider);
+    await _configManager.loadFromRepository(styleProvider, securityProvider);
 
     // 更新并共享配置
-    await updateAndShareConfiguration(styleProvider);
+    await updateAndShareConfiguration(styleProvider, securityProvider);
 
     // 获取当前 Overlay 位置，如果 Overlay 处于激活状态
     if (await FlutterOverlayWindow.isActive()) {
@@ -93,9 +95,9 @@ class OverlayHandler {
 
   /// 更新并共享配置
   Future<void> updateAndShareConfiguration(
-      CallerIdStyleProvider styleProvider) async {
+      CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
     // 创建配置对象
-    final config = CallerIdConfigX.fromStyleProvider(styleProvider);
+    final config = CallerIdConfigX.fromProviders(styleProvider, securityProvider);
     
     // 添加 configType 标识
     final dataToSend = {

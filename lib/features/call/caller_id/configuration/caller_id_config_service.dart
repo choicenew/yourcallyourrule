@@ -68,6 +68,11 @@ class CallerIdConfigService {
       simCardPosition: Offset(300, 70),
       stirPosition: Offset(300, 100),
       securityMessagePosition: Offset(10, 190),
+      securityMessageTextColor: Color(0xFFFFFFFF),
+      securityMessageFontSize: 14.0,
+      securityMessageContainerWidth: 300.0,
+      securityMessageScrollSpeed: 20.0,
+      securityMessageEnabled: true,
     );
     await saveConfig(defaultConfig);
     return defaultConfig;

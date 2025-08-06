@@ -176,7 +176,7 @@ class _PhoneRuleEditDialogState extends ConsumerState<PhoneRuleEditDialog> {
       actions: [
         TextButton(
           onPressed: _isProcessing ? null : () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.cancel),
+          child: Text(AppLocalizations.of(context)!.cancelButton),
         ),
         TextButton(
           onPressed: _isProcessing ? null : _saveRule,

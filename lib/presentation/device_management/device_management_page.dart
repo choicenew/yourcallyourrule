@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:intl/intl.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad%20copy.dart';
+import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 
 import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/cloud_sync_provider.dart';
@@ -44,12 +48,21 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
           : SingleChildScrollView(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   _buildCurrentDeviceSection(currentDeviceAsync),
                   const SizedBox(height: 24),
+                                     GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd), //插入广告
+            const SizedBox(height: 16),
                   _buildRegisteredDevicesSection(
                       registeredDevicesAsync, activeService),
+              //插入广告
+       const SizedBox(height: 16),
+        nativeAdWidgetMedium(adWidth: 400, adHeight: 320),
+    /*    
+InlineAdaptiveBannerAdWidget(
+         adInfo: AdManager.adaptiveBannerAd,width: 400,)
+     */    
                 ],
               ),
             ),

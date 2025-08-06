@@ -39,7 +39,7 @@ class _AboutPageState extends State<AboutPage> {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.about),
+        title: Text(AppLocalizations.of(context)!.aboutTitle),
         centerTitle: true,
         elevation: 0,
       ),

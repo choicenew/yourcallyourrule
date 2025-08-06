@@ -2,7 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import '../router/app_router.dart';
 
 /// 通知配置类
 /// 用于配置通知的各种参数
@@ -18,8 +21,6 @@ class NotificationConfig {
   final bool enableVibration;
   final bool showBadge;
   final Color? color;
-  final String Function(String)? titleBuilder;
-  final String Function(String)? bodyBuilder;
 
   const NotificationConfig({
     required this.channelId,
@@ -33,8 +34,6 @@ class NotificationConfig {
     this.enableVibration = true,
     this.showBadge = true,
     this.color,
-    this.titleBuilder,
-    this.bodyBuilder,
   });
 
   /// 创建AndroidNotificationDetails
@@ -59,22 +58,26 @@ class NotificationConfig {
 class NotificationService {
   static final NotificationService _instance = NotificationService._internal();
   
-  factory NotificationService({NotificationConfig? defaultConfig}) {
+  factory NotificationService({NotificationConfig? defaultConfig, FlutterLocalNotificationsPlugin? notificationsPlugin}) {
     if (defaultConfig != null) {
       _instance._defaultConfig = defaultConfig;
+    }
+    if (notificationsPlugin != null) {
+      _instance._plugin = notificationsPlugin;
     }
     return _instance;
   }
   
-  NotificationService._internal() : _plugin = FlutterLocalNotificationsPlugin() {
+  NotificationService._internal() {
+    _plugin = FlutterLocalNotificationsPlugin();
     _initialize();
   }
 
-  final FlutterLocalNotificationsPlugin _plugin;
+  late FlutterLocalNotificationsPlugin _plugin;
   NotificationConfig _defaultConfig = const NotificationConfig(
-    channelId: 'default_channel',
-    channelName: '默认通知',
-    channelDescription: '应用默认通知渠道',
+    channelId: 'default_channel', // Default Channel
+    channelName: 'Default Notifications',
+    channelDescription: 'Default notification channel for the app.',
     importance: Importance.high,
     priority: Priority.high,
   );
@@ -82,26 +85,32 @@ class NotificationService {
   final Map<String, NotificationConfig> _configCache = {};
   bool _isInitialized = false;
 
-  /// 预定义的通知配置
+  /// Pre-defined notification configurations
   static final blockedCallConfig = NotificationConfig(
-    channelId: 'blocked_calls',
-    channelName: '拦截通知',
-    channelDescription: '显示被拦截的来电信息',
+    channelId: 'blocked_calls', // Blocked Calls
+    channelName: 'Blocked Call Notifications',
+    channelDescription: 'Displays information about blocked calls.',
     importance: Importance.max,
     priority: Priority.high,
     playSound: false,
-    titleBuilder: (phone) => '来电拦截',
-    bodyBuilder: (phone) => '已拦截来自 $phone 的来电',
   );
 
   static final stirResultConfig = NotificationConfig(
-    channelId: 'stir_results',
-    channelName: 'STIR验证',
-    channelDescription: '显示号码STIR验证结果',
+    channelId: 'stir_results', // STIR/SHAKEN Results
+    channelName: 'STIR/SHAKEN Verification',
+    channelDescription: 'Displays STIR/SHAKEN verification results for numbers.',
     importance: Importance.high,
     priority: Priority.high,
-    titleBuilder: (phone) => '号码验证结果',
-    bodyBuilder: (phone) => '号码 $phone 验证完成',
+  );
+
+  static final fraudAlertConfig = NotificationConfig(
+    channelId: 'fraud_alert', // Fraud Alerts
+    channelName: 'Fraud Alert Warnings',
+    channelDescription: 'Displays warnings for potential fraudulent calls.',
+    importance: Importance.max,
+    priority: Priority.high,
+    playSound: true,
+    enableVibration: true,
   );
   
   /// 初始化通知服务
@@ -129,13 +138,27 @@ class NotificationService {
   /// 处理通知响应
   void _onNotificationResponse(NotificationResponse response) {
     final payload = response.payload;
-    if (payload != null) {
-      try {
-        final Map<String, dynamic> data = jsonDecode(payload);
-        _notificationTapHandlers.forEach((handler) => handler(data));
-      } catch (e) {
-        debugPrint('通知负载解析错误: $e');
+    if (payload == null) return;
+
+    try {
+      final Map<String, dynamic> data = jsonDecode(payload);
+      final type = data['type'];
+
+      // 全局导航处理
+      final context = AppRouter.navigatorKey.currentContext;
+      if (context != null) {
+        if (type == 'call_history' || type == 'fraud_alert' || type == 'blocked_call' || type == 'stir_result') {
+          GoRouter.of(context).go(AppRouter.callHistory);
+        } else if (type == 'sms' || type == 'blocked_sms') {
+          // 可以在此处添加 SMS 相关页面的导航
+          // 例如：GoRouter.of(context).go(AppRouter.smsHistory);
+        }
       }
+
+      // 保留旧的处理方式以兼容
+      _notificationTapHandlers.forEach((handler) => handler(data));
+    } catch (e) {
+      debugPrint('Error handling notification response: $e');
     }
   }
   
@@ -179,27 +202,23 @@ class NotificationService {
   /// 显示通知
   /// [title] 通知标题
   /// [body] 通知内容
-  /// [channelId] 通知渠道ID
+  /// [config] 通知配置
   /// [notificationId] 通知ID，用于更新或取消通知
   /// [payload] 通知负载，可用于点击通知时传递数据
   Future<void> showNotification({
     required String title,
     required String body,
-    required String channelId,
+    required NotificationConfig config,
     int notificationId = 0,
     Map<String, dynamic>? payload,
-    List<NotificationAction>? actions,
     bool autoCancel = true,
     Duration? autoCancelDelay,
   }) async {
     if (!_isInitialized) await _initialize();
-    
-    // 获取通知配置
-    final config = _configCache[channelId] ?? _defaultConfig;
-    
+
     // 创建Android通知详情
     final androidDetails = config.createAndroidDetails();
-    
+
     // 显示通知
     await _plugin.show(
       notificationId,
@@ -208,69 +227,13 @@ class NotificationService {
       NotificationDetails(android: androidDetails),
       payload: payload != null ? jsonEncode(payload) : null,
     );
-    
+
     // 自动取消通知
     if (autoCancel) {
       final delay = autoCancelDelay ?? config.autoCancelDelay;
       await Future.delayed(delay);
       await _plugin.cancel(notificationId);
     }
-  }
-  
-  /// 使用预定义配置显示通知
-  Future<void> showNotificationWithConfig({
-    required NotificationConfig config,
-    required String contentData,
-    int notificationId = 0,
-    Map<String, dynamic>? payload,
-    bool autoCancel = true,
-    Duration? autoCancelDelay,
-  }) async {
-    final title = config.titleBuilder != null 
-        ? config.titleBuilder!(contentData) 
-        : '通知';
-    
-    final body = config.bodyBuilder != null 
-        ? config.bodyBuilder!(contentData) 
-        : contentData;
-    
-    await showNotification(
-      title: title,
-      body: body,
-      channelId: config.channelId,
-      notificationId: notificationId,
-      payload: payload,
-      autoCancel: autoCancel,
-      autoCancelDelay: autoCancelDelay,
-    );
-  }
-  
-  /// 显示拦截通知
-  Future<void> showBlockedCallNotification(String phoneNumber, {int notificationId = 0}) async {
-    await showNotificationWithConfig(
-      config: blockedCallConfig,
-      contentData: phoneNumber,
-      notificationId: notificationId,
-      payload: {'type': 'blocked_call', 'phoneNumber': phoneNumber},
-    );
-  }
-  
-  /// 显示STIR验证通知
-  Future<void> showStirResultNotification(
-    String phoneNumber, 
-    String verificationResult, 
-    {int notificationId = 0}
-  ) async {
-    await showNotificationWithConfig(
-      config: stirResultConfig,
-      contentData: phoneNumber,
-      notificationId: notificationId,
-      payload: {
-        'type': 'stir_result', 
-        'phoneNumber': phoneNumber,
-        'result': verificationResult
-      },
-    );
   }
 
   /// 取消通知

@@ -447,12 +447,12 @@ class RemoteNumberDataSource
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(
       _syncTableName,
-      orderBy: 'lastSyncTime DESC',
+      orderBy: 'syncTime DESC',
       limit: 1,
     );
 
     if (maps.isNotEmpty) {
-      final String timeString = maps.first['lastSyncTime'] as String;
+      final String timeString = maps.first['syncTime'] as String;
       return DateTime.parse(timeString);
     }
     return null;

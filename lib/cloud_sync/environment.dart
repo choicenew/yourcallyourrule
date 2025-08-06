@@ -12,7 +12,9 @@ class Environment {
   static const msalIosAuthority = String.fromEnvironment('MSAL_IOS_AUTHORITY',
       defaultValue: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize');
   
-  // Google Drive Configuration is not needed as it uses app signature for authentication
+  // Google Drive Configuration
+  static const googleDriveClientId = String.fromEnvironment('GOOGLE_DRIVE_CLIENT_ID',
+      defaultValue: '103585266847-746m8o2pmktgdcqiqvhgr7re8c1e6e2h.apps.googleusercontent.com');
   
   // Add other environment configurations as needed
 }

@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -118,7 +119,7 @@ class FeatureCenter extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey.withValues(alpha: 0.1),
+          color: Color((Random().nextDouble() * 0xFFFFFF).toInt()).withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -129,6 +130,7 @@ class FeatureCenter extends StatelessWidget {
             Text(
               title,
               style: const TextStyle(fontSize: 14),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

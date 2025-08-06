@@ -324,7 +324,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),

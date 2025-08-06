@@ -45,10 +45,21 @@ class IncomingSmsHandler extends BaseSmsHandler {
 
     // 根据过滤结果显示通知
     if (shouldNotifyUser) {
-      await _notificationHandler.showSmsNotification(phoneNumber, messageContent);
+      // TODO: 以后将 hardcode 的字符串改为国际化
+      await _notificationHandler.showSmsNotification(
+        title: '收到新短信',
+        body: messageContent,
+        phoneNumber: phoneNumber,
+        messageContent: messageContent,
+      );
     } else {
       // 显示拦截通知
-      await _notificationHandler.showBlockedSmsNotification(phoneNumber);
+      // TODO: 以后将 hardcode 的字符串改为国际化
+      await _notificationHandler.showBlockedSmsNotification(
+        title: '已拦截短信',
+        body: '已成功拦截来自 $phoneNumber 的短信',
+        phoneNumber: phoneNumber,
+      );
       
       // 添加到短信拦截记录
       await _blockedCallRepository.addBlockedSms(phoneNumber);

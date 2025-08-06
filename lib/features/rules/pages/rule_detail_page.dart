@@ -215,7 +215,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context)!.cancel),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
@@ -288,7 +288,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
                     Expanded(
                       child: OutlinedButton(
                         onPressed: _cancelEditing,
-                        child: Text(AppLocalizations.of(context)!.cancel),
+                        child: Text(AppLocalizations.of(context)!.cancelButton),
                       ),
                     ),
                     const SizedBox(width: 16),

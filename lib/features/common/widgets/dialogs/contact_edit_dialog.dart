@@ -216,7 +216,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
               children: [
                 TextButton(
                   onPressed: _isProcessing ? null : () => Navigator.pop(context),
-                  child: Text(AppLocalizations.of(context)!.cancel),
+                  child: Text(AppLocalizations.of(context)!.cancelButton),
                 ),
                 ElevatedButton(
                   onPressed: _isProcessing ? null : _saveContact,

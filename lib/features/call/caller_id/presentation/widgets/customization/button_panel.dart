@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/provider/providers/caller_id_style_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/configuration_manager.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class ButtonPanel extends StatelessWidget {
-  final CallerIdStyleProvider styleProvider;
+class ButtonPanel extends ConsumerWidget {
   final ConfigurationManager configurationManager;
-  final Function(BuildContext, CallerIdStyleProvider) onPreviewPressed;
+  final VoidCallback onPreviewPressed;
 
   const ButtonPanel({
     super.key,
-    required this.styleProvider,
     required this.configurationManager,
     required this.onPreviewPressed,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.all(30.0),
       child: Row(
@@ -28,7 +28,9 @@ class ButtonPanel extends StatelessWidget {
               try {
                 final result = await FilePicker.platform.pickFiles();
                 if (result != null && result.files.single.path != null) {
-                  await configurationManager.importConfig(result.files.single.path!, styleProvider);
+                  final styleProvider = ref.read(callerIdStyleProvider.notifier);
+                  final securityProvider = ref.read(coreSecurityMessageProvider.notifier);
+                  await configurationManager.importConfig(result.files.single.path!, styleProvider, securityProvider);
                 }
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -76,8 +78,10 @@ class ButtonPanel extends StatelessWidget {
           ),
           FilledButton(
             onPressed: () async {
-              onPreviewPressed(context, styleProvider); // Preview
-              await configurationManager.saveToRepository(styleProvider);
+              onPreviewPressed(); // Preview
+              final styleProvider = ref.read(callerIdStyleProvider.notifier);
+              final securityProvider = ref.read(coreSecurityMessageProvider.notifier);
+              await configurationManager.saveToRepository(styleProvider, securityProvider);
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(

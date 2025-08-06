@@ -260,7 +260,7 @@ class CallLogCard extends ConsumerWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)?.cancel ?? "取消"),
+            child: Text(AppLocalizations.of(context)?.cancelButton ?? "取消"),
           ),
           TextButton(
             onPressed: () {

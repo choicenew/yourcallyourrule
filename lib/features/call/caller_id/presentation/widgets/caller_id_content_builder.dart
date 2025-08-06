@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/core/provider/providers/security_message_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/core/extensions/phone_number_type_extension.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/scrolling_security_message.dart';
@@ -33,14 +33,14 @@ class CallerIdContentBuilder {
           // 如果是诈骗电话，设置警告消息
           if (isFraudulent) {
             // 获取 SecurityMessageProvider 实例
-            final securityMessageState = ref.read(securityMessageProvider);
+            final securityMessageState = ref.read(coreSecurityMessageProvider);
             // 设置诈骗警告消息（使用国际化字符串）
             securityMessageState.setMessage(AppLocalizations.of(context)!.fraudAlert);
             securityMessageState.setTextColor(Colors.red);
             securityMessageState.setEnabled(true);
             
             // 增强反诈骗提醒 - 添加震动和闪烁效果
-            FraudDetectionService.triggerFraudAlertDialog(callerIdData.phoneNumber.value);
+            FraudDetectionService.triggerFraudAlert(callerIdData.phoneNumber.value);
           }
           return ScrollingSecurityMessage(isDraggable: isDraggable);
         }),
@@ -206,7 +206,7 @@ class CallerIdContentBuilder {
           _buildPositionedElement(
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha:0.5),
                 borderRadius: BorderRadius.circular(8.0),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
@@ -264,7 +264,7 @@ class CallerIdContentBuilder {
       builder: (context, value, child) {
         return CircleAvatar(
           radius: styleProvider.avatarBorderSize / 2,
-          backgroundColor: Colors.red.withOpacity(value),
+          backgroundColor: Colors.red.withValues(alpha: value),
           child: CircleAvatar(
             radius: styleProvider.avatarSize / 2,
             backgroundImage: _getAvatarImage(callerIdData),
