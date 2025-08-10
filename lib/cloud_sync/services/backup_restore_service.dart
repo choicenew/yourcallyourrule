@@ -458,7 +458,7 @@ class BackupRestoreService {
             // 遍历所有配置并还原
             for (final entry in configs.entries) {
               if (entry.value is Map<String, dynamic>) {
-                await _configBackupService._configRepository.saveConfig(
+                await _configBackupService.configRepository.saveConfig(
                   entry.key, 
                   entry.value as Map<String, dynamic>
                 );
