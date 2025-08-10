@@ -10,12 +10,15 @@ class AllowedBlockedRule extends RuleBase {
   final int count;
   final String? avatar; // 头像字段
 
+  final String ruleType;
+
   AllowedBlockedRule({
     required super.id,
     required super.name,
     required super.action, // action 现在是必须的，并且由构造函数直接接收
     required this.phoneNumber,
     required this.labelId,
+    this.ruleType = 'allow_block',
     RulePriority? priority, // 优先级变为可选
     super.isEnabled = true,
     this.isSubscribed = false,
@@ -50,9 +53,10 @@ class AllowedBlockedRule extends RuleBase {
       ..addAll({
         'phoneNumber': phoneNumber.value,
         'labelId': labelId,
-        'isSubscribed': isSubscribed,
+        'isSubscribed': isSubscribed ? 1 : 0,
         'count': count,
         'avatar': avatar,
+        'ruleType': ruleType,
       });
   }
 
@@ -65,10 +69,11 @@ class AllowedBlockedRule extends RuleBase {
       action: action, // action 从 map 中获取
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
       labelId: map['labelId'],
-      isEnabled: map['isEnabled'] ?? true,
-      isSubscribed: map['isSubscribed'] ?? false,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
+      ruleType: map['ruleType'] ?? 'allow_block',
     );
   }
 
@@ -84,6 +89,7 @@ class AllowedBlockedRule extends RuleBase {
     bool? isSubscribed,
     int? count,
     String? avatar,
+    String? ruleType,
   }) {
     return AllowedBlockedRule(
       id: id ?? this.id,
@@ -96,6 +102,7 @@ class AllowedBlockedRule extends RuleBase {
       isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,
       avatar: avatar ?? this.avatar,
+      ruleType: ruleType ?? this.ruleType,
     );
   }
 }

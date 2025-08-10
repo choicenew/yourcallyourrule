@@ -6,6 +6,8 @@ import 'dart:async';
 
 import '../database_manager.dart';
 import '../migration/database_migration.dart';
+import '../../../common/utils/predefined_labels.dart';
+import 'package:uuid/uuid.dart';
 import '../../../main.dart' show isOverlayMode;
 
 // 本地数据库管理器实现类
@@ -101,17 +103,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
       )
     ''');
 
-    // 创建正则规则表
-    await db.execute('''
-      CREATE TABLE IF NOT EXISTS regex_rules (
-        id TEXT PRIMARY KEY,
-        pattern TEXT NOT NULL,
-        action TEXT NOT NULL,
-        name TEXT NOT NULL,
-        priority INTEGER NOT NULL,
-        isEnabled INTEGER NOT NULL DEFAULT 1
-      )
-    ''');
+
 
     // 创建规则表（统一处理黑白名单/allow/block）
     await db.execute('''
@@ -122,7 +114,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         phoneNumber TEXT,
         labelId TEXT, -- Changed from label to labelId
         priority INTEGER NOT NULL,
-        action TEXT NOT NULL,
+        action TEXT NOT NULL DEFAULT 'none',
         isEnabled INTEGER NOT NULL DEFAULT 1,
         pattern TEXT,
         avatar TEXT,
@@ -138,9 +130,9 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         name TEXT NOT NULL,
         url TEXT NOT NULL,
         table_type TEXT NOT NULL,
-        enabled INTEGER NOT NULL DEFAULT 1,
-        last_updated TEXT NOT NULL,
-        is_auto_update INTEGER NOT NULL DEFAULT 0,
+        isEnabled INTEGER NOT NULL DEFAULT 1,
+        lastUpdated TEXT NOT NULL,
+        autoUpdate INTEGER NOT NULL DEFAULT 0,
         contact_group TEXT,
         keyword_filters TEXT,
         action TEXT NOT NULL DEFAULT 'none'
@@ -229,19 +221,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
       )
     ''');
 
-    // 创建规则表
-    await db.execute('''
-      CREATE TABLE IF NOT EXISTS rules (
-        id TEXT PRIMARY KEY,
-        name TEXT NOT NULL,
-        conditions TEXT NOT NULL,
-        actions TEXT NOT NULL,
-        isEnabled INTEGER NOT NULL DEFAULT 1,
-        priority INTEGER NOT NULL DEFAULT 0,
-        createdAt TEXT NOT NULL,
-        updatedAt TEXT NOT NULL
-      )
-    ''');
+
     
     // 创建SIM卡槽位规则表
     await db.execute('''
@@ -287,6 +267,21 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         'total_count': 0,
         'last_updated': DateTime.now().toIso8601String()
       });
+    }
+
+    // Insert predefined labels
+    const uuid = Uuid();
+    for (final label in predefinedLabels) {
+      await db.insert(
+        'predefined_labels',
+        {
+          'id': uuid.v4(),
+          'text': label['text'],
+          'avatar': label['avatar'],
+          'icon': label['icon'],
+        },
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
     }
   }
 

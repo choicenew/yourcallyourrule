@@ -30,9 +30,9 @@ class FeatureCenter extends StatelessWidget {
               children: [
                 _buildFeatureItem(
                   context: context,
-                  title: AppLocalizations.of(context)!.labelManagement,
+                  title: AppLocalizations.of(context)!.markPhoneManagementTitle,
                   icon: Icons.label,
-                  onTap: () => context.push('/label-management'),
+                  onTap: () => context.push('/mark-phone-management-with-ads'),
                 ),
                 _buildFeatureItem(
                   context: context,

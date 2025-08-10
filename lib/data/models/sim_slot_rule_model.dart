@@ -43,7 +43,7 @@ class SimSlotRuleModel extends RuleBase {
       simSlotIndex: map['simSlotIndex'],
       labelId: map['labelId'] ?? map['label'] ?? '', // 兼容旧数据
       avatar: map['avatar'],
-      isEnabled: map['isEnabled'] ?? true,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
     );
   }
   

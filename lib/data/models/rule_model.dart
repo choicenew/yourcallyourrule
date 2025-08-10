@@ -41,7 +41,7 @@ abstract class RuleModel extends BaseModel<RuleBase> {
       'name': name,
       'priority': priority,
       'action': action,
-      'isEnabled': isEnabled,
+      'isEnabled': isEnabled ? 1 : 0,
       'ruleType': ruleType,
     });
     return map;

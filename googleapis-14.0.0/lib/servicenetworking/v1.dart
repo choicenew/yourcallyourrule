@@ -1,0 +1,3301 @@
+// This is a generated file (see the discoveryapis_generator project).
+
+// ignore_for_file: camel_case_types
+// ignore_for_file: comment_references
+// ignore_for_file: deprecated_member_use_from_same_package
+// ignore_for_file: doc_directive_unknown
+// ignore_for_file: lines_longer_than_80_chars
+// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: prefer_interpolation_to_compose_strings
+// ignore_for_file: unintended_html_in_doc_comment
+// ignore_for_file: unnecessary_brace_in_string_interps
+// ignore_for_file: unnecessary_lambdas
+// ignore_for_file: unnecessary_string_interpolations
+
+/// Service Networking API - v1
+///
+/// Provides automatic management of network configurations necessary for
+/// certain services.
+///
+/// For more information, see
+/// <https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started>
+///
+/// Create an instance of [ServiceNetworkingApi] to access these resources:
+///
+/// - [OperationsResource]
+/// - [ServicesResource]
+///   - [ServicesConnectionsResource]
+///   - [ServicesDnsRecordSetsResource]
+///   - [ServicesDnsZonesResource]
+///   - [ServicesProjectsResource]
+///     - [ServicesProjectsGlobalResource]
+///       - [ServicesProjectsGlobalNetworksResource]
+///         - [ServicesProjectsGlobalNetworksDnsZonesResource]
+///         - [ServicesProjectsGlobalNetworksPeeredDnsDomainsResource]
+///   - [ServicesRolesResource]
+library;
+
+import 'dart:async' as async;
+import 'dart:convert' as convert;
+import 'dart:core' as core;
+
+import 'package:_discoveryapis_commons/_discoveryapis_commons.dart' as commons;
+import 'package:http/http.dart' as http;
+
+import '../shared.dart';
+import '../src/user_agent.dart';
+
+export 'package:_discoveryapis_commons/_discoveryapis_commons.dart'
+    show ApiRequestError, DetailedApiRequestError;
+
+/// Provides automatic management of network configurations necessary for
+/// certain services.
+class ServiceNetworkingApi {
+  /// See, edit, configure, and delete your Google Cloud data and see the email
+  /// address for your Google Account.
+  static const cloudPlatformScope =
+      'https://www.googleapis.com/auth/cloud-platform';
+
+  /// Manage your Google API service configuration
+  static const serviceManagementScope =
+      'https://www.googleapis.com/auth/service.management';
+
+  final commons.ApiRequester _requester;
+
+  OperationsResource get operations => OperationsResource(_requester);
+  ServicesResource get services => ServicesResource(_requester);
+
+  ServiceNetworkingApi(http.Client client,
+      {core.String rootUrl = 'https://servicenetworking.googleapis.com/',
+      core.String servicePath = ''})
+      : _requester =
+            commons.ApiRequester(client, rootUrl, servicePath, requestHeaders);
+}
+
+class OperationsResource {
+  final commons.ApiRequester _requester;
+
+  OperationsResource(commons.ApiRequester client) : _requester = client;
+
+  /// Starts asynchronous cancellation on a long-running operation.
+  ///
+  /// The server makes a best effort to cancel the operation, but success is not
+  /// guaranteed. If the server doesn't support this method, it returns
+  /// `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation
+  /// or other methods to check whether the cancellation succeeded or whether
+  /// the operation completed despite cancellation. On successful cancellation,
+  /// the operation is not deleted; instead, it becomes an operation with an
+  /// Operation.error value with a google.rpc.Status.code of `1`, corresponding
+  /// to `Code.CANCELLED`.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - The name of the operation resource to be cancelled.
+  /// Value must have pattern `^operations/.*$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Empty].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Empty> cancel(
+    CancelOperationRequest request,
+    core.String name, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name') + ':cancel';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Empty.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Deletes a long-running operation.
+  ///
+  /// This method indicates that the client is no longer interested in the
+  /// operation result. It does not cancel the operation. If the server doesn't
+  /// support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - The name of the operation resource to be deleted.
+  /// Value must have pattern `^operations/.*$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Empty].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Empty> delete(
+    core.String name, {
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name');
+
+    final response_ = await _requester.request(
+      url_,
+      'DELETE',
+      queryParams: queryParams_,
+    );
+    return Empty.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Gets the latest state of a long-running operation.
+  ///
+  /// Clients can use this method to poll the operation result at intervals as
+  /// recommended by the API service.
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - The name of the operation resource.
+  /// Value must have pattern `^operations/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> get(
+    core.String name, {
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name');
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Lists operations that match the specified filter in the request.
+  ///
+  /// If the server doesn't support this method, it returns `UNIMPLEMENTED`.
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - The name of the operation's parent resource.
+  /// Value must have pattern `^operations$`.
+  ///
+  /// [filter] - The standard list filter.
+  ///
+  /// [pageSize] - The standard list page size.
+  ///
+  /// [pageToken] - The standard list page token.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [ListOperationsResponse].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<ListOperationsResponse> list(
+    core.String name, {
+    core.String? filter,
+    core.int? pageSize,
+    core.String? pageToken,
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if (filter != null) 'filter': [filter],
+      if (pageSize != null) 'pageSize': ['${pageSize}'],
+      if (pageToken != null) 'pageToken': [pageToken],
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name');
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return ListOperationsResponse.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+}
+
+class ServicesResource {
+  final commons.ApiRequester _requester;
+
+  ServicesConnectionsResource get connections =>
+      ServicesConnectionsResource(_requester);
+  ServicesDnsRecordSetsResource get dnsRecordSets =>
+      ServicesDnsRecordSetsResource(_requester);
+  ServicesDnsZonesResource get dnsZones => ServicesDnsZonesResource(_requester);
+  ServicesProjectsResource get projects => ServicesProjectsResource(_requester);
+  ServicesRolesResource get roles => ServicesRolesResource(_requester);
+
+  ServicesResource(commons.ApiRequester client) : _requester = client;
+
+  /// For service producers, provisions a new subnet in a peered service's
+  /// shared VPC network in the requested region and with the requested size
+  /// that's expressed as a CIDR range (number of leading bits of ipV4 network
+  /// mask).
+  ///
+  /// The method checks against the assigned allocated ranges to find a
+  /// non-conflicting IP address range. The method will reuse a subnet if
+  /// subsequent calls contain the same subnet name, region, and prefix length.
+  /// This method will make producer's tenant project to be a shared VPC service
+  /// project as needed.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. A tenant project in the service producer
+  /// organization, in the following format:
+  /// services/{service}/{collection-id}/{resource-id}. {collection-id} is the
+  /// cloud resource collection type that represents the tenant project. Only
+  /// `projects` are supported. {resource-id} is the tenant project numeric id,
+  /// such as `123456`. {service} the name of the peering service, such as
+  /// `service-peering.example.com`. This service must already be enabled in the
+  /// service consumer's project.
+  /// Value must have pattern `^services/\[^/\]+/\[^/\]+/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> addSubnetwork(
+    AddSubnetworkRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + ':addSubnetwork';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Disables VPC service controls for a connection.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - The service that is managing peering connectivity for a service
+  /// producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> disableVpcServiceControls(
+    DisableVpcServiceControlsRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ =
+        'v1/' + core.Uri.encodeFull('$parent') + ':disableVpcServiceControls';
+
+    final response_ = await _requester.request(
+      url_,
+      'PATCH',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Enables VPC service controls for a connection.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - The service that is managing peering connectivity for a service
+  /// producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> enableVpcServiceControls(
+    EnableVpcServiceControlsRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ =
+        'v1/' + core.Uri.encodeFull('$parent') + ':enableVpcServiceControls';
+
+    final response_ = await _requester.request(
+      url_,
+      'PATCH',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Service producers can use this method to find a currently unused range
+  /// within consumer allocated ranges.
+  ///
+  /// This returned range is not reserved, and not guaranteed to remain unused.
+  /// It will validate previously provided allocated ranges, find
+  /// non-conflicting sub-range of requested size (expressed in number of
+  /// leading bits of ipv4 network mask, as in CIDR range notation).
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. This is in a form services/{service}. {service} the
+  /// name of the private access management service, for example
+  /// 'service-peering.example.com'.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> searchRange(
+    SearchRangeRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + ':searchRange';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Service producers use this method to validate if the consumer provided
+  /// network, project and requested range are valid.
+  ///
+  /// This allows them to use a fail-fast mechanism for consumer requests, and
+  /// not have to wait for AddSubnetwork operation completion to determine if
+  /// user request is invalid.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. This is in a form services/{service} where {service}
+  /// is the name of the private access management service. For example
+  /// 'service-peering.example.com'.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [ValidateConsumerConfigResponse].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<ValidateConsumerConfigResponse> validate(
+    ValidateConsumerConfigRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + ':validate';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return ValidateConsumerConfigResponse.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+}
+
+class ServicesConnectionsResource {
+  final commons.ApiRequester _requester;
+
+  ServicesConnectionsResource(commons.ApiRequester client)
+      : _requester = client;
+
+  /// Creates a private connection that establishes a VPC Network Peering
+  /// connection to a VPC network in the service producer's organization.
+  ///
+  /// The administrator of the service consumer's VPC network invokes this
+  /// method. The administrator must assign one or more allocated IP ranges for
+  /// provisioning subnetworks in the service producer's VPC network. This
+  /// connection is used for all supported services in the service producer's
+  /// organization, so it only needs to be invoked once.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - The service that is managing peering connectivity for a service
+  /// producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> create(
+    Connection request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/connections';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Deletes a private service access connection.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - Required. The private service connection that connects to a
+  /// service producer organization. The name includes both the private service
+  /// name and the VPC network peering name in the format of
+  /// `services/{peering_service_name}/connections/{vpc_peering_name}`. For
+  /// Google services that support this functionality, this is
+  /// `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
+  /// Value must have pattern `^services/\[^/\]+/connections/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> deleteConnection(
+    DeleteConnectionRequest request,
+    core.String name, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name');
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// List the private connections that are configured in a service consumer's
+  /// VPC network.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - The service that is managing peering connectivity for a service
+  /// producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// If you specify `services/-` as the parameter value, all configured peering
+  /// services are listed.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [network] - The name of service consumer's VPC network that's connected
+  /// with service producer network through a private connection. The network
+  /// name must be in the following format:
+  /// `projects/{project}/global/networks/{network}`. {project} is a project
+  /// number, such as in `12345` that includes the VPC service consumer's VPC
+  /// network. {network} is the name of the service consumer's VPC network.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [ListConnectionsResponse].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<ListConnectionsResponse> list(
+    core.String parent, {
+    core.String? network,
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if (network != null) 'network': [network],
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/connections';
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return ListConnectionsResponse.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Updates the allocated ranges that are assigned to a connection.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - The private service connection that connects to a service
+  /// producer organization. The name includes both the private service name and
+  /// the VPC network peering name in the format of
+  /// `services/{peering_service_name}/connections/{vpc_peering_name}`. For
+  /// Google services that support this functionality, this is
+  /// `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
+  /// Value must have pattern `^services/\[^/\]+/connections/\[^/\]+$`.
+  ///
+  /// [force] - If a previously defined allocated range is removed, force flag
+  /// must be set to true.
+  ///
+  /// [updateMask] - The update mask. If this is omitted, it defaults to "*".
+  /// You can only update the listed peering ranges.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> patch(
+    Connection request,
+    core.String name, {
+    core.bool? force,
+    core.String? updateMask,
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if (force != null) 'force': ['${force}'],
+      if (updateMask != null) 'updateMask': [updateMask],
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name');
+
+    final response_ = await _requester.request(
+      url_,
+      'PATCH',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+}
+
+class ServicesDnsRecordSetsResource {
+  final commons.ApiRequester _requester;
+
+  ServicesDnsRecordSetsResource(commons.ApiRequester client)
+      : _requester = client;
+
+  /// Service producers can use this method to add DNS record sets to private
+  /// DNS zones in the shared producer host project.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. The service that is managing peering connectivity for
+  /// a service producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> add(
+    AddDnsRecordSetRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/dnsRecordSets:add';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Producers can use this method to retrieve information about the DNS record
+  /// set added to the private zone inside the shared tenant host project
+  /// associated with a consumer network.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. Parent resource identifying the connection which owns
+  /// this collection of DNS zones in the format services/{service}.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [consumerNetwork] - Required. The consumer network containing the record
+  /// set. Must be in the form of projects/{project}/global/networks/{network}
+  ///
+  /// [domain] - Required. The domain name of the zone containing the recordset.
+  ///
+  /// [type] - Required. RecordSet Type eg. type='A'. See the list of
+  /// [Supported DNS Types](https://cloud.google.com/dns/records/json-record).
+  ///
+  /// [zone] - Required. The name of the zone containing the record set.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [DnsRecordSet].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<DnsRecordSet> get(
+    core.String parent, {
+    core.String? consumerNetwork,
+    core.String? domain,
+    core.String? type,
+    core.String? zone,
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if (consumerNetwork != null) 'consumerNetwork': [consumerNetwork],
+      if (domain != null) 'domain': [domain],
+      if (type != null) 'type': [type],
+      if (zone != null) 'zone': [zone],
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/dnsRecordSets:get';
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return DnsRecordSet.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Producers can use this method to retrieve a list of available DNS
+  /// RecordSets available inside the private zone on the tenant host project
+  /// accessible from their network.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. The service that is managing peering connectivity for
+  /// a service producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [consumerNetwork] - Required. The network that the consumer is using to
+  /// connect with services. Must be in the form of
+  /// projects/{project}/global/networks/{network} {project} is the project
+  /// number, as in '12345' {network} is the network name.
+  ///
+  /// [zone] - Required. The name of the private DNS zone in the shared producer
+  /// host project from which the record set will be removed.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [ListDnsRecordSetsResponse].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<ListDnsRecordSetsResponse> list(
+    core.String parent, {
+    core.String? consumerNetwork,
+    core.String? zone,
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if (consumerNetwork != null) 'consumerNetwork': [consumerNetwork],
+      if (zone != null) 'zone': [zone],
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/dnsRecordSets:list';
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return ListDnsRecordSetsResponse.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Service producers can use this method to remove DNS record sets from
+  /// private DNS zones in the shared producer host project.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. The service that is managing peering connectivity for
+  /// a service producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> remove(
+    RemoveDnsRecordSetRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ =
+        'v1/' + core.Uri.encodeFull('$parent') + '/dnsRecordSets:remove';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Service producers can use this method to update DNS record sets from
+  /// private DNS zones in the shared producer host project.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. The service that is managing peering connectivity for
+  /// a service producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> update(
+    UpdateDnsRecordSetRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ =
+        'v1/' + core.Uri.encodeFull('$parent') + '/dnsRecordSets:update';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+}
+
+class ServicesDnsZonesResource {
+  final commons.ApiRequester _requester;
+
+  ServicesDnsZonesResource(commons.ApiRequester client) : _requester = client;
+
+  /// Service producers can use this method to add private DNS zones in the
+  /// shared producer host project and matching peering zones in the consumer
+  /// project.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. The service that is managing peering connectivity for
+  /// a service producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> add(
+    AddDnsZoneRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/dnsZones:add';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Service producers can use this method to remove private DNS zones in the
+  /// shared producer host project and matching peering zones in the consumer
+  /// project.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. The service that is managing peering connectivity for
+  /// a service producer's organization. For Google services that support this
+  /// functionality, this value is `services/servicenetworking.googleapis.com`.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> remove(
+    RemoveDnsZoneRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/dnsZones:remove';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+}
+
+class ServicesProjectsResource {
+  final commons.ApiRequester _requester;
+
+  ServicesProjectsGlobalResource get global =>
+      ServicesProjectsGlobalResource(_requester);
+
+  ServicesProjectsResource(commons.ApiRequester client) : _requester = client;
+}
+
+class ServicesProjectsGlobalResource {
+  final commons.ApiRequester _requester;
+
+  ServicesProjectsGlobalNetworksResource get networks =>
+      ServicesProjectsGlobalNetworksResource(_requester);
+
+  ServicesProjectsGlobalResource(commons.ApiRequester client)
+      : _requester = client;
+}
+
+class ServicesProjectsGlobalNetworksResource {
+  final commons.ApiRequester _requester;
+
+  ServicesProjectsGlobalNetworksDnsZonesResource get dnsZones =>
+      ServicesProjectsGlobalNetworksDnsZonesResource(_requester);
+  ServicesProjectsGlobalNetworksPeeredDnsDomainsResource get peeredDnsDomains =>
+      ServicesProjectsGlobalNetworksPeeredDnsDomainsResource(_requester);
+
+  ServicesProjectsGlobalNetworksResource(commons.ApiRequester client)
+      : _requester = client;
+
+  /// Service producers use this method to get the configuration of their
+  /// connection including the import/export of custom routes and subnetwork
+  /// routes with public IP.
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - Required. Name of the consumer config to retrieve in the format:
+  /// `services/{service}/projects/{project}/global/networks/{network}`.
+  /// {service} is the peering service that is managing connectivity for the
+  /// service producer's organization. For Google services that support this
+  /// functionality, this value is `servicenetworking.googleapis.com`. {project}
+  /// is a project number e.g. `12345` that contains the service consumer's VPC
+  /// network. {network} is the name of the service consumer's VPC network.
+  /// Value must have pattern
+  /// `^services/\[^/\]+/projects/\[^/\]+/global/networks/\[^/\]+$`.
+  ///
+  /// [includeUsedIpRanges] - Optional. When true, include the used IP ranges as
+  /// part of the GetConsumerConfig output. This includes routes created inside
+  /// the service networking network, consumer network, peers of the consumer
+  /// network, and reserved ranges inside the service networking network. By
+  /// default, this is false
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [ConsumerConfig].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<ConsumerConfig> get(
+    core.String name, {
+    core.bool? includeUsedIpRanges,
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if (includeUsedIpRanges != null)
+        'includeUsedIpRanges': ['${includeUsedIpRanges}'],
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name');
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return ConsumerConfig.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Consumers use this method to find out the state of VPC Service Controls.
+  ///
+  /// The controls could be enabled or disabled for a connection.
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - Required. Name of the VPC Service Controls config to retrieve in
+  /// the format:
+  /// `services/{service}/projects/{project}/global/networks/{network}`.
+  /// {service} is the peering service that is managing connectivity for the
+  /// service producer's organization. For Google services that support this
+  /// functionality, this value is `servicenetworking.googleapis.com`. {project}
+  /// is a project number e.g. `12345` that contains the service consumer's VPC
+  /// network. {network} is the name of the service consumer's VPC network.
+  /// Value must have pattern
+  /// `^services/\[^/\]+/projects/\[^/\]+/global/networks/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [VpcServiceControls].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<VpcServiceControls> getVpcServiceControls(
+    core.String name, {
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name') + '/vpcServiceControls';
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return VpcServiceControls.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Service producers use this method to update the configuration of their
+  /// connection including the import/export of custom routes and subnetwork
+  /// routes with public IP.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. Parent resource identifying the connection for which
+  /// the consumer config is being updated in the format:
+  /// `services/{service}/projects/{project}/global/networks/{network}`
+  /// {service} is the peering service that is managing connectivity for the
+  /// service producer's organization. For Google services that support this
+  /// functionality, this value is `servicenetworking.googleapis.com`. {project}
+  /// is the number of the project that contains the service consumer's VPC
+  /// network e.g. `12345`. {network} is the name of the service consumer's VPC
+  /// network.
+  /// Value must have pattern
+  /// `^services/\[^/\]+/projects/\[^/\]+/global/networks/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> updateConsumerConfig(
+    UpdateConsumerConfigRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ =
+        'v1/' + core.Uri.encodeFull('$parent') + ':updateConsumerConfig';
+
+    final response_ = await _requester.request(
+      url_,
+      'PATCH',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+}
+
+class ServicesProjectsGlobalNetworksDnsZonesResource {
+  final commons.ApiRequester _requester;
+
+  ServicesProjectsGlobalNetworksDnsZonesResource(commons.ApiRequester client)
+      : _requester = client;
+
+  /// Service producers can use this method to retrieve a DNS zone in the shared
+  /// producer host project and the matching peering zones in consumer project
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - Required. The network that the consumer is using to connect with
+  /// services. Must be in the form of
+  /// services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName}
+  /// Where {service} is the peering service that is managing connectivity for
+  /// the service producer's organization. For Google services that support this
+  /// {project} is the project number, as in '12345' {network} is the network
+  /// name. {zoneName} is the DNS zone name
+  /// Value must have pattern
+  /// `^services/\[^/\]+/projects/\[^/\]+/global/networks/\[^/\]+/dnsZones/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [GetDnsZoneResponse].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<GetDnsZoneResponse> get(
+    core.String name, {
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name');
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return GetDnsZoneResponse.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// * Service producers can use this method to retrieve a list of available
+  /// DNS zones in the shared producer host project and the matching peering
+  /// zones in the consumer project.
+  ///
+  /// *
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. Parent resource identifying the connection which owns
+  /// this collection of DNS zones in the format
+  /// services/{service}/projects/{project}/global/networks/{network} Service:
+  /// The service that is managing connectivity for the service producer's
+  /// organization. For Google services that support this functionality, this
+  /// value is `servicenetworking.googleapis.com`. Projects: the consumer
+  /// project containing the consumer network. Network: The consumer network
+  /// accessible from the tenant project.
+  /// Value must have pattern
+  /// `^services/\[^/\]+/projects/\[^/\]+/global/networks/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [ListDnsZonesResponse].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<ListDnsZonesResponse> list(
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/dnsZones:list';
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return ListDnsZonesResponse.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+}
+
+class ServicesProjectsGlobalNetworksPeeredDnsDomainsResource {
+  final commons.ApiRequester _requester;
+
+  ServicesProjectsGlobalNetworksPeeredDnsDomainsResource(
+      commons.ApiRequester client)
+      : _requester = client;
+
+  /// Creates a peered DNS domain which sends requests for records in given
+  /// namespace originating in the service producer VPC network to the consumer
+  /// VPC network to be resolved.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. Parent resource identifying the connection for which
+  /// the peered DNS domain will be created in the format:
+  /// `services/{service}/projects/{project}/global/networks/{network}`
+  /// {service} is the peering service that is managing connectivity for the
+  /// service producer's organization. For Google services that support this
+  /// functionality, this value is `servicenetworking.googleapis.com`. {project}
+  /// is the number of the project that contains the service consumer's VPC
+  /// network e.g. `12345`. {network} is the name of the service consumer's VPC
+  /// network.
+  /// Value must have pattern
+  /// `^services/\[^/\]+/projects/\[^/\]+/global/networks/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> create(
+    PeeredDnsDomain request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/peeredDnsDomains';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Deletes a peered DNS domain.
+  ///
+  /// Request parameters:
+  ///
+  /// [name] - Required. The name of the peered DNS domain to delete in the
+  /// format:
+  /// `services/{service}/projects/{project}/global/networks/{network}/peeredDnsDomains/{name}`.
+  /// {service} is the peering service that is managing connectivity for the
+  /// service producer's organization. For Google services that support this
+  /// functionality, this value is `servicenetworking.googleapis.com`. {project}
+  /// is the number of the project that contains the service consumer's VPC
+  /// network e.g. `12345`. {network} is the name of the service consumer's VPC
+  /// network. {name} is the name of the peered DNS domain.
+  /// Value must have pattern
+  /// `^services/\[^/\]+/projects/\[^/\]+/global/networks/\[^/\]+/peeredDnsDomains/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> delete(
+    core.String name, {
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$name');
+
+    final response_ = await _requester.request(
+      url_,
+      'DELETE',
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+
+  /// Lists peered DNS domains for a connection.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. Parent resource identifying the connection which owns
+  /// this collection of peered DNS domains in the format:
+  /// `services/{service}/projects/{project}/global/networks/{network}`.
+  /// {service} is the peering service that is managing connectivity for the
+  /// service producer's organization. For Google services that support this
+  /// functionality, this value is `servicenetworking.googleapis.com`. {project}
+  /// is a project number e.g. `12345` that contains the service consumer's VPC
+  /// network. {network} is the name of the service consumer's VPC network.
+  /// Value must have pattern
+  /// `^services/\[^/\]+/projects/\[^/\]+/global/networks/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [ListPeeredDnsDomainsResponse].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<ListPeeredDnsDomainsResponse> list(
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/peeredDnsDomains';
+
+    final response_ = await _requester.request(
+      url_,
+      'GET',
+      queryParams: queryParams_,
+    );
+    return ListPeeredDnsDomainsResponse.fromJson(
+        response_ as core.Map<core.String, core.dynamic>);
+  }
+}
+
+class ServicesRolesResource {
+  final commons.ApiRequester _requester;
+
+  ServicesRolesResource(commons.ApiRequester client) : _requester = client;
+
+  /// Service producers can use this method to add roles in the shared VPC host
+  /// project.
+  ///
+  /// Each role is bound to the provided member. Each role must be selected from
+  /// within an allowlisted set of roles. Each role is applied at only the
+  /// granularity specified in the allowlist.
+  ///
+  /// [request] - The metadata request object.
+  ///
+  /// Request parameters:
+  ///
+  /// [parent] - Required. This is in a form services/{service} where {service}
+  /// is the name of the private access management service. For example
+  /// 'service-peering.example.com'.
+  /// Value must have pattern `^services/\[^/\]+$`.
+  ///
+  /// [$fields] - Selector specifying which fields to include in a partial
+  /// response.
+  ///
+  /// Completes with a [Operation].
+  ///
+  /// Completes with a [commons.ApiRequestError] if the API endpoint returned an
+  /// error.
+  ///
+  /// If the used [http.Client] completes with an error when making a REST call,
+  /// this method will complete with the same error.
+  async.Future<Operation> add(
+    AddRolesRequest request,
+    core.String parent, {
+    core.String? $fields,
+  }) async {
+    final body_ = convert.json.encode(request);
+    final queryParams_ = <core.String, core.List<core.String>>{
+      if ($fields != null) 'fields': [$fields],
+    };
+
+    final url_ = 'v1/' + core.Uri.encodeFull('$parent') + '/roles:add';
+
+    final response_ = await _requester.request(
+      url_,
+      'POST',
+      body: body_,
+      queryParams: queryParams_,
+    );
+    return Operation.fromJson(response_ as core.Map<core.String, core.dynamic>);
+  }
+}
+
+/// Request to add a record set to a private managed DNS zone in the shared
+/// producer host project.
+class AddDnsRecordSetRequest {
+  /// The network that the consumer is using to connect with services.
+  ///
+  /// Must be in the form of projects/{project}/global/networks/{network}
+  /// {project} is the project number, as in '12345' {network} is the network
+  /// name.
+  ///
+  /// Required.
+  core.String? consumerNetwork;
+
+  /// The DNS record set to add.
+  ///
+  /// Required.
+  DnsRecordSet? dnsRecordSet;
+
+  /// The name of the private DNS zone in the shared producer host project to
+  /// which the record set will be added.
+  ///
+  /// Required.
+  core.String? zone;
+
+  AddDnsRecordSetRequest({
+    this.consumerNetwork,
+    this.dnsRecordSet,
+    this.zone,
+  });
+
+  AddDnsRecordSetRequest.fromJson(core.Map json_)
+      : this(
+          consumerNetwork: json_['consumerNetwork'] as core.String?,
+          dnsRecordSet: json_.containsKey('dnsRecordSet')
+              ? DnsRecordSet.fromJson(
+                  json_['dnsRecordSet'] as core.Map<core.String, core.dynamic>)
+              : null,
+          zone: json_['zone'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerNetwork != null) 'consumerNetwork': consumerNetwork!,
+        if (dnsRecordSet != null) 'dnsRecordSet': dnsRecordSet!,
+        if (zone != null) 'zone': zone!,
+      };
+}
+
+/// Request to add a private managed DNS zone in the shared producer host
+/// project and a matching DNS peering zone in the consumer project.
+class AddDnsZoneRequest {
+  /// The network that the consumer is using to connect with services.
+  ///
+  /// Must be in the form of projects/{project}/global/networks/{network}
+  /// {project} is the project number, as in '12345' {network} is the network
+  /// name.
+  ///
+  /// Required.
+  core.String? consumerNetwork;
+
+  /// The DNS name suffix for the zones e.g. `example.com.`.
+  ///
+  /// Cloud DNS requires that a DNS suffix ends with a trailing dot.
+  ///
+  /// Required.
+  core.String? dnsSuffix;
+
+  /// The name for both the private zone in the shared producer host project and
+  /// the peering zone in the consumer project.
+  ///
+  /// Must be unique within both projects. The name must be 1-63 characters
+  /// long, must begin with a letter, end with a letter or digit, and only
+  /// contain lowercase letters, digits or dashes.
+  ///
+  /// Required.
+  core.String? name;
+
+  AddDnsZoneRequest({
+    this.consumerNetwork,
+    this.dnsSuffix,
+    this.name,
+  });
+
+  AddDnsZoneRequest.fromJson(core.Map json_)
+      : this(
+          consumerNetwork: json_['consumerNetwork'] as core.String?,
+          dnsSuffix: json_['dnsSuffix'] as core.String?,
+          name: json_['name'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerNetwork != null) 'consumerNetwork': consumerNetwork!,
+        if (dnsSuffix != null) 'dnsSuffix': dnsSuffix!,
+        if (name != null) 'name': name!,
+      };
+}
+
+/// Request for AddRoles to allow Service Producers to add roles in the shared
+/// VPC host project for them to use.
+class AddRolesRequest {
+  /// The network that the consumer is using to connect with services.
+  ///
+  /// Must be in the form of projects/{project}/global/networks/{network}
+  /// {project} is a project number, as in '12345' {network} is a network name.
+  ///
+  /// Required.
+  core.String? consumerNetwork;
+
+  /// List of policy bindings to add to shared VPC host project.
+  ///
+  /// Required.
+  core.List<PolicyBinding>? policyBinding;
+
+  AddRolesRequest({
+    this.consumerNetwork,
+    this.policyBinding,
+  });
+
+  AddRolesRequest.fromJson(core.Map json_)
+      : this(
+          consumerNetwork: json_['consumerNetwork'] as core.String?,
+          policyBinding: (json_['policyBinding'] as core.List?)
+              ?.map((value) => PolicyBinding.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerNetwork != null) 'consumerNetwork': consumerNetwork!,
+        if (policyBinding != null) 'policyBinding': policyBinding!,
+      };
+}
+
+/// Request to create a subnetwork in a previously peered service network.
+class AddSubnetworkRequest {
+  /// Defines the allowSubnetCidrRoutesOverlap field of the subnet, e.g.
+  /// Available in alpha and beta according to
+  /// [Compute API documentation](https://cloud.google.com/compute/docs/reference/rest/beta/subnetworks/insert)
+  ///
+  /// Optional.
+  core.bool? allowSubnetCidrRoutesOverlap;
+
+  /// The IAM permission check determines whether the consumer project has
+  /// 'servicenetworking.services.use' permission or not.
+  ///
+  /// Optional.
+  core.bool? checkServiceNetworkingUsePermission;
+
+  /// Specifies a custom time bucket for Arcus subnetwork request idempotency.
+  ///
+  /// If two equivalent concurrent requests are made, Arcus will know to ignore
+  /// the request if it has already been completed or is in progress. Only
+  /// requests with matching compute_idempotency_window have guaranteed
+  /// idempotency. Changing this time window between requests results in
+  /// undefined behavior. Zero (or empty) value with
+  /// custom_compute_idempotency_window=true specifies no idempotency (i.e. no
+  /// request ID is provided to Arcus). Maximum value of 14 days (enforced by
+  /// Arcus limit). For more information on how to use, see:
+  /// go/revisit-sn-idempotency-window
+  ///
+  /// Optional.
+  core.String? computeIdempotencyWindow;
+
+  /// A resource that represents the service consumer, such as
+  /// `projects/123456`.
+  ///
+  /// The project number can be different from the value in the consumer network
+  /// parameter. For example, the network might be part of a Shared VPC network.
+  /// In those cases, Service Networking validates that this resource belongs to
+  /// that Shared VPC.
+  ///
+  /// Required.
+  core.String? consumer;
+
+  /// The name of the service consumer's VPC network.
+  ///
+  /// The network must have an existing private connection that was provisioned
+  /// through the connections.create method. The name must be in the following
+  /// format: `projects/{project}/global/networks/{network}`, where {project} is
+  /// a project number, such as `12345`. {network} is the name of a VPC network
+  /// in the project.
+  ///
+  /// Required.
+  core.String? consumerNetwork;
+
+  /// Description of the subnet.
+  ///
+  /// Optional.
+  core.String? description;
+
+  /// The url of an Internal Range.
+  ///
+  /// Eg: `projects//locations/global/internalRanges/`. If specified, it means
+  /// that the subnetwork cidr will be created using the combination of
+  /// requested_address/ip_prefix_length. Note that the subnet cidr has to be
+  /// within the cidr range of this Internal Range.
+  ///
+  /// Optional.
+  core.String? internalRange;
+
+  /// The prefix length of the subnet's IP address range.
+  ///
+  /// Use CIDR range notation, such as `29` to provision a subnet with an
+  /// `x.x.x.x/29` CIDR range. The IP address range is drawn from a pool of
+  /// available ranges in the service consumer's allocated range. GCE disallows
+  /// subnets with prefix_length \> 29
+  ///
+  /// Required.
+  core.int? ipPrefixLength;
+
+  /// Enable outside allocation using public IP addresses.
+  ///
+  /// Any public IP range may be specified. If this field is provided, we will
+  /// not use customer reserved ranges for this primary IP range.
+  ///
+  /// Optional.
+  core.String? outsideAllocationPublicIpRange;
+
+  /// The private IPv6 google access type for the VMs in this subnet.
+  ///
+  /// For information about the access types that can be set using this field,
+  /// see
+  /// [subnetwork](https://cloud.google.com/compute/docs/reference/rest/v1/subnetworks)
+  /// in the Compute API documentation.
+  ///
+  /// Optional.
+  core.String? privateIpv6GoogleAccess;
+
+  /// Defines the purpose field of the subnet, e.g. 'PRIVATE_SERVICE_CONNECT'.
+  ///
+  /// For information about the purposes that can be set using this field, see
+  /// [subnetwork](https://cloud.google.com/compute/docs/reference/rest/v1/subnetworks)
+  /// in the Compute API documentation.
+  ///
+  /// Optional.
+  core.String? purpose;
+
+  /// The name of a \[region\](/compute/docs/regions-zones) for the subnet, such
+  /// `europe-west1`.
+  ///
+  /// Required.
+  core.String? region;
+
+  /// The starting address of a range.
+  ///
+  /// The address must be a valid IPv4 address in the x.x.x.x format. This value
+  /// combined with the IP prefix range is the CIDR range for the subnet. The
+  /// range must be within the allocated range that is assigned to the private
+  /// connection. If the CIDR range isn't available, the call fails.
+  ///
+  /// Optional.
+  core.String? requestedAddress;
+
+  /// The name of one or more allocated IP address ranges associated with this
+  /// private service access connection.
+  ///
+  /// If no range names are provided all ranges associated with this connection
+  /// will be considered. If a CIDR range with the specified IP prefix length is
+  /// not available within these ranges, the call fails.
+  ///
+  /// Optional.
+  core.List<core.String>? requestedRanges;
+
+  /// Defines the role field of the subnet, e.g. 'ACTIVE'.
+  ///
+  /// For information about the roles that can be set using this field, see
+  /// [subnetwork](https://cloud.google.com/compute/docs/reference/rest/v1/subnetworks)
+  /// in the Compute API documentation.
+  ///
+  /// Optional.
+  core.String? role;
+
+  /// A list of secondary IP ranges to be created within the new subnetwork.
+  ///
+  /// Optional.
+  core.List<SecondaryIpRangeSpec>? secondaryIpRangeSpecs;
+
+  /// Skips validating if the requested_address is in use by SN VPC’s peering
+  /// group.
+  ///
+  /// Compute Engine will still perform this check and fail the request if the
+  /// requested_address is in use. Note that Compute Engine does not check for
+  /// the existence of dynamic routes when performing this check. Caller of this
+  /// API should make sure that there are no dynamic routes overlapping with the
+  /// requested_address/prefix_length IP address range otherwise the created
+  /// subnet could cause misrouting.
+  ///
+  /// Optional.
+  core.bool? skipRequestedAddressValidation;
+
+  /// A name for the new subnet.
+  ///
+  /// For information about the naming requirements, see
+  /// \[subnetwork\](/compute/docs/reference/rest/v1/subnetworks) in the Compute
+  /// API documentation.
+  ///
+  /// Required.
+  core.String? subnetwork;
+
+  /// A list of members that are granted the
+  /// `roles/servicenetworking.subnetworkAdmin` role on the subnet.
+  core.List<core.String>? subnetworkUsers;
+
+  /// Specifies if Service Networking should use a custom time bucket for Arcus
+  /// idempotency.
+  ///
+  /// If false, Service Networking uses a 300 second (5 minute) Arcus
+  /// idempotency window. If true, Service Networking uses a custom idempotency
+  /// window provided by the user in field compute_idempotency_window. For more
+  /// information on how to use, see: go/revisit-sn-idempotency-window
+  ///
+  /// Optional.
+  core.bool? useCustomComputeIdempotencyWindow;
+
+  AddSubnetworkRequest({
+    this.allowSubnetCidrRoutesOverlap,
+    this.checkServiceNetworkingUsePermission,
+    this.computeIdempotencyWindow,
+    this.consumer,
+    this.consumerNetwork,
+    this.description,
+    this.internalRange,
+    this.ipPrefixLength,
+    this.outsideAllocationPublicIpRange,
+    this.privateIpv6GoogleAccess,
+    this.purpose,
+    this.region,
+    this.requestedAddress,
+    this.requestedRanges,
+    this.role,
+    this.secondaryIpRangeSpecs,
+    this.skipRequestedAddressValidation,
+    this.subnetwork,
+    this.subnetworkUsers,
+    this.useCustomComputeIdempotencyWindow,
+  });
+
+  AddSubnetworkRequest.fromJson(core.Map json_)
+      : this(
+          allowSubnetCidrRoutesOverlap:
+              json_['allowSubnetCidrRoutesOverlap'] as core.bool?,
+          checkServiceNetworkingUsePermission:
+              json_['checkServiceNetworkingUsePermission'] as core.bool?,
+          computeIdempotencyWindow:
+              json_['computeIdempotencyWindow'] as core.String?,
+          consumer: json_['consumer'] as core.String?,
+          consumerNetwork: json_['consumerNetwork'] as core.String?,
+          description: json_['description'] as core.String?,
+          internalRange: json_['internalRange'] as core.String?,
+          ipPrefixLength: json_['ipPrefixLength'] as core.int?,
+          outsideAllocationPublicIpRange:
+              json_['outsideAllocationPublicIpRange'] as core.String?,
+          privateIpv6GoogleAccess:
+              json_['privateIpv6GoogleAccess'] as core.String?,
+          purpose: json_['purpose'] as core.String?,
+          region: json_['region'] as core.String?,
+          requestedAddress: json_['requestedAddress'] as core.String?,
+          requestedRanges: (json_['requestedRanges'] as core.List?)
+              ?.map((value) => value as core.String)
+              .toList(),
+          role: json_['role'] as core.String?,
+          secondaryIpRangeSpecs: (json_['secondaryIpRangeSpecs'] as core.List?)
+              ?.map((value) => SecondaryIpRangeSpec.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+          skipRequestedAddressValidation:
+              json_['skipRequestedAddressValidation'] as core.bool?,
+          subnetwork: json_['subnetwork'] as core.String?,
+          subnetworkUsers: (json_['subnetworkUsers'] as core.List?)
+              ?.map((value) => value as core.String)
+              .toList(),
+          useCustomComputeIdempotencyWindow:
+              json_['useCustomComputeIdempotencyWindow'] as core.bool?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (allowSubnetCidrRoutesOverlap != null)
+          'allowSubnetCidrRoutesOverlap': allowSubnetCidrRoutesOverlap!,
+        if (checkServiceNetworkingUsePermission != null)
+          'checkServiceNetworkingUsePermission':
+              checkServiceNetworkingUsePermission!,
+        if (computeIdempotencyWindow != null)
+          'computeIdempotencyWindow': computeIdempotencyWindow!,
+        if (consumer != null) 'consumer': consumer!,
+        if (consumerNetwork != null) 'consumerNetwork': consumerNetwork!,
+        if (description != null) 'description': description!,
+        if (internalRange != null) 'internalRange': internalRange!,
+        if (ipPrefixLength != null) 'ipPrefixLength': ipPrefixLength!,
+        if (outsideAllocationPublicIpRange != null)
+          'outsideAllocationPublicIpRange': outsideAllocationPublicIpRange!,
+        if (privateIpv6GoogleAccess != null)
+          'privateIpv6GoogleAccess': privateIpv6GoogleAccess!,
+        if (purpose != null) 'purpose': purpose!,
+        if (region != null) 'region': region!,
+        if (requestedAddress != null) 'requestedAddress': requestedAddress!,
+        if (requestedRanges != null) 'requestedRanges': requestedRanges!,
+        if (role != null) 'role': role!,
+        if (secondaryIpRangeSpecs != null)
+          'secondaryIpRangeSpecs': secondaryIpRangeSpecs!,
+        if (skipRequestedAddressValidation != null)
+          'skipRequestedAddressValidation': skipRequestedAddressValidation!,
+        if (subnetwork != null) 'subnetwork': subnetwork!,
+        if (subnetworkUsers != null) 'subnetworkUsers': subnetworkUsers!,
+        if (useCustomComputeIdempotencyWindow != null)
+          'useCustomComputeIdempotencyWindow':
+              useCustomComputeIdempotencyWindow!,
+      };
+}
+
+/// The request message for Operations.CancelOperation.
+typedef CancelOperationRequest = $Empty;
+
+/// Cloud SQL configuration.
+class CloudSQLConfig {
+  /// Peering service used for peering with the Cloud SQL project.
+  core.String? service;
+
+  /// The name of the umbrella network in the Cloud SQL umbrella project.
+  core.String? umbrellaNetwork;
+
+  /// The project number of the Cloud SQL umbrella project.
+  core.String? umbrellaProject;
+
+  CloudSQLConfig({
+    this.service,
+    this.umbrellaNetwork,
+    this.umbrellaProject,
+  });
+
+  CloudSQLConfig.fromJson(core.Map json_)
+      : this(
+          service: json_['service'] as core.String?,
+          umbrellaNetwork: json_['umbrellaNetwork'] as core.String?,
+          umbrellaProject: json_['umbrellaProject'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (service != null) 'service': service!,
+        if (umbrellaNetwork != null) 'umbrellaNetwork': umbrellaNetwork!,
+        if (umbrellaProject != null) 'umbrellaProject': umbrellaProject!,
+      };
+}
+
+/// Represents a private connection resource.
+///
+/// A private connection is implemented as a VPC Network Peering connection
+/// between a service producer's VPC network and a service consumer's VPC
+/// network.
+class Connection {
+  /// The name of service consumer's VPC network that's connected with service
+  /// producer network, in the following format:
+  /// `projects/{project}/global/networks/{network}`.
+  ///
+  /// `{project}` is a project number, such as in `12345` that includes the VPC
+  /// service consumer's VPC network. `{network}` is the name of the service
+  /// consumer's VPC network.
+  core.String? network;
+
+  /// The name of the VPC Network Peering connection that was created by the
+  /// service producer.
+  ///
+  /// Output only.
+  core.String? peering;
+
+  /// The name of one or more allocated IP address ranges for this service
+  /// producer of type `PEERING`.
+  ///
+  /// Note that invoking CreateConnection method with a different range when
+  /// connection is already established will not modify already provisioned
+  /// service producer subnetworks. If CreateConnection method is invoked
+  /// repeatedly to reconnect when peering connection had been disconnected on
+  /// the consumer side, leaving this field empty will restore previously
+  /// allocated IP ranges.
+  core.List<core.String>? reservedPeeringRanges;
+
+  /// The name of the peering service that's associated with this connection, in
+  /// the following format: `services/{service name}`.
+  ///
+  /// Output only.
+  core.String? service;
+
+  Connection({
+    this.network,
+    this.peering,
+    this.reservedPeeringRanges,
+    this.service,
+  });
+
+  Connection.fromJson(core.Map json_)
+      : this(
+          network: json_['network'] as core.String?,
+          peering: json_['peering'] as core.String?,
+          reservedPeeringRanges: (json_['reservedPeeringRanges'] as core.List?)
+              ?.map((value) => value as core.String)
+              .toList(),
+          service: json_['service'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (network != null) 'network': network!,
+        if (peering != null) 'peering': peering!,
+        if (reservedPeeringRanges != null)
+          'reservedPeeringRanges': reservedPeeringRanges!,
+        if (service != null) 'service': service!,
+      };
+}
+
+/// Configuration information for a private service access connection.
+class ConsumerConfig {
+  /// Represents one or multiple Cloud SQL configurations.
+  core.List<CloudSQLConfig>? cloudsqlConfigs;
+
+  /// Export custom routes flag value for peering from consumer to producer.
+  core.bool? consumerExportCustomRoutes;
+
+  /// Export subnet routes with public ip flag value for peering from consumer
+  /// to producer.
+  core.bool? consumerExportSubnetRoutesWithPublicIp;
+
+  /// Import custom routes flag value for peering from consumer to producer.
+  core.bool? consumerImportCustomRoutes;
+
+  /// Import subnet routes with public ip flag value for peering from consumer
+  /// to producer.
+  core.bool? consumerImportSubnetRoutesWithPublicIp;
+
+  /// Export custom routes flag value for peering from producer to consumer.
+  core.bool? producerExportCustomRoutes;
+
+  /// Export subnet routes with public ip flag value for peering from producer
+  /// to consumer.
+  core.bool? producerExportSubnetRoutesWithPublicIp;
+
+  /// Import custom routes flag value for peering from producer to consumer.
+  core.bool? producerImportCustomRoutes;
+
+  /// Import subnet routes with public ip flag value for peering from producer
+  /// to consumer.
+  core.bool? producerImportSubnetRoutesWithPublicIp;
+
+  /// The VPC host network that is used to host managed service instances.
+  ///
+  /// In the format, projects/{project}/global/networks/{network} where
+  /// {project} is the project number e.g. '12345' and {network} is the network
+  /// name.
+  ///
+  /// Output only.
+  core.String? producerNetwork;
+
+  /// The reserved ranges associated with this private service access
+  /// connection.
+  ///
+  /// Output only.
+  core.List<GoogleCloudServicenetworkingV1ConsumerConfigReservedRange>?
+      reservedRanges;
+
+  /// The IP ranges already in use by consumer or producer
+  ///
+  /// Output only.
+  core.List<core.String>? usedIpRanges;
+
+  /// Indicates whether the VPC Service Controls reference architecture is
+  /// configured for the producer VPC host network.
+  ///
+  /// Output only.
+  core.bool? vpcScReferenceArchitectureEnabled;
+
+  ConsumerConfig({
+    this.cloudsqlConfigs,
+    this.consumerExportCustomRoutes,
+    this.consumerExportSubnetRoutesWithPublicIp,
+    this.consumerImportCustomRoutes,
+    this.consumerImportSubnetRoutesWithPublicIp,
+    this.producerExportCustomRoutes,
+    this.producerExportSubnetRoutesWithPublicIp,
+    this.producerImportCustomRoutes,
+    this.producerImportSubnetRoutesWithPublicIp,
+    this.producerNetwork,
+    this.reservedRanges,
+    this.usedIpRanges,
+    this.vpcScReferenceArchitectureEnabled,
+  });
+
+  ConsumerConfig.fromJson(core.Map json_)
+      : this(
+          cloudsqlConfigs: (json_['cloudsqlConfigs'] as core.List?)
+              ?.map((value) => CloudSQLConfig.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+          consumerExportCustomRoutes:
+              json_['consumerExportCustomRoutes'] as core.bool?,
+          consumerExportSubnetRoutesWithPublicIp:
+              json_['consumerExportSubnetRoutesWithPublicIp'] as core.bool?,
+          consumerImportCustomRoutes:
+              json_['consumerImportCustomRoutes'] as core.bool?,
+          consumerImportSubnetRoutesWithPublicIp:
+              json_['consumerImportSubnetRoutesWithPublicIp'] as core.bool?,
+          producerExportCustomRoutes:
+              json_['producerExportCustomRoutes'] as core.bool?,
+          producerExportSubnetRoutesWithPublicIp:
+              json_['producerExportSubnetRoutesWithPublicIp'] as core.bool?,
+          producerImportCustomRoutes:
+              json_['producerImportCustomRoutes'] as core.bool?,
+          producerImportSubnetRoutesWithPublicIp:
+              json_['producerImportSubnetRoutesWithPublicIp'] as core.bool?,
+          producerNetwork: json_['producerNetwork'] as core.String?,
+          reservedRanges: (json_['reservedRanges'] as core.List?)
+              ?.map((value) =>
+                  GoogleCloudServicenetworkingV1ConsumerConfigReservedRange
+                      .fromJson(value as core.Map<core.String, core.dynamic>))
+              .toList(),
+          usedIpRanges: (json_['usedIpRanges'] as core.List?)
+              ?.map((value) => value as core.String)
+              .toList(),
+          vpcScReferenceArchitectureEnabled:
+              json_['vpcScReferenceArchitectureEnabled'] as core.bool?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (cloudsqlConfigs != null) 'cloudsqlConfigs': cloudsqlConfigs!,
+        if (consumerExportCustomRoutes != null)
+          'consumerExportCustomRoutes': consumerExportCustomRoutes!,
+        if (consumerExportSubnetRoutesWithPublicIp != null)
+          'consumerExportSubnetRoutesWithPublicIp':
+              consumerExportSubnetRoutesWithPublicIp!,
+        if (consumerImportCustomRoutes != null)
+          'consumerImportCustomRoutes': consumerImportCustomRoutes!,
+        if (consumerImportSubnetRoutesWithPublicIp != null)
+          'consumerImportSubnetRoutesWithPublicIp':
+              consumerImportSubnetRoutesWithPublicIp!,
+        if (producerExportCustomRoutes != null)
+          'producerExportCustomRoutes': producerExportCustomRoutes!,
+        if (producerExportSubnetRoutesWithPublicIp != null)
+          'producerExportSubnetRoutesWithPublicIp':
+              producerExportSubnetRoutesWithPublicIp!,
+        if (producerImportCustomRoutes != null)
+          'producerImportCustomRoutes': producerImportCustomRoutes!,
+        if (producerImportSubnetRoutesWithPublicIp != null)
+          'producerImportSubnetRoutesWithPublicIp':
+              producerImportSubnetRoutesWithPublicIp!,
+        if (producerNetwork != null) 'producerNetwork': producerNetwork!,
+        if (reservedRanges != null) 'reservedRanges': reservedRanges!,
+        if (usedIpRanges != null) 'usedIpRanges': usedIpRanges!,
+        if (vpcScReferenceArchitectureEnabled != null)
+          'vpcScReferenceArchitectureEnabled':
+              vpcScReferenceArchitectureEnabled!,
+      };
+}
+
+/// Represents a consumer project.
+class ConsumerProject {
+  /// Project number of the consumer that is launching the service instance.
+  ///
+  /// It can own the network that is peered with Google or, be a service project
+  /// in an XPN where the host project has the network.
+  ///
+  /// Required.
+  core.String? projectNum;
+
+  ConsumerProject({
+    this.projectNum,
+  });
+
+  ConsumerProject.fromJson(core.Map json_)
+      : this(
+          projectNum: json_['projectNum'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (projectNum != null) 'projectNum': projectNum!,
+      };
+}
+
+/// Request to delete a private service access connection.
+///
+/// The call will fail if there are any managed service instances using this
+/// connection.
+class DeleteConnectionRequest {
+  /// The network that the consumer is using to connect with services.
+  ///
+  /// Must be in the form of projects/{project}/global/networks/{network}
+  /// {project} is a project number, as in '12345' {network} is a network name.
+  ///
+  /// Required.
+  core.String? consumerNetwork;
+
+  DeleteConnectionRequest({
+    this.consumerNetwork,
+  });
+
+  DeleteConnectionRequest.fromJson(core.Map json_)
+      : this(
+          consumerNetwork: json_['consumerNetwork'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerNetwork != null) 'consumerNetwork': consumerNetwork!,
+      };
+}
+
+/// Request to disable VPC service controls.
+typedef DisableVpcServiceControlsRequest = $VpcServiceControlsRequest;
+
+/// Represents a DNS record set resource.
+class DnsRecordSet {
+  /// As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) for
+  /// examples see https://cloud.google.com/dns/records/json-record.
+  ///
+  /// Required.
+  core.List<core.String>? data;
+
+  /// The DNS or domain name of the record set, e.g. `test.example.com`.
+  ///
+  /// Cloud DNS requires that a DNS suffix ends with a trailing dot.
+  ///
+  /// Required.
+  core.String? domain;
+
+  /// The period of time for which this RecordSet can be cached by resolvers.
+  ///
+  /// Required.
+  core.String? ttl;
+
+  /// The identifier of a supported record type.
+  ///
+  /// Required.
+  core.String? type;
+
+  DnsRecordSet({
+    this.data,
+    this.domain,
+    this.ttl,
+    this.type,
+  });
+
+  DnsRecordSet.fromJson(core.Map json_)
+      : this(
+          data: (json_['data'] as core.List?)
+              ?.map((value) => value as core.String)
+              .toList(),
+          domain: json_['domain'] as core.String?,
+          ttl: json_['ttl'] as core.String?,
+          type: json_['type'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (data != null) 'data': data!,
+        if (domain != null) 'domain': domain!,
+        if (ttl != null) 'ttl': ttl!,
+        if (type != null) 'type': type!,
+      };
+}
+
+/// Represents a DNS zone resource.
+class DnsZone {
+  /// The DNS name suffix of this zone e.g. `example.com.`.
+  ///
+  /// Cloud DNS requires that a DNS suffix ends with a trailing dot.
+  core.String? dnsSuffix;
+
+  /// User assigned name for this resource.
+  ///
+  /// Must be unique within the project. The name must be 1-63 characters long,
+  /// must begin with a letter, end with a letter or digit, and only contain
+  /// lowercase letters, digits or dashes.
+  core.String? name;
+
+  DnsZone({
+    this.dnsSuffix,
+    this.name,
+  });
+
+  DnsZone.fromJson(core.Map json_)
+      : this(
+          dnsSuffix: json_['dnsSuffix'] as core.String?,
+          name: json_['name'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (dnsSuffix != null) 'dnsSuffix': dnsSuffix!,
+        if (name != null) 'name': name!,
+      };
+}
+
+/// * Represents a pair of private and peering DNS zone resources.
+///
+/// *
+class DnsZonePair {
+  /// The DNS peering zone in the consumer project.
+  DnsZone? consumerPeeringZone;
+
+  /// The private DNS zone in the shared producer host project.
+  DnsZone? producerPrivateZone;
+
+  DnsZonePair({
+    this.consumerPeeringZone,
+    this.producerPrivateZone,
+  });
+
+  DnsZonePair.fromJson(core.Map json_)
+      : this(
+          consumerPeeringZone: json_.containsKey('consumerPeeringZone')
+              ? DnsZone.fromJson(json_['consumerPeeringZone']
+                  as core.Map<core.String, core.dynamic>)
+              : null,
+          producerPrivateZone: json_.containsKey('producerPrivateZone')
+              ? DnsZone.fromJson(json_['producerPrivateZone']
+                  as core.Map<core.String, core.dynamic>)
+              : null,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerPeeringZone != null)
+          'consumerPeeringZone': consumerPeeringZone!,
+        if (producerPrivateZone != null)
+          'producerPrivateZone': producerPrivateZone!,
+      };
+}
+
+/// A generic empty message that you can re-use to avoid defining duplicated
+/// empty messages in your APIs.
+///
+/// A typical example is to use it as the request or the response type of an API
+/// method. For instance: service Foo { rpc Bar(google.protobuf.Empty) returns
+/// (google.protobuf.Empty); }
+typedef Empty = $Empty;
+
+/// Request to enable VPC service controls.
+typedef EnableVpcServiceControlsRequest = $VpcServiceControlsRequest;
+
+/// Represents managed DNS zones created in the shared Producer host and
+/// consumer projects.
+class GetDnsZoneResponse {
+  /// The DNS peering zone created in the consumer project.
+  DnsZone? consumerPeeringZone;
+
+  /// The private DNS zone created in the shared producer host project.
+  DnsZone? producerPrivateZone;
+
+  GetDnsZoneResponse({
+    this.consumerPeeringZone,
+    this.producerPrivateZone,
+  });
+
+  GetDnsZoneResponse.fromJson(core.Map json_)
+      : this(
+          consumerPeeringZone: json_.containsKey('consumerPeeringZone')
+              ? DnsZone.fromJson(json_['consumerPeeringZone']
+                  as core.Map<core.String, core.dynamic>)
+              : null,
+          producerPrivateZone: json_.containsKey('producerPrivateZone')
+              ? DnsZone.fromJson(json_['producerPrivateZone']
+                  as core.Map<core.String, core.dynamic>)
+              : null,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerPeeringZone != null)
+          'consumerPeeringZone': consumerPeeringZone!,
+        if (producerPrivateZone != null)
+          'producerPrivateZone': producerPrivateZone!,
+      };
+}
+
+/// Allocated IP address ranges for this private service access connection.
+class GoogleCloudServicenetworkingV1ConsumerConfigReservedRange {
+  /// The starting address of the reserved range.
+  ///
+  /// The address must be a valid IPv4 address in the x.x.x.x format. This value
+  /// combined with the IP prefix length is the CIDR range for the reserved
+  /// range.
+  core.String? address;
+
+  /// The prefix length of the reserved range.
+  core.int? ipPrefixLength;
+
+  /// The name of the reserved range.
+  core.String? name;
+
+  GoogleCloudServicenetworkingV1ConsumerConfigReservedRange({
+    this.address,
+    this.ipPrefixLength,
+    this.name,
+  });
+
+  GoogleCloudServicenetworkingV1ConsumerConfigReservedRange.fromJson(
+      core.Map json_)
+      : this(
+          address: json_['address'] as core.String?,
+          ipPrefixLength: json_['ipPrefixLength'] as core.int?,
+          name: json_['name'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (address != null) 'address': address!,
+        if (ipPrefixLength != null) 'ipPrefixLength': ipPrefixLength!,
+        if (name != null) 'name': name!,
+      };
+}
+
+/// ListConnectionsResponse is the response to list peering states for the given
+/// service and consumer project.
+class ListConnectionsResponse {
+  /// The list of Connections.
+  core.List<Connection>? connections;
+
+  ListConnectionsResponse({
+    this.connections,
+  });
+
+  ListConnectionsResponse.fromJson(core.Map json_)
+      : this(
+          connections: (json_['connections'] as core.List?)
+              ?.map((value) => Connection.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (connections != null) 'connections': connections!,
+      };
+}
+
+/// Represents all DNS RecordSets associated with the producer network
+class ListDnsRecordSetsResponse {
+  /// DNS record Set Resource
+  core.List<DnsRecordSet>? dnsRecordSets;
+
+  ListDnsRecordSetsResponse({
+    this.dnsRecordSets,
+  });
+
+  ListDnsRecordSetsResponse.fromJson(core.Map json_)
+      : this(
+          dnsRecordSets: (json_['dnsRecordSets'] as core.List?)
+              ?.map((value) => DnsRecordSet.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (dnsRecordSets != null) 'dnsRecordSets': dnsRecordSets!,
+      };
+}
+
+/// Represents all DNS zones in the shared producer host project and the
+/// matching peering zones in the consumer project.
+class ListDnsZonesResponse {
+  /// All pairs of private DNS zones in the shared producer host project and the
+  /// matching peering zones in the consumer project..
+  core.List<DnsZonePair>? dnsZonePairs;
+
+  ListDnsZonesResponse({
+    this.dnsZonePairs,
+  });
+
+  ListDnsZonesResponse.fromJson(core.Map json_)
+      : this(
+          dnsZonePairs: (json_['dnsZonePairs'] as core.List?)
+              ?.map((value) => DnsZonePair.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (dnsZonePairs != null) 'dnsZonePairs': dnsZonePairs!,
+      };
+}
+
+/// The response message for Operations.ListOperations.
+class ListOperationsResponse {
+  /// The standard List next-page token.
+  core.String? nextPageToken;
+
+  /// A list of operations that matches the specified filter in the request.
+  core.List<Operation>? operations;
+
+  ListOperationsResponse({
+    this.nextPageToken,
+    this.operations,
+  });
+
+  ListOperationsResponse.fromJson(core.Map json_)
+      : this(
+          nextPageToken: json_['nextPageToken'] as core.String?,
+          operations: (json_['operations'] as core.List?)
+              ?.map((value) => Operation.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (nextPageToken != null) 'nextPageToken': nextPageToken!,
+        if (operations != null) 'operations': operations!,
+      };
+}
+
+/// Response to list peered DNS domains for a given connection.
+class ListPeeredDnsDomainsResponse {
+  /// The list of peered DNS domains.
+  core.List<PeeredDnsDomain>? peeredDnsDomains;
+
+  ListPeeredDnsDomainsResponse({
+    this.peeredDnsDomains,
+  });
+
+  ListPeeredDnsDomainsResponse.fromJson(core.Map json_)
+      : this(
+          peeredDnsDomains: (json_['peeredDnsDomains'] as core.List?)
+              ?.map((value) => PeeredDnsDomain.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (peeredDnsDomains != null) 'peeredDnsDomains': peeredDnsDomains!,
+      };
+}
+
+/// This resource represents a long-running operation that is the result of a
+/// network API call.
+class Operation {
+  /// If the value is `false`, it means the operation is still in progress.
+  ///
+  /// If `true`, the operation is completed, and either `error` or `response` is
+  /// available.
+  core.bool? done;
+
+  /// The error result of the operation in case of failure or cancellation.
+  Status? error;
+
+  /// Service-specific metadata associated with the operation.
+  ///
+  /// It typically contains progress information and common metadata such as
+  /// create time. Some services might not provide such metadata. Any method
+  /// that returns a long-running operation should document the metadata type,
+  /// if any.
+  ///
+  /// The values for Object must be JSON objects. It can consist of `num`,
+  /// `String`, `bool` and `null` as well as `Map` and `List` values.
+  core.Map<core.String, core.Object?>? metadata;
+
+  /// The server-assigned name, which is only unique within the same service
+  /// that originally returns it.
+  ///
+  /// If you use the default HTTP mapping, the `name` should be a resource name
+  /// ending with `operations/{unique_id}`.
+  core.String? name;
+
+  /// The normal, successful response of the operation.
+  ///
+  /// If the original method returns no data on success, such as `Delete`, the
+  /// response is `google.protobuf.Empty`. If the original method is standard
+  /// `Get`/`Create`/`Update`, the response should be the resource. For other
+  /// methods, the response should have the type `XxxResponse`, where `Xxx` is
+  /// the original method name. For example, if the original method name is
+  /// `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+  ///
+  /// The values for Object must be JSON objects. It can consist of `num`,
+  /// `String`, `bool` and `null` as well as `Map` and `List` values.
+  core.Map<core.String, core.Object?>? response;
+
+  Operation({
+    this.done,
+    this.error,
+    this.metadata,
+    this.name,
+    this.response,
+  });
+
+  Operation.fromJson(core.Map json_)
+      : this(
+          done: json_['done'] as core.bool?,
+          error: json_.containsKey('error')
+              ? Status.fromJson(
+                  json_['error'] as core.Map<core.String, core.dynamic>)
+              : null,
+          metadata: json_.containsKey('metadata')
+              ? json_['metadata'] as core.Map<core.String, core.dynamic>
+              : null,
+          name: json_['name'] as core.String?,
+          response: json_.containsKey('response')
+              ? json_['response'] as core.Map<core.String, core.dynamic>
+              : null,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (done != null) 'done': done!,
+        if (error != null) 'error': error!,
+        if (metadata != null) 'metadata': metadata!,
+        if (name != null) 'name': name!,
+        if (response != null) 'response': response!,
+      };
+}
+
+/// DNS domain suffix for which requests originating in the producer VPC network
+/// are resolved in the associated consumer VPC network.
+class PeeredDnsDomain {
+  /// The DNS domain name suffix e.g. `example.com.`.
+  ///
+  /// Cloud DNS requires that a DNS suffix ends with a trailing dot.
+  core.String? dnsSuffix;
+
+  /// User assigned name for this resource.
+  ///
+  /// Must be unique within the consumer network. The name must be 1-63
+  /// characters long, must begin with a letter, end with a letter or digit, and
+  /// only contain lowercase letters, digits or dashes.
+  core.String? name;
+
+  PeeredDnsDomain({
+    this.dnsSuffix,
+    this.name,
+  });
+
+  PeeredDnsDomain.fromJson(core.Map json_)
+      : this(
+          dnsSuffix: json_['dnsSuffix'] as core.String?,
+          name: json_['name'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (dnsSuffix != null) 'dnsSuffix': dnsSuffix!,
+        if (name != null) 'name': name!,
+      };
+}
+
+/// Grouping of IAM role and IAM member.
+class PolicyBinding {
+  /// Member to bind the role with.
+  ///
+  /// See /iam/docs/reference/rest/v1/Policy#Binding for how to format each
+  /// member. Eg. - user:myuser@mydomain.com -
+  /// serviceAccount:my-service-account@app.gserviceaccount.com
+  ///
+  /// Required.
+  core.String? member;
+
+  /// Role to apply.
+  ///
+  /// Only allowlisted roles can be used at the specified granularity. The role
+  /// must be one of the following: - 'roles/container.hostServiceAgentUser'
+  /// applied on the shared VPC host project - 'roles/compute.securityAdmin'
+  /// applied on the shared VPC host project - 'roles/compute.networkAdmin'
+  /// applied on the shared VPC host project - 'roles/tpu.xpnAgent' applied on
+  /// the shared VPC host project - 'roles/dns.admin' applied on the shared VPC
+  /// host project - 'roles/logging.admin' applied on the shared VPC host
+  /// project - 'roles/monitoring.viewer' applied on the shared VPC host project
+  /// - 'roles/servicemanagement.quotaViewer' applied on the shared VPC host
+  /// project
+  ///
+  /// Required.
+  core.String? role;
+
+  PolicyBinding({
+    this.member,
+    this.role,
+  });
+
+  PolicyBinding.fromJson(core.Map json_)
+      : this(
+          member: json_['member'] as core.String?,
+          role: json_['role'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (member != null) 'member': member!,
+        if (role != null) 'role': role!,
+      };
+}
+
+/// Represents a range reservation.
+class RangeReservation {
+  /// The size of the desired subnet.
+  ///
+  /// Use usual CIDR range notation. For example, '29' to find unused x.x.x.x/29
+  /// CIDR range. The goal is to determine if one of the allocated ranges has
+  /// enough free space for a subnet of the requested size. GCE disallows
+  /// subnets with prefix_length \> 29
+  ///
+  /// Required.
+  core.int? ipPrefixLength;
+
+  /// The name of one or more allocated IP address ranges associated with this
+  /// private service access connection.
+  ///
+  /// If no range names are provided all ranges associated with this connection
+  /// will be considered. If a CIDR range with the specified IP prefix length is
+  /// not available within these ranges the validation fails.
+  ///
+  /// Optional.
+  core.List<core.String>? requestedRanges;
+
+  /// The size of the desired secondary ranges for the subnet.
+  ///
+  /// Use usual CIDR range notation. For example, '29' to find unused x.x.x.x/29
+  /// CIDR range. The goal is to determine that the allocated ranges have enough
+  /// free space for all the requested secondary ranges. GCE disallows subnets
+  /// with prefix_length \> 29
+  ///
+  /// Optional.
+  core.List<core.int>? secondaryRangeIpPrefixLengths;
+
+  /// List of subnetwork candidates to validate.
+  ///
+  /// The required input fields are `name`, `network`, and `region`. Subnetworks
+  /// from this list which exist will be returned in the response with the
+  /// `ip_cidr_range`, `secondary_ip_cider_ranges`, and `outside_allocation`
+  /// fields set.
+  ///
+  /// Optional.
+  core.List<Subnetwork>? subnetworkCandidates;
+
+  RangeReservation({
+    this.ipPrefixLength,
+    this.requestedRanges,
+    this.secondaryRangeIpPrefixLengths,
+    this.subnetworkCandidates,
+  });
+
+  RangeReservation.fromJson(core.Map json_)
+      : this(
+          ipPrefixLength: json_['ipPrefixLength'] as core.int?,
+          requestedRanges: (json_['requestedRanges'] as core.List?)
+              ?.map((value) => value as core.String)
+              .toList(),
+          secondaryRangeIpPrefixLengths:
+              (json_['secondaryRangeIpPrefixLengths'] as core.List?)
+                  ?.map((value) => value as core.int)
+                  .toList(),
+          subnetworkCandidates: (json_['subnetworkCandidates'] as core.List?)
+              ?.map((value) => Subnetwork.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (ipPrefixLength != null) 'ipPrefixLength': ipPrefixLength!,
+        if (requestedRanges != null) 'requestedRanges': requestedRanges!,
+        if (secondaryRangeIpPrefixLengths != null)
+          'secondaryRangeIpPrefixLengths': secondaryRangeIpPrefixLengths!,
+        if (subnetworkCandidates != null)
+          'subnetworkCandidates': subnetworkCandidates!,
+      };
+}
+
+/// Request to remove a record set from a private managed DNS zone in the shared
+/// producer host project.
+///
+/// The name, type, ttl, and data values must all exactly match an existing
+/// record set in the specified zone.
+class RemoveDnsRecordSetRequest {
+  /// The network that the consumer is using to connect with services.
+  ///
+  /// Must be in the form of projects/{project}/global/networks/{network}
+  /// {project} is the project number, as in '12345' {network} is the network
+  /// name.
+  ///
+  /// Required.
+  core.String? consumerNetwork;
+
+  /// The DNS record set to remove.
+  ///
+  /// Required.
+  DnsRecordSet? dnsRecordSet;
+
+  /// The name of the private DNS zone in the shared producer host project from
+  /// which the record set will be removed.
+  ///
+  /// Required.
+  core.String? zone;
+
+  RemoveDnsRecordSetRequest({
+    this.consumerNetwork,
+    this.dnsRecordSet,
+    this.zone,
+  });
+
+  RemoveDnsRecordSetRequest.fromJson(core.Map json_)
+      : this(
+          consumerNetwork: json_['consumerNetwork'] as core.String?,
+          dnsRecordSet: json_.containsKey('dnsRecordSet')
+              ? DnsRecordSet.fromJson(
+                  json_['dnsRecordSet'] as core.Map<core.String, core.dynamic>)
+              : null,
+          zone: json_['zone'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerNetwork != null) 'consumerNetwork': consumerNetwork!,
+        if (dnsRecordSet != null) 'dnsRecordSet': dnsRecordSet!,
+        if (zone != null) 'zone': zone!,
+      };
+}
+
+/// Request to remove a private managed DNS zone in the shared producer host
+/// project and a matching DNS peering zone in the consumer project.
+class RemoveDnsZoneRequest {
+  /// The network that the consumer is using to connect with services.
+  ///
+  /// Must be in the form of projects/{project}/global/networks/{network}
+  /// {project} is the project number, as in '12345' {network} is the network
+  /// name.
+  ///
+  /// Required.
+  core.String? consumerNetwork;
+
+  /// The name for both the private zone in the shared producer host project and
+  /// the peering zone in the consumer project.
+  ///
+  /// Required.
+  core.String? name;
+
+  RemoveDnsZoneRequest({
+    this.consumerNetwork,
+    this.name,
+  });
+
+  RemoveDnsZoneRequest.fromJson(core.Map json_)
+      : this(
+          consumerNetwork: json_['consumerNetwork'] as core.String?,
+          name: json_['name'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerNetwork != null) 'consumerNetwork': consumerNetwork!,
+        if (name != null) 'name': name!,
+      };
+}
+
+/// Request to search for an unused range within allocated ranges.
+class SearchRangeRequest {
+  /// The prefix length of the IP range.
+  ///
+  /// Use usual CIDR range notation. For example, '30' to find unused x.x.x.x/30
+  /// CIDR range. Actual range will be determined using allocated range for the
+  /// consumer peered network and returned in the result.
+  ///
+  /// Required.
+  core.int? ipPrefixLength;
+
+  /// Network name in the consumer project.
+  ///
+  /// This network must have been already peered with a shared VPC network using
+  /// CreateConnection method. Must be in a form
+  /// 'projects/{project}/global/networks/{network}'. {project} is a project
+  /// number, as in '12345' {network} is network name.
+  core.String? network;
+
+  SearchRangeRequest({
+    this.ipPrefixLength,
+    this.network,
+  });
+
+  SearchRangeRequest.fromJson(core.Map json_)
+      : this(
+          ipPrefixLength: json_['ipPrefixLength'] as core.int?,
+          network: json_['network'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (ipPrefixLength != null) 'ipPrefixLength': ipPrefixLength!,
+        if (network != null) 'network': network!,
+      };
+}
+
+class SecondaryIpRange {
+  /// Secondary IP CIDR range in `x.x.x.x/y` format.
+  core.String? ipCidrRange;
+
+  /// Name of the secondary IP range.
+  core.String? rangeName;
+
+  SecondaryIpRange({
+    this.ipCidrRange,
+    this.rangeName,
+  });
+
+  SecondaryIpRange.fromJson(core.Map json_)
+      : this(
+          ipCidrRange: json_['ipCidrRange'] as core.String?,
+          rangeName: json_['rangeName'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (ipCidrRange != null) 'ipCidrRange': ipCidrRange!,
+        if (rangeName != null) 'rangeName': rangeName!,
+      };
+}
+
+class SecondaryIpRangeSpec {
+  /// The prefix length of the secondary IP range.
+  ///
+  /// Use CIDR range notation, such as `30` to provision a secondary IP range
+  /// with an `x.x.x.x/30` CIDR range. The IP address range is drawn from a pool
+  /// of available ranges in the service consumer's allocated range.
+  ///
+  /// Required.
+  core.int? ipPrefixLength;
+
+  /// Enable outside allocation using public IP addresses.
+  ///
+  /// Any public IP range may be specified. If this field is provided, we will
+  /// not use customer reserved ranges for this secondary IP range.
+  ///
+  /// Optional.
+  core.String? outsideAllocationPublicIpRange;
+
+  /// A name for the secondary IP range.
+  ///
+  /// The name must be 1-63 characters long, and comply with RFC1035. The name
+  /// must be unique within the subnetwork.
+  ///
+  /// Required.
+  core.String? rangeName;
+
+  /// The starting address of a range.
+  ///
+  /// The address must be a valid IPv4 address in the x.x.x.x format. This value
+  /// combined with the IP prefix range is the CIDR range for the secondary IP
+  /// range. The range must be within the allocated range that is assigned to
+  /// the private connection. If the CIDR range isn't available, the call fails.
+  ///
+  /// Optional.
+  core.String? requestedAddress;
+
+  SecondaryIpRangeSpec({
+    this.ipPrefixLength,
+    this.outsideAllocationPublicIpRange,
+    this.rangeName,
+    this.requestedAddress,
+  });
+
+  SecondaryIpRangeSpec.fromJson(core.Map json_)
+      : this(
+          ipPrefixLength: json_['ipPrefixLength'] as core.int?,
+          outsideAllocationPublicIpRange:
+              json_['outsideAllocationPublicIpRange'] as core.String?,
+          rangeName: json_['rangeName'] as core.String?,
+          requestedAddress: json_['requestedAddress'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (ipPrefixLength != null) 'ipPrefixLength': ipPrefixLength!,
+        if (outsideAllocationPublicIpRange != null)
+          'outsideAllocationPublicIpRange': outsideAllocationPublicIpRange!,
+        if (rangeName != null) 'rangeName': rangeName!,
+        if (requestedAddress != null) 'requestedAddress': requestedAddress!,
+      };
+}
+
+/// The `Status` type defines a logical error model that is suitable for
+/// different programming environments, including REST APIs and RPC APIs.
+///
+/// It is used by [gRPC](https://github.com/grpc). Each `Status` message
+/// contains three pieces of data: error code, error message, and error details.
+/// You can find out more about this error model and how to work with it in the
+/// [API Design Guide](https://cloud.google.com/apis/design/errors).
+typedef Status = $Status00;
+
+/// Represents a subnet that was created or discovered by a private access
+/// management service.
+class Subnetwork {
+  /// Subnetwork CIDR range in `10.x.x.x/y` format.
+  core.String? ipCidrRange;
+
+  /// Subnetwork name.
+  ///
+  /// See https://cloud.google.com/compute/docs/vpc/
+  core.String? name;
+
+  /// In the Shared VPC host project, the VPC network that's peered with the
+  /// consumer network.
+  ///
+  /// For example: `projects/1234321/global/networks/host-network`
+  core.String? network;
+
+  /// This is a discovered subnet that is not within the current consumer
+  /// allocated ranges.
+  core.bool? outsideAllocation;
+
+  /// GCP region where the subnetwork is located.
+  core.String? region;
+
+  /// List of secondary IP ranges in this subnetwork.
+  core.List<SecondaryIpRange>? secondaryIpRanges;
+
+  Subnetwork({
+    this.ipCidrRange,
+    this.name,
+    this.network,
+    this.outsideAllocation,
+    this.region,
+    this.secondaryIpRanges,
+  });
+
+  Subnetwork.fromJson(core.Map json_)
+      : this(
+          ipCidrRange: json_['ipCidrRange'] as core.String?,
+          name: json_['name'] as core.String?,
+          network: json_['network'] as core.String?,
+          outsideAllocation: json_['outsideAllocation'] as core.bool?,
+          region: json_['region'] as core.String?,
+          secondaryIpRanges: (json_['secondaryIpRanges'] as core.List?)
+              ?.map((value) => SecondaryIpRange.fromJson(
+                  value as core.Map<core.String, core.dynamic>))
+              .toList(),
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (ipCidrRange != null) 'ipCidrRange': ipCidrRange!,
+        if (name != null) 'name': name!,
+        if (network != null) 'network': network!,
+        if (outsideAllocation != null) 'outsideAllocation': outsideAllocation!,
+        if (region != null) 'region': region!,
+        if (secondaryIpRanges != null) 'secondaryIpRanges': secondaryIpRanges!,
+      };
+}
+
+/// Request to update the configuration of a service networking connection
+/// including the import/export of custom routes and subnetwork routes with
+/// public IP.
+class UpdateConsumerConfigRequest {
+  /// The updated peering config.
+  ///
+  /// Required.
+  ConsumerConfig? consumerConfig;
+
+  UpdateConsumerConfigRequest({
+    this.consumerConfig,
+  });
+
+  UpdateConsumerConfigRequest.fromJson(core.Map json_)
+      : this(
+          consumerConfig: json_.containsKey('consumerConfig')
+              ? ConsumerConfig.fromJson(json_['consumerConfig']
+                  as core.Map<core.String, core.dynamic>)
+              : null,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerConfig != null) 'consumerConfig': consumerConfig!,
+      };
+}
+
+/// Request to update a record set from a private managed DNS zone in the shared
+/// producer host project.
+///
+/// The name, type, ttl, and data values of the existing record set must all
+/// exactly match an existing record set in the specified zone.
+class UpdateDnsRecordSetRequest {
+  /// The network that the consumer is using to connect with services.
+  ///
+  /// Must be in the form of projects/{project}/global/networks/{network}
+  /// {project} is the project number, as in '12345' {network} is the network
+  /// name.
+  ///
+  /// Required.
+  core.String? consumerNetwork;
+
+  /// The existing DNS record set to update.
+  ///
+  /// Required.
+  DnsRecordSet? existingDnsRecordSet;
+
+  /// The new values that the DNS record set should be updated to hold.
+  ///
+  /// Required.
+  DnsRecordSet? newDnsRecordSet;
+
+  /// The name of the private DNS zone in the shared producer host project from
+  /// which the record set will be removed.
+  ///
+  /// Required.
+  core.String? zone;
+
+  UpdateDnsRecordSetRequest({
+    this.consumerNetwork,
+    this.existingDnsRecordSet,
+    this.newDnsRecordSet,
+    this.zone,
+  });
+
+  UpdateDnsRecordSetRequest.fromJson(core.Map json_)
+      : this(
+          consumerNetwork: json_['consumerNetwork'] as core.String?,
+          existingDnsRecordSet: json_.containsKey('existingDnsRecordSet')
+              ? DnsRecordSet.fromJson(json_['existingDnsRecordSet']
+                  as core.Map<core.String, core.dynamic>)
+              : null,
+          newDnsRecordSet: json_.containsKey('newDnsRecordSet')
+              ? DnsRecordSet.fromJson(json_['newDnsRecordSet']
+                  as core.Map<core.String, core.dynamic>)
+              : null,
+          zone: json_['zone'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (consumerNetwork != null) 'consumerNetwork': consumerNetwork!,
+        if (existingDnsRecordSet != null)
+          'existingDnsRecordSet': existingDnsRecordSet!,
+        if (newDnsRecordSet != null) 'newDnsRecordSet': newDnsRecordSet!,
+        if (zone != null) 'zone': zone!,
+      };
+}
+
+class ValidateConsumerConfigRequest {
+  /// The IAM permission check determines whether the consumer project has
+  /// 'servicenetworking.services.use' permission or not.
+  ///
+  /// Optional.
+  core.bool? checkServiceNetworkingUsePermission;
+
+  /// The network that the consumer is using to connect with services.
+  ///
+  /// Must be in the form of projects/{project}/global/networks/{network}
+  /// {project} is a project number, as in '12345' {network} is network name.
+  ///
+  /// Required.
+  core.String? consumerNetwork;
+
+  /// NETWORK_NOT_IN_CONSUMERS_PROJECT, NETWORK_NOT_IN_CONSUMERS_HOST_PROJECT,
+  /// and HOST_PROJECT_NOT_FOUND are done when consumer_project is provided.
+  ConsumerProject? consumerProject;
+
+  /// RANGES_EXHAUSTED, RANGES_EXHAUSTED, and RANGES_DELETED_LATER are done when
+  /// range_reservation is provided.
+  RangeReservation? rangeReservation;
+
+  /// The validations will be performed in the order listed in the
+  /// ValidationError enum.
+  ///
+  /// The first failure will return. If a validation is not requested, then the
+  /// next one will be performed. SERVICE_NETWORKING_NOT_ENABLED and
+  /// NETWORK_NOT_PEERED checks are performed for all requests where validation
+  /// is requested. NETWORK_NOT_FOUND and NETWORK_DISCONNECTED checks are done
+  /// for requests that have validate_network set to true.
+  core.bool? validateNetwork;
+
+  ValidateConsumerConfigRequest({
+    this.checkServiceNetworkingUsePermission,
+    this.consumerNetwork,
+    this.consumerProject,
+    this.rangeReservation,
+    this.validateNetwork,
+  });
+
+  ValidateConsumerConfigRequest.fromJson(core.Map json_)
+      : this(
+          checkServiceNetworkingUsePermission:
+              json_['checkServiceNetworkingUsePermission'] as core.bool?,
+          consumerNetwork: json_['consumerNetwork'] as core.String?,
+          consumerProject: json_.containsKey('consumerProject')
+              ? ConsumerProject.fromJson(json_['consumerProject']
+                  as core.Map<core.String, core.dynamic>)
+              : null,
+          rangeReservation: json_.containsKey('rangeReservation')
+              ? RangeReservation.fromJson(json_['rangeReservation']
+                  as core.Map<core.String, core.dynamic>)
+              : null,
+          validateNetwork: json_['validateNetwork'] as core.bool?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (checkServiceNetworkingUsePermission != null)
+          'checkServiceNetworkingUsePermission':
+              checkServiceNetworkingUsePermission!,
+        if (consumerNetwork != null) 'consumerNetwork': consumerNetwork!,
+        if (consumerProject != null) 'consumerProject': consumerProject!,
+        if (rangeReservation != null) 'rangeReservation': rangeReservation!,
+        if (validateNetwork != null) 'validateNetwork': validateNetwork!,
+      };
+}
+
+class ValidateConsumerConfigResponse {
+  /// List of subnetwork candidates from the request which exist with the
+  /// `ip_cidr_range`, `secondary_ip_cider_ranges`, and `outside_allocation`
+  /// fields set.
+  core.List<Subnetwork>? existingSubnetworkCandidates;
+
+  /// Indicates whether all the requested validations passed.
+  core.bool? isValid;
+
+  /// The first validation which failed.
+  /// Possible string values are:
+  /// - "VALIDATION_ERROR_UNSPECIFIED"
+  /// - "VALIDATION_NOT_REQUESTED" : In case none of the validations are
+  /// requested.
+  /// - "SERVICE_NETWORKING_NOT_ENABLED"
+  /// - "NETWORK_NOT_FOUND" : The network provided by the consumer does not
+  /// exist.
+  /// - "NETWORK_NOT_PEERED" : The network has not been peered with the producer
+  /// org.
+  /// - "NETWORK_PEERING_DELETED" : The peering was created and later deleted.
+  /// - "NETWORK_NOT_IN_CONSUMERS_PROJECT" : The network is a regular VPC but
+  /// the network is not in the consumer's project.
+  /// - "NETWORK_NOT_IN_CONSUMERS_HOST_PROJECT" : The consumer project is a
+  /// service project, and network is a shared VPC, but the network is not in
+  /// the host project of this consumer project.
+  /// - "HOST_PROJECT_NOT_FOUND" : The host project associated with the consumer
+  /// project was not found.
+  /// - "CONSUMER_PROJECT_NOT_SERVICE_PROJECT" : The consumer project is not a
+  /// service project for the specified host project.
+  /// - "RANGES_EXHAUSTED" : The reserved IP ranges do not have enough space to
+  /// create a subnet of desired size.
+  /// - "RANGES_NOT_RESERVED" : The IP ranges were not reserved.
+  /// - "RANGES_DELETED_LATER" : The IP ranges were reserved but deleted later.
+  /// - "COMPUTE_API_NOT_ENABLED" : The consumer project does not have the
+  /// compute api enabled.
+  /// - "USE_PERMISSION_NOT_FOUND" : The consumer project does not have the
+  /// permission from the host project.
+  /// - "SN_SERVICE_AGENT_PERMISSION_DENIED_ON_CONSUMER_PROJECT" : The SN
+  /// service agent {service-@service-networking.iam.gserviceaccount.com} does
+  /// not have the SN service agent role on the consumer project.
+  core.String? validationError;
+
+  ValidateConsumerConfigResponse({
+    this.existingSubnetworkCandidates,
+    this.isValid,
+    this.validationError,
+  });
+
+  ValidateConsumerConfigResponse.fromJson(core.Map json_)
+      : this(
+          existingSubnetworkCandidates:
+              (json_['existingSubnetworkCandidates'] as core.List?)
+                  ?.map((value) => Subnetwork.fromJson(
+                      value as core.Map<core.String, core.dynamic>))
+                  .toList(),
+          isValid: json_['isValid'] as core.bool?,
+          validationError: json_['validationError'] as core.String?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (existingSubnetworkCandidates != null)
+          'existingSubnetworkCandidates': existingSubnetworkCandidates!,
+        if (isValid != null) 'isValid': isValid!,
+        if (validationError != null) 'validationError': validationError!,
+      };
+}
+
+/// Response for the get VPC Service Controls request.
+class VpcServiceControls {
+  /// Indicates whether the VPC Service Controls are enabled or disabled for the
+  /// connection.
+  ///
+  /// If the consumer called the EnableVpcServiceControls method, then this is
+  /// true. If the consumer called DisableVpcServiceControls, then this is
+  /// false. The default is false.
+  ///
+  /// Output only.
+  core.bool? enabled;
+
+  VpcServiceControls({
+    this.enabled,
+  });
+
+  VpcServiceControls.fromJson(core.Map json_)
+      : this(
+          enabled: json_['enabled'] as core.bool?,
+        );
+
+  core.Map<core.String, core.dynamic> toJson() => {
+        if (enabled != null) 'enabled': enabled!,
+      };
+}

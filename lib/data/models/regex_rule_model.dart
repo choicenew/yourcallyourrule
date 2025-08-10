@@ -20,8 +20,9 @@ class RegexRuleModel extends RuleModel {
     required super.action,
     required this.pattern,
     super.isEnabled,
+    String? ruleType, // Make ruleType optional
   }) : super(
-          ruleType: 'regex',
+          ruleType: ruleType ?? 'regex',
         );
 
   // 从Map创建模型
@@ -32,7 +33,8 @@ class RegexRuleModel extends RuleModel {
       priority: map['priority'],
       action: map['action'],
       pattern: map['pattern'],
-      isEnabled: map['isEnabled'] ?? true,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      ruleType: map['ruleType'], // Read ruleType from map
     );
   }
 

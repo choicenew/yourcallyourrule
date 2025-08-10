@@ -25,8 +25,6 @@ abstract class RuleRepository extends BaseRepository<RuleBase, String> {
 
   /// 根据类型获取规则
   Future<List<RuleBase>> getRulesByType(String type);
-  /// 根据规则类型获取所有规则
-  Future<List<RuleBase>> getAllByType(String type);
   
   /// 根据规则名称搜索规则
   Future<List<RuleBase>> searchByName(String name);

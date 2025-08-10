@@ -30,31 +30,15 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
     
     return List.generate(maps.length, (i) {
       final map = maps[i];
-      // 根据表类型创建不同的订阅模型
       final String? tableType = map['table_type'];
-      if (tableType == 'contact') {
-        return ContactSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          enabled: map['enabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          contactGroup: map['contact_group'],
-        );
-      } else if (tableType == 'sms') {
-        return SmsSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          enabled: map['enabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          action: RuleAction.fromString(map['action']),
-          isNumberType: map['isNumberType'] == 1,
-        );
-      } else {
-        return SubscriptionModel.fromMap(map);
+      switch (tableType) {
+        case 'contact':
+          return ContactSubscriptionModel.fromMap(map);
+        case 'sms':
+          return SmsSubscriptionModel.fromMap(map);
+        case 'phone':
+        default:
+          return SubscriptionModel.fromMap(map);
       }
     });
   }
@@ -71,31 +55,15 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
     
     if (maps.isNotEmpty) {
       final map = maps.first;
-      // 根据表类型创建不同的订阅模型
       final String? tableType = map['table_type'];
-      if (tableType == 'contact') {
-        return ContactSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          enabled: map['enabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          contactGroup: map['contact_group'],
-        );
-      } else if (tableType == 'sms') {
-        return SmsSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          enabled: map['enabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          action: RuleAction.fromString(map['action']),
-          isNumberType: map['isNumberType'] == 1,
-        );
-      } else {
-        return SubscriptionModel.fromMap(map);
+      switch (tableType) {
+        case 'contact':
+          return ContactSubscriptionModel.fromMap(map);
+        case 'sms':
+          return SmsSubscriptionModel.fromMap(map);
+        case 'phone':
+        default:
+          return SubscriptionModel.fromMap(map);
       }
     }
     return null;
@@ -117,7 +85,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           id: id,
           name: subscription.name,
           url: subscription.url,
-          enabled: subscription.enabled,
+          isEnabled: subscription.isEnabled,
           lastUpdated: subscription.lastUpdated,
           autoUpdate: subscription.autoUpdate,
           contactGroup: subscription.contactGroup,
@@ -127,7 +95,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           id: id,
           name: subscription.name,
           url: subscription.url,
-          enabled: subscription.enabled,
+          isEnabled: subscription.isEnabled,
           lastUpdated: subscription.lastUpdated,
           autoUpdate: subscription.autoUpdate,
           action: subscription.action,
@@ -138,7 +106,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           id: id,
           name: subscription.name,
           url: subscription.url,
-          enabled: subscription.enabled,
+          isEnabled: subscription.isEnabled,
           action: subscription.action,
           lastUpdated: subscription.lastUpdated,
           autoUpdate: subscription.autoUpdate,
@@ -206,7 +174,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
               id: id,
               name: subscription.name,
               url: subscription.url,
-              enabled: subscription.enabled,
+              isEnabled: subscription.isEnabled,
               lastUpdated: subscription.lastUpdated,
               autoUpdate: subscription.autoUpdate,
               contactGroup: subscription.contactGroup,
@@ -216,7 +184,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
               id: id,
               name: subscription.name,
               url: subscription.url,
-              enabled: subscription.enabled,
+              isEnabled: subscription.isEnabled,
               lastUpdated: subscription.lastUpdated,
               autoUpdate: subscription.autoUpdate,
               action: subscription.action,
@@ -227,7 +195,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
               id: id,
               name: subscription.name,
               url: subscription.url,
-              enabled: subscription.enabled,
+              isEnabled: subscription.isEnabled,
               action: subscription.action,
               lastUpdated: subscription.lastUpdated,
               autoUpdate: subscription.autoUpdate,
@@ -329,7 +297,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
             id: subscriptionMap['id'],
             name: subscriptionMap['name'],
             url: subscriptionMap['url'],
-            enabled: subscriptionMap['enabled'] == 1,
+            isEnabled: subscriptionMap['isEnabled'] == 1,
             lastUpdated: DateTime.parse(subscriptionMap['lastUpdated']),
             autoUpdate: subscriptionMap['autoUpdate'] == 1,
             contactGroup: subscriptionMap['contact_group'],
@@ -339,13 +307,16 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
             id: subscriptionMap['id'],
             name: subscriptionMap['name'],
             url: subscriptionMap['url'],
-            enabled: subscriptionMap['enabled'] == 1,
+            isEnabled: subscriptionMap['isEnabled'] == 1,
             lastUpdated: DateTime.parse(subscriptionMap['lastUpdated']),
             autoUpdate: subscriptionMap['autoUpdate'] == 1,
             action: RuleAction.fromString(subscriptionMap['action']),
             isNumberType: subscriptionMap['isNumberType'] == 1,
           ));
+        } else if (tableType == 'phone') {
+          subscriptions.add(SubscriptionModel.fromMap(subscriptionMap));
         } else {
+          // 默认情况下，如果没有指定类型，则假定为标准订阅
           subscriptions.add(SubscriptionModel.fromMap(subscriptionMap));
         }
       }
@@ -362,7 +333,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(
       _tableName,
-      where: 'enabled = ?',
+      where: 'isEnabled = ?',
       whereArgs: [1],
     );
     
@@ -375,7 +346,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           id: map['id'],
           name: map['name'],
           url: map['url'],
-          enabled: map['enabled'] == 1,
+          isEnabled: map['isEnabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
           contactGroup: map['contact_group'],
@@ -385,13 +356,16 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           id: map['id'],
           name: map['name'],
           url: map['url'],
-          enabled: map['enabled'] == 1,
+          isEnabled: map['isEnabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
           action: RuleAction.fromString(map['action']),
           isNumberType: map['isNumberType'] == 1,
         );
+      } else if (tableType == 'phone') {
+        return SubscriptionModel.fromMap(map);
       } else {
+        // 默认情况下，如果没有指定类型，则假定为标准订阅
         return SubscriptionModel.fromMap(map);
       }
     });
@@ -415,7 +389,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           id: map['id'],
           name: map['name'],
           url: map['url'],
-          enabled: map['enabled'] == 1,
+          isEnabled: map['isEnabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
           contactGroup: map['contact_group'],
@@ -425,13 +399,16 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           id: map['id'],
           name: map['name'],
           url: map['url'],
-          enabled: map['enabled'] == 1,
+          isEnabled: map['isEnabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
           action: RuleAction.fromString(map['action']),
           isNumberType: map['isNumberType'] == 1,
         );
+      } else if (tableType == 'phone') {
+        return SubscriptionModel.fromMap(map);
       } else {
+        // 默认情况下，如果没有指定类型，则假定为标准订阅
         return SubscriptionModel.fromMap(map);
       }
     });
@@ -454,7 +431,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           id: map['id'],
           name: map['name'],
           url: map['url'],
-          enabled: map['enabled'] == 1,
+          isEnabled: map['isEnabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
           contactGroup: map['contact_group'],
@@ -464,13 +441,16 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           id: map['id'],
           name: map['name'],
           url: map['url'],
-          enabled: map['enabled'] == 1,
+          isEnabled: map['isEnabled'] == 1,
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
           action: RuleAction.fromString(map['action']),
           isNumberType: map['isNumberType'] == 1,
         );
+      } else if (type == 'phone') {
+        return SubscriptionModel.fromMap(map);
       } else {
+        // 默认情况下，如果没有指定类型，则假定为标准订阅
         return SubscriptionModel.fromMap(map);
       }
     });

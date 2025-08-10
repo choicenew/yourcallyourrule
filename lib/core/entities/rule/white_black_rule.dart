@@ -9,6 +9,7 @@ class WhiteBlackRule extends RuleBase {
   final bool isSubscribed;
   final int count;
   final String? avatar;
+  final String ruleType;
 
   WhiteBlackRule({
     required super.id,
@@ -16,6 +17,7 @@ class WhiteBlackRule extends RuleBase {
     required super.action,
     required this.phoneNumber,
     required this.labelId,
+    this.ruleType = 'white_black',
     RulePriority? priority,
     super.isEnabled = true,
     this.isSubscribed = false,
@@ -50,9 +52,10 @@ class WhiteBlackRule extends RuleBase {
       ..addAll({
         'phoneNumber': phoneNumber.value,
         'labelId': labelId,
-        'isSubscribed': isSubscribed,
+        'isSubscribed': isSubscribed ? 1 : 0,
         'count': count,
         'avatar': avatar,
+        'ruleType': ruleType,
       });
   }
 
@@ -65,10 +68,11 @@ class WhiteBlackRule extends RuleBase {
       action: action,
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
       labelId: map['labelId'],
-      isEnabled: map['isEnabled'] ?? true,
-      isSubscribed: map['isSubscribed'] ?? false,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
+      ruleType: map['ruleType'] ?? 'white_black',
     );
   }
 
@@ -84,6 +88,7 @@ class WhiteBlackRule extends RuleBase {
     bool? isSubscribed,
     int? count,
     String? avatar,
+    String? ruleType,
   }) {
     return WhiteBlackRule(
       id: id ?? this.id,
@@ -96,6 +101,7 @@ class WhiteBlackRule extends RuleBase {
       isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,
       avatar: avatar ?? this.avatar,
+      ruleType: ruleType ?? this.ruleType,
     );
   }
 }

@@ -8,16 +8,19 @@ class RegexRule extends RuleBase {
   static const String ruleType = 'regex';
   final String pattern;
 
+
   RegexRule({
     required super.id,
     required super.name,
     required this.pattern,
     required super.action,
+
     RulePriority? priority, // 添加可选优先级参数
     super.isEnabled = true,
   }) : super(
           priority: priority ?? _defaultPriority(action), // 优先使用传入的优先级
         );
+
 
   static RulePriority _defaultPriority(RuleAction action) {
     switch (action.type) {
@@ -40,14 +43,17 @@ class RegexRule extends RuleBase {
     RulePriority? priority,
     RuleAction? action,
     bool? isEnabled,
+    String? ruleType,
+    String? pattern,
   }) {
     return RegexRule(
       id: id ?? this.id,
       name: name ?? this.name,
-      pattern: pattern,
+      pattern: pattern ?? this.pattern,
       action: action ?? this.action,
       priority: priority ?? this.priority,
       isEnabled: isEnabled ?? this.isEnabled,
+
     );
   }
 
@@ -66,6 +72,7 @@ class RegexRule extends RuleBase {
   Map<String, dynamic> toMap() {
     return super.toMap()..addAll({
       'pattern': pattern,
+      'ruleType': ruleType,
     });
   }
 
@@ -76,7 +83,8 @@ class RegexRule extends RuleBase {
       pattern: map['pattern'],
       action: RuleAction.fromString(map['action']),
       priority: RulePriority.fromInt(map['priority']),
-      isEnabled: map['isEnabled'] ?? true,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
+
     );
   }
 }

@@ -49,6 +49,7 @@ class SimSlotRule extends RuleBase {
       'simSlotIndex': simSlotIndex,
       'labelId': labelId,
       'avatar': avatar,
+      'isEnabled': isEnabled ? 1 : 0,
     });
     return map;
   }

@@ -50,7 +50,7 @@ class ContactModel extends BaseModel<PhoneEntry> {
       labelIds: map['labelIds'] != null 
           ? List<String>.from(map['labelIds']) 
           : null,
-      isFavorite: map['isFavorite'] ?? false,
+      isFavorite: (map['isFavorite'] ?? 0) == 1,
       lastUpdated: map['lastUpdated'] != null 
           ? DateTime.parse(map['lastUpdated']) 
           : DateTime.now(),
@@ -67,7 +67,7 @@ class ContactModel extends BaseModel<PhoneEntry> {
       'avatar': avatar,
       'note': note,
       'labelIds': labelIds,
-      'isFavorite': isFavorite,
+      'isFavorite': isFavorite ? 1 : 0,
       'lastUpdated': lastUpdated.toIso8601String(),
     });
     return map;

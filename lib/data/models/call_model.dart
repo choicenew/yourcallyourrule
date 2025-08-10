@@ -64,10 +64,10 @@ class CallModel extends BaseModel<CallEntity> {
       startTime: DateTime.parse(map['startTime']),
       endTime: map['endTime'] != null ? DateTime.parse(map['endTime']) : null,
       duration: map['duration'] ?? 0,
-      isRead: map['isRead'] ?? false,
+      isRead: (map['isRead'] ?? 0) == 1,
       simInfo: map['simInfo'],
       note: map['note'],
-      isMarked: map['isMarked'] ?? false,
+      isMarked: (map['isMarked'] ?? 0) == 1,
       labelIds: map['labelIds'] != null 
           ? List<String>.from(map['labelIds']) 
           : null,
@@ -85,10 +85,10 @@ class CallModel extends BaseModel<CallEntity> {
       'startTime': startTime.toIso8601String(),
       'endTime': endTime?.toIso8601String(),
       'duration': duration,
-      'isRead': isRead,
+      'isRead': isRead ? 1 : 0,
       'simInfo': simInfo,
       'note': note,
-      'isMarked': isMarked,
+      'isMarked': isMarked ? 1 : 0,
       'labelIds': labelIds,
     });
     return map;

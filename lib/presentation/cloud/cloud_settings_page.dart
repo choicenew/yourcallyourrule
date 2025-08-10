@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
-
 import 'package:yourcallyourrule/cloud_sync/provider/cloud_sync_provider.dart';
-import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
+import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/presentation/cloud/google_sign_in_test_page.dart';
 
 final webdavConfigProvider = StateProvider<Map<String, String>>((ref) => {});
 final oneDriveConfigProvider = StateProvider<Map<String, String>>((ref) => {});
-final googleDriveConfigProvider =
-    StateProvider<Map<String, String>>((ref) => {});
+final googleDriveConfigProvider = StateProvider<Map<String, String>>(
+  (ref) => {},
+);
 
 class CloudSettingsPage extends ConsumerWidget {
   const CloudSettingsPage({super.key});
@@ -36,15 +37,53 @@ class CloudSettingsPage extends ConsumerWidget {
           children: [
             _buildSyncStatusSection(context, ref),
             const SizedBox(height: 28),
-            _buildSectionTitle(context, AppLocalizations.of(context)!.cloudSyncService),
+            _buildSectionTitle(
+              context,
+              AppLocalizations.of(context)!.cloudSyncService,
+            ),
             const SizedBox(height: 16),
             _buildWebDAVSection(context, ref.watch(webdavConfigProvider), ref),
             const SizedBox(height: 20),
-            _buildOneDriveSection(context, ref.watch(oneDriveConfigProvider), ref),
+            _buildOneDriveSection(
+              context,
+              ref.watch(oneDriveConfigProvider),
+              ref,
+            ),
             const SizedBox(height: 20),
-            _buildGoogleDriveSection(context, ref.watch(googleDriveConfigProvider), ref),
-             const SizedBox(height: 20),
-             nativeAdWidgetMedium(adWidth: 400, adHeight: 499),
+            _buildGoogleDriveSection(
+              context,
+              ref.watch(googleDriveConfigProvider),
+              ref,
+            ),
+            const SizedBox(height: 20),
+            nativeAdWidgetMedium(adWidth: 400, adHeight: 499),
+            const SizedBox(height: 20),
+            _buildSectionTitle(context, 'Developer Options'),
+            const SizedBox(height: 16),
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ListTile(
+                leading: const CircleAvatar(
+                  backgroundColor: Colors.orange,
+                  child: Icon(Icons.bug_report, color: Colors.white),
+                ),
+                title: const Text(
+                  'Google Sign-In Test',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => GoogleSignInTestPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -52,7 +91,10 @@ class CloudSettingsPage extends ConsumerWidget {
   }
 
   Widget _buildWebDAVSection(
-      BuildContext context, Map<String, String> config, WidgetRef ref) {
+    BuildContext context,
+    Map<String, String> config,
+    WidgetRef ref,
+  ) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -61,79 +103,91 @@ class CloudSettingsPage extends ConsumerWidget {
           backgroundColor: Colors.blueAccent,
           child: Icon(Icons.cloud_queue, color: Colors.white),
         ),
-        title: Text(AppLocalizations.of(context)!.webDAVConfigTitle, style: const TextStyle(fontWeight: FontWeight.bold)),
-        childrenPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        children: [ 
-        _buildTextField(
-          context,
-          label: AppLocalizations.of(context)!.serverAddressLabel,
-          hint: AppLocalizations.of(context)!.enterWebDAVServerAddressHint,
-          initialValue: config['server_url'],
-          icon: Icons.dns,
-          onChanged: (value) {
-            final newConfig = Map<String, String>.from(config);
-            newConfig['server_url'] = value;
-            ref.read(webdavConfigProvider.notifier).state = newConfig;
-          },
+        title: Text(
+          AppLocalizations.of(context)!.webDAVConfigTitle,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 16),
-        _buildTextField(
-          context,
-          label: AppLocalizations.of(context)!.usernameLabel,
-          hint: AppLocalizations.of(context)!.enterWebDAVUsernameHint,
-          initialValue: config['username'],
-          icon: Icons.person,
-          onChanged: (value) {
-            final newConfig = Map<String, String>.from(config);
-            newConfig['username'] = value;
-            ref.read(webdavConfigProvider.notifier).state = newConfig;
-          },
+        childrenPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 8,
         ),
-        const SizedBox(height: 16),
-        _buildTextField(
-          context,
-          label: AppLocalizations.of(context)!.passwordLabel,
-          hint: AppLocalizations.of(context)!.enterWebDAVPasswordHint,
-          initialValue: config['password'],
-          icon: Icons.lock,
-          obscureText: true,
-          onChanged: (value) {
-            final newConfig = Map<String, String>.from(config);
-            newConfig['password'] = value;
-            ref.read(webdavConfigProvider.notifier).state = newConfig;
-          },
-        ),
-        const SizedBox(height: 16),
-        _buildTextField(
-          context,
-          label: AppLocalizations.of(context)!.syncFolderNameLabel,
-          hint: AppLocalizations.of(context)!.enterSyncFolderNameHint,
-          initialValue: config['folder_name'],
-          icon: Icons.folder,
-          onChanged: (value) {
-            final newConfig = Map<String, String>.from(config);
-            newConfig['folder_name'] = value;
-            ref.read(webdavConfigProvider.notifier).state = newConfig;
-          },
-        ),
-        const SizedBox(height: 24),
-        ElevatedButton.icon(
-          onPressed: () => _testWebDAVConnection(context, config),
-          icon: const Icon(Icons.link),
-          label: Text(AppLocalizations.of(context)!.testConnectionButton),
-          style: ElevatedButton.styleFrom(
-            minimumSize: const Size(double.infinity, 48),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                        backgroundColor: const Color.fromARGB(172, 250, 77, 25),
-            foregroundColor: Colors.white,
+        children: [
+          _buildTextField(
+            context,
+            label: AppLocalizations.of(context)!.serverAddressLabel,
+            hint: AppLocalizations.of(context)!.enterWebDAVServerAddressHint,
+            initialValue: config['server_url'],
+            icon: Icons.dns,
+            onChanged: (value) {
+              final newConfig = Map<String, String>.from(config);
+              newConfig['server_url'] = value;
+              ref.read(webdavConfigProvider.notifier).state = newConfig;
+            },
           ),
-        ),
-      ]),
+          const SizedBox(height: 16),
+          _buildTextField(
+            context,
+            label: AppLocalizations.of(context)!.usernameLabel,
+            hint: AppLocalizations.of(context)!.enterWebDAVUsernameHint,
+            initialValue: config['username'],
+            icon: Icons.person,
+            onChanged: (value) {
+              final newConfig = Map<String, String>.from(config);
+              newConfig['username'] = value;
+              ref.read(webdavConfigProvider.notifier).state = newConfig;
+            },
+          ),
+          const SizedBox(height: 16),
+          _buildTextField(
+            context,
+            label: AppLocalizations.of(context)!.passwordLabel,
+            hint: AppLocalizations.of(context)!.enterWebDAVPasswordHint,
+            initialValue: config['password'],
+            icon: Icons.lock,
+            obscureText: true,
+            onChanged: (value) {
+              final newConfig = Map<String, String>.from(config);
+              newConfig['password'] = value;
+              ref.read(webdavConfigProvider.notifier).state = newConfig;
+            },
+          ),
+          const SizedBox(height: 16),
+          _buildTextField(
+            context,
+            label: AppLocalizations.of(context)!.syncFolderNameLabel,
+            hint: AppLocalizations.of(context)!.enterSyncFolderNameHint,
+            initialValue: config['folder_name'],
+            icon: Icons.folder,
+            onChanged: (value) {
+              final newConfig = Map<String, String>.from(config);
+              newConfig['folder_name'] = value;
+              ref.read(webdavConfigProvider.notifier).state = newConfig;
+            },
+          ),
+          const SizedBox(height: 24),
+          ElevatedButton.icon(
+            onPressed: () => _testWebDAVConnection(context, config),
+            icon: const Icon(Icons.link),
+            label: Text(AppLocalizations.of(context)!.testConnectionButton),
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size(double.infinity, 48),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              backgroundColor: const Color.fromARGB(172, 250, 77, 25),
+              foregroundColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildOneDriveSection(
-      BuildContext context, Map<String, String> config, WidgetRef ref) {
+    BuildContext context,
+    Map<String, String> config,
+    WidgetRef ref,
+  ) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -142,45 +196,56 @@ class CloudSettingsPage extends ConsumerWidget {
           backgroundColor: Colors.lightBlue,
           child: Icon(Icons.cloud, color: Colors.white),
         ),
-        title: Text(AppLocalizations.of(context)!.oneDriveConfigTitle, style: const TextStyle(fontWeight: FontWeight.bold)),
-        childrenPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        children: [ 
-        Text(
-          AppLocalizations.of(context)!.oneDriveAuthDescription,
-          style: TextStyle(color: Colors.grey[600]),
+        title: Text(
+          AppLocalizations.of(context)!.oneDriveConfigTitle,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 16),
-        _buildTextField(
-          context,
-          label: AppLocalizations.of(context)!.syncFolderNameLabel,
-          hint: AppLocalizations.of(context)!.enterSyncFolderNameHint,
-          initialValue: config['folder_name'],
-          icon: Icons.folder_shared,
-          onChanged: (value) {
-            final newConfig = Map<String, String>.from(config);
-            newConfig['folder_name'] = value;
-            ref.read(oneDriveConfigProvider.notifier).state = newConfig;
-          },
+        childrenPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 8,
         ),
-        const SizedBox(height: 24),
-        ElevatedButton.icon(
-          onPressed: () => _authorizeOneDrive(context, config, ref),
-          icon: const Icon(Icons.login),
-          label: Text(AppLocalizations.of(context)!.authorizeLoginButton),
-          style: ElevatedButton.styleFrom(
-            minimumSize: const Size(double.infinity, 48),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            backgroundColor: Colors.lightBlue,
-            foregroundColor: Colors.white,
+        children: [
+          Text(
+            AppLocalizations.of(context)!.oneDriveAuthDescription,
+            style: TextStyle(color: Colors.grey[600]),
           ),
-        ),
-      ],
-    )
+          const SizedBox(height: 16),
+          _buildTextField(
+            context,
+            label: AppLocalizations.of(context)!.syncFolderNameLabel,
+            hint: AppLocalizations.of(context)!.enterSyncFolderNameHint,
+            initialValue: config['folder_name'],
+            icon: Icons.folder_shared,
+            onChanged: (value) {
+              final newConfig = Map<String, String>.from(config);
+              newConfig['folder_name'] = value;
+              ref.read(oneDriveConfigProvider.notifier).state = newConfig;
+            },
+          ),
+          const SizedBox(height: 24),
+          ElevatedButton.icon(
+            onPressed: () => _authorizeOneDrive(context, config, ref),
+            icon: const Icon(Icons.login),
+            label: Text(AppLocalizations.of(context)!.authorizeLoginButton),
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size(double.infinity, 48),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              backgroundColor: Colors.lightBlue,
+              foregroundColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildGoogleDriveSection(
-      BuildContext context, Map<String, String> config, WidgetRef ref) {
+    BuildContext context,
+    Map<String, String> config,
+    WidgetRef ref,
+  ) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -189,45 +254,55 @@ class CloudSettingsPage extends ConsumerWidget {
           backgroundColor: Colors.green,
           child: Icon(Icons.add_to_drive_outlined, color: Colors.white),
         ),
-        title: Text(AppLocalizations.of(context)!.googleDriveConfigTitle, style: const TextStyle(fontWeight: FontWeight.bold)),
-        childrenPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        children: [ 
-        Text(
-          AppLocalizations.of(context)!.googleDriveAuthDescription,
-          style: TextStyle(color: Colors.grey[600]),
+        title: Text(
+          AppLocalizations.of(context)!.googleDriveConfigTitle,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 16),
-        _buildTextField(
-          context,
-          label: AppLocalizations.of(context)!.syncFolderNameLabel,
-          hint: AppLocalizations.of(context)!.enterSyncFolderNameHint,
-          initialValue: config['folder_name'],
-          icon: Icons.folder_special,
-          onChanged: (value) {
-            final newConfig = Map<String, String>.from(config);
-            newConfig['folder_name'] = value;
-            ref.read(googleDriveConfigProvider.notifier).state = newConfig;
-          },
+        childrenPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 8,
         ),
-        const SizedBox(height: 24),
-        ElevatedButton.icon(
-          onPressed: () => _authorizeGoogleDrive(context, config, ref),
-          icon: const Icon(Icons.login),
-          label: Text(AppLocalizations.of(context)!.authorizeLoginButton),
-          style: ElevatedButton.styleFrom(
-            minimumSize: const Size(double.infinity, 48),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            backgroundColor: Colors.green,
-            foregroundColor: Colors.white,
+        children: [
+          Text(
+            AppLocalizations.of(context)!.googleDriveAuthDescription,
+            style: TextStyle(color: Colors.grey[600]),
           ),
-        ),
-      ],
-      )
+          const SizedBox(height: 16),
+          _buildTextField(
+            context,
+            label: AppLocalizations.of(context)!.syncFolderNameLabel,
+            hint: AppLocalizations.of(context)!.enterSyncFolderNameHint,
+            initialValue: config['folder_name'],
+            icon: Icons.folder_special,
+            onChanged: (value) {
+              final newConfig = Map<String, String>.from(config);
+              newConfig['folder_name'] = value;
+              ref.read(googleDriveConfigProvider.notifier).state = newConfig;
+            },
+          ),
+          const SizedBox(height: 24),
+          ElevatedButton.icon(
+            onPressed: () => _authorizeGoogleDrive(context, config, ref),
+            icon: const Icon(Icons.login),
+            label: Text(AppLocalizations.of(context)!.authorizeLoginButton),
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size(double.infinity, 48),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              backgroundColor: Colors.green,
+              foregroundColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Future<void> _testWebDAVConnection(
-      BuildContext context, Map<String, String> config) async {
+    BuildContext context,
+    Map<String, String> config,
+  ) async {
     try {
       // 显示加载指示器
       showDialog(
@@ -258,11 +333,21 @@ class CloudSettingsPage extends ConsumerWidget {
 
       if (result) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.connectionSuccessMessage)),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(context)!.connectionSuccessMessage,
+            ),
+          ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.connectionFailedCheckCredentialsMessage)),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(
+                context,
+              )!.connectionFailedCheckCredentialsMessage,
+            ),
+          ),
         );
       }
     } catch (e) {
@@ -270,13 +355,20 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${AppLocalizations.of(context)!.connectionFailedMessage}: $e')),
+        SnackBar(
+          content: Text(
+            '${AppLocalizations.of(context)!.connectionFailedMessage}: $e',
+          ),
+        ),
       );
     }
   }
 
   Future<void> _authorizeOneDrive(
-      BuildContext context, Map<String, String> config, WidgetRef ref) async {
+    BuildContext context,
+    Map<String, String> config,
+    WidgetRef ref,
+  ) async {
     try {
       // 显示加载指示器
       showDialog(
@@ -286,8 +378,9 @@ class CloudSettingsPage extends ConsumerWidget {
       );
 
       // 获取OneDrive服务
-      final onedriveService =
-          ProviderContainer().read(onedriveSyncServiceProvider);
+      final onedriveService = ProviderContainer().read(
+        onedriveSyncServiceProvider,
+      );
 
       // 初始化服务
       await onedriveService.initialize({
@@ -309,11 +402,21 @@ class CloudSettingsPage extends ConsumerWidget {
         ref.read(activeSyncServiceProvider.notifier).state = onedriveService;
 
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.authorizationSuccessMessage)),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(context)!.authorizationSuccessMessage,
+            ),
+          ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.authorizationFailedCheckCredentialsMessage)),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(
+                context,
+              )!.authorizationFailedCheckCredentialsMessage,
+            ),
+          ),
         );
       }
     } catch (e) {
@@ -321,13 +424,20 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${AppLocalizations.of(context)!.authorizationFailedMessage}: $e')),
+        SnackBar(
+          content: Text(
+            '${AppLocalizations.of(context)!.authorizationFailedMessage}: $e',
+          ),
+        ),
       );
     }
   }
 
   Future<void> _authorizeGoogleDrive(
-      BuildContext context, Map<String, String> config, WidgetRef ref) async {
+    BuildContext context,
+    Map<String, String> config,
+    WidgetRef ref,
+  ) async {
     try {
       // 显示加载指示器
       showDialog(
@@ -337,8 +447,9 @@ class CloudSettingsPage extends ConsumerWidget {
       );
 
       // 获取Google Drive服务
-      final googleDriveService =
-          ProviderContainer().read(googleDriveSyncServiceProvider);
+      final googleDriveService = ProviderContainer().read(
+        googleDriveSyncServiceProvider,
+      );
 
       // 初始化服务
       await googleDriveService.initialize({
@@ -360,11 +471,21 @@ class CloudSettingsPage extends ConsumerWidget {
         ref.read(activeSyncServiceProvider.notifier).state = googleDriveService;
 
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.authorizationSuccessMessage)),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(context)!.authorizationSuccessMessage,
+            ),
+          ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.authorizationFailedCheckCredentialsMessage)),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(
+                context,
+              )!.authorizationFailedCheckCredentialsMessage,
+            ),
+          ),
         );
       }
     } catch (e) {
@@ -372,7 +493,11 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${AppLocalizations.of(context)!.authorizationFailedMessage}: $e')),
+        SnackBar(
+          content: Text(
+            '${AppLocalizations.of(context)!.authorizationFailedMessage}: $e',
+          ),
+        ),
       );
     }
   }
@@ -383,7 +508,10 @@ class CloudSettingsPage extends ConsumerWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         gradient: LinearGradient(
-          colors: [const Color.fromARGB(255, 255, 167, 38), const Color.fromARGB(255, 255, 186, 59)],
+          colors: [
+            const Color.fromARGB(255, 255, 167, 38),
+            const Color.fromARGB(255, 255, 186, 59),
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -409,40 +537,72 @@ class CloudSettingsPage extends ConsumerWidget {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.syncStatusTitle,
-                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                   const SizedBox(height: 16),
-                  _buildStatusRow(context, isConnected ? Icons.cloud_done : Icons.cloud_off, isConnected ? Colors.greenAccent : Colors.amberAccent, '${AppLocalizations.of(context)!.connectionStatusLabel}: ${isConnected ? AppLocalizations.of(context)!.connectedStatus : AppLocalizations.of(context)!.disconnectedStatus}'),
+                  _buildStatusRow(
+                    context,
+                    isConnected ? Icons.cloud_done : Icons.cloud_off,
+                    isConnected ? Colors.greenAccent : Colors.amberAccent,
+                    '${AppLocalizations.of(context)!.connectionStatusLabel}: ${isConnected ? AppLocalizations.of(context)!.connectedStatus : AppLocalizations.of(context)!.disconnectedStatus}',
+                  ),
                   const SizedBox(height: 8),
-                   _buildStatusRow(context, Icons.storage, Colors.white, '${AppLocalizations.of(context)!.serviceTypeLabel}: ${serviceType == "none" ? AppLocalizations.of(context)!.noneServiceType : serviceType}'),
+                  _buildStatusRow(
+                    context,
+                    Icons.storage,
+                    Colors.white,
+                    '${AppLocalizations.of(context)!.serviceTypeLabel}: ${serviceType == "none" ? AppLocalizations.of(context)!.noneServiceType : serviceType}',
+                  ),
                   if (isConnected) ...[
                     const SizedBox(height: 8),
-                    _buildStatusRow(context, autoSyncEnabled ? Icons.sync : Icons.sync_disabled, Colors.white, '${AppLocalizations.of(context)!.autoSyncLabel}: ${autoSyncEnabled ? AppLocalizations.of(context)!.enabledStatus : AppLocalizations.of(context)!.disabledStatus}'),
+                    _buildStatusRow(
+                      context,
+                      autoSyncEnabled ? Icons.sync : Icons.sync_disabled,
+                      Colors.white,
+                      '${AppLocalizations.of(context)!.autoSyncLabel}: ${autoSyncEnabled ? AppLocalizations.of(context)!.enabledStatus : AppLocalizations.of(context)!.disabledStatus}',
+                    ),
                     const SizedBox(height: 24),
                     Row(
                       children: [
                         Expanded(
                           child: ElevatedButton.icon(
                             icon: const Icon(Icons.sync, color: Colors.blue),
-                            label: Text(AppLocalizations.of(context)!.syncNowButton, style: const TextStyle(color: Colors.blue)),
+                            label: Text(
+                              AppLocalizations.of(context)!.syncNowButton,
+                              style: const TextStyle(color: Colors.blue),
+                            ),
                             onPressed: () => _syncNow(context, ref),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(vertical: 14),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
                             ),
                           ),
                         ),
                         const SizedBox(width: 16),
                         Expanded(
                           child: OutlinedButton.icon(
-                            icon: const Icon(Icons.cloud_off, color: Colors.white),
-                            label: Text(AppLocalizations.of(context)!.disconnectButton, style: const TextStyle(color: Colors.white)),
+                            icon: const Icon(
+                              Icons.cloud_off,
+                              color: Colors.white,
+                            ),
+                            label: Text(
+                              AppLocalizations.of(context)!.disconnectButton,
+                              style: const TextStyle(color: Colors.white),
+                            ),
                             onPressed: () => _disconnectCloud(context, ref),
                             style: OutlinedButton.styleFrom(
                               side: const BorderSide(color: Colors.white),
                               padding: const EdgeInsets.symmetric(vertical: 14),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
                             ),
                           ),
                         ),
@@ -452,8 +612,17 @@ class CloudSettingsPage extends ConsumerWidget {
                 ],
               );
             },
-            loading: () => const Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.white))),
-            error: (error, stack) => Text('${AppLocalizations.of(context)!.loadStatusFailedMessage}: $error', style: const TextStyle(color: Colors.white)),
+            loading:
+                () => const Center(
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                  ),
+                ),
+            error:
+                (error, stack) => Text(
+                  '${AppLocalizations.of(context)!.loadStatusFailedMessage}: $error',
+                  style: const TextStyle(color: Colors.white),
+                ),
           );
         },
       ),
@@ -464,7 +633,11 @@ class CloudSettingsPage extends ConsumerWidget {
     final activeService = ref.read(activeSyncServiceProvider);
     if (activeService == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.noActiveCloudSyncServiceMessage)),
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(context)!.noActiveCloudSyncServiceMessage,
+          ),
+        ),
       );
       return;
     }
@@ -490,7 +663,9 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.syncSuccessMessage)),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.syncSuccessMessage),
+        ),
       );
 
       // 刷新状态并等待完成
@@ -498,7 +673,11 @@ class CloudSettingsPage extends ConsumerWidget {
       // 使用刷新结果更新UI
       if (refreshResult['connected'] == true) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.syncStatusUpdatedMessage)),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(context)!.syncStatusUpdatedMessage,
+            ),
+          ),
         );
       }
     } catch (e) {
@@ -506,7 +685,11 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${AppLocalizations.of(context)!.syncFailedMessage}: $e')),
+        SnackBar(
+          content: Text(
+            '${AppLocalizations.of(context)!.syncFailedMessage}: $e',
+          ),
+        ),
       );
     }
   }
@@ -515,7 +698,11 @@ class CloudSettingsPage extends ConsumerWidget {
     final activeService = ref.read(activeSyncServiceProvider);
     if (activeService == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.noActiveCloudSyncServiceMessage)),
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(context)!.noActiveCloudSyncServiceMessage,
+          ),
+        ),
       );
       return;
     }
@@ -538,7 +725,9 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.disconnectedMessage)),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.disconnectedMessage),
+        ),
       );
 
       // 刷新状态并等待完成
@@ -546,7 +735,11 @@ class CloudSettingsPage extends ConsumerWidget {
       // 使用刷新结果更新UI
       if (refreshResult['connected'] == true) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.syncStatusUpdatedMessage)),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(context)!.syncStatusUpdatedMessage,
+            ),
+          ),
         );
       }
     } catch (e) {
@@ -554,12 +747,17 @@ class CloudSettingsPage extends ConsumerWidget {
       Navigator.of(context).pop();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${AppLocalizations.of(context)!.disconnectFailedMessage}: $e')),
+        SnackBar(
+          content: Text(
+            '${AppLocalizations.of(context)!.disconnectFailedMessage}: $e',
+          ),
+        ),
       );
     }
   }
 
-  Widget _buildTextField(BuildContext context, {
+  Widget _buildTextField(
+    BuildContext context, {
     required String label,
     required String hint,
     required String? initialValue,
@@ -581,12 +779,20 @@ class CloudSettingsPage extends ConsumerWidget {
         ),
         filled: true,
         fillColor: Colors.white,
-        contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 16,
+          horizontal: 20,
+        ),
       ),
     );
   }
 
-  Widget _buildStatusRow(BuildContext context, IconData icon, Color iconColor, String text) {
+  Widget _buildStatusRow(
+    BuildContext context,
+    IconData icon,
+    Color iconColor,
+    String text,
+  ) {
     return Row(
       children: [
         Icon(icon, color: iconColor, size: 20),
@@ -604,7 +810,11 @@ class CloudSettingsPage extends ConsumerWidget {
   Widget _buildSectionTitle(BuildContext context, String title) {
     return Text(
       title,
-      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black87),
+      style: const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: Colors.black87,
+      ),
     );
   }
 }

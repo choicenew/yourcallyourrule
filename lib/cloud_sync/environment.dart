@@ -13,8 +13,9 @@ class Environment {
       defaultValue: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize');
   
   // Google Drive Configuration
-  static const googleDriveClientId = String.fromEnvironment('GOOGLE_DRIVE_CLIENT_ID',
-      defaultValue: '103585266847-746m8o2pmktgdcqiqvhgr7re8c1e6e2h.apps.googleusercontent.com');
-  
+  static const googleServerClientId = String.fromEnvironment(
+      'GOOGLE_SERVER_CLIENT_ID',
+      defaultValue: '213507864895-hdmhkq2mbss9mlretgdt6nldil85hdqi.apps.googleusercontent.com');
+
   // Add other environment configurations as needed
 }

@@ -55,9 +55,9 @@ class SmsModel extends BaseModel<SmsEntity> {
       messageType: map['messageType'],
       content: map['content'],
       timestamp: DateTime.parse(map['timestamp']),
-      isRead: map['isRead'] ?? false,
+      isRead: (map['isRead'] ?? 0) == 1,
       simInfo: map['simInfo'],
-      isMarked: map['isMarked'] ?? false,
+      isMarked: (map['isMarked'] ?? 0) == 1,
       labelIds: map['labelIds'] != null 
           ? List<String>.from(map['labelIds']) 
           : null,
@@ -74,9 +74,9 @@ class SmsModel extends BaseModel<SmsEntity> {
       'messageType': messageType,
       'content': content,
       'timestamp': timestamp.toIso8601String(),
-      'isRead': isRead,
+      'isRead': isRead ? 1 : 0,
       'simInfo': simInfo,
-      'isMarked': isMarked,
+      'isMarked': isMarked ? 1 : 0,
       'labelIds': labelIds,
     });
     return map;
