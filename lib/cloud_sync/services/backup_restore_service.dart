@@ -9,7 +9,7 @@ import 'package:yourcallyourrule/cloud_sync/entities/backup_config_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/entities/backup_version_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-
+import 'package:yourcallyourrule/data/repositories/config/config_backup_service.dart';
 
 import 'backup_encryption_service.dart';
 
@@ -27,10 +27,12 @@ class BackupRestoreService {
   // Service dependencies
   final BackupEncryptionService _encryptionService;
   final RuleImportExportService _ruleImportExportService;
+  final ConfigBackupService _configBackupService;
 
   BackupRestoreService(
     this._encryptionService,
     this._ruleImportExportService,
+    this._configBackupService,
   );
 
   // Encryption service initialization
@@ -242,6 +244,74 @@ class BackupRestoreService {
     );
   }
 
+  /// 准备设置备份数据，返回临时文件路径
+  Future<String> prepareSettingsBackup() async {
+    _ensureInitialized();
+
+    // Get all shared preferences
+    final allPrefs = _preferences.getKeys();
+    final Map<String, dynamic> settings = {};
+
+    for (final key in allPrefs) {
+      if (_preferences.containsKey(key)) {
+        final value = _preferences.get(key);
+        settings[key] = value;
+      }
+    }
+
+    // Get secure storage items
+    final secureItems = await _secureStorage.readAll();
+    settings['secure_storage'] = secureItems;
+
+    // 获取ConfigRepository中的配置数据
+    try {
+      // 使用ConfigBackupService备份所有配置到临时文件
+      final configBackupPath = await _configBackupService.backupAllConfigs();
+      final configBackupFile = File(configBackupPath);
+      
+      // 读取配置备份文件内容
+      if (await configBackupFile.exists()) {
+        final configBackupContent = await configBackupFile.readAsString();
+        final configData = jsonDecode(configBackupContent);
+        
+        // 将配置数据添加到设置中
+        settings['config_repository_data'] = configData;
+        
+        // 删除临时配置备份文件
+        await configBackupFile.delete();
+      }
+    } catch (e) {
+      debugPrint('获取ConfigRepository配置数据失败: $e');
+      // 即使获取配置数据失败，也继续备份其他设置
+    }
+
+    final jsonString = jsonEncode(settings);
+
+    // Create a temporary file
+    final timestamp = DateTime.now().millisecondsSinceEpoch;
+    final tempFile = File(path.join(_backupDirectory.path, 'temp_settings_$timestamp.json'));
+
+    // Check if encryption is enabled
+    if (await isEncryptionEnabled()) {
+      // Convert string to bytes
+      final bytes = Uint8List.fromList(utf8.encode(jsonString));
+
+      // Encrypt the data
+      final encryptedBytes = await _encryptionService.encryptData(bytes);
+
+      // Write encrypted data to file
+      await tempFile.writeAsBytes(encryptedBytes);
+    } else {
+      // Write unencrypted data
+      await tempFile.writeAsString(jsonString);
+    }
+
+    return tempFile.path;
+  }
+
+  /// 备份设置到指定路径
+  /// 注意：在Android和iOS平台上，应该使用prepareSettingsBackup方法获取数据，
+  /// 然后使用FilePicker.platform.saveFile方法并提供bytes参数
   Future<String> backupSettings(String destination) async {
     _ensureInitialized();
 
@@ -259,6 +329,28 @@ class BackupRestoreService {
     // Get secure storage items
     final secureItems = await _secureStorage.readAll();
     settings['secure_storage'] = secureItems;
+
+    // 获取ConfigRepository中的配置数据
+    try {
+      // 使用ConfigBackupService备份所有配置到临时文件
+      final configBackupPath = await _configBackupService.backupAllConfigs();
+      final configBackupFile = File(configBackupPath);
+      
+      // 读取配置备份文件内容
+      if (await configBackupFile.exists()) {
+        final configBackupContent = await configBackupFile.readAsString();
+        final configData = jsonDecode(configBackupContent);
+        
+        // 将配置数据添加到设置中
+        settings['config_repository_data'] = configData;
+        
+        // 删除临时配置备份文件
+        await configBackupFile.delete();
+      }
+    } catch (e) {
+      debugPrint('获取ConfigRepository配置数据失败: $e');
+      // 即使获取配置数据失败，也继续备份其他设置
+    }
 
     final jsonString = jsonEncode(settings);
 
@@ -329,7 +421,7 @@ class BackupRestoreService {
 
       // Restore shared preferences
       for (final entry in settings.entries) {
-        if (entry.key != 'secure_storage') {
+        if (entry.key != 'secure_storage' && entry.key != 'config_repository_data') {
           final value = entry.value;
           if (value is String) {
             await _preferences.setString(entry.key, value);
@@ -351,6 +443,33 @@ class BackupRestoreService {
         await _secureStorage.deleteAll();
         for (final entry in secureItems.entries) {
           await _secureStorage.write(key: entry.key, value: entry.value);
+        }
+      }
+
+      // 还原ConfigRepository中的配置数据
+      if (settings.containsKey('config_repository_data')) {
+        try {
+          final configData = settings['config_repository_data'];
+          
+          // 如果配置数据包含configs字段，说明是通过ConfigBackupService备份的
+          if (configData is Map && configData.containsKey('configs')) {
+            final configs = configData['configs'] as Map<String, dynamic>;
+            
+            // 遍历所有配置并还原
+            for (final entry in configs.entries) {
+              if (entry.value is Map<String, dynamic>) {
+                await _configBackupService._configRepository.saveConfig(
+                  entry.key, 
+                  entry.value as Map<String, dynamic>
+                );
+              }
+            }
+            
+            debugPrint('成功还原ConfigRepository配置数据');
+          }
+        } catch (e) {
+          debugPrint('还原ConfigRepository配置数据失败: $e');
+          // 即使还原配置数据失败，也继续还原其他设置
         }
       }
 

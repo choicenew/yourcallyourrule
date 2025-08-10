@@ -675,6 +675,19 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
       return false;
     }
   }
+
+  @override
+  Future<bool> doCheckOnlineStatus() async {
+    if (_driveApi == null) return false;
+    try {
+      // A lightweight request to check if the API is responsive
+      await _driveApi!.about.get($fields: 'kind');
+      return true;
+    } catch (e) {
+      debugPrint('Google Drive online check failed: $e');
+      return false;
+    }
+  }
 }
 
 // FIX 2 (cont.): Restore this helper class, as it's needed by _initDriveApi.

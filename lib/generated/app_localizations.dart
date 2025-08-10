@@ -8946,6 +8946,24 @@ abstract class AppLocalizations {
   /// **'Remove Ads'**
   String get removeAds;
 
+  /// No description provided for @settingsBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings Backup '**
+  String get settingsBackup;
+
+  /// No description provided for @allServicesStatusTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Service Status'**
+  String get allServicesStatusTitle;
+
+  /// No description provided for @allServicesStatusSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Status of Each Cloud Service'**
+  String get allServicesStatusSubtitle;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:

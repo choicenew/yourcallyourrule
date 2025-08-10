@@ -46,6 +46,16 @@ class WebDAVSyncService extends EnhancedCloudSyncService {
   String? _password;
   
   @override
+  Future<bool> doCheckOnlineStatus() async {
+    if (_client == null) return false;
+    try {
+      await _client!.ping();
+      return true;
+    } catch (e) {
+      debugPrint('WebDAV online check failed: $e');
+      return false;
+    }
+  }
   String get serviceType => 'WebDAV';
   
   @override

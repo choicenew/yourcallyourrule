@@ -45,6 +45,9 @@ abstract class CloudSyncService {
   
   /// Get sync status
   Future<Map<String, dynamic>> getSyncStatus();
+
+  /// Check online status
+  Future<bool> checkOnlineStatus();
   
   /// Register device for multi-device synchronization
   Future<bool> registerDeviceForSync(DeviceEntity device);

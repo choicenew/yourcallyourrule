@@ -220,37 +220,45 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
         ),
       );
     }
-    
-    return Wrap(
-      spacing: 8,
-      runSpacing: 8,
-      children: _labels.map((labelText) {
-        // 翻译标签文本
-        final translatedText = LabelTranslationUtils.translateLabelText(context, labelText);
-        final isSelected = labelText == _selectedLabelText;
-        return ChoiceChip(
-          label: Text(translatedText),
-          selected: isSelected,
-          onSelected: (selected) {
-            if (selected) {
-              final labelId = _labelTextToIdMap[labelText] ?? '';
-              setState(() {
-                _selectedLabelText = labelText;
-                _selectedLabelId = labelId;
-              });
-              widget.onLabelIdChanged(labelId);
-            }
-          },
-          selectedColor: widget.themeColor,
-          backgroundColor: Colors.grey.shade200,
-          labelStyle: TextStyle(
-            color: isSelected ? Colors.white : Colors.black87,
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-          ),
-          avatar: isSelected ? const Icon(Icons.check, size: 18, color: Colors.white) : null,
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        );
-      }).toList(),
+
+    return Container(
+      constraints: const BoxConstraints(maxHeight: 200),
+      child: SingleChildScrollView(
+        child: Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: _labels.map((labelText) {
+            // 翻译标签文本
+            final translatedText =
+                LabelTranslationUtils.translateLabelText(context, labelText);
+            final isSelected = labelText == _selectedLabelText;
+            return ChoiceChip(
+              label: Text(translatedText),
+              selected: isSelected,
+              onSelected: (selected) {
+                if (selected) {
+                  final labelId = _labelTextToIdMap[labelText] ?? '';
+                  setState(() {
+                    _selectedLabelText = labelText;
+                    _selectedLabelId = labelId;
+                  });
+                  widget.onLabelIdChanged(labelId);
+                }
+              },
+              selectedColor: widget.themeColor,
+              backgroundColor: Colors.grey.shade200,
+              labelStyle: TextStyle(
+                color: isSelected ? Colors.white : Colors.black87,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              ),
+              avatar: isSelected
+                  ? const Icon(Icons.check, size: 18, color: Colors.white)
+                  : null,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            );
+          }).toList(),
+        ),
+      ),
     );
   }
 }

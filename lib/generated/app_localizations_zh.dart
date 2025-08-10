@@ -4800,6 +4800,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get removeAds => 'Remove Ads';
 
   @override
+  String get settingsBackup => 'Settings Backup ';
+
+  @override
+  String get allServicesStatusTitle => 'Current Service Status';
+
+  @override
+  String get allServicesStatusSubtitle => 'Current Status of Each Cloud Service';
+
+  @override
   String get yesterday => 'Yesterday';
 }
 

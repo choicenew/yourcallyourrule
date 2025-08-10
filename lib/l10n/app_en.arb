@@ -2060,5 +2060,13 @@
   "removeAds": "Remove Ads",
   "unknownAction": "Unknown Action",
 
+
+  "settingsBackup": "Settings Backup ",
+  "allServicesStatusTitle": "Current Service Status",
+  "allServicesStatusSubtitle": "Current Status of Each Cloud Service",
+ 
+ 
+ 
+ 
       "yesterday": "Yesterday"
 }
