@@ -24,6 +24,8 @@ class ConfigBackupService {
     _cloudConverter = ConfigCloudConverter(_configRepository);
   }
 
+  ConfigRepository get configRepository => _configRepository;
+
   /// 初始化服务
   Future<void> initialize() async {
     if (_isInitialized) return;
