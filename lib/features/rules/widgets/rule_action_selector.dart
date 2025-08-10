@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/caller_id/services/rule_action_mapper.dart';
+import 'package:yourcallyourrule/features/caller_id/services/end_call_rule_action_mapper.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则动作选择器
@@ -45,28 +47,37 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // 规则动作选择
-        ListTile(
-          title: Text(AppLocalizations.of(context)!.ruleAction),
-          subtitle: Text(AppLocalizations.of(context)!.selectActionWhenRuleMatches),
-          trailing: DropdownButton<RuleActionType>(
-            value: _currentAction.type,
-            onChanged: _onActionTypeChanged,
-            items: [
-              DropdownMenuItem(
-                value: RuleActionType.allow,
-                child: Text(AppLocalizations.of(context)!.allow),
-              ),
-              DropdownMenuItem(
-                value: RuleActionType.block,
-                child: Text(AppLocalizations.of(context)!.block),
-              ),
-              DropdownMenuItem(
-                value: RuleActionType.silence,
-                child: Text(AppLocalizations.of(context)!.silence),
-              ),
-              DropdownMenuItem(
-                value: RuleActionType.none,
-                child: Text(AppLocalizations.of(context)!.noAction),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(AppLocalizations.of(context)!.ruleAction, style: Theme.of(context).textTheme.titleMedium),
+              const SizedBox(height: 4),
+              Text(AppLocalizations.of(context)!.selectActionWhenRuleMatches, style: Theme.of(context).textTheme.bodySmall),
+              const SizedBox(height: 8),
+              DropdownButton<RuleActionType>(
+                isExpanded: true,
+                value: _currentAction.type,
+                onChanged: _onActionTypeChanged,
+                items: [
+                  DropdownMenuItem(
+                    value: RuleActionType.allow,
+                    child: Text(AppLocalizations.of(context)!.allow),
+                  ),
+                  DropdownMenuItem(
+                    value: RuleActionType.block,
+                    child: Text(AppLocalizations.of(context)!.block),
+                  ),
+                  DropdownMenuItem(
+                    value: RuleActionType.silence,
+                    child: Text(AppLocalizations.of(context)!.silence),
+                  ),
+                  DropdownMenuItem(
+                    value: RuleActionType.none,
+                    child: Text(AppLocalizations.of(context)!.noAction),
+                  ),
+                ],
               ),
             ],
           ),
@@ -75,31 +86,38 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
         // 如果选择了阻止动作，显示拦截动作选择器
         if (_currentAction.type == RuleActionType.block)
           Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: ListTile(
-              title: Text(AppLocalizations.of(context)!.interceptAction),
-              subtitle: Text(AppLocalizations.of(context)!.selectActionWhenBlockingCalls),
-              trailing: DropdownButton<String>(
-                value: _selectedInterceptAction,
-                hint: Text(AppLocalizations.of(context)!.useGlobalSettings),
-                onChanged: _onInterceptActionChanged,
-                items: [
-                  // 添加一个null选项，表示使用全局设置
-                  DropdownMenuItem<String>(
-                    value: null,
-                    child: Text(AppLocalizations.of(context)!.useGlobalSettings),
-                  ),
-                  // 添加所有可用的拦截动作
-                  ...RuleActionMapper.getAvailableInterceptActions().map((action) {
-                    return DropdownMenuItem<String>(
-                      value: action,
-                      child: Text(RuleActionMapper.getInterceptActionDisplayName(action)),
-                    );
-                  }),
-                ],
-              ),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(AppLocalizations.of(context)!.interceptAction, style: Theme.of(context).textTheme.titleMedium),
+                const SizedBox(height: 4),
+                Text(AppLocalizations.of(context)!.selectActionWhenBlockingCalls, style: Theme.of(context).textTheme.bodySmall),
+                const SizedBox(height: 8),
+                DropdownButton<String>(
+                  isExpanded: true,
+                  value: _selectedInterceptAction,
+                  hint: Text(AppLocalizations.of(context)!.useGlobalSettings),
+                  onChanged: _onInterceptActionChanged,
+                  items: [
+                    // 添加一个null选项，表示使用全局设置
+                    DropdownMenuItem<String>(
+                      value: null,
+                      child: Text(AppLocalizations.of(context)!.useGlobalSettings),
+                    ),
+                    // 添加所有可用的拦截动作
+                    ...RuleActionMapper.getAvailableInterceptActions().map((action) {
+                      return DropdownMenuItem<String>(
+                        value: action,
+                        child: Text(RuleActionMapper.getInterceptActionDisplayName(action)),
+                      );
+                    }),
+                  ],
+                ),
+              ],
             ),
           ),
+           GoogleAdWidget(adInfo: AdManager.bannerAd),
       ],
     );
   }

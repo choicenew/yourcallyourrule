@@ -29,7 +29,7 @@ class WebDAVSyncService extends EnhancedCloudSyncService {
   static const String _passwordKey = 'webdav_password';
   
   // File paths in WebDAV
-  static const String _defaultAppFolderName = 'NotificationManager';
+  static const String _defaultAppFolderName = 'YourCallYourRule';
   String _appFolderName = _defaultAppFolderName;
   late String _rulesFolderName;
   late String _settingsFolderName;

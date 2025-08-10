@@ -53,7 +53,7 @@ class OneDriveSyncService extends EnhancedCloudSyncService {
   static const String _driveUrl = 'https://graph.microsoft.com/v1.0/me/drive';
   
   // File paths in OneDrive
-  static const String _defaultAppFolderName = 'NotificationManager';
+  static const String _defaultAppFolderName = 'YourCallYourRule';
   String _appFolderName = _defaultAppFolderName;
   late String _rulesFolderName;
   late String _settingsFolderName;

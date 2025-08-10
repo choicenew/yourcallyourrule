@@ -30,7 +30,9 @@ class SyncManager {
   
   // 初始化
   Future<void> initialize() async {
-    // 数据库服务已在 main.dart 中初始化
+    // 确保数据库服务已初始化
+    await _databaseService.initialize();
+    
     // 获取最后同步时间
     _lastSyncTime = await _databaseService.remoteNumberDataSource.getLastSyncTime();
   }

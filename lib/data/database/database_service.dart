@@ -48,23 +48,17 @@ class DatabaseService {
   
   // 初始化数据库
   Future<void> initialize() async {
-    // 在后台 Isolate 中初始化数据库
-    await compute(_initializeDatabase, null);
-  }
 
-  // 静态方法用于在后台线程执行
-  static Future<void> _initializeDatabase(_) async {
-    // 在后台 Isolate 中，需要为桌面平台手动初始化 FFI
-    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-      sqfliteFfiInit();
-      databaseFactory = databaseFactoryFfi;
-    }
+
+
+
+
     try {
       final instance = DatabaseService._instance;
       // 触发数据库初始化
       await instance._localDatabaseManager.database;
       await instance._remoteDatabaseManager.database;
-      debugPrint('isolate数据库初始化完成');
+      debugPrint('数据库初始化完成');
     } catch (e) {
       debugPrint('数据库初始化错误: $e');
       rethrow;

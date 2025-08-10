@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "213507864895",
+    "project_id": "yourcallyourrule-b2bfa",
+    "storage_bucket": "yourcallyourrule-b2bfa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213507864895:android:24b52b0d9f8cf30f013b8a",
+        "android_client_info": {
+          "package_name": "com.yours.yourcallyourrule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213507864895-n01vgus9gr2ve4mdeo66tfgu3esti1i6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yours.yourcallyourrule",
+            "certificate_hash": "bd33ea4ca4c2d3744af1c41fc722b48f7091909b"
+          }
+        },
+        {
+          "client_id": "213507864895-9di0f0gglameak3d6i9lkimi35cmvi5r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0HQiX40ERefoU_bOQexkNn7VL20x9UZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213507864895-9di0f0gglameak3d6i9lkimi35cmvi5r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213507864895-q70ar3cpdm9l06udd3gp6hier8u2esse.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yours.yourcallyourrule"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7500321599129263~1001443362"
+    }
+  ],
+  "configuration_version": "1"
+}

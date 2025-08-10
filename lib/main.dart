@@ -9,8 +9,8 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
 import 'package:yourcallyourrule/core/provider/providers/background_sync_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/plugin_to_remote_sync_service_provider.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
+ // 导入 FFI 包
 
 Future<void> main() async {
   // 确保 Flutter 绑定初始化
@@ -28,14 +28,14 @@ Future<void> main() async {
     
     // 初始化广告SDK
     await MobileAds.instance.initialize();
+
+    // 初始化数据库服务
+    await DatabaseService().initialize();
     
     // 后台同步服务将通过Provider系统初始化
     
     // 记录应用启动事件
     firebaseService.logAppOpen();
-
-    // 初始化数据库服务
-    await DatabaseService().initialize();
 
     runApp(const ProviderScope(
       child: MyApp(),
@@ -67,6 +67,8 @@ void overlayMain() {
 
   // 设置为覆盖层模式（只读模式）
   isOverlayMode = true;
+
+
 
   runApp(const ProviderScope(
     child: MaterialApp(

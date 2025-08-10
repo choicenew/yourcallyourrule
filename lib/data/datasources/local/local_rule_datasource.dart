@@ -39,7 +39,7 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
           return PhoneRuleModel.fromMap(map);
         case 'regex':
           return RegexRuleModel.fromMap(map);
-        case 'alloworblock':
+        case 'allow_block':
           return AllowedBlockedRuleModel.fromMap(map);
         default:
           throw Exception('Unknown rule type: ${map['ruleType']}');
@@ -66,7 +66,7 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
           return PhoneRuleModel.fromMap(map);
         case 'regex':
           return RegexRuleModel.fromMap(map);
-        case 'alloworblock':
+        case 'allow_block':
           return AllowedBlockedRuleModel.fromMap(map);
         default:
           throw Exception('Unknown rule type: ${map['ruleType']}');
@@ -311,8 +311,7 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
             rules.add(RegexRuleModel.fromMap(ruleMap));
             break;
 
-          case 'alloworblock': // 新增allow类block类型处理
-
+          case 'allow_block': // 新增allow类block类型处理
             rules.add(AllowedBlockedRuleModel.fromMap(ruleMap));
             break;
           default:
@@ -374,7 +373,7 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
         case 'regex':
           return RegexRuleModel.fromMap(map);
 
-        case 'alloworblock': // 新增allow类block类型处理
+        case 'allow_block': // 新增allow类block类型处理
 
           return AllowedBlockedRuleModel.fromMap(map);
         default:
@@ -402,7 +401,7 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
         case 'regex':
           return RegexRuleModel.fromMap(map);
 
-        case 'alloworblock': // 新增allow类block类型处理
+        case 'allow_block': // 新增allow类block类型处理
 
           return AllowedBlockedRuleModel.fromMap(map);
         default:

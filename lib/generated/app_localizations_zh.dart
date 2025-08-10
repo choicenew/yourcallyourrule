@@ -4666,6 +4666,34 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get blockedCallTitle => 'Blocked Call';
+
+  @override
+  String blockedCallBody(String phoneNumber) {
+    return 'Blocked call from $phoneNumber';
+  }
+
+  @override
+  String get stirVerified => 'Verified';
+
+  @override
+  String get stirNotVerified => 'Not Verified';
+
+  @override
+  String get stirFailed => 'Verification Failed';
+
+  @override
+  String get stirUnknown => 'Unknown Verification Status';
+
+  @override
+  String get stirVerificationTitle => 'STIR/SHAKEN Verification';
+
+  @override
+  String stirVerificationBody(String stirResultMessage, String phoneNumber) {
+    return '$stirResultMessage for number $phoneNumber';
+  }
+
+  @override
   String get scrollingSecurityMessageSettings => 'Scrolling Security Message Settings';
 
   @override

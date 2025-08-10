@@ -45,7 +45,7 @@ class AllowedBlockedPage extends ConsumerWidget {
     return GenericRulePage<AllowedBlockedRule, AllowedBlockedService>(
       serviceProvider: allowedBlockedServiceProvider,
       title: AppLocalizations.of(context)!.allowedBlockedRuleManagement,
-      themeColor: Colors.blue,
+      themeColor: Colors.amber,
       emptyText: AppLocalizations.of(context)!.allowedBlockedRule,
       emptyIcon: Icons.person,
       addButtonText: AppLocalizations.of(context)!.addRule,
@@ -129,7 +129,7 @@ class AllowedBlockedPage extends ConsumerWidget {
                   if (rule.labelId.isNotEmpty)
                     Chip(
                       label: Text('AppLocalizations.of(context)!.label: ${rule.labelId}'),
-                      backgroundColor: Colors.blue.withValues(alpha:0.1),
+                      backgroundColor: const Color.fromARGB(255, 247, 123, 22).withValues(alpha:0.1),
                       labelStyle: const TextStyle(color: Colors.blue),
                     ),
                 ],
@@ -179,7 +179,7 @@ class AllowedBlockedPage extends ConsumerWidget {
                 onLabelIdChanged: (labelId) {
                   selectedLabelId = labelId;
                 },
-                themeColor: Colors.blue,
+                themeColor: const Color.fromARGB(255, 255, 201, 24),
               ),
               
               const SizedBox(height: 16),

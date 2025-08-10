@@ -60,7 +60,7 @@ class SmsRegexRuleModel extends RuleModel {
       action: map['action'],
       contentRegex: map['contentRegex'],
       senderRegex: map['senderRegex'],
-      isEnabled: map['isEnabled'] ?? true,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
     );
   }
 

@@ -32,10 +32,10 @@ class Subscription extends BaseEntity {
       'id': id,
       'name': name,
       'url': url.toString(),
-      'isEnabled': isEnabled,
+      'isEnabled': isEnabled ? 1 : 0,
       'action': action.toString(),
       'lastUpdated': lastUpdated.toIso8601String(),
-      'autoUpdate': autoUpdate,
+      'autoUpdate': autoUpdate ? 1 : 0,
     };
   }
 
@@ -48,10 +48,10 @@ class Subscription extends BaseEntity {
       id: map['id'],
       name: map['name'],
       url: Url.fromString(map['url']),
-      isEnabled: map['isEnabled'],
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
       action: action,
       lastUpdated: DateTime.parse(map['lastUpdated']),
-      autoUpdate: map['autoUpdate'],
+      autoUpdate: (map['autoUpdate'] ?? 0) == 1,
     );
   }
 

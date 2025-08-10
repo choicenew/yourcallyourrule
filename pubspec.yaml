@@ -120,8 +120,8 @@ dependencies:
   share_plus: ^11.0.0
   shared_preferences: ^2.3.2
 
-  sqflite: ^2.3.3+1
-  sqflite_common_ffi: ^2.3.3
+  sqflite: ^2.4.2
+
   url_launcher: ^6.3.2
   webdav_client: ^1.2.2
 
@@ -150,6 +150,9 @@ dependencies:
   world_flags: ^2.3.0
   flutter_native_splash: ^2.4.6
   workmanager: ^0.7.0
+  extension_google_sign_in_as_googleapis_auth: ^3.0.0
+  googleapis_auth: ^2.0.0
+  google_sign_in_platform_interface: ^3.0.0
 
 
 

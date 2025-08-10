@@ -70,7 +70,10 @@ class RuleAction {
     if (parameters == null || parameters!.isEmpty) {
       return type.toString().split('.').last;
     }
-    return '${type.toString().split('.').last}:$parameters';
+    final paramsStr = parameters!.entries
+        .map((e) => '${e.key}=${e.value}')
+        .join(',');
+    return '${type.toString().split('.').last}:$paramsStr';
   }
   
   // 从字符串解析动作
@@ -78,26 +81,34 @@ class RuleAction {
     if (actionStr.contains(':')) {
       final parts = actionStr.split(':');
       final typeStr = parts[0];
-      final paramsStr = parts[1];
-      
+      final paramsStr = parts.sublist(1).join(':');
+
       // 解析类型
       final type = RuleActionType.values.firstWhere(
         (t) => t.toString().split('.').last == typeStr,
         orElse: () => RuleActionType.custom,
       );
-      
-      // 解析参数（简化实现，实际应用中可能需要更复杂的解析）
+
+      // 解析参数
       final params = <String, dynamic>{};
-      // 这里应该有参数解析逻辑
-      
+      if (paramsStr.isNotEmpty) {
+        final paramPairs = paramsStr.split(',');
+        for (final pair in paramPairs) {
+          final keyValue = pair.split('=');
+          if (keyValue.length == 2) {
+            params[keyValue[0]] = keyValue[1];
+          }
+        }
+      }
+
       return RuleAction(type: type, parameters: params);
     } else {
       // 没有参数的情况
       final type = RuleActionType.values.firstWhere(
         (t) => t.toString().split('.').last == actionStr,
-        orElse: () => RuleActionType.custom,
+        orElse: () => RuleActionType.none, // 默认为none
       );
-      
+
       return RuleAction(type: type);
     }
   }

@@ -31,8 +31,9 @@ class AllowedBlockedRuleModel extends RuleModel {
     required this.count,
     this.avatar,
     super.isEnabled,
+    String? ruleType, // Make ruleType optional
   }) : super(
-            ruleType:
+            ruleType: ruleType ??
                 'allow_block'); // ruleType will be 'allow' or 'block' based on action
 
   factory AllowedBlockedRuleModel.fromMap(Map<String, dynamic> map) {
@@ -40,13 +41,14 @@ class AllowedBlockedRuleModel extends RuleModel {
       id: map['id'],
       name: map['name'],
       priority: map['priority'],
-      action: map['action'],
+      action: map['action'], // action is already a string here
       phoneNumber: map['phoneNumber'],
       labelId: map['labelId'],
-      isSubscribed: map['isSubscribed'] ?? false,
+      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
-      isEnabled: map['isEnabled'] ?? true,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      ruleType: map['ruleType'], // Read ruleType from map
     );
   }
 
@@ -56,7 +58,7 @@ class AllowedBlockedRuleModel extends RuleModel {
     map.addAll({
       'phoneNumber': phoneNumber,
       'labelId': labelId,
-      'isSubscribed': isSubscribed,
+      'isSubscribed': isSubscribed ? 1 : 0,
       'count': count,
       'avatar': avatar,
     });
@@ -68,7 +70,7 @@ class AllowedBlockedRuleModel extends RuleModel {
     return AllowedBlockedRule(
       id: id,
       name: name,
-      priority: RulePriority(priority),
+      priority: RulePriority.fromInt(priority),
       action: RuleAction.fromString(action),
       phoneNumber: PhoneNumber.fromString(phoneNumber),
       labelId: labelId,
@@ -84,7 +86,7 @@ class AllowedBlockedRuleModel extends RuleModel {
       id: entity.id,
       name: entity.name,
       priority: entity.priority.value,
-      action: entity.action.toString(),
+      action: entity.action.toString(), // Use toString() to get the string representation
       phoneNumber: entity.phoneNumber.value,
       labelId: entity.labelId,
       isSubscribed: entity.isSubscribed,

@@ -1867,6 +1867,9 @@
     "noSimCardsDetected": "No SIM cards detected",
   "filterManagementDescription": "Set Call Filters",
   "callerIdCustomizationSubtitle": "Customize Caller ID Layout",
+
+
+
               "fraudAlerSettingTitle": "Fraud Alert Setting",
               "fraudAlerSettingSubtitle": "To Set Fraud Alert",
   "enableFraudAlert": "Enable Fraud Alert",
@@ -1900,6 +1903,54 @@
     }
   },
  
+   "blockedCallTitle": "Blocked Call",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "Blocked call from {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Verified",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Not Verified",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Verification Failed",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Unknown Verification Status",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "STIR/SHAKEN Verification",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} for number {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
  
  
   "scrollingSecurityMessageSettings": "Scrolling Security Message Settings",

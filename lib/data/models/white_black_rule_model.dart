@@ -36,10 +36,10 @@ class WhiteBlackRuleModel extends RuleModel {
       action: map['action'],
       phoneNumber: map['phoneNumber'],
       labelId: map['labelId'],
-      isSubscribed: map['isSubscribed'] ?? false,
+      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
-      isEnabled: map['isEnabled'] ?? true,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
     );
   }
 
@@ -49,7 +49,7 @@ class WhiteBlackRuleModel extends RuleModel {
     map.addAll({
       'phoneNumber': phoneNumber,
       'labelId': labelId,
-      'isSubscribed': isSubscribed,
+      'isSubscribed': isSubscribed ? 1 : 0,
       'count': count,
       'avatar': avatar,
     });

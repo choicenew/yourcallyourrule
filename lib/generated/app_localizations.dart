@@ -8718,6 +8718,54 @@ abstract class AppLocalizations {
   /// **'Number: {phoneNumber}'**
   String callerIdBody(String phoneNumber);
 
+  /// Title for blocked call notification
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Call'**
+  String get blockedCallTitle;
+
+  /// Body for blocked call notification, showing the phone number
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked call from {phoneNumber}'**
+  String blockedCallBody(String phoneNumber);
+
+  /// STIR/SHAKEN verification status: Verified
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get stirVerified;
+
+  /// STIR/SHAKEN verification status: Not Verified
+  ///
+  /// In en, this message translates to:
+  /// **'Not Verified'**
+  String get stirNotVerified;
+
+  /// STIR/SHAKEN verification status: Verification Failed
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Failed'**
+  String get stirFailed;
+
+  /// STIR/SHAKEN verification status: Unknown
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Verification Status'**
+  String get stirUnknown;
+
+  /// Title for STIR/SHAKEN verification notification
+  ///
+  /// In en, this message translates to:
+  /// **'STIR/SHAKEN Verification'**
+  String get stirVerificationTitle;
+
+  /// Body for STIR/SHAKEN verification notification, showing result and phone number
+  ///
+  /// In en, this message translates to:
+  /// **'{stirResultMessage} for number {phoneNumber}'**
+  String stirVerificationBody(String stirResultMessage, String phoneNumber);
+
   /// No description provided for @scrollingSecurityMessageSettings.
   ///
   /// In en, this message translates to:

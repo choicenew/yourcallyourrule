@@ -9,7 +9,7 @@ import '../../core/entities/subscription/contact_subscription.dart';
 abstract class BaseSubscriptionModel<T extends BaseEntity> extends BaseModel<T> {
   final String name;
   final Url url;
-  final bool enabled;
+  final bool isEnabled;
   final DateTime lastUpdated;
   final bool autoUpdate;
 
@@ -17,7 +17,7 @@ abstract class BaseSubscriptionModel<T extends BaseEntity> extends BaseModel<T> 
     required super.id,
     required this.name,
     required this.url,
-    this.enabled = true,
+    this.isEnabled = true,
     required this.lastUpdated,
     this.autoUpdate = false,
   });
@@ -29,7 +29,7 @@ abstract class BaseSubscriptionModel<T extends BaseEntity> extends BaseModel<T> 
       'id': id,
       'name': name,
       'url': url.toString(),
-      'enabled': enabled ? 1 : 0,
+      'isEnabled': isEnabled ? 1 : 0,
       'lastUpdated': lastUpdated.toIso8601String(),
       'autoUpdate': autoUpdate ? 1 : 0,
     };
@@ -48,7 +48,7 @@ class SubscriptionModel extends BaseSubscriptionModel<Subscription> {
     required super.id,
     required super.name,
     required super.url,
-    super.enabled,
+    super.isEnabled,
     this.action = RuleAction.none, // 默认为none
     required super.lastUpdated,
     super.autoUpdate,
@@ -62,7 +62,7 @@ class SubscriptionModel extends BaseSubscriptionModel<Subscription> {
       id: map['id'],
       name: map['name'],
       url: Url.fromString(map['url']),
-      enabled: map['enabled'] == 1,
+      isEnabled: map['isEnabled'] == 1,
       action: action,
       lastUpdated: DateTime.parse(map['lastUpdated']),
       autoUpdate: map['autoUpdate'] == 1,
@@ -74,6 +74,7 @@ class SubscriptionModel extends BaseSubscriptionModel<Subscription> {
     return super.toMap()
       ..addAll({
         'action': action.toString(),
+        'table_type': 'phone', // 添加默认类型
       });
   }
 
@@ -83,7 +84,7 @@ class SubscriptionModel extends BaseSubscriptionModel<Subscription> {
       id: id,
       name: name,
       url: url,
-      isEnabled: enabled,
+      isEnabled: isEnabled,
       action: action,
       lastUpdated: lastUpdated,
       autoUpdate: autoUpdate,
@@ -99,11 +100,23 @@ class ContactSubscriptionModel extends BaseSubscriptionModel<ContactSubscription
     required super.id,
     required super.name,
     required super.url,
-    super.enabled,
+    super.isEnabled,
     required super.lastUpdated,
     super.autoUpdate,
     this.contactGroup,
   });
+
+  factory ContactSubscriptionModel.fromMap(Map<String, dynamic> map) {
+    return ContactSubscriptionModel(
+      id: map['id'],
+      name: map['name'],
+      url: Url.fromString(map['url']),
+      isEnabled: map['isEnabled'] == 1,
+      lastUpdated: DateTime.parse(map['lastUpdated']),
+      autoUpdate: map['autoUpdate'] == 1,
+      contactGroup: map['contact_group'],
+    );
+  }
 
   @override
   Map<String, dynamic> toMap() {
@@ -120,7 +133,7 @@ class ContactSubscriptionModel extends BaseSubscriptionModel<ContactSubscription
       id: id,
       name: name,
       url: url,
-      isEnabled: enabled,
+      isEnabled: isEnabled,
       lastUpdated: lastUpdated,
       autoUpdate: autoUpdate,
     );
@@ -135,12 +148,25 @@ class SmsSubscriptionModel extends SubscriptionModel {
     required super.id,
     required super.name,
     required super.url,
-    super.enabled,
+    super.isEnabled,
     required super.lastUpdated,
     super.autoUpdate,
     required super.action,
     this.isNumberType = true,
   });
+
+  factory SmsSubscriptionModel.fromMap(Map<String, dynamic> map) {
+    return SmsSubscriptionModel(
+      id: map['id'],
+      name: map['name'],
+      url: Url.fromString(map['url']),
+      isEnabled: map['isEnabled'] == 1,
+      lastUpdated: DateTime.parse(map['lastUpdated']),
+      autoUpdate: map['autoUpdate'] == 1,
+      action: RuleAction.fromString(map['action']),
+      isNumberType: map['isNumberType'] == 1,
+    );
+  }
 
   @override
   Map<String, dynamic> toMap() {
@@ -157,7 +183,7 @@ class SmsSubscriptionModel extends SubscriptionModel {
       id: id,
       name: name,
       url: url,
-      isEnabled: enabled,
+      isEnabled: isEnabled,
       action: action,
       lastUpdated: lastUpdated,
       autoUpdate: autoUpdate,

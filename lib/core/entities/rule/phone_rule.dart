@@ -10,12 +10,15 @@ class PhoneRule extends RuleBase {
   final int count;
   final String? avatar;
 
+  final String ruleType;
+
   PhoneRule({
     required super.id,
     required super.name,
     required super.action,
     required this.phoneNumber,
     required this.labelId,
+    this.ruleType = 'phone_rule',
     RulePriority? priority,
     super.isEnabled = true,
     this.isSubscribed = false,
@@ -50,25 +53,26 @@ class PhoneRule extends RuleBase {
       ..addAll({
         'phoneNumber': phoneNumber.value,
         'labelId': labelId,
-        'isSubscribed': isSubscribed,
+        'isSubscribed': isSubscribed ? 1 : 0,
         'count': count,
         'avatar': avatar,
+        'ruleType': ruleType,
       });
   }
 
   factory PhoneRule.fromMap(Map<String, dynamic> map) {
-    RuleAction action = RuleAction.fromString(map['action']);
     return PhoneRule(
       id: map['id'],
       name: map['name'],
       priority: RulePriority.fromInt(map['priority']),
-      action: action,
+      action: RuleAction.fromString(map['action']),
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
       labelId: map['labelId'],
-      isEnabled: map['isEnabled'] ?? true,
-      isSubscribed: map['isSubscribed'] ?? false,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
+      ruleType: map['ruleType'] ?? 'phone_rule',
     );
   }
 
@@ -84,6 +88,7 @@ class PhoneRule extends RuleBase {
     bool? isSubscribed,
     int? count,
     String? avatar,
+    String? ruleType,
   }) {
     return PhoneRule(
       id: id ?? this.id,
@@ -96,6 +101,7 @@ class PhoneRule extends RuleBase {
       isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,
       avatar: avatar ?? this.avatar,
+      ruleType: ruleType ?? this.ruleType,
     );
   }
 }

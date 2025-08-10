@@ -46,7 +46,7 @@ abstract class RuleBase extends BaseEntity {
       'name': name,
       'priority': priority.value,
       'action': action.toString(),
-      'isEnabled': isEnabled,
+      'isEnabled': isEnabled ? 1 : 0,
     });
     return map;
   }

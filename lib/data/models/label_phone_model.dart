@@ -51,7 +51,7 @@ class LabelModel extends BaseModel<LabelPhoneEntry> {
       avatar: map['avatar'],
       priority: map['priority'] ?? 0,
       action: map['action'] ?? 'none',
-      isEnabled: map['isEnabled'] ?? true,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
     );
   }
 
@@ -67,7 +67,7 @@ class LabelModel extends BaseModel<LabelPhoneEntry> {
       'avatar': avatar,
       'priority': priority,
       'action': action,
-      'isEnabled': isEnabled,
+      'isEnabled': isEnabled ? 1 : 0,
     });
     return map;
   }

@@ -58,7 +58,7 @@ class SmsRegexRule extends RuleBase {
       'senderRegex': senderPattern?.pattern,
       'action': action.toString(),
       'priority': priority.value,
-      'isEnabled': isEnabled,
+      'isEnabled': isEnabled ? 1 : 0,
       'ruleType': ruleType,
       'labelId': labelId, // 添加labelId字段到Map
     };
@@ -72,7 +72,7 @@ class SmsRegexRule extends RuleBase {
       senderRegex: map['senderRegex'],
       action: RuleAction.fromString(map['action']),
       priority: RulePriority.fromInt(map['priority']),
-      isEnabled: map['isEnabled'] ?? true,
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
       labelId: map['labelId'] ?? '', // 从Map中读取labelId字段
     );
   }
