@@ -44,3 +44,30 @@ final cloudSyncStatusProvider = FutureProvider<Map<String, dynamic>>((ref) async
   
   return activeService.getSyncStatus();
 });
+
+/// Provider for cloud sync status of all services
+final allCloudSyncStatusProvider = FutureProvider<List<Map<String, dynamic>>>((ref) async {
+  final services = [
+    ref.watch(webdavSyncServiceProvider),
+    ref.watch(onedriveSyncServiceProvider),
+    ref.watch(googleDriveSyncServiceProvider),
+  ];
+
+  final statuses = <Map<String, dynamic>>[];
+  for (final service in services) {
+    try {
+      final status = await service.getSyncStatus();
+      statuses.add(status);
+    } catch (e) {
+      // Handle case where a service might fail to get status
+      statuses.add({
+        'service_type': service.runtimeType.toString().replaceAll('SyncService', ''),
+        'connected': false,
+        'online': false,
+        'error': e.toString(),
+      });
+    }
+  }
+
+  return statuses;
+});

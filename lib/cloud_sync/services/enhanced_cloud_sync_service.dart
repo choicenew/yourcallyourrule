@@ -428,10 +428,12 @@ abstract class EnhancedCloudSyncService implements CloudSyncService {
   @override
   Future<Map<String, dynamic>> getSyncStatus() async {
     final isConnected = await isConfigured();
+    final isOnline = await checkOnlineStatus();
     final overallStatus = await _incrementalSyncManager.getOverallSyncStatus(serviceType);
     
     return {
       'connected': isConnected,
+      'online': isOnline,
       'service_type': serviceType,
       'service_name': serviceName,
       'auto_sync_enabled': _autoSyncTimer != null,
@@ -447,4 +449,14 @@ abstract class EnhancedCloudSyncService implements CloudSyncService {
       },
     };
   }
+
+  /// Check online status
+  @override
+  Future<bool> checkOnlineStatus() async {
+    if (!await isConfigured()) return false;
+    return await doCheckOnlineStatus();
+  }
+
+  /// Implementation-specific online status check
+  Future<bool> doCheckOnlineStatus();
 }

@@ -27,37 +27,43 @@ class BackupRestorePage extends ConsumerWidget {
 
     await showDialog(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            title: Text(AppLocalizations.of(context)!.backupSettings),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SwitchListTile(
-                  title: Text(AppLocalizations.of(context)!.keepAllVersions),
-                  subtitle: Text(
-                    AppLocalizations.of(context)!.keepAllVersionsDescription,
-                  ),
-                  value: keepAllVersions,
-                  onChanged: (value) => keepAllVersions = value,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setState) => AlertDialog(
+          title: Text(AppLocalizations.of(context)!.backupSettings),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SwitchListTile(
+                title: Text(AppLocalizations.of(context)!.keepAllVersions),
+                subtitle: Text(
+                  AppLocalizations.of(context)!.keepAllVersionsDescription,
                 ),
-                SwitchListTile(
-                  title: Text(AppLocalizations.of(context)!.enableEncryption),
-                  subtitle: Text(
-                    AppLocalizations.of(context)!.enableEncryptionDescription,
-                  ),
-                  value: encryptionEnabled,
-                  onChanged: (value) {
+                value: keepAllVersions,
+                onChanged: (value) {
+                  setState(() {
+                    keepAllVersions = value;
+                  });
+                },
+              ),
+              SwitchListTile(
+                title: Text(AppLocalizations.of(context)!.enableEncryption),
+                subtitle: Text(
+                  AppLocalizations.of(context)!.enableEncryptionDescription,
+                ),
+                value: encryptionEnabled,
+                onChanged: (value) {
+                  setState(() {
                     encryptionEnabled = value;
-                    if (value) {
-                      // If enabling encryption, prompt for password
-                      Navigator.pop(context);
-                      _showEncryptionPasswordDialog(context, ref, true).then((
-                        _,
-                      ) {
-                        // Re-open the backup config dialog after setting password
-                        _showBackupConfigDialog(context, ref);
-                      });
+                  });
+                  if (value) {
+                    // If enabling encryption, prompt for password
+                    Navigator.pop(context);
+                    _showEncryptionPasswordDialog(context, ref, true).then((
+                      _,
+                    ) {
+                      // Re-open the backup config dialog after setting password
+                      _showBackupConfigDialog(context, ref);
+                    });
                     }
                   },
                 ),
@@ -93,7 +99,9 @@ class BackupRestorePage extends ConsumerWidget {
               ),
             ],
           ),
+      )
     );
+    
   }
 
   Future<void> _showCloudSyncDialog(BuildContext context, WidgetRef ref) async {
@@ -283,7 +291,7 @@ class BackupRestorePage extends ConsumerWidget {
             ),
             ListTile(
               leading: const Icon(Icons.settings_backup_restore),
-              title: Text(AppLocalizations.of(context)!.backupSettings),
+              title: Text(AppLocalizations.of(context)!.settingsBackup),
               subtitle: Text(
                 AppLocalizations.of(context)!.exportAllApplicationSettings,
               ),
@@ -426,17 +434,23 @@ class BackupRestorePage extends ConsumerWidget {
     BackupRestoreService backupService,
   ) async {
     try {
+      // 先准备备份数据
+      final tempPath = await backupService.prepareSettingsBackup();
+      final backupFile = File(tempPath);
+      final bytes = await backupFile.readAsBytes();
+      
+      // 使用FilePicker保存文件，提供bytes参数
       final result = await FilePicker.platform.saveFile(
         dialogTitle: AppLocalizations.of(context)!.backupSettings,
         fileName: 'settings_${DateTime.now().millisecondsSinceEpoch}.json',
+        bytes: bytes,
       );
 
       if (result != null) {
-        final path = await backupService.backupSettings(result);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              AppLocalizations.of(context)!.settingsBackedUpTo(path),
+              AppLocalizations.of(context)!.settingsBackedUpTo(result),
             ),
           ),
         );

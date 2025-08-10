@@ -631,6 +631,25 @@ class OneDriveSyncService extends EnhancedCloudSyncService {
       return [];
     }
   }
+
+  @override
+  Future<bool> doCheckOnlineStatus() async {
+    if (!await _refreshTokenIfNeeded()) return false;
+    try {
+      final response = await _dio.get(
+        'https://graph.microsoft.com/v1.0/me',
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $_accessToken',
+          },
+        ),
+      );
+      return response.statusCode == 200;
+    } catch (e) {
+      debugPrint('OneDrive online check failed: $e');
+      return false;
+    }
+  }
   
   @override
   Future<bool> doSyncDeviceInfo(DeviceEntity device) async {
