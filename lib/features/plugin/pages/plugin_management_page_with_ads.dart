@@ -7,6 +7,8 @@ import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
 
 /// 使用GenericListWithAdsPage的插件管理页面
 /// 集成了广告功能
@@ -433,15 +435,7 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
 
   // 构建广告项
   Widget _buildAdItem() {
-    return Container(
-      height: 90,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: const Center(child: Text('广告位')),
-    );
+    return GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd);
   }
 
   // 构建插件状态卡片（作为headerContent）

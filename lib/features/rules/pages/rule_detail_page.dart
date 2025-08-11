@@ -330,7 +330,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
     // 获取规则动作
     final action = widget.getRuleAction(_rule!);
     final actionType = action.type;
-    final actionName = RuleActionDisplayUtils.getActionTypeName(actionType);
+    final actionName = RuleActionDisplayUtils.getActionTypeName(context, actionType);
     final actionColor = RuleActionDisplayUtils.getActionTypeColor(actionType);
 
     return SingleChildScrollView(
@@ -414,7 +414,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    RuleActionDisplayUtils.getActionTypeDescription(actionType),
+                    RuleActionDisplayUtils.getActionTypeDescription(context, actionType),
                     style: const TextStyle(color: Colors.grey),
                   ),
                 ],

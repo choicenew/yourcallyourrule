@@ -135,7 +135,6 @@ class AppRouter {
   static const String callerIdCustomization = 'caller-id-customization';
   static const String callerIdSettings = 'caller-id-settings';
   static const String endCallSettings = 'end-call-settings';
-  static const String fraudAlertSettings = 'fraud-alert-settings';
   static const String smsFilterSettings = 'sms-filter-settings';
   static const String backupRestore = 'backup-restore';
   static const String cloudSettings = 'cloud-settings';
@@ -181,17 +180,17 @@ class AppRouter {
   // 创建路由器
   late final router = GoRouter(
     navigatorKey: navigatorKey,
-    initialLocation: '/$splash',
+    initialLocation: '/splash',
     routes: [
       // 启动屏幕路由
       GoRoute(
-        path: '/$splash',
+        path: '/splash',
         name: splash,
         builder: (context, state) => const SplashScreen(),
       ),
       // 设置页面路由
       GoRoute(
-        path: '/$settings',
+        path: '/settings',
         name: settings,
         builder: (context, state) => const SettingsPage(),
       ),
@@ -207,40 +206,40 @@ class AppRouter {
         builder: (context, state) => const HomePage(),
       ),
       GoRoute(
-        path: '/$purchase',
+        path: '/purchase',
         name: purchase,
         builder: (context, state) => const PurchasePage(),
       ),
       GoRoute(
-        path: '/$filterSettings',
+        path: '/filter-settings',
         name: filterSettings,
         builder: (context, state) => const FilterSettingsPage(),
       ),
       
     GoRoute(
-      path: '/$allowedBlockedSettings',
+      path: '/allowed-blocked-settings',
       name: allowedBlockedSettings,
       builder: (context, state) => const AllowedBlockedPage(),
     ),
     GoRoute(
-      path: '/$allowedBlockedSettingsWithAds',
+      path: '/allowed-blocked-settings-with-ads',
       name: allowedBlockedSettingsWithAds,
       builder: (context, state) => const AllowedBlockedPageWithAds(),
     ),
     GoRoute(
-      path: '/$ruleManagementSettings',
+      path: '/rule-management-settings',
       name: ruleManagementSettings,
       builder: (context, state) => const RuleManagementPage(),
     ),
     GoRoute(
-      path: '/$ruleManagementSettingsWithAds',
+      path: '/rule-management-settings-with-ads',
       name: ruleManagementSettingsWithAds,
       builder: (context, state) => const RuleManagementPageWithAds(),
     ),
 
     // 搜索页面路由
     GoRoute(
-      path: '/$search',
+      path: '/search',
       name: search,
       builder: (context, state) {
         // 使用Riverpod获取服务
@@ -276,7 +275,7 @@ class AppRouter {
       
       // 来电显示设置页面
       GoRoute(
-        path: '/$callerIdSettings',
+        path: '/caller-id-settings',
         name: callerIdSettings,
         builder: (context, state) => const CallerIdSettingsPage(),
       ),
@@ -304,8 +303,8 @@ class AppRouter {
       
       // 增强过滤器设置页面
       GoRoute(
-        path: '/$enhancedFilterSettings',
-        name: enhancedFilterSettings,
+        path: '/enhanced_filter_settings',
+        name: 'enhanced_filter_settings',
         builder: (context, state) => Consumer(
           builder: (context, ref, _) {
             final ruleRepository = ref.watch(ruleRepositoryProvider);
@@ -324,8 +323,8 @@ class AppRouter {
         
       // 增强版组合过滤器设置页面
       GoRoute(
-        path: '/$enhancedCompositeFilterSettings',
-        name: enhancedCompositeFilterSettings,
+        path: '/enhanced_composite_filter_settings',
+        name: 'enhanced_composite_filter_settings',
         builder: (context, state) => Consumer(
           builder: (context, ref, _) {
             final ruleRepository = ref.watch(ruleRepositoryProvider);
@@ -381,8 +380,8 @@ class AppRouter {
 
       // 欺诈警报设置页面
       GoRoute(
-        path: '/$fraudAlertSettings',
-        name: fraudAlertSettings,
+        path: '/fraud-alert-settings',
+        name: 'fraudAlertSettings',
         builder: (context, state) => const FraudAlertSettingsPage(),
       ),
 
@@ -485,7 +484,7 @@ class AppRouter {
 
       // 带广告的短信订阅页面
       GoRoute(
-        path: '/$smsSubscriptionWithAds',
+        path: '/sms-subscription-with-ads',
         name: smsSubscriptionWithAds,
         builder: (context, state) => const SmsSubscriptionPageWithAds(),
       ),
@@ -557,70 +556,70 @@ class AppRouter {
 
       // 插件管理页面
       GoRoute(
-        path: '/$pluginManagement',
+        path: '/plugin-management-with-ads',
         name: pluginManagement,
         builder: (context, state) => const PluginManagementPageWithAds(),
       ),
 
       // 电话订阅页面
       GoRoute(
-        path: '/$phoneSubscription',
+        path: '/phone-subscription-with-ads',
         name: phoneSubscription,
         builder: (context, state) => const PhoneSubscriptionPageRefactoredWithAds(),
       ),
 
       // 正则规则页面
       GoRoute(
-        path: '/$regexRule',
+        path: '/regex-rule',
         name: regexRule,
         builder: (context, state) => const RegexRulePage(),
       ),
       
       // 带广告的正则规则页面
       GoRoute(
-        path: '/$regexRuleWithAds',
+        path: '/regex-rule-with-ads',
         name: regexRuleWithAds,
         builder: (context, state) => const RegexRulePageWithAds(),
       ),
 
       // 短信过滤页面
       GoRoute(
-        path: '/$smsFilter',
+        path: '/sms-filter',
         name: smsFilter,
         builder: (context, state) => const SmsFilterPage(),
       ),
 
       // 标签管理页面
       GoRoute(
-        path: '/$labelManagement',
+        path: '/label-management',
         name: labelManagement,
         builder: (context, state) => const LabelManagementPageWithAds(),
       ),
 
       // 带广告的标签管理页面
       GoRoute(
-        path: '/$labelManagementWithAds',
+        path: '/label-management-with-ads',
         name: labelManagementWithAds,
         builder: (context, state) => const LabelManagementPageWithAds(),
       ),
 
       // 号码标记管理页面
       GoRoute(
-        path: '/$markPhoneManagement',
+        path: '/mark-phone-management',
         name: markPhoneManagement,
         builder: (context, state) => const MarkPhoneManagementPageWithAds(),
       ),
       
       // 带广告的号码标记管理页面
       GoRoute(
-        path: '/$markPhoneManagementWithAds',
+        path: '/mark-phone-management-with-ads',
         name: markPhoneManagementWithAds,
         builder: (context, state) => const MarkPhoneManagementPageWithAds(),
       ),
 
       // VIP兑换页面
       GoRoute(
-        path: '/$vipExchange',
+        path: '/vip-exchange',
         name: vipExchange,
         builder: (context, state) => const VipExchangePage(),
       ),

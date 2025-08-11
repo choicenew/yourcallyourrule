@@ -49,7 +49,7 @@ class AllowedBlockedPage extends ConsumerWidget {
       emptyText: AppLocalizations.of(context)!.allowedBlockedRule,
       emptyIcon: Icons.person,
       addButtonText: AppLocalizations.of(context)!.addRule,
-      buildRuleCard: _buildRuleCard,
+      buildRuleCard: (context, rule) => _buildRuleCard(context, rule),
       showAddDialog: _showAddRuleDialog,
       showEditDialog: _showEditRuleDialog,
       getAllRules: (service) => service.getAllAllowedBlockedRules(),
@@ -65,8 +65,8 @@ class AllowedBlockedPage extends ConsumerWidget {
   }
 
   /// 构建规则卡片
-  Widget _buildRuleCard(AllowedBlockedRule rule) {
-    final actionText = RuleActionDisplayUtils.getActionTypeName(rule.action.type);
+  Widget _buildRuleCard(BuildContext context, AllowedBlockedRule rule) {
+    final actionText = RuleActionDisplayUtils.getActionTypeName(context, rule.action.type);
     final actionColor = RuleActionDisplayUtils.getActionTypeColor(rule.action.type);
 
     return Card(

@@ -81,7 +81,7 @@ class AllCloudSyncStatusSection extends ConsumerWidget {
         case 'onedrive':
           return Icons.cloud;
         case 'googledrive':
-          return Icons.cloud_circle;
+          return Icons.add_to_drive_outlined;
         default:
           return Icons.storage;
       }
@@ -106,7 +106,7 @@ class AllCloudSyncStatusSection extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.power,
+                  isConnected ? Icons.check_circle : Icons.cancel,
                   color: isConnected ? Colors.greenAccent : Colors.grey,
                   size: 24,
                 ),
@@ -121,13 +121,13 @@ class AllCloudSyncStatusSection extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(
-                  isOnline ? Icons.signal_cellular_4_bar : Icons.signal_cellular_off,
+                  isOnline ? Icons.cloud_sync : Icons.sync_disabled,
                   color: isOnline ? Colors.greenAccent : Colors.redAccent,
                   size: 24,
                 ),
                 Text(
                   isOnline ? "Online" : "Offline",
-                  style: TextStyle(color: isOnline ? Colors.greenAccent : Colors.redAccent, fontSize: 10),
+                  style: TextStyle(color: isOnline ? Colors.orangeAccent : Colors.redAccent, fontSize: 10),
                 )
               ],
             ),

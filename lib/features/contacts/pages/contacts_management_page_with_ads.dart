@@ -16,6 +16,8 @@ import 'package:yourcallyourrule/core/provider/providers/contact_service_provide
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
 
 /// 通讯录管理页面 - 集成广告功能
 /// 使用GenericListWithAdsPage组件减少重复代码并集成广告
@@ -625,13 +627,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         : AppLocalizations.of(context)!.contactsManagement,
       items: _filteredContacts,
       itemBuilder: (context, contact) => _buildContactCard(contact),
-      adBuilder: () => const Card(
-        margin: EdgeInsets.symmetric(vertical: 8.0),
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text('广告位', textAlign: TextAlign.center),
-        ),
-      ),
+      adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
       adInterval: 3,
       emptyText: _contacts.isEmpty 
         ? AppLocalizations.of(context)!.noContactsYet 

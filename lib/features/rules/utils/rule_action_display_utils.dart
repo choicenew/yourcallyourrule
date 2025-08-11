@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则动作显示工具类
 /// 提供获取动作类型名称、颜色、图标和描述的通用方法
 class RuleActionDisplayUtils {
   /// 获取动作类型名称
-  static String getActionTypeName(RuleActionType type) {
+  static String getActionTypeName(BuildContext context, RuleActionType type) {
+ 
     switch (type) {
       case RuleActionType.allow:
-        return '允许';
+        return AppLocalizations.of(context)!.allow;
       case RuleActionType.block:
-        return '阻止';
+        return AppLocalizations.of(context)!.block;
       case RuleActionType.silence:
-        return '静音';
+        return AppLocalizations.of(context)!.silence;
       case RuleActionType.none:
-        return '无动作';
+        return AppLocalizations.of(context)!.noAction;
       case RuleActionType.redirect:
-        return '重定向';
+        return AppLocalizations.of(context)!.redirect;
       case RuleActionType.label:
-        return '标记';
+        return AppLocalizations.of(context)!.label;
       case RuleActionType.notify:
-        return '通知';
+        return AppLocalizations.of(context)!.notify;
       case RuleActionType.log:
-        return '记录';
+        return AppLocalizations.of(context)!.log;
       case RuleActionType.custom:
-        return '自定义';
-      default:
-        return '未知';
+        return AppLocalizations.of(context)!.custom;
     }
   }
   
@@ -51,8 +51,6 @@ class RuleActionDisplayUtils {
         return Colors.brown;
       case RuleActionType.custom:
         return Colors.deepPurple;
-      default:
-        return Colors.grey;
     }
   }
 
@@ -77,34 +75,31 @@ class RuleActionDisplayUtils {
         return Icons.note;
       case RuleActionType.custom:
         return Icons.settings;
-      default:
-        return Icons.help_outline;
     }
   }
 
   /// 获取动作类型描述
-  static String getActionTypeDescription(RuleActionType type) {
+  static String getActionTypeDescription(BuildContext context, RuleActionType type) {
+ 
     switch (type) {
       case RuleActionType.allow:
-        return '来电将被允许通过，即使号码在黑名单中';
+        return AppLocalizations.of(context)!.allowActionDescription;
       case RuleActionType.block:
-        return '来电将被拦截，会显示在通话记录中';
+        return AppLocalizations.of(context)!.blockActionDescription;
       case RuleActionType.silence:
-        return '来电将被静音，但会显示在通话记录中';
+        return AppLocalizations.of(context)!.silenceActionDescription;
       case RuleActionType.none:
-        return '不对来电执行任何特殊操作';
+        return AppLocalizations.of(context)!.noneActionDescription;
       case RuleActionType.redirect:
-        return '将来电重定向到指定号码';
+        return AppLocalizations.of(context)!.redirectActionDescription;
       case RuleActionType.label:
-        return '为来电添加标签，便于识别';
+        return AppLocalizations.of(context)!.labelActionDescription;
       case RuleActionType.notify:
-        return '收到来电时发送通知';
+        return AppLocalizations.of(context)!.notifyActionDescription;
       case RuleActionType.log:
-        return '记录来电信息，但不执行其他操作';
+        return AppLocalizations.of(context)!.logActionDescription;
       case RuleActionType.custom:
-        return '执行自定义操作';
-      default:
-        return '未知动作类型';
+        return AppLocalizations.of(context)!.customActionDescription;
     }
   }
 }

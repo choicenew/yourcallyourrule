@@ -12,6 +12,8 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
 
 /// 号码标记管理页面 - 集成广告功能
 /// 用于用户添加号码标记，查看标记次数，以及兑换VIP功能
@@ -413,14 +415,7 @@ class _MarkPhoneManagementPageWithAdsState
       title: AppLocalizations.of(context)!.markPhoneManagementTitle,
       items: _markedPhones,
       itemBuilder: (context, entry) => _buildMarkedPhoneCard(entry),
-      adBuilder:
-          () => const Card(
-            margin: EdgeInsets.symmetric(vertical: 8.0),
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text('广告位', textAlign: TextAlign.center),
-            ),
-          ),
+      adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
       adInterval: 3,
       emptyText: AppLocalizations.of(context)!.noMarkedPhones,
       emptyIcon: Icons.label_off,

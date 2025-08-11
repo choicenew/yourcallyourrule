@@ -48,7 +48,7 @@ class RuleManagementPage extends ConsumerWidget {
       emptyText: AppLocalizations.of(context)!.phoneRule,
       emptyIcon: Icons.phone,
       addButtonText: AppLocalizations.of(context)!.addRule,
-      buildRuleCard: _buildRuleCard,
+      buildRuleCard: (context, rule) => _buildRuleCard(context, rule),
       showAddDialog: _showAddRuleDialog,
       showEditDialog: _showEditRuleDialog,
       getAllRules: (service) => service.getAllRulesByActionType(null),// 从动作的角度获取所有规则，包括allow、block、silence和none四种类型
@@ -64,8 +64,8 @@ class RuleManagementPage extends ConsumerWidget {
   }
 
   /// 构建规则卡片
-  Widget _buildRuleCard(PhoneRule rule) {
-    final actionText = RuleActionDisplayUtils.getActionTypeName(rule.action.type);
+  Widget _buildRuleCard(BuildContext context, PhoneRule rule) {
+    final actionText = RuleActionDisplayUtils.getActionTypeName(context, rule.action.type);
     final actionColor = RuleActionDisplayUtils.getActionTypeColor(rule.action.type);
 
     return Card(

@@ -6,7 +6,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
-import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
@@ -91,9 +90,7 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('zh'),
-    Locale('zh', 'CN')
+    Locale('en')
   ];
 
   /// About contact subscription title
@@ -4539,7 +4536,7 @@ abstract class AppLocalizations {
   /// Last updated label
   ///
   /// In en, this message translates to:
-  /// **'Last updated: {date}'**
+  /// **'Last Updated: {date}'**
   String lastUpdated(Object date);
 
   /// No description provided for @lifetimeMembership.
@@ -8964,6 +8961,138 @@ abstract class AppLocalizations {
   /// **'Current Status of Each Cloud Service'**
   String get allServicesStatusSubtitle;
 
+  /// No description provided for @redirect.
+  ///
+  /// In en, this message translates to:
+  /// **'Redirect'**
+  String get redirect;
+
+  /// No description provided for @notify.
+  ///
+  /// In en, this message translates to:
+  /// **'Notify'**
+  String get notify;
+
+  /// No description provided for @log.
+  ///
+  /// In en, this message translates to:
+  /// **'Log'**
+  String get log;
+
+  /// No description provided for @custom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get custom;
+
+  /// No description provided for @allowActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Calls will be allowed, even if the number is on the blocklist.'**
+  String get allowActionDescription;
+
+  /// No description provided for @blockActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Calls will be blocked and shown in the call log.'**
+  String get blockActionDescription;
+
+  /// No description provided for @silenceActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Calls will be silenced but shown in the call log.'**
+  String get silenceActionDescription;
+
+  /// No description provided for @noneActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'No special action will be taken for the call.'**
+  String get noneActionDescription;
+
+  /// No description provided for @redirectActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Redirect the call to a specified number.'**
+  String get redirectActionDescription;
+
+  /// No description provided for @labelActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a label to the call for easy identification.'**
+  String get labelActionDescription;
+
+  /// No description provided for @notifyActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a notification when a call is received.'**
+  String get notifyActionDescription;
+
+  /// No description provided for @logActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Log the call information without taking any other action.'**
+  String get logActionDescription;
+
+  /// No description provided for @customActionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Perform a custom action.'**
+  String get customActionDescription;
+
+  /// No description provided for @needVipAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'You need VIP access to use this feature'**
+  String get needVipAccess;
+
+  /// No description provided for @importExportDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Import or export {entityTypeName} data'**
+  String importExportDescription(Object entityTypeName);
+
+  /// No description provided for @importExportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Import/Export'**
+  String get importExportTitle;
+
+  /// No description provided for @noPhoneRules.
+  ///
+  /// In en, this message translates to:
+  /// **'No phone rules found'**
+  String get noPhoneRules;
+
+  /// No description provided for @noRegexRules.
+  ///
+  /// In en, this message translates to:
+  /// **'No regex rules found'**
+  String get noRegexRules;
+
+  /// No description provided for @noAllowedBlockedRules.
+  ///
+  /// In en, this message translates to:
+  /// **'No allowed/blocked rules found'**
+  String get noAllowedBlockedRules;
+
+  /// No description provided for @importExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Import/Export'**
+  String get importExport;
+
+  /// No description provided for @filterByAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by Action'**
+  String get filterByAction;
+
+  /// No description provided for @upgradeToVip.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade to VIP'**
+  String get upgradeToVip;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:
@@ -8980,7 +9109,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'zh'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -8988,20 +9117,10 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
 
-  // Lookup logic when language+country codes are specified.
-  switch (locale.languageCode) {
-    case 'zh': {
-  switch (locale.countryCode) {
-    case 'CN': return AppLocalizationsZhCn();
-   }
-  break;
-   }
-  }
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en': return AppLocalizationsEn();
-    case 'zh': return AppLocalizationsZh();
   }
 
   throw FlutterError(
