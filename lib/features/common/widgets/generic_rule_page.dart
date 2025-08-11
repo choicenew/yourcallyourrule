@@ -37,7 +37,7 @@ class GenericRulePage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
   final RuleAction? Function(T rule)? getRuleAction;
   
   /// 规则卡片构建函数
-  final Widget Function(T rule) buildRuleCard;
+  final Widget Function(BuildContext context, T rule) buildRuleCard;
   
   /// 添加规则对话框函数
   final void Function(BuildContext context, S service, Function refreshCallback) showAddDialog;
@@ -233,7 +233,7 @@ class _GenericRulePageState<T extends BaseEntity, S> extends ConsumerState<Gener
               RuleActionType.silence,
               RuleActionType.none,
             ].map((type) => ListTile(
-              title: Text(RuleActionDisplayUtils.getActionTypeName(type)),
+              title: Text(RuleActionDisplayUtils.getActionTypeName(context, type)),
               leading: Radio<RuleActionType?>(
                 value: type,
                 groupValue: _selectedActionType,

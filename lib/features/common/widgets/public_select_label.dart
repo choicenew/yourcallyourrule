@@ -225,8 +225,8 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
       constraints: const BoxConstraints(maxHeight: 200),
       child: SingleChildScrollView(
         child: Wrap(
-          spacing: 8,
-          runSpacing: 8,
+          spacing: 5,
+          runSpacing: 5,
           children: _labels.map((labelText) {
             // 翻译标签文本
             final translatedText =
@@ -252,9 +252,9 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
               ),
               avatar: isSelected
-                  ? const Icon(Icons.check, size: 18, color: Colors.white)
+                  ? const Icon(Icons.check, size: 12, color: Colors.orange)
                   : null,
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
             );
           }).toList(),
         ),

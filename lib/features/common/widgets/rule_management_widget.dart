@@ -19,7 +19,7 @@ class RuleManagementWidget<T extends BaseEntity> extends StatefulWidget {
   final Future<void> Function() onLoadRules;
   
   /// 构建规则卡片的回调
-  final Widget Function(T rule) buildRuleCard;
+  final Widget Function(BuildContext context, T rule) buildRuleCard;
   
   /// 添加规则的回调
   final void Function() onAddRule;
@@ -300,10 +300,10 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
         if (widget.onEditRule != null) {
           return InkWell(
             onTap: () => widget.onEditRule!(rule),
-            child: widget.buildRuleCard(rule),
+            child: widget.buildRuleCard(context, rule),
           );
         } else {
-          return widget.buildRuleCard(rule);
+          return widget.buildRuleCard(context, rule);
         }
       },
     );

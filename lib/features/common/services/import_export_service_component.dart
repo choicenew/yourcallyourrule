@@ -107,4 +107,28 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
       ],
     );
   }
+  
+  /// 显示导入导出对话框
+  void showImportExportDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context)!.importExportTitle),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(AppLocalizations.of(context)!.importExportDescription(entityTypeName)),
+            const SizedBox(height: 16),
+            buildImportExportButtons(context),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.closeButton),
+          ),
+        ],
+      ),
+    );
+  }
 }

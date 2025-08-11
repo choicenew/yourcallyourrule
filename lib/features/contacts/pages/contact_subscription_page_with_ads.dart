@@ -7,6 +7,8 @@ import 'package:yourcallyourrule/features/contacts/services/contact_subscription
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
 
 /// 联系人订阅页面 - 集成广告功能
 /// 使用GenericListWithAdsPage组件减少重复代码并集成广告
@@ -192,13 +194,8 @@ class _ContactSubscriptionPageWithAdsState extends ConsumerState<ContactSubscrip
       title: AppLocalizations.of(context)!.serviceTypeContact,
       items: _subscriptions,
       itemBuilder: (context, subscription) => _buildSubscriptionCard(subscription),
-      adBuilder: () => const Card(
-        margin: EdgeInsets.symmetric(vertical: 8.0),
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text('广告位', textAlign: TextAlign.center),
-        ),
-      ),
+      adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+    
       adInterval: 3,
       emptyText: AppLocalizations.of(context)!.noSubscriptions,
       emptyIcon: Icons.contacts_outlined,

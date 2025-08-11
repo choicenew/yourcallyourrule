@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/home/pages/carousel_cards.dart';
@@ -55,9 +56,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const RuleVerificationCard(),
                                         GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const FilterManagementWidget(),
-                                        GoogleAdWidget(adInfo: AdManager.bannerAd),
+                                        GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
                     const FeatureCenter(),
-                    nativeAdWidgetMedium(adWidth: 400, adHeight: 320)
+                    nativeAdWidgetMedium(adWidth: 400, adHeight: 320),
+                    InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
                   ],
                 ),
               ),

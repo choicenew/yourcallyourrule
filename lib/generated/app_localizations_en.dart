@@ -2402,7 +2402,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String lastUpdated(Object date) {
-    return 'Last updated: $date';
+    return 'Last Updated: $date';
   }
 
   @override
@@ -4807,6 +4807,74 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get allServicesStatusSubtitle => 'Current Status of Each Cloud Service';
+
+  @override
+  String get redirect => 'Redirect';
+
+  @override
+  String get notify => 'Notify';
+
+  @override
+  String get log => 'Log';
+
+  @override
+  String get custom => 'Custom';
+
+  @override
+  String get allowActionDescription => 'Calls will be allowed, even if the number is on the blocklist.';
+
+  @override
+  String get blockActionDescription => 'Calls will be blocked and shown in the call log.';
+
+  @override
+  String get silenceActionDescription => 'Calls will be silenced but shown in the call log.';
+
+  @override
+  String get noneActionDescription => 'No special action will be taken for the call.';
+
+  @override
+  String get redirectActionDescription => 'Redirect the call to a specified number.';
+
+  @override
+  String get labelActionDescription => 'Add a label to the call for easy identification.';
+
+  @override
+  String get notifyActionDescription => 'Send a notification when a call is received.';
+
+  @override
+  String get logActionDescription => 'Log the call information without taking any other action.';
+
+  @override
+  String get customActionDescription => 'Perform a custom action.';
+
+  @override
+  String get needVipAccess => 'You need VIP access to use this feature';
+
+  @override
+  String importExportDescription(Object entityTypeName) {
+    return 'Import or export $entityTypeName data';
+  }
+
+  @override
+  String get importExportTitle => 'Import/Export';
+
+  @override
+  String get noPhoneRules => 'No phone rules found';
+
+  @override
+  String get noRegexRules => 'No regex rules found';
+
+  @override
+  String get noAllowedBlockedRules => 'No allowed/blocked rules found';
+
+  @override
+  String get importExport => 'Import/Export';
+
+  @override
+  String get filterByAction => 'Filter by Action';
+
+  @override
+  String get upgradeToVip => 'Upgrade to VIP';
 
   @override
   String get yesterday => 'Yesterday';

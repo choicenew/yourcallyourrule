@@ -9,6 +9,9 @@ import 'package:yourcallyourrule/features/phone/services/phone_subscription_serv
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 
 /// 重构后的电话订阅页面 - 集成广告功能
 /// 使用GenericListWithAdsPage组件减少重复代码并集成广告
@@ -293,13 +296,8 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
       title: AppLocalizations.of(context)!.phoneRuleSubscription,
       items: _subscriptions,
       itemBuilder: (context, subscription) => _buildSubscriptionCard(subscription),
-      adBuilder: () => const Card(
-        margin: EdgeInsets.symmetric(vertical: 8.0),
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text('广告位', textAlign: TextAlign.center),
-        ),
-      ),
+      adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+ 
       adInterval: 3,
       emptyText: AppLocalizations.of(context)!.noSubscriptions,
       emptyIcon: Icons.subscriptions_outlined,
@@ -374,32 +372,14 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: subscription.action == RuleAction.allow
-                                  ? Colors.green.withOpacity(0.1)
-                                  : subscription.action == RuleAction.block
-                                      ? Colors.red.withOpacity(0.1)
-                                      : Colors.grey.withOpacity(0.1),
+                              color: RuleActionDisplayUtils.getActionTypeColor(subscription.action.type).withOpacity(0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
-                              subscription.action == RuleAction.allow 
-                                ? '允许' 
-                                : subscription.action == RuleAction.block 
-                                  ? '阻止' 
-                                  : subscription.action == RuleAction.silence
-                                    ? '静音'
-                                    : subscription.action == RuleAction.none
-                                      ? '无动作'
-                                      : '其他',
+                              RuleActionDisplayUtils.getActionTypeName(context, subscription.action.type),
                               style: TextStyle(
                                 fontSize: 12,
-                                color: subscription.action == RuleAction.allow 
-                                  ? Colors.green 
-                                  : subscription.action == RuleAction.block 
-                                    ? Colors.red 
-                                    : subscription.action == RuleAction.silence
-                                      ? Colors.orange
-                                      : Colors.grey,
+                                color: RuleActionDisplayUtils.getActionTypeColor(subscription.action.type),
                               ),
                             ),
                           ),
@@ -420,14 +400,14 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                               color: Colors.green.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
-                            child: const Text(
-                              '已同步',
+                            child: Text(
+                              AppLocalizations.of(context)!.synced,
                               style: TextStyle(fontSize: 12, color: Colors.green),
                             ),
                           ),
                           const SizedBox(width: 8),
                           Text(
-                            '最后更新: $formattedDate',
+                            AppLocalizations.of(context)!.lastUpdated(formattedDate),
                             style: const TextStyle(fontSize: 12, color: Colors.grey),
                           ),
                         ],

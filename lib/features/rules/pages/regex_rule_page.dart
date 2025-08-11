@@ -44,7 +44,7 @@ class RegexRulePage extends ConsumerWidget {
       emptyText: AppLocalizations.of(context)!.regexRule,
       emptyIcon: Icons.code,
       addButtonText: AppLocalizations.of(context)!.addRegexRule,
-      buildRuleCard: _buildRuleCard,
+      buildRuleCard: (context, rule) => _buildRuleCard(context, rule),
       showAddDialog: _showAddRuleDialog,
       getAllRules: (service) => service.getAllRegexRules(),
       toggleRule: (service, ruleId, isEnabled) =>
@@ -57,8 +57,8 @@ class RegexRulePage extends ConsumerWidget {
   }
 
   /// 构建规则卡片
-  Widget _buildRuleCard(RegexRule rule) {
-    final actionText = _getActionText(rule.action);
+  Widget _buildRuleCard(BuildContext context, RegexRule rule) {
+    final actionText = _getActionText(context, rule.action);
     final actionColor = _getActionColor(rule.action);
 
     return Card(
@@ -225,8 +225,8 @@ class RegexRulePage extends ConsumerWidget {
   }
 
   /// 获取动作文本
-  String _getActionText(RuleAction action) {
-    return RuleActionDisplayUtils.getActionTypeName(action.type);
+  String _getActionText(BuildContext context, RuleAction action) {
+    return RuleActionDisplayUtils.getActionTypeName(context, action.type);
   }
 
   /// 获取动作颜色

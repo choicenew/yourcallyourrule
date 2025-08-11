@@ -5,10 +5,14 @@ import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/label_edit_dialog.dart';
+import 'package:yourcallyourrule/features/common/widgets/vip_access_checker.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
+import 'package:yourcallyourrule/purchase/purchase_state.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
 
 /// 标签管理页面 - 集成广告功能
 /// 使用GenericListWithAdsPage组件减少重复代码并集成广告
@@ -163,6 +167,15 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
   }
 
   void _showAddLabelDialog() {
+    // 使用VipAccessChecker检查用户是否有VIP或临时权限
+    if (!VipAccessChecker.checkVipAccess(
+      ref: ref,
+      context: context,
+      onAccessGranted: () {},
+    )) {
+      return;
+    }
+    
     String? selectedLabelId;
     final phoneController = TextEditingController();
     final iconController = TextEditingController();
@@ -508,13 +521,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       title: AppLocalizations.of(context)!.labelManagement,
       items: _labels,
       itemBuilder: (context, label) => _buildLabelCard(label),
-      adBuilder: () => const Card(
-        margin: EdgeInsets.symmetric(vertical: 8.0),
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text('广告位', textAlign: TextAlign.center),
-        ),
-      ),
+      adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
       adInterval: 3,
       emptyText: AppLocalizations.of(context)!.noLabels,
       emptyIcon: Icons.label_outline,
