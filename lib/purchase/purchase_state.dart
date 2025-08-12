@@ -51,15 +51,20 @@ class PurchaseState extends StateNotifier<PurchaseStateModel> {
     return state.isPurchasedOrHasTempAccess();
   }
 
+  // 配置键名
+  static const String _isPurchasesEnabledKey = 'config_isPurchasesEnabled';
+  static const String _hasTempPurchaseKey = 'config_hasTempPurchase';
+  static const String _tempPurchaseExpiryDateKey = 'config_tempPurchaseExpiryDate';
+
   // 加载状态
   Future<void> loadState() async {
-    final isPurchasedConfig = await _configRepository.getConfig('isPurchasesEnabled');
+    final isPurchasedConfig = await _configRepository.getConfig(_isPurchasesEnabledKey);
     final isPurchasesEnabled = isPurchasedConfig?['value'] as bool? ?? false;
     
-    final hasTempConfig = await _configRepository.getConfig('hasTempPurchase');
+    final hasTempConfig = await _configRepository.getConfig(_hasTempPurchaseKey);
     final hasTempPurchase = hasTempConfig?['value'] as bool? ?? false;
     
-    final expiryConfig = await _configRepository.getConfig('tempPurchaseExpiryDate');
+    final expiryConfig = await _configRepository.getConfig(_tempPurchaseExpiryDateKey);
     final expiryTimestamp = expiryConfig?['value'] as int?;
     DateTime? tempPurchaseExpiryDate;
     if (expiryTimestamp != null) {
@@ -77,7 +82,7 @@ class PurchaseState extends StateNotifier<PurchaseStateModel> {
   // 更新购买状态
   Future<void> updatePurchaseState(bool isPurchased) async {
     state = state.copyWith(isPurchasesEnabled: isPurchased);
-    await _configRepository.saveConfig('isPurchasesEnabled', {'value': isPurchased});
+    await _configRepository.saveConfig(_isPurchasesEnabledKey, {'value': isPurchased});
   }
 
   // 更新临时购买状态
@@ -86,8 +91,8 @@ class PurchaseState extends StateNotifier<PurchaseStateModel> {
       hasTempPurchase: hasTempPurchase,
       tempPurchaseExpiryDate: expiryDate,
     );
-    await _configRepository.saveConfig('hasTempPurchase', {'value': hasTempPurchase});
-    await _configRepository.saveConfig('tempPurchaseExpiryDate', {'value': expiryDate.millisecondsSinceEpoch});
+    await _configRepository.saveConfig(_hasTempPurchaseKey, {'value': hasTempPurchase});
+    await _configRepository.saveConfig(_tempPurchaseExpiryDateKey, {'value': expiryDate.millisecondsSinceEpoch});
   }
 }
 

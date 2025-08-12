@@ -68,9 +68,11 @@ class RemoteNumberFilterService implements CallFilterInterface {
     return true;
   }
 
+  static const String _configKey = 'config_remote_number_filter';
+
   /// 从配置仓库加载配置
   Future<void> loadConfig() async {
-    final configMap = await _configRepository.getConfig('remote_number_filter');
+    final configMap = await _configRepository.getConfig(_configKey);
     if (configMap != null) {
       remoteNumberFilterConfig = RemoteNumberFilterConfig.fromMap(configMap);
       // 同步更新服务中的计数阈值
@@ -80,7 +82,7 @@ class RemoteNumberFilterService implements CallFilterInterface {
 
   /// 保存配置到配置仓库
   Future<void> saveConfig() async {
-    await _configRepository.saveConfig('remote_number_filter', remoteNumberFilterConfig.toMap());
+    await _configRepository.saveConfig(_configKey, remoteNumberFilterConfig.toMap());
   }
 
   /// 更新配置

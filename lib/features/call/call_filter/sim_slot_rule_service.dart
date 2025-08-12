@@ -71,9 +71,11 @@ class SimSlotRuleService implements CallFilterInterface {
     await loadSimSlotFilterConfig();
   }
 
+  static const String _configKey = 'config_sim_slot_filter_enabled';
+
   /// 加载SIM卡槽位过滤器配置
   Future<void> loadSimSlotFilterConfig() async {
-    final configMap = await _configRepository.getConfig('sim_slot_filter_enabled');
+    final configMap = await _configRepository.getConfig(_configKey);
     if (configMap != null) {
       _simSlotFilterEnabled = Map<int, bool>.from(
         configMap.map((key, value) => MapEntry(
@@ -89,7 +91,7 @@ class SimSlotRuleService implements CallFilterInterface {
     final configMap = _simSlotFilterEnabled.map(
       (key, value) => MapEntry(key.toString(), value),
     );
-    await _configRepository.saveConfig('sim_slot_filter_enabled', configMap);
+    await _configRepository.saveConfig(_configKey, configMap);
   }
 
   /// 启用指定SIM卡槽位的过滤器

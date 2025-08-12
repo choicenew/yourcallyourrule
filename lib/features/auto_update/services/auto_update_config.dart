@@ -11,7 +11,7 @@ class AutoUpdateConfig {
   
   /// 获取最后更新时间
   Future<DateTime?> getLastUpdateTime(String serviceType) async {
-    final key = 'lastUpdated_$serviceType';
+    final key = 'config_lastUpdated_$serviceType';
     final config = await _configRepository.getConfig(key);
     final timestamp = config?['value'] as String?;
     
@@ -26,31 +26,33 @@ class AutoUpdateConfig {
   
   /// 保存最后更新时间
   Future<void> saveLastUpdateTime(String serviceType, DateTime time) async {
-    final key = 'lastUpdated_$serviceType';
+    final key = 'config_lastUpdated_$serviceType';
     await _configRepository.saveConfig(key, {'value': time.toIso8601String()});
   }
   
   /// 获取用户自定义更新间隔（天数）
   Future<int?> getUserUpdateIntervalDays(String serviceType) async {
-    final key = 'userInterval_$serviceType';
+    final key = 'config_userInterval_$serviceType';
     final config = await _configRepository.getConfig(key);
     return config?['value'] as int?;
   }
   
   /// 设置用户自定义更新间隔（天数）
   Future<void> setUserUpdateIntervalDays(String serviceType, int days) async {
-    final key = 'userInterval_$serviceType';
+    final key = 'config_userInterval_$serviceType';
     await _configRepository.saveConfig(key, {'value': days});
   }
   
   /// 保存默认存储目录
   Future<void> saveDefaultStorageDirectory(String path) async {
-    await _configRepository.saveConfig('defaultExternalStorageDirectory', {'value': path});
+    final defaultExternalStorageDirectoryKey = 'config_defaultExternalStorageDirectory';
+    await _configRepository.saveConfig(defaultExternalStorageDirectoryKey, {'value': path});
   }
   
   /// 获取默认存储目录
   Future<String?> getDefaultStorageDirectory() async {
-    final config = await _configRepository.getConfig('defaultExternalStorageDirectory');
+    final defaultExternalStorageDirectoryKey = 'config_defaultExternalStorageDirectory';
+    final config = await _configRepository.getConfig(defaultExternalStorageDirectoryKey);
     return config?['value'] as String?;
   }
 }

@@ -111,9 +111,11 @@ class CallFilterService implements CallFilterInterface {
     return _currentInterceptAction;
   }
 
+  static const String _configKey = 'config_call_filter';
+
   /// 从配置仓库加载配置
   Future<void> loadConfig() async {
-    final configMap = await _configRepository.getConfig('call_filter');
+    final configMap = await _configRepository.getConfig(_configKey);
     if (configMap != null) {
       callFilterConfig = CallFilterConfig.fromMap(configMap);
     }
@@ -121,7 +123,7 @@ class CallFilterService implements CallFilterInterface {
 
   /// 保存配置到配置仓库
   Future<void> saveConfig() async {
-    await _configRepository.saveConfig('call_filter', callFilterConfig.toMap());
+    await _configRepository.saveConfig(_configKey, callFilterConfig.toMap());
   }
 
   /// 更新配置

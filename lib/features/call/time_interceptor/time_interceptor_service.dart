@@ -41,15 +41,17 @@ class TimeInterceptorService {
     await _saveConfig();
   }
 
+  static const String _configKey = 'config_time_interceptor';
+
   Future<void> _loadConfig() async {
-    final configMap = await _configRepo.getConfig('time_interceptor');
+    final configMap = await _configRepo.getConfig(_configKey);
     if (configMap != null) {
       timeInterceptorConfig = TimeInterceptorConfig.fromMap(configMap);
     }
   }
 
   Future<void> _saveConfig() async {
-    await _configRepo.saveConfig('time_interceptor', timeInterceptorConfig.toMap());
+    await _configRepo.saveConfig(_configKey, timeInterceptorConfig.toMap());
   }
 
   TimeInterceptorConfig get config => timeInterceptorConfig;

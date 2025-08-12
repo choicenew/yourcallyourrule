@@ -24,14 +24,16 @@ class EndCallSettingsPageState extends State<EndCallSettingsPage> {
     _loadInterceptAction();
   }
 
+  static const String _interceptActionKey = 'config_intercept_action';
+
   Future<void> _loadInterceptAction() async {
-    final config = await _configRepository.getConfig('intercept_action');
+    final config = await _configRepository.getConfig(_interceptActionKey);
     _selectedInterceptAction = config?['value'] as String? ?? 'endCall';
     setState(() {});
   }
 
   Future<void> _saveInterceptAction(String? newValue) async {
-    await _configRepository.saveConfig('intercept_action', {'value': newValue!});
+    await _configRepository.saveConfig(_interceptActionKey, {'value': newValue!});
   }
 
   @override

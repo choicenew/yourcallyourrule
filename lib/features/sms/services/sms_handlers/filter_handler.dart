@@ -12,7 +12,7 @@ class SmsFilterHandler extends BaseSmsHandler {
   final ConfigRepository _configRepository;
   
   // 设置键名
-  static const String smsFilterEnabledKey = 'sms_filter_enabled';
+  static const String smsFilterEnabledKey = 'config_sms_filter_enabled';
 
   /// 构造函数
   SmsFilterHandler({

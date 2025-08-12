@@ -13,7 +13,7 @@ class RemoteNumberRepositoryImpl implements RuleRepository {
   final RemoteDataAccessRestriction _remoteDataAccess;
   
   // 配置键
-  static const String _configKey = 'remote_numbers';
+  static const String _configKey = 'config_remote_numbers';
   
   // 构造函数
   RemoteNumberRepositoryImpl(this._configRepository) : 
@@ -149,7 +149,6 @@ class RemoteNumberRepositoryImpl implements RuleRepository {
     );
   }
 
-  @override
   Future<List<RuleBase>> getAllByType(String type) async {
     // 由于RemoteNumberEntry没有type属性，直接返回空列表
     return [];
