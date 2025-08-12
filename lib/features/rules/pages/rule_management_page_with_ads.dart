@@ -386,7 +386,7 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
   }
 
   Widget _buildRuleCard(BuildContext context, PhoneRule rule) {
-    final actionText = RuleActionDisplayUtils.getActionTypeName(context, rule.action.type);
+    final actionText = RuleActionDisplayUtils.getActionTypeName(rule.action.type);
     final actionColor = RuleActionDisplayUtils.getActionTypeColor(rule.action.type);
 
     return Card(
