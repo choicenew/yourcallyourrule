@@ -1,24 +1,11 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-import 'package:yourcallyourrule/features/home/services/feature_center_config_service.dart';
+import 'package:yourcallyourrule/features/home/providers/feature_center_providers.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-final featureCenterConfigServiceProvider = Provider((ref) {
-  // This assumes you have a provider for your config repository
-  final configRepository = ref.watch(configRepositoryProvider);
-  return FeatureCenterConfigService(configRepository);
-});
-
-// A placeholder for your actual config repository provider
-final configRepositoryProvider = Provider<ConfigRepository>((ref) {
-  // Replace with your actual implementation, e.g.:
-  return SharedPreferencesConfigRepository();
-});
-
+// Converted to a ConsumerStatefulWidget to use Riverpod
 class FeatureCenter extends ConsumerStatefulWidget {
   const FeatureCenter({super.key});
 
@@ -26,246 +13,241 @@ class FeatureCenter extends ConsumerStatefulWidget {
   ConsumerState<FeatureCenter> createState() => _FeatureCenterState();
 }
 
-class _Feature {
-  final String id;
-  final String title;
-  final IconData icon;
-  final String route;
-  Color color;
-
-  _Feature({
-    required this.id,
-    required this.title,
-    required this.icon,
-    required this.route,
-    this.color = Colors.blue,
-  });
-}
-
 class _FeatureCenterState extends ConsumerState<FeatureCenter> {
-  final List<_Feature> _features = [];
-  final _random = Random();
-  bool _isDragging = false;
-
-  Color _randomColor() {
-    return Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(0.2);
-  }
+  // The state is just the list of widgets themselves.
+  List<Widget> _orderedFeatureWidgets = [];
+  bool _isLoading = true;
 
   @override
-  void initState() {
-    super.initState();
-    _initializeFeatures();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_isLoading) {
+      _loadAndOrderFeatures();
+    }
   }
 
-  Future<void> _initializeFeatures() async {
-    final l10n = AppLocalizations.of(context)!;
-    final service = ref.read(featureCenterConfigServiceProvider);
-    final featureOrder = await service.getFeatureOrder();
+  Color _randomColor() {
+    return Color((Random().nextDouble() * 0xFFFFFF).toInt()).withValues(alpha: 0.2);
+  }
 
-    final defaultFeatures = [
-      _Feature(
-          id: 'call_filter',
-          title: l10n.callFilter,
-          icon: Icons.filter_list,
-          route: '/call-filter',
-          color: _randomColor()),
-      _Feature(
-          id: 'call_statistics',
-          title: l10n.statistics,
-          icon: Icons.bar_chart,
-          route: '/call-statistics',
-          color: _randomColor()),
-      _Feature(
-          id: 'plugin_management',
-          title: l10n.pluginManagement,
-          icon: Icons.extension,
-          route: '/plugin-management',
-          color: _randomColor()),
-      _Feature(
-          id: 'mark_phone_management',
-          title: l10n.markPhoneManagementTitle,
-          icon: Icons.label,
-          route: '/mark-phone-management-with-ads',
-          color: _randomColor()),
-      _Feature(
-          id: 'contacts_management',
-          title: l10n.contacts,
-          icon: Icons.contacts,
-          route: '/contacts-management',
-          color: _randomColor()),
-      _Feature(
-          id: 'rules_management',
-          title: l10n.rules,
-          icon: Icons.rule,
-          route: '/rules-management',
-          color: _randomColor()),
-      _Feature(
-          id: 'caller_id',
-          title: l10n.callerId,
-          icon: Icons.perm_contact_calendar,
-          route: '/caller-id',
-          color: _randomColor()),
-      _Feature(
-          id: 'language_settings',
-          title: l10n.language,
-          icon: Icons.language,
-          route: '/language-settings',
-          color: _randomColor()),
+  Future<void> _loadAndOrderFeatures() async {
+    // THIS IS THE MASTER LIST, DEFINED DIRECTLY AS YOU INSTRUCTED.
+    // THE DEFAULT ORDER IS THE ORDER YOU WRITE THEM IN HERE.
+    final allFeaturesInDefaultOrder = <Widget>[
+      _buildFeatureItem(
+        id: 'mark_phone_management',
+        context: context,
+        title: AppLocalizations.of(context)!.markPhoneManagementTitle,
+        icon: Icons.label,
+        color: _randomColor(),
+        onTap: () => context.push('/mark-phone-management-with-ads'),
+      ),
+      _buildFeatureItem(
+        id: 'plugin_management',
+        context: context,
+        title: AppLocalizations.of(context)!.pluginManagement,
+        icon: Icons.extension,
+        color: _randomColor(),
+        onTap: () => context.push('/plugin-management-with-ads'),
+      ),
+      _buildFeatureItem(
+        id: 'allow_block',
+        context: context,
+        title: AppLocalizations.of(context)!.allowBlock,
+        icon: Icons.block,
+        color: _randomColor(),
+        onTap: () => context.push('/allowed-blocked-settings-with-ads'),
+      ),
+       _buildFeatureItem(
+        id: 'black_white_list',
+        context: context,
+        title: AppLocalizations.of(context)!.blackWhiteList,
+        icon: Icons.list,
+        color: _randomColor(),
+        onTap: () => context.push('/rule-management-settings-with-ads'),
+      ),
+      _buildFeatureItem(
+        id: 'regex_rules',
+        context: context,
+        title: AppLocalizations.of(context)!.regexRules,
+        icon: Icons.code,
+        color: _randomColor(),
+        onTap: () => context.push('/regex-rule-with-ads'),
+      ),
+      _buildFeatureItem(
+        id: 'phone_subscription',
+        context: context,
+        title: AppLocalizations.of(context)!.phoneSubscription,
+        icon: Icons.phone_callback,
+        color: _randomColor(),
+        onTap: () => context.push('/phone-subscription-with-ads'),
+      ),
+      _buildFeatureItem(
+        id: 'call_history',
+        context: context,
+        title: AppLocalizations.of(context)!.callHistory,
+        icon: Icons.call,
+        color: _randomColor(),
+        onTap: () => context.push('/call-history'),
+      ),
+      _buildFeatureItem(
+        id: 'contacts',
+        context: context,
+        title: AppLocalizations.of(context)!.contacts,
+        icon: Icons.contacts,
+        color: _randomColor(),
+        onTap: () => context.push('/contacts-management'),
+      ),
+      _buildFeatureItem(
+        id: 'statistics',
+        context: context,
+        title: AppLocalizations.of(context)!.statistics,
+        icon: Icons.bar_chart,
+        color: _randomColor(),
+        onTap: () => context.push('/call-statistics'),
+      ),
     ];
 
-    if (featureOrder.isEmpty) {
-      _features.addAll(defaultFeatures);
+    final service = ref.read(featureCenterConfigServiceProvider);
+    final savedIdOrder = await service.getOrder();
+
+    List<Widget> finalWidgetOrder;
+
+    if (savedIdOrder == null) {
+      finalWidgetOrder = allFeaturesInDefaultOrder;
     } else {
-      final featureMap = {for (var f in defaultFeatures) f.id: f};
-      for (var id in featureOrder) {
-        if (featureMap.containsKey(id)) {
-          _features.add(featureMap[id]!);
-          featureMap.remove(id);
+      final widgetMap = {
+        for (var widget in allFeaturesInDefaultOrder) (widget.key as ValueKey<String>).value: widget
+      };
+      
+      final sortedWidgets = <Widget>[];
+      for (final id in savedIdOrder) {
+        if (widgetMap.containsKey(id)) {
+          sortedWidgets.add(widgetMap.remove(id)!);
         }
       }
-      _features.addAll(featureMap.values); // Add any new features
+      sortedWidgets.addAll(widgetMap.values);
+      finalWidgetOrder = sortedWidgets;
     }
+    
     if (mounted) {
-      setState(() {});
+      setState(() {
+        _orderedFeatureWidgets = finalWidgetOrder;
+        _isLoading = false;
+      });
     }
   }
 
-  void _saveFeatureOrder() {
-    final service = ref.read(featureCenterConfigServiceProvider);
-    final featureOrder = _features.map((f) => f.id).toList();
-    service.saveFeatureOrder(featureOrder);
+  void _saveOrder() {
+    final currentIdOrder = _orderedFeatureWidgets
+        .map((widget) => (widget.key as ValueKey<String>).value)
+        .toList();
+    ref.read(featureCenterConfigServiceProvider).saveOrder(currentIdOrder);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.featureCenter),
-      ),
-      body: GridView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemCount: _features.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 16.0,
-          mainAxisSpacing: 16.0,
-        ),
-        itemBuilder: (context, index) {
-          final feature = _features[index];
-          return LongPressDraggable<_Feature>(
-            data: feature,
-            feedback: _buildFeedbackWidget(feature),
-            childWhenDragging: _buildDraggingWidget(feature),
-            onDragStarted: () {
-              setState(() {
-                _isDragging = true;
-              });
-            },
-            onDragEnd: (details) {
-              setState(() {
-                _isDragging = false;
-              });
-            },
-            child: DragTarget<_Feature>(
-              onWillAcceptWithDetails: (details) {
-                return details.data != feature;
-              },
-              onAcceptWithDetails: (details) {
-                setState(() {
-                  final oldIndex = _features.indexOf(details.data);
-                  final newIndex = _features.indexOf(feature);
-                  final item = _features.removeAt(oldIndex);
-                  _features.insert(newIndex, item);
-                  _saveFeatureOrder();
-                });
-              },
-              builder: (context, candidateData, rejectedData) {
-                return _buildFeatureItem(
-                  context: context,
-                  feature: feature,
-                  isBeingDragged: candidateData.isNotEmpty,
-                );
-              },
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildFeedbackWidget(_Feature feature) {
-    return Material(
-      elevation: 4.0,
-      color: Colors.transparent,
-      borderRadius: BorderRadius.circular(12.0),
-      child: Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-          color: feature.color.withOpacity(0.8),
-          borderRadius: BorderRadius.circular(12.0),
-          border: Border.all(color: Colors.blueAccent, width: 2),
-        ),
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(feature.icon, size: 40.0, color: Colors.white),
-            const SizedBox(height: 8.0),
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
             Text(
-              feature.title,
-              style: const TextStyle(color: Colors.white, fontSize: 14),
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
+              AppLocalizations.of(context)!.featureCenter,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 16),
+            if (_isLoading)
+              const Center(child: CircularProgressIndicator())
+            else
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                ),
+                itemCount: _orderedFeatureWidgets.length,
+                itemBuilder: (context, index) {
+                  final featureWidget = _orderedFeatureWidgets[index];
+                  final featureId = (featureWidget.key as ValueKey<String>).value;
+
+                  return LongPressDraggable<String>(
+                    data: featureId,
+                    // --- CORRECTION STARTS HERE ---
+                    // The complex SizedBox has been removed.
+                    feedback: Material(
+                      elevation: 4.0,
+                      color: Colors.transparent, // Keeps item from having a weird background
+                      child: featureWidget,
+                    ),
+                    // --- CORRECTION ENDS HERE ---
+                    childWhenDragging: Container(),
+                    child: DragTarget<String>(
+                      onWillAcceptWithDetails: (details) => details.data != featureId,
+                      onAcceptWithDetails: (details) {
+                        final draggedId = details.data;
+                        setState(() {
+                          final oldIndex = _orderedFeatureWidgets.indexWhere(
+                            (w) => (w.key as ValueKey<String>).value == draggedId);
+                          
+                          final newIndex = index;
+
+                          if (oldIndex != -1) {
+                            final item = _orderedFeatureWidgets.removeAt(oldIndex);
+                            if (oldIndex < newIndex) {
+                              _orderedFeatureWidgets.insert(newIndex - 1, item);
+                            } else {
+                              _orderedFeatureWidgets.insert(newIndex, item);
+                            }
+                            _saveOrder();
+                          }
+                        });
+                      },
+                      builder: (context, candidateData, rejectedData) {
+                        return featureWidget;
+                      },
+                    ),
+                  );
+                },
+              ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildDraggingWidget(_Feature feature) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.0),
-        border: Border.all(color: Colors.grey.shade300),
-      ),
-      child: Opacity(
-        opacity: 0.5,
-        child: _buildFeatureItem(context: context, feature: feature),
-      ),
-    );
-  }
-
+  // THIS IS YOUR FUNCTION, UNCHANGED, AS REQUESTED.
   Widget _buildFeatureItem({
+    required String id,
     required BuildContext context,
-    required _Feature feature,
-    bool isBeingDragged = false,
+    required String title,
+    required IconData icon,
+    required Color color,
+    required VoidCallback onTap,
   }) {
-    return GestureDetector(
-      onTap: () => context.push(feature.route),
+    return InkWell(
+      key: ValueKey(id), // The ID is used to create the essential Key.
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
       child: Container(
         decoration: BoxDecoration(
-          color: isBeingDragged ? Colors.blue.withOpacity(0.2) : feature.color,
-          borderRadius: BorderRadius.circular(12.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 1,
-              blurRadius: 4,
-              offset: const Offset(0, 2),
-            ),
-          ],
+          color: color,
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(feature.icon, size: 40.0, color: Colors.white),
-            const SizedBox(height: 8.0),
+          children: [
+            Icon(icon, size: 32, color: Theme.of(context).primaryColor),
+            const SizedBox(height: 8),
             Text(
-              feature.title,
-              style: const TextStyle(color: Colors.white, fontSize: 14),
+              title,
+              style: const TextStyle(fontSize: 14),
               textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
@@ -273,3 +255,251 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
