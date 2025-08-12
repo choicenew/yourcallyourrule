@@ -145,7 +145,7 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
   
   /// 保存过滤器全局启用状态配置
   Future<void> _saveFilterEnabledConfig() async {
-    await _configRepository.saveConfig('filter_enabled_map', _filterEnabledMap);
+    await _configRepository.saveConfig(_filterEnabledMapKey, _filterEnabledMap);
   }
   
   /// 保存SIM卡槽位过滤器配置
@@ -155,12 +155,15 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
     _simSlotFilterConfigMap.forEach((simSlotIndex, filterMap) {
       serializableMap[simSlotIndex.toString()] = filterMap;
     });
-    await _configRepository.saveConfig('sim_slot_filter_config', serializableMap);
+    await _configRepository.saveConfig(_simSlotFilterConfigKey, serializableMap);
   }
   
+  static const String _filterEnabledMapKey = 'config_filter_enabled_map';
+  static const String _simSlotFilterConfigKey = 'config_sim_slot_filter_config';
+
   /// 加载过滤器全局启用状态配置
   Future<void> _loadFilterEnabledConfig() async {
-    final configMap = await _configRepository.getConfig('filter_enabled_map');
+    final configMap = await _configRepository.getConfig(_filterEnabledMapKey);
     if (configMap != null) {
       _filterEnabledMap = Map<String, bool>.from(configMap);
     }
@@ -168,7 +171,7 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
   
   /// 加载SIM卡槽位过滤器配置
   Future<void> _loadSimSlotFilterConfig() async {
-    final configMap = await _configRepository.getConfig('sim_slot_filter_config');
+    final configMap = await _configRepository.getConfig(_simSlotFilterConfigKey);
     if (configMap != null) {
       _simSlotFilterConfigMap = {};
       configMap.forEach((key, value) {

@@ -3,7 +3,7 @@ import 'package:yourcallyourrule/features/phone/services/phone_subscription_serv
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
-import 'package:yourcallyourrule/core/services/auto_update_config.dart';
+import 'package:yourcallyourrule/features/auto_update/services/auto_update_config.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 /// 自动更新服务

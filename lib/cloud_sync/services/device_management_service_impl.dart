@@ -11,13 +11,13 @@ import 'package:yourcallyourrule/data/repositories/config/config_repository.dart
 /// Implementation of the device management service
 class DeviceManagementServiceImpl implements DeviceManagementService {
   /// Shared preferences key for device ID
-  static const String _deviceIdKey = 'device_id';
+  static const String _deviceIdKey = 'config_device_id';
   
   /// Shared preferences key for device name
-  static const String _deviceNameKey = 'device_name';
+  static const String _deviceNameKey = 'config_device_name';
   
   /// Shared preferences key for registered devices
-  static const String _registeredDevicesKey = 'registered_devices';
+  static const String _registeredDevicesKey = 'config_registered_devices';
   
   /// Config repository for storing device information
   final ConfigRepository _configRepository;

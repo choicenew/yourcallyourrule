@@ -16,8 +16,8 @@ class SmsNotificationHandler extends BaseSmsHandler {
   bool cancelLocalNotification = false;
 
   // 设置键名
-  static const String smsLocalNotificationKey = 'sms_local_notification';
-  static const String smsCancelLocalNotificationKey = 'sms_cancel_local_notification';
+  static const String smsLocalNotificationKey = 'config_sms_local_notification';
+  static const String smsCancelLocalNotificationKey = 'config_sms_cancel_local_notification';
 
   /// 构造函数
   SmsNotificationHandler({

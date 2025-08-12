@@ -11,12 +11,12 @@ class PluginManagerConfig {
   
   /// 保存默认存储目录
   Future<void> saveDefaultStorageDirectory(String path) async {
-    await _configRepository.saveConfig('defaultExternalStorageDirectory', {'value': path});
+    await _configRepository.saveConfig('config_defaultExternalStorageDirectory', {'value': path});
   }
   
   /// 获取默认存储目录
   Future<String?> getDefaultStorageDirectory() async {
-    final config = await _configRepository.getConfig('defaultExternalStorageDirectory');
+    final config = await _configRepository.getConfig('config_defaultExternalStorageDirectory');
     return config?['value'] as String?;
   }
 }

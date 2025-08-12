@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/core/provider/providers/contact_subscription_se
 import 'package:yourcallyourrule/core/provider/providers/phone_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/sms_subscription_service_provider.dart';
-import 'package:yourcallyourrule/core/services/auto_update_service.dart';
+import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 

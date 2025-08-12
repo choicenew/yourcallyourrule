@@ -11,7 +11,7 @@ class IncrementalSyncManagerConfig {
   
   /// 获取最后同步时间
   Future<DateTime?> getLastSyncTime(String serviceType, String dataType) async {
-    final key = 'last_sync_${serviceType}_$dataType';
+    final key = 'config_last_sync_${serviceType}_$dataType';
     final config = await _configRepository.getConfig(key);
     final timestamp = config?['value'] as String?;
     
@@ -26,7 +26,7 @@ class IncrementalSyncManagerConfig {
   
   /// 保存最后同步时间
   Future<void> saveLastSyncTime(String serviceType, String dataType) async {
-    final key = 'last_sync_${serviceType}_$dataType';
+    final key = 'config_last_sync_${serviceType}_$dataType';
     final now = DateTime.now().toIso8601String();
     
     await _configRepository.saveConfig(key, {'value': now});
@@ -34,20 +34,20 @@ class IncrementalSyncManagerConfig {
   
   /// 获取最后同步哈希值
   Future<String?> getLastSyncHash(String serviceType, String dataType) async {
-    final key = 'last_sync_hash_${serviceType}_$dataType';
+    final key = 'config_last_sync_hash_${serviceType}_$dataType';
     final config = await _configRepository.getConfig(key);
     return config?['value'] as String?;
   }
   
   /// 保存最后同步哈希值
   Future<void> saveLastSyncHash(String serviceType, String dataType, String hash) async {
-    final key = 'last_sync_hash_${serviceType}_$dataType';
+    final key = 'config_last_sync_hash_${serviceType}_$dataType';
     await _configRepository.saveConfig(key, {'value': hash});
   }
   
   /// 记录同步历史
   Future<void> recordSyncHistory(String serviceType, String dataType, Map<String, dynamic> details) async {
-    final historyKey = 'sync_history_${serviceType}_$dataType';
+    final historyKey = 'config_sync_history_${serviceType}_$dataType';
     
     // 获取现有历史记录
     final config = await _configRepository.getConfig(historyKey);
@@ -66,7 +66,7 @@ class IncrementalSyncManagerConfig {
   
   /// 获取同步历史
   Future<List<Map<String, dynamic>>> getSyncHistory(String serviceType, String dataType) async {
-    final historyKey = 'sync_history_${serviceType}_$dataType';
+    final historyKey = 'config_sync_history_${serviceType}_$dataType';
     
     final config = await _configRepository.getConfig(historyKey);
     final historyJson = config?['value'] as String? ?? '[]';
@@ -77,7 +77,7 @@ class IncrementalSyncManagerConfig {
   
   /// 清除同步历史
   Future<void> clearSyncHistory(String serviceType, String dataType) async {
-    final historyKey = 'sync_history_${serviceType}_$dataType';
+    final historyKey = 'config_sync_history_${serviceType}_$dataType';
     await _configRepository.removeConfig(historyKey);
   }
 }

@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id
 
 /// 来电显示配置服务
 class CallerIdConfigService {
-  final String _configKey = 'caller_id_config';
+  final String _configKey = 'config_caller_id';
   final ConfigRepository _configRepository;
 
   CallerIdConfigService(this._configRepository);

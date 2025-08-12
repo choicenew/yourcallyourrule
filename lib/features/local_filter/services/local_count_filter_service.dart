@@ -67,9 +67,11 @@ class LocalCountFilterService implements CallFilterInterface {
     return true;
   }
 
+  static const String _configKey = 'config_local_count_filter';
+
   /// 从配置仓库加载配置
   Future<void> loadConfig() async {
-    final configMap = await _configRepository.getConfig('local_count_filter');
+    final configMap = await _configRepository.getConfig(_configKey);
     if (configMap != null) {
       localCountFilterConfig = LocalCountFilterConfig.fromMap(configMap);
     }
@@ -77,7 +79,7 @@ class LocalCountFilterService implements CallFilterInterface {
 
   /// 保存配置到配置仓库
   Future<void> saveConfig() async {
-    await _configRepository.saveConfig('local_count_filter', localCountFilterConfig.toMap());
+    await _configRepository.saveConfig(_configKey, localCountFilterConfig.toMap());
   }
 
   /// 更新配置

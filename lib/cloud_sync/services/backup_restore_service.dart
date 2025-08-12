@@ -37,8 +37,8 @@ class BackupRestoreService {
 
   // Encryption service initialization
 
-  static const String _backupConfigKey = 'backup_config';
-  static const String _backupVersionsKey = 'backup_versions';
+  static const String _backupConfigKey = 'config_backup_config';
+  static const String _backupVersionsKey = 'config_backup_versions';
 
   Future<BackupConfigEntity> getBackupConfig() async {
     _ensureInitialized();
