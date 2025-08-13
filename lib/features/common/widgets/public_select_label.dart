@@ -222,7 +222,7 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
     }
 
     return Container(
-      constraints: const BoxConstraints(maxHeight: 200),
+      constraints: const BoxConstraints(maxHeight: 170),
       child: SingleChildScrollView(
         child: Wrap(
           spacing: 5,

@@ -14,7 +14,7 @@ class LocalCallLogDataSource {
   Future<String> insert(CallLogModel log) async {
     final db = await _db;
     await db.insert(
-      'calls',
+      'call_history',
       log.toMap()..['labelIds'] = log.labelIds?.join(','),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
@@ -25,7 +25,7 @@ class LocalCallLogDataSource {
     final db = await _db;
     final batch = db.batch();
     for (final log in logs) {
-      batch.insert('calls', log.toMap()..['labelIds'] = log.labelIds?.join(','));
+      batch.insert('call_history', log.toMap()..['labelIds'] = log.labelIds?.join(','));
     }
     await batch.commit(noResult: true);
   }
@@ -33,7 +33,7 @@ class LocalCallLogDataSource {
   Future<CallLog?> getById(String id) async {
     final db = await _db;
     final maps = await db.query(
-      'calls',
+      'call_history',
       where: 'id = ?',
       whereArgs: [id],
     );
@@ -43,7 +43,7 @@ class LocalCallLogDataSource {
   Future<List<CallLog>> getByNumber(String number) async {
     final db = await _db;
     final maps = await db.query(
-      'calls',
+      'call_history',
       where: 'number = ?',
       whereArgs: [number],
     );
@@ -53,7 +53,7 @@ class LocalCallLogDataSource {
   Future<int> update(CallLogModel log) async {
     final db = await _db;
     return db.update(
-      'calls',
+      'call_history',
       log.toMap()..['labelIds'] = log.labelIds?.join(','),
       where: 'id = ?',
       whereArgs: [log.id],
@@ -63,7 +63,7 @@ class LocalCallLogDataSource {
   Future<int> delete(String id) async {
     final db = await _db;
     return db.delete(
-      'calls',
+      'call_history',
       where: 'id = ?',
       whereArgs: [id],
     );
@@ -74,7 +74,7 @@ class LocalCallLogDataSource {
     await db.transaction((txn) async {
       for (final log in logs) {
         await txn.update(
-          'calls',
+          'call_history',
           log.toMap()..['labelIds'] = log.labelIds?.join(','),
           where: 'id = ?',
           whereArgs: [log.id],
@@ -86,7 +86,7 @@ class LocalCallLogDataSource {
   Future<List<CallLog>> searchByRegex(String pattern) async {
     final db = await _db;
     final result = await db.rawQuery(
-      "SELECT * FROM calls WHERE number REGEXP ?",
+      "SELECT * FROM call_history WHERE number REGEXP ?",
       [pattern],
     );
     return result.map((e) => CallLogModel.fromMap(e).toEntity()).toList();
@@ -95,7 +95,7 @@ class LocalCallLogDataSource {
   Future<List<CallLog>> getByLabelId(String labelId) async {
     final db = await _db;
     final maps = await db.query(
-      'calls',
+      'call_history',
       where: 'labelIds LIKE ?',
       whereArgs: ['%$labelId%'],
     );
@@ -108,7 +108,7 @@ class LocalCallLogDataSource {
     final args = labelIds.map((id) => '%$id%').toList();
     
     final maps = await db.query(
-      'calls',
+      'call_history',
       where: conditions,
       whereArgs: args,
     );

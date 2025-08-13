@@ -1,5 +1,6 @@
 // SIM卡槽位规则服务，用于管理SIM卡槽位规则
 
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
@@ -115,7 +116,7 @@ class SimSlotRuleService implements CallFilterInterface {
   Future<SimSlotRule> addSimSlotRule(String phoneNumber, int simSlotIndex, {String name = '', String labelId = '', RuleAction action = RuleAction.block}) async {
     // 创建新规则
     final rule = SimSlotRule(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      id: const Uuid().v4(),
       name: name.isEmpty ? 'SIM槽位$simSlotIndex规则' : name,
       priority: const RulePriority(10), // 默认优先级
       action: action,

@@ -1,8 +1,6 @@
 // 电话规则订阅服务，用于处理电话规则订阅
 
-
-
-
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 
 import '../../../core/entities/rule/rule_base.dart';
@@ -55,13 +53,14 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
   @override
   Future<Subscription> addSubscription(String name, String url, {bool isEnabled = true, RuleAction action = RuleAction.block}) async {
     final subscription = Subscription(
-      id: '',
+      id: const Uuid().v4(),
       name: name,
       url: Url.fromString(url),
       isEnabled: isEnabled,
       action: action, // 使用传入的 action 参数
       lastUpdated: DateTime.now(),
       autoUpdate: false,
+      tableType: 'phone', // 明确设置表类型为phone
     );
     return await save(subscription);
   }

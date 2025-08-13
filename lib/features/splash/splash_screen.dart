@@ -155,7 +155,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
       if (mounted) {
           final purchaseNotifier = ref.read(purchaseStateProvider.notifier);
           await purchaseNotifier.loadState();
-          if (mounted) _isVipUser = purchaseNotifier.isPurchasedOrHasTempAccess();
+          if (mounted) _isVipUser = purchaseNotifier.isPurchasesEnabled;
       }
     } catch (e) {
       if (mounted) _isVipUser = false;

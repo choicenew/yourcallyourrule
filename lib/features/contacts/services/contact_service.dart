@@ -6,10 +6,10 @@ import 'package:http/http.dart' as http;
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yaml/yaml.dart';
 
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
-
 import 'package:yourcallyourrule/core/repositories/contact_repository.dart';
 
 import 'package:yourcallyourrule/core/services/list_service.dart';
@@ -322,7 +322,7 @@ class ContactService extends ListService<Contact, String> {
           case 'BEGIN':
             if (value == 'VCARD') {
               currentContact = Contact(
-                id: '',
+                id: const Uuid().v4(),
                 name: '',
                 phoneNumbers: [],
               );

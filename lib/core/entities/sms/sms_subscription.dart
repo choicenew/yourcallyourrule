@@ -14,6 +14,7 @@ class SmsSubscription extends BaseEntity {
   final RuleAction action;
   final DateTime lastUpdated;
   final bool autoUpdate;
+  final String tableType; // 添加表类型字段
 
   const SmsSubscription({
     required super.id,
@@ -23,6 +24,7 @@ class SmsSubscription extends BaseEntity {
     this.action = RuleAction.block,
     required this.lastUpdated,
     this.autoUpdate = false,
+    this.tableType = 'sms', // 默认为sms类型
   });
 
   @override
@@ -35,6 +37,7 @@ class SmsSubscription extends BaseEntity {
       'action': action.toString(),
       'lastUpdated': lastUpdated.toIso8601String(),
       'autoUpdate': autoUpdate ? 1 : 0,
+      'table_type': tableType, // 添加表类型字段
     };
   }
 
@@ -49,6 +52,7 @@ class SmsSubscription extends BaseEntity {
           ? DateTime.tryParse(map['lastUpdated']) ?? DateTime.now()
           : DateTime.now(),
       autoUpdate: map['autoUpdate'] == 1 || map['autoUpdate'] == true,
+      tableType: map['table_type'] ?? 'sms', // 从map中获取表类型
     );
   }
 

@@ -2,6 +2,8 @@
 
 import 'dart:async';
 
+import 'package:uuid/uuid.dart';
+
 import '../models/contact_model.dart';
 import '../models/label_phone_model.dart';
 import '../models/remote/remote_number_model.dart';
@@ -41,7 +43,7 @@ class DatabaseUsageExample {
   Future<void> localDatabaseExample() async {
     // 添加联系人
     final contactModel = ContactModel(
-      id: '',  // 空ID将自动生成UUID
+      id: const Uuid().v4(),  // 空ID将自动生成UUID
       phoneNumber: '+1234567890',
       name: '张三',
       lastUpdated: DateTime.now(),
@@ -55,7 +57,7 @@ class DatabaseUsageExample {
     
     // 添加标签
     const labelModel = LabelModel(
-      id: '',  // 空ID将自动生成UUID
+      id: const Uuid().v4(),  // 空ID将自动生成UUID
       phoneNumber: '+1234567890',
       labelId: '骚扰电话',
       priority: 1,

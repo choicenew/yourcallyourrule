@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uuid/uuid.dart';
 
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
@@ -151,9 +152,8 @@ class _LabelManagementPageState extends ConsumerState<LabelManagementPage> {
                 final phoneNumber = PhoneNumber.fromString(phoneText);
                 final labelService = ref.read(labelServiceProvider);
                 
-                final uniqueId = DateTime.now().millisecondsSinceEpoch.toString();
                 final label = LabelPhoneEntry(
-                  id: uniqueId,
+                  id: const Uuid().v4(),
                   phoneNumber: phoneNumber,
                   labelId: selectedLabelId!,
                   icon: iconText.isNotEmpty ? iconText : null,

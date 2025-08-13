@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/base/base_service.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_rule.dart';
@@ -47,7 +48,7 @@ class ContactSubscriptionService
   Future<ContactSubscription> addSubscription(String name, String url,
       {bool isEnabled = true}) async {
     final newSubscription = ContactSubscription(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      id: const Uuid().v4(),
       name: name,
       url: Url.fromString(url),
       isEnabled: isEnabled,

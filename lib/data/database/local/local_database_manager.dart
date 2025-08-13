@@ -86,7 +86,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建通话记录表
     await db.execute('''
-      CREATE TABLE IF NOT EXISTS calls (
+      CREATE TABLE IF NOT EXISTS call_history (
         id TEXT PRIMARY KEY,
         phoneNumber TEXT NOT NULL,
         contactName TEXT,
@@ -206,7 +206,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
     // 创建标签表
     await db.execute('''
-      CREATE TABLE IF NOT EXISTS labels (
+      CREATE TABLE IF NOT EXISTS labelPhone (
         id TEXT PRIMARY KEY,
         name TEXT,
         icon TEXT,
@@ -374,8 +374,8 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
   Future<void> clearDatabase() async {
     final db = await database;
     await db.delete('contacts');
-    await db.delete('calls');
-    await db.delete('labels');
+    await db.delete('call_history');
+    await db.delete('labelPhone');
     await db.delete('rules');
     await db.delete('regex_rules');
     await db.delete('subscriptions');

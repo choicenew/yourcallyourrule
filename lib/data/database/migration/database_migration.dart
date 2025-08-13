@@ -50,7 +50,7 @@ class DatabaseMigration {
     
     // 创建通话记录表
     await db.execute('''
-      CREATE TABLE IF NOT EXISTS calls (
+      CREATE TABLE IF NOT EXISTS call_history (
         id TEXT PRIMARY KEY,
         phoneNumber TEXT NOT NULL,
         contactName TEXT,
@@ -159,7 +159,7 @@ class DatabaseMigration {
     
     // 创建标签表
     await db.execute('''
-      CREATE TABLE IF NOT EXISTS labels (
+      CREATE TABLE IF NOT EXISTS labelPhone (
         id TEXT PRIMARY KEY,
         name TEXT,
         icon TEXT,
@@ -410,19 +410,37 @@ class DatabaseMigration {
     // 添加新的字段或表
     await db.execute('ALTER TABLE contacts ADD COLUMN isBlocked INTEGER NOT NULL DEFAULT 0');
     
-    // 为calls表添加name字段
+    // 为call_history表添加name字段
     try {
-      // 检查calls表是否存在name列
-      final result = await db.rawQuery("PRAGMA table_info(calls)");
+      // 检查call_history表是否存在name列
+      final result = await db.rawQuery("PRAGMA table_info(call_history)");
       final hasNameColumn = result.any((column) => column['name'] == 'name');
       
       // 如果不存在name列，则添加
       if (!hasNameColumn) {
-        await db.execute('ALTER TABLE calls ADD COLUMN name TEXT');
-        print('成功为calls表添加name字段');
+        await db.execute('ALTER TABLE call_history ADD COLUMN name TEXT');
+        print('成功为call_history表添加name字段');
       }
     } catch (e) {
       print('为calls表添加name字段时出错: ${e.toString()}');
+    }
+    
+    // 确保subscriptions表有table_type字段
+    try {
+      // 检查subscriptions表是否存在table_type列
+      final subscriptionsInfo = await db.rawQuery("PRAGMA table_info(subscriptions)");
+      final hasTableTypeColumn = subscriptionsInfo.any((column) => column['name'] == 'table_type');
+      
+      // 如果不存在table_type列，则添加
+      if (!hasTableTypeColumn) {
+        await db.execute('ALTER TABLE subscriptions ADD COLUMN table_type TEXT NOT NULL DEFAULT \'phone\'');
+        print('成功为subscriptions表添加table_type字段');
+        
+        // 更新现有记录的table_type字段
+        await db.execute("UPDATE subscriptions SET table_type = 'phone' WHERE table_type IS NULL OR table_type = ''");
+      }
+    } catch (e) {
+      print('为subscriptions表添加table_type字段时出错: ${e.toString()}');
     }
     
     // 创建SMS规则相关表（如果不存在）

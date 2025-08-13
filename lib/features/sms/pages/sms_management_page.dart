@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/core/provider/providers/sms_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -172,7 +173,7 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
                   
                   // 创建短信规则
                   final rule = SmsRegexRule(
-                    id: '',
+                    id: const Uuid().v4(),
                     name: nameController.text,
                     contentRegex: contentPatternController.text,
                     senderRegex: senderPatternController.text.isNotEmpty 
