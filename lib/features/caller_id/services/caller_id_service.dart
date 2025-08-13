@@ -503,42 +503,45 @@ class CallerIdService {
       });
     }
     
-    // 根据统计结果和优先级规则决定最终的 action
-    if (blockCount > 0) {
-      merged['action'] = currentAction; // 使用优先级最高的 block action
-    } else if (allowCount > 0) {
+    // 根据统计结果和优先级规则设置最终的 action
+    // 优先级顺序：block > none > allow
+    // 特殊规则：如果 allow 数量大于 block 数量，则取 allow
+    if (allowCount > blockCount) {
       merged['action'] = 'allow';
+    } else if (blockCount > 0) {
+      merged['action'] = 'block';
     } else if (noneCount > 0) {
       merged['action'] = 'none';
-    } else {
-      merged['action'] = 'none'; // 默认值
+    } else if (allowCount > 0) {
+      merged['action'] = 'allow';
+    } else if (currentAction != null) {
+      // 如果有设置过 action 但不属于上述类型，保留最后设置的值
+      merged['action'] = currentAction;
     }
-    
-    // 确保所有关键字段都有默认值
-    merged.putIfAbsent('name', () => 'Unknown');
-    merged.putIfAbsent('label', () => 'Unknown');
-    merged.putIfAbsent('predefinedLabel', () => 'Unknown');
-    merged.putIfAbsent('avatar', () => null);
-    merged.putIfAbsent('count', () => 0);
-    merged.putIfAbsent('source', () => 'Unknown');
-    merged.putIfAbsent('phoneNumber', () => '');
     
     return merged;
   }
 
-  /// 触发插件同步服务初始化
-  void _triggerPluginSync() {
-    if (pluginSyncTrigger != null && !_pluginSyncTriggered) {
-      pluginSyncTrigger!();
-      _pluginSyncTriggered = true;
-    }
-  }
-  
-  /// 清理资源
+  /// 释放资源
   void dispose() {
     _callerIdSubject.close();
-    _labelPhoneEntrySubject.close();
     _pluginDataSubject.close();
     _legacyPluginDataSubject.close();
+    _labelPhoneEntrySubject.close();
+  }
+  
+  /// 触发插件同步服务初始化
+  /// 如果插件同步触发器存在且尚未触发，则触发插件同步服务初始化
+  void _triggerPluginSync() {
+    if (pluginSyncTrigger != null && !_pluginSyncTriggered) {
+      try {
+        // 触发插件同步服务初始化
+        pluginSyncTrigger!();
+        _pluginSyncTriggered = true;
+        AppLogger.error('PluginToRemoteSyncService initialized on demand');
+      } catch (e) {
+        AppLogger.error('Failed to initialize PluginToRemoteSyncService: $e');
+      }
+    }
   }
 }
