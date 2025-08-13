@@ -29,6 +29,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
         icon: Icons.phone,
         color: Colors.green,
       ),
+      
       PermissionItem(
         name: 'sms',
         title: AppLocalizations.of(context)!.smsPermission,
@@ -63,6 +64,13 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
         description: AppLocalizations.of(context)!.notificationPermissionDescription,
         icon: Icons.notifications,
         color: Colors.red,
+      ),
+      PermissionItem(
+        name: 'battery',
+        title: AppLocalizations.of(context)!.batteryOptimizationPermission,
+        description: AppLocalizations.of(context)!.batteryOptimizationPermissionDescription,
+        icon: Icons.battery_charging_full,
+        color: Colors.blueGrey,
       ),
     ];
   }

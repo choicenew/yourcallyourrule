@@ -49,6 +49,7 @@ import 'package:yourcallyourrule/features/local_filter/services/local_count_filt
 import 'package:yourcallyourrule/features/onboarding/pages/onboarding_page.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/permissions/pages/permission_management_page.dart';
+import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
@@ -185,6 +186,10 @@ class AppRouter {
     routes: [
       // 启动屏幕路由
       GoRoute(
+          path: '/special-permissions',
+          builder: (context, state) => const SpecialPermissionPage(),
+        ),
+        GoRoute(
         path: '/$splash',
         name: splash,
         builder: (context, state) => const SplashScreen(),

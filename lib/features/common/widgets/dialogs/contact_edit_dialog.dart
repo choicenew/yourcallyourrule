@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
@@ -96,7 +97,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
       } else {
         // 添加新联系人
         final newContact = Contact(
-          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          id: const Uuid().v4(),
           name: _nameController.text,
           phoneNumbers: _phoneController.text.split(',').map((e) => e.trim()).toList(),
           email: _emailController.text.isNotEmpty ? _emailController.text : null,

@@ -1,0 +1,21 @@
+我们不再使用 CF_ACCOUNT_ID 和 CF_API_TOKEN。取而代之的是 CF_WORKER_URL 和 WORKER_API_SECRET。
+现在，在你的 Flutter 项目的 .env 文件中，删除旧的凭证，添加新的：
+code
+Env
+# 删除这些危险的行
+# CF_ACCOUNT_ID=...
+# CF_API_TOKEN=...
+
+# 添加这些新的行
+CF_WORKER_URL=https://my-d1-worker.your-subdomain.workers.dev
+WORKER_API_SECRET=<YOUR_SECRET_TOKEN> # 填入你在上一步设置的同一个密钥
+
+
+为什么当前实现是错误的？
+严重的安全风险：您将 CF_ACCOUNT_ID 和 CF_API_TOKEN 直接硬编码或存储在客户端（Flutter App）中。这意味着任何能够反编译您的 App 的人都可以获取到这些凭证。这个 API Token 通常拥有您 Cloudflare 账户下非常高的权限，泄露它等于交出了您整个 Cloudflare 账户的钥匙，攻击者可以任意创建、删除、修改您的 D1 数据库、域名、Workers 等所有服务。这是绝对要避免的。
+错误的使用方式：https://api.cloudflare.com/client/v4/... 这个 API 是 Cloudflare 的管理 API (Admin API)。它的设计初衷是用于自动化管理和配置您的 Cloudflare 资源（比如用脚本创建一个新的 D1 数据库），而不是作为应用程序的后端数据接口。它的速率限制、延迟和性能都不适合用于高频的客户端读写请求。
+正确的架构：与 D1 数据库交互的正确方式是通过 Cloudflare Workers。您的应用逻辑（包括 SQL 查询）应该存在于 Worker 中。Worker 运行在 Cloudflare 的边缘网络上，可以安全地连接到 D1 数据库。您的 Flutter App 应该调用这个 Worker 提供的 HTTP 端点，而不是直接调用 Cloudflare 的管理 API。
+正确的流程应该是这样的：
+Flutter App ➡️ HTTP 请求 ➡️ Cloudflare Worker ➡️ 安全地查询 D1 数据库
+如何正确修改 CloudFlareD1Service
+您的目标是保留 atomicUpdate 和 getChanges 这两个方法名，因为您后续的代码已经依赖它们。这完全可以做到！我们只需要修改这两个方法的内部实现，让它们去调用我们即将创建的 Cloudflare Worker。

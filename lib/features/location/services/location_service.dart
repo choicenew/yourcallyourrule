@@ -1,4 +1,5 @@
 import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/core/repositories/location_repository.dart';
 
@@ -37,7 +38,7 @@ class LocationService extends ListService<LocationEntry, String> {
     final numberType = _phoneNumberUtil.getNumberType(parsedNumber);
 
     final entry = LocationEntry(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      id: const Uuid().v4(),
       phoneNumber: vo.PhoneNumber.fromString(phoneNumber),  // 使用前缀后的构造方式
       region: region,
       countryName: _phoneNumberUtil.getRegionCodeForNumber(parsedNumber),

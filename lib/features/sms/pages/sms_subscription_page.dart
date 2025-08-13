@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
 
 import 'package:yourcallyourrule/core/provider/providers/sms_subscription_service_provider.dart';
@@ -282,7 +283,7 @@ class SmsSubscriptionPage extends ConsumerWidget {
                 try {
                   // 创建新的订阅
                   final subscription = SmsSubscription(
-                    id: DateTime.now().millisecondsSinceEpoch.toString(),
+                    id: const Uuid().v4(),
                     name: name,
                     url: Url(url),
                     isEnabled: true,

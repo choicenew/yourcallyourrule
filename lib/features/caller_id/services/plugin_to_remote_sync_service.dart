@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:rxdart/rxdart.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
@@ -70,7 +71,7 @@ class PluginToRemoteSyncService {
     } else {
       // 创建新条目
       final newEntry = RemoteNumberEntry(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        id: const Uuid().v4(),
         phoneNumber: phoneNumber,
         name: pluginData?.name ?? labelPhoneEntry?.name ?? '',
         label: pluginData?.predefinedLabel ?? '',

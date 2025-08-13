@@ -2,6 +2,7 @@
 
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:uuid/uuid.dart';
 import 'dart:async';
 
 import '../database_manager.dart';
@@ -153,7 +154,7 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   // 添加同步记录
   Future<String> addSyncRecord(String syncType, String status, {String? error}) async {
     final db = await database;
-    final String id = DateTime.now().millisecondsSinceEpoch.toString();
+    final String id = const Uuid().v4();
     
     await db.insert(
       'sync_records',

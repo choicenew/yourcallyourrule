@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/cloud_sync/entities/backup_config_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/entities/backup_version_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/services/rule_import_export_service.dart';
@@ -567,7 +568,7 @@ class BackupRestoreService {
 
     // Create new backup version
     final newVersion = BackupVersionEntity(
-      version: DateTime.now().millisecondsSinceEpoch.toString(),
+      version: const Uuid().v4(),
       backupTime: DateTime.now(),
       deviceName: (await getBackupConfig()).deviceName,
       filePath: filePath,

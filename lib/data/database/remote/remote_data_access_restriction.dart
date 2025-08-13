@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:uuid/uuid.dart';
 import '../../models/remote/remote_number_model.dart';
 import '../remote/remote_database_manager.dart';
 
@@ -117,7 +118,7 @@ class RemoteDataAccessRestrictionImpl implements RemoteDataAccessRestriction {
       await db.insert(
         'remote_access_logs',
         {
-          'id': DateTime.now().millisecondsSinceEpoch.toString(),
+          'id': const Uuid().v4(),
           'phoneNumber': phoneNumber,
           'accessTime': DateTime.now().toIso8601String(),
           'accessType': accessType,

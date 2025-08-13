@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uuid/uuid.dart';
 
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
@@ -325,7 +326,7 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
                   
                   // 创建列表条目
                   final entry = ListEntry(
-                    id: DateTime.now().millisecondsSinceEpoch.toString(),
+                    id: const Uuid().v4(),
                     name: nameController.text,
                     phoneNumber: PhoneNumber.fromString(phoneController.text),
                     labelId: selectedLabelId ?? '',

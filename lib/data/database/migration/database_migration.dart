@@ -1,6 +1,7 @@
 // 数据库迁移脚本，用于管理数据库版本升级和表结构变更
 
 import 'package:sqflite/sqflite.dart';
+import 'package:uuid/uuid.dart';
 
 // 数据库迁移管理器
 class DatabaseMigration {
@@ -191,7 +192,7 @@ class DatabaseMigration {
         if (phoneNumber != null && phoneNumber.isNotEmpty) {
           // 创建一个新的SMS正则规则（阻止操作）
           await db.insert('rules', {
-            'id': 'sms_bl_v1_' + DateTime.now().millisecondsSinceEpoch.toString(),
+            'id': 'sms_bl_v1_${const Uuid().v4()}',
             'name': name,
             'ruleType': 'sms_regex',
             'phoneNumber': phoneNumber,
@@ -220,7 +221,7 @@ class DatabaseMigration {
         if (phoneNumber != null && phoneNumber.isNotEmpty) {
           // 创建一个新的SMS正则规则（允许操作）
           await db.insert('rules', {
-            'id': 'sms_wl_v1_' + DateTime.now().millisecondsSinceEpoch.toString(),
+            'id': 'sms_wl_v1_${const Uuid().v4()}',
             'name': name,
             'ruleType': 'sms_regex',
             'phoneNumber': phoneNumber,
@@ -246,7 +247,7 @@ class DatabaseMigration {
         
         if (keyword != null && keyword.isNotEmpty) {
           await db.insert('rules', {
-            'id': 'sms_txt_bl_v1_' + DateTime.now().millisecondsSinceEpoch.toString(),
+            'id': 'sms_txt_bl_v1_${const Uuid().v4()}',
             'name': name,
             'ruleType': 'sms_text',
             'contentRegex': '.*${'$keyword'}.*',
@@ -268,7 +269,7 @@ class DatabaseMigration {
         
         if (keyword != null && keyword.isNotEmpty) {
           await db.insert('rules', {
-            'id': 'sms_txt_wl_v1_' + DateTime.now().millisecondsSinceEpoch.toString(),
+            'id': 'sms_txt_wl_v1_${const Uuid().v4()}',
             'name': name,
             'ruleType': 'sms_text',
             'contentRegex': '.*${'$keyword'}.*',
@@ -551,7 +552,7 @@ class DatabaseMigration {
           
           if (phoneNumber != null && phoneNumber.isNotEmpty) {
             await db.insert('rules', {
-              'id': 'sms_bl_' + DateTime.now().millisecondsSinceEpoch.toString(),
+              'id': 'sms_bl_${const Uuid().v4()}',
               'name': name,
               'ruleType': 'sms_regex',
               'phoneNumber': phoneNumber,
@@ -576,7 +577,7 @@ class DatabaseMigration {
           
           if (phoneNumber != null && phoneNumber.isNotEmpty) {
             await db.insert('rules', {
-              'id': 'sms_wl_' + DateTime.now().millisecondsSinceEpoch.toString(),
+              'id': 'sms_wl_${const Uuid().v4()}',
               'name': name,
               'ruleType': 'sms_regex',
               'phoneNumber': phoneNumber,
@@ -601,7 +602,7 @@ class DatabaseMigration {
           
           if (keyword != null && keyword.isNotEmpty) {
             await db.insert('sms_text_rules', {
-              'id': 'sms_txt_bl_' + DateTime.now().millisecondsSinceEpoch.toString(),
+              'id': 'sms_txt_bl_${const Uuid().v4()}',
               'keyword': keyword,
               'ruleType': 'sms_text',
               'action': 'block',
@@ -622,7 +623,7 @@ class DatabaseMigration {
           
           if (keyword != null && keyword.isNotEmpty) {
             await db.insert('sms_text_rules', {
-              'id': 'sms_txt_wl_' + DateTime.now().millisecondsSinceEpoch.toString(),
+              'id': 'sms_txt_wl_${const Uuid().v4()}',
               'keyword': keyword,
               'ruleType': 'sms_text',
               'action': 'allow',
