@@ -270,13 +270,14 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
     }
 
     // Insert predefined labels
-    const uuid = Uuid();
     for (final label in predefinedLabels) {
+      final text = label['text'] as String;
+      final id = text.toLowerCase().replaceAll(' ', '_').replaceAll(RegExp(r'[^a-z0-9_]'), '');
       await db.insert(
         'predefined_labels',
         {
-          'id': uuid.v4(),
-          'text': label['text'],
+          'id': id.isEmpty ? const Uuid().v4() : id,
+          'text': text,
           'avatar': label['avatar'],
           'icon': label['icon'],
         },

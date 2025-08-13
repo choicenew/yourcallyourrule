@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
+import 'package:uuid/uuid.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key, required this.title});
@@ -375,6 +376,6 @@ class _TestPageState extends State<TestPage> {
   }
 
   String _generateUniqueId() {
-    return DateTime.now().millisecondsSinceEpoch.toString();
+    return const Uuid().v4();
   }
 }

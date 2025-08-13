@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
 
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
@@ -10,6 +11,8 @@ import 'package:yourcallyourrule/core/services/firebase_service.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
 import 'package:yourcallyourrule/core/provider/providers/background_sync_service_provider.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
+import 'package:yourcallyourrule/theme/app_theme.dart';
+import 'package:yourcallyourrule/theme/theme_provider.dart';
  // 导入 FFI 包
 
 Future<void> main() async {
@@ -87,6 +90,8 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
     
+       // 2. Watch the new provider to get the current theme mode
+    final themeMode = ref.watch(themeModeNotifierProvider);
     // 仅在非覆盖层模式下初始化后台同步服务
     // 后台同步服务已包含通话记录同步任务，不需要再单独初始化前台同步服务
     if (!isOverlayMode) {
@@ -98,11 +103,30 @@ class MyApp extends ConsumerWidget {
     
     return MaterialApp.router(
       title: 'Your Call Your Rule',
+      /*
       theme: ThemeData(
         primarySwatch: Colors.orange,
         primaryColor: const Color(0xFFFF9800),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      */
+
+      // 2. 设置亮色主题
+      theme: AppTheme.lightTheme,
+      
+      // 3. 设置暗色主题
+      darkTheme: AppTheme.darkTheme,
+      
+      // 4. 设置主题模式为“跟随系统”，实现自适应
+      // ThemeMode.system: 跟随操作系统设置（亮/暗）
+      // ThemeMode.light: 始终使用亮色主题
+      // ThemeMode.dark:  始终使用暗色主题
+  //Set the themeMode from our provider!
+      // This will now automatically rebuild the app with the new theme
+      // whenever the user makes a change.
+      themeMode: themeMode,
+
+
       routerConfig: appRouter.router,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

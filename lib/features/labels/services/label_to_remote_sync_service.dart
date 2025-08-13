@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
@@ -76,7 +77,7 @@ class LabelToRemoteSyncService {
       } else {
         // 创建新条目
         final newEntry = RemoteNumberEntry(
-          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          id: const Uuid().v4(),
           phoneNumber: formattedPhoneNumber,
           name: labelPhoneEntry.name,
           label: labelText,
@@ -111,7 +112,7 @@ class LabelToRemoteSyncService {
       } else {
         // 创建新条目
         final newEntry = RemoteNumberEntry(
-          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          id: const Uuid().v4(),
           phoneNumber: phoneNumber,
           name: labelPhoneEntry.name,
           label: labelText,

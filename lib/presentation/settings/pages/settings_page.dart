@@ -8,6 +8,8 @@ import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor
 import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/presentation/about.dart';
+import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
+import 'package:yourcallyourrule/theme/theme_selector.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
@@ -40,11 +42,16 @@ class SettingsPage extends ConsumerWidget {
           _buildPurchaseCard(context),
           const SizedBox(height: 8),
           _buildAutoUpdateCard(context),
-        //  const SizedBox(height: 12),
+          const SizedBox(height: 12),
+          //这里做一个permission的card 可以进去打开overlay 和battery的
+          _buildSpecialPermissionsCard(context),
+          const SizedBox(height: 12),
+          _buildThemeSettingsCard(context),
+//          const SizedBox(height: 12),
         //  _buildPluginManagementCard(context),
        //   const SizedBox(height: 12),
         //  _buildSearchCard(context),
-
+//这里做一个theme的card 可以进去切换主题配置y的
 
           _buildSectionTitle(
               AppLocalizations.of(context)!.functionSettingsTitle),
@@ -413,6 +420,47 @@ class SettingsPage extends ConsumerWidget {
     );
   }
 
+  Widget _buildThemeSettingsCard(BuildContext context) {
+    return Card(
+      elevation: 1,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Theme.of(context).colorScheme.primary.withValues(alpha:0.1),
+                  child: Icon(Icons.palette, color: Theme.of(context).colorScheme.primary),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.themeSettingsTitle,
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        AppLocalizations.of(context)!.themeSettingsSubtitle,
+                        style: const TextStyle(fontSize: 14, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            const Center(child: ThemeSelector()),
+          ],
+        ),
+      ),
+    );
+  }
   Widget _buildAboutCard(BuildContext context) {
     return _buildSettingsCard(
       context,
@@ -476,6 +524,18 @@ class SettingsPage extends ConsumerWidget {
           ),
         ),
       ),
+    );
+  }
+  Widget _buildSpecialPermissionsCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.security,
+      iconColor: Colors.red,
+      title: AppLocalizations.of(context)!.permissionTitle,
+      subtitle: AppLocalizations.of(context)!.permissionSubtitle,
+      onTap: () {
+        GoRouter.of(context).push('/special-permissions');
+      },
     );
   }
 }

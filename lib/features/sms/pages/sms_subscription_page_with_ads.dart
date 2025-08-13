@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
 import 'package:yourcallyourrule/core/provider/providers/sms_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -208,7 +209,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
               try {
                 final service = ref.read(smsSubscriptionServiceProvider);
                 final subscription = SmsSubscription(
-                  id: DateTime.now().millisecondsSinceEpoch.toString(),
+                  id: const Uuid().v4(),
                   name: name,
                   url: Url(url),
                   isEnabled: true,
@@ -299,8 +300,8 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
                               color: subscription.action == RuleAction.allow
-                                  ? Colors.green.withOpacity(0.1)
-                                  : Colors.red.withOpacity(0.1),
+                                  ? Colors.green.withValues(alpha: 0.1)
+                                  : Colors.red.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
@@ -329,7 +330,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: Colors.orange.withOpacity(0.1),
+                              color: Colors.orange.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(

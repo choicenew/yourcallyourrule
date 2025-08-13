@@ -54,4 +54,10 @@ abstract class PermissionService {
 
   /// 请求通知权限
   Future<bool> requestNotificationPermission() => requestPermission('notification');
+
+  /// 检查是否忽略电池优化
+  Future<bool> hasBatteryOptimizationPermission() => hasPermission('battery');
+
+  /// 请求忽略电池优化
+  Future<bool> requestBatteryOptimizationPermission() => requestPermission('battery');
 }

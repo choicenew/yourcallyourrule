@@ -6,7 +6,8 @@ import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/caller_id/presentation/widgets/caller_id_display_mode_selector.dart';
 import 'package:yourcallyourrule/features/caller_id/presentation/widgets/notification_settings_widget.dart';
-import 'package:yourcallyourrule/features/caller_id/presentation/widgets/overlay_permission_widget.dart';
+
+import 'package:yourcallyourrule/features/permissions/widgets/overlay_permission_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示设置页面

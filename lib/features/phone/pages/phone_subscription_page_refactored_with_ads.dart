@@ -227,7 +227,7 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                 final phoneSubscriptionService = ref.read(phoneSubscriptionServiceProvider);
                 await phoneSubscriptionService.addSubscription(name, url, action: action);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('订阅 "$name" 添加成功')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionAddSuccess(name))),
                 );
                 Navigator.of(context).pop();
                 await _loadSubscriptions();
@@ -372,7 +372,7 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: RuleActionDisplayUtils.getActionTypeColor(subscription.action.type).withOpacity(0.1),
+                              color: RuleActionDisplayUtils.getActionTypeColor(subscription.action.type).withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
@@ -397,7 +397,7 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: Colors.green.withOpacity(0.1),
+                              color: Colors.green.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(

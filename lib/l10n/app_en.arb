@@ -2091,5 +2091,14 @@
    "importExport": "Import/Export",
    "filterByAction": "Filter by Action",
   "upgradeToVip": "Upgrade to VIP",
-      "yesterday": "Yesterday"
+  "batteryOptimizationPermission": "Battery Optimization",
+  "batteryOptimizationPermissionDescription": "Allow the app to run in the background to provide services like caller ID.",
+    "permissionTitle": "Special Permissions",
+  "permissionSubtitle": "Manage overlay and battery optimization permissions", 
+    "themeSettingsTitle": "Theme Settings",
+  "themeSettingsSubtitle": "Choose your favorite theme",
+  
+  
+  
+  "yesterday": "Yesterday"
 }

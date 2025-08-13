@@ -9093,6 +9093,42 @@ abstract class AppLocalizations {
   /// **'Upgrade to VIP'**
   String get upgradeToVip;
 
+  /// No description provided for @batteryOptimizationPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery Optimization'**
+  String get batteryOptimizationPermission;
+
+  /// No description provided for @batteryOptimizationPermissionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow the app to run in the background to provide services like caller ID.'**
+  String get batteryOptimizationPermissionDescription;
+
+  /// No description provided for @permissionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Special Permissions'**
+  String get permissionTitle;
+
+  /// No description provided for @permissionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage overlay and battery optimization permissions'**
+  String get permissionSubtitle;
+
+  /// No description provided for @themeSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Settings'**
+  String get themeSettingsTitle;
+
+  /// No description provided for @themeSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your favorite theme'**
+  String get themeSettingsSubtitle;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
@@ -319,7 +320,7 @@ class _AllowedBlockedPageWithAdsState extends ConsumerState<AllowedBlockedPageWi
                   
                   // 创建列表条目
                   final entry = ListEntry(
-                    id: DateTime.now().millisecondsSinceEpoch.toString(),
+                    id: const Uuid().v4(),
                     name: nameController.text,
                     phoneNumber: PhoneNumber.fromString(phoneController.text),
                     labelId: selectedLabelId ?? '',

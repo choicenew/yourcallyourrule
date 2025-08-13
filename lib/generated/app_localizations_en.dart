@@ -4877,5 +4877,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get upgradeToVip => 'Upgrade to VIP';
 
   @override
+  String get batteryOptimizationPermission => 'Battery Optimization';
+
+  @override
+  String get batteryOptimizationPermissionDescription => 'Allow the app to run in the background to provide services like caller ID.';
+
+  @override
+  String get permissionTitle => 'Special Permissions';
+
+  @override
+  String get permissionSubtitle => 'Manage overlay and battery optimization permissions';
+
+  @override
+  String get themeSettingsTitle => 'Theme Settings';
+
+  @override
+  String get themeSettingsSubtitle => 'Choose your favorite theme';
+
+  @override
   String get yesterday => 'Yesterday';
 }

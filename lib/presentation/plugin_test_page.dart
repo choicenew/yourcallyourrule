@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
-
+import 'package:uuid/uuid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
@@ -426,7 +426,7 @@ class _TestPageState extends State<TestPage> {
     _addLog('Starting query for phone number: $phoneNumber');
 
     try {
-      final requestId = 'req_${DateTime.now().millisecondsSinceEpoch}';
+      final requestId = 'req_${const Uuid().v4()}';
       final completer = Completer<Map<String, dynamic>?>();
       _requestCompleters[requestId] = completer;
 
