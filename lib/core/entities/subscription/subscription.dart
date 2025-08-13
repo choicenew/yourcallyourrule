@@ -14,6 +14,7 @@ class Subscription extends BaseEntity {
   final RuleAction action; // 使用 action 属性表示规则类型
   final DateTime lastUpdated;
   final bool autoUpdate;
+  final String tableType; // 添加表类型字段
 
   const Subscription({
     required super.id,
@@ -23,6 +24,7 @@ class Subscription extends BaseEntity {
     required this.action,
     required this.lastUpdated,
     required this.autoUpdate,
+    this.tableType = 'phone', // 默认为phone类型
   });
 
   // 转换为Map
@@ -36,6 +38,7 @@ class Subscription extends BaseEntity {
       'action': action.toString(),
       'lastUpdated': lastUpdated.toIso8601String(),
       'autoUpdate': autoUpdate ? 1 : 0,
+      'table_type': tableType, // 添加表类型字段
     };
   }
 
@@ -52,6 +55,7 @@ class Subscription extends BaseEntity {
       action: action,
       lastUpdated: DateTime.parse(map['lastUpdated']),
       autoUpdate: (map['autoUpdate'] ?? 0) == 1,
+      tableType: map['table_type'] ?? 'phone', // 从map中获取表类型
     );
   }
 
@@ -62,6 +66,7 @@ class Subscription extends BaseEntity {
       action: newSubscription.action,
       lastUpdated: DateTime.now(),
       autoUpdate: newSubscription.autoUpdate,
+      tableType: newSubscription.tableType, // 更新表类型
     );
   }
 
@@ -70,6 +75,7 @@ class Subscription extends BaseEntity {
     RuleAction? action,
     bool? autoUpdate,
     DateTime? lastUpdated,
+    String? tableType, // 添加表类型参数
   }) {
     return Subscription(
       id: id,
@@ -79,6 +85,7 @@ class Subscription extends BaseEntity {
       action: action ?? this.action,
       lastUpdated: lastUpdated ?? this.lastUpdated,
       autoUpdate: autoUpdate ?? this.autoUpdate,
+      tableType: tableType ?? this.tableType, // 使用新的表类型或保留原有的
     );
   }
   

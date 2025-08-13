@@ -8,6 +8,7 @@ import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
+import 'package:uuid/uuid.dart';
 
 /// 规则管理服务类，继承自ListService，提供各种动作类型规则的管理功能
 /// 包括添加、删除、查询不同动作类型（允许、阻止、静音、无动作等）的规则操作
@@ -25,7 +26,7 @@ class RuleManagementService extends ListService {
   // 添加电话规则
   Future<void> addPhoneRule(ListEntry entry, RuleAction action) async {
     final rule = PhoneRule(
-      id: '', // ID 将由 repository 或 datasource 生成
+      id: const Uuid().v4(), // ID 将由 repository 或 datasource 生成
       name: entry.name,
       action: action,
       phoneNumber: entry.phoneNumber,

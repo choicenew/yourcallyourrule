@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/features/home/pages/rule_verification_card.dart
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/search/pages/search_page.dart';
+import 'package:yourcallyourrule/features/home/widgets/vip_promotion_card.dart';
 import 'package:yourcallyourrule/features/search/widgets/search_widget.dart';
 
 
@@ -58,8 +59,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const FilterManagementWidget(),
                                         GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
                     const FeatureCenter(),
-                    nativeAdWidgetMedium(adWidth: 400, adHeight: 320),
-                    InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
+                   InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
+                 //插入显示购买页
+                    const VipPromotionCard(),
+                    
+
+                     nativeAdWidgetMedium(adWidth: 400, adHeight: 320),
                   ],
                 ),
               ),

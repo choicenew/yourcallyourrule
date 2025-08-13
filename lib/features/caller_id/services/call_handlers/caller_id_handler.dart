@@ -2,7 +2,7 @@
 
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:dlibphonenumber/locale.dart' as dlibphone;
-
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
@@ -69,7 +69,7 @@ class CallHandler {
     if (e164Number.isEmpty) {
       return CallData(
         callerIdData: CallerIdData(
-          id: '',
+          id: const Uuid().v4(),
           phoneNumber: PhoneNumber.fromString(phoneNumber),
           countryName: 'Unknown',
           region: 'Unknown',

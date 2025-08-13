@@ -62,7 +62,7 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
       // 根据规则类型创建不同的规则模型
       switch (map['ruleType']) {
         case 'phone_rule':
-        case 'white_black': // 兼容旧数据
+        //case 'white_black': //旧数据
           return PhoneRuleModel.fromMap(map);
         case 'regex':
           return RegexRuleModel.fromMap(map);

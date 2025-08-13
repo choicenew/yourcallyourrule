@@ -1,3 +1,4 @@
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
@@ -142,7 +143,7 @@ class RemoteNumberRepositoryImpl implements RuleRepository {
   @override
   RuleBase createEmptyRule() {
     return RemoteNumberEntry(
-      id: '',
+      id: const Uuid().v4(),
       priority: RulePriority.fromInt(0),
       phoneNumber: PhoneNumber.fromString(''),
       label: ''

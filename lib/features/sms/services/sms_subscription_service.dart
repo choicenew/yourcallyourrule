@@ -1,3 +1,4 @@
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
@@ -42,7 +43,7 @@ class SmsSubscriptionService
   Future<SmsSubscription> addSubscription(String name, String url,
       {bool isEnabled = true}) { // 移除多余的action参数
     return _repository.save(SmsSubscription(
-          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          id: const Uuid().v4(),
           name: name,
           url: Url(url),
           isEnabled: isEnabled,

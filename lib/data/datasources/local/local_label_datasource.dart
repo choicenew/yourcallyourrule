@@ -16,7 +16,7 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
   final LocalDatabaseManager _databaseManager;
   
   // 表名
-  static const String _tableName = 'labels';
+  static const String _tableName = 'labelPhone';
   
   // 构造函数
   LocalLabelDataSource(this._databaseManager);

@@ -162,8 +162,8 @@ class AppRouter {
   static const String home = 'home';
   static const String filterSettings = 'filter-settings';
   static const String search = 'search';
-  static const String pluginManagement = 'plugin-management';
-  static const String phoneSubscription = 'phone-subscription';
+  static const String pluginManagement = 'plugin-management-with-ads';
+  static const String phoneSubscription = 'phone-subscription-with-ads';
   static const String regexRule = 'regex-rule';
   static const String regexRuleWithAds = 'regex-rule-with-ads';
   static const String smsFilter = 'sms-filter';
@@ -428,25 +428,25 @@ class AppRouter {
         builder: (context, state) => const PurchasePage(),
       ),
 
-      // 增强过滤器设置页面
-      GoRoute(
-        path: '/$enhancedFilterSettings',
-        name: enhancedFilterSettings,
-        builder: (context, state) => Consumer(
-          builder: (context, ref, _) {
-            final ruleRepository = ref.watch(ruleRepositoryProvider);
-            return EnhancedFilterSettingsPage(
-              enhancedCompositeFilterService: enhancedCompositeFilterService,
-              simSlotRuleService: simSlotRuleService,
-              localCountFilterService: localCountFilterService,
-              remoteNumberFilterService: remoteNumberFilterService,
-              remoteNumberService: remoteNumberService,
-              configRepository: configRepository,
-              ruleRepository: ruleRepository,
-            );
-          },
-        ),
-      ),
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
       // 验证页面
       GoRoute(

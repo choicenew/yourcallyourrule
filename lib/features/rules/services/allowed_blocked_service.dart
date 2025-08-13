@@ -1,3 +1,4 @@
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
@@ -22,7 +23,7 @@ class AllowedBlockedService extends ListService {
   // 添加允许/阻止规则
   Future<void> addAllowedBlockedRule(ListEntry entry, RuleAction action) async {
     final rule = AllowedBlockedRule(
-      id: '', // ID 将由 repository 或 datasource 生成
+      id: const Uuid().v4(), // 使用UUID生成ID
       name: entry.name,
       action: action,
       phoneNumber: entry.phoneNumber,

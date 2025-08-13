@@ -1,4 +1,5 @@
 
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
@@ -31,7 +32,7 @@ class RegexService extends ListService {
     }
 
     final rule = RegexRule(
-      id: '',
+      id: const Uuid().v4(),
       name: pattern.name,
       pattern: pattern.pattern,
       action: pattern.action,

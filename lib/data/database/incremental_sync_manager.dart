@@ -3,6 +3,8 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:uuid/uuid.dart';
+
 import '../models/remote/remote_number_model.dart';
 import '../models/sync/sync_record_model.dart';
 import 'database_service.dart';
@@ -190,7 +192,7 @@ class IncrementalSyncManager {
     final String metadataJson = metadata.isNotEmpty ? jsonEncode(metadata) : '';
     
     final syncRecord = SyncRecordModel(
-      id: '',
+      id: const Uuid().v4(),
       syncTime: DateTime.now(),
       syncType: operation,
       status: success ? 'success' : 'failed',
