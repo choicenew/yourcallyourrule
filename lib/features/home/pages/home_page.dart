@@ -55,7 +55,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const CarouselCards(),
                     GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const RuleVerificationCard(),
-                                        GoogleAdWidget(adInfo: AdManager.bannerAd),
+                                     //   GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const FilterManagementWidget(),
                                         GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
                     const FeatureCenter(),
