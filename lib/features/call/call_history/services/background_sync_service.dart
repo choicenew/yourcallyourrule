@@ -3,11 +3,6 @@ import 'package:yourcallyourrule/core/provider/providers/call_log_sync_service_p
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_remote_database.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
-import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
-import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
-import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/core/provider/providers/phone_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/sms_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/contact_subscription_service_provider.dart';
@@ -112,7 +107,7 @@ class BackgroundSyncService {
     await Workmanager().registerPeriodicTask(
       "3",
       dataSyncTask,
-      frequency: const Duration(hours: 3), // 每3小时同步一次
+      frequency: const Duration(days: 1), // 每天同步一次
       constraints: Constraints(
         networkType: NetworkType.connected,
       ),

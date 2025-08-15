@@ -7,6 +7,7 @@ import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
 
 import 'api_service.dart';
+import 'sync_scheduler.dart';
 
 import '../../datasources/remote/remote_number_datasource.dart';
 import '../../models/sync/sync_record_model.dart';
@@ -17,7 +18,7 @@ class IncrementalSyncManager {
   late RemoteNumberDataSource _dataSource;
   late ApiService _apiService;
   late DeviceIdService _deviceIdService;
-  late ConfigRepository _configRepository;
+  late SyncScheduler _syncScheduler;
 
   // A default constructor that doesn't require parameters.
   IncrementalSyncManager();
@@ -28,14 +29,19 @@ class IncrementalSyncManager {
   Future<void> initialize() async {
     final dbManager = RemoteDatabaseManagerImpl();
     _dataSource = RemoteNumberDataSource(dbManager);
-    _configRepository = SharedPreferencesConfigRepository();
-    _deviceIdService = DeviceIdService(_configRepository);
+    final configRepository = SharedPreferencesConfigRepository();
+    _deviceIdService = DeviceIdService(configRepository);
     _apiService = const ApiService();
+    _syncScheduler = SyncScheduler(dataSource: _dataSource);
   }
 
   /// Performs the incremental synchronization. This is the primary public method.
   Future<bool> syncIncremental() async {
-    return await _performSync();
+    if (await _syncScheduler.needsSync) {
+      return await _performSync();
+    }
+    // If sync is not needed, we can consider it a "success" for the background task.
+    return true;
   }
 
   Future<bool> _performSync() async {
