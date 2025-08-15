@@ -7,8 +7,8 @@ import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-import 'enhanced_cloud_sync_service.dart';
-import 'sync_conflict_resolver.dart';
+import '../lib/cloud_sync/services/enhanced_cloud_sync_service.dart';
+import '../lib/cloud_sync/services/sync_conflict_resolver.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';

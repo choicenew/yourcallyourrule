@@ -60,7 +60,28 @@ class RemoteNumberModel extends BaseModel<RemoteNumberEntity> {
     });
     return map;
   }
-  
+
+  // copyWith方法
+  RemoteNumberModel copyWith({
+    String? id,
+    String? name,
+    String? phoneNumber,
+    String? label,
+    int? priority,
+    String? action,
+    int? count,
+  }) {
+    return RemoteNumberModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      label: label ?? this.label,
+      priority: priority ?? this.priority,
+      action: action ?? this.action,
+      count: count ?? this.count,
+    );
+  }
+
   // 将模型转换为实体
   @override
   RemoteNumberEntity toEntity() {
