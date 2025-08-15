@@ -62,7 +62,7 @@ class RemoteNumberEntry extends RuleBase {
       priority: RulePriority.fromInt(map['priority'] ?? 0),
       action: RuleAction.fromString(map['action'] ?? 'none'),
       isEnabled: map['isEnabled'] ?? true,
-      count: int.tryParse(map['count']?.toString() ?? '0') ?? 0,
+      count: map['count'] ?? 0,
     );
   }
   
