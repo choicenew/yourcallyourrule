@@ -3,13 +3,14 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/core/services/device_id_service.dart';
 
-import '../../core/services/api_service.dart';
-import '../../core/services/device_id_service.dart';
-import '../../data/datasources/remote/remote_number_datasource.dart';
-import '../../data/models/sync/sync_record_model.dart';
-import '../../data/repositories/config/config_repository.dart';
-import './remote/remote_database_manager.dart';
+import 'api_service.dart';
+
+import '../../datasources/remote/remote_number_datasource.dart';
+import '../../models/sync/sync_record_model.dart';
+import '../../repositories/config/config_repository.dart';
+import '../remote/remote_database_manager.dart';
 // 增量同步管理器类
 class IncrementalSyncManager {
   late RemoteNumberDataSource _dataSource;

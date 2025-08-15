@@ -1,7 +1,7 @@
 import 'package:workmanager/workmanager.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_sync_service_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/data/database/incremental_sync_manager.dart';
+import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_remote_database.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
