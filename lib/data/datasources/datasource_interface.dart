@@ -43,12 +43,6 @@ abstract class LocalDataSource<T> extends DataSource<T> {
 
 // 远程数据源接口，扩展通用数据源接口
 abstract class RemoteDataSource<T> extends DataSource<T> {
-  // 同步数据
-  Future<bool> syncData();
-  
   // 获取最后同步时间
   Future<DateTime?> getLastSyncTime();
-  
-  // 增量同步数据
-  Future<bool> incrementalSync(DateTime lastSyncTime);
 }

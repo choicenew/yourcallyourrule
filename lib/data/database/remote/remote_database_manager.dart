@@ -79,6 +79,17 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
       )
     ''');
     
+    // 新增：待处理操作表，用于记录本地的所有写操作，等待同步
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS pending_operations (
+        id TEXT PRIMARY KEY,
+        entityId TEXT NOT NULL,
+        operation TEXT NOT NULL,
+        payload TEXT,
+        timestamp TEXT NOT NULL
+      )
+    ''');
+
     // 创建同步记录表
     await db.execute('''
       CREATE TABLE IF NOT EXISTS sync_records (

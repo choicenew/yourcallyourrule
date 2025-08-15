@@ -18,8 +18,14 @@ class SyncRecordEntity {
   // 同步状态（成功/失败）
   final String status;
   
+  // 推送到服务器的记录数
+  final int? pushedRecordCount;
+
+  // 从服务器拉取的记录数
+  final int? pulledRecordCount;
+
   // 错误信息（可选）
-  final String? error;
+  final String? errorMessage;
   
   // 元数据（JSON字符串，用于存储额外信息）
   final String? metadata;
@@ -30,7 +36,9 @@ class SyncRecordEntity {
     required this.syncTime,
     required this.syncType,
     required this.status,
-    this.error,
+    this.pushedRecordCount,
+    this.pulledRecordCount,
+    this.errorMessage,
     this.metadata,
   });
 }
@@ -46,8 +54,14 @@ class SyncRecordModel extends BaseModel<SyncRecordEntity> {
   // 同步状态（成功/失败）
   final String status;
   
+  // 推送到服务器的记录数
+  final int? pushedRecordCount;
+
+  // 从服务器拉取的记录数
+  final int? pulledRecordCount;
+
   // 错误信息（可选）
-  final String? error;
+  final String? errorMessage;
   
   // 元数据（JSON字符串，用于存储额外信息）
   final String? metadata;
@@ -58,7 +72,9 @@ class SyncRecordModel extends BaseModel<SyncRecordEntity> {
     required this.syncTime,
     required this.syncType,
     required this.status,
-    this.error,
+    this.pushedRecordCount,
+    this.pulledRecordCount,
+    this.errorMessage,
     this.metadata,
   });
   
@@ -69,7 +85,9 @@ class SyncRecordModel extends BaseModel<SyncRecordEntity> {
       syncTime: DateTime.parse(map['syncTime']),
       syncType: map['syncType'],
       status: map['status'],
-      error: map['error'],
+      pushedRecordCount: map['pushedRecordCount'],
+      pulledRecordCount: map['pulledRecordCount'],
+      errorMessage: map['errorMessage'],
       metadata: map['metadata'],
     );
   }
@@ -82,7 +100,9 @@ class SyncRecordModel extends BaseModel<SyncRecordEntity> {
       'syncTime': syncTime.toIso8601String(),
       'syncType': syncType,
       'status': status,
-      'error': error,
+      'pushedRecordCount': pushedRecordCount,
+      'pulledRecordCount': pulledRecordCount,
+      'errorMessage': errorMessage,
       'metadata': metadata,
     });
     return map;
@@ -96,7 +116,9 @@ class SyncRecordModel extends BaseModel<SyncRecordEntity> {
       syncTime: syncTime,
       syncType: syncType,
       status: status,
-      error: error,
+      pushedRecordCount: pushedRecordCount,
+      pulledRecordCount: pulledRecordCount,
+      errorMessage: errorMessage,
       metadata: metadata,
     );
   }
@@ -107,7 +129,9 @@ class SyncRecordModel extends BaseModel<SyncRecordEntity> {
     DateTime? syncTime,
     String? syncType,
     String? status,
-    String? error,
+    int? pushedRecordCount,
+    int? pulledRecordCount,
+    String? errorMessage,
     String? metadata,
   }) {
     return SyncRecordModel(
@@ -115,7 +139,9 @@ class SyncRecordModel extends BaseModel<SyncRecordEntity> {
       syncTime: syncTime ?? this.syncTime,
       syncType: syncType ?? this.syncType,
       status: status ?? this.status,
-      error: error ?? this.error,
+      pushedRecordCount: pushedRecordCount ?? this.pushedRecordCount,
+      pulledRecordCount: pulledRecordCount ?? this.pulledRecordCount,
+      errorMessage: errorMessage ?? this.errorMessage,
       metadata: metadata ?? this.metadata,
     );
   }

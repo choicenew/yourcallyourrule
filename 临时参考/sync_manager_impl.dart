@@ -1,4 +1,4 @@
-// 同步管理器实现类，用于处理本地和远程数据库之间的增量同步
+// 同步管理器实现类，用于处理'remote_database.db';和cloud flare D1数据库之间的增量同步
 
 import 'dart:async';
 import 'dart:convert';
@@ -237,7 +237,7 @@ class SyncManagerImpl {
       syncTime: DateTime.now(),
       syncType: syncType,
       status: status,
-      error: error,
+      errorMessage: error,
       metadata: metadataJson,
     );
     
@@ -277,7 +277,7 @@ class SyncManagerImpl {
       syncTime: DateTime.parse(record['syncTime']),
       syncType: record['syncType'],
       status: record['status'],
-      error: record['error'],
+      errorMessage: record['error'],
     )).toList();
   }
   
