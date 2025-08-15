@@ -8,7 +8,7 @@ import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/data/database/incremental_sync_manager.dart';
+import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_remote_database.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_data_access_restriction.dart';
 
 /// 远程号码服务类，继承自ListService，提供远程号码的管理功能
