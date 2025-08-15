@@ -97,7 +97,10 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
         syncTime TEXT NOT NULL,
         syncType TEXT NOT NULL,
         status TEXT NOT NULL,
-        error TEXT
+        pushedRecordCount INTEGER,
+        pulledRecordCount INTEGER,
+        errorMessage TEXT,
+        metadata TEXT
       )
     ''');
     
