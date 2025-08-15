@@ -3,7 +3,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/services/device_id_service.dart';
+
+import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
 
 import 'api_service.dart';
 
