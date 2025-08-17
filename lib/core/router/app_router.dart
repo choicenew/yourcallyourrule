@@ -75,6 +75,7 @@ import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_filter_service.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
+import 'package:yourcallyourrule/features/sync_country/widget/country_selection_widget.dart';
 
 import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page.dart';
 
@@ -177,6 +178,7 @@ class AppRouter {
   static const String purchase = 'purchase';
   static const String settings = 'settings';
   static const String languageSettings = 'language-settings';
+  static const String countrySyncSettings = 'country-sync-settings';
 
 
   // 创建路由器
@@ -204,6 +206,11 @@ class AppRouter {
         path: '/$languageSettings',
         name: languageSettings,
         builder: (context, state) => const LanguageSettingsPage(),
+      ),
+      GoRoute(
+        path: '/$countrySyncSettings',
+        name: countrySyncSettings,
+        builder: (context, state) => const CountrySelectionWidget(),
       ),
       // 主页路由
       GoRoute(

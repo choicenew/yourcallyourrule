@@ -1,0 +1,43 @@
+version: 3.5.0
+name: world_countries
+description: Sealed world data in form of Flutter widgets (country, phone, currency pickers, etc.).
+maintainer: Roman Cinis
+repository: https://github.com/tsinis/sealed_world/tree/main/packages/world_countries
+issue_tracker: https://github.com/tsinis/sealed_world/issues
+topics:
+  - picker
+  - sealed
+  - country-picker
+  - country-selector
+  - currency-picker
+
+screenshots:
+  - description: "Use with SearchAnchor widget"
+    path: doc/search_anchor.webp
+  - description: "Search picker example"
+    path: doc/search_picker.webp
+  - description: "Modal bottom sheet picker example"
+    path: doc/modal_picker.webp
+  - description: "Dialog picker example"
+    path: doc/dialog_picker.webp
+
+resolution: workspace
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  world_flags: ^2.3.0
+
+dev_dependencies:
+  _sealed_world_tests:
+    path: ../_sealed_world_tests
+  dart_code_metrics_presets: any # Constrained in the CLI tools package
+  flutter_test: # From Google
+    sdk: flutter
+  lints: any # From Google. Constrained in the CLI tools package
+
+flutter:
+  uses-material-design: true # Pickers using the Material icon font.

@@ -2290,6 +2290,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.0"
+  world_countries:
+    dependency: "direct main"
+    description:
+      name: world_countries
+      sha256: ec933fed592a2084704f41072970a5c1064b15876c7306848ed047bb52455b45
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.5.0"
   world_flags:
     dependency: "direct main"
     description:
