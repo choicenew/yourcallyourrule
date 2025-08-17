@@ -166,7 +166,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
                 ),
                 IconButton(
                   icon: Icon(
-                    _isReorderEnabled ? Icons.low_priority_high : Icons.edit,
+                    _isReorderEnabled ? Icons.low_priority: Icons.edit,
                     color: Theme.of(context).primaryColor,
                   ),
                   onPressed: () {
