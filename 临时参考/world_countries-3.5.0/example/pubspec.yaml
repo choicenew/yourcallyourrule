@@ -1,0 +1,79 @@
+version: 3.5.0
+name: world_countries_example
+description: A world_countries example application.
+publish_to: none
+
+resolution: workspace
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  path_to_regexp: ^0.4.0
+  quiver: ^3.2.2 # From Google
+  rapidfuzz: ^0.1.1
+  world_countries:
+    path: ../
+
+dev_dependencies:
+  build_runner: ^2.4.15 # From Google
+  dart_code_metrics_presets: any # Constrained in the CLI tools package
+  dhttpd: ^4.1.0 # From Google
+  flutter_gen_runner: ^5.10.0
+  lints: any # From Google. Constrained in the CLI tools package
+
+flutter:
+  disable-swift-package-manager: false
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - web/icons/Icon-192.png
+  fonts:
+    - family: OpenMojiCOLR1
+      fonts:
+        - asset: assets/fonts/OpenMoji/OpenMoji-color-colr1_svg.ttf
+    - family: OpenMojiCOLR0
+      fonts:
+        - asset: assets/fonts/OpenMoji/OpenMoji-color-glyf_colr_0.ttf
+
+flutter_gen:
+  output: lib/assets/
+  assets:
+    exclude:
+      - assets/images/ATTRIBUTION.md
+  integrations:
+    flutter_svg: false
+
+flutter_launcher_icons:
+  image_path: "assets/images/launcher_icon/icon.png"
+  android: true
+  min_sdk_android: 21
+  adaptive_icon_foreground: "assets/images/launcher_icon/icon_android.png"
+  adaptive_icon_background: "#6a6c6e"
+  ios: true
+  background_color_ios: "#6a6c6e"
+  remove_alpha_ios: true
+  web:
+    generate: true
+    background_color: "#6a6c6e"
+    theme_color: "#ffffff"
+  windows:
+    generate: true
+  macos:
+    generate: true
+
+flutter_native_splash:
+  image: "assets/images/launcher_icon/icon.png"
+  image_web: "web/icons/loader.gif"
+  color: "#6a6c6e"
+  web: true
+  ios: true
+  android: true
+  android_12:
+    color: "#6a6c6e"

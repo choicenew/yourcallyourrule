@@ -198,44 +198,6 @@
   "basicRuleFilter": "Basic Rule Filter",
   "basicRuleFiltering": "Basic Rule Filtering",
   "basicRuleFilteringExplanation": "• Basic Rule Filtering: Filtering rules based on blacklist, whitelist, and regex",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   "basicRuleFilterSettings": "Basic Rule Filter Settings",
   "@basicRuleFilterSettings": {
     "description": "Title for basic rule filter settings page"
@@ -2098,7 +2060,10 @@
     "themeSettingsTitle": "Theme Settings",
   "themeSettingsSubtitle": "Choose your favorite theme",
   
-  
+  "databaseSyncTitle": "Database Sync",
+  "countrySyncSettingsTitle": "Country Sync Settings",
+  "countrySyncSettingsSubtitle": "Select countries for data synchronization",
   
   "yesterday": "Yesterday"
 }
+

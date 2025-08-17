@@ -177,7 +177,7 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
         'syncTime': DateTime.now().toIso8601String(),
         'syncType': syncType,
         'status': status,
-        'error': error,
+        'errorMessage': error,
       },
     );
     

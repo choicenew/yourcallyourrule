@@ -51,8 +51,13 @@ class SettingsPage extends ConsumerWidget {
         //  _buildPluginManagementCard(context),
        //   const SizedBox(height: 12),
         //  _buildSearchCard(context),
-//这里做一个theme的card 可以进去切换主题配置y的
-
+//这里做一个选择对应国家的数据库的
+          _buildSectionTitle(
+              AppLocalizations.of(context)!.databaseSyncTitle),
+          const SizedBox(height: 8),
+          _buildCountrySyncSettingsCard(context),
+          const SizedBox(height: 8),
+//这里功能选择section的
           _buildSectionTitle(
               AppLocalizations.of(context)!.functionSettingsTitle),
           const SizedBox(height: 8),
@@ -476,6 +481,19 @@ class SettingsPage extends ConsumerWidget {
             builder: (context) => const AboutPage(),
           ),
         );
+      },
+    );
+  }
+
+  Widget _buildCountrySyncSettingsCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.sync,
+      iconColor: Colors.blue,
+      title: AppLocalizations.of(context)!.countrySyncSettingsTitle,
+      subtitle: AppLocalizations.of(context)!.countrySyncSettingsSubtitle,
+      onTap: () {
+        GoRouter.of(context).push('/${AppRouter.countrySyncSettings}');
       },
     );
   }

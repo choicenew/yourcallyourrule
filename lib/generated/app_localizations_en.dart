@@ -4895,5 +4895,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get themeSettingsSubtitle => 'Choose your favorite theme';
 
   @override
+  String get databaseSyncTitle => 'Database Sync';
+
+  @override
+  String get countrySyncSettingsTitle => 'Country Sync Settings';
+
+  @override
+  String get countrySyncSettingsSubtitle => 'Select countries for data synchronization';
+
+  @override
   String get yesterday => 'Yesterday';
 }

@@ -9129,6 +9129,24 @@ abstract class AppLocalizations {
   /// **'Choose your favorite theme'**
   String get themeSettingsSubtitle;
 
+  /// No description provided for @databaseSyncTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Database Sync'**
+  String get databaseSyncTitle;
+
+  /// No description provided for @countrySyncSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Country Sync Settings'**
+  String get countrySyncSettingsTitle;
+
+  /// No description provided for @countrySyncSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select countries for data synchronization'**
+  String get countrySyncSettingsSubtitle;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:
