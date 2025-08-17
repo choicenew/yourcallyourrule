@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/features/common/widgets/vip_access_checker.dart';
 import 'package:yourcallyourrule/features/home/providers/feature_center_providers.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -18,7 +17,6 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
   // The state is just the list of widgets themselves.
   List<Widget> _orderedFeatureWidgets = [];
   bool _isLoading = true;
-  bool _isReorderEnabled = false;
 
   @override
   void didChangeDependencies() {
@@ -157,37 +155,9 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.featureCenter,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                IconButton(
-                  icon: Icon(
-                    _isReorderEnabled ? Icons.low_priority_high : Icons.edit,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  onPressed: () {
-                    if (_isReorderEnabled) {
-                      setState(() {
-                        _isReorderEnabled = false;
-                      });
-                    } else {
-                      VipAccessChecker.checkVipAccess(
-                        ref: ref,
-                        context: context,
-                        onAccessGranted: () {
-                          setState(() {
-                            _isReorderEnabled = true;
-                          });
-                        },
-                      );
-                    }
-                  },
-                ),
-              ],
+            Text(
+              AppLocalizations.of(context)!.featureCenter,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             if (_isLoading)
@@ -207,7 +177,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
                   final featureId = (featureWidget.key as ValueKey<String>).value;
 
                   return LongPressDraggable<String>(
-                    data: _isReorderEnabled ? featureId : null,
+                    data: featureId,
                     // --- CORRECTION STARTS HERE ---
                     // The complex SizedBox has been removed.
                     feedback: Material(
@@ -218,9 +188,8 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
                     // --- CORRECTION ENDS HERE ---
                     childWhenDragging: Container(),
                     child: DragTarget<String>(
-                      onWillAcceptWithDetails: (details) => _isReorderEnabled && details.data != featureId,
+                      onWillAcceptWithDetails: (details) => details.data != featureId,
                       onAcceptWithDetails: (details) {
-                        if (!_isReorderEnabled) return;
                         final draggedId = details.data;
                         setState(() {
                           final oldIndex = _orderedFeatureWidgets.indexWhere(
