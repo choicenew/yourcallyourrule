@@ -21,7 +21,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutPhoneSubscriptions => 'About Phone Subscriptions';
 
   @override
-  String get aboutPhoneSubscriptionsDesc => 'Subscribe to phone rule lists via URL, automatically update blacklist and whitelist rules. Supports JSON format rule files.';
+  String get aboutPhoneSubscriptionsDesc => 'Subscribe to phone rule lists via URL, automatically update rules. Supports JSON, CSV format rule files.';
 
   @override
   String get aboutSmsFilter => 'About SMS Filtering';
@@ -4898,10 +4898,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get databaseSyncTitle => 'Database Sync';
 
   @override
-  String get countrySyncSettingsTitle => 'Country Sync Settings';
+  String get countrySyncSettingsTitle => 'Country Based Database Sync Settings';
 
   @override
   String get countrySyncSettingsSubtitle => 'Select countries for data synchronization';
+
+  @override
+  String get countryDataDisclaimer => 'Please note: The database may not include data for all specific countries or regions.';
+
+  @override
+  String get editSubscription => 'Edit Subscription';
 
   @override
   String get yesterday => 'Yesterday';

@@ -79,6 +79,11 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
       )
     ''');
     
+    // 为phoneNumber字段创建索引以提高查询性能
+    await db.execute('''
+      CREATE INDEX IF NOT EXISTS idx_remote_numbers_phone_number ON remote_numbers(phoneNumber)
+    ''');
+    
     // 新增：待处理操作表，用于记录本地的所有写操作，等待同步
     await db.execute('''
       CREATE TABLE IF NOT EXISTS pending_operations (

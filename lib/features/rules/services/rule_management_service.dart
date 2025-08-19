@@ -324,7 +324,7 @@ class RuleManagementService extends ListService {
     return successCount;
   }
   
-  /// 从订阅导入规则到黑白名单
+  /// 从订阅导入规则到管理页面
   /// [rules] 从订阅获取的规则列表
   /// [action] 导入的规则动作类型
   /// 返回成功导入的规则数量

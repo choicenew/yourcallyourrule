@@ -26,15 +26,24 @@ class ApiService {
     return response.statusCode == 200;
   }
 
+  /// 从服务器获取自上次同步以来的变更
   Future<List<Map<String, dynamic>>> getChanges({
     DateTime? since,
     required String deviceId,
+    List<String>? countryCodes,
   }) async {
+    final queryParams = {
+      'since': since?.toIso8601String() ?? DateTime.fromMillisecondsSinceEpoch(0).toIso8601String(),
+      'deviceId': deviceId,
+    };
+    
+    // 如果提供了国家代码，将其添加到查询参数中
+    if (countryCodes != null && countryCodes.isNotEmpty) {
+      queryParams['countryCodes'] = countryCodes.join(',');
+    }
+    
     final uri = Uri.parse('$_workerUrl/sync').replace(
-      queryParameters: {
-        'since': since?.toIso8601String() ?? DateTime.fromMillisecondsSinceEpoch(0).toIso8601String(),
-        'deviceId': deviceId,
-      },
+      queryParameters: queryParams,
     );
 
     final response = await http.get(uri, headers: {'X-API-SECRET': _apiSecret});
@@ -44,6 +53,25 @@ class ApiService {
       return List<Map<String, dynamic>>.from(data['operations'] ?? []);
     } else {
       throw Exception('Failed to get changes from the API: ${response.statusCode}');
+    }
+  }
+  
+  /// 获取特定国家的初始数据
+  ///
+  /// [countryCode] 国家的拨号代码，例如 '+86'
+  /// 返回该国家的所有号码数据
+  Future<List<Map<String, dynamic>>> getInitialDataForCountry(String countryCode) async {
+    final uri = Uri.parse('$_workerUrl/country-data').replace(
+      queryParameters: {'countryCode': countryCode},
+    );
+
+    final response = await http.get(uri, headers: {'X-API-SECRET': _apiSecret});
+    
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return List<Map<String, dynamic>>.from(data['numbers'] ?? []);
+    } else {
+      throw Exception('Failed to get initial country data: ${response.statusCode}');
     }
   }
 }

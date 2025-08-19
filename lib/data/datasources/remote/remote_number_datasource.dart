@@ -466,4 +466,78 @@ class RemoteNumberDataSource
       return RemoteNumberModel.fromMap(maps[i]);
     });
   }
+  
+  /// 删除特定国家代码的所有号码
+  /// 返回删除的记录数
+  /// [countryCode] 国家的拨号代码，例如 '+86'
+  Future<int> deleteNumbersByCountryCode(String countryCode) async {
+    final db = await _databaseManager.database;
+    int count = 0;
+    
+    // 查找以该国家代码开头的所有号码
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'phoneNumber LIKE ?',
+      whereArgs: ['$countryCode%'],
+    );
+    
+    // 删除找到的号码
+    await db.transaction((txn) async {
+      for (final map in maps) {
+        final id = map['id'] as String;
+        final result = await txn.delete(
+          _tableName,
+          where: 'id = ?',
+          whereArgs: [id],
+        );
+        if (result > 0) {
+          await _logOperation(txn, 'DELETE', id);
+          count += result;
+        }
+      }
+    });
+    
+    return count;
+  }
+  
+  /// 插入远程号码数据（不使用模型）
+  Future<String> insertRemoteNumber(Map<String, dynamic> data) async {
+    final db = await _databaseManager.database;
+    
+    // 确保数据有ID
+    final String id = data['id'] ?? const Uuid().v4();
+    final Map<String, dynamic> dataWithId = {...data, 'id': id};
+    
+    await db.transaction((txn) async {
+      await txn.insert(
+        _tableName,
+        dataWithId,
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+      await _logOperation(txn, 'INSERT', id, payload: dataWithId);
+    });
+    
+    return id;
+  }
+  
+  /// 批量插入从服务器获取的远程号码数据，不记录到pending_operations
+  /// 
+  /// 这是一个"特殊通道"，专门用于同步下载的数据，避免将刚下载的数据再推送回服务器
+  Future<void> bulkInsertFromServer(List<Map<String, dynamic>> numbers) async {
+    if (numbers.isEmpty) return;
+    
+    final db = await _databaseManager.database;
+    await db.transaction((txn) async {
+      final batch = txn.batch();
+      for (final numberMap in numbers) {
+        // 确保数据有ID
+        final String id = numberMap['id'] ?? const Uuid().v4();
+        final Map<String, dynamic> dataWithId = {...numberMap, 'id': id};
+        
+        // 直接插入，不调用 _logOperation
+        batch.insert(_tableName, dataWithId, conflictAlgorithm: ConflictAlgorithm.replace);
+      }
+      await batch.commit(noResult: true);
+    });
+  }
 }

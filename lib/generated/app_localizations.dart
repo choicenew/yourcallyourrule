@@ -120,7 +120,7 @@ abstract class AppLocalizations {
   /// About phone subscriptions description
   ///
   /// In en, this message translates to:
-  /// **'Subscribe to phone rule lists via URL, automatically update blacklist and whitelist rules. Supports JSON format rule files.'**
+  /// **'Subscribe to phone rule lists via URL, automatically update rules. Supports JSON, CSV format rule files.'**
   String get aboutPhoneSubscriptionsDesc;
 
   /// No description provided for @aboutSmsFilter.
@@ -9138,7 +9138,7 @@ abstract class AppLocalizations {
   /// No description provided for @countrySyncSettingsTitle.
   ///
   /// In en, this message translates to:
-  /// **'Country Sync Settings'**
+  /// **'Country Based Database Sync Settings'**
   String get countrySyncSettingsTitle;
 
   /// No description provided for @countrySyncSettingsSubtitle.
@@ -9146,6 +9146,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select countries for data synchronization'**
   String get countrySyncSettingsSubtitle;
+
+  /// No description provided for @countryDataDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Please note: The database may not include data for all specific countries or regions.'**
+  String get countryDataDisclaimer;
+
+  /// No description provided for @editSubscription.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Subscription'**
+  String get editSubscription;
 
   /// No description provided for @yesterday.
   ///

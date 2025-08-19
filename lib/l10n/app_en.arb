@@ -11,7 +11,7 @@
   "@aboutPhoneSubscriptions": {
     "description": "About phone subscriptions title"
   },
-  "aboutPhoneSubscriptionsDesc": "Subscribe to phone rule lists via URL, automatically update blacklist and whitelist rules. Supports JSON format rule files.",
+  "aboutPhoneSubscriptionsDesc": "Subscribe to phone rule lists via URL, automatically update rules. Supports JSON, CSV format rule files.",
   "@aboutPhoneSubscriptionsDesc": {
     "description": "About phone subscriptions description"
   },
@@ -2061,9 +2061,10 @@
   "themeSettingsSubtitle": "Choose your favorite theme",
   
   "databaseSyncTitle": "Database Sync",
-  "countrySyncSettingsTitle": "Country Sync Settings",
+  "countrySyncSettingsTitle": "Country Based Database Sync Settings",
   "countrySyncSettingsSubtitle": "Select countries for data synchronization",
-  
+  "countryDataDisclaimer": "Please note: The database may not include data for all specific countries or regions.",
+  "editSubscription": "Edit Subscription",
   "yesterday": "Yesterday"
 }
 

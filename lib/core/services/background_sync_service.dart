@@ -1,13 +1,19 @@
+import 'package:flutter/foundation.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_log_sync_service_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_remote_database.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
+import 'package:yourcallyourrule/core/provider/providers/call_log_sync_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/phone_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/sms_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/contact_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/incremental_sync_manager_provider.dart';
+
+
+
+
 
 const syncCallLogTask = "syncCallLogTask";
 const autoUpdateTask = "autoUpdateTask";
@@ -51,7 +57,7 @@ void callbackDispatcher() {
           
         case dataSyncTask:
           // 执行数据同步任务
-          final syncManager = IncrementalSyncManager();
+          final syncManager = container.read(incrementalSyncManagerProvider) ?? IncrementalSyncManager();
           await syncManager.initialize();
           await syncManager.syncIncremental();
           break;
@@ -73,13 +79,19 @@ void callbackDispatcher() {
   });
 }
 
+/// 后台同步服务，负责管理应用的后台同步任务
 class BackgroundSyncService {
-  final IncrementalSyncManager _syncManager = IncrementalSyncManager();
+  static const String syncTaskName = 'com.yourcallyourrule.sync';
+  late final IncrementalSyncManager _syncManager;
   
+  /// 初始化后台同步服务
   Future<void> initialize() async {
+    // 创建IncrementalSyncManager实例
+    _syncManager = provideIncrementalSyncManager();
+    
     await Workmanager().initialize(
       callbackDispatcher,
-      isInDebugMode: true, // 在调试模式下启用日志
+      isInDebugMode: kDebugMode,
     );
     
     // 注册通话记录同步任务
@@ -90,6 +102,7 @@ class BackgroundSyncService {
       constraints: Constraints(
         networkType: NetworkType.connected,
       ),
+      existingWorkPolicy: ExistingWorkPolicy.replace,
     );
     
     // 注册自动更新任务
@@ -101,6 +114,7 @@ class BackgroundSyncService {
         networkType: NetworkType.connected,
         requiresBatteryNotLow: true,
       ),
+      existingWorkPolicy: ExistingWorkPolicy.replace,
     );
     
     // 注册数据同步任务
@@ -111,9 +125,20 @@ class BackgroundSyncService {
       constraints: Constraints(
         networkType: NetworkType.connected,
       ),
+      existingWorkPolicy: ExistingWorkPolicy.replace,
     );
     
     // 初始化同步管理器
     await _syncManager.initialize();
+  }
+  
+  /// 取消所有同步任务
+  Future<void> cancelAllSyncTasks() async {
+    await Workmanager().cancelByTag(syncTaskName);
+  }
+  
+  /// 提供IncrementalSyncManager实例
+  IncrementalSyncManager provideIncrementalSyncManager() {
+    return IncrementalSyncManager();
   }
 }
