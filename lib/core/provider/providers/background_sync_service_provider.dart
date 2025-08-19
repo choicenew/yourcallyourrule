@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:yourcallyourrule/features/call/call_history/services/background_sync_service.dart';
+import 'package:yourcallyourrule/core/services/background_sync_service.dart';
 
 /// 后台同步服务提供者
 /// 提供BackgroundSyncService实例

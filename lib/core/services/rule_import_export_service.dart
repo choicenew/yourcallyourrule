@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:csv/csv.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:yaml/yaml.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -136,17 +137,24 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
   /// 从URL导入规则
   Future<List<RuleBase>> importFromUrl(String url) async {
     try {
+      debugPrint('[RuleImportExportService] >>> Importing from URL: $url');
       final response = await http.get(Uri.parse(url));
+      debugPrint('[RuleImportExportService] <<< Response status code: ${response.statusCode}');
       if (response.statusCode == 200) {
         final data = response.body;
+        debugPrint('[RuleImportExportService] ... Data downloaded (${data.length} bytes)');
         // 自动检测格式并解析
         final format = detectFileFormat('', data);
+        debugPrint('[RuleImportExportService] ... Detected format: $format');
         final rules = await parseImportData(data, format: format);
-        return await saveAll(rules);
+        debugPrint('[RuleImportExportService] <<< Parsed ${rules.length} rules from URL data.');
+        return rules;
       } else {
+        debugPrint('[RuleImportExportService] !!! ERROR: Failed to fetch data from URL. Status code: ${response.statusCode}');
         throw Exception('获取URL数据失败: ${response.statusCode}');
       }
     } catch (e) {
+      debugPrint('[RuleImportExportService] !!! ERROR: Error during import from URL: $e');
       throw Exception('从URL导入失败: $e');
     }
   }

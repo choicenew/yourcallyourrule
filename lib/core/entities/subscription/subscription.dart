@@ -71,6 +71,8 @@ class Subscription extends BaseEntity {
   }
 
   Subscription copyWith({
+    String? name,
+    Url? url,
     bool? isEnabled,
     RuleAction? action,
     bool? autoUpdate,
@@ -79,8 +81,8 @@ class Subscription extends BaseEntity {
   }) {
     return Subscription(
       id: id,
-      name: name,
-      url: url,
+      name: name ?? this.name,
+      url: url ?? this.url,
       isEnabled: isEnabled ?? this.isEnabled,
       action: action ?? this.action,
       lastUpdated: lastUpdated ?? this.lastUpdated,

@@ -1,5 +1,6 @@
 // 电话规则订阅服务，用于处理电话规则订阅
 
+import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 
@@ -87,9 +88,8 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     }
   }
 
-  /// 从URL更新订阅规则
-  /// 核心规则更新方法（不更新时间戳）
-  Future<List<RuleBase>> _updateRulesCore(Subscription subscription) async {
+  /// 从URL获取规则，但不保存
+  Future<List<RuleBase>> fetchRulesFromSubscription(Subscription subscription) async {
     final data = await downloadFromUrl(subscription.url.toString());
     final rules = await _ruleImportExportService.parseImportData(data);
     
@@ -111,8 +111,44 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
       return rule;
     }).toList();
     
-    await _ruleRepository.saveAll(processedRules);
     return processedRules;
+  }
+
+  /// 从订阅URL导入规则并保存
+  Future<List<RuleBase>> importAndSaveRulesFromSubscription(Subscription subscription) async {
+    debugPrint('[PhoneSubscriptionService] >>> Starting import for subscription: ${subscription.name}');
+    // 1. 使用 importFromUrl 从URL获取规则
+    final rules = await _ruleImportExportService.importFromUrl(subscription.url.toString());
+    debugPrint('[PhoneSubscriptionService] ... Fetched ${rules.length} rules from URL.');
+
+    // 2. 处理规则：覆盖action并标记为已订阅
+    final processedRules = rules.map((rule) {
+      if (rule is PhoneRule) {
+        return rule.copyWith(
+          action: subscription.action, // 使用订阅的action覆盖
+          isSubscribed: true,
+        );
+      }
+      return rule;
+    }).toList();
+    debugPrint('[PhoneSubscriptionService] ... Processed ${processedRules.length} rules.');
+
+    // 3. 保存处理后的规则
+    await _ruleRepository.saveAll(processedRules);
+    debugPrint('[PhoneSubscriptionService] ... Saved ${processedRules.length} rules to the repository.');
+    
+    // 4. 更新订阅的时间戳
+    await updateLastUpdated(subscription.id, DateTime.now());
+    debugPrint('[PhoneSubscriptionService] <<< Finished import for subscription: ${subscription.name}');
+
+    return processedRules;
+  }
+
+  /// 核心规则更新方法（不更新时间戳）
+  Future<List<RuleBase>> _updateRulesCore(Subscription subscription) async {
+    final rules = await fetchRulesFromSubscription(subscription);
+    await _ruleRepository.saveAll(rules);
+    return rules;
   }
 
   /// 自动更新（带时间戳更新）

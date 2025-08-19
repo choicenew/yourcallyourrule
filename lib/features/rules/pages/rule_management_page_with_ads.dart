@@ -4,6 +4,7 @@ import 'package:uuid/uuid.dart';
 
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -13,6 +14,7 @@ import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_p
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/rules/services/phone_rule_import_export_adapter.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -32,6 +34,7 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
   List<PhoneRule> _rules = [];
   bool _isLoading = true;
   String? _selectedLabelId;
+  Map<String, String> _labelIdToTextMap = {};
   RuleActionType? _selectedActionType;
   Set<String> _selectedRuleIds = {};
   bool _isMultiSelectMode = false;
@@ -49,6 +52,10 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
 
     final service = ref.read(ruleManagementServiceProvider);
     final rules = await service.getAllRulesByActionType(null);
+    
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
+    final allLabels = await predefinedLabelService.getAllLabels();
+    final labelMap = {for (var label in allLabels) label.id: label.text};
 
     // 应用筛选条件
     final filteredRules = rules.where((rule) {
@@ -68,6 +75,7 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
     setState(() {
       _rules = filteredRules;
       _isLoading = false;
+      _labelIdToTextMap = labelMap;
     });
   }
 
@@ -463,16 +471,17 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
                 children: [
                   // 动作标签
                   Chip(
-                    label: Text(actionText),
+                     label: Text('${AppLocalizations.of(context)!.ruleAction}: $actionText'),
                     backgroundColor: actionColor.withValues(alpha:0.1),
                     labelStyle: TextStyle(color: actionColor),
                   ),
                   // 如果有标签，显示标签
                   if (rule.labelId.isNotEmpty)
                     Chip(
-                      label: Text('${AppLocalizations.of(context)!.label}: ${rule.labelId}'),
-                      backgroundColor: Colors.green.withValues(alpha:0.1),
-                      labelStyle: const TextStyle(color: Colors.green),
+                      label: Text(
+                          '${AppLocalizations.of(context)!.label}: ${LabelTranslationUtils.translateLabelText(context, _labelIdToTextMap[rule.labelId] ?? rule.labelId)}'),
+                      backgroundColor: const Color.fromARGB(255, 211, 234, 144).withValues(alpha:0.1),
+                      labelStyle: const TextStyle(color: Colors.amberAccent),
                     ),
                 ],
               ),
