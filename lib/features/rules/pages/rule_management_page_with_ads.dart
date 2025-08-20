@@ -13,7 +13,7 @@ import 'package:yourcallyourrule/features/common/widgets/dialogs/phone_rule_edit
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/rules/services/phone_rule_import_export_adapter.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/common/dialogs/filter_dialogs.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
@@ -166,7 +166,7 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
             title: Text(AppLocalizations.of(context)!.filterByAction),
             onTap: () {
               Navigator.pop(context);
-              _showActionFilterDialog(context);
+              showActionFilterDialog(context, _filterByAction);
             },
           ),
           ListTile(
@@ -174,7 +174,7 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
             title: Text(AppLocalizations.of(context)!.filterByLabel),
             onTap: () {
               Navigator.pop(context);
-              _showLabelFilterDialog(context);
+              showLabelFilterDialog(context, _filterByLabel, themeColor: Colors.green);
             },
           ),
           ListTile(
@@ -190,79 +190,7 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
     );
   }
 
-  void _showActionFilterDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.filterByAction),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.all),
-              onTap: () {
-                _filterByAction(null);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.allow),
-              onTap: () {
-                _filterByAction(RuleActionType.allow);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.block),
-              onTap: () {
-                _filterByAction(RuleActionType.block);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.silence),
-              onTap: () {
-                _filterByAction(RuleActionType.silence);
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
-  void _showLabelFilterDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.filterByLabel),
-        content: SizedBox(
-          width: double.maxFinite,
-          child: PublicSelectLabel(
-            onLabelIdChanged: (labelId) {
-              _filterByLabel(labelId);
-              Navigator.pop(context);
-            },
-            themeColor: Colors.green,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
-          ),
-          TextButton(
-            onPressed: () {
-              _filterByLabel(null);
-              Navigator.pop(context);
-            },
-            child: Text(AppLocalizations.of(context)!.clearFilter),
-          ),
-        ],
-      ),
-    );
-  }
 
   void _showAddRuleDialog(BuildContext context) {
     final TextEditingController nameController = TextEditingController();

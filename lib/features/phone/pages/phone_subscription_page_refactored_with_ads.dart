@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
 import 'package:yourcallyourrule/core/provider/providers/phone_subscription_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/features/rules/pages/rule_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 
 /// 重构后的电话订阅页面 - 集成广告功能

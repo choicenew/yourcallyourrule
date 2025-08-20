@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:uuid/uuid.dart';
 import 'package:yaml/yaml.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 
@@ -47,39 +48,115 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
   @override
   Future<List<RuleBase>> parseCsvData(String data) async {
     try {
-      final rows = const CsvToListConverter().convert(data);
+      // 检测是否为制表符分隔的CSV
+      bool isTabSeparated = data.contains('\t');
+      
+      // 根据分隔符类型选择转换器
+      final rows = isTabSeparated 
+          ? const CsvToListConverter(fieldDelimiter: '\t').convert(data)
+          : const CsvToListConverter().convert(data);
+          
       if (rows.isEmpty) {
+        debugPrint('[RuleImportExportService] CSV parsing: No rows found in data');
         return [];
       }
       
       // 第一行作为标题
       final headers = rows.first.map((e) => e.toString()).toList();
+      debugPrint('[RuleImportExportService] CSV headers: ${headers.join(", ")}');
       
       // 转换数据行为规则实体
       final rules = <RuleBase>[];
       
+      // 检查必需的字段是否存在
+      final requiredFields = ['name', 'phoneNumber', 'labelId', 'action'];
+      final missingFields = requiredFields.where((field) => !headers.contains(field)).toList();
+      if (missingFields.isNotEmpty) {
+        debugPrint('[RuleImportExportService] Missing required fields: ${missingFields.join(", ")}');
+        throw FormatException('CSV缺少必需字段: ${missingFields.join(", ")}');
+      }
+      
       for (var i = 1; i < rows.length; i++) {
         final row = rows[i];
         if (row.length != headers.length) {
+          debugPrint('[RuleImportExportService] Skipping row $i: Column count mismatch. Expected ${headers.length}, got ${row.length}');
           continue; // 跳过格式不匹配的行
         }
         
         final map = <String, dynamic>{};
         for (var j = 0; j < headers.length; j++) {
-          map[headers[j]] = _convertCsvValue(row[j]);
+          map[headers[j]] = row[j];
+        }
+
+        // --- Data Cleaning and Type Conversion Stage ---
+        
+        // Handle ID: ensure it's a string, generate if missing.
+        if (!headers.contains('id') || (map['id'] == null || map['id'].toString().isEmpty)) {
+          map['id'] = const Uuid().v4();
+        } else {
+          map['id'] = map['id'].toString();
+        }
+
+        // Convert numeric fields from String to int
+        final intFields = ['priority', 'count'];
+        for (final field in intFields) {
+          final value = map[field];
+          map[field] = (value is int) ? value : (int.tryParse(value?.toString() ?? '0') ?? 0);
+        }
+
+        // Convert boolean fields (as int)
+        final boolFieldsAsInt = ['isEnabled', 'isSubscribed'];
+        for (final field in boolFieldsAsInt) {
+          final value = map[field];
+          if (value is bool) {
+            map[field] = value ? 1 : 0;
+          } else if (value is int) {
+            // Do nothing, already correct type
+          } else {
+            final strValue = value?.toString().toLowerCase();
+            if (strValue == 'true' || strValue == '1') {
+              map[field] = 1;
+            } else {
+              map[field] = 0;
+            }
+          }
         }
         
+        // Ensure required string fields are strings
+        final stringFields = ['name', 'action', 'phoneNumber', 'labelId'];
+        for (final field in stringFields) {
+          map[field] = map[field]?.toString() ?? '';
+        }
+
+        // Provide defaults for empty required fields
+        if ((map['name'] as String).isEmpty) map['name'] = 'Imported Rule $i';
+        if ((map['action'] as String).isEmpty) map['action'] = 'none';
+        if ((map['labelId'] as String).isEmpty) map['labelId'] = 'default';
+
+        // Skip row if phone number is empty
+        if ((map['phoneNumber'] as String).isEmpty) {
+          debugPrint('[RuleImportExportService] Skipping row $i: phoneNumber is empty');
+          continue;
+        }
+
+        // Ensure nullable fields are correct type
+        map['avatar'] = map['avatar']?.toString();
+        map['ruleType'] = map['ruleType']?.toString() ?? 'phone_rule';
+
         try {
           final rule = fromMap(map);
           rules.add(rule);
+          debugPrint('[RuleImportExportService] Successfully parsed rule: ${rule.name}');
         } catch (e) {
-          // 记录错误但继续处理其他行
+          debugPrint('[RuleImportExportService] Error parsing row $i: $e, data: $map');
           continue;
         }
       }
       
+      debugPrint('[RuleImportExportService] Total rules parsed: ${rules.length}');
       return rules;
     } catch (e) {
+      debugPrint('[RuleImportExportService] CSV parsing error: $e');
       throw FormatException('CSV解析错误: $e');
     }
   }
@@ -107,31 +184,6 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
     } catch (e) {
       throw FormatException('YAML解析错误: $e');
     }
-  }
-
-  /// 转换CSV值为适当的类型
-  dynamic _convertCsvValue(dynamic value) {
-    if (value == null) return null;
-    if (value == '') return null;
-    
-    // 尝试转换为数字
-    final numValue = num.tryParse(value.toString());
-    if (numValue != null) return numValue;
-    
-    // 尝试转换为布尔值
-    final lowerValue = value.toString().toLowerCase();
-    if (lowerValue == 'true') return true;
-    if (lowerValue == 'false') return false;
-    if (lowerValue == '1') return true;
-    if (lowerValue == '0') return false;
-    
-    // 尝试转换为日期
-    try {
-      return DateTime.parse(value.toString());
-    } catch (_) {}
-    
-    // 默认返回字符串
-    return value.toString();
   }
 
   /// 从URL导入规则

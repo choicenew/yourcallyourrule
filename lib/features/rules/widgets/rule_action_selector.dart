@@ -3,6 +3,7 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/caller_id/services/end_call_rule_action_mapper.dart';
+import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则动作选择器
@@ -60,24 +61,12 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                 isExpanded: true,
                 value: _currentAction.type,
                 onChanged: _onActionTypeChanged,
-                items: [
-                  DropdownMenuItem(
-                    value: RuleActionType.allow,
-                    child: Text(AppLocalizations.of(context)!.allow),
-                  ),
-                  DropdownMenuItem(
-                    value: RuleActionType.block,
-                    child: Text(AppLocalizations.of(context)!.block),
-                  ),
-                  DropdownMenuItem(
-                    value: RuleActionType.silence,
-                    child: Text(AppLocalizations.of(context)!.silence),
-                  ),
-                  DropdownMenuItem(
-                    value: RuleActionType.none,
-                    child: Text(AppLocalizations.of(context)!.noAction),
-                  ),
-                ],
+                items: RuleActionType.values.map((type) {
+                  return DropdownMenuItem(
+                    value: type,
+                    child: Text(RuleActionDisplayUtils.getActionTypeName(context, type)),
+                  );
+                }).toList(),
               ),
             ],
           ),

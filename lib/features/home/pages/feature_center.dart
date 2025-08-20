@@ -61,9 +61,9 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         onTap: () => context.push('/allowed-blocked-settings-with-ads'),
       ),
        _buildFeatureItem(
-        id: 'black_white_list',
+        id: 'rule-management',
         context: context,
-        title: AppLocalizations.of(context)!.blackWhiteList,
+        title: AppLocalizations.of(context)!.phoneRuleManagement,
         icon: Icons.list,
         color: _randomColor(),
         onTap: () => context.push('/rule-management-settings-with-ads'),
