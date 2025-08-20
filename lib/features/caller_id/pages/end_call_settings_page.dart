@@ -40,7 +40,7 @@ class EndCallSettingsPageState extends State<EndCallSettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.blockedCallAction),
+        title: Text(AppLocalizations.of(context)!.interceptionActionSettingsTitle),
       ),
       body: ListView(
         children: [
