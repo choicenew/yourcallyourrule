@@ -234,6 +234,7 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
         name: _nameController.text,
         version: _versionController.text,
         url: _urlController.text,
+               description: _descriptionController.text,
         isEnabled: true,
         pluginOrder: _plugins.length, // 使用当前插件列表长度作为顺序
       );

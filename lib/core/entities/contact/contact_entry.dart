@@ -6,7 +6,7 @@ class Contact extends BaseEntity {
   String name;
   List<String> phoneNumbers;
   String? email;
-  String? labelId; // Changed from label to labelId
+  List<String>? labelIds; // Changed from labelId to labelIds
   String? avatar;
   String? website;
   String? group;
@@ -18,7 +18,7 @@ class Contact extends BaseEntity {
     required this.name,
     required this.phoneNumbers,
     this.email,
-    this.labelId, // Changed from label to labelId
+    this.labelIds, // Changed from labelId to labelIds
     this.avatar,
     this.website,
     this.group,
@@ -33,7 +33,7 @@ class Contact extends BaseEntity {
       'name': name,
       'phoneNumbers': phoneNumbers,
       'email': email,
-      'labelId': labelId, // Changed from label to labelId
+      'labelIds': labelIds, // Changed from labelId to labelIds
       'avatar': avatar,
       'website': website,
       'group': group,
@@ -48,7 +48,7 @@ class Contact extends BaseEntity {
       name: map['name'] as String,
       phoneNumbers: List<String>.from(map['phoneNumbers']),
       email: map['email'] as String?,
-      labelId: map['labelId'] as String?, // Changed from label to labelId
+      labelIds: map['labelIds'] != null ? List<String>.from(map['labelIds']) : null, // Changed from labelId to labelIds
       avatar: map['avatar'] as String?,
       website: map['website'] as String?,
       group: map['group'] as String?,
@@ -62,7 +62,7 @@ class Contact extends BaseEntity {
     String? name,
     List<String>? phoneNumbers,
     String? email,
-    String? labelId, // Changed from label to labelId
+    List<String>? labelIds, // Changed from labelId to labelIds
     String? avatar,
     String? website,
     String? group,
@@ -74,7 +74,7 @@ class Contact extends BaseEntity {
       name: name ?? this.name,
       phoneNumbers: phoneNumbers ?? this.phoneNumbers,
       email: email ?? this.email,
-      labelId: labelId ?? this.labelId, // Changed from label to labelId
+      labelIds: labelIds ?? this.labelIds, // Changed from labelId to labelIds
       avatar: avatar ?? this.avatar,
       website: website ?? this.website,
       group: group ?? this.group,

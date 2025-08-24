@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/core/provider/basic_provider/rule_repository_pr
 import 'package:yourcallyourrule/core/provider/labels_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/contact_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/remote_number_service_provider.dart';
+
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
 
@@ -31,11 +31,11 @@ import 'package:yourcallyourrule/features/contacts/services/contact_service.dart
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
-import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored_with_ads.dart';
 import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page_with_ads.dart';
+import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_service_provider.dart';
 import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page.dart';
 import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page_with_ads.dart';
 import 'package:yourcallyourrule/features/rules/pages/regex_rule_page.dart';

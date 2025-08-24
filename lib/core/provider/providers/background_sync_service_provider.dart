@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/provider/providers/incremental_sync_manager_provider.dart';
 
 import 'package:yourcallyourrule/core/services/background_sync_service.dart';
 
@@ -6,8 +7,11 @@ import 'package:yourcallyourrule/core/services/background_sync_service.dart';
 /// 提供BackgroundSyncService实例
 final backgroundSyncServiceProvider = Provider<BackgroundSyncService>(
   (ref) {
-    // 创建BackgroundSyncService实例
-    final syncService = BackgroundSyncService();
+    // 从其他Provider获取IncrementalSyncManager的实例
+    final syncManager = ref.watch(incrementalSyncManagerProvider);
+    
+    // 创建BackgroundSyncService实例并传入依赖
+    final syncService = BackgroundSyncService(syncManager);
     
     // 在ref被释放时释放资源
     ref.onDispose(() {

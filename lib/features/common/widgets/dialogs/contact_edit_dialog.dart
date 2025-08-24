@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -41,7 +42,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
   late TextEditingController _nameController;
   late TextEditingController _phoneController;
   late TextEditingController _emailController;
-  String? _selectedLabelId;
+  late List<String> _selectedLabelIds;
   bool _isProcessing = false;
 
   @override
@@ -49,12 +50,10 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
     super.initState();
     _nameController = TextEditingController(text: widget.contact?.name ?? '');
     _phoneController = TextEditingController(
-      text: widget.contact!.phoneNumbers.isNotEmpty 
-          ? widget.contact!.phoneNumbers.join(', ') 
-          : '',
+      text: widget.contact?.phoneNumbers.join(', ') ?? '',
     );
     _emailController = TextEditingController(text: widget.contact?.email ?? '');
-    _selectedLabelId = widget.contact?.labelId;
+    _selectedLabelIds = widget.contact?.labelIds?.toList() ?? [];
   }
 
   @override
@@ -91,7 +90,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
           name: _nameController.text,
           phoneNumbers: _phoneController.text.split(',').map((e) => e.trim()).toList(),
           email: _emailController.text.isNotEmpty ? _emailController.text : null,
-          labelId: _selectedLabelId,
+          labelIds: _selectedLabelIds,
         );
         await contactService.update(updatedContact);
       } else {
@@ -101,7 +100,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
           name: _nameController.text,
           phoneNumbers: _phoneController.text.split(',').map((e) => e.trim()).toList(),
           email: _emailController.text.isNotEmpty ? _emailController.text : null,
-          labelId: _selectedLabelId,
+          labelIds: _selectedLabelIds,
         );
         await contactService.addContact(newContact);
       }
@@ -144,6 +143,38 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
         });
       }
     }
+  }
+
+  Widget _buildLabelChips() {
+    if (_selectedLabelIds.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Wrap(
+      spacing: 8.0,
+      runSpacing: 4.0,
+      children: _selectedLabelIds.map((labelId) {
+        return FutureBuilder<String?>(
+          future: ref.read(predefinedLabelServiceProvider).getLabelById(labelId).then((label) => label?.text),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Chip(label: SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2)));
+            }
+            if (snapshot.hasData && snapshot.data != null) {
+              return Chip(
+                label: Text(snapshot.data!),
+                onDeleted: () {
+                  setState(() {
+                    _selectedLabelIds.remove(labelId);
+                  });
+                },
+                deleteIconColor: widget.themeColor,
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        );
+      }).toList(),
+    );
   }
 
   @override
@@ -201,13 +232,17 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
               ),
               keyboardType: TextInputType.emailAddress,
             ),
+            const SizedBox(height: 16),
+            _buildLabelChips(),
             const SizedBox(height: 8),
             PublicSelectLabel(
-              initialLabelId: _selectedLabelId,
+              initialLabelId: null, // Always allow adding a new label
               onLabelIdChanged: (labelId) {
-                setState(() {
-                  _selectedLabelId = labelId;
-                });
+                if (labelId != null && !_selectedLabelIds.contains(labelId)) {
+                  setState(() {
+                    _selectedLabelIds.add(labelId);
+                  });
+                }
               },
               themeColor: widget.themeColor,
             ),

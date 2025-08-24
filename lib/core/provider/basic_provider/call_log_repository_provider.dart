@@ -1,45 +1,47 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/repositories/call_log_repository.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_call_log_datasource.dart';
 
-import 'database_service_provider.dart';
+import '../datasource/local_call_log_datasource_provider.dart';
+
+import 'package:yourcallyourrule/data/models/call/call_log_model.dart';
 
 /// 通话日志仓库提供者
 final callLogRepositoryProvider = Provider<CallLogRepository>((ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
+  final localCallLogDataSource = ref.watch(localCallLogDataSourceProvider);
   // 返回通话日志仓库实现
-  return CallLogRepositoryImpl(databaseService);
+  return CallLogRepositoryImpl(localCallLogDataSource);
 });
 
 /// 通话日志仓库实现类
 class CallLogRepositoryImpl implements CallLogRepository {
-  final DatabaseService _databaseService;
+  final LocalCallLogDataSource _dataSource;
 
-  CallLogRepositoryImpl(this._databaseService);
+  CallLogRepositoryImpl(this._dataSource);
 
   @override
   Future<List<CallLog>> getAll() async {
-    final maps = await _databaseService.queryAll('calls');
+    final maps = await _dataSource.queryAll();
     return maps.map((map) => fromMap(map)).toList();
   }
 
   @override
   Future<CallLog?> getById(String id) async {
-    final map = await _databaseService.queryById('calls', id);
+    final map = await _dataSource.queryById(id);
     if (map == null) return null;
     return fromMap(map);
   }
 
   @override
   Future<CallLog> save(CallLog entity) async {
-    await _databaseService.insert('calls', entity.toMap());
+    await _dataSource.insert(CallLogModel.fromEntity(entity));
     return entity;
   }
 
   @override
   Future<CallLog> update(CallLog entity) async {
-    await _databaseService.update('calls', entity.id, entity.toMap());
+    await _dataSource.update(CallLogModel.fromEntity(entity));
     return entity;
   }
 
@@ -50,7 +52,7 @@ class CallLogRepositoryImpl implements CallLogRepository {
 
   @override
   Future<bool> deleteById(String id) async {
-    await _databaseService.delete('calls', id);
+    await _dataSource.delete(id);
     return true;
   }
 
@@ -129,14 +131,7 @@ class CallLogRepositoryImpl implements CallLogRepository {
     ).toList();
   }
 
-  @override
-  Stream<List<CallLog>> watchLogs() {
-    // 监视通话日志变化
-    // 使用数据库变更监控机制
-    return _databaseService
-        .watchTable('calls')
-        .map((maps) => maps.map((map) => fromMap(map)).toList());
-  }
+
 
   @override
   Future<int> deleteLogsByDateRange(
@@ -160,6 +155,13 @@ class CallLogRepositoryImpl implements CallLogRepository {
         .toList();
   }
 
+
+
+  @override
+  Future<void> addLog(CallLog log) async {
+    await save(log);
+  }
+
   @override
   Future<List<CallLog>> getUnreadLogs() async {
     // 获取最近的未读通话记录
@@ -174,9 +176,14 @@ class CallLogRepositoryImpl implements CallLogRepository {
     // 实现标记通话记录为已读的逻辑
     final log = await getById(logId);
     if (log != null) {
-      final map = log.toMap();
-      map['isRead'] = true;
-      await _databaseService.update('calls', logId, map);
+      // CallLog entity may not have isRead, so we handle it as a map
+      // to stay consistent with the original logic.
+      final callLogModel = await _dataSource.getById(logId);
+      if (callLogModel != null) {
+        final map = callLogModel.toMap();
+        map['isRead'] = true;
+        await _dataSource.update(CallLogModel.fromMap(map));
+      }
     }
   }
 
@@ -199,7 +206,7 @@ class CallLogRepositoryImpl implements CallLogRepository {
   }
 
   @override
-  Future<void> addLog(CallLog log) async {
-    await save(log);
+  Stream<List<CallLog>> watchLogs() {
+    return _dataSource.watchAll().map((maps) => maps.map((map) => fromMap(map)).toList());
   }
 }

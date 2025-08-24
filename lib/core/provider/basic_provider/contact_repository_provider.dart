@@ -4,36 +4,63 @@ import 'package:yourcallyourrule/core/entities/phone/phone_entry.dart';
 import 'package:yourcallyourrule/core/entities/phone/phone_entry_impl.dart';
 import 'package:yourcallyourrule/core/repositories/contact_repository.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_contact_datasource.dart';
+import 'package:yourcallyourrule/data/models/contact_model.dart';
 
-import 'database_service_provider.dart';
+import '../datasource/local_contact_datasource_provider.dart';
 
 /// 联系人仓库提供者
 final contactRepositoryProvider = Provider<ContactRepository>((ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
+  final localContactDataSource = ref.watch(localContactDataSourceProvider);
   // 返回联系人仓库实现
-  return ContactRepositoryImpl(databaseService);
+  return ContactRepositoryImpl(localContactDataSource);
 });
 
 /// 联系人仓库实现类
 class ContactRepositoryImpl implements ContactRepository {
-  final DatabaseService _databaseService;
+  final LocalContactDataSource _localContactDataSource;
 
-  ContactRepositoryImpl(this._databaseService);
+  ContactRepositoryImpl(this._localContactDataSource);
+
+  @override
+  Contact fromMap(Map<String, dynamic> map) {
+    return _toEntity(ContactModel.fromMap(map));
+  }
+
+  @override
+  Future<List<Contact>> getAll() async {
+    final contactModels = await _localContactDataSource.getAll();
+    return contactModels.map(_toEntity).toList();
+  }
+
+  @override
+  Future<Contact?> getById(String id) async {
+    final model = await _localContactDataSource.getById(id);
+    if (model != null) {
+      return _toEntity(model);
+    }
+    return null;
+  }
+
+  @override
+  Future<Contact> update(Contact entity) async {
+    final model = _toModel(entity);
+    await _localContactDataSource.update(model);
+    return entity;
+  }
+
 
   @override
   Future<void> deleteContactByUrl(String url) async {
-    final maps = await _databaseService.queryWhere('contacts', 'url', url);
-    if (maps.isNotEmpty) {
-      final contactId = maps.first['id'] as String;
-      await deleteById(contactId);
-    }
+    final contacts = await _localContactDataSource.getAll();
+    final contactToDelete = contacts.firstWhere((contact) => contact.url == url, orElse: () => throw Exception('Contact not found'));
+    await _localContactDataSource.delete(contactToDelete.id);
   }
 
   @override
   Future<bool> contactExists(PhoneNumber phoneNumber) async {
-    final contact = await findContactByPhoneNumber(phoneNumber);
-    return contact != null;
+    final contactModel = await _localContactDataSource.getByPhoneNumber(phoneNumber.value);
+    return contactModel != null;
   }
 
   @override
@@ -48,111 +75,136 @@ class ContactRepositoryImpl implements ContactRepository {
 
   @override
   Future<Contact?> findContactByPhoneNumber(PhoneNumber phoneNumber) async {
-    return await getContactByPhone(phoneNumber);
+    final contactModel = await _localContactDataSource.getByPhoneNumber(phoneNumber.value);
+    return contactModel != null ? _toEntity(contactModel) : null;
+  }
+
+
+
+  @override
+  Future<bool> deleteById(String id) async {
+    try {
+      await _localContactDataSource.delete(id);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Contact _toEntity(ContactModel model) {
+    return Contact(
+      id: model.id,
+      name: model.name,
+      phoneNumbers: [model.phoneNumber], // Assuming phoneNumber is a single string
+      email: null, // email is not in ContactModel
+      labelIds: model.labelIds,
+      avatar: model.avatar,
+      website: null, // website is not in ContactModel
+      group: null, // group is not in ContactModel
+      url: model.url,
+      isFavorite: model.isFavorite,
+    );
+  }
+
+  ContactModel _toModel(Contact entity) {
+    return ContactModel(
+      id: entity.id,
+      name: entity.name,
+      phoneNumber: entity.phoneNumbers.isNotEmpty ? entity.phoneNumbers.first : '',
+      labelIds: entity.labelIds,
+      avatar: entity.avatar,
+      note: null, // note is not in Contact
+      isFavorite: entity.isFavorite,
+      lastUpdated: DateTime.now(),
+      url: entity.url,
+    );
+  }
+
+
+
+  @override
+  Future<bool> addToFavorites(String contactId) async {
+    final contactModel = await _localContactDataSource.getById(contactId);
+    if (contactModel != null) {
+      final updatedContact = contactModel.copyWith(isFavorite: true);
+      await _localContactDataSource.update(updatedContact);
+      return true;
+    }
+    return false;
+  }
+
+  @override
+  Future<int> count() async {
+    return await _localContactDataSource.count();
+  }
+
+  @override
+  Future<bool> delete(Contact entity) async {
+    try {
+      await _localContactDataSource.delete(entity.id);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  @override
+  Future<bool> deleteAll(List<Contact> entities) async {
+    try {
+      for (final entity in entities) {
+        await _localContactDataSource.delete(entity.id);
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   @override
   Future<void> deleteContact(PhoneNumber phoneNumber) async {
     final contact = await findContactByPhoneNumber(phoneNumber);
     if (contact != null) {
-      await delete(contact);
+      await _localContactDataSource.delete(contact.id);
     }
   }
 
   @override
   Future<void> deleteContacts(List<PhoneNumber> phoneNumbers) async {
-    for (var phoneNumber in phoneNumbers) {
-      await deleteContact(phoneNumber);
+    for (final phone in phoneNumbers) {
+      await deleteContact(phone);
     }
   }
 
   @override
-  Future<void> updateContact(Contact contact) async {
-    await update(contact);
+  Future<List<Map<String, dynamic>>> exportContactsData() async {
+    final contacts = await _localContactDataSource.getAll();
+    return contacts.map((contact) => contact.toMap()).toList();
   }
 
   @override
-  Future<void> addContact(Contact contact) async {
-    await save(contact);
+  Future<bool> exists(String id) async {
+    final contact = await _localContactDataSource.getById(id);
+    return contact != null;
   }
 
   @override
-  Future<List<Contact>> getAllContacts() async {
-    return await getAll();
+  Future<List<Contact>> findAll() {
+    return getAllContacts();
   }
 
   @override
-  Future<Contact?> getContactByPhone(PhoneNumber phoneNumber) async {
-    final maps = await _databaseService.queryAll('contacts');
-    for (var map in maps) {
-      final contact = fromMap(map);
-      for (var phoneStr in contact.phoneNumbers) {
-        if (phoneStr == phoneNumber.value) {
-          return contact;
-        }
-      }
+  Future<Contact?> findById(String id) async {
+    final model = await _localContactDataSource.getById(id);
+    if (model != null) {
+      return _toEntity(model);
     }
     return null;
   }
 
   @override
-  Future<List<PhoneEntry>> searchByName(String name) async {
-    final maps = await _databaseService.queryLike('contacts', 'name', name);
-    List<PhoneEntry> results = [];
-    for (var map in maps) {
-      final contact = fromMap(map);
-      final phoneEntries = contact.phoneNumbers
-          .map((p) => PhoneEntryImpl(
-            id: '${contact.id}_$p',
-            phoneNumber: PhoneNumber(p),
-            name: contact.name,
-            avatar: contact.avatar
-          ))
-          .toList();
-      results.addAll(phoneEntries);
-    }
-    return results;
-  }
-
-  Future<List<PhoneEntry>> searchContactsByNumber(String number) async {
-    final maps = await _databaseService.queryAll('contacts');
-    List<PhoneEntry> results = [];
-    for (var map in maps) {
-      final contact = fromMap(map);
-      for (var phoneStr in contact.phoneNumbers) {
-        if (phoneStr.contains(number)) {
-          // 将匹配的电话号码转换为PhoneEntry
-          results.add(PhoneEntryImpl(
-            id: '${contact.id}_$phoneStr',
-            phoneNumber: PhoneNumber(phoneStr),
-            name: contact.name,
-            avatar: contact.avatar
-          ));
-        }
-      }
-    }
-    return results;
-  }
-
-  @override
-  Future<List<PhoneEntry>> searchByNumber(String number) async {
-    final maps =
-        await _databaseService.queryLike('contacts', 'phoneNumbers', number);
-    List<PhoneEntry> results = [];
-    for (var map in maps) {
-      final contact = fromMap(map);
-      // 将phoneNumbers转换为PhoneEntry列表
-      final phoneEntries = contact.phoneNumbers
-          .map((p) => PhoneEntryImpl(
-            id: '${contact.id}_$p',
-            phoneNumber: PhoneNumber(p),
-            name: contact.name,
-            avatar: contact.avatar
-          ))
-          .toList();
-      results.addAll(phoneEntries);
-    }
-    return results;
+  Future<List<Contact>> getAllContacts() async {
+    final contactModels = await _localContactDataSource.getAll();
+    return contactModels.map(_toEntity).toList();
   }
 
   @override
@@ -161,7 +213,6 @@ class ContactRepositoryImpl implements ContactRepository {
     contacts.sort((a, b) => a.name.compareTo(b.name));
     List<PhoneEntry> results = [];
     for (var contact in contacts) {
-      // 将联系人的电话号码转换为PhoneEntry列表
       final phoneEntries = contact.phoneNumbers
           .map((p) => PhoneEntryImpl(
             id: '${contact.id}_$p',
@@ -173,16 +224,42 @@ class ContactRepositoryImpl implements ContactRepository {
       results.addAll(phoneEntries);
     }
     return results;
+  }
+
+  @override
+  Future<Contact?> getContactByPhone(PhoneNumber phoneNumber) {
+    return findContactByPhoneNumber(phoneNumber);
+  }
+
+  @override
+  Future<int> getContactCount() {
+    return count();
+  }
+
+  @override
+  Future<List<Contact>> getContactsByLabel(String labelId) async {
+    final allContacts = await getAllContacts();
+    return allContacts.where((c) => c.labelIds?.contains(labelId) ?? false).toList();
+  }
+
+  @override
+  Future<List<Contact>> getContactsByList(String listId) async {
+    final allContacts = await getAllContacts();
+    return allContacts.where((c) => c.group == listId).toList();
+  }
+
+  @override
+  Future<List<PhoneEntry>> getFavorites() async {
+    final allContacts = await getAllContacts();
+    return allContacts.where((c) => c.isFavorite).map((e) => PhoneEntryImpl.fromContact(e)).toList();
   }
 
   @override
   Future<List<PhoneEntry>> getRecentlyAdded(int limit) async {
     final contacts = await getAll();
-    // 按照ID排序，假设ID包含时间信息或者最近添加的ID较大
     contacts.sort((a, b) => b.id.compareTo(a.id));
     List<PhoneEntry> results = [];
     for (var contact in contacts.take(limit)) {
-      // 将联系人的电话号码转换为PhoneEntry列表
       final phoneEntries = contact.phoneNumbers
           .map((p) => PhoneEntryImpl(
             id: '${contact.id}_$p',
@@ -196,165 +273,33 @@ class ContactRepositoryImpl implements ContactRepository {
     return results;
   }
 
-  @override
-  Future<List<Contact>> getAll() async {
-    final maps = await _databaseService.queryAll('contacts');
-    return maps.map((map) => fromMap(map)).toList();
-  }
-
-  @override
-  Future<Contact?> getById(String id) async {
-    final map = await _databaseService.queryById('contacts', id);
-    if (map == null) return null;
-    return fromMap(map);
-  }
-
-  @override
-  Future<Contact> save(Contact entity) async {
-    await _databaseService.insert('contacts', entity.toMap());
-    return entity;
-  }
-
-  @override
-  Future<Contact> update(Contact entity) async {
-    await _databaseService.update('contacts', entity.id, entity.toMap());
-    return entity;
-  }
-
-  @override
-  Future<bool> delete(Contact entity) async {
-    return await deleteById(entity.id);
-  }
-
-  @override
-  Future<bool> deleteById(String id) async {
-    await _databaseService.delete('contacts', id);
-    return true;
-  }
-
-  @override
-  Future<bool> deleteAll(List<Contact> entities) async {
-    for (var entity in entities) {
-      await deleteById(entity.id);
-    }
-    return true;
-  }
-
-  @override
-  Future<List<Contact>> saveAll(List<Contact> entities) async {
-    for (var entity in entities) {
-      await save(entity);
-    }
-    return entities;
-  }
-
-  @override
-  Future<bool> exists(String id) async {
-    final entity = await getById(id);
-    return entity != null;
-  }
-
-  @override
-  Future<int> count() async {
-    final contacts = await getAll();
-    return contacts.length;
-  }
-
-  @override
-  Contact fromMap(Map<String, dynamic> map) {
-    return Contact.fromMap(map);
-  }
-  
   @override
   Future<List<PhoneEntry>> getRecentlyContacted(int limit) async {
-    // 由于没有联系时间信息，这里简单返回最近添加的联系人
     return getRecentlyAdded(limit);
   }
-  
+
   @override
-  Future<bool> addToFavorites(String contactId) async {
-    final contact = await getById(contactId);
-    if (contact == null) return false;
-    
-    // 使用isFavorite字段标记收藏状态
-    final updatedContact = contact.copyWith(isFavorite: true);
-    await update(updatedContact);
-    return true;
-  }
-  
-  @override
-  Future<bool> removeFromFavorites(String contactId) async {
-    final contact = await getById(contactId);
-    if (contact == null) return false;
-    
-    // 如果当前是收藏状态，则取消收藏
-    if (contact.isFavorite) {
-      final updatedContact = contact.copyWith(isFavorite: false);
-      await update(updatedContact);
+  Future<List<PhoneEntry>> importContacts(List<PhoneEntry> contacts) async {
+    List<PhoneEntry> importedContacts = [];
+    for (var phoneEntry in contacts) {
+      if (!await contactExists(phoneEntry.phoneNumber)) {
+        final contact = Contact(
+          id: '${DateTime.now().millisecondsSinceEpoch}_${phoneEntry.id}',
+          name: phoneEntry.name ?? phoneEntry.phoneNumber.value,
+          phoneNumbers: [phoneEntry.phoneNumber.value],
+          avatar: phoneEntry.avatar
+        );
+        await save(contact);
+        importedContacts.add(phoneEntry);
+      }
     }
-    return true;
+    return importedContacts;
   }
-  
-  @override
-  Future<List<PhoneEntry>> getFavorites() async {
-    final maps = await _databaseService.queryWhere('contacts', 'isFavorite', true);
-    List<PhoneEntry> results = [];
-    for (var map in maps) {
-      final contact = fromMap(map);
-      final phoneEntries = contact.phoneNumbers
-          .map((p) => PhoneEntryImpl(
-            id: '${contact.id}_$p',
-            phoneNumber: PhoneNumber(p),
-            name: contact.name,
-            avatar: contact.avatar
-          ))
-          .toList();
-      results.addAll(phoneEntries);
-    }
-    return results;
-  }
-  
-  @override
-  Future<List<Contact>> getContactsByLabel(String labelId) async {
-    final maps = await _databaseService.queryWhere('contacts', 'label', labelId);
-    return maps.map((map) => fromMap(map)).toList();
-  }
-  
-  @override
-  Future<List<Contact>> getContactsByList(String listId) async {
-    // 假设联系人的group字段表示所属列表
-    final maps = await _databaseService.queryWhere('contacts', 'group', listId);
-    return maps.map((map) => fromMap(map)).toList();
-  }
-  
-  @override
-  Future<bool> addContactToList(String contactId, String listId) async {
-    final contact = await getById(contactId);
-    if (contact == null) return false;
-    
-    final updatedContact = contact.copyWith(group: listId);
-    await update(updatedContact);
-    return true;
-  }
-  
-  @override
-  Future<bool> removeContactFromList(String contactId, String listId) async {
-    final contact = await getById(contactId);
-    if (contact == null) return false;
-    
-    // 只有当联系人确实在指定列表中时才移除
-    if (contact.group == listId) {
-      final updatedContact = contact.copyWith(group: null);
-      await update(updatedContact);
-    }
-    return true;
-  }
-  
+
   @override
   Future<int> importContactsList(List<Contact> contacts) async {
     int count = 0;
     for (var contact in contacts) {
-      // 检查联系人是否已存在
       bool exists = false;
       for (var phoneNumber in contact.phoneNumbers) {
         if (await contactExists(PhoneNumber(phoneNumber))) {
@@ -362,7 +307,6 @@ class ContactRepositoryImpl implements ContactRepository {
           break;
         }
       }
-      
       if (!exists) {
         await save(contact);
         count++;
@@ -370,20 +314,11 @@ class ContactRepositoryImpl implements ContactRepository {
     }
     return count;
   }
-  
-  @override
-  Future<List<Map<String, dynamic>>> exportContactsData() async {
-    final contacts = await getAll();
-    return contacts.map((contact) => contact.toMap()).toList();
-  }
-  
+
   @override
   Future<int> mergeDuplicates() async {
-    // 简单实现：按电话号码查找重复联系人并合并
     final contacts = await getAll();
     Map<String, List<Contact>> phoneToContacts = {};
-    
-    // 按电话号码分组联系人
     for (var contact in contacts) {
       for (var phone in contact.phoneNumbers) {
         if (!phoneToContacts.containsKey(phone)) {
@@ -392,14 +327,10 @@ class ContactRepositoryImpl implements ContactRepository {
         phoneToContacts[phone]!.add(contact);
       }
     }
-    
     int mergedCount = 0;
-    
-    // 合并具有相同电话号码的联系人
     for (var phone in phoneToContacts.keys) {
       final duplicates = phoneToContacts[phone]!;
       if (duplicates.length > 1) {
-        // 保留第一个联系人，删除其他重复项
         final primaryContact = duplicates.first;
         for (var i = 1; i < duplicates.length; i++) {
           await delete(duplicates[i]);
@@ -407,38 +338,77 @@ class ContactRepositoryImpl implements ContactRepository {
         }
       }
     }
-    
     return mergedCount;
   }
-  
+
   @override
-  Future<List<PhoneEntry>> importContacts(List<PhoneEntry> contacts) async {
-    List<PhoneEntry> importedContacts = [];
-    
-    for (var phoneEntry in contacts) {
-      // 检查是否已存在该电话号码的联系人
-      if (!await contactExists(phoneEntry.phoneNumber)) {
-        // 创建新联系人
-        final contact = Contact(
-          id: '${DateTime.now().millisecondsSinceEpoch}_${phoneEntry.id}',
-          name: phoneEntry.name ?? phoneEntry.phoneNumber.value,
-          phoneNumbers: [phoneEntry.phoneNumber.value],
-          avatar: phoneEntry.avatar
-        );
-        
-        await save(contact);
-        importedContacts.add(phoneEntry);
-      }
+  Future<bool> removeFromFavorites(String contactId) async {
+    final contactModel = await _localContactDataSource.getById(contactId);
+    if (contactModel != null) {
+      final updatedContact = contactModel.copyWith(isFavorite: false);
+      await _localContactDataSource.update(updatedContact);
+      return true;
     }
-    
-    return importedContacts;
+    return false;
+  }
+
+  @override
+  Future<Contact> save(Contact entity) async {
+    final model = _toModel(entity);
+    await _localContactDataSource.insert(model);
+    return entity;
+  }
+
+  @override
+  Future<List<Contact>> saveAll(List<Contact> entities) async {
+    final List<Contact> savedEntities = [];
+    for (final entity in entities) {
+      await save(entity);
+      savedEntities.add(entity);
+    }
+    return savedEntities;
+  }
+
+  @override
+  Future<List<PhoneEntry>> searchByName(String name) async {
+    final allContacts = await getAllContacts();
+    return allContacts.where((c) => c.name.toLowerCase().contains(name.toLowerCase())).map((e) => PhoneEntryImpl.fromContact(e)).toList();
+  }
+
+  @override
+  Future<bool> addContactToList(String contactId, String listId) {
+    // Assuming listId is a labelId
+    return _addOrRemoveLabel(contactId, listId, true);
+  }
+
+  @override
+  Future<bool> removeContactFromList(String contactId, String listId) {
+    // Assuming listId is a labelId
+    return _addOrRemoveLabel(contactId, listId, false);
+  }
+
+  Future<bool> _addOrRemoveLabel(String contactId, String labelId, bool isAdding) async {
+    final contactModel = await _localContactDataSource.getById(contactId);
+    if (contactModel != null) {
+      final labelIds = contactModel.labelIds?.toList() ?? [];
+      if (isAdding) {
+        if (!labelIds.contains(labelId)) {
+          labelIds.add(labelId);
+        }
+      } else {
+        labelIds.remove(labelId);
+      }
+      final updatedContact = contactModel.copyWith(labelIds: labelIds);
+      await _localContactDataSource.update(updatedContact);
+      return true;
+    }
+    return false;
   }
   
   @override
   Future<List<PhoneEntry>> exportContacts() async {
     final contacts = await getAll();
     List<PhoneEntry> phoneEntries = [];
-    
     for (var contact in contacts) {
       for (var phone in contact.phoneNumbers) {
         phoneEntries.add(PhoneEntryImpl(
@@ -449,19 +419,23 @@ class ContactRepositoryImpl implements ContactRepository {
         ));
       }
     }
-    
     return phoneEntries;
   }
-  
+
   @override
   Future<void> syncWithDeviceContacts() async {
-    // 此方法需要平台特定实现，这里只是一个占位符
-    // 实际实现需要使用平台特定的联系人API
+    // This method requires a platform-specific implementation.
+    // For now, it's a placeholder.
     return;
   }
-  
+
   @override
-  Future<int> getContactCount() async {
-    return count();
+  Future<void> addContact(Contact contact) async {
+    await save(contact);
+  }
+
+  @override
+  Future<void> updateContact(Contact contact) async {
+    await update(contact);
   }
 }

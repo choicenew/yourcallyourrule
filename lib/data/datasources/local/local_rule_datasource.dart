@@ -382,6 +382,32 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
     });
   }
 
+  // 获取禁用的规则
+  Future<List<RuleModel>> getDisabledRules() async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'isEnabled = ?',
+      whereArgs: [0],
+    );
+
+    return List.generate(maps.length, (i) {
+      final map = maps[i];
+      // 根据规则类型创建不同的规则模型
+      switch (map['ruleType']) {
+        case 'phone_rule':
+        case 'white_black': // 兼容旧数据
+          return PhoneRuleModel.fromMap(map);
+        case 'regex':
+          return RegexRuleModel.fromMap(map);
+        case 'allow_block': // 新增allow类block类型处理
+          return AllowedBlockedRuleModel.fromMap(map);
+        default:
+          throw Exception('Unknown rule type: ${map['ruleType']}');
+      }
+    });
+  }
+
   // 根据优先级获取规则
   Future<List<RuleModel>> getByPriority(int priority) async {
     final db = await _databaseManager.database;
@@ -403,6 +429,31 @@ class LocalRuleDataSource implements LocalDataSource<RuleModel> {
 
         case 'allow_block': // 新增allow类block类型处理
 
+          return AllowedBlockedRuleModel.fromMap(map);
+        default:
+          throw Exception('Unknown rule type: ${map['ruleType']}');
+      }
+    });
+  }
+
+  // 根据名称搜索规则
+  Future<List<RuleModel>> searchByName(String name) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'name LIKE ?',
+      whereArgs: ['%$name%'],
+    );
+
+    return List.generate(maps.length, (i) {
+      final map = maps[i];
+      // 根据规则类型创建不同的规则模型
+      switch (map['ruleType']) {
+        case 'phone_rule':
+          return PhoneRuleModel.fromMap(map);
+        case 'regex':
+          return RegexRuleModel.fromMap(map);
+        case 'allow_block':
           return AllowedBlockedRuleModel.fromMap(map);
         default:
           throw Exception('Unknown rule type: ${map['ruleType']}');

@@ -9159,6 +9159,96 @@ abstract class AppLocalizations {
   /// **'Edit Subscription'**
   String get editSubscription;
 
+  /// No description provided for @searchByNameOrPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Search By Name or PhoneNumber'**
+  String get searchByNameOrPhoneNumber;
+
+  /// No description provided for @allowedBlockedRulesInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Allowed/blocked rules are used to match calls to specific phone numbers, which have the highest priority.'**
+  String get allowedBlockedRulesInfo;
+
+  /// No description provided for @searchPhoneRulesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search phone rules'**
+  String get searchPhoneRulesHint;
+
+  /// No description provided for @phoneRulesInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone rules are used to match calls to specific phone numbers, which havve a lower priority. Some comes from the phoneRule subscriptions'**
+  String get phoneRulesInfo;
+
+  /// No description provided for @searchSubscriptionsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search subscriptions'**
+  String get searchSubscriptionsHint;
+
+  /// No description provided for @searchPluginsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search plugins'**
+  String get searchPluginsHint;
+
+  /// No description provided for @searchLabelsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search labels'**
+  String get searchLabelsHint;
+
+  /// No description provided for @pluginDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin description'**
+  String get pluginDescription;
+
+  /// No description provided for @enterPluginDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter plugin description'**
+  String get enterPluginDescription;
+
+  /// No description provided for @searchRegexRulesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search regex rules'**
+  String get searchRegexRulesHint;
+
+  /// No description provided for @regexRulesInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Regex rules are used to filter calls based on the Regex Patterns.'**
+  String get regexRulesInfo;
+
+  /// No description provided for @searchMarkedPhonesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search marked phones'**
+  String get searchMarkedPhonesHint;
+
+  /// No description provided for @searchContactSubscriptionsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search contact subscriptions'**
+  String get searchContactSubscriptionsHint;
+
+  /// No description provided for @showAllContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Show All Contacts'**
+  String get showAllContacts;
+
+  /// No description provided for @showFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Favorites'**
+  String get showFavorites;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:

@@ -1,3 +1,5 @@
+import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
+
 import '../../value_objects/phone_number.dart';
 import 'phone_entry.dart';
 
@@ -15,6 +17,15 @@ class PhoneEntryImpl extends PhoneEntry {
       phoneNumber: PhoneNumber(map['phoneNumber'] as String),
       name: map['name'] as String?,
       avatar: map['avatar'] as String?,
+    );
+  }
+
+  factory PhoneEntryImpl.fromContact(Contact contact) {
+    return PhoneEntryImpl(
+      id: contact.id,
+      phoneNumber: PhoneNumber(contact.phoneNumbers.isNotEmpty ? contact.phoneNumbers.first : ''),
+      name: contact.name,
+      avatar: contact.avatar,
     );
   }
 }

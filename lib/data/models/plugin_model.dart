@@ -6,6 +6,7 @@ class PluginModel extends BaseModel<PluginEntry> {
   final String name;
   final String url;
   final String version;
+  final String description;
   final bool isEnabled;
   final int pluginOrder;
   final bool isAutoUpdate;
@@ -15,6 +16,7 @@ class PluginModel extends BaseModel<PluginEntry> {
     required this.name,
     required this.url,
     required this.version,
+    required this.description,
     required this.isEnabled,
     required this.pluginOrder,
     required this.isAutoUpdate,
@@ -26,6 +28,7 @@ class PluginModel extends BaseModel<PluginEntry> {
       name: entity.name,
       url: entity.url,
       version: entity.version,
+      description: entity.description,
       isEnabled: entity.isEnabled,
       pluginOrder: entity.pluginOrder,
       isAutoUpdate: entity.isAutoUpdate,
@@ -39,6 +42,7 @@ class PluginModel extends BaseModel<PluginEntry> {
       name: name,
       url: url,
       version: version,
+      description: description,
       isEnabled: isEnabled,
       pluginOrder: pluginOrder,
       isAutoUpdate: isAutoUpdate,
@@ -52,6 +56,7 @@ class PluginModel extends BaseModel<PluginEntry> {
       'name': name,
       'url': url,
       'version': version,
+      'description': description,
       'isEnabled': isEnabled ? 1 : 0,
       'pluginOrder': pluginOrder,
       'isAutoUpdate': isAutoUpdate ? 1 : 0,

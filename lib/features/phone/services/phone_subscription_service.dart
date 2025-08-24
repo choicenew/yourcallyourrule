@@ -76,7 +76,43 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
 
   @override
   Future<bool> deleteSubscription(String id) async {
+    // 先获取订阅信息
+    final subscription = await getById(id);
+    if (subscription != null) {
+      // 删除与此订阅关联的规则
+      await deleteRulesFromSubscription(subscription);
+    }
+    // 然后删除订阅本身
     return await deleteById(id);
+  }
+
+  /// 删除与订阅关联的规则
+  Future<int> deleteRulesFromSubscription(Subscription subscription) async {
+    try {
+      // 获取所有已订阅的规则
+      final allRules = await _ruleRepository.getAll();
+      final subscribedRules = allRules.where((rule) {
+        if (rule is PhoneRule && rule.isSubscribed) {
+          // 检查规则的动作类型是否与订阅的动作类型匹配
+          // 这是一种启发式方法，因为我们无法直接知道规则来自哪个订阅
+          return rule.action.type == subscription.action.type;
+        }
+        return false;
+      }).toList();
+      
+      // 删除这些规则
+      int deletedCount = 0;
+      for (var rule in subscribedRules) {
+        final success = await _ruleRepository.deleteById(rule.id);
+        if (success) deletedCount++;
+      }
+      
+      debugPrint('[PhoneSubscriptionService] Deleted $deletedCount rules associated with subscription: ${subscription.name}');
+      return deletedCount;
+    } catch (e) {
+      debugPrint('[PhoneSubscriptionService] Error deleting rules: $e');
+      return 0;
+    }
   }
 
   /// 切换订阅状态

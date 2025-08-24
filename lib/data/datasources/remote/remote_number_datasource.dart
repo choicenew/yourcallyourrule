@@ -19,6 +19,7 @@ class RemoteNumberDataSource
 
   // 表名
   static const String _tableName = 'remote_numbers';
+  static const String _junctionTable = 'number_countries';
   static const String _pendingOperationsTable = 'pending_operations';
   static const String _syncTableName = 'sync_records';
 
@@ -28,12 +29,12 @@ class RemoteNumberDataSource
   Future<void> _logOperation(
     DatabaseExecutor txn,
     String operation,
-    String entityId, {
+    String phoneNumber, {
     Map<String, dynamic>? payload,
   }) async {
     await txn.insert(_pendingOperationsTable, {
       'id': const Uuid().v4(),
-      'entityId': entityId,
+      'entityId': phoneNumber, // Use phone number as entityId
       'operation': operation,
       'payload': payload != null ? jsonEncode(payload) : null,
       'timestamp': DateTime.now().toIso8601String(),
@@ -50,24 +51,9 @@ class RemoteNumberDataSource
     });
   }
 
-  // 根据ID获取远程号码
-  @override
-  Future<RemoteNumberModel?> getById(String id) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-
-    if (maps.isNotEmpty) {
-      return RemoteNumberModel.fromMap(maps.first);
-    }
-    return null;
-  }
-
   // 根据电话号码获取远程号码
-  Future<RemoteNumberModel?> getByPhoneNumber(String phoneNumber) async {
+  @override
+  Future<RemoteNumberModel?> getById(String phoneNumber) async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(
       _tableName,
@@ -81,26 +67,27 @@ class RemoteNumberDataSource
     return null;
   }
 
+  // 根据电话号码获取远程号码
+  Future<RemoteNumberModel?> getByPhoneNumber(String phoneNumber) async {
+    return getById(phoneNumber);
+  }
+
   // 插入远程号码
   @override
   Future<String> insert(RemoteNumberModel remoteNumber) async {
     final db = await _databaseManager.database;
 
-    // 如果没有ID，生成一个新的UUID
-    final String id =
-        remoteNumber.id.isEmpty ? const Uuid().v4() : remoteNumber.id;
-    final modelToInsert = remoteNumber.copyWith(id: id);
-
     await db.transaction((txn) async {
       await txn.insert(
         _tableName,
-        modelToInsert.toMap(),
+        remoteNumber.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
-      await _logOperation(txn, 'INSERT', id, payload: modelToInsert.toMap());
+      await _logOperation(txn, 'INSERT', remoteNumber.phoneNumber,
+          payload: remoteNumber.toMap());
     });
 
-    return id;
+    return remoteNumber.phoneNumber;
   }
 
   // 更新远程号码
@@ -112,11 +99,11 @@ class RemoteNumberDataSource
       result = await txn.update(
         _tableName,
         remoteNumber.toMap(),
-        where: 'id = ?',
-        whereArgs: [remoteNumber.id],
+        where: 'phoneNumber = ?',
+        whereArgs: [remoteNumber.phoneNumber],
       );
       if (result > 0) {
-        await _logOperation(txn, 'UPDATE', remoteNumber.id,
+        await _logOperation(txn, 'UPDATE', remoteNumber.phoneNumber,
             payload: remoteNumber.toMap());
       }
     });
@@ -124,33 +111,33 @@ class RemoteNumberDataSource
   }
 
   @override
-  Future<int> delete(String id) async {
+  Future<int> delete(String phoneNumber) async {
     final db = await _databaseManager.database;
     int result = 0;
     await db.transaction((txn) async {
       result = await txn.delete(
         _tableName,
-        where: 'id = ?',
-        whereArgs: [id],
+        where: 'phoneNumber = ?',
+        whereArgs: [phoneNumber],
       );
       if (result > 0) {
-        await _logOperation(txn, 'DELETE', id);
+        await _logOperation(txn, 'DELETE', phoneNumber);
       }
     });
     return result;
   }
-  
-  // 原子更新计数器（带乐观锁机制）
+
+  // 原子更新计数器
   @override
-  Future<int> atomicIncrementCount(String id, int incrementValue) async {
+  Future<int> atomicIncrementCount(String phoneNumber, int incrementValue) async {
     final db = await _databaseManager.database;
     int result = 0;
     await db.transaction((txn) async {
       final List<Map<String, dynamic>> maps = await txn.query(
         _tableName,
         columns: ['count'],
-        where: 'id = ?',
-        whereArgs: [id],
+        where: 'phoneNumber = ?',
+        whereArgs: [phoneNumber],
       );
 
       if (maps.isNotEmpty) {
@@ -162,15 +149,15 @@ class RemoteNumberDataSource
         result = await txn.update(
           _tableName,
           {'count': newCount},
-          where: 'id = ?',
-          whereArgs: [id],
+          where: 'phoneNumber = ?',
+          whereArgs: [phoneNumber],
         );
 
         if (result > 0) {
           await _logOperation(
             txn,
             'INCREMENT',
-            id,
+            phoneNumber,
             payload: {'increment': incrementValue},
           );
         }
@@ -183,23 +170,20 @@ class RemoteNumberDataSource
   @override
   Future<List<String>> insertAll(List<RemoteNumberModel> remoteNumbers) async {
     final db = await _databaseManager.database;
-    final List<String> ids = [];
+    final List<String> phoneNumbers = [];
     await db.transaction((txn) async {
       for (final remoteNumber in remoteNumbers) {
-        final String id =
-            remoteNumber.id.isEmpty ? const Uuid().v4() : remoteNumber.id;
-        final modelToInsert = remoteNumber.copyWith(id: id);
         await txn.insert(
           _tableName,
-          modelToInsert.toMap(),
+          remoteNumber.toMap(),
           conflictAlgorithm: ConflictAlgorithm.replace,
         );
-        await _logOperation(txn, 'INSERT', id,
-            payload: modelToInsert.toMap());
-        ids.add(id);
+        await _logOperation(txn, 'INSERT', remoteNumber.phoneNumber,
+            payload: remoteNumber.toMap());
+        phoneNumbers.add(remoteNumber.phoneNumber);
       }
     });
-    return ids;
+    return phoneNumbers;
   }
 
   // 批量更新远程号码
@@ -212,11 +196,11 @@ class RemoteNumberDataSource
         final int updated = await txn.update(
           _tableName,
           remoteNumber.toMap(),
-          where: 'id = ?',
-          whereArgs: [remoteNumber.id],
+          where: 'phoneNumber = ?',
+          whereArgs: [remoteNumber.phoneNumber],
         );
         if (updated > 0) {
-          await _logOperation(txn, 'UPDATE', remoteNumber.id,
+          await _logOperation(txn, 'UPDATE', remoteNumber.phoneNumber,
               payload: remoteNumber.toMap());
         }
         count += updated;
@@ -227,18 +211,18 @@ class RemoteNumberDataSource
 
   // 批量删除远程号码
   @override
-  Future<int> deleteAll(List<String> ids) async {
+  Future<int> deleteAll(List<String> phoneNumbers) async {
     final db = await _databaseManager.database;
     int count = 0;
     await db.transaction((txn) async {
-      for (final id in ids) {
+      for (final phoneNumber in phoneNumbers) {
         final int deleted = await txn.delete(
           _tableName,
-          where: 'id = ?',
-          whereArgs: [id],
+          where: 'phoneNumber = ?',
+          whereArgs: [phoneNumber],
         );
         if (deleted > 0) {
-          await _logOperation(txn, 'DELETE', id);
+          await _logOperation(txn, 'DELETE', phoneNumber);
         }
         count += deleted;
       }
@@ -250,11 +234,9 @@ class RemoteNumberDataSource
   @override
   Future<void> clear() async {
     final db = await _databaseManager.database;
-    // This is a dangerous operation. In a real-world sync scenario,
-    // we should probably log a special operation type, but for now,
-    // we just clear the table.
     await db.delete(_tableName);
-    await db.delete(_pendingOperationsTable); // Also clear pending operations
+    await db.delete(_junctionTable);
+    await db.delete(_pendingOperationsTable);
   }
 
   // --- New methods for SyncManager ---
@@ -283,7 +265,7 @@ class RemoteNumberDataSource
     await db.transaction((txn) async {
       for (final change in changes) {
         final operation = change['operation'];
-        final entityId = change['entityId'];
+        final entityId = change['entityId']; // This is phoneNumber
         final payload = change['payload'];
 
         switch (operation) {
@@ -298,16 +280,15 @@ class RemoteNumberDataSource
           case 'DELETE':
             await txn.delete(
               _tableName,
-              where: 'id = ?',
+              where: 'phoneNumber = ?',
               whereArgs: [entityId],
             );
             break;
           case 'INCREMENT':
-            // This requires fetching the current value first.
             final List<Map<String, dynamic>> maps = await txn.query(
               _tableName,
               columns: ['count'],
-              where: 'id = ?',
+              where: 'phoneNumber = ?',
               whereArgs: [entityId],
             );
             if (maps.isNotEmpty) {
@@ -319,7 +300,7 @@ class RemoteNumberDataSource
               await txn.update(
                 _tableName,
                 {'count': newCount},
-                where: 'id = ?',
+                where: 'phoneNumber = ?',
                 whereArgs: [entityId],
               );
             }
@@ -330,17 +311,13 @@ class RemoteNumberDataSource
   }
 
   // --- Methods from Interface that are now handled by SyncManager ---
-  // We keep them to satisfy the interface but they will either be empty,
-  // throw an exception, or have a very simple implementation.
 
-  @override
   Future<bool> syncData() async {
     // This logic is now handled by IncrementalSyncManager
     throw UnimplementedError(
         'Sync logic is now handled by IncrementalSyncManager');
   }
 
-  @override
   Future<bool> incrementalSync(DateTime lastSyncTime) async {
     // This logic is now handled by IncrementalSyncManager
     throw UnimplementedError(
@@ -386,7 +363,6 @@ class RemoteNumberDataSource
     return syncRecord.id;
   }
 
-  @override
   Future<bool> needSync(int syncIntervalHours) async {
     final lastSync = await getLastSyncTime();
     if (lastSync == null) return true;
@@ -409,12 +385,8 @@ class RemoteNumberDataSource
 
   @override
   Future<bool> atomicUpdateCount(String phoneNumber, int increment) async {
-    final remoteNumber = await getByPhoneNumber(phoneNumber);
-    if (remoteNumber != null) {
-      final result = await atomicIncrementCount(remoteNumber.id, increment);
-      return result > 0;
-    }
-    return false;
+    final result = await atomicIncrementCount(phoneNumber, increment);
+    return result > 0;
   }
 
   @override
@@ -469,75 +441,125 @@ class RemoteNumberDataSource
   
   /// 删除特定国家代码的所有号码
   /// 返回删除的记录数
-  /// [countryCode] 国家的拨号代码，例如 '+86'
-  Future<int> deleteNumbersByCountryCode(String countryCode) async {
+  /// [countryIsoCode] 国家的ISO代码，例如 'US'
+  Future<int> deleteNumbersByCountry(String countryIsoCode) async {
     final db = await _databaseManager.database;
-    int count = 0;
-    
-    // 查找以该国家代码开头的所有号码
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'phoneNumber LIKE ?',
-      whereArgs: ['$countryCode%'],
-    );
-    
-    // 删除找到的号码
+    int deletedCount = 0;
+
     await db.transaction((txn) async {
-      for (final map in maps) {
-        final id = map['id'] as String;
+      // 1. Find all phone numbers for the given country ISO code
+      final numbersToDelete = await txn.query(
+        _junctionTable,
+        columns: ['phoneNumber'],
+        where: 'countryIsoCode = ?',
+        whereArgs: [countryIsoCode],
+      );
+
+      if (numbersToDelete.isEmpty) return;
+
+      final phoneNumbers = numbersToDelete.map((row) => row['phoneNumber'] as String).toList();
+
+      // 2. Delete the associations from the junction table
+      await txn.delete(
+        _junctionTable,
+        where: 'countryIsoCode = ?',
+        whereArgs: [countryIsoCode],
+      );
+
+      // 3. Find which of these numbers are now orphaned (not associated with any other country)
+      final List<String> orphanedNumbers = [];
+      for (final phoneNumber in phoneNumbers) {
+        final countResult = await txn.query(
+          _junctionTable,
+          columns: ['COUNT(*) as count'],
+          where: 'phoneNumber = ?',
+          whereArgs: [phoneNumber],
+        );
+        final count = Sqflite.firstIntValue(countResult);
+        if (count == 0) {
+          orphanedNumbers.add(phoneNumber);
+        }
+      }
+
+      // 4. Delete the orphaned numbers from the remote_numbers table
+      if (orphanedNumbers.isNotEmpty) {
         final result = await txn.delete(
           _tableName,
-          where: 'id = ?',
-          whereArgs: [id],
+          where: 'phoneNumber IN (${orphanedNumbers.map((_) => '?').join(',')})',
+          whereArgs: orphanedNumbers,
         );
-        if (result > 0) {
-          await _logOperation(txn, 'DELETE', id);
-          count += result;
+        deletedCount = result;
+
+        // Log deletion for orphaned numbers
+        for (final phoneNumber in orphanedNumbers) {
+          await _logOperation(txn, 'DELETE', phoneNumber);
         }
       }
     });
-    
-    return count;
+
+    return deletedCount;
   }
   
   /// 插入远程号码数据（不使用模型）
   Future<String> insertRemoteNumber(Map<String, dynamic> data) async {
     final db = await _databaseManager.database;
     
-    // 确保数据有ID
-    final String id = data['id'] ?? const Uuid().v4();
-    final Map<String, dynamic> dataWithId = {...data, 'id': id};
+    final String phoneNumber = data['phoneNumber'];
+    if (phoneNumber == null) {
+      throw ArgumentError('phoneNumber cannot be null');
+    }
     
     await db.transaction((txn) async {
       await txn.insert(
         _tableName,
-        dataWithId,
+        data,
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
-      await _logOperation(txn, 'INSERT', id, payload: dataWithId);
+      await _logOperation(txn, 'INSERT', phoneNumber, payload: data);
     });
     
-    return id;
+    return phoneNumber;
   }
   
   /// 批量插入从服务器获取的远程号码数据，不记录到pending_operations
   /// 
   /// 这是一个"特殊通道"，专门用于同步下载的数据，避免将刚下载的数据再推送回服务器
-  Future<void> bulkInsertFromServer(List<Map<String, dynamic>> numbers) async {
+  Future<void> bulkInsertFromServer(String countryIsoCode, List<Map<String, dynamic>> numbers) async {
     if (numbers.isEmpty) return;
     
     final db = await _databaseManager.database;
     await db.transaction((txn) async {
-      final batch = txn.batch();
+      final numberBatch = txn.batch();
+      final junctionBatch = txn.batch();
+
       for (final numberMap in numbers) {
-        // 确保数据有ID
-        final String id = numberMap['id'] ?? const Uuid().v4();
-        final Map<String, dynamic> dataWithId = {...numberMap, 'id': id};
-        
-        // 直接插入，不调用 _logOperation
-        batch.insert(_tableName, dataWithId, conflictAlgorithm: ConflictAlgorithm.replace);
+        final phoneNumber = numberMap['phoneNumber'] as String?;
+        if (phoneNumber == null) continue;
+
+        // Insert into remote_numbers table
+        numberBatch.insert(_tableName, numberMap, conflictAlgorithm: ConflictAlgorithm.replace);
+
+        // Insert into number_countries junction table
+        junctionBatch.insert(_junctionTable, {
+          'phoneNumber': phoneNumber,
+          'countryIsoCode': countryIsoCode,
+        }, conflictAlgorithm: ConflictAlgorithm.ignore); // Ignore if the relationship already exists
       }
-      await batch.commit(noResult: true);
+      
+      await numberBatch.commit(noResult: true);
+      await junctionBatch.commit(noResult: true);
     });
+  }
+
+  Future<void> linkNumberToCountry(String phoneNumber, String countryIsoCode) async {
+    final db = await _databaseManager.database;
+    await db.insert(
+      _junctionTable,
+      {
+        'phoneNumber': phoneNumber,
+        'countryIsoCode': countryIsoCode,
+      },
+      conflictAlgorithm: ConflictAlgorithm.ignore,
+    );
   }
 }

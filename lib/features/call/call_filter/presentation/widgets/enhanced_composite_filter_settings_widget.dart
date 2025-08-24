@@ -247,10 +247,10 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
         TabBar(
           controller: _tabController,
           tabs: [
-            Tab(text: 'Local Filter'),
-            Tab(text: 'Remote Filter'),
-            Tab(text: 'Basic Rules'),
-            Tab(text: 'SIM SlotRules'),
+            Tab(text: AppLocalizations.of(context)!.localFilterSettings),
+            Tab(text: AppLocalizations.of(context)!.remoteFilterSettings),
+            Tab(text: AppLocalizations.of(context)!.basicRuleFilter),
+            Tab(text: AppLocalizations.of(context)!.simSlotRuleManagement),
           ],
         ),
         Expanded(

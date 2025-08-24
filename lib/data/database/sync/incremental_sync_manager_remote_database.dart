@@ -1,6 +1,5 @@
 // 增量同步管理器，用于处理本地和远程数据库之间的增量同步
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
@@ -21,37 +20,29 @@ import '../../repositories/config/config_repository.dart';
 import '../remote/remote_database_manager.dart';
 // 增量同步管理器类
 class IncrementalSyncManager {
-  late RemoteNumberDataSource _dataSource;
-  late ApiService _apiService;
-  late DeviceIdService _deviceIdService;
-  late SyncScheduler _syncScheduler;
-  late CountryDataService _countryDataService;
-  late ConfigRepository _configRepository;
-  late CountrySelectionService _countrySelectionService;
-  // 新增下载状态服务
-  late DownloadStatusService _downloadStatusService;
+  final RemoteNumberDataSource _dataSource;
+  final ApiService _apiService;
+  final DeviceIdService _deviceIdService;
+  final SyncScheduler _syncScheduler;
+  final CountryDataService _countryDataService;
+  final CountrySelectionService _countrySelectionService;
+  final DownloadStatusService _downloadStatusService;
 
-  // A default constructor that doesn't require parameters.
-  IncrementalSyncManager();
-
-  /// Initializes the manager with necessary dependencies.
-  /// In a real-world scenario, these would be resolved using a service locator
-  /// like GetIt or Riverpod, but for now, we instantiate them directly.
-  Future<void> initialize() async {
-    final dbManager = RemoteDatabaseManagerImpl();
-    _dataSource = RemoteNumberDataSource(dbManager);
-    _configRepository = SharedPreferencesConfigRepository();
-    _deviceIdService = DeviceIdService(_configRepository);
-    _apiService = const ApiService();
-    _syncScheduler = SyncScheduler(dataSource: _dataSource);
-    _countrySelectionService = CountrySelectionService(_configRepository);
-    // 初始化下载状态服务
-    _downloadStatusService = DownloadStatusService(_configRepository);
-    _countryDataService = CountryDataService(
-      apiService: _apiService,
-      remoteNumberDataSource: _dataSource,
-    );
-  }
+  IncrementalSyncManager({
+    required RemoteNumberDataSource dataSource,
+    required ApiService apiService,
+    required DeviceIdService deviceIdService,
+    required SyncScheduler syncScheduler,
+    required CountryDataService countryDataService,
+    required CountrySelectionService countrySelectionService,
+    required DownloadStatusService downloadStatusService,
+  })  : _dataSource = dataSource,
+        _apiService = apiService,
+        _deviceIdService = deviceIdService,
+        _syncScheduler = syncScheduler,
+        _countryDataService = countryDataService,
+        _countrySelectionService = countrySelectionService,
+        _downloadStatusService = downloadStatusService;
 
   /// Performs the incremental synchronization. This is the primary public method.
   Future<bool> syncIncremental() async {
@@ -66,7 +57,7 @@ class IncrementalSyncManager {
     try {
       // --- 阶段 0: 对比"用户选择"和"下载状态"，执行全量操作 ---
       // 1. 获取用户【想要】的国家 和【已经下载】的国家
-      final selectedCountries = (await _countrySelectionService.getSelectedCountryDialCodes()).toSet();
+      final selectedCountries = (await _countrySelectionService.getSelectedCountryCodes()).toSet();
       final downloadedCountries = (await _downloadStatusService.getDownloadedCountries()).toSet();
 
       // 2. 计算需要【新增下载】的国家
@@ -172,7 +163,7 @@ class IncrementalSyncManager {
 
   /// 获取当前同步的国家列表
   Future<List<String>> getSyncCountries() async {
-    return await _countrySelectionService.getSelectedCountryDialCodes();
+    return await _countrySelectionService.getSelectedCountryCodes();
   }
 
   Future<void> _recordSync(bool success, String? message, int pushedCount, int pulledCount) async {

@@ -14,7 +14,7 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   static Database? _database;
   
   // 数据库版本
-  static const int _version = 1;
+  static const int _version = 2;
   
   // 数据库名称
   static const String _databaseName = 'remote_database.db';
@@ -64,14 +64,14 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
     throw Exception('无法打开数据库，重试次数已达上限');
   }
   
-  // 创建数据库表
+  // 创建数据库表 (for new installations)
   Future<void> _onCreate(Database db, int version) async {
-    // 创建远程号码表
+    // 创建远程号码表 (phoneNumber as PK)
     await db.execute('''
       CREATE TABLE IF NOT EXISTS remote_numbers (
-        id TEXT PRIMARY KEY,
+        id TEXT NOT NULL UNIQUE,
+        phoneNumber TEXT PRIMARY KEY,
         name TEXT,
-        phoneNumber TEXT NOT NULL,
         label TEXT NOT NULL,
         priority INTEGER NOT NULL DEFAULT 0,
         action TEXT NOT NULL DEFAULT 'none',
@@ -79,16 +79,26 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
       )
     ''');
     
-    // 为phoneNumber字段创建索引以提高查询性能
+    // 创建号码与国家的关联表
     await db.execute('''
-      CREATE INDEX IF NOT EXISTS idx_remote_numbers_phone_number ON remote_numbers(phoneNumber)
+      CREATE TABLE IF NOT EXISTS number_countries (
+        phoneNumber TEXT NOT NULL,
+        countryIsoCode TEXT NOT NULL,
+        PRIMARY KEY (phoneNumber, countryIsoCode),
+        FOREIGN KEY (phoneNumber) REFERENCES remote_numbers(phoneNumber) ON DELETE CASCADE
+      )
     ''');
     
-    // 新增：待处理操作表，用于记录本地的所有写操作，等待同步
+    // 为 countryIsoCode 创建索引
+    await db.execute('''
+      CREATE INDEX IF NOT EXISTS idx_number_countries_country_iso_code ON number_countries(countryIsoCode)
+    ''');
+    
+    // 待处理操作表新增：待处理操作表，用于记录本地的所有写操作，等待同步
     await db.execute('''
       CREATE TABLE IF NOT EXISTS pending_operations (
         id TEXT PRIMARY KEY,
-        entityId TEXT NOT NULL,
+        entityId TEXT NOT NULL, -- This is now phoneNumber
         operation TEXT NOT NULL,
         payload TEXT,
         timestamp TEXT NOT NULL
@@ -133,9 +143,94 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   
   // 升级数据库
   Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
-    // 根据版本号进行升级操作
     if (oldVersion < 2) {
-      // 版本1升级到版本2的操作
+      // --- Schema Migration from v1 to v2 ---
+      final pendingOperationsExist = (await db.rawQuery(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+        ['pending_operations'],
+      )).isNotEmpty;
+
+      final batch = db.batch();
+
+      if (pendingOperationsExist) {
+        // 1. Create a temporary table for pending_operations to preserve them
+        batch.execute('CREATE TABLE pending_operations_temp AS SELECT * FROM pending_operations');
+        batch.execute('DROP TABLE pending_operations');
+      }
+
+      // 2. Rename old remote_numbers table
+      batch.execute('ALTER TABLE remote_numbers RENAME TO remote_numbers_old');
+
+      // 3. Create new remote_numbers table with phoneNumber as PRIMARY KEY
+      batch.execute('''
+        CREATE TABLE remote_numbers (
+          id TEXT NOT NULL UNIQUE,
+          phoneNumber TEXT PRIMARY KEY,
+          name TEXT,
+          label TEXT NOT NULL,
+          priority INTEGER NOT NULL DEFAULT 0,
+          action TEXT NOT NULL DEFAULT 'none',
+          count INTEGER NOT NULL DEFAULT 0
+        )
+      ''');
+
+      // 4. Copy data from old table to new table
+      batch.execute('''
+        INSERT INTO remote_numbers (id, phoneNumber, name, label, priority, action, count)
+        SELECT id, phoneNumber, name, label, priority, action, count FROM remote_numbers_old
+      ''');
+
+      // 5. Create the new number_countries junction table
+      batch.execute('''
+        CREATE TABLE number_countries (
+          phoneNumber TEXT NOT NULL,
+          countryIsoCode TEXT NOT NULL,
+          PRIMARY KEY (phoneNumber, countryIsoCode),
+          FOREIGN KEY (phoneNumber) REFERENCES remote_numbers(phoneNumber) ON DELETE CASCADE
+        )
+      ''');
+      batch.execute('CREATE INDEX IF NOT EXISTS idx_number_countries_country_iso_code ON number_countries(countryIsoCode)');
+
+      // 6. Recreate pending_operations table
+      batch.execute('''
+        CREATE TABLE pending_operations (
+          id TEXT PRIMARY KEY,
+          entityId TEXT NOT NULL, -- This will now be phoneNumber
+          operation TEXT NOT NULL,
+          payload TEXT,
+          timestamp TEXT NOT NULL
+        )
+      ''');
+
+      await batch.commit(noResult: true);
+
+      // 7. Migrate pending_operations data
+      if (pendingOperationsExist) {
+        // This requires mapping old UUID entityId to new phoneNumber entityId
+        final oldPendingOps = await db.rawQuery('SELECT * FROM pending_operations_temp');
+        final newBatch = db.batch();
+        for (final op in oldPendingOps) {
+          final oldEntityId = op['entityId'] as String;
+          final correspondingNumber = await db.rawQuery('SELECT phoneNumber FROM remote_numbers_old WHERE id = ?', [oldEntityId]);
+          if (correspondingNumber.isNotEmpty) {
+            final newEntityId = correspondingNumber.first['phoneNumber'] as String;
+            newBatch.insert('pending_operations', {
+              'id': op['id'],
+              'entityId': newEntityId,
+              'operation': op['operation'],
+              'payload': op['payload'],
+              'timestamp': op['timestamp'],
+            });
+          }
+        }
+        await newBatch.commit(noResult: true);
+        await db.execute('DROP TABLE pending_operations_temp');
+      }
+
+
+      // 8. Drop temporary and old tables
+      await db.execute('DROP TABLE remote_numbers_old');
+      await db.execute('DROP INDEX IF EXISTS idx_remote_numbers_phone_number');
     }
   }
   
@@ -203,6 +298,7 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   Future<void> clearDatabase() async {
     final db = await database;
     await db.delete('remote_numbers');
+    await db.delete('number_countries');
     await db.delete('sync_records');
     await db.update(
       'sync_config',
@@ -229,6 +325,8 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   @override
   Future<Map<String, dynamic>?> queryById(String table, String id) async {
     final db = await database;
+    // This method assumes the PK is 'id'. For remote_numbers, this is no longer true.
+    // It should only be used for tables that still use 'id' as PK.
     final List<Map<String, dynamic>> maps = await db.query(
       table,
       where: 'id = ?',
@@ -264,13 +362,14 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   @override
   Future<int> insert(String table, Map<String, dynamic> data) async {
     final db = await database;
-    return await db.insert(table, data);
+    return await db.insert(table, data, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   // 更新记录
   @override
   Future<int> update(String table, String id, Map<String, dynamic> data) async {
     final db = await database;
+    // This method assumes the PK is 'id'. For remote_numbers, this is no longer true.
     return await db.update(
       table,
       data,
@@ -283,6 +382,7 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   @override
   Future<int> delete(String table, String id) async {
     final db = await database;
+    // This method assumes the PK is 'id'. For remote_numbers, this is no longer true.
     return await db.delete(
       table,
       where: 'id = ?',
@@ -295,6 +395,27 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   Future<List<Map<String, dynamic>>> queryByPhoneNumber(String table, String phoneNumber) async {
     final db = await database;
     return await db.query(
+      table,
+      where: 'phoneNumber = ?',
+      whereArgs: [phoneNumber],
+    );
+  }
+
+  // --- New methods for remote_numbers table with phoneNumber as PK ---
+
+  Future<int> updateByPhoneNumber(String table, String phoneNumber, Map<String, dynamic> data) async {
+    final db = await database;
+    return await db.update(
+      table,
+      data,
+      where: 'phoneNumber = ?',
+      whereArgs: [phoneNumber],
+    );
+  }
+
+  Future<int> deleteByPhoneNumber(String table, String phoneNumber) async {
+    final db = await database;
+    return await db.delete(
       table,
       where: 'phoneNumber = ?',
       whereArgs: [phoneNumber],

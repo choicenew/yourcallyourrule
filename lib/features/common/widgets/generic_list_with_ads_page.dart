@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
@@ -81,6 +83,15 @@ class GenericListWithAdsPage<T> extends ConsumerStatefulWidget {
   
   /// 切换项目选择状态的回调
   final Function(String)? onToggleItemSelection;
+
+  /// 搜索框提示文本
+  final String? searchHintText;
+
+  /// 搜索回调
+  final ValueChanged<String>? onSearchChanged;
+
+  /// 页面顶部的提示卡片
+  final Widget? infoCard;
   
   /// 构造函数
   const GenericListWithAdsPage({
@@ -108,13 +119,44 @@ class GenericListWithAdsPage<T> extends ConsumerStatefulWidget {
     this.onDeleteSelected,
     this.customActions,
     this.onToggleItemSelection,
+    this.searchHintText,
+    this.onSearchChanged,
+    this.infoCard,
   });
 
   @override
   ConsumerState<GenericListWithAdsPage<T>> createState() => _GenericListWithAdsPageState<T>();
 }
 
+
+
 class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPage<T>> {
+  final _searchController = TextEditingController();
+  Timer? _debounce;
+
+  @override
+  void initState() {
+    super.initState();
+    _searchController.addListener(_onSearchChanged);
+  }
+
+  @override
+  void dispose() {
+    _searchController.removeListener(_onSearchChanged);
+    _searchController.dispose();
+    _debounce?.cancel();
+    super.dispose();
+  }
+
+  void _onSearchChanged() {
+    if (_debounce?.isActive ?? false) _debounce!.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      if (widget.onSearchChanged != null) {
+        widget.onSearchChanged!(_searchController.text);
+      }
+    });
+  }
+
   // 获取选中的项目列表
   List<T> get _selectedItems {
     if (widget.getItemId == null) return [];
@@ -226,8 +268,27 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // 提示卡片
+          if (widget.infoCard != null) ...[widget.infoCard!, const SizedBox(height: 16)],
+
           // 头部内容（如果有）
           if (widget.headerContent != null) ...[widget.headerContent!, const SizedBox(height: 16)],
+
+          // 搜索框
+          if (widget.onSearchChanged != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: TextField(
+                controller: _searchController,
+                decoration: InputDecoration(
+                  hintText: widget.searchHintText ?? AppLocalizations.of(context)!.search,
+                  prefixIcon: const Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
+            ),
           
           // 列表（占用剩余空间）
           Expanded(

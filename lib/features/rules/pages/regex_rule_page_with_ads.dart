@@ -21,7 +21,8 @@ class RegexRulePageWithAds extends ConsumerStatefulWidget {
   const RegexRulePageWithAds({super.key});
 
   @override
-  ConsumerState<RegexRulePageWithAds> createState() => _RegexRulePageWithAdsState();
+  ConsumerState<RegexRulePageWithAds> createState() =>
+      _RegexRulePageWithAdsState();
 }
 
 class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
@@ -30,6 +31,7 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
   RuleActionType? _selectedActionType;
   Set<String> _selectedRuleIds = {};
   bool _isMultiSelectMode = false;
+  String _searchKeyword = '';
 
   @override
   void initState() {
@@ -46,14 +48,28 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
     final rules = await service.getAllRegexRules();
 
     // 应用筛选条件
-    final filteredRules = rules.where((rule) {
-      // 动作类型筛选
-      if (_selectedActionType != null && rule.action.type != _selectedActionType) {
-        return false;
-      }
+    final filteredRules =
+        rules.where((rule) {
+          // 动作类型筛选
+          if (_selectedActionType != null &&
+              rule.action.type != _selectedActionType) {
+            return false;
+          }
 
-      return true;
-    }).toList();
+          // 搜索关键字筛选
+          if (_searchKeyword.isNotEmpty) {
+            final searchLower = _searchKeyword.toLowerCase();
+            final nameMatch = rule.name.toLowerCase().contains(searchLower);
+            final patternMatch = rule.pattern.toLowerCase().contains(
+              searchLower,
+            );
+            if (!nameMatch && !patternMatch) {
+              return false;
+            }
+          }
+
+          return true;
+        }).toList();
 
     setState(() {
       _rules = filteredRules;
@@ -78,12 +94,19 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
     for (final ruleId in _selectedRuleIds) {
       await service.removeRegexRule(ruleId);
     }
-    
+
     setState(() {
       _selectedRuleIds = {};
       _isMultiSelectMode = false;
     });
-    
+
+    _loadRules();
+  }
+
+  void _onSearchChanged(String keyword) {
+    setState(() {
+      _searchKeyword = keyword;
+    });
     _loadRules();
   }
 
@@ -115,80 +138,84 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
 
   void _showMoreOptions(BuildContext context) {
     final regexService = ref.read(regexServiceProvider);
-    
+
     // 创建导入导出组件
     final importExportComponent =
         ImportExportServiceComponent<RegexRule, String>(
-      importExportService: RegexRuleImportExportAdapter(regexService.importExportService),
-      entityTypeName: AppLocalizations.of(context)!.regexRule,
-      onEntitiesImported: (rules) async {
-        // 使用服务类的公共方法保存规则
-        for (final rule in rules) {
-          await regexService.updateRegexRule(rule);
-        }
-        _loadRules();
-      },
-      getEntitiesToExport: () => regexService.getAllRegexRules(),
-    );
+          importExportService: RegexRuleImportExportAdapter(
+            regexService.importExportService,
+          ),
+          entityTypeName: AppLocalizations.of(context)!.regexRule,
+          onEntitiesImported: (rules) async {
+            // 使用服务类的公共方法保存规则
+            for (final rule in rules) {
+              await regexService.updateRegexRule(rule);
+            }
+            _loadRules();
+          },
+          getEntitiesToExport: () => regexService.getAllRegexRules(),
+        );
 
     showModalBottomSheet(
       context: context,
-      builder: (context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ListTile(
-            leading: const Icon(Icons.filter_list),
-            title: Text(AppLocalizations.of(context)!.filterByAction),
-            onTap: () {
-              Navigator.pop(context);
-              _showActionFilterDialog(context);
-            },
+      builder:
+          (context) => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.filter_list),
+                title: Text(AppLocalizations.of(context)!.filterByAction),
+                onTap: () {
+                  Navigator.pop(context);
+                  _showActionFilterDialog(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.import_export),
+                title: Text(AppLocalizations.of(context)!.importExport),
+                onTap: () {
+                  Navigator.pop(context);
+                  importExportComponent.showImportExportDialog(context);
+                },
+              ),
+            ],
           ),
-          ListTile(
-            leading: const Icon(Icons.import_export),
-            title: Text(AppLocalizations.of(context)!.importExport),
-            onTap: () {
-              Navigator.pop(context);
-              importExportComponent.showImportExportDialog(context);
-            },
-          ),
-        ],
-      ),
     );
   }
 
   void _showActionFilterDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.filterByAction),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.all),
-              onTap: () {
-                _filterByAction(null);
-                Navigator.pop(context);
-              },
+      builder:
+          (context) => AlertDialog(
+            title: Text(AppLocalizations.of(context)!.filterByAction),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  title: Text(AppLocalizations.of(context)!.all),
+                  onTap: () {
+                    _filterByAction(null);
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  title: Text(AppLocalizations.of(context)!.allow),
+                  onTap: () {
+                    _filterByAction(RuleActionType.allow);
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  title: Text(AppLocalizations.of(context)!.block),
+                  onTap: () {
+                    _filterByAction(RuleActionType.block);
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
             ),
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.allow),
-              onTap: () {
-                _filterByAction(RuleActionType.allow);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.block),
-              onTap: () {
-                _filterByAction(RuleActionType.block);
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+          ),
     );
   }
 
@@ -199,99 +226,129 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
 
     showDialog(
       context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setState) => AlertDialog(
-          title: Text(AppLocalizations.of(context)!.addRegexRule),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: nameController,
-                decoration: InputDecoration(
-                  labelText: AppLocalizations.of(context)!.ruleName,
-                  hintText: AppLocalizations.of(context)!.exampleBlock400Prefix,
+      builder:
+          (context) => StatefulBuilder(
+            builder:
+                (context, setState) => AlertDialog(
+                  title: Text(AppLocalizations.of(context)!.addRegexRule),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextField(
+                        controller: nameController,
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context)!.ruleName,
+                          hintText:
+                              AppLocalizations.of(
+                                context,
+                              )!.exampleBlock400Prefix,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      TextField(
+                        controller: patternController,
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context)!.regexPattern,
+                          hintText:
+                              "${AppLocalizations.of(context)!.exampleRegex400Prefix}:'^400\\d{7}\$'",
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      // 使用RuleActionSelector组件替换简单的下拉选择框
+                      RuleActionSelector(
+                        initialAction: selectedAction,
+                        onActionChanged: (action) {
+                          setState(() {
+                            selectedAction = action;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text(AppLocalizations.of(context)!.cancelButton),
+                    ),
+                    TextButton(
+                      onPressed: () async {
+                        if (nameController.text.isEmpty ||
+                            patternController.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                AppLocalizations.of(
+                                  context,
+                                )!.regexRuleNamePatternRequired,
+                              ),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                          return;
+                        }
+
+                        try {
+                          final service = ref.read(regexServiceProvider);
+
+                          // 验证正则表达式
+                          if (!service.isValidRegex(patternController.text)) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  AppLocalizations.of(
+                                    context,
+                                  )!.invalidRegexPattern,
+                                ),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
+                            return;
+                          }
+
+                          // 创建正则模式
+                          final pattern = RegExPattern(
+                            name: nameController.text,
+                            pattern: patternController.text,
+                            action: selectedAction,
+                          );
+
+                          // 添加规则
+                          await service.addRegexRule(pattern);
+
+                          // 刷新规则列表
+                          Navigator.pop(context);
+                          _loadRules();
+
+                          // 显示成功提示
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                AppLocalizations.of(
+                                  context,
+                                )!.regexRuleAddSuccess,
+                              ),
+                              backgroundColor: Colors.green,
+                            ),
+                          );
+                        } catch (e) {
+                          // 显示错误提示
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                AppLocalizations.of(
+                                  context,
+                                )!.regexRuleAddFailed(e.toString()),
+                              ),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        }
+                      },
+                      child: Text(AppLocalizations.of(context)!.save),
+                    ),
+                  ],
                 ),
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: patternController,
-                decoration: InputDecoration(
-                  labelText: AppLocalizations.of(context)!.regexPattern,
-                  hintText: "${AppLocalizations.of(context)!.exampleRegex400Prefix}:'^400\\d{7}\$'",
-                ),
-              ),
-              const SizedBox(height: 16),
-              // 使用RuleActionSelector组件替换简单的下拉选择框
-              RuleActionSelector(
-                initialAction: selectedAction,
-                onActionChanged: (action) {
-                  setState(() {
-                    selectedAction = action;
-                  });
-                },
-              ),
-            ],
           ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(AppLocalizations.of(context)!.cancelButton),
-            ),
-            TextButton(
-              onPressed: () async {
-                if (nameController.text.isEmpty ||
-                    patternController.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(AppLocalizations.of(context)!.regexRuleNamePatternRequired),
-                    backgroundColor: Colors.red,
-                  ));
-                  return;
-                }
-
-                try {
-                  final service = ref.read(regexServiceProvider);
-                  
-                  // 验证正则表达式
-                  if (!service.isValidRegex(patternController.text)) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(AppLocalizations.of(context)!.invalidRegexPattern),
-                      backgroundColor: Colors.red,
-                    ));
-                    return;
-                  }
-
-                  // 创建正则模式
-                  final pattern = RegExPattern(
-                    name: nameController.text,
-                    pattern: patternController.text,
-                    action: selectedAction,
-                  );
-
-                  // 添加规则
-                  await service.addRegexRule(pattern);
-
-                  // 刷新规则列表
-                  Navigator.pop(context);
-                  _loadRules();
-
-                  // 显示成功提示
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(AppLocalizations.of(context)!.regexRuleAddSuccess),
-                    backgroundColor: Colors.green,
-                  ));
-                } catch (e) {
-                  // 显示错误提示
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(AppLocalizations.of(context)!.regexRuleAddFailed(e.toString())),
-                    backgroundColor: Colors.red,
-                  ));
-                }
-              },
-              child: Text(AppLocalizations.of(context)!.save),
-            ),
-          ],
-        ),
-      ),
     );
   }
 
@@ -317,12 +374,20 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
       onToggleMultiSelectMode: _toggleMultiSelectMode,
       onDeleteSelected: _deleteSelectedRules,
       onToggleItemSelection: _toggleItemSelection,
+      onSearchChanged: _onSearchChanged,
+      searchHintText: AppLocalizations.of(context)!.searchRegexRulesHint,
+      infoCard: _buildInfoCard(),
     );
   }
 
   Widget _buildRuleCard(BuildContext context, RegexRule rule) {
-    final actionText = RuleActionDisplayUtils.getActionTypeName(context, rule.action.type);
-    final actionColor = RuleActionDisplayUtils.getActionTypeColor(rule.action.type);
+    final actionText = RuleActionDisplayUtils.getActionTypeName(
+      context,
+      rule.action.type,
+    );
+    final actionColor = RuleActionDisplayUtils.getActionTypeColor(
+      rule.action.type,
+    );
 
     return Card(
       elevation: 4,
@@ -339,13 +404,10 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: actionColor.withValues(alpha:0.2),
+                    color: actionColor.withValues(alpha: 0.2),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(
-                    Icons.code,
-                    color: actionColor,
-                  ),
+                  child: Icon(Icons.code, color: actionColor),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
@@ -355,15 +417,18 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
                       Text(
                         rule.name,
                         style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         rule.pattern,
                         style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey,
-                            fontFamily: 'monospace'),
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontFamily: 'monospace',
+                        ),
                       ),
                     ],
                   ),
@@ -384,11 +449,25 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
               padding: const EdgeInsets.only(top: 8),
               child: Chip(
                 label: Text(actionText),
-                backgroundColor: actionColor.withValues(alpha:0.1),
+                backgroundColor: actionColor.withValues(alpha: 0.1),
                 labelStyle: TextStyle(color: actionColor),
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInfoCard() {
+    return Card(
+      elevation: 2,
+      margin: const EdgeInsets.only(bottom: 16),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Text(
+          AppLocalizations.of(context)!.regexRulesInfo,
+          style: TextStyle(color: Colors.grey[700]),
         ),
       ),
     );

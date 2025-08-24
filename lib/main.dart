@@ -45,8 +45,8 @@ Future<void> main() async {
     ));
   } catch (e, stackTrace) {
     // 记录错误但不中断应用启动
-    print('初始化错误: $e');
-    print('堆栈跟踪: $stackTrace');
+    debugPrint('初始化错误: $e');
+    debugPrint('堆栈跟踪: $stackTrace');
     
     // 尝试记录错误到Firebase Crashlytics
     try {

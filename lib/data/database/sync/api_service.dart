@@ -30,7 +30,7 @@ class ApiService {
   Future<List<Map<String, dynamic>>> getChanges({
     DateTime? since,
     required String deviceId,
-    List<String>? countryCodes,
+    List<String>? countryCodes, // Now expects ISO country codes
   }) async {
     final queryParams = {
       'since': since?.toIso8601String() ?? DateTime.fromMillisecondsSinceEpoch(0).toIso8601String(),
@@ -58,11 +58,11 @@ class ApiService {
   
   /// 获取特定国家的初始数据
   ///
-  /// [countryCode] 国家的拨号代码，例如 '+86'
+  /// [countryIsoCode] 国家的ISO代码，例如 'US'
   /// 返回该国家的所有号码数据
-  Future<List<Map<String, dynamic>>> getInitialDataForCountry(String countryCode) async {
+  Future<List<Map<String, dynamic>>> getInitialDataForCountry(String countryIsoCode) async {
     final uri = Uri.parse('$_workerUrl/country-data').replace(
-      queryParameters: {'countryCode': countryCode},
+      queryParameters: {'countryCode': countryIsoCode},
     );
 
     final response = await http.get(uri, headers: {'X-API-SECRET': _apiSecret});

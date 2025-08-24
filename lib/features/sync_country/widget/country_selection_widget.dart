@@ -21,7 +21,7 @@ class CountrySelectionWidget extends ConsumerWidget {
       body: selectedCountries.when(
         data: (codes) {
           final chosenCountries = WorldCountry.list
-              .where((country) => codes.contains(country.idd.phoneCode()))
+              .where((country) => codes.contains(country.codeShort))
               .toList();
 
           return Column(
@@ -58,10 +58,10 @@ class CountrySelectionWidget extends ConsumerWidget {
                   child: Wrap(
                     spacing: 8.0,
                     runSpacing: 4.0,
-                    children: codes
-                        .map((code) => Chip(
+                    children: chosenCountries
+                        .map((country) => Chip(
                               label: Text(
-                                code,
+                                country.name.common,
                                 style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                                 ),
                                                     backgroundColor: Colors.pink[100], // 使用更深的琥珀色
@@ -69,7 +69,7 @@ class CountrySelectionWidget extends ConsumerWidget {
                               onDeleted: () {
                                 ref
                                     .read(selectedCountriesProvider.notifier)
-                                    .removeCountry(code);
+                                    .removeCountry(country.codeShort);
                               },
                             ))
                         .toList(),
@@ -81,15 +81,15 @@ class CountrySelectionWidget extends ConsumerWidget {
                 child: CountryPicker(
                   chosen: chosenCountries,
                   onSelect: (country) {
-                    final phoneCode = country.idd.phoneCode();
-                    if (codes.contains(phoneCode)) {
+                    final isoCode = country.codeShort;
+                    if (codes.contains(isoCode)) {
                       ref
                           .read(selectedCountriesProvider.notifier)
-                          .removeCountry(phoneCode);
+                          .removeCountry(isoCode);
                     } else {
                       ref
                           .read(selectedCountriesProvider.notifier)
-                          .addCountry(phoneCode);
+                          .addCountry(isoCode);
                     }
                   },
                 ),

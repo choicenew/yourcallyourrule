@@ -2,7 +2,6 @@ import 'package:sqflite/sqflite.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/data/database/database_manager.dart';
 import 'package:yourcallyourrule/data/models/call/call_log_model.dart';
-import '../../database/local/local_database_manager.dart';
 
 class LocalCallLogDataSource {
   final LocalDatabaseManager _dbManager;
@@ -69,6 +68,26 @@ class LocalCallLogDataSource {
     );
   }
 
+  Future<List<Map<String, dynamic>>> queryAll() async {
+    final db = await _db;
+    return db.query('call_history');
+  }
+
+  Future<Map<String, dynamic>?> queryById(String id) async {
+    final db = await _db;
+    final maps = await db.query(
+      'call_history',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+    if (maps.isNotEmpty) {
+      return maps.first;
+    }
+    return null;
+  }
+
+
+
   Future<void> transactionUpdate(List<CallLogModel> logs) async {
     final db = await _db;
     await db.transaction((txn) async {
@@ -113,5 +132,9 @@ class LocalCallLogDataSource {
       whereArgs: args,
     );
     return maps.map((e) => CallLogModel.fromMap(e).toEntity()).toList();
+  }
+
+  Stream<List<Map<String, dynamic>>> watchAll() {
+    return _dbManager.watchTable('call_history');
   }
 }

@@ -18,6 +18,7 @@ import 'package:yourcallyourrule/features/common/dialogs/filter_dialogs.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
+import 'package:yourcallyourrule/features/rules/widgets/rule_list_card.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
@@ -39,11 +40,33 @@ class _AllowedBlockedPageWithAdsState extends ConsumerState<AllowedBlockedPageWi
   RuleActionType? _selectedActionType;
   Set<String> _selectedRuleIds = {};
   bool _isMultiSelectMode = false;
+  String _searchKeyword = '';
 
   @override
   void initState() {
     super.initState();
     _loadRules();
+  }
+
+  List<AllowedBlockedRule> get _filteredRules {
+    var filtered = _rules;
+
+    if (_searchKeyword.isNotEmpty) {
+      final keyword = _searchKeyword.toLowerCase();
+      filtered = filtered.where((rule) {
+        final nameMatch = rule.name.toLowerCase().contains(keyword);
+        final phoneMatch = rule.phoneNumber.contains(_searchKeyword);
+        return nameMatch || phoneMatch;
+      }).toList();
+    }
+
+    return filtered;
+  }
+
+  void _onSearchChanged(String keyword) {
+    setState(() {
+      _searchKeyword = keyword;
+    });
   }
 
   Future<void> _loadRules() async {
@@ -191,8 +214,6 @@ class _AllowedBlockedPageWithAdsState extends ConsumerState<AllowedBlockedPageWi
     );
   }
 
-
-
   void _showAddRuleDialog(BuildContext context) {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController phoneController = TextEditingController();
@@ -231,7 +252,6 @@ class _AllowedBlockedPageWithAdsState extends ConsumerState<AllowedBlockedPageWi
                 },
                 themeColor: Colors.amber,
               ),
-              
               const SizedBox(height: 16),
               RuleActionSelector(
                 initialAction: selectedAction,
@@ -297,12 +317,11 @@ class _AllowedBlockedPageWithAdsState extends ConsumerState<AllowedBlockedPageWi
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return GenericListWithAdsPage<AllowedBlockedRule>(
       title: AppLocalizations.of(context)!.allowedBlockedRuleManagement,
-      items: _rules,
+      items: _filteredRules,
       itemBuilder: (context, rule) => _buildRuleCard(context, rule),
       adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
       adInterval: 3,
@@ -320,104 +339,63 @@ class _AllowedBlockedPageWithAdsState extends ConsumerState<AllowedBlockedPageWi
       onToggleMultiSelectMode: _toggleMultiSelectMode,
       onDeleteSelected: _deleteSelectedRules,
       onToggleItemSelection: _toggleItemSelection,
+      onSearchChanged: _onSearchChanged,
+      searchHintText: AppLocalizations.of(context)!.searchByNameOrPhoneNumber,
+      infoCard: _buildInfoCard(),
     );
   }
 
   Widget _buildRuleCard(BuildContext context, AllowedBlockedRule rule) {
-    final actionText = RuleActionDisplayUtils.getActionTypeName(context, rule.action.type);
-    final actionColor = RuleActionDisplayUtils.getActionTypeColor(rule.action.type);
+    return RuleListCard(
+      id: rule.id,
+      name: rule.name,
+      phoneNumber: rule.phoneNumber,
+      labelId: rule.labelId,
+      avatar: rule.avatar,
+      isEnabled: rule.isEnabled,
+      action: rule.action,
+      labelIdToTextMap: _labelIdToTextMap,
+      isMultiSelectMode: _isMultiSelectMode,
+      isSelected: _selectedRuleIds.contains(rule.id),
+      onToggleStatus: _toggleRuleStatus,
+      onEdit: () {
+        AllowedBlockedRuleEditDialog.show(
+          context,
+          rule,
+          onRuleUpdated: _loadRules,
+        );
+      },
+      onDelete: () => _deleteRule(rule.id),
+      onToggleSelection: _toggleItemSelection,
+      themeColor: Colors.amber,
+    );
+  }
 
+  Widget _buildInfoCard() {
     return Card(
-      elevation: 4,
+      elevation: 2,
       margin: const EdgeInsets.only(bottom: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: actionColor.withValues(alpha:0.2),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    rule.action.type == RuleActionType.allow ? Icons.check_circle_outline : Icons.block,
-                    color: actionColor,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        rule.name,
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        rule.phoneNumber.value,
-                        style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ),
-                Switch(
-                  value: rule.isEnabled,
-                  onChanged: (value) => _toggleRuleStatus(rule.id, value),
-                  activeColor: Colors.amber,
-                ),
-                if (!_isMultiSelectMode)
-                  IconButton(
-                    icon: const Icon(Icons.edit),
-                    onPressed: () {
-                      AllowedBlockedRuleEditDialog.show(
-                        context, 
-                        rule, 
-                        onRuleUpdated: _loadRules,
-                      );
-                    },
-                  ),
-                if (!_isMultiSelectMode)
-                  IconButton(
-                    icon: const Icon(Icons.delete),
-                    onPressed: () => _deleteRule(rule.id),
-                  ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: Wrap(
-                spacing: 8,
-                children: [
-                  // 动作标签
-                  Chip(
-                    label: Text('${AppLocalizations.of(context)!.ruleAction}: $actionText'),
-                    backgroundColor: actionColor.withValues(alpha:0.1),
-                    labelStyle: TextStyle(color: actionColor),
-                  ),
-                  // 如果有标签，显示标签
-                  if (rule.labelId.isNotEmpty)
-                    Chip(
-                      label: Text(
-                          '${AppLocalizations.of(context)!.label}: ${LabelTranslationUtils.translateLabelText(context, _labelIdToTextMap[rule.labelId] ?? rule.labelId)}'),
-                     backgroundColor: const Color.fromARGB(255, 248, 213, 130).withValues(alpha:0.9),
-                      labelStyle: const TextStyle(color: Colors.deepOrangeAccent),
-                    ),
-                ],
+            Text(
+              AppLocalizations.of(context)!.allowedBlockedRuleManagement,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              AppLocalizations.of(context)!.allowedBlockedRulesInfo,
             ),
           ],
         ),
       ),
     );
   }
+
+
 }

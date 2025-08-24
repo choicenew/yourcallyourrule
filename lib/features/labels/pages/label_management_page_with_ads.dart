@@ -28,6 +28,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
   List<LabelPhoneEntry> _labels = [];
   List<String> _uniqueLabelTexts = [];
   bool _isLoading = true;
+  String _searchKeyword = '';
   
   // 多选模式相关变量
   Set<String> _selectedLabelIds = {}; // 存储选中的标签ID
@@ -48,8 +49,30 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     try {
       final labels = await labelService.getAllLabels();
       final labelTexts = await predefinedLabelService.getAllLabelTexts();
+
+      if (_searchKeyword.isEmpty) {
+        setState(() {
+          _labels = labels;
+          _uniqueLabelTexts = labelTexts;
+          _isLoading = false;
+        });
+        return;
+      }
+
+      final predefinedLabels = await predefinedLabelService.getAllLabels();
+      final Map<String, String> labelIdToText = {
+        for (var pLabel in predefinedLabels) pLabel.id: pLabel.text
+      };
+
+      final filteredLabels = labels.where((label) {
+        final labelText = labelIdToText[label.labelId] ?? '';
+        final keyword = _searchKeyword.toLowerCase();
+        return label.phoneNumber.toString().contains(keyword) ||
+            labelText.toLowerCase().contains(keyword);
+      }).toList();
+
       setState(() {
-        _labels = labels;
+        _labels = filteredLabels;
         _uniqueLabelTexts = labelTexts;
         _isLoading = false;
       });
@@ -63,6 +86,13 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
         _isLoading = false;
       });
     }
+  }
+
+  void _onSearchChanged(String keyword) {
+    setState(() {
+      _searchKeyword = keyword;
+    });
+    _loadLabels();
   }
 
   Future<void> _deleteLabel(LabelPhoneEntry label) async {
@@ -505,16 +535,6 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     );
   }
 
-  Widget _buildHeaderContent() {
-    return Column(
-      children: [
-        _buildInfoCard(),
-        const SizedBox(height: 16),
-        _buildLabelCategoriesCard(),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return GenericListWithAdsPage<LabelPhoneEntry>(
@@ -552,7 +572,10 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
           }
         });
       },
-      headerContent: _buildHeaderContent(),
+      headerContent: _buildLabelCategoriesCard(),
+      infoCard: _buildInfoCard(),
+      onSearchChanged: _onSearchChanged,
+      searchHintText: AppLocalizations.of(context)!.searchLabelsHint,
       customActions: [
         IconButton(
           icon: const Icon(Icons.file_download),
@@ -564,6 +587,16 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
           onPressed: _exportLabels,
           tooltip: AppLocalizations.of(context)!.exportLabels,
         ),
+      ],
+    );
+  }
+
+  Widget _buildInfoWidget() {
+    return Column(
+      children: [
+        _buildInfoCard(),
+        const SizedBox(height: 16),
+        _buildLabelCategoriesCard(),
       ],
     );
   }

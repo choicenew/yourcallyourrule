@@ -22,6 +22,7 @@ class PluginManagementPageWithAds extends ConsumerStatefulWidget {
 class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPageWithAds> {
   List<PluginEntry> _plugins = [];
   bool _isLoading = true;
+  String _searchKeyword = '';
   final TextEditingController _urlController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _versionController = TextEditingController();
@@ -42,6 +43,13 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
     super.dispose();
   }
 
+  void _onSearchChanged(String keyword) {
+    setState(() {
+      _searchKeyword = keyword;
+    });
+    _loadPlugins();
+  }
+
   Future<void> _loadPlugins() async {
     setState(() {
       _isLoading = true;
@@ -49,7 +57,13 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
 
     final pluginService = ref.read(pluginManagerServiceProvider);
     try {
-      final plugins = await pluginService.getAll();
+      var plugins = await pluginService.getAll();
+      if (_searchKeyword.isNotEmpty) {
+        plugins = plugins.where((p) =>
+          p.name.toLowerCase().contains(_searchKeyword.toLowerCase()) ||
+          p.description.toLowerCase().contains(_searchKeyword.toLowerCase())
+        ).toList();
+      }
       setState(() {
         _plugins = plugins;
         _isLoading = false;
@@ -264,6 +278,7 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
         name: _nameController.text,
         version: _versionController.text,
         url: _urlController.text,
+        description: _descriptionController.text,
         isEnabled: true,
         pluginOrder: _plugins.length, // 使用当前插件列表长度作为顺序
       );
@@ -315,6 +330,14 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
                 decoration: InputDecoration(
                   labelText: AppLocalizations.of(context)!.pluginVersion,
                   hintText: AppLocalizations.of(context)!.enterVersion,
+                ),
+              ),
+              const SizedBox(height: 8),
+              TextField(
+                controller: _descriptionController,
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.pluginDescription,
+                  hintText: AppLocalizations.of(context)!.enterPluginDescription,
                 ),
               ),
               const SizedBox(height: 8),
@@ -560,6 +583,15 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
                         style:
                             const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
+                      if (plugin.description.isNotEmpty) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          plugin.description,
+                          style: const TextStyle(
+                              fontSize: 12, color: Colors.grey),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -678,7 +710,9 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
       onRefresh: _loadPlugins,
       onAdd: _showAddPluginDialog,
       onMoreOptions: _showOptionsMenu,
-      headerContent: _plugins.isNotEmpty ? _buildPluginStatusCard() : null,
+      onSearchChanged: _onSearchChanged,
+      searchHintText: AppLocalizations.of(context)!.searchPluginsHint,
+      infoCard: _plugins.isNotEmpty ? _buildPluginStatusCard() : null,
       // 添加多选支持
       onMultiSelect: _deleteSelectedPlugins,
       getItemId: (plugin) => plugin.id,
