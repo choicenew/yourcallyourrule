@@ -4,9 +4,7 @@ import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
-import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/label_dialog.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -141,7 +139,7 @@ class CallLogCard extends ConsumerWidget {
                                     padding: EdgeInsets.zero,
                                     constraints: const BoxConstraints(),
                                     onPressed: () => _showNameEditDialog(context, log, ref),
-                                    tooltip: AppLocalizations.of(context)?.addName ?? "添加名称",
+                                    tooltip: AppLocalizations.of(context)?.addName,
                                   ),
                               ],
                             ),
@@ -248,11 +246,11 @@ class CallLogCard extends ConsumerWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)?.addName ?? "添加名称"),
+        title: Text(AppLocalizations.of(context)!.addName ),
         content: TextField(
           controller: nameController,
           decoration: InputDecoration(
-            hintText: AppLocalizations.of(context)?.enterName ?? "输入联系人名称",
+            hintText: AppLocalizations.of(context)?.enterName,
             border: const OutlineInputBorder(),
           ),
           autofocus: true,
@@ -260,7 +258,7 @@ class CallLogCard extends ConsumerWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)?.cancelButton ?? "取消"),
+            child: Text(AppLocalizations.of(context)!.cancelButton),
           ),
           TextButton(
             onPressed: () {
@@ -272,7 +270,7 @@ class CallLogCard extends ConsumerWidget {
                 Navigator.pop(context);
               }
             },
-            child: Text(AppLocalizations.of(context)?.save ?? "保存"),
+            child: Text(AppLocalizations.of(context)!.save),
           ),
         ],
       ),

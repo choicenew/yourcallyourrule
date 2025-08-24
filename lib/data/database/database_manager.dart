@@ -45,6 +45,8 @@ abstract class LocalDatabaseManager implements DatabaseManager {
   // 关闭数据库
   @override
   Future<void> close();
+
+  Stream<List<Map<String, dynamic>>> watchTable(String table);
 }
 
 // 远程数据库管理器抽象类

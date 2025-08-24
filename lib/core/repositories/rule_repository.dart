@@ -40,4 +40,10 @@ abstract class RuleRepository extends BaseRepository<RuleBase, String> {
   
   /// 获取所有禁用的规则
   Future<List<RuleBase>> getAllDisabled();
+
+  /// 从远程数据库查询号码信息
+  Future<Map<String, dynamic>?> queryRemoteNumberInfo(String phoneNumberStr);
+
+  /// 同步远程号码数据
+  Future<bool> syncRemoteNumbers();
 }

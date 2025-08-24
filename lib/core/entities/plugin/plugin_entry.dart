@@ -4,6 +4,7 @@ class PluginEntry extends BaseEntity {
   final String name;
   final String url;
   final String version;
+  final String description;
   final bool isEnabled;
   final int pluginOrder;
   final bool isAutoUpdate;
@@ -13,6 +14,7 @@ class PluginEntry extends BaseEntity {
     required this.name,
     required this.url,
     required this.version,
+    required this.description,
     required this.isEnabled,
     required this.pluginOrder,
     this.isAutoUpdate = false,
@@ -24,6 +26,7 @@ class PluginEntry extends BaseEntity {
       name: map['name'],
       url: map['url'],
       version: map['version'],
+      description: map['description'] ?? '',
       isEnabled: map['isEnabled'] == 1,
       pluginOrder: map['pluginOrder'],
       isAutoUpdate: map['isAutoUpdate'] == 1,
@@ -37,6 +40,7 @@ class PluginEntry extends BaseEntity {
       'name': name,
       'url': url,
       'version': version,
+      'description': description,
       'isEnabled': isEnabled ? 1 : 0,
       'pluginOrder': pluginOrder,
       'isAutoUpdate': isAutoUpdate ? 1 : 0,
@@ -48,6 +52,7 @@ class PluginEntry extends BaseEntity {
     String? name,
     String? url,
     String? version,
+    String? description,
     bool? isEnabled,
     int? pluginOrder,
     bool? isAutoUpdate,
@@ -57,6 +62,7 @@ class PluginEntry extends BaseEntity {
       name: name ?? this.name,
       url: url ?? this.url,
       version: version ?? this.version,
+      description: description ?? this.description,
       isEnabled: isEnabled ?? this.isEnabled,
       pluginOrder: pluginOrder ?? this.pluginOrder,
       isAutoUpdate: isAutoUpdate ?? this.isAutoUpdate,

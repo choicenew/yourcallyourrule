@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
@@ -68,6 +69,13 @@ class PluginToRemoteSyncService {
         isEnabled: existingEntry.isEnabled,
       );
       await _remoteNumberService.updateRemoteNumber(updatedEntry);
+       //增加一个函数保存isocountrycode
+       //首先引入phone_utils.dart获得 countryCode
+      final phoneDetails = await PhoneUtils.parsePhoneNumberWithoutIso(phoneNumber.value, null);
+      final countryCode = phoneDetails['countryCode'];
+      if (countryCode != null && countryCode.isNotEmpty) {
+        await _remoteNumberService.linkNumberToCountry(phoneNumber.value, countryCode);
+      }
     } else {
       // 创建新条目
       final newEntry = RemoteNumberEntry(
@@ -81,6 +89,13 @@ class PluginToRemoteSyncService {
         isEnabled: true,
       );
       await _remoteNumberService.addRemoteNumber(newEntry);
+       //增加一个函数保存isocountrycode
+       //首先引入phone_utils.dart获得 countryCode
+      final phoneDetails = await PhoneUtils.parsePhoneNumberWithoutIso(phoneNumber.value, null);
+      final countryCode = phoneDetails['countryCode'];
+      if (countryCode != null && countryCode.isNotEmpty) {
+        await _remoteNumberService.linkNumberToCountry(phoneNumber.value, countryCode);
+      }
     }
   }
   

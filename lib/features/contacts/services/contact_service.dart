@@ -183,7 +183,7 @@ class ContactService extends ListService<Contact, String> {
       phoneNumbers:
           {...contact1.phoneNumbers, ...contact2.phoneNumbers}.toList(),
       email: contact1.email ?? contact2.email,
-      labelId: contact1.labelId ?? contact2.labelId,
+      labelIds: {...?contact1.labelIds, ...?contact2.labelIds}.toList(),
       avatar: contact1.avatar ?? contact2.avatar,
       website: contact1.website ?? contact2.website,
       group: contact1.group ?? contact2.group,

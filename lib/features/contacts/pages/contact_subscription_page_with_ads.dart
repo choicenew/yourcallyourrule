@@ -22,6 +22,7 @@ class ContactSubscriptionPageWithAds extends ConsumerStatefulWidget {
 class _ContactSubscriptionPageWithAdsState extends ConsumerState<ContactSubscriptionPageWithAds> {
   List<ContactSubscription> _subscriptions = [];
   bool _isLoading = true;
+  String _searchKeyword = '';
 
   @override
   void initState() {
@@ -37,8 +38,19 @@ class _ContactSubscriptionPageWithAdsState extends ConsumerState<ContactSubscrip
     final subscriptionService = ref.read(contactSubscriptionServiceProvider);
     try {
       final subscriptions = await subscriptionService.getAll();
+
+      final filteredSubscriptions = subscriptions.where((sub) {
+        if (_searchKeyword.isNotEmpty) {
+          final searchLower = _searchKeyword.toLowerCase();
+          final nameMatch = sub.name.toLowerCase().contains(searchLower);
+          final urlMatch = sub.url.toString().toLowerCase().contains(searchLower);
+          return nameMatch || urlMatch;
+        }
+        return true;
+      }).toList();
+
       setState(() {
-        _subscriptions = subscriptions;
+        _subscriptions = filteredSubscriptions;
         _isLoading = false;
       });
     } catch (e) {
@@ -120,6 +132,13 @@ class _ContactSubscriptionPageWithAdsState extends ConsumerState<ContactSubscrip
         );
       }
     }
+  }
+
+  void _onSearchChanged(String keyword) {
+    setState(() {
+      _searchKeyword = keyword;
+    });
+    _loadSubscriptions();
   }
 
   void _showAddSubscriptionDialog() {
@@ -208,7 +227,10 @@ class _ContactSubscriptionPageWithAdsState extends ConsumerState<ContactSubscrip
       isLoading: _isLoading,
       onRefresh: _loadSubscriptions,
       onAdd: _showAddSubscriptionDialog,
-      headerContent: _buildInfoCard(),
+      // headerContent: _buildInfoCard(),
+      onSearchChanged: _onSearchChanged,
+      searchHintText: AppLocalizations.of(context)!.searchContactSubscriptionsHint,
+      infoCard: _buildInfoCard(),
     );
   }
 

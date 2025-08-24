@@ -5,22 +5,25 @@ import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
-
-import 'database_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/datasource/local_rule_datasource_provider.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_rule_datasource.dart';
+import 'package:yourcallyourrule/data/models/allow_block_rule_model.dart';
+import 'package:yourcallyourrule/data/models/phone_rule_model.dart';
+import 'package:yourcallyourrule/data/models/regex_rule_model.dart';
+import 'package:yourcallyourrule/data/models/rule_model.dart';
 
 /// 规则仓库提供者
 final ruleRepositoryProvider = Provider<RuleRepository>((ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
+  final localRuleDataSource = ref.watch(localRuleDataSourceProvider);
   // 返回规则仓库实现
-  return RuleRepositoryImpl(databaseService);
+  return RuleRepositoryImpl(localRuleDataSource);
 });
 
 /// 规则仓库实现类
 class RuleRepositoryImpl implements RuleRepository {
-  final DatabaseService _databaseService;
+  final LocalRuleDataSource _localRuleDataSource;
 
-  RuleRepositoryImpl(this._databaseService);
+  RuleRepositoryImpl(this._localRuleDataSource);
 
   @override
   RuleBase createEmptyRule() {
@@ -50,35 +53,38 @@ class RuleRepositoryImpl implements RuleRepository {
     await deleteById(ruleId);
   }
 
-  @override
   Future<List<RuleBase>> getAllByType(String type) async {
-    final maps = await _databaseService.queryWhere('rules', 'ruleType', type);
-    return maps.map((map) => createRuleFromMap(map)).toList();
+    final rules = await _localRuleDataSource.getByRuleType(type);
+    // 将RuleModel转换为RuleBase
+    return rules.map((model) => createRuleFromMap(model.toMap())).toList();
   }
 
   @override
   Future<List<RuleBase>> getAllDisabled() async {
-    final maps = await _databaseService.queryWhere('rules', 'isEnabled', false);
-    return maps.map((map) => createRuleFromMap(map)).toList();
+    final rules = await _localRuleDataSource.getDisabledRules();
+    // 将RuleModel转换为RuleBase
+    return rules.map((model) => createRuleFromMap(model.toMap())).toList();
   }
 
   @override
   Future<List<RuleBase>> getAllEnabled() async {
-    final maps = await _databaseService.queryWhere('rules', 'isEnabled', true);
-    return maps.map((map) => createRuleFromMap(map)).toList();
+    final rules = await _localRuleDataSource.getEnabledRules();
+    // 将RuleModel转换为RuleBase
+    return rules.map((model) => createRuleFromMap(model.toMap())).toList();
   }
 
   @override
   Future<List<RuleBase>> getAll() async {
-    final maps = await _databaseService.queryAll('rules');
-    return maps.map((map) => createRuleFromMap(map)).toList();
+    final rules = await _localRuleDataSource.getAll();
+    // 将RuleModel转换为RuleBase
+    return rules.map((model) => createRuleFromMap(model.toMap())).toList();
   }
 
   @override
   Future<RuleBase?> getById(String id) async {
-    final map = await _databaseService.queryById('rules', id);
-    if (map == null) return null;
-    return createRuleFromMap(map);
+    final rule = await _localRuleDataSource.getById(id);
+    // 将RuleModel转换为RuleBase
+    return rule != null ? createRuleFromMap(rule.toMap()) : null;
   }
 
   @override
@@ -93,8 +99,28 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   Future<RuleBase> save(RuleBase entity) async {
-    await _databaseService.insert('rules', entity.toMap());
+    // 将RuleBase转换为RuleModel
+    final map = entity.toMap();
+    final model = _createModelFromMap(map);
+    await _localRuleDataSource.insert(model);
     return entity;
+  }
+
+  // 辅助方法：根据map创建对应的RuleModel
+  RuleModel _createModelFromMap(Map<String, dynamic> map) {
+    final ruleType = map['ruleType'] as String;
+    
+    switch (ruleType) {
+      case 'phone_rule':
+      case 'white_black': // 兼容旧数据
+        return PhoneRuleModel.fromMap(map);
+      case 'regex':
+        return RegexRuleModel.fromMap(map);
+      case 'allow_block':
+        return AllowedBlockedRuleModel.fromMap(map);
+      default:
+        throw Exception('Unknown rule type: $ruleType');
+    }
   }
 
   @override
@@ -104,13 +130,17 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   Future<List<RuleBase>> searchByName(String name) async {
-    final maps = await _databaseService.queryLike('rules', 'name', name);
-    return maps.map((map) => createRuleFromMap(map)).toList();
+    final rules = await _localRuleDataSource.searchByName(name);
+    // 将RuleModel转换为RuleBase
+    return rules.map((model) => createRuleFromMap(model.toMap())).toList();
   }
 
   @override
   Future<RuleBase> update(RuleBase entity) async {
-    await _databaseService.update('rules', entity.id, entity.toMap());
+    // 将RuleBase转换为RuleModel
+    final map = entity.toMap();
+    final model = _createModelFromMap(map);
+    await _localRuleDataSource.update(model);
     return entity;
   }
 
@@ -150,23 +180,21 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   Future<bool> deleteById(String id) async {
-    await _databaseService.delete('rules', id);
+    await _localRuleDataSource.delete(id);
     return true;
   }
 
   @override
   Future<bool> deleteAll(List<RuleBase> entities) async {
-    for (var entity in entities) {
-      await deleteById(entity.id);
-    }
+    await _localRuleDataSource.deleteAll(entities.map((e) => e.id).toList());
     return true;
   }
 
   @override
   Future<List<RuleBase>> saveAll(List<RuleBase> entities) async {
-    for (var entity in entities) {
-      await save(entity);
-    }
+    // 将所有实体转换为模型
+    final models = entities.map((entity) => _createModelFromMap(entity.toMap())).toList();
+    await _localRuleDataSource.insertAll(models);
     return entities;
   }
 
@@ -185,5 +213,17 @@ class RuleRepositoryImpl implements RuleRepository {
   @override
   RuleBase fromMap(Map<String, dynamic> map) {
     return createRuleFromMap(map);
+  }
+
+  @override
+  Future<Map<String, dynamic>?> queryRemoteNumberInfo(String phoneNumberStr) {
+    // Not applicable for local rules
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> syncRemoteNumbers() {
+    // Not applicable for local rules
+    throw UnimplementedError();
   }
 }

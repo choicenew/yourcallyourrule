@@ -4,6 +4,7 @@ import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'base_model.dart';
 import '../../core/entities/subscription/subscription.dart';
 import '../../core/entities/subscription/contact_subscription.dart';
+import '../../core/entities/sms/sms_subscription.dart';
 
 // 基础订阅模型（只包含共同字段）
 abstract class BaseSubscriptionModel<T extends BaseEntity> extends BaseModel<T> {
@@ -69,6 +70,18 @@ class SubscriptionModel extends BaseSubscriptionModel<Subscription> {
     );
   }
 
+  factory SubscriptionModel.fromEntity(Subscription entity) {
+    return SubscriptionModel(
+      id: entity.id,
+      name: entity.name,
+      url: entity.url,
+      isEnabled: entity.isEnabled,
+      action: entity.action,
+      lastUpdated: entity.lastUpdated,
+      autoUpdate: entity.autoUpdate,
+    );
+  }
+
   @override
   Map<String, dynamic> toMap() {
     return super.toMap()
@@ -118,6 +131,17 @@ class ContactSubscriptionModel extends BaseSubscriptionModel<ContactSubscription
     );
   }
 
+  factory ContactSubscriptionModel.fromEntity(ContactSubscription entity) {
+    return ContactSubscriptionModel(
+      id: entity.id,
+      name: entity.name,
+      url: entity.url,
+      isEnabled: entity.isEnabled,
+      lastUpdated: entity.lastUpdated,
+      autoUpdate: entity.autoUpdate,
+    );
+  }
+
   @override
   Map<String, dynamic> toMap() {
     return super.toMap()
@@ -142,8 +166,6 @@ class ContactSubscriptionModel extends BaseSubscriptionModel<ContactSubscription
 
 // 短信订阅模型（继承标准订阅模型，包含action字段）
 class SmsSubscriptionModel extends SubscriptionModel {
-  final bool isNumberType;
-
   const SmsSubscriptionModel({
     required super.id,
     required super.name,
@@ -152,7 +174,6 @@ class SmsSubscriptionModel extends SubscriptionModel {
     required super.lastUpdated,
     super.autoUpdate,
     required super.action,
-    this.isNumberType = true,
   });
 
   factory SmsSubscriptionModel.fromMap(Map<String, dynamic> map) {
@@ -164,7 +185,18 @@ class SmsSubscriptionModel extends SubscriptionModel {
       lastUpdated: DateTime.parse(map['lastUpdated']),
       autoUpdate: map['autoUpdate'] == 1,
       action: RuleAction.fromString(map['action']),
-      isNumberType: map['isNumberType'] == 1,
+    );
+  }
+
+  factory SmsSubscriptionModel.fromEntity(SmsSubscription entity) {
+    return SmsSubscriptionModel(
+      id: entity.id,
+      name: entity.name,
+      url: entity.url,
+      isEnabled: entity.isEnabled,
+      lastUpdated: entity.lastUpdated,
+      autoUpdate: entity.autoUpdate,
+      action: entity.action,
     );
   }
 
@@ -172,14 +204,13 @@ class SmsSubscriptionModel extends SubscriptionModel {
   Map<String, dynamic> toMap() {
     return super.toMap()
       ..addAll({
-        'isNumberType': isNumberType ? 1 : 0,
-        'table_type': 'sms'
+        'table_type': 'sms',
       });
   }
-  
+
   @override
-  Subscription toEntity() {
-    return Subscription(
+  SmsSubscription toEntity() {
+    return SmsSubscription(
       id: id,
       name: name,
       url: url,

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -119,10 +120,12 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     final idRegex = RegExp(r"id: '(.*?)',");
     final nameRegex = RegExp(r"name: '(.*?)',");
     final versionRegex = RegExp(r"version: '(.*?)',");
+    final descriptionRegex = RegExp(r"description: '(.*?)',");
 
     final idMatch = idRegex.firstMatch(script);
     final nameMatch = nameRegex.firstMatch(script);
     final versionMatch = versionRegex.firstMatch(script);
+    final descriptionMatch = descriptionRegex.firstMatch(script);
 
     if (idMatch == null || nameMatch == null || versionMatch == null) {
       throw Exception('无法从脚本中提取插件信息');
@@ -132,6 +135,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
       'id': idMatch.group(1)!,
       'name': nameMatch.group(1)!,
       'version': versionMatch.group(1)!,
+      'description': descriptionMatch?.group(1) ?? '',
     };
   }
 
@@ -143,6 +147,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
       name: pluginInfo['name'],
       url: url,
       version: pluginInfo['version'],
+      description: pluginInfo['description'],
       isEnabled: true,
       pluginOrder: 0,
       isAutoUpdate: false,
@@ -243,7 +248,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
       return entry;
     } catch (e) {
       AppLogger.error('添加插件失败', e);
-      print('添加插件失败: $e');
+      debugPrint('添加插件失败: $e');
       return null;
     }
   }
@@ -271,7 +276,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
       return entry;
     } catch (e) {
       AppLogger.error('添加本地插件失败', e);
-      print('添加本地插件失败: $e');
+      debugPrint('添加本地插件失败: $e');
       return null;
     }
   }
@@ -298,7 +303,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
       return false;
     } catch (e) {
       AppLogger.error('更新插件失败', e);
-      print('更新插件失败: $e');
+      debugPrint('更新插件失败: $e');
       return false;
     }
   }

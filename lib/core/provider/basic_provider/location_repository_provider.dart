@@ -1,59 +1,57 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/core/repositories/location_repository.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_location_datasource.dart';
+import 'package:yourcallyourrule/data/models/location_model.dart';
 
-import 'database_service_provider.dart';
+import '../datasource/local_location_datasource_provider.dart';
 
 /// 位置仓库提供者
 final locationRepositoryProvider = Provider<LocationRepository>((ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
+  final localLocationDataSource = ref.watch(localLocationDataSourceProvider);
   // 返回位置仓库实现
-  return LocationRepositoryImpl(databaseService);
+  return LocationRepositoryImpl(localLocationDataSource);
 });
 
 /// 位置仓库实现类
 class LocationRepositoryImpl implements LocationRepository {
-  final DatabaseService _databaseService;
+  final LocalLocationDataSource _dataSource;
 
-  LocationRepositoryImpl(this._databaseService);
+  LocationRepositoryImpl(this._dataSource);
 
   @override
   Future<List<LocationEntry>> getAll() async {
-    final maps = await _databaseService.queryAll('locations');
+    final maps = await _dataSource.queryAll();
     return maps.map((map) => fromMap(map)).toList();
   }
 
   @override
   Future<LocationEntry?> getById(String id) async {
-    final map = await _databaseService.queryById('locations', id);
+    final map = await _dataSource.queryById(id);
     if (map == null) return null;
     return fromMap(map);
   }
 
   @override
   Future<LocationEntry> save(LocationEntry entity) async {
-    await _databaseService.insert('locations', entity.toMap());
+    await _dataSource.insert(LocationModel.fromEntity(entity));
     return entity;
   }
 
   @override
   Future<LocationEntry> update(LocationEntry entity) async {
-    await _databaseService.update('locations', entity.id, entity.toMap());
+    await _dataSource.update(LocationModel.fromEntity(entity));
     return entity;
   }
   
   @override
   Future<LocationEntry?> getByPhoneNumber(String phone) async {
-    final maps = await _databaseService.queryWhere('locations', 'phoneNumber', phone);
-    if (maps.isEmpty) return null;
-    return fromMap(maps.first);
+    return await _dataSource.getByPhoneNumber(phone);
   }
   
   @override
   Future<List<LocationEntry>> getLocationsByRegion(String region) async {
-    final maps = await _databaseService.queryWhere('locations', 'region', region);
-    return maps.map((map) => fromMap(map)).toList();
+    return await _dataSource.getByRegion(region);
   }
   
   @override
@@ -68,7 +66,7 @@ class LocationRepositoryImpl implements LocationRepository {
 
   @override
   Future<bool> deleteById(String id) async {
-    await _databaseService.delete('locations', id);
+    await _dataSource.delete(id);
     return true;
   }
 
@@ -107,31 +105,31 @@ class LocationRepositoryImpl implements LocationRepository {
 
   @override
   Future<List<LocationEntry>> getByName(String name) async {
-    final maps = await _databaseService.queryWhere('locations', 'name', name);
+    final maps = await _dataSource.getByName(name);
     return maps.map((map) => fromMap(map)).toList();
   }
 
   @override
   Future<List<LocationEntry>> getByType(String type) async {
-    final maps = await _databaseService.queryWhere('locations', 'type', type);
+    final maps = await _dataSource.getByType(type);
     return maps.map((map) => fromMap(map)).toList();
   }
 
   @override
   Future<List<LocationEntry>> getAllEnabled() async {
-    final maps = await _databaseService.queryWhere('locations', 'isEnabled', true);
+    final maps = await _dataSource.getAllEnabled();
     return maps.map((map) => fromMap(map)).toList();
   }
 
   @override
   Future<List<LocationEntry>> getUserCreatedLocations() async {
-    final maps = await _databaseService.queryWhere('locations', 'isUserCreated', true);
+    final maps = await _dataSource.getUserCreatedLocations();
     return maps.map((map) => fromMap(map)).toList();
   }
 
   @override
   Future<List<LocationEntry>> getSystemLocations() async {
-    final maps = await _databaseService.queryWhere('locations', 'isUserCreated', false);
+    final maps = await _dataSource.getSystemLocations();
     return maps.map((map) => fromMap(map)).toList();
   }
 }

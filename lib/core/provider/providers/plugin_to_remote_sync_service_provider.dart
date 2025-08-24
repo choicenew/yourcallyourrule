@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/caller_id/services/plugin_to_remote_sync_service.dart';
+import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_service_provider.dart';
 import 'caller_id_service_provider.dart';
-import 'remote_number_service_provider.dart';
+
 
 /// PluginToRemoteSyncService工厂Provider
 /// 这个Provider不会立即创建服务实例，而是返回一个工厂函数
@@ -13,7 +14,7 @@ final pluginToRemoteSyncServiceFactoryProvider = Provider<PluginToRemoteSyncServ
 /// PluginToRemoteSyncService工厂类
 /// 负责创建和管理PluginToRemoteSyncService实例
 class PluginToRemoteSyncServiceFactory {
-  final ProviderRef _ref;
+  final Ref _ref;
   PluginToRemoteSyncService? _serviceInstance;
   
   PluginToRemoteSyncServiceFactory(this._ref);

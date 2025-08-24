@@ -6,10 +6,16 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/data/database/local/local_database_manager.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database_manager.dart';
-
-import '../datasources/local/local_contact_datasource.dart';
-import '../datasources/local/local_label_datasource.dart';
-import '../datasources/remote/remote_number_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_call_log_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_contact_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_label_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_location_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_plugin_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_predefined_label_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_rule_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_sms_regex_rule_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_subscription_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
 import 'database_manager.dart';
 
 // 数据库服务类
@@ -23,7 +29,14 @@ class DatabaseService {
   // 数据源
   late final LocalContactDataSource localContactDataSource;
   late final LocalLabelDataSource localLabelDataSource;
+  late final LocalRuleDataSource localRuleDataSource;
+  late final LocalCallLogDataSource localCallLogDataSource;
+  late final LocalSmsRegexRuleDataSource localSmsRegexRuleDataSource;
+  late final LocalSubscriptionDataSource localSubscriptionDataSource;
+  late final LocalLocationDataSource localLocationDataSource;
+  late final LocalPluginDataSource localPluginDataSource;
   late final RemoteNumberDataSource remoteNumberDataSource;
+  late final LocalPredefinedLabelDataSource localPredefinedLabelDataSource;
   
   // 表变化监听器
   final Map<String, StreamController<List<Map<String, dynamic>>>> _tableControllers = {};
@@ -36,7 +49,14 @@ class DatabaseService {
     // 初始化数据源
     localContactDataSource = LocalContactDataSource(_localDatabaseManager);
     localLabelDataSource = LocalLabelDataSource(_localDatabaseManager);
+    localRuleDataSource = LocalRuleDataSource(_localDatabaseManager);
+    localCallLogDataSource = LocalCallLogDataSource(_localDatabaseManager);
+    localSmsRegexRuleDataSource = LocalSmsRegexRuleDataSource(_localDatabaseManager);
+    localSubscriptionDataSource = LocalSubscriptionDataSource(_localDatabaseManager);
+    localLocationDataSource = LocalLocationDataSource(_localDatabaseManager);
+    localPluginDataSource = LocalPluginDataSource(_localDatabaseManager);
     remoteNumberDataSource = RemoteNumberDataSource(_remoteDatabaseManager);
+    localPredefinedLabelDataSource = LocalPredefinedLabelDataSource(_localDatabaseManager);
   }
   
   // 工厂构造函数

@@ -11,6 +11,22 @@ class LocalLocationDataSource {
 
   Future<Database> get _db async => _dbManager.database;
 
+  Future<List<Map<String, dynamic>>> queryAll() async {
+    final db = await _db;
+    return await db.query('locations');
+  }
+
+  Future<Map<String, dynamic>?> queryById(String id) async {
+    final db = await _db;
+    final maps = await db.query(
+      'locations',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+    if (maps.isEmpty) return null;
+    return maps.first;
+  }
+
   Future<String> insert(LocationModel location) async {
     final db = await _db;
     await db.insert(
@@ -92,5 +108,30 @@ class LocalLocationDataSource {
       [pattern],
     );
     return result.map((e) => LocationModel.fromMap(e).toEntity()).toList();
+  }
+
+  Future<List<Map<String, dynamic>>> getByName(String name) async {
+    final db = await _db;
+    return await db.query('locations', where: 'name = ?', whereArgs: [name]);
+  }
+
+  Future<List<Map<String, dynamic>>> getByType(String type) async {
+    final db = await _db;
+    return await db.query('locations', where: 'type = ?', whereArgs: [type]);
+  }
+
+  Future<List<Map<String, dynamic>>> getAllEnabled() async {
+    final db = await _db;
+    return await db.query('locations', where: 'isEnabled = ?', whereArgs: [1]);
+  }
+
+  Future<List<Map<String, dynamic>>> getUserCreatedLocations() async {
+    final db = await _db;
+    return await db.query('locations', where: 'isUserCreated = ?', whereArgs: [1]);
+  }
+
+  Future<List<Map<String, dynamic>>> getSystemLocations() async {
+    final db = await _db;
+    return await db.query('locations', where: 'isUserCreated = ?', whereArgs: [0]);
   }
 }

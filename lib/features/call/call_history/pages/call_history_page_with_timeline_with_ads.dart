@@ -12,7 +12,6 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/ads/ad_control_service.dart';
 
 /// 带时间轴布局的通话记录页面 - 集成广告功能
 /// 参考HTML UI设计实现，包含统计卡片和时间轴布局

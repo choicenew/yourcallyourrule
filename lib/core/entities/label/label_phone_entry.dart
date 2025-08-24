@@ -103,24 +103,6 @@ class LabelPhoneEntry extends RuleBase {
     );
   }
   
-  // 为了向后兼容，提供从LabelEntry转换的方法
-  factory LabelPhoneEntry.fromLabelEntry(dynamic labelEntry) {
-    if (labelEntry is LabelPhoneEntry) {
-      return labelEntry;
-    }
-    
-    return LabelPhoneEntry(
-      id: labelEntry.id,
-      name: labelEntry.name,
-      priority: labelEntry.priority,
-      phoneNumber: labelEntry.phoneNumber,
-      labelId: labelEntry.labelId,
-      action: labelEntry.action,
-      isEnabled: labelEntry.isEnabled,
-      avatar: labelEntry.avatar,
-      icon: labelEntry.icon,
-    );
-  }
 }
 
 // 为了向后兼容，保留LabelEntry类型别名

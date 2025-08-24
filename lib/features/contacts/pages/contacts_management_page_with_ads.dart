@@ -33,7 +33,8 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
   List<Contact> _contacts = [];
   String? _selectedLabelId;
   String? _selectedLabelText;
-  String _searchQuery = '';
+  String _searchKeyword = '';
+  bool _showOnlyFavorites = false; // 新增：收藏夹过滤状态
   
   // 多选模式相关变量
   bool _isMultiSelectMode = false;
@@ -73,18 +74,23 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
 
   List<Contact> get _filteredContacts {
     var filteredList = _contacts;
+
+    // 收藏夹过滤
+    if (_showOnlyFavorites) {
+      filteredList = filteredList.where((contact) => contact.isFavorite).toList();
+    }
     
     // 搜索过滤
-    if (_searchQuery.isNotEmpty) {
+    if (_searchKeyword.isNotEmpty) {
       filteredList = filteredList.where((contact) {
-        return contact.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-            contact.phoneNumbers.any((phone) => phone.contains(_searchQuery));
+        return contact.name.toLowerCase().contains(_searchKeyword.toLowerCase()) ||
+            contact.phoneNumbers.any((phone) => phone.contains(_searchKeyword));
       }).toList();
     }
     
     // 标签过滤
     if (_selectedLabelId != null) {
-      filteredList = filteredList.where((contact) => contact.labelId == _selectedLabelId).toList();
+      filteredList = filteredList.where((contact) => contact.labelIds?.contains(_selectedLabelId) ?? false).toList();
     }
     
     // 按姓名首字母排序
@@ -194,7 +200,13 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
     }
   }
 
-  // 切换联系人收藏状态
+  void _onSearchChanged(String query) {
+    setState(() {
+      _searchKeyword = query;
+    });
+  }
+
+  // 切换收藏状态
   Future<void> _toggleFavorite(Contact contact) async {
     final contactService = ref.read(contactServiceProvider);
     final updatedContact = contact.copyWith(isFavorite: !contact.isFavorite);
@@ -229,34 +241,6 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
     );
   }
   
-  // 显示标签选择对话框
-  Future<void> _showLabelSelectionDialog(Contact contact) async {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.selectTags),
-        content: PublicSelectLabel(
-          initialLabelId: contact.labelId,
-          onLabelIdChanged: (labelId) async {
-            final contactService = ref.read(contactServiceProvider);
-            final updatedContact = contact.copyWith(labelId: labelId);
-            
-            // 使用通用操作处理方法
-            await _handleContactOperation(
-              contact: contact,
-              operation: () => contactService.update(updatedContact),
-              successMessage: AppLocalizations.of(context)!.tagsUpdated,
-              errorPrefix: AppLocalizations.of(context)!.updateTags,
-            );
-            
-            Navigator.pop(context);
-          },
-          themeColor: const Color(0xFFF5A623),
-        ),
-      ),
-    );
-  }
-
   // 显示确认对话框
   Future<bool> _showConfirmDialog({
     required String title,
@@ -348,19 +332,44 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
       );
     }
     
-    return CircleAvatar(
-      backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.2),
-      child: Text(
-        contact.name.isNotEmpty ? contact.name[0].toUpperCase() : '#',
-        style: const TextStyle(color: Color(0xFFF5A623)),
-      ),
-    );
+    ImageProvider? imageProvider;
+    if (contact.avatar != null && contact.avatar!.isNotEmpty) {
+      if (contact.avatar!.startsWith('http')) {
+        imageProvider = NetworkImage(contact.avatar!);
+      } else {
+        imageProvider = AssetImage(contact.avatar!);
+      }
+    }
+
+    if (imageProvider != null) {
+      return CircleAvatar(
+        backgroundImage: imageProvider,
+        backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.2),
+      );
+    } else {
+      return CircleAvatar(
+        backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.2),
+        child: Text(
+          contact.name.isNotEmpty ? contact.name[0].toUpperCase() : '#',
+          style: const TextStyle(color: Color(0xFFF5A623)),
+        ),
+      );
+    }
   }
   
   // 构建标签显示组件
-  Widget _buildLabelChip(String? labelId) {
-    if (labelId == null) return const SizedBox.shrink();
-    
+  Widget _buildLabelChips(List<String>? labelIds) {
+    if (labelIds == null || labelIds.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Wrap(
+      spacing: 4.0,
+      runSpacing: 0.0,
+      children: labelIds.map((id) => _buildSingleLabelChip(id)).toList(),
+    );
+  }
+
+  Widget _buildSingleLabelChip(String labelId) {
     return FutureBuilder<String?>(
       future: ref.read(predefinedLabelServiceProvider)
           .getLabelById(labelId)
@@ -371,7 +380,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
             margin: const EdgeInsets.only(top: 4),
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             decoration: BoxDecoration(
-              color: const Color(0xFFF5A623).withValues(alpha: 0.1),
+              color: const Color(0xFFF5A623).withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
@@ -403,16 +412,6 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         ),
       ),
       PopupMenuItem(
-        value: 'label',
-        child: Row(
-          children: [
-            const Icon(Icons.label_outline, color: Color(0xFFF5A623)),
-            const SizedBox(width: 8),
-            Text(AppLocalizations.of(context)!.changeLabel),
-          ],
-        ),
-      ),
-      PopupMenuItem(
         value: 'edit',
         child: Row(
           children: [
@@ -441,9 +440,6 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
       case 'favorite':
         await _toggleFavorite(contact);
         break;
-      case 'label':
-        _showLabelSelectionDialog(contact);
-        break;
       case 'edit':
         _showEditContactDialog(contact);
         break;
@@ -465,7 +461,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(contact.phoneNumbers.first),
-            _buildLabelChip(contact.labelId),
+            _buildLabelChips(contact.labelIds),
           ],
         ),
         onTap: _isMultiSelectMode 
@@ -643,8 +639,24 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
       onDeleteSelected: _deleteSelectedContacts,
       getItemId: (contact) => contact.id,
       onToggleItemSelection: _toggleContactSelection,
-      headerContent: _buildHeaderContent(),
+      infoCard: _buildHeaderContent(),
+      onSearchChanged: _onSearchChanged,
+      searchHintText: AppLocalizations.of(context)!.searchContacts,
       customActions: [
+        IconButton(
+          icon: Icon(
+            _showOnlyFavorites ? Icons.star : Icons.star_border,
+            color: _showOnlyFavorites ? const Color(0xFFF5A623) : null,
+          ),
+          onPressed: () {
+            setState(() {
+              _showOnlyFavorites = !_showOnlyFavorites;
+            });
+          },
+          tooltip: _showOnlyFavorites 
+              ? AppLocalizations.of(context)!.showAllContacts 
+              : AppLocalizations.of(context)!.showFavorites,
+        ),
         IconButton(
           icon: const Icon(Icons.import_export),
           onPressed: _showImportExportDialog,
@@ -739,29 +751,6 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
               ],
             ),
           ),
-
-        // 搜索栏
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: TextField(
-            decoration: InputDecoration(
-              hintText: AppLocalizations.of(context)!.searchContacts,
-              prefixIcon: const Icon(Icons.search),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide.none,
-              ),
-              filled: true,
-              fillColor: Colors.white,
-              contentPadding: const EdgeInsets.symmetric(vertical: 0),
-            ),
-            onChanged: (value) {
-              setState(() {
-                _searchQuery = value;
-              });
-            },
-          ),
-        ),
 
         // 标签筛选
         if (_selectedLabelText != null)

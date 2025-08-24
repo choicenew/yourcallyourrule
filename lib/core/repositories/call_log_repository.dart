@@ -9,8 +9,7 @@ abstract class CallLogRepository extends BaseRepository<CallLog, String> {
   /// 根据电话号码获取通话记录
   Future<List<CallLog>> getLogsByPhoneNumber(String phoneNumber);
   
-  /// 监听通话记录变化
-  Stream<List<CallLog>> watchLogs();
+
   
   /// 刷新通话记录
   Future<void> refreshLogs();
@@ -41,4 +40,6 @@ abstract class CallLogRepository extends BaseRepository<CallLog, String> {
   
   /// 获取包含全部指定标签的通话记录 
   Future<List<CallLog>> getLogsWithAllLabels(List<String> labelIds);
+
+  Stream<List<CallLog>> watchLogs();
 }

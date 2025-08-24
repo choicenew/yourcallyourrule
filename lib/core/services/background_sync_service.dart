@@ -57,8 +57,7 @@ void callbackDispatcher() {
           
         case dataSyncTask:
           // 执行数据同步任务
-          final syncManager = container.read(incrementalSyncManagerProvider) ?? IncrementalSyncManager();
-          await syncManager.initialize();
+          final syncManager = container.read(incrementalSyncManagerProvider);
           await syncManager.syncIncremental();
           break;
           
@@ -73,7 +72,7 @@ void callbackDispatcher() {
       
       return Future.value(true);
     } catch (e) {
-      print('后台任务执行错误: $e');
+      debugPrint('后台任务执行错误: $e');
       return Future.value(false);
     }
   });
@@ -82,13 +81,12 @@ void callbackDispatcher() {
 /// 后台同步服务，负责管理应用的后台同步任务
 class BackgroundSyncService {
   static const String syncTaskName = 'com.yourcallyourrule.sync';
-  late final IncrementalSyncManager _syncManager;
+  final IncrementalSyncManager _syncManager;
+
+  BackgroundSyncService(this._syncManager);
   
   /// 初始化后台同步服务
   Future<void> initialize() async {
-    // 创建IncrementalSyncManager实例
-    _syncManager = provideIncrementalSyncManager();
-    
     await Workmanager().initialize(
       callbackDispatcher,
       isInDebugMode: kDebugMode,
@@ -127,18 +125,10 @@ class BackgroundSyncService {
       ),
       existingWorkPolicy: ExistingWorkPolicy.replace,
     );
-    
-    // 初始化同步管理器
-    await _syncManager.initialize();
   }
   
   /// 取消所有同步任务
   Future<void> cancelAllSyncTasks() async {
     await Workmanager().cancelByTag(syncTaskName);
-  }
-  
-  /// 提供IncrementalSyncManager实例
-  IncrementalSyncManager provideIncrementalSyncManager() {
-    return IncrementalSyncManager();
   }
 }

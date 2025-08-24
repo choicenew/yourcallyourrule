@@ -27,6 +27,9 @@ class ContactModel extends BaseModel<PhoneEntry> {
   // 最后更新时间
   final DateTime lastUpdated;
 
+  // 网站链接
+  final String? url;
+
   // 构造函数
   const ContactModel({
     required super.id,
@@ -37,6 +40,7 @@ class ContactModel extends BaseModel<PhoneEntry> {
     this.labelIds,
     this.isFavorite = false,
     required this.lastUpdated,
+    this.url,
   });
   
   // 从Map创建模型
@@ -54,6 +58,7 @@ class ContactModel extends BaseModel<PhoneEntry> {
       lastUpdated: map['lastUpdated'] != null 
           ? DateTime.parse(map['lastUpdated']) 
           : DateTime.now(),
+      url: map['url'],
     );
   }
   
@@ -69,6 +74,7 @@ class ContactModel extends BaseModel<PhoneEntry> {
       'labelIds': labelIds,
       'isFavorite': isFavorite ? 1 : 0,
       'lastUpdated': lastUpdated.toIso8601String(),
+      'url': url,
     });
     return map;
   }
@@ -85,6 +91,7 @@ class ContactModel extends BaseModel<PhoneEntry> {
       labelIds: labelIds,
       isFavorite: isFavorite,
       lastUpdated: lastUpdated,
+      url: url,
     );
   }
   
@@ -99,6 +106,32 @@ class ContactModel extends BaseModel<PhoneEntry> {
       labelIds: entity.labelIds,
       isFavorite: entity.isFavorite,
       lastUpdated: entity.lastUpdated,
+      url: entity.url,
+    );
+  }
+
+  // copyWith 方法
+  ContactModel copyWith({
+    String? id,
+    String? phoneNumber,
+    String? name,
+    String? avatar,
+    String? note,
+    List<String>? labelIds,
+    bool? isFavorite,
+    DateTime? lastUpdated,
+    String? url,
+  }) {
+    return ContactModel(
+      id: id ?? this.id,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      name: name ?? this.name,
+      avatar: avatar ?? this.avatar,
+      note: note ?? this.note,
+      labelIds: labelIds ?? this.labelIds,
+      isFavorite: isFavorite ?? this.isFavorite,
+      lastUpdated: lastUpdated ?? this.lastUpdated,
+      url: url ?? this.url,
     );
   }
 }
@@ -117,6 +150,9 @@ class ContactEntity extends PhoneEntry {
   // 最后更新时间
   final DateTime lastUpdated;
 
+  // 网站链接
+  final String? url;
+
   // 构造函数
   const ContactEntity({
     required super.id,
@@ -127,6 +163,7 @@ class ContactEntity extends PhoneEntry {
     this.labelIds,
     this.isFavorite = false,
     required this.lastUpdated,
+    this.url,
   });
   
   // 重写toMap方法，添加联系人特有的字段
@@ -138,6 +175,7 @@ class ContactEntity extends PhoneEntry {
       'labelIds': labelIds,
       'isFavorite': isFavorite,
       'lastUpdated': lastUpdated.toIso8601String(),
+      'url': url,
     });
     return map;
   }

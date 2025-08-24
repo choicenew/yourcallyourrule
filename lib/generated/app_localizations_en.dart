@@ -4910,5 +4910,50 @@ class AppLocalizationsEn extends AppLocalizations {
   String get editSubscription => 'Edit Subscription';
 
   @override
+  String get searchByNameOrPhoneNumber => 'Search By Name or PhoneNumber';
+
+  @override
+  String get allowedBlockedRulesInfo => 'Allowed/blocked rules are used to match calls to specific phone numbers, which have the highest priority.';
+
+  @override
+  String get searchPhoneRulesHint => 'Search phone rules';
+
+  @override
+  String get phoneRulesInfo => 'Phone rules are used to match calls to specific phone numbers, which havve a lower priority. Some comes from the phoneRule subscriptions';
+
+  @override
+  String get searchSubscriptionsHint => 'Search subscriptions';
+
+  @override
+  String get searchPluginsHint => 'Search plugins';
+
+  @override
+  String get searchLabelsHint => 'Search labels';
+
+  @override
+  String get pluginDescription => 'Plugin description';
+
+  @override
+  String get enterPluginDescription => 'Enter plugin description';
+
+  @override
+  String get searchRegexRulesHint => 'Search regex rules';
+
+  @override
+  String get regexRulesInfo => 'Regex rules are used to filter calls based on the Regex Patterns.';
+
+  @override
+  String get searchMarkedPhonesHint => 'Search marked phones';
+
+  @override
+  String get searchContactSubscriptionsHint => 'Search contact subscriptions';
+
+  @override
+  String get showAllContacts => 'Show All Contacts';
+
+  @override
+  String get showFavorites => 'Show Favorites';
+
+  @override
   String get yesterday => 'Yesterday';
 }

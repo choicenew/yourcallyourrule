@@ -7,7 +7,7 @@ class DownloadStatusService {
   final ConfigRepository _configRepository;
 
   // 使用一个独立的 Key 来存储下载状态，与用户选择完全分开。
-  static const String _downloadedCountriesKey = 'config_downloaded_countries';
+  static const String _downloadedCountriesKey = 'config_downloaded_country_iso_codes';
 
   const DownloadStatusService(this._configRepository);
 

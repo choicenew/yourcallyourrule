@@ -99,7 +99,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           lastUpdated: subscription.lastUpdated,
           autoUpdate: subscription.autoUpdate,
           action: subscription.action,
-          isNumberType: subscription.isNumberType,
+     
         );
       } else if (subscription is SubscriptionModel) {
         subscriptionWithId = SubscriptionModel(
@@ -188,7 +188,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
               lastUpdated: subscription.lastUpdated,
               autoUpdate: subscription.autoUpdate,
               action: subscription.action,
-              isNumberType: subscription.isNumberType,
+             
             );
           } else if (subscription is SubscriptionModel) {
             subscriptionWithId = SubscriptionModel(
@@ -311,7 +311,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
             lastUpdated: DateTime.parse(subscriptionMap['lastUpdated']),
             autoUpdate: subscriptionMap['autoUpdate'] == 1,
             action: RuleAction.fromString(subscriptionMap['action']),
-            isNumberType: subscriptionMap['isNumberType'] == 1,
+            
           ));
         } else if (tableType == 'phone') {
           subscriptions.add(SubscriptionModel.fromMap(subscriptionMap));
@@ -360,7 +360,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
           action: RuleAction.fromString(map['action']),
-          isNumberType: map['isNumberType'] == 1,
+         
         );
       } else if (tableType == 'phone') {
         return SubscriptionModel.fromMap(map);
@@ -403,7 +403,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
           action: RuleAction.fromString(map['action']),
-          isNumberType: map['isNumberType'] == 1,
+        
         );
       } else if (tableType == 'phone') {
         return SubscriptionModel.fromMap(map);
@@ -445,7 +445,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           lastUpdated: DateTime.parse(map['lastUpdated']),
           autoUpdate: map['autoUpdate'] == 1,
           action: RuleAction.fromString(map['action']),
-          isNumberType: map['isNumberType'] == 1,
+        
         );
       } else if (type == 'phone') {
         return SubscriptionModel.fromMap(map);
@@ -453,6 +453,75 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
         // 默认情况下，如果没有指定类型，则假定为标准订阅
         return SubscriptionModel.fromMap(map);
       }
+    });
+  }
+
+  Future<List<BaseSubscriptionModel>> queryAll() async {
+    return await getAll();
+  }
+
+  Future<BaseSubscriptionModel?> queryById(String id) async {
+    return await getById(id);
+  }
+
+  Future<List<BaseSubscriptionModel>> getByName(String name) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'name = ?',
+      whereArgs: [name],
+    );
+
+    return List.generate(maps.length, (i) {
+      final map = maps[i];
+      final String? tableType = map['table_type'];
+      switch (tableType) {
+        case 'contact':
+          return ContactSubscriptionModel.fromMap(map);
+        case 'sms':
+          return SmsSubscriptionModel.fromMap(map);
+        case 'phone':
+        default:
+          return SubscriptionModel.fromMap(map);
+      }
+    });
+  }
+
+  Future<BaseSubscriptionModel?> getByUrl(String url) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'url = ?',
+      whereArgs: [url],
+    );
+
+    if (maps.isNotEmpty) {
+      final map = maps.first;
+      final String? tableType = map['table_type'];
+      switch (tableType) {
+        case 'contact':
+          return ContactSubscriptionModel.fromMap(map);
+        case 'sms':
+          return SmsSubscriptionModel.fromMap(map);
+        case 'phone':
+        default:
+          return SubscriptionModel.fromMap(map);
+      }
+    }
+    return null;
+  }
+
+  Future<List<BaseSubscriptionModel>> getByContactName(String contactName) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'name = ? AND table_type = ?',
+      whereArgs: [contactName, 'contact'],
+    );
+
+     return List.generate(maps.length, (i) {
+      final map = maps[i];
+      return ContactSubscriptionModel.fromMap(map);
     });
   }
 }

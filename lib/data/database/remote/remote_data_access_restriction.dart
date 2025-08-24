@@ -8,9 +8,7 @@ import '../remote/remote_database_manager.dart';
 
 // 远程数据访问限制接口
 abstract class RemoteDataAccessRestriction {
-  // 查询远程号码信息
   Future<Map<String, dynamic>?> queryRemoteNumberInfo(String phoneNumber);
-  
   // 记录访问日志
   Future<void> logAccess(String phoneNumber, String accessType, {String? userId});
   

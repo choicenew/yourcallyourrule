@@ -22,6 +22,7 @@ class PhoneSubscriptionPageRefactoredWithAds extends ConsumerStatefulWidget {
 class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSubscriptionPageRefactoredWithAds> {
   List<Subscription> _subscriptions = [];
   bool _isLoading = true;
+  String _searchKeyword = '';
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _urlController = TextEditingController();
 
@@ -38,6 +39,13 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
     super.dispose();
   }
 
+  void _onSearchChanged(String keyword) {
+    setState(() {
+      _searchKeyword = keyword;
+    });
+    _loadSubscriptions();
+  }
+
   Future<void> _loadSubscriptions() async {
     setState(() {
       _isLoading = true;
@@ -45,7 +53,13 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
 
     try {
       final phoneSubscriptionService = ref.read(phoneSubscriptionServiceProvider);
-      final subscriptions = await phoneSubscriptionService.getAll();
+      var subscriptions = await phoneSubscriptionService.getAll();
+      if (_searchKeyword.isNotEmpty) {
+        subscriptions = subscriptions.where((s) =>
+          s.name.toLowerCase().contains(_searchKeyword.toLowerCase()) ||
+          s.url.toString().toLowerCase().contains(_searchKeyword.toLowerCase())
+        ).toList();
+      }
       setState(() {
         _subscriptions = subscriptions;
         _isLoading = false;
@@ -302,7 +316,10 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
       isLoading: _isLoading,
       onRefresh: _loadSubscriptions,
       onAdd: () => _showAddSubscriptionDialog(),
-      headerContent: _buildInfoCard(),
+      //headerContent: _buildInfoCard(),
+      onSearchChanged: _onSearchChanged,
+      searchHintText: AppLocalizations.of(context)!.searchSubscriptionsHint,
+      infoCard: _buildInfoCard(),
     );
   }
 

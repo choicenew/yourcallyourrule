@@ -116,6 +116,24 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
       whereArgs: [id],
     );
   }
+
+  Future<List<Map<String, dynamic>>> queryAll() async {
+    final db = await _databaseManager.database;
+    return await db.query(_tableName);
+  }
+
+  Future<Map<String, dynamic>?> queryById(String id) async {
+    final db = await _databaseManager.database;
+    final maps = await db.query(
+      _tableName,
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+    if (maps.isNotEmpty) {
+      return maps.first;
+    }
+    return null;
+  }
   
   // 批量插入标签
   @override
@@ -262,6 +280,58 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
       whereArgs: [action],
     );
     
+    return List.generate(maps.length, (i) {
+      return LabelModel.fromMap(maps[i]);
+    });
+  }
+
+  Future<List<LabelModel>> getByName(String name) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'name = ?',
+      whereArgs: [name],
+    );
+
+    return List.generate(maps.length, (i) {
+      return LabelModel.fromMap(maps[i]);
+    });
+  }
+
+  Future<List<LabelModel>> getByType(String type) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'type = ?',
+      whereArgs: [type],
+    );
+
+    return List.generate(maps.length, (i) {
+      return LabelModel.fromMap(maps[i]);
+    });
+  }
+
+  Future<List<LabelModel>> getAllEnabled() async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'isEnabled = ?',
+      whereArgs: [1],
+    );
+
+    return List.generate(maps.length, (i) {
+      return LabelModel.fromMap(maps[i]);
+    });
+  }
+
+  Future<List<LabelModel>> getByLabelId(String labelId) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'labelId = ?',
+      whereArgs: [labelId],
+    );
+
     return List.generate(maps.length, (i) {
       return LabelModel.fromMap(maps[i]);
     });

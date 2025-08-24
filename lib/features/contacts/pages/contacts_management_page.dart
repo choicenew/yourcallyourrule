@@ -25,9 +25,8 @@ class ContactsManagementPage extends ConsumerStatefulWidget {
 class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage> {
   bool _isLoading = true;
   List<Contact> _contacts = [];
-  String? _selectedLabelId;
-  String? _selectedLabelText;
   String _searchQuery = '';
+  bool _showOnlyFavorites = false; // 新增状态，用于控制是否只显示收藏的联系人
   
   // 多选模式相关变量
   bool _isMultiSelectMode = false;
@@ -67,18 +66,19 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
 
   List<Contact> get _filteredContacts {
     var filteredList = _contacts;
+
+    // 收藏过滤
+    if (_showOnlyFavorites) {
+      filteredList = filteredList.where((contact) => contact.isFavorite).toList();
+    }
     
     // 搜索过滤
     if (_searchQuery.isNotEmpty) {
-      filteredList = filteredList.where((contact) {
-        return contact.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-            contact.phoneNumbers.any((phone) => phone.contains(_searchQuery));
-      }).toList();
-    }
-    
-    // 标签过滤
-    if (_selectedLabelId != null) {
-      filteredList = filteredList.where((contact) => contact.labelId == _selectedLabelId).toList();
+      filteredList = filteredList
+          .where((contact) =>
+              contact.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
+              contact.phoneNumbers.any((phone) => phone.contains(_searchQuery)))
+          .toList();
     }
     
     // 按姓名首字母排序
@@ -223,33 +223,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
     );
   }
   
-  // 显示标签选择对话框
-  Future<void> _showLabelSelectionDialog(Contact contact) async {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.selectTags),
-        content: PublicSelectLabel(
-          initialLabelId: contact.labelId,
-          onLabelIdChanged: (labelId) async {
-            final contactService = ref.read(contactServiceProvider);
-            final updatedContact = contact.copyWith(labelId: labelId);
-            
-            // 使用通用操作处理方法
-            await _handleContactOperation(
-              contact: contact,
-              operation: () => contactService.update(updatedContact),
-              successMessage: AppLocalizations.of(context)!.tagsUpdated,
-              errorPrefix: AppLocalizations.of(context)!.updateTags,
-            );
-            
-            Navigator.pop(context);
-          },
-          themeColor: const Color(0xFFF5A623),
-        ),
-      ),
-    );
-  }
+
 
   // 显示确认对话框
   Future<bool> _showConfirmDialog({
@@ -352,9 +326,18 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
   }
   
   // 构建标签显示组件
-  Widget _buildLabelChip(String? labelId) {
-    if (labelId == null) return const SizedBox.shrink();
-    
+  Widget _buildLabelChips(List<String>? labelIds) {
+    if (labelIds == null || labelIds.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Wrap(
+      spacing: 4.0,
+      runSpacing: 0.0,
+      children: labelIds.map((id) => _buildSingleLabelChip(id)).toList(),
+    );
+  }
+
+  Widget _buildSingleLabelChip(String labelId) {
     return FutureBuilder<String?>(
       future: ref.read(predefinedLabelServiceProvider)
           .getLabelById(labelId)
@@ -365,7 +348,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
             margin: const EdgeInsets.only(top: 4),
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             decoration: BoxDecoration(
-              color: const Color(0xFFF5A623).withValues(alpha:0.1),
+              color: const Color(0xFFF5A623).withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
@@ -397,16 +380,6 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
         ),
       ),
       PopupMenuItem(
-        value: 'label',
-        child: Row(
-          children: [
-            const Icon(Icons.label_outline, color: Color(0xFFF5A623)),
-            const SizedBox(width: 8),
-            Text(AppLocalizations.of(context)!.changeLabel),
-          ],
-        ),
-      ),
-      PopupMenuItem(
         value: 'edit',
         child: Row(
           children: [
@@ -435,9 +408,6 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
       case 'favorite':
         await _toggleFavorite(contact);
         break;
-      case 'label':
-        _showLabelSelectionDialog(contact);
-        break;
       case 'edit':
         _showEditContactDialog(contact);
         break;
@@ -458,7 +428,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(contact.phoneNumbers.first),
-            _buildLabelChip(contact.labelId),
+            _buildLabelChips(contact.labelIds),
           ],
         ),
         onTap: _isMultiSelectMode 
@@ -513,6 +483,15 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
               onPressed: _selectedContactIds.isNotEmpty ? _deleteSelectedContacts : null,
             )
           else ...[  
+            // 收藏夹过滤按钮
+            IconButton(
+              icon: Icon(_showOnlyFavorites ? Icons.star : Icons.star_border),
+              onPressed: () {
+                setState(() {
+                  _showOnlyFavorites = !_showOnlyFavorites;
+                });
+              },
+            ),
             // 切换到多选模式的按钮
             IconButton(
               icon: const Icon(Icons.select_all),
@@ -774,52 +753,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
               ),
             ),
 
-            // 标签筛选
-            if (_selectedLabelText != null)
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: [
-                    Chip(
-                      label: Text(_selectedLabelText!),
-                      backgroundColor: const Color(0xFFF5A623).withOpacity(0.1),
-                      labelStyle: const TextStyle(color: Color(0xFFF5A623)),
-                      deleteIcon: const Icon(Icons.close, size: 18),
-                      onDeleted: () {
-                        setState(() {
-                          _selectedLabelId = null;
-                          _selectedLabelText = null;
-                        });
-                      },
-                    ),
-                    const SizedBox(width: 8),
-                    TextButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                            title: Text(AppLocalizations.of(context)!.selectTags),
-                            content: PublicSelectLabel(
-                              initialLabelId: _selectedLabelId,
-                              onLabelIdChanged: (labelId) async {
-                                final labelService = ref.read(predefinedLabelServiceProvider);
-                                final label = await labelService.getLabelById(labelId);
-                                setState(() {
-                                  _selectedLabelId = labelId;
-                                  _selectedLabelText = label?.text;
-                                });
-                                Navigator.pop(context);
-                              },
-                              themeColor: const Color(0xFFF5A623),
-                            ),
-                          ),
-                        );
-                      },
-                      child: Text(AppLocalizations.of(context)!.changeLabel),
-                    ),
-                  ],
-                ),
-              ),
+
 
             // 联系人列表
             Expanded(
@@ -947,18 +881,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
                           style: const TextStyle(fontSize: 12, color: Colors.grey),
                         ),
                       ],
-                      if (contact.labelId != null) ...[  
-                        const SizedBox(height: 4),
-                        PublicSelectLabel(
-                          initialLabelId: contact.labelId,
-                          onLabelIdChanged: (labelId) async {
-                            final contactService = ref.read(contactServiceProvider);
-                            await contactService.update(contact.copyWith(labelId: labelId));
-                            _loadContacts();
-                          },
-                          themeColor: Colors.blue,
-                        ),
-                      ],
+                      _buildLabelChips(contact.labelIds),
                     ],
                   ),
                 ),

@@ -17,7 +17,7 @@ import 'package:yourcallyourrule/core/provider/providers/caller_id_service_provi
 import 'package:yourcallyourrule/core/provider/providers/local_count_filter_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/remote_number_service_provider.dart';
+
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
@@ -28,6 +28,7 @@ import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overl
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
+import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_service_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 
 class VerificationPage extends ConsumerStatefulWidget {

@@ -11,7 +11,7 @@ final countrySelectionServiceProvider = Provider<CountrySelectionService>((ref) 
   return CountrySelectionService(configRepository);
 });
 
-/// StateNotifierProvider for managing the list of selected country dial codes.
+/// StateNotifierProvider for managing the list of selected country iso codes.
 ///
 /// This provider exposes a [CountrySelectionNotifier] that handles loading,
 /// adding, and removing selected countries.
@@ -20,7 +20,7 @@ final selectedCountriesProvider = StateNotifierProvider<CountrySelectionNotifier
   return CountrySelectionNotifier(service);
 });
 
-/// A StateNotifier that manages the state of selected country dial codes.
+/// A StateNotifier that manages the state of selected country iso codes.
 class CountrySelectionNotifier extends StateNotifier<AsyncValue<List<String>>> {
   final CountrySelectionService _service;
 
@@ -32,7 +32,7 @@ class CountrySelectionNotifier extends StateNotifier<AsyncValue<List<String>>> {
   Future<void> _loadSelectedCountries() async {
     try {
       state = const AsyncValue.loading();
-      final countries = await _service.getSelectedCountryDialCodes();
+      final countries = await _service.getSelectedCountryCodes();
       state = AsyncValue.data(countries);
     } catch (e, st) {
       state = AsyncValue.error(e, st);
@@ -40,9 +40,9 @@ class CountrySelectionNotifier extends StateNotifier<AsyncValue<List<String>>> {
   }
 
   /// Adds a country by delegating to the service and reloads the list.
-  Future<void> addCountry(String dialCode) async {
+  Future<void> addCountry(String countryIsoCode) async {
     try {
-      await _service.addCountry(dialCode);
+      await _service.addCountry(countryIsoCode);
       _loadSelectedCountries();
     } catch (e, st) {
       state = AsyncValue.error(e, st);
@@ -50,9 +50,9 @@ class CountrySelectionNotifier extends StateNotifier<AsyncValue<List<String>>> {
   }
 
   /// Removes a country by delegating to the service and reloads the list.
-  Future<void> removeCountry(String dialCode) async {
+  Future<void> removeCountry(String countryIsoCode) async {
     try {
-      await _service.removeCountry(dialCode);
+      await _service.removeCountry(countryIsoCode);
       _loadSelectedCountries();
     } catch (e, st) {
       state = AsyncValue.error(e, st);

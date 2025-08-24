@@ -15,8 +15,9 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
   static final LocalDatabaseManagerImpl _instance =
       LocalDatabaseManagerImpl._internal();
   static Database? _database;
+  static final Map<String, StreamController<List<Map<String, dynamic>>>>
+      _tableControllers = {};
 
-  // 数据库版本
   // 数据库版本
   static const int _version = 2;
 
@@ -77,6 +78,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         phoneNumber TEXT NOT NULL,
         name TEXT NOT NULL,
         avatar TEXT,
+        url TEXT,
         note TEXT,
         labelIds TEXT,
         isFavorite INTEGER NOT NULL DEFAULT 0,
@@ -176,6 +178,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         name TEXT NOT NULL,
         url TEXT NOT NULL,
         version TEXT NOT NULL,
+        description TEXT,
         isEnabled INTEGER NOT NULL DEFAULT 1,
         pluginOrder INTEGER NOT NULL,
         isAutoUpdate INTEGER NOT NULL DEFAULT 0
@@ -369,6 +372,8 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
       await _database!.close();
       _database = null;
     }
+    _tableControllers.forEach((_, controller) => controller.close());
+    _tableControllers.clear();
   }
 
   // 清空数据库（仅用于测试）
@@ -418,21 +423,27 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
   @override
   Future<int> insert(String table, Map<String, dynamic> data) async {
     final db = await database;
-    return await db.insert(table, data, conflictAlgorithm: ConflictAlgorithm.replace);
+    final result = await db.insert(table, data, conflictAlgorithm: ConflictAlgorithm.replace);
+    _notifyTableListeners(table);
+    return result;
   }
   
   // 更新记录
   @override
   Future<int> update(String table, String id, Map<String, dynamic> data) async {
     final db = await database;
-    return await db.update(table, data, where: 'id = ?', whereArgs: [id]);
+    final result = await db.update(table, data, where: 'id = ?', whereArgs: [id]);
+    _notifyTableListeners(table);
+    return result;
   }
   
   // 删除记录
   @override
   Future<int> delete(String table, String id) async {
     final db = await database;
-    return await db.delete(table, where: 'id = ?', whereArgs: [id]);
+    final result = await db.delete(table, where: 'id = ?', whereArgs: [id]);
+    _notifyTableListeners(table);
+    return result;
   }
 
   // 根据电话号码查询记录
@@ -444,5 +455,33 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
       where: 'phoneNumber = ?',
       whereArgs: [phoneNumber],
     );
+  }
+
+  // 监听表变化
+  @override
+  Stream<List<Map<String, dynamic>>> watchTable(String table) {
+    if (!_tableControllers.containsKey(table)) {
+      _tableControllers[table] =
+          StreamController<List<Map<String, dynamic>>>.broadcast();
+      // 立即查询一次并发送初始数据
+      queryAll(table).then((data) {
+        if (!_tableControllers[table]!.isClosed) {
+          _tableControllers[table]!.add(data);
+        }
+      });
+    }
+    return _tableControllers[table]!.stream;
+  }
+
+  // 通知监听器
+  void _notifyTableListeners(String table) {
+    if (_tableControllers.containsKey(table) &&
+        !_tableControllers[table]!.isClosed) {
+      queryAll(table).then((data) {
+        if (!_tableControllers[table]!.isClosed) {
+          _tableControllers[table]!.add(data);
+        }
+      });
+    }
   }
 }

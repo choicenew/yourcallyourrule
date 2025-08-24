@@ -226,7 +226,13 @@ class LocalContactDataSource implements LocalDataSource<ContactModel> {
     final db = await _databaseManager.database;
     await db.delete(_tableName);
   }
-  
+
+  Future<int> count() async {
+    final db = await _databaseManager.database;
+    final result = await db.rawQuery('SELECT COUNT(*) FROM $_tableName');
+    return Sqflite.firstIntValue(result) ?? 0;
+  }
+
   // 导出联系人数据
   @override
   Future<String> exportData() async {
