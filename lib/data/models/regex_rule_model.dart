@@ -11,6 +11,8 @@ import '../../core/value_objects/rule_action.dart';
 class RegexRuleModel extends RuleModel {
   // 正则表达式
   final String pattern;
+  // 是否订阅
+  final bool isSubscribed;
 
   // 构造函数
   const RegexRuleModel({
@@ -20,6 +22,7 @@ class RegexRuleModel extends RuleModel {
     required super.action,
     required this.pattern,
     super.isEnabled,
+    this.isSubscribed = false,
     String? ruleType, // Make ruleType optional
   }) : super(
           ruleType: ruleType ?? 'regex',
@@ -34,6 +37,7 @@ class RegexRuleModel extends RuleModel {
       action: map['action'],
       pattern: map['pattern'],
       isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       ruleType: map['ruleType'], // Read ruleType from map
     );
   }
@@ -44,6 +48,7 @@ class RegexRuleModel extends RuleModel {
     final map = super.toMap();
     map.addAll({
       'pattern': pattern,
+      'isSubscribed': isSubscribed ? 1 : 0,
     });
     return map;
   }

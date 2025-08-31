@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
 import 'package:yourcallyourrule/common/error/logger.dart';
@@ -36,7 +37,7 @@ class PluginWebViewService {
   Stream<String> get pluginReadyStream => _pluginReadyController.stream;
 
   void _addLog(String log) {
-    print(log);
+    debugPrint(log);
   }
 
   // 构造函数
@@ -56,7 +57,7 @@ class PluginWebViewService {
       handlerName: 'TestPageChannel',
       callback: (args) {
         if (args.isNotEmpty) {
-          print('TestPageChannel message: ${args[0]}');
+          debugPrint('TestPageChannel message: ${args[0]}');
           try {
             final jsonData = jsonDecode(args[0]);
 
@@ -69,18 +70,18 @@ class PluginWebViewService {
               // 通过StreamController发送插件就绪通知
               _pluginReadyController.add(jsonData['pluginId']);
             } else if (jsonData['type'] == 'pluginReady') {
-              print('Plugin ready: ${jsonData['pluginId']}');
+              debugPrint('Plugin ready: ${jsonData['pluginId']}');
 
               // 标记插件为就绪状态
               _pluginReadyStatus[jsonData['pluginId']] = true;
               // 通过StreamController发送插件就绪通知
               _pluginReadyController.add(jsonData['pluginId']);
             } else if (jsonData['type'] == 'pluginError') {
-              print('Plugin error: ${jsonData['error']}');
+              debugPrint('Plugin error: ${jsonData['error']}');
             }
           } catch (e) {
             
-            print('Received message: ${args[0]}');
+            debugPrint('Received message: ${args[0]}');
           }
         }
       },
@@ -90,7 +91,7 @@ class PluginWebViewService {
     controller.addJavaScriptHandler(
       handlerName: 'PluginResultChannel',
       callback: (args) {
-        print('Received message on PluginResultChannel: ${args[0]}');
+        debugPrint('Received message on PluginResultChannel: ${args[0]}');
         if (args.isNotEmpty) {
           try {
             final Map<String, dynamic> decodedMessage = jsonDecode(args[0]);
@@ -118,7 +119,7 @@ class PluginWebViewService {
             }
           } catch (e) {
             AppLogger.error('处理PluginResultChannel消息时发生异常', e);
-            print('Error processing message on PluginResultChannel: $e');
+            debugPrint('Error processing message on PluginResultChannel: $e');
           }
         }
       },
@@ -129,7 +130,7 @@ class PluginWebViewService {
       handlerName: 'RequestChannel',
       callback: (args) async {
         if (args.isNotEmpty) {
-          print('Received request from JS: ${args[0]}');
+          debugPrint('Received request from JS: ${args[0]}');
           try {
             final requestData = jsonDecode(args[0]);
             final String method = requestData['method'];
@@ -161,7 +162,7 @@ class PluginWebViewService {
             ''');
           } catch (e) {
             AppLogger.error('处理JS请求时发生异常', e);
-            print('Error handling request: $e');
+            debugPrint('Error handling request: $e');
           }
         }
       },
@@ -172,7 +173,7 @@ class PluginWebViewService {
       handlerName: 'consoleLog',
       callback: (args) {
         if (args.isNotEmpty) {
-          print('JS Console Log: ${args[0]}');
+          debugPrint('JS Console Log: ${args[0]}');
         }
       },
     );
@@ -181,7 +182,7 @@ class PluginWebViewService {
       handlerName: 'consoleWarn',
       callback: (args) {
         if (args.isNotEmpty) {
-          print('JS Console Warn: ${args[0]}');
+          debugPrint('JS Console Warn: ${args[0]}');
         }
       },
     );
@@ -190,7 +191,7 @@ class PluginWebViewService {
       handlerName: 'consoleError',
       callback: (args) {
         if (args.isNotEmpty) {
-          print('JS Console Error: ${args[0]}');
+          debugPrint('JS Console Error: ${args[0]}');
         }
       },
     );
@@ -199,7 +200,7 @@ class PluginWebViewService {
   // 发送HTTP请求
   Future<http.Response> _sendHttpRequest(String method, String url,
       Map<String, String> headers, String? body) async {
-    print("打印Sending headers: $headers");
+    debugPrint("打印Sending headers: $headers");
     switch (method) {
       case 'GET':
         return await http.get(Uri.parse(url), headers: headers);
@@ -216,7 +217,7 @@ class PluginWebViewService {
       throw Exception('WebView控制器未初始化');
     }
 
-    print('Executing script for plugin: $pluginId');
+    debugPrint('Executing script for plugin: $pluginId');
 
     // 重置插件就绪状态
     _pluginReadyStatus[pluginId] = false;
@@ -226,7 +227,7 @@ class PluginWebViewService {
     // 执行JS插件代码
     await _webViewController?.evaluateJavascript(source: script);
 
-    print('Waiting for pluginReady message for plugin: $pluginId');
+    debugPrint('Waiting for pluginReady message for plugin: $pluginId');
   }
 
   // 等待插件就绪
@@ -254,7 +255,7 @@ class PluginWebViewService {
 
     // 设置超时时间，如果在指定时间内插件未就绪，则打印提示信息
     await completer.future.timeout(const Duration(seconds: 5), onTimeout: () {
-      print('Timeout: Plugin $pluginId did not send pluginReady message.');
+      debugPrint('Timeout: Plugin $pluginId did not send pluginReady message.');
       // 超时后取消订阅
       sub?.cancel();
     });

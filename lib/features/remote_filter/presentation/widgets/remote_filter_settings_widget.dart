@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -48,11 +51,15 @@ class RemoteFilterSettingsWidget extends StatelessWidget {
         const Divider(),
         _buildCountThresholdSettings(context),
         const Divider(),
+          GoogleAdWidget(adInfo: AdManager.bannerAd),  
+          const SizedBox(height: 16),
         _buildFilterActionSettings(),
         const Divider(),
         _buildAdvancedSettings(),
         const SizedBox(height: 32),
         _buildExplanationCard(),
+        const SizedBox(height: 32),
+         InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
       ],
     );
   }

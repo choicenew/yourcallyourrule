@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/core/provider/providers/sms_service_provider.da
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_service.dart';
-import 'package:yourcallyourrule/common/utils/hint.dart';
+import 'package:yourcallyourrule/common/utils/regex_hint.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 短信过滤规则管理页面

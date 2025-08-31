@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -23,6 +26,7 @@ class CallFilterSettingsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+          GoogleAdWidget(adInfo: AdManager.bannerAd),
         _buildSwitchListTile(
           AppLocalizations.of(context)!.rejectAllNumbers,
           AppLocalizations.of(context)!.rejectAllNumbersDesc,
@@ -77,6 +81,7 @@ class CallFilterSettingsWidget extends StatelessWidget {
           config.allowAllBlockRules,
           (value) => onConfigChanged('allowAllBlockRules', value),
         ),
+         
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: ElevatedButton(
@@ -84,6 +89,7 @@ class CallFilterSettingsWidget extends StatelessWidget {
             child: Text(AppLocalizations.of(context)!.saveSettings),
           ),
         ),
+        InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
       ],
     );
   }

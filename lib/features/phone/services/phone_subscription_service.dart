@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 
 import '../../../core/entities/rule/rule_base.dart';
@@ -92,10 +93,11 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
       // 获取所有已订阅的规则
       final allRules = await _ruleRepository.getAll();
       final subscribedRules = allRules.where((rule) {
-        if (rule is PhoneRule && rule.isSubscribed) {
-          // 检查规则的动作类型是否与订阅的动作类型匹配
-          // 这是一种启发式方法，因为我们无法直接知道规则来自哪个订阅
-          return rule.action.type == subscription.action.type;
+        // 使用 subscriptionId 字段进行匹配
+        if (rule is PhoneRule && rule.subscriptionId == subscription.id) {
+          return true;
+        } else if (rule is RegexRule && rule.subscriptionId == subscription.id) {
+          return true;
         }
         return false;
       }).toList();
@@ -135,12 +137,12 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
         if (rule.action.type != subscription.action.type) {
           return rule.copyWith(
             action: subscription.action,
-            isSubscribed: true
+            subscriptionId: subscription.id
           );
         } else {
           // 如果动作类型一致，只需标记为已订阅
           return rule.copyWith(
-            isSubscribed: true
+            subscriptionId: subscription.id
           );
         }
       }
@@ -157,21 +159,42 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     final rules = await _ruleImportExportService.importFromUrl(subscription.url.toString());
     debugPrint('[PhoneSubscriptionService] ... Fetched ${rules.length} rules from URL.');
 
-    // 2. 处理规则：覆盖action并标记为已订阅
+    // 2. 处理规则：覆盖action并标记为已订阅，添加subscriptionId关联
     final processedRules = rules.map((rule) {
       if (rule is PhoneRule) {
         return rule.copyWith(
+          name: '${subscription.id}#${rule.name}', // 添加订阅ID作为前缀
           action: subscription.action, // 使用订阅的action覆盖
-          isSubscribed: true,
+          ruleType: 'phone_rule', // 确保设置正确的ruleType
+          subscriptionId: subscription.id, // 添加订阅ID关联
+        );
+      } else if (rule is RegexRule) {
+        return rule.copyWith(
+          name: '${subscription.id}#${rule.name}', // 添加订阅ID作为前缀
+          action: subscription.action, // 使用订阅的action覆盖
+          ruleType: 'regex', // 确保设置正确的ruleType
+          subscriptionId: subscription.id, // 添加订阅ID关联
         );
       }
       return rule;
     }).toList();
-    debugPrint('[PhoneSubscriptionService] ... Processed ${processedRules.length} rules.');
+    
+    // 分离电话规则和正则规则
+    final phoneRules = processedRules.whereType<PhoneRule>().toList();
+    final regexRules = processedRules.whereType<RegexRule>().toList();
+    
+    debugPrint('[PhoneSubscriptionService] ... Processed ${phoneRules.length} phone rules and ${regexRules.length} regex rules.');
 
     // 3. 保存处理后的规则
-    await _ruleRepository.saveAll(processedRules);
-    debugPrint('[PhoneSubscriptionService] ... Saved ${processedRules.length} rules to the repository.');
+    if (phoneRules.isNotEmpty) {
+      await _ruleRepository.saveAll(phoneRules);
+      debugPrint('[PhoneSubscriptionService] ... Saved ${phoneRules.length} phone rules to the repository.');
+    }
+    
+    if (regexRules.isNotEmpty) {
+      await _ruleRepository.saveAll(regexRules);
+      debugPrint('[PhoneSubscriptionService] ... Saved ${regexRules.length} regex rules to the repository.');
+    }
     
     // 4. 更新订阅的时间戳
     await updateLastUpdated(subscription.id, DateTime.now());
@@ -183,7 +206,20 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
   /// 核心规则更新方法（不更新时间戳）
   Future<List<RuleBase>> _updateRulesCore(Subscription subscription) async {
     final rules = await fetchRulesFromSubscription(subscription);
-    await _ruleRepository.saveAll(rules);
+    
+    // 分离电话规则和正则规则
+    final phoneRules = rules.whereType<PhoneRule>().toList();
+    final regexRules = rules.whereType<RegexRule>().toList();
+    
+    // 分别保存不同类型的规则
+    if (phoneRules.isNotEmpty) {
+      await _ruleRepository.saveAll(phoneRules);
+    }
+    
+    if (regexRules.isNotEmpty) {
+      await _ruleRepository.saveAll(regexRules);
+    }
+    
     return rules;
   }
 

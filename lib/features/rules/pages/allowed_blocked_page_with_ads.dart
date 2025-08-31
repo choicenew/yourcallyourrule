@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
@@ -15,8 +14,6 @@ import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_p
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_rule_import_export_adapter.dart';
 import 'package:yourcallyourrule/features/common/dialogs/filter_dialogs.dart';
-import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
-import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_list_card.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -366,7 +363,7 @@ class _AllowedBlockedPageWithAdsState extends ConsumerState<AllowedBlockedPageWi
         );
       },
       onDelete: () => _deleteRule(rule.id),
-      onToggleSelection: _toggleItemSelection,
+     // onToggleSelection: _toggleItemSelection,
       themeColor: Colors.amber,
     );
   }

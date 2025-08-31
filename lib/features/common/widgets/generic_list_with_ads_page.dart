@@ -330,25 +330,15 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
           // 包装原始的item widget，添加选择状态
           return InkWell(
             onTap: () => widget.onToggleItemSelection?.call(itemId),
-            child: Stack(
+            child: Row(
               children: [
-                widget.itemBuilder(context, item),
-                Positioned(
-                  top: 8,
-                  right: 8,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: isSelected ? widget.themeColor : Colors.transparent,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: widget.themeColor),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: isSelected
-                        ? const Icon(Icons.check, size: 16, color: Colors.white)
-                        : const SizedBox(width: 16, height: 16),
-                    ),
-                  ),
+                Checkbox(
+                  value: isSelected,
+                  onChanged: (_) => widget.onToggleItemSelection?.call(itemId),
+                  activeColor: widget.themeColor,
+                ),
+                Expanded(
+                  child: widget.itemBuilder(context, item),
                 ),
               ],
             ),

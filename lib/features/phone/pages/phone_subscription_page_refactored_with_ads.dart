@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
@@ -312,7 +314,7 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
       adInterval: 3,
       emptyText: AppLocalizations.of(context)!.noSubscriptions,
       emptyIcon: Icons.subscriptions_outlined,
-      themeColor: Theme.of(context).primaryColor,
+      themeColor:Color.fromRGBO(255, Random().nextInt(180), Random().nextInt(50), 0.8),
       isLoading: _isLoading,
       onRefresh: _loadSubscriptions,
       onAdd: () => _showAddSubscriptionDialog(),

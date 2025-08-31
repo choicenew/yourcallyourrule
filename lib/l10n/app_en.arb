@@ -2081,6 +2081,42 @@
 "searchContactSubscriptionsHint": "Search contact subscriptions",
 "showAllContacts": "Show All Contacts",
 "showFavorites": "Show Favorites",
+
+
+
+"manualEntry": "Manual Entry Info",
+
+  "scriptSaved": "Script saved",
+    "editScriptFor": "Edit script for {pluginName}",
+    "@editScriptFor": {
+        "description": "The title text for the page where a user can edit a script for a specific plugin.",
+        "placeholders": {
+            "pluginName": {
+                "type": "String",
+                "description": "The name of the plugin that the script belongs to."
+            }
+        }
+    },
+  "saveScript": "Save Script",
+
+
+ "testPlugin": "Test Plugin",
+
+"description": "Description",
+
+
+    "accessTargetUrl": "Access Target URL",
+ 
+ 
+ "result": "Result",
+
+    "editScript": "Edit Script",
+
+"numberFormat": "Number Format",
+
+"nationalNumber": "National Number",
+"e164Number": "E164 Number",
+
   "yesterday": "Yesterday"
 }
 

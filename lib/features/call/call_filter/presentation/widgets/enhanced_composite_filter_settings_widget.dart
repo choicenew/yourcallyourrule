@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
+
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/call_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/sim_slot_rule_widget.dart';
@@ -227,17 +232,18 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
     // 如果是EnhancedCompositeFilterService，查找其中的CallFilterService实例
     if (widget.enhancedCompositeFilterService.filters.isNotEmpty) {
       for (var filter in widget.enhancedCompositeFilterService.filters) {
-        if (filter.runtimeType.toString() == 'CallFilterService') {
-          // 使用反射或其他方式更新配置
-          // 这里简化处理，实际应用中应该通过服务提供的方法更新
+        if (filter is CallFilterService) {
+          await filter.updateConfig(_callFilterConfig);
         }
       }
     }
-    
+
     // 通知用户配置已保存
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
-    );
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
+      );
+    }
   }
   
   @override
@@ -378,6 +384,10 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
             ],
           ),
         ),
+     
+        //GoogleAdWidget(adInfo: AdManager.bannerAd),
+     
+     
       ],
     );
   }

@@ -21,7 +21,7 @@ class RuleListCard extends ConsumerWidget {
   final Function(String, bool) onToggleStatus;
   final VoidCallback onEdit;
   final VoidCallback onDelete;
-  final Function(String) onToggleSelection;
+//  final Function(String) onToggleSelection;
   final Color themeColor;
 
   const RuleListCard({
@@ -39,7 +39,7 @@ class RuleListCard extends ConsumerWidget {
     required this.onToggleStatus,
     required this.onEdit,
     required this.onDelete,
-    required this.onToggleSelection,
+   // required this.onToggleSelection,
     this.themeColor = Colors.green,
   });
 
@@ -60,14 +60,8 @@ class RuleListCard extends ConsumerWidget {
           children: [
             Row(
               children: [
-                if (isMultiSelectMode)
-                  Checkbox(
-                    value: isSelected,
-                    onChanged: (_) => onToggleSelection(id),
-                    activeColor: themeColor,
-                  ),
                 CircleAvatar(
-                  radius: 20,
+                  radius: 25,
                   backgroundImage: AvatarUtils.getAvatarImage(avatar, labelIdToTextMap[labelId]),
                   child: const Icon(Icons.person), // Default icon
                 ),
@@ -116,7 +110,7 @@ class RuleListCard extends ConsumerWidget {
                         RuleActionDisplayUtils.getActionTypeIcon(action.type),
                         color: actionColor,
                         size: 16),
-                    label: Text(actionText),
+                    label: Text('${AppLocalizations.of(context)!.actionType}: ${actionText}'),
                     backgroundColor: actionColor.withOpacity(0.1),
                     labelStyle: TextStyle(color: actionColor),
                   ),

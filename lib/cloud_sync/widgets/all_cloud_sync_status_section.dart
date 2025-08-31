@@ -18,8 +18,8 @@ class AllCloudSyncStatusSection extends ConsumerWidget {
             borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
               colors: [
-                Colors.blueGrey[700]!,
-                Colors.blueGrey[800]!,
+                const Color(0xFFFF5858)!,
+                const Color(0xFFF9B16E)!,
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,

@@ -7,6 +7,10 @@ import 'rule_base.dart';
 class RegexRule extends RuleBase {
   static const String ruleType = 'regex';
   final String pattern;
+  final String? subscriptionId;
+  
+  // 将 isSubscribed 改为计算属性
+  bool get isSubscribed => subscriptionId != null;
 
 
   RegexRule({
@@ -14,9 +18,9 @@ class RegexRule extends RuleBase {
     required super.name,
     required this.pattern,
     required super.action,
-
     RulePriority? priority, // 添加可选优先级参数
     super.isEnabled = true,
+    this.subscriptionId, // 添加subscriptionId参数
   }) : super(
           priority: priority ?? _defaultPriority(action), // 优先使用传入的优先级
         );
@@ -45,15 +49,16 @@ class RegexRule extends RuleBase {
     bool? isEnabled,
     String? ruleType,
     String? pattern,
+    String? subscriptionId,
   }) {
     return RegexRule(
       id: id ?? this.id,
       name: name ?? this.name,
       pattern: pattern ?? this.pattern,
-      action: action ?? this.action,
       priority: priority ?? this.priority,
+      action: action ?? this.action,
       isEnabled: isEnabled ?? this.isEnabled,
-
+      subscriptionId: subscriptionId ?? this.subscriptionId,
     );
   }
 
@@ -70,10 +75,11 @@ class RegexRule extends RuleBase {
   // 添加缺失的序列化方法
   @override
   Map<String, dynamic> toMap() {
-    return super.toMap()..addAll({
-      'pattern': pattern,
-      'ruleType': ruleType,
-    });
+    return super.toMap()
+      ..addAll({
+        'pattern': pattern,
+        'subscriptionId': subscriptionId,
+      });
   }
 
   factory RegexRule.fromMap(Map<String, dynamic> map) {
@@ -81,10 +87,10 @@ class RegexRule extends RuleBase {
       id: map['id'],
       name: map['name'],
       pattern: map['pattern'],
-      action: RuleAction.fromString(map['action']),
       priority: RulePriority.fromInt(map['priority']),
+      action: RuleAction.fromString(map['action']),
       isEnabled: (map['isEnabled'] ?? 1) == 1,
-
+      subscriptionId: map['subscriptionId'],
     );
   }
 }
