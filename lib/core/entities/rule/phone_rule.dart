@@ -6,9 +6,12 @@ import 'rule_base.dart';
 class PhoneRule extends RuleBase {
   final PhoneNumber phoneNumber;
   final String labelId;
-  final bool isSubscribed;
   final int count;
   final String? avatar;
+  final String? subscriptionId;
+  
+  // 将 isSubscribed 改为计算属性
+  bool get isSubscribed => subscriptionId != null;
 
   final String ruleType;
 
@@ -21,9 +24,9 @@ class PhoneRule extends RuleBase {
     this.ruleType = 'phone_rule',
     RulePriority? priority,
     super.isEnabled = true,
-    this.isSubscribed = false,
     this.count = 0,
     this.avatar,
+    this.subscriptionId,
   }) : super(
           priority: priority ?? _defaultPriority(action),
         );
@@ -53,10 +56,10 @@ class PhoneRule extends RuleBase {
       ..addAll({
         'phoneNumber': phoneNumber.value,
         'labelId': labelId,
-        'isSubscribed': isSubscribed ? 1 : 0,
         'count': count,
         'avatar': avatar,
         'ruleType': ruleType,
+        'subscriptionId': subscriptionId,
       });
   }
 
@@ -69,10 +72,10 @@ class PhoneRule extends RuleBase {
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
       labelId: map['labelId'],
       isEnabled: (map['isEnabled'] ?? 1) == 1,
-      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
       ruleType: map['ruleType'] ?? 'phone_rule',
+      subscriptionId: map['subscriptionId'],
     );
   }
 
@@ -85,10 +88,10 @@ class PhoneRule extends RuleBase {
     bool? isEnabled,
     PhoneNumber? phoneNumber,
     String? labelId,
-    bool? isSubscribed,
     int? count,
     String? avatar,
     String? ruleType,
+    String? subscriptionId,
   }) {
     return PhoneRule(
       id: id ?? this.id,
@@ -98,10 +101,10 @@ class PhoneRule extends RuleBase {
       labelId: labelId ?? this.labelId,
       priority: priority ?? this.priority,
       isEnabled: isEnabled ?? this.isEnabled,
-      isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,
       avatar: avatar ?? this.avatar,
       ruleType: ruleType ?? this.ruleType,
+      subscriptionId: subscriptionId ?? this.subscriptionId,
     );
   }
 }

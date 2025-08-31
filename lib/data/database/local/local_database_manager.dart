@@ -124,6 +124,37 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         count INTEGER NOT NULL DEFAULT 0 -- Added count
       )
     ''');
+    
+    // 创建电话规则表
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS phone_rules (
+        id TEXT,
+        name TEXT NOT NULL,
+        ruleType TEXT NOT NULL,
+        phoneNumber TEXT NOT NULL PRIMARY KEY,
+        labelId TEXT,
+        priority INTEGER NOT NULL DEFAULT 5,
+        action TEXT NOT NULL DEFAULT 'none',
+        isEnabled INTEGER NOT NULL DEFAULT 1,
+        count INTEGER NOT NULL DEFAULT 0,
+        avatar TEXT,
+        subscriptionId TEXT
+      )
+    ''');
+    
+    // 创建正则规则表
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS regex_rules (
+        id TEXT,
+        name TEXT NOT NULL,
+        ruleType TEXT NOT NULL,
+        pattern TEXT NOT NULL PRIMARY KEY,
+        priority INTEGER NOT NULL DEFAULT 5,
+        action TEXT NOT NULL DEFAULT 'none',
+        isEnabled INTEGER NOT NULL DEFAULT 1,
+        subscriptionId TEXT
+      )
+    ''');
 
     // 创建订阅表（处理三种订阅类型）
     await db.execute('''
@@ -383,6 +414,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
     await db.delete('call_history');
     await db.delete('labelPhone');
     await db.delete('rules');
+    await db.delete('phone_rules');
     await db.delete('regex_rules');
     await db.delete('subscriptions');
     await db.delete('sms');

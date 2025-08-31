@@ -9,9 +9,9 @@ import 'rule_model.dart';
 class PhoneRuleModel extends RuleModel {
   final String phoneNumber;
   final String labelId;
-  final bool isSubscribed;
   final int count;
   final String? avatar;
+  final String? subscriptionId;
 
   const PhoneRuleModel({
     required super.id,
@@ -20,9 +20,9 @@ class PhoneRuleModel extends RuleModel {
     required super.action,
     required this.phoneNumber,
     required this.labelId,
-    required this.isSubscribed,
     required this.count,
     this.avatar,
+    this.subscriptionId,
     super.isEnabled,
     String? ruleType, // Make ruleType optional
   }) : super(ruleType: ruleType ?? 'phone_rule');
@@ -35,9 +35,9 @@ class PhoneRuleModel extends RuleModel {
       action: map['action'], // action is already a string here
       phoneNumber: map['phoneNumber'],
       labelId: map['labelId'],
-      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
+      subscriptionId: map['subscriptionId'],
       isEnabled: (map['isEnabled'] ?? 1) == 1,
       ruleType: map['ruleType'], // Read ruleType from map
     );
@@ -49,9 +49,9 @@ class PhoneRuleModel extends RuleModel {
     map.addAll({
       'phoneNumber': phoneNumber,
       'labelId': labelId,
-      'isSubscribed': isSubscribed ? 1 : 0,
       'count': count,
       'avatar': avatar,
+      'subscriptionId': subscriptionId,
     });
     return map;
   }
@@ -65,10 +65,10 @@ class PhoneRuleModel extends RuleModel {
       action: RuleAction.fromString(action),
       phoneNumber: PhoneNumber.fromString(phoneNumber),
       labelId: labelId,
-      isSubscribed: isSubscribed,
       count: count,
       avatar: avatar,
       isEnabled: isEnabled,
+      subscriptionId: subscriptionId,
     );
   }
 
@@ -80,9 +80,9 @@ class PhoneRuleModel extends RuleModel {
       action: entity.action.toString(), // Use toString() to get the string representation
       phoneNumber: entity.phoneNumber.value,
       labelId: entity.labelId,
-      isSubscribed: entity.isSubscribed,
       count: entity.count,
       avatar: entity.avatar,
+      subscriptionId: entity.subscriptionId,
       isEnabled: entity.isEnabled,
     );
   }

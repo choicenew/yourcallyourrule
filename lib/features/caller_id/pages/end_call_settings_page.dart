@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-
-
-
-
-
 
 class EndCallSettingsPage extends StatefulWidget {
   const EndCallSettingsPage({super.key});
@@ -42,39 +39,51 @@ class EndCallSettingsPageState extends State<EndCallSettingsPage> {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.interceptionActionSettingsTitle),
       ),
-      body: ListView(
-        children: [
-          ListTile(
-            title: Text(
-              AppLocalizations.of(context)!.incomingCallInterceptAction,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.incomingCallInterceptAction,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(AppLocalizations.of(context)!.chooseDefaultInterceptAction),
+                  const SizedBox(height: 8),
+                  DropdownButton<String>(
+                    value: _selectedInterceptAction,
+                    isExpanded: true,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _selectedInterceptAction = newValue!;
+                      });
+                      _saveInterceptAction(newValue);
+                    },
+                    items: <DropdownMenuItem<String>>[
+                      DropdownMenuItem<String>(
+                        value: 'endCall',
+                        child: Text(AppLocalizations.of(context)!.endCallImmediately),
+                      ),
+                      DropdownMenuItem<String>(
+                        value: 'answerThenHangup',
+                        child: Text(AppLocalizations.of(context)!.answerThenHangup),
+                      ),
+                      DropdownMenuItem<String>(
+                        value: 'silenceNoAnswer',
+                        child: Text(AppLocalizations.of(context)!.silenceAndNoAnswer),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            subtitle: Text(AppLocalizations.of(context)!.chooseDefaultInterceptAction),
-            trailing: DropdownButton<String>(
-              value: _selectedInterceptAction,
-              onChanged: (String? newValue) {
-                setState(() {
-                  _selectedInterceptAction = newValue!;
-                });
-                _saveInterceptAction(newValue);
-              },
-              items: <DropdownMenuItem<String>>[
-                DropdownMenuItem<String>(
-                  value: 'endCall',
-                  child: Text(AppLocalizations.of(context)!.endCallImmediately),
-                ),
-                DropdownMenuItem<String>(
-                  value: 'answerThenHangup',
-                  child: Text(AppLocalizations.of(context)!.answerThenHangup),
-                ),
-                DropdownMenuItem<String>(
-                  value: 'silenceNoAnswer',
-                  child: Text(AppLocalizations.of(context)!.silenceAndNoAnswer),
-                ),
-              ],
-            ),
-          ),
-        ],
+            const SizedBox(height: 16),
+            InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
+          ],
+        ),
       ),
     );
   }

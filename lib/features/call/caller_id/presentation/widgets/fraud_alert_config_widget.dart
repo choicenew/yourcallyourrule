@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/fraud_alert_config.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 诈骗提醒配置小部件
@@ -25,8 +27,7 @@ class _FraudAlertConfigWidgetState extends ConsumerState<FraudAlertConfigWidget>
   }
 
   Future<void> _initConfig() async {
-    final configRepository = ref.read(Provider<ConfigRepository>((ref) => throw UnimplementedError()));
-    _configService = FraudAlertConfigService(configRepository);
+    _configService = ref.read(fraudAlertConfigProvider);
     _config = await _configService.getConfig();
     
     if (mounted) {
@@ -46,7 +47,10 @@ class _FraudAlertConfigWidgetState extends ConsumerState<FraudAlertConfigWidget>
       return const Center(child: CircularProgressIndicator());
     }
 
-    return Card(
+    return  Column(
+    children: [
+    
+    Card(
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -87,15 +91,21 @@ class _FraudAlertConfigWidgetState extends ConsumerState<FraudAlertConfigWidget>
                 _saveConfig();
               },
             ),
+            
           ],
         ),
       ),
-    );
+    ),
+    const SizedBox(height: 16),
+InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
+  ],
+  );
+
   }
 }
 
 /// 诈骗提醒配置Provider
 final fraudAlertConfigProvider = Provider<FraudAlertConfigService>((ref) {
-  final configRepository = ref.watch(Provider<ConfigRepository>((ref) => throw UnimplementedError()));
+  final configRepository = ref.watch(configRepositoryProvider);
   return FraudAlertConfigService(configRepository);
 });

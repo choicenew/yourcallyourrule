@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/cloud_sync_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/widgets/all_cloud_sync_status_section.dart';
@@ -39,8 +41,12 @@ class CloudSettingsPage extends ConsumerWidget {
           children: [
             const CloudSyncStatusSection(),
             const SizedBox(height: 28),
+            GoogleAdWidget(adInfo: AdManager.bannerAd),    
+            const SizedBox(height: 28),
             const AllCloudSyncStatusSection(),
             const SizedBox(height: 28),
+              GoogleAdWidget(adInfo: AdManager.bannerAd),  
+              const SizedBox(height: 28),
             _buildSectionTitle(
               context,
               AppLocalizations.of(context)!.cloudSyncService,

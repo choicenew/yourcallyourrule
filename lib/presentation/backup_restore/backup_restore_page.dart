@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'package:yourcallyourrule/cloud_sync/entities/backup_config_entity.dart';
@@ -10,6 +13,7 @@ import 'package:yourcallyourrule/cloud_sync/provider/backup_restore_provider.dar
 import 'package:yourcallyourrule/cloud_sync/provider/cloud_sync_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/services/backup_restore_service.dart';
 import 'package:yourcallyourrule/core/provider/rules_provider.dart';
+
 
 class BackupRestorePage extends ConsumerWidget {
   const BackupRestorePage({super.key});
@@ -246,9 +250,15 @@ class BackupRestorePage extends ConsumerWidget {
           children: [
             _buildBackupSection(context, ref, backupService),
             const SizedBox(height: 24),
+              GoogleAdWidget(adInfo: AdManager.bannerAd),  
+              const SizedBox(height: 24),
             _buildRestoreSection(context, ref, backupService),
             const SizedBox(height: 24),
+              GoogleAdWidget(adInfo: AdManager.bannerAd),  
+              const SizedBox(height: 24),
             _buildDataMigrationSection(context, ref, backupService),
+            const SizedBox(height: 24),
+            InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
           ],
         ),
       ),

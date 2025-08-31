@@ -380,7 +380,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
             margin: const EdgeInsets.only(top: 4),
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             decoration: BoxDecoration(
-              color: const Color(0xFFF5A623).withOpacity(0.1),
+              color: const Color(0xFFF5A623).withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(

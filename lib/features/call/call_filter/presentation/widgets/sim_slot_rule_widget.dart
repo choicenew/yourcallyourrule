@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
@@ -76,11 +79,19 @@ class SimSlotRuleWidgetState extends ConsumerState<SimSlotRuleWidget> {
       children: [
         _buildFilterEnableSection(),
         const Divider(height: 32),
+                 GoogleAdWidget(adInfo: AdManager.bannerAd),  
+         const SizedBox(height: 32),
         _buildAddRuleSection(),
+                 GoogleAdWidget(adInfo: AdManager.bannerAd),  
+         const SizedBox(height: 32),
         const Divider(height: 32),
         _buildRuleListSection(),
         const SizedBox(height: 32),
+ 
+ 
         _buildExplanationCard(),
+        const SizedBox(height: 32),
+        InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
       ],
     );
   }

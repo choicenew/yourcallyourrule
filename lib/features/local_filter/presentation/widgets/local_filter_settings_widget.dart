@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 
@@ -41,13 +44,19 @@ class LocalFilterSettingsWidget extends StatelessWidget {
         const Divider(),
         _buildCountThresholdSetting(context),
         const SizedBox(height: 16),
+          GoogleAdWidget(adInfo: AdManager.bannerAd),  
+          const SizedBox(height: 16),
         _buildRejectExceededNumbersSetting(),
         const SizedBox(height: 16),
         _buildAllowNonExceededNumbersSetting(),
         const SizedBox(height: 16),
+          GoogleAdWidget(adInfo: AdManager.bannerAd),  
+        const SizedBox(height: 16),
         _buildLogAllLocalQueriesSetting(),
         const SizedBox(height: 32),
         _buildExplanationCard(),
+        const SizedBox(height: 32),
+        InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
       ],
     );
   }

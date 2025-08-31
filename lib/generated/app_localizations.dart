@@ -9249,6 +9249,78 @@ abstract class AppLocalizations {
   /// **'Show Favorites'**
   String get showFavorites;
 
+  /// No description provided for @manualEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual Entry Info'**
+  String get manualEntry;
+
+  /// No description provided for @scriptSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Script saved'**
+  String get scriptSaved;
+
+  /// The title text for the page where a user can edit a script for a specific plugin.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit script for {pluginName}'**
+  String editScriptFor(String pluginName);
+
+  /// No description provided for @saveScript.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Script'**
+  String get saveScript;
+
+  /// No description provided for @testPlugin.
+  ///
+  /// In en, this message translates to:
+  /// **'Test Plugin'**
+  String get testPlugin;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @accessTargetUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Access Target URL'**
+  String get accessTargetUrl;
+
+  /// No description provided for @result.
+  ///
+  /// In en, this message translates to:
+  /// **'Result'**
+  String get result;
+
+  /// No description provided for @editScript.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Script'**
+  String get editScript;
+
+  /// No description provided for @numberFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Number Format'**
+  String get numberFormat;
+
+  /// No description provided for @nationalNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'National Number'**
+  String get nationalNumber;
+
+  /// No description provided for @e164Number.
+  ///
+  /// In en, this message translates to:
+  /// **'E164 Number'**
+  String get e164Number;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:

@@ -285,8 +285,9 @@ class RuleManagementService extends ListService {
   /// [rules] 要导入的规则列表
   /// [action] 规则动作类型，如果为null则保持原规则动作
   /// [overwrite] 是否覆盖已存在的规则
+  /// [subscriptionId] 订阅ID，用于关联规则与订阅
   /// 返回成功导入的规则数量
-  Future<int> importRulesBatch(List<RuleBase> rules, {RuleAction? action, bool overwrite = false}) async {
+  Future<int> importRulesBatch(List<RuleBase> rules, {RuleAction? action, bool overwrite = false, String? subscriptionId}) async {
     int successCount = 0;
     
     for (final rule in rules) {
@@ -303,7 +304,7 @@ class RuleManagementService extends ListService {
           
           // 设置规则动作
           final finalAction = action ?? rule.action;
-          final finalRule = rule.copyWith(action: finalAction, isSubscribed: true);
+          final finalRule = rule.copyWith(action: finalAction, subscriptionId: subscriptionId);
           
           if (isExisting) {
             // 更新现有规则
@@ -327,8 +328,9 @@ class RuleManagementService extends ListService {
   /// 从订阅导入规则到管理页面
   /// [rules] 从订阅获取的规则列表
   /// [action] 导入的规则动作类型
+  /// [subscriptionId] 订阅ID，用于关联规则与订阅
   /// 返回成功导入的规则数量
-  Future<int> importRulesFromSubscription(List<RuleBase> rules, RuleAction action) async {
-    return await importRulesBatch(rules, action: action, overwrite: true);
+  Future<int> importRulesFromSubscription(List<RuleBase> rules, RuleAction action, {String? subscriptionId}) async {
+    return await importRulesBatch(rules, action: action, overwrite: true, subscriptionId: subscriptionId);
   }
 }

@@ -4955,5 +4955,43 @@ class AppLocalizationsEn extends AppLocalizations {
   String get showFavorites => 'Show Favorites';
 
   @override
+  String get manualEntry => 'Manual Entry Info';
+
+  @override
+  String get scriptSaved => 'Script saved';
+
+  @override
+  String editScriptFor(String pluginName) {
+    return 'Edit script for $pluginName';
+  }
+
+  @override
+  String get saveScript => 'Save Script';
+
+  @override
+  String get testPlugin => 'Test Plugin';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get accessTargetUrl => 'Access Target URL';
+
+  @override
+  String get result => 'Result';
+
+  @override
+  String get editScript => 'Edit Script';
+
+  @override
+  String get numberFormat => 'Number Format';
+
+  @override
+  String get nationalNumber => 'National Number';
+
+  @override
+  String get e164Number => 'E164 Number';
+
+  @override
   String get yesterday => 'Yesterday';
 }

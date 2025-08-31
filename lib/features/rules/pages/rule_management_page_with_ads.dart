@@ -380,7 +380,7 @@ class _RuleManagementPageWithAdsState extends ConsumerState<RuleManagementPageWi
         );
       },
       onDelete: () => _deleteRule(rule.id),
-      onToggleSelection: _toggleItemSelection,
+      //onToggleSelection: _toggleItemSelection,
       themeColor: Colors.green,
     );
   }

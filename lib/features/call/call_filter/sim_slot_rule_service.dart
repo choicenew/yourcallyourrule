@@ -117,7 +117,7 @@ class SimSlotRuleService implements CallFilterInterface {
     // 创建新规则
     final rule = SimSlotRule(
       id: const Uuid().v4(),
-      name: name.isEmpty ? 'SIM槽位$simSlotIndex规则' : name,
+      name: name.isEmpty ? 'SIM slot$simSlotIndex' : name,
       priority: const RulePriority(10), // 默认优先级
       action: action,
       phoneNumber: PhoneNumber.fromString(phoneNumber),

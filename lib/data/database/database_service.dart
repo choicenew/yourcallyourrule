@@ -12,7 +12,8 @@ import 'package:yourcallyourrule/data/datasources/local/local_label_datasource.d
 import 'package:yourcallyourrule/data/datasources/local/local_location_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_plugin_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_predefined_label_datasource.dart';
-import 'package:yourcallyourrule/data/datasources/local/local_rule_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_phone_rule_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_regex_rule_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_sms_regex_rule_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_subscription_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
@@ -29,7 +30,8 @@ class DatabaseService {
   // 数据源
   late final LocalContactDataSource localContactDataSource;
   late final LocalLabelDataSource localLabelDataSource;
-  late final LocalRuleDataSource localRuleDataSource;
+  late final LocalPhoneRuleDataSource localPhoneRuleDataSource;
+  late final LocalRegexRuleDataSource localRegexRuleDataSource;
   late final LocalCallLogDataSource localCallLogDataSource;
   late final LocalSmsRegexRuleDataSource localSmsRegexRuleDataSource;
   late final LocalSubscriptionDataSource localSubscriptionDataSource;
@@ -49,7 +51,8 @@ class DatabaseService {
     // 初始化数据源
     localContactDataSource = LocalContactDataSource(_localDatabaseManager);
     localLabelDataSource = LocalLabelDataSource(_localDatabaseManager);
-    localRuleDataSource = LocalRuleDataSource(_localDatabaseManager);
+    localPhoneRuleDataSource = LocalPhoneRuleDataSource(_localDatabaseManager);
+    localRegexRuleDataSource = LocalRegexRuleDataSource(_localDatabaseManager);
     localCallLogDataSource = LocalCallLogDataSource(_localDatabaseManager);
     localSmsRegexRuleDataSource = LocalSmsRegexRuleDataSource(_localDatabaseManager);
     localSubscriptionDataSource = LocalSubscriptionDataSource(_localDatabaseManager);

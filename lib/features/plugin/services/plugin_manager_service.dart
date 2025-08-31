@@ -117,10 +117,15 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 
   // 从插件脚本中提取插件信息
   static Map<String, dynamic> extractPluginInfo(String script) {
-    final idRegex = RegExp(r"id: '(.*?)',");
-    final nameRegex = RegExp(r"name: '(.*?)',");
-    final versionRegex = RegExp(r"version: '(.*?)',");
-    final descriptionRegex = RegExp(r"description: '(.*?)',");
+  // 使用您的改进思路，并用 r"" 保证正则的正确性
+  // 增加 multiLine: true 让 ^ 和 $ 可以匹配行的开头和结尾，对这类解析更稳定
+  final idRegex = RegExp(r"id:\s*['""](.*?)['""],?", multiLine: true);
+  final nameRegex = RegExp(r"name:\s*['""](.*?)['""],?", multiLine: true);
+  final versionRegex = RegExp(r"version:\s*['""](.*?)['""],?", multiLine: true);
+  final descriptionRegex = RegExp(r"description:\s*['""](.*?)['""],?", multiLine: true);
+
+
+
 
     final idMatch = idRegex.firstMatch(script);
     final nameMatch = nameRegex.firstMatch(script);

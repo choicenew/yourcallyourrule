@@ -16,6 +16,10 @@ class DatabaseMigration {
       await _migrateLocalToV2(db);
     }
     
+    if (oldVersion < 3 && newVersion >= 3) {
+      await _migrateLocalToV3(db);
+    }
+    
     // 可以继续添加更多版本的迁移
   }
   
@@ -411,6 +415,34 @@ class DatabaseMigration {
     // 添加新的字段或表
     await db.execute('ALTER TABLE contacts ADD COLUMN isBlocked INTEGER NOT NULL DEFAULT 0');
     
+    // 创建电话规则表
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS phone_rules (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        phoneNumber TEXT NOT NULL UNIQUE,
+        actionType TEXT NOT NULL,
+        actionParam TEXT,
+        priority INTEGER NOT NULL DEFAULT 0,
+        isEnabled INTEGER NOT NULL DEFAULT 1,
+        isSubscribed INTEGER NOT NULL DEFAULT 0
+      )
+    ''');
+    
+    // 创建正则规则表
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS regex_rules (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        pattern TEXT NOT NULL UNIQUE,
+        actionType TEXT NOT NULL,
+        actionParam TEXT,
+        priority INTEGER NOT NULL DEFAULT 0,
+        isEnabled INTEGER NOT NULL DEFAULT 1,
+        isSubscribed INTEGER NOT NULL DEFAULT 0
+      )
+    ''');
+    
     // 为call_history表添加name字段
     try {
       // 检查call_history表是否存在name列
@@ -730,6 +762,37 @@ class DatabaseMigration {
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+  }
+  
+  // 本地数据库迁移到版本3
+  static Future<void> _migrateLocalToV3(Database db) async {
+    // 为phone_rules表添加subscriptionId字段
+    try {
+      // 检查phone_rules表是否存在subscriptionId列
+      final phoneRulesColumns = await db.rawQuery("PRAGMA table_info(phone_rules)");
+      final hasSubscriptionIdColumn = phoneRulesColumns.any((column) => column['name'] == 'subscriptionId');
+      
+      // 如果不存在subscriptionId列，则添加
+      if (!hasSubscriptionIdColumn) {
+        await db.execute('ALTER TABLE phone_rules ADD COLUMN subscriptionId TEXT');
+      }
+    } catch (e) {
+      print('为phone_rules表添加subscriptionId字段时出错: ${e.toString()}');
+    }
+    
+    // 为regex_rules表添加subscriptionId字段
+    try {
+      // 检查regex_rules表是否存在subscriptionId列
+      final regexRulesColumns = await db.rawQuery("PRAGMA table_info(regex_rules)");
+      final hasSubscriptionIdColumn = regexRulesColumns.any((column) => column['name'] == 'subscriptionId');
+      
+      // 如果不存在subscriptionId列，则添加
+      if (!hasSubscriptionIdColumn) {
+        await db.execute('ALTER TABLE regex_rules ADD COLUMN subscriptionId TEXT');
+      }
+    } catch (e) {
+      print('为regex_rules表添加subscriptionId字段时出错: ${e.toString()}');
+    }
   }
   
   // 远程数据库迁移到版本2
