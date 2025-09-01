@@ -441,7 +441,8 @@ class PluginWebViewService {
           htmlBody = injectionScript + htmlBody;
           _addLog('Injection successful by prepending to the document.');
         }
-        
+/*
+     // --- [删除] 以下是您原始代码中处理响应头的部分 ---    
         final Map<String, String> responseHeaders = {};
         bool cspRemoved = false;
         response.headers.forEach((key, value) {
@@ -455,7 +456,38 @@ class PluginWebViewService {
         if (cspRemoved) {
           _addLog('Found and REMOVED Content-Security-Policy header.');
         }
+*/
+      // --- [修改] 以下部分替换了您原有的头部处理逻辑 ---
+      
+      // 准备要返回给 WebView 的响应头。
+      // 我们需要从原始响应中移除一些可能导致 iframe 加载失败的安全性相关的头信息。
+      final Map<String, String> responseHeaders = {};
 
+      // 定义一个“黑名单”，包含所有需要被移除的头信息（统一使用小写以便比较）。
+      final headersToRemove = [
+        'x-frame-options',              // 核心问题：禁止 iframe 嵌入
+        'content-security-policy',      // 可能阻止我们注入的脚本或页面内的资源加载
+        'permissions-policy',           // 可能限制 iframe 内的功能
+        'feature-policy',               // permissions-policy 的旧版名称
+        'cross-origin-embedder-policy', // 启用跨域隔离，会破坏代理内容
+        'cross-origin-opener-policy',   // 同上
+      ];
+
+      // 遍历从 cleverdialer.com 收到的每一个响应头
+      response.headers.forEach((key, value) {
+        final lowerCaseKey = key.toLowerCase();
+        
+        // 检查当前头是否在我们的“黑名单”中
+        if (!headersToRemove.contains(lowerCaseKey)) {
+          // 如果不在黑名单里，就把它加入到最终要返回的响应头中
+          responseHeaders[key] = value;
+        } else {
+          // 如果在黑名单里，就记录日志并丢弃它，不返回给 WebView
+           _addLog('Found and REMOVED problematic header: "$key"');
+        }
+      });
+      // --- [修改结束] ---
+      
         return WebResourceResponse(
           contentType: 'text/html',
           contentEncoding: 'utf-8',

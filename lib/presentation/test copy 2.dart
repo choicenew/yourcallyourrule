@@ -103,34 +103,50 @@ class _TestPageState extends State<TestPage> {
     }
   }
 
-   // 这是最终的、经过错误修正的完整函数
+  Future<WebResourceResponse?> _shouldInterceptRequest(
+      InAppWebViewController controller, WebResourceRequest request) async {
+    final uri = request.url;
 
-Future<WebResourceResponse?> _shouldInterceptRequest(
-    InAppWebViewController controller, WebResourceRequest request) async {
-  final uri = request.url;
-  
-  _addLog(
-      'Intercepted request: ${uri.toString()} | isForMainFrame: ${request.isForMainFrame}');
+    _addLog(
+        'Intercepted request: ${uri.toString()} | isForMainFrame: ${request.isForMainFrame}');
+  // --- [删除开始] 删除了您原始的、过于严格的代理触发条件 ---
+  /*
+  // 这段原始代码的问题在于，它只能捕获对 /fetch 的初始请求，
+  // 完全错过了页面内部后续发起的对 /css/app.css 或 https://www.cleverdialer.com/fetch 的子请求。
+    if (uri.scheme == PROXY_SCHEME &&
+        uri.host == PROXY_HOST &&
+        uri.path.startsWith(PROXY_PATH_FETCH)) {
+      _addLog('Proxy request matched for URL: ${uri.toString()}');
+  */
+  // --- [删除结束] ---
 
+  // --- [新增开始] 替换为新的、更智能的代理触发条件 ---
+  // 新的逻辑会检查两个条件，满足其一即可触发代理：
+  // 条件1: 请求发往我们的虚构域名 (处理主页面和相对路径请求)。
+  // 条件2: 请求的来源页(Referer)是我们的虚构域名 (处理绝对路径的子请求)。
   final referer = request.headers?['Referer'] ?? request.headers?['referer'];
   final shouldProxy = (uri.host == PROXY_HOST) || (referer?.contains(PROXY_HOST) ?? false);
 
   if (shouldProxy) {
-    _addLog(
-        'PROXYING request: ${uri.toString()} | isForMainFrame: ${request.isForMainFrame}');
-        
-    Uri targetUrl;
-    Map<String, String> requestHeaders = {};
-
+  // --- [新增结束] ---
+    // --- [修改开始] 修改了 try...catch 块内部的逻辑 ---
+    // 原始代码的 try 块直接处理请求，因为它假设只有一种请求类型。
+    // 新的 try 块内部增加了逻辑来区分主请求和子请求，并为它们分别计算正确的 URL 和请求头。
     try {
+      Uri targetUrl;
+      Map<String, String> requestHeaders = {};
+
+      // --- [新增开始] 新增了智能判断逻辑，来处理不同类型的请求 ---
       if (uri.host == PROXY_HOST && uri.path.startsWith(PROXY_PATH_FETCH)) {
-        // 类型 A: 主页面的初始请求
+        // 类型 A: 主页面的初始请求。处理方式和您的原始代码完全一样。
+        _addLog('Proxying MAIN request...');
         final targetUrlParam = uri.queryParameters['targetUrl'];
         final headersParam = uri.queryParameters['headers'];
-
+        
         if (targetUrlParam == null || targetUrlParam.isEmpty) {
           _addLog('Proxy Error: Main request is missing targetUrl parameter.');
-          return null;
+          // 注意：此处从返回 WebResourceResponse 改为返回 null，让 WebView 自己处理错误
+          return null; 
         }
         
         targetUrl = Uri.parse(targetUrlParam);
@@ -147,9 +163,10 @@ Future<WebResourceResponse?> _shouldInterceptRequest(
         }
 
       } else {
-        // 类型 B: 页面内部发起的子请求
+        // 类型 B: 页面内部发起的子请求 (相对路径资源, 或绝对路径 AJAX)
+        _addLog('Proxying SUB-request...');
         if (referer == null) {
-          _addLog('Proxy Error: Sub-request is missing Referer header.');
+          _addLog('Proxy Error: Sub-request is missing Referer header, cannot resolve target.');
           return null;
         }
 
@@ -163,13 +180,14 @@ Future<WebResourceResponse?> _shouldInterceptRequest(
         final originalBaseUrl = Uri.parse(originalTargetUrlParam);
 
         if (uri.host == PROXY_HOST) {
-          // B1: 相对路径资源请求
+          // B1: 相对路径资源请求 (e.g., /css/app.css)，需要拼接 URL
           targetUrl = originalBaseUrl.resolve(uri.path);
         } else {
-          // B2: 绝对路径子请求
+          // B2: 绝对路径子请求 (e.g., https://www.cleverdialer.com/fetch)，URL 就是它本身
           targetUrl = uri;
         }
 
+        // 对于子请求，我们直接使用 WebView 传递过来的头信息
         request.headers?.forEach((key, value) {
           final lowerCaseKey = key.toLowerCase();
           if (lowerCaseKey != 'host' && lowerCaseKey != 'referer') {
@@ -177,36 +195,76 @@ Future<WebResourceResponse?> _shouldInterceptRequest(
           }
         });
       }
+      // --- [新增结束] ---
+
+      // --- [删除开始] 删除了您原始代码中解析 URL 和请求头的部分 ---
+      /* 
+      // 以下这部分逻辑已经被移动并整合到了上面新增的智能判断逻辑中，所以这里需要删除。
+      final targetUrlParam = uri.queryParameters['targetUrl'];
+      final headersParam = uri.queryParameters['headers'];
+
+      if (targetUrlParam == null || targetUrlParam.isEmpty) {
+        _addLog('Proxy Error: Missing targetUrl parameter.');
+        return WebResourceResponse(
+          contentType: 'text/plain',
+          data:
+              Uint8List.fromList('Proxy Error: Missing targetUrl parameter'.codeUnits),
+          statusCode: 400,
+        );
+      }
+
+      try {
+        final targetUrl = Uri.parse(targetUrlParam);
+        _addLog('Proxying to target: $targetUrl');
+
+        Map<String, String> requestHeaders = {};
+        if (headersParam != null && headersParam.isNotEmpty) {
+          try {
+            final decodedHeaders =
+                jsonDecode(Uri.decodeComponent(headersParam)) as Map<String, dynamic>;
+            decodedHeaders
+                .forEach((key, value) => requestHeaders[key] = value.toString());
+            _addLog('Using custom headers from plugin: $requestHeaders');
+          } catch (e) {
+            _addLog('Error decoding headers: $e');
+          }
+        }
+              */
+      // --- [删除结束] ---
 
       _addLog('Proxying to target: $targetUrl');
-      
-      final cookieManager = CookieManager.instance();
-      final cookies = await cookieManager.getCookies(url: WebUri.uri(targetUrl));
-      if (cookies.isNotEmpty) {
-           requestHeaders['Cookie'] = cookies.map((c) => '${c.name}=${c.value}').join('; ');
-      }
-     
-      _addLog(
-          'Making backend HTTP GET to: $targetUrl with headers: $requestHeaders');
-      final response = await http.get(targetUrl, headers: requestHeaders);
-      _addLog('Backend response received: ${response.statusCode} for $targetUrl');
 
+        final cookieManager = CookieManager.instance();
+        final cookies = await cookieManager.getCookies(url: WebUri.uri(targetUrl));
+        if (cookies.isNotEmpty) {
+             requestHeaders['Cookie'] = cookies.map((c) => '${c.name}=${c.value}').join('; ');
+        }
+       
+
+        _addLog(
+            'Making backend HTTP GET to: $targetUrl with headers: $requestHeaders');
+        final response = await http.get(targetUrl, headers: requestHeaders);
+        _addLog('Backend response received: ${response.statusCode} for $targetUrl');
+      // --- [修改开始] 修改了脚本注入和响应头处理的部分 ---
+      
+      // 首先获取响应的真实 Content-Type 和 Encoding，以便后续正确返回
       final contentType = response.headers['content-type'] ?? '';
       final contentEncoding = response.headers['content-encoding'];
       var responseBody = response.bodyBytes;
 
-      // --- [修改] 修正了这里的 nullable 表达式错误 ---
-      // 原始代码: if (request.isForMainFrame && ...)
-      // 修正后: if (request.isForMainFrame == true && ...)
-      // 原因: request.isForMainFrame 是 bool? 类型 (可为 null), 必须显式地与 true 比较。
+      // --- [新增] 新增了判断条件，只对主框架的 HTML 文档注入脚本 ---
+      // 原始代码会对所有返回的内容（包括CSS/JS）注入脚本，这是不正确的。isForMainFrame 属性被定义为一个可空布尔值，也就是 bool?。这意味着它的值可能是 true、false 或者 null
       if (request.isForMainFrame == true && contentType.contains('text/html')) {
         _addLog('Injecting script into main frame content...');
+//之后保持不动
         String htmlBody = utf8.decode(response.bodyBytes, allowMalformed: true);
+
         String injectionScript = '''
           <script type="text/javascript">
             // IIFE to avoid polluting the global scope
             (function() {
               console.log('[Injected-Receiver] Hello from the script injected by Flutter!');
+
               function handleMessage(event) {
                 if (event.data && event.data.type === 'executeScript') {
                     console.log('[Injected-Receiver] Received a script to execute from parent window.');
@@ -219,12 +277,15 @@ Future<WebResourceResponse?> _shouldInterceptRequest(
                     }
                 }
               }
+
               window.removeEventListener('message', handleMessage);
               window.addEventListener('message', handleMessage, false);
+
               console.log('[Injected-Receiver] Message listener is now active and waiting for commands.');
             })();
           </script>
         ''';
+
         if (htmlBody.contains('<head>')) {
           htmlBody = htmlBody.replaceFirst('<head>', '<head>$injectionScript');
           _addLog('Injection successful into <head>.');
@@ -236,51 +297,111 @@ Future<WebResourceResponse?> _shouldInterceptRequest(
           htmlBody = injectionScript + htmlBody;
           _addLog('Injection successful by prepending to the document.');
         }
+//之前保持不动
+        // 将注入脚本后的 HTML 转换回字节流
         responseBody = Uint8List.fromList(utf8.encode(htmlBody));
       }
-      
-      final Map<String, String> responseHeaders = {};
-      final headersToRemove = [
-        'x-frame-options', 'content-security-policy', 'permissions-policy',
-        'feature-policy', 'cross-origin-embedder-policy', 'cross-origin-opener-policy',
-      ];
-      
+
+            // --- [删除] 以下是您原始代码中处理响应头的部分 ---
+      /*
+        final Map<String, String> responseHeaders = {};
+        bool cspRemoved = false;
+        response.headers.forEach((key, value) {
+          if (key.toLowerCase() != 'content-security-policy') {
+            responseHeaders[key] = value;
+          } else {
+            cspRemoved = true;
+          }
+        });
+
+        if (cspRemoved) {
+          _addLog('Found and REMOVED Content-Security-Policy header.');
+        }
+    
+      // --- [删除结束] ---
+      // --- [新增] 以下是修正后的代码，它会创建一个新的、干净的响应头，过滤掉所有可能导致问题的头信息 ---
+     final Map<String, String> responseHeaders = {}; // 同样从一个空 Map 开始
+      bool xFrameRemoved = false;
+      bool cspRemoved = false;
+
       response.headers.forEach((key, value) {
         final lowerCaseKey = key.toLowerCase();
-        if (!headersToRemove.contains(lowerCaseKey)) {
-          responseHeaders[key] = value;
+        
+        // 我们要拦截并移除这两个头信息
+        if (lowerCaseKey == 'x-frame-options') {
+          xFrameRemoved = true; // 标记已找到，但不把它加入到 filteredHeaders 中
+        } else if (lowerCaseKey == 'content-security-policy') {
+          cspRemoved = true; // 标记已找到，同样不加入
         } else {
-          _addLog('Found and REMOVED problematic header: "$key" for $targetUrl');
+          // 其他所有头信息都是安全的，可以加入
+        responseHeaders[key] = value; // 把安全的头加入到 responseHeaders
         }
       });
-      
-      return WebResourceResponse(
-        contentType: contentType,
-        contentEncoding: contentEncoding,
-        data: responseBody,
-        statusCode: response.statusCode,
-        headers: responseHeaders,
-      );
 
-    } catch (e) {
-    _addLog('Proxy request failed entirely: $e');
-      return WebResourceResponse(
-        contentType: 'text/plain',
-        data: Uint8List.fromList('Proxy request failed: $e'.codeUnits),
-        statusCode: 500,
-      );
+      if (xFrameRemoved) {
+        _addLog('Found and REMOVED "X-Frame-Options" header.');
+      }
+      if (cspRemoved) {
+        _addLog('Found and REMOVED "Content-Security-Policy" header.');
+      }
+      // --- [新增结束] ---
+*/
+      // --- [修改] 以下部分替换了您原有的头部处理逻辑 ---
+      
+      // 准备要返回给 WebView 的响应头。
+      // 我们需要从原始响应中移除一些可能导致 iframe 加载失败的安全性相关的头信息。
+      final Map<String, String> responseHeaders = {};
+
+      // 定义一个“黑名单”，包含所有需要被移除的头信息（统一使用小写以便比较）。
+      final headersToRemove = [
+        'x-frame-options',              // 核心问题：禁止 iframe 嵌入
+        'content-security-policy',      // 可能阻止我们注入的脚本或页面内的资源加载
+        'permissions-policy',           // 可能限制 iframe 内的功能
+        'feature-policy',               // permissions-policy 的旧版名称
+        'cross-origin-embedder-policy', // 启用跨域隔离，会破坏代理内容
+        'cross-origin-opener-policy',   // 同上
+      ];
+
+      // 遍历从 cleverdialer.com 收到的每一个响应头
+      response.headers.forEach((key, value) {
+        final lowerCaseKey = key.toLowerCase();
+        
+        // 检查当前头是否在我们的“黑名单”中
+        if (!headersToRemove.contains(lowerCaseKey)) {
+          // 如果不在黑名单里，就把它加入到最终要返回的响应头中
+          responseHeaders[key] = value;
+        } else {
+          // 如果在黑名单里，就记录日志并丢弃它，不返回给 WebView
+           _addLog('Found and REMOVED problematic header: "$key"');
+        }
+      });
+      // --- [修改结束] ---
+        // --- 【最终修正】 ---
+        // 错误的参数名 `encoding` 已被修正为正确的 `contentEncoding`
+              // --- [修改] 修改了返回的 WebResourceResponse，使其更通用 ---
+      // 原始代码硬编码了 contentType 和 encoding，现在我们使用从服务器获取的真实值。
+        return WebResourceResponse(
+          contentType: contentType,
+          contentEncoding: contentEncoding,
+          data: responseBody,
+          statusCode: response.statusCode,
+          headers: responseHeaders,
+        );
+        // --- 【修正结束】 ---
+
+      } catch (e) {
+        _addLog('Proxy request failed entirely: $e');
+        return WebResourceResponse(
+          contentType: 'text/plain',
+          data: Uint8List.fromList('Proxy request failed: $e'.codeUnits),
+          statusCode: 500,
+        );
+      }
     }
+  _addLog('NOT PROXYING request: ${uri.toString()}');
+    return null;
   }
   
-  _addLog('NOT PROXYING request: ${uri.toString()}');
-  return null;
-}
- 
- 
- 
-
- 
-
   // ... 其他代码完全不变 ...
 
   Future<void> _setupJavaScriptHandlers(InAppWebViewController controller) async {

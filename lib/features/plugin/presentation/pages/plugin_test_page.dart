@@ -17,11 +17,23 @@ class PluginTestPage extends ConsumerStatefulWidget {
 }
 
 class _PluginTestPageState extends ConsumerState<PluginTestPage> {
-  final _phoneController = TextEditingController();
+  // --- 状态变量 ---
+  // 简单模式的控制器和格式
+  final _simplePhoneController = TextEditingController();
+  String _selectedFormat = 'phoneNumber';
+
+  // 高级模式的控制器
+  final _phoneNumberController = TextEditingController();
+  final _nationalNumberController = TextEditingController();
+  final _e164NumberController = TextEditingController();
+
+  // 通用状态
   final _logs = <String>[];
   Map<String, dynamic>? _queryResult;
   bool _isLoading = false;
-  String _selectedFormat = 'phoneNumber'; // Default format
+  
+  // --- 新增: 用于切换模式的开关状态 ---
+  bool _isAdvancedMode = false;
 
   @override
   void initState() {
@@ -42,20 +54,49 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
 
   @override
   void dispose() {
-    _phoneController.dispose();
+    _simplePhoneController.dispose();
+    _phoneNumberController.dispose();
+    _nationalNumberController.dispose();
+    _e164NumberController.dispose();
     super.dispose();
   }
 
+  // --- MODIFIED: _runTest 现在会根据模式来决定如何传递参数 ---
   Future<void> _runTest() async {
     if (_isLoading) return;
     final service = ref.read(pluginTestServiceProvider);
-    final phoneNumber = _phoneController.text.trim();
 
-    if (phoneNumber.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.enterPhoneNumber)),
-      );
-      return;
+    String? phoneNumber, nationalNumber, e164Number;
+
+    if (_isAdvancedMode) {
+      // --- 高级模式 ---
+      phoneNumber = _phoneNumberController.text.trim();
+      nationalNumber = _nationalNumberController.text.trim();
+      e164Number = _e164NumberController.text.trim();
+
+      if (phoneNumber.isEmpty && nationalNumber.isEmpty && e164Number.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please enter at least one number.")));
+        return;
+      }
+    } else {
+      // --- 简单模式 ---
+      final singleNumber = _simplePhoneController.text.trim();
+      if (singleNumber.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.enterPhoneNumber)));
+        return;
+      }
+      // 根据选择的格式，将 singleNumber 赋值给对应的变量
+      switch (_selectedFormat) {
+        case 'phoneNumber':
+          phoneNumber = singleNumber;
+          break;
+        case 'nationalNumber':
+          nationalNumber = singleNumber;
+          break;
+        case 'e164Number':
+          e164Number = singleNumber;
+          break;
+      }
     }
 
     setState(() {
@@ -67,20 +108,15 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
     try {
       final result = await service.testPlugin(
         widget.plugin,
-        phoneNumber,
-        _selectedFormat,
+        phoneNumber: phoneNumber,
+        nationalNumber: nationalNumber,
+        e164Number: e164Number,
       );
-      setState(() {
-        _queryResult = result;
-      });
+      setState(() { _queryResult = result; });
     } catch (e) {
-      setState(() {
-        _queryResult = {'error': e.toString()};
-      });
+      setState(() { _queryResult = {'error': e.toString()}; });
     } finally {
-      setState(() {
-        _isLoading = false;
-      });
+      setState(() { _isLoading = false; });
     }
   }
 
@@ -152,34 +188,78 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TextField(
-          controller: _phoneController,
-          decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.phoneNumber,
-            border: OutlineInputBorder(),
-          ),
-          keyboardType: TextInputType.phone,
-        ),
-        const SizedBox(height: 12),
-        DropdownButtonFormField<String>(
-          value: _selectedFormat,
-          decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.numberFormat,
-            border: OutlineInputBorder(),
-          ),
-          items: [
-            DropdownMenuItem(value: 'phoneNumber', child: Text(AppLocalizations.of(context)!.phoneNumber)),
-            DropdownMenuItem(value: 'nationalNumber', child: Text(AppLocalizations.of(context)!.nationalNumber)),
-            DropdownMenuItem(value: 'e164Number', child: Text(AppLocalizations.of(context)!.e164Number)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text('Advanced Mode'),
+            Switch(
+              value: _isAdvancedMode,
+              onChanged: (value) {
+                setState(() {
+                  _isAdvancedMode = value;
+                });
+              },
+            ),
           ],
-          onChanged: (value) {
-            if (value != null) {
-              setState(() {
-                _selectedFormat = value;
-              });
-            }
-          },
         ),
+        const SizedBox(height: 16),
+        if (_isAdvancedMode) ...[
+          TextField(
+            controller: _phoneNumberController,
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.phoneNumber,
+              border: const OutlineInputBorder(),
+            ),
+            keyboardType: TextInputType.phone,
+          ),
+          const SizedBox(height: 12),
+          TextField(
+            controller: _nationalNumberController,
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.nationalNumber,
+              border: const OutlineInputBorder(),
+            ),
+            keyboardType: TextInputType.phone,
+          ),
+          const SizedBox(height: 12),
+          TextField(
+            controller: _e164NumberController,
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.e164Number,
+              border: const OutlineInputBorder(),
+            ),
+            keyboardType: TextInputType.phone,
+          ),
+        ] else ...[
+          TextField(
+            controller: _simplePhoneController,
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.phoneNumber,
+              border: OutlineInputBorder(),
+            ),
+            keyboardType: TextInputType.phone,
+          ),
+          const SizedBox(height: 12),
+          DropdownButtonFormField<String>(
+            value: _selectedFormat,
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.numberFormat,
+              border: OutlineInputBorder(),
+            ),
+            items: [
+              DropdownMenuItem(value: 'phoneNumber', child: Text(AppLocalizations.of(context)!.phoneNumber)),
+              DropdownMenuItem(value: 'nationalNumber', child: Text(AppLocalizations.of(context)!.nationalNumber)),
+              DropdownMenuItem(value: 'e164Number', child: Text(AppLocalizations.of(context)!.e164Number)),
+            ],
+            onChanged: (value) {
+              if (value != null) {
+                setState(() {
+                  _selectedFormat = value;
+                });
+              }
+            },
+          ),
+        ],
         const SizedBox(height: 12),
         SizedBox(
           width: double.infinity,
