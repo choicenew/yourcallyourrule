@@ -13,6 +13,10 @@ import 'package:yourcallyourrule/core/provider/providers/background_sync_service
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/theme/app_theme.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/plugin_service_provider.dart';
+import 'package:yourcallyourrule/features/plugin/providers/plugin_webview_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
+import 'package:yourcallyourrule/core/provider/providers/caller_id_monitor_service_provider.dart';
  // 导入 FFI 包
 
 Future<void> main() async {
@@ -35,13 +39,28 @@ Future<void> main() async {
     // 初始化数据库服务
     await DatabaseService().initialize();
     
+    // --- Add ---
+    // 创建一个顶层ProviderContainer
+    final container = ProviderContainer();
+    
+    // 初始化插件WebView服务
+    await container.read(pluginWebViewServiceProvider).initialize();
+    
+    // 初始化核心来电监控服务
+    await container.read(callerIdMonitorServiceProvider).initialize();
+    
+    // 初始化插件同步服务
+    container.read(pluginSyncServiceInitializerProvider);
+    // --- Add ---
+
     // 后台同步服务将通过Provider系统初始化
     
     // 记录应用启动事件
     firebaseService.logAppOpen();
 
-    runApp(const ProviderScope(
-      child: MyApp(),
+    runApp(ProviderScope(
+      parent: container, // 将container作为parent
+      child: const MyApp(),
     ));
   } catch (e, stackTrace) {
     // 记录错误但不中断应用启动

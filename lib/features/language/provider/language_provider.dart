@@ -48,6 +48,12 @@ final localeProvider = StateNotifierProvider<LocaleNotifier, LocaleState>((ref) 
   return LocaleNotifier(localeService);
 });
 
+// Provider for the legacy LocaleProvider (ChangeNotifier)
+final legacyLocaleProvider = Provider<LocaleProvider>((ref) {
+  final localeService = ref.read(localeServiceProvider);
+  return LocaleProvider(localeService);
+});
+
 // 为了向后兼容，保留 LocaleProvider 类，但内部使用 Riverpod
 class LocaleProvider with ChangeNotifier {
   final LocaleService _localeService;

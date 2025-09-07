@@ -191,6 +191,7 @@ class PluginInvokerService {
         // 加载插件
         final loaded = await loadPlugin(plugin);
         if (loaded) {
+          debugPrint('[Invoker] Calling plugin: ${plugin.id}');
           // 异步调用插件并立即处理结果
           _webViewService.generatePluginOutput(
             plugin.id,
@@ -198,6 +199,7 @@ class PluginInvokerService {
             nationalNumber,
             e164Number,
           ).then((result) {
+            debugPrint('[Invoker] Got result for plugin: ${plugin.id}');
             if (result != null) {
               // 使用锁确保线程安全
               synchronized(() {
@@ -220,7 +222,7 @@ class PluginInvokerService {
             }
           }).catchError((e) {
             AppLogger.error('调用插件失败: ${plugin.id}', e);
-            debugPrint('调用插件失败: ${plugin.id} - $e');
+            debugPrint('[Invoker] Error calling plugin: ${plugin.id} - $e');
             
             // 增加完成计数，即使出错也算作完成
             completedCount++;
@@ -242,20 +244,25 @@ class PluginInvokerService {
       }
       
       // 设置超时，确保不会无限等待
-      Timer(const Duration(seconds: 10), () {
+      Timer(const Duration(seconds: 20), () {
         if (!allResultsCompleter.isCompleted) {
+          debugPrint('[Invoker] Main 30s timer expired, completing all results.');
           allResultsCompleter.complete(results);
         }
         if (!firstResultCompleter.isCompleted) {
+          debugPrint('[Invoker] Main 30s timer expired, completing first result with null.');
           firstResultCompleter.complete(null);
         }
       });
       
       // 等待第一个有效结果（最多等待3秒）
       try {
-        firstValidResult = await firstResultCompleter.future.timeout(const Duration(seconds: 3));
+        debugPrint('[Invoker] Waiting for the first valid result...');
+        firstValidResult = await firstResultCompleter.future.timeout(const Duration(seconds: 7));
+        debugPrint('[Invoker] Got first valid result: $firstValidResult');
       } catch (e) {
         // 超时后，如果没有有效结果，则设置为null
+        debugPrint('[Invoker] Timeout waiting for the first result: $e');
         firstValidResult = null;
         if (!firstResultCompleter.isCompleted) {
           firstResultCompleter.complete(null);

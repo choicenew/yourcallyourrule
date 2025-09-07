@@ -2402,7 +2402,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String lastUpdated(Object date) {
-    return 'Last Updated: $date';
+    return 'Last updated: $date';
   }
 
   @override
@@ -2460,11 +2460,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String loadPluginsFailed(Object error) {
     return 'Failed to load plugins: $error';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Failed to load rules: $error';
   }
 
   @override
@@ -2735,9 +2730,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noActiveCloudSyncServiceMessage => 'No active cloud sync service';
-
-  @override
-  String get noAds => 'No Ads';
 
   @override
   String get noCallLogs => 'No Call Logs';
@@ -4218,9 +4210,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get syncDevicesButton => 'Sync Devices';
 
   @override
-  String get synced => 'Synced';
-
-  @override
   String get syncFailed => 'Sync failed';
 
   @override
@@ -4394,9 +4383,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unknown => 'Unknown';
-
-  @override
-  String get unknownAction => 'Unknown Action';
 
   @override
   String get unknownLabel => 'Unknown Label';
@@ -4723,6 +4709,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String loadRulesFailed(Object error) {
+    return 'Failed to load rules: $error';
+  }
+
+  @override
   String loadCallLogFailed(Object error) {
     return 'Failed to load call log: $error';
   }
@@ -4776,6 +4767,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get markMoreNumbersForMore => 'Mark more numbers for more marks';
 
   @override
+  String get noAds => 'No Ads';
+
+  @override
   String get cloudBackup => 'Cloud Backup';
 
   @override
@@ -4798,6 +4792,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get removeAds => 'Remove Ads';
+
+  @override
+  String get unknownAction => 'Unknown Action';
 
   @override
   String get settingsBackup => 'Settings Backup ';
@@ -4846,6 +4843,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get customActionDescription => 'Perform a custom action.';
+
+  @override
+  String get synced => 'Synced';
 
   @override
   String get needVipAccess => 'You need VIP access to use this feature';
@@ -4991,6 +4991,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get e164Number => 'E164 Number';
+
+  @override
+  String get pluginRulesInfo => 'For security, please use plugins from trusted sources only. Feel free to use our templates to create your own custom plugins!';
+
+  @override
+  String get advancedMode => 'Advanced Mode';
+
+  @override
+  String get pleaseEnterAtLeastOneNumber => 'Please enter at least one number.';
+
+  @override
+  String get openInWebView => 'Open in WebView';
+
+  @override
+  String get pluginLabel => 'Plugin Label';
+
+  @override
+  String get pluginID => 'ID';
+
+  @override
+  String get pluginURL => 'URL';
 
   @override
   String get yesterday => 'Yesterday';

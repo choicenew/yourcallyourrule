@@ -31,8 +31,8 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
   final _logs = <String>[];
   Map<String, dynamic>? _queryResult;
   bool _isLoading = false;
-  
-  // --- 新增: 用于切换模式的开关状态 ---
+
+  // 用于切换模式的开关状态
   bool _isAdvancedMode = false;
 
   @override
@@ -61,7 +61,6 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
     super.dispose();
   }
 
-  // --- MODIFIED: _runTest 现在会根据模式来决定如何传递参数 ---
   Future<void> _runTest() async {
     if (_isLoading) return;
     final service = ref.read(pluginTestServiceProvider);
@@ -74,15 +73,20 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
       nationalNumber = _nationalNumberController.text.trim();
       e164Number = _e164NumberController.text.trim();
 
-      if (phoneNumber.isEmpty && nationalNumber.isEmpty && e164Number.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please enter at least one number.")));
+      if (phoneNumber.isEmpty &&
+          nationalNumber.isEmpty &&
+          e164Number.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+                AppLocalizations.of(context)!.pleaseEnterAtLeastOneNumber)));
         return;
       }
     } else {
       // --- 简单模式 ---
       final singleNumber = _simplePhoneController.text.trim();
       if (singleNumber.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.enterPhoneNumber)));
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(AppLocalizations.of(context)!.enterPhoneNumber)));
         return;
       }
       // 根据选择的格式，将 singleNumber 赋值给对应的变量
@@ -112,11 +116,17 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
         nationalNumber: nationalNumber,
         e164Number: e164Number,
       );
-      setState(() { _queryResult = result; });
+      setState(() {
+        _queryResult = result;
+      });
     } catch (e) {
-      setState(() { _queryResult = {'error': e.toString()}; });
+      setState(() {
+        _queryResult = {'error': e.toString()};
+      });
     } finally {
-      setState(() { _isLoading = false; });
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -124,11 +134,12 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Test Plugin: ${widget.plugin.name}'),
+        title: Text(
+            '${AppLocalizations.of(context)!.testPlugin}: ${widget.plugin.name}'),
         actions: [
           IconButton(
             icon: const Icon(Icons.public),
-            tooltip: 'Open in WebView',
+            tooltip: AppLocalizations.of(context)!.openInWebView,
             onPressed: () {
               Navigator.push(
                 context,
@@ -142,26 +153,27 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildPluginInfo(),
-            const SizedBox(height: 16),
-            _buildTestRunner(),
-            const SizedBox(height: 16),
-            if (_isLoading)
-              const Center(child: CircularProgressIndicator()),
-            if (_queryResult != null)
-              _buildResultView(),
-            const SizedBox(height: 16),
-            Text('${AppLocalizations.of(context)!.log}:',
-            style: TextStyle(fontWeight: FontWeight.bold)),
-            Expanded(
-              child: _buildLogsView(),
-            ),
-          ],
+      // --- 改动 1: 将 body 包裹在 SingleChildScrollView 中 ---
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildPluginInfo(),
+              const SizedBox(height: 16),
+              _buildTestRunner(),
+              const SizedBox(height: 16),
+              if (_isLoading)
+                const Center(child: CircularProgressIndicator()),
+              if (_queryResult != null) _buildResultView(),
+              const SizedBox(height: 16),
+              Text('${AppLocalizations.of(context)!.log}:',
+                  style: const TextStyle(fontWeight: FontWeight.bold)),
+              const SizedBox(height: 8), // 添加一点间距
+              _buildLogsView(),
+            ],
+          ),
         ),
       ),
     );
@@ -174,10 +186,14 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Plugin: ${widget.plugin.name}', style: const TextStyle(fontWeight: FontWeight.bold)),
-            Text('ID: ${widget.plugin.id}'),
-                Text('Description: ${widget.plugin.description}'),
-            Text('URL: ${widget.plugin.url}'),
+            Text(
+                '${AppLocalizations.of(context)!.pluginLabel}: ${widget.plugin.name}',
+                style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text('${AppLocalizations.of(context)!.pluginID}: ${widget.plugin.id}'),
+            Text(
+                '${AppLocalizations.of(context)!.pluginDescription}: ${widget.plugin.description}'),
+            Text(
+                '${AppLocalizations.of(context)!.pluginURL}: ${widget.plugin.url}'),
           ],
         ),
       ),
@@ -191,7 +207,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Advanced Mode'),
+            Text(AppLocalizations.of(context)!.advancedMode),
             Switch(
               value: _isAdvancedMode,
               onChanged: (value) {
@@ -235,7 +251,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
             controller: _simplePhoneController,
             decoration: InputDecoration(
               labelText: AppLocalizations.of(context)!.phoneNumber,
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.phone,
           ),
@@ -244,12 +260,18 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
             value: _selectedFormat,
             decoration: InputDecoration(
               labelText: AppLocalizations.of(context)!.numberFormat,
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
             ),
             items: [
-              DropdownMenuItem(value: 'phoneNumber', child: Text(AppLocalizations.of(context)!.phoneNumber)),
-              DropdownMenuItem(value: 'nationalNumber', child: Text(AppLocalizations.of(context)!.nationalNumber)),
-              DropdownMenuItem(value: 'e164Number', child: Text(AppLocalizations.of(context)!.e164Number)),
+              DropdownMenuItem(
+                  value: 'phoneNumber',
+                  child: Text(AppLocalizations.of(context)!.phoneNumber)),
+              DropdownMenuItem(
+                  value: 'nationalNumber',
+                  child: Text(AppLocalizations.of(context)!.nationalNumber)),
+              DropdownMenuItem(
+                  value: 'e164Number',
+                  child: Text(AppLocalizations.of(context)!.e164Number)),
             ],
             onChanged: (value) {
               if (value != null) {
@@ -272,56 +294,37 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
     );
   }
 
-  Widget _buildResultViewxx() {
+  Widget _buildResultView() {
+    // 这个 Widget 保持不变，因为它已经是可滚动的了（通过外层的 SingleChildScrollView）
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Result:', style: TextStyle(fontWeight: FontWeight.bold)),
+        Text(AppLocalizations.of(context)!.result,
+            style: const TextStyle(fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
         Container(
+          width: double.infinity, // 让容器撑满宽度
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Colors.grey[400]!)
-          ),
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Colors.grey[400]!)),
           child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal, // 允许水平滚动以防 JSON 太宽
             child: Text(
               const JsonEncoder.withIndent('  ').convert(_queryResult),
-              
             ),
           ),
         ),
       ],
     );
   }
-Widget _buildResultView() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(AppLocalizations.of(context)!.result, style: TextStyle(fontWeight: FontWeight.bold)),
-      const SizedBox(height: 8),
-      // 在这里用 Center 组件包裹 Container
-      Center(
-        child: Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Colors.grey[400]!)
-          ),
-          child: SingleChildScrollView(
-            child: Text(
-              const JsonEncoder.withIndent('  ').convert(_queryResult),
-            ),
-          ),
-        ),
-      ),
-    ],
-  );
-}
+
   Widget _buildLogsView() {
+    // 这里不再需要 Expanded，因为它现在位于 SingleChildScrollView 中
+    // 我们给它一个固定的或者有限的高度，以便在有内容时显示
     return Container(
+      height: 200, // 给日志视图一个固定的高度
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(8),
@@ -329,9 +332,11 @@ Widget _buildResultView() {
       child: ListView.builder(
         itemCount: _logs.length,
         itemBuilder: (context, index) {
+          // --- 改动 2: 使用 SelectableText 使日志可以被复制 ---
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-            child: Text(_logs[index]),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+            child: SelectableText(_logs[index]),
           );
         },
       ),

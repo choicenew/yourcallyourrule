@@ -966,7 +966,7 @@
   "loadMore": "Load More",
   "loadPluginButton": "Load Plugin",
   "loadPluginsFailed": "Failed to load plugins: {error}",
-  "loadRulesFailed": "Failed to load rules: {error}",
+
   "loadSettingsFailed": "Failed to load settings: {error}",
   "loadSmsRulesFailed": "Failed to load SMS rules: {error}",
   "loadStatusFailedMessage": "Failed to load status",
@@ -1085,7 +1085,7 @@
   "noAction": "No Action",
   "noActionRules": "No Action Rules",
   "noActiveCloudSyncServiceMessage": "No active cloud sync service",
-  "noAds": "No Ads",
+
   "noCallLogs": "No Call Logs",
   "noCallRecords": "No call records",
   "noContacts": "No contacts yet",
@@ -1654,7 +1654,7 @@
   "supportSync": "Support Sync",
   "survey": "Survey",
   "syncDevicesButton": "Sync Devices",
-  "synced": "Synced",
+
   "@synced": {
     "description": "Synced status label"
   },
@@ -1739,7 +1739,7 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownAction": "Unknown Action",
+
   "unknownLabel": "Unknown Label",
   "unknownTag": "Tag: Unknown",
   "unregisterButton": "Unregister",
@@ -2041,7 +2041,7 @@
  "logActionDescription": "Log the call information without taking any other action.",
  "customActionDescription": "Perform a custom action.",
  "synced": "Synced",
- "lastUpdated": "Last Updated: {date}",
+
  
    "needVipAccess": "You need VIP access to use this feature",
 "importExportDescription": "Import or export {entityTypeName} data",
@@ -2116,6 +2116,61 @@
 
 "nationalNumber": "National Number",
 "e164Number": "E164 Number",
+"pluginRulesInfo": "For security, please use plugins from trusted sources only. Feel free to use our templates to create your own custom plugins!",
+
+
+
+
+"advancedMode": "Advanced Mode",
+
+
+  "pleaseEnterAtLeastOneNumber": "Please enter at least one number.",
+
+
+
+  "openInWebView": "Open in WebView",
+
+  "pluginLabel": "Plugin Label",
+  "pluginID": "ID",
+
+
+  "pluginURL": "URL",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   "yesterday": "Yesterday"
 }
