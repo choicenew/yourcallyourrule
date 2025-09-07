@@ -179,6 +179,7 @@ class CallerIdMonitorService {
 
   /// 初始化服务
   Future<void> initialize() async {
+    _channelManager.initialize();
     await loadSettings();
     await _initializeNotifications();
     await _handlerFactory.initializeAll();

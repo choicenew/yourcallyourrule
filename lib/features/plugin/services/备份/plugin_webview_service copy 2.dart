@@ -1,5 +1,3 @@
-// lib/features/plugin/services/plugin_webview_service.dart
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
@@ -8,12 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
 import 'package:yourcallyourrule/common/error/logger.dart';
-import 'package:html/parser.dart' as html_parser;
-import 'package:html/dom.dart' as dom;
-import 'package:yourcallyourrule/features/plugin/services/webview_request_interceptor.dart';
 
-// 引入我们刚刚创建的拦截器
-
+// 特殊的代理前缀，JS插件会用这个前缀构建iframe的src
+const String PROXY_SCHEME = "https";
+const String PROXY_HOST = "flutter-webview-proxy.internal";
+const String PROXY_PATH_FETCH = "/fetch";
 
 /// 插件WebView服务 - 负责WebView核心管理
 /// 遵循单一职责原则，只负责WebView的初始化和基本操作
@@ -22,7 +19,6 @@ class PluginWebViewService {
   static final PluginWebViewService _instance = PluginWebViewService._internal();
   factory PluginWebViewService() => _instance;
   PluginWebViewService._internal();
-  
   // --- [修改结束] ---
 
   // --- [新增] Headless WebView 和初始化管理 ---
@@ -32,9 +28,6 @@ class PluginWebViewService {
 
   // WebView控制器
   InAppWebViewController? _webViewController;
-  
-  // --- [新] 创建一个内部拦截器实例，将职责委托给它 ---
-  final _requestInterceptor = WebViewRequestInterceptor();
 
   // 跟踪每个插件的就绪状态
   final Map<String, bool> _pluginReadyStatus = {};
@@ -76,7 +69,7 @@ class PluginWebViewService {
         databaseEnabled: true,
         useShouldInterceptRequest: true,
         userAgent:
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
       ),
       onWebViewCreated: (controller) async {
         _webViewController = controller;
@@ -87,8 +80,7 @@ class PluginWebViewService {
         }
       },
       shouldInterceptRequest: (controller, request) async {
-        // [修改] 拦截逻辑现在被完全委托给内部处理器！
-        return _requestInterceptor.handleInterceptedRequest(controller, request);
+        return handleInterceptedRequest(request);
       },
       onConsoleMessage: (controller, consoleMessage) {
         _addLog(
@@ -139,13 +131,6 @@ class PluginWebViewService {
               _pluginReadyController.add(jsonData['pluginId']);
             } else if (jsonData['type'] == 'pluginError') {
               debugPrint('Plugin error: ${jsonData['error']}');
-            } else if (jsonData['type'] == 'sessionCompleted') {
-              final requestId = jsonData['requestId'];
-              if (requestId != null) {
-                _addLog('Session completed for requestId [$requestId], cleaning up.');
-                // [修改] 委托会话清理
-                _requestInterceptor.cleanupSession(requestId);
-              }
             }
           } catch (e) {
             
@@ -177,7 +162,7 @@ class PluginWebViewService {
           debugPrint('[PluginResultChannel] Processing requestId: $requestId');
 
           if (_pluginQueryCompleters.containsKey(requestId)) {
-            final completer = _pluginQueryCompleters.remove(requestId)!;
+            final completer = _pluginQueryCompleters[requestId]!;
             final bool success = result['success'] ?? false;
             final String? error = result['error'];
 
@@ -189,8 +174,7 @@ class PluginWebViewService {
               debugPrint('[PluginResultChannel] Completing with error for requestId: $requestId, Error: $errorMessage');
               completer.completeError(errorMessage);
             }
-            // [修改] 委托会话清理
-            _requestInterceptor.cleanupSession(requestId);
+            _pluginQueryCompleters.remove(requestId); // 移除已完成的Completer
           } else {
             debugPrint('[PluginResultChannel] Error: No completer found for requestId: $requestId');
           }
@@ -373,7 +357,7 @@ class PluginWebViewService {
     ''';
 
     // 执行JavaScript
-    debugPrint('[WebView] Calling plugin method: $pluginId.$methodName for requestId: $requestId');
+    debugPrint('[WebView] Calling plugin method: $pluginId.$methodName');
     await _webViewController?.evaluateJavascript(source: jsCode);
 
     // 等待结果
@@ -382,18 +366,14 @@ class PluginWebViewService {
         const Duration(seconds: 20),
         onTimeout: () {
           _pluginQueryCompleters.remove(requestId);
-          // [修改] 委托会话清理
-          _requestInterceptor.cleanupSession(requestId); // Cleanup
-          debugPrint('[WebView] Timeout for plugin method: $pluginId.$methodName, requestId: $requestId');
+          debugPrint('[WebView] Timeout for plugin method: $pluginId.$methodName');
           throw TimeoutException(
               'Plugin method call timed out: $pluginId.$methodName');
         },
       );
     } catch (e) {
+          AppLogger.error('生成插件输出失败', e);
       _pluginQueryCompleters.remove(requestId);
-      // [修改] 委托会话清理
-      _requestInterceptor.cleanupSession(requestId); // Cleanup
-      AppLogger.error('生成插件输出失败', e);
       rethrow;
     }
   }
@@ -407,18 +387,14 @@ class PluginWebViewService {
   ) async {
     // --- [修改] 等待初始化完成 ---
     await _initCompleter.future;
-        // --- [修改结束] ---
+    // --- [修改结束] ---
     final requestId =
         'query_${pluginId}_${DateTime.now().millisecondsSinceEpoch}';
-    if (_webViewController == null) {
-      throw Exception('WebView控制器未初始化');
-    }
-
     final completer = Completer<Map<String, dynamic>?>();
     _pluginQueryCompleters[requestId] = completer;
 
-    debugPrint('[WebView] Generating plugin output for: $pluginId with requestId: $requestId');
-    
+    debugPrint('[WebView] 输出Generating plugin output for: $pluginId');
+    // 执行JavaScript查询代码
     await _webViewController?.evaluateJavascript(source: '''
       (function(pluginId) {
         if (window.plugin && window.plugin[pluginId]) {
@@ -440,9 +416,7 @@ class PluginWebViewService {
         const Duration(seconds: 20),
         onTimeout: () {
           _pluginQueryCompleters.remove(requestId);
-          // [修改] 委托会话清理
-          _requestInterceptor.cleanupSession(requestId); // 清理会话
-          debugPrint('[WebView] Timeout generating output for plugin: $pluginId, requestId: $requestId');
+          debugPrint('[WebView] Timeout generating output for plugin: $pluginId');
           throw TimeoutException(
               'Plugin output generation timed out: $pluginId');
         },
@@ -451,10 +425,164 @@ class PluginWebViewService {
       AppLogger.error('生成插件输出失败', e);
       debugPrint('[WebView] Error generating output for plugin: $pluginId - $e');
       _pluginQueryCompleters.remove(requestId);
-      // [修改] 委托会话清理
-      _requestInterceptor.cleanupSession(requestId); // 清理会话
       rethrow;
     }
+  }
+
+  Future<WebResourceResponse?> handleInterceptedRequest(
+      WebResourceRequest request) async {
+    final uri = request.url;
+
+    _addLog('Intercepted request: ${uri.toString()}');
+
+    if (uri.scheme == PROXY_SCHEME &&
+        uri.host == PROXY_HOST &&
+        uri.path.startsWith(PROXY_PATH_FETCH)) {
+      _addLog('Proxy request matched for URL: ${uri.toString()}');
+
+      final targetUrlParam = uri.queryParameters['targetUrl'];
+      final headersParam = uri.queryParameters['headers'];
+
+      if (targetUrlParam == null || targetUrlParam.isEmpty) {
+        _addLog('Proxy Error: Missing targetUrl parameter.');
+        return WebResourceResponse(
+          contentType: 'text/plain',
+          data: Uint8List.fromList('Proxy Error: Missing targetUrl parameter'.codeUnits),
+          statusCode: 400,
+        );
+      }
+
+      try {
+        final targetUrl = Uri.parse(targetUrlParam);
+        _addLog('Proxying to target: $targetUrl');
+
+        Map<String, String> requestHeaders = {};
+        if (headersParam != null && headersParam.isNotEmpty) {
+          try {
+            final decodedHeaders =
+                jsonDecode(Uri.decodeComponent(headersParam)) as Map<String, dynamic>;
+            decodedHeaders
+                .forEach((key, value) => requestHeaders[key] = value.toString());
+            _addLog('Using custom headers from plugin: $requestHeaders');
+          } catch (e) {
+            _addLog('Error decoding headers: $e');
+          }
+        }
+        
+        final cookieManager = CookieManager.instance();
+        final cookies = await cookieManager.getCookies(url: WebUri.uri(targetUrl));
+        if (cookies.isNotEmpty) {
+          requestHeaders['Cookie'] = cookies.map((c) => '${c.name}=${c.value}').join('; ');
+        }
+
+        _addLog('Making backend HTTP GET to: $targetUrl with headers: $requestHeaders');
+        final response = await http.get(targetUrl, headers: requestHeaders);
+        _addLog('Backend response received: ${response.statusCode} for $targetUrl');
+
+        String htmlBody = utf8.decode(response.bodyBytes, allowMalformed: true);
+
+        String injectionScript = '''
+          <script type="text/javascript">
+            (function() {
+              console.log('[Injected-Receiver] Hello from the script injected by Flutter!');
+
+              function handleMessage(event) {
+                if (event.data && event.data.type === 'executeScript') {
+                    console.log('[Injected-Receiver] Received a script to execute from parent window.');
+                    try {
+                      eval(event.data.script);
+                      console.log('[Injected-Receiver] Script execution started.');
+                    } catch (e) {
+                      console.error('[Injected-Receiver] Error executing script via eval:', e);
+                      window.parent.postMessage({ type: 'phoneQueryResult', data: { success: false, error: 'Eval execution failed: ' + e.toString() } }, '*');
+                    }
+                }
+              }
+
+              window.removeEventListener('message', handleMessage);
+              window.addEventListener('message', handleMessage, false);
+
+              console.log('[Injected-Receiver] Message listener is now active and waiting for commands.');
+            })();
+          </script>
+        ''';
+
+        if (htmlBody.contains('<head>')) {
+          htmlBody = htmlBody.replaceFirst('<head>', '<head>$injectionScript');
+          _addLog('Injection successful into <head>.');
+        } else if (htmlBody.contains('<html>')) {
+          htmlBody =
+              htmlBody.replaceFirst('<html>', '<html><head>$injectionScript</head>');
+          _addLog('Injection successful by creating a <head> tag.');
+        } else {
+          htmlBody = injectionScript + htmlBody;
+          _addLog('Injection successful by prepending to the document.');
+        }
+/*
+     // --- [删除] 以下是您原始代码中处理响应头的部分 ---    
+        final Map<String, String> responseHeaders = {};
+        bool cspRemoved = false;
+        response.headers.forEach((key, value) {
+          if (key.toLowerCase() != 'content-security-policy') {
+            responseHeaders[key] = value;
+          } else {
+            cspRemoved = true;
+          }
+        });
+
+        if (cspRemoved) {
+          _addLog('Found and REMOVED Content-Security-Policy header.');
+        }
+*/
+      // --- [修改] 以下部分替换了您原有的头部处理逻辑 ---
+      
+      // 准备要返回给 WebView 的响应头。
+      // 我们需要从原始响应中移除一些可能导致 iframe 加载失败的安全性相关的头信息。
+      final Map<String, String> responseHeaders = {};
+
+      // 定义一个“黑名单”，包含所有需要被移除的头信息（统一使用小写以便比较）。
+      final headersToRemove = [
+        'x-frame-options',              // 核心问题：禁止 iframe 嵌入
+        'content-security-policy',      // 可能阻止我们注入的脚本或页面内的资源加载
+        'permissions-policy',           // 可能限制 iframe 内的功能
+        'feature-policy',               // permissions-policy 的旧版名称
+        'cross-origin-embedder-policy', // 启用跨域隔离，会破坏代理内容
+        'cross-origin-opener-policy',   // 同上
+      ];
+
+      // 遍历从 cleverdialer.com 收到的每一个响应头
+      response.headers.forEach((key, value) {
+        final lowerCaseKey = key.toLowerCase();
+        
+        // 检查当前头是否在我们的“黑名单”中
+        if (!headersToRemove.contains(lowerCaseKey)) {
+          // 如果不在黑名单里，就把它加入到最终要返回的响应头中
+          responseHeaders[key] = value;
+        } else {
+          // 如果在黑名单里，就记录日志并丢弃它，不返回给 WebView
+           _addLog('Found and REMOVED problematic header: "$key"');
+        }
+      });
+      // --- [修改结束] ---
+      
+        return WebResourceResponse(
+          contentType: 'text/html',
+          contentEncoding: 'utf-8',
+          data: Uint8List.fromList(utf8.encode(htmlBody)),
+          statusCode: response.statusCode,
+          headers: responseHeaders,
+        );
+      } catch (e) {
+        _addLog('Proxy request failed entirely: $e');
+        return WebResourceResponse(
+          contentType: 'text/plain',
+          data: Uint8List.fromList('Proxy request failed: $e'.codeUnits),
+          statusCode: 500,
+        );
+      }
+    }
+
+    return null;
   }
 
   // 释放资源
@@ -466,10 +594,11 @@ class PluginWebViewService {
     // --- [新增结束] ---
   }
 
-  // 添加状态监听扩展
-  void addPluginStateListener(String pluginId, Function(bool) listener) {
-    _pluginReadyController.stream.where((id) => id == pluginId).listen((_) {
-      listener(_pluginReadyStatus[pluginId] ?? false);
-    });
-  }
+
+// 添加状态监听扩展
+void addPluginStateListener(String pluginId, Function(bool) listener) {
+  _pluginReadyController.stream.where((id) => id == pluginId).listen((_) {
+    listener(_pluginReadyStatus[pluginId] ?? false);
+  });
+}
 }

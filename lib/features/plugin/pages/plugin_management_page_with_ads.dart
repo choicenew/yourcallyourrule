@@ -540,7 +540,7 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
 
           // 单个插件测试
           ListTile(
-            leading: const Icon(Icons.public),
+            leading: const Icon(Icons.science_outlined),
             title: Text(AppLocalizations.of(context)!.pluginTestPageTitle),
             onTap: () {
               Navigator.of(context).pop();
@@ -755,6 +755,33 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
    
  }
 
+ Widget _buildInfoCard() {
+   return Card(
+     elevation: 2,
+     margin: const EdgeInsets.only(bottom: 16),
+     child: Padding(
+       padding: const EdgeInsets.all(16),
+       child: Column(
+         crossAxisAlignment: CrossAxisAlignment.start,
+         children: [
+           Text(
+             AppLocalizations.of(context)!.pluginManagementSubtitle,
+             style: const TextStyle(
+               fontSize: 18,
+               fontWeight: FontWeight.bold,
+             ),
+           ),
+           const SizedBox(height: 8),
+           Text(
+             AppLocalizations.of(context)!.pluginRulesInfo,
+           ),
+         ],
+       ),
+     ),
+   );
+ }
+
+
     void _editPluginScript(PluginEntry plugin) {
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -861,6 +888,7 @@ class _PluginManagementPageWithAdsState extends ConsumerState<PluginManagementPa
         onSearchChanged: _onSearchChanged,
          searchHintText: AppLocalizations.of(context)!.searchPluginsHint,
         headerContent: _buildPluginStatusCard(),
+        infoCard: _buildInfoCard(),
       );
     }
   }

@@ -4536,7 +4536,7 @@ abstract class AppLocalizations {
   /// Last updated label
   ///
   /// In en, this message translates to:
-  /// **'Last Updated: {date}'**
+  /// **'Last updated: {date}'**
   String lastUpdated(Object date);
 
   /// No description provided for @lifetimeMembership.
@@ -4628,12 +4628,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to load plugins: {error}'**
   String loadPluginsFailed(Object error);
-
-  /// No description provided for @loadRulesFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load rules: {error}'**
-  String loadRulesFailed(Object error);
 
   /// No description provided for @loadSettingsFailed.
   ///
@@ -5144,12 +5138,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No active cloud sync service'**
   String get noActiveCloudSyncServiceMessage;
-
-  /// No description provided for @noAds.
-  ///
-  /// In en, this message translates to:
-  /// **'No Ads'**
-  String get noAds;
 
   /// No description provided for @noCallLogs.
   ///
@@ -7863,12 +7851,6 @@ abstract class AppLocalizations {
   /// **'Sync Devices'**
   String get syncDevicesButton;
 
-  /// Synced status label
-  ///
-  /// In en, this message translates to:
-  /// **'Synced'**
-  String get synced;
-
   /// No description provided for @syncFailed.
   ///
   /// In en, this message translates to:
@@ -8210,12 +8192,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unknown'**
   String get unknown;
-
-  /// No description provided for @unknownAction.
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown Action'**
-  String get unknownAction;
 
   /// No description provided for @unknownLabel.
   ///
@@ -8817,6 +8793,12 @@ abstract class AppLocalizations {
   /// **'Potential fraud call from {phoneNumber}'**
   String fraudAlertBody(String phoneNumber);
 
+  /// No description provided for @loadRulesFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load rules: {error}'**
+  String loadRulesFailed(Object error);
+
   /// No description provided for @loadCallLogFailed.
   ///
   /// In en, this message translates to:
@@ -8895,6 +8877,12 @@ abstract class AppLocalizations {
   /// **'Mark more numbers for more marks'**
   String get markMoreNumbersForMore;
 
+  /// No description provided for @noAds.
+  ///
+  /// In en, this message translates to:
+  /// **'No Ads'**
+  String get noAds;
+
   /// No description provided for @cloudBackup.
   ///
   /// In en, this message translates to:
@@ -8942,6 +8930,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove Ads'**
   String get removeAds;
+
+  /// No description provided for @unknownAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Action'**
+  String get unknownAction;
 
   /// No description provided for @settingsBackup.
   ///
@@ -9038,6 +9032,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Perform a custom action.'**
   String get customActionDescription;
+
+  /// Synced status label
+  ///
+  /// In en, this message translates to:
+  /// **'Synced'**
+  String get synced;
 
   /// No description provided for @needVipAccess.
   ///
@@ -9320,6 +9320,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'E164 Number'**
   String get e164Number;
+
+  /// No description provided for @pluginRulesInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'For security, please use plugins from trusted sources only. Feel free to use our templates to create your own custom plugins!'**
+  String get pluginRulesInfo;
+
+  /// No description provided for @advancedMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced Mode'**
+  String get advancedMode;
+
+  /// No description provided for @pleaseEnterAtLeastOneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter at least one number.'**
+  String get pleaseEnterAtLeastOneNumber;
+
+  /// No description provided for @openInWebView.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in WebView'**
+  String get openInWebView;
+
+  /// No description provided for @pluginLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Plugin Label'**
+  String get pluginLabel;
+
+  /// No description provided for @pluginID.
+  ///
+  /// In en, this message translates to:
+  /// **'ID'**
+  String get pluginID;
+
+  /// No description provided for @pluginURL.
+  ///
+  /// In en, this message translates to:
+  /// **'URL'**
+  String get pluginURL;
 
   /// No description provided for @yesterday.
   ///
