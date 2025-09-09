@@ -56,9 +56,9 @@ class CallerIdMonitorService {
   bool useStirNotification = false;
   
   // 设置键名
-  static const String callLocalNotificationKey = 'call_local_notification';
-  static const String callCancelLocalNotificationKey = 'call_cancel_local_notification';
-  static const String stirLocalNotificationKey = 'stir_local_notification';
+  static const String callLocalNotificationKey = 'config_call_local_notification';
+  static const String callCancelLocalNotificationKey = 'config_call_cancel_local_notification';
+  static const String stirLocalNotificationKey = 'config_stir_local_notification';
   
   // 浮窗相关
   OverlayEntry? _currentOverlay;

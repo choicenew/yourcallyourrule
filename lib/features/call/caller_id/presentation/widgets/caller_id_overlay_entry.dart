@@ -41,7 +41,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
   @override
   void initState() {
     super.initState();
-
+/*
     // 处理Isolate错误和退出
     Isolate.current.addErrorListener(RawReceivePort((dynamic error) {
       // 处理错误
@@ -62,7 +62,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
         ref.read(localeProvider.notifier).updateLocale(message['locale']);
       }
     });
-    
+   */ 
     // 初始化配置仓库
     _configRepository = SharedPreferencesConfigRepository();
     final configurationManager = ConfigurationManager(_configRepository);
@@ -73,6 +73,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
     styleProvider = ref.read(callerIdStyleProvider);
     // 监听覆盖层消息
     FlutterOverlayWindow.overlayListener.listen((event) {
+
       setState(() {
         // 判断接收到的数据类型
         if (event is Map<String, dynamic> && event.containsKey("configType")) {
@@ -121,8 +122,9 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
       phoneNumber: data['phoneNumber'] != null
           ? PhoneNumber.fromString(data['phoneNumber'])
           : PhoneNumber.fromString(''),
-          numberType: data['numberType'] != null
-          ? PhoneNumberType.values.firstWhere((e) => e.name == data['numberType'])
+// 直接使用索引从枚举列表中获取值
+    numberType: data['numberType'] != null && data['numberType'] is int
+                  ? PhoneNumberType.values[data['numberType']]
           : PhoneNumberType.unknown,
       name: data['name'],
       countryName: data['countryName'],
@@ -132,6 +134,8 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
       avatar: data['avatar'],
       count: data['count'] ?? 0,
     );
+
+    debugPrint(_callerIdData!.toMap().toString());
   }
 
   @override

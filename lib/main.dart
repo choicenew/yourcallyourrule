@@ -4,6 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
+import 'package:yourcallyourrule/features/call/call_history/provider/call_event_listener_provider.dart';
 
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -49,6 +50,9 @@ Future<void> main() async {
     // 初始化核心来电监控服务
     await container.read(callerIdMonitorServiceProvider).initialize();
     
+    // 初始化通话事件监听服务，确保它在应用启动时就开始工作
+    container.read(callEventListenerProvider);
+    
     // 初始化插件同步服务
     container.read(pluginSyncServiceInitializerProvider);
     // --- Add ---
@@ -88,7 +92,7 @@ void overlayMain() {
   WidgetsFlutterBinding.ensureInitialized();
 
   // 设置为覆盖层模式（只读模式）
-  isOverlayMode = true;
+  isOverlayMode = false;
 
 
 

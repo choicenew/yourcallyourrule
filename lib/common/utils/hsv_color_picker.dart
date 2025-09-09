@@ -55,7 +55,8 @@ class _HSVColorPickerState extends State<HSVColorPicker> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         const SizedBox(height: 20),
         // Directly display the ColorPicker with Slider

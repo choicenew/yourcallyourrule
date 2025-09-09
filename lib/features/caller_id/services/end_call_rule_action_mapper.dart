@@ -16,12 +16,12 @@ class RuleActionMapper {
     switch (action.type) {
       case RuleActionType.block:
         // 如果没有参数，返回null表示使用全局默认设置
-        if (action.parameters == null || !action.parameters!.containsKey('interceptAction')) {
+        if (action.parameters == null || !action.parameters!.containsKey('config_interceptAction')) {
           return null;
         }
         
         // 从参数中获取拦截动作
-        final interceptAction = action.parameters!['interceptAction'] as String?;
+        final interceptAction = action.parameters!['config_interceptAction'] as String?;
         
         // 验证拦截动作是否有效
         if (interceptAction == null || 
@@ -50,7 +50,7 @@ class RuleActionMapper {
     
     return RuleAction.withParams(
       RuleActionType.block, 
-      {'interceptAction': interceptAction}
+      {'config_interceptAction': interceptAction}
     );
   }
   

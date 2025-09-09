@@ -24,9 +24,9 @@ class WebDAVSyncService extends EnhancedCloudSyncService {
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
   
   // Configuration keys
-  static const String _serverUrlKey = 'webdav_server_url';
-  static const String _usernameKey = 'webdav_username';
-  static const String _passwordKey = 'webdav_password';
+  static const String _serverUrlKey = 'config_webdav_server_url';
+  static const String _usernameKey = 'config_webdav_username';
+  static const String _passwordKey = 'config_webdav_password';
   
   // File paths in WebDAV
   static const String _defaultAppFolderName = 'YourCallYourRule';

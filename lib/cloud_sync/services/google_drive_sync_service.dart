@@ -67,8 +67,8 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
   Future<void> doInitialize(Map<String, dynamic> config) async {
     if (_isInitialized) return;
 
-    if (config['app_folder_name'] != null) {
-      _appFolderName = config['app_folder_name'] as String;
+    if (config['config_app_folder_name'] != null) {
+      _appFolderName = config['config_app_folder_name'] as String;
     }
     _updateFolderPaths();
 

@@ -23,13 +23,13 @@ class TimeInterceptorConfig {
 
   factory TimeInterceptorConfig.fromMap(Map<String, dynamic> map) {
     return TimeInterceptorConfig(
-      duration: Duration(minutes: map['durationMinutes'] ?? 30),
-      shouldIntercept: map['shouldIntercept'] ?? true,
+      duration: Duration(minutes: map['config_durationMinutes'] ?? 30),
+      shouldIntercept: map['config_shouldIntercept'] ?? true,
     );
   }
 
   Map<String, dynamic> toMap() => {
-    'durationMinutes': duration.inMinutes,
-    'shouldIntercept': shouldIntercept,
+    'config_durationMinutes': duration.inMinutes,
+    'config_shouldIntercept': shouldIntercept,
   };
 }

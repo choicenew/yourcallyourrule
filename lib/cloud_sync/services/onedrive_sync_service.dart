@@ -44,10 +44,10 @@ class OneDriveSyncService extends EnhancedCloudSyncService {
   DateTime? _tokenExpiry;
   
   // Configuration keys
-  static const String _accessTokenKey = 'onedrive_access_token';
-  static const String _refreshTokenKey = 'onedrive_refresh_token';
-  static const String _tokenExpiryKey = 'onedrive_token_expiry';
-  static const String _appFolderNameKey = 'onedrive_app_folder_name';
+  static const String _accessTokenKey = 'config_onedrive_access_token';
+  static const String _refreshTokenKey = 'config_onedrive_refresh_token';
+  static const String _tokenExpiryKey = 'config_onedrive_token_expiry';
+  static const String _appFolderNameKey = 'config_onedrive_app_folder_name';
   
   // OneDrive API endpoints
   static const String _driveUrl = 'https://graph.microsoft.com/v1.0/me/drive';

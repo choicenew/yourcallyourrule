@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 标签过滤芯片组件
 /// 显示当前选中的标签文本，并提供删除功能
@@ -29,8 +30,8 @@ class LabelFilterChip extends ConsumerWidget {
             builder: (context, snapshot) {
               final labelText = snapshot.data ?? labelId;
               return Chip(
-                label: Text('标签: $labelText'),
-                backgroundColor: themeColor.withOpacity(0.1),
+                label: Text('${AppLocalizations.of(context)!.label}: $labelText'),
+                backgroundColor: themeColor..withValues(alpha: 0.1),
                 labelStyle: TextStyle(color: themeColor),
                 deleteIcon: const Icon(Icons.close, size: 18),
                 onDeleted: onDeleted,

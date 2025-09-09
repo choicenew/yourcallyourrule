@@ -1,40 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/caller_id/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class EndCallSettingsPage extends StatefulWidget {
+class EndCallSettingsPage extends ConsumerWidget {
   const EndCallSettingsPage({super.key});
 
   @override
-  EndCallSettingsPageState createState() => EndCallSettingsPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedInterceptAction = ref.watch(interceptActionConfigProvider);
+    final interceptActionNotifier = ref.read(interceptActionConfigProvider.notifier);
 
-class EndCallSettingsPageState extends State<EndCallSettingsPage> {
-  String? _selectedInterceptAction = 'endCall';
-  final ConfigRepository _configRepository = SharedPreferencesConfigRepository();
-
-  @override
-  void initState() {
-    super.initState();
-    _loadInterceptAction();
-  }
-
-  static const String _interceptActionKey = 'config_intercept_action';
-
-  Future<void> _loadInterceptAction() async {
-    final config = await _configRepository.getConfig(_interceptActionKey);
-    _selectedInterceptAction = config?['value'] as String? ?? 'endCall';
-    setState(() {});
-  }
-
-  Future<void> _saveInterceptAction(String? newValue) async {
-    await _configRepository.saveConfig(_interceptActionKey, {'value': newValue!});
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.interceptionActionSettingsTitle),
@@ -54,13 +32,12 @@ class EndCallSettingsPageState extends State<EndCallSettingsPage> {
                   Text(AppLocalizations.of(context)!.chooseDefaultInterceptAction),
                   const SizedBox(height: 8),
                   DropdownButton<String>(
-                    value: _selectedInterceptAction,
+                    value: selectedInterceptAction,
                     isExpanded: true,
                     onChanged: (String? newValue) {
-                      setState(() {
-                        _selectedInterceptAction = newValue!;
-                      });
-                      _saveInterceptAction(newValue);
+                      if (newValue != null) {
+                        interceptActionNotifier.setInterceptAction(newValue);
+                      }
                     },
                     items: <DropdownMenuItem<String>>[
                       DropdownMenuItem<String>(

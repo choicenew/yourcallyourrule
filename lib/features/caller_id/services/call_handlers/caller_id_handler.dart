@@ -2,6 +2,7 @@
 
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:dlibphonenumber/locale.dart' as dlibphone;
+import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
@@ -100,6 +101,20 @@ class CallHandler {
         phoneNumber, e164Number, nationalNumber, dlibLocale);
     // await _callerIdService.getCallerId(phoneNumber, dlibLocale); //原始的解析方法
     
+  // 在显示之前，打印所有将要发送到悬浮窗的数据
+  debugPrint('===================================================');
+  debugPrint('>>> DEBUGGING in CallHandler.handleCall <<<');
+  debugPrint('Phone Number: $phoneNumber');
+  debugPrint('--- CallerIdData to be displayed: ---');
+  debugPrint(callerIdData.toString()); // 或者 callerIdData.toMap().toString() 如果你有 toMap 方法
+  debugPrint('--- StirInfo to be displayed: ---');
+  debugPrint(stirInfo?.toString()); // 使用 ?. 避免 stirInfo 为 null 时崩溃
+  debugPrint('--- SimInfo to be displayed: ---');
+  debugPrint(simInfo?.toString()); // 使用 ?. 避免 simInfo 为 null 时崩溃
+  debugPrint('===================================================');
+  // ---【 调试结束 】---
+
+
     // 显示来电信息（浮窗或通知，由DisplayModeHandler决定）
     await _displayModeHandler.showCallerIdInfo(callerIdData, stirInfo, simInfo);
 

@@ -10,7 +10,7 @@ class DeviceIdService {
   final ConfigRepository _configRepository;
 
   static const String _configKey = 'config_device_id';
-  static const String _idKey = 'id';
+  static const String _idKey = 'config_id';
 
   const DeviceIdService(this._configRepository);
 

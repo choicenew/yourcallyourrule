@@ -70,11 +70,11 @@ dependencies:
 
   flutter_colorpicker: ^1.1.0
   flutter_local_notifications: ^19.4.0
- # flutter_overlay_window: ^0.4.5
-  flutter_overlay_window:
-    git:
-      url: https://github.com/haygcao/flutter_overlay_window.git
-      ref: main
+  flutter_overlay_window: ^0.5.0
+  # flutter_overlay_window:
+   #  git:
+    #   url: https://github.com/haygcao/flutter_overlay_window.git
+    #   ref: main
 
   flutter_localizations:
     sdk: flutter

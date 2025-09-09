@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 /// 管理来电显示界面的所有样式属性，包括颜色、字体大小、位置等
 class CallerIdStyleProvider with ChangeNotifier {
   // 背景颜色
-  Color _backgroundColorStart = const Color.fromARGB(255, 255, 227, 227);
-  Color _backgroundColorEnd = const Color.fromARGB(255, 255, 227, 227);
+  Color _backgroundColorStart = const Color(0xFFFFE3E3);
+  Color _backgroundColorEnd = const Color(0xFFFFE3E3);
 
   // 图标颜色
   Color _textIconLabelColor = const Color.fromARGB(255, 233, 30, 99);
@@ -45,8 +45,8 @@ class CallerIdStyleProvider with ChangeNotifier {
   double _simCardFontSize = 14; // sim card 文字size
 
   // 窗口尺寸
-  double _windowWidth = 330;
-  double _windowHeight = 220;
+  double _windowWidth = 380;
+  double _windowHeight = 235;
 
   // 元素位置
   Offset _avatarPosition = const Offset(10, 10);
