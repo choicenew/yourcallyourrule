@@ -31,7 +31,7 @@ class SecurityMessageProvider extends ChangeNotifier {
   double _height = 30.0;
   
   // Background color of the security message container
-  Color _backgroundColor = const Color.fromARGB(177, 81, 81, 81); // Semi-transparent black
+  Color _backgroundColor = const Color(0xB0515151); // Semi-transparent black
   
   // Whether the security message is enabled
   bool _isEnabled = true;

@@ -492,10 +492,22 @@ class _CallerIdCustomizationScreenState
           currentColor: securityMessageState.textColor,
           onColorChanged: (color) => securityMessageNotifier.setTextColor(color),
         ),
+        ColorPanel(
+          title: AppLocalizations.of(context)!.messageBackgroundColor, // 背景颜色设置
+          currentColor: securityMessageState.backgroundColor,
+          onColorChanged: (color) => securityMessageNotifier.setBackgroundColor(color),
+        ),
         SizePanel(
           label: AppLocalizations.of(context)!.messageFontSize,
           currentSize: securityMessageState.fontSize,
           onSizeChanged: (size) => securityMessageNotifier.setFontSize(size),
+        ),
+        _buildSlider(
+          AppLocalizations.of(context)!.height, // 高度设置
+          securityMessageState.height,
+          20,
+          60,
+          (value) => securityMessageNotifier.setHeight(value),
         ),
         _buildPositionSlider(
           AppLocalizations.of(context)!.messagePosition,
