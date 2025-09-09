@@ -64,7 +64,7 @@ class CallLogCard extends ConsumerWidget {
                 FutureBuilder<List<dynamic>>(
                   future: Future.wait([
                     _getLabelText(context, ref, log),
-                    _getAvatarPath(context, ref, log.number, null),
+                    _getAvatarPath(context, ref, log.phoneNumber, null),
                   ]),
                   builder: (context, snapshot) {
                     // 加载中显示占位符
@@ -127,7 +127,7 @@ class CallLogCard extends ConsumerWidget {
                               children: [
                                 Flexible(
                                   child: Text(
-                                    log.name ?? log.number,
+                                    log.name ?? log.phoneNumber,
                                     style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -159,7 +159,7 @@ class CallLogCard extends ConsumerWidget {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        log.number, // 始终显示电话号码作为次要信息
+                        log.phoneNumber, // 始终显示电话号码作为次要信息
                         style: const TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                       Text(
@@ -182,7 +182,7 @@ class CallLogCard extends ConsumerWidget {
                       onPressed: () {
                         // 回拨电话
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(AppLocalizations.of(context)!.callbackTo(log.number))),
+                          SnackBar(content: Text(AppLocalizations.of(context)!.callbackTo(log.phoneNumber))),
                         );
                       },
                       tooltip: AppLocalizations.of(context)!.callback,

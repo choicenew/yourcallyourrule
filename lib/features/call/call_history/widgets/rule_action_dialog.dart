@@ -79,9 +79,9 @@ class RuleActionDialog extends ConsumerWidget {
       // 创建ListEntry对象
       final entry = ListEntry(
         id: log.id,
-        phoneNumber: PhoneNumber(log.number),
+        phoneNumber: PhoneNumber(log.phoneNumber),
         labelId: labelId,
-        name: log.name ?? log.number, // 优先使用name字段，如果为空则使用号码
+        name: log.name ?? log.phoneNumber, // 优先使用name字段，如果为空则使用号码
       );
       
       await service.addAllowedBlockedRule(entry, action);
@@ -113,9 +113,9 @@ class RuleActionDialog extends ConsumerWidget {
       // 创建ListEntry对象
       final entry = ListEntry(
         id: log.id,
-        phoneNumber: PhoneNumber(log.number),
+        phoneNumber: PhoneNumber(log.phoneNumber),
         labelId: labelId,
-        name: log.name ?? log.number, // 优先使用name字段，如果为空则使用号码
+        name: log.name ?? log.phoneNumber, // 优先使用name字段，如果为空则使用号码
       );
       
       await service.addPhoneRule(entry, action);

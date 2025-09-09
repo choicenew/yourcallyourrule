@@ -57,6 +57,8 @@ abstract class CallerIdConfig with _$CallerIdConfig {
     required double securityMessageContainerWidth,
     required double securityMessageScrollSpeed,
     required bool securityMessageEnabled,
+    @ColorConverter() required Color securityMessageBackgroundColor,
+    required double securityMessageHeight,
   }) = _CallerIdConfig;
 
   factory CallerIdConfig.fromJson(Map<String, dynamic> json) => _$CallerIdConfigFromJson(json);
@@ -118,6 +120,8 @@ extension CallerIdConfigX on CallerIdConfig {
       securityMessageContainerWidth: securityProvider.containerWidth,
       securityMessageScrollSpeed: securityProvider.scrollSpeed,
       securityMessageEnabled: securityProvider.isEnabled,
+      securityMessageBackgroundColor: securityProvider.backgroundColor,
+      securityMessageHeight: securityProvider.height,
     );
   }
 
@@ -169,7 +173,9 @@ extension CallerIdConfigX on CallerIdConfig {
       ..updatePosition(securityMessagePosition) // Note: Security message position is linked to styleProvider's
       ..setContainerWidth(securityMessageContainerWidth)
       ..setScrollSpeed(securityMessageScrollSpeed)
-      ..setEnabled(securityMessageEnabled);
+      ..setEnabled(securityMessageEnabled)
+      ..setBackgroundColor(securityMessageBackgroundColor)
+      ..setHeight(securityMessageHeight);
   }
 
 }

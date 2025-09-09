@@ -27,6 +27,12 @@ class SecurityMessageProvider extends ChangeNotifier {
   // Width of the security message container
   double _containerWidth = 310.0;
   
+  // Height of the security message container
+  double _height = 30.0;
+  
+  // Background color of the security message container
+  Color _backgroundColor = const Color.fromARGB(177, 81, 81, 81); // Semi-transparent black
+  
   // Whether the security message is enabled
   bool _isEnabled = true;
   
@@ -37,6 +43,8 @@ class SecurityMessageProvider extends ChangeNotifier {
   double get fontSize => _fontSize;
   Offset get position => _position;
   double get containerWidth => _containerWidth;
+  double get height => _height;
+  Color get backgroundColor => _backgroundColor;
   bool get isEnabled => _isEnabled;
   
   // Setters with notifyListeners
@@ -67,6 +75,16 @@ class SecurityMessageProvider extends ChangeNotifier {
   
   void setContainerWidth(double width) {
     _containerWidth = width;
+    notifyListeners();
+  }
+  
+  void setHeight(double height) {
+    _height = height;
+    notifyListeners();
+  }
+  
+  void setBackgroundColor(Color color) {
+    _backgroundColor = color;
     notifyListeners();
   }
   

@@ -2,7 +2,7 @@ import 'package:yourcallyourrule/core/base/base_entity.dart';
 
 class CallLog extends BaseEntity {
   final List<String>? labelIds;
-  final String number;
+  final String phoneNumber;
   final String? name; // 添加name字段
   final DateTime timestamp;
   final String simDisplayName;
@@ -15,7 +15,7 @@ class CallLog extends BaseEntity {
   CallLog({
     required super.id,
     this.labelIds,
-    required this.number,
+    required this.phoneNumber,
     this.name, // 添加name参数
     required this.timestamp,
     required this.simDisplayName,
@@ -30,7 +30,7 @@ class CallLog extends BaseEntity {
   Map<String, dynamic> toMap() => {
         'id': id,
         'labelIds': labelIds,
-        'number': number,
+        'phoneNumber': phoneNumber,
         'name': name, // 添加name字段
         'timestamp': timestamp.millisecondsSinceEpoch,
         'simDisplayName': simDisplayName,
@@ -45,7 +45,7 @@ class CallLog extends BaseEntity {
     return CallLog(
       id: map['id'] as String,
       labelIds: map['labelIds'] != null ? List<String>.from(map['labelIds']) : null,
-      number: map['number'] as String,
+      phoneNumber: map['phoneNumber'] as String,
       name: map['name'] as String?, // 添加name字段
       timestamp: DateTime.fromMillisecondsSinceEpoch(map['timestamp'] as int),
       simDisplayName: map['simDisplayName'] as String,
@@ -60,7 +60,7 @@ class CallLog extends BaseEntity {
   CallLog copyWith({
     String? id,
     List<String>? labelIds,
-    String? number,
+    String? phoneNumber,
     String? name, // 添加name参数
     DateTime? timestamp,
     String? simDisplayName,
@@ -73,7 +73,7 @@ class CallLog extends BaseEntity {
     return CallLog(
       id: id ?? this.id,
       labelIds: labelIds ?? this.labelIds,
-      number: number ?? this.number,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
       name: name ?? this.name, // 添加name字段
       timestamp: timestamp ?? this.timestamp,
       simDisplayName: simDisplayName ?? this.simDisplayName,

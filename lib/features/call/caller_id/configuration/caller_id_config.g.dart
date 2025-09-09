@@ -85,6 +85,9 @@ _CallerIdConfig _$CallerIdConfigFromJson(Map<String, dynamic> json) =>
       securityMessageScrollSpeed:
           (json['securityMessageScrollSpeed'] as num).toDouble(),
       securityMessageEnabled: json['securityMessageEnabled'] as bool,
+      securityMessageBackgroundColor: const ColorConverter()
+          .fromJson((json['securityMessageBackgroundColor'] as num).toInt()),
+      securityMessageHeight: (json['securityMessageHeight'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$CallerIdConfigToJson(_CallerIdConfig instance) =>
@@ -154,4 +157,7 @@ Map<String, dynamic> _$CallerIdConfigToJson(_CallerIdConfig instance) =>
       'securityMessageContainerWidth': instance.securityMessageContainerWidth,
       'securityMessageScrollSpeed': instance.securityMessageScrollSpeed,
       'securityMessageEnabled': instance.securityMessageEnabled,
+      'securityMessageBackgroundColor': const ColorConverter()
+          .toJson(instance.securityMessageBackgroundColor),
+      'securityMessageHeight': instance.securityMessageHeight,
     };

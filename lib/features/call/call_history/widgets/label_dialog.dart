@@ -63,7 +63,7 @@ class _LabelDialogState extends ConsumerState<LabelDialog> {
                 const Icon(Icons.phone, color: Colors.grey),
                 const SizedBox(width: 8),
                 Text(
-                  widget.log.number,
+                  widget.log.phoneNumber,
                   style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -155,7 +155,7 @@ class _LabelDialogState extends ConsumerState<LabelDialog> {
     return Expanded(
       child: PublicSelectLabel(
         initialLabelId: widget.log.labelIds?.isNotEmpty == true ? widget.log.labelIds!.first : null,
-        phoneNumber: widget.log.number,
+        phoneNumber: widget.log.phoneNumber,
         onLabelIdChanged: _addLabel,
         themeColor: const Color(0xFFF5A623),
       ),
@@ -172,7 +172,7 @@ class _LabelDialogState extends ConsumerState<LabelDialog> {
       // 创建更新后的通话记录
       final updatedLog = CallLog(
         id: widget.log.id,
-        number: widget.log.number,
+        phoneNumber: widget.log.phoneNumber,
         timestamp: widget.log.timestamp,
         simDisplayName: widget.log.simDisplayName,
         callType: widget.log.callType,
@@ -214,7 +214,7 @@ class _LabelDialogState extends ConsumerState<LabelDialog> {
     try {
       // 获取标签服务和通话记录服务
       final callLogService = ref.read(callLogServiceProvider);
-      
+
       // 为通话记录添加标签
       await callLogService.addLabelToLog(widget.log, labelId);
       
@@ -248,7 +248,7 @@ class _LabelDialogState extends ConsumerState<LabelDialog> {
   Future<void> _syncLabelToRemote() async {
     try {
       final labelToRemoteSyncService = ref.read(labelToRemoteSyncServiceProvider);
-      final phoneNumber = PhoneNumber.fromString(widget.log.number);
+      final phoneNumber = PhoneNumber.fromString(widget.log.phoneNumber);
       await labelToRemoteSyncService.syncLabelByPhoneNumber(phoneNumber);
     } catch (e) {
       // 同步失败不影响标签添加/删除的主要功能，所以只记录错误但不抛出异常

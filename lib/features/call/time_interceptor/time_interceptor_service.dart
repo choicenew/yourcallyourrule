@@ -27,7 +27,7 @@ class TimeInterceptorService {
     final logs = await _callLogRepository.getLogsByDateRange(startDate, now);
     
     // 过滤出指定电话号码的记录
-    final entries = logs.where((log) => log.number == phoneNumber).toList();
+    final entries = logs.where((log) => log.phoneNumber == phoneNumber).toList();
 
     return entries.isNotEmpty;
   }
