@@ -9363,6 +9363,12 @@ abstract class AppLocalizations {
   /// **'URL'**
   String get pluginURL;
 
+  /// No description provided for @messageBackgroundColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Message Background Color'**
+  String get messageBackgroundColor;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:

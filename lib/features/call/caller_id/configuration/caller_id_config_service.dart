@@ -73,6 +73,8 @@ class CallerIdConfigService {
       securityMessageContainerWidth: 300.0,
       securityMessageScrollSpeed: 20.0,
       securityMessageEnabled: true,
+      securityMessageBackgroundColor: Color(0xB0515151), // 半透明黑色
+      securityMessageHeight: 30.0,
     );
     await saveConfig(defaultConfig);
     return defaultConfig;

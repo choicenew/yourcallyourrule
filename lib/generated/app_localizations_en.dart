@@ -5014,5 +5014,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pluginURL => 'URL';
 
   @override
+  String get messageBackgroundColor => 'Message Background Color';
+
+  @override
   String get yesterday => 'Yesterday';
 }
