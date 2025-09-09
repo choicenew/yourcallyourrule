@@ -129,7 +129,7 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
       await callLogService.addLabelToLog(log, labelId);
       
       // 同步标签信息到远程号码服务
-      final phoneNumber = PhoneNumber.fromString(log.number);
+      final phoneNumber = PhoneNumber.fromString(log.phoneNumber);
       await labelToRemoteSyncService.syncLabelByPhoneNumber(phoneNumber);
       
       // 刷新通话记录列表

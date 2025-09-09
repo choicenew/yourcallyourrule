@@ -266,7 +266,7 @@ class CallTimelineView extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: iconColor.withOpacity(0.1),
+                        color: iconColor.withValues(alpha:0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(callIcon, color: iconColor),
@@ -278,11 +278,11 @@ class CallTimelineView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            log.name ?? log.number,
+                            log.name ?? log.phoneNumber,
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            log.number, // 始终显示电话号码
+                            log.phoneNumber, // 始终显示电话号码
                             style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                           ),
                           Text(

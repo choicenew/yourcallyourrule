@@ -89,7 +89,7 @@ class CallLogService {
       // 创建带有更新标签的新CallLog
       final updatedLog = CallLog(
         id: log.id,
-        number: log.number,
+        phoneNumber: log.phoneNumber,
         timestamp: log.timestamp,
         callType: log.callType,
         simDisplayName: log.simDisplayName,

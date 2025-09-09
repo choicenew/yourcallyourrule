@@ -120,9 +120,10 @@ class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMess
   Widget _buildSecurityMessageContainer(SecurityMessageProvider securityMessageState) {
     return Container(
       width: securityMessageState.containerWidth,
+      height: securityMessageState.height,
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.7),
+        color: securityMessageState.backgroundColor,
         borderRadius: BorderRadius.circular(4.0),
       ),
       child: SingleChildScrollView(

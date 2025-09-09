@@ -61,7 +61,7 @@ class CallLogRecorder {
     // 创建通话记录
     final callLog = CallLog(
       id: _uuid.v4(), // 生成唯一ID
-      number: phoneNumber,
+      phoneNumber: phoneNumber,
       name: callData.callerIdData.name, // 添加联系人名称
       timestamp: DateTime.now(),
       simDisplayName: simInfo?.displayName ?? '',

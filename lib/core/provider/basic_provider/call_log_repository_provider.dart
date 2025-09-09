@@ -101,7 +101,7 @@ class CallLogRepositoryImpl implements CallLogRepository {
   Future<List<CallLog>> getLogsByPhoneNumber(String phoneNumber) async {
     // 按电话号码筛选通话日志的实现
     final logs = await getAll();
-    return logs.where((log) => log.number == phoneNumber).toList();
+    return logs.where((log) => log.phoneNumber == phoneNumber).toList();
   }
   
   @override

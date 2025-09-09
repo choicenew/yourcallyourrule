@@ -61,7 +61,7 @@ class SystemCallLogService {
         // 创建应用内通话记录对象
         final appLog = app_call_log.CallLog(
           id: entry.id?.toString() ?? const Uuid().v4(),
-          number: entry.number ?? '',
+          phoneNumber: entry.number ?? '',
           name: entry.name ?? '',
           timestamp: callTimestamp,
           simDisplayName: entry.simDisplayName ?? '',
