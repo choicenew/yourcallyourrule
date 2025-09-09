@@ -16,9 +16,9 @@ class BackupEncryptionService {
   bool _isInitialized = false;
   
   // Secure storage keys
-  static const String _encryptionEnabledKey = 'backup_encryption_enabled';
-  static const String _encryptionKeyKey = 'backup_encryption_key';
-  static const String _encryptionIvKey = 'backup_encryption_iv';
+  static const String _encryptionEnabledKey = 'config_backup_encryption_enabled';
+  static const String _encryptionKeyKey = 'config_backup_encryption_key';
+  static const String _encryptionIvKey = 'config_backup_encryption_iv';
   
   // Default values
   bool _encryptionEnabled = false;

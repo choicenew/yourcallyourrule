@@ -9,11 +9,11 @@ class CallerIdConfigRepository {
   static const String configKey = 'config_caller_id';
   
   // 配置项键名
-  static const String useLocalNotificationKey = 'use_local_notification';
-  static const String cancelLocalNotificationKey = 'cancel_local_notification';
-  static const String useStirNotificationKey = 'use_stir_notification';
-  static const String interceptActionKey = 'intercept_action';
-  static const String displayModeKey = 'display_mode'; // 来电显示模式：overlay或notification
+  static const String useLocalNotificationKey = 'config_use_local_notification';
+  static const String cancelLocalNotificationKey = 'config_cancel_local_notification';
+  static const String useStirNotificationKey = 'config_use_stir_notification';
+  static const String interceptActionKey = 'config_intercept_action';
+  static const String displayModeKey = 'config_display_mode'; // 来电显示模式：overlay或notification
   
   /// 构造函数
   CallerIdConfigRepository(this._configRepository);

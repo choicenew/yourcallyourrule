@@ -29,8 +29,8 @@ class CallerIdConfigService {
   /// 初始化默认配置
   Future<CallerIdConfig> initializeDefault() async {
     const defaultConfig = CallerIdConfig(
-      backgroundColorStart: Color(0xFF2196F3),
-      backgroundColorEnd: Color(0xFF1976D2),
+      backgroundColorStart: Color(0xFFE1B026),
+      backgroundColorEnd: Color(0xFFEED065),
       textNameColor: Color(0xFFFFFFFF),
       textNumberColor: Color(0xFFBBDEFB),
       textLocationColor: Color(0xFFE3F2FD),
@@ -40,8 +40,8 @@ class CallerIdConfigService {
       textCountColor: Color(0xFF64B5F6),
       textNumberTypeColor: Color(0xFFBBDEFB),
       textIconLabelColor: Color(0xFF2196F3),
-      textIconLocationColor: Color(0xFF2196F3),
-      textIconCallTypeColor: Color(0xFF2196F3),
+      textIconLocationColor: Color(0xFF21F375),
+      textIconCallTypeColor: Color(0xFF21F375),
       avatarBorderColor: Color(0xFFFFFFFF),
       textStirColor: Color(0xFF4CAF50),
       textSimCardColor: Color(0xFF9E9E9E),

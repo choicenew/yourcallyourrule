@@ -12,7 +12,7 @@
 - `call_log_recorder_provider.dart` - 依赖注入提供者，用于注册和获取 CallLogRecorder 实例
 - `caller_id_handler_extension.dart` - 扩展现有通话处理类，添加通话记录功能
 - `call_log_integration_example.dart` - 集成示例，展示如何在现有代码中使用 CallLogRecorder
-- `provider_config_supplement.dart` - 展示如何在 provider_config.dart 中添加 CallLogRecorder
+
 
 ## 集成步骤
 

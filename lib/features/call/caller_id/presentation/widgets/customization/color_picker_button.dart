@@ -34,12 +34,15 @@ class ColorPickerButton extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context)!.colorPickerTitle),
+
         content: SingleChildScrollView(
           child: HSVColorPicker(
             pickerColor: color,
             onColorChanged: onColorChanged,
           ),
         ),
+
+        
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
