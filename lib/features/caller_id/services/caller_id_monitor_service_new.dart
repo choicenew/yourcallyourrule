@@ -105,6 +105,7 @@ class CallerIdMonitorService {
 
   /// 初始化处理器
   void _initializeHandlers() {
+    debugPrint('Initializing handlers 成功');
     // 创建配置仓库
     final configRepository = CallerIdConfigRepository(SharedPreferencesConfigRepository());
     

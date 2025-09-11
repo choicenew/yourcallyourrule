@@ -51,7 +51,7 @@ Future<void> main() async {
     await container.read(callerIdMonitorServiceProvider).initialize();
     
     // 初始化通话事件监听服务，确保它在应用启动时就开始工作
-    container.read(callEventListenerProvider);
+    await container.read(callEventListenerProvider.future);
     
     // 初始化插件同步服务
     container.read(pluginSyncServiceInitializerProvider);
@@ -62,8 +62,8 @@ Future<void> main() async {
     // 记录应用启动事件
     firebaseService.logAppOpen();
 
-    runApp(ProviderScope(
-      parent: container, // 将container作为parent
+    runApp(UncontrolledProviderScope(
+      container: container,
       child: const MyApp(),
     ));
   } catch (e, stackTrace) {
