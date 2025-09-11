@@ -29,9 +29,6 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
   bool _isInitialized = false;
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
 
-  // 将常量的值与实际使用的 key 统一
-  static const String _appFolderNameKey = 'config_app_folder_name';
-
   // Google Drive folder configuration
   static const String _defaultAppFolderName = 'YourCallYourRule';
   String _appFolderName = _defaultAppFolderName;
@@ -70,8 +67,8 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
   Future<void> doInitialize(Map<String, dynamic> config) async {
     if (_isInitialized) return;
 
-    if (config[_appFolderNameKey] != null) {
-      _appFolderName = config[_appFolderNameKey] as String;
+    if (config['config_app_folder_name'] != null) {
+      _appFolderName = config['config_app_folder_name'] as String;
     }
     _updateFolderPaths();
 

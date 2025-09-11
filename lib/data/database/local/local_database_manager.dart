@@ -91,17 +91,15 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
       CREATE TABLE IF NOT EXISTS call_history (
         id TEXT PRIMARY KEY,
         phoneNumber TEXT NOT NULL,
-        contactName TEXT,
+        name TEXT,
+        timestamp TEXT NOT NULL,
+        simDisplayName TEXT,
         callType TEXT NOT NULL,
-        startTime TEXT NOT NULL,
-        endTime TEXT,
-        duration INTEGER NOT NULL DEFAULT 0,
-        isRead INTEGER NOT NULL DEFAULT 0,
-        simInfo TEXT,
-        note TEXT,
-        isMarked INTEGER NOT NULL DEFAULT 0,
-        labelIds TEXT,
-        name TEXT
+        simSlotIndex INTEGER,
+        carrierName TEXT,
+        countryIso TEXT,
+        subscriptionId INTEGER,
+        labelIds TEXT
       )
     ''');
 

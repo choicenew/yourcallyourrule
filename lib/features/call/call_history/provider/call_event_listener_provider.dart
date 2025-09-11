@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/features/call/call_history/services/call_event_
 /// CallEventListenerService 的 Riverpod Provider
 /// 用于获取 CallEventListenerService 实例
 /// 使用 core/provider/providers/call_log_service_provider.dart 中的 callLogServiceProvider
-final callEventListenerProvider = Provider<CallEventListenerService>((ref) {
+final callEventListenerProvider = FutureProvider<CallEventListenerService>((ref) async {
   final callLogService = ref.watch(callLogServiceProvider);
   final callHandler = ref.watch(callHandlerProvider);
   final service = CallEventListenerService(callLogService, callHandler);

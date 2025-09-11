@@ -43,11 +43,9 @@ class CallEventListenerService {
   
   CallEventListenerService(this._callLogService, this._callHandler) {
     _callLogRecorder = CallLogRecorder(_callLogService);
-    _initializeChannels();
   }
-  
-  /// 初始化平台通道
-  void _initializeChannels() {
+
+  Future<void> initialize() async {
     _channelManager = CallChannelSwitcher.getPlatformChannelManager();
     
     // 设置来电去电回调
@@ -57,9 +55,10 @@ class CallEventListenerService {
     _channelManager.initialize();
     
     // 初始化来电显示
-    _channelManager.initializeCallerId().catchError((error) {
+    await _channelManager.initializeCallerId().catchError((error) {
       print('初始化来电显示失败: $error');
     });
+    startListening();
   }
   
   /// 处理来电显示方法调用

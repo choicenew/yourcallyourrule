@@ -42,18 +42,38 @@ class CallLog extends BaseEntity {
       };
 
   factory CallLog.fromMap(Map<String, dynamic> map) {
+    DateTime parsedTimestamp;
+    final dynamic timestampValue = map['timestamp'];
+
+    if (timestampValue is int) {
+      parsedTimestamp = DateTime.fromMillisecondsSinceEpoch(timestampValue);
+    } else if (timestampValue is String) {
+      final int? asInt = int.tryParse(timestampValue);
+      if (asInt != null) {
+        parsedTimestamp = DateTime.fromMillisecondsSinceEpoch(asInt);
+      } else {
+        try {
+          parsedTimestamp = DateTime.parse(timestampValue);
+        } catch (e) {
+          parsedTimestamp = DateTime.now();
+        }
+      }
+    } else {
+      parsedTimestamp = DateTime.now();
+    }
+
     return CallLog(
       id: map['id'] as String,
       labelIds: map['labelIds'] != null ? List<String>.from(map['labelIds']) : null,
       phoneNumber: map['phoneNumber'] as String,
       name: map['name'] as String?, // 添加name字段
-      timestamp: DateTime.fromMillisecondsSinceEpoch(map['timestamp'] as int),
+      timestamp: parsedTimestamp,
       simDisplayName: map['simDisplayName'] as String,
       callType: map['callType'] as String,
-      simSlotIndex: map['simSlotIndex'] as int,
+      simSlotIndex: int.parse(map['simSlotIndex'].toString()),
       carrierName: map['carrierName'] as String,
       countryIso: map['countryIso'] as String,
-      subscriptionId: map['subscriptionId'] as int,
+      subscriptionId: int.parse(map['subscriptionId'].toString()),
     );
   }
 
