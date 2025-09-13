@@ -144,69 +144,100 @@ class _CallHistoryPageWithTimelineState extends ConsumerState<CallHistoryPageWit
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.callHistoryInfoTitle),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        actions: [
-          // 添加视图切换按钮
-          IconButton(
-            icon: Icon(_showTimelineView ? Icons.view_list : Icons.timeline),
-            onPressed: () {
-              setState(() {
-                _showTimelineView = !_showTimelineView;
-              });
-            },
-            tooltip: _showTimelineView ? 'List View' : 'Timeline View',
-          ),
-          IconButton(
-            icon: const Icon(Icons.filter_list),
-            onPressed: () => _showLabelFilterDialog(),
-            tooltip: AppLocalizations.of(context)!.labelFilter,
-          ),
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {}, // 搜索功能待实现
-            tooltip: AppLocalizations.of(context)!.search,
-          ),
-        ],
+      appBar: _buildAppBar(),
+      body: _buildBody(),
+    );
+  }
+  
+  /// 构建应用栏
+  AppBar _buildAppBar() {
+    return AppBar(
+      title: Text(AppLocalizations.of(context)!.callHistoryInfoTitle),
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () => Navigator.of(context).pop(),
       ),
-      body: Column(
-        children: [
-          // 标签页
-          TabBar(
-            controller: _tabController,
-            isScrollable: true,
-            tabs: _tabs.map((tab) => Tab(text: tab)).toList(),
-            labelColor: Theme.of(context).primaryColor,
-            unselectedLabelColor: Colors.grey,
-            indicatorColor: Theme.of(context).primaryColor,
-          ),
-          
-          // 显示当前筛选的标签
-          if (_selectedLabel != null)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: LabelFilterChip(
-                labelId: _selectedLabel!,
-                onDeleted: _clearLabelFilter,
-              ),
-            ),
-            
-          // 主内容区
-          Expanded(
-            child: _isLoading
-                ? const Center(child: CircularProgressIndicator())
-                : _showTimelineView ? _buildTimelineContent() : _buildListContent(),
-          ),
-        ],
+      actions: _buildActions(),
+    );
+  }
+  
+  /// 构建操作按钮列表
+  List<Widget> _buildActions() {
+    return [
+      // 添加视图切换按钮
+      IconButton(
+        icon: Icon(_showTimelineView ? Icons.view_list : Icons.timeline),
+        onPressed: () {
+          setState(() {
+            _showTimelineView = !_showTimelineView;
+          });
+        },
+        tooltip: _showTimelineView ? 'List View' : 'Timeline View',
+      ),
+      IconButton(
+        icon: const Icon(Icons.filter_list),
+        onPressed: () => _showLabelFilterDialog(),
+        tooltip: AppLocalizations.of(context)!.labelFilter,
+      ),
+      IconButton(
+        icon: const Icon(Icons.search),
+        onPressed: () {}, // 搜索功能待实现
+        tooltip: AppLocalizations.of(context)!.search,
+      ),
+    ];
+  }
+  
+  /// 构建主体内容
+  Widget _buildBody() {
+    return Column(
+      children: [
+        _buildTabBar(),
+        _buildLabelFilterChip(),
+        _buildMainContent(),
+      ],
+    );
+  }
+  
+  /// 构建标签页
+  Widget _buildTabBar() {
+    return TabBar(
+      controller: _tabController,
+      isScrollable: true,
+      tabs: _tabs.map((tab) => Tab(text: tab)).toList(),
+      labelColor: Theme.of(context).primaryColor,
+      unselectedLabelColor: Colors.grey,
+      indicatorColor: Theme.of(context).primaryColor,
+    );
+  }
+  
+  /// 构建标签筛选芯片
+  Widget _buildLabelFilterChip() {
+    if (_selectedLabel == null) return const SizedBox.shrink();
+    
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: LabelFilterChip(
+        labelId: _selectedLabel!,
+        onDeleted: _clearLabelFilter,
       ),
     );
   }
   
-  // 列表视图内容
+  /// 构建主要内容区域
+  Widget _buildMainContent() {
+    return Expanded(
+      child: _isLoading
+          ? _buildLoadingIndicator()
+          : _showTimelineView ? _buildTimelineContent() : _buildListContent(),
+    );
+  }
+  
+  /// 构建加载指示器
+  Widget _buildLoadingIndicator() {
+    return const Center(child: CircularProgressIndicator());
+  }
+  
+  /// 构建列表视图内容
   Widget _buildListContent() {
     return CallLogsList(
       selectedLabel: _selectedLabel,
@@ -215,107 +246,150 @@ class _CallHistoryPageWithTimelineState extends ConsumerState<CallHistoryPageWit
     );
   }
   
-  // 时间轴视图内容
+  /// 构建时间轴视图内容
   Widget _buildTimelineContent() {
     final callLogService = ref.watch(callLogServiceProvider);
     return StreamBuilder<List<CallLog>>(
       stream: callLogService.logsStream,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            
-            if (snapshot.hasError) {
-              return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.error_outline, size: 64, color: Colors.red),
-                    const SizedBox(height: 16),
-                    Text(AppLocalizations.of(context)!.dataLoadFailure(snapshot.error.toString())),
-                    const SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: _refreshCallLogs,
-                      child: Text(AppLocalizations.of(context)!.retry),
-                    ),
-                  ],
-                ),
-              );
-            }
-            
-            var logs = snapshot.data ?? [];
-            
-            // 根据标签筛选
-            if (_selectedLabel != null) {
-              logs = logs.where((log) => log.labelIds?.contains(_selectedLabel) ?? false).toList();
-            }
-            
-            // 根据标签页筛选
-            if (_selectedTab != 'All') {
-              logs = logs.where((log) {
-                switch (_selectedTab) {
-                  case 'Answered':
-                    return log.callType == 'incoming';
-                  case 'Missed':
-                    return log.callType == 'missed';
-                  case 'Blocked':
-                    return log.callType == 'blocked';
-                  case 'Outgoing':
-                    return log.callType == 'outgoing';
-                  default:
-                    return true;
-                }
-              }).toList();
-            }
-            
-            return CallTimelineView(
-              logs: logs,
-              onRefresh: _refreshCallLogs,
-              onClearFilter: _selectedLabel != null ? _clearLabelFilter : null,
-              selectedLabel: _selectedLabel,
-              selectedTab: _selectedTab,
-            );
-          },
-        );
-      }
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return _buildLoadingIndicator();
+        }
+        
+        if (snapshot.hasError) {
+          return _buildErrorView(snapshot.error);
+        }
+        
+        var logs = snapshot.data ?? [];
+        logs = _filterLogs(logs);
+        
+        return _buildTimelineView(logs);
+      },
+    );
+  }
+  
+  /// 构建错误视图
+  Widget _buildErrorView(Object? error) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.error_outline, size: 64, color: Colors.red),
+          const SizedBox(height: 16),
+          Text(AppLocalizations.of(context)!.dataLoadFailure(error.toString())),
+          const SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: _refreshCallLogs,
+            child: Text(AppLocalizations.of(context)!.retry),
+          ),
+        ],
+      ),
+    );
+  }
+  
+  /// 根据筛选条件过滤通话记录
+  List<CallLog> _filterLogs(List<CallLog> logs) {
+    var filteredLogs = logs;
+    
+    // 根据标签筛选
+    if (_selectedLabel != null) {
+      filteredLogs = filteredLogs.where((log) => 
+        log.labelIds?.contains(_selectedLabel) ?? false
+      ).toList();
+    }
+    
+    // 根据标签页筛选
+    if (_selectedTab != 'All') {
+      filteredLogs = filteredLogs.where((log) {
+        switch (_selectedTab) {
+          case 'Answered':
+            return log.callType == 'incoming';
+          case 'Missed':
+            return log.callType == 'missed';
+          case 'Blocked':
+            return log.callType == 'blocked';
+          case 'Outgoing':
+            return log.callType == 'outgoing';
+          default:
+            return true;
+        }
+      }).toList();
+    }
+    
+    return filteredLogs;
+  }
+  
+  /// 构建时间轴视图
+  Widget _buildTimelineView(List<CallLog> logs) {
+    return CallTimelineView(
+      logs: logs,
+      onRefresh: _refreshCallLogs,
+      onClearFilter: _selectedLabel != null ? _clearLabelFilter : null,
+      selectedLabel: _selectedLabel,
+      selectedTab: _selectedTab,
+    );
+  }
     
   
 
+  /// 显示标签筛选对话框
   void _showLabelFilterDialog() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context)!.filterByLabel),
-        content: SizedBox(
-          width: double.maxFinite,
-          child: PublicSelectLabel(
-            initialLabelId: _selectedLabel,
-            onLabelIdChanged: (labelId) {
-              setState(() {
-                _selectedLabel = labelId;
-              });
-              Navigator.pop(context);
-            },
-            themeColor: Theme.of(context).primaryColor,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
-          ),
-          if (_selectedLabel != null)
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  _selectedLabel = null;
-                });
-                Navigator.pop(context);
-              },
-              child: Text(AppLocalizations.of(context)!.clearFilter),
-            ),
-        ],
+        content: _buildLabelSelectorContent(),
+        actions: _buildLabelDialogActions(context),
       ),
     );
+  }
+  
+  /// 构建标签选择器内容
+  Widget _buildLabelSelectorContent() {
+    return SizedBox(
+      width: double.maxFinite,
+      child: PublicSelectLabel(
+        initialLabelId: _selectedLabel,
+        onLabelIdChanged: _onLabelSelected,
+        themeColor: Theme.of(context).primaryColor,
+      ),
+    );
+  }
+  
+  /// 处理标签选择
+  void _onLabelSelected(String labelId) {
+    setState(() {
+      _selectedLabel = labelId;
+    });
+    Navigator.pop(context);
+  }
+  
+  /// 构建标签对话框操作按钮
+  List<Widget> _buildLabelDialogActions(BuildContext context) {
+    final actions = <Widget>[
+      TextButton(
+        onPressed: () => Navigator.pop(context),
+        child: Text(AppLocalizations.of(context)!.cancelButton),
+      ),
+    ];
+    
+    if (_selectedLabel != null) {
+      actions.add(
+        TextButton(
+          onPressed: _onClearLabelAndClose,
+          child: Text(AppLocalizations.of(context)!.clearFilter),
+        ),
+      );
+    }
+    
+    return actions;
+  }
+  
+  /// 清除标签并关闭对话框
+  void _onClearLabelAndClose() {
+    setState(() {
+      _selectedLabel = null;
+    });
+    Navigator.pop(context);
   }
 }

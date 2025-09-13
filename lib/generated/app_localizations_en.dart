@@ -5017,5 +5017,63 @@ class AppLocalizationsEn extends AppLocalizations {
   String get messageBackgroundColor => 'Message Background Color';
 
   @override
+  String get clearAllCallLogs => 'Clear All Call Logs';
+
+  @override
+  String get clearAllCallLogsConfirmation => 'Confirm to clear all call logs';
+
+  @override
+  String get allCallLogsCleared => 'All call logs cleared';
+
+  @override
+  String get unblocked => 'Unblocked';
+
+  @override
+  String get blockNumber => 'Block Number';
+
+  @override
+  String get blockNumberSuccess => 'Block number success';
+
+  @override
+  String get blockNumberFailed => 'Block number failed';
+
+  @override
+  String unblockNumberConfirmation(String phoneNumber) {
+    return 'Are you sure you want to unblock $phoneNumber?';
+  }
+
+  @override
+  String callingNumber(String phoneNumber) {
+    return 'Calling $phoneNumber...';
+  }
+
+  @override
+  String get viewDetails => 'View Details';
+
+  @override
+  String get unblock => 'Unblock';
+
+  @override
+  String get unblockNumber => 'Unblock Number';
+
+  @override
+  String get unblockNumberSuccess => 'Number unblocked successfully';
+
+  @override
+  String get unblockNumberFailed => 'Unblock number failed';
+
+  @override
+  String get serviceNotAvailable => 'Service not available';
+
+  @override
+  String get callingNumberFailed => 'Calling number failed';
+
+  @override
+  String get listView => 'List View';
+
+  @override
+  String get timelineView => 'Timeline View';
+
+  @override
   String get yesterday => 'Yesterday';
 }

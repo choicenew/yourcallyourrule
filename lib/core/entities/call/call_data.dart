@@ -18,4 +18,24 @@ class CallData {
     this.stirInfo,
     this.simInfo,
   });
+
+  factory CallData.fromMap(Map<String, dynamic> map) {
+    return CallData(
+      callerIdData: CallerIdData.fromMap(map['callerIdData']),
+      e164Number: map['e164Number'],
+      nationalNumber: map['nationalNumber'],
+      stirInfo: map['stirInfo'] != null ? StirInfo.fromMap(map['stirInfo']) : null,
+      simInfo: map['simInfo'] != null ? SimInfo.fromMap(map['simInfo']) : null,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'callerIdData': callerIdData.toMap(),
+      'e164Number': e164Number,
+      'nationalNumber': nationalNumber,
+      'stirInfo': stirInfo?.toMap(),
+      'simInfo': simInfo?.toMap(),
+    };
+  }
 }

@@ -2152,24 +2152,60 @@
 
 
 
+ "clearAllCallLogs": "Clear All Call Logs",
+  "clearAllCallLogsConfirmation": "Confirm to clear all call logs",
+ "allCallLogsCleared": "All call logs cleared",
+  "unblocked": "Unblocked",
+ "blockNumber": "Block Number",
+
+ "blockNumberSuccess": "Block number success",
+ "blockNumberFailed": "Block number failed",
 
 
 
 
+  "unblockNumberConfirmation": "Are you sure you want to unblock {phoneNumber}?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+
+  "callingNumber": "Calling {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+
+  "viewDetails": "View Details",
+ "unblock": "Unblock",
+ "unblockNumber": "Unblock Number",
+ "unblockNumberSuccess": "Number unblocked successfully",
+
+ "unblockNumberFailed": "Unblock number failed",
+
+ "serviceNotAvailable": "Service not available",
+
+"callingNumberFailed": "Calling number failed",
 
 
 
+  "listView": "List View",
 
 
 
-
-
-
-
-
-
-
-
+  "timelineView": "Timeline View",
 
 
   "yesterday": "Yesterday"
