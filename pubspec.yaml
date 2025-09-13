@@ -155,6 +155,7 @@ dependencies:
   google_sign_in_platform_interface: ^3.0.0
   riverpod_annotation: ^2.6.1
   world_countries: ^3.5.0
+  grouped_list: ^6.0.0
 
 
 

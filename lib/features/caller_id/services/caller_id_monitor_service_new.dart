@@ -49,6 +49,8 @@ class CallerIdMonitorService {
   
   // 来电显示数据流
   final _callerIdSubject = BehaviorSubject<CallerIdData>();
+  // 原始通话事件流
+  final _rawCallEventController = StreamController<MethodCall>.broadcast();
   
   // 通知设置
   bool useLocalNotification = false;
@@ -82,6 +84,7 @@ class CallerIdMonitorService {
   
   // 来电显示数据流
   Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
+  Stream<MethodCall> get rawCallEventStream => _rawCallEventController.stream;
 
   /// 构造函数
   // Add locale provider dependency
@@ -181,6 +184,10 @@ class CallerIdMonitorService {
   /// 初始化服务
   Future<void> initialize() async {
     _channelManager.initialize();
+    // 初始化来电显示通道
+ 
+ 
+ 
     await loadSettings();
     await _initializeNotifications();
     await _handlerFactory.initializeAll();
@@ -232,6 +239,7 @@ class CallerIdMonitorService {
 
   /// 处理来电显示调用
   void _handleCallerIdCall(MethodCall call) async {
+    _rawCallEventController.add(call); // 广播原始事件
     await _callerIdCallHandler.handleMethodCall(call);
   }
 

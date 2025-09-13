@@ -24,6 +24,19 @@ class StirInfo {
     isFailed: json['isFailed'],
     phoneNumber: json['phoneNumber'],
   );
+  Map<String, dynamic> toMap() => {
+        'isVerified': isVerified,
+        'isNotVerified': isNotVerified,
+        'isFailed': isFailed,
+        'phoneNumber': phoneNumber,
+      };
+
+  factory StirInfo.fromMap(Map<String, dynamic> map) => StirInfo(
+        isVerified: map['isVerified'] ?? false,
+        isNotVerified: map['isNotVerified'] ?? false,
+        isFailed: map['isFailed'] ?? false,
+        phoneNumber: map['phoneNumber'],
+      );
 
   bool isStirVerified() => isVerified;
 }

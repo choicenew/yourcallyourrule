@@ -9369,6 +9369,114 @@ abstract class AppLocalizations {
   /// **'Message Background Color'**
   String get messageBackgroundColor;
 
+  /// No description provided for @clearAllCallLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear All Call Logs'**
+  String get clearAllCallLogs;
+
+  /// No description provided for @clearAllCallLogsConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm to clear all call logs'**
+  String get clearAllCallLogsConfirmation;
+
+  /// No description provided for @allCallLogsCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'All call logs cleared'**
+  String get allCallLogsCleared;
+
+  /// No description provided for @unblocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unblocked'**
+  String get unblocked;
+
+  /// No description provided for @blockNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Block Number'**
+  String get blockNumber;
+
+  /// No description provided for @blockNumberSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Block number success'**
+  String get blockNumberSuccess;
+
+  /// No description provided for @blockNumberFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Block number failed'**
+  String get blockNumberFailed;
+
+  /// Confirmation message shown when a user tries to unblock a number from their blocklist.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to unblock {phoneNumber}?'**
+  String unblockNumberConfirmation(String phoneNumber);
+
+  /// Status text displayed on the screen when an outgoing call is initiated.
+  ///
+  /// In en, this message translates to:
+  /// **'Calling {phoneNumber}...'**
+  String callingNumber(String phoneNumber);
+
+  /// No description provided for @viewDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get viewDetails;
+
+  /// No description provided for @unblock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unblock'**
+  String get unblock;
+
+  /// No description provided for @unblockNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Unblock Number'**
+  String get unblockNumber;
+
+  /// No description provided for @unblockNumberSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Number unblocked successfully'**
+  String get unblockNumberSuccess;
+
+  /// No description provided for @unblockNumberFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unblock number failed'**
+  String get unblockNumberFailed;
+
+  /// No description provided for @serviceNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Service not available'**
+  String get serviceNotAvailable;
+
+  /// No description provided for @callingNumberFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Calling number failed'**
+  String get callingNumberFailed;
+
+  /// No description provided for @listView.
+  ///
+  /// In en, this message translates to:
+  /// **'List View'**
+  String get listView;
+
+  /// No description provided for @timelineView.
+  ///
+  /// In en, this message translates to:
+  /// **'Timeline View'**
+  String get timelineView;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:

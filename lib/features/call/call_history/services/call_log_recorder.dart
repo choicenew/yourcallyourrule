@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
@@ -73,6 +74,7 @@ class CallLogRecorder {
       labelIds: labelIds,
     );
     
+     debugPrint('callLog: ${callLog.toMap()},simInfo: ${simInfo?.toMap()}');
     // 保存通话记录
     await _callLogService.addLog(callLog);
   }

@@ -110,7 +110,7 @@ class CallHandler {
   debugPrint('--- StirInfo to be displayed: ---');
   debugPrint(stirInfo?.toString()); // 使用 ?. 避免 stirInfo 为 null 时崩溃
   debugPrint('--- SimInfo to be displayed: ---');
-  debugPrint(simInfo?.toString()); // 使用 ?. 避免 simInfo 为 null 时崩溃
+  debugPrint('simInfo: ${simInfo?.toMap()}'); // 使用 ?. 避免 simInfo 为 null 时崩溃
   debugPrint('===================================================');
   // ---【 调试结束 】---
 

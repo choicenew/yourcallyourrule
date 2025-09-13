@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:yourcallyourrule/core/base/base_entity.dart';
 
 class CallLog extends BaseEntity {
@@ -29,7 +31,7 @@ class CallLog extends BaseEntity {
   @override
   Map<String, dynamic> toMap() => {
         'id': id,
-        'labelIds': labelIds,
+        'labelIds': labelIds != null ? jsonEncode(labelIds) : null,
         'phoneNumber': phoneNumber,
         'name': name, // 添加name字段
         'timestamp': timestamp.millisecondsSinceEpoch,
@@ -62,18 +64,33 @@ class CallLog extends BaseEntity {
       parsedTimestamp = DateTime.now();
     }
 
+    dynamic labelIdsData = map['labelIds'];
+    List<String>? labelIds;
+    if (labelIdsData is String) {
+      try {
+        final decoded = jsonDecode(labelIdsData);
+        if (decoded is List) {
+          labelIds = decoded.map((e) => e.toString()).toList();
+        }
+      } catch (e) {
+        // Ignore if parsing fails
+      }
+    } else if (labelIdsData is List) {
+      labelIds = List<String>.from(labelIdsData);
+    }
+
     return CallLog(
       id: map['id'] as String,
-      labelIds: map['labelIds'] != null ? List<String>.from(map['labelIds']) : null,
+      labelIds: labelIds,
       phoneNumber: map['phoneNumber'] as String,
-      name: map['name'] as String?, // 添加name字段
+      name: map['name'] as String?,
       timestamp: parsedTimestamp,
       simDisplayName: map['simDisplayName'] as String,
       callType: map['callType'] as String,
-      simSlotIndex: int.parse(map['simSlotIndex'].toString()),
+      simSlotIndex: int.tryParse(map['simSlotIndex']?.toString() ?? '0') ?? 0,
       carrierName: map['carrierName'] as String,
       countryIso: map['countryIso'] as String,
-      subscriptionId: int.parse(map['subscriptionId'].toString()),
+      subscriptionId: int.tryParse(map['subscriptionId']?.toString() ?? '0') ?? 0,
     );
   }
 

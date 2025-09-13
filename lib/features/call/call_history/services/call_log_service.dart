@@ -203,4 +203,22 @@ class CallLogService {
   void clearAvatarCache() {
     _avatarCache.clear();
   }
+    /// 删除指定的通话记录列表
+  Future<bool> deleteLogs(List<CallLog> logsToDelete) async {
+    if (logsToDelete.isEmpty) {
+      return true; // 如果列表为空，直接返回成功
+    }
+    return await _repository.deleteAll(logsToDelete);
+  }
+  
+  /// 删除单个通话记录
+  Future<bool> deleteLog(String logId) async {
+    return await _repository.deleteById(logId);
+  }
+  
+  /// 清除所有通话记录
+  Future<bool> clearAllLogs() async {
+    final logs = await getRecentLogs();
+    return await _repository.deleteAll(logs);
+  }
 }

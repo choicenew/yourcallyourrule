@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/data/models/base_model.dart';
 
@@ -28,19 +30,53 @@ class CallLogModel extends BaseModel<CallLog> {
   });
 
   factory CallLogModel.fromMap(Map<String, dynamic> map) {
+    dynamic labelIdsData = map['labelIds'];
+    List<String>? labelIds;
+    if (labelIdsData is String) {
+      try {
+        final decoded = jsonDecode(labelIdsData);
+        if (decoded is List) {
+          labelIds = decoded.map((e) => e.toString()).toList();
+        }
+      } catch (e) {
+        // Ignore if parsing fails
+      }
+    } else if (labelIdsData is List) {
+      labelIds = List<String>.from(labelIdsData);
+    }
+
+    DateTime parsedTimestamp;
+    final dynamic timestampValue = map['timestamp'];
+
+    if (timestampValue is int) {
+      parsedTimestamp = DateTime.fromMillisecondsSinceEpoch(timestampValue);
+    } else if (timestampValue is String) {
+      final int? asInt = int.tryParse(timestampValue);
+      if (asInt != null) {
+        parsedTimestamp = DateTime.fromMillisecondsSinceEpoch(asInt);
+      } else {
+        try {
+          parsedTimestamp = DateTime.parse(timestampValue);
+        } catch (e) {
+          parsedTimestamp = DateTime.now();
+        }
+      }
+    } else {
+      parsedTimestamp = DateTime.now();
+    }
+
     return CallLogModel(
       id: map['id']?.toString() ?? '',
       phoneNumber: map['phoneNumber'] ?? '',
-      name: map['name'], // 添加name字段
-      timestamp: DateTime.parse(map['timestamp']),
+      name: map['name'],
+      timestamp: parsedTimestamp,
       simDisplayName: map['simDisplayName'] ?? '',
       callType: map['callType'] ?? '',
-      simSlotIndex: map['simSlotIndex'] ?? 0,
+      simSlotIndex: int.tryParse(map['simSlotIndex']?.toString() ?? '0') ?? 0,
       carrierName: map['carrierName'] ?? '',
       countryIso: map['countryIso'] ?? '',
-      subscriptionId: map['subscriptionId'] ?? 0,
-      labelIds:
-          map['labelIds'] != null ? List<String>.from(map['labelIds']) : null,
+      subscriptionId: int.tryParse(map['subscriptionId']?.toString() ?? '0') ?? 0,
+      labelIds: labelIds,
     );
   }
 
@@ -49,15 +85,15 @@ class CallLogModel extends BaseModel<CallLog> {
     return {
       'id': id,
       'phoneNumber': phoneNumber,
-      'name': name, // 添加name字段
-      'timestamp': timestamp.toIso8601String(),
+      'name': name,
+      'timestamp': timestamp.millisecondsSinceEpoch,
       'simDisplayName': simDisplayName,
       'callType': callType,
       'simSlotIndex': simSlotIndex,
       'carrierName': carrierName,
       'countryIso': countryIso,
       'subscriptionId': subscriptionId,
-      'labelIds': labelIds,
+      'labelIds': labelIds != null ? jsonEncode(labelIds) : null,
     };
   }
 
