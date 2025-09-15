@@ -2206,8 +2206,15 @@
 
 
   "timelineView": "Timeline View",
+  "nameCannotBeEmpty": "Name cannot be empty",
+  "selectAction": "Select the action",
+"selectTargetService": "Select the target service",
 
+"callDetails": "Call Details",
 
+ "callType": "Call Type",
+"callTime": "Call Time",
+"numberInvalidFormat": "Number invalid format",
   "yesterday": "Yesterday"
 }
 

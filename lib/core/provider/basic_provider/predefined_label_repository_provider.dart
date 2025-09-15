@@ -65,6 +65,14 @@ class PredefinedLabelRepositoryImpl implements PredefinedLabelRepository {
         .toList();
   }
 
+  // 【最终修复】: 添加缺失的 getIdByText 方法实现
+  @override
+  Future<String?> getIdByText(String text) async {
+    // 直接调用我们在 DataSource 层添加的高效查询方法
+    return await _dataSource.getIdByExactText(text);
+  }
+
+
   @override
   Future<String?> getLabelTextAsync(String id) async {
     final label = await getById(id);

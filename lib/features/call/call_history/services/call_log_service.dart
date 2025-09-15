@@ -63,8 +63,8 @@ class CallLogService {
   }
 
   Future<void> addLog(CallLog log) async {
-    await _repository.addLog(log);
-    await refresh();
+     await _repository.save(log);
+    //await refresh();
   }
   
   /// 获取所有通话记录
@@ -102,8 +102,21 @@ class CallLogService {
       
       // 更新通话记录
       await _repository.addLog(updatedLog);
-      await refresh();
+      //await refresh();
     }
+  }
+  
+  /// 为通话记录设置单个标签（替换所有现有标签）
+  Future<void> setLabelForLog(CallLog log, String labelId) async {
+    final updatedLog = log.copyWith(labelIds: [labelId]);
+    await updateLog(updatedLog);
+  }
+
+  /// 从通话记录中移除标签
+  Future<void> removeLabelFromLog(CallLog log, String labelId) async {
+    final newLabelIds = List<String>.from(log.labelIds ?? [])..remove(labelId);
+    final updatedLog = log.copyWith(labelIds: newLabelIds);
+    await updateLog(updatedLog);
   }
   
   /// 检查通话记录是否包含指定标签
@@ -113,8 +126,8 @@ class CallLogService {
   
   /// 更新通话记录
   Future<void> updateLog(CallLog log) async {
-    await _repository.addLog(log);
-    await refresh();
+   await _repository.update(log);
+  //  //await refresh();
   }
   
   /// 获取最后一条通话记录

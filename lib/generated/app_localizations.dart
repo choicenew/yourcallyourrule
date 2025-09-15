@@ -9477,6 +9477,48 @@ abstract class AppLocalizations {
   /// **'Timeline View'**
   String get timelineView;
 
+  /// No description provided for @nameCannotBeEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Name cannot be empty'**
+  String get nameCannotBeEmpty;
+
+  /// No description provided for @selectAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the action'**
+  String get selectAction;
+
+  /// No description provided for @selectTargetService.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the target service'**
+  String get selectTargetService;
+
+  /// No description provided for @callDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Details'**
+  String get callDetails;
+
+  /// No description provided for @callType.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Type'**
+  String get callType;
+
+  /// No description provided for @callTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Time'**
+  String get callTime;
+
+  /// No description provided for @numberInvalidFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Number invalid format'**
+  String get numberInvalidFormat;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:

@@ -14,7 +14,7 @@ class LocalCallLogDataSource {
     final db = await _db;
     await db.insert(
       'call_history',
-      log.toMap()..['labelIds'] = log.labelIds?.join(','),
+      log.toMap(), // <-- 关键修复: 直接使用 model 的 toMap()
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
     return log.id;
@@ -53,7 +53,7 @@ class LocalCallLogDataSource {
     final db = await _db;
     return db.update(
       'call_history',
-      log.toMap()..['labelIds'] = log.labelIds?.join(','),
+      log.toMap(), // <-- 关键修复: 直接使用 model 的 toMap()
       where: 'id = ?',
       whereArgs: [log.id],
     );
@@ -94,7 +94,7 @@ class LocalCallLogDataSource {
       for (final log in logs) {
         await txn.update(
           'call_history',
-          log.toMap()..['labelIds'] = log.labelIds?.join(','),
+         log.toMap(), // <-- 关键修复: 直接使用 model 的 toMap()
           where: 'id = ?',
           whereArgs: [log.id],
         );

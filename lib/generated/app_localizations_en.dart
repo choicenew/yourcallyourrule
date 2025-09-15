@@ -5075,5 +5075,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String get timelineView => 'Timeline View';
 
   @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get selectAction => 'Select the action';
+
+  @override
+  String get selectTargetService => 'Select the target service';
+
+  @override
+  String get callDetails => 'Call Details';
+
+  @override
+  String get callType => 'Call Type';
+
+  @override
+  String get callTime => 'Call Time';
+
+  @override
+  String get numberInvalidFormat => 'Number invalid format';
+
+  @override
   String get yesterday => 'Yesterday';
 }

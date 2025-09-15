@@ -49,6 +49,15 @@ class LocationService extends ListService<LocationEntry, String> {
     await _repository.save(entry);
     return entry;
   }
+  
+  /// 【【【 最终、唯一的、正确的修复 】】】
+  /// 新增一个 saveLocation 方法，以供 LocationSyncService 调用。
+  /// 这个方法将保存操作委托给底层的 Repository。
+  Future<void> saveLocation(LocationEntry entry) async {
+    // 调用您在 Repository 中已经定义好的 save 方法
+    await _repository.save(entry);
+  }
+
 
   // 数据库操作方法
   Future<void> updateLocationData(LocationEntry entry) async {
@@ -56,9 +65,13 @@ class LocationService extends ListService<LocationEntry, String> {
   }
 
   Future<LocationEntry?> getByPhoneNumber(String phoneNumber) async {
-    final entries = await getAll();
-    return entries.firstWhere((e) => e.phoneNumber.value == phoneNumber);
+     // 【【【 最终、唯一的、正确的修复 】】】
+    // 您的 Repository 已经提供了一个更高效、更安全的方法，我们应该直接使用它。
+    // 它直接在数据库层面查询，而不是获取全部数据到内存再筛选。
+    return await _repository.getByPhoneNumber(phoneNumber);
   }
+ 
+ 
 
   // 继承自ListService的方法
   @override

@@ -412,7 +412,7 @@ class CallerIdService {
       }
     } catch (e) {
       AppLogger.error('处理所有插件数据失败', e);
-      print('处理所有插件数据失败: $e');
+      debugPrint('处理所有插件数据失败: $e');
     }
   }
   

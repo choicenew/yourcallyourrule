@@ -48,6 +48,12 @@ class PredefinedLabelRepositoryImpl implements PredefinedLabelRepository {
     return labelModels.map((model) => model.toEntity()).toList();
   }
   
+  /// 【新增实现】: 调用 DataSource 的新方法
+  @override
+  Future<String?> getIdByText(String text) async {
+    return await _dataSource.getIdByExactText(text);
+  }
+  
   @override
   Future<String?> getLabelTextAsync(String id) async {
     final label = await getById(id);

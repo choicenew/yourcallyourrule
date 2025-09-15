@@ -21,7 +21,7 @@ class AvatarUtils {
       return AssetImage('assets/avatars/$labelText.png');
     } else {
       // 如果既没有头像也没有标签，则使用默认头像
-      return const AssetImage('assets/avatars/Unknow.png');
+      return const AssetImage('assets/avatars/Unknown.png');
     }
   }
 

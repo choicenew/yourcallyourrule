@@ -103,31 +103,26 @@ class LocationRepositoryImpl implements LocationRepository {
     return LocationEntry.fromMap(map);
   }
 
-  @override
   Future<List<LocationEntry>> getByName(String name) async {
     final maps = await _dataSource.getByName(name);
     return maps.map((map) => fromMap(map)).toList();
   }
 
-  @override
   Future<List<LocationEntry>> getByType(String type) async {
     final maps = await _dataSource.getByType(type);
     return maps.map((map) => fromMap(map)).toList();
   }
 
-  @override
   Future<List<LocationEntry>> getAllEnabled() async {
     final maps = await _dataSource.getAllEnabled();
     return maps.map((map) => fromMap(map)).toList();
   }
 
-  @override
   Future<List<LocationEntry>> getUserCreatedLocations() async {
     final maps = await _dataSource.getUserCreatedLocations();
     return maps.map((map) => fromMap(map)).toList();
   }
 
-  @override
   Future<List<LocationEntry>> getSystemLocations() async {
     final maps = await _dataSource.getSystemLocations();
     return maps.map((map) => fromMap(map)).toList();

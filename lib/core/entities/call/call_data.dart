@@ -38,4 +38,20 @@ class CallData {
       'simInfo': simInfo?.toMap(),
     };
   }
+
+  CallData copyWith({
+    CallerIdData? callerIdData,
+    String? e164Number,
+    String? nationalNumber,
+    StirInfo? stirInfo,
+    SimInfo? simInfo,
+  }) {
+    return CallData(
+      callerIdData: callerIdData ?? this.callerIdData,
+      e164Number: e164Number ?? this.e164Number,
+      nationalNumber: nationalNumber ?? this.nationalNumber,
+      stirInfo: stirInfo ?? this.stirInfo,
+      simInfo: simInfo ?? this.simInfo,
+    );
+  }
 }

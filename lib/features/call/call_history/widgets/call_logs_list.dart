@@ -3,14 +3,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/call_log_card.dart';
-import 'package:yourcallyourrule/features/call/call_history/widgets/info_card.dart';
+
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CallLogsList extends ConsumerWidget {
   final String? selectedLabel;
-  final VoidCallback onRefresh;
+  // 1. 添加 onRefresh 和 onClearFilter 成员变量
+  final Future<void> Function() onRefresh;
   final VoidCallback? onClearFilter;
 
+  // 2. 在构造函数中接收这些参数
   const CallLogsList({
     super.key,
     this.selectedLabel,
@@ -20,79 +22,89 @@ class CallLogsList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final callLogService = ref.watch(callLogServiceProvider);
+    final logsStream = ref.watch(callLogServiceProvider).logsStream;
+
     return StreamBuilder<List<CallLog>>(
-      stream: callLogService.logsStream,
+      stream: logsStream,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         }
-        
+
+        // 错误状态：最好在界面中心显示一个持久的提示，并允许用户通过下拉刷新重试
         if (snapshot.hasError) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.error_outline, size: 64, color: Colors.red),
-                const SizedBox(height: 16),
-                Text(AppLocalizations.of(context)!.dataLoadFailure(snapshot.error.toString())),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: onRefresh,
-                  child: Text(AppLocalizations.of(context)!.retry),
-                ),
-              ],
-            ),
-          );
-        }
-        
-        var logs = snapshot.data ?? [];
-        
-        // 根据标签筛选
-        if (selectedLabel != null) {
-          logs = logs.where((log) => log.labelIds?.contains(selectedLabel) ?? false).toList();
-        }
-        
-        if (logs.isEmpty) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.call, size: 64, color: Colors.grey),
-                const SizedBox(height: 16),
-                Text(
-                  selectedLabel != null ? AppLocalizations.of(context)!.noMatchingRecords : AppLocalizations.of(context)!.noRecords,
-                  style: const TextStyle(fontSize: 18, color: Colors.grey)
-                ),
-                const SizedBox(height: 24),
-                ElevatedButton.icon(
-                  icon: const Icon(Icons.refresh),
-                  label: Text(AppLocalizations.of(context)!.refresh),
-                  onPressed: onRefresh,
-                ),
-                if (selectedLabel != null && onClearFilter != null)
-                  TextButton(
-                    onPressed: onClearFilter,
-                    child: Text(AppLocalizations.of(context)!.clearLabelFilter),
+          return RefreshIndicator(
+            onRefresh: onRefresh, // 允许在错误页面也进行刷新
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                    child: Center(
+                      child: Text(AppLocalizations.of(context)!.dataLoadFailure(snapshot.error.toString())),
+                    ),
                   ),
-              ],
+                );
+              },
             ),
           );
         }
-        
-        return ListView.builder(
-          padding: const EdgeInsets.all(16.0),
-          itemCount: logs.length + 1, // +1 for the info card
-          itemBuilder: (context, index) {
-            if (index == 0) {
-              return const InfoCard();
-            }
-            
-            final log = logs[index - 1];
-            return CallLogCard(log: log);
-          },
+
+        final allLogs = snapshot.data ?? [];
+        final filteredLogs = selectedLabel == null
+            ? allLogs
+            : allLogs.where((log) => log.labelIds?.contains(selectedLabel) ?? false).toList();
+
+        // 空状态：同样提供下拉刷新功能
+        if (filteredLogs.isEmpty) {
+          return RefreshIndicator(
+            onRefresh: onRefresh,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                    child: Center(
+                      child: Text(AppLocalizations.of(context)!.noCallLogs),
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
+        }
+
+        // 3. 使用 RefreshIndicator 包裹列表来实现下拉刷新
+        return RefreshIndicator(
+          onRefresh: onRefresh,
+          child: Column(
+            children: [
+              // 4. 当有筛选器时，显示一个可点击的 Chip 来清除它
+              if (onClearFilter != null && selectedLabel != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Chip(
+                    label: Text('筛选: "$selectedLabel"'),
+                    onDeleted: onClearFilter, // 点击删除图标时调用 onClearFilter
+                  ),
+                ),
+              
+              // 5. 将 ListView 放入 Expanded 中，使其填满 Column 的剩余空间
+              Expanded(
+                child: ListView.builder(
+                  itemCount: filteredLogs.length,
+                  itemBuilder: (context, index) {
+                    final log = filteredLogs[index];
+                    return CallLogCard(log: log);
+                  },
+                ),
+              ),
+            ],
+          ),
         );
       },
     );
   }
-  }
+}

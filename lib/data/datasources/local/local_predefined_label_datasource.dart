@@ -63,6 +63,26 @@ class LocalPredefinedLabelDataSource implements LocalDataSource<PredefinedLabelM
     });
   }
   
+  /// 【新增函数】: 根据文本精确查找标签ID
+  /// 这个方法更高效，因为它只查询ID列，并且使用精确匹配
+  Future<String?> getIdByExactText(String text) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      columns: ['id'], // 只查询 'id' 这一列，非常高效
+      where: 'text = ?', // 使用 = 进行精确匹配
+      whereArgs: [text],
+      limit: 1, // 我们只需要第一个匹配项
+    );
+
+    if (maps.isNotEmpty) {
+      // 返回 id 字段的值
+      return maps.first['id'] as String?;
+    }
+    return null;
+  }
+
+
   // 插入预定义标签
   @override
   Future<String> insert(PredefinedLabelModel label) async {
