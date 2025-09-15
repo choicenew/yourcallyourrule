@@ -7,6 +7,7 @@ import 'package:yourcallyourrule/features/caller_id/services/call_handlers/calle
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/caller_id_handler_extension.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/incoming_call_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/outgoing_call_handler.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 /// 通话记录集成示例
 /// 本文件展示如何在现有代码中集成 CallLogRecorder
@@ -16,17 +17,20 @@ class CallLogIntegrationExample {
   final IncomingCallHandler _incomingCallHandler;
   final OutgoingCallHandler _outgoingCallHandler;
   final CallLogRecorder _callLogRecorder;
-  
+   final PredefinedLabelService _predefinedLabelService;
+
   CallLogIntegrationExample({
     required CallHandler callHandler,
     required IncomingCallHandler incomingCallHandler,
     required OutgoingCallHandler outgoingCallHandler,
     required CallLogService callLogService,
+    required PredefinedLabelService predefinedLabelService
   }) : 
     _callHandler = callHandler,
     _incomingCallHandler = incomingCallHandler,
     _outgoingCallHandler = outgoingCallHandler,
-    _callLogRecorder = CallLogRecorder(callLogService);
+    _predefinedLabelService = predefinedLabelService,
+    _callLogRecorder = CallLogRecorder(callLogService, predefinedLabelService);
   
   /// 处理来电示例
   /// 

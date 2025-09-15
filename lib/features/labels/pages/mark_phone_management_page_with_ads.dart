@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart.bak';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/features/labels/providers/label_mark_statistics_sync_service_provider.dart';
 import 'package:yourcallyourrule/features/labels/providers/mark_phone_service_provider.dart';

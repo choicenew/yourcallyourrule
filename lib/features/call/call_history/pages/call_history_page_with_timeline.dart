@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart.bak';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/call_logs_list.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/call_timeline_view.dart';

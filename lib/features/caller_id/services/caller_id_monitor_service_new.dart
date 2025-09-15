@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
@@ -85,6 +86,7 @@ class CallerIdMonitorService {
   // 来电显示数据流
   Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
   Stream<MethodCall> get rawCallEventStream => _rawCallEventController.stream;
+  Stream<CallData> get callDataStream => _callHandler.callDataStream;
 
   /// 构造函数
   // Add locale provider dependency

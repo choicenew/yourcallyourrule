@@ -6,36 +6,33 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 一个专门处理通话记录相关操作的工具类 (Handler)
-/// 将复杂的业务逻辑从UI组件中分离出来，使代码更清晰、更易于维护。
 class CallHistoryActionHandler {
   final BuildContext context;
   final WidgetRef ref;
   final CallLog log;
+  final VoidCallback onRefresh;
 
   CallHistoryActionHandler({
     required this.context,
     required this.ref,
     required this.log,
+    required this.onRefresh,
   });
 
   /// 主入口方法：根据通话记录类型，处理电话或拦截操作
   void handleCallAction() {
     if (log.callType == 'blocked') {
-      // 如果是已拦截的通话，显示解除拦截的确认对话框
       _showUnblockConfirmDialog();
     } else {
-      // 否则，显示一个包含“拨打”和“拦截”选项的对话框
       _showCallActionDialog();
     }
   }
 
-  /// 显示包含“拨打”和“拦截”选项的底部菜单
   void _showCallActionDialog() {
     showModalBottomSheet(
       context: context,
@@ -65,15 +62,12 @@ class CallHistoryActionHandler {
     );
   }
 
-  /// 拨打电话功能
   Future<void> _makePhoneCall() async {
     final Uri telUri = Uri(scheme: 'tel', path: log.phoneNumber);
     try {
-      // 检查设备是否可以处理此URL
       if (await canLaunchUrl(telUri)) {
         await launchUrl(telUri);
       } else {
-        // 如果无法启动，抛出错误
         throw 'Could not launch $telUri';
       }
     } catch (e) {
@@ -86,11 +80,8 @@ class CallHistoryActionHandler {
     }
   }
   
-  /// 拦截号码功能
   Future<void> _blockNumber() async {
-    final callLogService = ref.read(callLogServiceProvider);
     final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
-
     try {
       final entry = ListEntry(
         id: log.id,
@@ -106,22 +97,20 @@ class CallHistoryActionHandler {
           content: Text(AppLocalizations.of(context)!.blockNumberSuccess),
           backgroundColor: Colors.green,
         ));
-        // 操作成功后刷新通话记录列表
-        await callLogService.refresh();
       }
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('${AppLocalizations.of(context)!.blockNumberFailed}: $e'),
+          content: Text('${AppLocalizations.of(context)!.unblockNumberFailed}: $e'),
           backgroundColor: Colors.red,
         ));
       }
+    } finally {
+      onRefresh(); // Refresh the list to show the new 'blocked' status
     }
   }
 
-  /// 显示解除拦截确认对话框
   void _showUnblockConfirmDialog() {
-    final callLogService = ref.read(callLogServiceProvider);
     final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
         
     showDialog(
@@ -143,7 +132,6 @@ class CallHistoryActionHandler {
                   (rule) => rule.phoneNumber.value == log.phoneNumber
                 ).toList();
                 
-                // 删除所有匹配的拦截规则
                 for (final rule in matchingRules) {
                   await allowedBlockedService.removeRule(rule.id);
                 }
@@ -162,8 +150,7 @@ class CallHistoryActionHandler {
                   ));
                 }
               } finally {
-                // 无论成功失败，都刷新列表以确保UI状态正确
-                await callLogService.refresh();
+                onRefresh(); // Always refresh to reflect the unblocked status
               }
             },
             style: TextButton.styleFrom(foregroundColor: Colors.green),

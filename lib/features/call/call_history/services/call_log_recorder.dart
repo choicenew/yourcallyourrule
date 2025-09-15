@@ -4,16 +4,18 @@ import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 /// 通话记录记录器
 /// 负责将通话数据转换为通话记录并保存
 /// 这个类作为 CallHandler 和 CallLogService 之间的桥梁
 class CallLogRecorder {
   final CallLogService _callLogService;
+    final PredefinedLabelService _predefinedLabelService;
   final Uuid _uuid = const Uuid();
   
   /// 构造函数
-  CallLogRecorder(this._callLogService);
+  CallLogRecorder(this._callLogService, this._predefinedLabelService);
   
   /// 记录来电
   /// [phoneNumber] 电话号码
@@ -54,10 +56,39 @@ class CallLogRecorder {
     final SimInfo? simInfo = callData.simInfo;
     
     // 从标签中提取标签文本作为标签ID
+   
+      // 【优化】 准备一个变量来存储最终转换好的ID列表
     List<String>? labelIds;
+
+    // 检查传入的通话数据中是否包含标签信息
     if (callData.callerIdData.labels != null && callData.callerIdData.labels!.isNotEmpty) {
-      labelIds = callData.callerIdData.labels!.map((label) => label.label).toList();
+      
+      // 1. 从 callData 中提取出标签文本(Text)列表
+      final labelTexts = callData.callerIdData.labels!.map((label) => label.label).toList();
+      
+      // 2. 创建一个新列表，用于存放我们查找到的标签ID
+      final List<String> foundLabelIds = [];
+      
+      // 3. 遍历每一个标签文本，调用我们新增的、高效的服务函数进行转换
+      for (final text in labelTexts) {
+        
+        // 【核心修改】: 直接调用我们新增的、优雅的函数来获取ID
+        // 这个函数直接返回 String?，代码非常简洁
+        final String? id = await _predefinedLabelService.getLabelIdByText(text);
+        
+        // 如果找到了对应的ID (id不是null)，就将它添加到列表中
+        if (id != null) {
+          foundLabelIds.add(id);
+        }
+      }
+      
+      // 4. 如果查找到了任何有效的ID，就将这个列表赋值给 callLog 准备使用的变量
+      if (foundLabelIds.isNotEmpty) {
+        labelIds = foundLabelIds;
+      }
     }
+   
+   
     
     // 创建通话记录
     final callLog = CallLog(
@@ -68,12 +99,12 @@ class CallLogRecorder {
       simDisplayName: simInfo?.displayName ?? '',
       callType: callType,
       simSlotIndex: simInfo?.simSlotIndex ?? 0,
-      carrierName: simInfo?.carrierName ?? '',
+      carrierName: callData.callerIdData.carrier ?? '',
       countryIso: simInfo?.countryIso ?? '',
       subscriptionId: simInfo?.subscriptionId ?? 0,
       labelIds: labelIds,
     );
-    
+    debugPrint('call log recorder的数据展示，callData: ${callData.callerIdData.toMap()},callLog: ${callLog.toMap()},simInfo: ${simInfo?.toMap()}');
      debugPrint('callLog: ${callLog.toMap()},simInfo: ${simInfo?.toMap()}');
     // 保存通话记录
     await _callLogService.addLog(callLog);

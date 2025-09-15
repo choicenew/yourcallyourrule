@@ -69,3 +69,5 @@ class LocationsNotifier extends AsyncNotifier<List<LocationEntry>> {
 final locationsProvider = AsyncNotifierProvider<LocationsNotifier, List<LocationEntry>>(() {
   return LocationsNotifier();
 });
+
+

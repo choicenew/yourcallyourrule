@@ -1,31 +1,36 @@
+// lib/features/call/call_history/pages/call_history_page_with_timeline_with_ads.dart
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
-import 'package:yourcallyourrule/features/call/call_history/widgets/call_log_card.dart';
-// 【核心修正】重新导入 BottomNavigation 组件
-import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
-import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_ads_page.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
-
-// 只导入我们最终的、功能强大的通用组件
-
-
-// 其他您需要的 imports
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/common/utils/phone_utils.dart';
+import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/location_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
+
+import 'package:yourcallyourrule/features/call/call_history/utils/call_history_action_handler.dart';
+import 'package:yourcallyourrule/features/call/call_history/widgets/call_log_card.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/label_filter_chip.dart';
+import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
+import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_ads_page.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
+// 用于承载 CallLogCard 所需的元数据
+class CallLogMeta {
+  final Map<String, String> labelIdToTextMap;
+  final Map<String, String?> phoneToAvatarMap;
+  final Map<String, String?> phoneToRegionMap;
 
-
-
-
-
-
-
-
-
+  CallLogMeta({
+    required this.labelIdToTextMap,
+    required this.phoneToAvatarMap,
+    required this.phoneToRegionMap,
+  });
+}
 
 class CallHistoryPageWithTimelineWithAds extends ConsumerStatefulWidget {
   const CallHistoryPageWithTimelineWithAds({super.key});
@@ -34,100 +39,167 @@ class CallHistoryPageWithTimelineWithAds extends ConsumerStatefulWidget {
   ConsumerState<CallHistoryPageWithTimelineWithAds> createState() => _CallHistoryPageWithTimelineWithAdsState();
 }
 
-class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistoryPageWithTimelineWithAds> with TickerProviderStateMixin {
-  // --- 状态变量 (无变化) ---
+class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistoryPageWithTimelineWithAds> {
+  // 核心数据状态
+  List<CallLog> _currentLogs = [];
+  CallLogMeta? _meta;
   bool _isLoading = true;
-  String? _selectedLabel;
-  late String _selectedTab;
-  TabController? _tabController;
-  late List<String> _tabs;
+  bool _isInitialized = false;
+
+  // UI 和筛选状态
+  String? _selectedLabelId;
+  String _selectedTab = ''; 
   ListDisplayMode _displayMode = ListDisplayMode.timeline;
   final Set<String> _selectedLogIds = {};
   bool _isMultiSelectMode = false;
   String _searchKeyword = '';
-  List<CallLog> _currentLogs = [];
-  
-  // --- 所有逻辑函数 (无变化) ---
-  
-  @override
-  void initState() {
-    super.initState();
-    _initializeCallLogs();
-  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _tabs = [
-      AppLocalizations.of(context)!.tabAll,
-      AppLocalizations.of(context)!.tabAnswered,
-      AppLocalizations.of(context)!.tabMissed,
-      AppLocalizations.of(context)!.tabBlocked,
-      AppLocalizations.of(context)!.tabOutgoing
-    ];
-    _selectedTab = _tabs.first;
-    _tabController?.removeListener(_handleTabSelection);
-    _tabController = TabController(length: _tabs.length, vsync: this);
-    _tabController!.addListener(_handleTabSelection);
-  }
-
-  @override
-  void dispose() {
-    _tabController?.dispose();
-    super.dispose();
-  }
-  
-  void _handleTabSelection() {
-    if (_tabController != null && mounted && !_tabController!.indexIsChanging) {
-      setState(() => _selectedTab = _tabs[_tabController!.index]);
+    // 严格遵循生命周期规则，在 didChangeDependencies 中首次加载数据
+    if (!_isInitialized) {
+      // 在这里安全地初始化依赖 context 的值
+      _selectedTab = AppLocalizations.of(context)!.tabAll;
+      _loadData();
+      _isInitialized = true;
     }
   }
 
-  Future<void> _initializeCallLogs() async {
-    if (mounted) setState(() => _isLoading = true);
+  // --- 数据逻辑层 ---
+
+  Future<void> _loadData() async {
+    if (!mounted) return;
+    setState(() {
+      _isLoading = true;
+      if (_isMultiSelectMode) {
+        _isMultiSelectMode = false;
+        _selectedLogIds.clear();
+      }
+    });
+
     try {
-      await ref.read(callLogServiceProvider).initialize();
-    } catch (e) {
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.callHistoryInitFailed(e.toString()))));
-    } finally {
-      if (mounted) setState(() => _isLoading = false);
-    }
-  }
+      final callLogService = ref.read(callLogServiceProvider);
+      final logs = await callLogService.getRecentLogs();
+      final meta = await _getCallLogMetadata(logs);
 
-  Future<void> _refreshCallLogs() async {
-    if (_isMultiSelectMode) {
       if (mounted) {
         setState(() {
-          _isMultiSelectMode = false;
-          _selectedLogIds.clear();
+          _currentLogs = logs;
+          _meta = meta;
+          _isLoading = false;
         });
       }
-    }
-    if (mounted) setState(() => _isLoading = true);
-    try {
-      await ref.read(callLogServiceProvider).refresh();
     } catch (e) {
-       if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.callHistoryRefreshFailed(e.toString()))));
-    } finally {
-      if (mounted) setState(() => _isLoading = false);
+      if (mounted) {
+        setState(() => _isLoading = false);
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(context)!.dataLoadFailure(e.toString())),
+          backgroundColor: Colors.red,
+        ));
+      }
     }
+  }
+
+  Future<CallLogMeta> _getCallLogMetadata(List<CallLog> logs) async {
+    final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
+    final labelService = ref.read(labelServiceProvider);
+    final locationService = ref.read(locationServiceProvider);
+
+    final allLabels = await predefinedLabelService.getAllLabels();
+    final labelMap = { for (var label in allLabels) label.id: label.text };
+
+    final phoneNumbers = logs.map((log) => log.phoneNumber).toSet();
+    final avatarMap = <String, String?>{};
+    final regionMap = <String, String?>{};
+
+    await Future.wait(phoneNumbers.map((rawNumber) async {
+      final parsedResult = await PhoneUtils.parsePhoneNumber(rawNumber);
+      final e164Number = parsedResult['e164Number'];
+
+      if (e164Number != null && e164Number.isNotEmpty) {
+        final labelEntry = await labelService.getLabelByPhoneNumberString(e164Number);
+        avatarMap[rawNumber] = labelEntry?.avatar;
+        final locationEntry = await locationService.getByPhoneNumber(e164Number);
+        regionMap[rawNumber] = locationEntry?.region;
+      }
+    }));
+
+    return CallLogMeta(
+      labelIdToTextMap: labelMap,
+      phoneToAvatarMap: avatarMap,
+      phoneToRegionMap: regionMap,
+    );
+  }
+
+  List<CallLog> _getFilteredLogs() {
+    if (_isLoading) return [];
+
+    final localizations = AppLocalizations.of(context)!;
+    var filteredLogs = _currentLogs;
+
+    if (_selectedLabelId != null) {
+      filteredLogs = filteredLogs.where((log) => log.labelIds?.contains(_selectedLabelId) ?? false).toList();
+    }
+    
+    final tabMap = {
+      localizations.tabAnswered: 'incoming',
+      localizations.tabMissed: 'missed',
+      localizations.tabBlocked: 'blocked',
+      localizations.tabOutgoing: 'outgoing'
+    };
+    if (_selectedTab != localizations.tabAll) {
+      filteredLogs = filteredLogs.where((log) => log.callType == tabMap[_selectedTab]).toList();
+    }
+    
+    if (_searchKeyword.isNotEmpty) {
+      final keyword = _searchKeyword.toLowerCase();
+      filteredLogs = filteredLogs.where((log) {
+        return (log.name?.toLowerCase().contains(keyword) ?? false) || log.phoneNumber.toLowerCase().contains(keyword);
+      }).toList();
+    }
+
+    filteredLogs.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+    return filteredLogs;
+  }
+
+  // --- 事件处理层 (Callbacks) ---
+
+  void _onSearchChanged(String keyword) {
+    setState(() => _searchKeyword = keyword);
+  }
+  
+  void _onTabChanged(String newTab) {
+    setState(() => _selectedTab = newTab);
+  }
+
+  void _onLabelFilterChanged(String? labelId) {
+    setState(() => _selectedLabelId = labelId);
+  }
+  
+  void _toggleMultiSelectMode() {
+    setState(() {
+      _isMultiSelectMode = !_isMultiSelectMode;
+      if (!_isMultiSelectMode) _selectedLogIds.clear();
+    });
+  }
+
+  void _toggleItemSelection(String logId) {
+    setState(() {
+      if (_selectedLogIds.contains(logId)) {
+        _selectedLogIds.remove(logId);
+      } else {
+        _selectedLogIds.add(logId);
+      }
+    });
   }
 
   void _deleteSelectedLogs() async {
     final callLogService = ref.read(callLogServiceProvider);
     try {
-      final List<CallLog> logsToDelete = _currentLogs
-          .where((log) => _selectedLogIds.contains(log.id))
-          .toList();
-
-      // 调用 CallLogService 中新增的 deleteLogs 方法
+      final logsToDelete = _currentLogs.where((log) => _selectedLogIds.contains(log.id)).toList();
       await callLogService.deleteLogs(logsToDelete);
-
       if (mounted) {
-        setState(() {
-          _selectedLogIds.clear();
-          _isMultiSelectMode = false;
-        });
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(AppLocalizations.of(context)!.deleteSuccess),
           backgroundColor: Colors.green,
@@ -140,89 +212,31 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
           backgroundColor: Colors.red,
         ));
       }
+    } finally {
+      await _loadData();
     }
-  }
-  
-  void _clearLabelFilter() {
-    if (mounted) setState(() => _selectedLabel = null);
-  }
-
-  void _toggleMultiSelectMode() {
-    if (mounted) {
-      setState(() {
-        _isMultiSelectMode = !_isMultiSelectMode;
-        if (!_isMultiSelectMode) _selectedLogIds.clear();
-      });
-    }
-  }
-
-  void _toggleItemSelection(String logId) {
-    if (mounted) {
-      setState(() {
-        if (_selectedLogIds.contains(logId)) {
-          _selectedLogIds.remove(logId);
-        } else {
-          _selectedLogIds.add(logId);
-        }
-      });
-    }
-  }
-
-  List<CallLog> _filterLogs(List<CallLog> logs) {
-    var filteredLogs = logs;
-    
-    if (_selectedLabel != null) {
-      filteredLogs = filteredLogs.where((log) => log.labelIds?.contains(_selectedLabel) ?? false).toList();
-    }
-    
-    final tabMap = {
-      AppLocalizations.of(context)!.tabAnswered: 'incoming',
-      AppLocalizations.of(context)!.tabMissed: 'missed',
-      AppLocalizations.of(context)!.tabBlocked: 'blocked',
-      AppLocalizations.of(context)!.tabOutgoing: 'outgoing'
-    };
-    if (_selectedTab != AppLocalizations.of(context)!.tabAll) {
-      filteredLogs = filteredLogs.where((log) => log.callType == tabMap[_selectedTab]).toList();
-    }
-    
-    if (_searchKeyword.isNotEmpty) {
-      final keyword = _searchKeyword.toLowerCase();
-      filteredLogs = filteredLogs.where((log) {
-        final phoneNumber = log.phoneNumber.toLowerCase();
-        final name = log.name?.toLowerCase() ?? '';
-        return phoneNumber.contains(keyword) || name.contains(keyword);
-      }).toList();
-    }
-    
-    filteredLogs.sort((a, b) => b.timestamp.compareTo(a.timestamp));
-    
-    return filteredLogs;
   }
 
   void _showMoreOptions() {
     showModalBottomSheet(
       context: context,
-      builder: (context) => SafeArea(
+      builder: (ctx) => SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
               leading: Icon(_displayMode == ListDisplayMode.timeline ? Icons.view_list : Icons.timeline),
-              title: Text(_displayMode == ListDisplayMode.timeline ? AppLocalizations.of(context)!.listView : AppLocalizations.of(context)!.timelineView),
+              title: Text(_displayMode == ListDisplayMode.timeline ? AppLocalizations.of(ctx)!.listView : AppLocalizations.of(ctx)!.timelineView),
               onTap: () {
-                Navigator.pop(context);
-                if (mounted) {
-                  setState(() {
-                    _displayMode = _displayMode == ListDisplayMode.timeline ? ListDisplayMode.list : ListDisplayMode.timeline;
-                  });
-                }
+                Navigator.pop(ctx);
+                setState(() => _displayMode = _displayMode == ListDisplayMode.timeline ? ListDisplayMode.list : ListDisplayMode.timeline);
               },
             ),
             ListTile(
               leading: const Icon(Icons.delete_sweep),
-              title: Text(AppLocalizations.of(context)!.clearAllCallLogs),
+              title: Text(AppLocalizations.of(ctx)!.clearAllCallLogs),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pop(ctx);
                 _showClearAllDialog();
               },
             ),
@@ -231,131 +245,205 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
       ),
     );
   }
-  
-  void _showClearAllDialog() {
-    showDialog(
+
+  void _showClearAllDialog() async {
+    final confirmed = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.clearAllCallLogs),
-        content: Text(AppLocalizations.of(context)!.clearAllCallLogsConfirmation),
+      builder: (ctx) => AlertDialog(
+        title: Text(AppLocalizations.of(ctx)!.clearAllCallLogs),
+        content: Text(AppLocalizations.of(ctx)!.clearAllCallLogsConfirmation),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: Text(AppLocalizations.of(context)!.cancelButton)),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(AppLocalizations.of(ctx)!.cancelButton)),
           TextButton(
-            onPressed: () async {
-              Navigator.pop(context);
-              final callLogService = ref.read(callLogServiceProvider);
-              await callLogService.clearAllLogs();
-              if (mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(AppLocalizations.of(context)!.allCallLogsCleared),
-                  backgroundColor: Colors.green,
-                ));
-              }
-            },
+            onPressed: () => Navigator.pop(ctx, true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context)!.delete),
+            child: Text(AppLocalizations.of(ctx)!.delete),
           ),
         ],
       ),
     );
+    if (confirmed == true) {
+      await ref.read(callLogServiceProvider).clearAllLogs();
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(context)!.allCallLogsCleared),
+          backgroundColor: Colors.green,
+        ));
+      }
+      await _loadData();
+    }
   }
 
+  // --- UI 构建层 ---
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 1,
+        onTap: (index) => AppRouter.handleNavigation(context, index),
+      ),
+      body: GenericTimelineListWithAdsPage<CallLog>(
+        title: AppLocalizations.of(context)!.callHistory,
+        themeColor: Colors.teal,
+        items: _getFilteredLogs(),
+        isLoading: _isLoading,
+        onRefresh: _loadData,
+        displayMode: _displayMode,
+        getItemTimestamp: (log) => log.timestamp,
+        headerContent: _buildHeaderContent(),
+        itemBuilder: (context, log) => _buildCallLogCard(log),
+        adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+        emptyText: AppLocalizations.of(context)!.noCallRecords,
+        emptyIcon: Icons.call,
+        searchHintText: AppLocalizations.of(context)!.searchHint,
+        onSearchChanged: _onSearchChanged,
+        isMultiSelectMode: _isMultiSelectMode,
+        selectedItemIds: _selectedLogIds,
+        getItemId: (log) => log.id,
+        onToggleMultiSelectMode: _toggleMultiSelectMode,
+        onToggleItemSelection: _toggleItemSelection,
+        onDeleteSelected: _deleteSelectedLogs,
+        onMoreOptions: _showMoreOptions,
+      ),
+    );
+  }
+  
+  Widget _buildCallLogCard(CallLog log) {
+    return CallLogCard(
+      key: ValueKey(log.id),
+      log: log,
+      labelIdToTextMap: _meta?.labelIdToTextMap ?? {},
+      avatarPath: _meta?.phoneToAvatarMap[log.phoneNumber],
+      region: _meta?.phoneToRegionMap[log.phoneNumber],
+      actionHandler: CallHistoryActionHandler(context: context, ref: ref, log: log, onRefresh: _loadData),
+      onRequiresRefresh: _loadData,
+      isSelected: _selectedLogIds.contains(log.id),
+      onMultiSelectTap: _isMultiSelectMode ? () => _toggleItemSelection(log.id) : null,
+    );
+  }
+  
+  Widget _buildHeaderContent() {
+    return _CallHistoryHeader(
+      allItems: _currentLogs,
+      selectedLabelId: _selectedLabelId,
+      onTabChanged: _onTabChanged,
+      onLabelChanged: _onLabelFilterChanged,
+    );
+  }
+}
+
+/// 独立的 Header Widget，负责管理自己的 TabController
+class _CallHistoryHeader extends StatefulWidget {
+  final List<CallLog> allItems;
+  final String? selectedLabelId;
+  final ValueChanged<String> onTabChanged;
+  final ValueChanged<String?> onLabelChanged;
+
+  const _CallHistoryHeader({
+    required this.allItems,
+    required this.selectedLabelId,
+    required this.onTabChanged,
+    required this.onLabelChanged,
+  });
+
+  @override
+  State<_CallHistoryHeader> createState() => _CallHistoryHeaderState();
+}
+
+class _CallHistoryHeaderState extends State<_CallHistoryHeader> with TickerProviderStateMixin {
+  TabController? _tabController;
+  List<String> _tabs = [];
+  bool _isInitialized = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // 关键修复: 仅在首次构建时初始化，并且可以安全地访问 context
+    if (!_isInitialized) {
+      _initializeTabsAndController();
+      _isInitialized = true;
+    }
+  }
+
+  void _initializeTabsAndController() {
+    final localizations = AppLocalizations.of(context)!;
+    _tabs = [
+      localizations.tabAll,
+      localizations.tabAnswered,
+      localizations.tabMissed,
+      localizations.tabBlocked,
+      localizations.tabOutgoing,
+    ];
+    _tabController = TabController(length: _tabs.length, vsync: this);
+    _tabController!.addListener(() {
+      if (!_tabController!.indexIsChanging) {
+        widget.onTabChanged(_tabs[_tabController!.index]);
+      }
+    });
+    
+    // 初始Tab选择已在父Widget的 _loadData 中完成
+  }
+
+  @override
+  void dispose() {
+    _tabController?.dispose();
+    super.dispose();
+  }
+  
   void _showLabelFilterDialog() {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.filterByLabel),
+      builder: (ctx) => AlertDialog(
+        title: Text(AppLocalizations.of(ctx)!.filterByLabel),
         content: SizedBox(
           width: double.maxFinite,
           child: PublicSelectLabel(
-            initialLabelId: _selectedLabel,
+            initialLabelId: widget.selectedLabelId,
             onLabelIdChanged: (labelId) {
-              if (mounted) setState(() => _selectedLabel = labelId);
-              Navigator.pop(context);
+              widget.onLabelChanged(labelId);
+              Navigator.pop(ctx);
             },
             themeColor: Theme.of(context).primaryColor,
           ),
         ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: Text(AppLocalizations.of(context)!.cancelButton)),
-          if (_selectedLabel != null)
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text(AppLocalizations.of(ctx)!.cancelButton)),
+          if (widget.selectedLabelId != null)
             TextButton(
               onPressed: () {
-                if (mounted) setState(() => _selectedLabel = null);
-                Navigator.pop(context);
+                widget.onLabelChanged(null);
+                Navigator.pop(ctx);
               },
-              child: Text(AppLocalizations.of(context)!.clearFilter),
+              child: Text(AppLocalizations.of(ctx)!.clearFilter),
             ),
         ],
       ),
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
-    // 【核心修正】严格按照参考文件结构，返回一个带有 bottomNavigationBar 的 Scaffold
-    return Scaffold(
-      bottomNavigationBar: BottomNavigation(
-        currentIndex: 1, // 通话记录页面在导航栏中的索引
-        onTap: (index) => AppRouter.handleNavigation(context, index),
-      ),
-      body: StreamBuilder<List<CallLog>>(
-        stream: ref.watch(callLogServiceProvider).logsStream,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting && _isLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            return _buildErrorView(snapshot.error.toString());
-          }
+    if (!_isInitialized) {
+      return const Center(child: CircularProgressIndicator());
+    }
 
-          _currentLogs = snapshot.data ?? [];
-          final filteredLogs = _filterLogs(_currentLogs);
-          
-          return GenericTimelineListWithAdsPage<CallLog>(
-            title: AppLocalizations.of(context)!.callHistoryInfoTitle,
-            themeColor: Colors.teal,
-            items: filteredLogs,
-            displayMode: _displayMode,
-            getItemTimestamp: (log) => DateTime.fromMillisecondsSinceEpoch(log.timestamp.millisecondsSinceEpoch),
-            itemBuilder: (context, log) => CallLogCard(log: log),
-            adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
-            isLoading: _isLoading && snapshot.connectionState == ConnectionState.waiting,
-            emptyText: _selectedLabel != null || _searchKeyword.isNotEmpty || _selectedTab != _tabs.first
-                ? AppLocalizations.of(context)!.noMatchingRecords
-                : AppLocalizations.of(context)!.noCallRecords,
-            onRefresh: _refreshCallLogs,
-            headerContent: _buildHeaderContent(),
-            searchHintText: AppLocalizations.of(context)!.searchHint,
-            onSearchChanged: (keyword) => setState(() => _searchKeyword = keyword),
-            isMultiSelectMode: _isMultiSelectMode,
-            selectedItemIds: _selectedLogIds,
-            getItemId: (log) => log.id,
-            onToggleMultiSelectMode: _toggleMultiSelectMode,
-            onToggleItemSelection: _toggleItemSelection,
-            onDeleteSelected: _deleteSelectedLogs,
-            onMoreOptions: _showMoreOptions,
-            customActions: [
-              IconButton(
-                icon: const Icon(Icons.filter_list),
-                onPressed: _showLabelFilterDialog,
-                tooltip: AppLocalizations.of(context)!.filterByLabel,
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
+    final blockedCount = widget.allItems.where((log) => log.callType == 'blocked').length;
+    final answeredCount = widget.allItems.where((log) => log.callType == 'incoming').length;
 
-  // --- 辅助UI函数 (无变化) ---
-  
-  Widget _buildHeaderContent() {
-    final blockedCount = _currentLogs.where((log) => log.callType == 'blocked').length;
-    final answeredCount = _currentLogs.where((log) => log.callType == 'incoming').length;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.filter_list),
+              onPressed: _showLabelFilterDialog,
+              tooltip: AppLocalizations.of(context)!.filterByLabel,
+            ),
+          ],
+        ),
         GridView.count(
           crossAxisCount: 2, shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
           mainAxisSpacing: 16, crossAxisSpacing: 16, childAspectRatio: 2.0,
@@ -366,14 +454,17 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
         ),
         const SizedBox(height: 16),
         TabBar(
-          controller: _tabController, 
+          controller: _tabController,
           isScrollable: true,
           tabs: _tabs.map((tab) => Tab(text: tab)).toList(),
         ),
-        if (_selectedLabel != null)
+        if (widget.selectedLabelId != null)
           Padding(
             padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
-            child: LabelFilterChip(labelId: _selectedLabel!, onDeleted: _clearLabelFilter),
+            child: LabelFilterChip(
+              labelId: widget.selectedLabelId!,
+              onDeleted: () => widget.onLabelChanged(null)
+            ),
           ),
       ],
     );
@@ -393,27 +484,6 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
             Text(title, style: TextStyle(fontSize: 14, color: Colors.grey[600])),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildErrorView(String errorMessage) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(Icons.error_outline, size: 64, color: Colors.red),
-          const SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-              AppLocalizations.of(context)!.dataLoadFailure(errorMessage),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const SizedBox(height: 16),
-          ElevatedButton(onPressed: _refreshCallLogs, child: Text(AppLocalizations.of(context)!.retry)),
-        ],
       ),
     );
   }

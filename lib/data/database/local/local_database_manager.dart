@@ -105,7 +105,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
 
 
 
-    // 创建规则表（统一处理黑白名单/allow/block）
+    // 创建规则表（统一处理phone名单/allow/block）
     await db.execute('''
       CREATE TABLE IF NOT EXISTS rules (
         id TEXT PRIMARY KEY,

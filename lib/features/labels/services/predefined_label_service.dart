@@ -64,6 +64,12 @@ class PredefinedLabelService {
     return await _repository.getByText(text);
   }
 
+  /// 【新增函数】: 根据文本获取标签ID，封装了仓库层的功能
+  Future<String?> getLabelIdByText(String text) async {
+    return await _repository.getIdByText(text);
+  }
+
+
   /// 更新标签
   Future<void> updateLabel(PredefinedLabel label) async {
     await _repository.update(label);

@@ -103,7 +103,6 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
   }
 
   // 保存电话规则
-  @override
   Future<String> save(PhoneRuleModel rule) async {
     final db = await _databaseManager.database;
     
@@ -164,7 +163,6 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
   }
 
   // 批量保存电话规则
-  @override
   Future<List<String>> saveAll(List<PhoneRuleModel> rules) async {
     final List<String> ids = [];
     final db = await _databaseManager.database;
@@ -250,14 +248,12 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
   }
 
   // 删除所有电话规则
-  @override
   Future<int> deleteAllRecords() async {
     final db = await _databaseManager.database;
     return await db.delete(_tableName);
   }
 
   // 获取电话规则数量
-  @override
   Future<int> count() async {
     final db = await _databaseManager.database;
     final result = await db.rawQuery('SELECT COUNT(*) FROM $_tableName');
