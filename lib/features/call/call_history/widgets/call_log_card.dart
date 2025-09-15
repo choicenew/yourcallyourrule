@@ -41,13 +41,6 @@ class CallLogCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dialogs = CallLogDialogs(
-        context: context,
-        ref: ref,
-        log: log,
-        labelIdToTextMap: labelIdToTextMap,
-        region: region);
-        
     final callTypeInfo = _getCallTypeInfo(context, log.callType);
     final timeFormat = DateFormat('HH:mm');
     final timeString = timeFormat.format(log.timestamp);
@@ -72,8 +65,8 @@ class CallLogCard extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildCardHeader(context, dialogs, callTypeInfo, avatarPath, translatedLabelText, hasLabels, region, hasLocation),
-              _buildCardActions(context, dialogs),
+              _buildCardHeader(context, ref, callTypeInfo, avatarPath, translatedLabelText, hasLabels, region, hasLocation),
+              _buildCardActions(context, ref),
               _buildFooterInfo(context, timeString, callTypeInfo),
             ],
           ),
@@ -82,10 +75,12 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
-  Widget _buildCardHeader(BuildContext context, CallLogDialogs dialogs, _CallTypeInfo callTypeInfo, String? primaryAvatar, String? translatedLabelText, bool hasLabels, String? locationText, bool hasLocation) {
+  /// 构建卡片头部，包含头像、名称、号码、标签和归属地
+  Widget _buildCardHeader(BuildContext context, WidgetRef ref, _CallTypeInfo callTypeInfo, String? primaryAvatar, String? translatedLabelText, bool hasLabels, String? locationText, bool hasLocation) {
      return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        // 头像
         SizedBox(
           width: 48,
           height: 48,
@@ -115,13 +110,17 @@ class CallLogCard extends ConsumerWidget {
           ),
         ),
         const SizedBox(width: 16),
+        
+        // 右侧信息区域
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // 第一行: Name / Phone Number + Label
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Flexible(
                     child: Row(
@@ -138,7 +137,7 @@ class CallLogCard extends ConsumerWidget {
                           padding: const EdgeInsets.only(left: 8.0),
                           child: InkWell(
                             onTap: () async {
-                              final updated = await dialogs.showNameEditDialog();
+                              final updated = await CallLogDialogs(context: context, ref: ref, log: log, labelIdToTextMap: labelIdToTextMap, region: region).showNameEditDialog();
                               if (updated && context.mounted) onRequiresRefresh();
                             },
                             borderRadius: BorderRadius.circular(16),
@@ -148,52 +147,26 @@ class CallLogCard extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      if (hasLabels)
-                        InkWell(
-                          onTap: () async {
-                            final updated = await dialogs.showLabelSelectionDialog();
-                            if (updated && context.mounted) onRequiresRefresh();
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFF5A623).withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Text(
-                              translatedLabelText ?? '',
-                              style: const TextStyle(fontSize: 12, color: Color(0xFFF5A623)),
-                            ),
-                          ),
-                        ),
-                      if (hasLocation)
-                        Padding(
-                          padding: EdgeInsets.only(top: hasLabels ? 4.0 : 0),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                            decoration: BoxDecoration(
-                              color: Colors.blue.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Text(
-                              locationText!,
-                              style: const TextStyle(fontSize: 12, color: Colors.blue),
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
+                  if (hasLabels)
+                    _buildLabelChip(context, ref, translatedLabelText!),
                 ],
               ),
+              
+              // 第二行: Phone Number + Region (仅当有name时才显示第二行)
               if (log.name != null)
                 Padding(
                   padding: const EdgeInsets.only(top: 2.0),
-                  child: Text(
-                    log.phoneNumber,
-                    style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        log.phoneNumber,
+                        style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                      ),
+                      if (hasLocation)
+                        _buildRegionChip(context, locationText!),
+                    ],
                   ),
                 ),
             ],
@@ -203,7 +176,10 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
-  Widget _buildCardActions(BuildContext context, CallLogDialogs dialogs) {
+  /// 构建卡片操作按钮行
+  Widget _buildCardActions(BuildContext context, WidgetRef ref) {
+    final dialogs = CallLogDialogs(context: context, ref: ref, log: log, labelIdToTextMap: labelIdToTextMap, region: region);
+
     return SizedBox(
       height: 40,
       child: Padding(
@@ -244,8 +220,9 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
+  /// 构建卡片底部信息行
   Widget _buildFooterInfo(BuildContext context, String timeString, _CallTypeInfo callTypeInfo) {
-    final simInfo = '${log.simDisplayName} ${log.carrierName ?? ''}'.trim();
+    final simInfo = '${log.simDisplayName} ${log.carrierName}'.trim();
     final hasSimInfo = simInfo.isNotEmpty;
 
     Widget buildSeparator() => const Padding(
@@ -271,6 +248,7 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
+  /// 根据通话类型获取图标、颜色和文本信息
   _CallTypeInfo _getCallTypeInfo(BuildContext context, String callType) {
     final localizations = AppLocalizations.of(context)!;
     switch (callType) {
@@ -280,5 +258,42 @@ class CallLogCard extends ConsumerWidget {
       case 'blocked': return _CallTypeInfo(icon: Icons.block, color: Colors.red, text: localizations.callTypeBlocked);
       default: return _CallTypeInfo(icon: Icons.phone, color: Colors.grey, text: localizations.callTypeUnknown);
     }
+  }
+
+  /// 构建标签 Chip
+  Widget _buildLabelChip(BuildContext context, WidgetRef ref, String labelText) {
+    return InkWell(
+      onTap: () async {
+        final updated = await CallLogDialogs(context: context, ref: ref, log: log, labelIdToTextMap: labelIdToTextMap, region: region).showLabelSelectionDialog();
+        if (updated && context.mounted) onRequiresRefresh();
+      },
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+        decoration: BoxDecoration(
+          color: const Color(0xFFF5A623).withOpacity(0.1),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Text(
+          labelText,
+          style: const TextStyle(fontSize: 12, color: Color(0xFFF5A623), fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+
+  /// 构建归属地 Chip
+  Widget _buildRegionChip(BuildContext context, String locationText) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      decoration: BoxDecoration(
+        color: Colors.blue.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Text(
+        locationText,
+        style: const TextStyle(fontSize: 12, color: Colors.blue),
+      ),
+    );
   }
 }
