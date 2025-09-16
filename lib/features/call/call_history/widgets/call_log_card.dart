@@ -6,7 +6,8 @@ import 'package:intl/intl.dart';
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/features/call/call_history/utils/call_history_action_handler.dart';
-import 'package:yourcallyourrule/features/call/call_history/widgets/call_log_dialogs.dart';
+import 'package:yourcallyourrule/features/call/call_history/widgets/phone_meta_edit_dialog.dart';
+import 'package:yourcallyourrule/features/call/call_history/widgets/rule_action_dialog.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -66,7 +67,7 @@ class CallLogCard extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildCardHeader(context, ref, callTypeInfo, avatarPath, translatedLabelText, hasLabels, region, hasLocation),
-              _buildCardActions(context, ref),
+              _buildCardActions(context),
               _buildFooterInfo(context, timeString, callTypeInfo),
             ],
           ),
@@ -75,12 +76,11 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
-  /// 构建卡片头部，包含头像、名称、号码、标签和归属地
+  /// 构建卡片头部
   Widget _buildCardHeader(BuildContext context, WidgetRef ref, _CallTypeInfo callTypeInfo, String? primaryAvatar, String? translatedLabelText, bool hasLabels, String? locationText, bool hasLocation) {
      return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // 头像
         SizedBox(
           width: 48,
           height: 48,
@@ -110,14 +110,11 @@ class CallLogCard extends ConsumerWidget {
           ),
         ),
         const SizedBox(width: 16),
-        
-        // 右侧信息区域
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // 第一行: Name / Phone Number + Label
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -137,7 +134,7 @@ class CallLogCard extends ConsumerWidget {
                           padding: const EdgeInsets.only(left: 8.0),
                           child: InkWell(
                             onTap: () async {
-                              final updated = await CallLogDialogs(context: context, ref: ref, log: log, labelIdToTextMap: labelIdToTextMap, region: region).showNameEditDialog();
+                              final updated = await PhoneMetaEditDialog.show(context, log: log);
                               if (updated && context.mounted) onRequiresRefresh();
                             },
                             borderRadius: BorderRadius.circular(16),
@@ -151,8 +148,6 @@ class CallLogCard extends ConsumerWidget {
                     _buildLabelChip(context, ref, translatedLabelText!),
                 ],
               ),
-              
-              // 第二行: Phone Number + Region (仅当有name时才显示第二行)
               if (log.name != null)
                 Padding(
                   padding: const EdgeInsets.only(top: 2.0),
@@ -177,9 +172,7 @@ class CallLogCard extends ConsumerWidget {
   }
 
   /// 构建卡片操作按钮行
-  Widget _buildCardActions(BuildContext context, WidgetRef ref) {
-    final dialogs = CallLogDialogs(context: context, ref: ref, log: log, labelIdToTextMap: labelIdToTextMap, region: region);
-
+  Widget _buildCardActions(BuildContext context) {
     return SizedBox(
       height: 40,
       child: Padding(
@@ -190,14 +183,14 @@ class CallLogCard extends ConsumerWidget {
             IconButton(
               icon: const Icon(Icons.info_outline, size: 20),
               color: Colors.grey,
-              onPressed: dialogs.showCallDetailsDialog,
+              onPressed: () => _showCallDetailsDialog(context),
               tooltip: AppLocalizations.of(context)!.viewDetails,
             ),
             IconButton(
               icon: const Icon(Icons.label, size: 20),
               color: Colors.grey,
               onPressed: () async {
-                 final updated = await dialogs.showLabelSelectionDialog();
+                 final updated = await PhoneMetaEditDialog.show(context, log: log);
                  if (updated && context.mounted) onRequiresRefresh();
               },
               tooltip: AppLocalizations.of(context)!.addLabel,
@@ -211,7 +204,7 @@ class CallLogCard extends ConsumerWidget {
             IconButton(
               icon: const Icon(Icons.rule, size: 20),
               color: Colors.grey,
-              onPressed: dialogs.showRuleActionDialog,
+              onPressed: () => _showRuleActionDialog(context),
               tooltip: AppLocalizations.of(context)!.addRule,
             ),
           ],
@@ -247,8 +240,70 @@ class CallLogCard extends ConsumerWidget {
       ),
     );
   }
+  
+  // --- 私有辅助方法 ---
 
-  /// 根据通话类型获取图标、颜色和文本信息
+  void _showRuleActionDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => RuleActionDialog(log: log),
+    );
+  }
+
+  void _showCallDetailsDialog(BuildContext context) {
+    final dateFormat = DateFormat('yyyy-MM-dd HH:mm:ss');
+    final formattedTime = dateFormat.format(log.timestamp);
+    final primaryLabelId = log.labelIds?.firstOrNull;
+    final rawLabelText = primaryLabelId != null ? labelIdToTextMap[primaryLabelId] : null;
+    final translatedLabelText = rawLabelText != null ? LabelTranslationUtils.translateLabelText(context, rawLabelText) : '-';
+    final callTypeInfo = _getCallTypeInfo(context, log.callType);
+
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(AppLocalizations.of(context)!.callDetails),
+        content: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _buildDetailItem(context, AppLocalizations.of(context)!.name, log.name ?? '-'),
+              _buildDetailItem(context, AppLocalizations.of(context)!.phoneNumber, log.phoneNumber),
+              _buildDetailItem(context, AppLocalizations.of(context)!.region, region ?? '-'),
+              _buildDetailItem(context, AppLocalizations.of(context)!.callType, callTypeInfo.text),
+              _buildDetailItem(context, AppLocalizations.of(context)!.callTime, formattedTime),
+              if (log.simDisplayName.isNotEmpty)
+                _buildDetailItem(context, AppLocalizations.of(context)!.simCard(log.simSlotIndex), log.simDisplayName),
+              if (log.carrierName.isNotEmpty)
+                _buildDetailItem(context, AppLocalizations.of(context)!.carrier, log.carrierName),
+              _buildDetailItem(context, AppLocalizations.of(context)!.labels, translatedLabelText),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(AppLocalizations.of(context)!.closeButton),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDetailItem(BuildContext context, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+          const SizedBox(height: 2),
+          Text(value, style: const TextStyle(fontSize: 16)),
+        ],
+      ),
+    );
+  }
+
   _CallTypeInfo _getCallTypeInfo(BuildContext context, String callType) {
     final localizations = AppLocalizations.of(context)!;
     switch (callType) {
@@ -260,11 +315,10 @@ class CallLogCard extends ConsumerWidget {
     }
   }
 
-  /// 构建标签 Chip
   Widget _buildLabelChip(BuildContext context, WidgetRef ref, String labelText) {
     return InkWell(
       onTap: () async {
-        final updated = await CallLogDialogs(context: context, ref: ref, log: log, labelIdToTextMap: labelIdToTextMap, region: region).showLabelSelectionDialog();
+        final updated = await PhoneMetaEditDialog.show(context, log: log);
         if (updated && context.mounted) onRequiresRefresh();
       },
       borderRadius: BorderRadius.circular(12),
@@ -282,7 +336,6 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
-  /// 构建归属地 Chip
   Widget _buildRegionChip(BuildContext context, String locationText) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),

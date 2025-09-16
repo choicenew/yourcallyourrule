@@ -234,4 +234,27 @@ class CallLogService {
     final logs = await getRecentLogs();
     return await _repository.deleteAll(logs);
   }
+
+  /// (新) 根据电话号码，批量更新所有相关通话记录的 name 和 labelIds
+  Future<void> updateNameAndLabelsByPhoneNumber(String phoneNumber, String? newName, List<String>? newLabelIds) async {
+    // 1. 使用现有的函数，获取所有相关的通话记录
+    final logsToUpdate = await _repository.getLogsByPhoneNumber(phoneNumber);
+
+    if (logsToUpdate.isEmpty) {
+      return; // 没有需要更新的记录
+    }
+
+    // 2. 在内存中创建更新后的日志列表
+    final updatedLogs = logsToUpdate.map((log) {
+      return log.copyWith(
+        name: newName,
+        labelIds: newLabelIds,
+      );
+    }).toList();
+
+    // 3. 使用批量更新方法，一次性写入数据库
+    await _repository.updateAll(updatedLogs);
+  }
+
+
 }

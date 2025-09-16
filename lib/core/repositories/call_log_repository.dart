@@ -9,7 +9,8 @@ abstract class CallLogRepository extends BaseRepository<CallLog, String> {
   /// 根据电话号码获取通话记录
   Future<List<CallLog>> getLogsByPhoneNumber(String phoneNumber);
   
-
+ /// 批量更新通话记录
+  Future<void> updateAll(List<CallLog> logs);
   
   /// 刷新通话记录
   Future<void> refreshLogs();
