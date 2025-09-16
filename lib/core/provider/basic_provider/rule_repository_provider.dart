@@ -70,7 +70,9 @@ class RuleRepositoryImpl implements RuleRepository {
     
     // 根据类型过滤规则
     if (type == 'phone_rule') {
-      return allRules.where((rule) => rule is PhoneRule && rule is! AllowedBlockedRule).toList();
+      // 只过滤PhoneRule类型，不需要排除AllowedBlockedRule
+      // 因为AllowedBlockedRule和PhoneRule是平行的类型，没有继承关系
+      return allRules.whereType<PhoneRule>().toList();
     } else if (type == 'regex') {
       return allRules.whereType<RegexRule>().toList();
     } else if (type == 'allow_block') {
@@ -80,7 +82,6 @@ class RuleRepositoryImpl implements RuleRepository {
       // 这样设计更灵活，不需要硬编码所有可能的action类型
       return allRules.where((rule) => rule.action.toString() == type).toList();
     }
-  
   }
 
   @override
