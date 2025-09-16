@@ -6,12 +6,14 @@ import 'dart:convert';
 import 'package:sqflite/sqflite.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../../data/models/allow_block_rule_model.dart';
 import '../../../data/models/phone_rule_model.dart';
+import '../../../data/models/rule_model.dart';
 import '../../database/database_manager.dart';
 import '../datasource_interface.dart';
 
 // 本地电话规则数据源实现
-class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
+class LocalPhoneRuleDataSource implements LocalDataSource<PhoneBasedRuleModel> {
   // 数据库管理器
   final LocalDatabaseManager _databaseManager;
 
@@ -23,7 +25,7 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
 
   // 获取所有电话规则
   @override
-  Future<List<PhoneRuleModel>> getAll() async {
+  Future<List<PhoneBasedRuleModel>> getAll() async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(_tableName);
 
@@ -32,8 +34,9 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
       // 根据规则类型创建不同的规则模型
       switch (map['ruleType']) {
         case 'phone_rule':
-        case 'allow_block': // 兼容两种类型
           return PhoneRuleModel.fromMap(map);
+        case 'allow_block': // 兼容两种类型
+          return AllowedBlockedRuleModel.fromMap(map);
         default:
           throw Exception('Unknown rule type: ${map['ruleType']}');
       }
@@ -42,13 +45,13 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
   
   // 插入单个规则
   @override
-  Future<String> insert(PhoneRuleModel model) async {
+  Future<String> insert(PhoneBasedRuleModel model) async {
     return save(model);
   }
   
   // 批量插入规则
   @override
-  Future<List<String>> insertAll(List<PhoneRuleModel> models) async {
+  Future<List<String>> insertAll(List<PhoneBasedRuleModel> models) async {
     final List<String> ids = [];
     for (final model in models) {
       final id = await save(model);
@@ -77,7 +80,17 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> maps = jsonDecode(data);
-      final List<PhoneRuleModel> rules = maps.map((map) => PhoneRuleModel.fromMap(map)).toList();
+      final List<PhoneBasedRuleModel> rules = maps.map((map) {
+        final ruleType = map['ruleType'];
+        switch (ruleType) {
+          case 'phone_rule':
+            return PhoneRuleModel.fromMap(map);
+          case 'allow_block':
+            return AllowedBlockedRuleModel.fromMap(map);
+          default:
+            throw Exception('Unknown rule type: $ruleType');
+        }
+      }).toList();
       await insertAll(rules);
       return true;
     } catch (e) {
@@ -88,7 +101,7 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
 
   // 根据ID获取电话规则
   @override
-  Future<PhoneRuleModel?> getById(String id) async {
+  Future<PhoneBasedRuleModel?> getById(String id) async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(
       _tableName,
@@ -97,33 +110,58 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
     );
 
     if (maps.isNotEmpty) {
-      return PhoneRuleModel.fromMap(maps.first);
+      final map = maps.first;
+      final ruleType = map['ruleType'];
+      switch (ruleType) {
+        case 'phone_rule':
+          return PhoneRuleModel.fromMap(map);
+        case 'allow_block':
+          return AllowedBlockedRuleModel.fromMap(map);
+        default:
+          throw Exception('Unknown rule type: $ruleType');
+      }
     }
     return null;
   }
 
   // 保存电话规则
-  Future<String> save(PhoneRuleModel rule) async {
+  Future<String> save(PhoneBasedRuleModel rule) async {
     final db = await _databaseManager.database;
     
     String id = rule.id;
-    PhoneRuleModel ruleWithId;
+    PhoneBasedRuleModel ruleWithId;
     
     if (id.isEmpty) {
       id = const Uuid().v4();
-      ruleWithId = PhoneRuleModel(
-        id: id,
-        name: rule.name,
-        phoneNumber: rule.phoneNumber,
-        action: rule.action,
-        priority: rule.priority,
-        isEnabled: rule.isEnabled,
-      
-        labelId: rule.labelId,
-        avatar: rule.avatar,
-        count: rule.count,
-        ruleType: rule.ruleType,
-      );
+      // 根据具体类型创建新实例
+      if (rule is PhoneRuleModel) {
+        ruleWithId = PhoneRuleModel(
+          id: id,
+          name: rule.name,
+          phoneNumber: rule.phoneNumber,
+          action: rule.action,
+          priority: rule.priority,
+          isEnabled: rule.isEnabled,
+          labelId: rule.labelId,
+          avatar: rule.avatar,
+          count: rule.count,
+          ruleType: rule.ruleType,
+        );
+      } else if (rule is AllowedBlockedRuleModel) {
+        ruleWithId = AllowedBlockedRuleModel(
+          id: id,
+          name: rule.name,
+          phoneNumber: rule.phoneNumber,
+          action: rule.action,
+          priority: rule.priority,
+          isEnabled: rule.isEnabled,
+          labelId: rule.labelId,
+          avatar: rule.avatar,
+          count: rule.count,
+        );
+      } else {
+        throw Exception('Unsupported rule type: ${rule.runtimeType}');
+      }
     } else {
       ruleWithId = rule;
     }
@@ -139,7 +177,7 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
 
   // 更新电话规则
   @override
-  Future<int> update(PhoneRuleModel rule) async {
+  Future<int> update(PhoneBasedRuleModel rule) async {
     final db = await _databaseManager.database;
 
     return await db.update(
@@ -163,30 +201,46 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
   }
 
   // 批量保存电话规则
-  Future<List<String>> saveAll(List<PhoneRuleModel> rules) async {
+  Future<List<String>> saveAll(List<PhoneBasedRuleModel> rules) async {
     final List<String> ids = [];
     final db = await _databaseManager.database;
 
     await db.transaction((txn) async {
       for (final rule in rules) {
         String id = rule.id;
-        PhoneRuleModel ruleWithId;
+        PhoneBasedRuleModel ruleWithId;
         
         if (id.isEmpty) {
           id = const Uuid().v4();
-          ruleWithId = PhoneRuleModel(
-            id: id,
-            name: rule.name,
-            phoneNumber: rule.phoneNumber,
-            action: rule.action,
-            priority: rule.priority,
-            isEnabled: rule.isEnabled,
-           
-            labelId: rule.labelId,
-            avatar: rule.avatar,
-            count: rule.count,
-            ruleType: rule.ruleType,
-          );
+          // 根据具体类型创建新实例
+          if (rule is PhoneRuleModel) {
+            ruleWithId = PhoneRuleModel(
+              id: id,
+              name: rule.name,
+              phoneNumber: rule.phoneNumber,
+              action: rule.action,
+              priority: rule.priority,
+              isEnabled: rule.isEnabled,
+              labelId: rule.labelId,
+              avatar: rule.avatar,
+              count: rule.count,
+              ruleType: rule.ruleType,
+            );
+          } else if (rule is AllowedBlockedRuleModel) {
+            ruleWithId = AllowedBlockedRuleModel(
+              id: id,
+              name: rule.name,
+              phoneNumber: rule.phoneNumber,
+              action: rule.action,
+              priority: rule.priority,
+              isEnabled: rule.isEnabled,
+              labelId: rule.labelId,
+              avatar: rule.avatar,
+              count: rule.count,
+            );
+          } else {
+            throw Exception('Unsupported rule type: ${rule.runtimeType}');
+          }
         } else {
           ruleWithId = rule;
         }
@@ -206,7 +260,7 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
 
   // 批量更新电话规则
   @override
-  Future<int> updateAll(List<PhoneRuleModel> rules) async {
+  Future<int> updateAll(List<PhoneBasedRuleModel> rules) async {
     int count = 0;
     final db = await _databaseManager.database;
 
@@ -350,8 +404,7 @@ class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(
       _tableName,
-      where: 'isSubscribed = ?',
-      whereArgs: [1],
+      where: 'subscriptionId IS NOT NULL',
     );
 
     return List.generate(maps.length, (i) {

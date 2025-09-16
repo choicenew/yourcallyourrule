@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
@@ -64,17 +65,22 @@ class RuleRepositoryImpl implements RuleRepository {
   }
 
   Future<List<RuleBase>> getAllByType(String type) async {
-    final result = <RuleBase>[];
+    // 获取所有规则
+    final allRules = await getAll();
     
+    // 根据类型过滤规则
     if (type == 'phone_rule') {
-      final rules = await _localPhoneRuleDataSource.getAll();
-      result.addAll(rules.map((model) => createRuleFromMap(model.toMap())));
+      return allRules.where((rule) => rule is PhoneRule && rule is! AllowedBlockedRule).toList();
     } else if (type == 'regex') {
-      final rules = await _localRegexRuleDataSource.getAll();
-      result.addAll(rules.map((model) => createRuleFromMap(model.toMap())));
+      return allRules.whereType<RegexRule>().toList();
+    } else if (type == 'allow_block') {
+      return allRules.whereType<AllowedBlockedRule>().toList();
+    } else {
+      // 处理基于动作类型的查询（如allow、block、silence、none等）
+      // 这样设计更灵活，不需要硬编码所有可能的action类型
+      return allRules.where((rule) => rule.action.toString() == type).toList();
     }
-    
-    return result;
+  
   }
 
   @override
@@ -135,15 +141,25 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   Future<RuleBase> save(RuleBase entity) async {
-    // 根据规则类型选择不同的数据源
-    if (entity is PhoneRule) {
-      final phoneRuleModel = PhoneRuleModel.fromEntity(entity);
-      await _localPhoneRuleDataSource.insert(phoneRuleModel);
-    } else if (entity is RegexRule) {
-      final regexRuleModel = RegexRuleModel.fromEntity(entity);
-      await _localRegexRuleDataSource.insert(regexRuleModel);
+    // 使用工厂方法创建对应的模型
+    try {
+      final ruleModel = RuleModel.fromEntity(entity);
+      
+      // 根据模型类型选择不同的数据源进行保存
+      if (ruleModel is PhoneBasedRuleModel) {
+        // 使用PhoneBasedRuleModel作为基类，可以同时处理PhoneRuleModel和AllowedBlockedRuleModel
+        await _localPhoneRuleDataSource.insert(ruleModel);
+      } else if (ruleModel is RegexRuleModel) {
+        await _localRegexRuleDataSource.insert(ruleModel);
+      } else {
+        // 不支持其他类型的规则
+        throw UnimplementedError('不支持的规则模型类型: ${ruleModel.runtimeType}');
+      }
+      return entity;
+    } catch (e) {
+      debugPrint('保存规则失败: $e');
+      rethrow;
     }
-    return entity;
   }
 
   // 已移除 _createModelFromMap 方法，不再需要
@@ -151,41 +167,11 @@ class RuleRepositoryImpl implements RuleRepository {
   @override
   Future<bool> saveRule(RuleBase rule) async {
     try {
-      // 根据规则类型选择不同的数据源
-      if (rule is PhoneRule) {
-        // 使用copyWith创建新的规则对象，设置正确的ruleType
-        final updatedRule = rule.copyWith(ruleType: 'phone_rule');
-        final phoneRuleModel = PhoneRuleModel.fromEntity(updatedRule);
-        await _localPhoneRuleDataSource.insert(phoneRuleModel);
-      } else if (rule is RegexRule) {
-        // 使用copyWith创建新的规则对象，设置正确的ruleType
-        final updatedRule = rule.copyWith(ruleType: RegexRule.ruleType);
-        final regexRuleModel = RegexRuleModel.fromEntity(updatedRule);
-        await _localRegexRuleDataSource.insert(regexRuleModel);
-      } else if (rule is AllowedBlockedRule) {
-        // 将AllowedBlockedRule转换为PhoneRule并保存
-        // 因为AllowedBlockedRule本质上也是基于电话号码的规则
-        final phoneRule = PhoneRule(
-          id: rule.id,
-          name: rule.name,
-          priority: rule.priority,
-          action: rule.action,
-          phoneNumber: rule.phoneNumber,
-          labelId: rule.labelId,
-          isEnabled: rule.isEnabled,
-          count: rule.count,
-          avatar: rule.avatar,
-          ruleType: 'allow_block',
-        );
-        final phoneRuleModel = PhoneRuleModel.fromEntity(phoneRule);
-        await _localPhoneRuleDataSource.insert(phoneRuleModel);
-      } else {
-        // 不支持其他类型的规则
-        throw UnimplementedError('不支持的规则类型: ${rule.runtimeType}');
-      }
+      // 直接调用save方法，避免代码重复
+      await save(rule);
       return true;
     } catch (e) {
-      print('保存规则失败: $e');
+      debugPrint('保存规则失败: $e');
       return false;
     }
   }
@@ -207,22 +193,25 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   Future<RuleBase> update(RuleBase entity) async {
-    // 根据规则类型选择不同的数据源进行更新
-    if (entity is PhoneRule) {
-      // 使用copyWith创建新的规则对象，设置正确的ruleType
-      final updatedRule = entity.copyWith(ruleType: 'phone_rule');
-      final phoneRuleModel = PhoneRuleModel.fromEntity(updatedRule);
-      await _localPhoneRuleDataSource.update(phoneRuleModel);
-    } else if (entity is RegexRule) {
-      // 使用copyWith创建新的规则对象，设置正确的ruleType
-      final updatedRule = entity.copyWith(ruleType: RegexRule.ruleType);
-      final regexRuleModel = RegexRuleModel.fromEntity(updatedRule);
-      await _localRegexRuleDataSource.update(regexRuleModel);
-    } else {
-      // 不支持其他类型的规则
-      throw UnimplementedError('不支持的规则类型: ${entity.runtimeType}');
+    // 使用工厂方法创建对应的模型
+    try {
+      final ruleModel = RuleModel.fromEntity(entity);
+      
+      // 根据模型类型选择不同的数据源进行更新
+      if (ruleModel is PhoneBasedRuleModel) {
+        // 使用PhoneBasedRuleModel作为基类，可以同时处理PhoneRuleModel和AllowedBlockedRuleModel
+        await _localPhoneRuleDataSource.update(ruleModel);
+      } else if (ruleModel is RegexRuleModel) {
+        await _localRegexRuleDataSource.update(ruleModel);
+      } else {
+        // 不支持其他类型的规则
+        throw UnimplementedError('不支持的规则模型类型: ${ruleModel.runtimeType}');
+      }
+      return entity;
+    } catch (e) {
+      debugPrint('更新规则失败: $e');
+      rethrow;
     }
-    return entity;
   }
 
   @override
@@ -267,7 +256,7 @@ class RuleRepositoryImpl implements RuleRepository {
       await _localRegexRuleDataSource.delete(id);
       return true;
     } catch (e) {
-      print('删除规则失败: $e');
+      debugPrint('删除规则失败: $e');
       return false;
     }
   }
@@ -281,7 +270,7 @@ class RuleRepositoryImpl implements RuleRepository {
       await _localRegexRuleDataSource.deleteAll(ids);
       return true;
     } catch (e) {
-      print('批量删除规则失败: $e');
+      debugPrint('批量删除规则失败: $e');
       return false;
     }
   }
@@ -292,30 +281,31 @@ class RuleRepositoryImpl implements RuleRepository {
     final phoneRules = <PhoneRuleModel>[];
     final regexRules = <RegexRuleModel>[];
     
-    for (final rule in entities) {
-      if (rule is PhoneRule) {
-        // 使用copyWith创建新的规则对象，设置正确的ruleType
-        final updatedRule = rule.copyWith(ruleType: 'phone_rule');
-        final model = PhoneRuleModel.fromEntity(updatedRule);
-        phoneRules.add(model);
-      } else if (rule is RegexRule) {
-        // 使用copyWith创建新的规则对象，设置正确的ruleType
-        final updatedRule = rule.copyWith(ruleType: RegexRule.ruleType);
-        final model = RegexRuleModel.fromEntity(updatedRule);
-        regexRules.add(model);
+    try {
+      for (final rule in entities) {
+        final ruleModel = RuleModel.fromEntity(rule);
+        
+        if (ruleModel is PhoneRuleModel) {
+          phoneRules.add(ruleModel);
+        } else if (ruleModel is RegexRuleModel) {
+          regexRules.add(ruleModel);
+        }
       }
+      
+      // 批量保存不同类型的规则
+      if (phoneRules.isNotEmpty) {
+        await _localPhoneRuleDataSource.insertAll(phoneRules);
+      }
+      
+      if (regexRules.isNotEmpty) {
+        await _localRegexRuleDataSource.insertAll(regexRules);
+      }
+      
+      return entities;
+    } catch (e) {
+      debugPrint('批量保存规则失败: $e');
+      rethrow;
     }
-    
-    // 批量保存不同类型的规则
-    if (phoneRules.isNotEmpty) {
-      await _localPhoneRuleDataSource.insertAll(phoneRules);
-    }
-    
-    if (regexRules.isNotEmpty) {
-      await _localRegexRuleDataSource.insertAll(regexRules);
-    }
-    
-    return entities;
   }
 
   @override

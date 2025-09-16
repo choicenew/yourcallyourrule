@@ -6,7 +6,6 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/location_service_provider.dart';
@@ -21,6 +20,7 @@ import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_a
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
+// 用于承载 CallLogCard 所需的元数据
 class CallLogMeta {
   final Map<String, String> labelIdToTextMap;
   final Map<String, String?> phoneToAvatarMap;
@@ -41,10 +41,13 @@ class CallHistoryPageWithTimelineWithAds extends ConsumerStatefulWidget {
 }
 
 class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistoryPageWithTimelineWithAds> {
+  // 核心数据状态
   List<CallLog> _currentLogs = [];
   CallLogMeta? _meta;
   bool _isLoading = true;
   bool _isInitialized = false;
+
+  // UI 和筛选状态
   String? _selectedLabelId;
   String _selectedTab = ''; 
   ListDisplayMode _displayMode = ListDisplayMode.timeline;
@@ -62,6 +65,8 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     }
   }
 
+  // --- 数据逻辑层 ---
+
   Future<void> _loadData() async {
     if (!mounted) return;
     setState(() {
@@ -74,12 +79,16 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
 
     try {
       final callLogService = ref.read(callLogServiceProvider);
+      // 1. 获取原始通话记录 (我们相信其 name/labelIds 已被后台同步)
       final originalLogs = await callLogService.getRecentLogs();
-      final (decoratedLogs, meta) = await _getDecoratedLogsAndMeta(originalLogs);
+      
+      // 2. 获取辅助的元数据 (label text, avatar, region)
+      final meta = await _getCallLogMetadata(originalLogs);
 
       if (mounted) {
         setState(() {
-          _currentLogs = decoratedLogs; 
+          // 3. 直接使用原始日志列表和元数据来构建UI
+          _currentLogs = originalLogs; 
           _meta = meta;
           _isLoading = false;
         });
@@ -95,60 +104,45 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     }
   }
 
-  Future<(List<CallLog>, CallLogMeta)> _getDecoratedLogsAndMeta(List<CallLog> logs) async {
+  /// 核心方法：获取元数据 (简化版)
+  /// 职责：只获取 CallLog 本身不包含的辅助信息
+  Future<CallLogMeta> _getCallLogMetadata(List<CallLog> logs) async {
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final labelService = ref.read(labelServiceProvider);
     final locationService = ref.read(locationServiceProvider);
 
+    // 1. 获取 labelId -> labelText 的映射，这对于显示是必需的
     final allLabels = await predefinedLabelService.getAllLabels();
     final labelMap = { for (var label in allLabels) label.id: label.text };
 
-    final Map<String, LabelPhoneEntry?> e164ToEntryMap = {};
-    final Map<String, String> originalToE164Map = {};
-
+    // 2. 获取头像和归属地信息
+    final avatarMap = <String, String?>{};
+    final regionMap = <String, String?>{};
+    
     final uniqueNumbers = logs.map((log) => log.phoneNumber).toSet();
     for (var number in uniqueNumbers) {
+      // 获取归属地
+      final locationEntry = await locationService.getByPhoneNumber(number);
+      regionMap[number] = locationEntry?.region;
+      
+      // 获取头像 (头像信息不在 CallLog 中，所以仍然需要查询)
       final parsedResult = await PhoneUtils.parsePhoneNumber(number);
       final e164Number = parsedResult['e164Number'];
-      if (e164Number != null && e164Number.isNotEmpty) {
-        originalToE164Map[number] = e164Number;
-        if (!e164ToEntryMap.containsKey(e164Number)) {
-          final e164PhoneNumberObject = PhoneNumber.fromString(e164Number);
-          e164ToEntryMap[e164Number] = await labelService.getLabelByPhoneNumber(e164PhoneNumberObject);
-        }
-      }
-    }
-    
-    final regionMap = <String, String?>{};
-    for (var number in uniqueNumbers) {
-        final locationEntry = await locationService.getByPhoneNumber(number);
-        regionMap[number] = locationEntry?.region;
-    }
-    
-    final decoratedLogs = logs.map((log) {
-      final e164Number = originalToE164Map[log.phoneNumber];
-      if (e164Number != null) {
-        final entry = e164ToEntryMap[e164Number];
+      if(e164Number != null && e164Number.isNotEmpty) {
+        final e164PhoneNumberObject = PhoneNumber.fromString(e164Number);
+        final entry = await labelService.getLabelByPhoneNumber(e164PhoneNumberObject);
         if (entry != null) {
-          return log.copyWith(
-            name: entry.name,
-            labelIds: (entry.labelId.isNotEmpty) ? [entry.labelId] : [],
-          );
+          avatarMap[number] = entry.avatar;
         }
       }
-      return log;
-    }).toList();
-
-    final meta = CallLogMeta(
+    }
+    
+    // 3. 构建元数据对象
+    return CallLogMeta(
       labelIdToTextMap: labelMap,
-      phoneToAvatarMap: { 
-        for (var originalNum in uniqueNumbers)
-          originalNum : e164ToEntryMap[originalToE164Map[originalNum]]?.avatar
-      },
+      phoneToAvatarMap: avatarMap,
       phoneToRegionMap: regionMap,
     );
-
-    return (decoratedLogs, meta);
   }
 
   List<CallLog> _getFilteredLogs() {
@@ -181,6 +175,8 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     filteredLogs.sort((a, b) => b.timestamp.compareTo(a.timestamp));
     return filteredLogs;
   }
+
+  // --- 事件处理层 ---
 
   void _onSearchChanged(String keyword) {
     setState(() => _searchKeyword = keyword);
@@ -322,6 +318,8 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     );
   }
 
+  // --- UI 构建层 ---
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -386,6 +384,7 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
   }
 }
 
+/// 独立的 Header Widget
 class _CallHistoryHeader extends StatefulWidget {
   final List<CallLog> allItems;
   final String? selectedLabelId;

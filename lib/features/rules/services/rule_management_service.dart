@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
@@ -317,7 +318,7 @@ class RuleManagementService extends ListService {
           successCount++;
         } catch (e) {
           // 处理导入单个规则时的错误，继续处理下一个规则
-          print('导入规则失败: ${rule.name}, 错误: $e');
+          debugPrint('导入规则失败: ${rule.name}, 错误: $e');
         }
       }
     }

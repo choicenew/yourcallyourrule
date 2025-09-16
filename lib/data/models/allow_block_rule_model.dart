@@ -13,23 +13,17 @@ import '../../core/value_objects/rule_action.dart';
 
 
 // 允许/阻止规则模型
-class AllowedBlockedRuleModel extends RuleModel {
-  final String phoneNumber;
-  final String labelId;
-  final bool isSubscribed;
-  final int count;
-  final String? avatar;
-
+class AllowedBlockedRuleModel extends PhoneBasedRuleModel {
   const AllowedBlockedRuleModel({
     required super.id,
     required super.name,
     required super.priority,
     required super.action, // action is crucial here
-    required this.phoneNumber,
-    required this.labelId,
-    required this.isSubscribed,
-    required this.count,
-    this.avatar,
+    required super.phoneNumber,
+    required super.labelId,
+    required super.count,
+    super.avatar,
+    super.subscriptionId,
     super.isEnabled,
     String? ruleType, // Make ruleType optional
   }) : super(
@@ -44,26 +38,15 @@ class AllowedBlockedRuleModel extends RuleModel {
       action: map['action'], // action is already a string here
       phoneNumber: map['phoneNumber'],
       labelId: map['labelId'],
-      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
+      subscriptionId: map['subscriptionId'],
       isEnabled: (map['isEnabled'] ?? 1) == 1,
       ruleType: map['ruleType'], // Read ruleType from map
     );
   }
 
-  @override
-  Map<String, dynamic> toMap() {
-    final map = super.toMap();
-    map.addAll({
-      'phoneNumber': phoneNumber,
-      'labelId': labelId,
-      'isSubscribed': isSubscribed ? 1 : 0,
-      'count': count,
-      'avatar': avatar,
-    });
-    return map;
-  }
+  // PhoneBasedRuleModel已经实现了toMap方法，不需要重复实现
 
   @override
   AllowedBlockedRule toEntity() {
@@ -74,10 +57,10 @@ class AllowedBlockedRuleModel extends RuleModel {
       action: RuleAction.fromString(action),
       phoneNumber: PhoneNumber.fromString(phoneNumber),
       labelId: labelId,
-      isSubscribed: isSubscribed,
       count: count,
       avatar: avatar,
       isEnabled: isEnabled,
+      subscriptionId: subscriptionId,
     );
   }
 
@@ -89,9 +72,9 @@ class AllowedBlockedRuleModel extends RuleModel {
       action: entity.action.toString(), // Use toString() to get the string representation
       phoneNumber: entity.phoneNumber.value,
       labelId: entity.labelId,
-      isSubscribed: entity.isSubscribed,
       count: entity.count,
       avatar: entity.avatar,
+      subscriptionId: entity.subscriptionId,
       isEnabled: entity.isEnabled,
     );
   }
