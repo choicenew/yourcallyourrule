@@ -46,6 +46,12 @@ class CallLogRepositoryImpl implements CallLogRepository {
   }
 
   @override
+  Future<void> updateAll(List<CallLog> entities) async {
+    final models = entities.map((e) => CallLogModel.fromEntity(e)).toList();
+    await _dataSource.transactionUpdate(models);
+  }
+
+  @override
   Future<bool> delete(CallLog entity) async {
     return await deleteById(entity.id);
   }

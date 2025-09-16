@@ -6,11 +6,13 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/location_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 
+import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_history/utils/call_history_action_handler.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/call_log_card.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/label_filter_chip.dart';
@@ -19,7 +21,6 @@ import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_a
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// 用于承载 CallLogCard 所需的元数据
 class CallLogMeta {
   final Map<String, String> labelIdToTextMap;
   final Map<String, String?> phoneToAvatarMap;
@@ -40,13 +41,10 @@ class CallHistoryPageWithTimelineWithAds extends ConsumerStatefulWidget {
 }
 
 class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistoryPageWithTimelineWithAds> {
-  // 核心数据状态
   List<CallLog> _currentLogs = [];
   CallLogMeta? _meta;
   bool _isLoading = true;
   bool _isInitialized = false;
-
-  // UI 和筛选状态
   String? _selectedLabelId;
   String _selectedTab = ''; 
   ListDisplayMode _displayMode = ListDisplayMode.timeline;
@@ -57,16 +55,12 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // 严格遵循生命周期规则，在 didChangeDependencies 中首次加载数据
     if (!_isInitialized) {
-      // 在这里安全地初始化依赖 context 的值
       _selectedTab = AppLocalizations.of(context)!.tabAll;
       _loadData();
       _isInitialized = true;
     }
   }
-
-  // --- 数据逻辑层 ---
 
   Future<void> _loadData() async {
     if (!mounted) return;
@@ -80,12 +74,12 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
 
     try {
       final callLogService = ref.read(callLogServiceProvider);
-      final logs = await callLogService.getRecentLogs();
-      final meta = await _getCallLogMetadata(logs);
+      final originalLogs = await callLogService.getRecentLogs();
+      final (decoratedLogs, meta) = await _getDecoratedLogsAndMeta(originalLogs);
 
       if (mounted) {
         setState(() {
-          _currentLogs = logs;
+          _currentLogs = decoratedLogs; 
           _meta = meta;
           _isLoading = false;
         });
@@ -101,7 +95,7 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     }
   }
 
-  Future<CallLogMeta> _getCallLogMetadata(List<CallLog> logs) async {
+  Future<(List<CallLog>, CallLogMeta)> _getDecoratedLogsAndMeta(List<CallLog> logs) async {
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final labelService = ref.read(labelServiceProvider);
     final locationService = ref.read(locationServiceProvider);
@@ -109,27 +103,52 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     final allLabels = await predefinedLabelService.getAllLabels();
     final labelMap = { for (var label in allLabels) label.id: label.text };
 
-    final phoneNumbers = logs.map((log) => log.phoneNumber).toSet();
-    final avatarMap = <String, String?>{};
-    final regionMap = <String, String?>{};
+    final Map<String, LabelPhoneEntry?> e164ToEntryMap = {};
+    final Map<String, String> originalToE164Map = {};
 
-    await Future.wait(phoneNumbers.map((rawNumber) async {
-      final parsedResult = await PhoneUtils.parsePhoneNumber(rawNumber);
+    final uniqueNumbers = logs.map((log) => log.phoneNumber).toSet();
+    for (var number in uniqueNumbers) {
+      final parsedResult = await PhoneUtils.parsePhoneNumber(number);
       final e164Number = parsedResult['e164Number'];
-
       if (e164Number != null && e164Number.isNotEmpty) {
-        final labelEntry = await labelService.getLabelByPhoneNumberString(e164Number);
-        avatarMap[rawNumber] = labelEntry?.avatar;
-        final locationEntry = await locationService.getByPhoneNumber(e164Number);
-        regionMap[rawNumber] = locationEntry?.region;
+        originalToE164Map[number] = e164Number;
+        if (!e164ToEntryMap.containsKey(e164Number)) {
+          final e164PhoneNumberObject = PhoneNumber.fromString(e164Number);
+          e164ToEntryMap[e164Number] = await labelService.getLabelByPhoneNumber(e164PhoneNumberObject);
+        }
       }
-    }));
+    }
+    
+    final regionMap = <String, String?>{};
+    for (var number in uniqueNumbers) {
+        final locationEntry = await locationService.getByPhoneNumber(number);
+        regionMap[number] = locationEntry?.region;
+    }
+    
+    final decoratedLogs = logs.map((log) {
+      final e164Number = originalToE164Map[log.phoneNumber];
+      if (e164Number != null) {
+        final entry = e164ToEntryMap[e164Number];
+        if (entry != null) {
+          return log.copyWith(
+            name: entry.name,
+            labelIds: (entry.labelId.isNotEmpty) ? [entry.labelId] : [],
+          );
+        }
+      }
+      return log;
+    }).toList();
 
-    return CallLogMeta(
+    final meta = CallLogMeta(
       labelIdToTextMap: labelMap,
-      phoneToAvatarMap: avatarMap,
+      phoneToAvatarMap: { 
+        for (var originalNum in uniqueNumbers)
+          originalNum : e164ToEntryMap[originalToE164Map[originalNum]]?.avatar
+      },
       phoneToRegionMap: regionMap,
     );
+
+    return (decoratedLogs, meta);
   }
 
   List<CallLog> _getFilteredLogs() {
@@ -162,8 +181,6 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     filteredLogs.sort((a, b) => b.timestamp.compareTo(a.timestamp));
     return filteredLogs;
   }
-
-  // --- 事件处理层 (Callbacks) ---
 
   void _onSearchChanged(String keyword) {
     setState(() => _searchKeyword = keyword);
@@ -274,7 +291,36 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     }
   }
 
-  // --- UI 构建层 ---
+  void _showLabelFilterDialog() {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(AppLocalizations.of(ctx)!.filterByLabel),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: PublicSelectLabel(
+            initialLabelId: _selectedLabelId,
+            onLabelIdChanged: (labelId) {
+              _onLabelFilterChanged(labelId);
+              Navigator.pop(ctx);
+            },
+            themeColor: Theme.of(context).primaryColor,
+          ),
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text(AppLocalizations.of(ctx)!.cancelButton)),
+          if (_selectedLabelId != null)
+            TextButton(
+              onPressed: () {
+                _onLabelFilterChanged(null);
+                Navigator.pop(ctx);
+              },
+              child: Text(AppLocalizations.of(ctx)!.clearFilter),
+            ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -305,6 +351,13 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
         onToggleItemSelection: _toggleItemSelection,
         onDeleteSelected: _deleteSelectedLogs,
         onMoreOptions: _showMoreOptions,
+        customActions: [
+          IconButton(
+            icon: const Icon(Icons.filter_list),
+            onPressed: _showLabelFilterDialog,
+            tooltip: AppLocalizations.of(context)!.filterByLabel,
+          ),
+        ],
       ),
     );
   }
@@ -333,7 +386,6 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
   }
 }
 
-/// 独立的 Header Widget，负责管理自己的 TabController
 class _CallHistoryHeader extends StatefulWidget {
   final List<CallLog> allItems;
   final String? selectedLabelId;
@@ -359,7 +411,6 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader> with TickerProvi
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // 关键修复: 仅在首次构建时初始化，并且可以安全地访问 context
     if (!_isInitialized) {
       _initializeTabsAndController();
       _isInitialized = true;
@@ -381,8 +432,6 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader> with TickerProvi
         widget.onTabChanged(_tabs[_tabController!.index]);
       }
     });
-    
-    // 初始Tab选择已在父Widget的 _loadData 中完成
   }
 
   @override
@@ -391,37 +440,6 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader> with TickerProvi
     super.dispose();
   }
   
-  void _showLabelFilterDialog() {
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(AppLocalizations.of(ctx)!.filterByLabel),
-        content: SizedBox(
-          width: double.maxFinite,
-          child: PublicSelectLabel(
-            initialLabelId: widget.selectedLabelId,
-            onLabelIdChanged: (labelId) {
-              widget.onLabelChanged(labelId);
-              Navigator.pop(ctx);
-            },
-            themeColor: Theme.of(context).primaryColor,
-          ),
-        ),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx), child: Text(AppLocalizations.of(ctx)!.cancelButton)),
-          if (widget.selectedLabelId != null)
-            TextButton(
-              onPressed: () {
-                widget.onLabelChanged(null);
-                Navigator.pop(ctx);
-              },
-              child: Text(AppLocalizations.of(ctx)!.clearFilter),
-            ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     if (!_isInitialized) {
@@ -434,16 +452,6 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader> with TickerProvi
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.filter_list),
-              onPressed: _showLabelFilterDialog,
-              tooltip: AppLocalizations.of(context)!.filterByLabel,
-            ),
-          ],
-        ),
         GridView.count(
           crossAxisCount: 2, shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
           mainAxisSpacing: 16, crossAxisSpacing: 16, childAspectRatio: 2.0,
