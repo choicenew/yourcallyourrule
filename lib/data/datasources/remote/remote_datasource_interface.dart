@@ -24,4 +24,7 @@ abstract class RemoteDataSourceInterface<T> extends RemoteDataSource<T> {
   
   // 批量原子更新计数
   Future<Map<String, bool>> batchAtomicUpdateCount(Map<String, int> updates);
+  
+  // 原子投票操作
+  Future<bool> atomicVote(String phoneNumber, String label);
 }

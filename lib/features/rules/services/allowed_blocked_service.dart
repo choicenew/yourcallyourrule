@@ -84,7 +84,7 @@ class AllowedBlockedService extends ListService {
         labelId: rule.labelId,
         priority: rule.priority,
         isEnabled: isEnabled, // 更新状态
-        isSubscribed: rule.isSubscribed,
+        subscriptionId: rule.subscriptionId, // 使用subscriptionId而不是isSubscribed
         count: rule.count,
         avatar: rule.avatar,
       );

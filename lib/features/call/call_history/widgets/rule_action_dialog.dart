@@ -5,11 +5,11 @@ import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
+
+
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -113,12 +113,6 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
             const SizedBox(height: 16),
             
             // 标签选择器
-            /*
-            Text(
-              AppLocalizations.of(context)!.selectLabel,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            */
             SizedBox(
               height: 200,
               child: PublicSelectLabel(
@@ -157,7 +151,6 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
         return;
       }
 
-      // 创建ListEntry对象
       final entry = ListEntry(
         id: widget.log.id,
         phoneNumber: PhoneNumber(widget.log.phoneNumber),
@@ -165,11 +158,10 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
         name: name,
       );
       
-      // 根据选择的服务类型添加规则
       if (_isAllowedBlockedService) {
         await _addToAllowedBlockedRule(entry, _selectedAction);
       } else {
-        await _addToWhiteBlackRule(entry, _selectedAction);
+        await _addToPhoneRule(entry, _selectedAction);
       }
       
       if (mounted) {
@@ -180,6 +172,23 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
     }
   }
   
+  // 显示成功提示 (新方法)
+  void _showSuccessSnackBar(String serviceName, RuleAction action) {
+    if (!mounted) return;
+
+    // 使用 RuleActionDisplayUtils 获取动态的名称和颜色
+    final actionName = RuleActionDisplayUtils.getActionTypeName(context, action.type);
+    final actionColor = RuleActionDisplayUtils.getActionTypeColor(action.type);
+
+    // 构造更通用和准确的提示信息
+    final message = "${AppLocalizations.of(context)!.addToRules} $serviceName: $actionName";
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+      backgroundColor: actionColor,
+    ));
+  }
+  
   // 显示错误提示
   void _showErrorSnackBar(String message) {
     if (!mounted) return;
@@ -188,42 +197,33 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
     );
   }
 
-  // 添加到允许/阻止规则
+  // 添加到允许/阻止规则 (已修改)
   Future<void> _addToAllowedBlockedRule(ListEntry entry, RuleAction action) async {
     try {
       final service = ref.read(allowedBlockedServiceProvider);
       await service.addAllowedBlockedRule(entry, action);
       
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(action.type == RuleActionType.allow
-              ? (AppLocalizations.of(context)!.addedToAllowedRules)
-              : (AppLocalizations.of(context)!.addedToBlockedRules)),
-          backgroundColor: action.type == RuleActionType.allow ? Colors.green : Colors.red,
-        ));
-      }
+      // 调用新的、统一的成功提示方法
+      final serviceName = AppLocalizations.of(context)!.allowedBlockedRule;
+      _showSuccessSnackBar(serviceName, action);
+
     } catch (e) {
       rethrow; // 向上抛出异常，由_saveRule统一处理
     }
   }
 
-  // 添加到黑白名单
-  Future<void> _addToWhiteBlackRule(ListEntry entry, RuleAction action) async {
+  // 添加到phonerule名单 (已修改)
+  Future<void> _addToPhoneRule(ListEntry entry, RuleAction action) async {
     try {
       final service = ref.read(ruleManagementServiceProvider);
       await service.addPhoneRule(entry, action);
       
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(action.type == RuleActionType.allow
-              ? (AppLocalizations.of(context)!.addedToWhitelist)
-              : (AppLocalizations.of(context)!.addedToBlacklist)),
-          backgroundColor: action.type == RuleActionType.allow ? Colors.blue : Colors.orange,
-        ));
-      }
+      // 调用新的、统一的成功提示方法
+      final serviceName = AppLocalizations.of(context)!.phoneRule;
+      _showSuccessSnackBar(serviceName, action);
+
     } catch (e) {
       rethrow; // 向上抛出异常，由_saveRule统一处理
     }
   }
-
 }

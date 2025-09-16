@@ -30,6 +30,15 @@ class CallLogRepositoryImpl extends BaseRepositoryImpl<CallLog, CallLogModel, St
     return toEntity(updatedModel);
   }
 
+@override
+Future<void> updateAll(List<CallLog> entities) async {
+  // 1. 将业务实体列表 (List<CallLog>) 转换为数据模型列表 (List<CallLogModel>)
+  final models = entities.map(toModel).toList();
+  
+  // 2. 调用 dataSource 的批量更新方法，该方法现在我们确认是存在的
+  await dataSource.transactionUpdate(models);
+}
+
   @override
   Future<List<CallLog>> getRecentLogs() async {
     final models = await dataSource.getAll();

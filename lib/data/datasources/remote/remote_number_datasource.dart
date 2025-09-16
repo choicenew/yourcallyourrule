@@ -388,6 +388,56 @@ class RemoteNumberDataSource
     final result = await atomicIncrementCount(phoneNumber, increment);
     return result > 0;
   }
+  
+  // 实现投票机制的原子操作
+  @override
+  Future<bool> atomicVote(String phoneNumber, String label) async {
+    final db = await _databaseManager.database;
+    int result = 0;
+    
+    await db.transaction((txn) async {
+      // 1. 查询当前记录
+      final List<Map<String, dynamic>> maps = await txn.query(
+        _tableName,
+        columns: ['count', 'label'],
+        where: 'phoneNumber = ?',
+        whereArgs: [phoneNumber],
+      );
+      
+      if (maps.isNotEmpty) {
+        final currentCount = maps.first['count'] is String
+            ? int.tryParse(maps.first['count'] ?? '0') ?? 0
+            : (maps.first['count'] ?? 0);
+        final currentLabel = maps.first['label'] as String?;
+        
+        // 2. 增加计数
+        final newCount = currentCount + 1;
+        
+        // 3. 确定标签 - 如果提供了新标签且与当前不同，则更新标签
+        final updatedLabel = (label.isNotEmpty && label != currentLabel) ? label : currentLabel;
+        
+        // 4. 更新记录
+        result = await txn.update(
+          _tableName,
+          {'count': newCount, 'label': updatedLabel},
+          where: 'phoneNumber = ?',
+          whereArgs: [phoneNumber],
+        );
+        
+        // 5. 记录操作
+        if (result > 0) {
+          await _logOperation(
+            txn,
+            'VOTE',
+            phoneNumber,
+            payload: {'increment': 1, 'label': updatedLabel},
+          );
+        }
+      }
+    });
+    
+    return result > 0;
+  }
 
   @override
   Future<Map<String, bool>> batchAtomicUpdateCount(

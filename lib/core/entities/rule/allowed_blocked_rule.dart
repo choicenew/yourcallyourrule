@@ -6,9 +6,12 @@ import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 class AllowedBlockedRule extends RuleBase {
   final PhoneNumber phoneNumber;
   final String labelId; // 使用labelId引用PredefinedLabel
-  final bool isSubscribed;
   final int count;
   final String? avatar; // 头像字段
+  final String? subscriptionId;
+  
+  // 将 isSubscribed 改为计算属性
+  bool get isSubscribed => subscriptionId != null;
 
   final String ruleType;
 
@@ -21,9 +24,9 @@ class AllowedBlockedRule extends RuleBase {
     this.ruleType = 'allow_block',
     RulePriority? priority, // 优先级变为可选
     super.isEnabled = true,
-    this.isSubscribed = false,
     this.count = 0,
     this.avatar,
+    this.subscriptionId,
   }) : super(
           priority: priority ?? _defaultPriority(action),
         );
@@ -53,10 +56,10 @@ class AllowedBlockedRule extends RuleBase {
       ..addAll({
         'phoneNumber': phoneNumber.value,
         'labelId': labelId,
-        'isSubscribed': isSubscribed ? 1 : 0,
         'count': count,
         'avatar': avatar,
         'ruleType': ruleType,
+        'subscriptionId': subscriptionId,
       });
   }
 
@@ -70,10 +73,10 @@ class AllowedBlockedRule extends RuleBase {
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
       labelId: map['labelId'],
       isEnabled: (map['isEnabled'] ?? 1) == 1,
-      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
       ruleType: map['ruleType'] ?? 'allow_block',
+      subscriptionId: map['subscriptionId'],
     );
   }
 
@@ -86,10 +89,10 @@ class AllowedBlockedRule extends RuleBase {
     bool? isEnabled,
     PhoneNumber? phoneNumber,
     String? labelId,
-    bool? isSubscribed,
     int? count,
     String? avatar,
     String? ruleType,
+    String? subscriptionId,
   }) {
     return AllowedBlockedRule(
       id: id ?? this.id,
@@ -99,10 +102,10 @@ class AllowedBlockedRule extends RuleBase {
       labelId: labelId ?? this.labelId,
       priority: priority ?? this.priority,
       isEnabled: isEnabled ?? this.isEnabled,
-      isSubscribed: isSubscribed ?? this.isSubscribed,
       count: count ?? this.count,
       avatar: avatar ?? this.avatar,
       ruleType: ruleType ?? this.ruleType,
+      subscriptionId: subscriptionId ?? this.subscriptionId,
     );
   }
 }
