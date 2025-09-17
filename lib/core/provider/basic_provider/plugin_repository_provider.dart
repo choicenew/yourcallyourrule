@@ -148,25 +148,21 @@ class PluginRepositoryImpl implements PluginRepository {
 
 
 
-  @override
   Future<List<PluginEntry>> getByType(String type) async {
     final maps = await _dataSource.getByType(type);
     return maps.map((map) => fromMap(map)).toList();
   }
 
-  @override
   Future<List<PluginEntry>> getAllEnabled() async {
     final maps = await _dataSource.getAllEnabled();
     return maps.map((map) => fromMap(map)).toList();
   }
 
-  @override
   Future<List<PluginEntry>> getByCategory(String category) async {
     final maps = await _dataSource.getByCategory(category);
     return maps.map((map) => fromMap(map)).toList();
   }
 
-  @override
   Future<PluginEntry?> getByName(String name) async {
     final maps = await _dataSource.getByName(name);
     if (maps.isEmpty) return null;

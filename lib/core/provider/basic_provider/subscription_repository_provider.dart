@@ -112,7 +112,7 @@ class SubscriptionRepositoryImpl implements SubscriptionRepository {
 
   Future<Subscription?> getByName(String name) async {
     final models = await _dataSource.getByName(name);
-    if (models != null && models.isNotEmpty) {
+    if (models.isNotEmpty) {
       final subscriptionModels = models.whereType<SubscriptionModel>();
       if (subscriptionModels.isNotEmpty) {
         return subscriptionModels.first.toEntity();
