@@ -114,7 +114,7 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
   @override
   Future<LabelPhoneEntry?> getByPhoneNumber(String phoneNumber) async {
     final models = await _dataSource.getByPhoneNumber(phoneNumber);
-    if (models == null || models.isEmpty) {
+    if (models.isEmpty) {
       return null;
     }
     return LabelPhoneEntry.fromMap(models.first.toMap());

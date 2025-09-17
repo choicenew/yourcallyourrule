@@ -10,7 +10,6 @@ import 'package:yourcallyourrule/core/provider/datasource/local_phone_rule_datas
 import 'package:yourcallyourrule/core/provider/datasource/local_regex_rule_datasource_provider.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_phone_rule_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_regex_rule_datasource.dart';
-import 'package:yourcallyourrule/data/models/allow_block_rule_model.dart';
 import 'package:yourcallyourrule/data/models/phone_rule_model.dart';
 import 'package:yourcallyourrule/data/models/regex_rule_model.dart';
 import 'package:yourcallyourrule/data/models/rule_model.dart';
