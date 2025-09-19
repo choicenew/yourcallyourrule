@@ -1,31 +1,29 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/provider/datasource/local_phone_rule_datasource_provider.dart';
 import 'package:yourcallyourrule/core/provider/datasource/local_regex_rule_datasource_provider.dart';
-import 'package:yourcallyourrule/data/datasources/local/local_phone_rule_datasource.dart';
-import 'package:yourcallyourrule/data/datasources/local/local_regex_rule_datasource.dart';
-import 'package:yourcallyourrule/data/models/allow_block_rule_model.dart';
-import 'package:yourcallyourrule/data/models/phone_rule_model.dart';
-import 'package:yourcallyourrule/data/models/regex_rule_model.dart';
-import 'package:yourcallyourrule/data/models/rule_model.dart';
+import 'package:yourcallyourrule/core/provider/datasource/local_label_datasource_provider.dart';
+import 'package:yourcallyourrule/core/provider/datasource/local_sim_slot_rule_datasource_provider.dart';
 
 /// 规则仓库提供者
 final ruleRepositoryProvider = Provider<RuleRepository>((ref) {
   final localPhoneRuleDataSource = ref.watch(localPhoneRuleDataSourceProvider);
   final localRegexRuleDataSource = ref.watch(localRegexRuleDataSourceProvider);
+  final localLabelDataSource = ref.watch(localLabelDataSourceProvider);
+  final localSimSlotRuleDataSource = ref.watch(localSimSlotRuleDataSourceProvider);
   // 返回规则仓库实现
   return RuleRepositoryImpl(
     localPhoneRuleDataSource,
     localRegexRuleDataSource,
+    localLabelDataSource,
+    localSimSlotRuleDataSource,
   );
 });
 
+
+/*
+///已经拆分出去了所以可以注释掉了
 /// 规则仓库实现类
 class RuleRepositoryImpl implements RuleRepository {
   final LocalPhoneRuleDataSource _localPhoneRuleDataSource;
@@ -338,3 +336,4 @@ class RuleRepositoryImpl implements RuleRepository {
     throw UnimplementedError();
   }
 }
+*/

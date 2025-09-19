@@ -19,7 +19,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
       _tableControllers = {};
 
   // 数据库版本
-  static const int _version = 2;
+  static const int _version = 3;
 
   // 数据库名称
   static const String _databaseName = 'local_database.db';
@@ -243,12 +243,12 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         name TEXT,
         icon TEXT,
         phoneNumber TEXT NOT NULL,
-        label TEXT NOT NULL,
         labelId TEXT NOT NULL,
         avatar TEXT,
         priority INTEGER NOT NULL DEFAULT 0,
         action TEXT NOT NULL DEFAULT 'none',
         isEnabled INTEGER NOT NULL DEFAULT 1,
+        ruleType TEXT NOT NULL DEFAULT 'label',
         FOREIGN KEY (labelId) REFERENCES predefined_labels (id)
       )
     ''');
@@ -323,7 +323,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
     // 根据版本号进行升级操作
     if (oldVersion < 2) {
       // 版本1升级到版本2的操作
-
+      
       // 检查SMS表结构并迁移
       try {
         // 获取SMS表的列信息
@@ -390,6 +390,16 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
             db, oldVersion, newVersion);
       } catch (e) {
         print('SMS表迁移错误: $e');
+      }
+    }
+    
+    if (oldVersion < 3) {
+      // 版本2升级到版本3的操作
+      try {
+        // 为labelPhone表添加ruleType列
+        await db.execute("ALTER TABLE labelPhone ADD COLUMN ruleType TEXT NOT NULL DEFAULT 'label'");
+      } catch (e) {
+        print('升级数据库时出错: $e');
       }
     }
   }

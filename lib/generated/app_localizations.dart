@@ -9519,6 +9519,108 @@ abstract class AppLocalizations {
   /// **'Number invalid format'**
   String get numberInvalidFormat;
 
+  /// No description provided for @membershipFeature.
+  ///
+  /// In en, this message translates to:
+  /// **'Membership Feature'**
+  String get membershipFeature;
+
+  /// No description provided for @rewardedAdService.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewarded Ad Service'**
+  String get rewardedAdService;
+
+  /// No description provided for @hasVipPrivilegeExceptAds.
+  ///
+  /// In en, this message translates to:
+  /// **'You already have VIP privileges (except for ads)'**
+  String get hasVipPrivilegeExceptAds;
+
+  /// No description provided for @hasTempPrivilegeWithExpiry.
+  ///
+  /// In en, this message translates to:
+  /// **'You already have temporary privileges, expiry date: {expiryDate}'**
+  String hasTempPrivilegeWithExpiry(Object expiryDate);
+
+  /// No description provided for @watchMoreAdsForTempVip.
+  ///
+  /// In en, this message translates to:
+  /// **'You need to watch {count} more ads to get temporary VIP privileges'**
+  String watchMoreAdsForTempVip(Object count);
+
+  /// No description provided for @grantedTempPurchaseWithExpiry.
+  ///
+  /// In en, this message translates to:
+  /// **'You have been granted {days} days of temporary purchase privileges. Expiry date: {expiryDate}'**
+  String grantedTempPurchaseWithExpiry(Object days, Object expiryDate);
+
+  /// No description provided for @tempPurchaseExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Temporary purchase privilege has expired'**
+  String get tempPurchaseExpired;
+
+  /// No description provided for @loadingAd.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading Ad...'**
+  String get loadingAd;
+
+  /// No description provided for @earnedTempVip.
+  ///
+  /// In en, this message translates to:
+  /// **'Earned temporary VIP'**
+  String get earnedTempVip;
+
+  /// No description provided for @vipExchangeService.
+  ///
+  /// In en, this message translates to:
+  /// **'VIP Exchange Service'**
+  String get vipExchangeService;
+
+  /// No description provided for @marksInsufficient.
+  ///
+  /// In en, this message translates to:
+  /// **'Insufficient marks to exchange'**
+  String get marksInsufficient;
+
+  /// No description provided for @invalidExchangeRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid exchange rule'**
+  String get invalidExchangeRule;
+
+  /// No description provided for @exchangeSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Successfully exchanged for {description}, expiry date: {expiryDate}'**
+  String exchangeSuccess(Object description, Object expiryDate);
+
+  /// No description provided for @exchangeFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange failed: {error}'**
+  String exchangeFailed(Object error);
+
+  /// No description provided for @vip3DaysWithAds.
+  ///
+  /// In en, this message translates to:
+  /// **'3-day VIP with ads (sync only)'**
+  String get vip3DaysWithAds;
+
+  /// No description provided for @vip5DaysNoAds.
+  ///
+  /// In en, this message translates to:
+  /// **'5-day full-featured ad-free VIP'**
+  String get vip5DaysNoAds;
+
+  /// No description provided for @vip7DaysNoAds.
+  ///
+  /// In en, this message translates to:
+  /// **'7-day full-featured ad-free VIP'**
+  String get vip7DaysNoAds;
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:

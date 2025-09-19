@@ -121,7 +121,25 @@ class RemoteNumberDataSource
         whereArgs: [phoneNumber],
       );
       if (result > 0) {
-        await _logOperation(txn, 'DELETE', phoneNumber);
+        // [关键修改] 暂时禁用将此删除操作同步到云端。
+        // 未来，当审核式删除功能上线时，只需取消这里的注释即可。
+        /*
+        // [修复逻辑] 在删除前，先获取国家代码
+        final countries = await txn.query(
+          _junctionTable,
+          columns: ['countryIsoCode'],
+          where: 'phoneNumber = ?',
+          whereArgs: [phoneNumber],
+        );
+        final countryIsoCode = countries.isNotEmpty ? countries.first['countryIsoCode'] as String? : null;
+        
+        await _logOperation(
+          txn,
+          'DELETE',
+          phoneNumber,
+          payload: {'countryIsoCode': countryIsoCode},
+        );
+        */
       }
     });
     return result;
@@ -389,9 +407,13 @@ class RemoteNumberDataSource
     return result > 0;
   }
   
-  // 实现投票机制的原子操作
+  // 实现投票机制的原子操作 - 投票制模式
   @override
   Future<bool> atomicVote(String phoneNumber, String label) async {
+    if (label.isEmpty) {
+      return false; // 标签不能为空
+    }
+    
     final db = await _databaseManager.database;
     int result = 0;
     
@@ -399,7 +421,7 @@ class RemoteNumberDataSource
       // 1. 查询当前记录
       final List<Map<String, dynamic>> maps = await txn.query(
         _tableName,
-        columns: ['count', 'label'],
+        columns: ['count', 'label', 'labels_json'],
         where: 'phoneNumber = ?',
         whereArgs: [phoneNumber],
       );
@@ -410,27 +432,89 @@ class RemoteNumberDataSource
             : (maps.first['count'] ?? 0);
         final currentLabel = maps.first['label'] as String?;
         
-        // 2. 增加计数
+        // 2. 处理标签投票
+        Map<String, int> labelsCount = {};
+        
+        // 尝试解析现有的labels_json字段
+        final labelsJson = maps.first['labels_json'] as String?;
+        if (labelsJson != null && labelsJson.isNotEmpty) {
+          try {
+            labelsCount = Map<String, int>.from(
+              jsonDecode(labelsJson).map((key, value) => 
+                MapEntry(key.toString(), value is int ? value : int.tryParse(value.toString()) ?? 0))
+            );
+          } catch (e) {
+            // 解析失败，使用空Map继续
+            print('Error parsing labels_json: $e');
+          }
+        }
+        
+        // 更新当前标签的计数
+        labelsCount[label] = (labelsCount[label] ?? 0) + 1;
+        
+        // 3. 找出得票最多的标签
+        String topLabel = label;
+        int maxVotes = labelsCount[label] ?? 1;
+        
+        labelsCount.forEach((key, value) {
+          if (value > maxVotes) {
+            maxVotes = value;
+            topLabel = key;
+          }
+        });
+        
+        // 4. 增加总计数
         final newCount = currentCount + 1;
         
-        // 3. 确定标签 - 如果提供了新标签且与当前不同，则更新标签
-        final updatedLabel = (label.isNotEmpty && label != currentLabel) ? label : currentLabel;
-        
-        // 4. 更新记录
+        // 5. 更新记录
         result = await txn.update(
           _tableName,
-          {'count': newCount, 'label': updatedLabel},
+          {
+            'count': newCount,
+            'label': topLabel,
+            'labels_json': jsonEncode(labelsCount)
+          },
           where: 'phoneNumber = ?',
           whereArgs: [phoneNumber],
         );
         
-        // 5. 记录操作
+        // 6. 记录操作日志
         if (result > 0) {
           await _logOperation(
             txn,
             'VOTE',
             phoneNumber,
-            payload: {'increment': 1, 'label': updatedLabel},
+            payload: {
+              'label': label,
+              'increment': 1,
+              'topLabel': topLabel,
+              'labelsCount': labelsCount
+            },
+          );
+        }
+      } else {
+        // 如果记录不存在，创建新记录
+        final Map<String, dynamic> row = {
+          'phoneNumber': phoneNumber,
+          'id': const Uuid().v4(),
+          'label': label,
+          'count': 1,
+          'labels_json': jsonEncode({label: 1})
+        };
+        
+        result = await txn.insert(_tableName, row);
+        
+        if (result > 0) {
+          await _logOperation(
+            txn,
+            'VOTE',
+            phoneNumber,
+            payload: {
+              'label': label,
+              'increment': 1,
+              'topLabel': label,
+              'labelsCount': {label: 1}
+            },
           );
         }
       }
@@ -540,10 +624,11 @@ class RemoteNumberDataSource
         );
         deletedCount = result;
 
-        // Log deletion for orphaned numbers
-        for (final phoneNumber in orphanedNumbers) {
-          await _logOperation(txn, 'DELETE', phoneNumber);
-        }
+        // Log deletion for orphaned numbers - 禁用同步到云端
+        // 根据删除逻辑的更新和审核要求，注释掉以下代码以禁止将删除操作同步到云端
+        // for (final phoneNumber in orphanedNumbers) {
+        //   await _logOperation(txn, 'DELETE', phoneNumber);
+        // }
       }
     });
 

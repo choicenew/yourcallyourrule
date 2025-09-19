@@ -19,6 +19,7 @@ class AllowedBlockedRuleModel extends RuleModel {
   final bool isSubscribed;
   final int count;
   final String? avatar;
+  final String? subscriptionId;
 
   const AllowedBlockedRuleModel({
     required super.id,
@@ -30,6 +31,7 @@ class AllowedBlockedRuleModel extends RuleModel {
     required this.isSubscribed,
     required this.count,
     this.avatar,
+    this.subscriptionId,
     super.isEnabled,
     String? ruleType, // Make ruleType optional
   }) : super(
@@ -47,6 +49,7 @@ class AllowedBlockedRuleModel extends RuleModel {
       isSubscribed: (map['isSubscribed'] ?? 0) == 1,
       count: map['count'] ?? 0,
       avatar: map['avatar'],
+      subscriptionId: map['subscriptionId'],
       isEnabled: (map['isEnabled'] ?? 1) == 1,
       ruleType: map['ruleType'], // Read ruleType from map
     );
@@ -61,6 +64,7 @@ class AllowedBlockedRuleModel extends RuleModel {
       'isSubscribed': isSubscribed ? 1 : 0,
       'count': count,
       'avatar': avatar,
+      'subscriptionId': subscriptionId,
     });
     return map;
   }
@@ -74,10 +78,11 @@ class AllowedBlockedRuleModel extends RuleModel {
       action: RuleAction.fromString(action),
       phoneNumber: PhoneNumber.fromString(phoneNumber),
       labelId: labelId,
-      isSubscribed: isSubscribed,
+    
       count: count,
       avatar: avatar,
       isEnabled: isEnabled,
+      subscriptionId: subscriptionId,
     );
   }
 
@@ -92,6 +97,7 @@ class AllowedBlockedRuleModel extends RuleModel {
       isSubscribed: entity.isSubscribed,
       count: entity.count,
       avatar: entity.avatar,
+      subscriptionId: entity.subscriptionId,
       isEnabled: entity.isEnabled,
     );
   }

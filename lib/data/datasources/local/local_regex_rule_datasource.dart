@@ -72,7 +72,7 @@ class LocalRegexRuleDataSource implements LocalDataSource<RegexRuleModel> {
         action: rule.action,
         priority: rule.priority,
         isEnabled: rule.isEnabled,
-        isSubscribed: rule.isSubscribed,
+        subscriptionId: rule.subscriptionId,
         ruleType: 'regex',
       );
     } else {

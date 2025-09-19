@@ -14,7 +14,7 @@ class MembershipFeatureService {
       AppLocalizations.of(context)!.noAds,
       AppLocalizations.of(context)!.cloudBackup,
       AppLocalizations.of(context)!.callerIdEnhancement,
-      AppLocalizations.of(context)!.voiceRecognition
+      //AppLocalizations.of(context)!.voiceRecognition
     ];
   }
 
@@ -24,7 +24,7 @@ class MembershipFeatureService {
     return [
       AppLocalizations.of(context)!.cloudBackup,
       AppLocalizations.of(context)!.callerIdEnhancement,
-      AppLocalizations.of(context)!.voiceRecognition
+      //AppLocalizations.of(context)!.voiceRecognition
     ];
   }
   
@@ -76,7 +76,7 @@ class MembershipFeatureService {
       buildTableRow(AppLocalizations.of(context)!.removeAds, '❌', '✅', '❌'),
       buildTableRow(AppLocalizations.of(context)!.cloudBackup, '❌', '✅', '✅'),
       buildTableRow(AppLocalizations.of(context)!.callerIdEnhancement, '❌', '✅', '✅'),
-      buildTableRow(AppLocalizations.of(context)!.voiceRecognition, '❌', '✅', '✅'),
+      //buildTableRow(AppLocalizations.of(context)!.voiceRecognition, '❌', '✅', '✅'),
     ];
   }
 

@@ -1,0 +1,86 @@
+// 文件: data/repositories/rule_repository_impl.dart
+
+class RuleRepositoryImpl implements RuleRepository {
+  final LocalPhoneRuleDataSource _localPhoneRuleDataSource;
+  final LocalRegexRuleDataSource _localRegexRuleDataSource;
+
+  RuleRepositoryImpl(this._localPhoneRuleDataSource, this._localRegexRuleDataSource);
+
+  // *** 这是新的、完全内部的私有工厂方法 ***
+  RuleModel _createModelFromEntity(RuleBase entity) {
+    if (entity is PhoneRule) {
+      return PhoneRuleModel.fromEntity(entity);
+    } else if (entity is AllowedBlockedRule) {
+      return AllowedBlockedRuleModel.fromEntity(entity);
+    } else if (entity is RegexRule) {
+      return RegexRuleModel.fromEntity(entity);
+    }
+    // 当未来有新的 Rule 类型时，只需要修改这一个地方。
+    throw ArgumentError('Unsupported rule type for model creation: ${entity.runtimeType}');
+  }
+
+  // ... 现有的其他方法，如 createRuleFromMap, getAll 等保持不变 ...
+  第 2 步：创建一个分发映射表 (Dispatch Map)
+code
+Dart
+// 文件: data/repositories/rule_repository_impl.dart
+
+class RuleRepositoryImpl implements RuleRepository {
+  // ... DataSource 成员 ...
+
+  RuleRepositoryImpl(this._localPhoneRuleDataSource, this._localRegexRuleDataSource) {
+    // *** 在构造函数中初始化我们的分发逻辑 ***
+    _setupSaveDispatch();
+  }
+  
+  // 私有工厂方法 (不变)
+  RuleModel _createModelFromEntity(RuleBase entity) { /* ... */ }
+
+  // === 这是新的分发机制 ===
+  // 1. 定义一个分发映射表
+  late final Map<Type, Future<void> Function(RuleModel model)> _saveDispatchMap;
+
+  // 2. 在构造函数中设置这个映射表
+  void _setupSaveDispatch() {
+    _saveDispatchMap = {
+      PhoneRuleModel: (model) async => await _localPhoneRuleDataSource.insert(model as PhoneRuleModel),
+      AllowedBlockedRuleModel: (model) async {
+        // 在这里进行安全的转换
+        final phoneModel = PhoneRuleModel.fromMap(model.toMap());
+        await _localPhoneRuleDataSource.insert(phoneModel);
+      },
+      RegexRuleModel: (model) async => await _localRegexRuleDataSource.insert(model as RegexRuleModel),
+    };
+  }
+
+  // 3. `saveRule` 方法现在变得极其简洁
+  @override
+  Future<bool> saveRule(RuleBase rule) async {
+    try {
+      final model = _createModelFromEntity(rule);
+      final saveFunction = _saveDispatchMap[model.runtimeType];
+
+      if (saveFunction != null) {
+        await saveFunction(model);
+        return true;
+      } else {
+        throw UnimplementedError('No save handler for model type: ${model.runtimeType}');
+      }
+    } catch (e) {
+      print('保存规则失败: $e');
+      return false;
+    }
+  }
+
+  // ... 现有的其他所有方法保持不变 ...
+}
+这个方案为什么是当前情况下最优雅的？
+零侵入性：它没有修改任何一个 Model 类、Entity 类、Service 类或 main.dart。所有的逻辑都完全封装在 RuleRepositoryImpl 内部。
+向后兼容：由于没有改变任何公共接口，所有现有的、未知的下游依赖代码都不会受到任何影响。
+遵循开闭原则：当未来需要支持新的 NewRule 时：
+你只需在 _createModelFromEntity 中增加一个 if 分支。
+在 _setupSaveDispatch 的 Map 中增加一个新的条目来处理保存逻辑。
+所有其他的代码都不需要改动。这虽然不是完美的开闭（因为 Repository 内部需要修改），但它将修改隔离在了一个可控的、单一的地方。
+内部解决：这完全是一个内部解决方案。Repository 承担了它本该承担的职责——理解并处理不同数据模型的持久化逻辑。它没有将这个复杂性泄露给外部。
+代码清晰：saveRule 方法现在的意图非常清晰：“创建模型，查找对应的保存函数，然后执行它”。所有的 if/else 业务逻辑都被抽象到了分发映射表中，使得核心方法的可读性大大提高。
+考虑到您“不能修改大量现有代码”和“不能依赖外部配置”的核心约束，这个**“内部工厂 + 分发映射表”**的方案，是在不进行大规模重构的前提下

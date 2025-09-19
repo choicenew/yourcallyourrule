@@ -78,7 +78,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           setState(() {
             _currentIndex = index;
           });
-          AppRouter.handleNavigation(context, index);
+          BottomNavigationHandler.handleNavigation(context, index);
         },
       ),
     );

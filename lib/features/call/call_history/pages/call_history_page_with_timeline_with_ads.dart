@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
+
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
@@ -253,6 +256,19 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
                 _showClearAllDialog();
               },
             ),
+
+            // START: 添加的新代码
+            ListTile(
+              leading: const Icon(Icons.label_outline),
+              title: Text(AppLocalizations.of(ctx)!. labelManagement), // 假设您有这个本地化字符串
+              onTap: () {
+                Navigator.pop(ctx); // 首先关闭 BottomSheet
+                // 使用 GoRouter 进行命名路由跳转
+                GoRouter.of(context).pushNamed(AppRouter.labelManagementWithAds);
+              },
+            ),
+            // END: 添加的新代码
+
           ],
         ),
       ),
@@ -325,7 +341,7 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     return Scaffold(
       bottomNavigationBar: BottomNavigation(
         currentIndex: 1,
-        onTap: (index) => AppRouter.handleNavigation(context, index),
+        onTap: (index) => BottomNavigationHandler.handleNavigation(context, index),
       ),
       body: GenericTimelineListWithAdsPage<CallLog>(
         title: AppLocalizations.of(context)!.callHistory,

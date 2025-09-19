@@ -79,4 +79,19 @@ class SimSlotRule extends RuleBase {
       avatar: avatar ?? this.avatar,
     );
   }
+  
+  // 从Map创建SimSlotRule实例
+  factory SimSlotRule.fromMap(Map<String, dynamic> map) {
+    return SimSlotRule(
+      id: map['id'],
+      name: map['name'],
+      priority: RulePriority.fromInt(map['priority']),
+      action: RuleAction.fromString(map['action']),
+      phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
+      simSlotIndex: map['simSlotIndex'],
+      labelId: map['labelId'] ?? '',
+      avatar: map['avatar'],
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
+    );
+  }
 }

@@ -176,7 +176,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
           : _buildDashboardContent(),
       bottomNavigationBar: BottomNavigation(
         currentIndex: 3, // 仪表盘选项卡
-        onTap: (index) => AppRouter.handleNavigation(context, index),
+        onTap: (index) => BottomNavigationHandler.handleNavigation(context, index),
       ),
     );
   }

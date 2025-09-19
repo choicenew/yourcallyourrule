@@ -615,7 +615,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
     return Scaffold(
       bottomNavigationBar: BottomNavigation(
         currentIndex: 2, // 联系人页面标签索引
-        onTap: (index) => AppRouter.handleNavigation(context, index),
+        onTap: (index) => BottomNavigationHandler.handleNavigation(context, index),
       ),
       body: GenericListWithAdsPage<Contact>(
       title: _isMultiSelectMode 

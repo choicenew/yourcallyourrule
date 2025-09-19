@@ -5096,5 +5096,66 @@ class AppLocalizationsEn extends AppLocalizations {
   String get numberInvalidFormat => 'Number invalid format';
 
   @override
+  String get membershipFeature => 'Membership Feature';
+
+  @override
+  String get rewardedAdService => 'Rewarded Ad Service';
+
+  @override
+  String get hasVipPrivilegeExceptAds => 'You already have VIP privileges (except for ads)';
+
+  @override
+  String hasTempPrivilegeWithExpiry(Object expiryDate) {
+    return 'You already have temporary privileges, expiry date: $expiryDate';
+  }
+
+  @override
+  String watchMoreAdsForTempVip(Object count) {
+    return 'You need to watch $count more ads to get temporary VIP privileges';
+  }
+
+  @override
+  String grantedTempPurchaseWithExpiry(Object days, Object expiryDate) {
+    return 'You have been granted $days days of temporary purchase privileges. Expiry date: $expiryDate';
+  }
+
+  @override
+  String get tempPurchaseExpired => 'Temporary purchase privilege has expired';
+
+  @override
+  String get loadingAd => 'Loading Ad...';
+
+  @override
+  String get earnedTempVip => 'Earned temporary VIP';
+
+  @override
+  String get vipExchangeService => 'VIP Exchange Service';
+
+  @override
+  String get marksInsufficient => 'Insufficient marks to exchange';
+
+  @override
+  String get invalidExchangeRule => 'Invalid exchange rule';
+
+  @override
+  String exchangeSuccess(Object description, Object expiryDate) {
+    return 'Successfully exchanged for $description, expiry date: $expiryDate';
+  }
+
+  @override
+  String exchangeFailed(Object error) {
+    return 'Exchange failed: $error';
+  }
+
+  @override
+  String get vip3DaysWithAds => '3-day VIP with ads (sync only)';
+
+  @override
+  String get vip5DaysNoAds => '5-day full-featured ad-free VIP';
+
+  @override
+  String get vip7DaysNoAds => '7-day full-featured ad-free VIP';
+
+  @override
   String get yesterday => 'Yesterday';
 }

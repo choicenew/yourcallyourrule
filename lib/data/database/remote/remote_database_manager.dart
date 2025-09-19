@@ -75,7 +75,8 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
         label TEXT NOT NULL,
         priority INTEGER NOT NULL DEFAULT 0,
         action TEXT NOT NULL DEFAULT 'none',
-        count INTEGER NOT NULL DEFAULT 0
+        count INTEGER NOT NULL DEFAULT 0,
+        labels_json TEXT
       )
     ''');
     
@@ -170,7 +171,8 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
           label TEXT NOT NULL,
           priority INTEGER NOT NULL DEFAULT 0,
           action TEXT NOT NULL DEFAULT 'none',
-          count INTEGER NOT NULL DEFAULT 0
+          count INTEGER NOT NULL DEFAULT 0,
+          labels_json TEXT
         )
       ''');
 

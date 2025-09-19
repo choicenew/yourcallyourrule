@@ -36,7 +36,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     return Scaffold(
       bottomNavigationBar: BottomNavigation(
         currentIndex: 3, // 统计页面标签索引
-        onTap: (index) => AppRouter.handleNavigation(context, index),
+        onTap: (index) => BottomNavigationHandler.handleNavigation(context, index),
       ),
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.statisticsPageTitle),
