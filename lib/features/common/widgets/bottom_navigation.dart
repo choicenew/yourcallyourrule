@@ -1,6 +1,9 @@
+// 文件：lib/features/common/widgets/bottom_navigation.dart
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+// 注意：这里的 as app_router 仍然需要，因为它被下面的 handleNavigation 方法使用了
 import 'package:yourcallyourrule/core/router/app_router.dart' as app_router;
 
 class BottomNavigation extends StatelessWidget {
@@ -48,7 +51,8 @@ class BottomNavigation extends StatelessWidget {
   }
 }
 
-class AppRouter {
+// START: 修改这里
+class BottomNavigationHandler { // <-- 从 AppRouter 重命名为 BottomNavigationHandler
   static void handleNavigation(BuildContext context, int index) {
     switch (index) {
       case 0:
@@ -69,3 +73,4 @@ class AppRouter {
     }
   }
 }
+// END: 修改这里

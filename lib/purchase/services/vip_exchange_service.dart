@@ -1,6 +1,8 @@
 // VIP兑换服务类，用于处理VIP兑换的业务逻辑
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import '../../data/repositories/label_mark_statistics_repository.dart';
 import '../../data/datasources/local/local_label_mark_statistics_datasource.dart';
@@ -30,29 +32,34 @@ class VipExchangeService {
   final LabelMarkStatisticsRepository _statisticsRepository;
   
   // 兑换规则
-  static final List<VipExchangeRule> _exchangeRules = [
-    const VipExchangeRule(
-      requiredMarks: 10,
-      days: 3,
-      hasAds: true,
-      hasSync: true,
-      description: '3天带广告VIP（仅同步）',
-    ),
-    const VipExchangeRule(
-      requiredMarks: 30,
-      days: 5,
-      hasAds: false,
-      hasSync: true,
-      description: '5天全功能无广告VIP',
-    ),
-    const VipExchangeRule(
-      requiredMarks: 40,
-      days: 7,
-      hasAds: false,
-      hasSync: true,
-      description: '7天全功能无广告VIP',
-    ),
-  ];
+  // 为了在静态列表中使用国际化，我们将其改为一个getter，这样可以在调用时获取上下文。
+  // 这完全遵循了您在`MembershipFeatureService`中展示的模式。
+  List<VipExchangeRule> get _exchangeRules {
+    final context = AppRouter.navigatorKey.currentContext!;
+    return [
+      VipExchangeRule(
+        requiredMarks: 10,
+        days: 3,
+        hasAds: true,
+        hasSync: true,
+        description: AppLocalizations.of(context)!.vip3DaysWithAds,
+      ),
+      VipExchangeRule(
+        requiredMarks: 30,
+        days: 5,
+        hasAds: false,
+        hasSync: true,
+        description: AppLocalizations.of(context)!.vip5DaysNoAds,
+      ),
+      VipExchangeRule(
+        requiredMarks: 40,
+        days: 7,
+        hasAds: false,
+        hasSync: true,
+        description: AppLocalizations.of(context)!.vip7DaysNoAds,
+      ),
+    ];
+  }
   
   // 构造函数
   VipExchangeService(this._purchaseState, this._statisticsRepository);
@@ -70,12 +77,13 @@ class VipExchangeService {
   
   // 兑换VIP
   Future<VipExchangeResult> exchangeVip(int requiredMarks) async {
+    final context = AppRouter.navigatorKey.currentContext!;
     // 检查是否可以兑换
     final canExchangeVip = await canExchange(requiredMarks);
     if (!canExchangeVip) {
       return VipExchangeResult(
         success: false,
-        message: '标记次数不足，无法兑换',
+        message: AppLocalizations.of(context)!.marksInsufficient,
         currentMarks: await _statisticsRepository.getMarkCount(),
       );
     }
@@ -83,7 +91,7 @@ class VipExchangeService {
     // 获取兑换规则
     final rule = _exchangeRules.firstWhere(
       (rule) => rule.requiredMarks == requiredMarks,
-      orElse: () => throw Exception('无效的兑换规则'),
+      orElse: () => throw Exception(AppLocalizations.of(context)!.invalidExchangeRule),
     );
     
     try {
@@ -106,14 +114,14 @@ class VipExchangeService {
       
       return VipExchangeResult(
         success: true,
-        message: '成功兑换${rule.description}，到期时间：${_formatDateTime(expiryDate)}',
+        message: AppLocalizations.of(context)!.exchangeSuccess(rule.description, _formatDateTime(expiryDate)),
         currentMarks: 0,
         expiryDate: expiryDate,
       );
     } catch (e) {
       return VipExchangeResult(
         success: false,
-        message: '兑换失败：$e',
+        message: AppLocalizations.of(context)!.exchangeFailed(e.toString()),
         currentMarks: await _statisticsRepository.getMarkCount(),
       );
     }

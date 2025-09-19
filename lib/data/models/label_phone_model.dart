@@ -5,13 +5,10 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
-
-import 'base_model.dart';
+import 'rule_model.dart';
 
 // 标签模型类
-class LabelModel extends BaseModel<LabelPhoneEntry> {
-  // 标签名称（可选）
-  final String? name;
+class LabelModel extends RuleModel {
   // 标签图标（可选）
   final String? icon;
   // 电话号码
@@ -20,31 +17,25 @@ class LabelModel extends BaseModel<LabelPhoneEntry> {
   final String labelId;
   // 头像（可选）
   final String? avatar;
-  // 优先级
-  final int priority;
-  // 动作
-  final String action;
-  // 是否启用
-  final bool isEnabled;
 
   // 构造函数
   const LabelModel({
     required super.id,
-    this.name,
+    required super.name,
+    required super.priority,
+    required super.action,
     this.icon,
     required this.phoneNumber,
     required this.labelId,
     this.avatar,
-    this.priority = 0, // 默认优先级为0，与LabelEntry.defaultPriority一致
-    this.action = 'none', // 默认动作为none，与LabelEntry.defaultAction一致
-    this.isEnabled = true,
-  });
+    super.isEnabled = true,
+  }) : super(ruleType: 'label');
 
   // 从Map创建模型
   factory LabelModel.fromMap(Map<String, dynamic> map) {
     return LabelModel(
       id: map['id'],
-      name: map['name'],
+      name: map['name'] ?? '',
       icon: map['icon'],
       phoneNumber: map['phoneNumber'],
       labelId: map['labelId'], // 只使用labelId，不再兼容旧数据
@@ -60,14 +51,10 @@ class LabelModel extends BaseModel<LabelPhoneEntry> {
   Map<String, dynamic> toMap() {
     final map = super.toMap();
     map.addAll({
-      'name': name,
       'icon': icon,
       'phoneNumber': phoneNumber,
       'labelId': labelId,
       'avatar': avatar,
-      'priority': priority,
-      'action': action,
-      'isEnabled': isEnabled ? 1 : 0,
     });
     return map;
   }
@@ -94,11 +81,11 @@ class LabelModel extends BaseModel<LabelPhoneEntry> {
       id: entity.id,
       phoneNumber: entity.phoneNumber.value,
       labelId: entity.labelId,
-      name: entity.name,
+      name: entity.name ?? '',
       icon: entity.icon,
       avatar: entity.avatar,
       priority: entity.priority.value,
-      action: entity.action.toString().split('.').last,
+      action: entity.action.toString(),
       isEnabled: entity.isEnabled,
     );
   }

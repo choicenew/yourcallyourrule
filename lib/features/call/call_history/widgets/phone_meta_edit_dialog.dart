@@ -13,6 +13,7 @@ import 'package:yourcallyourrule/core/provider/providers/label_service_provider.
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/providers/label_phone_entry_to_remote_provider.dart';
+import 'package:yourcallyourrule/features/labels/providers/label_mark_statistics_sync_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 电话元数据编辑对话框
@@ -81,6 +82,10 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
       if (entryToProcess != null) {
         final syncService = ref.read(labelPhoneEntryToRemoteProvider);
         await syncService.sync(entryToProcess);
+
+        // 步骤 E: 更新标记统计
+        final statisticsSyncService = ref.read(labelMarkStatisticsSyncServiceProvider);
+        await statisticsSyncService.syncSingleLabel(entryToProcess);
       }
       
       if (mounted) {

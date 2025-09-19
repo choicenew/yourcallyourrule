@@ -43,16 +43,20 @@ class _MarkPhoneManagementPageWithAdsState
   void initState() {
     super.initState();
     // 初始化时不直接创建服务实例，而是在didChangeDependencies中通过Provider获取
-    _loadMarkCount();
-    _loadMarkedPhones();
   }
-
+  
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-
+    
     // 通过Provider获取服务实例
     _statisticsService = ref.read(labelMarkStatisticsServiceProvider);
+    
+    // 加载标记数量
+    _loadMarkCount();
+    
+    // 加载标记的电话号码列表
+    _loadMarkedPhones();
 
     // 监听标记计数变化
     _markCountSubscription?.cancel();
@@ -115,12 +119,12 @@ class _MarkPhoneManagementPageWithAdsState
 
       setState(() {
         _markedPhones = filteredPhones;
-        _isLoadingMarkedPhones = false;
       });
     } catch (e) {
       _showSnackBar(
         AppLocalizations.of(context)!.loadMarkedPhonesFailed(e.toString()),
       );
+    } finally {
       setState(() {
         _isLoadingMarkedPhones = false;
       });

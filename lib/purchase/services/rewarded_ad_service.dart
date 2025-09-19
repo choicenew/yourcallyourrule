@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 /// 激励广告服务
@@ -23,8 +24,9 @@ class RewardedAdService {
     if (purchaseState.hasTempPurchase) {
       showSnackBar(
         purchaseState.isPurchasesEnabled
-            ? '您已拥有VIP特权（除广告外）'
-            : '您已拥有临时特权，到期时间: ${purchaseState.tempPurchaseExpiryDate!.toLocal()}',
+            ? AppLocalizations.of(context)!.hasVipPrivilegeExceptAds
+            : AppLocalizations.of(context)!.hasTempPrivilegeWithExpiry(
+                purchaseState.tempPurchaseExpiryDate!.toLocal().toString()),
       );
       return;
     }
@@ -39,7 +41,7 @@ class RewardedAdService {
               _grantTemporaryPurchase(context, showSnackBar);
             } else {
               showSnackBar(
-                '您需要再观看 ${5 - _adCount} 个广告以获得临时VIP特权',
+                AppLocalizations.of(context)!.watchMoreAdsForTempVip(5 - _adCount),
               );
             }
           },
@@ -58,11 +60,12 @@ class RewardedAdService {
     _tempPurchaseTimer = Timer(Duration(days: randomDays), () {
       purchaseState.updateTempPurchaseState(false, DateTime.now());
       _adCount = 0;
-      showSnackBar('临时购买特权已过期');
+      showSnackBar(AppLocalizations.of(context)!.tempPurchaseExpired);
     });
 
     showSnackBar(
-      '您已获得 $randomDays 天临时购买特权。到期时间: ${expiryDate.toLocal()}',
+      AppLocalizations.of(context)!.grantedTempPurchaseWithExpiry(
+          randomDays, expiryDate.toLocal().toString()),
     );
   }
 
@@ -112,7 +115,7 @@ class _ModernRewardedAdPageState extends State<_ModernRewardedAdPage> {
               widget.onRewardEarned(null);
               Navigator.pop(context);
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: const Text('已获得临时VIP'),
+                content: Text(AppLocalizations.of(context)!.earnedTempVip),
                 backgroundColor: Colors.green,
                 behavior: SnackBarBehavior.floating,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -145,15 +148,15 @@ class _ModernRewardedAdPageState extends State<_ModernRewardedAdPage> {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: const Center(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircularProgressIndicator(color: Colors.white),
-              SizedBox(height: 20),
+              const CircularProgressIndicator(color: Colors.white),
+              const SizedBox(height: 20),
               Text(
-                '正在加载广告...',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                AppLocalizations.of(context)!.loadingAd,
+                style: const TextStyle(color: Colors.white, fontSize: 16),
               ),
             ],
           ),

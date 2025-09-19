@@ -2215,6 +2215,48 @@
  "callType": "Call Type",
 "callTime": "Call Time",
 "numberInvalidFormat": "Number invalid format",
+
+
+
+
+  "membershipFeature": "Membership Feature",
+
+
+
+
+
+
+
+
+  "rewardedAdService": "Rewarded Ad Service",
+  "hasVipPrivilegeExceptAds": "You already have VIP privileges (except for ads)",
+  "hasTempPrivilegeWithExpiry": "You already have temporary privileges, expiry date: {expiryDate}",
+  "watchMoreAdsForTempVip": "You need to watch {count} more ads to get temporary VIP privileges",
+  "grantedTempPurchaseWithExpiry": "You have been granted {days} days of temporary purchase privileges. Expiry date: {expiryDate}",
+  "tempPurchaseExpired": "Temporary purchase privilege has expired",
+  "loadingAd": "Loading Ad...",
+  "earnedTempVip": "Earned temporary VIP",
+  "vipExchangeService": "VIP Exchange Service",
+  "marksInsufficient": "Insufficient marks to exchange",
+  "invalidExchangeRule": "Invalid exchange rule",
+  "exchangeSuccess": "Successfully exchanged for {description}, expiry date: {expiryDate}",
+  "exchangeFailed": "Exchange failed: {error}",
+  "vip3DaysWithAds": "3-day VIP with ads (sync only)",
+  "vip5DaysNoAds": "5-day full-featured ad-free VIP",
+  "vip7DaysNoAds": "7-day full-featured ad-free VIP",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "yesterday": "Yesterday"
 }
 

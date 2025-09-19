@@ -14,6 +14,7 @@ import 'package:yourcallyourrule/data/datasources/local/local_plugin_datasource.
 import 'package:yourcallyourrule/data/datasources/local/local_predefined_label_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_phone_rule_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_regex_rule_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_sim_slot_rule_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_sms_regex_rule_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_subscription_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
@@ -39,6 +40,7 @@ class DatabaseService {
   late final LocalPluginDataSource localPluginDataSource;
   late final RemoteNumberDataSource remoteNumberDataSource;
   late final LocalPredefinedLabelDataSource localPredefinedLabelDataSource;
+  late final LocalSimSlotRuleDataSource localSimSlotRuleDataSource;
   
   // 表变化监听器
   final Map<String, StreamController<List<Map<String, dynamic>>>> _tableControllers = {};
@@ -60,6 +62,7 @@ class DatabaseService {
     localPluginDataSource = LocalPluginDataSource(_localDatabaseManager);
     remoteNumberDataSource = RemoteNumberDataSource(_remoteDatabaseManager);
     localPredefinedLabelDataSource = LocalPredefinedLabelDataSource(_localDatabaseManager);
+    localSimSlotRuleDataSource = LocalSimSlotRuleDataSource(_localDatabaseManager);
   }
   
   // 工厂构造函数

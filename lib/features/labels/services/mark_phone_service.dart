@@ -70,6 +70,13 @@ class LabelPhoneService extends ListService {
   /// 获取所有电话号码标记
   Future<List<LabelPhoneEntry>> getAllPhoneMarks() async {
     final rules = await _ruleRepository.getAll();
+     print('markphone 获取到的所有 rules: $rules');
+    print('markphone获取所有电话号码标记: ${rules.map((e) {
+    if (e is LabelPhoneEntry) {
+      return 'ID: ${e.id}, 电话: ${e.phoneNumber}, 标签: ${e.labelId}';
+    }
+    return 'ID: ${e.id}, Type: ${e.runtimeType}'; // 处理其他类型
+  }).toList()}');
     return rules.whereType<LabelPhoneEntry>().toList();
   }
 
