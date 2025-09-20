@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart.bak';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
@@ -11,6 +12,7 @@ import 'package:yourcallyourrule/features/labels/providers/mark_phone_service_pr
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
+import 'package:yourcallyourrule/features/labels/widgets/dialogs/mark_phone_edit_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
@@ -329,14 +331,20 @@ class _MarkPhoneManagementPageWithAdsState
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            CircleAvatar(
-              backgroundColor: const Color(0xFFF5A623),
-              radius: 24,
-              child: Text(
-                entry.name.isNotEmpty ? entry.name[0] : '?',
-                style: const TextStyle(color: Colors.white, fontSize: 18),
-              ),
-            ),
+            FutureBuilder<String>(
+               future: _getLabelName(entry.labelId),
+               builder: (context, snapshot) {
+                 final labelName = snapshot.data ?? '';
+                 return CircleAvatar(
+                   backgroundColor: AvatarUtils.getColorFromName(entry.name.isNotEmpty ? entry.name : labelName),
+                   radius: 24,
+                   child: Text(
+                     AvatarUtils.getAvatarInitial(entry.name.isNotEmpty ? entry.name : labelName),
+                     style: const TextStyle(color: Colors.white, fontSize: 18),
+                   ),
+                 );
+               },
+             ),
             const SizedBox(width: 16),
             Expanded(
               child: Column(
@@ -362,8 +370,7 @@ class _MarkPhoneManagementPageWithAdsState
                       );
                     },
                   ),
-                  if (entry.name.isNotEmpty) ...[
-                    const SizedBox(height: 4),
+                  if (entry.name.isNotEmpty) ...[                    const SizedBox(height: 4),
                     Text(
                       entry.name,
                       style: const TextStyle(fontSize: 14, color: Colors.grey),
@@ -371,6 +378,11 @@ class _MarkPhoneManagementPageWithAdsState
                   ],
                 ],
               ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.edit, color: Colors.blue),
+              onPressed: () => _editMarkedPhone(entry),
+              tooltip: AppLocalizations.of(context)!.edit,
             ),
             IconButton(
               icon: const Icon(Icons.delete, color: Colors.red),
@@ -388,6 +400,24 @@ class _MarkPhoneManagementPageWithAdsState
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final label = await predefinedLabelService.getLabelById(labelId);
     return label?.text ?? AppLocalizations.of(context)!.unknown;
+  }
+
+  /// 编辑标记的电话号码
+  Future<void> _editMarkedPhone(LabelPhoneEntry entry) async {
+    try {
+      // 使用MarkPhoneEditDialog显示编辑对话框
+      MarkPhoneEditDialog.show(
+        context, 
+        entry,
+        onEntryUpdated: () {
+          // 重新加载标记号码列表
+          _loadMarkedPhones();
+        },
+        themeColor: const Color(0xFFF5A623),
+      );
+    } catch (e) {
+      _showSnackBar('${AppLocalizations.of(context)!.updateRuleFailed}: ${e.toString()}');
+    }
   }
 
   @override
