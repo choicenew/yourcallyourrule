@@ -111,14 +111,14 @@ class RuleListCard extends ConsumerWidget {
                         color: actionColor,
                         size: 16),
                     label: Text('${AppLocalizations.of(context)!.actionType}: ${actionText}'),
-                    backgroundColor: actionColor.withOpacity(0.1),
+                    backgroundColor: actionColor.withValues(alpha:0.1),
                     labelStyle: TextStyle(color: actionColor),
                   ),
                   if (labelId.isNotEmpty && labelIdToTextMap.containsKey(labelId))
                     Chip(
                       label: Text(
                           '${AppLocalizations.of(context)!.label}: ${LabelTranslationUtils.translateLabelText(context, labelIdToTextMap[labelId]!)}'),
-                      backgroundColor: themeColor.withOpacity(0.1),
+                      backgroundColor: themeColor.withValues(alpha:0.1),
                       labelStyle: TextStyle(color: themeColor),
                     ),
                 ],
