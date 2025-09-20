@@ -61,6 +61,7 @@ class RuleListCard extends ConsumerWidget {
             Row(
               children: [
                 CircleAvatar(
+                  backgroundColor: AvatarUtils.getColorFromName(labelId),
                   radius: 25,
                   backgroundImage: AvatarUtils.getAvatarImage(avatar, labelIdToTextMap[labelId]),
                   child: const Icon(Icons.person), // Default icon

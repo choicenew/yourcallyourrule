@@ -5,7 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart.bak';
+import 'package:yourcallyourrule/features/labels/providers/label_phone_entry_to_remote_provider.dart';
+import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/features/labels/providers/label_mark_statistics_sync_service_provider.dart';
 import 'package:yourcallyourrule/features/labels/providers/mark_phone_service_provider.dart';
@@ -222,10 +223,10 @@ class _MarkPhoneManagementPageWithAdsState
                   );
                   await statisticsSyncService.syncSingleLabel(labelPhoneEntry);
 // 使用标签到远程号码同步服务同步标记
-                  final labelToRemoteSyncService = ref.read(
-                    labelToRemoteSyncServiceProvider,
+                  final labelPhoneEntryToRemote = ref.read(
+                    labelPhoneEntryToRemoteProvider,
                   );
-                  await labelToRemoteSyncService.syncSingleLabel(labelPhoneEntry);
+                  await labelPhoneEntryToRemote.sync(labelPhoneEntry);
 
                   Navigator.pop(context);
                   _loadMarkedPhones();
@@ -336,7 +337,7 @@ class _MarkPhoneManagementPageWithAdsState
                builder: (context, snapshot) {
                  final labelName = snapshot.data ?? '';
                  return CircleAvatar(
-                   backgroundColor: AvatarUtils.getColorFromName(entry.name.isNotEmpty ? entry.name : labelName),
+                   backgroundColor: AvatarUtils.getColorFromName(entry.labelId),
                    radius: 24,
                    child: Text(
                      AvatarUtils.getAvatarInitial(entry.name.isNotEmpty ? entry.name : labelName),
@@ -361,8 +362,11 @@ class _MarkPhoneManagementPageWithAdsState
                   FutureBuilder<String>(
                     future: _getLabelName(entry.labelId),
                     builder: (context, snapshot) {
+                      final labelText = snapshot.data ?? AppLocalizations.of(context)!.loading;
+                      // 使用LabelTranslationUtils翻译标签文本
+                      final translatedLabel = LabelTranslationUtils.translateLabelText(context, labelText);
                       return Text(
-                        snapshot.data ?? AppLocalizations.of(context)!.loading,
+                        translatedLabel,
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.grey,
