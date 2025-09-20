@@ -445,13 +445,13 @@ function errorResponse(message, status = 500) {
 }
 第四部分：客户端最终实现 (Dart/Flutter)
 文件 1: lib/features/device_profile/services/device_profile_service.dart (数据层)
-code
-Dart
-download
-content_copy
-expand_less
-IGNORE_WHEN_COPYING_START
-IGNORE_WHEN_COPYING_END
+
+
+
+
+
+
+
 // lib/features/device_profile/services/device_profile_service.dart
 
 import 'dart:convert';
@@ -532,13 +532,13 @@ class DeviceProfileService {
   }
 }
 文件 2: lib/features/deletion_proposer/logic/verification_logic.dart (逻辑层)
-code
-Dart
-download
-content_copy
-expand_less
-IGNORE_WHEN_COPYING_START
-IGNORE_WHEN_COPYING_END
+
+
+
+
+
+
+
 // lib/features/deletion_proposer/logic/verification_logic.dart
 
 import 'package:yourcallyourrule/features/device_profile/services/device_profile_service.dart';
