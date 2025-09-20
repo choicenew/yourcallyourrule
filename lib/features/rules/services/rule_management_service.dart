@@ -166,6 +166,11 @@ class RuleManagementService extends ListService {
     await _ruleRepository.updateRule(rule);
   }
   
+  // 保存规则
+  Future<void> saveRule(RuleBase rule) async {
+    await _ruleRepository.saveRule(rule);
+  }
+  
   /* 兼容性代码 - 暂时注释保留
   // 更新黑名单规则 (保留兼容性)
   Future<void> updateBlacklistRule(PhoneRule rule) async {
