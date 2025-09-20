@@ -52,8 +52,8 @@ class RuleRepositoryImpl implements RuleRepository {
       SimSlotRuleModel: (model) async => await _localSimSlotRuleDataSource.insert(model as SimSlotRuleModel),
       LabelModel: (model) async => await _localLabelDataSource.insert(model as LabelModel),
     };
-    // 确保SimSlotRuleModel也被添加到_updateDispatchMap中
-    _updateDispatchMap[SimSlotRuleModel] = (model) async => await _localSimSlotRuleDataSource.update(model as SimSlotRuleModel);
+  
+  
   }
   
   // 内部工厂方法，根据实体类型创建对应的模型
