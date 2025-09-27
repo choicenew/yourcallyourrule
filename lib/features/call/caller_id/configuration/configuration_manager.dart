@@ -1,21 +1,21 @@
-import 'dart:convert';
+// lib/features/call/caller_id/configuration/configuration_manager.dart
+
 import 'dart:io';
-
-
-
-import 'package:yourcallyourrule/common/error/logger.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
+import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config_service.dart';
+import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_import_export_service.dart';
 
-import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
-import '../providers/caller_id_style_provider.dart';
 
-import 'caller_id_config_service.dart';
-import 'caller_id_import_export_service.dart';
+
+// 删除了旧的 Provider import
+// import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
+// import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
+// import '../providers/caller_id_style_provider.dart';
 
 /// 来电显示配置管理器
-/// 负责协调来电显示样式的保存、加载、导入和导出
+/// 负责协调来电显示样式的保存、加载、导入和导出。
+/// 这个类现在是纯粹的业务逻辑层，与任何UI状态管理库（如Riverpod）解耦。
 class ConfigurationManager {
   final CallerIdConfigService _configService;
   final CallerIdImportExportService _importExportService;
@@ -27,74 +27,44 @@ class ConfigurationManager {
             CallerIdConfigService(_configRepository));
 
   /// 保存配置到仓库
-  Future<void> saveToRepository(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
-    final config = CallerIdConfigX.fromProviders(styleProvider, securityProvider);
+  /// 方法签名已更改：现在接收一个 CallerIdConfig 数据对象。
+  Future<void> saveConfig(CallerIdConfig config) async {
     await _configService.saveConfig(config);
   }
 
   /// 从仓库加载配置
-  Future<void> loadFromRepository(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
+  /// 方法签名已更改：现在返回一个 CallerIdConfig 数据对象。
+  /// 如果没有已保存的配置，它会加载并返回默认配置。
+  Future<CallerIdConfig> loadConfig() async {
     final config = await _configService.loadConfig();
     if (config != null) {
-      config.applyToProviders(styleProvider, securityProvider);
+      return config;
     } else {
-      // 如果没有保存的配置，初始化默认配置
-      final defaultConfig = await _configService.initializeDefault();
-      defaultConfig.applyToProviders(styleProvider, securityProvider);
+      // 如果没有保存的配置，初始化并返回默认配置
+      return await _configService.initializeDefault();
     }
   }
 
   /// 重置为默认配置
-  Future<void> resetToDefault(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
-    final defaultConfig = await _configService.initializeDefault();
-    defaultConfig.applyToProviders(styleProvider, securityProvider);
+  /// 方法签名已更改：现在返回重置后的默认 CallerIdConfig 数据对象。
+  Future<CallerIdConfig> resetToDefault() async {
+    return await _configService.initializeDefault();
   }
 
   /// 导入配置
-  Future<void> importConfig(String filePath, CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
+  /// 方法签名已更改：现在返回导入并加载后的新 CallerIdConfig 数据对象。
+  Future<CallerIdConfig> importConfig(String filePath) async {
     final file = File(filePath);
     await _importExportService.importConfig(file);
-    // 导入后重新加载配置
-    await loadFromRepository(styleProvider, securityProvider);
+    // 导入后重新加载配置并返回
+    return await loadConfig();
   }
 
-  /// 导出配置
+  /// 导出配置 (此方法保持不变)
   Future<File> exportConfig() async {
     return await _importExportService.exportConfig();
   }
 
-  /// 静态方法：更新配置从Map
-  /// 用于跨进程通信时更新配置
-  static void updateConfigFromMap(
-      Map<String, dynamic> config, CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) {
-    final callerIdConfig = CallerIdConfig.fromMap(config);
-    callerIdConfig.applyToProviders(styleProvider, securityProvider);
-  }
+  // 静态方法 updateConfigFromMap 已不再需要，因为我们不再直接操作旧的 ChangeNotifierProvider。
+  // 如果其他地方仍有需要，可以保留，但其内部实现需要调整。为清晰起见，此处移除。
 }
-
-
-/*
-/// 配置仓库异步包装类
-/// 提供异步访问配置仓库的方法
-class ConfigRepositoryAsync {
-  final ConfigRepository _repository;
-  
-  ConfigRepositoryAsync(this._repository);
-  
-  Future<String?> getString(String key) async {
-    final config = await _repository.getConfig(key);
-    if (config == null) return null;
-    return json.encode(config);
-  }
-
-  Future<void> setString(String key, String value) async {
-    try {
-      final config = json.decode(value) as Map<String, dynamic>;
-      await _repository.saveConfig(key, config);
-    } catch (e) {
-      // 解析失败时不保存
-       AppLogger.error('解析和保存失败', e);
-    }
-  }
-}
-*/

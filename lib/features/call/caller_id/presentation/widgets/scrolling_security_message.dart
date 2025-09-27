@@ -1,39 +1,50 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/providers/core_security_message_provider.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
+import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// A widget that displays a horizontally scrolling security message
-class ScrollingSecurityMessage extends ConsumerStatefulWidget {
+class ScrollingSecurityMessage extends StatefulWidget {
+  final CallerIdConfig config;
   final bool isDraggable;
+  final Function(Offset)? onPositionChanged;
+  final String? overrideMessage; // 用于强制显示特定消息，如诈骗警告
+  final Color? overrideColor;     // 用于强制使用特定颜色
 
   const ScrollingSecurityMessage({
     super.key,
+    required this.config,
     this.isDraggable = true,
+    this.onPositionChanged,
+    this.overrideMessage,
+    this.overrideColor,
   });
 
   @override
-  ConsumerState<ScrollingSecurityMessage> createState() => _ScrollingSecurityMessageState();
+  State<ScrollingSecurityMessage> createState() => _ScrollingSecurityMessageState();
 }
 
-class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMessage> {
+class _ScrollingSecurityMessageState extends State<ScrollingSecurityMessage> {
   late ScrollController _scrollController;
   Timer? _scrollTimer;
-  
+
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    // Start scrolling after the widget is built
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // Set the default message from localizations if message is empty
-      final securityMessageState = ref.read(coreSecurityMessageProvider);
-      if (securityMessageState.message.isEmpty) {
-        securityMessageState.setMessage(securityMessageState.getDefaultMessage(context));
-      }
       _startScrolling();
     });
+  }
+  
+  @override
+  void didUpdateWidget(covariant ScrollingSecurityMessage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // If config changes, restart scrolling logic
+    if (oldWidget.config != widget.config || oldWidget.overrideMessage != widget.overrideMessage) {
+      _scrollTimer?.cancel();
+      _scrollController.jumpTo(0);
+      _startScrolling();
+    }
   }
 
   @override
@@ -44,46 +55,35 @@ class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMess
   }
 
   void _startScrolling() {
-    final securityMessageState = ref.read(coreSecurityMessageProvider);
-    
-    // If the message is not enabled, don't start scrolling
-    if (!securityMessageState.isEnabled) return;
-    
-    // Calculate the total width of the text
-    final TextPainter textPainter = TextPainter(
+    final config = widget.config;
+    if (!config.securityMessageEnabled) return;
+
+    final message = widget.overrideMessage ?? AppLocalizations.of(context)!.securityMessage;
+    final color = widget.overrideColor ?? config.securityMessageTextColor;
+
+    final textPainter = TextPainter(
       text: TextSpan(
-        text: securityMessageState.message,
-        style: TextStyle(
-          fontSize: securityMessageState.fontSize,
-          color: securityMessageState.textColor,
-        ),
+        text: message,
+        style: TextStyle(fontSize: config.securityMessageFontSize, color: color),
       ),
       textDirection: TextDirection.ltr,
     )..layout();
-    
+
     final textWidth = textPainter.width;
-    final containerWidth = securityMessageState.containerWidth;
-    
-    // Only scroll if the text is wider than the container
+    final containerWidth = config.securityMessageContainerWidth;
+
     if (textWidth <= containerWidth) return;
-    
-    // Calculate scroll duration based on text width and scroll speed
-    final scrollDuration = Duration(
-      milliseconds: ((textWidth / securityMessageState.scrollSpeed) * 1000).toInt(),
-    );
-    
-    // Start scrolling animation
+
     _scrollTimer = Timer.periodic(const Duration(milliseconds: 50), (_) {
       if (_scrollController.hasClients) {
+        final maxScroll = _scrollController.position.maxScrollExtent;
         final currentPosition = _scrollController.position.pixels;
         
-        // If we've scrolled to the end, jump back to the beginning
-        if (currentPosition >= textWidth) {
+        if (currentPosition >= maxScroll) {
           _scrollController.jumpTo(0);
         } else {
-          // Otherwise, continue scrolling
-          _scrollController.animateTo(
-            currentPosition + 1,
+           _scrollController.animateTo(
+            currentPosition + (config.securityMessageScrollSpeed / 20), // speed adjustment
             duration: const Duration(milliseconds: 50),
             curve: Curves.linear,
           );
@@ -94,36 +94,37 @@ class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMess
 
   @override
   Widget build(BuildContext context) {
-    final securityMessageState = ref.watch(coreSecurityMessageProvider);
-    
-    // If the message is not enabled, return an empty widget
-    if (!securityMessageState.isEnabled) {
+    final config = widget.config;
+    if (!config.securityMessageEnabled && widget.overrideMessage == null) {
       return const SizedBox.shrink();
     }
     
+    final content = _buildSecurityMessageContainer(config);
+
     return Positioned(
-      left: securityMessageState.position.dx,
-      top: securityMessageState.position.dy,
-      child: widget.isDraggable
+      left: config.securityMessagePosition.dx,
+      top: config.securityMessagePosition.dy,
+      child: widget.isDraggable && widget.onPositionChanged != null
           ? GestureDetector(
               onPanUpdate: (details) {
-                ref.read(coreSecurityMessageProvider).updatePosition(
-                      securityMessageState.position + details.delta,
-                    );
+                widget.onPositionChanged!(config.securityMessagePosition + details.delta);
               },
-              child: _buildSecurityMessageContainer(securityMessageState),
+              child: content,
             )
-          : _buildSecurityMessageContainer(securityMessageState),
+          : content,
     );
   }
 
-  Widget _buildSecurityMessageContainer(SecurityMessageProvider securityMessageState) {
+  Widget _buildSecurityMessageContainer(CallerIdConfig config) {
+    final message = widget.overrideMessage ?? AppLocalizations.of(context)!.securityMessage;
+    final textColor = widget.overrideColor ?? config.securityMessageTextColor;
+    
     return Container(
-      width: securityMessageState.containerWidth,
-      height: securityMessageState.height,
+      width: config.securityMessageContainerWidth,
+      height: config.securityMessageHeight,
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       decoration: BoxDecoration(
-        color: securityMessageState.backgroundColor,
+        color: config.securityMessageBackgroundColor,
         borderRadius: BorderRadius.circular(4.0),
       ),
       child: SingleChildScrollView(
@@ -133,10 +134,10 @@ class _ScrollingSecurityMessageState extends ConsumerState<ScrollingSecurityMess
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(
-            securityMessageState.message,
+            message,
             style: TextStyle(
-              color: securityMessageState.textColor,
-              fontSize: securityMessageState.fontSize,
+              color: textColor,
+              fontSize: config.securityMessageFontSize,
               fontWeight: FontWeight.bold,
             ),
           ),

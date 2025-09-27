@@ -13,10 +13,16 @@ import 'package:yourcallyourrule/core/provider/providers/predefined_label_servic
 /// 用于获取 CallEventListenerService 实例
 final callEventListenerProvider = FutureProvider<CallEventListenerService>((ref) async {
   final callLogService = ref.watch(callLogServiceProvider);
-  final callerIdMonitorService = ref.watch(callerIdMonitorServiceProvider);
+  
   // 【简单修复】从 Provider 中获取 PredefinedLabelService 实例
   final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
 
+  
+  // 1. 使用 .future 来获取 Future<CallerIdMonitorService>
+  //    然后使用 await 来等待它完成，从而得到 CallerIdMonitorService 的实例
+  final callerIdMonitorService = await ref.watch(callerIdMonitorServiceProvider.future);
+
+  // 2. 现在 callerIdMonitorService 是一个真正的实例，可以安全地调用 initialize
   await callerIdMonitorService.initialize();
 
   // 【简单修复】调用新的三参数构造函数

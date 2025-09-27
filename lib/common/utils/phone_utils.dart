@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:dlibphonenumber/dlibphonenumber.dart';
-import 'package:sim_card_info/sim_card_info.dart';
-import 'package:sim_card_info/sim_info.dart' as flutter;
+// import 'package:sim_card_info/sim_card_info.dart';
+// import 'package:sim_card_info/sim_info.dart' as flutter;
+import 'package:sim_reader/sim_reader.dart';
 
 
 import 'package:yourcallyourrule/common/error/logger.dart';
@@ -64,11 +65,17 @@ class PhoneUtils {
           parseAndFormat(parsedPhoneNumber);
         } else {
           // 如果没有提供SIM国家代码，尝试从设备获取
-          final simCardInfoPlugin = SimCardInfo();
-          List<flutter.SimInfo> simInfoList =
-              await simCardInfoPlugin.getSimInfo() ?? [];
-          List<String> simCountryCodes =
-              simInfoList.map((sim) => sim.countryIso).toList();
+          // final simCardInfoPlugin = SimCardInfo(); // 原代码
+          // List<flutter.SimInfo> simInfoList =
+          //     await simCardInfoPlugin.getSimInfo() ?? []; // 原代码
+          List<SimInfo> simInfoList = await SimReader.getAllSimInfo(); // 替换后的代码
+
+          // List<String> simCountryCodes =
+          //     simInfoList.map((sim) => sim.countryIso).toList(); // 原代码
+          List<String> simCountryCodes = 
+              simInfoList.map((sim) => sim.countryCode ?? '')
+                         .where((code) => code.isNotEmpty)
+                         .toList(); // 替换后的代码
 
           for (String code in simCountryCodes) {
             try {
@@ -80,7 +87,7 @@ class PhoneUtils {
               String nationalSignificant = phoneNumberUtil
                   .getNationalSignificantNumber(parsedPhoneNumber);
               String cleanedInput =
-                  phoneNumber.replaceAll(RegExp(r'[^0-9]+'), '');
+                  phoneNumber.replaceAll(RegExp(r'[^0-g-z]+'), '');
               String nationalNumber = phoneNumberUtil.format(
                   parsedPhoneNumber, PhoneNumberFormat.national);
               // 去除 national 中的非数字字符

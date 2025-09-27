@@ -420,7 +420,10 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
     final db = await database;
     await db.delete('contacts');
     await db.delete('call_history');
+    await db.delete('predefined_labels');
     await db.delete('labelPhone');
+    await db.delete('label_mark_statistics');
+    await db.delete('user_mark_count');
     await db.delete('rules');
     await db.delete('phone_rules');
     await db.delete('regex_rules');

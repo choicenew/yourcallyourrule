@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_rem
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_sync_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/phone_subscription_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/sms_subscription_service_provider.dart';
+import 'package:yourcallyourrule/features/sms/providers/sms_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/contact_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
@@ -89,7 +89,6 @@ class BackgroundSyncService {
   Future<void> initialize() async {
     await Workmanager().initialize(
       callbackDispatcher,
-      isInDebugMode: kDebugMode,
     );
     
     // 注册通话记录同步任务
@@ -100,7 +99,7 @@ class BackgroundSyncService {
       constraints: Constraints(
         networkType: NetworkType.connected,
       ),
-      existingWorkPolicy: ExistingWorkPolicy.replace,
+      existingWorkPolicy: ExistingPeriodicWorkPolicy.replace,
     );
     
     // 注册自动更新任务
@@ -112,7 +111,7 @@ class BackgroundSyncService {
         networkType: NetworkType.connected,
         requiresBatteryNotLow: true,
       ),
-      existingWorkPolicy: ExistingWorkPolicy.replace,
+      existingWorkPolicy: ExistingPeriodicWorkPolicy.replace,
     );
     
     // 注册数据同步任务
@@ -123,7 +122,7 @@ class BackgroundSyncService {
       constraints: Constraints(
         networkType: NetworkType.connected,
       ),
-      existingWorkPolicy: ExistingWorkPolicy.replace,
+      existingWorkPolicy: ExistingPeriodicWorkPolicy.replace,
     );
   }
   

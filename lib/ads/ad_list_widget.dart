@@ -19,7 +19,7 @@ class AdListWidget<T> extends ConsumerWidget {
   final int adInterval;
   
   /// 广告控制服务提供者
-  final ProviderBase<AdControlService> adControlServiceProvider;
+  final Provider<AdControlService> adControlServiceProvider;
   
   /// 滚动方向
   final Axis scrollDirection;
@@ -125,7 +125,7 @@ class AdGridWidget<T> extends ConsumerWidget {
   final int adInterval;
   
   /// 广告控制服务提供者
-  final ProviderBase<AdControlService> adControlServiceProvider;
+  final Provider<AdControlService> adControlServiceProvider;
   
   /// 滚动方向
   final Axis scrollDirection;

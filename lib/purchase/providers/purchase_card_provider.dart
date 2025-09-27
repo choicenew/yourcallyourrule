@@ -1,10 +1,15 @@
+// 文件路径: lib/purchase/providers/purchase_card_provider.dart
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/purchase/purchase_provider.dart';
+// 导入包含新 provider 的文件
+import 'package:yourcallyourrule/purchase/purchase_provider.dart'; 
 import 'package:yourcallyourrule/purchase/widgets/purchase_cards.dart';
 
-/// 购买卡片工厂提供者
-/// 提供PurchaseCardFactory的实例，用于创建各种购买相关的卡片组件
 final purchaseCardFactoryProvider = Provider<PurchaseCardFactory>((ref) {
-  final purchaseProvider = ref.watch(purchaseProviderProvider.notifier);
-  return PurchaseCardFactory(purchaseProvider);
+  // 之前: final purchaseProvider = ref.watch(purchaseProviderProvider.notifier);
+  // 现在: 使用新的、自动生成的 provider
+  final purchaseNotifier = ref.watch(purchaseProvider.notifier);
+  
+  // 将 `purchaseNotifier` (现在是 Purchase 类型) 传给工厂
+  return PurchaseCardFactory(purchaseNotifier); 
 });

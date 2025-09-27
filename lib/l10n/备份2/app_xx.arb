@@ -88,5 +88,34 @@
  
  
  
-  "upgradeToVip": "Upgrade to VIP"
+  "upgradeToVip": "Upgrade to VIP",
+
+
+
+
+
+
+
+  "loadVoteCountFailed": "Failed to load vote count",
+  "voteCount": "Vote Count",
+  "exchangeVip": "Exchange VIP",
+  "deletionProposalInfo": "Deletion Proposal Information",
+  "deletionProposalDescription": "Propose numbers for deletion that violate community guidelines. Your participation helps keep the platform safe.",
+  "voteToEarnVip": "Vote on proposals to earn VIP privileges!",
+  "deletionProposals": "Deletion Proposals",
+  "voteFailed": "Vote failed",
+  "noProposalsFound": "No proposals found",
+
+  "aboutLabels": "About Labels",
+
+
+
+
+
+
+
+
+
+
+  
 }

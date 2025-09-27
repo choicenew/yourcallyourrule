@@ -1,9 +1,13 @@
+// lib/features/call/caller_id/configuration/caller_id_config.dart
+
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:yourcallyourrule/common/utils/color_converter.dart';
-import 'package:yourcallyourrule/common/utils/offset_converter.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
+import 'package:yourcallyourrule/common/utils/color_converter.dart'; 
+import 'package:yourcallyourrule/common/utils/offset_converter.dart'; 
+
+// 以下两个旧的 import 不再需要，可以删除
+// import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+// import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
 
 part 'caller_id_config.freezed.dart';
 part 'caller_id_config.g.dart';
@@ -59,6 +63,15 @@ abstract class CallerIdConfig with _$CallerIdConfig {
     required bool securityMessageEnabled,
     @ColorConverter() required Color securityMessageBackgroundColor,
     required double securityMessageHeight,
+    
+    // 注意: 您原有的代码中缺少窗口尺寸和图标尺寸的字段，
+    // 为了让UI代码能够编译通过，这里补充添加。
+    // 如果您不希望它们成为持久化配置的一部分，可以不加，但需要相应调整UI代码。
+    required double windowWidth,
+    required double windowHeight,
+    required double avatarSize,
+    required double avatarBorderSize,
+    required double iconSize,
   }) = _CallerIdConfig;
 
   factory CallerIdConfig.fromJson(Map<String, dynamic> json) => _$CallerIdConfigFromJson(json);
@@ -68,114 +81,12 @@ abstract class CallerIdConfig with _$CallerIdConfig {
   static CallerIdConfig fromMap(Map<String, dynamic> map) => CallerIdConfig.fromJson(map);
 }
 
-extension CallerIdConfigX on CallerIdConfig {
-  /// 将CallerIdConfig对象转换为Map
-  /// 这是toJson方法的别名，用于保持与旧代码的兼容性
+/// 将CallerIdConfig对象转换为Map
+/// 这是toJson方法的别名，用于保持与旧代码的兼容性
+// 我们将 toMap 方法直接放在 freezed 类内部，或者作为扩展方法，这里作为扩展更清晰。
+extension CallerIdConfigToJsonX on CallerIdConfig {
   Map<String, dynamic> toMap() => toJson();
-  
-  static CallerIdConfig fromProviders(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) {
-    return CallerIdConfig(
-      backgroundColorStart: styleProvider.backgroundColorStart,
-      backgroundColorEnd: styleProvider.backgroundColorEnd,
-      textNameColor: styleProvider.textNameColor,
-      textNumberColor: styleProvider.textNumberColor,
-      textLocationColor: styleProvider.textLocationColor,
-      textCarrierColor: styleProvider.textCarrierColor,
-      textCountryNameColor: styleProvider.textCountryNameColor,
-      textLabelsColor: styleProvider.textLabelsColor,
-      textCountColor: styleProvider.textCountColor,
-      textNumberTypeColor: styleProvider.textNumberTypeColor,
-      textIconLabelColor: styleProvider.textIconLabelColor,
-      textIconLocationColor: styleProvider.textIconLocationColor,
-      textIconCallTypeColor: styleProvider.textIconCallTypeColor,
-      avatarBorderColor: styleProvider.avatarBorderColor,
-      textStirColor: styleProvider.textStirColor,
-      textSimCardColor: styleProvider.textSimCardColor,
-      nameFontSize: styleProvider.nameFontSize,
-      numberFontSize: styleProvider.numberFontSize,
-      locationFontSize: styleProvider.locationFontSize,
-      carrierFontSize: styleProvider.carrierFontSize,
-      countryNameFontSize: styleProvider.countryNameFontSize,
-      labelsFontSize: styleProvider.labelsFontSize,
-      countFontSize: styleProvider.countFontSize,
-      numberTypeFontSize: styleProvider.numberTypeFontSize,
-      stirFontSize: styleProvider.stirFontSize,
-      simCardFontSize: styleProvider.simCardFontSize,
-      avatarPosition: styleProvider.avatarPosition,
-      namePosition: styleProvider.namePosition,
-      carrierPosition: styleProvider.carrierPosition,
-      countryNamePosition: styleProvider.countryNamePosition,
-      labelsPosition: styleProvider.labelsPosition,
-      countPosition: styleProvider.countPosition,
-      numberTypePosition: styleProvider.numberTypePosition,
-      numberPosition: styleProvider.numberPosition,
-      locationPosition: styleProvider.locationPosition,
-      callTypePosition: styleProvider.callTypePosition,
-      simCardPosition: styleProvider.simCardPosition,
-      stirPosition: styleProvider.stirPosition,
-      securityMessagePosition: styleProvider.securityMessagePosition,
-      // Security Message Fields
-      securityMessageTextColor: securityProvider.textColor,
-      securityMessageFontSize: securityProvider.fontSize,
-      securityMessageContainerWidth: securityProvider.containerWidth,
-      securityMessageScrollSpeed: securityProvider.scrollSpeed,
-      securityMessageEnabled: securityProvider.isEnabled,
-      securityMessageBackgroundColor: securityProvider.backgroundColor,
-      securityMessageHeight: securityProvider.height,
-    );
-  }
-
-  void applyToProviders(CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) {
-    styleProvider
-      ..setBackgroundColorStart(backgroundColorStart)
-      ..setBackgroundColorEnd(backgroundColorEnd)
-      ..setTextNameColor(textNameColor)
-      ..setTextNumberColor(textNumberColor)
-      ..setTextLocationColor(textLocationColor)
-      ..setTextCarrierColor(textCarrierColor)
-      ..setTextCountryNameColor(textCountryNameColor)
-      ..setTextLabelsColor(textLabelsColor)
-      ..setTextCountColor(textCountColor)
-      ..setTextNumberTypeColor(textNumberTypeColor)
-      ..setTextIconLabelColor(textIconLabelColor)
-      ..setTextIconLocationColor(textIconLocationColor)
-      ..setTextIconCallTypeColor(textIconCallTypeColor)
-      ..setAvatarBorderColor(avatarBorderColor)
-      ..setTextStirColor(textStirColor)
-      ..setTextSimCardColor(textSimCardColor)
-      ..setNameFontSize(nameFontSize)
-      ..setNumberFontSize(numberFontSize)
-      ..setLocationFontSize(locationFontSize)
-      ..setCarrierFontSize(carrierFontSize)
-      ..setCountryNameFontSize(countryNameFontSize)
-      ..setLabelsFontSize(labelsFontSize)
-      ..setCountFontSize(countFontSize)
-      ..setNumberTypeFontSize(numberTypeFontSize)
-      ..setStirFontSize(stirFontSize)
-      ..setSimCardFontSize(simCardFontSize)
-      ..updateAvatarPosition(avatarPosition)
-      ..updateNamePosition(namePosition)
-      ..updateCarrierPosition(carrierPosition)
-      ..updateCountryNamePosition(countryNamePosition)
-      ..updateLabelsPosition(labelsPosition)
-      ..updateCountPosition(countPosition)
-      ..updateNumberTypePosition(numberTypePosition)
-      ..updateNumberPosition(numberPosition)
-      ..updateLocationPosition(locationPosition)
-      ..updateCallTypePosition(callTypePosition)
-      ..updateSimCardPosition(simCardPosition)
-      ..updateStirPosition(stirPosition)
-      ..updateSecurityMessagePosition(securityMessagePosition);
-
-    securityProvider
-      ..setTextColor(securityMessageTextColor)
-      ..setFontSize(securityMessageFontSize)
-      ..updatePosition(securityMessagePosition) // Note: Security message position is linked to styleProvider's
-      ..setContainerWidth(securityMessageContainerWidth)
-      ..setScrollSpeed(securityMessageScrollSpeed)
-      ..setEnabled(securityMessageEnabled)
-      ..setBackgroundColor(securityMessageBackgroundColor)
-      ..setHeight(securityMessageHeight);
-  }
-
 }
+
+// CallerIdConfigX 扩展被移除，因为它的职责 (从多个 provider 合并/应用到多个 provider) 
+// 在新的单一状态架构中已经不存在了。

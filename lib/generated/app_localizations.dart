@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
+import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
@@ -61,15 +62,17 @@ import 'app_localizations_en.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
-  static AppLocalizations? of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  static AppLocalizations of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -81,16 +84,18 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en')
+    Locale('en'),
+    Locale('zh'),
   ];
 
   /// About contact subscription title
@@ -5565,7 +5570,7 @@ abstract class AppLocalizations {
   /// **'Used to display incoming call overlay.'**
   String get overlayPermissionDescription;
 
-  /// No description provided for @overview.
+  /// Overview label
   ///
   /// In en, this message translates to:
   /// **'Overview'**
@@ -5655,7 +5660,7 @@ abstract class AppLocalizations {
   /// **'Phone'**
   String get phoneCallsTab;
 
-  /// No description provided for @phoneNumber.
+  /// Phone number label
   ///
   /// In en, this message translates to:
   /// **'Phone Number'**
@@ -9525,6 +9530,60 @@ abstract class AppLocalizations {
   /// **'Membership Feature'**
   String get membershipFeature;
 
+  /// No description provided for @medium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get medium;
+
+  /// Verification report label
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Report'**
+  String get verificationReport;
+
+  /// No description provided for @finalRisk.
+  ///
+  /// In en, this message translates to:
+  /// **'Final Risk'**
+  String get finalRisk;
+
+  /// No description provided for @simState.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM State'**
+  String get simState;
+
+  /// No description provided for @ipCountry.
+  ///
+  /// In en, this message translates to:
+  /// **'IP Country'**
+  String get ipCountry;
+
+  /// No description provided for @simCountry.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Country'**
+  String get simCountry;
+
+  /// No description provided for @isRoaming.
+  ///
+  /// In en, this message translates to:
+  /// **'Roaming'**
+  String get isRoaming;
+
+  /// No description provided for @isNumberMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Number Match'**
+  String get isNumberMatch;
+
+  /// No description provided for @support.
+  ///
+  /// In en, this message translates to:
+  /// **'Support'**
+  String get support;
+
   /// No description provided for @rewardedAdService.
   ///
   /// In en, this message translates to:
@@ -9621,14 +9680,673 @@ abstract class AppLocalizations {
   /// **'7-day full-featured ad-free VIP'**
   String get vip7DaysNoAds;
 
+  /// No description provided for @noNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'No notifications'**
+  String get noNotifications;
+
+  /// No description provided for @clearAllNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear All Notifications'**
+  String get clearAllNotifications;
+
+  /// No description provided for @clearAllNotificationsConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm to clear all notifications'**
+  String get clearAllNotificationsConfirmation;
+
+  /// No description provided for @allNotificationsCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'All notifications cleared'**
+  String get allNotificationsCleared;
+
+  /// No description provided for @clearButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clearButton;
+
+  /// No description provided for @justNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Just now'**
+  String get justNow;
+
+  /// Relative time for minutes ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{count,plural, =1{1 minute ago} other{{count} minutes ago}}'**
+  String minutesAgo(int count);
+
+  /// Relative time for hours ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{count,plural, =1{1 hour ago} other{{count} hours ago}}'**
+  String hoursAgo(int count);
+
+  /// Relative time for days ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{count,plural, =1{1 day ago} other{{count} days ago}}'**
+  String daysAgo(int count);
+
   /// No description provided for @yesterday.
   ///
   /// In en, this message translates to:
   /// **'Yesterday'**
   String get yesterday;
+
+  /// Deletion proposal title
+  ///
+  /// In en, this message translates to:
+  /// **'Deletion Proposal'**
+  String get deletionProposal;
+
+  /// Title for deletion proposals notification channel
+  ///
+  /// In en, this message translates to:
+  /// **'Deletion Proposals'**
+  String get deletionProposals;
+
+  /// Create proposal button text
+  ///
+  /// In en, this message translates to:
+  /// **'Create Proposal'**
+  String get createProposal;
+
+  /// Create proposal dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Create Deletion Proposal'**
+  String get createProposalTitle;
+
+  /// Reason label
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get reason;
+
+  /// Outdated Number reason option
+  ///
+  /// In en, this message translates to:
+  /// **'Outdated Number'**
+  String get reasonOutdated;
+
+  /// Privacy Concern reason option
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Concern'**
+  String get reasonPrivacy;
+
+  /// Not in Service reason option
+  ///
+  /// In en, this message translates to:
+  /// **'Not in Service'**
+  String get reasonNotInService;
+
+  /// Wrongly Identified reason option
+  ///
+  /// In en, this message translates to:
+  /// **'Wrongly Identified'**
+  String get reasonWronglyIdentified;
+
+  /// Inaccurate Information reason option
+  ///
+  /// In en, this message translates to:
+  /// **'Inaccurate Information'**
+  String get reasonInaccurateInfo;
+
+  /// Wrong marked reason option
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong Marked'**
+  String get reasonWrongMarked;
+
+  /// Other reason option
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get reasonOther;
+
+  /// Submit button text
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get submit;
+
+  /// Cancel button text
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// Proposal status label
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get proposalStatus;
+
+  /// Pending status
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get statusPending;
+
+  /// Active status
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get statusActive;
+
+  /// Completed status
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get statusCompleted;
+
+  /// Expired status
+  ///
+  /// In en, this message translates to:
+  /// **'Expired'**
+  String get statusExpired;
+
+  /// Risk level label
+  ///
+  /// In en, this message translates to:
+  /// **'Risk Level'**
+  String get riskLevel;
+
+  /// Verified risk level
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get riskLevelVerified;
+
+  /// Low risk level
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get riskLevelLow;
+
+  /// High risk level
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get riskLevelHigh;
+
+  /// Unknown risk level
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get riskLevelUnknown;
+
+  /// Voting progress label
+  ///
+  /// In en, this message translates to:
+  /// **'Voting Progress'**
+  String get votingProgress;
+
+  /// Agree votes count
+  ///
+  /// In en, this message translates to:
+  /// **'Agree: {count}'**
+  String agreeVotes(int count);
+
+  /// Disagree votes count
+  ///
+  /// In en, this message translates to:
+  /// **'Disagree: {count}'**
+  String disagreeVotes(int count);
+
+  /// Total votes count
+  ///
+  /// In en, this message translates to:
+  /// **'Total: {count}'**
+  String totalVotes(int count);
+
+  /// Vote agree button text
+  ///
+  /// In en, this message translates to:
+  /// **'Agree'**
+  String get voteAgree;
+
+  /// Vote disagree button text
+  ///
+  /// In en, this message translates to:
+  /// **'Disagree'**
+  String get voteDisagree;
+
+  /// Created date label
+  ///
+  /// In en, this message translates to:
+  /// **'Created: {date}'**
+  String createdAt(String date);
+
+  /// Show report button text
+  ///
+  /// In en, this message translates to:
+  /// **'Show Report'**
+  String get showReport;
+
+  /// Hide report button text
+  ///
+  /// In en, this message translates to:
+  /// **'Hide Report'**
+  String get hideReport;
+
+  /// Proposal statistics title
+  ///
+  /// In en, this message translates to:
+  /// **'Proposal Statistics'**
+  String get proposalStatistics;
+
+  /// Total proposals label
+  ///
+  /// In en, this message translates to:
+  /// **'Total Proposals'**
+  String get totalProposals;
+
+  /// Active proposals label
+  ///
+  /// In en, this message translates to:
+  /// **'Active Proposals'**
+  String get activeProposals;
+
+  /// Completed proposals label
+  ///
+  /// In en, this message translates to:
+  /// **'Completed Proposals'**
+  String get completedProposals;
+
+  /// My votes label
+  ///
+  /// In en, this message translates to:
+  /// **'My Votes'**
+  String get myVotes;
+
+  /// Proposal created success message
+  ///
+  /// In en, this message translates to:
+  /// **'Proposal created successfully'**
+  String get proposalCreated;
+
+  /// Proposal create failed message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to create proposal'**
+  String get proposalCreateFailed;
+
+  /// Vote submitted success message
+  ///
+  /// In en, this message translates to:
+  /// **'Vote submitted successfully'**
+  String get voteSubmitted;
+
+  /// Vote submit failed message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to submit vote'**
+  String get voteSubmitFailed;
+
+  /// No proposals found message
+  ///
+  /// In en, this message translates to:
+  /// **'No proposals found'**
+  String get noProposalsFound;
+
+  /// Loading proposals message
+  ///
+  /// In en, this message translates to:
+  /// **'Loading proposals...'**
+  String get loadingProposals;
+
+  /// Refresh proposals button text
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh Proposals'**
+  String get refreshProposals;
+
+  /// Total pending proposals label
+  ///
+  /// In en, this message translates to:
+  /// **'Total Pending Proposals'**
+  String get totalPendingProposals;
+
+  /// High risk label
+  ///
+  /// In en, this message translates to:
+  /// **'High Risk'**
+  String get highRisk;
+
+  /// Medium risk label
+  ///
+  /// In en, this message translates to:
+  /// **'Medium Risk'**
+  String get mediumRisk;
+
+  /// Low risk label
+  ///
+  /// In en, this message translates to:
+  /// **'Low Risk'**
+  String get lowRisk;
+
+  /// Community impact label
+  ///
+  /// In en, this message translates to:
+  /// **'Community Impact'**
+  String get communityImpact;
+
+  /// Critical issues label
+  ///
+  /// In en, this message translates to:
+  /// **'Critical Issues'**
+  String get criticalIssues;
+
+  /// Community participation label
+  ///
+  /// In en, this message translates to:
+  /// **'Community Participation'**
+  String get communityParticipation;
+
+  /// No activity label
+  ///
+  /// In en, this message translates to:
+  /// **'No Activity'**
+  String get noActivity;
+
+  /// Low level label
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get low;
+
+  /// Moderate level label
+  ///
+  /// In en, this message translates to:
+  /// **'Moderate'**
+  String get moderate;
+
+  /// High level label
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get high;
+
+  /// Very high level label
+  ///
+  /// In en, this message translates to:
+  /// **'Very High'**
+  String get veryHigh;
+
+  /// Label for when user voted
+  ///
+  /// In en, this message translates to:
+  /// **'Voted'**
+  String get voted;
+
+  /// Label for community votes count
+  ///
+  /// In en, this message translates to:
+  /// **'Community votes'**
+  String get communityVotes;
+
+  /// Message when waiting for more votes
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for more community votes'**
+  String get waitingForMoreVotes;
+
+  /// Message when proposal is completed
+  ///
+  /// In en, this message translates to:
+  /// **'This proposal has been processed'**
+  String get proposalProcessed;
+
+  /// Label for supported vote
+  ///
+  /// In en, this message translates to:
+  /// **'SUPPORTED'**
+  String get supported;
+
+  /// Label for opposed vote
+  ///
+  /// In en, this message translates to:
+  /// **'OPPOSED'**
+  String get opposed;
+
+  /// Status label for approved
+  ///
+  /// In en, this message translates to:
+  /// **'APPROVED'**
+  String get approved;
+
+  /// Status label for rejected
+  ///
+  /// In en, this message translates to:
+  /// **'REJECTED'**
+  String get rejected;
+
+  /// Status label for completed
+  ///
+  /// In en, this message translates to:
+  /// **'COMPLETED'**
+  String get completed;
+
+  /// Status label for pending
+  ///
+  /// In en, this message translates to:
+  /// **'PENDING'**
+  String get pending;
+
+  /// Critical risk level label
+  ///
+  /// In en, this message translates to:
+  /// **'Critical'**
+  String get critical;
+
+  /// Label for oppose votes
+  ///
+  /// In en, this message translates to:
+  /// **'Oppose'**
+  String get oppose;
+
+  /// Very low risk level label
+  ///
+  /// In en, this message translates to:
+  /// **'Very Low'**
+  String get veryLow;
+
+  /// Description for deletion proposal notification channel
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications about deletion proposal voting results and updates.'**
+  String get deletionProposalNotificationDescription;
+
+  /// Title for deletion proposal created notification
+  ///
+  /// In en, this message translates to:
+  /// **'Deletion Proposal Created'**
+  String get deletionProposalCreated;
+
+  /// Body text for deletion proposal created notification
+  ///
+  /// In en, this message translates to:
+  /// **'Your deletion proposal for {phoneNumber} has been submitted for community review.'**
+  String deletionProposalCreatedBody(String phoneNumber);
+
+  /// Title for proposal approved notification
+  ///
+  /// In en, this message translates to:
+  /// **'Proposal Approved ✅'**
+  String get proposalApproved;
+
+  /// Body text for proposal approved notification
+  ///
+  /// In en, this message translates to:
+  /// **'The deletion proposal for {phoneNumber} has been approved by the community ({supportPercentage}% support, {totalVotes} votes).'**
+  String proposalApprovedBody(
+    String phoneNumber,
+    int supportPercentage,
+    int totalVotes,
+  );
+
+  /// Title for proposal rejected notification
+  ///
+  /// In en, this message translates to:
+  /// **'Proposal Rejected ❌'**
+  String get proposalRejected;
+
+  /// Body text for proposal rejected notification
+  ///
+  /// In en, this message translates to:
+  /// **'The deletion proposal for {phoneNumber} has been rejected by the community ({supportPercentage}% support, {totalVotes} votes).'**
+  String proposalRejectedBody(
+    String phoneNumber,
+    int supportPercentage,
+    int totalVotes,
+  );
+
+  /// Title for community voting started notification
+  ///
+  /// In en, this message translates to:
+  /// **'Community Voting Started'**
+  String get communityVotingStarted;
+
+  /// Body text for community voting started notification
+  ///
+  /// In en, this message translates to:
+  /// **'A new deletion proposal for {phoneNumber} is now open for community voting.'**
+  String communityVotingStartedBody(String phoneNumber);
+
+  /// Title for voting completed notification
+  ///
+  /// In en, this message translates to:
+  /// **'Voting Completed'**
+  String get votingCompleted;
+
+  /// Body text for voting completed notification
+  ///
+  /// In en, this message translates to:
+  /// **'Community voting for {phoneNumber} has ended. Result: {result} ({supportPercentage}% support).'**
+  String votingCompletedBody(
+    String phoneNumber,
+    String result,
+    int supportPercentage,
+  );
+
+  /// Title for new vote received notification
+  ///
+  /// In en, this message translates to:
+  /// **'New Vote Received'**
+  String get newVoteReceived;
+
+  /// Body text for new vote received notification
+  ///
+  /// In en, this message translates to:
+  /// **'Someone voted to {voteType} the deletion of {phoneNumber}. Current votes: {totalVotes}.'**
+  String newVoteReceivedBody(
+    String voteType,
+    String phoneNumber,
+    int totalVotes,
+  );
+
+  /// No description provided for @loadVoteCountFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load vote count'**
+  String get loadVoteCountFailed;
+
+  /// No description provided for @voteCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Vote Count'**
+  String get voteCount;
+
+  /// No description provided for @deletionProposalInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Deletion Proposal Information'**
+  String get deletionProposalInfo;
+
+  /// No description provided for @deletionProposalDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Propose numbers for deletion that violate community guidelines. Your participation helps keep the platform safe.'**
+  String get deletionProposalDescription;
+
+  /// No description provided for @voteToEarnVip.
+  ///
+  /// In en, this message translates to:
+  /// **'Vote on proposals to earn VIP privileges!'**
+  String get voteToEarnVip;
+
+  /// No description provided for @voteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Vote failed'**
+  String get voteFailed;
+
+  /// No description provided for @searchProposals.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Proposals'**
+  String get searchProposals;
+
+  /// No description provided for @defaultNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Default Notifications'**
+  String get defaultNotifications;
+
+  /// No description provided for @defaultNotificationsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Default notification channel for the app.'**
+  String get defaultNotificationsDescription;
+
+  /// No description provided for @blockedCallNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked Call Notifications'**
+  String get blockedCallNotifications;
+
+  /// No description provided for @blockedCallNotificationsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Displays information about blocked calls.'**
+  String get blockedCallNotificationsDescription;
+
+  /// No description provided for @stirVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'STIR/SHAKEN Verification'**
+  String get stirVerification;
+
+  /// No description provided for @stirVerificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Displays STIR/SHAKEN verification results for numbers.'**
+  String get stirVerificationDescription;
+
+  /// No description provided for @fraudAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Fraud Alerts'**
+  String get fraudAlerts;
+
+  /// No description provided for @fraudAlertsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Displays warnings for potential fraudulent calls.'**
+  String get fraudAlertsDescription;
 }
 
-class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -9637,24 +10355,26 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'zh'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return AppLocalizationsEn();
+    case 'en':
+      return AppLocalizationsEn();
+    case 'zh':
+      return AppLocalizationsZh();
   }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
+    'that was used.',
   );
 }

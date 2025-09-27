@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_sync_service_initializer.dart';
 import 'package:yourcallyourrule/features/call/call_history/provider/call_event_listener_provider.dart';
+import 'package:yourcallyourrule/core/services/notification_service.dart';
 
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
 import 'package:yourcallyourrule/features/location/services/provider/location_sync_service_provider.dart';
@@ -20,6 +21,7 @@ import 'package:yourcallyourrule/core/provider/providers/plugin_service_provider
 import 'package:yourcallyourrule/features/plugin/providers/plugin_webview_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
 import 'package:yourcallyourrule/core/provider/providers/caller_id_monitor_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/notification_providers.dart';
  // 导入 FFI 包
 
 Future<void> main() async {
@@ -50,7 +52,17 @@ Future<void> main() async {
     await container.read(pluginWebViewServiceProvider).initialize();
     
     // 初始化核心来电监控服务
-    await container.read(callerIdMonitorServiceProvider).initialize();
+    debugPrint("Initializing Caller ID Monitor Service...");
+
+    // 1. 等待 FutureProvider 完成，并用一个清晰的变量名来接收结果
+    final callerIdMonitorService = await container.read(
+      callerIdMonitorServiceProvider.future,
+    );
+
+    // 2. 对这个明确命名的 service 对象调用初始化方法
+    await callerIdMonitorService.initialize();
+
+    debugPrint("Caller ID Monitor Service initialized successfully.");
     
     // 初始化通话事件监听服务，确保它在应用启动时就开始工作
     await container.read(callEventListenerProvider.future);
@@ -64,6 +76,9 @@ Future<void> main() async {
     
     // 初始化插件同步服务
     container.read(pluginSyncServiceInitializerProvider);
+    
+    // 初始化通知服务
+    container.read(notificationServiceProvider);
     // --- Add ---
 
     // 后台同步服务将通过Provider系统初始化
@@ -123,7 +138,7 @@ class MyApp extends ConsumerWidget {
     final appRouter = ref.watch(appRouterProvider);
     
        // 2. Watch the new provider to get the current theme mode
-    final themeMode = ref.watch(themeModeNotifierProvider);
+    final themeMode = ref.watch(themeModeProvider);
     // 仅在非覆盖层模式下初始化后台同步服务
     // 后台同步服务已包含通话记录同步任务，不需要再单独初始化前台同步服务
     if (!isOverlayMode) {

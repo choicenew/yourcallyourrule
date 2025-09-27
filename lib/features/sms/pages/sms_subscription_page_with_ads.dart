@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
-import 'package:yourcallyourrule/core/provider/providers/sms_subscription_service_provider.dart';
+import 'package:yourcallyourrule/features/sms/providers/sms_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';

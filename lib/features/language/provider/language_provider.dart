@@ -1,84 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/providers/locale_service_provider.dart';
-import 'package:yourcallyourrule/features/language/config/locale_config.dart';
+// import 'package:yourcallyourrule/features/language/config/locale_config.dart'; // 如果没用到可以删除
 import 'package:yourcallyourrule/features/language/services/locale_service.dart';
 
-// 定义 LocaleState 状态类
-class LocaleState {
-  final Locale locale;
+// 1. LocaleState 类不再需要，可以直接删除。
 
-  const LocaleState({this.locale = const Locale('en', 'US')});
+// 2. 将 LocaleNotifier 从 StateNotifier 重构为 AsyncNotifier
+class LocaleNotifier extends AsyncNotifier<Locale> {
+  // build 方法用于提供初始状态
+  // 它必须是异步的，并且会在 Provider 第一次被读取时执行
+  @override
+  Future<Locale> build() async {
+    final localeService = ref.watch(localeServiceProvider);
+    final savedConfig = await localeService.loadConfig();
 
-  // 创建状态的副本并更新特定字段
-  LocaleState copyWith({Locale? locale}) {
-    return LocaleState(
-      locale: locale ?? this.locale,
-    );
-  }
-}
-
-// 使用 StateNotifier 替代 ChangeNotifier
-class LocaleNotifier extends StateNotifier<LocaleState> {
-  final LocaleService _localeService;
-
-  LocaleNotifier(this._localeService) : super(const LocaleState()) {
-    loadSavedLocale();
+    // 如果有保存的配置，则返回它，否则返回默认值
+    return savedConfig?.locale ?? const Locale('en', 'US');
   }
 
-  // 获取当前语言设置
-  Locale get locale => state.locale;
-
-  Future<void> loadSavedLocale() async {
-    final savedLocale = await _localeService.loadConfig();
-    if (savedLocale != null) {
-      state = state.copyWith(locale: savedLocale.locale);
-    }
-  }
-
+  // 3. 添加一个公共方法来更新状态
   Future<void> updateLocale(Locale newLocale) async {
-    state = state.copyWith(locale: newLocale);
-    await _localeService.saveConfig(newLocale.languageCode, newLocale.countryCode);
+    // 读取 service
+    final localeService = ref.read(localeServiceProvider);
+
+    // 将 UI 状态设置为新值。
+    // AsyncValue.data 表示一个成功的状态
+    state = AsyncValue.data(newLocale);
+
+    // 异步地将新设置保存到存储中
+    await localeService.saveConfig(newLocale.languageCode, newLocale.countryCode);
   }
 }
 
-// 创建 LocaleNotifier 的 Provider
-final localeProvider = StateNotifierProvider<LocaleNotifier, LocaleState>((ref) {
-  final localeService = ref.read(localeServiceProvider);
-  return LocaleNotifier(localeService);
+// 4. 将 StateNotifierProvider 更新为 AsyncNotifierProvider
+final localeProvider = AsyncNotifierProvider<LocaleNotifier, Locale>(() {
+  return LocaleNotifier();
 });
 
-// Provider for the legacy LocaleProvider (ChangeNotifier)
-final legacyLocaleProvider = Provider<LocaleProvider>((ref) {
-  final localeService = ref.read(localeServiceProvider);
-  return LocaleProvider(localeService);
-});
-
-// 为了向后兼容，保留 LocaleProvider 类，但内部使用 Riverpod
-class LocaleProvider with ChangeNotifier {
-  final LocaleService _localeService;
-  Locale _locale = const Locale('en', 'US');
-  
-  LocaleProvider(this._localeService) {
-    _loadSavedLocale();
-  }
-
-  Locale get locale => _locale;
-
-  void _loadSavedLocale() async {
-    final config = await _localeService.loadConfig();
-    if (config != null) {
-      _locale = config.locale;
-      notifyListeners();
-    }
-  }
-
-  Future<void> updateLocale(Locale newLocale) async {
-    if (_locale != newLocale) {
-      _locale = newLocale;
-      notifyListeners();
-      await _localeService.saveConfig(newLocale.languageCode, newLocale.countryCode);
-    }
-  }
-}
-
+// 5. LocaleProvider (ChangeNotifier) 和 legacyLocaleProvider 不再需要，可以完全删除。

@@ -1,13 +1,16 @@
+// lib/features/caller_id/services/call_handlers/overlay_handler.dart
 
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart'; // <-- 1. 导入 Riverpod
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
-import 'package:yourcallyourrule/features/call/caller_id/configuration/configuration_manager.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/security_message_provider.dart';
+// <-- 2. 导入我们新的全局 Provider
+
+import 'package:yourcallyourrule/features/call/caller_id/providers/callerid_style_security_provider.dart';
+
+// 删除了所有对旧 Provider 和 Manager 的 import
 
 /// 浮窗处理器
 /// 负责处理来电显示浮窗的显示和关闭
@@ -16,100 +19,87 @@ class OverlayHandler {
   OverlayPosition? storedPosition;
   double? pixelRatio;
   
-  // 配置相关
-  final ConfigRepository _configRepository;
-  late final ConfigurationManager _configManager;
+  // 构造函数现在非常简单，不再需要任何依赖
+  OverlayHandler();
 
-  /// 构造函数
-  OverlayHandler({ConfigRepository? configRepository}) 
-      : _configRepository = configRepository ?? SharedPreferencesConfigRepository() {
-    _configManager = ConfigurationManager(_configRepository);
+  /// 这是一个辅助方法，用于按需获取最新的配置。
+  /// 它创建了一个临时的 ProviderContainer 来读取全局 Provider 的值。
+  Future<CallerIdConfig> _getCurrentConfig() async {
+    // 创建一个临时的、独立的 Provider 容器
+    final container = ProviderContainer();
+    // 从容器中异步读取我们全局 provider 的当前状态
+    // .future 会等待 provider 初始化完成
+    final config = await container.read(callerIdStyleSecurityProvider.future);
+    // 使用完毕后，销毁容器以释放资源
+    container.dispose();
+    return config;
   }
 
-  /// 显示来电显示浮窗
+  /// 显示来电显示浮窗 (方法签名保持不变！)
   Future<void> showCallerIdOverlay(
       CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
-    // 创建样式提供者
-    final styleProvider = CallerIdStyleProvider();
-    final securityProvider = SecurityMessageProvider();
     
-    // 从仓库加载配置
-    await _configManager.loadFromRepository(styleProvider, securityProvider);
+    // 关键修改：不再自己创建和加载 Provider，而是直接获取最新的配置
+    final config = await _getCurrentConfig();
 
-    // 更新并共享配置
-    await updateAndShareConfiguration(styleProvider, securityProvider);
+    // 首先，更新并共享样式配置
+    await updateAndShareConfiguration(config);
 
-    // 获取当前 Overlay 位置，如果 Overlay 处于激活状态
+    // 获取当前 Overlay 位置
     if (await FlutterOverlayWindow.isActive()) {
       storedPosition = await FlutterOverlayWindow.getOverlayPosition();
     } else {
-      // 如果 Overlay 未激活，则初始化位置或使用默认位置
       storedPosition = storedPosition ?? const OverlayPosition(0, 0);
     }
 
-    // 添加 configType 标识
+    // 共享来电数据
     final dataToSend = {
-      "configType": "callerIdData", // 添加 configType 字段
+      "configType": "callerIdData",
       ...callerIdData.toMap(),
     };
+    await FlutterOverlayWindow.shareData(dataToSend);
 
-    // 传递 Map 对象
-    FlutterOverlayWindow.shareData(dataToSend);
-
+    // 共享 STIR 信息
     if (stirInfo != null) {
-      await FlutterOverlayWindow.shareData({
-        "configType": "stirInfo", // 添加 configType 字段
-        ...stirInfo.toJson(),
-      });
+      await FlutterOverlayWindow.shareData({ "configType": "stirInfo", ...stirInfo.toJson() });
     }
 
+    // 共享 SIM 卡信息
     if (simInfo != null) {
-      await FlutterOverlayWindow.shareData({
-        "configType": "simInfo", // 添加 configType 字段
-        ...simInfo.toJson(),
-      });
+      await FlutterOverlayWindow.shareData({ "configType": "simInfo", ...simInfo.toJson() });
     }
 
-    // 如果 Overlay 未激活，则显示 Overlay 并设置初始位置
+    // 显示 Overlay
     await FlutterOverlayWindow.showOverlay(
       enableDrag: true,
       overlayTitle: "Call",
-      overlayContent:
-          "name:${callerIdData.phoneNumber},region:${callerIdData.countryName},carrier:${callerIdData.carrier}",
+      overlayContent: "name:${callerIdData.phoneNumber},region:${callerIdData.countryName},carrier:${callerIdData.carrier}",
       alignment: OverlayAlignment.center,
       flag: OverlayFlag.defaultFlag,
       visibility: NotificationVisibility.visibilityPublic,
       positionGravity: PositionGravity.auto,
-      height: (styleProvider.windowHeight * (pixelRatio ?? 3.0))
-          .toInt(), // 使用 styleProvider.windowHeight
-      width: (styleProvider.windowWidth * (pixelRatio ?? 3.0)).toInt(),
+      height: (config.windowHeight * (pixelRatio ?? 3.0)).toInt(),
+      width: (config.windowWidth * (pixelRatio ?? 3.0)).toInt(),
       startPosition: storedPosition!,
     );
   }
 
-  /// 关闭浮窗
+  /// 关闭浮窗 (保持不变)
   void closeOverlay() {
-    // 直接使用 FlutterOverlayWindow 关闭 overlay 应用
     FlutterOverlayWindow.closeOverlay();
   }
 
   /// 更新并共享配置
-  Future<void> updateAndShareConfiguration(
-      CallerIdStyleProvider styleProvider, SecurityMessageProvider securityProvider) async {
-    // 创建配置对象
-    final config = CallerIdConfigX.fromProviders(styleProvider, securityProvider);
-    
-    // 添加 configType 标识
+  /// 关键修改：这个方法现在接收 CallerIdConfig
+  Future<void> updateAndShareConfiguration(CallerIdConfig config) async {
     final dataToSend = {
       "configType": "callerIdStyle",
       ...config.toMap(),
     };
-
-    // 传递 Map 对象
-    FlutterOverlayWindow.shareData(dataToSend);
+    await FlutterOverlayWindow.shareData(dataToSend);
   }
 
-  /// 设置像素比例
+  /// 设置像素比例 (保持不变)
   void setPixelRatio(double ratio) {
     pixelRatio = ratio;
   }

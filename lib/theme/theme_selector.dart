@@ -10,7 +10,7 @@ class ThemeSelector extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // 1. 使用 ref.watch 来获取当前的主题模式。
     // 这能确保当主题模式改变时，这个 Widget 会自动重建以更新UI。
-    final currentThemeMode = ref.watch(themeModeNotifierProvider);
+    final currentThemeMode = ref.watch(themeModeProvider);
 
     return SegmentedButton<ThemeMode>(
       // 定义按钮的各个部分
@@ -42,9 +42,8 @@ class ThemeSelector extends ConsumerWidget {
       // 当用户点击一个新的选项时，这个回调函数会被触发。
       onSelectionChanged: (Set<ThemeMode> newSelection) {
         // 2. 使用 ref.read 来调用 Notifier 中的方法。
-        // 我们用 .notifier 来获取 StateNotifier 的实例。
         // newSelection.first 会获取用户点击的那个唯一的选项。
-        ref.read(themeModeNotifierProvider.notifier)
+        ref.read(themeModeProvider.notifier)
            .setThemeMode(newSelection.first);
       },
       

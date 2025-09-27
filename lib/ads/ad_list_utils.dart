@@ -20,7 +20,7 @@ class AdListUtils {
     required Widget Function(BuildContext, T) itemBuilder,
     int adInterval = 3,
     required WidgetRef ref,
-    required ProviderBase<AdControlService> adControlServiceProvider,
+    required Provider<AdControlService> adControlServiceProvider,
   }) {
     // 检查广告是否应该显示
     final adControlService = ref.read(adControlServiceProvider);
@@ -79,7 +79,7 @@ class AdListUtils {
     required Widget Function(BuildContext, T) itemBuilder,
     int adInterval = 3,
     required WidgetRef ref,
-    required ProviderBase<AdControlService> adControlServiceProvider,
+    required Provider<AdControlService> adControlServiceProvider,
     Axis scrollDirection = Axis.vertical,
     bool shrinkWrap = false,
     ScrollPhysics? physics,

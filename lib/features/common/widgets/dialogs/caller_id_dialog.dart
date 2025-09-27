@@ -45,13 +45,15 @@ class _CallerIdDialogState extends ConsumerState<CallerIdDialog> {
   }
 
   Future<void> _fetchCallerIdData() async {
-    final localeState = ref.read(localeProvider);
+    // MODIFICATION: 使用 await ref.read(provider.future) 来获取异步数据
+    final locale = await ref.read(localeProvider.future);
     final callerIdService = ref.read(callerIdServiceProvider);
 
     // 创建 dlibphone.Locale
     final dlibLocale = dlibphone.Locale(
-      language: localeState.locale.languageCode,
-      country: widget.countryCode ?? localeState.locale.countryCode ?? 'US',
+ // 直接使用 locale.languageCode
+      language: locale.languageCode,
+      country: widget.countryCode ?? locale.countryCode ?? 'US',
     );
 
     try {

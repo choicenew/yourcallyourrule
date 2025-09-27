@@ -61,7 +61,7 @@ class GenericRulePage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
   final void Function(BuildContext context, Function(String?) onLabelSelected)? showLabelFilterDialog;
 
   /// 服务提供者
-  final ProviderBase<S> serviceProvider;
+  final Provider<S> serviceProvider;
 
   const GenericRulePage({
     super.key,

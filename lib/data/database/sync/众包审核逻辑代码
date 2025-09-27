@@ -619,13 +619,13 @@ VerificationResult analyzeProfile(VerificationInput input) {
   }
 }
 文件 3: lib/features/deletion_proposer/services/deletion_proposer_service.dart (业务层)
-code
-Dart
-download
-content_copy
-expand_less
-IGNORE_WHEN_COPYING_START
-IGNORE_WHEN_COPYING_END
+
+
+
+
+
+
+
 // lib/features/deletion_proposer/services/deletion_proposer_service.dart
 
 import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
@@ -684,13 +684,13 @@ class DeletionProposerService {
   }
 }
 文件 4: data/database/remote/remote_database_manager.dart (数据库管理)
-code
-Dart
-download
-content_copy
-expand_less
-IGNORE_WHEN_COPYING_START
-IGNORE_WHEN_COPYING_END
+
+
+
+
+
+
+
 // data/database/remote/remote_database_manager.dart
 
 import 'package:sqflite/sqflite.dart';
@@ -755,13 +755,6 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   Future<void> close() async { /* ... */ }
 }
 文件 5: data/datasources/remote/remote_number_datasource.dart (数据源)
-code
-Dart
-download
-content_copy
-expand_less
-IGNORE_WHEN_COPYING_START
-IGNORE_WHEN_COPYING_END
 // data/datasources/remote/remote_number_datasource.dart
 
 import 'package:sqflite/sqflite.dart';

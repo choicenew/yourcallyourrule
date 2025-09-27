@@ -15,15 +15,8 @@ class CarouselCards extends ConsumerStatefulWidget {
 }
 
 class _CarouselCardsState extends ConsumerState<CarouselCards> {
-  int _currentCardIndex = 0;
   final PageController _pageController = PageController();
   Timer? _autoPlayTimer;
-
-  @override
-  void initState() {
-    super.initState();
-    _startAutoPlay();
-  }
 
   @override
   void dispose() {
@@ -32,89 +25,105 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
     super.dispose();
   }
 
-  void _startAutoPlay() {
+  // 【修改】: 将 Timer 的启动和停止逻辑分离，以便在不同状态下调用
+  void _stopAutoPlay() {
+    _autoPlayTimer?.cancel();
+    _autoPlayTimer = null;
+  }
+
+  void _startAutoPlay(int totalPages) {
+    _stopAutoPlay(); // 先停止，避免创建多个 Timer
+    if (totalPages <= 1) return; // 如果只有一页或没有，则不启动
+
     _autoPlayTimer = Timer.periodic(const Duration(seconds: 5), (timer) {
-      if (_currentCardIndex < 5) {
-        _pageController.animateToPage(
-          _currentCardIndex + 1,
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.easeInOut,
-        );
-      } else {
-        _pageController.animateToPage(
-          0,
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.easeInOut,
-        );
-      }
+      if (!mounted) return;
+      
+      final currentPage = _pageController.page?.round() ?? 0;
+      final nextPage = (currentPage + 1) % totalPages;
+      
+      _pageController.animateToPage(
+        nextPage,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // 在 build 方法顶部只 watch 一次 provider，以优化性能
+    final asyncHomeStats = ref.watch(homeStatsProvider);
+
     return Container(
       height: 180,
       margin: const EdgeInsets.symmetric(vertical: 16),
-      child: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _currentCardIndex = index;
-          });
-        },
-        children: [
-          ref.watch(homeStatsProvider).when(
-            data: (stats) => _buildCarouselCard(
+      child: asyncHomeStats.when(
+        data: (stats) {
+          // 【核心修改】: 动态构建卡片列表，不再硬编码数量
+          final List<Widget> cards = [
+            _buildCarouselCard(
               title: AppLocalizations.of(context)!.callBlocking,
               description: AppLocalizations.of(context)!.blockedSpamCalls,
               value: '${stats.blockedCalls}',
               color: const Color(0xFFE57373),
               icon: Icons.call_end,
             ),
-            loading: () => _buildLoadingCard(),
-            error: (_, __) => _buildErrorCard(AppLocalizations.of(context)!.callBlocking),
-          ),
-          ref.watch(homeStatsProvider).when(
-            data: (stats) => _buildCarouselCard(
+            _buildCarouselCard(
               title: AppLocalizations.of(context)!.ruleManagement,
               description: AppLocalizations.of(context)!.createdRules,
               value: '${stats.totalRules}',
               color: const Color(0xFF64B5F6),
               icon: Icons.rule,
             ),
-            loading: () => _buildLoadingCard(),
-            error: (_, __) => _buildErrorCard(AppLocalizations.of(context)!.ruleManagement),
-          ),
-          ref.watch(homeStatsProvider).when(
-            data: (stats) => _buildCarouselCard(
+            _buildCarouselCard(
               title: AppLocalizations.of(context)!.callStatistics,
               description: AppLocalizations.of(context)!.monthlyCallCount,
               value: '${stats.totalCalls}',
               color: const Color(0xFF81C784),
               icon: Icons.insert_chart,
             ),
-            loading: () => _buildLoadingCard(),
-            error: (_, __) => _buildErrorCard(AppLocalizations.of(context)!.callStatistics),
-          ),
-          const InlineAdaptiveBannerAdWidget(
-            adInfo: AdManager.adaptiveBannerAd,
-          ),
-          _buildCarouselCard(
-            title: AppLocalizations.of(context)!.dataSourceReminder,
-            description: AppLocalizations.of(context)!.selectTrustedDataSource,
-            value: AppLocalizations.of(context)!.important,
-            color: const Color(0xFFFFA726),
-            icon: Icons.warning_amber_rounded,
-          ),
-          _buildCallerIdMockCard(),
-          const InlineAdaptiveBannerAdWidget(
-            adInfo: AdManager.adaptiveBannerAd,
-          ),
-          _buildPromotionCard(),
-        ],
+            const InlineAdaptiveBannerAdWidget(
+              adInfo: AdManager.adaptiveBannerAd,
+            ),
+            _buildCarouselCard(
+              title: AppLocalizations.of(context)!.dataSourceReminder,
+              description: AppLocalizations.of(context)!.selectTrustedDataSource,
+              value: AppLocalizations.of(context)!.important,
+              color: const Color(0xFFFFA726),
+              icon: Icons.warning_amber_rounded,
+            ),
+            _buildCallerIdMockCard(),
+            const InlineAdaptiveBannerAdWidget(
+              adInfo: AdManager.adaptiveBannerAd,
+            ),
+            _buildPromotionCard(),
+          ];
+
+          // 【关键】: 在 build 之后延迟一帧启动 Timer，确保 PageView 已构建
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (_autoPlayTimer == null && cards.isNotEmpty) {
+               _startAutoPlay(cards.length);
+            }
+          });
+
+          return PageView(
+            controller: _pageController,
+            children: cards,
+          );
+        },
+        loading: () {
+          _stopAutoPlay(); // 在加载时停止 Timer
+          return _buildLoadingCard();
+        },
+        error: (error, stack) {
+          _stopAutoPlay(); // 在出错时停止 Timer
+          return _buildErrorCard(AppLocalizations.of(context)!.statistics);
+        },
       ),
     );
   }
+
+  // --- 以下是您原来的辅助方法，保持完整，没有省略 ---
 
   Widget _buildCarouselCard({
     required String title,
@@ -134,7 +143,7 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [color.withValues(alpha: 0.8), color],
+            colors: [color.withOpacity(0.8), color],
           ),
         ),
         child: Column(
