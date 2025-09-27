@@ -28,6 +28,7 @@ class RuleRepositoryImpl implements RuleRepository {
   // 内部分发映射表，用于保存不同类型的模型
   late final Map<Type, Future<void> Function(RuleModel model)> _saveDispatchMap;
 
+
   RuleRepositoryImpl(
     this._localPhoneRuleDataSource,
     this._localRegexRuleDataSource,
@@ -35,8 +36,8 @@ class RuleRepositoryImpl implements RuleRepository {
     this._localSimSlotRuleDataSource,
   ) {
     // 在构造函数中初始化分发映射表
-    _setupSaveDispatch();
     _setupUpdateDispatch();
+    _setupSaveDispatch();
   }
   
   // 设置保存分发映射表
@@ -52,8 +53,6 @@ class RuleRepositoryImpl implements RuleRepository {
       SimSlotRuleModel: (model) async => await _localSimSlotRuleDataSource.insert(model as SimSlotRuleModel),
       LabelModel: (model) async => await _localLabelDataSource.insert(model as LabelModel),
     };
-    // 确保SimSlotRuleModel也被添加到_updateDispatchMap中
-    _updateDispatchMap[SimSlotRuleModel] = (model) async => await _localSimSlotRuleDataSource.update(model as SimSlotRuleModel);
   }
   
   // 内部工厂方法，根据实体类型创建对应的模型
