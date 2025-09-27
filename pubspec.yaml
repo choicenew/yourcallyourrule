@@ -31,7 +31,7 @@ dependencies:
 
 
   archive: ^4.0.1
-  android_intent_plus: ^5.3.0
+  android_intent_plus: ^6.0.0
   go_router: ^16.0.0
 
   call_log: ^6.0.0
@@ -45,7 +45,7 @@ dependencies:
 
   csv: ^6.0.0
 
-  device_info_plus: ^11.5.0
+  device_info_plus: ^12.1.0
   #dlibphonenumber: ^1.1.20
   dlibphonenumber:
     git:
@@ -63,9 +63,9 @@ dependencies:
   firebase_app_check: ^0.4.0
   firebase_crashlytics: ^5.0.0
   
-  fl_chart: ^1.0.0
+  fl_chart: ^1.1.0
 
-  flutter_appauth: ^9.0.1
+  flutter_appauth: ^10.0.0
   flutter_contacts: ^1.1.8
 
   flutter_colorpicker: ^1.1.0
@@ -94,20 +94,20 @@ dependencies:
   google_sign_in: ^7.1.1
   googleapis: ^14.0.0
   http: ^1.2.2
-  image_cropper: ^9.1.0
+  image_cropper: ^10.0.0+1
   image_picker: ^1.1.0
   in_app_purchase: ^3.2.3
-  intl: any
-  intl_translation: ^0.20.0
+  intl:  any
+  #intl_translation: ^0.21.0
   json_annotation: ^4.9.0
-  json_serializable: ^6.9.5
+  json_serializable: any
 
   msal_auth: ^3.2.7
-  package_info_plus: ^8.0.0
-  path: ^1.9.0
+  package_info_plus: ^8.3.1
+  path: ^1.7.0
   path_provider: ^2.1.4
   permission_handler: ^12.0.1
-  pigeon: ^22.7.2
+ #  pigeon: any
   pinyin: ^3.3.0
   #provider: ^6.1.2
   rxdart: ^0.28.0
@@ -116,8 +116,8 @@ dependencies:
     git:
       url: https://github.com/haygcao/sim_card_info.git
       ref: master
-
-  share_plus: ^11.0.0
+  sim_reader: ^1.0.4
+  share_plus: ^12.0.0
   shared_preferences: ^2.3.2
 
   sqflite: ^2.4.2
@@ -138,24 +138,27 @@ dependencies:
   uuid: ^4.5.1
   logger: ^2.6.1
   dartz: ^0.10.1
-  freezed_annotation: ^3.0.0
-  connectivity_plus: ^6.1.4
+  freezed_annotation: any
+  flutter_riverpod: ^3.0.0
+  connectivity_plus: ^7.0.0
   encrypt: ^5.0.3
-  flutter_riverpod: ^2.6.1
+
   cloudflare: ^5.1.0
-  flutter_dotenv: ^5.2.1
+  flutter_dotenv: ^6.0.0
   crypto: ^3.0.6
   dio: ^5.8.0+1
   collection: ^1.19.1
-  world_flags: ^2.3.0
+  world_flags: any
   flutter_native_splash: ^2.4.6
-  workmanager: ^0.7.0
+  workmanager: ^0.9.0+3
   extension_google_sign_in_as_googleapis_auth: ^3.0.0
   googleapis_auth: ^2.0.0
   google_sign_in_platform_interface: ^3.0.0
-  riverpod_annotation: ^2.6.1
-  world_countries: ^3.5.0
+  riverpod_annotation: ^3.0.0
+  riverpod_generator: ^3.0.0
+  world_countries: any
   grouped_list: ^6.0.0
+  sim_card_code: ^0.1.0
 
 
 
@@ -168,9 +171,9 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
-  build_runner: ^2.4.15
-  freezed: ^3.0.0
+  flutter_lints: ^6.0.0
+  build_runner: any
+  freezed: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

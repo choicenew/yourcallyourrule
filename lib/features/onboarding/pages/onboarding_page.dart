@@ -305,10 +305,11 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     );
   }
 
+  // ---【核心修改】只修改这个方法 ---
   Widget _buildLanguagePage() {
-    final localeState = ref.watch(localeProvider);
-    final currentLocale = localeState.locale;
-      final List<Map<String, dynamic>> supportedLocales = languages;
+    // 2. 【修改】ref.watch 现在返回 AsyncValue<Locale>
+    final asyncLocale = ref.watch(localeProvider);
+    final List<Map<String, dynamic>> supportedLocales = languages;
 
     return _buildPageTemplate(
       icon: _buildIconContainer(
@@ -318,25 +319,41 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         iconSize: 50,
       ),
       title: AppLocalizations.of(context)!.selectYourLanguage,
+      // 3. 【修改】使用 .when 来构建 LanguageSelectionWidget
       content: Container(
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.1),
+          color: Colors.white.withOpacity(0.1),
           borderRadius: BorderRadius.circular(16),
         ),
         padding: const EdgeInsets.all(16),
-        child: 
-        LanguageSelectionWidget(
-          supportedLocales: supportedLocales,
-          currentLocale: currentLocale,
-          localeNotifier: ref.read(localeProvider.notifier),
-          showCurrentLanguage: false,
-          showAds: false, // 在引导页不显示广告
+        child: asyncLocale.when(
+          // (A) 数据成功加载时
+          data: (currentLocale) => LanguageSelectionWidget(
+            supportedLocales: supportedLocales,
+            currentLocale: currentLocale,
+            localeNotifier: ref.read(localeProvider.notifier),
+            showCurrentLanguage: false,
+            showAds: false, // 在引导页不显示广告
+          ),
+          // (B) 数据正在加载时
+          loading: () => const Center(
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            ),
+          ),
+          // (C) 加载失败时
+          error: (error, stack) => Center(
+            child: Text(
+              'Error: $error',
+              style: const TextStyle(color: Colors.white),
+            ),
+          ),
         ),
       ),
       description: AppLocalizations.of(context)?.onboardingLanguageDescription ?? '',
     );
   }
-
+  
   Widget _buildFeaturePage1() {
     return _buildPageTemplate(
       icon: _buildIconContainer(

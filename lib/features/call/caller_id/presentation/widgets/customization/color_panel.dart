@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/customization/color_picker_button.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
+
 
 class ColorPanel extends ConsumerWidget {
   final String title;

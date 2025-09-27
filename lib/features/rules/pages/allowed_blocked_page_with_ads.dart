@@ -290,6 +290,7 @@ class _AllowedBlockedPageWithAdsState extends ConsumerState<AllowedBlockedPageWi
                   // 添加规则
                   await service.addAllowedBlockedRule(entry, selectedAction);
                   
+                  if (!context.mounted) return;
                   // 刷新规则列表
                   Navigator.pop(context);
                   _loadRules();

@@ -10,12 +10,12 @@ import 'providers/remote_number_filter_service_provider.dart';
 
 import 'providers/sim_slot_rule_service_provider.dart';
 import 'providers/enhanced_composite_filter_service_provider.dart';
-import 'providers/sms_subscription_service_provider.dart';
+import '../../features/sms/providers/sms_subscription_service_provider.dart';
 import 'providers/contact_subscription_service_provider.dart';
 import 'providers/allowed_blocked_service_provider.dart';
 import 'providers/regex_service_provider.dart';
 import 'providers/call_filter_service_provider.dart';
-import 'providers/sms_filter_service_provider.dart';
+import '../../features/sms/providers/sms_filter_service_provider.dart';
 
 
 /// AppRouter的Riverpod Provider

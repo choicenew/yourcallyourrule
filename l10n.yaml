@@ -1,6 +1,32 @@
+# l10n.yaml (最终正确配置)
+
+# 告诉新工具，你的语言文件 (.arb) 存放在哪里。
+# 请确保这个路径在你的项目中是真实存在的。
 arb-dir: lib/l10n
-template-arb-file: app_en.arb # 'template' 而不是 'emplate'
-output-localization-file: app_localizations.dart # 'output' 而不是 'utput'
-output-dir: lib/generated # 'output' 而不是 'utput'
-# 关键点：如果你想让文件生成到 output-dir (lib/generated)，你需要下面这行
+
+# 告诉新工具，哪个是你的“模板”语言文件，通常是英文。
+template-arb-file: app_en.arb
+
+# 告诉新工具，生成的 Dart 文件应该叫什么名字。
+# 我们让它叫 app_localizations.dart，和旧文件完全一样。
+output-localization-file: app_localizations.dart
+
+# 告诉新工具，生成的 Dart 类的名字应该叫什么。
+# 我们让它叫 AppLocalizations，这样 AppLocalizations.of(context) 就能继续工作。
+output-class: AppLocalizations
+
+# 告诉新工具，生成的 Dart 文件应该放在哪个目录下。
+# 我们让它放在 lib/generated/，和旧文件存放的位置完全一样。
+output-dir: lib/generated
+
+# ======================================================================
+# 这是您发现的最关键的一行！
+# synthetic-package: false
+# 它的意思是：“不要把生成的文件藏在Dart的内部构建目录里，
+# 而是把它实实在在地创建在我指定的 output-dir (lib/generated) 文件夹下。”
+# 这样，您项目中的 import 'generated/app_localizations.dart'; 就能找到它了。
+# ======================================================================
 synthetic-package: false
+
+# 确保生成的 getter 不是可空的，与旧版本行为保持一致。
+nullable-getter: false

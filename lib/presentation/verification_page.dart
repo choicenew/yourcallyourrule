@@ -97,7 +97,8 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
 
     final number = vo.PhoneNumber.fromString(_phoneNumberController.text);
     final countryCode = _countryCodeController.text.toUpperCase();
-    final currentLocale = ref.read(localeProvider).locale;
+    // MODIFICATION: 使用 await ref.read(provider.future) 来获取异步数据
+    final currentLocale = await ref.read(localeProvider.future);
     final dlibLocale = dlibphone.Locale(
       language: currentLocale.languageCode,
       country: countryCode,

@@ -44,6 +44,18 @@ class FraudDetectionService {
 
   /// 触发增强的反诈骗提醒（通知方式）
   static Future<void> triggerFraudAlert(String phoneNumber) async {
+    // 1. 在所有 await 之前，立即获取 context
+    final context = AppRouter.navigatorKey.currentContext;
+    if (context == null) return;
+
+    // 2. 在 await 之前，使用 context 准备好所有需要的数据
+    //    通过调用 fraudAlertConfig(context) 来获取 NotificationConfig 对象
+    final notificationConfig = NotificationService.fraudAlertConfig(context);
+    final title = AppLocalizations.of(context)!.fraudAlertTitle;
+    final body = AppLocalizations.of(context)!.fraudAlertBody(phoneNumber);
+    
+    // --- 从这里开始可以有异步操作 ---
+
     final configService = FraudAlertConfigService(SharedPreferencesConfigRepository());
     final config = await configService.getConfig();
 
@@ -52,24 +64,19 @@ class FraudDetectionService {
     }
 
     if (config.isVibrationEnabled) {
-      // 触发震动提醒
       HapticFeedback.heavyImpact();
-
-      // 延迟后再次触发震动，形成警告模式
       Future.delayed(const Duration(milliseconds: 500), () {
         HapticFeedback.heavyImpact();
       });
     }
 
-    final context = AppRouter.navigatorKey.currentContext;
-    if (context == null) return;
-
     final notificationService = NotificationService();
+    // 3. 使用预先准备好的变量
     await notificationService.showNotification(
-      config: NotificationService.fraudAlertConfig,
-      title: AppLocalizations.of(context)!.fraudAlertTitle,
-      body: AppLocalizations.of(context)!.fraudAlertBody(phoneNumber),
-      notificationId: 2, // 使用不同的ID，避免与其他通知冲突
+      config: notificationConfig, // 使用准备好的 config 对象
+      title: title,              // 使用准备好的 title
+      body: body,                // 使用准备好的 body
+      notificationId: 2,
       payload: {'type': 'fraud_alert', 'phone': phoneNumber},
     );
   }

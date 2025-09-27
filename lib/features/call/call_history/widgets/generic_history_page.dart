@@ -14,7 +14,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class GenericHistoryPage<T extends BaseEntity, S, M> extends ConsumerStatefulWidget {
   final String title;
   final Color themeColor;
-  final ProviderBase<S> serviceProvider;
+  final Provider<S> serviceProvider;
   final Future<List<T>> Function(S service) getItems;
   final Future<M> Function(WidgetRef ref, List<T> items)? getSecondaryMeta;
   final Future<void> Function(S service, List<T> itemsToDelete)? deleteItems;

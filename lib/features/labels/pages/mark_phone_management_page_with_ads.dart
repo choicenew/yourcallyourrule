@@ -203,6 +203,7 @@ class _MarkPhoneManagementPageWithAdsState
 // 检查标签ID是否有效
                 final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
                 final label = await predefinedLabelService.getLabelById(selectedLabelId!);
+                if (!context.mounted) return;
                 if (label == null) {
                   _showSnackBar(AppLocalizations.of(context)!.invalidLabel);
                   return;
@@ -228,6 +229,7 @@ class _MarkPhoneManagementPageWithAdsState
                   );
                   await labelPhoneEntryToRemote.sync(labelPhoneEntry);
 
+                  if (!context.mounted) return;
                   Navigator.pop(context);
                   _loadMarkedPhones();
 

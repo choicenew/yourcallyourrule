@@ -10,6 +10,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
+import 'package:yourcallyourrule/core/services/notification_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
@@ -88,16 +89,18 @@ class CallerIdMonitorService {
   Stream<MethodCall> get rawCallEventStream => _rawCallEventController.stream;
   Stream<CallData> get callDataStream => _callHandler.callDataStream;
 
-  /// 构造函数
-  // Add locale provider dependency
-  final LocaleProvider _localeProvider;
+
+
+  // MODIFICATION 2: 将成员变量的类型从 LocaleProvider 改为 Locale
+  final Locale _locale;
   
   /// Updated constructor
   CallerIdMonitorService(
     this._callerIdService,
     this._callFilterService,
     this._timeInterceptorService,
-    this._localeProvider,  // Add locale provider parameter
+     // MODIFICATION 3: 将构造函数参数的类型从 LocaleProvider 改为 Locale
+    this._locale,
     {BlockedCallRepository? blockedCallRepository,
     FlutterLocalNotificationsPlugin? notificationsPlugin}
   ) : 
@@ -113,6 +116,9 @@ class CallerIdMonitorService {
     debugPrint('Initializing handlers 成功');
     // 创建配置仓库
     final configRepository = CallerIdConfigRepository(SharedPreferencesConfigRepository());
+
+        // 2. 创建 NotificationService 的一个实例
+    final notificationService = NotificationService();
     
     // 创建调用处理器
     _shouldAcceptCallHandler = ShouldAcceptCallHandler();
@@ -121,21 +127,27 @@ class CallerIdMonitorService {
     _simCallHandler = SimCallHandler(_onSimInfoUpdated);
     
     // 创建通知处理器
+      // 3. 修改 NotificationHandler 的创建方式
+    //    不再传递 notificationsPlugin，而是传递我们刚创建的 notificationService
     _notificationHandler = NotificationHandler(
-      notificationsPlugin: notificationsPlugin,
+     notificationService: notificationService,
       configRepository: configRepository,
     );
     
     // 创建显示模式处理器
+     // 4. 修改 DisplayModeHandler 的创建方式
+    //    添加必需的 notificationService 参数
     _displayModeHandler = DisplayModeHandler(
       configRepository: configRepository,
+      notificationService: notificationService, // <-- 添加这一行
       notificationHandler: _notificationHandler
     );
     
     // 创建通话处理器
     _callHandler = CallHandler(
       callerIdService: _callerIdService,
-      localeProvider: _localeProvider,
+      // 注意：你可能需要将 CallHandler 中的参数名从 localeProvider 改为 locale。
+      locale: _locale, 
       displayModeHandler: _displayModeHandler,
     );
     

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/subscription/contact_subscription.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
-import 'package:yourcallyourrule/features/contacts/di/contact_subscription_service_provider.dart';
+import 'package:yourcallyourrule/features/contacts/provider/contact_subscription_service_provider.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

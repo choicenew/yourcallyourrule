@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/providers/sms_filter_service_provider.dart';
+
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
+import 'package:yourcallyourrule/features/sms/providers/sms_filter_service_provider.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_filter_service.dart';
 
 

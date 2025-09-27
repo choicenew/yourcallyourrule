@@ -1,6 +1,7 @@
-import 'dart:ui';
+// lib/features/call/caller_id/configuration/caller_id_config_service.dart
 
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'dart:ui';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart'; 
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
 
 /// 来电显示配置服务
@@ -28,6 +29,7 @@ class CallerIdConfigService {
 
   /// 初始化默认配置
   Future<CallerIdConfig> initializeDefault() async {
+    // 注意：这里需要补充您在 CallerIdConfig 中新增的字段的默认值
     const defaultConfig = CallerIdConfig(
       backgroundColorStart: Color(0xFFE1B026),
       backgroundColorEnd: Color(0xFFEED065),
@@ -75,6 +77,12 @@ class CallerIdConfigService {
       securityMessageEnabled: true,
       securityMessageBackgroundColor: Color(0xB0515151), // 半透明黑色
       securityMessageHeight: 30.0,
+      // 补充的默认值
+      windowWidth: 380,
+      windowHeight: 235,
+      avatarSize: 60,
+      avatarBorderSize: 65,
+      iconSize: 20,
     );
     await saveConfig(defaultConfig);
     return defaultConfig;

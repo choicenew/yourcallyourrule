@@ -24,7 +24,8 @@ import 'package:yourcallyourrule/features/language/provider/language_provider.da
 class CallHandler {
   final CallerIdService _callerIdService;
   final DisplayModeHandler _displayModeHandler;
-  final LocaleProvider _localeProvider;
+  // MODIFICATION 2: 将成员变量的类型从 LocaleProvider 改为 Locale
+  final Locale _locale;
 
   // A subject to broadcast the latest CallData object.
   // Using BehaviorSubject to provide the last emitted value to new listeners.
@@ -46,11 +47,12 @@ class CallHandler {
   /// 构造函数
   CallHandler({
     required CallerIdService callerIdService,
-    required LocaleProvider localeProvider,
+  // MODIFICATION 3: 将构造函数参数的类型从 LocaleProvider 改为 Locale，并更新参数名
+    required Locale locale, 
     required DisplayModeHandler displayModeHandler,
   }) : 
     _callerIdService = callerIdService,
-    _localeProvider = localeProvider,
+    _locale = locale, // 更新初始化
     _displayModeHandler = displayModeHandler;
 
 
@@ -136,7 +138,8 @@ class CallHandler {
     }
 
     // 获取当前 Locale
-    final languageCode = _localeProvider.locale.languageCode;
+    // 直接从 _locale 成员变量中获取，不再需要 .locale
+    final languageCode = _locale.languageCode;
 
     // 创建 dlibphonenumber 的 Locale
     final dlibLocale = dlibphone.Locale(

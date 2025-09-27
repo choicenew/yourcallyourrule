@@ -58,4 +58,10 @@ abstract class RemoteDatabaseManager implements DatabaseManager {
   // 关闭数据库
   @override
   Future<void> close();
+  
+  // 删除提议相关方法
+  Future<bool> hasActiveDeletionProposal(String phoneNumber);
+  Future<int> cleanupCompletedDeletionProposals({Duration? olderThan});
+  Future<List<Map<String, dynamic>>> getPendingDeletionProposals();
+  Future<Map<String, dynamic>?> getProposalInfo(String phoneNumber);
 }

@@ -16,11 +16,11 @@ BackupVersionEntity _$BackupVersionEntityFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$BackupVersionEntityToJson(
-        BackupVersionEntity instance) =>
-    <String, dynamic>{
-      'version': instance.version,
-      'backupTime': instance.backupTime.toIso8601String(),
-      'deviceName': instance.deviceName,
-      'filePath': instance.filePath,
-      'backupType': instance.backupType,
-    };
+  BackupVersionEntity instance,
+) => <String, dynamic>{
+  'version': instance.version,
+  'backupTime': instance.backupTime.toIso8601String(),
+  'deviceName': instance.deviceName,
+  'filePath': instance.filePath,
+  'backupType': instance.backupType,
+};

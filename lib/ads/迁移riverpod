@@ -1,0 +1,196 @@
+好的，分析完您提供的所有广告相关代码后，整个逻辑链条非常清晰。核心是 AdControlService，它依赖于 PurchaseState 和 AdState 来决定是否显示广告。
+
+既然我们已经将 PurchaseState 迁移到了新的 @riverpod 风格，现在我们需要对广告相关的 Provider 和 Widget 进行适配性修改，以确保它们能够正确地与新的 PurchaseState 协同工作。
+
+修改的核心点非常集中，主要围绕 AdControlService 和 AdState。
+
+第 1 步 (核心)：修改 ad_state.dart
+
+这是所有修改的起点。我们需要将 AdState 也迁移到现代的 @riverpod 风格。这会让它的定义更简洁，并且与新的 PurchaseState 风格保持一致。
+
+文件路径: lib/ads/ad_state.dart
+
+修改点:
+
+添加 riverpod_annotation 依赖和 part 指令。
+
+使用 @Riverpod(keepAlive: true) 注解：广告开关是一个全局状态，不应该自动销毁，所以 keepAlive 是必须的。
+
+类继承自 _$AdState，而不是 StateNotifier。
+
+使用 build() 方法返回初始状态 (true)，替代旧的构造函数 super(true)。
+
+移除手动定义的 adStateProvider，因为它将被自动生成。
+
+完整最终代码:
+
+code
+Dart
+download
+content_copy
+expand_less
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'ad_state.g.dart'; // 1. 添加 part 指令
+
+// 2. 使用 @Riverpod 注解，并设置为 keepAlive
+@Riverpod(keepAlive: true)
+class AdState extends _$AdState { // 3. 继承自生成的 _$AdState
+  
+  // 4. 使用 build 方法返回初始状态
+  @override
+  bool build() {
+    // 初始状态为广告启用
+    return true;
+  }
+
+  // 获取当前广告状态 (这个 getter 可以保留，也可以移除，
+  // 因为可以直接通过 ref.watch(adStateProvider) 获取 bool 值)
+  bool get isAdEnabled => state;
+
+  // 禁用广告
+  void disableAds() {
+    state = false;
+  }
+
+  // 启用广告
+  void enableAds() {
+    state = true;
+  }
+}
+
+// 5. 移除旧的手动 Provider 定义
+// final adStateProvider = StateNotifierProvider<AdState, bool>((ref) {
+//   return AdState();
+// });
+第 2 步：修改 ad_control_service.dart
+
+AdControlService 是连接购买状态和广告状态的桥梁。它的修改是为了适应新的 AdState 和 PurchaseState Provider。
+
+文件路径: lib/ads/ad_control_service.dart
+
+修改点:
+
+Provider 定义更新：adControlServiceProvider 现在需要监听新的 purchaseStateProvider，而不仅仅是它的 notifier。
+
+构造函数简化：不再需要传递 ref。
+
+内部逻辑更新：_updateAdState 等方法现在需要通过 ref 来读取和修改 Provider，而不是直接操作传入的实例。
+
+(重要) 服务逻辑调整：AdControlService 的核心职责是“响应”PurchaseState 的变化。最好的实现方式是让 adControlServiceProvider 自身去 watch 购买状态，并自动更新 AdState。这比在UI层面被动调用 shouldShowAds 更健壮。
+
+完整最终代码:
+
+code
+Dart
+download
+content_copy
+expand_less
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/ads/ad_state.dart';
+import 'package:yourcallyourrule/data/state/purchase_state.dart'; // 确认路径正确
+
+/// 广告控制服务 - Riverpod 版本
+/// 负责根据购买状态自动控制广告的显示和隐藏
+class AdControlService {
+  final Ref _ref;
+
+  // 构造函数只接收 Ref
+  AdControlService(this._ref) {
+    // 【重要】服务在创建时，就设置一个监听器
+    // 当 purchaseStateProvider 变化时，自动更新 adStateProvider
+    _ref.listen<PurchaseStateModel>(purchaseStateProvider, (_, next) {
+      _updateAdState(next);
+    });
+    
+    // 初始化时也执行一次，确保初始状态正确
+    _updateAdState(_ref.read(purchaseStateProvider));
+  }
+
+  /// 更新广告状态
+  void _updateAdState(PurchaseStateModel purchaseState) {
+    final adStateNotifier = _ref.read(adStateProvider.notifier);
+    if (purchaseState.isPurchasedOrHasTempAccess()) {
+      // 如果用户已购买，禁用广告
+      adStateNotifier.disableAds();
+    } else {
+      // 否则，启用广告
+      adStateNotifier.enableAds();
+    }
+  }
+
+  /// 检查广告是否应该显示（UI层依然可以调用）
+  bool shouldShowAds() {
+    // 这个方法现在只依赖于 adStateProvider 的当前值
+    return _ref.read(adStateProvider);
+  }
+
+  // ---- 以下方法现在直接操作 adStateProvider ----
+
+  void disableAds() {
+    _ref.read(adStateProvider.notifier).disableAds();
+  }
+
+  void enableAds() {
+    // 只有在用户未购买时才能启用广告
+    if (!_ref.read(purchaseStateProvider).isPurchasedOrHasTempAccess()) {
+      _ref.read(adStateProvider.notifier).enableAds();
+    }
+  }
+
+  void toggleAdState() {
+    final adStateNotifier = _ref.read(adStateProvider.notifier);
+    if (adStateNotifier.isAdEnabled) {
+      disableAds();
+    } else {
+      enableAds();
+    }
+  }
+}
+
+/// 创建 AdControlService 的 Provider
+final adControlServiceProvider = Provider<AdControlService>((ref) {
+  // 服务现在只需要 ref 就可以自己找到所有依赖
+  // Provider 在第一次被读取时，会自动创建 AdControlService 实例并设置监听
+  return AdControlService(ref);
+});
+第 3 步：验证其他文件的兼容性 (通常无需修改)
+
+在完成了上述两个核心文件的修改后，您其他的广告相关 Widget (nativeAdWidget, InlineAdaptiveBannerAdWidget等) 大概率不需要任何修改。
+
+为什么？
+
+因为它们都依赖于 adStateProvider 来获取一个 bool 值。
+
+之前: ref.watch(adStateProvider) 返回 bool。
+
+现在: ref.watch(adStateProvider) 仍然返回 bool。
+
+虽然 adStateProvider 的内部实现从 StateNotifierProvider<AdState, bool> 变成了由 @Riverpod 生成的 NotifierProvider<AdState, bool>，但对于消费者（UI Widget）来说，它暴露的接口 (.watch 返回一个 bool) 是完全一样的。这就是 Riverpod API 设计的优雅之处。
+
+需要检查的点:
+
+InlineAdaptiveBannerAdWidget:
+
+final adState = ref.watch(adStateProvider); -> 正确，仍然返回 bool。
+
+final adState = ref.read(adStateProvider); -> 正确，仍然返回 bool。
+
+AdListUtils & AdListWidget:
+
+final adControlService = ref.read(adControlServiceProvider); -> 正确，provider 定义还在。
+
+final shouldShowAds = adControlService.shouldShowAds(); -> 正确，方法还在。
+
+结论： 您的UI层代码是健壮的，可以无缝适应底层 Provider 的现代化改造。
+
+总结操作步骤
+
+替换 ad_state.dart 的内容为新的代码生成版本。
+
+替换 ad_control_service.dart 的内容为新的、响应式逻辑的版本。
+
+在终端运行 dart run build_runner build --delete-conflicting-outputs 来生成 ad_state.g.dart 文件。
+
+重新运行您的应用。整个广告显示逻辑现在应该能正确地根据新的 PurchaseState 自动更新了。

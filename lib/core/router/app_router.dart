@@ -33,6 +33,7 @@ import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'package:yourcallyourrule/features/notifications/pages/notifications_page.dart';
 import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored_with_ads.dart';
 import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_service_provider.dart';
@@ -179,6 +180,7 @@ class AppRouter {
   static const String settings = 'settings';
   static const String languageSettings = 'language-settings';
   static const String countrySyncSettings = 'country-sync-settings';
+  static const String notifications = 'notifications';
 
 
   // 创建路由器
@@ -544,6 +546,13 @@ class AppRouter {
         path: '/$autoUpdate',
         name: autoUpdate,
         builder: (context, state) => const AutoUpdateSettingsPage(),
+      ),
+      
+      // 通知页面
+      GoRoute(
+        path: '/notifications',
+        name: notifications,
+        builder: (context, state) => const NotificationsPage(),
       ),
 
       // 权限管理页面

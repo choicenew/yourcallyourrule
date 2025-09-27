@@ -3,15 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/core/provider/providers/caller_id_style_provider.dart';
-import 'package:yourcallyourrule/features/call/caller_id/providers/caller_id_style_provider.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_content_builder.dart';
 
-/// 来电监控服务的数据模型
+import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
+import 'package:yourcallyourrule/features/call/caller_id/providers/callerid_style_security_provider.dart';
 
-/// 来电显示覆盖层组件
-/// 显示来电信息的浮动窗口
-class CallerIdOverlay extends ConsumerStatefulWidget {
+class CallerIdOverlay extends ConsumerWidget {
   final CallerIdData callerIdData;
   final SimInfo? simInfo;
   final StirInfo? stirInfo;
@@ -28,39 +25,56 @@ class CallerIdOverlay extends ConsumerStatefulWidget {
   });
 
   @override
-  CallerIdOverlayState createState() => CallerIdOverlayState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    // 【关键修改点】: watch 统一的 provider
+    final asyncConfig = ref.watch(callerIdStyleSecurityProvider);
 
-class CallerIdOverlayState extends ConsumerState<CallerIdOverlay> {
-  final double _opacity = 1.0;
+    return asyncConfig.when(
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (err, stack) => Center(child: Text('Error: $err')),
+      data: (config) {
+        // 【关键修改点】: read notifier 以便调用其方法
+        final notifier = ref.read(callerIdStyleSecurityProvider.notifier);
+        
+        final content = _buildOverlayContent(context, config, notifier);
 
-  @override
-  Widget build(BuildContext context) {
-    return widget.isDismissible
-        ? Dismissible(
-            key: Key(widget.callerIdData.id),
-            direction: DismissDirection.horizontal,
-            onDismissed: (_) => widget.onDismiss(),
-            child: _buildOverlayContent(context),
-          )
-        : _buildOverlayContent(context);
-  }
-
-  Widget _buildOverlayContent(BuildContext context) {
-    final styleProvider = ref.watch(callerIdStyleProvider);
-    return CallerIdContentBuilder.buildOverlayContainer(
-      styleProvider: styleProvider,
-      opacity: _opacity,
-      child: CallerIdContentBuilder.buildCallerIdContent(
-        context: context,
-        callerIdData: widget.callerIdData,
-        styleProvider: styleProvider,
-        simInfo: widget.simInfo,
-        stirInfo: widget.stirInfo,
-        isDraggable: true,
-      ),
+        return isDismissible
+            ? Dismissible(
+                key: Key(callerIdData.id),
+                direction: DismissDirection.horizontal,
+                onDismissed: (_) => onDismiss(),
+                child: content,
+              )
+            : content;
+      },
     );
   }
 
-  // 使用共享的CallerIdContentBuilder替代原有的内容构建方法
+  Widget _buildOverlayContent(BuildContext context, CallerIdConfig config, CallerIdStyleSecurityNotifier notifier) {
+    return CallerIdContentBuilder.buildOverlayContainer(
+      config: config,
+      child: CallerIdContentBuilder.buildCallerIdContent(
+        context: context,
+        callerIdData: callerIdData,
+        config: config,
+        simInfo: simInfo,
+        stirInfo: stirInfo,
+        isDraggable: true, // 在预览界面，元素是可拖动的
+        // 【关键修改点】: 将 notifier 的方法作为回调传递下去
+        onAvatarPositionChanged: notifier.updateAvatarPosition,
+        onCarrierPositionChanged: notifier.updateCarrierPosition,
+        onNamePositionChanged: notifier.updateNamePosition,
+        onCountryNamePositionChanged: notifier.updateCountryNamePosition,
+        onLabelsPositionChanged: notifier.updateLabelsPosition,
+        onCountPositionChanged: notifier.updateCountPosition,
+        onNumberTypePositionChanged: notifier.updateNumberTypePosition,
+        onNumberPositionChanged: notifier.updateNumberPosition,
+        onLocationPositionChanged: notifier.updateLocationPosition,
+        onStirPositionChanged: notifier.updateStirPosition,
+        onCallTypePositionChanged: notifier.updateCallTypePosition,
+        onSimCardPositionChanged: notifier.updateSimCardPosition,
+        onSecurityMessagePositionChanged: notifier.updateSecurityMessagePosition,
+      ),
+    );
+  }
 }

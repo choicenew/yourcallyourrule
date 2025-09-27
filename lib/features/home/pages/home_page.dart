@@ -29,16 +29,14 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage> {
   int _currentIndex = 0; // 当前选中的底部导航项
 
+/*
+ // 【修改】initState 方法被完全移除。
   @override
   void initState() {
     super.initState();
 
-    // 加载真实数据
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(homeStatsProvider.notifier).loadHomeStats();
-    });
   }
-
+*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(

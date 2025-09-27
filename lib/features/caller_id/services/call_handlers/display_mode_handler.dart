@@ -1,6 +1,7 @@
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/core/services/notification_service_contract.dart';
 import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service_new.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/notification_handler.dart';
@@ -21,12 +22,18 @@ class DisplayModeHandler {
   /// 构造函数
   DisplayModeHandler({
     required CallerIdConfigRepository configRepository,
+       // 2. 添加 'notificationService' 作为必需的参数
+    required NotificationServiceContract notificationService, 
     OverlayHandler? overlayHandler,
     NotificationHandler? notificationHandler,
   }) : 
     _configRepository = configRepository,
     _overlayHandler = overlayHandler ?? OverlayHandler(),
-    _notificationHandler = notificationHandler ?? NotificationHandler(configRepository: configRepository) {
+        // 3. 在这里，我们将从外部接收到的 `notificationService` 传递给 `NotificationHandler`
+    _notificationHandler = notificationHandler ?? NotificationHandler(
+      configRepository: configRepository,
+      notificationService: notificationService, // <-- 将依赖传递进去
+    ) {
     _loadDisplayMode();
   }
   

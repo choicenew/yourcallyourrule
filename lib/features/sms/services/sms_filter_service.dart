@@ -2,12 +2,14 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
+import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_filter_handler.dart';
+import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_notification_handler.dart';
 import 'package:yourcallyourrule/platform/sms_channel_switcher.dart';
 
 import 'sms_handlers/base_sms_handler.dart';
-import 'sms_handlers/filter_handler.dart';
+
 import 'sms_handlers/incoming_sms_handler.dart';
-import 'sms_handlers/notification_handler.dart';
+
 
 class SmsFilterService {
   final SmsChannelInterface smsChannelManager;
