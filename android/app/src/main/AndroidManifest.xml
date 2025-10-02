@@ -97,8 +97,7 @@
     <!--  ===  后台处理  ===  -->
     <uses-permission
         android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission
-        android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <!-- 已移除FOREGROUND_SERVICE_SPECIAL_USE权限，floating_window_android不需要 -->
     <!--  ===  电池优化  ===  -->
     <uses-permission
         android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>

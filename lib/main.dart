@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:floating_window_android/floating_window_android.dart';
 
 import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_sync_service_initializer.dart';
@@ -43,6 +44,9 @@ Future<void> main() async {
 
     // 初始化数据库服务
     await DatabaseService().initialize();
+    
+    // 预加载FloatingWindowAndroid引擎以提高悬浮窗启动速度
+    await FloatingWindowAndroid.preloadFlutterEngine();
     
     // --- Add ---
     // 创建一个顶层ProviderContainer

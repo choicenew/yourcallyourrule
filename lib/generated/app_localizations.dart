@@ -5672,7 +5672,7 @@ abstract class AppLocalizations {
   /// **'Phone number cannot be empty'**
   String get phoneNumberCannotBeEmpty;
 
-  /// No description provided for @phoneNumberHint.
+  /// Hint text for phone number input field
   ///
   /// In en, this message translates to:
   /// **'Enter phone number'**
@@ -5696,7 +5696,7 @@ abstract class AppLocalizations {
   /// **'Please enter both phone number and regex pattern'**
   String get phoneNumberRegexRequired;
 
-  /// No description provided for @phoneNumberRequired.
+  /// Validation message when phone number is empty
   ///
   /// In en, this message translates to:
   /// **'Phone number is required'**
@@ -9530,13 +9530,13 @@ abstract class AppLocalizations {
   /// **'Membership Feature'**
   String get membershipFeature;
 
-  /// No description provided for @medium.
+  /// Medium risk level label
   ///
   /// In en, this message translates to:
   /// **'Medium'**
   String get medium;
 
-  /// Verification report label
+  /// Label for verification report section
   ///
   /// In en, this message translates to:
   /// **'Verification Report'**
@@ -9710,29 +9710,29 @@ abstract class AppLocalizations {
   /// **'Clear'**
   String get clearButton;
 
-  /// No description provided for @justNow.
+  /// Time indicator for very recent events
   ///
   /// In en, this message translates to:
   /// **'Just now'**
   String get justNow;
 
-  /// Relative time for minutes ago.
+  /// Time indicator for minutes ago
   ///
   /// In en, this message translates to:
-  /// **'{count,plural, =1{1 minute ago} other{{count} minutes ago}}'**
-  String minutesAgo(int count);
+  /// **'{minutes}m ago'**
+  String minutesAgo(int minutes);
 
-  /// Relative time for hours ago.
+  /// Time indicator for hours ago
   ///
   /// In en, this message translates to:
-  /// **'{count,plural, =1{1 hour ago} other{{count} hours ago}}'**
-  String hoursAgo(int count);
+  /// **'{hours}h ago'**
+  String hoursAgo(int hours);
 
-  /// Relative time for days ago.
+  /// Time indicator for days ago
   ///
   /// In en, this message translates to:
-  /// **'{count,plural, =1{1 day ago} other{{count} days ago}}'**
-  String daysAgo(int count);
+  /// **'{days}d ago'**
+  String daysAgo(int days);
 
   /// No description provided for @yesterday.
   ///
@@ -9866,16 +9866,16 @@ abstract class AppLocalizations {
   /// **'Verified'**
   String get riskLevelVerified;
 
-  /// Low risk level
+  /// Description for risk level 2
   ///
   /// In en, this message translates to:
-  /// **'Low'**
+  /// **'Low - Occasional unwanted calls'**
   String get riskLevelLow;
 
-  /// High risk level
+  /// Description for risk level 4
   ///
   /// In en, this message translates to:
-  /// **'High'**
+  /// **'High - Persistent harassment or scam attempts'**
   String get riskLevelHigh;
 
   /// Unknown risk level
@@ -10058,7 +10058,7 @@ abstract class AppLocalizations {
   /// **'No Activity'**
   String get noActivity;
 
-  /// Low level label
+  /// Low risk level label
   ///
   /// In en, this message translates to:
   /// **'Low'**
@@ -10070,7 +10070,7 @@ abstract class AppLocalizations {
   /// **'Moderate'**
   String get moderate;
 
-  /// High level label
+  /// High risk level label
   ///
   /// In en, this message translates to:
   /// **'High'**
@@ -10421,6 +10421,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You have {count, plural, =0 {no pending proposals} one {1 pending proposal} other {{count} pending proposals}}.'**
   String pendingProposalsBody(num count);
+
+  /// Label for country code input field
+  ///
+  /// In en, this message translates to:
+  /// **'Country Code (ISO 3166-1 alpha-2)'**
+  String get countryCodeLabel;
+
+  /// Hint text for country code input field
+  ///
+  /// In en, this message translates to:
+  /// **'e.g., US, CN, GB'**
+  String get countryCodeHint;
+
+  /// Validation message when country code is empty
+  ///
+  /// In en, this message translates to:
+  /// **'Country code is required'**
+  String get countryCodeRequired;
+
+  /// Validation message when country code is not 2 letters
+  ///
+  /// In en, this message translates to:
+  /// **'Country code must be 2 letters'**
+  String get countryCodeLength;
+
+  /// Validation message when phone number is too short
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number must be at least 7 digits'**
+  String get phoneNumberLength;
+
+  /// Hint text for detailed reason input field
+  ///
+  /// In en, this message translates to:
+  /// **'Provide detailed explanation (minimum 10 characters)'**
+  String get reasonDetailHint;
+
+  /// Validation message when reason is empty
+  ///
+  /// In en, this message translates to:
+  /// **'Reason is required'**
+  String get reasonRequired;
+
+  /// Validation message when reason is too short
+  ///
+  /// In en, this message translates to:
+  /// **'Reason must be at least 10 characters'**
+  String get reasonLength;
+
+  /// Label for risk level selection
+  ///
+  /// In en, this message translates to:
+  /// **'Risk Level'**
+  String get riskLevelLabel;
+
+  /// Prefix for risk level display
+  ///
+  /// In en, this message translates to:
+  /// **'Level'**
+  String get riskLevelPrefix;
+
+  /// Description for risk level 1
+  ///
+  /// In en, this message translates to:
+  /// **'Very Low - Minor annoyance, infrequent calls'**
+  String get riskLevelVeryLow;
+
+  /// Description for risk level 3
+  ///
+  /// In en, this message translates to:
+  /// **'Medium - Regular spam or telemarketing'**
+  String get riskLevelMedium;
+
+  /// Description for risk level 5
+  ///
+  /// In en, this message translates to:
+  /// **'Critical - Dangerous scams or threats'**
+  String get riskLevelCritical;
+
+  /// Title for guidelines section
+  ///
+  /// In en, this message translates to:
+  /// **'Guidelines'**
+  String get guidelinesTitle;
+
+  /// Content for guidelines section
+  ///
+  /// In en, this message translates to:
+  /// **'• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions'**
+  String get guidelinesContent;
+
+  /// Error message for invalid phone number
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid phone number or country code.'**
+  String get invalidPhoneNumber;
+
+  /// Error message when submission fails
+  ///
+  /// In en, this message translates to:
+  /// **'Submission failed: {error}'**
+  String submissionFailed(String error);
+
+  /// Title for notification frequency settings
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Frequency'**
+  String get notificationFrequency;
+
+  /// Label for notification frequency in hours
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Frequency (hours)'**
+  String get notificationFrequencyHours;
+
+  /// Format for displaying hours
+  ///
+  /// In en, this message translates to:
+  /// **'{hours} hours'**
+  String hoursFormat(int hours);
+
+  /// Display for vote counts and percentage
+  ///
+  /// In en, this message translates to:
+  /// **'Votes: {total} ({supportPercentage}% support)'**
+  String votesCount(int total, int supportPercentage);
+
+  /// Display for support count
+  ///
+  /// In en, this message translates to:
+  /// **'Support: {count}'**
+  String supportCount(int count);
+
+  /// Display for oppose count
+  ///
+  /// In en, this message translates to:
+  /// **'Oppose: {count}'**
+  String opposeCount(int count);
 }
 
 class _AppLocalizationsDelegate
