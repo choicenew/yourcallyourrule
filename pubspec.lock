@@ -445,11 +445,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: local
-      resolved-ref: "7b5c60f7f1e38b5ce93bbd8e31e6515f2e95691a"
+      ref: main
+      resolved-ref: "0d91e86e0f81028d86258bd19b2d05ad6f9037dc"
       url: "https://github.com/haygcao/dlibphonenumber.git"
     source: git
-    version: "1.1.31"
+    version: "1.1.48"
   email_validator:
     dependency: "direct main"
     description:
@@ -698,6 +698,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.5.1"
+  floating_window_android:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: main
+      resolved-ref: "5a1346c6abb819088eb0728646f38155a6a780ff"
+      url: "https://github.com/maojiu-bb/floating_window_android.git"
+    source: git
+    version: "1.1.1"
   floor:
     dependency: "direct main"
     description:
@@ -900,14 +909,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.6"
-  flutter_overlay_window:
-    dependency: "direct main"
-    description:
-      name: flutter_overlay_window
-      sha256: "17988420249da68e421d1b44b511e6113d3de7a9e52c3fbd6d99730508af4580"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -1746,10 +1747,10 @@ packages:
     dependency: transitive
     description:
       name: protobuf
-      sha256: "68645b24e0716782e58948f8467fd42a880f255096a821f9e7d0ec625b00c84d"
+      sha256: de9c9eb2c33f8e933a42932fe1dc504800ca45ebc3d673e6ed7f39754ee4053e
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "4.2.0"
   provider:
     dependency: transitive
     description:
@@ -1966,15 +1967,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.0"
-  sim_card_info:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "4871826a65703a8e7d446fd9548906941a72ba86"
-      url: "https://github.com/haygcao/sim_card_info.git"
-    source: git
-    version: "1.0.1"
   sim_reader:
     dependency: "direct main"
     description:

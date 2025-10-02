@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_overlay_window/flutter_overlay_window.dart';
+import 'package:floating_window_android/floating_window_android.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
@@ -294,8 +294,8 @@ class CallerIdMonitorService {
     await _handlerFactory.disposeAll();
     
     // 关闭浮窗
-    if (await FlutterOverlayWindow.isActive()) {
-      FlutterOverlayWindow.closeOverlay();
+    if (await FloatingWindowAndroid.isShowing()) {
+      FloatingWindowAndroid.closeOverlay();
     }
   }
 }

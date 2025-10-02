@@ -5427,36 +5427,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get justNow => 'Just now';
 
   @override
-  String minutesAgo(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count minutes ago',
-      one: '1 minute ago',
-    );
-    return '$_temp0';
+  String minutesAgo(int minutes) {
+    return '${minutes}m ago';
   }
 
   @override
-  String hoursAgo(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count hours ago',
-      one: '1 hour ago',
-    );
-    return '$_temp0';
+  String hoursAgo(int hours) {
+    return '${hours}h ago';
   }
 
   @override
-  String daysAgo(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count days ago',
-      one: '1 day ago',
-    );
-    return '$_temp0';
+  String daysAgo(int days) {
+    return '${days}d ago';
   }
 
   @override
@@ -5526,10 +5508,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get riskLevelVerified => 'Verified';
 
   @override
-  String get riskLevelLow => 'Low';
+  String get riskLevelLow => 'Low - Occasional unwanted calls';
 
   @override
-  String get riskLevelHigh => 'High';
+  String get riskLevelHigh => 'High - Persistent harassment or scam attempts';
 
   @override
   String get riskLevelUnknown => 'Unknown';
@@ -5854,5 +5836,86 @@ class AppLocalizationsEn extends AppLocalizations {
       zero: 'no pending proposals',
     );
     return 'You have $_temp0.';
+  }
+
+  @override
+  String get countryCodeLabel => 'Country Code (ISO 3166-1 alpha-2)';
+
+  @override
+  String get countryCodeHint => 'e.g., US, CN, GB';
+
+  @override
+  String get countryCodeRequired => 'Country code is required';
+
+  @override
+  String get countryCodeLength => 'Country code must be 2 letters';
+
+  @override
+  String get phoneNumberLength => 'Phone number must be at least 7 digits';
+
+  @override
+  String get reasonDetailHint =>
+      'Provide detailed explanation (minimum 10 characters)';
+
+  @override
+  String get reasonRequired => 'Reason is required';
+
+  @override
+  String get reasonLength => 'Reason must be at least 10 characters';
+
+  @override
+  String get riskLevelLabel => 'Risk Level';
+
+  @override
+  String get riskLevelPrefix => 'Level';
+
+  @override
+  String get riskLevelVeryLow => 'Very Low - Minor annoyance, infrequent calls';
+
+  @override
+  String get riskLevelMedium => 'Medium - Regular spam or telemarketing';
+
+  @override
+  String get riskLevelCritical => 'Critical - Dangerous scams or threats';
+
+  @override
+  String get guidelinesTitle => 'Guidelines';
+
+  @override
+  String get guidelinesContent =>
+      '• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions';
+
+  @override
+  String get invalidPhoneNumber => 'Invalid phone number or country code.';
+
+  @override
+  String submissionFailed(String error) {
+    return 'Submission failed: $error';
+  }
+
+  @override
+  String get notificationFrequency => 'Notification Frequency';
+
+  @override
+  String get notificationFrequencyHours => 'Notification Frequency (hours)';
+
+  @override
+  String hoursFormat(int hours) {
+    return '$hours hours';
+  }
+
+  @override
+  String votesCount(int total, int supportPercentage) {
+    return 'Votes: $total ($supportPercentage% support)';
+  }
+
+  @override
+  String supportCount(int count) {
+    return 'Support: $count';
+  }
+
+  @override
+  String opposeCount(int count) {
+    return 'Oppose: $count';
   }
 }

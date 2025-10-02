@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sim_card_info/sim_card_info.dart';
-import 'package:sim_card_info/sim_info.dart' as flutter;
+import 'package:permission_handler/permission_handler.dart';
+
+import 'package:sim_reader/sim_reader.dart'; // Replaced sim_card_info
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/provider/providers/sim_slot_rule_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/enhanced_composite_filter_service_provider.dart';
@@ -23,8 +24,9 @@ class FilterManagementWidget extends ConsumerStatefulWidget {
 
 class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget> {
   bool _isExpanded = false;
-  final SimCardInfo _simCardInfoPlugin = SimCardInfo();
-  List<flutter.SimInfo> _simInfo = [];
+  // --- Start of Changes ---
+  // final SimCardInfo _simCardInfoPlugin = SimCardInfo(); // Removed old plugin instance
+  List<SimInfo> _simInfo = [];
   bool isSupported = true;
   
   @override
@@ -35,19 +37,50 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
   
   /// 初始化SIM卡信息
   Future<void> initSimInfoState() async {
-    List<flutter.SimInfo>? simCardInfo;
+    List<SimInfo> simCardInfo;
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
+     // We use a try/catch block to handle potential errors.
     try {
-      simCardInfo = await _simCardInfoPlugin.getSimInfo() ?? [];
-    } on PlatformException {
+      // First, request the necessary phone permission for Android.
+      // This is not required for iOS but is harmless.
+      final status = await Permission.phone.request();
+      
+      if (status.isGranted) {
+        // If permission is granted, get SIM information.
+        simCardInfo = await SimReader.getAllSimInfo();
+      } else {
+        // Handle the case where the user denies the permission.
+        simCardInfo = [];
+        if (mounted) {
+          setState(() {
+            isSupported = false;
+          });
+        }
+        AppLogger.error('获取SIM卡信息失败', '电话权限未授予');
+      }
+    } on SimReaderException catch (e) {
+      // Catch specific exceptions from the sim_reader package.
       simCardInfo = [];
-      setState(() {
-        isSupported = false;
-      });
-      AppLogger.error('获取SIM卡信息失败', 'SIM卡信息不受支持');
+      if (mounted) {
+        setState(() {
+          isSupported = false;
+        });
+      }
+      AppLogger.error('获取SIM卡信息失败', 'SimReaderException: ${e.message}');
+    } catch (e) {
+      // Catch any other unexpected errors.
+      simCardInfo = [];
+      if (mounted) {
+        setState(() {
+          isSupported = false;
+        });
+      }
+      AppLogger.error('获取SIM卡信息失败', '未知错误: $e');
     }
 
+    // If the widget was removed from the tree while the asynchronous message
+    // was in flight, we want to discard the reply.              
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
@@ -167,7 +200,10 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                   if (_simInfo.isNotEmpty && simSlot < _simInfo.length)
                     Flexible(
                       child: Text(
-                        _simInfo[simSlot].carrierName,
+                                               // --- Start of Changes: Added null check ---
+                        _simInfo[simSlot].carrierName ?? '',
+                        // --- End of Changes ---
+
                         style: const TextStyle(fontSize: 12),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -211,7 +247,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                                     style: const TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                   if (_simInfo.isNotEmpty && simSlot < _simInfo.length)
-                                    Text(_simInfo[simSlot].carrierName),
+                                         // --- Start of Changes: Added null check ---
+                                    Text(_simInfo[simSlot].carrierName ?? 'Unknown Carrier'),
+                                    // --- End of Changes ---
                                 ],
                               ),
                             ),

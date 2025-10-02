@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_overlay_window/flutter_overlay_window.dart';
+import 'package:floating_window_android/floating_window_android.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
@@ -28,7 +28,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
     
     // 【修改点】: initState 中不再需要手动加载配置或读取provider。
     // Provider 会自动处理自己的初始化。我们只需要监听来自主App的数据。
-    FlutterOverlayWindow.overlayListener.listen((event) {
+    FloatingWindowAndroid.overlayListener.listen((event) {
       if (event is Map<String, dynamic> && event.containsKey("configType")) {
         setState(() {
           String configType = event["configType"];
@@ -89,7 +89,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
           return Dismissible(
             key: Key(_callerIdData!.id),
             direction: DismissDirection.horizontal,
-            onDismissed: (_) => FlutterOverlayWindow.closeOverlay(),
+            onDismissed: (_) => FloatingWindowAndroid.closeOverlayFromOverlay(),
             child: CallerIdContentBuilder.buildOverlayContainer(
               config: config,
               child: CallerIdContentBuilder.buildCallerIdContent(

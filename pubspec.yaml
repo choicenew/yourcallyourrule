@@ -50,7 +50,7 @@ dependencies:
   dlibphonenumber:
     git:
       url: https://github.com/haygcao/dlibphonenumber.git
-      ref: local
+      ref: main
 
 
 
@@ -70,11 +70,11 @@ dependencies:
 
   flutter_colorpicker: ^1.1.0
   flutter_local_notifications: ^19.4.0
-  flutter_overlay_window: ^0.5.0
-  # flutter_overlay_window:
-   #  git:
-    #   url: https://github.com/haygcao/flutter_overlay_window.git
-    #   ref: main
+
+ 
+ 
+ 
+ 
 
   flutter_localizations:
     sdk: flutter
@@ -112,10 +112,10 @@ dependencies:
   #provider: ^6.1.2
   rxdart: ^0.28.0
  # sim_card_info: ^1.0.2
-  sim_card_info:
-    git:
-      url: https://github.com/haygcao/sim_card_info.git
-      ref: master
+
+
+
+
   sim_reader: ^1.0.4
   share_plus: ^12.0.0
   shared_preferences: ^2.3.2
@@ -159,7 +159,11 @@ dependencies:
   world_countries: any
   grouped_list: ^6.0.0
   sim_card_code: ^0.1.0
-
+  #floating_window_android: ^1.1.1
+  floating_window_android:
+    git:
+      url: https://github.com/maojiu-bb/floating_window_android.git
+      ref: main # 或者特定的 commit hash 或 branch/tag name
 
 
 dev_dependencies:

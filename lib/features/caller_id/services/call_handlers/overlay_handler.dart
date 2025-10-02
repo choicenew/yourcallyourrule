@@ -1,6 +1,6 @@
 // lib/features/caller_id/services/call_handlers/overlay_handler.dart
 
-import 'package:flutter_overlay_window/flutter_overlay_window.dart';
+import 'package:floating_window_android/floating_window_android.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // <-- 1. 导入 Riverpod
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
@@ -46,10 +46,10 @@ class OverlayHandler {
     await updateAndShareConfiguration(config);
 
     // 获取当前 Overlay 位置
-    if (await FlutterOverlayWindow.isActive()) {
-      storedPosition = await FlutterOverlayWindow.getOverlayPosition();
+    if (await FloatingWindowAndroid.isShowing()) {
+      storedPosition = await FloatingWindowAndroid.getOverlayPosition();
     } else {
-      storedPosition = storedPosition ?? const OverlayPosition(0, 0);
+      storedPosition = storedPosition ?? OverlayPosition(0, 0);
     }
 
     // 共享来电数据
@@ -57,36 +57,38 @@ class OverlayHandler {
       "configType": "callerIdData",
       ...callerIdData.toMap(),
     };
-    await FlutterOverlayWindow.shareData(dataToSend);
+    await FloatingWindowAndroid.shareData(dataToSend);
 
     // 共享 STIR 信息
     if (stirInfo != null) {
-      await FlutterOverlayWindow.shareData({ "configType": "stirInfo", ...stirInfo.toJson() });
+      await FloatingWindowAndroid.shareData({ "configType": "stirInfo", ...stirInfo.toJson() });
     }
 
     // 共享 SIM 卡信息
     if (simInfo != null) {
-      await FlutterOverlayWindow.shareData({ "configType": "simInfo", ...simInfo.toJson() });
+      await FloatingWindowAndroid.shareData({ "configType": "simInfo", ...simInfo.toJson() });
     }
 
     // 显示 Overlay
-    await FlutterOverlayWindow.showOverlay(
+    await FloatingWindowAndroid.showOverlay(
       enableDrag: true,
       overlayTitle: "Call",
       overlayContent: "name:${callerIdData.phoneNumber},region:${callerIdData.countryName},carrier:${callerIdData.carrier}",
       alignment: OverlayAlignment.center,
-      flag: OverlayFlag.defaultFlag,
-      visibility: NotificationVisibility.visibilityPublic,
+      flag: OverlayFlag.lockScreen,
+      notificationVisibility: NotificationVisibility.visibilityPublic,
       positionGravity: PositionGravity.auto,
-      height: (config.windowHeight * (pixelRatio ?? 3.0)).toInt(),
-      width: (config.windowWidth * (pixelRatio ?? 3.0)).toInt(),
+   //   height: (config.windowHeight * (pixelRatio ?? 3.0)).toInt(),
+    //  width: (config.windowWidth * (pixelRatio ?? 3.0)).toInt(),
+         height: (config.windowHeight ).toInt(),
+     width: (config.windowWidth).toInt(),
       startPosition: storedPosition!,
     );
   }
 
   /// 关闭浮窗 (保持不变)
   void closeOverlay() {
-    FlutterOverlayWindow.closeOverlay();
+    FloatingWindowAndroid.closeOverlay();
   }
 
   /// 更新并共享配置
@@ -96,7 +98,7 @@ class OverlayHandler {
       "configType": "callerIdStyle",
       ...config.toMap(),
     };
-    await FlutterOverlayWindow.shareData(dataToSend);
+    await FloatingWindowAndroid.shareData(dataToSend);
   }
 
   /// 设置像素比例 (保持不变)
