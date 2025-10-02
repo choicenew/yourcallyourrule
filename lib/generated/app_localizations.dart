@@ -10600,7 +10600,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Votes: {totalVotes} ({supportPercentage}% support)'**
-  String votesStatistics(int totalVotes, double supportPercentage);
+  String votesStatistics(int totalVotes, int supportPercentage);
 
   /// Shows the number of support votes.
   ///
@@ -10648,7 +10648,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{totalVotes} votes ({supportPercentage}% support)'**
-  String votesWithPercentage(int totalVotes, double supportPercentage);
+  String votesWithPercentage(int totalVotes, int supportPercentage);
 
   /// A duration in hours, formatted to be grammatically correct for singular or plural.
   ///
