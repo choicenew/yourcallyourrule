@@ -135,23 +135,23 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                     children: [
                       // Country Code input
                       Text(
-                        'Country Code (ISO 3166-1 alpha-2) *',
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
+                          AppLocalizations.of(context)!.countryCodeLabel,
+                          style: Theme.of(context).textTheme.labelLarge,
+                        ),
                       const SizedBox(height: 8),
                       TextFormField(
                         controller: _countryCodeController,
-                        decoration: const InputDecoration(
-                          hintText: 'e.g., US, CN, GB',
-                          prefixIcon: Icon(Icons.public),
-                          border: OutlineInputBorder(),
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)!.countryCodeHint,
+                          prefixIcon: const Icon(Icons.public),
+                          border: const OutlineInputBorder(),
                         ),
                         validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Country code is required';
+                          if (value == null || value.isEmpty) {
+                            return AppLocalizations.of(context)!.countryCodeRequired;
                           }
-                          if (value.trim().length != 2) {
-                            return 'Country code must be 2 letters';
+                          if (value.length != 2) {
+                            return AppLocalizations.of(context)!.countryCodeTwoLetters;
                           }
                           return null;
                         },
@@ -166,21 +166,21 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       const SizedBox(height: 8),
                       TextFormField(
                         controller: _phoneController,
-                        decoration: const InputDecoration(
-                          hintText: 'Enter phone number',
-                          prefixIcon: Icon(Icons.phone),
-                          border: OutlineInputBorder(),
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)!.enterPhoneNumber,
+                          prefixIcon: const Icon(Icons.phone),
+                          border: const OutlineInputBorder(),
                         ),
                         keyboardType: TextInputType.phone,
                         inputFormatters: [
                           FilteringTextInputFormatter.allow(RegExp(r'[0-9+\-\s\(\)]')),
                         ],
                         validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Phone number is required';
+                          if (value == null || value.isEmpty) {
+                            return AppLocalizations.of(context)!.phoneNumberRequired;
                           }
-                          if (value.trim().length < 7) {
-                            return 'Phone number must be at least 7 digits';
+                          if (value.length < 7) {
+                            return AppLocalizations.of(context)!.phoneNumberMinDigits;
                           }
                           return null;
                         },
@@ -224,18 +224,18 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       const SizedBox(height: 8),
                       TextFormField(
                         controller: _reasonController,
-                        decoration: const InputDecoration(
-                          hintText: 'Provide detailed explanation (minimum 10 characters)',
-                          border: OutlineInputBorder(),
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)!.provideDetailedExplanation,
+                          border: const OutlineInputBorder(),
                         ),
                         maxLines: 3,
                         maxLength: 500,
                         validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Reason is required';
+                          if (value == null || value.isEmpty) {
+                            return AppLocalizations.of(context)!.reasonRequired;
                           }
-                          if (value.trim().length < 10) {
-                            return 'Reason must be at least 10 characters';
+                          if (value.length < 10) {
+                            return AppLocalizations.of(context)!.reasonMinCharacters;
                           }
                           return null;
                         },
@@ -256,7 +256,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                               Row(
                                 children: [
                                   Text(
-                                    'Level $_selectedRiskLevel',
+                                    '${AppLocalizations.of(context)!.riskLevelLabel} $_selectedRiskLevel',
                                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -310,7 +310,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                                 ),
                                 const SizedBox(width: 4),
                                 Text(
-                                  'Guidelines',
+                                  AppLocalizations.of(context)!.guidelinesLabel,
                                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                                     fontWeight: FontWeight.w600,
                                     color: Theme.of(context).colorScheme.primary,
@@ -320,10 +320,10 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              '• Only report numbers that are genuinely problematic\n'
-                              '• Provide accurate and detailed reasons\n'
-                              '• Choose appropriate risk level based on severity\n'
-                              '• False reports may result in account restrictions',
+                              
+                              AppLocalizations.of(context)!.reportingGuidelines,
+                              
+                              
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ],

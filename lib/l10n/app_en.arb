@@ -2856,15 +2856,281 @@
     }
   },
    "pendingProposals": "Pending Proposals",
-  "pendingProposalsBody": "You have {count, plural, =0 {no pending proposals} one {1 pending proposal} other {{count} pending proposals}}."
+  "pendingProposalsBody": "You have {count, plural, =0 {no pending proposals} one {1 pending proposal} other {{count} pending proposals}}.",
+  
+"guidelinesLabel": "Guidelines",
+"reportingGuidelines": "• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• It might be reported again from other source or other users",
+ "riskLevelLabel": "Risk Level",
+  "riskLevelDescription": "Risk level of the number",
+ 
+"phoneNumberMinDigits": "Phone number must be at least 7 digits",
+"provideDetailedExplanation": "Provide a detailed explanation(minimum 10 characters)",
+"reasonMinCharacters": "Reason must be at least 10 characters",
 
 
+"countryCodeTwoLetters": "Country Code (ISO 3166-1 alpha-2) *",
+ "countryCodeLabel": "Country Code (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  
+  "countryCodeHint": "e.g., US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  
+  "countryCodeRequired": "Country code is required",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  
+  "countryCodeLengthError": "Country code must be 2 letters",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  
+  "phoneNumberHint": "Enter phone number",
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  
+  "phoneNumberRequired": "Phone number is required",
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  
+  "phoneNumberLengthError": "Phone number must be at least 7 digits",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  
+  "reasonHint": "Provide detailed explanation (minimum 10 characters)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  
+  "reasonRequired": "Reason is required",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  
+  "reasonLengthError": "Reason must be at least 10 characters",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  
+  "guidelinesTitle": "Guidelines",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  
+  "guidelinesText": "• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  
+  "riskLevelCritical": "Critical",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  
+  "riskLevelHigh": "High",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  
+  "riskLevelMedium": "Medium",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  
+  "riskLevelLow": "Low",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  
+  "riskLevelVeryLow": "Very Low",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  
+  "riskDescriptionVeryLow": "Very Low - Minor annoyance, infrequent calls",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  
+  "riskDescriptionLow": "Low - Occasional unwanted calls",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  
+  "riskDescriptionMedium": "Medium - Regular spam or telemarketing",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  
+  "riskDescriptionHigh": "High - Persistent harassment or scam attempts",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  
+  "riskDescriptionCritical": "Critical - Dangerous scams or threats",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  
+  "notificationFrequencyTitle": "Notification Frequency",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  
+  "notificationFrequencyLabel": "Notification Frequency (hours)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  
+  "errorMessage": "Error: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "votesStatistics": "Votes: {totalVotes} ({supportPercentage}% support)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "double"
+      }
+    }
+  },
+  
+  "supportCount": "Support: {count}",
+  "@supportCount": {
+    "description": "Support count text",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "opposeCount": "Oppose: {count}",
+  "@opposeCount": {
+    "description": "Oppose count text",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "timeJustNow": "Just now",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  
+  "timeMinutesAgo": "{minutes}m ago",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "timeHoursAgo": "{hours}h ago",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "timeDaysAgo": "{days}d ago",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+    "reportingGuidelines": "• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions",
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+
+  "notificationFrequencyHours": "Notification Frequency (Hours)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+
+  "supportCount": "Support ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+
+  "opposeCount": "Oppose ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+
+  "votesWithPercentage": "{totalVotes} votes ({supportPercentage}% support)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "double",
+        "format": "decimalPattern"
+      }
+    }
+  },
+
+  "hoursDuration": "{count, plural, =0{0 hours} =1{1 hour} other{{count} hours}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
  
  
- 
- 
- 
- 
+  "importantNoticeTitle": "Important Notice",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+
+  "dataSourceDisclaimer": "Numbers are sourced from the internet and user submissions. We cannot guarantee that a number, once deleted, will not be re-submitted by other users or sources. Please actively search and verify information.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  }
  
  
  

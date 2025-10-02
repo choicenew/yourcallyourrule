@@ -156,7 +156,7 @@ class _ProposalCardState extends State<ProposalCard> {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    'Votes: $totalVotes ($supportPercentage% support)',
+                    AppLocalizations.of(context)!.votesWithPercentage(totalVotes, supportPercentage),
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: Theme.of(context).colorScheme.outline,
                     ),
@@ -211,24 +211,24 @@ class _ProposalCardState extends State<ProposalCard> {
     switch (riskLevel) {
       case 5:
         chipColor = Colors.red;
-        label = 'Critical';
+        label = AppLocalizations.of(context)!.riskLevelCritical;
         break;
       case 4:
         chipColor = Colors.deepOrange;
-        label = 'High';
+        label = AppLocalizations.of(context)!.riskLevelHigh;
         break;
       case 3:
         chipColor = Colors.orange;
-        label = 'Medium';
+        label = AppLocalizations.of(context)!.riskLevelMedium;
         break;
       case 2:
         chipColor = Colors.yellow.shade700;
-        label = 'Low';
+        label = AppLocalizations.of(context)!.riskLevelLow;
         break;
       case 1:
       default:
         chipColor = Colors.green;
-        label = 'Very Low';
+        label = AppLocalizations.of(context)!.riskLevelVeryLow;
         break;
     }
 
@@ -331,14 +331,14 @@ class _ProposalCardState extends State<ProposalCard> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Support: $supportCount',
+              AppLocalizations.of(context)!.supportCount(supportCount),
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 color: Colors.green,
                 fontWeight: FontWeight.w500,
               ),
             ),
             Text(
-              'Oppose: $opposeCount',
+              AppLocalizations.of(context)!.opposeCount(opposeCount),
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 color: Colors.red,
                 fontWeight: FontWeight.w500,
