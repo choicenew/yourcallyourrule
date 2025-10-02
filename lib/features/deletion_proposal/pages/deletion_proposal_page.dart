@@ -58,6 +58,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
           onAdd: () {
             _showCreateProposalDialog(context);
           },
+          headerContent: _buildHeaderContent(context),
           infoCard: StatisticsCard(
             voteCount: currentVoteCount,
             onExchangeVip: currentVoteCount >= 10 
@@ -121,4 +122,72 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
       },
     );
   }
+
+/// 用于向用户说明数据来源和应用的局限性
+Widget _buildHeaderContent(BuildContext context) {
+  // 获取当前主题颜色，用于UI元素的配色
+  final theme = Theme.of(context);
+  final noticeColor = Colors.amber; // 您可以根据您的App风格选择颜色，如 Colors.blue, Colors.orange等
+
+  return Padding(
+    // 为卡片添加外边距
+    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+    child: Card(
+      // 设置卡片的背景色，使用浅色调
+      color: noticeColor.shade50,
+      // 设置卡片的阴影
+      elevation: 2,
+      // 设置卡片的形状和边框
+      shape: RoundedRectangleBorder(
+        // 设置圆角
+        borderRadius: BorderRadius.circular(12.0),
+        // 设置边框颜色，使其与背景色协调
+        side: BorderSide(color: noticeColor.shade200, width: 1),
+      ),
+      // 使用 ClipRRect 来确保子组件不会超出圆角范围
+      clipBehavior: Clip.antiAlias,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start, // 顶部对齐
+          children: [
+            // 左侧的提示图标
+            Icon(
+              Icons.info_outline,
+              color: noticeColor.shade800, // 使用深色调以保证清晰度
+              size: 24,
+            ),
+            const SizedBox(width: 16), // 图标和文字之间的间距
+            // 右侧的文字内容
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start, // 左对齐
+                children: [
+                  // 标题
+                  Text(
+                    AppLocalizations.of(context)!.importantNoticeTitle, // 使用本地化
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: noticeColor.shade900, // 标题颜色更深
+                    ),
+                  ),
+                  const SizedBox(height: 8), // 标题和正文之间的间距
+                  // 详细说明
+                  Text(
+                    AppLocalizations.of(context)!.dataSourceDisclaimer, // 使用本地化
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: Colors.black87, // 正文颜色
+                      height: 1.5, // 增加行高，提升可读性
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
 }

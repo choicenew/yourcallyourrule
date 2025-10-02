@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import '../services/notification_frequency_service.dart';
 
@@ -12,7 +13,7 @@ class NotificationFrequencySettings extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification Frequency'),
+        title: Text(AppLocalizations.of(context)!.notificationFrequencyTitle),
       ),
       body: FutureBuilder<int>(
         future: frequencyService.getNotificationFrequency(),
@@ -27,13 +28,13 @@ class NotificationFrequencySettings extends ConsumerWidget {
           final frequency = snapshot.data ?? 24;
 
           return ListTile(
-            title: const Text('Notification Frequency (hours)'),
+            title: Text(AppLocalizations.of(context)!.notificationFrequencyHours),
             trailing: DropdownButton<int>(
               value: frequency,
               items: [24, 48, 72].map((hours) {
                 return DropdownMenuItem<int>(
                   value: hours,
-                  child: Text('$hours hours'),
+                  child: Text(AppLocalizations.of(context)!.hoursDuration(hours)),
                 );
               }).toList(),
               onChanged: (value) {
