@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/data/database/database_manager.dart';
 import '../../../data/datasources/remote/remote_number_datasource.dart';
-import '../../../data/database/remote/remote_database_manager.dart';
+import '../../../data/datasources/remote/proposal_datasource.dart';
 
 
 /// 删除提议服务
@@ -10,12 +10,15 @@ import '../../../data/database/remote/remote_database_manager.dart';
 class DeletionProposalService {
   final RemoteNumberDataSource _remoteDataSource;
   final RemoteDatabaseManager _databaseManager;
+  final ProposalDataSource _proposalDataSource;
   
   DeletionProposalService({
     required RemoteNumberDataSource remoteDataSource,
     required RemoteDatabaseManager databaseManager,
+    required ProposalDataSource proposalDataSource,
   }) : _remoteDataSource = remoteDataSource,
-       _databaseManager = databaseManager;
+       _databaseManager = databaseManager,
+       _proposalDataSource = proposalDataSource;
 
   /// 提议删除号码
   /// [phoneNumber] 要删除的电话号码
@@ -44,7 +47,7 @@ class DeletionProposalService {
       }
 
       // 检查是否已存在活跃的删除提议
-      final hasActive = await _databaseManager.hasActiveDeletionProposal(phoneNumber);
+      final hasActive = await _proposalDataSource.hasActiveDeletionProposal(phoneNumber);
       if (hasActive) {
         debugPrint('DeletionProposalService: Active deletion proposal already exists for $phoneNumber');
         return null;
@@ -154,7 +157,7 @@ class DeletionProposalService {
   /// [phoneNumber] 电话号码
   Future<Map<String, dynamic>?> getProposalDetails(String phoneNumber) async {
     try {
-      return await _databaseManager.getProposalInfo(phoneNumber);
+      return await _proposalDataSource.getProposalInfo(phoneNumber);
     } catch (e) {
       debugPrint('DeletionProposalService: Error getting proposal details: $e');
       return null;
@@ -168,7 +171,7 @@ class DeletionProposalService {
       if (phoneNumber != null) {
         await _remoteDataSource.clearDeletionOperations(phoneNumber);
       }
-      await _databaseManager.cleanupCompletedDeletionProposals();
+      await _proposalDataSource.cleanupCompletedDeletionProposals(const Duration(days: 30));
       debugPrint('DeletionProposalService: Cleaned up completed operations');
     } catch (e) {
       debugPrint('DeletionProposalService: Error cleaning up operations: $e');
@@ -190,7 +193,7 @@ class DeletionProposalService {
   /// 返回待处理提议列表
   Future<List<Map<String, dynamic>>> getPendingProposals() async {
     try {
-      final proposals = await _databaseManager.getPendingDeletionProposals();
+      final proposals = await _proposalDataSource.getPendingDeletionProposals();
       debugPrint('DeletionProposalService: Retrieved ${proposals.length} pending proposals');
       return proposals;
     } catch (e) {

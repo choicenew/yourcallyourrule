@@ -2937,7 +2937,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get notGranted => 'Not Granted';
 
   @override
-  String get notificationMode => 'Notification';
+  String get notificationMode => 'Notification Mode';
 
   @override
   String get notificationModeDescription =>
@@ -5796,4 +5796,62 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get fraudAlertsDescription =>
       'Displays warnings for potential fraudulent calls.';
+
+  @override
+  String get notificationFrequencyDescription =>
+      'Choose how often you receive notifications about new deletion proposals. You can receive them immediately, in batches, or at a custom interval.';
+
+  @override
+  String get immediateNotifications => 'Immediate';
+
+  @override
+  String get immediateNotificationsDescription =>
+      'Receive a notification as soon as a proposal is created.';
+
+  @override
+  String get batchNotifications => 'Batched';
+
+  @override
+  String get batchNotificationsDescription =>
+      'Receive a summary of notifications periodically.';
+
+  @override
+  String get customNotifications => 'Custom';
+
+  @override
+  String get customNotificationsDescription =>
+      'Define your own interval for receiving notifications.';
+
+  @override
+  String get customFrequency => 'Custom Frequency';
+
+  @override
+  String notificationFrequencyDurationMinutes(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String notificationFrequencyDurationHours(int hours) {
+    return '$hours h';
+  }
+
+  @override
+  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
+    return '$hours h $minutes min';
+  }
+
+  @override
+  String get pendingProposals => 'Pending Proposals';
+
+  @override
+  String pendingProposalsBody(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pending proposals',
+      one: '1 pending proposal',
+      zero: 'no pending proposals',
+    );
+    return 'You have $_temp0.';
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 创建删除提议对话框
@@ -20,6 +21,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
   final _formKey = GlobalKey<FormState>();
   final _phoneController = TextEditingController();
   final _reasonController = TextEditingController();
+  final _countryCodeController = TextEditingController();
   
   int _selectedRiskLevel = 3;
   bool _isSubmitting = false;
@@ -40,7 +42,56 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
   void dispose() {
     _phoneController.dispose();
     _reasonController.dispose();
+    _countryCodeController.dispose();
     super.dispose();
+  }
+
+  Future<void> _submit() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isSubmitting = true;
+      });
+
+      try {
+        final parsed = await PhoneUtils.parsePhoneNumberWithIso(
+          _phoneController.text,
+          _countryCodeController.text,
+        );
+        final e164Number = parsed['e164Number'];
+
+        if (e164Number == null || e164Number.isEmpty) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                  content: Text('Invalid phone number or country code.')),
+            );
+          }
+          return;
+        }
+
+        await widget.onSubmit(
+          e164Number,
+          _reasonController.text,
+          _selectedRiskLevel,
+        );
+
+        if (mounted) {
+          Navigator.of(context).pop();
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Submission failed: $e')),
+          );
+        }
+      } finally {
+        if (mounted) {
+          setState(() {
+            _isSubmitting = false;
+          });
+        }
+      }
+    }
   }
 
   @override
@@ -82,6 +133,31 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Country Code input
+                      Text(
+                        'Country Code (ISO 3166-1 alpha-2) *',
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                      const SizedBox(height: 8),
+                      TextFormField(
+                        controller: _countryCodeController,
+                        decoration: const InputDecoration(
+                          hintText: 'e.g., US, CN, GB',
+                          prefixIcon: Icon(Icons.public),
+                          border: OutlineInputBorder(),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Country code is required';
+                          }
+                          if (value.trim().length != 2) {
+                            return 'Country code must be 2 letters';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 20),
+
                       // Phone number input
                       Text(
                         '${AppLocalizations.of(context)!.phoneNumber} *',
@@ -262,28 +338,22 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
               
               // Action buttons
               Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Expanded(
-                    child: OutlinedButton(
-                      onPressed: _isSubmitting ? null : () => Navigator.of(context).pop(),
-                      child: Text(AppLocalizations.of(context)!.cancel),
-                    ),
+                  TextButton(
+                    onPressed: _isSubmitting ? null : () => Navigator.of(context).pop(),
+                    child: Text(AppLocalizations.of(context)!.cancelButton),
                   ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: FilledButton(
-                      onPressed: _isSubmitting ? null : _handleSubmit,
-                      child: _isSubmitting
-                          ? const SizedBox(
-                              width: 16,
-                              height: 16,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                                color: Colors.white,
-                              ),
-                            )
-                          : Text(AppLocalizations.of(context)!.submit),
-                    ),
+                  const SizedBox(width: 8),
+                  ElevatedButton(
+                    onPressed: _isSubmitting ? null : _submit,
+                    child: _isSubmitting
+                        ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : Text(AppLocalizations.of(context)!.submit),
                   ),
                 ],
               ),
@@ -351,39 +421,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
         return 'Critical - Dangerous scams or threats';
       default:
         return 'Unknown';
-    }
-  }
-
-  Future<void> _handleSubmit() async {
-    if (!_formKey.currentState!.validate()) {
-      return;
-    }
-
-    setState(() {
-      _isSubmitting = true;
-    });
-
-    try {
-      await widget.onSubmit(
-        _phoneController.text.trim(),
-        _reasonController.text.trim(),
-        _selectedRiskLevel,
-      );
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error submitting report: $e'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
-    } finally {
-      if (mounted) {
-        setState(() {
-          _isSubmitting = false;
-        });
-      }
     }
   }
 }

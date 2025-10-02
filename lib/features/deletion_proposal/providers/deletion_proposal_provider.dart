@@ -1,11 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/datasource/remote_number_data_source_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_service_provider.dart';
 import '../services/deletion_proposal_service.dart';
 
-import '../../../data/datasources/remote/remote_number_datasource.dart';
-import '../../../data/database/remote/remote_database_manager.dart';
 
 /// 删除提议状态
 class DeletionProposalState {

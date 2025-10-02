@@ -1,0 +1,257 @@
+好的，这个迁移方向（从 flutter_overlay_window 迁移到 floating_window_android）完全可行，而且你的代码结构很好，迁移起来会非常顺利。
+你的观察很敏锐，两个库的API非常相似，所以核心的业务逻辑代码（如UI构建、Riverpod状态管理）完全不需要修改。迁移工作主要集中在以下几个方面：
+依赖和原生配置：修改 pubspec.yaml 和 AndroidManifest.xml。
+API调用：将 FlutterOverlayWindow 的调用替换为 FloatingWindowAndroid 的等效调用。
+性能优化：利用 floating_window_android 提供的引擎预加载功能。
+下面我将为你提供一个详细的、分步的迁移指南。
+迁移步骤
+第一步：更新 pubspec.yaml
+将 flutter_overlay_window 替换为 floating_window_android。
+code
+Yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  # ... 其他依赖
+  
+  # 删除下面这行
+  # flutter_overlay_window: ^0.5.0 
+
+  # 添加下面这行
+  floating_window_android: ^1.1.1 # 或最新版本
+
+  # ... 其他依赖
+然后运行 flutter pub get。
+第二步：修改 AndroidManifest.xml
+这是关键的一步。你需要移除 flutter_overlay_window 特有的配置，并确保 floating_window_android 需要的权限存在。
+文件路径: android/app/src/main/AndroidManifest.xml
+需要做的修改：
+保留/添加必要权限:
+code
+Xml
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+移除 flutter_overlay_window 的特有配置:
+删除 FOREGROUND_SERVICE_SPECIAL_USE 权限。
+删除 <service> 标签声明。floating_window_android 会在内部处理服务的注册。
+修改示例:
+code
+Xml
+<manifest ...>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <!-- [迁移] 删除下面这行 -->
+    <!-- <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" /> -->
+
+    <application ...>
+        <activity ...>
+            ...
+        </activity>
+
+        <!-- [迁移] 删除整个 <service> 标签 -->
+        <!-- 
+        <service android:name="flutter.overlay.window.flutter_overlay_window.OverlayService" 
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="explanation_for_special_use"/>
+        </service>
+        -->
+
+        ...
+    </application>
+</manifest>
+第三步：修改悬浮窗入口文件 (CallerIdOverlayEntry.dart)
+这是最核心的代码修改。主要是替换API调用。你的 CallerIdOverlayEntry 文件修改后会是这样：
+code
+Dart
+// [迁移] 修改 import 语句
+import 'package:floating_window_android/floating_window_android.dart'; 
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:dlibphonenumber/enums/phone_number_type.dart';
+import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
+import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
+import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+
+import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_content_builder.dart';
+import 'package:yourcallyourrule/features/call/caller_id/providers/callerid_style_security_provider.dart';
+
+class CallerIdOverlayEntry extends ConsumerStatefulWidget {
+  const CallerIdOverlayEntry({super.key});
+
+  @override
+  ConsumerState<CallerIdOverlayEntry> createState() => _CallerIdOverlayEntryState();
+}
+
+class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
+  CallerIdData? _callerIdData;
+  SimInfo? _simInfo;
+  StirInfo? _stirInfo;
+
+  @override
+  void initState() {
+    super.initState();
+    
+    // [迁移] 将 FlutterOverlayWindow.overlayListener 替换为 FloatingWindowAndroid.overlayListener
+    FloatingWindowAndroid.overlayListener.listen((event) {
+      if (event is Map<String, dynamic> && event.containsKey("configType")) {
+        setState(() {
+          String configType = event["configType"];
+          if (configType == "callerIdData") {
+            _callerIdData = _processCallerIdData(event);
+          } else if (configType == "stirInfo") {
+            _stirInfo = StirInfo.fromJson(event);
+          } else if (configType == "simInfo") {
+            _simInfo = SimInfo.fromJson(event);
+          }
+        });
+      }
+    });
+  }
+
+  // _processCallerIdData 方法完全不需要改变
+  CallerIdData _processCallerIdData(Map<String, dynamic> data) {
+    // ... (代码与原来完全相同)
+    List<Label> labels = (data['labels'] as List? ?? [])
+        .map((labelData) => Label.fromMap(labelData))
+        .toList();
+
+    return CallerIdData(
+      id: data['phoneNumber'] ?? '',
+      phoneNumber: PhoneNumber.fromString(data['phoneNumber'] ?? ''),
+      numberType: data['numberType'] != null && data['numberType'] is int
+          ? PhoneNumberType.values[data['numberType']]
+          : PhoneNumberType.unknown,
+      name: data['name'],
+      countryName: data['countryName'],
+      region: data['region'],
+      carrier: data['carrier'],
+      labels: labels,
+      avatar: data['avatar'],
+      count: data['count'] ?? 0,
+    );
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    if (_callerIdData == null) {
+      return const Material(
+        color: Colors.transparent,
+        child: Center(child: CircularProgressIndicator()),
+      );
+    }
+    
+    final asyncConfig = ref.watch(callerIdStyleSecurityProvider);
+    
+    return Material(
+      color: Colors.transparent,
+      child: asyncConfig.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, stack) => Center(child: Text('Error: $err')),
+        data: (config) {
+          return Dismissible(
+            key: Key(_callerIdData!.id),
+            direction: DismissDirection.horizontal,
+            // [迁移] 将 closeOverlay() 替换为 closeOverlayFromOverlay()
+            // 这是两个库在从悬浮窗内部关闭时的主要API区别
+            onDismissed: (_) => FloatingWindowAndroid.closeOverlayFromOverlay(),
+            child: CallerIdContentBuilder.buildOverlayContainer(
+              config: config,
+              child: CallerIdContentBuilder.buildCallerIdContent(
+                context: context,
+                callerIdData: _callerIdData!,
+                config: config,
+                simInfo: _simInfo,
+                stirInfo: _stirInfo,
+                isDraggable: false,
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+核心修改点总结：
+import 语句更换。
+FlutterOverlayWindow.overlayListener -> FloatingWindowAndroid.overlayListener。
+FlutterOverlayWindow.closeOverlay() -> FloatingWindowAndroid.closeOverlayFromOverlay()。
+你的 CallerIdOverlay.dart 文件是UI预览组件，它不直接与悬浮窗API交互，所以完全不需要修改。
+第四步：修改主 App 调用代码
+在你项目的主App部分，你需要修改显示和与悬浮窗通信的代码。
+code
+Dart
+// 在主App的某个文件中...
+
+// [迁移] 修改 import 语句
+import 'package:floating_window_android/floating_window_android.dart';
+
+// ...
+
+// 权限检查和请求 (API名称相同，无需修改)
+bool granted = await FloatingWindowAndroid.isPermissionGranted();
+if (!granted) {
+  await FloatingWindowAndroid.requestPermission();
+}
+
+// 显示悬浮窗 (API名称相同，只需修改包前缀)
+await FloatingWindowAndroid.showOverlay(
+  width: WindowSize.matchParent,
+  height: 300, // 根据你的UI调整
+  alignment: OverlayAlignment.top,
+  flag: OverlayFlag.defaultFlag, // 或 focusPointer 如果需要输入
+  enableDrag: true,
+  overlayTitle: "来电识别", // 通知的标题
+  // 其他参数...
+);
+
+// 发送数据 (API名称相同，只需修改包前缀)
+Future<void> sendDataToOverlay(Map<String, dynamic> data) async {
+  await FloatingWindowAndroid.shareData(data);
+}
+第五步：(强烈推荐) 利用新库的性能优势
+floating_window_android 的最大亮点是支持引擎预加载，这可以大大加快悬浮窗的启动速度。
+在你的 main.dart 或者主页面的 State 中加入以下代码：
+code
+Dart
+// 在你的主App入口Widget的State中，例如 _MyAppState 或 _MyHomePageState
+
+class _MyAppState extends State<MyApp> { // 假设你的根Widget是MyApp
+  @override
+  void initState() {
+    super.initState();
+
+    // 在App启动后预加载Flutter引擎
+    // 这会让第一次 showOverlay 的速度从2-3秒缩短到约500毫秒
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await FloatingWindowAndroid.preloadFlutterEngine();
+      print("Flutter engine for floating window has been preloaded.");
+    });
+  }
+
+  @override
+  void dispose() {
+    // 在App销毁时清理预加载的引擎，释放内存
+    FloatingWindowAndroid.cleanupPreloadedEngine();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // ... 你的App UI
+  }
+}
+总结
+迁移非常直接：
+功能	原 flutter_overlay_window	新 floating_window_android
+Listener	FlutterOverlayWindow.overlayListener	FloatingWindowAndroid.overlayListener
+关闭(从悬浮窗)	FlutterOverlayWindow.closeOverlay()	FloatingWindowAndroid.closeOverlayFromOverlay()
+关闭(从主App)	FlutterOverlayWindow.closeOverlay()	FloatingWindowAndroid.closeOverlay()
+数据显示/共享	showOverlay(), shareData()	showOverlay(), shareData() (API名相同)
+性能优化	无	preloadFlutterEngine() (核心优势)
+原生配置	需要 service 标签和特殊权限	不需要 service 标签
+你只需要按照上述步骤修改几个关键点，就可以成功迁移，并且能享受到引擎预加载带来的性能提升。你的业务逻辑代码和状态管理代码可以保持原样，非常高效。
