@@ -5951,7 +5951,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String votesStatistics(int totalVotes, double supportPercentage) {
+  String votesStatistics(int totalVotes, int supportPercentage) {
     return 'Votes: $totalVotes ($supportPercentage% support)';
   }
 
@@ -5987,14 +5987,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get notificationFrequencyHours => 'Notification Frequency (Hours)';
 
   @override
-  String votesWithPercentage(int totalVotes, double supportPercentage) {
-    final intl.NumberFormat supportPercentageNumberFormat = intl
-        .NumberFormat.decimalPattern(localeName);
-    final String supportPercentageString = supportPercentageNumberFormat.format(
-      supportPercentage,
-    );
-
-    return '$totalVotes votes ($supportPercentageString% support)';
+  String votesWithPercentage(int totalVotes, int supportPercentage) {
+    return '$totalVotes votes ($supportPercentage% support)';
   }
 
   @override

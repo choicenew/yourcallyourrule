@@ -3007,7 +3007,7 @@
         "type": "int"
       },
       "supportPercentage": {
-        "type": "double"
+        "type": "int"
       }
     }
   },
@@ -3104,8 +3104,8 @@
         "type": "int"
       },
       "supportPercentage": {
-        "type": "double",
-        "format": "decimalPattern"
+        "type": "int"
+      
       }
     }
   },
