@@ -74,4 +74,15 @@ class ApiService {
       throw Exception('Failed to get initial country data: ${response.statusCode}');
     }
   }
+
+  Future<Map<String, dynamic>> getProposalLimitsConfig() async {
+    final uri = Uri.parse('$_workerUrl/api/v1/config/proposal-limits');
+    final response = await http.get(uri, headers: {'X-API-SECRET': _apiSecret});
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      throw Exception('Failed to get proposal limits config: ${response.statusCode}');
+    }
+  }
 }

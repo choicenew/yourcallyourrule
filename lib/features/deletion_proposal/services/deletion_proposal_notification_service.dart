@@ -1,7 +1,6 @@
 // features/deletion_proposal/services/deletion_proposal_notification_service.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/provider/providers/notification_history_provider.dart';
 import 'package:yourcallyourrule/core/services/notification_manager.dart';
@@ -171,6 +170,28 @@ class DeletionProposalNotificationService {
       title: notificationData.title, body: notificationData.body,
       config: NotificationService.deletionProposalConfig(context),
       type: 'deletion_proposal', notificationId: notificationData.proposalId.hashCode,
+      payload: { 'type': 'deletion_proposal', 'data': notificationData.toJson() },
+    );
+  }
+
+  Future<void> showPendingProposalsNotification({
+    required List<Map<String, dynamic>> proposals,
+    required BuildContext context,
+  }) async {
+    final l10n = AppLocalizations.of(context)!;
+    final notificationData = DeletionProposalNotificationData(
+      proposalId: 'pending_proposals',
+      phoneNumber: '',
+      type: DeletionProposalNotificationType.votingStarted,
+      title: l10n.pendingProposals,
+      body: l10n.pendingProposalsBody(proposals.length),
+    );
+    await _manager.showAndRecord(
+      title: notificationData.title,
+      body: notificationData.body,
+      config: NotificationService.deletionProposalConfig(context),
+      type: 'deletion_proposal',
+      notificationId: 'pending_proposals'.hashCode,
       payload: { 'type': 'deletion_proposal', 'data': notificationData.toJson() },
     );
   }

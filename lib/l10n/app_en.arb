@@ -2767,7 +2767,96 @@
     "stirVerification": "STIR/SHAKEN Verification",
     "stirVerificationDescription": "Displays STIR/SHAKEN verification results for numbers.",
     "fraudAlerts": "Fraud Alerts",
-    "fraudAlertsDescription": "Displays warnings for potential fraudulent calls."
+    "fraudAlertsDescription": "Displays warnings for potential fraudulent calls.",
+
+
+
+
+
+
+  "notificationFrequencyDescription": "Choose how often you receive notifications about new deletion proposals. You can receive them immediately, in batches, or at a custom interval.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+
+  "notificationMode": "Notification Mode",
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+
+  "immediateNotifications": "Immediate",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+
+  "immediateNotificationsDescription": "Receive a notification as soon as a proposal is created.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+
+  "batchNotifications": "Batched",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+
+  "batchNotificationsDescription": "Receive a summary of notifications periodically.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+
+  "customNotifications": "Custom",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+
+  "customNotificationsDescription": "Define your own interval for receiving notifications.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+
+  "customFrequency": "Custom Frequency",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+
+  "notificationFrequencyDurationMinutes": "{minutes} min",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+
+  "notificationFrequencyDurationHours": "{hours} h",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+   "pendingProposals": "Pending Proposals",
+  "pendingProposalsBody": "You have {count, plural, =0 {no pending proposals} one {1 pending proposal} other {{count} pending proposals}}."
 
 
  

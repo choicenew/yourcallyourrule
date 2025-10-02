@@ -1,0 +1,203 @@
+经过前面几轮的讨论，我们已经明确了几个关键点：
+需要独立的日志/事件表来追踪用户的提议和投票行为，以实现提议次数限制功能。
+现有的 active_deletion_proposals 是一个状态表，不适合用来做用户行为的持久化记录。
+DataSource 层应该负责封装特定领域的数据库操作，而 DatabaseManager 应该保持通用。
+现在，我们把这些原则应用到你的代码上，制定一个清晰的、唯一的最终方案。
+最终方案：统一的、分层清晰的架构
+第一步：确定最终的数据库 Schema (RemoteDatabaseManagerImpl)
+我们需要在 _onCreate 中添加两张新的日志表，并且移除所有与业务逻辑相关的函数，让 DatabaseManager 回归纯粹。
+RemoteDatabaseManagerImpl.dart 的最终形态：
+code
+Dart
+// In RemoteDatabaseManagerImpl.dart
+
+class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
+  // ... database connection logic (init, close, etc.) remains the same ...
+
+  // 数据库版本需要增加
+  static const int _version = 3; // <-- 假设从2升级到3
+
+  // --- 1. onCreate: 添加新的日志表 ---
+  Future<void> _onCreate(Database db, int version) async {
+    // ... 现有的 CREATE TABLE (remote_numbers, number_countries, etc.) ...
+    // ... 现有的 CREATE TABLE active_deletion_proposals ...
+
+    // [新增] 提议提交日志表
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS proposal_submissions (
+        id TEXT PRIMARY KEY,
+        proposer_id TEXT NOT NULL,      -- 提议者ID (deviceId or userId)
+        phone_number TEXT NOT NULL,   -- 提议的电话号码
+        submission_time TEXT NOT NULL -- 提交时间的ISO 8601字符串
+      )
+    ''');
+    // 为快速查询用户提交记录添加索引
+    await db.execute('CREATE INDEX IF NOT EXISTS idx_submissions_proposer_time ON proposal_submissions(proposer_id, submission_time)');
+
+    // [新增] 投票日志表
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS proposal_votes (
+        id TEXT PRIMARY KEY,
+        voter_id TEXT NOT NULL,                   -- 投票者ID
+        proposal_id TEXT NOT NULL,                -- 提议ID (就是phoneNumber)
+        vote_time TEXT NOT NULL,                  -- 投票时间
+        is_consumed INTEGER NOT NULL DEFAULT 0    -- 是否已被用于兑换提议次数
+      )
+    ''');
+    // 为快速查询用户未消费投票数添加索引
+    await db.execute('CREATE INDEX IF NOT EXISTS idx_votes_voter_consumed ON proposal_votes(voter_id, is_consumed)');
+    
+    // ... 插入默认 sync_config ...
+  }
+
+  // --- 2. onUpgrade: 处理数据库版本升级 ---
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      // ... 现有的 v1 -> v2 迁移逻辑 ...
+    }
+    if (oldVersion < 3) {
+      // [新增] v2 -> v3 的迁移逻辑
+      await db.execute(/* proposal_submissions 的 CREATE TABLE 语句 */);
+      await db.execute(/* proposal_submissions 的 CREATE INDEX 语句 */);
+      await db.execute(/* proposal_votes 的 CREATE TABLE 语句 */);
+      await db.execute(/* proposal_votes 的 CREATE INDEX 语句 */);
+    }
+  }
+
+  // --- 3. 移除所有业务逻辑方法 ---
+  // 移除: upsertDeletionProposal, _getActiveDeletionProposals, 
+  //       getExpiredDeletionProposals, updateDeletionProposalStatus,
+  //       deleteDeletionProposal, hasActiveDeletionProposal,
+  //       getPendingDeletionProposals, getProposalInfo,
+  //       cleanupCompletedDeletionProposals
+  //
+  // 保留: 最通用的CRUD方法，如 queryAll, queryById, queryWhere,
+  //       insert, update, delete, queryByPhoneNumber, 等。
+  //       这些是真正属于 DatabaseManager 的通用工具。
+}
+这个改动后，RemoteDatabaseManagerImpl 就变得非常干净了，它只负责数据库的基础设施。
+第二步：创建新的 ProposalDataSource 并迁移逻辑
+现在，我们需要一个地方来安放从 DatabaseManager 中移除的那些业务逻辑。最佳地点就是一个新的 ProposalDataSource。
+proposal_datasource.dart (新文件):
+code
+Dart
+// new file: proposal_datasource.dart
+import 'package:yourcallyourrule/data/database/remote/remote_database_manager.dart';
+
+class ProposalDataSource {
+  final RemoteDatabaseManager _databaseManager;
+
+  ProposalDataSource(this._databaseManager);
+
+  // --- 1. 将所有 active_deletion_proposals 相关的逻辑从 DatabaseManager 移动到这里 ---
+  Future<void> upsertDeletionProposal({ ... }) async {
+    final db = await _databaseManager.database;
+    // ... 之前的实现代码 ...
+  }
+  
+  Future<List<Map<String, dynamic>>> getActiveDeletionProposals() async { ... }
+  Future<void> updateDeletionProposalStatus(String phoneNumber, String status) async { ... }
+  // ... 其他所有相关方法 ...
+
+  // --- 2. 为新的日志表添加数据访问方法 ---
+  Future<void> recordProposalSubmission({
+    required String proposerId,
+    required String phoneNumber,
+  }) async {
+    final db = await _databaseManager.database;
+    await db.insert('proposal_submissions', {
+      'id': Uuid().v4(),
+      'proposer_id': proposerId,
+      'phone_number': phoneNumber,
+      'submission_time': DateTime.now().toIso8601String(),
+    });
+  }
+
+  Future<void> recordVote({
+    required String voterId,
+    required String proposalId,
+  }) async {
+    final db = await _databaseManager.database;
+    await db.insert('proposal_votes', {
+      'id': Uuid().v4(),
+      'voter_id': voterId,
+      'proposal_id': proposalId,
+      'vote_time': DateTime.now().toIso8601String(),
+      'is_consumed': 0,
+    });
+  }
+
+  // --- 3. 实现正确的计数函数 ---
+  Future<int> countRecentProposals(String proposerId, DateTime since) async {
+    final db = await _databaseManager.database;
+    final result = await db.rawQuery(
+      'SELECT COUNT(*) FROM proposal_submissions WHERE proposer_id = ? AND submission_time >= ?',
+      [proposerId, since.toIso8601String()],
+    );
+    return Sqflite.firstIntValue(result) ?? 0;
+  }
+
+  Future<int> countUnconsumedVotes(String voterId) async {
+    final db = await _databaseManager.database;
+    final result = await db.rawQuery(
+      'SELECT COUNT(*) FROM proposal_votes WHERE voter_id = ? AND is_consumed = 0',
+      [voterId],
+    );
+    return Sqflite.firstIntValue(result) ?? 0;
+  }
+
+  Future<void> consumeVotes(String voterId, int count) async {
+    // ... 实现将 is_consumed 标记为 1 的逻辑 ...
+  }
+}
+第三步：调整 RemoteNumberDataSource
+RemoteNumberDataSource 的职责是处理待同步的操作。所以，proposeDeletion 和 voteOnDeletionProposal 仍然应该留在里面，因为它们代表的是用户意图（“我想要提议删除”、“我想要投票”），这些意图需要被记录并同步到服务器。
+RemoteNumberDataSource.dart 的调整：
+code
+Dart
+// In RemoteNumberDataSource.dart
+
+class RemoteNumberDataSource {
+  // ...
+
+  // 这个方法保持不变，因为它是在记录一个"待同步"的操作
+  Future<void> proposeDeletion(
+    String phoneNumber,
+    Map<String, dynamic> report,
+  ) async {
+    await logCustomOperation(
+      'PROPOSE_DELETION',
+      phoneNumber,
+      { 'report': report, ... },
+    );
+  }
+
+  // 这个方法也保持不变
+  Future<void> voteOnDeletionProposal(
+    String phoneNumber,
+    String voteType,
+    Map<String, dynamic>? additionalData,
+  ) async {
+    await logCustomOperation(
+      'VOTE_DELETION',
+      phoneNumber,
+      { /* ... */ },
+    );
+  }
+
+  // 移除 countRecentProposals 和 countTotalVotes
+  // 因为它们的正确实现已经在新的 ProposalDataSource 中了
+}
+统一后的最终结构和逻辑流
+RemoteDatabaseManagerImpl：最底层，只管数据库连接和 Schema 定义（包含 proposal_submissions 和 proposal_votes 表）。
+RemoteNumberDataSource：负责待同步操作。当用户发起提议或投票，它会在 pending_operations 中记录一条日志，等待被 SyncManager 推送到云端。
+ProposalDataSource (新)：负责本地状态和日志。它直接读写 active_deletion_proposals、proposal_submissions 和 proposal_votes 表，为上层服务提供本地数据支持（例如，一个号码是否已有活跃提议、用户的提议次数是否已达上限等）。
+DeletionProposalService (业务服务层)：
+当要发起提议时：
+先调用 ProposalDataSource.countRecentProposals 等方法，检查用户是否有权限。
+如果有权限，调用 RemoteNumberDataSource.proposeDeletion 来记录这个待同步的操作。
+同时，可能还需要调用 ProposalDataSource.recordProposalSubmission 来更新本地的日志。
+当要投票时：
+调用 RemoteNumberDataSource.voteOnDeletionProposal 记录待同步操作。
+同时调用 ProposalDataSource.recordVote 更新本地日志。
+这个结构实现了完美的关注点分离，每一层都只做自己的事，是你项目走向清晰、可维护架构的关键一步。

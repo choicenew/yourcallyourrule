@@ -842,4 +842,8 @@ class RemoteNumberDataSource
       return null;
     }
   }
+
+  // 这些方法已移至 ProposalDataSource
+  // countRecentProposals 和 countTotalVotes 方法已被移除
+  // 请使用 ProposalDataSource 中的 countRecentProposals 和 countUnconsumedVotes 方法
 }

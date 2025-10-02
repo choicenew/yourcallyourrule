@@ -5318,10 +5318,10 @@ abstract class AppLocalizations {
   /// **'Not Granted'**
   String get notGranted;
 
-  /// No description provided for @notificationMode.
+  /// Title for the mode selection part (Immediate, Batched, Custom)
   ///
   /// In en, this message translates to:
-  /// **'Notification'**
+  /// **'Notification Mode'**
   String get notificationMode;
 
   /// No description provided for @notificationModeDescription.
@@ -10343,6 +10343,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Displays warnings for potential fraudulent calls.'**
   String get fraudAlertsDescription;
+
+  /// A detailed explanation of what the notification frequency settings do
+  ///
+  /// In en, this message translates to:
+  /// **'Choose how often you receive notifications about new deletion proposals. You can receive them immediately, in batches, or at a custom interval.'**
+  String get notificationFrequencyDescription;
+
+  /// Label for the immediate notification mode
+  ///
+  /// In en, this message translates to:
+  /// **'Immediate'**
+  String get immediateNotifications;
+
+  /// Description for the immediate notification mode
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a notification as soon as a proposal is created.'**
+  String get immediateNotificationsDescription;
+
+  /// Label for the batched notification mode
+  ///
+  /// In en, this message translates to:
+  /// **'Batched'**
+  String get batchNotifications;
+
+  /// Description for the batched notification mode
+  ///
+  /// In en, this message translates to:
+  /// **'Receive a summary of notifications periodically.'**
+  String get batchNotificationsDescription;
+
+  /// Label for the custom notification mode
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get customNotifications;
+
+  /// Description for the custom notification mode
+  ///
+  /// In en, this message translates to:
+  /// **'Define your own interval for receiving notifications.'**
+  String get customNotificationsDescription;
+
+  /// Title for the custom frequency slider section
+  ///
+  /// In en, this message translates to:
+  /// **'Custom Frequency'**
+  String get customFrequency;
+
+  /// Formats a duration that is only in minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String notificationFrequencyDurationMinutes(int minutes);
+
+  /// Formats a duration that is in whole hours.
+  ///
+  /// In en, this message translates to:
+  /// **'{hours} h'**
+  String notificationFrequencyDurationHours(int hours);
+
+  /// Formats a duration that has both hours and minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{hours} h {minutes} min'**
+  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes);
+
+  /// No description provided for @pendingProposals.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending Proposals'**
+  String get pendingProposals;
+
+  /// No description provided for @pendingProposalsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You have {count, plural, =0 {no pending proposals} one {1 pending proposal} other {{count} pending proposals}}.'**
+  String pendingProposalsBody(num count);
 }
 
 class _AppLocalizationsDelegate
