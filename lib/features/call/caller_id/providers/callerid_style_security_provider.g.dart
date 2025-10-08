@@ -204,7 +204,7 @@ final class CallerIdStyleSecurityNotifierProvider
 }
 
 String _$callerIdStyleSecurityNotifierHash() =>
-    r'b1a32fca5991f534d6f381aeb96d53b35977875f';
+    r'1fc9edfa0b5c9a823fa4b982c99c71867a3db99b';
 
 /// The UI State Notifier.
 /// 它的唯一职责是持有当前的UI状态(CallerIdConfig)，并响应UI的实时调整。
