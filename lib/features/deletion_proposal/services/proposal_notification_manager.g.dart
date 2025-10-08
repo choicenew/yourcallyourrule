@@ -56,4 +56,4 @@ final class ProposalNotificationManagerProvider
 }
 
 String _$proposalNotificationManagerHash() =>
-    r'3d795f0dad6fbc0a35da793b6cdebdd22227609a';
+    r'ba342f4b3b4e537c7e06223f7b3facfb27815f34';

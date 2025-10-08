@@ -1,0 +1,646 @@
+最终目标： 在你现有的优秀悬浮窗（Overlay）自定义系统旁，构建一个同样强大、但专门为原生通知（Live Update）设计的独立自定义系统。
+总体架构规划
+我们将创建一套与现有 CallerId... 系统平行的 Notification... 系统。
+模块	现有悬浮窗 (Overlay)	新增原生通知 (Notification)	关系与说明
+数据模型	CallerIdConfig	NotificationConfig	结构相似，但为通知的尺寸约束而设计。
+配置UI	CallerIdCustomizationScreen	NotificationCustomizationScreen	独立的配置页面，但复用底层UI组件。
+数据持久化	config_caller_id	config_notification_style	使用不同的Key独立存储。
+预览渲染器	CallerIdContentBuilder	NotificationContentPreview (新)	一个专门在Dart端模拟通知布局的Widget。
+原生通信	FloatingWindowAndroid	flutter_live_activities	使用新的插件。
+原生布局	(无，由Flutter绘制)	live_activity.xml	专用的Android原生XML模板。
+数据转换器	(无)	NotificationPayloadBuilder	将NotificationConfig转换为插件所需的Map。
+状态管理	callerIdStyleSecurityProvider	notificationConfigProvider	独立的Riverpod Provider。
+行动计划：分五大阶段
+第一阶段：搭建Android原生基础 (后端)
+目标： 创建 flutter_live_activities 插件所需要的原生“画布”和“数据填充器”。
+集成插件:
+在 pubspec.yaml 中添加 flutter_live_activities。
+按照插件文档，完成Android (MainActivity.kt) 和iOS的初始设置。
+创建XML布局模板 (live_activity.xml):
+在 android/app/src/main/res/layout/ 目录下，创建 live_activity.xml 文件。
+将我之前提供的、包含 RelativeLayout 和所有13个预定义“槽位”（avatar, name, carrier 等）的XML代码粘贴进去。这个XML将作为所有原生通知的统一样式画布。
+创建Kotlin数据填充器 (CustomLiveActivityManager.kt):
+在 android/app/src/main/kotlin/.../ 目录下，创建 CustomLiveActivityManager.kt 文件。
+在这个文件中，实现 buildNotification 方法。此方法的核心逻辑将是：
+接收一个大的 Map<String, Any> 数据包。
+逐一解析Map中的键值对（如 avatarX, nameColor 等）。
+调用 remoteViews.setViewPadding(), remoteViews.setTextColor(), remoteViews.setImageViewBitmap() 等方法，将解析出的数据应用到 live_activity.xml 对应的槽位上。
+
+位置： android/app/src/main/res/layout/live_activity.xml
+code
+Xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notification_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="0dp">
+
+    <!-- 1. Avatar -->
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:scaleType="fitCenter" />
+
+    <!-- 2. Name -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:visibility="gone" />
+
+    <!-- 3. Carrier -->
+    <TextView
+        android:id="@+id/carrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:visibility="gone" />
+        
+    <!-- 4. Number -->
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:visibility="gone" />
+
+    <!-- 5. Location -->
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:visibility="gone" />
+
+    <!-- 6. Labels -->
+    <TextView
+        android:id="@+id/labels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:visibility="gone" />
+        
+    <!-- 7. Scrolling Security Message -->
+    <TextView
+        android:id="@+id/securityMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:visibility="gone" />
+
+</RelativeLayout>
+位置： android/app/src/main/kotlin/your/package/name/MainActivity.kt
+code
+Kotlin
+package your.package.name // 确保这是你的包名
+
+import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import com.example.live_activities.LiveActivityManagerHolder // 插件的包名，请核对
+
+class MainActivity : FlutterActivity() {
+    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+        super.configureFlutterEngine(flutterEngine)
+        LiveActivityManagerHolder.instance = CustomLiveActivityManager(this)
+    }
+}
+位置： android/app/src/main/kotlin/your/package/name/CustomLiveActivityManager.kt
+code
+Kotlin
+package your.package.name // 确保这是你的包名
+
+import android.app.Notification
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.widget.RemoteViews
+import com.example.live_activities.LiveActivityManager // 插件的包名，请核对
+
+class CustomLiveActivityManager(context: Context) : LiveActivityManager(context) {
+
+    private val density = context.resources.displayMetrics.density
+    private fun dpToPx(dp: Double?): Int {
+        if (dp == null) return 0
+        return (dp * density).toInt()
+    }
+
+    override suspend fun buildNotification(
+        notification: Notification.Builder,
+        event: String,
+        data: Map<String, Any>
+    ): Notification {
+        val remoteViews = RemoteViews(context.packageName, R.layout.live_activity)
+        configureView(remoteViews, data)
+
+        return notification
+            .setSmallIcon(R.drawable.ic_notification) // **提醒**: 你需要在 res/drawable 添加这个图标
+            .setStyle(Notification.DecoratedCustomViewStyle())
+            .setCustomContentView(remoteViews)
+            .setCustomBigContentView(remoteViews)
+            .build()
+    }
+
+    private fun configureView(remoteViews: RemoteViews, data: Map<String, Any>) {
+        (data["backgroundColor"] as? Long)?.toInt()?.let {
+            remoteViews.setInt(R.id.notification_container, "setBackgroundColor", it)
+        }
+
+        fun configureTextView(id: Int, textKey: String, xKey: String, yKey: String, colorKey: String, sizeKey: String) {
+            (data[textKey] as? String)?.let { text ->
+                remoteViews.setViewVisibility(id, android.view.View.VISIBLE)
+                remoteViews.setTextViewText(id, text)
+                remoteViews.setViewPadding(id, dpToPx(data[xKey] as? Double), dpToPx(data[yKey] as? Double), 0, 0)
+                (data[colorKey] as? Long)?.toInt()?.let { remoteViews.setTextColor(id, it) }
+                (data[sizeKey] as? Double)?.let { remoteViews.setFloat(id, "setTextSize", it.toFloat()) }
+            }
+        }
+        
+        fun configureImageView(id: Int, imageKey: String, xKey: String, yKey: String, widthKey: String, heightKey: String) {
+            (data[imageKey] as? ByteArray)?.let { bytes ->
+                if (bytes.isEmpty()) return@let
+                val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                remoteViews.setViewVisibility(id, android.view.View.VISIBLE)
+                
+                val width = dpToPx(data[widthKey] as? Double)
+                val height = dpToPx(data[heightKey] as? Double)
+
+                val finalBitmap = if (width > 0 && height > 0) {
+                    Bitmap.createScaledBitmap(bitmap, width, height, true)
+                } else {
+                    bitmap
+                }
+                remoteViews.setImageViewBitmap(id, finalBitmap)
+                remoteViews.setViewPadding(id, dpToPx(data[xKey] as? Double), dpToPx(data[yKey] as? Double), 0, 0)
+            }
+        }
+
+        configureImageView(R.id.avatar, "avatarImage", "avatarX", "avatarY", "avatarSize", "avatarSize")
+        configureTextView(R.id.name, "nameText", "nameX", "nameY", "nameColor", "nameFontSize")
+        configureTextView(R.id.carrier, "carrierText", "carrierX", "carrierY", "carrierColor", "carrierFontSize")
+        configureTextView(R.id.number, "numberText", "numberX", "numberY", "numberColor", "numberFontSize")
+        configureTextView(R.id.location, "locationText", "locationX", "locationY", "locationColor", "locationFontSize")
+        configureTextView(R.id.labels, "labelsText", "labelsX", "labelsY", "labelsColor", "labelsFontSize")
+        
+        configureTextView(R.id.securityMessage, "securityMessageText", "securityMessageX", "securityMessageY", "securityMessageColor", "securityMessageFontSize")
+        remoteViews.setBoolean(R.id.securityMessage, "setSelected", true)
+    }
+}
+第二阶段：Dart 端数据模型与持久化
+位置： lib/features/notification_style/notification_config.dart
+code
+Dart
+import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:yourcallyourrule/common/utils/color_converter.dart'; 
+import 'package:yourcallyourrule/common/utils/offset_converter.dart'; 
+import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
+
+part 'notification_config.freezed.dart';
+part 'notification_config.g.dart';
+
+@freezed
+class NotificationConfig with _$NotificationConfig {
+  const factory NotificationConfig({
+    // General
+    @ColorConverter() @Default(Color(0xFF333333)) Color backgroundColor,
+    
+    // Avatar
+    @OffsetConverter() @Default(Offset(16, 16)) Offset avatarPosition,
+    @Default(60.0) double avatarSize,
+    @ColorConverter() @Default(Colors.white) Color avatarBorderColor,
+
+    // Name
+    @OffsetConverter() @Default(Offset(90, 20)) Offset namePosition,
+    @Default(18.0) double nameFontSize,
+    @ColorConverter() @Default(Colors.white) Color textNameColor,
+
+    // Number
+    @OffsetConverter() @Default(Offset(90, 45)) Offset numberPosition,
+    @Default(16.0) double numberFontSize,
+    @ColorConverter() @Default(Colors.grey) Color textNumberColor,
+
+    // Location
+    @OffsetConverter() @Default(Offset(16, 100)) Offset locationPosition,
+    @Default(14.0) double locationFontSize,
+    @ColorConverter() @Default(Colors.white70) Color textLocationColor,
+    
+    // Carrier
+    @OffsetConverter() @Default(Offset(16, 120)) Offset carrierPosition,
+    @Default(14.0) double carrierFontSize,
+    @ColorConverter() @Default(Colors.white70) Color textCarrierColor,
+
+    // Labels
+    @OffsetConverter() @Default(Offset(16, 140)) Offset labelsPosition,
+    @Default(14.0) double labelsFontSize,
+    @ColorConverter() @Default(Colors.cyanAccent) Color textLabelsColor,
+    
+    // Security Message
+    @OffsetConverter() @Default(Offset(16, 220)) Offset securityMessagePosition,
+    @Default(14.0) double securityMessageFontSize,
+    @ColorConverter() @Default(Colors.yellow) Color securityMessageTextColor,
+
+  }) = _NotificationConfig;
+
+  factory NotificationConfig.fromJson(Map<String, dynamic> json) => _$NotificationConfigFromJson(json);
+
+  factory NotificationConfig.fromOverlayConfig(CallerIdConfig overlayConfig) {
+    // A simple mapping logic. Can be made more sophisticated.
+    return NotificationConfig(
+      backgroundColor: overlayConfig.backgroundColorStart,
+      textNameColor: overlayConfig.textNameColor,
+      nameFontSize: overlayConfig.nameFontSize,
+      avatarBorderColor: overlayConfig.avatarBorderColor,
+      avatarPosition: overlayConfig.avatarPosition,
+      namePosition: overlayConfig.namePosition,
+      avatarSize: overlayConfig.avatarSize,
+      textNumberColor: overlayConfig.textNumberColor,
+      numberFontSize: overlayConfig.numberFontSize,
+      numberPosition: overlayConfig.numberPosition,
+      // ... map other fields as needed
+    );
+  }
+}
+注意: 你需要运行 flutter pub run build_runner build 来生成 .freezed.dart 和 .g.dart 文件。
+位置： lib/features/notification_style/notification_config_provider.dart
+code
+Dart
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'notification_config.dart';
+
+// The Service class to handle logic
+class NotificationConfigService {
+  final ConfigRepository _repo;
+  final String _configKey = 'config_notification_style';
+
+  NotificationConfigService(this._repo);
+
+  Future<NotificationConfig> loadConfig() async {
+    final map = await _repo.getConfig(_configKey);
+    if (map != null) {
+      return NotificationConfig.fromJson(map);
+    }
+    // Return default if nothing is saved
+    return const NotificationConfig();
+  }
+
+  Future<void> saveConfig(NotificationConfig config) {
+    return _repo.saveConfig(_configKey, config.toJson());
+  }
+}
+
+// Provider for the service
+final notificationConfigServiceProvider = Provider<NotificationConfigService>((ref) {
+  final repo = ref.watch(configRepositoryProvider);
+  return NotificationConfigService(repo);
+});
+
+
+// The StateNotifier for the UI
+class NotificationConfigNotifier extends StateNotifier<AsyncValue<NotificationConfig>> {
+  final NotificationConfigService _service;
+
+  NotificationConfigNotifier(this._service) : super(const AsyncValue.loading()) {
+    _load();
+  }
+
+  Future<void> _load() async {
+    try {
+      final config = await _service.loadConfig();
+      state = AsyncValue.data(config);
+    } catch (e, st) {
+      state = AsyncValue.error(e, st);
+    }
+  }
+
+  Future<void> _updateState(NotificationConfig newConfig) async {
+    state = AsyncValue.data(newConfig);
+    await _service.saveConfig(newConfig);
+  }
+
+  void updateWith(NotificationConfig newConfig) {
+    _updateState(newConfig);
+  }
+
+  void updatePosition(String element, Offset newPosition) {
+    state.whenData((config) {
+      // Using freezed copyWith
+      switch(element) {
+        case 'avatar': _updateState(config.copyWith(avatarPosition: newPosition)); break;
+        case 'name': _updateState(config.copyWith(namePosition: newPosition)); break;
+        // ... add cases for all other elements
+      }
+    });
+  }
+  
+  // Add more methods for updating colors, font sizes etc.
+  void updateColor(String element, Color newColor) {
+    state.whenData((config) {
+       switch(element) {
+        case 'name': _updateState(config.copyWith(textNameColor: newColor)); break;
+        // ...
+      }
+    });
+  }
+}
+
+// The final provider for the UI
+final notificationConfigProvider = StateNotifierProvider<NotificationConfigNotifier, AsyncValue<NotificationConfig>>((ref) {
+  final service = ref.watch(notificationConfigServiceProvider);
+  return NotificationConfigNotifier(service);
+});
+第三阶段 & 第四阶段: Dart 端 UI 与通信
+位置： lib/features/notification_style/ui/notification_customization_screen.dart
+code
+Dart
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_live_activities/flutter_live_activities.dart';
+import 'package:yourcallyourrule/features/call/caller_id/providers/callerid_style_security_provider.dart';
+import 'package:yourcallyourrule/features/mock_data/caller_id_mock.dart';
+import 'package:yourcallyourrule/features/caller_id/widgets/customization/color_panel.dart'; // Reuse your widgets
+import '../notification_config.dart';
+import '../notification_config_provider.dart';
+import 'notification_content_preview.dart'; // We will create this next
+import '../services/notification_payload_builder.dart'; // And this one too
+
+class NotificationCustomizationScreen extends ConsumerStatefulWidget {
+  const NotificationCustomizationScreen({super.key});
+
+  @override
+  ConsumerState<NotificationCustomizationScreen> createState() => _NotificationCustomizationScreenState();
+}
+
+class _NotificationCustomizationScreenState extends ConsumerState<NotificationCustomizationScreen> {
+  final _liveActivitiesPlugin = LiveActivities();
+
+  @override
+  void initState() {
+    super.initState();
+    _liveActivitiesPlugin.init(appGroupId: "group.your.app.id"); // Your App Group ID
+  }
+
+  void _showLiveUpdatePreview(NotificationConfig config) async {
+    final mockData = CallerIdMockData.mockCallerIdData();
+    final payload = await NotificationPayloadBuilder.build(config, mockData);
+    await _liveActivitiesPlugin.createActivity(payload, activityId: 'notification_preview');
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Live Update Notification sent! Check your notification tray.'))
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final asyncConfig = ref.watch(notificationConfigProvider);
+
+    return Scaffold(
+      appBar: AppBar(title: const Text("Customize Notification Style")),
+      body: asyncConfig.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, stack) => Center(child: Text("Error: $err")),
+        data: (config) {
+          final notifier = ref.read(notificationConfigProvider.notifier);
+          return Column(
+            children: [
+              NotificationContentPreview(config: config, notifier: notifier),
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.all(16),
+                  children: [
+                    ColorPanel(
+                      title: "Name Color",
+                      currentColor: config.textNameColor,
+                      onColorChanged: (color) => notifier.updateColor('name', color),
+                    ),
+                    // ... Add more setting panels for size, position etc.
+                  ],
+                ),
+              ),
+              _buildActionButtons(config),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildActionButtons(NotificationConfig config) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Wrap(
+        spacing: 8.0,
+        alignment: WrapAlignment.center,
+        children: [
+          ElevatedButton(
+            child: const Text("Sync from Overlay"),
+            onPressed: () {
+              final overlayConfig = ref.read(callerIdStyleSecurityProvider).value;
+              if (overlayConfig != null) {
+                final newConfig = NotificationConfig.fromOverlayConfig(overlayConfig);
+                ref.read(notificationConfigProvider.notifier).updateWith(newConfig);
+              }
+            },
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).primaryColor),
+            child: const Text("Preview Live Update"),
+            onPressed: () => _showLiveUpdatePreview(config),
+          ),
+          OutlinedButton(
+            child: const Text("Reset to Default"),
+            onPressed: () {
+              // This requires adding a reset method to the notifier
+              // ref.read(notificationConfigProvider.notifier).reset();
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+位置： lib/features/notification_style/ui/notification_content_preview.dart
+code
+Dart
+import 'package:flutter/material.dart';
+import '../notification_config.dart';
+import '../notification_config_provider.dart';
+
+class NotificationContentPreview extends StatelessWidget {
+  final NotificationConfig config;
+  final NotificationConfigNotifier notifier;
+
+  const NotificationContentPreview({super.key, required this.config, required this.notifier});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        color: Colors.grey[850],
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white24)
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _buildSystemHeader(),
+          Container(
+            height: 256,
+            width: double.infinity,
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+              color: config.backgroundColor,
+              borderRadius: const BorderRadius.vertical(bottom: Radius.circular(12))
+            ),
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 64, left: 0, right: 0,
+                  child: DottedLine(),
+                ),
+                _DraggableElement(
+                  label: 'Avatar',
+                  position: config.avatarPosition,
+                  onPositionChanged: (pos) => notifier.updatePosition('avatar', pos),
+                  child: CircleAvatar(radius: config.avatarSize / 2, backgroundColor: Colors.blue),
+                ),
+                _DraggableElement(
+                  label: 'Name',
+                  position: config.namePosition,
+                  onPositionChanged: (pos) => notifier.updatePosition('name', pos),
+                  child: Text("John Doe", style: TextStyle(color: config.textNameColor, fontSize: config.nameFontSize)),
+                ),
+                // ... Add _DraggableElement for all other components
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  
+  Widget _buildSystemHeader() {
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        children: [
+          Icon(Icons.android, color: Colors.white, size: 16),
+          SizedBox(width: 8),
+          Text("Your App Name", style: TextStyle(color: Colors.white, fontSize: 12)),
+          Spacer(),
+          Text("now", style: TextStyle(color: Colors.white70, fontSize: 12)),
+        ],
+      ),
+    );
+  }
+}
+
+class _DraggableElement extends StatelessWidget {
+  final String label;
+  final Offset position;
+  final Function(Offset) onPositionChanged;
+  final Widget child;
+
+  const _DraggableElement({
+    required this.label,
+    required this.position,
+    required this.onPositionChanged,
+    required this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: position.dx,
+      top: position.dy,
+      child: GestureDetector(
+        onPanUpdate: (details) => onPositionChanged(position + details.delta),
+        child: child,
+      ),
+    );
+  }
+}
+
+class DottedLine extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final boxWidth = constraints.constrainWidth();
+        const dashWidth = 5.0;
+        const dashHeight = 1.0;
+        const dashSpace = 3.0;
+        final dashCount = (boxWidth / (dashWidth + dashSpace)).floor();
+        return Flex(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          direction: Axis.horizontal,
+          children: List.generate(dashCount, (_) {
+            return SizedBox(
+              width: dashWidth,
+              height: dashHeight,
+              child: DecoratedBox(
+                decoration: BoxDecoration(color: Colors.grey[600]),
+              ),
+            );
+          }),
+        );
+      },
+    );
+  }
+}
+位置： lib/features/notification_style/services/notification_payload_builder.dart
+code
+Dart
+import 'dart:typed_data';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import '../notification_config.dart';
+
+class NotificationPayloadBuilder {
+  static Future<Map<String, dynamic>> build(NotificationConfig config, CallerIdData data) async {
+    
+    Future<Uint8List> _getAssetBytes(String path) async {
+      try {
+        final byteData = await rootBundle.load(path);
+        return byteData.buffer.asUint8List();
+      } catch (e) {
+        return Uint8List(0); // Return empty list on error
+      }
+    }
+    
+    // We only need one asset for this example
+    final avatarBytes = await _getAssetBytes('assets/avatars/Unknown.png'); // Use a placeholder
+
+    return {
+      'backgroundColor': config.backgroundColor.value,
+
+      'avatarImage': avatarBytes,
+      'avatarX': config.avatarPosition.dx,
+      'avatarY': config.avatarPosition.dy,
+      'avatarSize': config.avatarSize,
+
+      'nameText': data.name ?? 'Unknown Caller',
+      'nameX': config.namePosition.dx,
+      'nameY': config.namePosition.dy,
+      'nameColor': config.textNameColor.value,
+      'nameFontSize': config.nameFontSize,
+
+      'numberText': data.phoneNumber.value,
+      'numberX': config.numberPosition.dx,
+      'numberY': config.numberPosition.dy,
+      'numberColor': config.textNumberColor.value,
+      'numberFontSize': config.numberFontSize,
+
+      // ... map all other fields from NotificationConfig
+    };
+  }
+}

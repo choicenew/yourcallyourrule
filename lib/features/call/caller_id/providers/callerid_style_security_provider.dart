@@ -56,6 +56,19 @@ class CallerIdStyleSecurityNotifier extends _$CallerIdStyleSecurityNotifier {
     }
   }
 
+  // --- 所有用于UI实时调整的 set... 方法 ---
+
+  /// 使用可选的【命名参数】来更新窗口尺寸，使其更加灵活。
+  /// 这样 UI 就可以只更新宽度，或只更新高度。
+  void setWindowSize({double? width, double? height}) {
+    _updateState((currentConfig) => currentConfig.copyWith(
+      // 如果传入了新的 width，就使用它；否则 (??) 就使用 currentConfig 中原来的 width
+      windowWidth: width ?? currentConfig.windowWidth,
+      // 对 height 做同样的处理
+      windowHeight: height ?? currentConfig.windowHeight,
+    ));
+  }
+
   // --- 所有用于UI实时调整的 set... 方法都保持不变 ---
   void setBackgroundColorStart(Color color) => _updateState((c) => c.copyWith(backgroundColorStart: color));
   void setBackgroundColorEnd(Color color) => _updateState((c) => c.copyWith(backgroundColorEnd: color));
@@ -86,7 +99,7 @@ class CallerIdStyleSecurityNotifier extends _$CallerIdStyleSecurityNotifier {
   void setLocationFontSize(double size) => _updateState((c) => c.copyWith(locationFontSize: size));
   void setStirFontSize(double size) => _updateState((c) => c.copyWith(stirFontSize: size));
   void setSimCardFontSize(double size) => _updateState((c) => c.copyWith(simCardFontSize: size));
-  void setWindowSize(double width, double height) => _updateState((c) => c.copyWith(windowWidth: width, windowHeight: height));
+  //void setWindowSize(double width, double height) => _updateState((c) => c.copyWith(windowWidth: width, windowHeight: height));
   void updateAvatarPosition(Offset position) => _updateState((c) => c.copyWith(avatarPosition: position));
   void updateNamePosition(Offset position) => _updateState((c) => c.copyWith(namePosition: position));
   void updateCarrierPosition(Offset position) => _updateState((c) => c.copyWith(carrierPosition: position));
