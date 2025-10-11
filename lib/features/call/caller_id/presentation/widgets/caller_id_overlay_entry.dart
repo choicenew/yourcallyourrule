@@ -29,6 +29,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
     // 【修改点】: initState 中不再需要手动加载配置或读取provider。
     // Provider 会自动处理自己的初始化。我们只需要监听来自主App的数据。
     FloatingWindowAndroid.overlayListener.listen((event) {
+       debugPrint('Received data: $event');
       if (event is Map<String, dynamic> && event.containsKey("configType")) {
         setState(() {
           String configType = event["configType"];
@@ -41,6 +42,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
           }
           // 注意：配置更新现在由主App保存，这里的Provider会自动重新加载，
           // 所以不需要再手动处理 "callerIdStyle" 类型的消息。
+          debugPrint("接收到配置更新: ${_callerIdData?.toMap()}");
         });
       }
     });
@@ -71,14 +73,14 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
   Widget build(BuildContext context) {
     if (_callerIdData == null) {
       return const Material(
-        color: Colors.transparent,
+        color: Color.fromARGB(0, 250, 1, 1),
         child: Center(child: CircularProgressIndicator()),
       );
     }
 
     // 【关键修改点】: 在 build 方法中 watch 新的 provider
     final asyncConfig = ref.watch(callerIdStyleSecurityProvider);
-    
+    debugPrint("当前配置:${asyncConfig.toString()}");
     return Material(
       color: Colors.transparent,
       child: asyncConfig.when(

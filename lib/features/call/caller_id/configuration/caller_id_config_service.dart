@@ -81,7 +81,7 @@ class CallerIdConfigService {
       windowWidth: 380,
       windowHeight: 235,
       avatarSize: 60,
-      avatarBorderSize: 65,
+      avatarBorderSize: 1,
       iconSize: 20,
     );
     await saveConfig(defaultConfig);
