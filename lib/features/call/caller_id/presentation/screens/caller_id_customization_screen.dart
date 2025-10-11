@@ -1,3 +1,5 @@
+
+import 'package:floating_window_android/floating_window_android.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
@@ -135,6 +137,7 @@ class _CallerIdCustomizationScreenState
                   ButtonPanel(
                     configurationManager: _configurationManager,
                     onPreviewPressed: () => _showPreview(context),
+                       onClosePressed: _closeOverlay,
                   ),
                 ],
               );
@@ -144,7 +147,10 @@ class _CallerIdCustomizationScreenState
       ),
     );
   }
-
+  /// 关闭浮窗
+  Future<void> _closeOverlay() async {
+    await FloatingWindowAndroid.closeOverlay();
+  }
   /// 显示预览浮窗
   Future<void> _showPreview(BuildContext context) async {
     final overlayHandler = OverlayHandler();

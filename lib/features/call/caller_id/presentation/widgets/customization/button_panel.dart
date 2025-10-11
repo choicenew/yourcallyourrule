@@ -13,11 +13,13 @@ class ButtonPanel extends ConsumerWidget {
   // ButtonPanel 恢复接收 ConfigurationManager
   final ConfigurationManager configurationManager;
   final VoidCallback onPreviewPressed;
+  final VoidCallback onClosePressed;
 
   const ButtonPanel({
     super.key,
     required this.configurationManager,
     required this.onPreviewPressed,
+    required this.onClosePressed,
   });
 
   @override
@@ -146,6 +148,13 @@ class ButtonPanel extends ConsumerWidget {
               }
             },
             style: FilledButton.styleFrom(backgroundColor: Colors.grey[600]),
+          ),
+          // --- 关闭按钮 ---
+          FilledButton.icon(
+            icon: const Icon(Icons.close),
+            label: const Text('Close'),
+            onPressed: onClosePressed,
+            style: FilledButton.styleFrom(backgroundColor: Colors.red[300]),
           ),
         ],
       ),
