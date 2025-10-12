@@ -6035,4 +6035,35 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get phoneNumberType => 'PhoneNumber Type';
+
+  @override
+  String get liveActivitiesTestEndActivity => 'End Activity';
+
+  @override
+  String get liveActivitiesTestSendNewActivity => 'Send New Activity';
+
+  @override
+  String get liveActivitiesTestUpdateActivity => 'Update Activity';
+
+  @override
+  String get liveActivityControlsTitle => 'Live Activity Controls';
+
+  @override
+  String get liveActivitiesTestTitle => 'Live Activities Test';
+
+  @override
+  String get liveActivitiesTestSubtitle =>
+      'Test the live activity Notification.';
+
+  @override
+  String get liveNotificationCustomizationTitle =>
+      'Live Notification Customization';
+
+  @override
+  String get liveNotificationCustomizationSubtitle =>
+      'Customize the appearance of live notifications.';
+
+  @override
+  String get notification_instructions =>
+      'Instructions:\n1. Tap \"SEND\" to create or update a notification.\n2. Go to your home screen or pull down the notification tray to see the result.\n3. Tap \"END\" to dismiss the notification.';
 }

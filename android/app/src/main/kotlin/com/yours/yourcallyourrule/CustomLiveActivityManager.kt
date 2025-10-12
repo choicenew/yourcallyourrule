@@ -1,228 +1,127 @@
+// CustomLiveActivityManager.kt
+
 package com.yours.yourcallyourrule
 
+import android.app.Notification
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.widget.RemoteViews
-import android.util.Log
-import com.yours.yourcallyourrule.R
+import com.example.live_activities.LiveActivityManager // 确保这个 import 路径与插件一致
 
-class CustomLiveActivityManager(private val context: Context) {
-    
-    companion object {
-        private const val TAG = "CustomLiveActivityManager"
-    }
+/**
+ * 自定义的 Live Activity 逻辑管理器。
+ * 这个类严格按照 live_activities 插件官方文档的示例进行编写。
+ */
+class CustomLiveActivityManager(context: Context) : LiveActivityManager(context) {
+
+    // --- 100% 遵从文档：在构造函数中初始化 context ---
+    // 我们需要自己的 context 实例来创建 RemoteViews 和 PendingIntent。
+    private val context: Context = context.applicationContext
+
+    // --- 100% 遵从文档：创建点击通知时返回App的 PendingIntent ---
+    private val pendingIntent = PendingIntent.getActivity(
+        context, 
+        200, // requestCode
+        Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
+        }, 
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+    )
 
     /**
-     * Creates a RemoteViews object for the live activity notification
-     * @param data Map containing the notification data
-     * @return RemoteViews configured with the provided data
+     * 这是插件调用的核心方法，必须重写。
+     * 严格按照官方文档的模式实现。
      */
-    fun createLiveActivityView(data: Map<String, Any?>): RemoteViews {
+    override suspend fun buildNotification(
+        notification: Notification.Builder,
+        event: String,
+        data: Map<String, Any>
+    ): Notification {
+        // 1. 严格按照文档，在这里创建 RemoteViews 实例。
         val remoteViews = RemoteViews(context.packageName, R.layout.live_activity)
-        
-        try {
-            // Process avatar
-            val avatarVisible = data["avatarVisible"] as? Boolean ?: false
-            val avatarUrl = data["avatarUrl"] as? String
-            if (avatarVisible && !avatarUrl.isNullOrEmpty()) {
-                remoteViews.setViewVisibility(R.id.avatar, android.view.View.VISIBLE)
-                // Note: For network images, you'd need to implement image loading
-                // For now, we'll use a placeholder or local resource
-                remoteViews.setImageViewResource(R.id.avatar, android.R.drawable.ic_menu_call)
-            } else {
-                remoteViews.setViewVisibility(R.id.avatar, android.view.View.GONE)
-            }
 
-            // Process name
-            val nameVisible = data["nameVisible"] as? Boolean ?: false
-            val nameText = data["nameText"] as? String ?: ""
-            if (nameVisible && nameText.isNotEmpty()) {
-                remoteViews.setViewVisibility(R.id.name, android.view.View.VISIBLE)
-                remoteViews.setTextViewText(R.id.name, nameText)
-                
-                // Apply styling if provided
-                val nameColor = data["nameColor"] as? String
-                if (!nameColor.isNullOrEmpty()) {
-                    try {
-                        val color = android.graphics.Color.parseColor(nameColor)
-                        remoteViews.setTextColor(R.id.name, color)
-                    } catch (e: IllegalArgumentException) {
-                        Log.w(TAG, "Invalid name color: $nameColor")
-                    }
-                }
-                
-                val nameSize = data["nameSize"] as? Double
-                if (nameSize != null && nameSize > 0) {
-                    remoteViews.setTextViewTextSize(R.id.name, android.util.TypedValue.COMPLEX_UNIT_SP, nameSize.toFloat())
-                }
-            } else {
-                remoteViews.setViewVisibility(R.id.name, android.view.View.GONE)
-            }
+        // 2. 调用我们的核心配置函数，用 Flutter 传来的数据去“填充” RemoteViews。
+        configureView(remoteViews, data)
 
-            // Process carrier
-            val carrierVisible = data["carrierVisible"] as? Boolean ?: false
-            val carrierText = data["carrierText"] as? String ?: ""
-            if (carrierVisible && carrierText.isNotEmpty()) {
-                remoteViews.setViewVisibility(R.id.carrier, android.view.View.VISIBLE)
-                remoteViews.setTextViewText(R.id.carrier, carrierText)
-                
-                val carrierColor = data["carrierColor"] as? String
-                if (!carrierColor.isNullOrEmpty()) {
-                    try {
-                        val color = android.graphics.Color.parseColor(carrierColor)
-                        remoteViews.setTextColor(R.id.carrier, color)
-                    } catch (e: IllegalArgumentException) {
-                        Log.w(TAG, "Invalid carrier color: $carrierColor")
-                    }
-                }
-                
-                val carrierSize = data["carrierSize"] as? Double
-                if (carrierSize != null && carrierSize > 0) {
-                    remoteViews.setTextViewTextSize(R.id.carrier, android.util.TypedValue.COMPLEX_UNIT_SP, carrierSize.toFloat())
-                }
-            } else {
-                remoteViews.setViewVisibility(R.id.carrier, android.view.View.GONE)
-            }
-
-            // Process number
-            val numberVisible = data["numberVisible"] as? Boolean ?: false
-            val numberText = data["numberText"] as? String ?: ""
-            if (numberVisible && numberText.isNotEmpty()) {
-                remoteViews.setViewVisibility(R.id.number, android.view.View.VISIBLE)
-                remoteViews.setTextViewText(R.id.number, numberText)
-                
-                val numberColor = data["numberColor"] as? String
-                if (!numberColor.isNullOrEmpty()) {
-                    try {
-                        val color = android.graphics.Color.parseColor(numberColor)
-                        remoteViews.setTextColor(R.id.number, color)
-                    } catch (e: IllegalArgumentException) {
-                        Log.w(TAG, "Invalid number color: $numberColor")
-                    }
-                }
-                
-                val numberSize = data["numberSize"] as? Double
-                if (numberSize != null && numberSize > 0) {
-                    remoteViews.setTextViewTextSize(R.id.number, android.util.TypedValue.COMPLEX_UNIT_SP, numberSize.toFloat())
-                }
-            } else {
-                remoteViews.setViewVisibility(R.id.number, android.view.View.GONE)
-            }
-
-            // Process location
-            val locationVisible = data["locationVisible"] as? Boolean ?: false
-            val locationText = data["locationText"] as? String ?: ""
-            if (locationVisible && locationText.isNotEmpty()) {
-                remoteViews.setViewVisibility(R.id.location, android.view.View.VISIBLE)
-                remoteViews.setTextViewText(R.id.location, locationText)
-                
-                val locationColor = data["locationColor"] as? String
-                if (!locationColor.isNullOrEmpty()) {
-                    try {
-                        val color = android.graphics.Color.parseColor(locationColor)
-                        remoteViews.setTextColor(R.id.location, color)
-                    } catch (e: IllegalArgumentException) {
-                        Log.w(TAG, "Invalid location color: $locationColor")
-                    }
-                }
-                
-                val locationSize = data["locationSize"] as? Double
-                if (locationSize != null && locationSize > 0) {
-                    remoteViews.setTextViewTextSize(R.id.location, android.util.TypedValue.COMPLEX_UNIT_SP, locationSize.toFloat())
-                }
-            } else {
-                remoteViews.setViewVisibility(R.id.location, android.view.View.GONE)
-            }
-
-            // Process labels
-            val labelsVisible = data["labelsVisible"] as? Boolean ?: false
-            val labelsText = data["labelsText"] as? String ?: ""
-            if (labelsVisible && labelsText.isNotEmpty()) {
-                remoteViews.setViewVisibility(R.id.labels, android.view.View.VISIBLE)
-                remoteViews.setTextViewText(R.id.labels, labelsText)
-                
-                val labelsColor = data["labelsColor"] as? String
-                if (!labelsColor.isNullOrEmpty()) {
-                    try {
-                        val color = android.graphics.Color.parseColor(labelsColor)
-                        remoteViews.setTextColor(R.id.labels, color)
-                    } catch (e: IllegalArgumentException) {
-                        Log.w(TAG, "Invalid labels color: $labelsColor")
-                    }
-                }
-                
-                val labelsSize = data["labelsSize"] as? Double
-                if (labelsSize != null && labelsSize > 0) {
-                    remoteViews.setTextViewTextSize(R.id.labels, android.util.TypedValue.COMPLEX_UNIT_SP, labelsSize.toFloat())
-                }
-            } else {
-                remoteViews.setViewVisibility(R.id.labels, android.view.View.GONE)
-            }
-
-            // Process security message (scrolling)
-            val securityVisible = data["securityVisible"] as? Boolean ?: false
-            val securityText = data["securityText"] as? String ?: ""
-            if (securityVisible && securityText.isNotEmpty()) {
-                remoteViews.setViewVisibility(R.id.securityMessage, android.view.View.VISIBLE)
-                remoteViews.setTextViewText(R.id.securityMessage, securityText)
-                
-                val securityColor = data["securityColor"] as? String
-                if (!securityColor.isNullOrEmpty()) {
-                    try {
-                        val color = android.graphics.Color.parseColor(securityColor)
-                        remoteViews.setTextColor(R.id.securityMessage, color)
-                    } catch (e: IllegalArgumentException) {
-                        Log.w(TAG, "Invalid security message color: $securityColor")
-                    }
-                }
-                
-                val securitySize = data["securitySize"] as? Double
-                if (securitySize != null && securitySize > 0) {
-                    remoteViews.setTextViewTextSize(R.id.securityMessage, android.util.TypedValue.COMPLEX_UNIT_SP, securitySize.toFloat())
-                }
-            } else {
-                remoteViews.setViewVisibility(R.id.securityMessage, android.view.View.GONE)
-            }
-
-            Log.d(TAG, "Live activity view created successfully")
-            
-        } catch (e: Exception) {
-            Log.e(TAG, "Error creating live activity view", e)
-        }
-        
-        return remoteViews
+        // 3. 严格按照文档，对插件传入的 notification Builder 进行最终配置。
+        //    *** 我删除了所有我自己添加的、导致错误的垃圾代码，比如 .setStyle() ***
+        return notification
+            .setSmallIcon(R.drawable.ic_notification) // 必须在 res/drawable 目录下提供这个图标
+            .setOngoing(true)
+            .setContentIntent(pendingIntent)
+            .setCustomContentView(remoteViews)      // 设置折叠视图
+            .setCustomBigContentView(remoteViews)   // 设置展开视图
+            .build()
     }
 
     /**
-     * Validates the notification data structure
-     * @param data Map containing the notification data
-     * @return Boolean indicating if the data is valid
+     * 真正执行视图配置的核心函数。
      */
-    fun validateNotificationData(data: Map<String, Any?>): Boolean {
-        return try {
-            // Check if at least one element is visible and has content
-            val hasVisibleContent = listOf(
-                "avatarVisible" to "avatarUrl",
-                "nameVisible" to "nameText",
-                "carrierVisible" to "carrierText",
-                "numberVisible" to "numberText",
-                "locationVisible" to "locationText",
-                "labelsVisible" to "labelsText",
-                "securityVisible" to "securityText"
-            ).any { (visibleKey, textKey) ->
-                val isVisible = data[visibleKey] as? Boolean ?: false
-                val hasText = !((data[textKey] as? String).isNullOrEmpty())
-                isVisible && hasText
-            }
-            
-            if (!hasVisibleContent) {
-                Log.w(TAG, "No visible content found in notification data")
-                return false
-            }
-            
-            true
-        } catch (e: Exception) {
-            Log.e(TAG, "Error validating notification data", e)
-            false
+    private fun configureView(remoteViews: RemoteViews, data: Map<String, Any>) {
+        
+        val density = context.resources.displayMetrics.density
+        fun dpToPx(dp: Double?): Int {
+            if (dp == null) return 0
+            return (dp * density).toInt()
         }
+
+        // --- 辅助函数：配置 TextView ---
+        fun configureTextView(id: Int, textKey: String, xKey: String, yKey: String, colorKey: String, sizeKey: String) {
+            (data[textKey] as? String)?.let { text ->
+                if (text.isNotEmpty()) {
+                    remoteViews.setViewVisibility(id, android.view.View.VISIBLE)
+                    remoteViews.setTextViewText(id, text)
+                    remoteViews.setViewPadding(id, dpToPx(data[xKey] as? Double), dpToPx(data[yKey] as? Double), 0, 0)
+                    (data[colorKey] as? Long)?.toInt()?.let { color -> remoteViews.setTextColor(id, color) }
+                    (data[sizeKey] as? Double)?.let { size -> remoteViews.setFloat(id, "setTextSize", size.toFloat()) }
+                } else {
+                    remoteViews.setViewVisibility(id, android.view.View.GONE)
+                }
+            } ?: remoteViews.setViewVisibility(id, android.view.View.GONE)
+        }
+        
+        // --- 辅助函数：配置 ImageView ---
+        fun configureImageView(id: Int, imageKey: String, xKey: String, yKey: String, sizeKey: String) {
+            (data[imageKey] as? ByteArray)?.let { bytes ->
+                if (bytes.isNotEmpty()) {
+                    val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                    remoteViews.setViewVisibility(id, android.view.View.VISIBLE)
+                    
+                    val size = dpToPx(data[sizeKey] as? Double)
+                    val finalBitmap = if (size > 0) {
+                        Bitmap.createScaledBitmap(bitmap, size, size, true)
+                    } else {
+                        bitmap
+                    }
+                    remoteViews.setImageViewBitmap(id, finalBitmap)
+                    remoteViews.setViewPadding(id, dpToPx(data[xKey] as? Double), dpToPx(data[yKey] as? Double), 0, 0)
+                } else {
+                    remoteViews.setViewVisibility(id, android.view.View.GONE)
+                }
+            } ?: remoteViews.setViewVisibility(id, android.view.View.GONE)
+        }
+
+        // --- 开始配置所有XML中定义的槽位 (100% 完整) ---
+        (data["backgroundColor"] as? Long)?.toInt()?.let {
+            remoteViews.setInt(R.id.notification_container, "setBackgroundColor", it)
+        }
+        configureImageView(R.id.avatar, "avatarImage", "avatarX", "avatarY", "avatarSize")
+        configureTextView(R.id.name, "nameText", "nameX", "nameY", "nameColor", "nameFontSize")
+        configureTextView(R.id.number, "numberText", "numberX", "numberY", "numberColor", "numberFontSize")
+        configureTextView(R.id.location, "locationText", "locationX", "locationY", "locationColor", "locationFontSize")
+        configureTextView(R.id.carrier, "carrierText", "carrierX", "carrierY", "carrierColor", "carrierFontSize")
+        configureTextView(R.id.countryName, "countryNameText", "countryNameX", "countryNameY", "countryNameColor", "countryNameFontSize")
+        configureTextView(R.id.labels, "labelsText", "labelsX", "labelsY", "labelsColor", "labelsFontSize")
+        configureTextView(R.id.count, "countText", "countX", "countY", "countColor", "countFontSize")
+        configureTextView(R.id.numberType, "numberTypeText", "numberTypeX", "numberTypeY", "numberTypeColor", "numberTypeFontSize")
+        configureTextView(R.id.stir, "stirText", "stirX", "stirY", "stirColor", "stirFontSize")
+        configureTextView(R.id.simCard, "simCardText", "simCardX", "simCardY", "simCardColor", "simCardFontSize")
+        configureImageView(R.id.callType, "callTypeImage", "callTypeX", "callTypeY", "callTypeSize")
+        
+        configureTextView(R.id.securityMessage, "securityMessageText", "securityMessageX", "securityMessageY", "securityMessageColor", "securityMessageFontSize")
+        remoteViews.setBoolean(R.id.securityMessage, "setSelected", true)
     }
 }

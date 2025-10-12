@@ -10715,6 +10715,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'PhoneNumber Type'**
   String get phoneNumberType;
+
+  /// No description provided for @liveActivitiesTestEndActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'End Activity'**
+  String get liveActivitiesTestEndActivity;
+
+  /// No description provided for @liveActivitiesTestSendNewActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Send New Activity'**
+  String get liveActivitiesTestSendNewActivity;
+
+  /// No description provided for @liveActivitiesTestUpdateActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Activity'**
+  String get liveActivitiesTestUpdateActivity;
+
+  /// No description provided for @liveActivityControlsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Activity Controls'**
+  String get liveActivityControlsTitle;
+
+  /// No description provided for @liveActivitiesTestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Activities Test'**
+  String get liveActivitiesTestTitle;
+
+  /// No description provided for @liveActivitiesTestSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Test the live activity Notification.'**
+  String get liveActivitiesTestSubtitle;
+
+  /// No description provided for @liveNotificationCustomizationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Notification Customization'**
+  String get liveNotificationCustomizationTitle;
+
+  /// No description provided for @liveNotificationCustomizationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Customize the appearance of live notifications.'**
+  String get liveNotificationCustomizationSubtitle;
+
+  /// A single string containing all instructions for the notification.
+  ///
+  /// In en, this message translates to:
+  /// **'Instructions:\n1. Tap \"SEND\" to create or update a notification.\n2. Go to your home screen or pull down the notification tray to see the result.\n3. Tap \"END\" to dismiss the notification.'**
+  String get notification_instructions;
 }
 
 class _AppLocalizationsDelegate
