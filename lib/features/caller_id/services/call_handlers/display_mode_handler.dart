@@ -1,29 +1,39 @@
+// lib/features/caller_id/services/call_handlers/display_mode_handler.dart
+
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/services/notification_service_contract.dart';
-import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service_new.dart';
+import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/live_activity_handler.dart';
+
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/notification_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 
+
+
+
 /// 显示模式处理器
-/// 负责管理来电信息的显示方式（浮窗或通知）
+/// 负责管理来电信息的显示方式（浮窗、通知或 Live Activity）
 class DisplayModeHandler {
   final OverlayHandler _overlayHandler;
   final NotificationHandler _notificationHandler;
+  final LiveActivityHandler _liveActivityHandler; // <-- 新增 LiveActivityHandler 成员
   final CallerIdConfigRepository _configRepository;
   
   // 状态数据
   String _displayMode = 'overlay'; // 默认使用浮窗模式
 
-  /// 构造函数
+  /// 构造函数 (已更新)
   DisplayModeHandler({
     required CallerIdConfigRepository configRepository,
        // 2. 添加 'notificationService' 作为必需的参数
-    required NotificationServiceContract notificationService, 
+    required NotificationServiceContract notificationService,
+    // --- 新增：接收一个 LiveActivityHandler 实例 ---
+    required LiveActivityHandler liveActivityHandler,
     OverlayHandler? overlayHandler,
     NotificationHandler? notificationHandler,
   }) : 
@@ -32,8 +42,10 @@ class DisplayModeHandler {
         // 3. 在这里，我们将从外部接收到的 `notificationService` 传递给 `NotificationHandler`
     _notificationHandler = notificationHandler ?? NotificationHandler(
       configRepository: configRepository,
-      notificationService: notificationService, // <-- 将依赖传递进去
-    ) {
+      notificationService: notificationService,
+    ),
+    // --- 将接收到的实例赋值给成员变量 ---
+    _liveActivityHandler = liveActivityHandler {
     _loadDisplayMode();
   }
   
@@ -44,7 +56,9 @@ class DisplayModeHandler {
   
   /// 显示来电信息
   Future<void> showCallerIdInfo(CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
-    // 根据配置选择显示方式
+    // 刷新显示模式，以防在App运行时被修改
+    await _loadDisplayMode();
+    
     if (_displayMode == 'overlay') {
       // 显示来电显示浮窗
       await _overlayHandler.showCallerIdOverlay(callerIdData, stirInfo, simInfo);
@@ -61,13 +75,20 @@ class DisplayModeHandler {
         callerIdData: callerIdData,
         isFraudCall: isFraudCall,
       );
+    } else if (_displayMode == 'live_activity') { // <-- 新增 Live Activity 模式
+      await _liveActivityHandler.showCallerIdActivity(
+        callerIdData: callerIdData,
+        simInfo: simInfo,
+        stirInfo: stirInfo,
+      );
     }
   }
   
-  /// 关闭浮窗和通知
-  void closeDisplay() {
+  /// 关闭所有显示
+  Future<void> closeDisplay() async {
     _overlayHandler.closeOverlay();
-    // 可以添加关闭通知的逻辑
+    // 你可以添加关闭普通通知的逻辑
+    await _liveActivityHandler.endActivity(); // <-- 新增关闭 Live Activity 的逻辑
   }
   
   /// 设置显示模式
@@ -91,4 +112,5 @@ class DisplayModeHandler {
   
   /// 获取浮窗处理器
   OverlayHandler get overlayHandler => _overlayHandler;
+  LiveActivityHandler get liveActivityHandler => _liveActivityHandler; // <-- 新增 getter
 }

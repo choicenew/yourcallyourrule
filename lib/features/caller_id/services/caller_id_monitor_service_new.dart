@@ -12,7 +12,9 @@ import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/services/notification_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/call/live_activities/services/live_notification_config_service.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/live_activity_handler.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
 import '../../../core/entities/caller_id_data.dart';
@@ -83,7 +85,9 @@ class CallerIdMonitorService {
   late final OutgoingCallHandler _outgoingCallHandler;
   late final NotificationHandler _notificationHandler;
   late final DisplayModeHandler _displayModeHandler;
-  
+    // --- 新增：持有 LiveActivityHandler 实例 ---
+  late final LiveActivityHandler _liveActivityHandler;
+
   // 来电显示数据流
   Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
   Stream<MethodCall> get rawCallEventStream => _rawCallEventController.stream;
@@ -134,13 +138,24 @@ class CallerIdMonitorService {
       configRepository: configRepository,
     );
     
+        // --- 1. 创建 LiveNotificationConfigService ---
+    final liveNotificationConfigService = LiveNotificationConfigService(SharedPreferencesConfigRepository());
+    
+    // --- 2. 创建并初始化 LiveActivityHandler ---
+    _liveActivityHandler = LiveActivityHandler(
+      configService: liveNotificationConfigService,
+    );
+    _liveActivityHandler.initialize(); // 确保在这里调用初始化
+
     // 创建显示模式处理器
      // 4. 修改 DisplayModeHandler 的创建方式
     //    添加必需的 notificationService 参数
     _displayModeHandler = DisplayModeHandler(
       configRepository: configRepository,
       notificationService: notificationService, // <-- 添加这一行
-      notificationHandler: _notificationHandler
+      notificationHandler: _notificationHandler,
+            // --- 4. 将 liveActivityHandler 注入 ---
+      liveActivityHandler: _liveActivityHandler, 
     );
     
     // 创建通话处理器
