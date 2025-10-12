@@ -7,7 +7,8 @@ import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_moc
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
 
-import 'package:uuid/uuid.dart'; // 导入 uuid 库来生成唯一的活动ID
+import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart'; // 导入 uuid 库来生成唯一的活动ID
 
 
 
@@ -98,7 +99,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
     // ... UI部分的代码保持不变 ...
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Live Activities Test Sender'),
+        title: Text(AppLocalizations.of(context)!.liveActivitiesTestTitle),
       ),
       body: Center(
         child: Padding(
@@ -110,7 +111,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
               const Icon(Icons.notifications_active, size: 80, color: Colors.blue),
               const SizedBox(height: 24),
               Text(
-                'Live Activity Control',
+                AppLocalizations.of(context)!.liveActivityControlsTitle,
                 style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
               ),
@@ -130,7 +131,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
               const SizedBox(height: 24),
               ElevatedButton.icon(
                 icon: const Icon(Icons.send),
-                label: Text(_activityId == null ? 'SEND NEW ACTIVITY' : 'UPDATE ACTIVITY'),
+                label: Text(_activityId == null ? AppLocalizations.of(context)!.liveActivitiesTestSendNewActivity : AppLocalizations.of(context)!.liveActivitiesTestUpdateActivity),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   backgroundColor: Colors.blue,
@@ -141,15 +142,15 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
               const SizedBox(height: 12),
               OutlinedButton.icon(
                 icon: const Icon(Icons.cancel),
-                label: const Text('END ACTIVITY'),
+                label: Text(AppLocalizations.of(context)!.liveActivitiesTestEndActivity),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
                 onPressed: _activityId == null ? null : _endLiveActivity,
               ),
               const SizedBox(height: 40),
-              const Text(
-                'Instructions:\n1. Tap "SEND" to create or update a notification.\n2. Go to your home screen or pull down the notification tray to see the result.\n3. Tap "END" to dismiss the notification.',
+              Text(
+                AppLocalizations.of(context)!.notification_instructions,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Color.fromARGB(255, 117, 117, 117)),
               ),

@@ -9,7 +9,6 @@ import 'package:yourcallyourrule/core/provider/providers/contact_service_provide
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
 
-import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
@@ -27,12 +26,10 @@ import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call
 import 'package:yourcallyourrule/features/caller_id/pages/end_call_settings_page.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page_with_ads.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page_with_ads.dart';
-import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
-import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/notifications/pages/notifications_page.dart';
 import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored_with_ads.dart';
 import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page_with_ads.dart';
@@ -56,12 +53,13 @@ import 'package:yourcallyourrule/features/remote_filter/services/remote_number_f
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/call_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
+import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_activities_test_page.dart';
+import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_notification_customization_screen.dart';
 
 
 
 import 'package:yourcallyourrule/features/rules/pages/rule_management_page.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
@@ -181,6 +179,8 @@ class AppRouter {
   static const String languageSettings = 'language-settings';
   static const String countrySyncSettings = 'country-sync-settings';
   static const String notifications = 'notifications';
+  static const String liveNotificationCustomization = 'live-notification-customization';
+  static const String liveActivitiesTest = 'live-activities-test';
 
 
   // 创建路由器
@@ -391,6 +391,17 @@ class AppRouter {
         path: '/$callerIdCustomization',
         name: callerIdCustomization,
         builder: (context, state) => const CallerIdCustomizationScreen(),
+      ),
+
+      GoRoute(
+        path: '/$liveNotificationCustomization',
+        name: liveNotificationCustomization,
+        builder: (context, state) => const LiveNotificationCustomizationScreen(),
+      ),
+      GoRoute(
+        path: '/$liveActivitiesTest',
+        name: liveActivitiesTest,
+        builder: (context, state) => const LiveActivitiesTestPage(),
       ),
 
       // 欺诈警报设置页面

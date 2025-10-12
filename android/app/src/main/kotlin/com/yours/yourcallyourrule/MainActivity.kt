@@ -15,6 +15,8 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.plugin.common.MethodChannel
+// --- 1. 导入插件的 LiveActivityManagerHolder ---
+import com.example.live_activities.LiveActivityManagerHolder
 
 class MainActivity : FlutterActivity() {
 
@@ -34,6 +36,10 @@ class MainActivity : FlutterActivity() {
 
         super.configureFlutterEngine(flutterEngine)
        // GeneratedPluginRegistrant.registerWith(flutterEngine)
+        // --- 2.修改！---
+        // 严格按照插件官方文档，在这里创建 CustomLiveActivityManager 实例
+        // 并将其赋值给插件的静态持有者。
+        LiveActivityManagerHolder.instance = CustomLiveActivityManager(this)
 
         // 初始化方法通道处理器
         smsChannelHandler = SmsChannelHandler(this, flutterEngine)
@@ -57,8 +63,8 @@ class MainActivity : FlutterActivity() {
         telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         telecomManager = getSystemService(Context.TELECOM_SERVICE) as TelecomManager
 
-        // 初始化 Live Activities 管理器
-        liveActivityManager = CustomLiveActivityManager(this)
+ 
+ 
 
         // 请求权限
         requestAppPermissions()

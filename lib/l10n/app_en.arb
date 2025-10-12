@@ -3147,12 +3147,27 @@
  "liveActivityMode": "Live Activity",
   "liveActivityModeDescription": "Displays call information as a persistent notification on the lock screen and in the Dynamic Island (iOS).",
 
-"phoneNumberType": "PhoneNumber Type"
+"phoneNumberType": "PhoneNumber Type",
+"liveActivitiesTestEndActivity": "End Activity",
+"liveActivitiesTestSendNewActivity": "Send New Activity",
+"liveActivitiesTestSendNewActivity": "Send New Activity",
+
+"liveActivitiesTestUpdateActivity": "Update Activity",
+
+"liveActivityControlsTitle": "Live Activity Controls",
 
 
+
+"liveActivitiesTestTitle": "Live Activities Test",
+  "liveActivitiesTestSubtitle": "Test the live activity Notification.",
+  "liveNotificationCustomizationTitle": "Live Notification Customization",
+  "liveNotificationCustomizationSubtitle": "Customize the appearance of live notifications.",
 
  
- 
+   "notification_instructions": "Instructions:\n1. Tap \"SEND\" to create or update a notification.\n2. Go to your home screen or pull down the notification tray to see the result.\n3. Tap \"END\" to dismiss the notification.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  }
  
 
 

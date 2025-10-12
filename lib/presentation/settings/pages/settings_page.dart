@@ -205,6 +205,28 @@ class SettingsPage extends ConsumerWidget {
         const SizedBox(height: 8),
         _buildSettingsCard(
           context,
+          icon: Icons.live_tv,
+          iconColor: Colors.red,
+          title: AppLocalizations.of(context)!.liveActivitiesTestTitle,
+          subtitle: AppLocalizations.of(context)!.liveActivitiesTestSubtitle,
+          onTap: () {
+            GoRouter.of(context).push('/live-activities-test');
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildSettingsCard(
+          context,
+          icon: Icons.notifications_active,
+          iconColor: Colors.blue,
+          title: AppLocalizations.of(context)!.liveNotificationCustomizationTitle,
+          subtitle: AppLocalizations.of(context)!.liveNotificationCustomizationSubtitle,
+          onTap: () {
+            GoRouter.of(context).push('/live-notification-customization');
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildSettingsCard(
+          context,
           icon: Icons.notifications,
           iconColor: Colors.blue,
           title: AppLocalizations.of(context)!.callerIdSettingsTitle,
