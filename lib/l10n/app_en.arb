@@ -3130,15 +3130,26 @@
   "dataSourceDisclaimer": "Numbers are sourced from the internet and user submissions. We cannot guarantee that a number, once deleted, will not be re-submitted by other users or sources. Please actively search and verify information.",
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
-  }
+  },
  
- 
- 
+ "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Location",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIM Card",
+
+"liveActivitiesSettingsTitle": "Live Activities Settings",
+ "elementsSettingsTitle":"Elements Settings",
+ "liveActivityMode": "Live Activity",
+  "liveActivityModeDescription": "Displays call information as a persistent notification on the lock screen and in the Dynamic Island (iOS).",
+
+"phoneNumberType": "PhoneNumber Type"
 
 
-
-
- 
 
  
  

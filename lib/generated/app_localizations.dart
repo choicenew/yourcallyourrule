@@ -10667,6 +10667,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Numbers are sourced from the internet and user submissions. We cannot guarantee that a number, once deleted, will not be re-submitted by other users or sources. Please actively search and verify information.'**
   String get dataSourceDisclaimer;
+
+  /// The avatar of the user.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar'**
+  String get avatar;
+
+  /// The location of the user.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get location;
+
+  /// No description provided for @simCardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Card'**
+  String get simCardTitle;
+
+  /// No description provided for @liveActivitiesSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Activities Settings'**
+  String get liveActivitiesSettingsTitle;
+
+  /// No description provided for @elementsSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Elements Settings'**
+  String get elementsSettingsTitle;
+
+  /// No description provided for @liveActivityMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Activity'**
+  String get liveActivityMode;
+
+  /// No description provided for @liveActivityModeDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Displays call information as a persistent notification on the lock screen and in the Dynamic Island (iOS).'**
+  String get liveActivityModeDescription;
+
+  /// No description provided for @phoneNumberType.
+  ///
+  /// In en, this message translates to:
+  /// **'PhoneNumber Type'**
+  String get phoneNumberType;
 }
 
 class _AppLocalizationsDelegate

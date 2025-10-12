@@ -6009,4 +6009,29 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get dataSourceDisclaimer =>
       'Numbers are sourced from the internet and user submissions. We cannot guarantee that a number, once deleted, will not be re-submitted by other users or sources. Please actively search and verify information.';
+
+  @override
+  String get avatar => 'Avatar';
+
+  @override
+  String get location => 'Location';
+
+  @override
+  String get simCardTitle => 'SIM Card';
+
+  @override
+  String get liveActivitiesSettingsTitle => 'Live Activities Settings';
+
+  @override
+  String get elementsSettingsTitle => 'Elements Settings';
+
+  @override
+  String get liveActivityMode => 'Live Activity';
+
+  @override
+  String get liveActivityModeDescription =>
+      'Displays call information as a persistent notification on the lock screen and in the Dynamic Island (iOS).';
+
+  @override
+  String get phoneNumberType => 'PhoneNumber Type';
 }

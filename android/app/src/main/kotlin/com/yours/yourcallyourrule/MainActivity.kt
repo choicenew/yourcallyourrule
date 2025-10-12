@@ -57,6 +57,9 @@ class MainActivity : FlutterActivity() {
         telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         telecomManager = getSystemService(Context.TELECOM_SERVICE) as TelecomManager
 
+        // 初始化 Live Activities 管理器
+        liveActivityManager = CustomLiveActivityManager(this)
+
         // 请求权限
         requestAppPermissions()
     }
