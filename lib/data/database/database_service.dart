@@ -19,6 +19,14 @@ import 'package:yourcallyourrule/data/datasources/local/local_sms_regex_rule_dat
 import 'package:yourcallyourrule/data/datasources/local/local_subscription_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
 import 'database_manager.dart';
+import 'sync/incremental_sync_manager_remote_database.dart';
+import 'sync/api_service.dart';
+import 'sync/device_id_service.dart';
+import 'sync/sync_scheduler.dart';
+import 'package:yourcallyourrule/features/sync_country/services/country_data_service.dart';
+import 'package:yourcallyourrule/features/sync_country/services/country_selection_service.dart';
+import 'package:yourcallyourrule/features/sync_country/services/download_status_service.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 // 数据库服务类
 class DatabaseService {
@@ -42,6 +50,8 @@ class DatabaseService {
   late final LocalPredefinedLabelDataSource localPredefinedLabelDataSource;
   late final LocalSimSlotRuleDataSource localSimSlotRuleDataSource;
   
+  late final IncrementalSyncManager incrementalSyncManager;
+  
   // 表变化监听器
   final Map<String, StreamController<List<Map<String, dynamic>>>> _tableControllers = {};
   
@@ -63,6 +73,24 @@ class DatabaseService {
     remoteNumberDataSource = RemoteNumberDataSource(_remoteDatabaseManager);
     localPredefinedLabelDataSource = LocalPredefinedLabelDataSource(_localDatabaseManager);
     localSimSlotRuleDataSource = LocalSimSlotRuleDataSource(_localDatabaseManager);
+
+    final configRepository = SharedPreferencesConfigRepository();
+    final apiService = ApiService();
+    final deviceIdService = DeviceIdService(configRepository);
+    final syncScheduler = SyncScheduler(dataSource: remoteNumberDataSource);
+    final countryDataService = CountryDataService(apiService: apiService, remoteNumberDataSource: remoteNumberDataSource);
+    final countrySelectionService = CountrySelectionService(configRepository);
+    final downloadStatusService = DownloadStatusService(configRepository);
+
+    incrementalSyncManager = IncrementalSyncManager(
+      dataSource: remoteNumberDataSource,
+      apiService: apiService,
+      deviceIdService: deviceIdService,
+      syncScheduler: syncScheduler,
+      countryDataService: countryDataService,
+      countrySelectionService: countrySelectionService,
+      downloadStatusService: downloadStatusService,
+    );
   }
   
   // 工厂构造函数
@@ -133,15 +161,7 @@ class DatabaseService {
   // 同步远程数据到本地
   Future<bool> syncRemoteToLocal() async {
     try {
-      // 获取最后同步时间
-      final lastSyncTime = await remoteNumberDataSource.getLastSyncTime();
-      
-      // 如果有最后同步时间，执行增量同步，否则执行全量同步
-      if (lastSyncTime != null) {
-        return await remoteNumberDataSource.incrementalSync(lastSyncTime);
-      } else {
-        return await remoteNumberDataSource.syncData();
-      }
+      return await incrementalSyncManager.syncIncremental();
     } catch (e) {
       return false;
     }

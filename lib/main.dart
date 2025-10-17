@@ -3,6 +3,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:floating_window_android/floating_window_android.dart';
+import 'package:yourcallyourrule/common/utils/global_variable.dart';
 
 import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_sync_service_initializer.dart';
@@ -45,8 +46,8 @@ Future<void> main() async {
     // 初始化数据库服务
     await DatabaseService().initialize();
     
-    // 预加载FloatingWindowAndroid引擎以提高悬浮窗启动速度
-    await FloatingWindowAndroid.preloadFlutterEngine();
+   
+   
     
     // --- Add ---
     // 创建一个顶层ProviderContainer
@@ -141,6 +142,13 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
     
+// --- 核心修改：在这里给全局变量赋值 ---
+    // 检查全局 pixelRatio 是否已经被赋值。如果没有，就用当前 context 获取并赋值。
+    // 这个操作只会执行一次，因为后续 build 时 global.pixelRatio 已经有值了。
+    pixelRatio ??= MediaQuery.of(context).devicePixelRatio;
+    // --- 修改结束 ---
+
+
        // 2. Watch the new provider to get the current theme mode
     final themeMode = ref.watch(themeModeProvider);
     // 仅在非覆盖层模式下初始化后台同步服务

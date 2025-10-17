@@ -1,5 +1,6 @@
 // lib/features/caller_id/services/call_handlers/display_mode_handler.dart
 
+import 'package:floating_window_android/floating_window_android.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
@@ -52,6 +53,12 @@ class DisplayModeHandler {
   /// 加载显示模式配置
   Future<void> _loadDisplayMode() async {
     _displayMode = await _configRepository.getDisplayMode();
+       // 根据当前显示模式，管理悬浮窗引擎的生命周期
+    if (_displayMode == 'overlay') {
+      await FloatingWindowAndroid.initialize();
+    } else {
+      await FloatingWindowAndroid.dispose();
+    }
   }
   
   /// 显示来电信息

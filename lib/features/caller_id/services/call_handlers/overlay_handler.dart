@@ -2,6 +2,7 @@
 
 import 'package:floating_window_android/floating_window_android.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // <-- 1. 导入 Riverpod
+import 'package:yourcallyourrule/common/utils/global_variable.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
@@ -17,7 +18,8 @@ import 'package:yourcallyourrule/features/call/caller_id/providers/callerid_styl
 class OverlayHandler {
   // 状态数据
   OverlayPosition? storedPosition;
-  double? pixelRatio;
+   // [REMOVED] 不再需要实例变量来存储 pixelRatio
+  // double? pixelRatio; 
   
   // 构造函数现在非常简单，不再需要任何依赖
   OverlayHandler();
@@ -78,10 +80,10 @@ class OverlayHandler {
       flag: OverlayFlag.lockScreen,
       notificationVisibility: NotificationVisibility.visibilityPublic,
       positionGravity: PositionGravity.auto,
-   //   height: (config.windowHeight * (pixelRatio ?? 3.0)).toInt(),
-    //  width: (config.windowWidth * (pixelRatio ?? 3.0)).toInt(),
-         height: (config.windowHeight ).toInt(),
-     width: (config.windowWidth).toInt(),
+      height: (config.windowHeight * (pixelRatio ?? 3.0)).toInt(),
+      width: (config.windowWidth * (pixelRatio ?? 3.0)).toInt(),
+       //  height: (config.windowHeight ).toInt(),
+    // width: (config.windowWidth).toInt(),
       startPosition: storedPosition!,
     );
   }

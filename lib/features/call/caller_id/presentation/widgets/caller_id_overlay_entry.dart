@@ -88,10 +88,15 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
         error: (err, stack) => Center(child: Text('Error: $err')),
         data: (config) {
           // 在 Isolate 中，浮窗通常是可关闭的
-          return Dismissible(
+           return GestureDetector(
             key: Key(_callerIdData!.id),
-            direction: DismissDirection.horizontal,
-            onDismissed: (_) => FloatingWindowAndroid.closeOverlayFromOverlay(),
+           
+             onTap: () {
+              // 当用户点击内容卡片时，触发关闭操作。
+              debugPrint("Content tapped, closing overlay...");
+              FloatingWindowAndroid.closeOverlayFromOverlay();
+            },
+
             child: CallerIdContentBuilder.buildOverlayContainer(
               config: config,
               child: CallerIdContentBuilder.buildCallerIdContent(
@@ -103,6 +108,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
                 isDraggable: false, // 在真实来电中，元素不可拖动
               ),
             ),
+            
           );
         },
       ),
