@@ -163,8 +163,8 @@ dependencies:
   #floating_window_android: ^1.1.1
   floating_window_android:
     git:
-      url: https://github.com/maojiu-bb/floating_window_android.git
-      ref: main # 或者特定的 commit hash 或 branch/tag name
+      url: https://github.com/haygcao/floating_window_android.git
+      ref: local # 或者特定的 commit hash 或 branch/tag name
 
 
 dev_dependencies:

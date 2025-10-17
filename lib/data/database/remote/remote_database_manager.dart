@@ -49,6 +49,12 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
         return await openDatabase(
           path,
           version: _version,
+                    // -- 这是添加 PRAGMA 的最佳位置 --
+          onConfigure: (Database db) async {
+            // 在这里执行 PRAGMA 命令来启用外键约束
+            await db.execute('PRAGMA foreign_keys = ON;');
+          },
+          //结束
           onCreate: _onCreate,
           onUpgrade: _onUpgrade,
           readOnly: isOverlayMode, // 在覆盖层模式下以只读方式打开

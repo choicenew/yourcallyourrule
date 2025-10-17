@@ -54,6 +54,9 @@ class CustomLiveActivityManager(context: Context) : LiveActivityManager(context)
             .setContentIntent(pendingIntent)
             .setCustomContentView(remoteViews)      // 设置折叠视图
             .setCustomBigContentView(remoteViews)   // 设置展开视图
+            .setPriority(Notification.PRIORITY_HIGH) // 明确设置为高优先级
+            .setCategory(Notification.CATEGORY_EVENT) // <-- 补全
+            .setVisibility(Notification.VISIBILITY_PUBLIC) // <-- 补全
             .build()
     }
 

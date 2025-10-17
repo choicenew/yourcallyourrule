@@ -329,7 +329,7 @@ class RemoteNumberDataSource
   }
 
   // --- Methods from Interface that are now handled by SyncManager ---
-
+/*
   Future<bool> syncData() async {
     // This logic is now handled by IncrementalSyncManager
     throw UnimplementedError(
@@ -341,7 +341,7 @@ class RemoteNumberDataSource
     throw UnimplementedError(
         'Sync logic is now handled by IncrementalSyncManager');
   }
-
+*/
   @override
   Future<DateTime?> getLastSyncTime() async {
     final db = await _databaseManager.database;
