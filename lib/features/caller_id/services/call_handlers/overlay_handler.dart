@@ -1,66 +1,71 @@
-// lib/features/caller_id/services/call_handlers/overlay_handler.dart
-
 import 'package:floating_window_android/floating_window_android.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart'; // <-- 1. 导入 Riverpod
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+// 导入 Riverpod 代码生成注解
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/common/utils/global_variable.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart';
-// <-- 2. 导入我们新的全局 Provider
-
+// 导入它所依赖的 Provider
 import 'package:yourcallyourrule/features/call/caller_id/providers/callerid_style_security_provider.dart';
 
-// 删除了所有对旧 Provider 和 Manager 的 import
+// part 指令是代码生成所必需的
+part 'overlay_handler.g.dart';
+
+/// 浮窗处理器 Provider
+///
+/// 这是一个简单的服务型 Provider。它的职责是创建并提供一个 OverlayHandler 的单例，
+/// 并通过 `ref` 将其所需要的依赖（如配置 Provider）注入进去。
+/// 这避免了在类内部手动创建 ProviderContainer 的反模式。
+@Riverpod(keepAlive: true)
+OverlayHandler overlayHandler(Ref ref) {
+  // Provider 的创建函数，在这里进行依赖注入
+  return OverlayHandler(ref);
+}
 
 /// 浮窗处理器
 /// 负责处理来电显示浮窗的显示和关闭
 class OverlayHandler {
+  // 新增：持有 Riverpod 的 Ref 对象，用于访问其他 Provider
+  final Ref _ref;
+
   // 状态数据
   OverlayPosition? storedPosition;
-   // [REMOVED] 不再需要实例变量来存储 pixelRatio
-  // double? pixelRatio; 
-  
-  // 构造函数现在非常简单，不再需要任何依赖
-  OverlayHandler();
 
-  /// 这是一个辅助方法，用于按需获取最新的配置。
-  /// 它创建了一个临时的 ProviderContainer 来读取全局 Provider 的值。
+  // 修改：构造函数现在接收一个 Ref 对象
+  OverlayHandler(this._ref);
+
+  // 【移除】不再需要 _getCurrentConfig 这个性能低下的反模式方法
+  /*
   Future<CallerIdConfig> _getCurrentConfig() async {
-    // 创建一个临时的、独立的 Provider 容器
     final container = ProviderContainer();
-    // 从容器中异步读取我们全局 provider 的当前状态
-    // .future 会等待 provider 初始化完成
     final config = await container.read(callerIdStyleSecurityProvider.future);
-    // 使用完毕后，销毁容器以释放资源
     container.dispose();
     return config;
   }
+  */
 
-  // --- ADDED: 这是一个新的辅助方法，用于按需获取并缓存 pixelRatio ---
-  /// Lazily initializes and returns the device's pixel ratio.
-  /// It fetches the ratio via the plugin on the first call and caches it globally.
-      /// 懒加载并缓存设备像素比。
-  /// 第一次调用时会通过插件异步获取，之后会立即返回缓存的全局值。
+  /// 懒加载并缓存设备像素比。
   Future<void> _ensurePixelRatio() async {
+    // 使用全局变量来缓存像素比，避免重复调用
     pixelRatio ??= await FloatingWindowAndroid.getDevicePixelRatio();
   }
-           
-  /// 显示来电显示浮窗 (方法签名保持不变！)
+
+  /// 显示来电显示浮窗
   Future<void> showCallerIdOverlay(
-      CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
+    CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
     
-    // 关键修改：不再自己创建和加载 Provider，而是直接获取最新的配置
-    final config = await _getCurrentConfig();
+    // 【核心改动】
+    // 通过注入的 _ref，以正确、高效的方式读取依赖的 Provider 的状态。
+    // 我们在这里 watch provider，这样如果配置在未来变成可实时变化的，这里也能响应。
+    final config = await _ref.read(callerIdStyleSecurityProvider.future);
 
-    // 首先，更新并共享样式配置
-    await updateAndShareConfiguration(config);
-
-   // --- 核心修正：确保 pixelRatio 有值 ---
-    // 调用辅助方法。这个方法执行完毕后，我们可以确信全局的 `pixelRatio` 已经被赋值。
+    // 确保像素比已经被初始化
     await _ensurePixelRatio();
-    // --- 修正结束 ---
 
+    // 更新并共享样式配置
+    await updateAndShareConfiguration(config);
 
     // 获取当前 Overlay 位置
     if (await FloatingWindowAndroid.isShowing()) {
@@ -70,11 +75,10 @@ class OverlayHandler {
     }
 
     // 共享来电数据
-    final dataToSend = {
+    await FloatingWindowAndroid.shareData({
       "configType": "callerIdData",
       ...callerIdData.toMap(),
-    };
-    await FloatingWindowAndroid.shareData(dataToSend);
+    });
 
     // 共享 STIR 信息
     if (stirInfo != null) {
@@ -95,31 +99,30 @@ class OverlayHandler {
       flag: OverlayFlag.lockScreen,
       notificationVisibility: NotificationVisibility.visibilityPublic,
       positionGravity: PositionGravity.auto,
+      // 使用全局变量 pixelRatio，并通过 ?? 提供一个安全的回退值
       height: (config.windowHeight * (pixelRatio ?? 3.0)).toInt(),
       width: (config.windowWidth * (pixelRatio ?? 3.0)).toInt(),
-       //  height: (config.windowHeight ).toInt(),
-    // width: (config.windowWidth).toInt(),
       startPosition: storedPosition!,
     );
   }
 
-  /// 关闭浮窗 (保持不变)
+  /// 关闭浮窗
   void closeOverlay() {
     FloatingWindowAndroid.closeOverlay();
   }
 
   /// 更新并共享配置
-  /// 关键修改：这个方法现在接收 CallerIdConfig
   Future<void> updateAndShareConfiguration(CallerIdConfig config) async {
-    final dataToSend = {
+    await FloatingWindowAndroid.shareData({
       "configType": "callerIdStyle",
       ...config.toMap(),
-    };
-    await FloatingWindowAndroid.shareData(dataToSend);
+    });
   }
 
-  /// 设置像素比例 (保持不变)
+  // 【移除】不再需要外部设置像素比，由内部 _ensurePixelRatio 管理,，但保留以防止需要外部覆盖
+ 
   void setPixelRatio(double ratio) {
     pixelRatio = ratio;
   }
+ 
 }

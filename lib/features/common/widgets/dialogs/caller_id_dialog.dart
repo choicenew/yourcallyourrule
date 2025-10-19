@@ -4,7 +4,7 @@ import 'package:dlibphonenumber/dlibphonenumber.dart' as dlibphone;
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/provider/providers/caller_id_service_provider.dart';
+import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
 
 /// 来电显示信息对话框
 /// 用于显示来电显示信息

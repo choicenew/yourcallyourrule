@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/providers/caller_id_service_provider.dart';
+import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/providers/plugin_to_remote_sync_service_provider.dart';
 
 /// A provider that initializes and connects the CallerIdService and PluginToRemoteSyncService.

@@ -153,13 +153,25 @@ class _CallerIdCustomizationScreenState
   }
   /// 显示预览浮窗
   Future<void> _showPreview(BuildContext context) async {
-    final overlayHandler = OverlayHandler();
+     // 【核心修正】
+    // 1. 不再手动创建 `OverlayHandler` 实例。
+    // final overlayHandler = OverlayHandler(); // <-- REMOVED
+
+    // 2. 通过 `ref.read()` 从 Riverpod 容器中获取由 `overlayHandlerProvider` 提供的、
+    //    全应用共享的唯一 `OverlayHandler` 实例。
+    //    这个实例已经被正确地注入了它所需要的所有依赖 (比如 ref 本身)。
+    final overlayHandler = ref.read(overlayHandlerProvider);
     final mockData = CallerIdMockData.mockCallerIdData();
     final stirInfo = CallerIdMockData.mockStirInfoData();
     final simInfo = CallerIdMockData.mockSimInfoData();
 
+      // 【修正】: setPixelRatio 的职责已经转移到了 OverlayHandler 内部的 _ensurePixelRatio 方法。
+    //            外部不再需要手动设置它。
+    /* 
     final mediaQuery = MediaQuery.of(context);
-    overlayHandler.setPixelRatio(mediaQuery.devicePixelRatio);
+    overlayHandler.setPixelRatio(mediaQuery.devicePixelRatio); // <-- REMOVED
+    */
+  
     
     // 在重构后的模型中，OverlayHandler 应该也通过 Riverpod 获取最新的配置
     // 因此这里不再需要手动传递配置，只需触发显示即可

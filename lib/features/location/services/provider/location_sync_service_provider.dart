@@ -1,7 +1,7 @@
 // 文件路径: lib/core/provider/providers/location_sync_service_provider.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/providers/caller_id_service_provider.dart';
+import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/location_service_provider.dart';
 import 'package:yourcallyourrule/features/location/services/location_sync_service.dart';
 

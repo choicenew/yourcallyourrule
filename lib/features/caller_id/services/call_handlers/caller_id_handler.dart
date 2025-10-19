@@ -1,89 +1,118 @@
-//import 'package:dlibphonenumber/dlibphonenumber.dart';
-import 'dart:async'; // 【新增】为使用Completer和TimeoutException而导入
-
+// 导入 Dart 核心包
+import 'dart:async';
+// 导入 Flutter 核心包
+import 'package:flutter/material.dart';
+// 导入 Riverpod 的代码生成注解包
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+// 导入外部库
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:dlibphonenumber/locale.dart' as dlibphone;
-import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
+// 导入项目中的工具、实体类和服务
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
+import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
+
+// 导入依赖的 Provider
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/display_mode_handler.dart';
-import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/sim_call_handler.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/stir_call_handler.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
+// 导入 DisplayMode 以便在废弃方法中使用
+import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
 
 
+// part 指令是代码生成所必需的，它会链接到由 build_runner 生成的文件
+part 'caller_id_handler.g.dart';
 
+/// 通话处理器 Provider
+///
+/// 使用 Riverpod 3.0 的 Notifier API 进行状态管理。
+@Riverpod(keepAlive: true)
+class CallHandler extends _$CallHandler {
 
-/// 通话处理器
-/// 负责处理通话的核心逻辑，包括号码解析和来电显示信息获取
-class CallHandler {
-  final CallerIdService _callerIdService;
-  final DisplayModeHandler _displayModeHandler;
-  // MODIFICATION 2: 将成员变量的类型从 LocaleProvider 改为 Locale
-  final Locale _locale;
-
-  // A subject to broadcast the latest CallData object.
-  // Using BehaviorSubject to provide the last emitted value to new listeners.
+  /// 用于广播每一次通话事件的 BehaviorSubject。
   final _callDataSubject = BehaviorSubject<CallData>();
 
-  // Public stream for other services to listen to.
+  /// 其他服务可以监听此流来获取每一次通话的事件。
   Stream<CallData> get callDataStream => _callDataSubject.stream;
+
+  /// build 方法是 Provider 的初始化入口。
+  @override
+  CallData? build() {
+    // 监听 simCallHandlerProvider 的状态变化。
+    ref.listen<SimInfo?>(simCallHandlerProvider, (previous, next) {
+      if (next != null) {
+        setSimInfo(next);
+      }
+    });
+
+    // 监听 stirCallHandlerProvider 的状态变化。
+    ref.listen<StirInfo?>(stirCallHandlerProvider, (previous, next) {
+      if (next != null) {
+        setStirInfo(next);
+      }
+    });
+    
+    // 使用 ref.onDispose 注册一个回调，当这个 Provider 被销毁时执行。
+    ref.onDispose(() {
+      // 清理 BehaviorSubject
+      _callDataSubject.close();
+      // 清理所有可能存在的、未完成的 Completer，防止内存泄漏。
+      for (var completer in _simInfoCompleters.values) {
+        if (!completer.isCompleted) completer.completeError('Handler disposed');
+      }
+      _simInfoCompleters.clear();
+      
+      for (var completer in _stirInfoCompleters.values) {
+        if (!completer.isCompleted) completer.completeError('Handler disposed');
+      }
+      _stirInfoCompleters.clear();
+    });
+    
+    // 返回状态的初始值 null
+    return null;
+  }
   
-  // 状态数据
+  // 公共成员变量，以匹配您的原始代码
   StirInfo? stirInfo;
   SimInfo? simInfo;
-
-  // 【新增】: 为解决竞态条件，创建用于同步SimInfo和StirInfo的Completer Map.
-  // Key是电话号码, Value是对应的Completer, 用于在数据到达前暂停handleCall的执行.
+  
+  // 用于解决竞态条件的 Completer Map，保持不变
   final Map<String, Completer<SimInfo>> _simInfoCompleters = {};
   final Map<String, Completer<StirInfo>> _stirInfoCompleters = {};
 
-
-  /// 构造函数
-  CallHandler({
-    required CallerIdService callerIdService,
-  // MODIFICATION 3: 将构造函数参数的类型从 LocaleProvider 改为 Locale，并更新参数名
-    required Locale locale, 
-    required DisplayModeHandler displayModeHandler,
-  }) : 
-    _callerIdService = callerIdService,
-    _locale = locale, // 更新初始化
-    _displayModeHandler = displayModeHandler;
-
-
   /// 处理通话的公共方法
   Future<CallData> handleCall(String phoneNumber) async {
-    // 【修改】: 替换原有的直接获取逻辑，改为异步等待机制来聚合SimInfo和StirInfo.
-    // 这样做是为了处理onIncomingCall事件与onSimCall/onStirCall事件到达顺序不确定的问题.
+    // 【修正】: 依赖现在通过 ref 在方法内部按需获取。
+    final callerIdService = ref.read(callerIdServiceProvider);
+    // 【修正】: DisplayModeHandler 的 build 方法是同步的，因此 provider 不是 FutureProvider。
+    // 我们直接读取 .notifier 来获取 Notifier 实例，不需要 await .future。
+    final displayModeHandler = ref.read(displayModeHandlerProvider.notifier);
+    final locale = await ref.read(localeProvider.future);
 
     // --- 1. 异步等待 SimInfo ---
     SimInfo? simInfoToUse;
-    // 检查SimInfo是否已经提前到达并匹配当前号码
     if (simInfo != null && simInfo!.phoneNumber == phoneNumber) {
       simInfoToUse = simInfo;
     } else {
-      // 如果SimInfo未到, 则创建一个Completer并开始等待.
       final completer = Completer<SimInfo>();
       _simInfoCompleters[phoneNumber] = completer;
       try {
-        // 设置一个超时（例如500毫秒）, 避免无限期等待.
         simInfoToUse = await completer.future.timeout(const Duration(milliseconds: 500));
       } on TimeoutException {
-        // 如果超时, simInfoToUse将保持为null, 程序会继续执行, 保证不会被阻塞.
         debugPrint('Waiting for SimInfo for $phoneNumber timed out.');
       } finally {
-        // 无论成功或超时, 都必须从Map中移除Completer以清理资源.
         _simInfoCompleters.remove(phoneNumber);
       }
     }
 
-    // --- 2. 异步等待 StirInfo (逻辑与SimInfo完全一致) ---
+    // --- 2. 异步等待 StirInfo ---
     StirInfo? stirInfoToUse;
     if (stirInfo != null && stirInfo!.phoneNumber == phoneNumber) {
       stirInfoToUse = stirInfo;
@@ -99,18 +128,14 @@ class CallHandler {
       }
     }
 
+    // 恢复您的原始 debugPrint 语句
     debugPrint('Phone Number: $phoneNumber, ${simInfo?.phoneNumber},simInfoToUse.toMap(): ${simInfo?.phoneNumber}, ${simInfoToUse?.toMap()}');
     
     // --- 3. 继续执行原有的电话号码解析和信息获取逻辑 ---
-
-    // 解析号码
     Map<String, String> parsedData;
     if (simInfoToUse != null && simInfoToUse.countryIso != null) {
-      // 使用带有国家代码的解析方法
-      parsedData = await PhoneUtils.parsePhoneNumberWithIso(
-          phoneNumber, simInfoToUse.countryIso!);
+      parsedData = await PhoneUtils.parsePhoneNumberWithIso(phoneNumber, simInfoToUse.countryIso!);
     } else {
-      // 使用不带国家代码的解析方法
       parsedData = await PhoneUtils.parsePhoneNumber(phoneNumber);
     }
 
@@ -118,7 +143,6 @@ class CallHandler {
     String e164Number = parsedData['e164Number']!;
     String nationalNumber = parsedData['nationalNumber']!;
 
-    // 判断 e164Number 是否有效
     if (e164Number.isEmpty) {
       return CallData(
         callerIdData: CallerIdData(
@@ -137,41 +161,29 @@ class CallHandler {
         nationalNumber: '',
       );
     }
-
-    // 获取当前 Locale
-    // 直接从 _locale 成员变量中获取，不再需要 .locale
-    final languageCode = _locale.languageCode;
-
-    // 创建 dlibphonenumber 的 Locale
+    
+    final languageCode = locale.languageCode;
     final dlibLocale = dlibphone.Locale(
       language: languageCode,
       country: (countryCode).toUpperCase(),
     );
-
-    // 获取来电显示信息
-    CallerIdData callerIdData =
-        await _callerIdService.getCallerIdWithParsed(
-        phoneNumber, e164Number, nationalNumber, dlibLocale);
-    // await _callerIdService.getCallerId(phoneNumber, dlibLocale); //原始的解析方法
     
-  // 在显示之前，打印所有将要发送到悬浮窗的数据
-  debugPrint('===================================================');
-  debugPrint('>>> DEBUGGING in CallHandler.handleCall <<<');
-  debugPrint('Phone Number: $phoneNumber');
-  debugPrint('--- CallerIdData to be displayed: ---');
-  debugPrint('callerIdData: ${callerIdData.toMap()}'); // 或者 callerIdData.toMap().toString() 如果你有 toMap 方法
-  debugPrint('--- StirInfo to be displayed: ---');
-  debugPrint(stirInfoToUse?.toString()); // 使用 ?. 避免 stirInfoToUse 为 null 时崩溃
-  debugPrint('--- SimInfo to be displayed: ---');
-  debugPrint('simInfo: ${simInfoToUse?.toMap()}'); // 使用 ?. 避免 simInfoToUse 为 null 时崩溃
-  debugPrint('===================================================');
-  // ---【 调试结束 】---
+    CallerIdData callerIdData = await callerIdService.getCallerIdWithParsed(
+        phoneNumber, e164Number, nationalNumber, dlibLocale);
+    
+    debugPrint('===================================================');
+    debugPrint('>>> DEBUGGING in CallHandler.handleCall <<<');
+    debugPrint('Phone Number: $phoneNumber');
+    debugPrint('--- CallerIdData to be displayed: ---');
+    debugPrint('callerIdData: ${callerIdData.toMap()}');
+    debugPrint('--- StirInfo to be displayed: ---');
+    debugPrint(stirInfoToUse?.toString());
+    debugPrint('--- SimInfo to be displayed: ---');
+    debugPrint('simInfo: ${simInfoToUse?.toMap()}');
+    debugPrint('===================================================');
 
+    await displayModeHandler.showCallerIdInfo(callerIdData, stirInfoToUse, simInfoToUse);
 
-    // 显示来电信息（浮窗或通知，由DisplayModeHandler决定）
-    await _displayModeHandler.showCallerIdInfo(callerIdData, stirInfoToUse, simInfoToUse);
-
-    // 创建 CallData 对象
     CallData callData = CallData(
       callerIdData: callerIdData,
       e164Number: e164Number,
@@ -179,50 +191,31 @@ class CallHandler {
       stirInfo: stirInfoToUse,
       simInfo: simInfoToUse,
     );
-
-    // Add the new CallData to the stream for listeners
+    
+    // 两者共存，同时更新 state 和广播事件
+    state = callData;
     _callDataSubject.add(callData);
 
     debugPrint('callerid handler 里面的calldata: ${callData.toMap()}, ${simInfoToUse?.toMap()}');
-    // 将 CallData 插入数据库或缓存或者calllog中
     await saveCallerIdDataToCache(phoneNumber, callData);
 
-    // State (stirInfo, simInfo) is intentionally not cleared here to persist
-    // for the duration of the call event.
-
-    // 返回 CallData 对象
     return callData;
   }
-
+  
   /// 关闭浮窗和通知
   void closeOverlay() {
-    _displayModeHandler.closeDisplay();
+    ref.read(displayModeHandlerProvider.notifier).closeDisplay();
   }
   
-  /// Closes the stream controller when the handler is disposed.
-  void dispose() {
-    _callDataSubject.close();
-  }
-  
-  /// 设置显示模式
-  Future<void> setDisplayMode(String mode) async {
-    final displayMode = DisplayMode.values.byName(mode);
-    await _displayModeHandler.setDisplayMode(displayMode);
-  }
-
-  /// 保存来电显示数据到缓存
-  Future<void> saveCallerIdDataToCache(
-      String phoneNumber, CallData callData) async {
+  /// 保存来电显示数据到缓存，逻辑不变
+  Future<void> saveCallerIdDataToCache(String phoneNumber, CallData callData) async {
     // 实现缓存逻辑
   }
 
   /// 设置STIR信息
   void setStirInfo(StirInfo info) {
     stirInfo = info;
-    // 【修改】: 在收到StirInfo后, 检查是否有正在等待它的Completer.
     if (_stirInfoCompleters.containsKey(info.phoneNumber)) {
-      // 如果有, 则使用收到的info来完成(complete)这个Completer.
-      // 这将立即唤醒在handleCall中await这个Completer的执行点.
       _stirInfoCompleters.remove(info.phoneNumber)!.complete(info);
     }
   }
@@ -230,17 +223,30 @@ class CallHandler {
   /// 设置SIM卡信息
   void setSimInfo(SimInfo info) {
     simInfo = info;
-    // 【修改】: 逻辑与setStirInfo完全相同, 用于唤醒等待SimInfo的调用.
     if (_simInfoCompleters.containsKey(info.phoneNumber)) {
       _simInfoCompleters.remove(info.phoneNumber)!.complete(info);
     }
   }
   
-  /// 设置像素比例
-  void setPixelRatio(double ratio) {
-    _displayModeHandler.setPixelRatio(ratio);
+  // 恢复您原始代码中的废弃/转移职责的方法，并保留注释
+  /*
+  /// [已废弃]
+  void dispose() {
+    // 逻辑已移至 ref.onDispose
   }
   
-  /// 获取显示模式处理器
-  DisplayModeHandler get displayModeHandler => _displayModeHandler;
+  /// [职责转移]
+  Future<void> setDisplayMode(String mode) async {
+    final displayMode = DisplayMode.values.byName(mode);
+  }
+
+  /// [职责转移]
+  void setPixelRatio(double ratio) {
+  }
+  
+  /// [职责转移]
+  DisplayModeHandler get displayModeHandler {
+     return ref.read(displayModeHandlerProvider.notifier);
+  }
+  */
 }

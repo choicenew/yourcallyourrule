@@ -2,7 +2,7 @@
 // 将 CallerIdService 的流 和 LabelStreamSyncService 连接起来。
 // 这完全模仿了您的 plugin_sync_service_initializer.dart 的模式。
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/providers/caller_id_service_provider.dart';
+import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
 import 'package:yourcallyourrule/features/labels/providers/label_stream_sync_service_provider.dart';
 
 final labelSyncServiceInitializerProvider = Provider<void>((ref) {

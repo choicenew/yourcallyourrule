@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/providers/locale_service_provider.dart';
 // import 'package:yourcallyourrule/features/language/config/locale_config.dart'; // 如果没用到可以删除
-import 'package:yourcallyourrule/features/language/services/locale_service.dart';
 
 // 1. LocaleState 类不再需要，可以直接删除。
 
