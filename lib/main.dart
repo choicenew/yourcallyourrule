@@ -146,6 +146,7 @@ class MyApp extends ConsumerWidget {
     // 检查全局 pixelRatio 是否已经被赋值。如果没有，就用当前 context 获取并赋值。
     // 这个操作只会执行一次，因为后续 build 时 global.pixelRatio 已经有值了。
     pixelRatio ??= MediaQuery.of(context).devicePixelRatio;
+    debugPrint("pixelRatio: $pixelRatio");
     // --- 修改结束 ---
 
 

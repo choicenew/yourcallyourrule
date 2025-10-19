@@ -94,7 +94,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
              onTap: () {
               // 当用户点击内容卡片时，触发关闭操作。
               debugPrint("Content tapped, closing overlay...");
-              FloatingWindowAndroid.closeOverlayFromOverlay();
+              FloatingWindowAndroid.closeOverlay();
             },
 
             child: CallerIdContentBuilder.buildOverlayContainer(
