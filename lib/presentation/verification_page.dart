@@ -13,7 +13,7 @@ import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/provider/basic_provider/call_log_repository_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/caller_id_service_provider.dart';
+import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/local_count_filter_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
@@ -264,7 +264,20 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
 
   Future<void> _testShowCallerIdOverlay() async {
     if (_callerIdData != null) {
-      await OverlayHandler().showCallerIdOverlay(
+        // 【核心修正】
+      // 1. 不再手动创建 `OverlayHandler` 实例。
+      // await OverlayHandler().showCallerIdOverlay(...); // <-- REMOVED
+
+      // 2. 通过 `ref.read()` 从 Riverpod 容器中获取由 `overlayHandlerProvider` 提供的、
+      //    全应用共享的唯一 `OverlayHandler` 实例。
+      //    `ref` 在 `ConsumerState` 中是可直接访问的。
+      final overlayHandler = ref.read(overlayHandlerProvider);
+
+      // 3. 直接调用共享实例的 showCallerIdOverlay 方法。
+      //    这个实例能够正确地访问它所依赖的其他 Provider（比如样式配置），
+      //    确保显示的悬浮窗样式与自定义设置中的保持一致。
+      //    我们传递 null 作为 stirInfo 和 simInfo，因为在这个测试页面中我们没有这些数据。
+      await overlayHandler.showCallerIdOverlay(
           _callerIdData!,
           null, // _stirInfo位置
           null // _simInfo位置

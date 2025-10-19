@@ -14,7 +14,7 @@ import 'package:yourcallyourrule/features/call/call_history/services/call_log_re
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/caller_id_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/caller_id_handler_extension.dart';
-import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service_new.dart';
+import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 /// 通话事件监听服务

@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/features/call/call_history/provider/call_event_
 import 'package:yourcallyourrule/core/services/notification_service.dart';
 
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
+import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/location/services/provider/location_sync_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
@@ -22,7 +23,7 @@ import 'package:yourcallyourrule/theme/theme_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_service_provider.dart';
 import 'package:yourcallyourrule/features/plugin/providers/plugin_webview_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
-import 'package:yourcallyourrule/core/provider/providers/caller_id_monitor_service_provider.dart';
+
 import 'package:yourcallyourrule/core/provider/providers/notification_providers.dart';
  // 导入 FFI 包
 
@@ -59,13 +60,15 @@ Future<void> main() async {
     // 初始化核心来电监控服务
     debugPrint("Initializing Caller ID Monitor Service...");
 
-    // 1. 等待 FutureProvider 完成，并用一个清晰的变量名来接收结果
-    final callerIdMonitorService = await container.read(
-      callerIdMonitorServiceProvider.future,
-    );
+    
+  
+   // 1. 只需 `await` Provider 的 `.future` 即可。
+    //    这一步会自动执行 `CallerIdMonitorService` 的 `build` 方法，并等待其所有初始化逻辑完成。
+    await container.read(callerIdMonitorServiceProvider.future);
+  
 
-    // 2. 对这个明确命名的 service 对象调用初始化方法
-    await callerIdMonitorService.initialize();
+   
+   
 
     debugPrint("Caller ID Monitor Service initialized successfully.");
     

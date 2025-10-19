@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/providers/blocked_call_repository_provider.dart';
 
-import 'caller_id_service_provider.dart';
+import '../../../features/caller_id/providers/caller_id_service_provider.dart';
 import 'local_count_filter_service_provider.dart';
 import 'remote_number_filter_service_provider.dart';
 import 'sim_slot_rule_service_provider.dart';
