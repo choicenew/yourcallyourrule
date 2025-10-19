@@ -56,31 +56,31 @@ class CallFilterSettingsPageState extends State<CallFilterSettingsPage> {
   void _handleConfigChange(String key, bool value) {
     setState(() {
       switch (key) {
-        case 'rejectAllNumbers':
+        case CallFilterConfig.keyRejectAllNumbers:
           _config = _config.copyWith(rejectAllNumbers: value);
           break;
-        case 'allowAllAllowedNumbers':
+        case CallFilterConfig.keyAllowAllAllowedNumbers:
           _config = _config.copyWith(allowAllAllowedNumbers: value);
           break;
-        case 'allowRegexAllowRules':
+        case CallFilterConfig.keyAllowRegexAllowRules:
           _config = _config.copyWith(allowRegexAllowRules: value);
           break;
-        case 'allowBlockedNumbers':
+        case CallFilterConfig.keyAllowBlockedNumbers:
           _config = _config.copyWith(allowBlockedNumbers: value);
           break;
-        case 'allowAllAllowRules':
+        case CallFilterConfig.keyAllowAllAllowRules:
           _config = _config.copyWith(allowAllAllowRules: value);
           break;
-        case 'allowRegexBlockRules':
+        case CallFilterConfig.keyAllowRegexBlockRules:
           _config = _config.copyWith(allowRegexBlockRules: value);
           break;
-        case 'allowAllBlockRules':
+        case CallFilterConfig.keyAllowAllBlockRules:
           _config = _config.copyWith(allowAllBlockRules: value);
           break;
-        case 'allowSilenceRules':
+        case CallFilterConfig.keyAllowSilenceRules:
           _config = _config.copyWith(allowSilenceRules: value);
           break;
-        case 'allowNoneRules':
+        case CallFilterConfig.keyAllowNoneRules:
           _config = _config.copyWith(allowNoneRules: value);
           break;
       }

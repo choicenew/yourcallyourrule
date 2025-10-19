@@ -1,11 +1,13 @@
 // lib/features/caller_id/services/call_handlers/display_mode_handler.dart
 
 import 'package:floating_window_android/floating_window_android.dart';
+import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/services/notification_service_contract.dart';
 import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service.dart';
+import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/live_activity_handler.dart';
 
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
@@ -26,7 +28,7 @@ class DisplayModeHandler {
   final CallerIdConfigRepository _configRepository;
   
   // 状态数据
-  String _displayMode = 'overlay'; // 默认使用浮窗模式
+  DisplayMode _displayMode = DisplayMode.overlay; // 默认使用浮窗模式
 
   /// 构造函数 (已更新)
   DisplayModeHandler({
@@ -53,8 +55,9 @@ class DisplayModeHandler {
   /// 加载显示模式配置
   Future<void> _loadDisplayMode() async {
     _displayMode = await _configRepository.getDisplayMode();
+    debugPrint("_displayMode: $_displayMode");
        // 根据当前显示模式，管理悬浮窗引擎的生命周期
-    if (_displayMode == 'overlay') {
+    if (_displayMode == DisplayMode.overlay) {
       await FloatingWindowAndroid.initialize();
     } else {
       await FloatingWindowAndroid.dispose();
@@ -66,10 +69,10 @@ class DisplayModeHandler {
     // 刷新显示模式，以防在App运行时被修改
     await _loadDisplayMode();
     
-    if (_displayMode == 'overlay') {
+    if (_displayMode == DisplayMode.overlay) {
       // 显示来电显示浮窗
       await _overlayHandler.showCallerIdOverlay(callerIdData, stirInfo, simInfo);
-    } else if (_displayMode == 'notification') {
+    } else if (_displayMode == DisplayMode.notification) {
       final context = AppRouter.navigatorKey.currentContext;
       if (context == null) return;
 
@@ -82,7 +85,7 @@ class DisplayModeHandler {
         callerIdData: callerIdData,
         isFraudCall: isFraudCall,
       );
-    } else if (_displayMode == 'live_activity') { // <-- 新增 Live Activity 模式
+    } else if (_displayMode == DisplayMode.live_activity) { // <-- 新增 Live Activity 模式
       await _liveActivityHandler.showCallerIdActivity(
         callerIdData: callerIdData,
         simInfo: simInfo,
@@ -99,7 +102,7 @@ class DisplayModeHandler {
   }
   
   /// 设置显示模式
-  Future<void> setDisplayMode(String mode) async {
+  Future<void> setDisplayMode(DisplayMode mode) async {
     if (_displayMode != mode) {
       _displayMode = mode;
       await _configRepository.setDisplayMode(mode);
@@ -107,7 +110,7 @@ class DisplayModeHandler {
   }
   
   /// 获取当前显示模式
-  String get displayMode => _displayMode;
+  DisplayMode get displayMode => _displayMode;
   
   /// 设置像素比例（用于浮窗显示）
   void setPixelRatio(double ratio) {

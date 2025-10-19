@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_provider.dart';
+import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示模式选择器小部件
@@ -41,7 +42,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
               context: context,
               title: AppLocalizations.of(context)!.overlayMode,
               subtitle: AppLocalizations.of(context)!.overlayModeDescription,
-              value: 'overlay',
+              value: DisplayMode.overlay,
               groupValue: config.displayMode,
               onChanged: (value) => notifier.setDisplayMode(value!),
             ),
@@ -50,7 +51,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
               context: context,
               title: AppLocalizations.of(context)!.notificationMode,
               subtitle: AppLocalizations.of(context)!.notificationModeDescription,
-              value: 'notification',
+              value: DisplayMode.notification,
               groupValue: config.displayMode,
               onChanged: (value) => notifier.setDisplayMode(value!),
             ),
@@ -60,7 +61,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
               context: context,
               title: AppLocalizations.of(context)!.liveActivityMode, // <-- 需要在国际化文件中添加
               subtitle: AppLocalizations.of(context)!.liveActivityModeDescription, // <-- 需要在国际化文件中添加
-              value: 'live_activity',
+              value: DisplayMode.live_activity,
               groupValue: config.displayMode,
               onChanged: (value) => notifier.setDisplayMode(value!),
             ),
@@ -77,9 +78,9 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
     required BuildContext context,
     required String title,
     required String subtitle,
-    required String value,
-    required String groupValue,
-    required void Function(String?) onChanged,
+    required DisplayMode value,
+    required DisplayMode groupValue,
+    required void Function(DisplayMode?) onChanged,
   }) {
     return InkWell(
       onTap: () => onChanged(value),
@@ -103,7 +104,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
                 ],
               ),
             ),
-            Radio<String>(
+            Radio<DisplayMode>(
               value: value,
               groupValue: groupValue,
               onChanged: onChanged,

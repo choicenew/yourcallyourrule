@@ -88,7 +88,7 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
         error: (err, stack) => Center(child: Text('Error: $err')),
         data: (config) {
           // 在 Isolate 中，浮窗通常是可关闭的
-           return GestureDetector(
+           return InkWell(
             key: Key(_callerIdData!.id),
            
              onTap: () {

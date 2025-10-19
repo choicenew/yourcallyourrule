@@ -195,44 +195,26 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
   }
   
   // 升级数据库
-// 升级数据库
   Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
-    // === 版本 1 升级到 2 ===
     if (oldVersion < 2) {
-      // 步骤 1: 【先读取】在进行任何写操作之前，先将所有需要的数据从旧表中读取到内存中。
-      //------------------------------------------------------------------------------------
+      // --- Schema Migration from v1 to v2 ---
       final pendingOperationsExist = (await db.rawQuery(
         "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
         ['pending_operations'],
       )).isNotEmpty;
-      
-      List<Map<String, dynamic>> oldPendingOps = [];
-      Map<String, String> idToPhoneNumberMap = {};
-      
-      if (pendingOperationsExist) {
-        // 读取旧的待处理操作
-        oldPendingOps = await db.rawQuery('SELECT * FROM pending_operations');
-        
-        // 读取旧的号码ID到新主键(phoneNumber)的映射关系
-        final oldNumbers = await db.rawQuery('SELECT id, phoneNumber FROM remote_numbers');
-        idToPhoneNumberMap = {
-          for (var row in oldNumbers) row['id'] as String: row['phoneNumber'] as String
-        };
-      }
 
-      // 步骤 2: 【后写入】创建一个唯一的 Batch 对象，用于收集此版本升级中的所有“写”操作。
-      //------------------------------------------------------------------------------------
       final batch = db.batch();
 
-      // a. 删除旧的 pending_operations 表（因为我们已在内存中备份了数据）
       if (pendingOperationsExist) {
+        // 1. Create a temporary table for pending_operations to preserve them
+        batch.execute('CREATE TABLE pending_operations_temp AS SELECT * FROM pending_operations');
         batch.execute('DROP TABLE pending_operations');
       }
-      
-      // b. 重命名旧的 remote_numbers 表，作为临时备份
+
+      // 2. Rename old remote_numbers table
       batch.execute('ALTER TABLE remote_numbers RENAME TO remote_numbers_old');
 
-      // c. 创建所有新表
+      // 3. Create new remote_numbers table with phoneNumber as PRIMARY KEY
       batch.execute('''
         CREATE TABLE remote_numbers (
           id TEXT NOT NULL UNIQUE,
@@ -245,6 +227,14 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
           labels_json TEXT
         )
       ''');
+
+      // 4. Copy data from old table to new table
+      batch.execute('''
+        INSERT INTO remote_numbers (id, phoneNumber, name, label, priority, action, count)
+        SELECT id, phoneNumber, name, label, priority, action, count FROM remote_numbers_old
+      ''');
+
+      // 5. Create the new number_countries junction table
       batch.execute('''
         CREATE TABLE number_countries (
           phoneNumber TEXT NOT NULL,
@@ -254,6 +244,8 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
         )
       ''');
       batch.execute('CREATE INDEX IF NOT EXISTS idx_number_countries_country_iso_code ON number_countries(countryIsoCode)');
+
+      // 6. Recreate pending_operations table
       batch.execute('''
         CREATE TABLE pending_operations (
           id TEXT PRIMARY KEY,
@@ -264,19 +256,19 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
         )
       ''');
 
-      // d. 从旧表迁移数据到新表
-      batch.execute('''
-        INSERT INTO remote_numbers (id, phoneNumber, name, label, priority, action, count)
-        SELECT id, phoneNumber, name, label, priority, action, count FROM remote_numbers_old
-      ''');
+      await batch.commit(noResult: true);
 
-      // e. 使用内存中的数据，将待处理操作迁移到新的 pending_operations 表
+      // 7. Migrate pending_operations data
       if (pendingOperationsExist) {
+        // This requires mapping old UUID entityId to new phoneNumber entityId
+        final oldPendingOps = await db.rawQuery('SELECT * FROM pending_operations_temp');
+        final newBatch = db.batch();
         for (final op in oldPendingOps) {
           final oldEntityId = op['entityId'] as String;
-          final newEntityId = idToPhoneNumberMap[oldEntityId];
-          if (newEntityId != null) {
-            batch.insert('pending_operations', {
+          final correspondingNumber = await db.rawQuery('SELECT phoneNumber FROM remote_numbers_old WHERE id = ?', [oldEntityId]);
+          if (correspondingNumber.isNotEmpty) {
+            final newEntityId = correspondingNumber.first['phoneNumber'] as String;
+            newBatch.insert('pending_operations', {
               'id': op['id'],
               'entityId': newEntityId,
               'operation': op['operation'],
@@ -285,23 +277,21 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
             });
           }
         }
+        await newBatch.commit(noResult: true);
+        await db.execute('DROP TABLE pending_operations_temp');
       }
 
-      // f. 删除所有临时的和旧的表/索引
-      batch.execute('DROP TABLE remote_numbers_old');
-      batch.execute('DROP INDEX IF EXISTS idx_remote_numbers_phone_number');
-      
-      // 步骤 3: 【一次性提交】在所有操作都加入 Batch 后，执行唯一的一次提交。
-      //------------------------------------------------------------------------------------
-      await batch.commit(noResult: true);
+
+      // 8. Drop temporary and old tables
+      await db.execute('DROP TABLE remote_numbers_old');
+      await db.execute('DROP INDEX IF EXISTS idx_remote_numbers_phone_number');
     }
     
-    // === 版本 2 升级到 3 ===
     if (oldVersion < 3) {
-      // 这个升级块比较简单，同样遵循原则，使用一个Batch来完成所有操作
-      final batch = db.batch();
+      // --- Schema Migration from v2 to v3 ---
       
-      batch.execute('''
+      // 提议提交日志表
+      await db.execute('''
         CREATE TABLE IF NOT EXISTS proposal_submissions (
           id TEXT PRIMARY KEY,
           proposer_id TEXT NOT NULL,      -- 提议者ID (deviceId or userId)
@@ -309,9 +299,11 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
           submission_time TEXT NOT NULL   -- 提交时间的ISO 8601字符串
         )
       ''');
-      batch.execute('CREATE INDEX IF NOT EXISTS idx_submissions_proposer_time ON proposal_submissions(proposer_id, submission_time)');
+      // 为快速查询用户提交记录添加索引
+      await db.execute('CREATE INDEX IF NOT EXISTS idx_submissions_proposer_time ON proposal_submissions(proposer_id, submission_time)');
 
-      batch.execute('''
+      // 投票日志表
+      await db.execute('''
         CREATE TABLE IF NOT EXISTS proposal_votes (
           id TEXT PRIMARY KEY,
           voter_id TEXT NOT NULL,                   -- 投票者ID
@@ -320,12 +312,11 @@ class RemoteDatabaseManagerImpl implements RemoteDatabaseManager {
           is_consumed INTEGER NOT NULL DEFAULT 0    -- 是否已被用于兑换提议次数
         )
       ''');
-      batch.execute('CREATE INDEX IF NOT EXISTS idx_votes_voter_consumed ON proposal_votes(voter_id, is_consumed)');
-      
-      await batch.commit(noResult: true);
+      // 为快速查询用户未消费投票数添加索引
+      await db.execute('CREATE INDEX IF NOT EXISTS idx_votes_voter_consumed ON proposal_votes(voter_id, is_consumed)');
     }
   }
-    
+  
   // 关闭数据库
   @override
   Future<void> close() async {

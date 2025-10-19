@@ -1,5 +1,8 @@
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
+import 'display_mode.dart';
+import 'intercept_action.dart';
+
 /// CallerID配置仓库
 /// 负责管理CallerID和通话处理器相关的配置数据
 class CallerIdConfigRepository {
@@ -30,15 +33,16 @@ class CallerIdConfigRepository {
   }
   
   /// 获取拦截动作
-  Future<String> getInterceptAction() async {
+  Future<InterceptAction> getInterceptAction() async {
     final config = await getConfig();
-    return config[interceptActionKey] as String? ?? 'endCall';
+    final actionString = config[interceptActionKey] as String? ?? 'endCall';
+    return InterceptAction.values.firstWhere((e) => e.toString().split('.').last == actionString, orElse: () => InterceptAction.endCall);
   }
-  
+
   /// 设置拦截动作
-  Future<void> setInterceptAction(String value) async {
+  Future<void> setInterceptAction(InterceptAction value) async {
     final config = await getConfig();
-    config[interceptActionKey] = value;
+    config[interceptActionKey] = value.toString().split('.').last;
     await saveConfig(config);
   }
   
@@ -82,26 +86,27 @@ class CallerIdConfigRepository {
   }
   
   /// 获取来电显示模式
-  Future<String> getDisplayMode() async {
+  Future<DisplayMode> getDisplayMode() async {
     final config = await getConfig();
-    return config[displayModeKey] as String? ?? 'overlay'; // 默认使用浮窗模式
+    final modeString = config[displayModeKey] as String? ?? 'overlay'; // 默认使用浮窗模式
+    return DisplayMode.values.firstWhere((e) => e.toString().split('.').last == modeString, orElse: () => DisplayMode.overlay);
   }
-  
+
   /// 设置来电显示模式
-  Future<void> setDisplayMode(String value) async {
+  Future<void> setDisplayMode(DisplayMode value) async {
     final config = await getConfig();
-    config[displayModeKey] = value;
+    config[displayModeKey] = value.toString().split('.').last;
     await saveConfig(config);
   }
 
   /// 获取默认配置
   Map<String, dynamic> _getDefaultConfig() {
     return {
-      interceptActionKey: 'endCall',
+      interceptActionKey: InterceptAction.endCall.toString().split('.').last,
       useLocalNotificationKey: false,
       cancelLocalNotificationKey: false,
       useStirNotificationKey: false,
-      displayModeKey: 'overlay', // 默认使用浮窗模式
+      displayModeKey: DisplayMode.overlay.toString().split('.').last,
     };
   }
 }

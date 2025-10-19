@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'base_call_handler.dart';
@@ -31,6 +32,7 @@ class ShouldAcceptCallHandler extends BaseCallHandler {
     _currentDecisionController = StreamController<bool>();
     final result = await _currentDecisionController!.stream.first;
     await _currentDecisionController!.close();
+    debugPrint("_handleShouldAcceptCall: $result");
     return result;
   }
 

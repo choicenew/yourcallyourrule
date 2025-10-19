@@ -37,6 +37,15 @@ class OverlayHandler {
     return config;
   }
 
+  // --- ADDED: 这是一个新的辅助方法，用于按需获取并缓存 pixelRatio ---
+  /// Lazily initializes and returns the device's pixel ratio.
+  /// It fetches the ratio via the plugin on the first call and caches it globally.
+      /// 懒加载并缓存设备像素比。
+  /// 第一次调用时会通过插件异步获取，之后会立即返回缓存的全局值。
+  Future<void> _ensurePixelRatio() async {
+    pixelRatio ??= await FloatingWindowAndroid.getDevicePixelRatio();
+  }
+           
   /// 显示来电显示浮窗 (方法签名保持不变！)
   Future<void> showCallerIdOverlay(
       CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
@@ -46,6 +55,12 @@ class OverlayHandler {
 
     // 首先，更新并共享样式配置
     await updateAndShareConfiguration(config);
+
+   // --- 核心修正：确保 pixelRatio 有值 ---
+    // 调用辅助方法。这个方法执行完毕后，我们可以确信全局的 `pixelRatio` 已经被赋值。
+    await _ensurePixelRatio();
+    // --- 修正结束 ---
+
 
     // 获取当前 Overlay 位置
     if (await FloatingWindowAndroid.isShowing()) {
