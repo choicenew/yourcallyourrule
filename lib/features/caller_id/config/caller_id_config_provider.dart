@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 
+import 'display_mode.dart';
+
 // --- 依赖提供者 ---
 
 /// CallerID配置仓库提供者 (Provider for the Repository)
@@ -44,13 +46,13 @@ class CallerIdConfig {
   final bool useLocalNotification;
   final bool cancelLocalNotification;
   final bool useStirNotification;
-  final String displayMode;
+  final DisplayMode displayMode;
 
   const CallerIdConfig({
     this.useLocalNotification = false,
     this.cancelLocalNotification = false,
     this.useStirNotification = false,
-    this.displayMode = 'overlay',
+    this.displayMode = DisplayMode.overlay,
   });
 
   /// 创建配置副本
@@ -58,7 +60,7 @@ class CallerIdConfig {
     bool? useLocalNotification,
     bool? cancelLocalNotification,
     bool? useStirNotification,
-    String? displayMode,
+    DisplayMode? displayMode,
   }) {
     return CallerIdConfig(
       useLocalNotification: useLocalNotification ?? this.useLocalNotification,
@@ -74,7 +76,7 @@ class CallerIdConfig {
       useLocalNotification: map[CallerIdConfigRepository.useLocalNotificationKey] as bool? ?? false,
       cancelLocalNotification: map[CallerIdConfigRepository.cancelLocalNotificationKey] as bool? ?? false,
       useStirNotification: map[CallerIdConfigRepository.useStirNotificationKey] as bool? ?? false,
-      displayMode: map[CallerIdConfigRepository.displayModeKey] as String? ?? 'overlay',
+      displayMode: DisplayMode.values.firstWhere((e) => e.toString().split('.').last == map[CallerIdConfigRepository.displayModeKey], orElse: () => DisplayMode.overlay),
     );
   }
 
@@ -84,7 +86,7 @@ class CallerIdConfig {
       CallerIdConfigRepository.useLocalNotificationKey: useLocalNotification,
       CallerIdConfigRepository.cancelLocalNotificationKey: cancelLocalNotification,
       CallerIdConfigRepository.useStirNotificationKey: useStirNotification,
-      CallerIdConfigRepository.displayModeKey: displayMode,
+      CallerIdConfigRepository.displayModeKey: displayMode.toString().split('.').last,
     };
   }
 }
@@ -160,7 +162,7 @@ class CallerIdConfigNotifier extends Notifier<CallerIdConfig> {
   }
 
   /// 设置来电显示模式
-  Future<void> setDisplayMode(String value) async {
+  Future<void> setDisplayMode(DisplayMode value) async {
     await ref.read(callerIdConfigRepositoryProvider).setDisplayMode(value);
     if (ref.mounted) {
       state = state.copyWith(displayMode: value);

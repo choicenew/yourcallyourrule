@@ -1,5 +1,16 @@
 /// 通话过滤配置类，用于控制过滤规则的应用逻辑
 class CallFilterConfig {
+  // 定义所有属性的 Key 为静态常量
+  static const String keyRejectAllNumbers = 'rejectAllNumbers';
+  static const String keyAllowAllAllowedNumbers = 'allowAllAllowedNumbers';
+  static const String keyAllowRegexAllowRules = 'allowRegexAllowRules';
+  static const String keyAllowBlockedNumbers = 'allowBlockedNumbers';
+  static const String keyAllowAllAllowRules = 'allowAllAllowRules';
+  static const String keyAllowRegexBlockRules = 'allowRegexBlockRules';
+  static const String keyAllowAllBlockRules = 'allowAllBlockRules';
+  static const String keyAllowSilenceRules = 'allowSilenceRules';
+  static const String keyAllowNoneRules = 'allowNoneRules';
+
   bool rejectAllNumbers;
   bool allowAllAllowedNumbers;
   bool allowRegexAllowRules;
@@ -25,30 +36,30 @@ class CallFilterConfig {
   /// 从Map创建配置对象
   factory CallFilterConfig.fromMap(Map<String, dynamic> map) {
     return CallFilterConfig(
-      rejectAllNumbers: map['rejectAllNumbers'] ?? false,
-      allowAllAllowedNumbers: map['allowAllAllowedNumbers'] ?? true,
-      allowRegexAllowRules: map['allowRegexAllowRules'] ?? true,
-      allowBlockedNumbers: map['allowBlockedNumbers'] ?? false,
-      allowAllAllowRules: map['allowAllAllowRules'] ?? true,
-      allowRegexBlockRules: map['allowRegexBlockRules'] ?? true,
-      allowAllBlockRules: map['allowAllBlockRules'] ?? false,
-      allowSilenceRules: map['allowSilenceRules'] ?? true,
-      allowNoneRules: map['allowNoneRules'] ?? true,
+      rejectAllNumbers: map[keyRejectAllNumbers] ?? false,
+      allowAllAllowedNumbers: map[keyAllowAllAllowedNumbers] ?? true,
+      allowRegexAllowRules: map[keyAllowRegexAllowRules] ?? true,
+      allowBlockedNumbers: map[keyAllowBlockedNumbers] ?? false,
+      allowAllAllowRules: map[keyAllowAllAllowRules] ?? true,
+      allowRegexBlockRules: map[keyAllowRegexBlockRules] ?? true,
+      allowAllBlockRules: map[keyAllowAllBlockRules] ?? false,
+      allowSilenceRules: map[keyAllowSilenceRules] ?? true,
+      allowNoneRules: map[keyAllowNoneRules] ?? true,
     );
   }
 
   /// 转换为Map
   Map<String, dynamic> toMap() {
     return {
-      'rejectAllNumbers': rejectAllNumbers,
-      'allowAllAllowedNumbers': allowAllAllowedNumbers,
-      'allowRegexAllowRules': allowRegexAllowRules,
-      'allowBlockedNumbers': allowBlockedNumbers,
-      'allowAllAllowRules': allowAllAllowRules,
-      'allowRegexBlockRules': allowRegexBlockRules,
-      'allowAllBlockRules': allowAllBlockRules,
-      'allowSilenceRules': allowSilenceRules,
-      'allowNoneRules': allowNoneRules,
+      keyRejectAllNumbers: rejectAllNumbers,
+      keyAllowAllAllowedNumbers: allowAllAllowedNumbers,
+      keyAllowRegexAllowRules: allowRegexAllowRules,
+      keyAllowBlockedNumbers: allowBlockedNumbers,
+      keyAllowAllAllowRules: allowAllAllowRules,
+      keyAllowRegexBlockRules: allowRegexBlockRules,
+      keyAllowAllBlockRules: allowAllBlockRules,
+      keyAllowSilenceRules: allowSilenceRules,
+      keyAllowNoneRules: allowNoneRules,
     };
   }
 

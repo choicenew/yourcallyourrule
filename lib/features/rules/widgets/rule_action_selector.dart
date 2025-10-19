@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 import 'package:yourcallyourrule/features/caller_id/services/end_call_rule_action_mapper.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -11,10 +12,10 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class RuleActionSelector extends StatefulWidget {
   /// 当前选择的规则动作
   final RuleAction initialAction;
-  
+
   /// 当规则动作改变时的回调
   final ValueChanged<RuleAction> onActionChanged;
-  
+
   const RuleActionSelector({
     super.key,
     required this.initialAction,
@@ -27,21 +28,19 @@ class RuleActionSelector extends StatefulWidget {
 
 class _RuleActionSelectorState extends State<RuleActionSelector> {
   late RuleAction _currentAction;
-  String? _selectedInterceptAction;
-  
+  InterceptAction? _selectedInterceptAction;
+
   @override
   void initState() {
     super.initState();
     _currentAction = widget.initialAction;
-    
+
     // 如果是block类型，尝试从参数中获取拦截动作
-    if (_currentAction.type == RuleActionType.block && 
-        _currentAction.parameters != null &&
-        _currentAction.parameters!.containsKey('interceptAction')) {
-      _selectedInterceptAction = _currentAction.parameters!['interceptAction'] as String?;
+    if (_currentAction.type == RuleActionType.block) {
+      _selectedInterceptAction = RuleActionMapper.mapToInterceptAction(_currentAction);
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -53,9 +52,11 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(AppLocalizations.of(context)!.ruleAction, style: Theme.of(context).textTheme.titleMedium),
+              Text(AppLocalizations.of(context)!.ruleAction,
+                  style: Theme.of(context).textTheme.titleMedium),
               const SizedBox(height: 4),
-              Text(AppLocalizations.of(context)!.selectActionWhenRuleMatches, style: Theme.of(context).textTheme.bodySmall),
+              Text(AppLocalizations.of(context)!.selectActionWhenRuleMatches,
+                  style: Theme.of(context).textTheme.bodySmall),
               const SizedBox(height: 8),
               DropdownButton<RuleActionType>(
                 isExpanded: true,
@@ -64,14 +65,15 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                 items: RuleActionType.values.map((type) {
                   return DropdownMenuItem(
                     value: type,
-                    child: Text(RuleActionDisplayUtils.getActionTypeName(context, type)),
+                    child: Text(
+                        RuleActionDisplayUtils.getActionTypeName(context, type)),
                   );
                 }).toList(),
               ),
             ],
           ),
         ),
-        
+
         // 如果选择了阻止动作，显示拦截动作选择器
         if (_currentAction.type == RuleActionType.block)
           Padding(
@@ -79,26 +81,30 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(AppLocalizations.of(context)!.interceptAction, style: Theme.of(context).textTheme.titleMedium),
+                Text(AppLocalizations.of(context)!.interceptAction,
+                    style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: 4),
-                Text(AppLocalizations.of(context)!.selectActionWhenBlockingCalls, style: Theme.of(context).textTheme.bodySmall),
+                Text(AppLocalizations.of(context)!.selectActionWhenBlockingCalls,
+                    style: Theme.of(context).textTheme.bodySmall),
                 const SizedBox(height: 8),
-                DropdownButton<String>(
+                DropdownButton<InterceptAction?>(
                   isExpanded: true,
                   value: _selectedInterceptAction,
                   hint: Text(AppLocalizations.of(context)!.useGlobalSettings),
                   onChanged: _onInterceptActionChanged,
                   items: [
                     // 添加一个null选项，表示使用全局设置
-                    DropdownMenuItem<String>(
+                    DropdownMenuItem<InterceptAction?>(
                       value: null,
                       child: Text(AppLocalizations.of(context)!.useGlobalSettings),
                     ),
                     // 添加所有可用的拦截动作
-                    ...RuleActionMapper.getAvailableInterceptActions().map((action) {
-                      return DropdownMenuItem<String>(
+                    ...RuleActionMapper.getAvailableInterceptActions()
+                        .map((action) {
+                      return DropdownMenuItem<InterceptAction?>(
                         value: action,
-                        child: Text(RuleActionMapper.getInterceptActionDisplayName(action)),
+                        child: Text(RuleActionMapper.getInterceptActionDisplayName(
+                            action)),
                       );
                     }),
                   ],
@@ -106,27 +112,25 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
               ],
             ),
           ),
-           GoogleAdWidget(adInfo: AdManager.bannerAd),
+        GoogleAdWidget(adInfo: AdManager.bannerAd),
       ],
     );
   }
-  
+
   /// 当规则动作类型改变时的处理
   void _onActionTypeChanged(RuleActionType? type) {
     if (type == null) return;
-    
+
     // 根据选择的动作类型创建新的动作对象
     RuleAction newAction;
     switch (type) {
       case RuleActionType.block:
         // 如果选择了阻止动作，保留之前的拦截动作参数
         if (_selectedInterceptAction != null) {
-          newAction = RuleAction.withParams(
-            type, 
-            {'interceptAction': _selectedInterceptAction!}
-          );
+          newAction = RuleActionMapper.createBlockWithInterceptAction(
+              _selectedInterceptAction!);
         } else {
-          newAction = RuleAction(type: type);
+          newAction = RuleAction.block;
         }
         break;
       case RuleActionType.silence:
@@ -145,7 +149,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
         // 其他动作类型使用默认构造函数
         newAction = RuleAction(type: type);
     }
-    
+
     setState(() {
       _currentAction = newAction;
       // 只有在选择block类型时才显示拦截动作选择器
@@ -153,28 +157,24 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
         _selectedInterceptAction = null;
       }
     });
-    
+
     // 通知父组件动作已更改
     widget.onActionChanged(_currentAction);
   }
 
-  
   /// 当拦截动作改变时的处理
-  void _onInterceptActionChanged(String? action) {
+  void _onInterceptActionChanged(InterceptAction? action) {
     setState(() {
       _selectedInterceptAction = action;
-      
+
       // 更新当前动作
       if (action == null) {
         _currentAction = RuleAction.block;
       } else {
-        _currentAction = RuleAction.withParams(
-          RuleActionType.block,
-          {'interceptAction': action},
-        );
+        _currentAction = RuleActionMapper.createBlockWithInterceptAction(action);
       }
     });
-    
+
     widget.onActionChanged(_currentAction);
   }
-  }
+}

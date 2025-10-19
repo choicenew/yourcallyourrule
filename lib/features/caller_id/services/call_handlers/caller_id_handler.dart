@@ -12,6 +12,7 @@ import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/display_mode_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
@@ -205,7 +206,8 @@ class CallHandler {
   
   /// 设置显示模式
   Future<void> setDisplayMode(String mode) async {
-    await _displayModeHandler.setDisplayMode(mode);
+    final displayMode = DisplayMode.values.byName(mode);
+    await _displayModeHandler.setDisplayMode(displayMode);
   }
 
   /// 保存来电显示数据到缓存

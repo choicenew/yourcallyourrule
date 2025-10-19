@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 
 import '../../../call/call_filter/call_filter_service.dart';
 import '../../config/caller_id_config_repository.dart';
@@ -35,22 +37,22 @@ class EndCallHandler extends BaseCallHandler {
   /// 如果没有，则使用全局默认设置
   Future<String?> _handleInterceptAction(String phoneNumber) async {
     // 首先检查CallFilterService中是否有规则指定的拦截动作
-    final ruleAction = CallFilterService.getCurrentInterceptAction();
-    
+    final InterceptAction? ruleAction = CallFilterService.getCurrentInterceptAction();
+
     // 如果规则指定了拦截动作，优先使用
     if (ruleAction != null) {
       // 记录拦截动作
       this.setInterceptAction(ruleAction);
-      
-      return ruleAction;
+debugPrint("_handleInterceptAction规则指定动作: ${ruleAction.name}");
+      return ruleAction.name;
     }
-    
+
     // 否则使用全局默认设置
     final interceptAction = await _configRepository.getInterceptAction();
-    
+
     // 记录拦截动作
     this.setInterceptAction(interceptAction);
-    
-    return interceptAction;
+debugPrint("_handleInterceptAction全局动作默认: ${interceptAction.name}");
+    return interceptAction.name;
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -31,25 +32,25 @@ class EndCallSettingsPage extends ConsumerWidget {
                   const SizedBox(height: 8),
                   Text(AppLocalizations.of(context)!.chooseDefaultInterceptAction),
                   const SizedBox(height: 8),
-                  DropdownButton<String>(
+                  DropdownButton<InterceptAction>(
                     value: selectedInterceptAction,
                     isExpanded: true,
-                    onChanged: (String? newValue) {
+                    onChanged: (InterceptAction? newValue) {
                       if (newValue != null) {
                         interceptActionNotifier.setInterceptAction(newValue);
                       }
                     },
-                    items: <DropdownMenuItem<String>>[
-                      DropdownMenuItem<String>(
-                        value: 'endCall',
+                    items: <DropdownMenuItem<InterceptAction>>[
+                      DropdownMenuItem<InterceptAction>(
+                        value: InterceptAction.endCall,
                         child: Text(AppLocalizations.of(context)!.endCallImmediately),
                       ),
-                      DropdownMenuItem<String>(
-                        value: 'answerThenHangup',
+                      DropdownMenuItem<InterceptAction>(
+                        value: InterceptAction.answerThenHangup,
                         child: Text(AppLocalizations.of(context)!.answerThenHangup),
                       ),
-                      DropdownMenuItem<String>(
-                        value: 'silenceNoAnswer',
+                      DropdownMenuItem<InterceptAction>(
+                        value: InterceptAction.silenceNoAnswer,
                         child: Text(AppLocalizations.of(context)!.silenceAndNoAnswer),
                       ),
                     ],

@@ -1,76 +1,73 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则动作映射服务
 /// 负责将RuleAction映射到具体的拦截动作
 class RuleActionMapper {
-  /// 将RuleAction映射为拦截动作字符串
-  /// 
+  /// 将RuleAction映射为拦截动作
+  ///
   /// 如果RuleAction是block类型，则根据其参数返回具体的拦截动作
   /// 如果是silence类型，则返回silenceNoAnswer
   /// 如果是none类型或其他类型，则返回null，表示使用全局默认设置
-  static String? mapToInterceptAction(RuleAction action) {
+  static InterceptAction? mapToInterceptAction(RuleAction action) {
     // 根据动作类型处理
     switch (action.type) {
       case RuleActionType.block:
         // 如果没有参数，返回null表示使用全局默认设置
-        if (action.parameters == null || !action.parameters!.containsKey('config_interceptAction')) {
+        if (action.parameters == null ||
+            !action.parameters!.containsKey('config_interceptAction')) {
           return null;
         }
-        
+
         // 从参数中获取拦截动作
-        final interceptAction = action.parameters!['config_interceptAction'] as String?;
-        
-        // 验证拦截动作是否有效
-        if (interceptAction == null || 
-            !['endCall', 'answerThenHangup', 'silenceNoAnswer'].contains(interceptAction)) {
+        final interceptActionName =
+            action.parameters!['config_interceptAction'] as String?;
+
+        if (interceptActionName == null) {
           return null;
         }
-        
-        return interceptAction;
-        
+
+        try {
+          return InterceptAction.values.byName(interceptActionName);
+        } catch (e) {
+          return null;
+        }
+
       case RuleActionType.silence:
         // silence类型直接返回silenceNoAnswer
-        return 'silenceNoAnswer';
-        
+        return InterceptAction.silenceNoAnswer;
+
       default:
         // 其他类型返回null
         return null;
     }
   }
-  
+
   /// 创建带有拦截动作参数的Block规则动作
-  static RuleAction createBlockWithInterceptAction(String interceptAction) {
-    // 验证拦截动作是否有效
-    if (!['endCall', 'answerThenHangup', 'silenceNoAnswer'].contains(interceptAction)) {
-      throw ArgumentError('无效的拦截动作: $interceptAction');
-    }
-    
+  static RuleAction createBlockWithInterceptAction(
+      InterceptAction interceptAction) {
     return RuleAction.withParams(
-      RuleActionType.block, 
-      {'config_interceptAction': interceptAction}
-    );
+        RuleActionType.block, {'config_interceptAction': interceptAction.name});
   }
-  
+
   /// 获取所有可用的拦截动作
-  static List<String> getAvailableInterceptActions() {
-    return ['endCall', 'answerThenHangup', 'silenceNoAnswer'];
+  static List<InterceptAction> getAvailableInterceptActions() {
+    return InterceptAction.values;
   }
-  
+
   /// 获取拦截动作的显示名称
-  static String getInterceptActionDisplayName(String interceptAction) {
+  static String getInterceptActionDisplayName(InterceptAction interceptAction) {
     final context = AppRouter.navigatorKey.currentContext!;
     switch (interceptAction) {
-      case 'endCall':
+      case InterceptAction.endCall:
         return AppLocalizations.of(context)!.endCallImmediately;
-      case 'answerThenHangup':
+      case InterceptAction.answerThenHangup:
         return AppLocalizations.of(context)!.answerThenHangup;
-      case 'silenceNoAnswer':
+      case InterceptAction.silenceNoAnswer:
         return AppLocalizations.of(context)!.silenceAndNoAnswer;
-      default:
-        return AppLocalizations.of(context)!.unknownAction;
     }
   }
 }

@@ -4,6 +4,7 @@ import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
+import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
@@ -35,7 +36,7 @@ class CallFilterService implements CallFilterInterface {
   @override
   Future<bool> shouldAcceptCall(String phoneNumberStr) async {
     final phoneNumber = PhoneNumber(phoneNumberStr);
-    String? interceptAction;
+    InterceptAction? interceptAction;
 
     // 全局拒绝设置优先级最高如果配置为拒绝所有号码，直接返回false
     if (callFilterConfig.rejectAllNumbers) {
@@ -75,7 +76,7 @@ class CallFilterService implements CallFilterInterface {
   }
 
   // 从规则动作中获取拦截动作
-  String? _getInterceptActionFromRule(RuleAction action) {
+  InterceptAction? _getInterceptActionFromRule(RuleAction action) {
     // 根据动作类型处理
     switch (action.type) {
       case RuleActionType.block:
@@ -84,11 +85,12 @@ class CallFilterService implements CallFilterInterface {
             !action.parameters!.containsKey('interceptAction')) {
           return null;
         }
-        return action.parameters!['interceptAction'] as String?;
+        final actionName = action.parameters!['interceptAction'] as String?;
+        return actionName != null ? InterceptAction.values.byName(actionName) : null;
 
       case RuleActionType.silence:
         // silence类型直接返回silenceNoAnswer
-        return 'silenceNoAnswer';
+        return InterceptAction.silenceNoAnswer;
 
       case RuleActionType.none:
       case RuleActionType.allow:
@@ -99,15 +101,15 @@ class CallFilterService implements CallFilterInterface {
   }
 
   // 当前拦截动作，用于在shouldAcceptCall和EndCallHandler之间传递信息
-  static String? _currentInterceptAction;
+  static InterceptAction? _currentInterceptAction;
 
   // 设置当前拦截动作
-  void _setCurrentInterceptAction(String? action) {
+  void _setCurrentInterceptAction(InterceptAction? action) {
     _currentInterceptAction = action;
   }
 
   // 获取当前拦截动作
-  static String? getCurrentInterceptAction() {
+  static InterceptAction? getCurrentInterceptAction() {
     return _currentInterceptAction;
   }
 

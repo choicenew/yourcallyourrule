@@ -1,6 +1,7 @@
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_recorder.dart';
+import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/caller_id_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/end_call_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/incoming_call_handler.dart';
@@ -137,15 +138,15 @@ extension CallFilterServiceExtension on CallFilterService {
 /// EndCallHandler 扩展，用于记录拦截动作
 extension EndCallHandlerExtension on EndCallHandler {
   // 记录拦截动作的静态变量
-  static String? _interceptAction;
+  static InterceptAction? _interceptAction;
   
   // 设置拦截动作
-  void setInterceptAction(String? action) {
+  void setInterceptAction(InterceptAction? action) {
     _interceptAction = action;
   }
   
   // 获取拦截动作
-  static String? getInterceptAction() {
+  static InterceptAction? getInterceptAction() {
     return _interceptAction;
   }
 }
