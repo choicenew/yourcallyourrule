@@ -8,9 +8,20 @@ part of 'notification_handler.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// 通知处理器 Provider
+///
+/// 【恢复并修正】: 这是一个 FutureProvider，因为它所创建的 NotificationHandler
+/// 需要执行异步的 `initialize()` 方法来加载配置。
+/// 这是您原始的、正确的设计。
 
 @ProviderFor(notificationHandler)
 const notificationHandlerProvider = NotificationHandlerProvider._();
+
+/// 通知处理器 Provider
+///
+/// 【恢复并修正】: 这是一个 FutureProvider，因为它所创建的 NotificationHandler
+/// 需要执行异步的 `initialize()` 方法来加载配置。
+/// 这是您原始的、正确的设计。
 
 final class NotificationHandlerProvider
     extends
@@ -22,6 +33,11 @@ final class NotificationHandlerProvider
     with
         $FutureModifier<NotificationHandler>,
         $FutureProvider<NotificationHandler> {
+  /// 通知处理器 Provider
+  ///
+  /// 【恢复并修正】: 这是一个 FutureProvider，因为它所创建的 NotificationHandler
+  /// 需要执行异步的 `initialize()` 方法来加载配置。
+  /// 这是您原始的、正确的设计。
   const NotificationHandlerProvider._()
     : super(
         from: null,
@@ -49,4 +65,4 @@ final class NotificationHandlerProvider
 }
 
 String _$notificationHandlerHash() =>
-    r'6148af052f13e58e9dda26132f2764358c6600b8';
+    r'8dc4933c28faf37d3d064541de2aa77297f3c71e';

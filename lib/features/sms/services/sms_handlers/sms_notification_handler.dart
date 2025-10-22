@@ -1,6 +1,6 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:yourcallyourrule/core/services/notification_config.dart';
-import 'package:yourcallyourrule/core/services/notification_service.dart';
+import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
+import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 

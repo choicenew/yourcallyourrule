@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/core/repositories/call_log_repository.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'time_interceptor_config.dart';
@@ -28,8 +29,8 @@ class TimeInterceptorService {
     
     // 过滤出指定电话号码的记录
     final entries = logs.where((log) => log.phoneNumber == phoneNumber).toList();
-
-    return entries.isNotEmpty;
+ debugPrint('entries打印: ${entries.map((e) => e.toMap()).toList()}');
+    return entries.isEmpty;
   }
 
   Future<void> updateConfig(Duration duration, bool shouldIntercept) async {

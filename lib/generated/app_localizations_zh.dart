@@ -2204,7 +2204,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get howItWorksPoint1 =>
-      '• The system will automatically intercept calls from the same number within the set time window';
+      '• The system will automatically allow calls from the same number within the set time window';
 
   @override
   String get howItWorksPoint2 =>
@@ -4498,7 +4498,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get timeInterceptorDescription =>
-      'Automatically intercept potential spam calls based on call frequency';
+      'Automatically intercept/allow potential calls based on call frequency';
 
   @override
   String get timeInterceptorExplanation =>

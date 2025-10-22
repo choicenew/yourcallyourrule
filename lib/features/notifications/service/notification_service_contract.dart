@@ -1,7 +1,35 @@
-// core/services/notification_service_contract.dart
-// core/services/notification_service_contract.dart
+// features/notifications/services/notification_service_contract.dart
+// features/notifications/services/notification_service_contract.dart
 
-import 'package:yourcallyourrule/core/services/notification_config.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
+
+// 在文件顶部，或一个独立的模型文件中
+/// 一个通用的、描述通知样式的抽象数据类。
+/// 它与任何具体的通知插件都无关。
+class NotificationStyle {
+  /// 大图标的文件路径。
+  /// NotificationService 的实现者需要知道如何处理这个路径。
+  final String? largeIconPath;
+  
+  /// 通知的强调色。
+  final Color? color;
+  
+  /// 是否使用能显示更多文本的样式。
+  final bool useBigTextStyle;
+
+  /// 【新增】: 可选的、特定于此通知的小图标名称。
+  /// 如果为 null，将使用服务初始化的默认图标。
+  final String? smallIcon;
+
+  const NotificationStyle({
+    this.largeIconPath,
+    this.color,
+    this.useBigTextStyle = false,
+    this.smallIcon,
+  });
+}
 
 /// 通知服务接口 (契约)
 /// 职责：定义应用内所有通知服务必须遵守的契约。
@@ -22,6 +50,12 @@ abstract class NotificationServiceContract {
     Map<String, dynamic>? payload,
     bool autoCancel = true,
     Duration? autoCancelDelay,
+        // 【核心修正】: 新增一个可选参数，用于传递预先构建好的 Android 特定细节。
+    // 这允许上层服务（如 NotificationHandler）在需要时创建更复杂的样式（如带头像的通知），
+    // 而不破坏本服务的封装性。
+    // 【最终修正】: 参数不再是具体的 AndroidNotificationDetails，
+    // 而是我们定义的、通用的 NotificationStyle 对象。
+    NotificationStyle? style,
   });
 
   /// 显示带有动作按钮的通知

@@ -1,50 +1,52 @@
+// 导入底层的通用仓库接口
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-
+// 导入此仓库负责的配置项枚举
 import 'display_mode.dart';
-import 'intercept_action.dart';
+// 【已移除】不再导入 InterceptAction，因为它不再是本仓库的职责
+// import 'intercept_action.dart';
 
 /// CallerID配置仓库
-/// 负责管理CallerID和通话处理器相关的配置数据
+///
+/// 【职责修正】: 这个仓库现在只负责管理与 CallerID **显示**相关的配置，
+/// 例如显示模式、通知开关等。所有与**拦截行为**相关的配置已被剥离。
 class CallerIdConfigRepository {
   final ConfigRepository _configRepository;
   
-  // 配置键名
-  static const String configKey = 'config_caller_id';
+  // 配置键名，这是一个大的配置块的键
+  static const String configKey = 'config_caller_id_functionality';
   
-  // 配置项键名
+  // 此仓库负责的配置项键名
   static const String useLocalNotificationKey = 'config_use_local_notification';
   static const String cancelLocalNotificationKey = 'config_cancel_local_notification';
   static const String useStirNotificationKey = 'config_use_stir_notification';
-  static const String interceptActionKey = 'config_intercept_action';
-  static const String displayModeKey = 'config_display_mode'; // 来电显示模式：overlay或notification或者live activity
+  static const String displayModeKey = 'config_display_mode';
+  
+  // 【已移除】: interceptActionKey 不再属于这个配置文件
+  // static const String interceptActionKey = 'config_intercept_action';
   
   /// 构造函数
   CallerIdConfigRepository(this._configRepository);
   
-  /// 获取配置
+  /// 获取整个“显示配置”的 Map
   Future<Map<String, dynamic>> getConfig() async {
     final config = await _configRepository.getConfig(configKey);
     return config ?? _getDefaultConfig();
   }
   
-  /// 保存配置
+  /// 保存整个“显示配置”的 Map
   Future<void> saveConfig(Map<String, dynamic> config) async {
     await _configRepository.saveConfig(configKey, config);
   }
   
-  /// 获取拦截动作
-  Future<InterceptAction> getInterceptAction() async {
-    final config = await getConfig();
-    final actionString = config[interceptActionKey] as String? ?? 'endCall';
-    return InterceptAction.values.firstWhere((e) => e.toString().split('.').last == actionString, orElse: () => InterceptAction.endCall);
-  }
+  // 【已移除】: getInterceptAction 方法已被彻底移除
+  /*
+  Future<InterceptAction> getInterceptAction() async { ... }
+  */
 
-  /// 设置拦截动作
-  Future<void> setInterceptAction(InterceptAction value) async {
-    final config = await getConfig();
-    config[interceptActionKey] = value.toString().split('.').last;
-    await saveConfig(config);
-  }
+  // 【已移除】: setInterceptAction 方法已被彻底移除
+  /*
+  Future<void> setInterceptAction(InterceptAction value) async { ... }
+  */
   
   /// 获取是否使用本地通知
   Future<bool> getUseLocalNotification() async {
@@ -88,25 +90,27 @@ class CallerIdConfigRepository {
   /// 获取来电显示模式
   Future<DisplayMode> getDisplayMode() async {
     final config = await getConfig();
-    final modeString = config[displayModeKey] as String? ?? 'overlay'; // 默认使用浮窗模式
-    return DisplayMode.values.firstWhere((e) => e.toString().split('.').last == modeString, orElse: () => DisplayMode.overlay);
+    final modeString = config[displayModeKey] as String? ?? 'overlay';
+    // 使用 .name 属性进行比较，这是更健壮的方式
+    return DisplayMode.values.firstWhere((e) => e.name == modeString, orElse: () => DisplayMode.overlay);
   }
 
   /// 设置来电显示模式
   Future<void> setDisplayMode(DisplayMode value) async {
     final config = await getConfig();
-    config[displayModeKey] = value.toString().split('.').last;
+    // 使用 .name 属性进行存储
+    config[displayModeKey] = value.name;
     await saveConfig(config);
   }
 
   /// 获取默认配置
   Map<String, dynamic> _getDefaultConfig() {
     return {
-      interceptActionKey: InterceptAction.endCall.toString().split('.').last,
+      // 【已移除】: 默认配置中不再包含 interceptActionKey
       useLocalNotificationKey: false,
       cancelLocalNotificationKey: false,
       useStirNotificationKey: false,
-      displayModeKey: DisplayMode.overlay.toString().split('.').last,
+      displayModeKey: DisplayMode.overlay.name,
     };
   }
 }

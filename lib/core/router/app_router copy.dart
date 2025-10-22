@@ -24,7 +24,7 @@ import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call_statistics_page.dart';
-import 'package:yourcallyourrule/features/caller_id/pages/end_call_settings_page.dart';
+import 'package:yourcallyourrule/features/caller_id/presentation/pages/end_call_settings_page.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page_with_ads.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';

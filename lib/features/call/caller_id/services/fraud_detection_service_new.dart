@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/core/services/notification_service.dart';
+import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/fraud_alert_config.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -51,7 +51,7 @@ class FraudDetectionService {
     // 2. 在 await 之前，使用 context 准备好所有需要的数据
     //    通过调用 fraudAlertConfig(context) 来获取 NotificationConfig 对象
     final notificationConfig = NotificationService.fraudAlertConfig(context);
-    final title = AppLocalizations.of(context)!.fraudAlertTitle;
+    final title = "⚠️ ${AppLocalizations.of(context)!.fraudAlertTitle} ($phoneNumber)";
     final body = AppLocalizations.of(context)!.fraudAlertBody(phoneNumber);
     
     // --- 从这里开始可以有异步操作 ---

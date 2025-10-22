@@ -23,8 +23,7 @@ import 'package:yourcallyourrule/features/caller_id/services/call_handlers/displ
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/sim_call_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/stir_call_handler.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
-// 导入 DisplayMode 以便在废弃方法中使用
-import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
+
 
 
 // part 指令是代码生成所必需的，它会链接到由 build_runner 生成的文件
@@ -92,8 +91,8 @@ class CallHandler extends _$CallHandler {
     // 【修正】: 依赖现在通过 ref 在方法内部按需获取。
     final callerIdService = ref.read(callerIdServiceProvider);
     // 【修正】: DisplayModeHandler 的 build 方法是同步的，因此 provider 不是 FutureProvider。
-    // 我们直接读取 .notifier 来获取 Notifier 实例，不需要 await .future。
-    final displayModeHandler = ref.read(displayModeHandlerProvider.notifier);
+    //  它没有 `.notifier` 属性，`await` 之后得到的就是 `DisplayModeHandler` 的实例本身。
+    final displayModeHandler = await ref.read(displayModeHandlerProvider.future);
     final locale = await ref.read(localeProvider.future);
 
     // --- 1. 异步等待 SimInfo ---
@@ -203,8 +202,10 @@ class CallHandler extends _$CallHandler {
   }
   
   /// 关闭浮窗和通知
-  void closeOverlay() {
-    ref.read(displayModeHandlerProvider.notifier).closeDisplay();
+   Future<void> closeOverlay() async {
+      // 【核心修正】: 同样地，await .future 来获取实例，然后调用方法。
+    final displayModeHandler = await ref.read(displayModeHandlerProvider.future);
+    await displayModeHandler.closeDisplay();
   }
   
   /// 保存来电显示数据到缓存，逻辑不变

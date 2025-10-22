@@ -75,6 +75,7 @@ class InterceptActionConfigNotifier extends Notifier<InterceptAction> {
       _interceptActionKey,
       {'value': newValue.toString().split('.').last},
     );
+    debugPrint('setInterceptAction打印: $newValue');
 
     // 2. 检查 Provider 是否存活
     if (ref.mounted) {

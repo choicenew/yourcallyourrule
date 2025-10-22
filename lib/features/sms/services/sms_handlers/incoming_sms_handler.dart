@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart'; // [1] 导入 AppRouter
-import 'package:yourcallyourrule/core/services/notification_service.dart'; // [2] 导入以创建 Config
+import 'package:yourcallyourrule/features/notifications/service/notification_service.dart'; // [2] 导入以创建 Config
 import 'package:yourcallyourrule/generated/app_localizations.dart'; // [3] 导入以使用国际化
 import 'base_sms_handler.dart';
 import 'sms_filter_handler.dart';

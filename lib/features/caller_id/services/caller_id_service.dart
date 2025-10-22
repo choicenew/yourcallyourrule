@@ -277,6 +277,7 @@ class CallerIdService {
     String? avatar =
         finalContact?.avatar ?? phoneRule?.avatar ?? pluginData?.avatar;
 
+    
     // 如果没有头像但有标签，使用标签构建头像路径
     if (avatar == null && labelText != 'Unknown') {
       avatar = 'assets/avatars/$labelText.png';

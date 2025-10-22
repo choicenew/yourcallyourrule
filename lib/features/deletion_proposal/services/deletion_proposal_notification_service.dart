@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/provider/providers/notification_history_provider.dart';
-import 'package:yourcallyourrule/core/services/notification_manager.dart';
-import 'package:yourcallyourrule/core/services/notification_service.dart';
+import 'package:yourcallyourrule/features/notifications/providers//notification_history_provider.dart';
+import 'package:yourcallyourrule/features/notifications/service/notification_manager.dart';
+import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
