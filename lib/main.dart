@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:floating_window_android/floating_window_android.dart';
-import 'package:yourcallyourrule/common/utils/global_variable.dart';
 
 import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_sync_service_initializer.dart';
 import 'package:yourcallyourrule/features/call/call_history/provider/call_event_listener_provider.dart';
-import 'package:yourcallyourrule/core/services/notification_service.dart';
 
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
@@ -20,11 +17,10 @@ import 'package:yourcallyourrule/core/provider/providers/background_sync_service
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/theme/app_theme.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/plugin_service_provider.dart';
 import 'package:yourcallyourrule/features/plugin/providers/plugin_webview_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
 
-import 'package:yourcallyourrule/core/provider/providers/notification_providers.dart';
+import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
  // 导入 FFI 包
 
 Future<void> main() async {

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -41,6 +42,7 @@ class CallFilterService implements CallFilterInterface {
     // 全局拒绝设置优先级最高如果配置为拒绝所有号码，直接返回false
     if (callFilterConfig.rejectAllNumbers) {
       _setCurrentInterceptAction(null); // 使用全局默认拦截动作
+      debugPrint("rejectAllNumbers: ${callFilterConfig.rejectAllNumbers}");
       return false;
     }
 
@@ -86,7 +88,9 @@ class CallFilterService implements CallFilterInterface {
           return null;
         }
         final actionName = action.parameters!['interceptAction'] as String?;
+                debugPrint("_getInterceptActionFromRule: $actionName");
         return actionName != null ? InterceptAction.values.byName(actionName) : null;
+
 
       case RuleActionType.silence:
         // silence类型直接返回silenceNoAnswer
@@ -105,6 +109,7 @@ class CallFilterService implements CallFilterInterface {
 
   // 设置当前拦截动作
   void _setCurrentInterceptAction(InterceptAction? action) {
+    debugPrint("setCurrentInterceptAction: $action");
     _currentInterceptAction = action;
   }
 

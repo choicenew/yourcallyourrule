@@ -1,4 +1,4 @@
-// core/services/notification_service.dart
+// features/notifications/services/notification_service.dart
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'notification_config.dart';
+import '../config/notification_config.dart';
 import 'notification_service_contract.dart';
 import 'package:go_router/go_router.dart';
 
@@ -65,6 +65,8 @@ class NotificationService implements NotificationServiceContract {
       priority: Priority.high,
       playSound: true,
       enableVibration: true,
+            // 【关键】: 将颜色设置为红色。Android 会用这个颜色给小图标着色。
+      color: Colors.red,
     );
   }
 
@@ -82,7 +84,10 @@ class NotificationService implements NotificationServiceContract {
   @override
   Future<void> initialize() async {
     if (_isInitialized) return;
-    const initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher');
+
+      // 【核心修正】: 使用一个专门的、存在于 drawable 目录下的图标来初始化。
+    // 'ic_notification' 应该是您放置在 `android/app/src/main/res/drawable` 下的图标文件名。
+    const initializationSettingsAndroid = AndroidInitializationSettings('ic_notification');
     const initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
     
     await _plugin.initialize(
@@ -123,7 +128,7 @@ class NotificationService implements NotificationServiceContract {
 
   @pragma('vm:entry-point')
   static void onDidReceiveBackgroundNotificationResponse(NotificationResponse response) {
-    print("Handling a background notification: ${response.payload}");
+    debugPrint("Handling a background notification: ${response.payload}");
   }
 
   @override
@@ -146,11 +151,58 @@ class NotificationService implements NotificationServiceContract {
     required String title, required String body, required NotificationConfig config,
     int notificationId = 0, Map<String, dynamic>? payload,
     bool autoCancel = true, Duration? autoCancelDelay,
+        // 【核心修正】: 接收新的可选参数
+  // 【最终修正】: 接收通用的 NotificationStyle 对象
+    NotificationStyle? style,
   }) async {
     if (!_isInitialized) await initialize();
     await _createNotificationChannel(config);
-    final androidDetails = config.createAndroidDetails();
+        // 【核心修正】:
+       // 【最终修正】:
+    // 1. 从 config 创建一个基础的 AndroidNotificationDetails。
+    AndroidNotificationDetails androidDetails = config.createAndroidDetails();
+    
+    // 2. 如果外部传入了 style 对象，则用它的信息来“增强” androidDetails。
+    if (style != null) {
+      // a. 准备大图标
+      AndroidBitmap<Object>? largeIcon;
+      if (style.largeIconPath != null) {
+        largeIcon = FilePathAndroidBitmap(style.largeIconPath!);
+      }
+
+      // b. 准备样式信息
+      StyleInformation? styleInformation;
+      if (style.useBigTextStyle) {
+        styleInformation = BigTextStyleInformation(
+           body,
+          // 也可以在这里设置展开时的标题和摘要，如果需要的话
+          //contentTitle: title,
+          // summaryText: 'Expand to see more',
+          );
+      }
+
+      // c. 使用 copyWith 方法创建一个新的、增强版的 androidDetails
+      // (注意: AndroidNotificationDetails 没有 copyWith, 我们需要手动重建)
+      androidDetails = AndroidNotificationDetails(
+        config.channelId,
+        config.channelName,
+        channelDescription: config.channelDescription,
+        importance: config.importance,
+        priority: config.priority,
+        // 应用 style 中的增强属性
+        largeIcon: largeIcon,
+        color: style.color,
+        styleInformation: styleInformation,
+        // 保留 config 中的其他属性
+        playSound: config.playSound,
+        sound: config.soundSource != null ? RawResourceAndroidNotificationSound(config.soundSource!) : null,
+        enableVibration: config.enableVibration,
+        channelShowBadge: config.showBadge,
+      );
+    }
+    
     final details = NotificationDetails(android: androidDetails);
+
     await _plugin.show(
       notificationId, title, body, details,
       payload: payload != null ? jsonEncode(payload) : null,

@@ -1,8 +1,8 @@
-// core/providers/notification_providers.dart
+// features/notifications/providers/notification_providers.dart
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/services/notification_service.dart';
-import 'package:yourcallyourrule/core/services/notification_service_contract.dart';
+import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
+import 'package:yourcallyourrule/features/notifications/service/notification_service_contract.dart';
 
 part 'notification_providers.g.dart';
 

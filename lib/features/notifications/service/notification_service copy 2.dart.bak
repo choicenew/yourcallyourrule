@@ -5,7 +5,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../router/app_router.dart';
+import '../../../core/router/app_router.dart';
 
 /// 通知配置类
 /// 用于配置通知的各种参数

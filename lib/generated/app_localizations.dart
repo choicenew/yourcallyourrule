@@ -4025,7 +4025,7 @@ abstract class AppLocalizations {
   /// No description provided for @howItWorksPoint1.
   ///
   /// In en, this message translates to:
-  /// **'• The system will automatically intercept calls from the same number within the set time window'**
+  /// **'• The system will automatically allow calls from the same number within the set time window'**
   String get howItWorksPoint1;
 
   /// No description provided for @howItWorksPoint2.
@@ -8063,7 +8063,7 @@ abstract class AppLocalizations {
   /// No description provided for @timeInterceptorDescription.
   ///
   /// In en, this message translates to:
-  /// **'Automatically intercept potential spam calls based on call frequency'**
+  /// **'Automatically intercept/allow potential calls based on call frequency'**
   String get timeInterceptorDescription;
 
   /// No description provided for @timeInterceptorExplanation.

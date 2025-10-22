@@ -29,12 +29,15 @@ class ShouldAcceptCallHandler extends BaseCallHandler {
   /// 它的生命周期仅限于一次来电询问。
   StreamController<bool>? _currentDecisionController;
 
-  /// 处理来自原生平台的 MethodChannel 调用。
+ /// 【核心修正】: 将返回类型从 dynamic 修改为 Future<dynamic>
+  /// 这是因为我们需要在 case 'shouldAcceptCall' 中返回一个 Future<bool>。
+  /// 返回 Future<dynamic> 可以兼容 Future<bool> 和其他非 Future 的返回值。
+  /// 或者更精确地，我们可以让它返回 Future<bool>，并在其他 case 中返回一个默认的 Future。
   @override
-  dynamic handleMethodCall(MethodCall call) async {
+ Future<dynamic> handleMethodCall(MethodCall call) async {
     switch (call.method) {
       case 'onShouldAcceptCallInitializationComplete':
-        return _handleInitializationComplete();
+        return; // 对于 void 方法，直接 return
       case 'shouldAcceptCall':
         // 这个方法会暂停，直到Dart端的业务逻辑做出决策
         return await _handleShouldAcceptCall();

@@ -1,4 +1,4 @@
-// core/services/notification_history_service.dart
+// features/notifications/services/notification_history_service.dart
 
 import 'dart:convert';
 import 'package:flutter/foundation.dart';

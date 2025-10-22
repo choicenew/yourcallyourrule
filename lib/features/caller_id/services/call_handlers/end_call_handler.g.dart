@@ -10,33 +10,24 @@ part of 'end_call_handler.dart';
 // ignore_for_file: type=lint, type=warning
 /// 结束通话处理器 Provider
 ///
-/// 这是一个简单的服务型 Provider。它的职责是创建并提供一个 EndCallHandler 的单例，
-/// 并通过 `ref` 将其所需要的依赖（CallerIdConfigRepository）注入进去。
-///
-/// 使用 `keepAlive: true` 确保这个单例在整个应用生命周期中都存在，
-/// 因为它需要持续响应来自原生平台的调用。
+/// 这是一个简单的服务型 Provider，负责创建 EndCallHandler 的单例。
+/// 【最终方案】: 它只注入通用的 `ref` 对象，让 Handler 可以在需要时访问任何 Provider。
 
 @ProviderFor(endCallHandler)
 const endCallHandlerProvider = EndCallHandlerProvider._();
 
 /// 结束通话处理器 Provider
 ///
-/// 这是一个简单的服务型 Provider。它的职责是创建并提供一个 EndCallHandler 的单例，
-/// 并通过 `ref` 将其所需要的依赖（CallerIdConfigRepository）注入进去。
-///
-/// 使用 `keepAlive: true` 确保这个单例在整个应用生命周期中都存在，
-/// 因为它需要持续响应来自原生平台的调用。
+/// 这是一个简单的服务型 Provider，负责创建 EndCallHandler 的单例。
+/// 【最终方案】: 它只注入通用的 `ref` 对象，让 Handler 可以在需要时访问任何 Provider。
 
 final class EndCallHandlerProvider
     extends $FunctionalProvider<EndCallHandler, EndCallHandler, EndCallHandler>
     with $Provider<EndCallHandler> {
   /// 结束通话处理器 Provider
   ///
-  /// 这是一个简单的服务型 Provider。它的职责是创建并提供一个 EndCallHandler 的单例，
-  /// 并通过 `ref` 将其所需要的依赖（CallerIdConfigRepository）注入进去。
-  ///
-  /// 使用 `keepAlive: true` 确保这个单例在整个应用生命周期中都存在，
-  /// 因为它需要持续响应来自原生平台的调用。
+  /// 这是一个简单的服务型 Provider，负责创建 EndCallHandler 的单例。
+  /// 【最终方案】: 它只注入通用的 `ref` 对象，让 Handler 可以在需要时访问任何 Provider。
   const EndCallHandlerProvider._()
     : super(
         from: null,
@@ -70,4 +61,4 @@ final class EndCallHandlerProvider
   }
 }
 
-String _$endCallHandlerHash() => r'b735ec0efc08b0673d213b481d28e4622a02ec9d';
+String _$endCallHandlerHash() => r'40c43809c735e3edb9be870fce0c42184d84b3ec';

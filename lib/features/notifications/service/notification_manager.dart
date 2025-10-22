@@ -1,12 +1,13 @@
-// core/services/notification_manager.dart
+// features/notifications/notification_manager.dart
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/provider/providers/notification_history_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/notification_providers.dart';
+import 'package:yourcallyourrule/features/notifications/providers/notification_history_provider.dart';
 
-import 'package:yourcallyourrule/core/services/notification_config.dart';
-import 'package:yourcallyourrule/core/services/notification_history_service.dart';
-import 'package:yourcallyourrule/core/services/notification_service_contract.dart';
+import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
+
+import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
+import 'package:yourcallyourrule/features/notifications/service/notification_history_service.dart';
+import 'package:yourcallyourrule/features/notifications/service/notification_service_contract.dart';
 
 part 'notification_manager.g.dart';
 

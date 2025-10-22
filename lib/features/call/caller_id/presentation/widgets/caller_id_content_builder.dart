@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
@@ -165,7 +166,7 @@ class CallerIdContentBuilder {
           _buildPositionedElement(
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white..withValues(alpha: 0.5),
                 borderRadius: BorderRadius.circular(8.0),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
@@ -188,17 +189,26 @@ class CallerIdContentBuilder {
   static Widget _buildAvatar(CallerIdData callerIdData, CallerIdConfig config, bool isFraudulent) {
     // 诈骗电话使用红色边框
     final borderColor = isFraudulent ? Colors.red : config.avatarBorderColor;
+    // 从 callerIdData 中提取用于 AvatarUtils 的标签文本
+    final String? labelText = callerIdData.labels?.isNotEmpty == true 
+        ? callerIdData.labels!.first.label 
+        : null;
     
     return CircleAvatar(
       radius: config.avatarBorderSize / 2,
       backgroundColor: borderColor,
       child: CircleAvatar(
         radius: config.avatarSize / 2,
-        backgroundImage: _getAvatarImage(callerIdData),
+        // 调用 AvatarUtils 中的静态方法来获取 ImageProvider
+        backgroundImage: AvatarUtils.getAvatarImage(callerIdData.avatar, labelText),
+        // 如果你还想在没有图片时显示首字母，可以这样做：
+        child: AvatarUtils.getAvatarImage(callerIdData.avatar, labelText) == null
+             ? Text(AvatarUtils.getAvatarInitial(callerIdData.name ?? labelText))
+            : null,
       ),
     );
   }
-
+  
   static ImageProvider _getAvatarImage(CallerIdData callerIdData) {
     if (callerIdData.avatar != null && callerIdData.avatar!.isNotEmpty) {
       return callerIdData.avatar!.startsWith('http')

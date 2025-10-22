@@ -1,4 +1,5 @@
 // 导入 Riverpod 的代码生成注解包
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 // 导入项目中的实体类和接口
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
@@ -125,22 +126,24 @@ class IncomingCallHandler {
         } else {
           decision = await _callFilterService.shouldAcceptCall(number);
         }
-        
+        debugPrint("--- [IncomingCallHandler] Filter service decision for '$number': $decision");
         // 如果被过滤服务拒绝，再检查时间拦截服务是否也拒绝
         if (!decision && _timeInterceptorService.config.shouldIntercept) {
           // 时间拦截服务返回 true 是要拦截，所以需要取反来得到“是否应该接听”
           decision = !await _timeInterceptorService.shouldIntercept(number);
+          debugPrint("--- [IncomingCallHandler] Time interceptor decision for '$number': $decision (will Allow? $decision)");
         }
-
+ debugPrint("--- [IncomingCallHandler] Final decision for '$number': $decision");
         return decision;
       }),
     );
-
+ debugPrint("--- [IncomingCallHandler] Overall decision for $phoneNumber is: shouldAccept = $shouldAccept ---");
     // 6. 将最终的决策（接听或拒绝）发送给正在等待的原生调用
     _shouldAcceptCallHandler.sendDecision(shouldAccept);
 
     // 7. 如果最终决策是拒绝，则执行拦截处理
     if (!shouldAccept) {
+      debugPrint("--- [IncomingCallHandler] !!! CALL REJECTED !!! Now handling rejection... ---");
       await _handleCallRejection(phoneNumber, callData);
     }
   }
@@ -151,11 +154,14 @@ class IncomingCallHandler {
     // final interceptAction = await _configRepository.getInterceptAction();
     // 此处可以根据 interceptAction 执行具体操作，但当前代码未实现
     
+    /*
     // 如果用户开启了通知，则显示一个电话被拦截的通知
+    //移动到了notification_handler.dart
     if (_notificationHandler.useLocalNotification) {
       await _notificationHandler.showBlockedCallNotification(phoneNumber);
     }
-    
+    */
+
     // 将被拦截的电话号码添加到本地存储的拦截记录中
     await _blockedCallRepository.addBlockedCall(phoneNumber);
     
