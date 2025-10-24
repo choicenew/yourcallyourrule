@@ -44,6 +44,38 @@ class NotificationSettingsWidget extends ConsumerWidget {
               value: config.cancelLocalNotification,
               onChanged: (value) => notifier.setCancelLocalNotification(value),
             ),
+                        // 【新增】: 只有当“自动取消”开启时，才显示延迟时间设置
+            if (config.cancelLocalNotification)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.setDelayTime, // 需要在 .arb 文件中添加
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Slider(
+                            value: config.notificationAutoCancelDelay.inSeconds.toDouble(),
+                            min: 1,
+                            max: 30,
+                            divisions: 29, // 30 - 1
+                            label: "${config.notificationAutoCancelDelay.inSeconds} s",
+                            onChanged: (value) {
+                              notifier.setNotificationAutoCancelDelay(Duration(seconds: value.toInt()));
+                            },
+                          ),
+                        ),
+                        Text("${config.notificationAutoCancelDelay.inSeconds} s"),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              /*
             const Divider(),
             SwitchListTile(
               title: Text(AppLocalizations.of(context)!.useStirNotification),
@@ -51,6 +83,9 @@ class NotificationSettingsWidget extends ConsumerWidget {
               value: config.useStirNotification,
               onChanged: (value) => notifier.setUseStirNotification(value),
             ),
+*/
+
+
           ],
         ),
       ),

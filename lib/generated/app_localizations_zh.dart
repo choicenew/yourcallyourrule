@@ -6065,4 +6065,14 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get notification_instructions =>
       'Instructions:\n1. Tap \"SEND\" to create or update a notification.\n2. Go to your home screen or pull down the notification tray to see the result.\n3. Tap \"END\" to dismiss the notification.';
+
+  @override
+  String get autoCancelNotification => 'Auto Cancel Notification';
+
+  @override
+  String get autoCancelNotificationDescription =>
+      'If checked, the notification will be automatically dismissed when the user taps it.';
+
+  @override
+  String get setDelayTime => 'Set Delay Time';
 }

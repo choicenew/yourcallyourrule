@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/features/call/caller_id/configuration/caller_id_config.dart'; // 【关键修改点】导入新的Config
 import 'package:yourcallyourrule/features/call/caller_id/core/extensions/phone_number_type_extension.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/scrolling_security_message.dart';
-import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service_new.dart';
+import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service.dart';
 import 'package:yourcallyourrule/features/call/caller_id/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
