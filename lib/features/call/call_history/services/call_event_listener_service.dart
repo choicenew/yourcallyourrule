@@ -1,19 +1,12 @@
 import 'dart:async';
 
-import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/caller_id_handler.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/caller_id_handler_extension.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 

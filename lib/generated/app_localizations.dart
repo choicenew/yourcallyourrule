@@ -10769,6 +10769,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Instructions:\n1. Tap \"SEND\" to create or update a notification.\n2. Go to your home screen or pull down the notification tray to see the result.\n3. Tap \"END\" to dismiss the notification.'**
   String get notification_instructions;
+
+  /// A checkbox to toggle whether the notification should be automatically dismissed when the user taps it.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto Cancel Notification'**
+  String get autoCancelNotification;
+
+  /// A description of the auto cancel notification checkbox.
+  ///
+  /// In en, this message translates to:
+  /// **'If checked, the notification will be automatically dismissed when the user taps it.'**
+  String get autoCancelNotificationDescription;
+
+  /// A button to set the delay time for the notification.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Delay Time'**
+  String get setDelayTime;
 }
 
 class _AppLocalizationsDelegate

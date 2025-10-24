@@ -47,12 +47,17 @@ class CallerIdConfig {
   final bool cancelLocalNotification;
   final bool useStirNotification;
   final DisplayMode displayMode;
+    final Duration notificationAutoCancelDelay;
 
+  // 【核心修正】: 移除所有构造函数中的默认值。
+  // 这个类现在是一个纯粹的、不可变的数据传输对象 (DTO)。
+  // 它的值完全由创建它的地方（Notifier）决定。
   const CallerIdConfig({
-    this.useLocalNotification = false,
-    this.cancelLocalNotification = false,
-    this.useStirNotification = false,
-    this.displayMode = DisplayMode.overlay,
+    required this.useLocalNotification,
+    required this.cancelLocalNotification,
+    required this.useStirNotification,
+    required this.displayMode,
+    required this.notificationAutoCancelDelay,
   });
 
   /// 创建配置副本
@@ -61,22 +66,30 @@ class CallerIdConfig {
     bool? cancelLocalNotification,
     bool? useStirNotification,
     DisplayMode? displayMode,
+    Duration? notificationAutoCancelDelay,
   }) {
     return CallerIdConfig(
       useLocalNotification: useLocalNotification ?? this.useLocalNotification,
       cancelLocalNotification: cancelLocalNotification ?? this.cancelLocalNotification,
       useStirNotification: useStirNotification ?? this.useStirNotification,
       displayMode: displayMode ?? this.displayMode,
+            notificationAutoCancelDelay: notificationAutoCancelDelay ?? this.notificationAutoCancelDelay,
     );
   }
 
   /// 从Map创建配置
   factory CallerIdConfig.fromMap(Map<String, dynamic> map) {
+    // fromMap 的逻辑现在是唯一负责从持久化数据创建状态的地方，
+    // 它包含了回退到默认值的逻辑。
     return CallerIdConfig(
       useLocalNotification: map[CallerIdConfigRepository.useLocalNotificationKey] as bool? ?? false,
       cancelLocalNotification: map[CallerIdConfigRepository.cancelLocalNotificationKey] as bool? ?? false,
       useStirNotification: map[CallerIdConfigRepository.useStirNotificationKey] as bool? ?? false,
-      displayMode: DisplayMode.values.firstWhere((e) => e.toString().split('.').last == map[CallerIdConfigRepository.displayModeKey], orElse: () => DisplayMode.overlay),
+      displayMode: DisplayMode.values.firstWhere(
+        (e) => e.name == (map[CallerIdConfigRepository.displayModeKey] as String?),
+        orElse: () => DisplayMode.overlay
+      ),
+     notificationAutoCancelDelay: Duration(seconds: map[CallerIdConfigRepository.notificationAutoCancelDelayKey] as int? ?? CallerIdConfigRepository.defaultNotificationAutoCancelDelayInSeconds),
     );
   }
 
@@ -86,10 +99,12 @@ class CallerIdConfig {
       CallerIdConfigRepository.useLocalNotificationKey: useLocalNotification,
       CallerIdConfigRepository.cancelLocalNotificationKey: cancelLocalNotification,
       CallerIdConfigRepository.useStirNotificationKey: useStirNotification,
-      CallerIdConfigRepository.displayModeKey: displayMode.toString().split('.').last,
+      CallerIdConfigRepository.displayModeKey: displayMode.name,
+      CallerIdConfigRepository.notificationAutoCancelDelayKey: notificationAutoCancelDelay.inSeconds,
     };
   }
 }
+
 
 /// CallerID配置状态通知器 (State Notifier Class)
 ///
@@ -112,7 +127,11 @@ class CallerIdConfigNotifier extends Notifier<CallerIdConfig> {
     // 触发异步加载持久化配置
     _loadConfig();
     // 必须同步返回一个初始状态
-    return const CallerIdConfig();
+     // 【核心修正】: 同步返回一个完全由 Repository 的默认配置构建的初始状态。
+    // 1. 我们需要一种方式同步获取默认值。为此，我们可以在 Repository 中添加一个同步方法。
+    //    或者，更简单的方式是，直接在这里使用 CallerIdConfig.fromMap({})。
+    //    fromMap({}) 会使用其内部所有的 ?? 回退值，这些值应该与 Repository 的默认值保持一致。
+    return CallerIdConfig.fromMap({});
   }
 
   /// 加载配置 (私有方法)
@@ -168,4 +187,13 @@ class CallerIdConfigNotifier extends Notifier<CallerIdConfig> {
       state = state.copyWith(displayMode: value);
     }
   }
+
+  /// 设置自动取消延迟时间的方法
+  Future<void> setNotificationAutoCancelDelay(Duration value) async {
+    await ref.read(callerIdConfigRepositoryProvider).setNotificationAutoCancelDelay(value);
+    if (ref.mounted) {
+      state = state.copyWith(notificationAutoCancelDelay: value);
+    }
+  }
+
 }

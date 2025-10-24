@@ -1,9 +1,10 @@
 // 导入 Riverpod 的代码生成注解包
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 // 导入其他所有需要的包和文件
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
+import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
+import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
 import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
@@ -12,7 +13,6 @@ import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_prov
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service_new.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_asset_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
@@ -55,11 +55,11 @@ class NotificationHandler {
   // 【新增】依赖新的资源服务
   final NotificationAssetService _assetService;
 
-  // 【恢复】: 内部状态变量，用于缓存在初始化时加载的配置。
-  // 这是您原始的、正确的设计，因为它避免了每次都去异步读取 SharedPreferences。
-  bool useLocalNotification = false;
-  bool cancelLocalNotification = false;
-  bool useStirNotification = false;
+ 
+ 
+ 
+ 
+ 
 
   /// 构造函数
   NotificationHandler({
@@ -73,51 +73,21 @@ class NotificationHandler {
   /// 初始化通知处理器
   Future<void> initialize() async {
     // 调用加载设置
-    await loadSettings();
+   
   }
 
-  /// 从仓库加载设置并缓存在成员变量中
-  Future<void> loadSettings() async {
-    useLocalNotification = await _configRepository.getUseLocalNotification();
-    cancelLocalNotification = await _configRepository.getCancelLocalNotification();
-    useStirNotification = await _configRepository.getUseStirNotification();
-    // 【DEBUG】
-    debugPrint(">>> [NotificationHandler] Settings loaded: useLocal=$useLocalNotification, cancelLocal=$cancelLocalNotification, useStir=$useStirNotification");
-  }
-
-  // --- 【恢复】所有 set... 方法 ---
-  // 它们负责更新内部缓存并将其写回仓库，这是您原始的、正确的逻辑。
-  
-  /// 设置是否使用本地通知
-  Future<void> setUseLocalNotification(bool useLocal) async {
-    if (useLocalNotification == useLocal) return;
-    useLocalNotification = useLocal;
-    await _configRepository.setUseLocalNotification(useLocal);
-    debugPrint(">>> [NotificationHandler] Setting 'useLocalNotification' updated to: $useLocal");
-  }
-
-  /// 设置是否关闭本地通知
-  Future<void> closeLocalNotification(bool cancelLocal) async {
-    if (cancelLocalNotification == cancelLocal) return;
-    cancelLocalNotification = cancelLocal;
-    await _configRepository.setCancelLocalNotification(cancelLocal);
-    debugPrint(">>> [NotificationHandler] Setting 'cancelLocalNotification' updated to: $cancelLocal");
-  }
-
-  /// 设置是否使用STIR通知
-  Future<void> setUseStirNotification(bool useStir) async {
-    if (useStirNotification == useStir) return;
-    useStirNotification = useStir;
-    await _configRepository.setUseStirNotification(useStir);
-    debugPrint(">>> [NotificationHandler] Setting 'useStirNotification' updated to: $useStir");
-  }
-
+          
+       
+       
   /// 显示拦截通知
   Future<void> showBlockedCallNotification(String phoneNumber) async {
     // 【DEBUG】
-    debugPrint(">>> [NotificationHandler] Attempting to show BlockedCall notification. Is useLocalNotification enabled? $useLocalNotification");
+    
     
     // 使用内部缓存的状态进行判断
+   // 【核心】: 在执行时，直接从 Repository 读取最新的状态
+    final useLocalNotification = await _configRepository.getUseLocalNotification();
+    debugPrint(">>> [NotificationHandler] Attempting to show BlockedCall notification. Is useLocalNotification enabled? $useLocalNotification");
     if (!useLocalNotification) return;
     
     final context = AppRouter.navigatorKey.currentContext;
@@ -125,6 +95,8 @@ class NotificationHandler {
       debugPrint(">>> [NotificationHandler] Failed to show notification: context is null.");
       return;
     }
+    final cancelNotification = await _configRepository.getCancelLocalNotification();
+    final cancelDelay = await _configRepository.getNotificationAutoCancelDelay();
 
     debugPrint(">>> [NotificationHandler] Showing BlockedCall notification for $phoneNumber.");
     await _notificationService.showNotification(
@@ -133,16 +105,22 @@ class NotificationHandler {
       body: AppLocalizations.of(context)!.blockedCallBody(phoneNumber),
       notificationId: phoneNumber.hashCode,
       payload: {'type': 'call_history'},
-      autoCancel: cancelLocalNotification,
+       autoCancel: cancelNotification,
+      autoCancelDelay: cancelDelay,
     );
   }
 
   /// 显示STIR验证通知
   Future<void> showStirCallNotification(String phoneNumber, bool isVerified,
       bool isNotVerified, bool isFailed) async {
-    // 【DEBUG】
-    debugPrint(">>> [NotificationHandler] Attempting to show StirCall notification. Is useStirNotification enabled? $useStirNotification");
-    
+ 
+ 
+ 
+        // 【核心】: 在执行时，直接从 Repository 读取最新的状态
+    final useStirNotification = await _configRepository.getUseStirNotification();
+       // 【DEBUG】
+   debugPrint(">>> [NotificationHandler] Attempting to show StirCall notification. Is useStirNotification enabled? $useStirNotification");
+   
     if (!useStirNotification) return;
 
     final context = AppRouter.navigatorKey.currentContext;
@@ -150,7 +128,9 @@ class NotificationHandler {
       debugPrint(">>> [NotificationHandler] Failed to show StirCall notification: context is null.");
       return;
     }
-
+  final cancelNotification = await _configRepository.getCancelLocalNotification();
+  final cancelDelay = await _configRepository.getNotificationAutoCancelDelay();
+  
     String stirResultMessage;
     if (isVerified) { stirResultMessage = AppLocalizations.of(context)!.stirVerified; }
     else if (isNotVerified) { stirResultMessage = AppLocalizations.of(context)!.stirNotVerified; }
@@ -164,6 +144,8 @@ class NotificationHandler {
       body: AppLocalizations.of(context)!.stirVerificationBody(stirResultMessage, phoneNumber),
       notificationId: phoneNumber.hashCode,
       payload: {'type': 'call_history'},
+             autoCancel: cancelNotification,
+      autoCancelDelay: cancelDelay,
     );
   }
 
@@ -181,13 +163,22 @@ class NotificationHandler {
   /// 显示来电信息通知
   Future<void> showCallerIdNotification({
     required CallerIdData callerIdData,
+       required SimInfo? simInfo,
+       required StirInfo? stirInfo,
   }) async {
-    debugPrint(">>> [NotificationHandler] Attempting to show CallerId notification. Is useLocalNotification enabled? $useLocalNotification");
+  
+        // 【核心】: 在执行时，直接从 Repository 读取最新的状态
+    final useLocalNotification = await _configRepository.getUseLocalNotification();
+      debugPrint(">>> [NotificationHandler] Attempting to show CallerId notification. Is useLocalNotification enabled? $useLocalNotification");
     if (!useLocalNotification) return;
 
     final context = AppRouter.navigatorKey.currentContext;
     if (context == null) return;
     
+        // 从 Repository 获取其他需要的配置
+    final cancelNotification = await _configRepository.getCancelLocalNotification();
+    final cancelDelay = await _configRepository.getNotificationAutoCancelDelay();
+
     // --- 1. 准备文本内容 ---
     final isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
     final String name = callerIdData.name ?? 'Unknown';
@@ -219,7 +210,9 @@ class NotificationHandler {
     // --- 2. 根据是否诈骗，构建标题和配置 ---
     if (isFraudCall) {
       // 标题包含警告和号码
-      finalTitle = "⚠️ ${AppLocalizations.of(context)!.fraudAlertTitle} ($number)";
+      finalTitle = "⚠️ ${AppLocalizations.of(context)!.fraudAlertTitle} ($number)"
+      // 直接在字符串拼接处加入一个表达式
+      "${simInfo == null ? '' : '-SIM${simInfo.simSlotIndex! + 1}'}";
       // 使用高优先级的诈骗配置
       notificationConfig = NotificationService.fraudAlertConfig(context);
       // 触发增强警告
@@ -262,7 +255,8 @@ class NotificationHandler {
       body: finalBody,
       notificationId: callerIdData.phoneNumber.value.hashCode,
       payload: {'type': 'call_history'},
-      autoCancel: cancelLocalNotification,
+       autoCancel: cancelNotification,
+      autoCancelDelay: cancelDelay,
       style: notificationStyle,
     );
   }

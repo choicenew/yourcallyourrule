@@ -9,7 +9,7 @@ import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 // 导入项目中的服务和配置
-import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service.dart';
+
 import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 // 导入国际化和路由
@@ -109,7 +109,8 @@ class DisplayModeHandler {
       
       
           callerIdData: callerIdData,
-         
+          simInfo: simInfo,
+ stirInfo: stirInfo,
         );
         break;
         

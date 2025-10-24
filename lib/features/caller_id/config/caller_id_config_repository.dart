@@ -20,10 +20,13 @@ class CallerIdConfigRepository {
   static const String cancelLocalNotificationKey = 'config_cancel_local_notification';
   static const String useStirNotificationKey = 'config_use_stir_notification';
   static const String displayModeKey = 'config_display_mode';
-  
+    // 【新增】: 自动取消延迟时间的存储键
+  static const String notificationAutoCancelDelayKey = 'config_notification_auto_cancel_delay';
+
   // 【已移除】: interceptActionKey 不再属于这个配置文件
   // static const String interceptActionKey = 'config_intercept_action';
-  
+  // 【新增】: 定义一个静态常量作为默认延迟时间的唯一来源
+  static const int defaultNotificationAutoCancelDelayInSeconds = 5;
   /// 构造函数
   CallerIdConfigRepository(this._configRepository);
   
@@ -103,6 +106,23 @@ class CallerIdConfigRepository {
     await saveConfig(config);
   }
 
+  // 【新增】: 获取自动取消延迟时间
+  Future<Duration> getNotificationAutoCancelDelay() async {
+    final config = await getConfig();
+    // 【修正】: 使用常量作为回退值
+    final seconds = config[notificationAutoCancelDelayKey] as int? ?? defaultNotificationAutoCancelDelayInSeconds;
+    return Duration(seconds: seconds);
+  }
+
+  // 【新增】: 设置自动取消延迟时间
+  Future<void> setNotificationAutoCancelDelay(Duration value) async {
+    final config = await getConfig();
+    // 将 Duration 转换为秒数 (int) 进行存储
+    config[notificationAutoCancelDelayKey] = value.inSeconds;
+    await saveConfig(config);
+  }
+
+
   /// 获取默认配置
   Map<String, dynamic> _getDefaultConfig() {
     return {
@@ -111,6 +131,8 @@ class CallerIdConfigRepository {
       cancelLocalNotificationKey: false,
       useStirNotificationKey: false,
       displayModeKey: DisplayMode.overlay.name,
+            // 【新增】: 提供默认的延迟时间（5秒）
+      notificationAutoCancelDelayKey: defaultNotificationAutoCancelDelayInSeconds,
     };
   }
 }
