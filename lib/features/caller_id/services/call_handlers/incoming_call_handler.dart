@@ -140,12 +140,14 @@ class IncomingCallHandler {
  debugPrint("--- [IncomingCallHandler] Overall decision for $phoneNumber is: shouldAccept = $shouldAccept ---");
     // 6. 将最终的决策（接听或拒绝）发送给正在等待的原生调用
     _shouldAcceptCallHandler.sendDecision(shouldAccept);
-
+/*
     // 7. 如果最终决策是拒绝，则执行拦截处理
     if (!shouldAccept) {
       debugPrint("--- [IncomingCallHandler] !!! CALL REJECTED !!! Now handling rejection... ---");
       await _handleCallRejection(phoneNumber, callData);
     }
+    */
+    
   }
 
   /// 处理电话被拒绝/拦截的私有方法
@@ -169,5 +171,7 @@ class IncomingCallHandler {
     if (callData != null) {
       this.recordBlockedCallWithOptionalRecorder(phoneNumber, callData);
     }
+
+
   }
 }

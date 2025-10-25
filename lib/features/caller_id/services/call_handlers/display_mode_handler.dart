@@ -13,13 +13,11 @@ import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 // 导入国际化和路由
-import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
 // 导入依赖的 Provider
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_provider.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart'; 
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/notification_handler.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/live_activity_handler.dart'; 
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/live_activity_handler.dart';
 
 // part 指令
 part 'display_mode_handler.g.dart';
@@ -32,7 +30,7 @@ part 'display_mode_handler.g.dart';
 Future<DisplayModeHandler> displayModeHandler(Ref ref) async {
   // 1. 获取它所依赖的 repository 实例
   final configRepository = ref.watch(callerIdConfigRepositoryProvider);
-  
+
   // 2. 创建 handler 实例
   final handler = DisplayModeHandler(
     ref: ref,
@@ -41,7 +39,7 @@ Future<DisplayModeHandler> displayModeHandler(Ref ref) async {
 
   // 3. 执行一次性的异步初始化
   await handler.initialize();
-  
+
   // 4. 返回就绪的 handler
   return handler;
 }
@@ -81,13 +79,19 @@ class DisplayModeHandler {
   }
 
   /// 公共方法，用于显示来电信息。
-  Future<void> showCallerIdInfo(CallerIdData callerIdData, StirInfo? stirInfo, SimInfo? simInfo) async {
+  Future<void> showCallerIdInfo(
+    CallerIdData callerIdData,
+    StirInfo? stirInfo,
+    SimInfo? simInfo,
+  ) async {
     // 【核心修正】:
     // 1. 在执行的这一刻，直接从 Repository 读取最新的配置。
     //    由于 Repository 内部已经实现了 `reload()`，这里获取到的永远是最新值。
     final currentDisplayMode = await _configRepository.getDisplayMode();
-    debugPrint("showCallerIdInfo called. Current display mode from storage is: $currentDisplayMode");
-    
+    debugPrint(
+      "showCallerIdInfo called. Current display mode from storage is: $currentDisplayMode",
+    );
+
     // 2. 在需要显示之前，立即根据最新配置管理引擎的生命周期。
     //    这确保了如果用户刚刚关闭了悬浮窗模式，引擎会被及时 dispose。
     await _manageEngineLifecycle(currentDisplayMode);
@@ -96,26 +100,28 @@ class DisplayModeHandler {
     switch (currentDisplayMode) {
       case DisplayMode.overlay:
         final overlayHandler = _ref.read(overlayHandlerProvider);
-        await overlayHandler.showCallerIdOverlay(callerIdData, stirInfo, simInfo);
-        break;
-      
-      case DisplayMode.notification:
-     
-      
-      
-      
-        final notificationHandler = await _ref.read(notificationHandlerProvider.future);
-        await notificationHandler.showCallerIdNotification(
-      
-      
-          callerIdData: callerIdData,
-          simInfo: simInfo,
- stirInfo: stirInfo,
+        await overlayHandler.showCallerIdOverlay(
+          callerIdData,
+          stirInfo,
+          simInfo,
         );
         break;
-        
+
+      case DisplayMode.notification:
+        final notificationHandler = await _ref.read(
+          notificationHandlerProvider.future,
+        );
+        await notificationHandler.showCallerIdNotification(
+          callerIdData: callerIdData,
+          simInfo: simInfo,
+          stirInfo: stirInfo,
+        );
+        break;
+
       case DisplayMode.live_activity:
-        final liveActivityHandler = await _ref.read(liveActivityHandlerProvider.future);
+        final liveActivityHandler = await _ref.read(
+          liveActivityHandlerProvider.future,
+        );
         await liveActivityHandler.showCallerIdActivity(
           callerIdData: callerIdData,
           simInfo: simInfo,
@@ -128,8 +134,10 @@ class DisplayModeHandler {
   /// 公共方法，关闭所有可能的显示。
   Future<void> closeDisplay() async {
     final overlayHandler = _ref.read(overlayHandlerProvider);
-    final liveActivityHandler = await _ref.read(liveActivityHandlerProvider.future);
-    
+    final liveActivityHandler = await _ref.read(
+      liveActivityHandlerProvider.future,
+    );
+
     overlayHandler.closeOverlay();
     await liveActivityHandler.endActivity();
   }

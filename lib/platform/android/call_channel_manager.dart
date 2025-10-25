@@ -18,6 +18,8 @@ class AndroidCallChannelManager implements CallChannelInterface {
   static const shouldAcceptCallChannel = MethodChannel('com.yours.yourcallyourrule/should_accept_call');
   static const stirChannel = MethodChannel('com.yours.yourcallyourrule/stir_check');
   static const simChannel = MethodChannel('com.yours.yourcallyourrule/sim_check');
+  // ✅ 1. 定义新的 phone_state Channel
+  static const phoneStateChannel = MethodChannel('com.yours.yourcallyourrule/phone_state');
 
   // 回调函数
   @override

@@ -108,6 +108,15 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         color: _randomColor(),
         onTap: () => context.push('/call-statistics'),
       ),
+      _buildFeatureItem(
+        id: 'deletion_proposal',
+        context: context,
+        title: AppLocalizations.of(context)!.deletionProposals,
+        icon: Icons.how_to_vote_outlined,
+        color: _randomColor(),
+        onTap: () => context.push('/deletion-proposal'),
+      ),
+      
     ];
 
     final service = ref.read(featureCenterConfigServiceProvider);

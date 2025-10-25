@@ -25,7 +25,9 @@ class AvatarUtils {
       }
     } else if (labelText != null && labelText.isNotEmpty) {
       // 如果没有头像但有标签，则使用标签构建本地资源路径
+         debugPrint('assets/avatars/$labelText.png');
       return AssetImage('assets/avatars/$labelText.png');
+   
     } else {
       // 如果既没有头像也没有标签，则使用默认头像
       return const AssetImage('assets/avatars/Unknown.png');

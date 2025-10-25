@@ -292,7 +292,19 @@ class RuleRepositoryImpl implements RuleRepository {
     final List<RuleBase> allRules = [];
     
     // 转换PhoneRule
-    allRules.addAll(phoneRules.map((model) => PhoneRule.fromMap(model.toMap())));
+       // 遍历从 phone_rules 表获取的所有模型
+    for (final model in phoneRules) {
+      final map = model.toMap();
+      final ruleType = map['ruleType'] as String?;
+      
+      // 根据 ruleType 的值，决定实例化哪种实体
+      if (ruleType == 'allow_block' || ruleType == 'alloworblock') {
+        allRules.add(AllowedBlockedRule.fromMap(map));
+      } else {
+        // 默认情况下（包括'phone_rule', 'white_black'或null）都创建PhoneRule
+        allRules.add(PhoneRule.fromMap(map));
+      }
+    }
     
     // 转换RegexRule
     allRules.addAll(regexRules.map((model) => RegexRule.fromMap(model.toMap())));

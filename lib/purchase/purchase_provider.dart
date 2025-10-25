@@ -1,6 +1,5 @@
 // 1. 导入必要的包，特别是 riverpod_annotation
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';

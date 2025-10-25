@@ -98,6 +98,9 @@ class CallLogService {
         countryIso: log.countryIso,
         subscriptionId: log.subscriptionId,
         labelIds: labelIds,
+        // 🔥 新增字段
+        endTime: log.endTime,
+        duration: log.duration,
       );
       
       // 更新通话记录

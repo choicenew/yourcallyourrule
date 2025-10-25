@@ -31,13 +31,13 @@ class CallerIdConfigService {
   Future<CallerIdConfig> initializeDefault() async {
     // 注意：这里需要补充您在 CallerIdConfig 中新增的字段的默认值
     const defaultConfig = CallerIdConfig(
-      backgroundColorStart: Color(0xFFE1B026),
-      backgroundColorEnd: Color(0xFFEED065),
-      textNameColor: Color(0xFFFFFFFF),
-      textNumberColor: Color(0xFFBBDEFB),
-      textLocationColor: Color(0xFFE3F2FD),
-      textCarrierColor: Color(0xFFE3F2FD),
-      textCountryNameColor: Color(0xFFBBDEFB),
+      backgroundColorStart: Color(0xFFF0A10F),
+      backgroundColorEnd: Color(0xFFF5961B),
+      textNameColor: Color(0x00FFFFFF),
+      textNumberColor: Color(0x00FFFFFF),
+      textLocationColor: Color(0x00FFFFFF),
+      textCarrierColor: Color(0x00FFFFFF),
+      textCountryNameColor: Color(0x00FFFFFF),
       textLabelsColor: Color(0xFF64B5F6),
       textCountColor: Color(0xFF64B5F6),
       textNumberTypeColor: Color(0xFFBBDEFB),
@@ -63,7 +63,7 @@ class CallerIdConfigService {
       countryNamePosition: Offset(20, 110),
       labelsPosition: Offset(20, 140),
       countPosition: Offset(20, 170),
-      numberTypePosition: Offset(20, 200),
+      numberTypePosition: Offset(50, 150),
       numberPosition: Offset(120, 80),
       locationPosition: Offset(120, 110),
       callTypePosition: Offset(300, 40),
@@ -81,7 +81,7 @@ class CallerIdConfigService {
       windowWidth: 380,
       windowHeight: 235,
       avatarSize: 60,
-      avatarBorderSize: 1,
+      avatarBorderSize: 61,
       iconSize: 20,
     );
     await saveConfig(defaultConfig);

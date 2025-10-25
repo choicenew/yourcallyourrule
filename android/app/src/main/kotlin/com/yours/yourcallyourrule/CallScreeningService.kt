@@ -50,6 +50,9 @@ class MyCallScreeningService : CallScreeningService() {
    // val phoneNumber = callDetails.handle?.schemeSpecificPart
   //  Log.d("CallScreeningService", "Android端onScreenCall triggered. phone number来电去电: $phoneNumber")
     
+          // 🔥 1. 在事件发生的源头，立刻捕獲時間戳！
+        val eventTimestamp = System.currentTimeMillis()
+
 //尝试添加stir 检查服务
     val stirChecker = StirChecker(this@MyCallScreeningService, callDetails)
     
@@ -72,7 +75,8 @@ class MyCallScreeningService : CallScreeningService() {
               //  Log.d("CallScreeningService", "Android端Attempting to send onIncomingCall to Flutter")
                 MethodChannel(binaryMessenger, callerIdChannel).invokeMethod(
                     "onIncomingCall",
-                    mapOf("phoneNumber" to it),
+                    mapOf( "phoneNumber" to it,
+                        "timestamp" to eventTimestamp),
                     object : MethodChannel.Result {
                         override fun success(result: Any?) {
                            // Log.d("CallScreeningService", "Android端Successfully sent onIncomingCall to Flutter")
