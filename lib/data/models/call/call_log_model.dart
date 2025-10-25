@@ -7,6 +7,8 @@ class CallLogModel extends BaseModel<CallLog> {
   final String phoneNumber;
   final String? name; // 添加name字段
   final DateTime timestamp;
+  final DateTime? endTime;
+  final int? duration;
   final String simDisplayName;
   final String callType;
   final int simSlotIndex;
@@ -20,6 +22,8 @@ class CallLogModel extends BaseModel<CallLog> {
     required this.phoneNumber,
     this.name, // 添加name参数
     required this.timestamp,
+    this.endTime,
+    this.duration,
     required this.simDisplayName,
     required this.callType,
     required this.simSlotIndex,
@@ -65,11 +69,36 @@ class CallLogModel extends BaseModel<CallLog> {
       parsedTimestamp = DateTime.now();
     }
 
+    DateTime? parsedEndTime;
+    final dynamic endTimeValue = map['endTime'];
+    if (endTimeValue != null) {
+      if (endTimeValue is int) {
+        parsedEndTime = DateTime.fromMillisecondsSinceEpoch(endTimeValue);
+      } else if (endTimeValue is String) {
+        final int? asInt = int.tryParse(endTimeValue);
+        if (asInt != null) {
+          parsedEndTime = DateTime.fromMillisecondsSinceEpoch(asInt);
+        }
+      }
+    }
+
+    int? parsedDuration;
+    final dynamic durationValue = map['duration'];
+    if (durationValue != null) {
+      if (durationValue is int) {
+        parsedDuration = durationValue;
+      } else if (durationValue is String) {
+        parsedDuration = int.tryParse(durationValue);
+      }
+    }
+
     return CallLogModel(
       id: map['id']?.toString() ?? '',
       phoneNumber: map['phoneNumber'] ?? '',
       name: map['name'],
       timestamp: parsedTimestamp,
+      endTime: parsedEndTime,
+      duration: parsedDuration,
       simDisplayName: map['simDisplayName'] ?? '',
       callType: map['callType'] ?? '',
       simSlotIndex: int.tryParse(map['simSlotIndex']?.toString() ?? '0') ?? 0,
@@ -87,6 +116,8 @@ class CallLogModel extends BaseModel<CallLog> {
       'phoneNumber': phoneNumber,
       'name': name,
       'timestamp': timestamp.millisecondsSinceEpoch,
+      'endTime': endTime?.millisecondsSinceEpoch,
+      'duration': duration,
       'simDisplayName': simDisplayName,
       'callType': callType,
       'simSlotIndex': simSlotIndex,
@@ -104,6 +135,8 @@ class CallLogModel extends BaseModel<CallLog> {
       phoneNumber: phoneNumber,
       name: name, // 添加name字段
       timestamp: timestamp,
+      endTime: endTime,
+      duration: duration,
       simDisplayName: simDisplayName,
       callType: callType,
       simSlotIndex: simSlotIndex,
@@ -120,6 +153,8 @@ class CallLogModel extends BaseModel<CallLog> {
       phoneNumber: entity.phoneNumber,
       name: entity.name, // 添加name字段
       timestamp: entity.timestamp,
+      endTime: entity.endTime,
+      duration: entity.duration,
       simDisplayName: entity.simDisplayName,
       callType: entity.callType,
       simSlotIndex: entity.simSlotIndex,

@@ -1,6 +1,4 @@
 // ad_state.dart
-import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'ad_state.g.dart';

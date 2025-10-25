@@ -31,18 +31,29 @@ import 'package:yourcallyourrule/features/caller_id/services/call_handlers/stir_
 part 'caller_id_monitor_service.g.dart';
 
 /// 全局的、唯一的 CallerIdData 数据流控制器 Provider
-final callerIdDataSubjectProvider = Provider.autoDispose((ref) {
+/// 使用 `@Riverpod(keepAlive: true)` 确保它是一个真正的全局单例，
+/// 不会被意外销毁，可以被后台服务安全地、持续地监听。
+@Riverpod(keepAlive: true)
+BehaviorSubject<CallerIdData> callerIdDataSubject(Ref ref) {
   final subject = BehaviorSubject<CallerIdData>();
   ref.onDispose(() => subject.close());
   return subject;
-});
+}
+
+
+
+
 
 /// 全局的、唯一的原始事件流控制器 Provider
-final rawCallEventStreamControllerProvider = Provider.autoDispose((ref) {
+/// 使用 `keepAlive: true` 确保它的生命周期独立于任何 Notifier，不会被热重载影响。
+@Riverpod(keepAlive: true)
+StreamController<MethodCall> rawCallEventStreamController(Ref ref) {
   final controller = StreamController<MethodCall>.broadcast();
+  // `ref.onDispose` 会在容器被销毁时（即应用完全关闭时）关闭 controller
   ref.onDispose(() => controller.close());
   return controller;
-});
+}
+
 
 
 /// 来电显示监控服务 Provider

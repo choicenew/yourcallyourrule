@@ -58,6 +58,11 @@ class SystemCallLogService {
         // 转换通话类型
         String callType = _mapCallType(entry.callType);
 
+        // 新增：计算通话结束时间和时长
+        final durationInSeconds = entry.duration ?? 0;
+        final durationInMillis = durationInSeconds * 1000;
+        final endTime = callTimestamp.add(Duration(seconds: durationInSeconds));
+
         // 创建应用内通话记录对象
         final appLog = app_call_log.CallLog(
           id: entry.id?.toString() ?? const Uuid().v4(),
@@ -67,6 +72,9 @@ class SystemCallLogService {
           simDisplayName: entry.simDisplayName ?? '',
           callType: callType,
           simSlotIndex: _getSimSlotIndexFromAccountId(entry.phoneAccountId),
+          // 🔥 新增字段
+          endTime: endTime,
+          duration: durationInMillis,
           // 以下字段可能在系统记录中不存在，使用默认值
           carrierName: '',
           countryIso: '',

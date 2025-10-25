@@ -6,7 +6,9 @@ class CallLog extends BaseEntity {
   final List<String>? labelIds;
   final String phoneNumber;
   final String? name; // 添加name字段
-  final DateTime timestamp;
+  final DateTime timestamp; // 通话开始时间
+  final DateTime? endTime;    // 🔥 新增：通话结束时间
+  final int? duration;       // 🔥 新增：通话时长（毫秒）
   final String simDisplayName;
   final String callType;
   final int simSlotIndex;
@@ -20,6 +22,8 @@ class CallLog extends BaseEntity {
     required this.phoneNumber,
     this.name, // 添加name参数
     required this.timestamp,
+    this.endTime,
+    this.duration,
     required this.simDisplayName,
     required this.callType,
     required this.simSlotIndex,
@@ -35,6 +39,8 @@ class CallLog extends BaseEntity {
         'phoneNumber': phoneNumber,
         'name': name, // 添加name字段
         'timestamp': timestamp.millisecondsSinceEpoch,
+        'endTime': endTime?.millisecondsSinceEpoch, // 🔥 新增
+        'duration': duration,                      // 🔥 新增
         'simDisplayName': simDisplayName,
         'callType': callType,
         'simSlotIndex': simSlotIndex,
@@ -79,12 +85,37 @@ class CallLog extends BaseEntity {
       labelIds = List<String>.from(labelIdsData);
     }
 
+    DateTime? parsedEndTime;
+    final dynamic endTimeValue = map['endTime'];
+    if (endTimeValue != null) {
+      if (endTimeValue is int) {
+        parsedEndTime = DateTime.fromMillisecondsSinceEpoch(endTimeValue);
+      } else if (endTimeValue is String) {
+        final int? asInt = int.tryParse(endTimeValue);
+        if (asInt != null) {
+          parsedEndTime = DateTime.fromMillisecondsSinceEpoch(asInt);
+        }
+      }
+    }
+
+    int? parsedDuration;
+    final dynamic durationValue = map['duration'];
+    if (durationValue != null) {
+      if (durationValue is int) {
+        parsedDuration = durationValue;
+      } else if (durationValue is String) {
+        parsedDuration = int.tryParse(durationValue);
+      }
+    }
+
     return CallLog(
       id: map['id'] as String,
       labelIds: labelIds,
       phoneNumber: map['phoneNumber'] as String,
       name: map['name'] as String?,
       timestamp: parsedTimestamp,
+      endTime: parsedEndTime, // 🔥 新增
+      duration: parsedDuration, // 🔥 新增
       simDisplayName: map['simDisplayName'] as String,
       callType: map['callType'] as String,
       simSlotIndex: int.tryParse(map['simSlotIndex']?.toString() ?? '0') ?? 0,
@@ -100,6 +131,8 @@ class CallLog extends BaseEntity {
     String? phoneNumber,
     String? name, // 添加name参数
     DateTime? timestamp,
+    DateTime? endTime,     // 🔥 新增
+    int? duration,        // 🔥 新增
     String? simDisplayName,
     String? callType,
     int? simSlotIndex,
@@ -113,6 +146,8 @@ class CallLog extends BaseEntity {
       phoneNumber: phoneNumber ?? this.phoneNumber,
       name: name ?? this.name, // 添加name字段
       timestamp: timestamp ?? this.timestamp,
+      endTime: endTime ?? this.endTime,       // 🔥 新增
+      duration: duration ?? this.duration,     // 🔥 新增
       simDisplayName: simDisplayName ?? this.simDisplayName,
       callType: callType ?? this.callType,
       simSlotIndex: simSlotIndex ?? this.simSlotIndex,

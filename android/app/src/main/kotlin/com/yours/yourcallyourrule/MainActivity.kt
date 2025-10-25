@@ -124,7 +124,11 @@ private fun requestAppPermissions() {
 
         // 初始化来电显示功能
         callerIdChannelHandler.initializeCallerId()
-
+   // --- ✅【核心修改】---
+        // 在获得权限后，我们明确地启动电话状态监听。
+        // 我们传入 applicationContext，它的生命周期比 Activity 更长。
+        callerIdChannelHandler.registerPhoneStateListener(this.applicationContext)
+        // --- 【核心修改结束】---
         // 初始化短信监听器
         if (permissionsHelper.hasSmsReceivePermission()) {
             smsChannelHandler.registerSmsListener()

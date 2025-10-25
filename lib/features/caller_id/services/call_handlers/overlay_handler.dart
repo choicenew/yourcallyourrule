@@ -1,5 +1,4 @@
 import 'package:floating_window_android/floating_window_android.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 // 导入 Riverpod 代码生成注解
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/common/utils/global_variable.dart';

@@ -8,6 +8,7 @@ import 'package:yourcallyourrule/core/provider/providers/label_sync_service_init
 import 'package:yourcallyourrule/features/call/call_history/provider/call_event_listener_provider.dart';
 
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_control_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/location/services/provider/location_sync_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -84,7 +85,7 @@ Future<void> main() async {
     // 初始化通知服务
     container.read(notificationServiceProvider);
     // --- Add ---
-
+ container.read(overlayControlHandlerProvider);
     // 后台同步服务将通过Provider系统初始化
     
     // 记录应用启动事件

@@ -27,6 +27,7 @@ import 'package:yourcallyourrule/features/caller_id/presentation/pages/end_call_
 import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page_with_ads.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
@@ -181,6 +182,7 @@ class AppRouter {
   static const String notifications = 'notifications';
   static const String liveNotificationCustomization = 'live-notification-customization';
   static const String liveActivitiesTest = 'live-activities-test';
+  static const String deletionProposal = 'deletion-proposal';
 
 
   // 创建路由器
@@ -402,6 +404,12 @@ class AppRouter {
         path: '/$liveActivitiesTest',
         name: liveActivitiesTest,
         builder: (context, state) => const LiveActivitiesTestPage(),
+      ),
+
+      GoRoute(
+        path: '/$deletionProposal',
+        name: deletionProposal,
+        builder: (context, state) => const DeletionProposalPage(),
       ),
 
       // 欺诈警报设置页面

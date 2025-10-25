@@ -26,7 +26,14 @@ class AdControlService {
     // 【初始化逻辑】
     // 在服务首次创建时，也需要根据当前的购买状态立即执行一次更新，
     // 以确保应用启动时的广告状态是正确的。
-    _updateAdStateBasedOnPurchase(_ref.read(purchaseStateProvider));
+       // 【解决方案】
+    // 将初始状态检查放入一个微任务中。
+    // 这会确保这段代码在 adControlServiceProvider 完成初始化之后才执行。
+    Future.microtask(() {
+      // 在这里，读取和修改都是安全的了。
+      final currentPurchaseState = _ref.read(purchaseStateProvider);
+      _updateAdStateBasedOnPurchase(currentPurchaseState);
+    });
   }
 
   /// 私有方法：根据购买状态，自动更新 AdState

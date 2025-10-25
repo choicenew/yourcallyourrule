@@ -19,7 +19,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
       _tableControllers = {};
 
   // 数据库版本
-  static const int _version = 3;
+  static const int _version = 4;
 
   // 数据库名称
   static const String _databaseName = 'local_database.db';
@@ -93,6 +93,8 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         phoneNumber TEXT NOT NULL,
         name TEXT,
         timestamp TEXT NOT NULL,
+        endTime TEXT,
+        duration INTEGER,
         simDisplayName TEXT,
         callType TEXT NOT NULL,
         simSlotIndex INTEGER,
@@ -398,6 +400,14 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
       try {
         // 为labelPhone表添加ruleType列
         await db.execute("ALTER TABLE labelPhone ADD COLUMN ruleType TEXT NOT NULL DEFAULT 'label'");
+      } catch (e) {
+        print('升级数据库时出错: $e');
+      }
+    }
+    if (oldVersion < 4) {
+      try {
+        await db.execute('ALTER TABLE call_history ADD COLUMN endTime TEXT');
+        await db.execute('ALTER TABLE call_history ADD COLUMN duration INTEGER');
       } catch (e) {
         print('升级数据库时出错: $e');
       }

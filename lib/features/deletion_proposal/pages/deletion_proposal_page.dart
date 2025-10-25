@@ -22,7 +22,9 @@ class DeletionProposalPage extends ConsumerStatefulWidget {
 
 class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   late DeletionProposalStatisticsService _statisticsService;
-  
+  bool _isMultiSelectMode = false;
+  Set<String> _selectedProposalIds = {};
+
   @override
   void initState() {
     super.initState();
@@ -30,6 +32,37 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
     _statisticsService = DeletionProposalStatisticsService(
       ref.read(labelMarkStatisticsRepositoryProvider)
     );
+  }
+
+  void _toggleMultiSelectMode() {
+    setState(() {
+      _isMultiSelectMode = !_isMultiSelectMode;
+      if (!_isMultiSelectMode) {
+        _selectedProposalIds = {};
+      }
+    });
+  }
+
+  void _toggleItemSelection(String proposalId) {
+    setState(() {
+      if (_selectedProposalIds.contains(proposalId)) {
+        _selectedProposalIds.remove(proposalId);
+      } else {
+        _selectedProposalIds.add(proposalId);
+      }
+    });
+  }
+
+  void _deleteSelectedProposals() async {
+    // Implement deletion logic here
+    // For example:
+    // await ref.read(deletionProposalProvider.notifier).deleteProposalsByIds(_selectedProposalIds);
+    // After deletion, reset multi-select mode and clear selected items
+    setState(() {
+      _selectedProposalIds = {};
+      _isMultiSelectMode = false;
+    });
+    await ref.read(deletionProposalProvider.notifier).refreshProposals();
   }
 
   @override
@@ -59,19 +92,28 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
             _showCreateProposalDialog(context);
           },
           headerContent: _buildHeaderContent(context),
-          infoCard: StatisticsCard(
-            voteCount: currentVoteCount,
-            onExchangeVip: currentVoteCount >= 10 
-              ? () => _showVipExchangeDialog(context, currentVoteCount)
-              : null,
-          ),
+          infoCard: _buildStatisticsCard(currentVoteCount),
           searchHintText: AppLocalizations.of(context)!.searchProposals,
           onSearchChanged: (query) {
-            // 实现搜索逻辑
             ref.read(deletionProposalProvider.notifier).searchProposals(query);
           },
+          isMultiSelectMode: _isMultiSelectMode,
+          selectedItemIds: _selectedProposalIds,
+          onToggleMultiSelectMode: _toggleMultiSelectMode,
+          onToggleItemSelection: _toggleItemSelection,
+          onDeleteSelected: _deleteSelectedProposals,
+          getItemId: (proposal) => proposal.id,
         );
       },
+    );
+  }
+  
+  Widget _buildStatisticsCard(int currentVoteCount) {
+    return StatisticsCard(
+      voteCount: currentVoteCount,
+      onExchangeVip: currentVoteCount >= 10 
+        ? () => _showVipExchangeDialog(context, currentVoteCount)
+        : null,
     );
   }
   
@@ -131,7 +173,7 @@ Widget _buildHeaderContent(BuildContext context) {
 
   return Padding(
     // 为卡片添加外边距
-    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+    padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 8.0),
     child: Card(
       // 设置卡片的背景色，使用浅色调
       color: noticeColor.shade50,
