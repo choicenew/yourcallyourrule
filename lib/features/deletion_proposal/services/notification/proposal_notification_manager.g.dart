@@ -8,10 +8,17 @@ part of 'proposal_notification_manager.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// ProposalNotificationManager 的 Provider。
+///
+/// 【MODIFIED】: 修正了 Provider 的函数签名，使其与 @riverpod 规范一致。
 
 @ProviderFor(proposalNotificationManager)
 const proposalNotificationManagerProvider =
     ProposalNotificationManagerProvider._();
+
+/// ProposalNotificationManager 的 Provider。
+///
+/// 【MODIFIED】: 修正了 Provider 的函数签名，使其与 @riverpod 规范一致。
 
 final class ProposalNotificationManagerProvider
     extends
@@ -21,6 +28,9 @@ final class ProposalNotificationManagerProvider
           ProposalNotificationManager
         >
     with $Provider<ProposalNotificationManager> {
+  /// ProposalNotificationManager 的 Provider。
+  ///
+  /// 【MODIFIED】: 修正了 Provider 的函数签名，使其与 @riverpod 规范一致。
   const ProposalNotificationManagerProvider._()
     : super(
         from: null,

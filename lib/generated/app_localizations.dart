@@ -10787,6 +10787,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set Delay Time'**
   String get setDelayTime;
+
+  /// The title of the proposal details page.
+  ///
+  /// In en, this message translates to:
+  /// **'Proposal Details'**
+  String get proposalDetails;
+
+  /// The title of the proposal details page.
+  ///
+  /// In en, this message translates to:
+  /// **'Proposal not found'**
+  String get proposalNotFound;
 }
 
 class _AppLocalizationsDelegate

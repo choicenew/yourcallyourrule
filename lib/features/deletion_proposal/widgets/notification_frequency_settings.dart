@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-import '../services/notification_frequency_service.dart';
+import '../services/notification/notification_frequency_service.dart';
 
 class NotificationFrequencySettings extends ConsumerWidget {
   const NotificationFrequencySettings({super.key});

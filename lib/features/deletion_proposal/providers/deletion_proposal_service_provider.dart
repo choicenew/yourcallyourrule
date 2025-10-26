@@ -1,31 +1,26 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:yourcallyourrule/core/provider/basic_provider/database_service_provider.dart';
-import 'package:yourcallyourrule/data/datasources/remote/proposal_datasource.dart';
+// 【MODIFIED】: 引入了新的 Repository Provider
+import 'package:yourcallyourrule/features/deletion_proposal/providers/proposal_repository_provider.dart';
+
 import 'package:yourcallyourrule/features/deletion_proposal/services/deletion_proposal_service.dart';
 
-/// ProposalDataSource的Provider
-/// 用于在应用中提供ProposalDataSource的实例
-final proposalDataSourceProvider = Provider<ProposalDataSource>((ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
-  return ProposalDataSource(databaseService.remoteDatabaseManager);
-});
+part 'deletion_proposal_service_provider.g.dart';
 
-/// DeletionProposalService的Provider
-/// 用于在应用中提供DeletionProposalService的实例
-final deletionProposalServiceProvider = Provider<DeletionProposalService>((ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
-  final proposalDataSource = ref.watch(proposalDataSourceProvider);
+/// DeletionProposalService 的 Provider。
+///
+/// 【MODIFIED】: 使用 @riverpod 注解，并从 `proposalRepositoryProvider` 获取依赖。
+/// 这使得依赖关系更加清晰和可测试。
+@riverpod
+DeletionProposalService deletionProposalService(Ref ref) {
+  final proposalRepository = ref.watch(proposalRepositoryProvider);
   final service = DeletionProposalService(
-    databaseManager: databaseService.remoteDatabaseManager,
-    remoteDataSource: databaseService.remoteNumberDataSource,
-    proposalDataSource: proposalDataSource,
+    proposalRepository: proposalRepository,
   );
   
-  // 当provider被销毁时，释放服务资源
-  ref.onDispose(() {
-    service.dispose();
-  });
+  // Riverpod 3.0 中，如果 Service 不需要特殊的清理逻辑，可以不写 onDispose。
+  // 如果需要，可以像这样添加：
+  // ref.onDispose(() => service.dispose());
   
   return service;
-});
+}

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:sqflite/sqflite.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/data/database/database_manager.dart';
@@ -285,4 +287,154 @@ class ProposalDataSource {
     
     await batch.commit(noResult: true);
   }
+
+
+
+ // --- 众包删除审核系统相关方法 ---
+ /// 记录自定义操作到pending_operations表
+ /// 用于支持删除提议等新的操作类型
+ Future<void> logCustomOperation(
+   String operation,
+   String phoneNumber,
+   Map<String, dynamic>? payload,
+ ) async {
+   final db = await _databaseManager.database;
+   await db.transaction((txn) async {
+     await _logOperation(
+       txn,
+       operation,
+       phoneNumber,
+       payload: payload,
+     );
+   });
+ }
+ /// 提议删除号码
+ /// 这个方法会记录一个PROPOSE_DELETION操作到pending_operations表
+ Future<void> proposeDeletion(
+   String phoneNumber,
+   Map<String, dynamic> report,
+ ) async {
+   await logCustomOperation(
+     'PROPOSE_DELETION',
+     phoneNumber,
+     {
+       'report': report,
+       'timestamp': DateTime.now().toIso8601String(),
+     },
+   );
+ }
+ /// 对删除提议进行投票
+ /// 这个方法会记录一个VOTE_DELETION操作到pending_operations表
+ Future<void> voteOnDeletionProposal(
+   String phoneNumber,
+   String voteType, // 'support' 或 'oppose'
+   Map<String, dynamic>? additionalData,
+ ) async {
+   await logCustomOperation(
+     'VOTE_DELETION',
+     phoneNumber,
+     {
+       'voteType': voteType,
+       'additionalData': additionalData,
+       'timestamp': DateTime.now().toIso8601String(),
+     },
+   );
+ }
+ /// 获取待处理的删除提议操作
+ /// 返回所有PROPOSE_DELETION类型的pending operations
+ Future<List<Map<String, dynamic>>> getPendingDeletionProposals() async {
+   final db = await _databaseManager.database;
+   return await db.query(
+     _pendingOperationsTable,
+     where: 'operation = ?',
+     whereArgs: ['PROPOSE_DELETION'],
+     orderBy: 'timestamp ASC',
+   );
+ }
+ /// 获取待处理的删除投票操作
+ /// 返回所有VOTE_DELETION类型的pending operations
+ Future<List<Map<String, dynamic>>> getPendingDeletionVotes() async {
+   final db = await _databaseManager.database;
+   return await db.query(
+     _pendingOperationsTable,
+     where: 'operation = ?',
+     whereArgs: ['VOTE_DELETION'],
+     orderBy: 'timestamp ASC',
+   );
+ }
+ /// 检查号码是否已有待处理的删除提议
+ Future<bool> hasPendingDeletionProposal(String phoneNumber) async {
+   final db = await _databaseManager.database;
+   final result = await db.query(
+     _pendingOperationsTable,
+     where: 'operation = ? AND entityId = ?',
+     whereArgs: ['PROPOSE_DELETION', phoneNumber],
+     limit: 1,
+   );
+   return result.isNotEmpty;
+ }
+ /// 清除特定号码的删除相关操作
+ Future<void> clearDeletionOperations(String phoneNumber) async {
+   final db = await _databaseManager.database;
+   await db.delete(
+     _pendingOperationsTable,
+     where: 'entityId = ? AND (operation = ? OR operation = ?)',
+     whereArgs: [phoneNumber, 'PROPOSE_DELETION', 'VOTE_DELETION'],
+   );
+ }
+ 
+ /// 获取号码的标签信息
+ Future<Map<String, dynamic>?> getNumberLabels(String phoneNumber) async {
+   try {
+     final db = await _databaseManager.database;
+     final List<Map<String, dynamic>> maps = await db.query(
+       _tableName,
+       columns: ['labels_json'],
+       where: 'phoneNumber = ?',
+       whereArgs: [phoneNumber],
+     );
+     
+     if (maps.isNotEmpty && maps.first['labels_json'] != null) {
+       return jsonDecode(maps.first['labels_json']);
+     }
+     return null;
+   } catch (e) {
+     print('RemoteNumberDataSource: Error getting number labels: $e');
+     return null;
+   }
+ }
+ 
+ /// 获取提议信息，包括验证报告
+ Future<Map<String, dynamic>?> getProposalInfo(String phoneNumber) async {
+   try {
+     final db = await _databaseManager.database;
+     final List<Map<String, dynamic>> proposals = await db.query(
+       _pendingOperationsTable,
+       where: 'entityId = ? AND operation = ?',
+       whereArgs: [phoneNumber, 'PROPOSE_DELETION'],
+     );
+     
+     if (proposals.isNotEmpty) {
+       final proposal = proposals.first;
+       final String? payloadStr = proposal['payload'] as String?;
+       if (payloadStr != null) {
+         return jsonDecode(payloadStr);
+       }
+     }
+     return null;
+   } catch (e) {
+     print('RemoteNumberDataSource: Error getting proposal info: $e');
+     return null;
+   }
+ }
+
+
+
+
+ // 这些方法已移至 ProposalDataSource
+ // countRecentProposals 和 countTotalVotes 方法已被移除
+ // 请使用 ProposalDataSource 中的 countRecentProposals 和 countUnconsumedVotes 方法
+
+
+
 }

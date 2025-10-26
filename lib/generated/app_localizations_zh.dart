@@ -6075,4 +6075,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get setDelayTime => 'Set Delay Time';
+
+  @override
+  String get proposalDetails => 'Proposal Details';
+
+  @override
+  String get proposalNotFound => 'Proposal not found';
 }

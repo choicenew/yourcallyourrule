@@ -699,7 +699,13 @@ class RemoteNumberDataSource
   }
 
   // --- 众包删除审核系统相关方法 ---
-
+ // =======================================================================
+  // 【MODIFIED】: 以下所有与“删除提议”相关的方法已被彻底移除。
+  // REASON: 为了实现职责分离（Separation of Concerns），所有与“提议”相关的
+  //         数据库操作都必须内聚在 `ProposalDataSource` 中。将它们分散在
+  //         `RemoteNumberDataSource` 中会导致逻辑混乱和维护困难。
+  // =======================================================================
+  /*
   /// 记录自定义操作到pending_operations表
   /// 用于支持删除提议等新的操作类型
   Future<void> logCustomOperation(
@@ -846,4 +852,5 @@ class RemoteNumberDataSource
   // 这些方法已移至 ProposalDataSource
   // countRecentProposals 和 countTotalVotes 方法已被移除
   // 请使用 ProposalDataSource 中的 countRecentProposals 和 countUnconsumedVotes 方法
+  */
 }

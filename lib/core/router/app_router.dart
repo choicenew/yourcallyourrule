@@ -28,6 +28,7 @@ import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_pa
 import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
@@ -409,7 +410,31 @@ class AppRouter {
       GoRoute(
         path: '/$deletionProposal',
         name: deletionProposal,
-        builder: (context, state) => const DeletionProposalPage(),
+          builder: (context, state) => const DeletionProposalPage(),
+  routes: [
+    // =======================================================================
+    // 【核心修正】: 添加一个用于处理详情页的子路由。
+    // REASON: 这是让 `router.push('/deletion-proposal/:proposalId')` 能够工作的关键。
+    // =======================================================================
+    GoRoute(
+      // 路径参数 `:proposalId` 会捕获 URL 中 `/deletion-proposal/` 之后的部分
+      path: ':proposalId', 
+      name: 'proposalDetails', // 详情页的名称
+      builder: (context, state) {
+        // 1. 从 `state.pathParameters` 中安全地获取 `proposalId`
+        final proposalId = state.pathParameters['proposalId'];
+        
+        // 2. 安全检查：如果 proposalId 不存在，可以导航到一个错误页面或返回列表页
+        if (proposalId == null) {
+          // 理论上，如果路由匹配，这里不会是 null，但做个检查更安全
+          return const DeletionProposalPage(); 
+        }
+        
+        // 3. 构建并返回我们新创建的 `ProposalDetailPage`
+        return ProposalDetailPage(proposalId: proposalId); 
+      },
+    ),
+  ],
       ),
 
       // 欺诈警报设置页面

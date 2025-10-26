@@ -98,7 +98,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.9,
+        width: MediaQuery.of(context).size.width * 0.95,
         constraints: const BoxConstraints(maxWidth: 500, maxHeight: 600),
         padding: const EdgeInsets.all(24),
         child: Form(
@@ -118,6 +118,9 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                   Text(
                     AppLocalizations.of(context)!.createProposalTitle,
                     style: Theme.of(context).textTheme.headlineSmall,
+                    softWrap: true,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const Spacer(),
                   IconButton(

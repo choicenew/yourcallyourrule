@@ -1,13 +1,18 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+// 【MODIFIED】: 引入了强类型的 Proposal 模型。
+import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/verification_report_card.dart';
 
 /// 删除提议卡片组件
+///
+/// 【MODIFIED】: 这个 Widget 现在是类型安全的，它接收一个 `Proposal` 对象。
 class ProposalCard extends StatefulWidget {
-  final Map<String, dynamic> proposal;
+  // 【MODIFIED】: 参数类型从 `Map<String, dynamic>` 改为强类型的 `Proposal`。
+  final Proposal proposal;
   final Future<bool> Function(String proposalId, bool support) onVote;
   final bool isVoting;
 
@@ -27,30 +32,45 @@ class _ProposalCardState extends State<ProposalCard> {
 
   @override
   Widget build(BuildContext context) {
+    // 【MODIFIED】: 不再需要手动从 Map 中解析和做类型转换。
+    // 我们直接从强类型的 `widget.proposal` 对象访问所有需要的属性。
     final proposal = widget.proposal;
-    final phoneNumber = proposal['phone_number'] as String? ?? '';
-    final reason = proposal['reason'] as String? ?? '';
-    final riskLevel = proposal['risk_level'] as int? ?? 1;
-    final proposalId = proposal['proposal_id'] as String? ?? '';
-    final createdAt = proposal['created_at'] as String?;
-    final supportCount = proposal['support_count'] as int? ?? 0;
-    final opposeCount = proposal['oppose_count'] as int? ?? 0;
-    final status = proposal['status'] as String? ?? 'pending';
-    final verificationReportRaw = proposal['verification_report'];
-    
-    Map<String, dynamic>? verificationReport;
-    if (verificationReportRaw is String) {
-      try {
-        verificationReport = jsonDecode(verificationReportRaw);
-      } catch (e) {
-        // Handle JSON parsing error if necessary
+    final phoneNumber = proposal.phoneNumber;
+    final reason = proposal.reason; // 使用我们在 Proposal 模型中定义的 getter
+    final proposalId = proposal.phoneNumber;
+    final createdAt = proposal.proposalStartTime.toIso8601String();
+    final status = proposal.status.name;
+
+    // 【MODIFIED】: 使用 Proposal 模型中定义的 getters 来获取正确的票数。
+    final supportCount = proposal.supportVotes;
+    final opposeCount = proposal.opposeVotes;
+    final totalVotes = proposal.totalVotes;
+
+    // 【MODIFIED】: 在 Widget 内部处理业务逻辑转换（字符串 -> 整数）。
+    // REASON: 这是 UI 展示逻辑，将其放在 Widget 内部是合适的。
+    int riskLevelToInt(String riskString) {
+      switch (riskString.toLowerCase()) {
+        case 'high':
+          return 5;
+        case 'medium':
+          return 3;
+        case 'low':
+          return 2;
+        case 'verified':
+          return 1;
+        default:
+          return 3;
       }
-    } else if (verificationReportRaw is Map<String, dynamic>) {
-      verificationReport = verificationReportRaw;
     }
 
-    final totalVotes = supportCount + opposeCount;
-    final supportPercentage = totalVotes > 0 ? (supportCount / totalVotes * 100).round() : 0;
+    final riskLevel = riskLevelToInt(proposal.highestRiskLevel);
+
+    // 【MODIFIED】: `verificationReport` 现在也是一个 getter。
+    final verificationReport =
+        proposal.verificationReport; // 使用 Proposal 模型中的 getter
+
+    final supportPercentage =
+        totalVotes > 0 ? (supportCount / totalVotes * 100).round() : 0;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
@@ -75,7 +95,7 @@ class _ProposalCardState extends State<ProposalCard> {
               ],
             ),
             const SizedBox(height: 8),
-            
+
             // Status and creation time
             Row(
               children: [
@@ -91,20 +111,17 @@ class _ProposalCardState extends State<ProposalCard> {
               ],
             ),
             const SizedBox(height: 12),
-            
+
             // Reason
             Text(
               AppLocalizations.of(context)!.reason,
-              style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.labelMedium?.copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 4),
-            Text(
-              reason,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            
+            Text(reason, style: Theme.of(context).textTheme.bodyMedium),
+
             // Verification Report Section
             if (verificationReport != null) ...[
               const SizedBox(height: 12),
@@ -144,7 +161,7 @@ class _ProposalCardState extends State<ProposalCard> {
               ],
             ],
             const SizedBox(height: 16),
-            
+
             // Voting statistics
             if (totalVotes > 0) ...[
               Row(
@@ -156,7 +173,9 @@ class _ProposalCardState extends State<ProposalCard> {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    AppLocalizations.of(context)!.votesWithPercentage(totalVotes, supportPercentage),
+                    AppLocalizations.of(
+                      context,
+                    )!.votesWithPercentage(totalVotes, supportPercentage),
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: Theme.of(context).colorScheme.outline,
                     ),
@@ -167,16 +186,19 @@ class _ProposalCardState extends State<ProposalCard> {
               _buildVotingProgress(context, supportCount, opposeCount),
               const SizedBox(height: 16),
             ],
-            
+
             // Action buttons
             if (status == 'pending') ...[
               Row(
                 children: [
                   Expanded(
                     child: OutlinedButton.icon(
-                      onPressed: widget.isVoting ? null : () => _handleVote(false),
+                      onPressed:
+                          widget.isVoting ? null : () => _handleVote(false),
                       icon: const Icon(Icons.thumb_down, size: 18),
-                      label: Text('${AppLocalizations.of(context)!.voteDisagree} ($opposeCount)'),
+                      label: Text(
+                        '${AppLocalizations.of(context)!.voteDisagree} ($opposeCount)',
+                      ),
                       style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.red,
                         side: const BorderSide(color: Colors.red),
@@ -186,9 +208,12 @@ class _ProposalCardState extends State<ProposalCard> {
                   const SizedBox(width: 12),
                   Expanded(
                     child: FilledButton.icon(
-                      onPressed: widget.isVoting ? null : () => _handleVote(true),
+                      onPressed:
+                          widget.isVoting ? null : () => _handleVote(true),
                       icon: const Icon(Icons.thumb_up, size: 18),
-                      label: Text('${AppLocalizations.of(context)!.voteAgree} ($supportCount)'),
+                      label: Text(
+                        '${AppLocalizations.of(context)!.voteAgree} ($supportCount)',
+                      ),
                       style: FilledButton.styleFrom(
                         backgroundColor: Colors.green,
                         foregroundColor: Colors.white,
@@ -197,17 +222,18 @@ class _ProposalCardState extends State<ProposalCard> {
                   ),
                 ],
               ),
-          ],
+            ],
           ],
         ),
       ),
     );
   }
 
+  // --- 辅助方法 (_buildRiskLevelChip, _buildStatusChip,等) 保持不变 ---
+  // (此处省略所有辅助方法的代码，因为它们无需修改)
   Widget _buildRiskLevelChip(BuildContext context, int riskLevel) {
     Color chipColor;
     String label;
-    
     switch (riskLevel) {
       case 5:
         chipColor = Colors.red;
@@ -231,7 +257,6 @@ class _ProposalCardState extends State<ProposalCard> {
         label = AppLocalizations.of(context)!.riskLevelVeryLow;
         break;
     }
-
     return Chip(
       label: Text(
         label,
@@ -250,7 +275,6 @@ class _ProposalCardState extends State<ProposalCard> {
   Widget _buildStatusChip(BuildContext context, String status) {
     Color chipColor;
     IconData icon;
-    
     switch (status.toLowerCase()) {
       case 'approved':
         chipColor = Colors.green;
@@ -266,13 +290,8 @@ class _ProposalCardState extends State<ProposalCard> {
         icon = Icons.pending;
         break;
     }
-
     return Chip(
-      avatar: Icon(
-        icon,
-        size: 16,
-        color: Colors.white,
-      ),
+      avatar: Icon(icon, size: 16, color: Colors.white),
       label: Text(
         status.toUpperCase(),
         style: const TextStyle(
@@ -287,7 +306,11 @@ class _ProposalCardState extends State<ProposalCard> {
     );
   }
 
-  Widget _buildVotingProgress(BuildContext context, int supportCount, int opposeCount) {
+  Widget _buildVotingProgress(
+    BuildContext context,
+    int supportCount,
+    int opposeCount,
+  ) {
     final total = supportCount + opposeCount;
     if (total == 0) return const SizedBox.shrink();
     
@@ -305,7 +328,10 @@ class _ProposalCardState extends State<ProposalCard> {
                   color: Colors.green,
                   borderRadius: BorderRadius.horizontal(
                     left: const Radius.circular(3),
-                    right: opposeCount == 0 ? const Radius.circular(3) : Radius.zero,
+                    right:
+                        opposeCount == 0
+                            ? const Radius.circular(3)
+                            : Radius.zero,
                   ),
                 ),
               ),
@@ -318,7 +344,10 @@ class _ProposalCardState extends State<ProposalCard> {
                   decoration: BoxDecoration(
                     color: Colors.red,
                     borderRadius: BorderRadius.horizontal(
-                      left: supportCount == 0 ? const Radius.circular(3) : Radius.zero,
+                      left:
+                          supportCount == 0
+                              ? const Radius.circular(3)
+                              : Radius.zero,
                       right: const Radius.circular(3),
                     ),
                   ),
@@ -353,25 +382,19 @@ class _ProposalCardState extends State<ProposalCard> {
   String _formatDateTime(String dateTimeString) {
     try {
       final dateTime = DateTime.parse(dateTimeString);
-      final now = DateTime.now();
-      final difference = now.difference(dateTime);
-      
-      if (difference.inDays > 0) {
-        return '${difference.inDays}d ago';
-      } else if (difference.inHours > 0) {
-        return '${difference.inHours}h ago';
-      } else if (difference.inMinutes > 0) {
-        return '${difference.inMinutes}m ago';
-      } else {
-        return 'Just now';
-      }
+      final difference = DateTime.now().difference(dateTime);
+      if (difference.inDays > 0) return '${difference.inDays}d ago';
+      if (difference.inHours > 0) return '${difference.inHours}h ago';
+      if (difference.inMinutes > 0) return '${difference.inMinutes}m ago';
+      return 'Just now';
     } catch (e) {
       return dateTimeString;
     }
   }
 
   void _handleVote(bool support) {
-    final proposalId = widget.proposal['proposal_id'] as String? ?? '';
+    // 【MODIFIED】: 直接从强类型对象获取 proposalId (即 phoneNumber)
+    final proposalId = widget.proposal.phoneNumber;
     if (proposalId.isNotEmpty) {
       widget.onVote(proposalId, support);
     }
