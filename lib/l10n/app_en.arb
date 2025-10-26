@@ -3180,8 +3180,15 @@
 "setDelayTime": "Set Delay Time",
   "@setDelayTime": {
     "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Proposal Details",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."  
+  },
+"proposalNotFound": "Proposal not found",
+"@proposalNotFound": {
+    "description": "The title of the proposal details page."  
   }
-
  
  
  

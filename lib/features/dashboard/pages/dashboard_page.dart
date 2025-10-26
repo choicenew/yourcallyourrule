@@ -9,6 +9,7 @@ import 'package:yourcallyourrule/core/provider/providers/call_log_service_provid
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/statistics_container_widget.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/repositories/call_statistics_repository_impl.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
@@ -197,7 +198,9 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
           children: [
             // 总览卡片
             _buildOverviewCard(),
-            
+
+            //StatisticsCard数据
+            StatisticsContainerWidget(),
             // 广告位
             _buildAdPlaceholder(),
             

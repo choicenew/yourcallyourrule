@@ -1,380 +1,246 @@
+import 'dart:async';
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+// 引入所有必要的 Provider 和模型
+import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_service_provider.dart';
-import '../services/deletion_proposal_service.dart';
 
+part 'deletion_proposal_provider.g.dart';
 
-/// 删除提议状态
+/// 删除提议状态模型。
 class DeletionProposalState {
-  final List<Map<String, dynamic>> pendingProposals;
-  final List<Map<String, dynamic>> pendingVotes;
-  final Map<String, int> statistics;
+  // 【MODIFIED】: 新增 `_allProposals` 字段
+  // REASON: 用于缓存从数据源获取的原始、完整的提议列表。
+  //         `proposals` 字段现在将用于存储过滤后（用于UI展示）的列表。
+  final List<Proposal> _allProposals;
+  
+  /// 用于UI展示的提议列表（可能是完整的，也可能是搜索过滤后的）。
+  final List<Proposal> proposals;
+
   final bool isLoading;
   final String? error;
   final bool isSubmitting;
-  final String? lastProposalId;
+  // 【核心修正】: 完整地、正确地添加了 `statistics` 字段。
+  // REASON: 这是我之前遗漏的关键功能，用于 UI 层方便地访问统计数据。
+  // =======================================================================
+  final Map<String, int> statistics;
 
   const DeletionProposalState({
-    this.pendingProposals = const [],
-    this.pendingVotes = const [],
-    this.statistics = const {},
+    List<Proposal>? allProposals,
+    this.proposals = const [],
     this.isLoading = false,
     this.error,
     this.isSubmitting = false,
-    this.lastProposalId,
-  });
-
-  // 添加 proposals getter 以兼容页面中的调用
-  List<Map<String, dynamic>> get proposals => pendingProposals;
+      this.statistics = const {}, // 【MODIFIED】: 添加默认值
+  }) : _allProposals = allProposals ?? proposals; // 如果未提供 allProposals，则默认等于 proposals
 
   DeletionProposalState copyWith({
-    List<Map<String, dynamic>>? pendingProposals,
-    List<Map<String, dynamic>>? pendingVotes,
-    Map<String, int>? statistics,
+    List<Proposal>? allProposals,
+    List<Proposal>? proposals,
     bool? isLoading,
     String? error,
     bool? isSubmitting,
-    String? lastProposalId,
+    Map<String, int>? statistics, // 【MODIFIED】: 添加到 copyWith
   }) {
     return DeletionProposalState(
-      pendingProposals: pendingProposals ?? this.pendingProposals,
-      pendingVotes: pendingVotes ?? this.pendingVotes,
-      statistics: statistics ?? this.statistics,
+      allProposals: allProposals ?? _allProposals,
+      proposals: proposals ?? this.proposals,
       isLoading: isLoading ?? this.isLoading,
       error: error,
       isSubmitting: isSubmitting ?? this.isSubmitting,
-      lastProposalId: lastProposalId ?? this.lastProposalId,
+         statistics: statistics ?? this.statistics, // 【MODIFIED】
     );
   }
 
+  // 【MODIFIED】: 更新 `==` 和 `hashCode` 以包含 `statistics`
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
+    final listEquals = const DeepCollectionEquality().equals;
+    final mapEquals = const DeepCollectionEquality().equals;
+  
     return other is DeletionProposalState &&
-        listEquals(other.pendingProposals, pendingProposals) &&
-        listEquals(other.pendingVotes, pendingVotes) &&
-        mapEquals(other.statistics, statistics) &&
-        other.isLoading == isLoading &&
-        other.error == error &&
-        other.isSubmitting == isSubmitting &&
-        other.lastProposalId == lastProposalId;
+      listEquals(other._allProposals, _allProposals) &&
+      listEquals(other.proposals, proposals) &&
+      other.isLoading == isLoading &&
+      other.error == error &&
+      other.isSubmitting == isSubmitting &&
+      mapEquals(other.statistics, statistics);
   }
 
   @override
   int get hashCode {
     return Object.hash(
-      pendingProposals,
-      pendingVotes,
-      statistics,
+      const DeepCollectionEquality().hash(_allProposals),
+      const DeepCollectionEquality().hash(proposals),
       isLoading,
       error,
       isSubmitting,
-      lastProposalId,
+      const DeepCollectionEquality().hash(statistics),
     );
   }
 }
 
-
-
-/// 删除提议状态通知器
-class DeletionProposalNotifier extends Notifier<DeletionProposalState> {
-  late final DeletionProposalService _service;
+// =======================================================================
+// 【核心修正】: `DeletionProposalNotifier` 现在会正确地加载和更新 `statistics`。
+// =======================================================================
+/// 删除提议状态的 Notifier。
+@Riverpod(keepAlive: true)
+class DeletionProposalNotifier extends _$DeletionProposalNotifier {
   late final String _deviceId;
-  late final String? _userId;
 
   @override
   DeletionProposalState build() {
-    _service = ref.watch(deletionProposalServiceProvider);
-    // 这里应该从设备信息或用户配置中获取实际的设备ID和用户ID
-    _deviceId = 'default_device_id'; // 实际应用中需要获取真实设备ID
-    _userId = null; // 可选的用户ID
-    
-    return const DeletionProposalState();
+    _loadInitialData();
+    return const DeletionProposalState(isLoading: true);
   }
 
-  /// 初始化数据
-  Future<void> initialize() async {
-    if (state.isLoading) return;
-    
-    state = state.copyWith(isLoading: true, error: null);
-    
-    try {
-      await Future.wait([
-        loadPendingProposals(),
-        loadPendingVotes(),
-        loadStatistics(),
-      ]);
-      
-      state = state.copyWith(isLoading: false);
-    } catch (e) {
-      state = state.copyWith(
-        isLoading: false,
-        error: 'Failed to initialize: $e',
-      );
-    }
+  Future<void> _loadInitialData() async {
+    _deviceId = await ref.read(deviceIdServiceProvider).getDeviceId();
+      // 【MODIFIED】: 初始化时同时加载提议和统计数据
+    await Future.wait([
+      loadPendingProposals(),
+      loadStatistics(),
+    ]);
+    state = state.copyWith(isLoading: false);
   }
-
-  /// 加载待处理的删除提议
+  
+  /// 加载待处理的删除提议。
   Future<void> loadPendingProposals() async {
+    state = state.copyWith(isLoading: true, error: null);
     try {
-      final proposals = await _service.getPendingProposals();
-      state = state.copyWith(pendingProposals: proposals, error: null);
-    } catch (e) {
-      state = state.copyWith(error: 'Failed to load proposals: $e');
-    }
-  }
-
-  /// 加载待处理的投票
-  Future<void> loadPendingVotes() async {
-    try {
-      final votes = await _service.getPendingVotes(
-        deviceId: _deviceId,
-        userId: _userId,
+      final proposals = await ref.read(deletionProposalServiceProvider).getPendingProposals();
+      // 【MODIFIED】: 同时更新 `_allProposals` (原始数据) 和 `proposals` (展示数据)。
+      state = state.copyWith(
+        allProposals: proposals, 
+        proposals: proposals, 
+        isLoading: false
       );
-      state = state.copyWith(pendingVotes: votes, error: null);
     } catch (e) {
-      state = state.copyWith(error: 'Failed to load votes: $e');
+      state = state.copyWith(isLoading: false, error: 'Failed to load proposals: $e');
     }
   }
 
-  /// 加载统计信息
+  /// 【新恢复】: 添加了加载统计数据的方法。
   Future<void> loadStatistics() async {
     try {
-      final statistics = await _service.getProposalStatistics();
-      state = state.copyWith(statistics: statistics, error: null);
+      final stats = await ref.read(deletionProposalServiceProvider).getProposalStatistics();
+      state = state.copyWith(statistics: stats);
     } catch (e) {
-      state = state.copyWith(error: 'Failed to load statistics: $e');
+      // 统计加载失败通常不是关键错误，可以只打印日志
+      debugPrint('Failed to load statistics: $e');
     }
   }
-
-  /// 提议删除号码
-  Future<bool> proposeDeletion({
-    required String phoneNumber,
-    required String reason,
-    required int riskLevel,
-  }) async {
+  
+  /// 创建一个新的删除提议。
+  Future<bool> createProposal(String phoneNumber, String reason, int riskLevel) async {
     if (state.isSubmitting) return false;
-    
-    // 验证输入
-    if (!_service.validateProposal(
-      phoneNumber: phoneNumber,
-      reason: reason,
-      riskLevel: riskLevel,
-    )) {
-      state = state.copyWith(error: 'Invalid proposal data');
-      return false;
-    }
-
     state = state.copyWith(isSubmitting: true, error: null);
-    
     try {
-      final proposalId = await _service.proposeDeletion(
+      final proposalId = await ref.read(deletionProposalServiceProvider).proposeDeletion(
         phoneNumber: phoneNumber,
         reason: reason,
         riskLevel: riskLevel,
         deviceId: _deviceId,
-        userId: _userId,
       );
-      
       if (proposalId != null) {
-        state = state.copyWith(
-          isSubmitting: false,
-          lastProposalId: proposalId,
-        );
-        
-        // 刷新数据
-        await Future.wait([
-          loadPendingProposals(),
-          loadStatistics(),
-        ]);
-        
+        state = state.copyWith(isSubmitting: false);
+       await Future.wait([loadPendingProposals(), loadStatistics()]); // 刷新提议和统计数据
         return true;
       } else {
-        state = state.copyWith(
-          isSubmitting: false,
-          error: 'Failed to create proposal',
-        );
+        state = state.copyWith(isSubmitting: false, error: 'Failed to create proposal.');
         return false;
       }
     } catch (e) {
-      state = state.copyWith(
-        isSubmitting: false,
-        error: 'Error creating proposal: $e',
-      );
+      state = state.copyWith(isSubmitting: false, error: 'Error creating proposal: $e');
       return false;
     }
   }
-  
-  /// 创建提案 - 为页面提供的简化方法
-  Future<bool> createProposal(
-    String phoneNumber,
-    String reason,
-    int riskLevel,
-  ) async {
-    return proposeDeletion(
-      phoneNumber: phoneNumber,
-      reason: reason,
-      riskLevel: riskLevel,
-    );
-  }
 
-  /// 对删除提议投票
-  Future<bool> voteOnProposal({
-    required String proposalId,
-    required bool support,
-  }) async {
+  /// 对一个删除提议进行投票。
+  Future<bool> voteOnProposal({required String proposalId, required bool support}) async {
     if (state.isSubmitting) return false;
-    
     state = state.copyWith(isSubmitting: true, error: null);
-    
     try {
-      final success = await _service.voteOnProposal(
+      final success = await ref.read(deletionProposalServiceProvider).voteOnProposal(
         proposalId: proposalId,
         support: support,
         deviceId: _deviceId,
-        userId: _userId,
       );
-      
       state = state.copyWith(isSubmitting: false);
-      
       if (success) {
-        // 刷新数据
-        await Future.wait([
-          loadPendingProposals(),
-          loadPendingVotes(),
-          loadStatistics(),
-        ]);
+        await Future.wait([loadPendingProposals(), loadStatistics()]); // 刷新
         return true;
       } else {
-        state = state.copyWith(error: 'Failed to submit vote');
+        state = state.copyWith(error: 'Failed to submit vote.');
         return false;
       }
     } catch (e) {
-      state = state.copyWith(
-        isSubmitting: false,
-        error: 'Error submitting vote: $e',
-      );
+      state = state.copyWith(isSubmitting: false, error: 'Error submitting vote: $e');
       return false;
     }
-  }
-
-  /// 检查号码是否有待处理的删除提议
-  Future<bool> hasPendingProposal(String phoneNumber) async {
-    try {
-      return await _service.hasPendingProposal(phoneNumber);
-    } catch (e) {
-      debugPrint('Error checking pending proposal: $e');
-      return false;
-    }
-  }
-
-  /// 获取提议详情
-  Future<Map<String, dynamic>?> getProposalDetails(String proposalId) async {
-    try {
-      return await _service.getProposalDetails(proposalId);
-    } catch (e) {
-      state = state.copyWith(error: 'Failed to get proposal details: $e');
-      return null;
-    }
-  }
-
-  /// 刷新所有数据
-  Future<void> refresh() async {
-    await initialize();
   }
   
-  /// 刷新提议列表
+  /// 刷新提议列表。
   Future<void> refreshProposals() async {
-    await loadPendingProposals();
+       // 【MODIFIED】: 刷新时同时刷新提议和统计
+    await Future.wait([
+      loadPendingProposals(),
+      loadStatistics(),
+    ]);
   }
+
+  // =======================================================================
+  // 【核心修正】: 完整恢复了 `searchProposals` 功能，并优化了其逻辑。
+  // REASON: 这是 UI 层必需的功能，之前被严重遗漏。
+  // =======================================================================
   
-  /// 搜索提议
-  Future<void> searchProposals(String query) async {
+  /// 在已加载的提议列表中进行搜索。
+  ///
+  /// 此方法在内存中进行过滤，不会触发新的网络或数据库请求，性能极高。
+  void searchProposals(String query) {
+    // 1. 获取缓存的原始列表
+    final allProposals = state._allProposals;
+    
+    // 2. 如果搜索查询为空，直接恢复显示完整的列表
     if (query.isEmpty) {
-      await loadPendingProposals();
+      state = state.copyWith(proposals: allProposals);
       return;
     }
     
-    try {
-      final allProposals = await _service.getPendingProposals();
-      final filteredProposals = allProposals.where((proposal) {
-        final phoneNumber = proposal['phoneNumber']?.toString() ?? '';
-        final reason = proposal['reason']?.toString() ?? '';
-        final proposalId = proposal['proposalId']?.toString() ?? '';
-        
-        return phoneNumber.toLowerCase().contains(query.toLowerCase()) ||
-               reason.toLowerCase().contains(query.toLowerCase()) ||
-               proposalId.toLowerCase().contains(query.toLowerCase());
-      }).toList();
+    // 3. 在内存中执行过滤操作
+    final lowerCaseQuery = query.toLowerCase();
+    final filteredProposals = allProposals.where((proposal) {
+      // 【MODIFIED】: 搜索现在基于强类型的 `Proposal` 对象属性，更安全、更清晰。
+      final phoneNumber = proposal.phoneNumber.toLowerCase();
+      // 使用我们之前在 Proposal 模型中定义的 reason getter
+      final reason = proposal.reason.toLowerCase();
       
-      state = state.copyWith(pendingProposals: filteredProposals, error: null);
-    } catch (e) {
-      state = state.copyWith(error: 'Failed to search proposals: $e');
-    }
+      return phoneNumber.contains(lowerCaseQuery) ||
+             reason.contains(lowerCaseQuery);
+    }).toList();
+    
+    // 4. 更新用于UI展示的 `proposals` 列表
+    state = state.copyWith(proposals: filteredProposals);
   }
-
-  /// 清理已完成的操作
-  Future<void> cleanupCompleted() async {
-    try {
-      await _service.cleanupCompletedOperations();
-      await refresh();
-    } catch (e) {
-      state = state.copyWith(error: 'Failed to cleanup: $e');
-    }
-  }
-
-  /// 清除错误状态
-  void clearError() {
-    state = state.copyWith(error: null);
-  }
-
-  /// 获取风险等级描述
-  String getRiskLevelDescription(int riskLevel) {
-    return _service.getRiskLevelDescription(riskLevel);
-  }
-
-  // 移除 dispose 方法，因为 Notifier 类中没有定义此方法
-  // 在 Riverpod 3.0 中，资源清理应该在 build 方法中使用 ref.onDispose
-  // 或者在 Notifier 类中使用自定义方法
 }
 
-/// 删除提议状态提供者
-final deletionProposalProvider = NotifierProvider<DeletionProposalNotifier, DeletionProposalState>(
-  DeletionProposalNotifier.new,
-);
-
-/// 待处理提议数量提供者
-final pendingProposalsCountProvider = Provider<int>((ref) {
-  final state = ref.watch(deletionProposalProvider);
-  return state.pendingProposals.length;
-});
-
-/// 待处理投票数量提供者
-final pendingVotesCountProvider = Provider<int>((ref) {
-  final state = ref.watch(deletionProposalProvider);
-  return state.pendingVotes.length;
-});
-
-/// 高风险提议数量提供者
-final highRiskProposalsCountProvider = Provider<int>((ref) {
-  final state = ref.watch(deletionProposalProvider);
-  return state.statistics['highRisk'] ?? 0;
-});
-
-/// 是否有待处理操作提供者
-final hasPendingOperationsProvider = Provider<bool>((ref) {
-  final state = ref.watch(deletionProposalProvider);
-  return state.pendingProposals.isNotEmpty || state.pendingVotes.isNotEmpty;
-});
-
-/// 特定号码的删除提议检查提供者
-final phoneNumberProposalProvider = FutureProvider.family<bool, String>((ref, phoneNumber) async {
-  final notifier = ref.read(deletionProposalProvider.notifier);
-  return await notifier.hasPendingProposal(phoneNumber);
-});
-
-/// 提议详情提供者
-final proposalDetailsProvider = FutureProvider.family<Map<String, dynamic>?, String>((ref, proposalId) async {
-  final notifier = ref.read(deletionProposalProvider.notifier);
-  return await notifier.getProposalDetails(proposalId);
-});
+// =======================================================================
+// 【核心修正】: 创建一个新的 Provider，专门用于异步获取单个提议的详情。
+// REASON: 这使得详情页可以独立于列表页的状态，实现了解耦，并能处理数据尚未加载的情况。
+// =======================================================================
+@riverpod
+Future<Proposal?> proposalDetails(Ref ref, String proposalId) async {
+  // 1. 获取 DeletionProposalService 的实例。
+  final service = ref.watch(deletionProposalServiceProvider);
+  
+  // 2. 调用 Service 中获取单个提议详情的方法。
+  final proposal = await service.getProposalDetails(proposalId);
+  
+  // 3. 返回获取到的数据。
+  //    如果 service 返回 null，这个 Provider 的状态也会是 `AsyncData(null)`。
+  return proposal;
+}

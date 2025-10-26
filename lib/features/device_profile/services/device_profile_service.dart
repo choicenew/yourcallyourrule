@@ -1,6 +1,7 @@
 // lib/features/device_profile/services/device_profile_service.dart
 
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:sim_reader/sim_reader.dart';
 import 'package:sim_card_code/sim_card_code.dart' hide NetworkInfo;
@@ -44,7 +45,11 @@ class DeviceProfileService {
     try {
       final response = await http.get(Uri.parse('http://ip-api.com/json'));
       if (response.statusCode == 200) return IpInfo.fromJson(jsonDecode(response.body));
-    } catch (e) { print("Failed to get IP info: $e"); }
+    } catch (e) { 
+      if (kDebugMode) {
+        debugPrint("Failed to get IP info: $e");
+      }
+    }
     return null;
   }
   
@@ -72,7 +77,9 @@ class DeviceProfileService {
         ipInfo: results[3] as IpInfo?, simState: results[4] as String?,
       );
     } catch (e) {
-      print("Error getting raw device profile: $e");
+      if (kDebugMode) {
+        debugPrint("Error getting raw device profile: $e");
+      }
       rethrow;
     }
   }

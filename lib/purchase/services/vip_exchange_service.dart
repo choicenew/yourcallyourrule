@@ -14,23 +14,18 @@ import '../purchase_state.dart';
 final vipExchangeServiceProvider = Provider<VipExchangeService>((ref) {
   final purchaseState = ref.watch(purchaseStateProvider.notifier);
   final labelMarkStatisticsRepository = LabelMarkStatisticsRepositoryImpl(
-    LocalLabelMarkStatisticsDataSource(LocalDatabaseManagerImpl())
+    LocalLabelMarkStatisticsDataSource(LocalDatabaseManagerImpl()),
   );
   return VipExchangeService(purchaseState, labelMarkStatisticsRepository);
 });
 
-// 标记统计服务提供者
-final labelMarkStatisticsRepositoryProvider = Provider<LabelMarkStatisticsRepository>((ref) {
-  return LabelMarkStatisticsRepositoryImpl(
-    LocalLabelMarkStatisticsDataSource(LocalDatabaseManagerImpl())
-  );
-});
+
 
 // VIP兑换服务类
 class VipExchangeService {
   final PurchaseState _purchaseState;
   final LabelMarkStatisticsRepository _statisticsRepository;
-  
+
   // 兑换规则
   // 为了在静态列表中使用国际化，我们将其改为一个getter，这样可以在调用时获取上下文。
   // 这完全遵循了您在`MembershipFeatureService`中展示的模式。
@@ -60,21 +55,21 @@ class VipExchangeService {
       ),
     ];
   }
-  
+
   // 构造函数
   VipExchangeService(this._purchaseState, this._statisticsRepository);
-  
+
   // 获取可用的兑换规则
   List<VipExchangeRule> getAvailableExchangeRules() {
     return _exchangeRules;
   }
-  
+
   // 检查是否可以兑换
   Future<bool> canExchange(int requiredMarks) async {
     final currentMarks = await _statisticsRepository.getMarkCount();
     return currentMarks >= requiredMarks;
   }
-  
+
   // 兑换VIP
   Future<VipExchangeResult> exchangeVip(int requiredMarks) async {
     final context = AppRouter.navigatorKey.currentContext!;
@@ -87,17 +82,21 @@ class VipExchangeService {
         currentMarks: await _statisticsRepository.getMarkCount(),
       );
     }
-    
+
     // 获取兑换规则
     final rule = _exchangeRules.firstWhere(
       (rule) => rule.requiredMarks == requiredMarks,
-      orElse: () => throw Exception(AppLocalizations.of(context)!.invalidExchangeRule),
+      orElse:
+          () =>
+              throw Exception(
+                AppLocalizations.of(context)!.invalidExchangeRule,
+              ),
     );
-    
+
     try {
       // 计算VIP到期时间
       final expiryDate = DateTime.now().add(Duration(days: rule.days));
-      
+
       // 更新购买状态
       if (!rule.hasAds) {
         // 全功能无广告VIP
@@ -108,13 +107,15 @@ class VipExchangeService {
         await _purchaseState.updatePurchaseState(false);
         await _purchaseState.updateTempPurchaseState(true, expiryDate);
       }
-      
+
       // 重置标记计数
       await _statisticsRepository.resetMarkCount();
-      
+
       return VipExchangeResult(
         success: true,
-        message: AppLocalizations.of(context)!.exchangeSuccess(rule.description, _formatDateTime(expiryDate)),
+        message: AppLocalizations.of(
+          context,
+        )!.exchangeSuccess(rule.description, _formatDateTime(expiryDate)),
         currentMarks: 0,
         expiryDate: expiryDate,
       );
@@ -126,15 +127,15 @@ class VipExchangeService {
       );
     }
   }
-  
+
   // 格式化日期时间
   String _formatDateTime(DateTime dateTime) {
     return '${dateTime.year}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')} ${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}';
   }
-  
+
   // 获取标记计数流
   Stream<int> get markCountStream => _statisticsRepository.markCountStream;
-  
+
   // 获取当前标记计数
   Future<int> getMarkCount() => _statisticsRepository.getMarkCount();
 }

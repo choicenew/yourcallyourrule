@@ -367,7 +367,7 @@ class _CallerIdCustomizationScreenState
             AppLocalizations.of(context)!.avatarBorderSize,
             config.avatarBorderSize,
             1,
-            10,
+            100,
             notifier.setAvatarBorderSize),
         _buildSlider(AppLocalizations.of(context)!.iconSize, config.iconSize,
             16, 32, notifier.setIconSize),
