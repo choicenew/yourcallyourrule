@@ -13,14 +13,14 @@ import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_page.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/pages/call_history_page_with_timeline_with_ads.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/screens/caller_id_customization_screen.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/pages/fraud_alert_settings_page.dart';
 import 'package:yourcallyourrule/features/caller_id/presentation/pages/caller_id_settings_page.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/pages/time_interceptor_settings_page.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call_statistics_page.dart';
@@ -351,7 +351,7 @@ class AppRouter {
           return Consumer(
             builder: (context, ref, _) {
               final ruleRepository = ref.watch(ruleRepositoryProvider);
-              return SimSlotRulePage(
+              return SimSlotRuleFilterPage(
                 simSlotRuleService: simSlotRuleService,
                 enhancedCompositeFilterService: state.extra as dynamic,
                 configRepository: configRepository,

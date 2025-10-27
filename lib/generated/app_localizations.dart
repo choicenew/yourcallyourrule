@@ -10794,11 +10794,77 @@ abstract class AppLocalizations {
   /// **'Proposal Details'**
   String get proposalDetails;
 
-  /// The title of the proposal details page.
+  /// No description provided for @filterByStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by Status'**
+  String get filterByStatus;
+
+  /// A message displayed when a proposal is not found.
   ///
   /// In en, this message translates to:
   /// **'Proposal not found'**
   String get proposalNotFound;
+
+  /// A label for the processed status.
+  ///
+  /// In en, this message translates to:
+  /// **'Processed'**
+  String get processed;
+
+  /// A button to show all proposals.
+  ///
+  /// In en, this message translates to:
+  /// **'Show All'**
+  String get showAll;
+
+  /// No description provided for @filterAndSortTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter and Sort'**
+  String get filterAndSortTitle;
+
+  /// A checkbox to toggle whether to filter verified owners.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Verified Owner'**
+  String get filterVerifiedOwner;
+
+  /// A label for the filter by dropdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter By'**
+  String get filterBy;
+
+  /// No description provided for @sortOldest.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort Oldest'**
+  String get sortOldest;
+
+  /// No description provided for @sortNewest.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort Newest'**
+  String get sortNewest;
+
+  /// No description provided for @sortMostPopular.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort Most Popular'**
+  String get sortMostPopular;
+
+  /// No description provided for @sortLeastPopular.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort Least Popular'**
+  String get sortLeastPopular;
+
+  /// No description provided for @sortBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort By'**
+  String get sortBy;
 }
 
 class _AppLocalizationsDelegate

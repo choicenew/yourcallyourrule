@@ -5,12 +5,12 @@ import 'package:permission_handler/permission_handler.dart';
 
 import 'package:sim_reader/sim_reader.dart'; // Replaced sim_card_info
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/provider/providers/sim_slot_rule_service_provider.dart';
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/enhanced_composite_filter_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_filter_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/local_count_filter_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
 
 /// 过滤管理组件

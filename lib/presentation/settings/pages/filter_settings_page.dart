@@ -4,12 +4,12 @@ import 'package:yourcallyourrule/core/provider/providers/call_filter_service_pro
 import 'package:yourcallyourrule/core/provider/providers/enhanced_composite_filter_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/local_count_filter_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/sim_slot_rule_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service_provider.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/enhanced_composite_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';

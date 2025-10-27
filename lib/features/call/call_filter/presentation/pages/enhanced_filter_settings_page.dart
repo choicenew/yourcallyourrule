@@ -5,8 +5,8 @@ import 'package:yourcallyourrule/data/repositories/config/config_repository.dart
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_page.dart';
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/enhanced_composite_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
@@ -172,11 +172,11 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
   }
 
   /// 导航到SIM卡规则管理页面
-  void _navigateToSimSlotRulePage(int simSlotIndex) {
+  void _navigateToSimSlotRuleFilterPage(int simSlotIndex) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SimSlotRulePage(
+        builder: (context) => SimSlotRuleFilterPage(
           simSlotRuleService: widget.simSlotRuleService,
           enhancedCompositeFilterService: widget.enhancedCompositeFilterService,
           configRepository: widget.configRepository,
@@ -291,7 +291,7 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
                       title: Text(simInfo.displayName ?? AppLocalizations.of(context)!.unassignedSIMCard),
                       subtitle: Text(AppLocalizations.of(context)!.simSlotPosition(simInfo.simSlotIndex! + 1)),
                       trailing: const Icon(Icons.chevron_right),
-                      onTap: () => _navigateToSimSlotRulePage(simInfo.simSlotIndex!),
+                      onTap: () => _navigateToSimSlotRuleFilterPage(simInfo.simSlotIndex!),
                     ),
                     if (simInfo != _availableSimSlots.last) const Divider(),
                   ],

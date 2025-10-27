@@ -28,7 +28,7 @@ class StatisticsCard extends StatelessWidget {
         if (voteCount != null) ...[
           Card(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
                 children: [
                   Row(

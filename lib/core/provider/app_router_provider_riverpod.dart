@@ -4,11 +4,11 @@ import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_s
 
 // 导入Provider
 import 'providers/config_repository_provider.dart';
-import 'providers/time_interceptor_service_provider.dart';
+import '../../features/call/time_interceptor/time_interceptor_service_provider.dart';
 import 'providers/local_count_filter_service_provider.dart';
 import 'providers/remote_number_filter_service_provider.dart';
 
-import 'providers/sim_slot_rule_service_provider.dart';
+import '../../features/call/call_filter/sim_slot_rule_service_provider.dart';
 import 'providers/enhanced_composite_filter_service_provider.dart';
 import '../../features/sms/providers/sms_subscription_service_provider.dart';
 import 'providers/contact_subscription_service_provider.dart';
