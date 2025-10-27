@@ -8,8 +8,8 @@ import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.da
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/call_filter_settings_widget.dart';
-import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/sim_slot_rule_widget.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/sim_slot_rule_filter_widget.dart';
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/widgets/local_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/widgets/remote_filter_settings_widget.dart';
@@ -371,7 +371,7 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
               ),
               
               // SIM卡槽位规则设置
-              SimSlotRuleWidget(
+              SimSlotRuleFilterWidget(
                 simSlotRuleService: widget.simSlotRuleService,
                 enhancedCompositeFilterService: widget.enhancedCompositeFilterService,
                 simSlotIndex: _currentSimSlotIndex,

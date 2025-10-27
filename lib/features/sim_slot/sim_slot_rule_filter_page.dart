@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/sim_slot_rule_widget.dart';
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/sim_slot_rule_filter_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// SIM卡槽位规则管理页面
 /// 用于管理每个SIM卡槽位的过滤规则
-class SimSlotRulePage extends StatefulWidget {
+class SimSlotRuleFilterPage extends StatefulWidget {
   final SimSlotRuleService simSlotRuleService;
   final EnhancedCompositeFilterService enhancedCompositeFilterService;
   final ConfigRepository configRepository;
   final RuleRepository ruleRepository;
   final int simSlotIndex;
 
-  const SimSlotRulePage({
+  const SimSlotRuleFilterPage({
     super.key,
     required this.simSlotRuleService,
     required this.enhancedCompositeFilterService,
@@ -25,10 +25,10 @@ class SimSlotRulePage extends StatefulWidget {
   });
 
   @override
-  SimSlotRulePageState createState() => SimSlotRulePageState();
+  SimSlotRuleFilterPageState createState() => SimSlotRuleFilterPageState();
 }
 
-class SimSlotRulePageState extends State<SimSlotRulePage> {
+class SimSlotRuleFilterPageState extends State<SimSlotRuleFilterPage> {
   // 过滤器配置
   Map<String, bool> filterEnabledMap = {};
   List<Map<String, dynamic>> _simSlotRules = [];
@@ -118,7 +118,7 @@ class SimSlotRulePageState extends State<SimSlotRulePage> {
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : SimSlotRuleWidget(
+          : SimSlotRuleFilterWidget(
               simSlotRuleService: widget.simSlotRuleService,
               enhancedCompositeFilterService: widget.enhancedCompositeFilterService,
               simSlotIndex: widget.simSlotIndex,
@@ -148,6 +148,7 @@ class SimSlotRulePageState extends State<SimSlotRulePage> {
                 }
               },
               onDeleteSimSlotRule: (phoneNumber) async {
+                
                 try {
                   await widget.simSlotRuleService.removeSimSlotRule(phoneNumber);
                   
@@ -164,6 +165,9 @@ class SimSlotRulePageState extends State<SimSlotRulePage> {
                   );
                 }
               },
+
+
+              
             ),
     );
   }

@@ -19,11 +19,11 @@ import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.
 import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
 
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';

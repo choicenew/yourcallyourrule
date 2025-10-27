@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/data/repositories/config/config_repository.dart
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 // SimFilterService已被移除，使用SimSlotRuleService替代
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service.dart';
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';

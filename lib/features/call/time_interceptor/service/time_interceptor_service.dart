@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/core/repositories/call_log_repository.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-import 'time_interceptor_config.dart';
+import '../time_interceptor_config.dart';
 
 class TimeInterceptorService {
   final ConfigRepository _configRepo;

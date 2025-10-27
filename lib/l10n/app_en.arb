@@ -3185,17 +3185,45 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."  
   },
+   "filterByStatus": "Filter by Status",
+
+
 "proposalNotFound": "Proposal not found",
 "@proposalNotFound": {
-    "description": "The title of the proposal details page."  
-  }
- 
- 
- 
- 
+    "description": "A message displayed when a proposal is not found."
+  },
 
 
+ "processed": "Processed",
+ "@processed": {
+   "description": "A label for the processed status."
+ },
+"showAll": "Show All",
+
+"@showAll": {
+    "description": "A button to show all proposals."
+  },
  
+ "filterAndSortTitle": "Filter and Sort",
+
+"filterVerifiedOwner": "Filter Verified Owner",
+"@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+ 
+ 
+"filterBy": "Filter By",
+"@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+
+"sortOldest": "Sort Oldest",
+"sortNewest": "Sort Newest",
+
+"sortMostPopular": "Sort Most Popular",
+
+"sortLeastPopular": "Sort Least Popular",
+"sortBy": "Sort By"
  
  
  

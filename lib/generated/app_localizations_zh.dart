@@ -6080,5 +6080,38 @@ class AppLocalizationsZh extends AppLocalizations {
   String get proposalDetails => 'Proposal Details';
 
   @override
+  String get filterByStatus => 'Filter by Status';
+
+  @override
   String get proposalNotFound => 'Proposal not found';
+
+  @override
+  String get processed => 'Processed';
+
+  @override
+  String get showAll => 'Show All';
+
+  @override
+  String get filterAndSortTitle => 'Filter and Sort';
+
+  @override
+  String get filterVerifiedOwner => 'Filter Verified Owner';
+
+  @override
+  String get filterBy => 'Filter By';
+
+  @override
+  String get sortOldest => 'Sort Oldest';
+
+  @override
+  String get sortNewest => 'Sort Newest';
+
+  @override
+  String get sortMostPopular => 'Sort Most Popular';
+
+  @override
+  String get sortLeastPopular => 'Sort Least Popular';
+
+  @override
+  String get sortBy => 'Sort By';
 }

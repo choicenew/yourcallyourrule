@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
 
 /// 来电频率拦截设置页面
 /// 用于配置来电频率拦截服务的相关参数

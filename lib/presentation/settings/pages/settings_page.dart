@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service.dart';
-import 'package:yourcallyourrule/core/provider/providers/time_interceptor_service_provider.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/presentation/about.dart';
 import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';

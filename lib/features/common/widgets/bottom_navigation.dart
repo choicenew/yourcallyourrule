@@ -65,7 +65,7 @@ class BottomNavigationHandler { // <-- 从 AppRouter 重命名为 BottomNavigati
         context.go('/${app_router.AppRouter.contactsManagement}');
         break;
       case 3:
-        context.go('/${app_router.AppRouter.callStatistics}');
+        context.go('/${app_router.AppRouter.dashboard}');
         break;
       case 4:
         context.go('/${app_router.AppRouter.settings}');
