@@ -11,6 +11,8 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 
 /// 通话统计的“智能容器”组件，作为 Dashboard 的一个独立标签页。
+///
+/// 【MODIFIED】: 这是一个 `ConsumerStatefulWidget`，因为它需要管理自己的 UI 状态（时间范围选择）。
 class CallStatisticsContainerWidget extends ConsumerStatefulWidget {
   const CallStatisticsContainerWidget({super.key});
 
@@ -19,6 +21,7 @@ class CallStatisticsContainerWidget extends ConsumerStatefulWidget {
 }
 
 class _CallStatisticsContainerWidgetState extends ConsumerState<CallStatisticsContainerWidget> {
+  // 【新】: 在 Widget 的 State 中管理用户选择的时间范围。
   String _selectedTimeRange = 'week';
 
   @override
@@ -28,7 +31,8 @@ class _CallStatisticsContainerWidgetState extends ConsumerState<CallStatisticsCo
 
     // 2. 处理加载和错误状态
     if (state.isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      // 在加载时，可以显示一个带有骨架屏的布局，以保持 UI 稳定
+      return _buildLoadingSkeleton();
     }
     if (state.error != null) {
       return Center(child: Padding(padding: const EdgeInsets.all(16.0), child: Text(state.error!)));
@@ -38,22 +42,22 @@ class _CallStatisticsContainerWidgetState extends ConsumerState<CallStatisticsCo
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildOverviewCard(context, state),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildOverviewCard(context, state),
           const SizedBox(height: 16),
-                    const GoogleAdWidget(adInfo: AdManager.bannerAd),
+                    _buildAdPlaceholder(),
+        const SizedBox(height: 16),
+        _buildStatsGrid(context, state),
           const SizedBox(height: 16),
-          _buildStatsGrid(context, state),
-          const SizedBox(height: 16),
-          const GoogleAdWidget(adInfo: AdManager.bannerAd),
-          const SizedBox(height: 16),
-          _buildTrendChart(context, state),
-          const SizedBox(height: 16),
-          const BlockTypeAnalysis(),
-          const SizedBox(height: 16),
-          _buildExportButton(context),
-        ],
+          _buildAdPlaceholder(),
+        const SizedBox(height: 16),
+        _buildTrendChart(context, state),
+        const SizedBox(height: 16),
+        const BlockTypeAnalysis(),
+        const SizedBox(height: 16),
+        _buildExportButton(context),
+      ],
       ),
     );
   }
@@ -121,6 +125,9 @@ class _CallStatisticsContainerWidgetState extends ConsumerState<CallStatisticsCo
     );
   }
 
+  // =======================================================================
+  // 【核心修正】: `_buildTrendChart` 现在正确地包含了交互逻辑。
+  // =======================================================================
   Widget _buildTrendChart(BuildContext context, CallStatisticsState state) {
     final notifier = ref.read(callStatisticsProvider.notifier);
     return Container(
@@ -156,11 +163,14 @@ class _CallStatisticsContainerWidgetState extends ConsumerState<CallStatisticsCo
     );
   }
 
+  // 【核心修正】: `_buildTimeRangeButton` 现在是 `StatefulWidget` 的一部分，可以调用 `setState`。
   Widget _buildTimeRangeButton(String text, String range, CallStatisticsNotifier notifier) {
     final isSelected = _selectedTimeRange == range;
     return GestureDetector(
       onTap: () {
+        // 1. 更新本地 UI 状态，让按钮立即响应
         setState(() => _selectedTimeRange = range);
+        // 2. 调用 Notifier 去获取并计算新时间范围的数据
         notifier.updateTimeRange(range);
       },
       child: Container(
@@ -172,4 +182,23 @@ class _CallStatisticsContainerWidgetState extends ConsumerState<CallStatisticsCo
   }
   
   Widget _buildExportButton(BuildContext context) => Center(child: ElevatedButton.icon(onPressed: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.statisticsExportFeatureComingSoon))), icon: const Icon(Icons.file_download), label: Text(AppLocalizations.of(context)!.exportStatisticsData), style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFFFB74D), foregroundColor: Colors.white, padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)), elevation: 5)));
+
+  /// 构建加载状态的骨架屏
+  Widget _buildLoadingSkeleton() {
+    return const SingleChildScrollView(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          // 模拟 OverviewCard
+          Card(child: SizedBox(height: 180)),
+          SizedBox(height: 16),
+          // 模拟 StatsGrid
+          Card(child: SizedBox(height: 200)),
+          SizedBox(height: 16),
+          // 模拟 TrendChart
+          Card(child: SizedBox(height: 250)),
+        ],
+      ),
+    );
+  }
 }
