@@ -1,59 +1,39 @@
-import 'package:flutter/foundation.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/call_log_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/call_log_repository.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-import '../time_interceptor_config.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
 
+part 'time_interceptor_service.g.dart';
+
+/// 这个 Service 只负责核心的业务逻辑，不管理任何状态。
 class TimeInterceptorService {
-  final ConfigRepository _configRepo;
-  final CallLogRepository _callLogRepository;
-  TimeInterceptorConfig timeInterceptorConfig = TimeInterceptorConfig();
+  final Ref _ref;
 
-  TimeInterceptorService(this._configRepo, this._callLogRepository);
+  CallLogRepository get _callLogRepository => _ref.read(callLogRepositoryProvider);
 
-  Future<void> initialize() async {
-    await _loadConfig();
-  }
+  TimeInterceptorService(this._ref);
 
-  Future<void> loadConfig() async { // 新增公共方法
-    await _loadConfig();
-  }
-
+  /// 根据最新的配置，判断一个号码是否应该被拦截。
   Future<bool> shouldIntercept(String phoneNumber) async {
-    if (!timeInterceptorConfig.shouldIntercept) return false;
-    
+    // 从 Notifier 获取最新的配置状态
+    final config = await _ref.read(timeInterceptorConfigProvider.future);
+
+    if (!config.shouldIntercept) return false;
+
     final now = DateTime.now();
-    final startDate = now.subtract(timeInterceptorConfig.duration);
-    
-    // 获取指定日期范围内的通话记录
+    final startDate = now.subtract(config.duration);
+
     final logs = await _callLogRepository.getLogsByDateRange(startDate, now);
-    
-    // 过滤出指定电话号码的记录
     final entries = logs.where((log) => log.phoneNumber == phoneNumber).toList();
- debugPrint('entries打印: ${entries.map((e) => e.toMap()).toList()}');
+
+    // 您的原始逻辑：如果时间窗口内没有记录，则拦截。
+    // 这意味着拦截第一次来电。请确认这是否是您想要的业务逻辑。
     return entries.isEmpty;
   }
+}
 
-  Future<void> updateConfig(Duration duration, bool shouldIntercept) async {
-    // 修改第30行实现
-    timeInterceptorConfig = timeInterceptorConfig.copyWith(
-      duration: duration,
-      shouldIntercept: shouldIntercept,
-    );
-    await _saveConfig();
-  }
-
-  static const String _configKey = 'config_time_interceptor';
-
-  Future<void> _loadConfig() async {
-    final configMap = await _configRepo.getConfig(_configKey);
-    if (configMap != null) {
-      timeInterceptorConfig = TimeInterceptorConfig.fromMap(configMap);
-    }
-  }
-
-  Future<void> _saveConfig() async {
-    await _configRepo.saveConfig(_configKey, timeInterceptorConfig.toMap());
-  }
-
-  TimeInterceptorConfig get config => timeInterceptorConfig;
+/// 使用生成器创建 Service 的 Provider
+@riverpod
+TimeInterceptorService timeInterceptorService(Ref ref) {
+  return TimeInterceptorService(ref);
 }

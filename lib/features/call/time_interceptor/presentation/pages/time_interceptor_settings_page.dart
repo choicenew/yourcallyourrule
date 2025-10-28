@@ -1,131 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
 
-/// 来电频率拦截设置页面
-/// 用于配置来电频率拦截服务的相关参数
-class TimeInterceptorSettingsPage extends ConsumerStatefulWidget {
+// [注释]: 导入 Provider 仅用于在 AppBar 中显示加载状态
+import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+// [重构]: 页面仍然是 ConsumerWidget，但其职责大大简化。
+class TimeInterceptorSettingsPage extends ConsumerWidget {
   const TimeInterceptorSettingsPage({super.key});
 
   @override
-  TimeInterceptorSettingsPageState createState() => TimeInterceptorSettingsPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    // [注释]: 监听 Notifier 的状态，仅用于在 AppBar 中显示加载指示器。
+    // body 部分的 TimeInterceptorSettingsWidget 会自己处理状态。
+    final configAsyncValue = ref.watch(timeInterceptorConfigProvider);
 
-class TimeInterceptorSettingsPageState extends ConsumerState<TimeInterceptorSettingsPage> {
-  // 配置参数
-  bool _isEnabled = true;
-  int _durationMinutes = 30;
-  bool _isLoading = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadSettings();
-  }
-
-  /// 加载设置
-  Future<void> _loadSettings() async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    try {
-      final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
-      // 从服务中加载配置
-      await timeInterceptorService.loadConfig();
-      final config = timeInterceptorService.config;
-      
-      setState(() {
-        _isEnabled = config.shouldIntercept;
-        _durationMinutes = config.duration.inMinutes;
-      });
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.settingsLoadFailed(e))),
-      );
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
-    }
-  }
-
-  /// 保存设置
-  Future<void> _saveSettings() async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    try {
-      // 更新服务配置
-      final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
-      await timeInterceptorService.updateConfig(
-        Duration(minutes: _durationMinutes),
-        _isEnabled,
-      );
-      
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaveFailed(e))),
-      );
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.timeInterceptorSettingsTitle),
         actions: [
-          if (_isLoading)
+          // [注释]: 当 Notifier 正在执行异步操作时 (isReloading)，在 AppBar 中显示一个加载指示器，
+          // 提供即时的用户反馈。
+          if (configAsyncValue.isReloading)
             const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: SizedBox(
-                width: 24,
-                height: 24,
-                child: CircularProgressIndicator(color: Colors.white),
+              padding: EdgeInsets.only(right: 16.0),
+              child: Center(
+                child: SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(strokeWidth: 2.0, color: Colors.white),
+                ),
               ),
-            )
-          else
-            IconButton(
-              icon: const Icon(Icons.save),
-              onPressed: _saveSettings,
-              tooltip: AppLocalizations.of(context)!.saveSettings,
             ),
         ],
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : ListView(
-              padding: const EdgeInsets.all(16.0),
-              children: [
-                // 使用提取的组件
-                TimeInterceptorSettingsWidget(
-                  isEnabled: _isEnabled,
-                  durationMinutes: _durationMinutes,
-                  isLoading: _isLoading,
-                  onEnabledChanged: (value) {
-                    setState(() {
-                      _isEnabled = value;
-                    });
-                  },
-                  onDurationMinutesChanged: (value) {
-                    setState(() {
-                      _durationMinutes = value;
-                    });
-                  },
-                ),
-              ],
-            ),
+      // [重构]: body 现在非常简单，直接渲染自包含的 TimeInterceptorSettingsWidget。
+      // 不再需要传递任何参数，也不再需要使用 .when 来处理状态，因为子 Widget 自己会处理。
+      body: ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: const [
+          TimeInterceptorSettingsWidget(),
+        ],
+      ),
     );
   }
-  }
+}

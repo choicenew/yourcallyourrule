@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/search/providers/search_service_provider.dart';
+
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
@@ -29,7 +29,7 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
   }
 
   void _performSearch(String query) async {
-    final searchService = ref.read(searchServiceProvider(context));
+    final searchService = ref.read(searchServiceProvider);
     try {
       final results = await searchService.searchPhoneNumber(query);
       setState(() {

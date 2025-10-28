@@ -1,8 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_service_provider.dart';
+import 'package:yourcallyourrule/features/contacts/provider/contact_service_provider.dart';
+
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import '../../../core/provider/providers/plugin_service_provider.dart';
-import '../../../core/provider/providers/contact_service_provider.dart';
+
 import '../../../core/provider/providers/rule_management_service_provider.dart';
 import '../../../core/provider/providers/label_service_provider.dart';
 import '../../../core/provider/providers/location_service_provider.dart';

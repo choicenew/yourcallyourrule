@@ -6115,4 +6115,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sortBy => 'Sort By';
+
+  @override
+  String get simRulesNotFound => 'SIM Rules not found';
+
+  @override
+  String get simSlotRules => 'SIM Slot Rules';
+
+  @override
+  String get noSimCardDetected => 'No SIM card detected';
+
+  @override
+  String get invalidSimData => 'Invalid SIM data';
+
+  @override
+  String get simCardData => 'SIM Card Data';
+
+  @override
+  String get simSlot => 'SIM Slot';
+
+  @override
+  String get enableFiltering => 'Enable Filtering';
+
+  @override
+  String get detailedSettingsTitle => 'Detailed Settings';
+
+  @override
+  String get entryPointViewTitle => 'Entry Point View';
+
+  @override
+  String andMoreItems(int count) {
+    return 'and $count more items';
+  }
 }

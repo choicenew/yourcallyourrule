@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:yourcallyourrule/core/router/app_router_provider.dart';
 
 // 【MODIFIED】: 引入了您项目中真实存在的 appRouterProvider
-import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
 
 // 引入所有必要的 Provider 和 Service
 import 'package:yourcallyourrule/features/notifications/providers/notification_history_provider.dart';

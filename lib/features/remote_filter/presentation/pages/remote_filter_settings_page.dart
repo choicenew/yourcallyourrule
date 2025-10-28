@@ -1,183 +1,72 @@
 import 'package:flutter/material.dart';
-
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_config.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/features/remote_filter/config/remote_number_filter_config.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/widgets/remote_filter_settings_widget.dart';
+import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 远程号码过滤器设置页面
-/// 用于配置远程号码过滤服务的相关参数
-class RemoteFilterSettingsPage extends StatefulWidget {
-  final RemoteNumberFilterService remoteNumberFilterService;
-  final RemoteNumberService remoteNumberService;
-  final ConfigRepository configRepository;
-
-  const RemoteFilterSettingsPage({
-    super.key,
-    required this.remoteNumberFilterService,
-    required this.remoteNumberService,
-    required this.configRepository,
-  });
+// [重构]: 从 StatefulWidget 改为 ConsumerWidget。
+class RemoteFilterSettingsPage extends ConsumerWidget {
+  const RemoteFilterSettingsPage({super.key});
 
   @override
-  RemoteFilterSettingsPageState createState() => RemoteFilterSettingsPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    // [重构]: 监听配置状态。
+    final configAsync = ref.watch(remoteNumberFilterConfigProvider);
+    // [重构]: 获取 Notifier 实例。
+    final notifier = ref.read(remoteNumberFilterConfigProvider.notifier);
+    
+    // [注释]: 在 AppBar 中增加一个加载指示器，当配置正在保存时显示。
+    final isLoading = configAsync.isReloading || (configAsync.isLoading && !configAsync.hasValue);
 
-class RemoteFilterSettingsPageState extends State<RemoteFilterSettingsPage> {
-  // 配置参数
-  bool _enableRemoteNumberFilter = true;
-  int _countThreshold = 5;
-  bool _rejectExceededNumbers = true;
-  bool _allowNonExceededNumbers = false;
-  bool _prioritizeRemoteAction = true;
-  bool _logAllRemoteQueries = true;
-  bool _isLoading = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadSettings();
-  }
-
-  /// 加载设置
-  Future<void> _loadSettings() async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    try {
-      // 从过滤服务加载配置
-      await widget.remoteNumberFilterService.loadConfig();
-      final config = widget.remoteNumberFilterService.remoteNumberFilterConfig;
-      
-      setState(() {
-        _enableRemoteNumberFilter = config.enableRemoteNumberFilter;
-        _countThreshold = config.countThreshold;
-        _rejectExceededNumbers = config.rejectExceededNumbers;
-        _allowNonExceededNumbers = config.allowNonExceededNumbers;
-        _prioritizeRemoteAction = config.prioritizeRemoteAction;
-        _logAllRemoteQueries = config.logAllRemoteQueries;
-      });
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.loadSettingsFailed(e.toString()))),
-      );
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
-    }
-  }
-
-  /// 保存设置
-  Future<void> _saveSettings() async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    try {
-      // 创建新的配置对象
-      final newConfig = RemoteNumberFilterConfig(
-        enableRemoteNumberFilter: _enableRemoteNumberFilter,
-        countThreshold: _countThreshold,
-        rejectExceededNumbers: _rejectExceededNumbers,
-        allowNonExceededNumbers: _allowNonExceededNumbers,
-        prioritizeRemoteAction: _prioritizeRemoteAction,
-        logAllRemoteQueries: _logAllRemoteQueries,
-      );
-
-      // 更新过滤服务的配置
-      await widget.remoteNumberFilterService.updateConfig(newConfig);
-      
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.saveSettingsFailed(e.toString()))),
-      );
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
-    }
-  }
-
-
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.remoteFilterSettingsPageTitle),
         actions: [
-          if (_isLoading)
+          // [重构]: 根据加载状态显示进度条或保存按钮。
+          if (isLoading)
             const Padding(
               padding: EdgeInsets.all(16.0),
-              child: SizedBox(
-                width: 24,
-                height: 24,
-                child: CircularProgressIndicator(color: Colors.white),
-              ),
+              child: SizedBox(width: 24, height: 24, child: CircularProgressIndicator(color: Colors.white)),
             )
           else
             IconButton(
               icon: const Icon(Icons.save),
-              onPressed: _saveSettings,
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
+                );
+              },
               tooltip: AppLocalizations.of(context)!.saveSettings,
             ),
         ],
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : ListView(
-              padding: const EdgeInsets.all(16.0),
-              children: [
-                // 使用提取的组件
-                RemoteFilterSettingsWidget(
-                  enableRemoteNumberFilter: _enableRemoteNumberFilter,
-                  countThreshold: _countThreshold,
-                  rejectExceededNumbers: _rejectExceededNumbers,
-                  allowNonExceededNumbers: _allowNonExceededNumbers,
-                  prioritizeRemoteAction: _prioritizeRemoteAction,
-                  logAllRemoteQueries: _logAllRemoteQueries,
-                  isLoading: _isLoading,
-                  onEnableRemoteNumberFilterChanged: (value) {
-                    setState(() {
-                      _enableRemoteNumberFilter = value;
-                    });
-                  },
-                  onCountThresholdChanged: (value) {
-                    setState(() {
-                      _countThreshold = value;
-                    });
-                  },
-                  onRejectExceededNumbersChanged: (value) {
-                    setState(() {
-                      _rejectExceededNumbers = value;
-                    });
-                  },
-                  onAllowNonExceededNumbersChanged: (value) {
-                    setState(() {
-                      _allowNonExceededNumbers = value;
-                    });
-                  },
-                  onPrioritizeRemoteActionChanged: (value) {
-                    setState(() {
-                      _prioritizeRemoteAction = value;
-                    });
-                  },
-                  onLogAllRemoteQueriesChanged: (value) {
-                    setState(() {
-                      _logAllRemoteQueries = value;
-                    });
-                  },
-                ),
-              ],
+      // [重构]: 使用 .when 处理UI状态。
+      body: configAsync.when(
+        data: (config) => ListView(
+          padding: const EdgeInsets.all(16.0),
+          children: [
+            RemoteFilterSettingsWidget(
+              enableRemoteNumberFilter: config.enableRemoteNumberFilter,
+              countThreshold: config.countThreshold,
+              rejectExceededNumbers: config.rejectExceededNumbers,
+              allowNonExceededNumbers: config.allowNonExceededNumbers,
+              prioritizeRemoteAction: config.prioritizeRemoteAction,
+              // [修正]: 确保所有必需的参数都被传递，不遗漏任何一个。
+              logAllRemoteQueries: config.logAllRemoteQueries,
+              isLoading: isLoading,
+              onEnableRemoteNumberFilterChanged: (value) => notifier.updateConfig(config.copyWith(enableRemoteNumberFilter: value)),
+              onCountThresholdChanged: (value) => notifier.updateConfig(config.copyWith(countThreshold: value)),
+              onRejectExceededNumbersChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
+              onAllowNonExceededNumbersChanged: (value) => notifier.updateConfig(config.copyWith(allowNonExceededNumbers: value)),
+              onPrioritizeRemoteActionChanged: (value) => notifier.updateConfig(config.copyWith(prioritizeRemoteAction: value)),
+              onLogAllRemoteQueriesChanged: (value) => notifier.updateConfig(config.copyWith(logAllRemoteQueries: value)),
             ),
+          ],
+        ),
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, st) => Center(child: Text(AppLocalizations.of(context)!.loadSettingsFailed(err.toString()))),
+      ),
     );
   }
-
-  }
+}

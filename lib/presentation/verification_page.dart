@@ -1,35 +1,35 @@
 import 'dart:async';
 
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
+import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
+
+
+
 import 'package:dlibphonenumber/locale.dart' as dlibphone;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/cloud_sync/provider/backup_restore_provider.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
-
-import 'package:yourcallyourrule/core/provider/basic_provider/call_log_repository_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_filter_service_provider.dart';
-import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/local_count_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
-
-import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
-import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_service_provider.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
+
+// [重构]: 导入所有需要的 Provider，而不是 Service 定义。
+
+import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
+
+
+
+// [重构]: 导入 Config Notifier Provider 以获取最新配置
+import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
+
 
 class VerificationPage extends ConsumerStatefulWidget {
   const VerificationPage({super.key});
@@ -40,102 +40,106 @@ class VerificationPage extends ConsumerStatefulWidget {
 
 class VerificationPageState extends ConsumerState<VerificationPage> {
   final TextEditingController _phoneNumberController = TextEditingController();
-  final TextEditingController _countryCodeController =
-      TextEditingController(text: "US");
+  final TextEditingController _countryCodeController = TextEditingController(text: "US");
+  
+  // [重构]: 只保留与UI直接相关的状态。
   bool _isLoading = false;
   Map<String, bool> _verificationResults = {};
   CallerIdData? _callerIdData;
   Map<String, dynamic> _legacyPluginData = {};
   PluginData? _pluginData;
 
-  late CallFilterService _callFilterService;
-  late TimeInterceptorService _timeInterceptorService;
-  late LocalCountFilterService _localCountFilterService;
-  late RemoteNumberFilterService _remoteNumberFilterService;
-  late StreamSubscription<Map<String, dynamic>> _legacyPluginSubscription;
-  late StreamSubscription<PluginData> _pluginSubscription;
+  // [重构]: 移除所有 Service 成员变量。
+  // late CallFilterService _callFilterService;
+  // late TimeInterceptorService _timeInterceptorService;
+  // ... etc.
+
+  // [注释]: StreamSubscription 仍然需要在 State 中管理其生命周期。
+  StreamSubscription<Map<String, dynamic>>? _legacyPluginSubscription;
+  StreamSubscription<PluginData>? _pluginSubscription;
 
   @override
   void initState() {
     super.initState();
-    final configRepo = ref.read(configRepositoryProvider);
-    final regexService = ref.read(regexServiceProvider);
-    final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
-    final ruleManagementService = ref.read(ruleManagementServiceProvider);
-    final callerIdService = ref.read(callerIdServiceProvider);
-    final remoteNumberService = ref.read(remoteNumberServiceProvider);
-
-    _localCountFilterService = ref.read(localCountFilterServiceProvider);
-
-    _remoteNumberFilterService = ref.read(remoteNumberFilterServiceProvider);
-
-    _callFilterService = ref.read(callFilterServiceProvider);
-
-    // 获取CallLogRepository实例
-    final callLogRepository = ref.read(callLogRepositoryProvider);
-    _timeInterceptorService = ref.read(timeInterceptorServiceProvider);
-    _legacyPluginSubscription =
-        callerIdService.legacyPluginDataStream.listen((data) {
-      setState(() => _legacyPluginData = data);
-    });
-    
-    _pluginSubscription =
-        callerIdService.pluginDataStream.listen((data) {
-      setState(() => _pluginData = data);
-    });
-    _loadInterceptorConfig();
+    // [重构]: initState 现在非常干净。不应在此处使用 ref.read。
+    // [注释]: 可以在 didChangeDependencies 或 build 方法中安全地访问 ref。
   }
 
-  Future<void> _loadInterceptorConfig() async {
-    await _timeInterceptorService.initialize();
-    setState(() {});
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // [注释]: 订阅 Stream 的逻辑放在 didChangeDependencies 中更安全，
+    // 因为它可以访问 ref 并且在依赖变化时可以重新订阅。
+    // 我们只订阅一次。
+    if (_pluginSubscription == null) {
+      final callerIdService = ref.read(callerIdServiceProvider);
+      _legacyPluginSubscription = callerIdService.legacyPluginDataStream.listen((data) {
+        if (mounted) setState(() => _legacyPluginData = data);
+      });
+      _pluginSubscription = callerIdService.pluginDataStream.listen((data) {
+        if (mounted) setState(() => _pluginData = data);
+      });
+    }
   }
 
-  // 更新后的 _verifyPhoneNumber 方法
+  // [重构]: 移除 _loadInterceptorConfig 方法，因为它不再需要。
+
+  // [重构]: 核心修改部分，所有依赖都在方法执行时动态获取。
   Future<void> _verifyPhoneNumber() async {
-    setState(() => _isLoading = true);
+    if (mounted) setState(() => _isLoading = true);
+
+    // [注释]: 在异步方法中，使用 ref.read 是安全的。
+    // 这将获取所有 Service 的最新实例。
+    final callFilterService = ref.read(callFilterServiceProvider);
+    final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
+    final localCountFilterService = ref.read(localCountFilterServiceProvider);
+    final remoteNumberFilterService = ref.read(remoteNumberFilterServiceProvider);
+    final callerIdService = ref.read(callerIdServiceProvider);
+    
+    // [注释]: 获取最新的配置状态也应该是异步的。
+    final callFilterConfig = await ref.read(callFilterConfigProvider.future);
 
     final number = vo.PhoneNumber.fromString(_phoneNumberController.text);
     final countryCode = _countryCodeController.text.toUpperCase();
-    // MODIFICATION: 使用 await ref.read(provider.future) 来获取异步数据
     final currentLocale = await ref.read(localeProvider.future);
     final dlibLocale = dlibphone.Locale(
       language: currentLocale.languageCode,
       country: countryCode,
     );
 
-    _callerIdData = await ref
-        .read(callerIdServiceProvider)
-        .getCallerId(number.value, dlibLocale);
-
+    _callerIdData = await callerIdService.getCallerId(number.value, dlibLocale);
     
-    final rules = await _callFilterService.verifyAllRules(number);
+    final rules = await callFilterService.verifyAllRules(number);
+    
+    // [重构]: 所有验证逻辑现在都使用在方法内实时获取的 service 和 config。
     _verificationResults = {
       'Allowed': rules.any((rule) => rule.action.type == RuleActionType.allow),
       'Blocked': rules.any((rule) => rule.action.type == RuleActionType.block),
       'Silenced': rules.any((rule) => rule.action.type == RuleActionType.silence),
       'None Action': rules.any((rule) => rule.action.type == RuleActionType.none),
-      'Global Reject': _callFilterService.callFilterConfig.rejectAllNumbers,
+      // [修正]: 从最新的配置对象中读取，而不是从过时的 service 实例中读取。
+      'Global Reject': callFilterConfig.rejectAllNumbers,
       'Blacklist': rules.any((rule) => rule.action.type == RuleActionType.block),
       'Whitelist': rules.any((rule) => rule.action.type == RuleActionType.allow),
       'Regex': rules.any((rule) => rule is RegexRule),
-      'Time Rules': await _timeInterceptorService.shouldIntercept(number.value),
-      'Local Count Filter': !await _localCountFilterService.shouldAcceptCall(number.value),
-      'Remote Number Filter': !await _remoteNumberFilterService.shouldAcceptCall(number.value),
+      'Time Rules': await timeInterceptorService.shouldIntercept(number.value),
+      'Local Count Filter': !await localCountFilterService.shouldAcceptCall(number.value),
+      'Remote Number Filter': !await remoteNumberFilterService.shouldAcceptCall(number.value),
     };
 
-    setState(() => _isLoading = false);
+    if (mounted) setState(() => _isLoading = false);
   }
 
   @override
   void dispose() {
-    _legacyPluginSubscription.cancel();
-    _pluginSubscription.cancel();
+    _legacyPluginSubscription?.cancel();
+    _pluginSubscription?.cancel();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    // [注释]: build 方法保持不变，因为它只负责UI渲染。
     return Scaffold(
       appBar: AppBar(title: const Text('Phone Verification')),
       body: SingleChildScrollView(
@@ -155,6 +159,7 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
   }
 
   Widget _buildInputSection() {
+    // [注释]: 这个纯UI构建方法保持不变。
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -186,22 +191,20 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
   }
 
   Widget _buildResultsSection() {
+    // [注释]: 这个纯UI构建方法保持不变。
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text('Verification Results:', style: TextStyle(fontSize: 18)),
-          _buildResultItem(
-              'Global Reject All', _verificationResults['Global Reject']),
+          _buildResultItem('Global Reject All', _verificationResults['Global Reject']),
           _buildResultItem('Allowed', _verificationResults['Allowed']),
           _buildResultItem('Blocked', _verificationResults['Blocked']),
           _buildResultItem('Silenced', _verificationResults['Silenced']),
           _buildResultItem('None Action', _verificationResults['None Action']),
-          _buildResultItem(
-              'Blacklist Check', _verificationResults['Blacklist']),
-          _buildResultItem(
-              'Whitelist Check', _verificationResults['Whitelist']),
+          _buildResultItem('Blacklist Check', _verificationResults['Blacklist']),
+          _buildResultItem('Whitelist Check', _verificationResults['Whitelist']),
           _buildResultItem('Time Rules', _verificationResults['Time Rules']),
           _buildResultItem('Regex Match', _verificationResults['Regex']),
           _buildResultItem('Local Count Filter', _verificationResults['Local Count Filter']),
@@ -218,14 +221,13 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
                   : null,
             ),
             const SizedBox(height: 12),
-            Text('Carrier: ${_callerIdData?.carrier}'),
-            Text('Country: ${_callerIdData?.countryName}'),
-            Text('Region: ${_callerIdData?.region}'),
-            Text(
-                'Label: ${_callerIdData?.labels?.map((l) => l.label).join(', ') ?? "Unknown"}'),
-            Text('Number Type: ${_callerIdData?.numberType}'),
-            Text('Count Times: ${_callerIdData?.count}'),
-            Text('Caller Name: ${_callerIdData?.name}'),
+            Text('Carrier: ${_callerIdData?.carrier ?? "N/A"}'),
+            Text('Country: ${_callerIdData?.countryName ?? "N/A"}'),
+            Text('Region: ${_callerIdData?.region ?? "N/A"}'),
+            Text('Label: ${_callerIdData?.labels?.map((l) => l.label).join(', ') ?? "Unknown"}'),
+            Text('Number Type: ${_callerIdData?.numberType ?? "N/A"}'),
+            Text('Count Times: ${_callerIdData?.count ?? 0}'),
+            Text('Caller Name: ${_callerIdData?.name ?? "N/A"}'),
             ElevatedButton(
                 onPressed: _testShowCallerIdOverlay,
                 child: const Text('Test Overlay'))
@@ -241,9 +243,9 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
             Text('Count: ${_pluginData?.count ?? 0}'),
             Text('Action: ${_pluginData?.action.toString() ?? "RuleAction.none"}'),
           ],
-          ...[
+          if (_legacyPluginData.isNotEmpty) ...[
             const Divider(),
-            const Text('Plugin Data:'),
+            const Text('Legacy Plugin Data:'),
             ..._legacyPluginData.entries.map((e) => Text('${e.key}: ${e.value}'))
           ]
         ],
@@ -252,6 +254,7 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
   }
 
   Widget _buildResultItem(String label, bool? result) {
+    // [注释]: 这个纯UI构建方法保持不变。
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: Icon(
@@ -263,6 +266,7 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
   }
 
   Future<void> _testShowCallerIdOverlay() async {
+    // [注释]: 这个方法的逻辑已经是正确的，因为它使用了 ref.read，保持不变。
     if (_callerIdData != null) {
         // 【核心修正】
       // 1. 不再手动创建 `OverlayHandler` 实例。
@@ -279,9 +283,9 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
       //    我们传递 null 作为 stirInfo 和 simInfo，因为在这个测试页面中我们没有这些数据。
       await overlayHandler.showCallerIdOverlay(
           _callerIdData!,
-          null, // _stirInfo位置
-          null // _simInfo位置
-          );
+          null, // _stirInfo
+          null // _simInfo
+      );
     }
   }
 }

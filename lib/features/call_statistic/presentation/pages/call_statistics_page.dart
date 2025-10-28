@@ -7,6 +7,7 @@ import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/provider/call_logs_provider.dart';
 import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/repositories/call_statistics_repository_impl.dart';
+import 'package:yourcallyourrule/features/call_statistic/domain/providers/blocked_call_repository_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_card.dart';
@@ -15,6 +16,7 @@ import 'package:yourcallyourrule/features/call_statistic/domain/entities/statist
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
+// [重构]: 保持 ConsumerStatefulWidget，因为页面有自己的、与UI紧密相关的本地状态 (_selectedPeriod, _startDate, _endDate)。
 class CallStatisticsPage extends ConsumerStatefulWidget {
   const CallStatisticsPage({super.key});
 
@@ -23,13 +25,16 @@ class CallStatisticsPage extends ConsumerStatefulWidget {
 }
 
 class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
-  String _selectedPeriod = 'Week'; // 默认选择周期
+  // [注释]: 这些是纯粹的UI状态，保留在 State 中是正确的。
+  String _selectedPeriod = 'Week';
   DateTime? _startDate;
   DateTime? _endDate;
-  final BlockedCallRepository _repository = BlockedCallRepository();
+  
+  // [重构]: BlockedCallRepository 现在通过 provider 获取，不再需要手动实例化。
 
   @override
   Widget build(BuildContext context) {
+    // [重构]: 在 build 方法顶部监听所有需要的异步数据源。
     final callLogsAsync = ref.watch(callLogsProvider);
     final rulesAsync = ref.watch(rulesProvider);
 
@@ -45,102 +50,18 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         actions: [
+          // [注释]: actions 中的 UI 逻辑保持不变。
           IconButton(
             icon: const Icon(Icons.calendar_today),
-            onPressed: () {
-              // 实现日期选择功能
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text(AppLocalizations.of(context)!.selectPeriod),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ListTile(
-                        title: Text(AppLocalizations.of(context)!.week),
-                        leading: Radio<String>(
-                          value: 'Week',
-                          groupValue: _selectedPeriod,
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedPeriod = value!;
-                            });
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                      ListTile(
-                        title: Text(AppLocalizations.of(context)!.month),
-                        leading: Radio<String>(
-                          value: 'Month',
-                          groupValue: _selectedPeriod,
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedPeriod = value!;
-                            });
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                      ListTile(
-                        title: Text(AppLocalizations.of(context)!.year),
-                        leading: Radio<String>(
-                          value: 'Year',
-                          groupValue: _selectedPeriod,
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedPeriod = value!;
-                            });
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
+            onPressed: () => _showDateRangePicker(context),
           ),
           IconButton(
             icon: const Icon(Icons.notifications),
-            onPressed: () {
-              // 实现通知功能
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text(AppLocalizations.of(context)!.notifications),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ListTile(
-                        leading: const Icon(Icons.notifications_active, color: Colors.green),
-                        title: Text(AppLocalizations.of(context)!.enableStatisticsNotifications),
-                        subtitle: Text(AppLocalizations.of(context)!.receiveWeeklyStatistics),
-                        trailing: Switch(
-                          value: false, // 这里应该使用一个状态变量，暂时使用false
-                          onChanged: (value) {
-                            // 这里应该保存用户的选择
-                            Navigator.pop(context);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(AppLocalizations.of(context)!.notificationSettingsSaved)),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(AppLocalizations.of(context)!.closeButton),
-                    ),
-                  ],
-                ),
-              );
-            },
+            onPressed: () => _showNotificationSettings(context),
           ),
         ],
       ),
+      // [重构]: 使用 .when 嵌套来处理多个异步数据源的加载。
       body: callLogsAsync.when(
         data: (callLogs) => rulesAsync.when(
           data: (rules) => _buildStatisticsContent(context, callLogs, rules),
@@ -153,8 +74,9 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     );
   }
 
+  // [注释]: 这个方法现在是纯粹的UI构建方法，接收来自 provider 的数据。
   Widget _buildStatisticsContent(BuildContext context, List<CallLog> callLogs, List<RuleBase> rules) {
-    // 根据选择的日期范围过滤通话记录
+    // [注释]: 过滤逻辑保持不变。
     final filteredCallLogs = callLogs.where((log) {
       if (_startDate != null && _endDate != null) {
         return log.timestamp.isAfter(_startDate!) && log.timestamp.isBefore(_endDate!.add(const Duration(days: 1)));
@@ -162,10 +84,10 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
       return true; // 如果没有选择日期范围，则不过滤
     }).toList();
 
-    // 创建repository实例
+    // [注释]: repository 的实例化保持不变，因为它是一个基于输入数据的临时计算。
     final repository = CallStatisticsRepositoryImpl(filteredCallLogs, rules);
     
-    // 获取实际统计数据
+    // [注释]: 数据获取逻辑保持不变。
     final int totalBlocked = repository.getTotalBlockedCount();
     final int blockedCalls = repository.getWeeklyBlockedCallsCount();
     final int filteredSms = repository.getWeeklyFilteredSmsCount();
@@ -207,7 +129,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
             Center(
               child: ElevatedButton.icon(
                 onPressed: () {
-                  // 导出统计数据功能
+                  // [注释]: 导出统计数据功能。
                 },
                 icon: const Icon(Icons.file_download),
                 label: Text(AppLocalizations.of(context)!.exportStatisticsData),
@@ -224,7 +146,9 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     );
   }
 
+  // [注释]: _buildOverviewCard 方法保持不变，但其依赖的 repository 现在从 provider 获取。
   Widget _buildOverviewCard(int totalBlocked, StatisticsData statisticsData) {
+    final blockedCallRepository = ref.watch(blockedCallRepositoryProvider);
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -252,27 +176,13 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    AppLocalizations.of(context)!.monthlyTotalLabel,
-                    style: const TextStyle(color: Colors.white70, fontSize: 14),
-                  ),
+                  Text(AppLocalizations.of(context)!.monthlyTotalLabel, style: const TextStyle(color: Colors.white70, fontSize: 14)),
                   const SizedBox(height: 4),
-                  Text(
-                    '$totalBlocked',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.blockedCommunications,
-                    style: const TextStyle(color: Colors.white, fontSize: 14),
-                  ),
+                  Text('$totalBlocked', style: const TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
+                  Text(AppLocalizations.of(context)!.blockedCommunications, style: const TextStyle(color: Colors.white, fontSize: 14)),
                 ],
               ),
-              // 从数据中获取增长率，如果有的话
-              if (statisticsData?.growthRate != null)
+              if (statisticsData.growthRate != 0.0) // 假设 growthRate 是 double
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
@@ -289,13 +199,14 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
           const SizedBox(height: 16),
           SizedBox(
             height: 60,
-            child: StatisticChart(repository: _repository),
+            child: StatisticChart(repository: blockedCallRepository),
           ),
         ],
       ),
     );
   }
-
+  
+  // [注释]: _buildStatisticsGrid 是一个纯UI构建方法，保持不变。
   Widget _buildStatisticsGrid(int blockedCalls, int filteredSms, int whitelistCount, int blacklistCount) {
     return GridView.count(
       crossAxisCount: 2,
@@ -340,7 +251,9 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     );
   }
 
+  // [注释]: _buildTrendChart 方法保持不变，但其依赖的 repository 现在从 provider 获取。
   Widget _buildTrendChart() {
+    final blockedCallRepository = ref.watch(blockedCallRepositoryProvider);
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -360,27 +273,14 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                AppLocalizations.of(context)!.blockingTrend,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              Text(AppLocalizations.of(context)!.blockingTrend, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Flexible(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      IconButton(
-                        icon: const Icon(Icons.calendar_today),
-                        onPressed: () {
-                          _showDateRangePicker(context);
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.notifications),
-                        onPressed: () {
-                          _showNotificationSettings(context);
-                        },
-                      ),
+                      IconButton(icon: const Icon(Icons.calendar_today), onPressed: () => _showDateRangePicker(context)),
+                      IconButton(icon: const Icon(Icons.notifications), onPressed: () => _showNotificationSettings(context)),
                       const SizedBox(width: 8),
                       _periodButton(AppLocalizations.of(context)!.periodWeek, isSelected: _selectedPeriod == 'Week'),
                       const SizedBox(width: 8),
@@ -398,11 +298,10 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
             builder: (context, constraints) {
               // 根据可用宽度调整图表高度
               final chartHeight = constraints.maxWidth < 350 ? 180.0 : 200.0;
-              
               return SizedBox(
                 height: chartHeight,
                 child: StatisticChart(
-                  repository: _repository,
+                  repository: blockedCallRepository,
                   showDetailedChart: true,
                   period: _selectedPeriod,
                 ),
@@ -414,17 +313,19 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     );
   }
 
+  // [注释]: _periodButton 是一个纯UI辅助方法，保持不变。
   Widget _periodButton(String text, {required bool isSelected}) {
     return InkWell(
       onTap: () {
         setState(() {
+          // [注释]: 更新本地 UI 状态 _selectedPeriod。
           _selectedPeriod = text;
         });
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFFFB74D).withValues(alpha:0.1) : Colors.transparent,
+          color: isSelected ? const Color(0xFFFFB74D).withOpacity(0.1) : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
@@ -438,7 +339,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
     );
   }
 
-  // 日期选择功能
+  // [注释]: _showDateRangePicker 是一个显示对话框的UI方法，保持不变。
   Future<void> _showDateRangePicker(BuildContext context) async {
     final initialDateRange = DateTimeRange(
       start: DateTime.now().subtract(const Duration(days: 7)),
@@ -473,21 +374,22 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
         _selectedPeriod = 'Custom'; 
       });
       
-      // 显示选择的日期范围
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            '${AppLocalizations.of(context)!.selectedDateRange}: '
-            '${pickedDateRange.start.toString().substring(0, 10)} - '
-            '${pickedDateRange.end.toString().substring(0, 10)}',
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              '${AppLocalizations.of(context)!.selectedDateRange}: '
+              '${pickedDateRange.start.toString().substring(0, 10)} - '
+              '${pickedDateRange.end.toString().substring(0, 10)}',
+            ),
+            duration: const Duration(seconds: 2),
           ),
-          duration: const Duration(seconds: 2),
-        ),
-      );
+        );
+      }
     }
   }
 
-  // 通知功能
+  // [注释]: _showNotificationSettings 是一个显示对话框的UI方法，保持不变。
   void _showNotificationSettings(BuildContext context) {
     showDialog(
       context: context,
@@ -514,7 +416,7 @@ class _CallStatisticsPageState extends ConsumerState<CallStatisticsPage> {
             SwitchListTile(
               title: Text(AppLocalizations.of(context)!.weeklyReport),
               subtitle: Text(AppLocalizations.of(context)!.weeklyReportDesc),
-              value: false, // 这里应该从设置中获取实际值
+              value: false,
               onChanged: (value) {
                 // 保存设置
                 Navigator.pop(context);

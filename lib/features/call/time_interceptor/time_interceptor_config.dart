@@ -1,12 +1,15 @@
-
+// 这个文件只负责定义 TimeInterceptorConfig 数据模型
 
 class TimeInterceptorConfig {
-  // 默认30分钟配置（可修改）
-  Duration duration;
-  bool shouldIntercept;
+  final Duration duration;
+  final bool shouldIntercept;
 
-  TimeInterceptorConfig({
-    this.duration = const Duration(minutes: 30), // 默认值在此设置
+  // 请注意：为了让状态更新更可靠，建议将成员变量设为 final
+  // 这使得 TimeInterceptorConfig 成为一个不可变对象 (immutable object)
+  // 所有的修改都必须通过 copyWith 创建新实例，这是状态管理的最佳实践。
+
+  const TimeInterceptorConfig({
+    this.duration = const Duration(minutes: 30),
     this.shouldIntercept = true,
   });
 
@@ -29,7 +32,7 @@ class TimeInterceptorConfig {
   }
 
   Map<String, dynamic> toMap() => {
-    'config_durationMinutes': duration.inMinutes,
-    'config_shouldIntercept': shouldIntercept,
-  };
+        'config_durationMinutes': duration.inMinutes,
+        'config_shouldIntercept': shouldIntercept,
+      };
 }

@@ -1,124 +1,59 @@
 import 'package:flutter/material.dart';
-
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
-import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_config.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/widgets/local_filter_settings_widget.dart';
+import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
+
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 本地计数过滤器设置页面
-/// 用于配置本地计数过滤器的相关参数
-class LocalFilterSettingsPage extends StatefulWidget {
-  final LocalCountFilterService localCountFilterService;
-  final ConfigRepository configRepository;
-
-  const LocalFilterSettingsPage({
-    super.key,
-    required this.localCountFilterService,
-    required this.configRepository,
-  });
+// [重构]: 从 StatefulWidget 改为 ConsumerWidget，不再需要手动传递依赖。
+class LocalFilterSettingsPage extends ConsumerWidget {
+  const LocalFilterSettingsPage({super.key});
 
   @override
-  LocalFilterSettingsPageState createState() => LocalFilterSettingsPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    // [重构]: 使用 ref.watch 监听配置状态。UI 会在状态变化时自动重建。
+    final configAsync = ref.watch(localCountFilterConfigProvider);
+    // [重构]: 使用 ref.read 获取 Notifier 实例，用于调用其更新方法。
+    final notifier = ref.read(localCountFilterConfigProvider.notifier);
 
-class LocalFilterSettingsPageState extends State<LocalFilterSettingsPage> {
-  // 配置参数 - 与LocalCountFilterConfig保持一致
-  bool _enableLocalCountFilter = true;
-  int _countThreshold = 5;
-  bool _rejectExceededNumbers = true;
-  bool _allowNonExceededNumbers = false;
-  bool _logAllLocalQueries = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadSettings();
-  }
-
-  /// 加载设置
-  Future<void> _loadSettings() async {
-    // 直接从LocalCountFilterService获取配置
-    final config = widget.localCountFilterService.localCountFilterConfig;
-    setState(() {
-      _enableLocalCountFilter = config.enableLocalCountFilter;
-      _countThreshold = config.countThreshold;
-      _rejectExceededNumbers = config.rejectExceededNumbers;
-      _allowNonExceededNumbers = config.allowNonExceededNumbers;
-      _logAllLocalQueries = config.logAllLocalQueries;
-    });
-  }
-
-  /// 保存设置
-  Future<void> _saveSettings() async {
-    // 创建新的配置对象
-    final newConfig = LocalCountFilterConfig(
-      enableLocalCountFilter: _enableLocalCountFilter,
-      countThreshold: _countThreshold,
-      rejectExceededNumbers: _rejectExceededNumbers,
-      allowNonExceededNumbers: _allowNonExceededNumbers,
-      logAllLocalQueries: _logAllLocalQueries,
-    );
-    
-    // 更新服务中的配置并保存
-    await widget.localCountFilterService.updateConfig(newConfig);
-    await widget.localCountFilterService.initialize(); // 重新初始化服务以应用新设置
-    
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.localCountFilterSettings),
         actions: [
+          // [重构]: 保存按钮现在只提供用户反馈，因为状态是实时更新的。
           IconButton(
             icon: const Icon(Icons.save),
-            onPressed: _saveSettings,
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
+              );
+            },
             tooltip: AppLocalizations.of(context)!.saveSettings,
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
-        children: [
-          // 使用提取的组件
-          LocalFilterSettingsWidget(
-            enableLocalCountFilter: _enableLocalCountFilter,
-            countThreshold: _countThreshold,
-            rejectExceededNumbers: _rejectExceededNumbers,
-            allowNonExceededNumbers: _allowNonExceededNumbers,
-            logAllLocalQueries: _logAllLocalQueries,
-            onEnableLocalCountFilterChanged: (value) {
-              setState(() {
-                _enableLocalCountFilter = value;
-              });
-            },
-            onCountThresholdChanged: (value) {
-              setState(() {
-                _countThreshold = value;
-              });
-            },
-            onRejectExceededNumbersChanged: (value) {
-              setState(() {
-                _rejectExceededNumbers = value;
-              });
-            },
-            onAllowNonExceededNumbersChanged: (value) {
-              setState(() {
-                _allowNonExceededNumbers = value;
-              });
-            },
-            onLogAllLocalQueriesChanged: (value) {
-              setState(() {
-                _logAllLocalQueries = value;
-              });
-            },
-          ),
-        ],
+      // [重构]: 使用 .when 优雅地处理加载、错误和成功三种UI状态。
+      body: configAsync.when(
+        data: (config) => ListView(
+          padding: const EdgeInsets.all(16.0),
+          children: [
+            // [重构]: 将从 provider 获取的数据和 notifier 的更新方法传递给纯UI子组件。
+            LocalFilterSettingsWidget(
+              enableLocalCountFilter: config.enableLocalCountFilter,
+              countThreshold: config.countThreshold,
+              rejectExceededNumbers: config.rejectExceededNumbers,
+              allowNonExceededNumbers: config.allowNonExceededNumbers,
+              logAllLocalQueries: config.logAllLocalQueries,
+              onEnableLocalCountFilterChanged: (value) => notifier.updateConfig(config.copyWith(enableLocalCountFilter: value)),
+              onCountThresholdChanged: (value) => notifier.updateConfig(config.copyWith(countThreshold: value)),
+              onRejectExceededNumbersChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
+              onAllowNonExceededNumbersChanged: (value) => notifier.updateConfig(config.copyWith(allowNonExceededNumbers: value)),
+              onLogAllLocalQueriesChanged: (value) => notifier.updateConfig(config.copyWith(logAllLocalQueries: value)),
+            ),
+          ],
+        ),
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, st) => Center(child: Text(AppLocalizations.of(context)!.dataLoadFailure(err))),
       ),
     );
   }

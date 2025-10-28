@@ -8,21 +8,12 @@ part of 'call_statistics_provider.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 【响应式】的通话统计 Notifier
-///
-/// 【MODIFIED】: 这是一个普通的 Notifier，它通过监听 Stream 来响应式地更新状态。
 
 @ProviderFor(CallStatisticsNotifier)
 const callStatisticsProvider = CallStatisticsNotifierProvider._();
 
-/// 【响应式】的通话统计 Notifier
-///
-/// 【MODIFIED】: 这是一个普通的 Notifier，它通过监听 Stream 来响应式地更新状态。
 final class CallStatisticsNotifierProvider
     extends $NotifierProvider<CallStatisticsNotifier, CallStatisticsState> {
-  /// 【响应式】的通话统计 Notifier
-  ///
-  /// 【MODIFIED】: 这是一个普通的 Notifier，它通过监听 Stream 来响应式地更新状态。
   const CallStatisticsNotifierProvider._()
     : super(
         from: null,
@@ -51,11 +42,7 @@ final class CallStatisticsNotifierProvider
 }
 
 String _$callStatisticsNotifierHash() =>
-    r'3e9150aa04436acee588ff866277227e0d933f76';
-
-/// 【响应式】的通话统计 Notifier
-///
-/// 【MODIFIED】: 这是一个普通的 Notifier，它通过监听 Stream 来响应式地更新状态。
+    r'6192488140d499fb1a87944731c8c4272f996461';
 
 abstract class _$CallStatisticsNotifier extends $Notifier<CallStatisticsState> {
   CallStatisticsState build();

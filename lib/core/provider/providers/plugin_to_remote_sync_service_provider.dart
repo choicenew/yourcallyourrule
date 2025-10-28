@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/caller_id/services/plugin_to_remote_sync_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_service_provider.dart';
+
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import '../../../features/caller_id/providers/caller_id_service_provider.dart';
 
 

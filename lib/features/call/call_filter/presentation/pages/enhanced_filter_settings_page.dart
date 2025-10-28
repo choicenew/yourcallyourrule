@@ -1,231 +1,128 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-import 'package:yourcallyourrule/features/call/call_filter/call_filter_config.dart';
-import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sim_reader/sim_reader.dart';
+
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/enhanced_composite_filter_settings_widget.dart';
-import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/call_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
+import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 增强版过滤器设置页面
-/// 作为各个过滤器设置的入口点，并提供SIM卡选择功能
-class EnhancedFilterSettingsPage extends StatefulWidget {
-  final EnhancedCompositeFilterService enhancedCompositeFilterService;
-  final SimSlotRuleService simSlotRuleService;
-  final LocalCountFilterService localCountFilterService;
-  final RemoteNumberFilterService remoteNumberFilterService;
-  final RemoteNumberService remoteNumberService;
-  final ConfigRepository configRepository;
-  final RuleRepository ruleRepository;
-
-  const EnhancedFilterSettingsPage({
-    super.key,
-    required this.enhancedCompositeFilterService,
-    required this.simSlotRuleService,
-    required this.localCountFilterService,
-    required this.remoteNumberFilterService,
-    required this.remoteNumberService,
-    required this.configRepository,
-    required this.ruleRepository,
-  });
+// [重构]: 从 StatefulWidget 改为 ConsumerStatefulWidget 以便使用 ref 和管理本地UI状态。
+class EnhancedFilterSettingsPage extends ConsumerStatefulWidget {
+  // [重构]: 移除所有构造函数参数。
+  const EnhancedFilterSettingsPage({super.key});
 
   @override
-  EnhancedFilterSettingsPageState createState() => EnhancedFilterSettingsPageState();
+  ConsumerState<EnhancedFilterSettingsPage> createState() => EnhancedFilterSettingsPageState();
 }
 
-class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> with SingleTickerProviderStateMixin {
-  // 可用的SIM卡槽位
-  List<SimInfo> _availableSimSlots = [];
-  bool _isLoading = false;
-  
-  // 视图模式：入口点模式或详细设置模式
+class EnhancedFilterSettingsPageState extends ConsumerState<EnhancedFilterSettingsPage> {
+  // [重构与修正]: 像 _isEntryPointMode 这样的纯局部UI状态，保留在 State 中是完全正确的。
   bool _isEntryPointMode = true;
-  
-  // 通话过滤器配置
-  late CallFilterConfig _callFilterConfig;
-  
-  // 标签控制器
-  late TabController _tabController;
-  
+
+  // [注释]: initState 中不再需要加载数据。
   @override
   void initState() {
     super.initState();
-    _loadSimSlots();
-    _loadCallFilterConfig();
-    _tabController = TabController(length: 4, vsync: this);
   }
   
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
-  /// 加载SIM卡槽位信息
-  Future<void> _loadSimSlots() async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    try {
-      // 模拟获取SIM卡槽位信息，实际应用中应该从设备获取
-      _availableSimSlots = [
-        SimInfo(simSlotIndex: 0, displayName: AppLocalizations.of(context)!.simCard(1)),
-        SimInfo(simSlotIndex: 1, displayName: AppLocalizations.of(context)!.simCard(2)),
-      ];
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.simInfoLoadFailure(e))),
-      );
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
-    }
-  }
-  
-  /// 加载通话过滤器配置
-  Future<void> _loadCallFilterConfig() async {
-    // 从EnhancedCompositeFilterService中获取CallFilterConfig
-    if (widget.enhancedCompositeFilterService.filters.isNotEmpty) {
-      for (var filter in widget.enhancedCompositeFilterService.filters) {
-        // 使用类型检查代替反射
-        if (filter is CallFilterService) {
-          try {
-            // 直接获取配置，不需要使用反射
-            CallFilterConfig config = filter.callFilterConfig;
-            setState(() {
-              _callFilterConfig = config;
-            });
-            return;
-          } catch (e) {
-            // 如果获取失败，使用默认配置
-            if (mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(AppLocalizations.of(context)!.settingsLoadFailed(e.toString()))),
-              );
-            }
-          }
-        }
-      }
-    }
-    
-    // 如果无法从服务中获取配置，则使用默认配置
-    setState(() {
-      _callFilterConfig = CallFilterConfig();
-    });
-  }
-  
-  /// 切换视图模式
   void _toggleViewMode() {
     setState(() {
       _isEntryPointMode = !_isEntryPointMode;
     });
   }
 
-  /// 导航到本地过滤器设置页面
+  // [注释]: 导航方法保持不变，但目标页面现在都是无参的 ConsumerWidget。
   void _navigateToLocalFilterSettings() {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => LocalFilterSettingsPage(
-          localCountFilterService: widget.localCountFilterService,
-          configRepository: widget.configRepository,
-        ),
+        builder: (context) => const LocalFilterSettingsPage(),
       ),
     );
   }
 
-  /// 导航到远程过滤器设置页面
   void _navigateToRemoteFilterSettings() {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => RemoteFilterSettingsPage(
-          remoteNumberFilterService: widget.remoteNumberFilterService,
-          remoteNumberService: widget.remoteNumberService,
-          configRepository: widget.configRepository,
-        ),
+        builder: (context) => const RemoteFilterSettingsPage(),
       ),
     );
   }
 
-  /// 导航到基础规则过滤器设置页面
   void _navigateToCallFilterSettings() {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CallFilterSettingsPage(
-          callFilterService: widget.enhancedCompositeFilterService,
-        ),
+        builder: (context) => const CallFilterSettingsPage(),
       ),
     );
   }
 
-  /// 导航到SIM卡规则管理页面
   void _navigateToSimSlotRuleFilterPage(int simSlotIndex) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SimSlotRuleFilterPage(
-          simSlotRuleService: widget.simSlotRuleService,
-          enhancedCompositeFilterService: widget.enhancedCompositeFilterService,
-          configRepository: widget.configRepository,
-          ruleRepository: widget.ruleRepository,
-          simSlotIndex: simSlotIndex,
-        ),
+        builder: (context) => SimSlotRuleFilterPage(simSlotIndex: simSlotIndex),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    // [重构]: 使用 ref.watch 异步获取 SIM 卡信息。
+    final simCardsAsync = ref.watch(simCardsProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.enhancedFilterSettingsTitle),
         actions: [
           IconButton(
             icon: Icon(_isEntryPointMode ? Icons.tune : Icons.list),
-            tooltip: _isEntryPointMode ? 'detailedSettings' : 'entryPointView',
+            tooltip: _isEntryPointMode 
+                ? AppLocalizations.of(context)!.detailedSettingsTitle 
+                : AppLocalizations.of(context)!.entryPointViewTitle,
             onPressed: _toggleViewMode,
           ),
         ],
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : _isEntryPointMode
-              ? ListView(
-                  padding: const EdgeInsets.all(16.0),
-                  children: [
-                    _buildGlobalFilterSection(),
-                    const Divider(height: 32),
-                    _buildSimSlotSection(),
-                    const SizedBox(height: 32),
-                    _buildExplanationCard(),
-                  ],
-                )
-              : _callFilterConfig == null
-                  ? const Center(child: CircularProgressIndicator())
-                  : EnhancedCompositeFilterSettingsWidget(
-                      enhancedCompositeFilterService: widget.enhancedCompositeFilterService,
-                      localCountFilterService: widget.localCountFilterService,
-                      remoteNumberFilterService: widget.remoteNumberFilterService,
-                      simSlotRuleService: widget.simSlotRuleService,
-                      callFilterConfig: _callFilterConfig,
-                    ),
+      // [重构]: 使用 simCardsAsync.when 来处理加载、错误和成功状态。
+      body: simCardsAsync.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, stack) => Center(child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(err.toString()),
+        )),
+        data: (simCards) {
+          // [注释]: 根据本地状态 _isEntryPointMode 决定显示哪个视图。
+          return _isEntryPointMode
+              ? _buildEntryPointView(simCards)
+              // [重构]: 直接嵌入 Widget，不再需要传递任何参数。
+              : const EnhancedCompositeFilterSettingsWidget();
+        },
+      ),
     );
   }
 
-  /// 构建全局过滤器部分
+  // [注释]: UI 构建辅助方法保持不变，仅修改数据来源。
+  
+  Widget _buildEntryPointView(List<SimInfo> simCards) {
+    return ListView(
+      padding: const EdgeInsets.all(16.0),
+      children: [
+        _buildGlobalFilterSection(),
+        const Divider(height: 32),
+        _buildSimSlotSection(simCards),
+        const SizedBox(height: 32),
+        _buildExplanationCard(),
+      ],
+    );
+  }
+
   Widget _buildGlobalFilterSection() {
     return Card(
       child: Padding(
@@ -269,8 +166,17 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
     );
   }
 
-  /// 构建SIM卡槽位部分
-  Widget _buildSimSlotSection() {
+  Widget _buildSimSlotSection(List<SimInfo> simCards) {
+    // [注释]: 如果没有SIM卡，显示提示信息。
+    if (simCards.isEmpty) {
+      return Card(
+        child: ListTile(
+          leading: const Icon(Icons.sim_card_alert_outlined),
+          title: Text(AppLocalizations.of(context)!.noSimCardDetected),
+        ),
+      );
+    }
+    
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -284,25 +190,29 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
             const SizedBox(height: 16),
             Text(AppLocalizations.of(context)!.simSlotFilterDescription),
             const SizedBox(height: 16),
-            ..._availableSimSlots.map((simInfo) => Column(
+            // [注释]: 使用真实的 simCards 数据。
+            ...simCards.map((simInfo) {
+              final slotIndex = simInfo.simSlotIndex;
+              if (slotIndex == null) return const SizedBox.shrink();
+              return Column(
                   children: [
                     ListTile(
                       leading: const Icon(Icons.sim_card),
-                      title: Text(simInfo.displayName ?? AppLocalizations.of(context)!.unassignedSIMCard),
-                      subtitle: Text(AppLocalizations.of(context)!.simSlotPosition(simInfo.simSlotIndex! + 1)),
+                      title: Text(simInfo.carrierName ?? AppLocalizations.of(context)!.unassignedSIMCard),
+                      subtitle: Text(AppLocalizations.of(context)!.simSlotPosition(slotIndex + 1)),
                       trailing: const Icon(Icons.chevron_right),
-                      onTap: () => _navigateToSimSlotRuleFilterPage(simInfo.simSlotIndex!),
+                      onTap: () => _navigateToSimSlotRuleFilterPage(slotIndex),
                     ),
-                    if (simInfo != _availableSimSlots.last) const Divider(),
+                    if (simInfo != simCards.last) const Divider(),
                   ],
-                )),
+                );
+            }),
           ],
         ),
       ),
     );
   }
 
-  /// 构建说明卡片
   Widget _buildExplanationCard() {
     return Card(
       elevation: 2,
@@ -317,9 +227,9 @@ class EnhancedFilterSettingsPageState extends State<EnhancedFilterSettingsPage> 
             Text(AppLocalizations.of(context)!.enhancedFilterSystemDescription),
             const SizedBox(height: 8),
             Text(AppLocalizations.of(context)!.systemFeatures),
-            Text(AppLocalizations.of(context)!.globalFilterFeature),
-            Text(AppLocalizations.of(context)!.simSlotRuleFeature),
-            Text(AppLocalizations.of(context)!.flexibleCombinationFeature),
+            Text("• ${AppLocalizations.of(context)!.globalFilterFeature}"),
+            Text("• ${AppLocalizations.of(context)!.simSlotRuleFeature}"),
+            Text("• ${AppLocalizations.of(context)!.flexibleCombinationFeature}"),
             const SizedBox(height: 8),
             Text(AppLocalizations.of(context)!.configurationAdvice),
           ],

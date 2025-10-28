@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:permission_handler/permission_handler.dart';
 
-import 'package:sim_reader/sim_reader.dart'; // Replaced sim_card_info
+import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
+import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
+import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
+import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/enhanced_composite_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/local_count_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
-import 'package:yourcallyourrule/common/error/logger.dart';
 
-/// 过滤管理组件
-/// 用于集中管理各种通话过滤功能的开关设置
+// [重构]: 导入所有需要的 Provider。
+
+
+import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
+import 'package:yourcallyourrule/features/call/call_filter/providers/enhanced_filter_config_provider.dart';
+
+
+
+import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
+
 class FilterManagementWidget extends ConsumerStatefulWidget {
   const FilterManagementWidget({super.key});
 
@@ -22,78 +24,45 @@ class FilterManagementWidget extends ConsumerStatefulWidget {
   ConsumerState<FilterManagementWidget> createState() => _FilterManagementWidgetState();
 }
 
-class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget> {
+class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget> with TickerProviderStateMixin {
   bool _isExpanded = false;
-  // --- Start of Changes ---
-  // final SimCardInfo _simCardInfoPlugin = SimCardInfo(); // Removed old plugin instance
-  List<SimInfo> _simInfo = [];
-  bool isSupported = true;
-  
-  @override
-  void initState() {
-    super.initState();
-    initSimInfoState();
-  }
-  
-  /// 初始化SIM卡信息
-  Future<void> initSimInfoState() async {
-    List<SimInfo> simCardInfo;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-     // We use a try/catch block to handle potential errors.
-    try {
-      // First, request the necessary phone permission for Android.
-      // This is not required for iOS but is harmless.
-      final status = await Permission.phone.request();
-      
-      if (status.isGranted) {
-        // If permission is granted, get SIM information.
-        simCardInfo = await SimReader.getAllSimInfo();
-      } else {
-        // Handle the case where the user denies the permission.
-        simCardInfo = [];
-        if (mounted) {
-          setState(() {
-            isSupported = false;
-          });
-        }
-        AppLogger.error('获取SIM卡信息失败', '电话权限未授予');
-      }
-    } on SimReaderException catch (e) {
-      // Catch specific exceptions from the sim_reader package.
-      simCardInfo = [];
-      if (mounted) {
-        setState(() {
-          isSupported = false;
-        });
-      }
-      AppLogger.error('获取SIM卡信息失败', 'SimReaderException: ${e.message}');
-    } catch (e) {
-      // Catch any other unexpected errors.
-      simCardInfo = [];
-      if (mounted) {
-        setState(() {
-          isSupported = false;
-        });
-      }
-      AppLogger.error('获取SIM卡信息失败', '未知错误: $e');
-    }
+  TabController? _tabController;
 
-    // If the widget was removed from the tree while the asynchronous message
-    // was in flight, we want to discard the reply.              
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-    setState(() {
-      _simInfo = simCardInfo!;
-    });
+  @override
+  void dispose() {
+    _tabController?.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final simCardsAsync = ref.watch(simCardsProvider);
+    
+    simCardsAsync.whenData((simCards) {
+      final simCount = simCards.length;
+      if (simCount > 0 && (_tabController == null || _tabController!.length != simCount)) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            setState(() {
+              _tabController?.dispose();
+              _tabController = TabController(length: simCount, vsync: this);
+            });
+          }
+        });
+      } else if (simCount == 0 && _tabController != null) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            setState(() {
+              _tabController?.dispose();
+              _tabController = null;
+            });
+          }
+        });
+      }
+    });
+
     return Card(
-      color: _isExpanded ? null : const Color(0xFFFFA726), // 根据展开状态设置背景色
+      color: _isExpanded ? null : const Color(0xFFFFA726),
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ExpansionTile(
@@ -109,413 +78,370 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
         children: [
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // SIM卡过滤规则开关
-                _buildSimCardFilterRulesSwitch(),
-                const SizedBox(height: 16),
-                // 根据SIM卡过滤规则开关状态显示不同内容
-                _buildFilterContent(),
-              ],
-            ),
+            child: _buildFilterContent(),
           ),
         ],
       ),
     );
   }
   
-  /// 根据SIM卡过滤规则开关状态构建过滤内容
   Widget _buildFilterContent() {
-    final enhancedService = ref.watch(enhancedCompositeFilterServiceProvider);
-    final isSimSlotRuleEnabled = enhancedService.isFilterEnabled('SimSlotRuleService');
-    
-    if (isSimSlotRuleEnabled) {
-      // 如果SIM卡槽位过滤启用，显示按SIM卡槽位的过滤设置
-      return _buildSimSlotFilterContent();
-    } else {
-      // 否则显示全局过滤设置
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 通话过滤规则
-          _buildCallFilterSwitch(),
-          const SizedBox(height: 16),
-          // 本地计数过滤器
-          _buildLocalCountFilterSwitch(),
-          const SizedBox(height: 16),
-          // 远程号码过滤器
-          _buildRemoteNumberFilterSwitch(),
-          const SizedBox(height: 16),
-          // 时间拦截器
-          _buildTimeInterceptorSwitch(),
-        ],
-      );
-    }
+    final enhancedConfigAsync = ref.watch(enhancedFilterConfigProvider);
+
+    // [注释]: 顶层仍然使用 .when 处理初始加载和致命错误。
+    return enhancedConfigAsync.when(
+      data: (enhancedConfig) {
+        final isSimSlotRuleEnabled = enhancedConfig.filterEnabledMap['SimSlotRuleService'] ?? false;
+        
+        if (isSimSlotRuleEnabled) {
+          return _buildSimSlotFilterContent();
+        } else {
+          return _buildGlobalFilterList();
+        }
+      },
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (err, st) => Center(child: Text(AppLocalizations.of(context)!.dataLoadFailure(err.toString()))),
+    );
   }
   
-  /// 构建按SIM卡槽位的过滤内容
+  Widget _buildGlobalFilterList() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildSimCardFilterRulesSwitch(),
+        const SizedBox(height: 16),
+        _buildCallFilterSwitch(),
+        const SizedBox(height: 16),
+        _buildLocalCountFilterSwitch(),
+        const SizedBox(height: 16),
+        _buildRemoteNumberFilterSwitch(),
+        const SizedBox(height: 16),
+        _buildTimeInterceptorSwitch(),
+      ],
+    );
+  }
+  
   Widget _buildSimSlotFilterContent() {
-    // 获取可用的SIM卡槽位
-    final availableSimSlots = _simInfo.isNotEmpty
-        ? List.generate(_simInfo.length, (index) => index)
-        : isSupported ? [0, 1] : []; // 如果不支持或获取失败，使用默认值或空列表
+    final simCardsAsync = ref.watch(simCardsProvider);
     
-    if (availableSimSlots.isEmpty) {
-      return Center(
-        child: Text(
-          AppLocalizations.of(context)!.noSimCardsDetected,
+    return simCardsAsync.when(
+      data: (simCards) {
+        if (simCards.isEmpty) {
+          return Center(child: Text(AppLocalizations.of(context)!.noSimCardsDetected, style: TextStyle(fontSize: 16, color: Colors.grey[600])));
+        }
 
-          style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-        ),
-      );
-    }
-    
-    return DefaultTabController(
-      length: availableSimSlots.length,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          /*
-          Text(
-            AppLocalizations.of(context)!.simSlotFilterConfiguration,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            AppLocalizations.of(context)!.simSlotFilterConfigurationDescription,
-            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-          ),
-          */
-       //   const SizedBox(height: 16),
-          
-          // Tab栏，用于切换不同的SIM卡槽位
-          TabBar(
-            tabs: availableSimSlots.map((simSlot) => Tab(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.sim_card, color: simSlot == 0 ? Colors.red : Colors.green),
-                  Text('SIM ${simSlot + 1}'), // 直接使用简单文本避免格式化问题
-                  if (_simInfo.isNotEmpty && simSlot < _simInfo.length)
-                    Flexible(
-                      child: Text(
-                                               // --- Start of Changes: Added null check ---
-                        _simInfo[simSlot].carrierName ?? '',
-                        // --- End of Changes ---
+        if (_tabController == null) {
+          return const Center(child: CircularProgressIndicator());
+        }
 
-                        style: const TextStyle(fontSize: 12),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                    ),
-                ],
-              ),
-            )).toList(),
-            labelColor: Theme.of(context).primaryColor,
-            unselectedLabelColor: Colors.grey,
-            indicatorSize: TabBarIndicatorSize.tab,
-          ),
-          
-          // Tab内容区域
-          SizedBox(
-            height: 600, // 增加高度以确保内容完全可见
-            child: TabBarView(
-              children: availableSimSlots.map((simSlot) => SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TabBar(
+              controller: _tabController,
+              tabs: simCards.map((simInfo) {
+                final simSlot = simInfo.simSlotIndex ?? 0;
+                return Tab(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      // 显示SIM卡信息
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: Colors.blue.withValues(alpha: 0.1),
-                          borderRadius: BorderRadius.circular(8),
+                      Icon(Icons.sim_card, color: simSlot == 0 ? Colors.red : Colors.green),
+                      Text('SIM ${simSlot + 1}'),
+                      Flexible(
+                        child: Text(
+                          simInfo.carrierName ?? '',
+                          style: const TextStyle(fontSize: 12),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.sim_card, color: Colors.blue),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'SIM ${simSlot + 1}', // 直接使用简单文本避免格式化问题
-                                    style: const TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  if (_simInfo.isNotEmpty && simSlot < _simInfo.length)
-                                         // --- Start of Changes: Added null check ---
-                                    Text(_simInfo[simSlot].carrierName ?? 'Unknown Carrier'),
-                                    // --- End of Changes ---
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      
-                      const SizedBox(height: 16),
-                      
-                      // 通话过滤规则
-                      _buildCallFilterSwitch(),
-                      
-                      const SizedBox(height: 16),
-                      
-                      // 本地计数过滤器
-                      _buildSimSlotFilterItem(
-                        title: AppLocalizations.of(context)!.localCountFilter,
-                        subtitle: AppLocalizations.of(context)!.localCountFilterDescription,
-                        icon: Icons.filter_list,
-                        color: Colors.orange,
-                        simSlot: simSlot,
-                        serviceId: 'LocalCountFilterService',
-                      ),
-                      
-                      const SizedBox(height: 16),
-                      
-                      // 远程号码过滤器
-                      _buildSimSlotFilterItem(
-                        title: AppLocalizations.of(context)!.remoteNumberFilter,
-                        subtitle: AppLocalizations.of(context)!.remoteNumberFilterDescription,
-                        icon: Icons.filter,
-                        color: Colors.purple,
-                        simSlot: simSlot,
-                        serviceId: 'RemoteNumberFilterService',
-                      ),
-                      
-                      const SizedBox(height: 16),
-                      
-                      // 时间拦截器
-                      _buildSimSlotFilterItem(
-                        title: AppLocalizations.of(context)!.timeInterceptor,
-                        subtitle: AppLocalizations.of(context)!.timeInterceptorDescription,
-                        icon: Icons.timer,
-                        color: Colors.teal,
-                        simSlot: simSlot,
-                        serviceId: 'TimeInterceptorService',
                       ),
                     ],
                   ),
-                ),
-              )).toList(),
+                );
+              }).toList(),
+              labelColor: Theme.of(context).primaryColor,
+              unselectedLabelColor: Colors.grey,
+              indicatorSize: TabBarIndicatorSize.tab,
             ),
-          ),
-        ],
-      ),
+            SizedBox(
+              height: 600,
+              child: TabBarView(
+                controller: _tabController,
+                children: simCards.map((simInfo) {
+                  final simSlot = simInfo.simSlotIndex!;
+                  return SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                             padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(color: Colors.blue.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
+                              child: Row(
+                                children: [
+                                  const Icon(Icons.sim_card, color: Colors.blue),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('SIM ${simSlot + 1}', style: const TextStyle(fontWeight: FontWeight.bold)),
+                                        Text(simInfo.carrierName ?? AppLocalizations.of(context)!.unassignedSIMCard),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                          ),
+                          const SizedBox(height: 16),
+                          _buildCallFilterSwitch(),
+                          const SizedBox(height: 16),
+                          _buildSimSlotFilterItem(
+                            title: AppLocalizations.of(context)!.localCountFilter,
+                            subtitle: AppLocalizations.of(context)!.localCountFilterDescription,
+                            icon: Icons.filter_list,
+                            color: Colors.orange,
+                            simSlot: simSlot,
+                            serviceId: 'LocalCountFilterService',
+                          ),
+                          const SizedBox(height: 16),
+                          _buildSimSlotFilterItem(
+                            title: AppLocalizations.of(context)!.remoteNumberFilter,
+                            subtitle: AppLocalizations.of(context)!.remoteNumberFilterDescription,
+                            icon: Icons.filter,
+                            color: Colors.purple,
+                            simSlot: simSlot,
+                            serviceId: 'RemoteNumberFilterService',
+                          ),
+                          const SizedBox(height: 16),
+                          _buildSimSlotFilterItem(
+                            title: AppLocalizations.of(context)!.timeInterceptor,
+                            subtitle: AppLocalizations.of(context)!.timeInterceptorDescription,
+                            icon: Icons.timer,
+                            color: Colors.teal,
+                            simSlot: simSlot,
+                            serviceId: 'TimeInterceptorService',
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
+        );
+      },
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (err, st) => Center(child: Text(AppLocalizations.of(context)!.dataLoadFailure(err.toString()))),
     );
   }
 
-  /// 构建SIM卡过滤规则开关
+  // ▼▼▼▼▼ 核心修正部分 ▼▼▼▼▼
+
   Widget _buildSimCardFilterRulesSwitch() {
-    return FutureBuilder<List<dynamic>>(
-      future: ref.read(simSlotRuleServiceProvider)
-          .getAllSimSlotRules(),
-      builder: (context, snapshot) {
-        int ruleCount = snapshot.hasData ? snapshot.data!.length : 0;
-        final enhancedService = ref.watch(enhancedCompositeFilterServiceProvider);
+    // [修正]: 我们只 select provider 的 data 部分。
+    final config = ref.watch(enhancedFilterConfigProvider.select((asyncValue) => asyncValue.value));
+    
+    // [注释]: 如果初始数据还没加载好，config 会是 null，我们可以显示一个禁用的开关。
+    if (config == null) {
+      return _buildFilterSwitchItem(
+        title: AppLocalizations.of(context)!.simCardFilterRules,
+        subtitle: AppLocalizations.of(context)!.simCardFilterRulesDescription,
+        icon: Icons.sim_card, color: Colors.blue, count: 0, isEnabled: false, onToggle: (_) {},
+      );
+    }
+
+    // [注释]: 这里仍然可以使用 Consumer 来异步获取规则数，这不会影响主UI的重建。
+    return Consumer(
+      builder: (context, ref, _) {
+        final allRulesCountProvider = FutureProvider<int>((ref) async {
+            final service = ref.watch(simSlotRuleServiceProvider);
+            final rules = await service.getAllSimSlotRules();
+            return rules.length;
+        });
+        final rulesCount = ref.watch(allRulesCountProvider).value ?? 0;
+        
         return _buildFilterSwitchItem(
           title: AppLocalizations.of(context)!.simCardFilterRules,
           subtitle: AppLocalizations.of(context)!.simCardFilterRulesDescription,
           icon: Icons.sim_card,
           color: Colors.blue,
-          count: ruleCount,
-          isEnabled: enhancedService.isFilterEnabled('SimSlotRuleService'),
+          count: rulesCount,
+          isEnabled: config.filterEnabledMap['SimSlotRuleService'] ?? false,
           onToggle: (value) {
-            final service = ref.read(enhancedCompositeFilterServiceProvider);
-            if (value) {
-              service.enableFilter('SimSlotRuleService');
-            } else {
-              service.disableFilter('SimSlotRuleService');
-            }
-            setState(() {});
+            final notifier = ref.read(enhancedFilterConfigProvider.notifier);
+            value ? notifier.enableFilter('SimSlotRuleService') : notifier.disableFilter('SimSlotRuleService');
           },
         );
       },
     );
   }
 
-  /// 构建本地计数过滤器开关
   Widget _buildLocalCountFilterSwitch() {
-    final localCountFilterService =
-        ref.watch(localCountFilterServiceProvider);
+    // [修正]: 使用 .select 只监听数据。当状态为 loading/error 时，UI 不会重建为空白。
+    final config = ref.watch(localCountFilterConfigProvider.select((asyncValue) => asyncValue.value));
+    if (config == null) {
+      return _buildFilterSwitchItem(
+        title: AppLocalizations.of(context)!.localCountFilter,
+        subtitle: AppLocalizations.of(context)!.localCountFilterDescription,
+        icon: Icons.filter_list, color: Colors.orange, count: 0, isEnabled: false, onToggle: (_) {},
+      );
+    }
+    
     return _buildFilterSwitchItem(
       title: AppLocalizations.of(context)!.localCountFilter,
       subtitle: AppLocalizations.of(context)!.localCountFilterDescription,
       icon: Icons.filter_list,
       color: Colors.orange,
-      count: localCountFilterService.localCountFilterConfig.countThreshold,
-      isEnabled: localCountFilterService.localCountFilterConfig.enableLocalCountFilter,
-      onToggle: (value) async {
-        final config = localCountFilterService.localCountFilterConfig;
-        config.enableLocalCountFilter = value;
-        await localCountFilterService.updateConfig(config);
-        setState(() {});
-      },
+      count: config.countThreshold,
+      isEnabled: config.enableLocalCountFilter,
+      onToggle: (value) => ref.read(localCountFilterConfigProvider.notifier).updateConfig(config.copyWith(enableLocalCountFilter: value)),
     );
   }
-
-  /// 构建远程号码过滤器开关
+  
   Widget _buildRemoteNumberFilterSwitch() {
-    final remoteNumberFilterService =
-        ref.watch(remoteNumberFilterServiceProvider);
+    // [修正]: 使用 .select 只监听数据。
+    final config = ref.watch(remoteNumberFilterConfigProvider.select((asyncValue) => asyncValue.value));
+    if (config == null) {
+       return _buildFilterSwitchItem(
+        title: AppLocalizations.of(context)!.remoteNumberFilter,
+        subtitle: AppLocalizations.of(context)!.remoteNumberFilterDescription,
+        icon: Icons.filter, color: Colors.purple, count: 0, isEnabled: false, onToggle: (_) {},
+      );
+    }
+
     return _buildFilterSwitchItem(
       title: AppLocalizations.of(context)!.remoteNumberFilter,
       subtitle: AppLocalizations.of(context)!.remoteNumberFilterDescription,
       icon: Icons.filter,
       color: Colors.purple,
-      count: remoteNumberFilterService.remoteNumberFilterConfig.countThreshold,
-      isEnabled: remoteNumberFilterService.remoteNumberFilterConfig.enableRemoteNumberFilter,
-      onToggle: (value) async {
-        final config = remoteNumberFilterService.remoteNumberFilterConfig;
-        config.enableRemoteNumberFilter = value;
-        await remoteNumberFilterService.updateConfig(config);
-        setState(() {});
-      },
+      count: config.countThreshold,
+      isEnabled: config.enableRemoteNumberFilter,
+      onToggle: (value) => ref.read(remoteNumberFilterConfigProvider.notifier).updateConfig(config.copyWith(enableRemoteNumberFilter: value)),
     );
   }
 
-  /// 构建通话过滤规则开关
-  Widget _buildCallFilterSwitch() {
-    final callFilterService = ref.watch(callFilterServiceProvider);
-    final enhancedService = ref.watch(enhancedCompositeFilterServiceProvider);
+  Widget _buildTimeInterceptorSwitch() {
+    // [修正]: 使用 .select 只监听数据。
+    final config = ref.watch(timeInterceptorConfigProvider.select((asyncValue) => asyncValue.value));
+    if (config == null) {
+       return _buildFilterSwitchItem(
+        title: AppLocalizations.of(context)!.timeInterceptor,
+        subtitle: AppLocalizations.of(context)!.timeInterceptorDescription,
+        icon: Icons.timer, color: Colors.teal, count: 0, isEnabled: false, onToggle: (_) {},
+      );
+    }
     
+    return _buildFilterSwitchItem(
+      title: AppLocalizations.of(context)!.timeInterceptor,
+      subtitle: AppLocalizations.of(context)!.timeInterceptorDescription,
+      icon: Icons.timer,
+      color: Colors.teal,
+      count: config.duration.inMinutes,
+      isEnabled: config.shouldIntercept,
+      onToggle: (value) => ref.read(timeInterceptorConfigProvider.notifier).updateShouldIntercept(value),
+    );
+  }
+
+  Widget _buildCallFilterSwitch() {
+    // [修正]: 对两个 provider 都使用 .select。
+    final callConfig = ref.watch(callFilterConfigProvider.select((v) => v.value));
+    final enhancedConfig = ref.watch(enhancedFilterConfigProvider.select((v) => v.value));
+    
+    // [注释]: 只有当两个配置都加载完成后才构建UI。
+    if (callConfig == null || enhancedConfig == null) {
+      // [注释]: 在初始加载时，显示一个禁用的、收起的 ExpansionTile。
+      return Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(color: const Color.fromARGB(255, 247, 32, 132).withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
+        child: ListTile(
+          title: Text(AppLocalizations.of(context)!.callFilterRules),
+          subtitle: Text(AppLocalizations.of(context)!.callFilterRulesDescription),
+          leading: const Icon(Icons.call_end, color: Colors.grey),
+          enabled: false,
+        ),
+      );
+    }
+
+    final callNotifier = ref.read(callFilterConfigProvider.notifier);
+    final enhancedNotifier = ref.read(enhancedFilterConfigProvider.notifier);
+
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 247, 32, 132).withValues(alpha: 0.1), // 添加背景色
-        borderRadius: BorderRadius.circular(12),
-      ),
+      decoration: BoxDecoration(color: const Color.fromARGB(255, 247, 32, 132).withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
       child: ExpansionTile(
         title: Text(AppLocalizations.of(context)!.callFilterRules),
         subtitle: Text(AppLocalizations.of(context)!.callFilterRulesDescription),
         leading: const Icon(Icons.call_end, color: Colors.red),
         children: [
-        // 全局过滤器开关
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableCallFilter),
-          subtitle: Text(AppLocalizations.of(context)!.enableCallFilterDescription),
-          value: enhancedService.isFilterEnabled('CallFilterService'),
-          onChanged: (value) async {
-            if (value) {
-              await enhancedService.enableFilter('CallFilterService');
-            } else {
-              await enhancedService.disableFilter('CallFilterService');
-            }
-            setState(() {});
-          },
-        ),
-        
-        // 全局规则配置
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.rejectAllCalls),
-          subtitle: Text(AppLocalizations.of(context)!.rejectAllCallsDescription),
-          value: callFilterService.callFilterConfig.rejectAllNumbers,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.rejectAllNumbers = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowAllowedNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.allowAllowedNumbersDesc),
-          value: callFilterService.callFilterConfig.allowAllAllowedNumbers,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowAllAllowedNumbers = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowRegexAllowRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowRegexAllowRulesDescription),
-          value: callFilterService.callFilterConfig.allowRegexAllowRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowRegexAllowRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowBlockedNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.allowBlockedNumbersDesc),
-          value: callFilterService.callFilterConfig.allowBlockedNumbers,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowBlockedNumbers = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowAllAllowRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowAllAllowRulesDesc),
-          value: callFilterService.callFilterConfig.allowAllAllowRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowAllAllowRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowRegexBlockRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowRegexBlockRulesDescription),
-          value: callFilterService.callFilterConfig.allowRegexBlockRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowRegexBlockRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowAllBlockRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowAllBlockRulesDesc),
-          value: callFilterService.callFilterConfig.allowAllBlockRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowAllBlockRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableMuteRules),
-          subtitle: Text(AppLocalizations.of(context)!.enableMuteRulesDesc),
-          value: callFilterService.callFilterConfig.allowSilenceRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowSilenceRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableNoneActionRules),
-          subtitle: Text(AppLocalizations.of(context)!.enableNoneActionRulesDesc),
-          value: callFilterService.callFilterConfig.allowNoneRules,
-          onChanged: (value) async {
-            final newConfig = callFilterService.callFilterConfig;
-            newConfig.allowNoneRules = value;
-            await callFilterService.updateConfig(newConfig);
-            setState(() {});
-          },
-        ),
-      ],
-    ),
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.enableCallFilter),
+            subtitle: Text(AppLocalizations.of(context)!.enableCallFilterDescription),
+            value: enhancedConfig.filterEnabledMap['CallFilterService'] ?? true,
+            onChanged: (value) => value ? enhancedNotifier.enableFilter('CallFilterService') : enhancedNotifier.disableFilter('CallFilterService'),
+          ),
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.rejectAllCalls),
+            subtitle: Text(AppLocalizations.of(context)!.rejectAllCallsDescription),
+            value: callConfig.rejectAllNumbers,
+            onChanged: (value) => callNotifier.updateConfig(callConfig.copyWith(rejectAllNumbers: value)),
+          ),
+          // ... [注释]: 所有其他 SwitchListTile 保持原样，它们会正确工作
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.allowAllowedNumbers),
+            subtitle: Text(AppLocalizations.of(context)!.allowAllowedNumbersDesc),
+            value: callConfig.allowAllAllowedNumbers,
+            onChanged: (value) => callNotifier.updateConfig(callConfig.copyWith(allowAllAllowedNumbers: value)),
+          ),
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.allowRegexAllowRules),
+            subtitle: Text(AppLocalizations.of(context)!.allowRegexAllowRulesDescription),
+            value: callConfig.allowRegexAllowRules,
+            onChanged: (value) => callNotifier.updateConfig(callConfig.copyWith(allowRegexAllowRules: value)),
+          ),
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.allowBlockedNumbers),
+            subtitle: Text(AppLocalizations.of(context)!.allowBlockedNumbersDesc),
+            value: callConfig.allowBlockedNumbers,
+            onChanged: (value) => callNotifier.updateConfig(callConfig.copyWith(allowBlockedNumbers: value)),
+          ),
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.allowAllAllowRules),
+            subtitle: Text(AppLocalizations.of(context)!.allowAllAllowRulesDesc),
+            value: callConfig.allowAllAllowRules,
+            onChanged: (value) => callNotifier.updateConfig(callConfig.copyWith(allowAllAllowRules: value)),
+          ),
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.allowRegexBlockRules),
+            subtitle: Text(AppLocalizations.of(context)!.allowRegexBlockRulesDescription),
+            value: callConfig.allowRegexBlockRules,
+            onChanged: (value) => callNotifier.updateConfig(callConfig.copyWith(allowRegexBlockRules: value)),
+          ),
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.allowAllBlockRules),
+            subtitle: Text(AppLocalizations.of(context)!.allowAllBlockRulesDesc),
+            value: callConfig.allowAllBlockRules,
+            onChanged: (value) => callNotifier.updateConfig(callConfig.copyWith(allowAllBlockRules: value)),
+          ),
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.enableMuteRules),
+            subtitle: Text(AppLocalizations.of(context)!.enableMuteRulesDesc),
+            value: callConfig.allowSilenceRules,
+            onChanged: (value) => callNotifier.updateConfig(callConfig.copyWith(allowSilenceRules: value)),
+          ),
+          SwitchListTile(
+            title: Text(AppLocalizations.of(context)!.enableNoneActionRules),
+            subtitle: Text(AppLocalizations.of(context)!.enableNoneActionRulesDesc),
+            value: callConfig.allowNoneRules,
+            onChanged: (value) => callNotifier.updateConfig(callConfig.copyWith(allowNoneRules: value)),
+          ),
+        ],
+      ),
     );
   }
-  
 
-  
-  /// 构建SIM卡槽位的过滤器项
   Widget _buildSimSlotFilterItem({
     required String title,
     required String subtitle,
@@ -524,14 +450,15 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     required int simSlot,
     required String serviceId,
   }) {
-    final enhancedService = ref.watch(enhancedCompositeFilterServiceProvider);
-    
+    // [修正]: 使用 .select 只监听数据。
+    final enhancedConfig = ref.watch(enhancedFilterConfigProvider.select((v) => v.value));
+    if (enhancedConfig == null) {
+      return Container(); // 返回一个空容器而不是 SizedBox.shrink()
+    }
+
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(12),
-      ),
+      decoration: BoxDecoration(color: color.withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
       child: Row(
         children: [
           Icon(icon, color: color, size: 24),
@@ -540,27 +467,17 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                ),
+                Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                 const SizedBox(height: 4),
-                Text(
-                  subtitle,
-                  style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-                ),
+                Text(subtitle, style: TextStyle(fontSize: 14, color: Colors.grey[600])),
               ],
             ),
           ),
           Switch(
-            value: enhancedService.isFilterEnabledForSimSlot(simSlot, serviceId),
-            onChanged: (value) async {
-              if (value) {
-                await enhancedService.enableFilterForSimSlot(simSlot, serviceId);
-              } else {
-                await enhancedService.disableFilterForSimSlot(simSlot, serviceId);
-              }
-              setState(() {});
+            value: enhancedConfig.simSlotFilterConfigMap[simSlot]?[serviceId] ?? enhancedConfig.filterEnabledMap[serviceId] ?? true,
+            onChanged: (value) {
+              final notifier = ref.read(enhancedFilterConfigProvider.notifier);
+              value ? notifier.enableFilterForSimSlot(simSlot, serviceId) : notifier.disableFilterForSimSlot(simSlot, serviceId);
             },
             activeColor: color,
           ),
@@ -569,35 +486,6 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     );
   }
 
-
-
-
-
-
-
-
-  /// 构建时间拦截器开关
-  Widget _buildTimeInterceptorSwitch() {
-    final timeInterceptorService =
-        ref.watch(timeInterceptorServiceProvider);
-    return _buildFilterSwitchItem(
-      title: AppLocalizations.of(context)!.timeInterceptor,
-      subtitle: AppLocalizations.of(context)!.timeInterceptorDescription,
-      icon: Icons.timer,
-      color: Colors.teal,
-      count: timeInterceptorService.config.duration.inMinutes,
-      isEnabled: timeInterceptorService.config.shouldIntercept,
-      onToggle: (value) async {
-        await timeInterceptorService.updateConfig(
-          timeInterceptorService.config.duration,
-          value,
-        );
-        setState(() {});
-      },
-    );
-  }
-
-  /// 构建过滤器开关项
   Widget _buildFilterSwitchItem({
     required String title,
     required String subtitle,
@@ -607,12 +495,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     required bool isEnabled,
     required Function(bool) onToggle,
   }) {
-    return Container(
+     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(12),
-      ),
+      decoration: BoxDecoration(color: color.withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
       child: Row(
         children: [
           Icon(icon, color: color, size: 24),
@@ -621,35 +506,19 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                ),
+                Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                 const SizedBox(height: 4),
-                Text(
-                  subtitle,
-                  style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-                ),
+                Text(subtitle, style: TextStyle(fontSize: 14, color: Colors.grey[600])),
               ],
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Text(
-              '$count',
-              style: TextStyle(color: color, fontWeight: FontWeight.bold),
-            ),
+            decoration: BoxDecoration(color: color.withOpacity(0.2), borderRadius: BorderRadius.circular(20)),
+            child: Text('$count', style: TextStyle(color: color, fontWeight: FontWeight.bold)),
           ),
           const SizedBox(width: 8),
-          Switch(
-            value: isEnabled,
-            onChanged: onToggle,
-            activeColor: color,
-          ),
+          Switch(value: isEnabled, onChanged: onToggle, activeColor: color),
         ],
       ),
     );

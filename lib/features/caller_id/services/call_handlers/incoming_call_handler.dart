@@ -5,8 +5,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/core/provider/providers/enhanced_composite_filter_service_provider.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
+
+
+
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
@@ -114,7 +115,10 @@ class IncomingCallHandler {
     if (_callFilterService is EnhancedCompositeFilterService) {
       await (_callFilterService).initialize();
     }
-    await _timeInterceptorService.loadConfig();
+ // ▼▼▼▼▼ 第 1 处修改 ▼▼▼▼▼
+    // 【删除】不再需要手动加载配置，Notifier 会自动处理
+    // await _timeInterceptorService.loadConfig();
+    // ▲▲▲▲▲ 修改结束 ▲▲▲▲▲
 
     // 5. 并行地对所有可能的号码格式进行过滤检查，只要有一个通过即可
     final shouldAccept = await Future.any(
@@ -128,7 +132,11 @@ class IncomingCallHandler {
         }
         debugPrint("--- [IncomingCallHandler] Filter service decision for '$number': $decision");
         // 如果被过滤服务拒绝，再检查时间拦截服务是否也拒绝
-        if (!decision && _timeInterceptorService.config.shouldIntercept) {
+        // ▼▼▼▼▼ 第 2 处修改 ▼▼▼▼▼
+        // 【简化】如果被过滤服务拒绝，直接调用 timeInterceptorService 的判断方法。
+        // service 内部会自己获取最新的配置来判断是否启用，以及是否应该拦截。
+        if (!decision) {
+          // `shouldIntercept` 方法返回 true 表示“要拦截”，所以我们需要取反 `!` 得到“是否允许接听”。
           // 时间拦截服务返回 true 是要拦截，所以需要取反来得到“是否应该接听”
           decision = !await _timeInterceptorService.shouldIntercept(number);
           debugPrint("--- [IncomingCallHandler] Time interceptor decision for '$number': $decision (will Allow? $decision)");
