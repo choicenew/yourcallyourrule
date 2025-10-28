@@ -1,100 +1,81 @@
-// 本地号码计数过滤服务类，用于根据本地计数规则判断是否接受来电
-
 import 'dart:async';
-
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
-import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_config.dart';
+// 导入依赖的 Provider
+import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
+import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 
-/// 本地号码计数过滤服务类，用于根据本地计数规则判断是否接受来电
+
+part 'local_count_filter_service.g.dart';
+
+@riverpod
+LocalCountFilterService localCountFilterService(Ref ref) {
+  final service = LocalCountFilterService(
+    callerIdService: ref.watch(callerIdServiceProvider),
+    ref: ref,
+  );
+  service.initialize(); // 服务本身需要初始化监听器
+  // 当 provider 销毁时，调用 dispose
+  ref.onDispose(() => service.dispose());
+  return service;
+}
+
+/// 本地号码计数过滤服务类 (无状态)
 class LocalCountFilterService implements CallFilterInterface {
-  // 显式声明所有依赖项
   final CallerIdService _callerIdService;
-  final ConfigRepository _configRepository;
-  
-  // 存储最新的插件数据
+  final Ref _ref;
+
   PluginData? _latestPluginData;
   
   // 订阅处理
   StreamSubscription<PluginData>? _pluginDataSubscription;
-
-  LocalCountFilterConfig localCountFilterConfig = LocalCountFilterConfig();
-
-  // 构造函数明确依赖关系
+// 构造函数明确依赖关系
   LocalCountFilterService({
     required CallerIdService callerIdService,
-    required ConfigRepository configRepository,
+    required Ref ref,
   })  : _callerIdService = callerIdService,
-        _configRepository = configRepository;
-
-  // 判断是否应该接受来电
+        _ref = ref;
+ // 判断是否应该接受来电
   @override
   Future<bool> shouldAcceptCall(String phoneNumberStr) async {
-    // 如果未启用本地号码计数过滤，则默认接受
-    if (!localCountFilterConfig.enableLocalCountFilter) {
+    final config = await _ref.read(localCountFilterConfigProvider.future);
+      // 如果未启用本地号码计数过滤，则默认接受
+    if (!config.enableLocalCountFilter) {
       return true;
     }
 
     final phoneNumber = PhoneNumber(phoneNumberStr);
-    
-    // 如果启用了日志记录，记录查询
-    if (localCountFilterConfig.logAllLocalQueries) {
-      // 这里可以添加日志记录逻辑
+      // 如果启用了日志记录，记录查询
+    if (config.logAllLocalQueries) {
+      // 日志记录逻辑
     }
-    
-    // 检查是否有计数数据
+     
+ // 检查是否有计数数据
     if (_latestPluginData != null && _latestPluginData!.phoneNumber == phoneNumberStr && _latestPluginData!.count != null) {
       final count = _latestPluginData!.count!;
-      
-      // 检查计数是否超过阈值
-      final isExceeded = count >= localCountFilterConfig.countThreshold;
-      
-      // 如果计数超过阈值且配置为拒绝超过阈值的号码
-      if (isExceeded && localCountFilterConfig.rejectExceededNumbers) {
+       // 检查计数是否超过阈值
+      final isExceeded = count >= config.countThreshold;
+       // 如果计数超过阈值且配置为拒绝超过阈值的号码
+      if (isExceeded && config.rejectExceededNumbers) {
         return false;
       }
-      
       // 如果计数未超过阈值且配置为允许未超过阈值的号码
-      if (!isExceeded && localCountFilterConfig.allowNonExceededNumbers) {
+      if (!isExceeded && config.allowNonExceededNumbers) {
         return true;
       }
     }
-    
-    // 默认情况下，不基于本地计数做决定
+     // 默认情况下，不基于本地计数做决定
     return true;
   }
 
-  static const String _configKey = 'config_local_count_filter';
-
-  /// 从配置仓库加载配置
-  Future<void> loadConfig() async {
-    final configMap = await _configRepository.getConfig(_configKey);
-    if (configMap != null) {
-      localCountFilterConfig = LocalCountFilterConfig.fromMap(configMap);
-    }
-  }
-
-  /// 保存配置到配置仓库
-  Future<void> saveConfig() async {
-    await _configRepository.saveConfig(_configKey, localCountFilterConfig.toMap());
-  }
-
-  /// 更新配置
-  Future<void> updateConfig(LocalCountFilterConfig newConfig) async {
-    localCountFilterConfig = newConfig;
-    await saveConfig();
-  }
-
-  /// 初始化服务
   @override
   Future<void> initialize() async {
-    await loadConfig();
-    
     // 订阅插件数据流
-    _pluginDataSubscription = _callerIdService.pluginDataStream.listen((pluginData) {
+    _pluginDataSubscription ??= _callerIdService.pluginDataStream.listen((pluginData) {
       _latestPluginData = pluginData;
     });
   }

@@ -22,24 +22,28 @@ class CallLogRecorder {
   /// [accepted] 是否接受来电
   Future<void> recordIncomingCall(String phoneNumber, CallData callData, bool accepted, {DateTime? startTime, DateTime? endTime, int? duration, int? timestamp}) async {
     final callType = accepted ? 'incoming' : 'missed';
+    debugPrint('recordIncomingCall: $phoneNumber, $callData, $accepted, $startTime, $endTime, $duration, $timestamp');
     await _recordCall(phoneNumber, callData, callType, startTime: startTime, endTime: endTime, duration: duration, timestamp: timestamp);
   }
     /// 记录去电
   /// [phoneNumber] 电话号码
   /// [callData] 通话数据
   Future<void> recordOutgoingCall(String phoneNumber, CallData callData, {int? timestamp}) async {
+    debugPrint('recordOutgoingCall: $phoneNumber, $callData, $timestamp');
     await _recordCall(phoneNumber, callData, 'outgoing', timestamp: timestamp);
   }
    /// 记录拒接来电
  /// [phoneNumber] 电话号码
  /// [callData] 通话数据
   Future<void> recordRejectedCall(String phoneNumber, CallData callData, {int? timestamp}) async {
+    debugPrint('recordRejectedCall: $phoneNumber, $callData, $timestamp');
     await _recordCall(phoneNumber, callData, 'rejected', timestamp: timestamp);
   }
    /// 记录拦截来电
  /// [phoneNumber] 电话号码
  /// [callData] 通话数据
   Future<void> recordBlockedCall(String phoneNumber, CallData callData, {int? timestamp}) async {
+    debugPrint('recordBlockedCall: $phoneNumber, $callData, $timestamp');
     await _recordCall(phoneNumber, callData, 'blocked', timestamp: timestamp);
   }
     /// 记录通话的通用方法

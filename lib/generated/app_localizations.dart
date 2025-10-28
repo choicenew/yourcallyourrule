@@ -10865,6 +10865,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sort By'**
   String get sortBy;
+
+  /// A message displayed when SIM rules are not found.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Rules not found'**
+  String get simRulesNotFound;
+
+  /// A label for the SIM slot rules.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Slot Rules'**
+  String get simSlotRules;
+
+  /// A message displayed when no SIM card is detected.
+  ///
+  /// In en, this message translates to:
+  /// **'No SIM card detected'**
+  String get noSimCardDetected;
+
+  /// A message displayed when the SIM data is invalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid SIM data'**
+  String get invalidSimData;
+
+  /// A label for the SIM card data.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Card Data'**
+  String get simCardData;
+
+  /// A label for the SIM slot.
+  ///
+  /// In en, this message translates to:
+  /// **'SIM Slot'**
+  String get simSlot;
+
+  /// A checkbox to toggle whether to enable filtering.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Filtering'**
+  String get enableFiltering;
+
+  /// The title of the detailed settings page.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed Settings'**
+  String get detailedSettingsTitle;
+
+  /// The title of the entry point view.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry Point View'**
+  String get entryPointViewTitle;
+
+  /// Text to show when there are more items than displayed.
+  ///
+  /// In en, this message translates to:
+  /// **'and {count} more items'**
+  String andMoreItems(int count);
 }
 
 class _AppLocalizationsDelegate

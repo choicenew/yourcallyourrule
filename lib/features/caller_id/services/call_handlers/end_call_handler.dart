@@ -54,7 +54,7 @@ class EndCallHandler implements BaseCallHandler {
     // 检查是否有由规则指定的临时拦截动作
     final InterceptAction? ruleAction = CallFilterService.getCurrentInterceptAction();
     if (ruleAction != null) {
-      this.setInterceptAction(ruleAction);
+      setInterceptAction(ruleAction);
       debugPrint("_handleInterceptAction (from rule): ${ruleAction.name}");
       return ruleAction.name;
     }

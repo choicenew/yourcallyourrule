@@ -1,32 +1,40 @@
-// 远程号码服务类，用于管理远程号码数据
-
 import 'dart:async';
-
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
-import 'package:yourcallyourrule/core/repositories/base_repository.dart';
+import 'package:yourcallyourrule/core/provider/providers/remote_number_repository_provider.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/remote/remote_number_repository_impl.dart';
+// 导入依赖的 Provider
 
-/// 远程号码服务类，继承自ListService，提供远程号码的管理功能
-/// 包括查询、更新、计数等操作
+
+part 'remote_number_service.g.dart';
+
+/// RemoteNumberService 的 @riverpod Provider
+@riverpod
+RemoteNumberService remoteNumberService(Ref ref) {
+  // 注入 Repository 依赖
+  return RemoteNumberService(
+      ref.watch(remoteNumberRepositoryProvider));
+}
+
+/// 远程号码服务类 (基本无状态，阈值由外部设置)
 class RemoteNumberService extends ListService<RemoteNumberEntry, String> {
   final RemoteNumberRepositoryImpl _remoteNumberRepository;
 
-  // 默认计数阈值
   static const int DEFAULT_COUNT_THRESHOLD = 5;
-
-  // 当前计数阈值
   int _countThreshold = DEFAULT_COUNT_THRESHOLD;
+
   RemoteNumberService(
     this._remoteNumberRepository,
   ) : super(_remoteNumberRepository);
   
+  // ... (所有方法保持不变，因为它们不直接依赖可变状态) ...
+  
   @override
   Future<List<RemoteNumberEntry>> getAll() async {
-    final rules = await _remoteNumberRepository.getAll();
-    return rules;
+    return await _remoteNumberRepository.getAll();
   }
   
   // 设置计数阈值

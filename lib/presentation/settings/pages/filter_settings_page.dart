@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/enhanced_composite_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/local_count_filter_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/remote_number_filter_service_provider.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_service_provider.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
-import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
+
+// [重构]: 不再需要导入任何 Service 或 Service Provider，因为子 Widget 已经自包含。
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/enhanced_composite_filter_settings_widget.dart';
-import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 过滤器设置页面
-/// 用于展示和控制所有过滤器的设置
+/// [注释]: 这个页面现在是一个纯粹的容器，负责展示所有过滤器的设置。
 class FilterSettingsPage extends ConsumerWidget {
   static const String routeName = '/filter-settings';
 
@@ -28,34 +18,12 @@ class FilterSettingsPage extends ConsumerWidget {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.filterSettingsTitle),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: _buildEnhancedFilterControlWidget(context, ref),
-        ),
-      ),
+      // [重构]: 不再使用 SingleChildScrollView 和 Padding，因为 Tab 视图内部已经处理了滚动。
+      // [重构]: 直接渲染 EnhancedCompositeFilterSettingsWidget，不再需要任何参数。
+      body: const EnhancedCompositeFilterSettingsWidget(),
     );
   }
 
-  Widget _buildEnhancedFilterControlWidget(BuildContext context, WidgetRef ref) {
-    // 从Provider获取各服务实例
-    final callFilterService = ref.read(callFilterServiceProvider);
-    final localCountFilterService = ref.read(localCountFilterServiceProvider);
-    final remoteNumberFilterService = ref.read(remoteNumberFilterServiceProvider);
-    final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
-    final enhancedCompositeFilterService = ref.read(enhancedCompositeFilterServiceProvider);
-    final simSlotRuleService = ref.read(simSlotRuleServiceProvider);
-
-    // 使用EnhancedCompositeFilterSettingsWidget显示所有过滤器控制
-    return SizedBox(
-      height: MediaQuery.of(context).size.height - 100, // 设置固定高度
-      child: EnhancedCompositeFilterSettingsWidget(
-        enhancedCompositeFilterService: enhancedCompositeFilterService,
-        localCountFilterService: localCountFilterService,
-        remoteNumberFilterService: remoteNumberFilterService,
-        simSlotRuleService: simSlotRuleService,
-        callFilterConfig: callFilterService.callFilterConfig,
-      ),
-    );
-  }
+  // [重构]: _buildEnhancedFilterControlWidget 方法已被完全移除，因为其逻辑已内联到 build 方法中，
+  // 并且所有手动获取和传递依赖的逻辑都已被删除。
 }

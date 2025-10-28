@@ -3,14 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 
+// [重构]: 不再需要导入 TimeInterceptorService 或其 provider
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
-import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/presentation/about.dart';
-import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
 import 'package:yourcallyourrule/theme/theme_selector.dart';
 
+// [注释]: 页面本身已经是 ConsumerWidget，保持不变。
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
 
@@ -33,71 +32,81 @@ class SettingsPage extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-        //  _buildUserInfoCard(context),
-       //   const SizedBox(height: 24),
-                 _buildSectionTitle(AppLocalizations.of(context)!.systemSettingsTitle),
-                    const SizedBox(height: 12),
+          _buildSectionTitle(AppLocalizations.of(context)!.systemSettingsTitle),
+          const SizedBox(height: 12),
           _buildLanguageSettingsCard(context),
-                    const SizedBox(height: 12),
+          const SizedBox(height: 12),
           _buildPurchaseCard(context),
           const SizedBox(height: 8),
           _buildAutoUpdateCard(context),
           const SizedBox(height: 12),
-          //这里做一个permission的card 可以进去打开overlay 和battery的
           _buildSpecialPermissionsCard(context),
           const SizedBox(height: 12),
           _buildThemeSettingsCard(context),
-//          const SizedBox(height: 12),
-        //  _buildPluginManagementCard(context),
-       //   const SizedBox(height: 12),
-        //  _buildSearchCard(context),
-//这里做一个选择对应国家的数据库的
-          _buildSectionTitle(
-              AppLocalizations.of(context)!.databaseSyncTitle),
+          const SizedBox(height: 24),
+          _buildSectionTitle(AppLocalizations.of(context)!.databaseSyncTitle),
           const SizedBox(height: 8),
           _buildCountrySyncSettingsCard(context),
-          const SizedBox(height: 8),
-//这里功能选择section的
-          _buildSectionTitle(
-              AppLocalizations.of(context)!.functionSettingsTitle),
+          const SizedBox(height: 24),
+          _buildSectionTitle(AppLocalizations.of(context)!.functionSettingsTitle),
           const SizedBox(height: 8),
           _buildCallSettingsCard(context),
           const SizedBox(height: 8),
-          _buildTimeInterceptorCard(context, ref),
-          const SizedBox(height: 12),
-        //  _buildSmsSettingsCard(context),
-       //   const SizedBox(height: 12),
-       //   _buildContactSettingsCard(context),
-       //   const SizedBox(height: 12),
-       //   _buildMarkPhoneManagementCard(context),
-       //   const SizedBox(height: 24),
-          _buildSectionTitle(
-              AppLocalizations.of(context)!.cloudSyncAndBackupTitle),
+          // [重构]: _buildTimeInterceptorCard 不再需要传递 ref。
+          _buildTimeInterceptorCard(context),
+          const SizedBox(height: 24),
+          _buildSectionTitle(AppLocalizations.of(context)!.cloudSyncAndBackupTitle),
           const SizedBox(height: 8),
           _buildCloudSettingsCard(context),
           const SizedBox(height: 12),
           _buildBackupRestoreCard(context),
           const SizedBox(height: 12),
           _buildDeviceManagementCard(context),
-
-
           const SizedBox(height: 24),
-
-
-
-
-
-
-
-
-
-          const SizedBox(height: 12),
           _buildAboutCard(context),
         ],
       ),
     );
   }
 
+  // [注释]: _buildTimeInterceptorCard 的重构是本次修改的核心。
+  Widget _buildTimeInterceptorCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.timer,
+      iconColor: Colors.deepOrange,
+      title: AppLocalizations.of(context)!.callFrequencyInterceptionTitle,
+      subtitle: AppLocalizations.of(context)!.callFrequencyInterceptionSubtitle,
+      onTap: () {
+        // [重构]: 不再需要 ref.read 来获取 service 实例。
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          builder: (context) => DraggableScrollableSheet(
+            initialChildSize: 0.7,
+            minChildSize: 0.5,
+            maxChildSize: 0.95,
+            expand: false,
+            builder: (context, scrollController) => SingleChildScrollView(
+              controller: scrollController,
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
+                // [重构]: 直接使用自包含的 TimeInterceptorSettingsWidget，
+                // 它不再需要任何参数。
+                child: TimeInterceptorSettingsWidget(),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  // --- 以下所有方法都与状态管理无关，保持原样，无需修改 ---
+  
   Widget _buildSectionTitle(String title) {
     return Padding(
       padding: const EdgeInsets.only(left: 8.0),
@@ -108,66 +117,9 @@ class SettingsPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildUserInfoCard(BuildContext context) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            CircleAvatar(
-              radius: 32,
-              backgroundColor: Theme.of(context).primaryColor,
-              child: const Text(
-                'U',
-                style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.usernameLabel,
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    AppLocalizations.of(context)!.userEmail,
-                    style: const TextStyle(fontSize: 14, color: Colors.grey),
-                  ),
-                ],
-              ),
-            ),
-            const Icon(Icons.chevron_right, color: Colors.grey),
-          ],
-        ),
-      ),
-    );
-  }
-
   Widget _buildCallSettingsCard(BuildContext context) {
     return Column(
       children: [
-
-/*
-//无效的老的册罗直接屏蔽
-        _buildSettingsCard(
-          context,
-          icon: Icons.phone,
-          iconColor: Colors.blue,
-          title: AppLocalizations.of(context)!.callSettingsTitle,
-          subtitle: AppLocalizations.of(context)!.callSettingsSubtitle,
-          onTap: () {
-            // 使用GoRouter导航到来电设置页面
-            GoRouter.of(context).push('/${AppRouter.enhancedFilterSettings}');
-          },
-        ),
-        const SizedBox(height: 8),
-        */
         _buildSettingsCard(
           context,
           icon: Icons.filter_alt,
@@ -175,7 +127,6 @@ class SettingsPage extends ConsumerWidget {
           title: AppLocalizations.of(context)!.filterControlTitle,
           subtitle: AppLocalizations.of(context)!.filterControlSubtitle,
           onTap: () {
-            // 使用GoRouter导航到过滤器设置页面
             GoRouter.of(context).push('/filter-settings');
           },
         ),
@@ -185,8 +136,7 @@ class SettingsPage extends ConsumerWidget {
           icon: Icons.block,
           iconColor: Colors.red,
           title: AppLocalizations.of(context)!.interceptionActionSettingsTitle,
-          subtitle:
-              AppLocalizations.of(context)!.interceptionActionSettingsSubtitle,
+          subtitle: AppLocalizations.of(context)!.interceptionActionSettingsSubtitle,
           onTap: () {
             GoRouter.of(context).push('/end-call-settings');
           },
@@ -250,92 +200,6 @@ class SettingsPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildTimeInterceptorCard(BuildContext context, WidgetRef ref) {
-    return _buildSettingsCard(
-      context,
-      icon: Icons.timer,
-      iconColor: Colors.deepOrange,
-      title: AppLocalizations.of(context)!.callFrequencyInterceptionTitle,
-      subtitle: AppLocalizations.of(context)!.callFrequencyInterceptionSubtitle,
-      onTap: () {
-        final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
-        showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-          ),
-          builder: (context) => DraggableScrollableSheet(
-            initialChildSize: 0.7,
-            minChildSize: 0.5,
-            maxChildSize: 0.95,
-            expand: false,
-            builder: (context, scrollController) => SingleChildScrollView(
-              controller: scrollController,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TimeInterceptorSettingsWidget(
-                  isEnabled: timeInterceptorService.config.shouldIntercept,
-                  durationMinutes: timeInterceptorService.config.duration.inMinutes,
-                  onEnabledChanged: (value) => timeInterceptorService.updateConfig(
-                    timeInterceptorService.config.duration,
-                    value,
-                  ),
-                  onDurationMinutesChanged: (value) => timeInterceptorService.updateConfig(
-                    Duration(minutes: value),
-                    timeInterceptorService.config.shouldIntercept,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildSmsSettingsCard(BuildContext context) {
-    return _buildSettingsCard(
-      context,
-      icon: Icons.sms,
-      iconColor: Colors.orange,
-      title: AppLocalizations.of(context)!.smsSettingsTitle,
-      subtitle: AppLocalizations.of(context)!.smsSettingsSubtitle,
-      onTap: () {
-        // 使用GoRouter导航到带广告的短信订阅页面
-        GoRouter.of(context).push('/sms-subscription-with-ads');
-      },
-    );
-  }
-
-  Widget _buildContactSettingsCard(BuildContext context) {
-    return _buildSettingsCard(
-      context,
-      icon: Icons.contacts,
-      iconColor: Colors.green,
-      title: AppLocalizations.of(context)!.contactSettingsTitle,
-      subtitle: AppLocalizations.of(context)!.contactSettingsSubtitle,
-      onTap: () {
-        // 导航到联系人设置页面
-        // 这里暂时没有实现联系人页面
-      },
-    );
-  }
-
-  Widget _buildMarkPhoneManagementCard(BuildContext context) {
-    return _buildSettingsCard(
-      context,
-      icon: Icons.label,
-      iconColor: Colors.deepPurple,
-      title: AppLocalizations.of(context)!.markPhoneManagementTitle,
-      subtitle: AppLocalizations.of(context)!.markPhoneManagementSubtitle,
-      onTap: () {
-        // 使用GoRouter导航到号码标记管理页面
-        GoRouter.of(context).push('/mark-phone-management');
-      },
-    );
-  }
-
   Widget _buildCloudSettingsCard(BuildContext context) {
     return _buildSettingsCard(
       context,
@@ -344,7 +208,6 @@ class SettingsPage extends ConsumerWidget {
       title: AppLocalizations.of(context)!.cloudSyncSettingsTitle,
       subtitle: AppLocalizations.of(context)!.cloudSyncSettingsSubtitle,
       onTap: () {
-        // 使用GoRouter导航到云端同步设置页面
         GoRouter.of(context).push('/cloud-settings');
       },
     );
@@ -358,7 +221,6 @@ class SettingsPage extends ConsumerWidget {
       title: AppLocalizations.of(context)!.backupAndRestoreTitle,
       subtitle: AppLocalizations.of(context)!.backupAndRestoreSubtitle,
       onTap: () {
-        // 使用GoRouter导航到备份与恢复页面
         GoRouter.of(context).push('/backup-restore');
       },
     );
@@ -372,7 +234,6 @@ class SettingsPage extends ConsumerWidget {
       title: AppLocalizations.of(context)!.deviceManagementTitle,
       subtitle: AppLocalizations.of(context)!.deviceManagementSubtitle,
       onTap: () {
-        // 使用GoRouter导航到设备管理页面
         GoRouter.of(context).push('/device-management');
       },
     );
@@ -386,22 +247,7 @@ class SettingsPage extends ConsumerWidget {
       title: AppLocalizations.of(context)!.autoUpdateTitle,
       subtitle: AppLocalizations.of(context)!.autoUpdateSubtitle,
       onTap: () {
-        // 使用GoRouter导航到自动更新设置页面
         GoRouter.of(context).push('/auto-update');
-      },
-    );
-  }
-
-  Widget _buildPluginManagementCard(BuildContext context) {
-    return _buildSettingsCard(
-      context,
-      icon: Icons.extension,
-      iconColor: Colors.amber,
-      title: AppLocalizations.of(context)!.pluginManagementTitle,
-      subtitle: AppLocalizations.of(context)!.pluginManagementSubtitle,
-      onTap: () {
-        // 使用GoRouter导航到插件管理页面
-        GoRouter.of(context).push('/plugin-management');
       },
     );
   }
@@ -414,22 +260,7 @@ class SettingsPage extends ConsumerWidget {
       title: AppLocalizations.of(context)!.languageSettingsTitle,
       subtitle: AppLocalizations.of(context)!.languageSettingsSubtitle,
       onTap: () {
-        // 使用GoRouter导航到语言设置页面
         GoRouter.of(context).push('/language-settings');
-      },
-    );
-  }
-
-  Widget _buildSearchCard(BuildContext context) {
-    return _buildSettingsCard(
-      context,
-      icon: Icons.search,
-      iconColor: Colors.blueGrey,
-      title: AppLocalizations.of(context)!.searchSettingsTitle,
-      subtitle: AppLocalizations.of(context)!.searchSettingsSubtitle,
-      onTap: () {
-        // 使用GoRouter导航到搜索页面
-        GoRouter.of(context).push('/search');
       },
     );
   }
@@ -459,7 +290,7 @@ class SettingsPage extends ConsumerWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: Theme.of(context).colorScheme.primary.withValues(alpha:0.1),
+                  backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
                   child: Icon(Icons.palette, color: Theme.of(context).colorScheme.primary),
                 ),
                 const SizedBox(width: 16),
@@ -488,6 +319,7 @@ class SettingsPage extends ConsumerWidget {
       ),
     );
   }
+  
   Widget _buildAboutCard(BuildContext context) {
     return _buildSettingsCard(
       context,
@@ -496,7 +328,6 @@ class SettingsPage extends ConsumerWidget {
       title: AppLocalizations.of(context)!.aboutTitle,
       subtitle: AppLocalizations.of(context)!.aboutSubtitle,
       onTap: () {
-        // 导航到关于页面
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -539,7 +370,7 @@ class SettingsPage extends ConsumerWidget {
           child: Row(
             children: [
               CircleAvatar(
-                backgroundColor: iconColor.withValues(alpha: 0.1),
+                backgroundColor: iconColor.withOpacity(0.1),
                 child: Icon(icon, color: iconColor),
               ),
               const SizedBox(width: 16),
@@ -566,6 +397,7 @@ class SettingsPage extends ConsumerWidget {
       ),
     );
   }
+  
   Widget _buildSpecialPermissionsCard(BuildContext context) {
     return _buildSettingsCard(
       context,

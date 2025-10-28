@@ -3,7 +3,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:yourcallyourrule/core/provider/app_router_provider_riverpod.dart';
+import 'package:yourcallyourrule/core/router/app_router_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_sync_service_initializer.dart';
 import 'package:yourcallyourrule/features/call/call_history/provider/call_event_listener_provider.dart';
 

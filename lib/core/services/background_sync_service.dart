@@ -5,8 +5,9 @@ import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_rem
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_sync_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/phone_subscription_service_provider.dart';
+import 'package:yourcallyourrule/features/contacts/provider/contact_subscription_service_provider.dart';
 import 'package:yourcallyourrule/features/sms/providers/sms_subscription_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/contact_subscription_service_provider.dart';
+
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/incremental_sync_manager_provider.dart';

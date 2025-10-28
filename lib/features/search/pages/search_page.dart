@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/features/common/widgets/dialogs/dialogs.dart';
+import 'package:yourcallyourrule/features/contacts/provider/contact_service_provider.dart';
+import 'package:yourcallyourrule/features/search/providers/search_provider.dart';
+import 'package:yourcallyourrule/features/search/services/search_service.dart';
+import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-import 'package:yourcallyourrule/features/search/providers/search_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/contact_service_provider.dart';
+// [注释]: 导入所有需要的 Service Provider 用于处理点击事件。
+
 import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 
-import 'package:yourcallyourrule/features/common/widgets/dialogs/dialogs.dart';
-import 'package:yourcallyourrule/features/search/services/search_service.dart';
-import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
-
-/// 搜索页面
-/// 用于搜索本地和远程数据库中的号码
 class SearchPage extends ConsumerStatefulWidget {
-  final String? initialSearchText; // 添加初始搜索文本参数
-  
+  final String? initialSearchText;
+
   const SearchPage({super.key, this.initialSearchText});
 
   @override
@@ -27,31 +26,25 @@ class SearchPage extends ConsumerStatefulWidget {
 
 class _SearchPageState extends ConsumerState<SearchPage> {
   final TextEditingController _searchController = TextEditingController();
-  List<SearchResult> _searchResults = [];
-  bool _isLoading = false;
-  bool _hasSearched = false;
 
   @override
   void initState() {
     super.initState();
-    
-    // 检查是否有初始搜索文本
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // 获取路由参数
       final extra = GoRouterState.of(context).extra;
       String? searchText;
-      
-      // 处理从 home_page.dart 传递的搜索文本
+
       if (extra != null && extra is String) {
         searchText = extra;
       } else if (widget.initialSearchText != null) {
         searchText = widget.initialSearchText;
       }
-      
-      // 如果有搜索文本，则设置到搜索框并执行搜索
+
       if (searchText != null && searchText.isNotEmpty) {
         _searchController.text = searchText;
-        _performSearch();
+        // [注释]: 在 initState 之后调用 Notifier 的方法来执行初始搜索。
+        ref.read(searchProvider.notifier).search(searchText);
       }
     });
   }
@@ -62,144 +55,166 @@ class _SearchPageState extends ConsumerState<SearchPage> {
     super.dispose();
   }
 
-  /// 执行搜索
-  Future<void> _performSearch() async {
+  /// [注释]: 触发搜索的方法，现在调用了 Notifier。
+  void _triggerSearch() {
     final searchText = _searchController.text.trim();
     if (searchText.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.enterSearchContent)),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.enterSearchContent),
+        ),
       );
+      // [注释]: 即使为空，也调用 search 方法，Notifier 内部会处理清空逻辑。
+      ref.read(searchProvider.notifier).search(searchText);
       return;
     }
-
-    setState(() {
-      _isLoading = true;
-      _hasSearched = true;
-    });
-
-    try {
-      final searchService = ref.read(searchServiceProvider(context));
-      final results = await searchService.searchPhoneNumber(searchText);
-
-      setState(() {
-        _searchResults = results;
-        _isLoading = false;
-      });
-
-      // 如果没有找到结果，显示提示
-      if (results.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.noMatchingNumbersFound)),
-        );
-      }
-    } catch (e) {
-      setState(() {
-        _isLoading = false;
-      });
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.searchError(e.toString()))),
-      );
-    }
+    ref.read(searchProvider.notifier).search(searchText);
   }
 
-  /// 处理搜索结果项点击
+  /// [注释]: 处理点击事件的逻辑保持不变。
   void _handleResultTap(SearchResult result) {
     if (result.type == SearchResultType.remoteNumber) {
       CallerIdDialog.show(context, result.phoneNumber);
     } else if (result.type == SearchResultType.notFound) {
       CountrySelectionDialog.show(context, result.phoneNumber);
     } else if (result.type == SearchResultType.contact) {
-      // 处理联系人结果，打开联系人编辑对话框
       final contactService = ref.read(contactServiceProvider);
-      // 使用正确的方法：getContactByPhoneNumber 或 findContactByPhoneNumber
-      contactService.findContactByPhoneNumber(PhoneNumber(result.phoneNumber)).then((contact) {
-        if (contact != null) {
-          ContactEditDialog.show(
-            context,
-            contact: contact,
-            onContactUpdated: _performSearch,
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.contactNotFound)),
-          );
-        }
-      });
+      contactService
+          .findContactByPhoneNumber(PhoneNumber(result.phoneNumber))
+          .then((contact) {
+            if (contact != null) {
+              ContactEditDialog.show(
+                context,
+                contact: contact,
+                onContactUpdated: () => _triggerSearch(),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(AppLocalizations.of(context)!.contactNotFound),
+                ),
+              );
+            }
+          });
     } else if (result.type == SearchResultType.label) {
-      // 处理标签结果，打开标签编辑对话框
       final labelService = ref.read(labelServiceProvider);
-      // 使用正确的方法：getLabelByPhoneNumber 或 getLabelByPhoneNumberString
-      labelService.getLabelByPhoneNumberString(result.phoneNumber).then((label) {
+      labelService.getLabelByPhoneNumberString(result.phoneNumber).then((
+        label,
+      ) {
         if (label != null) {
           LabelEditDialog.show(
-            context, 
-            label, 
-            onLabelUpdated: _performSearch,
+            context,
+            label,
+            onLabelUpdated: () => _triggerSearch(),
             themeColor: Theme.of(context).primaryColor,
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.labelNotFound)),
+            SnackBar(
+              content: Text(AppLocalizations.of(context)!.labelNotFound),
+            ),
           );
         }
       });
-    } else if (result.type == SearchResultType.allow || 
-               result.type == SearchResultType.block || 
-               result.type == SearchResultType.silence || 
-               result.type == SearchResultType.none) {
-      // 处理规则结果，打开规则编辑对话框
+    } else if (result.type == SearchResultType.allow ||
+        result.type == SearchResultType.block ||
+        result.type == SearchResultType.silence ||
+        result.type == SearchResultType.none) {
       final ruleService = ref.read(ruleManagementServiceProvider);
       final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
-      
+
       if (result.ruleType == 'phone') {
-        // 使用正确的方法：getAllRulesByActionType 并过滤
-        ruleService.getAllRulesByActionType(null).then((rules) {
-          final rule = rules.firstWhere(
-            (r) => r.id == result.id,
-            orElse: () => throw Exception('无法找到规则'),
-          );
-          PhoneRuleEditDialog.show(
-            context, 
-            rule, 
-            onRuleUpdated: _performSearch,
-            themeColor: Theme.of(context).primaryColor,
-          );
-        }).catchError((error) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.ruleNotFound(error.toString()))),
-          );
-        });
+        ruleService
+            .getAllRulesByActionType(null)
+            .then((rules) {
+              final rule = rules.firstWhere((r) => r.id == result.id);
+              PhoneRuleEditDialog.show(
+                context,
+                rule,
+                onRuleUpdated: () => _triggerSearch(),
+                themeColor: Theme.of(context).primaryColor,
+              );
+            })
+            .catchError(
+              (e) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      AppLocalizations.of(context).ruleNotFound(e.toString()),
+                    ),
+                  ),
+                );
+                return null;
+              },
+            );
       } else if (result.ruleType == 'allowedBlocked') {
-        // 使用正确的方法：getAllRulesByActionType 并过滤
-        allowedBlockedService.getAllRulesByActionType(null).then((rules) {
-          final rule = rules.firstWhere(
-            (r) => r.id == result.id,
-            orElse: () => throw Exception('无法找到规则'),
-          );
-          AllowedBlockedRuleEditDialog.show(
-            context, 
-            rule, 
-            onRuleUpdated: _performSearch,
-            themeColor: Theme.of(context).primaryColor,
-          );
-        }).catchError((error) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.ruleNotFound(error.toString()))),
-          );
-        });
+        allowedBlockedService
+            .getAllRulesByActionType(null)
+            .then((rules) {
+              final rule = rules.firstWhere((r) => r.id == result.id);
+              AllowedBlockedRuleEditDialog.show(
+                context,
+                rule,
+                onRuleUpdated: () => _triggerSearch(),
+                themeColor: Theme.of(context).primaryColor,
+              );
+            })
+            .catchError(
+              (e) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      AppLocalizations.of(context)!.ruleNotFound(e.toString()),
+                    ),
+                  ),
+                );
+                return null;
+              },
+            );
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    // [注释]: 监听 searchProvider 的状态来驱动UI。
+    final searchState = ref.watch(searchProvider);
+
+    // ▼▼▼▼▼ 核心修正部分 ▼▼▼▼▼
+    // [修正]: 使用 `ref.listen` 的 `next` 参数来访问新状态，而不是使用 `state`。
+    // `next` 是一个类型安全的 `AsyncValue<List<SearchResult>>` 对象。
+    ref.listen<AsyncValue<List<SearchResult>>>(searchProvider, (
+      previous,
+      next,
+    ) {
+      // 检查搜索完成且结果为空
+      if (!next.isLoading &&
+          next.hasValue &&
+          next.value!.isEmpty &&
+          _searchController.text.isNotEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.noMatchingNumbersFound),
+          ),
+        );
+      }
+      // 检查是否发生错误
+      if (next.hasError) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(context)!.searchError(next.error.toString()),
+            ),
+          ),
+        );
+      }
+    });
+    // ▲▲▲▲▲ 修正结束 ▲▲▲▲▲
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.numberSearch),
-      ),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.numberSearch)),
       body: Column(
         children: [
-          // 搜索框
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
@@ -213,44 +228,65 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                       border: const OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.phone,
-                    onSubmitted: (_) => _performSearch(),
+                    onSubmitted: (_) => _triggerSearch(),
                   ),
                 ),
                 const SizedBox(width: 8),
                 ElevatedButton(
-                  onPressed: _isLoading ? null : _performSearch,
-                  child: _isLoading
-                      ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : Text(AppLocalizations.of(context)!.search),
+                  onPressed: searchState.isLoading ? null : _triggerSearch,
+                  child:
+                      searchState.isLoading
+                          ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                          : Text(AppLocalizations.of(context)!.search),
                 ),
               ],
             ),
           ),
 
-          // 搜索结果
           Expanded(
-            child: _hasSearched
-                ? _isLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : _searchResults.isEmpty
-                        ? Center(child: Text(AppLocalizations.of(context)!.noMatchingNumbersFound))
-                        : ListView.builder(
-                            itemCount: _searchResults.length,
-                            itemBuilder: (context, index) {
-                              final result = _searchResults[index];
-                              return SearchResultItem(
-                                result: result,
-                                onTap: () => _handleResultTap(result),
-                              );
-                            },
-                          )
-                : Center(
-                    child: Text(AppLocalizations.of(context)!.enterPhoneNumberToStartSearch),
+            // [注释]: 使用 searchState 来构建结果列表。
+            child: searchState.when(
+              data: (results) {
+                // [注释]: _searchController.text.isEmpty 用于判断是否是初始状态。
+                if (results.isEmpty && _searchController.text.isEmpty) {
+                  return Center(
+                    child: Text(
+                      AppLocalizations.of(
+                        context,
+                      )!.enterPhoneNumberToStartSearch,
+                    ),
+                  );
+                }
+                if (results.isEmpty) {
+                  return Center(
+                    child: Text(
+                      AppLocalizations.of(context)!.noMatchingNumbersFound,
+                    ),
+                  );
+                }
+                return ListView.builder(
+                  itemCount: results.length,
+                  itemBuilder: (context, index) {
+                    final result = results[index];
+                    return SearchResultItem(
+                      result: result,
+                      onTap: () => _handleResultTap(result),
+                    );
+                  },
+                );
+              },
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error:
+                  (e, st) => Center(
+                    child: Text(
+                      AppLocalizations.of(context)!.searchError(e.toString()),
+                    ),
                   ),
+            ),
           ),
         ],
       ),
