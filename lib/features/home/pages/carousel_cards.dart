@@ -2,10 +2,17 @@
 // 文件: carousel_cards.dart
 // 描述: 主页的轮播卡片组件。
 //
-// 【本次修改核心目标】:
-//  - 在现有的轮播卡片中，无缝集成一个新的“社区贡献统计”卡片。
-//  - 这个新卡片拥有自己独立的数据源 (来自 proposalStatisticsProvider)。
-//  - 在不破坏现有结构和不重复UI代码的前提下，优雅地处理新卡片自身的加载、成功、失败状态。
+// 【最终架构方案】
+// 采纳了您的“最大化复用”建议，对核心的 `_buildCarouselCard` 方法进行了重构。
+//
+// 1.  `_buildCarouselCard` 现在是一个通用的“卡片外壳”模板。
+//     它负责所有卡片共有的UI元素：背景、圆角、标题、图标和点击事件。
+//
+// 2.  新增了一个可选的 `customContent` (Widget) 参数。
+//     - 对于内容简单的“标准卡片”，我们像以前一样传递 `description` 和 `value`。
+//     - 对于内容复杂的“自定义卡片”（如社区统计），我们则传递一个 `customContent` Widget。
+//
+// 3.  这种设计兼具了代码的高度复用性和布局的极大灵活性，是最佳的解决方案。
 // -----------------------------------------------------------------------------
 
 import 'dart:async';
@@ -19,13 +26,7 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/callerid_overlay_mock.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-
-// 1. 【新增】: 导入社区贡献统计所需的数据 Provider。
-// 这是我们新卡片的数据来源。
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
-
-// 2. 【新增】: 导入主页统计的数据 Provider。
-// 这是原有卡片的数据来源。
 import '../di/home_stats_provider.dart';
 
 
@@ -39,9 +40,9 @@ class CarouselCards extends ConsumerStatefulWidget {
 }
 
 class _CarouselCardsState extends ConsumerState<CarouselCards> {
-  // --- 状态管理 ---
+  // --- 状态和逻辑 (保持不变) ---
   final PageController _pageController = PageController();
-  Timer? _autoPlayTimer; // 用于控制卡片自动轮播
+  Timer? _autoPlayTimer;
 
   @override
   void dispose() {
@@ -69,7 +70,6 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
       
       final currentPage = _pageController.page?.round() ?? 0;
       final nextPage = (currentPage + 1) % totalPages;
-      
       _pageController.animateToPage(
         nextPage,
         duration: const Duration(milliseconds: 500),
@@ -80,16 +80,15 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
 
 
   // --- 构建UI ---
-
   @override
   Widget build(BuildContext context) {
-    // 3. 【核心修改点 A】: 在 build 方法顶部，同时监听(watch)所有需要的数据源。
-    // `ref.watch` 会自动订阅 Provider 的变化，并在数据更新时重建此组件。
-    final asyncHomeStats = ref.watch(homeStatsProvider);           // 主数据源，用于渲染大部分统计卡片。
-    final asyncCommunityStats = ref.watch(proposalStatisticsProvider); // 新增的数据源，仅用于渲染社区贡献卡片。
+    // 监听所有需要的数据源
+    final asyncHomeStats = ref.watch(homeStatsProvider);
+    final asyncCommunityStats = ref.watch(proposalStatisticsProvider);
 
     return Container(
-      height: 180, // 固定轮播区域的高度
+      // 调整高度以适应内容更丰富的卡片
+      height: 200, 
       margin: const EdgeInsets.symmetric(vertical: 16),
       
       // 4. 【结构】: 使用外层 `when` 来处理“主数据源”的状态。
@@ -100,45 +99,43 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
         data: (homeStats) {
           // 主数据已就绪，我们可以构建轮播卡片的列表了。
           final List<Widget> cards = [
-
-            // 卡片 1: 电话拦截 (数据来自 `homeStats`)
+            
+            // --- 调用方式 1: 构建“标准卡片” ---
+            // 只需提供 description 和 value，`_buildCarouselCard` 内部会自动处理布局。
             _buildCarouselCard(
               title: AppLocalizations.of(context)!.callBlocking,
+              icon: Icons.call_end,
+              color: const Color(0xFFE57373),
               description: AppLocalizations.of(context)!.blockedSpamCalls,
               value: '${homeStats.blockedCalls}',
-              color: const Color(0xFFE57373),
-              icon: Icons.call_end,
             ),
-            
-            // 5. 【核心修改点 B】: 集成新的“社区贡献”卡片。
-            // 我们在这里使用一个内联的 `when` 表达式来处理 `asyncCommunityStats` 的状态。
-            // 这使得这张卡片可以拥有自己独立的生命周期（加载/成功/失败），而不影响其他卡片。
+
+            // --- 调用方式 2: 构建“自定义内容卡片” ---
+            // 通过 `asyncCommunityStats.when` 来动态决定卡片内容。
             asyncCommunityStats.when(
-              // 状态 B.1: 社区数据加载成功
               data: (communityStats) => _buildCarouselCard(
                 title: AppLocalizations.of(context)!.proposalStatistics,
-                description: AppLocalizations.of(context)!.pendingProposals,
-                value: '${communityStats['totalPending'] ?? 0}',
-                color: const Color(0xFF4DB6AC), // 为新卡片选择一个独特的主题色
                 icon: Icons.groups,
-                onTap: () => GoRouter.of(context).push('/deletions'), // 添加点击跳转功能
+                color: const Color(0xFF4DB6AC),
+                onTap: () => GoRouter.of(context).push('/deletions'),
+                // 关键点: 我们不传 description/value，而是传入一个由 `_buildCommunityCardContent` 方法构建的自定义Widget。
+                customContent: _buildCommunityCardContent(communityStats),
               ),
-              // 状态 B.2: 社区数据正在加载
-              loading: () => _buildLoadingCard(),
-              // 状态 B.3: 社区数据加载失败
-              error: (_, __) => _buildErrorCard(AppLocalizations.of(context)!.proposalStatistics),
+              loading: () => _buildLoadingCard(height: 200),
+              error: (_, __) => _buildErrorCard(AppLocalizations.of(context)!.proposalStatistics, height: 200),
             ),
-
-            // 卡片 3: 规则管理 (数据来自 `homeStats`)
+   // 后续卡片保持不变
+   const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            // 再次调用“标准卡片”，展示其复用性。
             _buildCarouselCard(
               title: AppLocalizations.of(context)!.ruleManagement,
+              icon: Icons.rule,
+              color: const Color(0xFF64B5F6),
               description: AppLocalizations.of(context)!.createdRules,
               value: '${homeStats.totalRules}',
-              color: const Color(0xFF64B5F6),
-              icon: Icons.rule,
             ),
-
-            // 卡片 4: 通话统计 (数据来自 `homeStats`)
+            
+            // 其他卡片保持不变
             _buildCarouselCard(
               title: AppLocalizations.of(context)!.callStatistics,
               description: AppLocalizations.of(context)!.monthlyCallCount,
@@ -200,19 +197,27 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
 
   // --------------------------------------------------------------------------
   // --- UI 构建辅助方法 ---
-  // 这些是您原来就有的方法，它们被完美地复用了，无需任何修改。
-  // 唯一的微小改动是在 _buildCarouselCard 中增加了 onTap 参数以支持点击。
   // --------------------------------------------------------------------------
 
+  /// 【核心重构】: 通用的卡片“外壳”构建方法。
+  ///
+  /// 它现在接受可选的 `description`/`value` 或一个可选的 `customContent` Widget。
+  /// 这使得它既能构建简单的标准卡片，也能容纳复杂的自定义布局。
   Widget _buildCarouselCard({
     required String title,
-    required String description,
-    required String value,
-    required Color color,
     required IconData icon,
-    VoidCallback? onTap, // 【微调】: 增加一个可选的 onTap 回调函数
+    required Color color,
+    VoidCallback? onTap,
+    String? description,
+    String? value,
+    Widget? customContent,
   }) {
-    return GestureDetector( // 【微调】: 使用 GestureDetector 包裹以响应点击
+    // 这个断言确保了组件被正确使用：要么提供标准内容，要么提供自定义内容，但不能同时提供或都不提供。
+    assert((description != null && value != null && customContent == null) ||
+           (customContent != null && description == null && value == null),
+           'Either provide (description and value) OR provide customContent. Not both, not neither.');
+
+    return GestureDetector(
       onTap: onTap,
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -231,32 +236,28 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // --- 1. 顶部标题栏 (所有卡片共用) ---
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text(title, style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                   Icon(icon, color: Colors.white),
                 ],
               ),
-              const Spacer(),
-              Text(
-                description,
-                style: const TextStyle(color: Colors.white70),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                value,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
+              
+              // --- 2. 动态内容区 (核心逻辑) ---
+              Expanded(
+                // 如果 `customContent` 不为空，就渲染它。
+                child: customContent ?? 
+                // 否则，渲染由 `description` 和 `value` 构成的标准布局。
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Spacer(),
+                    Text(description!, style: const TextStyle(color: Colors.white70)),
+                    const SizedBox(height: 8),
+                    Text(value!, style: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold)),
+                  ],
                 ),
               ),
             ],
@@ -266,7 +267,126 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
     );
   }
 
-  // --- 其他卡片构建方法 (完全保持不变) ---
+  /// 【新增】: 专门构建社区卡片“内容”的辅助方法。
+  ///
+  /// 这个方法只负责构建卡片的“内心”，它返回的Widget将被注入到 `_buildCarouselCard` 的 `customContent` 中。
+  /// 为了匹配图片，背景色改为透明或白色系，因为背景渐变由外壳提供。
+  Widget _buildCommunityCardContent(Map<String, dynamic> stats) {
+    // 从数据中安全地提取值
+    final highRisk = stats['highRisk'] ?? 0;
+    final mediumRisk = stats['mediumRisk'] ?? 0;
+    final lowRisk = stats['lowRisk'] ?? 0;
+    final totalPending = stats['totalPending'] ?? 0;
+    
+    // 使用白色或半透明白色作为文本颜色，以确保在渐变背景上清晰可见。
+    const textColor = Colors.white;
+    final subTextColor = Colors.white.withOpacity(0.8);
+
+    return SingleChildScrollView( // 使用 SingleChildScrollView 防止内容在小屏幕上溢出
+      child: Padding(
+        padding: const EdgeInsets.only(top: 12.0), // 与标题留出间距
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 总览区域
+            Row(
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.totalPendingProposals,
+                  style: TextStyle(color: subTextColor, fontSize: 14),
+                ),
+                const Spacer(),
+                Text(
+                  '$totalPending',
+                  style: const TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Divider(color: Colors.white.withOpacity(0.2)),
+            const SizedBox(height: 10),
+            // 风险分布区域
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _buildRiskColumn(label: AppLocalizations.of(context)!.highRisk, value: '$highRisk', color: const Color(0xFFFFCDD2)), // 浅红色
+                _buildRiskColumn(label: AppLocalizations.of(context)!.mediumRisk, value: '$mediumRisk', color: const Color(0xFFFFE0B2)), // 浅橙色
+                _buildRiskColumn(label: AppLocalizations.of(context)!.lowRisk, value: '$lowRisk', color: const Color(0xFFC8E6C9)), // 浅绿色
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // 构建风险分布列的辅助方法
+  Widget _buildRiskColumn({required String label, required String value, required Color color}) {
+    return Column(
+      children: [
+        Text(value, style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 4),
+        Text(label, style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w500)),
+      ],
+    );
+  }
+
+  // --- 其他辅助方法 (完整无省略) ---
+  
+  Widget _buildLoadingCard({double? height}) {
+    return SizedBox(
+      height: height,
+      child: Card(
+        margin: const EdgeInsets.symmetric(horizontal: 16),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        elevation: 4,
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.grey.shade300, Colors.grey.shade400],
+            ),
+          ),
+          child: const Center(child: CircularProgressIndicator(color: Colors.white)),
+        ),
+      ),
+    );
+  }
+  
+  Widget _buildErrorCard(String title, {double? height}) {
+    return SizedBox(
+      height: height,
+      child: Card(
+        margin: const EdgeInsets.symmetric(horizontal: 16),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        elevation: 4,
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            gradient: const LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color(0xFFE57373), Color(0xFFEF5350)],
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error_outline, color: Colors.white, size: 32),
+              const SizedBox(height: 8),
+              Text(title, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 4),
+              Text(AppLocalizations.of(context)!.loadDataFailed, style: const TextStyle(color: Colors.white70), textAlign: TextAlign.center),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
   Widget _buildCallerIdMockCard() {
     return Card(
@@ -364,68 +484,6 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               ),
             ),
             const SizedBox(height: 8),
-          ],
-        ),
-      ),
-    );
-  }
-  
-  Widget _buildLoadingCard() {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      elevation: 4,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.grey.shade300, Colors.grey.shade400],
-          ),
-        ),
-        child: const Center(
-          child: CircularProgressIndicator(color: Colors.white),
-        ),
-      ),
-    );
-  }
-  
-  Widget _buildErrorCard(String title) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      elevation: 4,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFFE57373), Color(0xFFEF5350)],
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.error_outline, color: Colors.white, size: 32),
-            const SizedBox(height: 8),
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              AppLocalizations.of(context)!.loadDataFailed,
-              style: const TextStyle(color: Colors.white70),
-              textAlign: TextAlign.center,
-            ),
           ],
         ),
       ),
