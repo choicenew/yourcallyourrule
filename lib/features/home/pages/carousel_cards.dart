@@ -25,6 +25,8 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/callerid_overlay_mock.dart';
+import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
+import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
 import '../di/home_stats_provider.dart';
@@ -43,6 +45,10 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   // --- 状态和逻辑 (保持不变) ---
   final PageController _pageController = PageController();
   Timer? _autoPlayTimer;
+  // 【新增】为图表卡片管理其独立的状态。
+  // 将状态提升到这里，是因为 _buildTrendChartCardContent 将被构建为无状态的 ConsumerWidget，
+  // 我们需要在其父级(这里)或通过 Provider 来管理它的状态。
+  String _selectedTimeRange = 'Week';
 
   @override
   void dispose() {
@@ -135,6 +141,19 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               value: '${homeStats.totalRules}',
             ),
             
+            // --- 卡片 3: 【新增】拦截趋势图 (自定义内容) ---
+            _buildCarouselCard(
+              // 我们为图表卡片也提供一个统一的标题和图标
+              title: AppLocalizations.of(context)!.blockingTrend,
+              icon: Icons.show_chart,
+              color: const Color(0xFF7986CB), // 选择一个新颜色
+              // 将一个独立的、带状态的 ConsumerWidget 作为其自定义内容
+              customContent: _buildTrendChartCardContent(),
+            ),
+
+           // 后续卡片保持不变
+           const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
+
             // 其他卡片保持不变
             _buildCarouselCard(
               title: AppLocalizations.of(context)!.callStatistics,
@@ -144,8 +163,8 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               icon: Icons.insert_chart,
             ),
 
-            // 后续卡片保持不变
-            const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
+ 
+ 
             
             _buildCarouselCard(
               title: AppLocalizations.of(context)!.dataSourceReminder,
@@ -154,10 +173,11 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               color: const Color(0xFFFFA726),
               icon: Icons.warning_amber_rounded,
             ),
+   const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
 
             _buildCallerIdMockCard(),
 
-            const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
+         
 
             _buildPromotionCard(),
           ];
@@ -193,6 +213,95 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
       ),
     );
   }
+
+
+  /// 【新增】: 专门构建“拦截趋势图”内容的辅助方法
+  ///
+  /// 它是一个 `Consumer` Widget，可以独立订阅和响应 `callStatisticsProvider` 的状态。
+  /// 它返回的Widget将被注入到 `_buildCarouselCard` 的 `customContent` 中。
+  Widget _buildTrendChartCardContent() {
+    return Consumer(
+      builder: (context, ref, child) {
+        final state = ref.watch(callStatisticsProvider);
+        final notifier = ref.read(callStatisticsProvider.notifier);
+
+        return Padding(
+          padding: const EdgeInsets.only(top: 8.0), // 与外壳标题的间距
+          child: Column(
+            children: [
+              // 时间范围切换按钮
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodWeek, 'Week', notifier),
+                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodMonth, 'Month', notifier),
+                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodYear, 'Year', notifier),
+                ],
+              ),
+              const SizedBox(height: 8),
+              // 图表区域
+              Expanded(
+                child: Stack(
+                  children: [
+                    // 【缩放】调整图表大小以适应卡片
+                    StatisticChart(
+                      showDetailedChart: true,
+                      chartData: state.chartData,
+                      // 为了美观，让线条颜色和卡片主题色匹配
+                      lineColor: const Color(0xFF34CE52).withOpacity(0.5), 
+                      gradientColor: const Color(0xFF7986CB).withOpacity(0.2),
+                    ),
+                    if (state.isLoading)
+                      Positioned.fill(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Center(child: CircularProgressIndicator(color: Colors.white)),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  /// 【新增】: 图表内容中的时间范围按钮构建方法
+  Widget _buildTimeRangeButton(String text, String range, CallStatisticsNotifier notifier) {
+    final isSelected = _selectedTimeRange == range;
+    return GestureDetector(
+      onTap: () {
+        if (!isSelected) {
+          // 这里我们调用父级 Widget 的 setState 来更新UI
+          setState(() => _selectedTimeRange = range); 
+          notifier.updateTimeRange(range);
+        }
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        decoration: BoxDecoration(
+          // 适配渐变背景，按钮样式微调
+          color: isSelected ? Colors.white.withOpacity(0.25) : Colors.transparent,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.white,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
+      ),
+    );
+  }
+
+
 
 
   // --------------------------------------------------------------------------

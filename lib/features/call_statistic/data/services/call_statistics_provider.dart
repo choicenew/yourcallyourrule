@@ -8,6 +8,7 @@ import 'package:yourcallyourrule/features/call_statistic/data/repositories/call_
 
 part 'call_statistics_provider.g.dart';
 
+// [注释]: 状态类保持不变。
 class CallStatisticsState {
   final bool isLoading;
   final String? error;
@@ -73,6 +74,7 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
     await _calculateStatistics(initialLogs, timeRange: _currentTimeRange);
   }
 
+  // ▼▼▼▼▼ 核心增量修改部分 ▼▼▼▼▼
   Future<void> _calculateStatistics(List<CallLog> callLogs, {required String timeRange}) async {
     try {
       final allRules = await ref.read(ruleManagementServiceProvider).getAllRules();
@@ -80,6 +82,9 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
       final repo = CallStatisticsRepositoryImpl(callLogs, allRules);
       
       final timeRulesCount = await repo.getTimeRulesCount(configRepo);
+      
+      // [修正]: 调用新的辅助方法来获取填充了0的、完整的时间序列数据。
+      final completeChartData = _generateCompleteChartData(repo, timeRange);
       
       state = state.copyWith(
         isLoading: false,
@@ -92,12 +97,47 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
         noneRulesCount: repo.getNoneRulesCount(),
         timeRulesCount: timeRulesCount,
         blockTypeAnalysis: repo.getBlockTypeAnalysis(),
-        chartData: repo.getBlockedCallsByDate(timeRange),
+        chartData: completeChartData, // [修正]: 使用填充后的数据
       );
     } catch (e) {
       state = state.copyWith(isLoading: false, error: 'Failed to calculate statistics: $e');
     }
   }
+
+  /// [新增]: 辅助方法，用于生成完整的、填充了0的图表数据。
+  Map<DateTime, int> _generateCompleteChartData(CallStatisticsRepositoryImpl repo, String timeRange) {
+    final now = DateTime.now();
+    final Map<DateTime, int> completeData = {};
+    
+    // 1. 从仓库获取原始的、可能不连续的数据。
+    final rawData = repo.getBlockedCallsByDate(timeRange);
+
+    if (timeRange.toLowerCase() == 'year') {
+      // 对于年份，我们按月生成序列
+      for (int i = 11; i >= 0; i--) {
+        final monthDate = DateTime(now.year, now.month - i, 1);
+        int monthlyTotal = 0;
+        rawData.forEach((date, count) {
+          if (date.year == monthDate.year && date.month == monthDate.month) {
+            monthlyTotal += count;
+          }
+        });
+        completeData[monthDate] = monthlyTotal;
+      }
+      return completeData;
+    }
+
+    // 对于周和月，按天生成序列
+    int daysToGenerate = (timeRange.toLowerCase() == 'month') ? 30 : 7;
+    for (int i = daysToGenerate - 1; i >= 0; i--) {
+      final date = DateTime(now.year, now.month, now.day - i);
+      final dateKey = DateTime(date.year, date.month, date.day);
+      completeData[dateKey] = rawData[dateKey] ?? 0;
+    }
+    
+    return completeData;
+  }
+  // ▲▲▲▲▲ 增量修改结束 ▲▲▲▲▲
 
   Future<void> updateTimeRange(String newTimeRange) async {
     if (_currentTimeRange == newTimeRange) return;
