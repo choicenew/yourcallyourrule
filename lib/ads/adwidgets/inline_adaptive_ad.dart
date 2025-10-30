@@ -1,14 +1,22 @@
+// -----------------------------------------------------------------------------
+// 文件: inline_adaptive_ad.dart
+// 描述: 独立的、可复用的、由缓存驱动的行内自适应广告组件。
+//
+// 【核心修正】
+// 1.  恢复了 `final double? width;` 属性及其构造函数参数。
+// 2.  在 `initState` 中调用 `loadAd` 时，将 `widget.width` 传递给缓存中心。
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/ad_state.dart';
-
-
-
+import 'package:yourcallyourrule/ads/ad_cache_provider.dart';
 
 class InlineAdaptiveBannerAdWidget extends ConsumerStatefulWidget {
   final AdInfo adInfo;
+  // 【恢复】: 允许外部传入一个可选的自定义宽度。
   final double? width;
 
   const InlineAdaptiveBannerAdWidget({
@@ -18,102 +26,56 @@ class InlineAdaptiveBannerAdWidget extends ConsumerStatefulWidget {
   });
 
   @override
-  InlineAdaptiveBannerAdWidgetState createState() => InlineAdaptiveBannerAdWidgetState();
+  ConsumerState<InlineAdaptiveBannerAdWidget> createState() =>
+      _InlineAdaptiveBannerAdWidgetState();
 }
 
-class InlineAdaptiveBannerAdWidgetState extends ConsumerState<InlineAdaptiveBannerAdWidget> {
-  BannerAd? _inlineAdaptiveAd;
-  bool _isLoaded = false;
-  AdSize? _adSize;
-  late Orientation _currentOrientation;
-
+class _InlineAdaptiveBannerAdWidgetState
+    extends ConsumerState<InlineAdaptiveBannerAdWidget> {
+  
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _currentOrientation = MediaQuery.of(context).orientation;
-    _loadAd();
-  }
-
-  void _loadAd() async {
-    // 检查广告状态
-    final adState = ref.read(adStateProvider);
-    if (!adState) return;
-    
-    await _inlineAdaptiveAd?.dispose();
-    setState(() {
-      _inlineAdaptiveAd = null;
-      _isLoaded = false;
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        // 【核心修正】: 调用 loadAd 时，将 widget.width 传递过去。
+        ref.read(adCacheProvider(widget.adInfo).notifier)
+           .loadAd(context, AdaptiveBannerType.inline, explicitWidth: widget.width);
+      }
     });
-
-    // Use the provided width or the screen width
-    double width = widget.width ?? MediaQuery.of(context).size.width;
-
-    // Get an inline adaptive size for the current orientation and width
-    AdSize size = AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(
-        width.truncate());
-
-    _inlineAdaptiveAd = BannerAd(
-      adUnitId: widget.adInfo.adUnitId,
-      size: size,
-      request: const AdRequest(),
-      listener: BannerAdListener(
-        onAdLoaded: (Ad ad) async {
-          if (!mounted) return; // 检查 Widget 是否已销毁
-
-          BannerAd bannerAd = (ad as BannerAd);
-          final AdSize? size = await bannerAd.getPlatformAdSize();
-          if (size == null) {
-            return;
-          }
-
-          if (mounted) { // 再次检查 Widget 是否已销毁
-            setState(() {
-              _inlineAdaptiveAd = bannerAd;
-              _isLoaded = true;
-              _adSize = size;
-            });
-          }
-        },
-        onAdFailedToLoad: (Ad ad, LoadAdError error) {
-          ad.dispose();
-        },
-      ),
-    );
-    await _inlineAdaptiveAd!.load();
   }
 
   @override
   Widget build(BuildContext context) {
-    final adState = ref.watch(adStateProvider);
-    
-    if (!adState) return Container(); // 如果广告被禁用，返回空容器
-    
-    return OrientationBuilder(
-      builder: (context, orientation) {
-        if (_currentOrientation == orientation &&
-            _inlineAdaptiveAd != null &&
-            _isLoaded &&
-            _adSize != null) {
-          return Container(
-            width: widget.width ?? _adSize!.width.toDouble(),
-            height: _adSize!.height.toDouble(),
-            child: AdWidget(ad: _inlineAdaptiveAd!),
-          );
-        }
-        // Reload the ad if the orientation changes.
-        if (_currentOrientation != orientation) {
-          _currentOrientation = orientation;
-          _loadAd();
-        }
-        return Container();
-      },
-    );
-  }
+    final adEnabled = ref.watch(adStateProvider);
+    if (!adEnabled) {
+      return const SizedBox.shrink();
+    }
 
-  @override
-  void dispose() {
-    _inlineAdaptiveAd?.dispose();
-    _inlineAdaptiveAd = null; // 释放广告对象
-    super.dispose();
+    final adState = ref.watch(adCacheProvider(widget.adInfo));
+
+    if (adState.isLoaded && adState.bannerAd != null && adState.adSize != null) {
+      return Container(
+        // 最终的容器尺寸由广告平台返回的真实尺寸决定，这是正确的做法。
+        width: adState.adSize!.width.toDouble(),
+        height: adState.adSize!.height.toDouble(),
+        child: AdWidget(ad: adState.bannerAd!),
+      );
+    } else {
+      // 显示加载占位符
+      return Container(
+        height: 60,
+        // 占位符的宽度可以响应外部传入的 width，也可以是全宽。
+        width: widget.width ?? MediaQuery.of(context).size.width,
+        margin: const EdgeInsets.symmetric(horizontal: 16),
+        decoration: BoxDecoration(
+          color: Colors.grey.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Center(
+          child: CircularProgressIndicator(strokeWidth: 2, color: Colors.grey),
+        ),
+      );
+    }
   }
 }
