@@ -18,7 +18,7 @@ EnhancedCompositeFilterService enhancedCompositeFilterService(Ref ref) {
   
   return EnhancedCompositeFilterService(
     filters: filters,
-    simSlotRuleService: ref.watch(simSlotRuleServiceProvider),
+    simSlotRuleFilterService: ref.watch(simSlotRuleFilterServiceProvider),
     ref: ref,
   );
 }
@@ -26,17 +26,17 @@ EnhancedCompositeFilterService enhancedCompositeFilterService(Ref ref) {
 /// 增强版组合过滤器服务 (无状态)
 class EnhancedCompositeFilterService implements CallFilterInterface {
   final List<CallFilterInterface> _filters;
-  final SimSlotRuleService _simSlotRuleService;
+  final SimSlotRuleFilterService _simSlotRuleFilterService;
   final Ref _ref;
 
   List<CallFilterInterface> get filters => List.unmodifiable(_filters);
 
   EnhancedCompositeFilterService({
     required List<CallFilterInterface> filters,
-    required SimSlotRuleService simSlotRuleService,
+    required SimSlotRuleFilterService simSlotRuleFilterService,
     required Ref ref,
   }) : _filters = filters,
-       _simSlotRuleService = simSlotRuleService,
+       _simSlotRuleFilterService = simSlotRuleFilterService,
        _ref = ref;
 
   @override
@@ -65,14 +65,14 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
       return await shouldAcceptCall(phoneNumber);
     }
     
-    if (!await _simSlotRuleService.shouldAcceptCallWithSim(phoneNumber, simInfo: simInfo)) {
+    if (!await _simSlotRuleFilterService.shouldAcceptCallWithSim(phoneNumber, simInfo: simInfo)) {
 // 如果SIM卡槽位规则拒绝，则直接返回拒绝结果
       return false;
     }
 
     final config = await _ref.read(enhancedFilterConfigProvider.future);
     final simSlotIndex = simInfo.simSlotIndex!;
-
+ // [注释]: 遍历所有子过滤器，检查是否启用该SIM卡槽位
     for (var filter in _filters) {
       // 获取过滤器类名作为标识
       final filterName = filter.runtimeType.toString();
@@ -83,7 +83,7 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
       
       // 如果该过滤器对此SIM卡槽位启用
       if (isEnabledForSimSlot) {
-         // 对于所有过滤器，使用标准接口
+            // 对于所有通用过滤器，都调用标准的 shouldAcceptCall 方法。
         if (!await filter.shouldAcceptCall(phoneNumber)) {
           return false; // 如果任何过滤器拒绝，直接返回拒绝结果
         }
@@ -96,7 +96,7 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
   @override
   Future<void> initialize() async {
     // 初始化所有依赖的过滤器
-    await _simSlotRuleService.initialize();
+    await _simSlotRuleFilterService.initialize();
     for (var filter in _filters) {
       await filter.initialize();
     }

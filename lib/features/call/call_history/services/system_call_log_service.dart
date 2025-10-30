@@ -1,7 +1,8 @@
-import 'package:call_log/call_log.dart';
+import 'package:call_log/call_log.dart' as sys;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart' as app_call_log;
+import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 
 /// 系统通话记录服务
@@ -44,7 +45,7 @@ class SystemCallLogService {
       final lastTimestamp = lastLog?.timestamp ?? DateTime(2000); // 如果没有记录，使用较早的日期
 
       // 从系统获取通话记录
-      final systemLogs = await CallLog.query();
+      final systemLogs = await sys.CallLog.query();
       int syncCount = 0;
 
       // 转换并保存记录
@@ -56,7 +57,7 @@ class SystemCallLogService {
         }
 
         // 转换通话类型
-        String callType = _mapCallType(entry.callType);
+        final callType = _mapCallType(entry.callType);
 
         // 新增：计算通话结束时间和时长
         final durationInSeconds = entry.duration ?? 0;
@@ -113,22 +114,22 @@ class SystemCallLogService {
   }
 
   /// 将系统通话类型映射到应用内通话类型
-  String _mapCallType(CallType? callType) {
+  LocalCallType _mapCallType(sys.CallType? callType) {
     switch (callType) {
-      case CallType.incoming:
-        return 'incoming';
-      case CallType.outgoing:
-        return 'outgoing';
-      case CallType.missed:
-        return 'missed';
-      case CallType.rejected:
-        return 'rejected';
-      case CallType.blocked:
-        return 'blocked';
-      case CallType.voiceMail:
-        return 'voicemail';
+      case sys.CallType.incoming:
+        return LocalCallType.incoming;
+      case sys.CallType.outgoing:
+        return LocalCallType.outgoing;
+      case sys.CallType.missed:
+        return LocalCallType.missed;
+      case sys.CallType.rejected:
+        return LocalCallType.rejected;
+      case sys.CallType.blocked:
+        return LocalCallType.blocked;
+      case sys.CallType.voiceMail:
+        return LocalCallType.voicemail;
       default:
-        return 'unknown';
+        return LocalCallType.unknown;
     }
   }
 }

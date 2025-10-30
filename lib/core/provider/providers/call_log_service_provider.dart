@@ -3,7 +3,7 @@ import 'package:yourcallyourrule/features/call/call_history/services/call_log_se
 import 'package:yourcallyourrule/core/provider/basic_provider/call_log_repository_provider.dart';
 
 import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
+import 'package:yourcallyourrule/features/rules/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/features/contacts/provider/contact_service_provider.dart';
 

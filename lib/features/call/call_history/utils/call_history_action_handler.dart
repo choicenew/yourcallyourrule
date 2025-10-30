@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
-import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
+import 'package:yourcallyourrule/features/rules/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -26,7 +27,7 @@ class CallHistoryActionHandler {
 
   /// 主入口方法：根据通话记录类型，处理电话或拦截操作
   void handleCallAction() {
-    if (log.callType == 'blocked') {
+    if (log.callType == LocalCallType.blocked) {
       _showUnblockConfirmDialog();
     } else {
       _showCallActionDialog();

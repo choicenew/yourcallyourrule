@@ -8,15 +8,12 @@ part of 'blocked_calls_provider.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 一个异步 Notifier，用于根据选择的 Tab 异步加载和管理拦截记录列表。
 
 @ProviderFor(BlockedCalls)
 const blockedCallsProvider = BlockedCallsProvider._();
 
-/// 一个异步 Notifier，用于根据选择的 Tab 异步加载和管理拦截记录列表。
 final class BlockedCallsProvider
     extends $AsyncNotifierProvider<BlockedCalls, BlockedCallsState> {
-  /// 一个异步 Notifier，用于根据选择的 Tab 异步加载和管理拦截记录列表。
   const BlockedCallsProvider._()
     : super(
         from: null,
@@ -36,9 +33,7 @@ final class BlockedCallsProvider
   BlockedCalls create() => BlockedCalls();
 }
 
-String _$blockedCallsHash() => r'42cf974c7dc9b9211ed7b1dca25b1e91e5a9f7b1';
-
-/// 一个异步 Notifier，用于根据选择的 Tab 异步加载和管理拦截记录列表。
+String _$blockedCallsHash() => r'64fececbe461120517b5deaa6c68691090e2f53e';
 
 abstract class _$BlockedCalls extends $AsyncNotifier<BlockedCallsState> {
   FutureOr<BlockedCallsState> build();

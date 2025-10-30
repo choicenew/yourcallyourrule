@@ -16,8 +16,6 @@ import 'api_service.dart';
 
 import '../../datasources/remote/remote_number_datasource.dart';
 import '../../models/sync/sync_record_model.dart';
-import '../../repositories/config/config_repository.dart';
-import '../remote/remote_database_manager.dart';
 // 增量同步管理器类
 class IncrementalSyncManager {
   final RemoteNumberDataSource _dataSource;

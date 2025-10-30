@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/features/call/call_history/utils/call_history_action_handler.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/phone_meta_edit_dialog.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/rule_action_dialog.dart';
@@ -196,10 +197,10 @@ class CallLogCard extends ConsumerWidget {
               tooltip: AppLocalizations.of(context)!.addLabel,
             ),
             IconButton(
-              icon: Icon(log.callType == 'blocked' ? Icons.block : Icons.phone, size: 20),
+              icon: Icon(log.callType == LocalCallType.blocked ? Icons.block : Icons.phone, size: 20),
               color: Colors.grey,
               onPressed: actionHandler.handleCallAction,
-              tooltip: log.callType == 'blocked' ? AppLocalizations.of(context)!.unblock : AppLocalizations.of(context)!.call,
+              tooltip: log.callType == LocalCallType.blocked ? AppLocalizations.of(context)!.unblock : AppLocalizations.of(context)!.call,
             ),
             IconButton(
               icon: const Icon(Icons.rule, size: 20),
@@ -304,14 +305,27 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
-  _CallTypeInfo _getCallTypeInfo(BuildContext context, String callType) {
+  _CallTypeInfo _getCallTypeInfo(BuildContext context, LocalCallType callType) {
     final localizations = AppLocalizations.of(context)!;
     switch (callType) {
-      case 'incoming': return _CallTypeInfo(icon: Icons.phone, color: Colors.green, text: localizations.callTypeAnswered);
-      case 'outgoing': return _CallTypeInfo(icon: Icons.call_made, color: Colors.blue, text: localizations.callTypeOutgoing);
-      case 'missed': return _CallTypeInfo(icon: Icons.phone_missed, color: Colors.orange, text: localizations.callTypeMissed);
-      case 'blocked': return _CallTypeInfo(icon: Icons.block, color: Colors.red, text: localizations.callTypeBlocked);
-      default: return _CallTypeInfo(icon: Icons.phone, color: Colors.grey, text: localizations.callTypeUnknown);
+      case LocalCallType.incoming:
+        return _CallTypeInfo(icon: Icons.phone, color: Colors.green, text: localizations.callTypeAnswered);
+      case LocalCallType.outgoing:
+        return _CallTypeInfo(icon: Icons.call_made, color: Colors.blue, text: localizations.callTypeOutgoing);
+      case LocalCallType.missed:
+        return _CallTypeInfo(icon: Icons.phone_missed, color: Colors.orange, text: localizations.callTypeMissed);
+      case LocalCallType.blocked:
+        return _CallTypeInfo(icon: Icons.block, color: Colors.red, text: localizations.callTypeBlocked);
+      case LocalCallType.rejected:
+        return _CallTypeInfo(icon: Icons.call_end, color: Colors.red, text: localizations.callTypeRejected);
+      case LocalCallType.silenced:
+        return _CallTypeInfo(icon: Icons.volume_off, color: Colors.grey, text: localizations.callTypeSilenced);
+      case LocalCallType.voicemail:
+        return _CallTypeInfo(icon: Icons.voicemail, color: Colors.purple, text: localizations.callTypeVoicemail);
+      case LocalCallType.unknown:
+        return _CallTypeInfo(icon: Icons.help_outline, color: Colors.grey, text: localizations.callTypeUnknown);
+        case LocalCallType.unknownIntercept:
+        return _CallTypeInfo(icon: Icons.help_outline, color: Colors.grey, text: localizations.callTypeUnknownIntercept);
     }
   }
 

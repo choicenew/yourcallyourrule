@@ -11,9 +11,9 @@ part of 'overlay_control_handler.dart';
 /// OverlayControlHandler 的 Riverpod Provider
 ///
 /// 它的职责是创建、初始化并管理 OverlayControlHandler 实例的生命周期。
-/// 它遵循与 callEventListenerProvider 完全相同的成功模式，以确保初始化的稳定性和可靠性。
+/// 它是一个独立的、自启动的服务，负责响应通话状态变化来控制浮窗的关闭。
 ///
-/// - `@Riverpod(keepAlive: true)`: 确保这个服务在整个应用生命周期内持续运行，不会被意外销毁。
+/// - `@Riverpod(keepAlive: true)`: 确保这个服务在整个应用生命周期内持续运行。
 
 @ProviderFor(overlayControlHandler)
 const overlayControlHandlerProvider = OverlayControlHandlerProvider._();
@@ -21,9 +21,9 @@ const overlayControlHandlerProvider = OverlayControlHandlerProvider._();
 /// OverlayControlHandler 的 Riverpod Provider
 ///
 /// 它的职责是创建、初始化并管理 OverlayControlHandler 实例的生命周期。
-/// 它遵循与 callEventListenerProvider 完全相同的成功模式，以确保初始化的稳定性和可靠性。
+/// 它是一个独立的、自启动的服务，负责响应通话状态变化来控制浮窗的关闭。
 ///
-/// - `@Riverpod(keepAlive: true)`: 确保这个服务在整个应用生命周期内持续运行，不会被意外销毁。
+/// - `@Riverpod(keepAlive: true)`: 确保这个服务在整个应用生命周期内持续运行。
 
 final class OverlayControlHandlerProvider
     extends
@@ -36,9 +36,9 @@ final class OverlayControlHandlerProvider
   /// OverlayControlHandler 的 Riverpod Provider
   ///
   /// 它的职责是创建、初始化并管理 OverlayControlHandler 实例的生命周期。
-  /// 它遵循与 callEventListenerProvider 完全相同的成功模式，以确保初始化的稳定性和可靠性。
+  /// 它是一个独立的、自启动的服务，负责响应通话状态变化来控制浮窗的关闭。
   ///
-  /// - `@Riverpod(keepAlive: true)`: 确保这个服务在整个应用生命周期内持续运行，不会被意外销毁。
+  /// - `@Riverpod(keepAlive: true)`: 确保这个服务在整个应用生命周期内持续运行。
   const OverlayControlHandlerProvider._()
     : super(
         from: null,
@@ -74,4 +74,4 @@ final class OverlayControlHandlerProvider
 }
 
 String _$overlayControlHandlerHash() =>
-    r'02877d375a36780043a462807c83f5c152cbef34';
+    r'7e93bac24caeb4f2852259b4f1873f89987cb341';

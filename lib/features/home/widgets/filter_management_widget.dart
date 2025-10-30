@@ -5,6 +5,7 @@ import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_in
 import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
+import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // [重构]: 导入所有需要的 Provider。

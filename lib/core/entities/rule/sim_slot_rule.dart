@@ -20,6 +20,9 @@ class SimSlotRule extends RuleBase {
   // 头像（可选）
   final String? avatar;
 
+  // [新增]: 添加 ruleType 字段以供仓库层识别
+  final String ruleType;
+
   // 构造函数
   const SimSlotRule({
     required super.id,
@@ -29,6 +32,8 @@ class SimSlotRule extends RuleBase {
     required this.simSlotIndex,
     this.labelId = '',
     this.avatar,
+        // [新增]: 为 ruleType 提供默认值
+    this.ruleType = 'sim_slot', 
     super.action = RuleAction.block,
     super.isEnabled = true,
   });
@@ -50,6 +55,7 @@ class SimSlotRule extends RuleBase {
       'labelId': labelId,
       'avatar': avatar,
       'isEnabled': isEnabled ? 1 : 0,
+      'ruleType': ruleType,
     });
     return map;
   }
@@ -66,6 +72,7 @@ class SimSlotRule extends RuleBase {
     int? simSlotIndex,
     String? labelId,
     String? avatar,
+    String? ruleType,
   }) {
     return SimSlotRule(
       id: id ?? this.id,
@@ -77,6 +84,7 @@ class SimSlotRule extends RuleBase {
       simSlotIndex: simSlotIndex ?? this.simSlotIndex,
       labelId: labelId ?? this.labelId,
       avatar: avatar ?? this.avatar,
+      ruleType: ruleType ?? this.ruleType,
     );
   }
   
@@ -92,6 +100,7 @@ class SimSlotRule extends RuleBase {
       labelId: map['labelId'] ?? '',
       avatar: map['avatar'],
       isEnabled: (map['isEnabled'] ?? 1) == 1,
+      ruleType: map['ruleType'] ?? 'sim_slot',
     );
   }
 }

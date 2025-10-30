@@ -1,161 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/core/provider/call_logs_provider.dart';
-import 'package:yourcallyourrule/core/provider/rules_provider.dart';
-import 'package:yourcallyourrule/features/call_statistic/data/repositories/call_statistics_repository_impl.dart';
-import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
+import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
+import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
+
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class BlockTypeAnalysis extends ConsumerStatefulWidget {
+class BlockTypeAnalysis extends ConsumerWidget {
   const BlockTypeAnalysis({super.key});
 
   @override
-  ConsumerState<BlockTypeAnalysis> createState() => _BlockTypeAnalysisState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    // 消费 CallStatisticsNotifier 的状态
+    final statisticsState = ref.watch(callStatisticsProvider);
 
-class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.1), spreadRadius: 1, blurRadius: 5)],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppLocalizations.of(context)!.blockTypeAnalysisTitle,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+          // 加载和错误状态由父 Widget (CallStatisticsPage) 处理
+          if (statisticsState.blockTypeAnalysis.isEmpty && !statisticsState.isLoading)
+            Center(child: Text(AppLocalizations.of(context)!.noBlockedTypeData, style: const TextStyle(color: Colors.grey)))
+          else
+            _buildAnalysisContent(context, statisticsState.blockTypeAnalysis),
+        ],
+      ),
+    );
+  }
 
-  @override
-  Widget build(BuildContext context) {
-    final callLogsAsync = ref.watch(callLogsProvider);
-    final rulesAsync = ref.watch(rulesProvider);
+  Widget _buildAnalysisContent(BuildContext context, Map<String, double> typeAnalysis) {
+    final blockTypes = typeAnalysis.entries.map((entry) {
+      return BlockTypeData.fromCallTypeName(context, entry.key, entry.value.round());
+    }).toList();
+    
+    blockTypes.sort((a, b) => b.percentage.compareTo(a.percentage));
 
     return LayoutBuilder(
       builder: (context, constraints) {
         final isSmallScreen = constraints.maxWidth < 350;
-        
-        return Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withValues(alpha: 0.1),
-                spreadRadius: 1,
-                blurRadius: 5,
-                offset: const Offset(0, 3),
-              ),
-            ],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                AppLocalizations.of(context)!.blockTypeAnalysisTitle,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 16),
-              callLogsAsync.when(
-                data: (callLogs) => rulesAsync.when(
-                  data: (rules) => _buildAnalysisContent(context, callLogs, rules, isSmallScreen),
-                  loading: () => const Center(child: CircularProgressIndicator()),
-                  error: (error, stack) => Center(child: Text(AppLocalizations.of(context)!.loadRulesFailed(error.toString()))),
-                ),
-                loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, stack) => Center(child: Text(AppLocalizations.of(context)!.loadCallLogFailed(error.toString()))),
-              ),
-            ],
-          ),
+        return Column(
+          children: blockTypes.map((type) => _buildTypeItem(type, isSmallScreen)).toList(),
         );
       },
     );
-  }
-
-  Widget _buildAnalysisContent(BuildContext context, List<CallLog> callLogs, List<RuleBase> rules, bool isSmallScreen) {
-    // 创建repository实例并获取拦截类型分析数据
-    final repository = CallStatisticsRepositoryImpl(callLogs, rules);
-    final typeAnalysis = repository.getBlockTypeAnalysis();
-    
-    // 转换数据为BlockTypeData列表
-    final List<BlockTypeData> blockTypes = [];
-    
-    // 动态处理所有拦截类型
-    for (final entry in typeAnalysis.entries) {
-      final labelId = entry.key;
-      final percentage = entry.value.round();
-      
-      // 异步获取标签文本
-      _getLabelDisplayText(context, labelId).then((labelText) {
-        // 动态获取图标和颜色，避免硬编码
-        IconData icon;
-        Color iconColor;
-        Color backgroundColor;
-        
-        // 根据标签ID的内容动态选择图标和颜色
-        if (labelId.toLowerCase().contains('fraud') || labelId.toLowerCase().contains('scam')) {
-          icon = Icons.warning;
-          iconColor = Colors.red;
-          backgroundColor = Colors.red.shade100;
-        } else if (labelId.toLowerCase().contains('spam')) {
-          icon = Icons.report_problem;
-          iconColor = Colors.orange;
-          backgroundColor = Colors.orange.shade100;
-        } else if (labelId.toLowerCase().contains('telemarketing')) {
-          icon = Icons.campaign;
-          iconColor = Colors.amber;
-          backgroundColor = Colors.amber.shade100;
-        } else if (labelId.toLowerCase().contains('sms')) {
-          icon = Icons.sms_failed;
-          iconColor = Colors.purple;
-          backgroundColor = Colors.purple.shade100;
-        } else if (labelId.toLowerCase().contains('robot') || labelId.toLowerCase().contains('robo')) {
-          icon = Icons.smart_toy;
-          iconColor = Colors.blue;
-          backgroundColor = Colors.blue.shade100;
-        } else if (labelId.toLowerCase().contains('delivery') || labelId.toLowerCase().contains('takeaway')) {
-          icon = Icons.delivery_dining;
-          iconColor = Colors.green;
-          backgroundColor = Colors.green.shade100;
-        } else if (labelId.toLowerCase().contains('service')) {
-          icon = Icons.support_agent;
-          iconColor = Colors.teal;
-          backgroundColor = Colors.teal.shade100;
-        } else {
-          // 默认图标和颜色
-          icon = Icons.label;
-          iconColor = Colors.blue;
-          backgroundColor = Colors.blue.shade100;
-        }
-        
-        // 添加到列表
-        setState(() {
-          blockTypes.add(BlockTypeData(
-            icon: icon,
-            iconColor: iconColor,
-            backgroundColor: backgroundColor,
-            label: labelText,
-            percentage: percentage,
-          ));
-        });
-      });
-    }
-    
-    // 如果没有数据，显示提示信息
-    if (typeAnalysis.isEmpty) {
-      return Center(
-        child: Text(AppLocalizations.of(context)!.noBlockedTypeData, style: const TextStyle(color: Colors.grey)),
-      );
-    }
-
-    return Column(
-      children: blockTypes.map((type) => _buildTypeItem(type, isSmallScreen)).toList(),
-    );
-  }
-
-  // 获取标签显示文本
-  Future<String> _getLabelDisplayText(BuildContext context, String labelId) async {
-    try {
-      // 使用LabelTextUtils获取标签文本
-      final labelText = await LabelTextUtils.getLabelTextById(context, ref, labelId);
-      return labelText ?? labelId;
-    } catch (e) {
-      // 如果获取失败，返回标签ID作为显示文本
-      return labelId;
-    }
   }
 
   Widget _buildTypeItem(BlockTypeData data, bool isSmallScreen) {
@@ -169,38 +66,17 @@ class _BlockTypeAnalysisState extends ConsumerState<BlockTypeAnalysis> {
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Row(
         children: [
-          // 图标
           Container(
-            width: containerSize,
-            height: containerSize,
-            decoration: BoxDecoration(
-              color: data.backgroundColor,
-              borderRadius: BorderRadius.circular(containerSize / 2),
-            ),
+            width: containerSize, height: containerSize,
+            decoration: BoxDecoration(color: data.backgroundColor, borderRadius: BorderRadius.circular(containerSize / 2)),
             child: Icon(data.icon, color: data.iconColor, size: iconSize),
           ),
           const SizedBox(width: 12),
-          
-          // 标签
-          Expanded(
-            child: Text(
-              data.label,
-              style: textStyle,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          
-          // 百分比
-          Text(
-            '${data.percentage}%',
-            style: percentageStyle,
-          ),
+          Expanded(child: Text(data.label, style: textStyle, overflow: TextOverflow.ellipsis)),
+          Text('${data.percentage}%', style: percentageStyle),
           const SizedBox(width: 12),
-          
-          // 进度条
           SizedBox(
-            width: progressBarWidth,
-            height: 4,
+            width: progressBarWidth, height: 4,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(2),
               child: LinearProgressIndicator(
@@ -224,10 +100,36 @@ class BlockTypeData {
   final int percentage;
 
   BlockTypeData({
-    required this.icon,
-    required this.iconColor,
-    required this.backgroundColor,
-    required this.label,
-    required this.percentage,
+    required this.icon, required this.iconColor, required this.backgroundColor,
+    required this.label, required this.percentage,
   });
+
+  factory BlockTypeData.fromCallTypeName(BuildContext context, String callTypeName, int percentage) {
+    IconData icon = Icons.block;
+    Color iconColor = Colors.grey;
+    String label = callTypeName;
+    final localizations = AppLocalizations.of(context)!;
+
+    if (callTypeName == LocalCallType.rejected.name) {
+      label = localizations.callTypeRejected;
+      icon = Icons.call_end;
+      iconColor = Colors.red;
+    } else if (callTypeName == LocalCallType.blocked.name) {
+      label = localizations.callTypeBlocked;
+      icon = Icons.shield;
+      iconColor = Colors.orange;
+    } else if (callTypeName == LocalCallType.silenced.name) {
+      label = localizations.callTypeSilenced;
+      icon = Icons.vibration;
+      iconColor = Colors.blue;
+    }
+
+    return BlockTypeData(
+      icon: icon,
+      iconColor: iconColor,
+      backgroundColor: iconColor.withOpacity(0.15),
+      label: label,
+      percentage: percentage,
+    );
+  }
 }

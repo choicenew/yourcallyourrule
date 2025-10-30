@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:yourcallyourrule/core/base/base_entity.dart';
+import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 
 class CallLog extends BaseEntity {
   final List<String>? labelIds;
@@ -10,7 +11,7 @@ class CallLog extends BaseEntity {
   final DateTime? endTime;    // 🔥 新增：通话结束时间
   final int? duration;       // 🔥 新增：通话时长（毫秒）
   final String simDisplayName;
-  final String callType;
+  final LocalCallType callType;
   final int simSlotIndex;
   final String carrierName;
   final String countryIso;
@@ -42,7 +43,7 @@ class CallLog extends BaseEntity {
         'endTime': endTime?.millisecondsSinceEpoch, // 🔥 新增
         'duration': duration,                      // 🔥 新增
         'simDisplayName': simDisplayName,
-        'callType': callType,
+        'callType': callType.name, // 使用枚举的 name 属性
         'simSlotIndex': simSlotIndex,
         'carrierName': carrierName,
         'countryIso': countryIso,
@@ -117,7 +118,7 @@ class CallLog extends BaseEntity {
       endTime: parsedEndTime, // 🔥 新增
       duration: parsedDuration, // 🔥 新增
       simDisplayName: map['simDisplayName'] as String,
-      callType: map['callType'] as String,
+      callType: LocalCallType.fromString(map['callType'] as String), // 从字符串转换
       simSlotIndex: int.tryParse(map['simSlotIndex']?.toString() ?? '0') ?? 0,
       carrierName: map['carrierName'] as String,
       countryIso: map['countryIso'] as String,
@@ -134,7 +135,7 @@ class CallLog extends BaseEntity {
     DateTime? endTime,     // 🔥 新增
     int? duration,        // 🔥 新增
     String? simDisplayName,
-    String? callType,
+    LocalCallType? callType,
     int? simSlotIndex,
     String? carrierName,
     String? countryIso,

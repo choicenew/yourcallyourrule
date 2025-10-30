@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart'; // [1] 导入 AppRouter
 import 'package:yourcallyourrule/features/notifications/service/notification_service.dart'; // [2] 导入以创建 Config
 import 'package:yourcallyourrule/generated/app_localizations.dart'; // [3] 导入以使用国际化
 import 'base_sms_handler.dart';
 import 'sms_filter_handler.dart';
-import 'sms_notification_handler.dart';
-
+import 'package:yourcallyourrule/features/sms/services/sms_service.dart';
+import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_notification_handler.dart';
 
 class IncomingSmsHandler extends BaseSmsHandler {
   // 您的所有属性和构造函数都保持不变
   final SmsFilterHandler _filterHandler;
   final SmsNotificationHandler _notificationHandler;
-  final BlockedCallRepository _blockedCallRepository;
 
   IncomingSmsHandler({
     required SmsFilterHandler filterHandler,
     required SmsNotificationHandler notificationHandler,
-    BlockedCallRepository? blockedCallRepository,
   }) : 
     _filterHandler = filterHandler,
-    _notificationHandler = notificationHandler,
-    _blockedCallRepository = blockedCallRepository ?? BlockedCallRepository();
+    _notificationHandler = notificationHandler;
 
   // 您的 handleSmsChannelCall 方法保持不变
   @override
@@ -66,7 +62,6 @@ class IncomingSmsHandler extends BaseSmsHandler {
         config: NotificationService.blockedCallConfig(context),
       );
       
-      await _blockedCallRepository.addBlockedSms(phoneNumber);
     }
   }
 }

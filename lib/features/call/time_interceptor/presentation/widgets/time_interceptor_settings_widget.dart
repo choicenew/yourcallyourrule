@@ -4,7 +4,7 @@ import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_in
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// [重构]: 将 StatelessWidget 改为 ConsumerWidget 以便访问 ref。
+// [重构]: 将 StatelessWidget 改为 ConsumerWidget 以便访问 ref。
 class TimeInterceptorSettingsWidget extends ConsumerWidget {
   
   // [重构]: 移除所有构造函数参数，因为 Widget 将自己管理状态。
@@ -12,43 +12,60 @@ class TimeInterceptorSettingsWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // [重构]: 使用 ref.watch 监听配置的异步状态。
-    final configAsync = ref.watch(timeInterceptorConfigProvider);
-    // [重构]: 获取 notifier 以便调用更新方法。
+    // ▼▼▼▼▼ 核心修正部分 ▼▼▼▼▼
+    // [修正]: 使用 .select 只监听 provider 的 data 部分。
+    // 这将防止 widget 在 provider 进入 loading/error 状态时重建为一个占位符。
+    // 我们只关心配置数据本身 `asyncValue.value`。
+    final config = ref.watch(timeInterceptorConfigProvider.select((asyncValue) => asyncValue.value));
+    
+    
+    
+    
+    // [修正]: 仅在初始加载时显示加载指示器。
+    // 如果 config 为 null，意味着数据从未成功加载过。
+    if (config == null) {
+      // 检查是否有错误状态
+      final configAsync = ref.watch(timeInterceptorConfigProvider);
+      if (configAsync.hasError) {
+        return Center(child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text('Error: ${configAsync.error}'),
+        ));
+      }
+      return const Center(child: CircularProgressIndicator());
+    }
+    // ▲▲▲▲▲ 修正结束 ▲▲▲▲▲
+
+    // [注释]: 获取 notifier 以便调用更新方法。
     final notifier = ref.read(timeInterceptorConfigProvider.notifier);
 
-    // [注释]: 使用 .when 优雅地处理加载、错误和成功三种UI状态。
-    return configAsync.when(
-      data: (config) => Column(
-        children: [
-          _buildEnableSwitch(context, config.shouldIntercept, (value) {
+    // [注释]: UI 部分现在总是能获取到 config 数据（即使是旧的），不会再闪烁。
+    return Column(
+      children: [
+        // [注释]: isUpdating 可以在这里用于显示一个不明显的加载指示，例如在 AppBar 中。
+        // 为了保持 UI 简洁，我们暂时不在这里显示它，但这个状态是可用的。
+        _buildEnableSwitch(context, config.shouldIntercept, (value) {
             // [注释]: 在 onChanged 回调中直接调用 notifier 的方法。
-            notifier.updateShouldIntercept(value);
-          }),
-          const Divider(),
+          notifier.updateShouldIntercept(value);
+        }),
+        const Divider(),
           // [注释]: 当开关关闭时，禁用下面的设置以提供更好的用户体验。
-          Opacity(
-            opacity: config.shouldIntercept ? 1.0 : 0.5,
-            child: IgnorePointer(
-              ignoring: !config.shouldIntercept,
-              child: _buildDurationSetting(context, config.duration.inMinutes, (value) {
-                notifier.updateDuration(value);
-              }),
-            ),
+        Opacity(
+          opacity: config.shouldIntercept ? 1.0 : 0.5,
+          child: IgnorePointer(
+            ignoring: !config.shouldIntercept,
+            child: _buildDurationSetting(context, config.duration.inMinutes, (value) {
+              notifier.updateDuration(value);
+            }),
           ),
-          const SizedBox(height: 32),
-          _buildExplanationCard(context),
-        ],
-      ),
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (err, st) => Center(child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Text('Error: $err'),
-      )),
+        ),
+        const SizedBox(height: 32),
+        _buildExplanationCard(context),
+      ],
     );
   }
 
-  /// [重构]: 构建启用开关，接收数据和回调。
+  /// [注释]: 辅助构建方法保持不变。
   Widget _buildEnableSwitch(BuildContext context, bool isEnabled, ValueChanged<bool> onChanged) {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.enableTimeInterceptor),
@@ -58,7 +75,7 @@ class TimeInterceptorSettingsWidget extends ConsumerWidget {
     );
   }
 
-  /// [重构]: 构建时间窗口设置，接收数据和回调。
+  /// [注释]: 辅助构建方法保持不变。
   Widget _buildDurationSetting(BuildContext context, int durationMinutes, ValueChanged<int> onChanged) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +106,7 @@ class TimeInterceptorSettingsWidget extends ConsumerWidget {
     );
   }
 
-  /// [注释]: 说明卡片是一个纯静态UI，不需要改动。
+  /// [注释]: 说明卡片是一个纯静态UI，保持不变。
   Widget _buildExplanationCard(BuildContext context) {
     return Card(
       elevation: 2,
