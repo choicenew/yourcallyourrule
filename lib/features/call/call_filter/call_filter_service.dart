@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
+import 'package:yourcallyourrule/features/rules/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';

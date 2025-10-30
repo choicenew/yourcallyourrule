@@ -11,8 +11,8 @@ import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/enhanced_composite_filter_service.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
-import 'package:yourcallyourrule/features/call_statistic/domain/providers/blocked_call_repository_provider.dart';
-import 'package:yourcallyourrule/features/call_statistic/domain/repositories/blocked_call_repository.dart';
+
+
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repository.dart';
 // 导入所有依赖的 Provider
 // 【注意】请确保这些 provider 文件的路径是正确的
@@ -47,7 +47,7 @@ Future<IncomingCallHandler> incomingCallHandler(Ref ref) async {
   // NotificationHandler 是一个 FutureProvider，我们必须 `await` 它才能获取到实例。
   final notificationHandler = await ref.watch(notificationHandlerProvider.future);
   final configRepository = ref.watch(callerIdConfigRepositoryProvider);
-  final blockedCallRepository = ref.watch(blockedCallRepositoryProvider);
+
 
   // 2. 将所有获取到的依赖注入到 IncomingCallHandler 的构造函数中并返回。
   return IncomingCallHandler(
@@ -57,7 +57,7 @@ Future<IncomingCallHandler> incomingCallHandler(Ref ref) async {
     shouldAcceptCallHandler: shouldAcceptCallHandler,
     notificationHandler: notificationHandler,
     configRepository: configRepository,
-    blockedCallRepository: blockedCallRepository,
+
   );
 }
 
@@ -71,7 +71,7 @@ class IncomingCallHandler {
   final TimeInterceptorService _timeInterceptorService;
   final ShouldAcceptCallHandler _shouldAcceptCallHandler;
   final NotificationHandler _notificationHandler;
-  final BlockedCallRepository _blockedCallRepository;
+
   final CallerIdConfigRepository _configRepository;
   
   /// 构造函数
@@ -83,15 +83,15 @@ class IncomingCallHandler {
     required ShouldAcceptCallHandler shouldAcceptCallHandler,
     required NotificationHandler notificationHandler,
     required CallerIdConfigRepository configRepository,
-    required BlockedCallRepository blockedCallRepository,
+    
   }) : 
     _callHandler = callHandler,
     _callFilterService = callFilterService,
     _timeInterceptorService = timeInterceptorService,
     _shouldAcceptCallHandler = shouldAcceptCallHandler,
     _notificationHandler = notificationHandler,
-    _configRepository = configRepository,
-    _blockedCallRepository = blockedCallRepository;
+    _configRepository = configRepository;
+    
 
   /// 处理来电的核心逻辑
   /// [phoneNumber] 来电号码
@@ -173,7 +173,7 @@ class IncomingCallHandler {
     */
 
     // 将被拦截的电话号码添加到本地存储的拦截记录中
-    await _blockedCallRepository.addBlockedCall(phoneNumber);
+    //await _blockedCallRepository.addBlockedCall(phoneNumber);
     
     // 如果有完整的 CallData，也使用扩展方法进行记录
     if (callData != null) {

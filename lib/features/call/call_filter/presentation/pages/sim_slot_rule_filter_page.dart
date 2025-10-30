@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/sim_slot_rule_filter_widget.dart';
+import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // [重构]: 导入所有需要的 Provider，而不是 Service 实例。
 import 'package:yourcallyourrule/features/call/call_filter/providers/enhanced_filter_config_provider.dart';
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
 
 // [重构]: 创建一个专门用于获取特定SIM卡规则的 provider。
 // 它使用 .family 修饰符来接收 simSlotIndex 参数，并会自动缓存结果。

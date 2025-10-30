@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 
 import 'package:yourcallyourrule/ads/ad_manager.dart';
@@ -148,38 +149,57 @@ class _CallHistoryPageWithTimelineWithAdsState extends ConsumerState<CallHistory
     );
   }
 
-  List<CallLog> _getFilteredLogs() {
-    if (_isLoading) return [];
+// 将这个完整的方法替换你文件中的旧方法
+List<CallLog> _getFilteredLogs() {
+  if (_isLoading) return [];
 
-    final localizations = AppLocalizations.of(context)!;
-    var filteredLogs = _currentLogs;
+  final localizations = AppLocalizations.of(context)!;
+  var filteredLogs = _currentLogs;
 
-    if (_selectedLabelId != null) {
-      filteredLogs = filteredLogs.where((log) => log.labelIds?.contains(_selectedLabelId) ?? false).toList();
+  // 1. 按标签筛选 (逻辑不变)
+  if (_selectedLabelId != null) {
+    filteredLogs = filteredLogs.where((log) => log.labelIds?.contains(_selectedLabelId) ?? false).toList();
+  }
+  
+  // 2. 按 Tab 筛选 (使用 LocalCallType 枚举)
+  if (_selectedTab != localizations.tabAll) {
+    LocalCallType? targetType;
+    // UI 层的 tab 文本 与 业务层的 LocalCallType 枚举进行映射
+    if (_selectedTab == localizations.tabAnswered) {
+      targetType = LocalCallType.incoming;
+    } else if (_selectedTab == localizations.tabMissed) {
+      targetType = LocalCallType.missed;
+    } else if (_selectedTab == localizations.tabBlocked) {
+      // 重要：这里可以包含所有拦截类型，如果 UI 上 "Blocked" tab 应该显示所有拦截的话
+      // 为了简单起见，我们先只匹配 'blocked'
+      targetType = LocalCallType.blocked;
+    } else if (_selectedTab == localizations.tabOutgoing) {
+      targetType = LocalCallType.outgoing;
     }
     
-    final tabMap = {
-      localizations.tabAnswered: 'incoming',
-      localizations.tabMissed: 'missed',
-      localizations.tabBlocked: 'blocked',
-      localizations.tabOutgoing: 'outgoing'
-    };
-    if (_selectedTab != localizations.tabAll) {
-      filteredLogs = filteredLogs.where((log) => log.callType == tabMap[_selectedTab]).toList();
+    // 执行类型安全的过滤
+    if (targetType != null) {
+      filteredLogs = filteredLogs.where((log) => log.callType == targetType).toList();
     }
-    
-    if (_searchKeyword.isNotEmpty) {
-      final keyword = _searchKeyword.toLowerCase();
-      filteredLogs = filteredLogs.where((log) {
-        return (log.name?.toLowerCase().contains(keyword) ?? false) || log.phoneNumber.toLowerCase().contains(keyword);
-      }).toList();
-    }
-
-    filteredLogs.sort((a, b) => b.timestamp.compareTo(a.timestamp));
-    return filteredLogs;
+  }
+  
+  // 3. 按搜索关键字筛选 (逻辑不变)
+  if (_searchKeyword.isNotEmpty) {
+    final keyword = _searchKeyword.toLowerCase();
+    filteredLogs = filteredLogs.where((log) {
+      return (log.name?.toLowerCase().contains(keyword) ?? false) || log.phoneNumber.toLowerCase().contains(keyword);
+    }).toList();
   }
 
-  // --- 事件处理层 ---
+  // 4. 排序 (逻辑不变)
+  filteredLogs.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+  return filteredLogs;
+}
+
+
+
+
+ // --- 事件处理层 ---
 
   void _onSearchChanged(String keyword) {
     setState(() => _searchKeyword = keyword);
@@ -461,8 +481,10 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader> with TickerProvi
       return const Center(child: CircularProgressIndicator());
     }
 
-    final blockedCount = widget.allItems.where((log) => log.callType == 'blocked').length;
-    final answeredCount = widget.allItems.where((log) => log.callType == 'incoming').length;
+  // 使用 LocalCallType 枚举进行类型安全的统计
+  final blockedCount = widget.allItems.where((log) => log.callType == LocalCallType.blocked).length;
+  final answeredCount = widget.allItems.where((log) => log.callType == LocalCallType.incoming).length;
+
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

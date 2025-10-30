@@ -65,6 +65,8 @@ class RuleRepositoryImpl implements RuleRepository {
       return RegexRuleModel.fromEntity(entity);
     } else if (entity is LabelPhoneEntry) {
       return LabelModel.fromEntity(entity);
+    } else if (entity is SimSlotRule) {
+      return SimSlotRuleModel.fromEntity(entity);
     }
     // 当未来有新的Rule类型时，只需要修改这一个地方
     throw ArgumentError('Unsupported rule type for model creation: ${entity.runtimeType}');

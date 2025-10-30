@@ -267,7 +267,7 @@ class LocalDatabaseManagerImpl implements LocalDatabaseManager {
         isEnabled INTEGER NOT NULL DEFAULT 1,
         phoneNumber TEXT NOT NULL,
         simSlotIndex INTEGER NOT NULL,
-        label TEXT,
+        labelId TEXT NOT NULL,
         avatar TEXT,
         ruleType TEXT NOT NULL DEFAULT 'sim_slot'
       )

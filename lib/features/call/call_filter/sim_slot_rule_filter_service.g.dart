@@ -9,50 +9,50 @@ part of 'sim_slot_rule_filter_service.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(simSlotRuleService)
-const simSlotRuleServiceProvider = SimSlotRuleServiceProvider._();
+@ProviderFor(simSlotRuleFilterService)
+const simSlotRuleFilterServiceProvider = SimSlotRuleFilterServiceProvider._();
 
-final class SimSlotRuleServiceProvider
+final class SimSlotRuleFilterServiceProvider
     extends
         $FunctionalProvider<
-          SimSlotRuleService,
-          SimSlotRuleService,
-          SimSlotRuleService
+          SimSlotRuleFilterService,
+          SimSlotRuleFilterService,
+          SimSlotRuleFilterService
         >
-    with $Provider<SimSlotRuleService> {
-  const SimSlotRuleServiceProvider._()
+    with $Provider<SimSlotRuleFilterService> {
+  const SimSlotRuleFilterServiceProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'simSlotRuleServiceProvider',
+        name: r'simSlotRuleFilterServiceProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$simSlotRuleServiceHash();
+  String debugGetCreateSourceHash() => _$simSlotRuleFilterServiceHash();
 
   @$internal
   @override
-  $ProviderElement<SimSlotRuleService> $createElement(
+  $ProviderElement<SimSlotRuleFilterService> $createElement(
     $ProviderPointer pointer,
   ) => $ProviderElement(pointer);
 
   @override
-  SimSlotRuleService create(Ref ref) {
-    return simSlotRuleService(ref);
+  SimSlotRuleFilterService create(Ref ref) {
+    return simSlotRuleFilterService(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(SimSlotRuleService value) {
+  Override overrideWithValue(SimSlotRuleFilterService value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<SimSlotRuleService>(value),
+      providerOverride: $SyncValueProvider<SimSlotRuleFilterService>(value),
     );
   }
 }
 
-String _$simSlotRuleServiceHash() =>
-    r'b4cfc17d010f4552bf9eb14862864a1d7312afb2';
+String _$simSlotRuleFilterServiceHash() =>
+    r'c09050497cc2f0a38e3bc038b7c8f150fc6e46f4';

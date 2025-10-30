@@ -10920,6 +10920,30 @@ abstract class AppLocalizations {
   /// **'Entry Point View'**
   String get entryPointViewTitle;
 
+  /// No description provided for @callTypeRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejected'**
+  String get callTypeRejected;
+
+  /// No description provided for @callTypeSilenced.
+  ///
+  /// In en, this message translates to:
+  /// **'Silenced'**
+  String get callTypeSilenced;
+
+  /// No description provided for @callTypeVoicemail.
+  ///
+  /// In en, this message translates to:
+  /// **'Voicemail'**
+  String get callTypeVoicemail;
+
+  /// No description provided for @callTypeUnknownIntercept.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Intercept'**
+  String get callTypeUnknownIntercept;
+
   /// Text to show when there are more items than displayed.
   ///
   /// In en, this message translates to:

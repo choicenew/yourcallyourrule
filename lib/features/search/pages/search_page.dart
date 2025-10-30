@@ -12,7 +12,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/allowed_blocked_service_provider.dart';
+import 'package:yourcallyourrule/features/rules/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 
 class SearchPage extends ConsumerStatefulWidget {

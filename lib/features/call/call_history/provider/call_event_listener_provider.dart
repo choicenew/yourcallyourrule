@@ -37,6 +37,7 @@ Future<CallEventListenerService> callEventListener(Ref ref) async {
 
   // 4. 创建 CallEventListenerService 实例，并将所有依赖注入。
   final service = CallEventListenerService(
+     ref, // 传入 ref
     callLogService,
     callerIdMonitorService,
     predefinedLabelService,

@@ -69,6 +69,14 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         onTap: () => context.push('/rule-management-settings-with-ads'),
       ),
       _buildFeatureItem(
+        id: 'sim_slot_rules',
+        context: context,
+        title: AppLocalizations.of(context)!.simSlotRules, // Assuming you will add this localization key
+        icon: Icons.sim_card,
+        color: _randomColor(),
+        onTap: () => context.push('/sim-slot-rule-with-ads/0'), // Assuming simSlotIndex 0 for the first SIM slot
+      ),
+      _buildFeatureItem(
         id: 'regex_rules',
         context: context,
         title: AppLocalizations.of(context)!.regexRules,

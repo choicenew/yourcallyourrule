@@ -3262,6 +3262,11 @@
     "description": "The title of the entry point view."
   },
 
+"callTypeRejected": "Rejected",
+
+"callTypeSilenced": "Silenced",
+"callTypeVoicemail": "Voicemail",
+"callTypeUnknownIntercept": "Unknown Intercept",
 
     "andMoreItems": "and {count} more items",
   "@andMoreItems": {

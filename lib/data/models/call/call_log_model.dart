@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/data/models/base_model.dart';
 
 class CallLogModel extends BaseModel<CallLog> {
@@ -138,7 +139,8 @@ class CallLogModel extends BaseModel<CallLog> {
       endTime: endTime,
       duration: duration,
       simDisplayName: simDisplayName,
-      callType: callType,
+      // ✨ 核心修改: 使用我们创建的健壮的 fromString 方法进行转换
+      callType: LocalCallType.fromString(callType),
       simSlotIndex: simSlotIndex,
       carrierName: carrierName,
       countryIso: countryIso,
@@ -156,7 +158,8 @@ class CallLogModel extends BaseModel<CallLog> {
       endTime: entity.endTime,
       duration: entity.duration,
       simDisplayName: entity.simDisplayName,
-      callType: entity.callType,
+ // ✨ 核心修改: 使用枚举的 .name 属性获取其字符串表示
+      callType: entity.callType.name,
       simSlotIndex: entity.simSlotIndex,
       carrierName: entity.carrierName,
       countryIso: entity.countryIso,

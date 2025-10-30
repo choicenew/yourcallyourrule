@@ -10,6 +10,7 @@ import 'package:yourcallyourrule/features/caller_id/config/intercept_action_conf
 // 导入其他依赖
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/caller_id_handler_extension.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/intercept_event_provider.dart';
 import 'base_call_handler.dart';
 
 // part 指令
@@ -41,7 +42,17 @@ class EndCallHandler implements BaseCallHandler {
         return null;
       case "interceptAction":
         final phoneNumber = call.arguments as String? ?? '';
-        return await _handleInterceptAction(phoneNumber);
+                final actionName = await _handleInterceptAction(phoneNumber);
+        
+        if (actionName != null) {
+          debugPrint("📢 [EndCallHandler] Broadcasting intercept event for $phoneNumber with raw action name: $actionName");
+          // 【核心修改】: 直接广播原始的 actionName 字符串，不做任何假设或转换
+          _ref.read(interceptEventStreamControllerProvider).add(
+            InterceptEvent(phoneNumber: phoneNumber, actionName: actionName)
+          );
+        }
+        
+        return actionName;
       default:
         throw UnimplementedError('EndCallHandler: 未实现的方法: ${call.method}');
     }

@@ -10,6 +10,7 @@ import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remot
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/call_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/sim_slot_rules/pages/sim_slot_rule_page_with_ads.dart';
 import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
@@ -73,6 +74,7 @@ class AppRouter {
   static const String localFilterSettings = 'local-filter-settings';
   static const String remoteFilterSettings = 'remote-filter-settings';
   static const String simSlotRuleSettings = 'sim-slot-rule-settings';
+  static const String simSlotRuleWithAds = 'sim-slot-rule-with-ads';
   static const String callFilterSettings = 'call-filter-settings';
   static const String allowedBlockedSettings = 'allowed-blocked-settings';
   static const String allowedBlockedSettingsWithAds = 'allowed-blocked-settings-with-ads';
@@ -242,6 +244,14 @@ class AppRouter {
         builder: (context, state) {
           final simSlotIndex = int.tryParse(state.pathParameters['simSlotIndex'] ?? '') ?? 0;
           return SimSlotRuleFilterPage(simSlotIndex: simSlotIndex);
+        },
+      ),
+      GoRoute(
+        path: '/$simSlotRuleWithAds/:simSlotIndex',
+        name: simSlotRuleWithAds,
+        builder: (context, state) {
+          final simSlotIndex = int.tryParse(state.pathParameters['simSlotIndex'] ?? '') ?? 0;
+          return SimSlotRulePageWithAds(simSlotIndex: simSlotIndex);
         },
       ),
      // 通话过滤设置页面   

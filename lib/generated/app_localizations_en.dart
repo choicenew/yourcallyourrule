@@ -6144,6 +6144,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get entryPointViewTitle => 'Entry Point View';
 
   @override
+  String get callTypeRejected => 'Rejected';
+
+  @override
+  String get callTypeSilenced => 'Silenced';
+
+  @override
+  String get callTypeVoicemail => 'Voicemail';
+
+  @override
+  String get callTypeUnknownIntercept => 'Unknown Intercept';
+
+  @override
   String andMoreItems(int count) {
     return 'and $count more items';
   }

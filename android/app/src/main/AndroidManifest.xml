@@ -97,7 +97,11 @@
     <!--  ===  后台处理  ===  -->
     <uses-permission
         android:name="android.permission.FOREGROUND_SERVICE"/>
-    <!-- 已移除FOREGROUND_SERVICE_SPECIAL_USE权限，floating_window_android不需要 -->
+    <!-- 🔥 1. 新增权限：允许应用在精确的时刻启动前台服务 -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+
+    <!-- 🔥 2. 新增权限：这是声明特殊用途前台服务的关键 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <!--  ===  电池优化  ===  -->
     <uses-permission
         android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
@@ -240,9 +244,10 @@
         </service>
         <!--  ===  overlay callerid display  ===  -->
         <service
-            android:name="flutter.overlay.window.flutter_overlay_window.OverlayService"
-            android:exported="false"
-            android:foregroundServiceType="specialUse">
+            android:name="com.maojiu.floating_window_android.OverlayService"
+            
+            android:foregroundServiceType="specialUse"
+            tools:node="replace">  <!-- tools:node="replace" 确保完全替换插件的声明 -->
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="overlay_for_callerid_window"/>
