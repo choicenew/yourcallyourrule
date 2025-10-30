@@ -9,29 +9,27 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 
-/// 通话统计的“智能容器”组件，作为 Dashboard 的一个独立标签页。
-///
-/// 【MODIFIED】: 这是一个 `ConsumerStatefulWidget`，因为它需要管理自己的 UI 状态（时间范围选择）。
 class CallStatisticsContainerWidget extends ConsumerStatefulWidget {
   const CallStatisticsContainerWidget({super.key});
 
   @override
-  ConsumerState<CallStatisticsContainerWidget> createState() =>
-      _CallStatisticsContainerWidgetState();
+  ConsumerState<CallStatisticsContainerWidget> createState() => _CallStatisticsContainerWidgetState();
 }
 
-class _CallStatisticsContainerWidgetState
-    extends ConsumerState<CallStatisticsContainerWidget> {
+class _CallStatisticsContainerWidgetState extends ConsumerState<CallStatisticsContainerWidget> {
   String _selectedTimeRange = 'Week';
 
   @override
   Widget build(BuildContext context) {
-    // 1. 在 Widget 内部 `watch` 自己需要的数据
+    // [修正]: ref.watch 现在直接返回 CallStatisticsState 对象。
     final state = ref.watch(callStatisticsProvider);
 
+    // [修正]: 只在初始加载时（即 chartData 为空）显示骨架屏。
     if (state.isLoading && state.chartData.isEmpty) {
       return _buildLoadingSkeleton();
     }
+    
+    // [注释]: 如果发生错误，则显示错误信息。
     if (state.error != null) {
       return Center(
         child: Padding(
@@ -41,7 +39,7 @@ class _CallStatisticsContainerWidgetState
       );
     }
 
-    // 3. 构建完整的 UI
+    // [注释]: 正常构建 UI。
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -55,9 +53,9 @@ class _CallStatisticsContainerWidgetState
           const SizedBox(height: 16),
           _buildAdPlaceholder(),
           const SizedBox(height: 16),
-          _buildTrendChart(context, state),
+          _buildTrendChart(context, state), // 将 state 传递下去
           const SizedBox(height: 16),
-          const BlockTypeAnalysis(),
+          const BlockTypeAnalysis(), // BlockTypeAnalysis 内部会自己 watch provider
           const SizedBox(height: 16),
           _buildExportButton(context),
         ],
@@ -65,28 +63,113 @@ class _CallStatisticsContainerWidgetState
     );
   }
 
-  // --- 所有 _build* 辅助方法都从原始 DashboardPage 迁移过来，作为这个 Widget 的私有方法 ---
-  Widget _buildAdPlaceholder() {
+  Widget _buildTrendChart(BuildContext context, CallStatisticsState state) {
+    // [注释]: 获取 notifier 实例以供按钮使用。
+    final notifier = ref.read(callStatisticsProvider.notifier);
+
+    final sortedKeys = state.chartData.keys.toList()..sort();
+    final trendChartSpots = sortedKeys.asMap().entries.map((entry) {
+      final index = entry.key;
+      final count = state.chartData[entry.value]!;
+      return FlSpot(index.toDouble(), count.toDouble());
+    }).toList();
+
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
-      child: const GoogleAdWidget(adInfo: AdManager.bannerAd),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.blockingTrend,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              Row(
+                children: [
+                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodWeek, 'Week', notifier),
+                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodMonth, 'Month', notifier),
+                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodYear, 'Year', notifier),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          // [修正]: 使用 Stack 在图表上层叠一个加载指示器，而不是替换整个图表。
+          Stack(
+            children: [
+              SizedBox(
+                height: 200,
+                child: LineChart(
+                  LineChartData(
+                    lineBarsData: [
+                      LineChartBarData(
+                        spots: trendChartSpots, isCurved: true, color: Theme.of(context).primaryColor, barWidth: 3,
+                        dotData: const FlDotData(show: false),
+                        belowBarData: BarAreaData(show: true, color: Theme.of(context).primaryColor.withOpacity(0.1)),
+                      ),
+                    ],
+                    gridData: const FlGridData(show: false),
+                    titlesData: const FlTitlesData(show: false),
+                    borderData: FlBorderData(show: false),
+                  ),
+                ),
+              ),
+              // [修正]: 当 state.isLoading 为 true (仅在更新时) 并且 chartData 不为空时，显示覆盖层。
+              if (state.isLoading && state.chartData.isNotEmpty)
+                Positioned.fill(
+                  child: Container(
+                    color: Colors.white.withOpacity(0.5),
+                    child: const Center(child: CircularProgressIndicator()),
+                  ),
+                ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
-  /// 构建总览卡片，包含一个迷你图表。
+  // [注释]: _buildTimeRangeButton 的签名现在接收 CallStatistics notifier
+  Widget _buildTimeRangeButton(String text, String range, CallStatisticsNotifier notifier) {
+    final isSelected = _selectedTimeRange == range;
+    return GestureDetector(
+      onTap: () {
+        if (_selectedTimeRange != range) {
+          setState(() => _selectedTimeRange = range);
+          notifier.updateTimeRange(range);
+        }
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: isSelected ? Theme.of(context).primaryColor.withOpacity(0.1) : Colors.transparent,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 12,
+            color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
+      ),
+    );
+  }
+  
+  // [注释]: 其他所有 _build* 辅助方法都保持原样，无需修改。
+  // ... _buildOverviewCard, _buildStatsGrid, etc. ...
   Widget _buildOverviewCard(BuildContext context, CallStatisticsState state) {
-    //
-    // 【【【【【【 这是第一个关键修正 】】】】】】
-    // Map 类型没有 .asMap()。我们需要先排序键，再生成 FlSpot。
-    //
     final sortedKeys = state.chartData.keys.toList()..sort();
-    final miniChartSpots =
-        sortedKeys.asMap().entries.map((entry) {
-          final index = entry.key;
-          final date = entry.value;
-          final count = state.chartData[date]!;
-          return FlSpot(index.toDouble(), count.toDouble());
-        }).toList();
+    final miniChartSpots = sortedKeys.asMap().entries.map((entry) {
+      final index = entry.key;
+      final date = entry.value;
+      final count = state.chartData[date]!;
+      return FlSpot(index.toDouble(), count.toDouble());
+    }).toList();
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
@@ -110,19 +193,12 @@ class _CallStatisticsContainerWidgetState
                 children: [
                   Text(
                     AppLocalizations.of(context)!.totalBlocked,
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
-                      fontSize: 14,
-                    ),
+                    style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 14),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     '${state.blockedCallsCount}',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -138,7 +214,7 @@ class _CallStatisticsContainerWidgetState
                 borderData: FlBorderData(show: false),
                 lineBarsData: [
                   LineChartBarData(
-                    spots: miniChartSpots, // 使用修正后的数据
+                    spots: miniChartSpots,
                     isCurved: true,
                     color: Colors.white.withOpacity(0.8),
                     barWidth: 2,
@@ -157,7 +233,7 @@ class _CallStatisticsContainerWidgetState
   }
 
   Widget _buildStatsGrid(BuildContext context, CallStatisticsState state) {
-    return GridView.count(
+     return GridView.count(
       crossAxisCount: 2, crossAxisSpacing: 12, mainAxisSpacing: 12, shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
       children: [
         StatisticCard(icon: Icons.phone_disabled, iconColor: Colors.blue, backgroundColor: Colors.blue.withOpacity(0.1), title: '${state.blockedCallsCount}', subtitle: AppLocalizations.of(context)!.blockCalls, period: AppLocalizations.of(context)!.thisWeek),
@@ -170,126 +246,10 @@ class _CallStatisticsContainerWidgetState
     );
   }
 
-  // =======================================================================
-  // 【核心修正】: `_buildTrendChart` 现在正确地包含了交互逻辑。
-  // =======================================================================
-  Widget _buildTrendChart(BuildContext context, CallStatisticsState state) {
-    final notifier = ref.read(callStatisticsProvider.notifier);
-
-    //
-    // 【【【【【【 这是第二个关键修正 】】】】】】
-    // 和上面一样，正确地将 Map 转换为 List<FlSpot>
-    //
-    final sortedKeys = state.chartData.keys.toList()..sort();
-    final trendChartSpots =
-        sortedKeys.asMap().entries.map((entry) {
-          final index = entry.key;
-          final date = entry.value;
-          final count = state.chartData[date]!;
-          return FlSpot(index.toDouble(), count.toDouble());
-        }).toList();
-
+  Widget _buildAdPlaceholder() {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                AppLocalizations.of(context)!.blockingTrend,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Row(
-                children: [
-                  _buildTimeRangeButton(
-                    AppLocalizations.of(context)!.periodWeek,
-                    'Week',
-                    notifier,
-                  ),
-                  _buildTimeRangeButton(
-                    AppLocalizations.of(context)!.periodMonth,
-                    'Month',
-                    notifier,
-                  ),
-                  _buildTimeRangeButton(
-                    AppLocalizations.of(context)!.periodYear,
-                    'Year',
-                    notifier,
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
-          SizedBox(
-            height: 200,
-            child: LineChart(
-              LineChartData(
-                lineBarsData: [
-                  LineChartBarData(
-                    spots: trendChartSpots, // 使用修正后的数据
-                    isCurved: true,
-                    color: Theme.of(context).primaryColor,
-                    barWidth: 3,
-                    dotData: const FlDotData(show: false),
-                    belowBarData: BarAreaData(
-                      show: true,
-                      color: Theme.of(context).primaryColor.withOpacity(0.1),
-                    ),
-                  ),
-                ],
-                gridData: const FlGridData(show: false),
-                titlesData: const FlTitlesData(show: false),
-                borderData: FlBorderData(show: false),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildTimeRangeButton(
-    String text,
-    String range,
-    CallStatisticsNotifier notifier,
-  ) {
-    final isSelected = _selectedTimeRange == range;
-    return GestureDetector(
-      onTap: () {
-        if (_selectedTimeRange != range) {
-          setState(() => _selectedTimeRange = range);
-        // 2. 调用 Notifier 去获取并计算新时间范围的数据
-          notifier.updateTimeRange(range);
-        }
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        decoration: BoxDecoration(
-          color:
-              isSelected
-                  ? Theme.of(context).primaryColor.withOpacity(0.1)
-                  : Colors.transparent,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 12,
-            color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-          ),
-        ),
-      ),
+      child: const GoogleAdWidget(adInfo: AdManager.bannerAd),
     );
   }
 
