@@ -1,0 +1,3092 @@
+{
+  "@@locale": "sv",
+  "aboutContactSubscription": "Om kontaktprenumeration",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "Om etiketter",
+  "aboutPhoneSubscriptionRules": "Om telefonprenumerationsregler",
+  "aboutPhoneSubscriptions": "Om telefonprenumerationer",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "Prenumerera på telefonregeluppsättningar via URL, uppdatera regler automatiskt. Stöder regeluppsättningar i JSON- och CSV-format.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "Om SMS-filtrering",
+  "aboutSmsSubscriptionRules": "Om SMS-prenumerationsregler",
+  "aboutSubtitle": "Applikationsversion och juridisk information",
+  "aboutTitle": "Om",
+  "action": "Åtgärd",
+  "actionAll": "Alla",
+  "actionAllow": "Tillåt",
+  "actionBlock": "Blockera",
+  "actionFilterAll": "All filtrering",
+  "actionFilterTitle": "Filtrera efter åtgärdstyp",
+  "actionFilterTooltip": "Åtgärdsfilter",
+  "actionNone": "Ingen åtgärd",
+  "actionSilence": "Tysta",
+  "actionTag": "Åtgärd: {actionType}",
+  "actionType": "Åtgärdstyp",
+  "actionUnknown": "Okänd",
+  "add": "Lägg till",
+  "addAllowedBlockedRule": "Lägg till tillåt/blockera-regel",
+  "addAllowSubscription": "Lägg till tillåt-prenumeration",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Lägg till blockera-prenumeration",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Lägg till kontakt",
+  "addContactFailed": "Kunde inte lägga till kontakt: {error}",
+  "addedToAllowedRules": "Lades till i tillåtna regler",
+  "addedToBlacklist": "Lades till i blocklistan",
+  "addedToBlockedRules": "Lades till i blockerade regler",
+  "addedToFavoriteContacts": "Lades till i favoritkontakter",
+  "addedToFavorites": "Lades till i favoriter",
+  "addedToWhitelist": "Lades till i vitlistan",
+  "addFavorite": "Lägg till favorit",
+  "addFilter": "Lägg till filter",
+  "addLabel": "Lägg till etikett",
+  "addLabelButton": "Lägg till etikett",
+  "addLabelFailed": "Kunde inte lägga till etikett: {error}",
+  "addLabelToCall": "Lägg till etikett till samtalspost",
+  "addName": "Lägg till namn",
+  "addNoneSubscription": "Lägg till ingen-prenumeration",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "Används för att lägga till eller redigera kontaktinformation",
+  "addPhoneMark": "Lägg till telefonmärke",
+  "addPhoneNumberRule": "Lägg till telefonnummerregel",
+  "addPlugin": "Lägg till plugin",
+  "addPluginFailed": "Kunde inte lägga till plugin",
+  "addPluginFailedWithError": "Kunde inte lägga till plugin: {error}",
+  "addPluginFromLocalFile": "Lägg till plugin från lokal fil",
+  "addPluginFromUrl": "Lägg till plugin från URL",
+  "addRegexRule": "Lägg till regex-regel",
+  "addRule": "Lägg till regel",
+  "addRuleButton": "Lägg till regel",
+  "addRuleFailed": "Kunde inte lägga till regel: {error}",
+  "addRuleTooltip": "Lägg till regel",
+  "addSilenceSubscription": "Lägg till tyst-prenumeration",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "Lägg till SIM-regel",
+  "addSmsFilterRule": "Lägg till SMS-filterregel",
+  "addSmsRule": "Lägg till SMS-regel",
+  "addSmsSubscription": "Lägg till SMS-prenumeration",
+  "addSubscription": "Lägg till prenumeration",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Lägg till prenumeration",
+  "addSubscriptionFailed": "Kunde inte lägga till prenumeration: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Lägg till prenumeration",
+  "addToAllowedRules": "Lägg till i tillåtna regler",
+  "addToBlacklist": "Lägg till i blocklistan",
+  "addToBlockedRules": "Lägg till i blockerade regler",
+  "addToFavoriteContacts": "Lägg till i favoritkontakter",
+  "addToFavorites": "Lägg till i favoriter",
+  "addToRules": "Lägg till i regler",
+  "addToWhitelist": "Lägg till i vitlistan",
+  "adPlaceholder": "Annonsplatshållare",
+  "agent": "Agent",
+  "all": "Alla",
+  "allCallsTab": "Alla",
+  "allDataClearedSuccessfully": "All data raderades framgångsrikt",
+  "allow": "Tillåt",
+  "allowAllAllowRules": "Tillåt alla tillåt-regler",
+  "allowAllAllowRulesDesc": "Tillåt samtal från tillåt-regler",
+  "allowAllBlacklistedNumbers": "Tillåt alla numrerade i blocklistan",
+  "allowAllBlacklistedNumbersDesc": "Tillåt samtal från blocklistan",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "Tillåt alla blockera-regler",
+  "allowAllBlockRulesDesc": "Tillåt samtal från blockera-regler",
+  "allowAllowedNumbers": "Tillåt tillåtna nummer",
+  "allowAllowedNumbersDesc": "Tillåt samtal från tillåtlistan",
+  "allowBlock": "Tillåt/Blockera",
+  "allowBlockedNumbers": "Tillåt blockerade nummer",
+  "allowBlockedNumbersDesc": "Tillåt samtal från blocklistan",
+  "allowedBlockedRule": "Tillåt/Blockera-regel",
+  "allowedBlockedRuleEditDialogTitle": "Redigera tillåt/blockera-regel",
+  "allowedBlockedRuleManagement": "Hantering av tillåt/blockera-regler",
+  "allowNonExceededNumbers": "Tillåt nummer som inte överskrider tröskelvärdet",
+  "allowNonExceededNumbersDescription": "Tillåt automatiskt nummer som inte överskrider räknetröskeln",
+  "allowRegexAllowRules": "Tillåt regex tillåt-regler",
+  "allowRegexAllowRulesDesc": "Aktivera regex-mönstermatchning för tillåt-regler",
+  "allowRegexAllowRulesDescription": "Aktivera regex-baserade tillåt-regler",
+  "allowRegexBlockRules": "Tillåt regex blockera-regler",
+  "allowRegexBlockRulesDesc": "Aktivera regex-mönstermatchning för blockera-regler",
+  "allowRegexBlockRulesDescription": "Aktivera regex-baserade blockera-regler",
+  "allowRule": "Tillåt-regel",
+  "allowRules": "Tillåt-regler",
+  "allowWhitelistedNumbers": "Tillåt vitlistade nummer",
+  "allowWhitelistedNumbersDescription": "Tillåt alla nummer i vitlistan",
+  "allPermissionsGranted": "Alla behörigheter beviljade",
+  "allSettingsCompleted": "Alla inställningar slutförda.",
+  "allUpdateSuccess": "Alla uppdateringar slutförda ({count} regler)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "Svara och lägg sedan på",
+  "appLegalese": "© 2023 Your Call Your Rule. Alla rättigheter förbehållna.",
+  "applicationSoftware": "Applikationsmjukvara",
+  "apply": "Verkställ",
+  "appName": "Your Call Your Rule",
+  "authorizationFailedCheckCredentialsMessage": "Auktorisering misslyckades: Kontrollera klient-ID och nyckel",
+  "authorizationFailedMessage": "Auktorisering misslyckades",
+  "authorizationSuccessMessage": "Auktorisering lyckades",
+  "authorizeLoginButton": "Auktorisera inloggning",
+  "automotiveIndustry": "Bilindustrin",
+  "autoSyncLabel": "Autosynkronisering",
+  "autoUpdate": "Autouppdatering",
+  "autoUpdateDescription": "Ställ in intervaller för autouppdatering av prenumerationer eller uppdatera manuellt",
+  "autoUpdateSettings": "Inställningar för autouppdatering",
+  "autoUpdateSettingsSubtitle": "Hantera automatiska uppdateringar av regler och plugins",
+  "autoUpdateSettingsTitle": "Inställningar för autouppdatering",
+  "autoUpdateSubtitle": "Hantera automatiska uppdateringar av regler och plugins",
+  "autoUpdateTitle": "Autouppdatering",
+  "avatarBorderColor": "Färg på avatarram",
+  "avatarBorderSize": "Storlek på avatarram",
+  "avatarIconSizesSetting": "Storlekar på avatarer och ikoner",
+  "avatarPosition": "Position för avatar",
+  "avatarSize": "Storlek på avatar",
+  "axisPosition": "Position för {axis}",
+  "backgroundGradientSetting": "Bakgrundsgradient",
+  "backup": "Säkerhetskopiera",
+  "backupAndRestore": "Säkerhetskopiering och återställning",
+  "backupAndRestoreSubtitle": "Säkerhetskopiera eller återställ data från applikationen",
+  "backupAndRestoreTitle": "Säkerhetskopiering och återställning",
+  "backupFailed": "Säkerhetskopiering misslyckades",
+  "backupFailedMessage": "Säkerhetskopiering misslyckades",
+  "backupFailedWithError": "Säkerhetskopiering misslyckades: {error}",
+  "backupRestoreSubtitle": "Säkerhetskopiera eller återställ data från applikationen",
+  "backupRestoreTitle": "Säkerhetskopiering och återställning",
+  "backupSectionTitle": "Säkerhetskopiering",
+  "backupSettings": "Inställningar för säkerhetskopiering",
+  "backupSettingsDialogTitle": "Dialog för inställningar för säkerhetskopiering",
+  "backupSettingsTitle": "Inställningar för säkerhetskopiering",
+  "backupSuccessMessage": "Säkerhetskopiering till molnet lyckades",
+  "backupSuccessToLocal": "Säkerhetskopiering lyckades till: {path}",
+  "backupToCloud": "Säkerhetskopiera till molnet",
+  "backupToCloudDescription": "Säkerhetskopiera inställningar och regler till molnlagring",
+  "backupToCloudFailed": "Kunde inte säkerhetskopiera till molnet: {error}",
+  "backupToCloudLabel": "Säkerhetskopiera till molnet",
+  "backupToCloudSuccess": "Säkerhetskopiering till molnet lyckades",
+  "backupToCloudTitle": "Säkerhetskopiera till molnet",
+  "backupToLocalLabel": "Säkerhetskopiera lokalt",
+  "bank": "Bank",
+  "basicInfo": "Grundläggande information",
+  "basicRuleFilter": "Grundläggande regeldetektering",
+  "basicRuleFiltering": "Grundläggande regeldetektering",
+  "basicRuleFilteringExplanation": "• Grundläggande regeldetektering: Filtrera regler baserat på svartlista, vitlista och regex",
+  "basicRuleFilterSettings": "Inställningar för grundläggande regeldetektering",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "Filtrera samtal med hjälp av svartlista/vitlista och reguljära uttryck",
+  "batchDeleteContacts": "Batchradera kontakter",
+  "batchDeleteContactsConfirm": "Är du säker på att du vill radera {count} valda kontakter?",
+  "batchDeleteFailed": "Batchradering misslyckades",
+  "batchDeleteLabelsConfirm": "Är du säker på att du vill radera {count} etiketter?",
+  "blacklist": "Svartlista",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "Blocklistning och vitlistning",
+  "blacklistLabel": "Svartlista",
+  "blackWhiteList": "Svart/Vit lista",
+  "block": "Blockera",
+  "blockCalls": "Blockera samtal",
+  "blocked": "Blockerad",
+  "blockedCallAction": "Åtgärd vid blockerat samtal",
+  "blockedCalls": "Blockerade samtal",
+  "blockedCallsTitle": "Blockerade samtal",
+  "blockedCommunications": "Blockerad kommunikation",
+  "blockedPhoneLabel": "Blockerade samtal",
+  "blockedSpamCalls": "Blockerade skräpsamtal",
+  "blockingTrend": "Blockeringstrend",
+  "blockInternationalCalls": "matchar nummer som inte börjar med + eller 00",
+  "blockInternationalCallsTitle": "Blockera internationella nummer",
+  "blockLandlineNumbersTitle": "Blockera fasta nummer",
+  "blockMobileNumbers": "matchar nummer som inte börjar med 13-19",
+  "blockMobileNumbersTitle": "Blockera mobilnummer",
+  "blockPremiumRateNumbers": "matchar nummer som inte börjar med 118 eller 120-190",
+  "blockPremiumRateNumbersTitle": "Blockera nummersamtalstjänster",
+  "blockRule": "Blockeringsregel",
+  "blockRules": "Blockeringsregler",
+  "blockSpecificAreaCodes": "matchar nummer som börjar med 0 + 2-3 siffror",
+  "blockSpecificAreaCodesTitle": "Blockera specifika riktnummer:",
+  "blockTypeAnalysisTitle": "Analys av blockeringstyp",
+  "both": "Båda",
+  "bulkDelete": "Batchradera kontakter",
+  "bulkDeleteContacts": "Batchradera kontakter",
+  "bulkDeleteLabels": "Batchradera etiketter",
+  "call": "Samtal",
+  "callback": "Återuppringning",
+  "callbackTo": "Återuppringning till {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "Samtalsblockering",
+  "callerIdApp": "Uppringnings-ID-app",
+  "callerIdCustomizationTitle": "Anpassa uppringnings-ID",
+  "callerIdDialogTitle": "Information om uppringnings-ID",
+  "callerIdDisplayMode": "Visningsläge för nummerpresentation",
+  "callerIdMarkedByCount": "Markerad av {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "Förhandsgranskning av nummerpresentation",
+  "callFilter": "Samtalsfilter",
+  "callFilterDescription": "När det är aktiverat kontrolleras inkommande samtal mot regelistan nedan. Regler för samtalsfiltrering synkroniseras inte mellan enheter som standard.",
+  "callFilterRules": "Regler för samtalsfilter",
+  "callFilterRulesDescription": "Ställ in grundläggande regler för samtalsfiltrering",
+  "callFilterSettings": "Inställningar för samtalsfilter",
+  "callFrequencyInterceptionSubtitle": "Ställ in gränser för samtalsfrekvens och blockera regler",
+  "callFrequencyInterceptionTitle": "Avlyssning av samtalsfrekvens",
+  "callHistory": "Samtalshistorik",
+  "callHistoryInfoDesc": "Här visas din samtalshistorik, inklusive inkommande, utgående och missade samtal.",
+  "callHistoryInfoTitle": "Samtalshistorik",
+  "callHistoryInitFailed": "Kunde inte initiera samtalshistorik: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "Kunde inte uppdatera samtalshistorik: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "Samtalshistorik",
+  "callHistoryTimelineEarlier": "Tidigare",
+  "callHistoryTimelineToday": "Idag",
+  "callHistoryTimelineYesterday": "Igår",
+  "callScreeningPermission": "Behörighet för samtalsgranskning",
+  "callScreeningPermissionDescription": "Används för att granska och blockera skräpplan.",
+  "callScreeningPermissionNotGranted": "Behörighet för samtalsgranskning ej beviljad, kan påverka appens funktionalitet.",
+  "callSettingsSubtitle": "Inställningar för nummerpresentation, filtrering och blockering",
+  "callSettingsTitle": "Samtalsinställningar",
+  "callStatistics": "Samtalsstatistik",
+  "callTypeAnswered": "Besvarad",
+  "callTypeBlocked": "Blockerad",
+  "callTypeIconColor": "Färg på samtalsikon",
+  "callTypeMissed": "Missat samtal",
+  "callTypeOutgoing": "Utgående",
+  "callTypePosition": "Position för samtalsföljd",
+  "callTypeUnknown": "Okänd",
+  "cancelButton": "Avbryt",
+  "carRental": "Hyrbil",
+  "carrier": "Operatör",
+  "carrierColor": "Operatörsfärg",
+  "carrierFontSize": "Operatörsteckenstorlek",
+  "carrierPosition": "Operatörsposition",
+  "changeLabel": "Ändra etikett",
+  "changePluginStatusFailed": "Kunde inte ändra pluginstatus: {error}",
+  "changeSubscriptionStatusFailed": "Kunde inte ändra abonnemangstatus: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "Ändra tagg",
+  "charity": "Välgörenhet",
+  "chartMonthFormat": "Månad {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "1 dag sedan",
+  "chartOneMonthAgo": "1 månad sedan",
+  "chartOneWeekAgo": "1 vecka sedan",
+  "chartTenDaysAgo": "10 dagar sedan",
+  "chartThreeDaysAgo": "3 dagar sedan",
+  "chartToday": "Idag",
+  "checkFileFormat": "Kontrollera filformat eller behörigheter",
+  "checkPermissionFailed": "Kunde inte kontrollera behörigheter: {error}",
+  "chooseDefaultInterceptAction": "Välj standardåtgärd för avlyssning",
+  "clearAllData": "Rensa alla data",
+  "clearAllDataConfirmation": "Vill du verkligen rensa all applikationsdata? Denna åtgärd kan inte ångras.",
+  "clearAllDataDescription": "Rensa all applikationsdata",
+  "clearAllDataLabel": "Rensa alla data",
+  "clearFilter": "Rensa filter",
+  "clearLabelFilter": "Rensa etikettfilter",
+  "clearLabelFilterButton": "Rensa etikettfilter",
+  "closeButton": "Stäng",
+  "cloudSync": "Molnsynkronisering",
+  "cloudSyncAndBackupTitle": "Molnsynkronisering och säkerhetskopiering",
+  "cloudSyncSettingsSubtitle": "Konfigurera WebDAV, OneDrive och Google Drive",
+  "cloudSyncSettingsTitle": "Inställningar för molnsynkronisering",
+  "cloudSyncTitle": "Molnsynkronisering",
+  "collapseLabelSelector": "Fäll ihop etikettväljare",
+  "collection": "Skuldsamling",
+  "colorPickerTitle": "Välj färg",
+  "configManagement": "Konfigurationshantering",
+  "configUpdated": "Konfigurationen har uppdaterats",
+  "configurationAdvice": "Genom korrekt konfiguration kan du ställa in olika filtreringsstrategier för jobb- och privata SIM-kort.",
+  "configureBackupOptions": "Konfigurera säkerhetskopieringsalternativ",
+  "configureBackupOptionsSubtitle": "Konfigurera säkerhetskopieringsalternativ",
+  "configureCloudSyncService": "Konfigurera molnsynkroniseringstjänst",
+  "configureCloudSyncServiceHint": "Konfigurera en molnsynkroniseringstjänst för att aktivera synkronisering mellan flera enheter.",
+  "configureCloudSyncServiceMessage": "Konfigurera en molnsynkroniseringstjänst för att aktivera synkronisering mellan flera enheter.",
+  "configureSimCardFilterRules": "Konfigurera filterregler för SIM-kort",
+  "configureSyncServiceHint": "Konfigurera synkroniseringstjänsten i molnsynkroniseringsinställningarna först",
+  "confirm": "Bekräfta",
+  "confirmBatchDeleteContacts": "Vill du verkligen ta bort de valda",
+  "confirmButton": "Bekräfta",
+  "confirmDelete": "Bekräfta borttagning",
+  "confirmDeleteContact": "Vill du verkligen ta bort",
+  "confirmDeleteContactName": "Bekräfta borttagning?",
+  "confirmDeleteFilter": "Vill du verkligen ta bort detta filter?",
+  "confirmDeleteLabel": "Vill du verkligen ta bort etiketten \"{name}\"?",
+  "confirmDeletePlugin": "Vill du verkligen ta bort plugin \"{name}\"?",
+  "confirmDeletePlugins": "Vill du verkligen ta bort {count} plugins?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "Vill du verkligen ta bort den här regeln? Denna åtgärd kan inte ångras.",
+  "confirmDeleteSelectedContacts": "Vill du verkligen ta bort markerade kontakter?",
+  "confirmDeleteSmsFilterRule": "Vill du verkligen ta bort den här SMS-filterregeln?",
+  "confirmDeleteSmsRule": "Vill du verkligen ta bort den här SMS-regeln?",
+  "confirmDeleteSubscription": "Vill du verkligen ta bort detta abonnemang?",
+  "confirmDeleteSubscriptions": "Vill du verkligen ta bort {name}?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "Bekräfta lösenord",
+  "confirmPasswordLabel": "Bekräfta lösenord",
+  "connectedStatus": "Ansluten",
+  "connectionFailedCheckCredentialsMessage": "Anslutningen misslyckades: Kontrollera serveradress, användarnamn och lösenord",
+  "connectionFailedMessage": "Anslutningen misslyckades",
+  "connectionStatusLabel": "Anslutningsstatus",
+  "connectionSuccessMessage": "Anslutning lyckad",
+  "contactAddSuccess": "Kontakt tillagd framgångsrikt",
+  "contactDeleted": "Kontakt raderad",
+  "contactEditDialog": "Redigera kontakt",
+  "contactNameHint": "Ange kontaktens namn (valfritt)",
+  "contactNameLabel": "Namn",
+  "contactNameOptional": "Kontaktens namn (valfritt)",
+  "contactNotFound": "Kontakt hittades inte",
+  "contacts": "Kontakter",
+  "contactsDeleted": "Raderade {count} kontakter",
+  "contactSettingsSubtitle": "Hantering av kontakter och etiketter",
+  "contactSettingsTitle": "Kontaktinställningar",
+  "contactsLoadingFailed": "Kunde inte ladda kontakter: {error}",
+  "contactsManagement": "Kontakt hantering",
+  "contactsManagementPageTitle": "Sidan för kontakt hantering",
+  "contactsPageTitle": "Kontakt hantering",
+  "contactsPermission": "Kontakt behörighet",
+  "contactsPermissionDescription": "Används för att identifiera kontaktuppringningar.",
+  "contactsTab": "Kontakter",
+  "contactSubscriptionDescription": "Prenumerera på kontaktlistor via URL, uppdatera kontaktinformation och etiketter automatiskt. Stöder data i JSON-format.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "Kunde inte ladda kontaktprenumerationer: {error}",
+  "contactSubscriptionPageTitle": "Kontaktprenumerationer",
+  "contactUpdateSuccess": "Kontakt uppdaterad framgångsrikt",
+  "contactUs": "Kontakta oss",
+  "content": "Innehåll",
+  "contentRegex": "Innehålls-regex",
+  "countColor": "Antal färg",
+  "countFontSize": "Antal teckensnittsstorlek",
+  "countPosition": "Antal position",
+  "country": "Land",
+  "countryNameColor": "Landnamn färg",
+  "countryNameFontSize": "Landnamn teckensnittsstorlek",
+  "countryRegionNamePosition": "Land/Regionnamn position",
+  "countrySelectionDialog": "Landvals dialogruta",
+  "countrySelectionDialogDescription": "Används för att välja ett land för att hämta information om uppringarens ID",
+  "countThresholdDescription": "Ställ in det minsta tröskelvärdet för antal som krävs för att utlösa filtreringsåtgärder",
+  "countThresholdLabel": "Antals tröskelvärde",
+  "countThresholdSettings": "Antals tröskelvärdesinställningar",
+  "countThresholdValue": "Antals tröskelvärde: {count}",
+  "createdRules": "Skapade regler",
+  "csvFormat": "CSV-format",
+  "currentDeviceChip": "Aktuell",
+  "currentDeviceLabel": "Aktuell enhetsetikett",
+  "currentDeviceTitle": "Aktuell enhet",
+  "currentLabels": "Nuvarande etiketter:",
+  "currentLanguage": "Nuvarande språk",
+  "currentPasswordLabel": "Nuvarande lösenord",
+  "customerService": "Kundtjänst",
+  "customRange": "Anpassat intervall",
+  "dailyStatistics": "Daglig statistik",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "Ta emot daglig statistik om blockerade samtal och meddelanden",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "Instrumentpanel",
+  "dataAnalysis": "Dataanalys",
+  "dataAnalysisDashboardPage": "Sidan för dataanalysinstrumentpanel",
+  "dataExport": "Dataexport",
+  "dataLoadFailure": "Datainläsning misslyckades: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "Kunde inte ladda data: {error}",
+  "dataMigration": "Datamigrering",
+  "dataMigrationDescription": "Denna funktion låter dig överföra all din data mellan enheter. För närvarande kan du använda säkerhetskopierings- och återställningsfunktionerna för att manuellt migrera din data.",
+  "dataMigrationDialogContent": "Denna funktion låter dig överföra all din data mellan enheter. För närvarande kan du använda säkerhetskopierings- och återställningsfunktionerna för att manuellt migrera din data.",
+  "dataMigrationDialogTitle": "Datamigrering",
+  "dataMigrationSectionTitle": "Datamigrering",
+  "dataSourceReminder": "Datakällpåminnelse",
+  "days": "{count, plural, =1{1 dag} other{{count} dagar}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} Dagar VIP",
+  "debtCollection": "Skulddrivning",
+  "defaultPeriod": "Vecka",
+  "delete": "Radera",
+  "deleteButton": "Radera",
+  "deleteContact": "Radera kontakt",
+  "deleteContactConfirm": "Är du säker på att du vill radera {name}?",
+  "deleteContactConfirmation": "Är du säker på att du vill radera kontakt",
+  "deleteDeviceConfirmation": "Är du säker på att du vill radera {deviceName}?",
+  "deleteDeviceDialogTitle": "Radera enhet",
+  "deleteFailed": "Borttagning misslyckades: {error}",
+  "deleteFilter": "Radera filter",
+  "deleteLabel": "Radera etikett",
+  "deleteLabelFailed": "Kunde inte radera etikett: {error}",
+  "deletePlugin": "Radera plugin",
+  "deletePluginFailed": "Kunde inte radera plugin: {error}",
+  "deletePlugins": "Radera plugins",
+  "deletePluginsFailed": "Kunde inte radera plugins: {error}",
+  "deleteRule": "Radera regel",
+  "deleteRuleFailed": "Borttagning misslyckades: {error}",
+  "deleteSelected": "Radera markerade",
+  "deleteSmsRule": "Radera SMS-regel",
+  "deleteSubscription": "Ta bort prenumeration",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "Är du säker på att du vill ta bort prenumerationen \"{name}\"?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "Kunde inte ta bort prenumeration: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "Borttagning lyckad",
+  "delivery": "Leverans",
+  "deviceDeletedSuccessfully": "Enheten raderades framgångsrikt",
+  "deviceDeletedSuccessfullyMessage": "Enheten raderades framgångsrikt",
+  "deviceIdLabel": "Enhets-ID",
+  "deviceIDLabel": "Enhets-ID",
+  "deviceManagementSubtitle": "Hantera synkronisering mellan flera enheter",
+  "deviceManagementTitle": "Enhetshantering",
+  "deviceModelLabel": "Enhetsmodell",
+  "deviceName": "Enhetsnamn",
+  "deviceNameCannotBeEmpty": "Enhetsnamn kan inte vara tomt",
+  "deviceNameHint": "Ange enhetsnamn",
+  "deviceNameLabel": "Enhetsnamn",
+  "deviceRenamedSuccessfully": "Enheten har bytt namn framgångsrikt",
+  "deviceRenamedSuccessfullyMessage": "Enheten har bytt namn framgångsrikt",
+  "devicesSyncedSuccessfully": "Enheter synkroniserade framgångsrikt",
+  "devicesSyncedSuccessfullyMessage": "Enheter synkroniserade framgångsrikt",
+  "devicesSynchronizedSuccessfullyMessage": "Enheter synkroniserade framgångsrikt",
+  "deviceUnregisteredSuccessfullyMessage": "Enheten har avregistrerats framgångsrikt",
+  "dialogTitle": "Förklaring av Regex-mönster",
+  "differentFromLocalCounter": "Den här funktionen skiljer sig från det lokala räknarfiltret, eftersom den fokuserar på upprepade samtalsmönster på kort tid snarare än långsiktiga markeringsantal.",
+  "disabled": "Inaktiverad",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "Inaktiverad",
+  "disableGlobalPlugins": "Inaktivera globala plugins",
+  "disableSubscriptionSuccessfully": "Prenumeration inaktiverad framgångsrikt",
+  "disconnectButton": "Koppla från",
+  "disconnectedMessage": "Frånkopplad",
+  "disconnectedStatus": "Frånkopplad",
+  "disconnectFailedMessage": "Koppla ifrån misslyckades",
+  "done": "Klar",
+  "dualSimAdvice": "Den här funktionen är särskilt användbar för dubbla SIM-telefoner för att ställa in olika filtreringsstrategier för arbets- och privata SIM-kort.",
+  "earlier": "Tidigare",
+  "ecommerce": "E-handel",
+  "edit": "Redigera",
+  "editContact": "Redigera kontakt",
+  "editFilter": "Redigera filter",
+  "editLabel": "Redigera etikett",
+  "editPhoneRule": "Redigera telefonregel",
+  "editPhoneRules": "Används för att redigera telefonregler",
+  "editPhoneRuleTitle": "Redigera telefonregel",
+  "editRule": "Redigera regel",
+  "editSmsRule": "Redigera SMS-regel",
+  "education": "Utbildning",
+  "elementPositionsSetting": "Elementpositioner",
+  "email": "E-post",
+  "emailOptional": "E-post (valfritt)",
+  "enableCallFilter": "Aktivera samtalsfilter",
+  "enableCallFilterDescription": "När aktiverat kontrolleras inkommande samtal mot regeluppsättningen nedan. Samtalsfiltreringsregler synkroniseras inte mellan enheter som standard.",
+  "enabled": "Aktiverad",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "Aktiverad",
+  "enableEncryption": "Aktivera kryptering",
+  "enableEncryptionDescription": "Kryptera säkerhetskopior",
+  "enableEncryptionLabel": "Aktivera kryptering",
+  "enableEncryptionSubtitle": "Säkerhetskopior kommer att krypteras",
+  "enableEncryptionTitle": "Aktivera kryptering",
+  "enableGlobalPlugins": "Aktivera globala plugins",
+  "enableLocalCountFilter": "Aktivera lokalt räknarfilter",
+  "enableLocalCountFilterDescription": "Filtrera automatiskt spam-samtal baserat på antal markerade samtal",
+  "enableLocalNotification": "Använd lokal avisering",
+  "enableLocalNotificationDescription": "När det är aktiverat visas aviseringar för filtrerade meddelanden på enheten",
+  "enableLocationSummary": "Plats",
+  "enableMuteRules": "Aktivera tystnadsregler",
+  "enableMuteRulesDesc": "Tillämpa konfiguration av tystnadsavlyssningsregler",
+  "enableNoneActionRules": "Aktivera regler utan åtgärder",
+  "enableNoneActionRulesDesc": "Tillåt regelkonfigurationer utan avlyssningsåtgärder",
+  "enableNotifications": "Aktivera aviseringar",
+  "enableRemoteNumberFilter": "Aktivera filter för fjärrnummer",
+  "enableRemoteNumberFilterDescription": "Använd fjärrdatabas för att filtrera nummer",
+  "enableRule": "Aktivera regel",
+  "enableSmsFilter": "Aktivera SMS-filtrering",
+  "enableSmsFilterDescription": "När det är aktiverat filtreras meddelanden automatiskt enligt reglerna",
+  "enableStatisticsNotifications": "Aktivera statistikaviseringar",
+  "enableSubscriptionSuccessfully": "Prenumeration aktiverad framgångsrikt",
+  "enableTimeInterception": "Aktivera tidsavlyssning",
+  "enableTimeInterceptionDescription": "Avlyssna upprepade samtal inom kort tid",
+  "enableTimeInterceptor": "Aktivera tidsavlyssnare",
+  "endCallImmediately": "Avsluta samtal omedelbart",
+  "endColor": "Slutfärg",
+  "endDate": "Slutdatum",
+  "enhancedFilterInstructionsTitle": "Instruktioner för förbättrat filtersystem",
+  "enhancedFilterSettings": "Inställningar för förbättrat filter",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "Inställningar för förbättrat filter",
+  "enhancedFilterSystemDescription": "Det förbättrade filtersystemet stöder både globala regler och konfigurationer för filtrering per SIM-kort.",
+  "enterBothPhoneNumberAndRegexPattern": "Ange både telefonnummer och regex-mönster",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Ange både telefonnummer och regex-mönster.",
+  "enterContactName": "Ange kontaktens namn",
+  "enterCurrentPasswordHint": "Ange nuvarande lösenord",
+  "enterDeviceName": "Ange enhetsnamn",
+  "enterDeviceNameHint": "Ange enhetsnamn",
+  "enterEmail": "Ange e-postadress",
+  "enterEmailOptional": "Ange e-postadress (valfritt)",
+  "enterEncryptionPasswordHint": "Ange krypteringslösenord",
+  "enterEncryptionPasswordTitle": "Ange krypteringslösenord",
+  "enterFilterName": "Ange filter namn",
+  "enterFilterPattern": "Ange filtermönster",
+  "enterIconCode": "Ange ikonkod",
+  "enterName": "Ange kontaktens namn",
+  "enterNewDeviceNameHint": "Ange ett nytt namn för den här enheten",
+  "enterNewPasswordHint": "Ange nytt lösenord",
+  "enterPasswordAgain": "Ange lösenord igen",
+  "enterPasswordHint": "Ange lösenord",
+  "enterPhoneNumber": "Ange telefonnummer",
+  "enterPhoneNumberHint": "Ange telefonnummer att testa",
+  "enterPhoneNumberMultiple": "Ange telefonnummer, flera nummer åtskilda av kommatecken",
+  "enterPhoneNumberToStartSearch": "Ange telefonnummer för att starta sökning",
+  "enterPhoneNumberToVerify": "Ange telefonnummer för att verifiera",
+  "enterPluginName": "Ange plugin-namn",
+  "enterPluginUrl": "Ange plugin-webbadress",
+  "enterRegexHint": "Ange regex-mönster",
+  "enterRuleNameAndPattern": "Ange regelnamn och mönster",
+  "enterRuleNameAndPatternMessage": "Ange både regelnamn och regex-mönster.",
+  "enterRuleNameHint": "Ange regelnamn",
+  "enterSearchContent": "Ange sökainnehåll",
+  "enterSubscriptionName": "Ange prenumerationsnamn",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "Ange prenumerations-URL",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "Ange namn på synkroniseringsmapp (standard: NotificationManager)",
+  "entertainment": "Underhållning",
+  "enterValidNameAndUrl": "Ange giltigt namn och URL",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "Ange en giltig URL",
+  "enterVersion": "Ange version",
+  "enterWebDAVPasswordHint": "Ange WebDAV-lösenord",
+  "enterWebDAVServerAddressHint": "Ange WebDAV-serveradress",
+  "enterWebDAVUsernameHint": "Ange WebDAV-användarnamn",
+  "errorDeletingDeviceMessage": "Fel vid borttagning av enhet: {error}",
+  "errorLoadingPlugin": "Fel vid laddning av plugin",
+  "errorOccurredMessage": "Ett fel uppstod: {error}",
+  "errorRenamingDeviceMessage": "Fel vid namnbyte av enhet: {error}",
+  "errorSynchronizingDevicesMessage": "Fel vid synkronisering av enheter: {error}",
+  "errorSyncingDevicesMessage": "Fel vid synkronisering av enheter: {error}",
+  "errorText": "Fel",
+  "errorUnregisteringDeviceMessage": "Fel vid avregistrering av enhet: {error}",
+  "exampleBlock400Prefix": "t.ex. Blockera 400 prefixnummer",
+  "exampleBlockMarketingSms": "t.ex. Blockera marknadsföringssms",
+  "exampleContentRegex": "t.ex. .*erbjudande.*",
+  "exampleContentRegexHint": "Exempel på innehållsregex",
+  "exampleCouponPromotionDiscount": "t.ex. .*(kupong|kampanj|rabatt).*",
+  "exampleFamilyFriends": "t.ex. Familj, Vänner, etc.",
+  "examplePhoneNumber": "t.ex. 10086, 12345, etc.",
+  "exampleRegex400Prefix": "Exempelregex för 400 prefix",
+  "exampleRegexFormat": "Exempel: ^10086$ format",
+  "exampleSenderRegexHint": "Exempel",
+  "exchange": "Växla",
+  "exchangeNow": "Växla nu",
+  "exchangeVip": "Växla VIP",
+  "expandLabelSelector": "Expandera etikettväljare",
+  "expiryTime": "Urgångstid: {time}",
+  "export": "Exportera",
+  "exportAllApplicationSettings": "Exportera alla programinställningar",
+  "exportAllApplicationSettingsSubtitle": "Exportera alla programinställningar",
+  "exportAllRuleConfigurations": "Exportera alla regelkonfigurationer",
+  "exportAllRuleConfigurationsSubtitle": "Exportera alla regelkonfigurationer",
+  "exportComplete": "Export slutförd",
+  "exportConfig": "Exportera konfiguration",
+  "exportContacts": "Exportera kontakter",
+  "exportData": "Exportera data",
+  "exportError": "Exportfel",
+  "exportFailed": "Export misslyckades",
+  "exportFailure": "Misslyckades med att exportera konfigurationen",
+  "exportFeatureComingSoon": "Exportfunktion kommer snart",
+  "exporting": "Exporterar...",
+  "exportLabels": "Exportera etiketter",
+  "exportLabelsFailed": "Misslyckades med att exportera etiketter: {error}",
+  "exportPluginList": "Exportera pluginlista",
+  "exportPluginListFailed": "Misslyckades med att exportera pluginlista: {error}",
+  "exportRules": "Exportera regler",
+  "exportRulesDialogTitle": "Exportera regler",
+  "exportRulesTitle": "Exportera regler",
+  "exportSmsRules": "Exportera SMS-regler",
+  "exportStatisticsData": "Exportera statistikdata",
+  "exportSuccess": "Export lyckades",
+  "exportSuccesslly": "Konfigurationen exporterades framgångsrikt",
+  "failedToAddContact": "Misslyckades med att lägga till kontakt",
+  "failedToAddRule": "Misslyckades med att lägga till regel: {error}",
+  "failedToAddSmsRule": "Misslyckades med att lägga till SMS-regel: {error}",
+  "failedToAddSmsSubscription": "Misslyckades med att lägga till SMS-prenumeration: {error}",
+  "failedToBackupSettings": "Misslyckades med att säkerhetskopiera inställningar: {error}",
+  "failedToDecryptBackupFile": "Misslyckades med att dekryptera backupfil",
+  "failedToDeleteDevice": "Misslyckades med att ta bort enhet",
+  "failedToDeleteSmsRule": "Misslyckades med att ta bort SMS-regel: {error}",
+  "failedToExportRules": "Misslyckades med att exportera regler: {error}",
+  "failedToExportSmsRules": "Misslyckades med att exportera SMS-regler: {error}",
+  "failedToGetCallerIdInfo": "Misslyckades med att hämta information om nummerupplysning: {error}",
+  "failedToImportRules": "Misslyckades med att importera regler: {error}",
+  "failedToImportSmsRules": "Misslyckades med att importera SMS-regler: {error}",
+  "failedToLoadContacts": "Misslyckades med att ladda kontakter",
+  "failedToLoadPlugin": "Misslyckades med att ladda plugin",
+  "failedToRenameDevice": "Misslyckades med att byta namn på enhet",
+  "failedToRestoreSettings": "Misslyckades med att återställa inställningar",
+  "failedToRestoreSettingsWithError": "Misslyckades med att återställa inställningar: {error}",
+  "failedToSetPassword": "Misslyckades med att ställa in lösenord: {error}",
+  "failedToSyncDevices": "Misslyckades med att synkronisera enheter",
+  "failedToToggleRuleStatus": "Misslyckades med att växla regelstatus: {error}",
+  "failedToToggleSubscriptionStatus": "Misslyckades med att växla prenumerationsstatus",
+  "failedToUpdateContact": "Misslyckades med att uppdatera kontakt",
+  "failedToUpdateSmsRule": "Misslyckades med att uppdatera SMS-regel: {error}",
+  "failure": "Misslyckande",
+  "favoriteContacts": "Favoritkontakter",
+  "featureAddRules": "• Lägg till nummer-specifika regler",
+  "featureCenter": "Funktionscenter",
+  "featureEnableDisable": "• Aktivera/inaktivera olika filter per SIM",
+  "featureListTitle": "Funktioner:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• Hantera regel-listor per SIM",
+  "features": "Funktioner",
+  "fetchingCallerIdInfo": "Hämtar information om nummerupplysning...",
+  "fileSavedTo": "Fil sparad till: {path}",
+  "filter": "Filter",
+  "filterByLabel": "Filtrera efter etikett",
+  "filterClear": "Rensa filter",
+  "filterControlPanelTitle": "Filterkontrollpanel",
+  "filterControlSubtitle": "Hantera på/av-status för alla filter",
+  "filterControlTitle": "Filterkontroll",
+  "filterDeleteFailed": "Misslyckades att ta bort filter",
+  "filterDeleteSuccess": "Filter borttaget",
+  "filterDetails": "Filterdetaljer",
+  "filtered": "Filtrerad",
+  "filteredSms": "Filtrerade SMS",
+  "filteredSmsLabel": "Filtrerade SMS",
+  "filterExplanation": "Filterförklaring",
+  "filterManagement": "Filterhantering",
+  "filterName": "Filter namn",
+  "filterPattern": "Filtermönster",
+  "filterPriorityNote": "Notera: Det finns prioriteringsrelationer mellan filter, se hjälpdokumentationen för detaljer",
+  "filterSaveFailed": "Misslyckades att spara filter",
+  "filterSaveSuccess": "Filter sparat",
+  "filterSettings": "Filterinställningar",
+  "filterSettingsTitle": "Filterinställningar",
+  "filterSMS": "Filtrera SMS",
+  "filterToggleInstructions": "Aktivera eller inaktivera filter för denna SIM-plats:",
+  "filterToggleStatus": "{status} filter: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "Filtertyp",
+  "financial": "Finansiell",
+  "flexibleCombinationFeature": "• Flexibla kombinationer: Aktivera/inaktivera filter per SIM-plats",
+  "fontSizesSetting": "Textstorlekar",
+  "foundRules": "Hittade {count} regler",
+  "foundRulesDoYouWantToImport": "Hittade {count} regler. Vill du importera dem?",
+  "foundRulesToImport": "Hittade {count} regler. Vill du importera dem?",
+  "fraudAlert": "BEDRÄGLARMEDDELANDE - Lägg på samtalet",
+  "fraudScamLikely": "Bedrägerilarm – troligt bedrägeri",
+  "free": "Gratis",
+  "functionSettingsTitle": "Funktionsinställningar",
+  "generalUpdateFailure": "Uppdatering misslyckades: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Få gratis",
+  "github": "GitHub",
+  "globalFilterDescription": "Konfigurera globala filter för alla SIM-kort:",
+  "globalFilterFeature": "• Globala filter: Grundläggande regler för alla inkommande samtal",
+  "globalFilterSettings": "Globala filterinställningar",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "Konfigurera globala filterinställningar som gäller för alla SIM-platser:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Sök efter kontakter, etiketter, blocklistor, vitlistor, etc.",
+  "globalSearchTitle": "Global sökning",
+  "globalSettings": "Globala inställningar",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Google Ad Display Position",
+  "googleAdMobIntegrationText": "Google AdMob-annonser kan integreras här",
+  "googleDriveAuthDescription": "Auktorisera med systemkonfigurerad Google Drive-klient-ID och nyckel",
+  "googleDriveAuthorizationHint": "Auktorisera med systemkonfigurerad Google Drive-klient-ID och nyckel",
+  "googleDriveConfigTitle": "Google Drive-konfiguration",
+  "googleDriveConfigurationTitle": "Google Drive-konfiguration",
+  "government": "Statlig",
+  "granted": "Beviljad",
+  "grantNecessaryPermissions": "Bevilja nödvändiga behörigheter",
+  "grantPermissions": "Bevilja behörigheter",
+  "headhunter": "Headhunter",
+  "height": "Höjd",
+  "homePageTitle": "Hemsida",
+  "homeTab": "Hem",
+  "howItWorksPoint1": "• Systemet kommer automatiskt att tillåta samtal från samma nummer inom den angivna tidsfönstret",
+  "howItWorksPoint2": "• Kortare tidsfönster ger striktare avlyssning; längre tidsfönster ger lösare avlyssning",
+  "howItWorksPoint3": "• Systemet kontrollerar samtalsloggar för att avgöra om det är ett upprepat samtal",
+  "howItWorksTitle": "Hur det fungerar:",
+  "iconCodeOptional": "Ikonkod (valfritt)",
+  "iconSize": "Ikonstorlek",
+  "import": "Importera",
+  "important": "Viktigt",
+  "importButton": "Importera",
+  "importConfig": "Importera konfiguration",
+  "importContacts": "Importera kontakter",
+  "importExportContacts": "Importera/exportera kontakter",
+  "importExportContactsTooltip": "Importera/exportera kontakter",
+  "importExportRules": "Importera/exportera regler",
+  "importFailed": "Import misslyckades: {error}",
+  "importFailure": "Misslyckades att importera konfiguration",
+  "importFeatureComingSoon": "Importfunktion kommer snart",
+  "importLabels": "Importera etiketter",
+  "importLabelsFailed": "Misslyckades att importera etiketter: {error}",
+  "importPluginList": "Importera pluginlista",
+  "importPluginListFailed": "Misslyckades att importera pluginlista: {error}",
+  "importPluginSuccess": "Lyckades importera {count} plugins",
+  "importRuleConfigurationsFromFile": "Importera regelkonfigurationer från fil",
+  "importRuleConfigurationsFromFileSubtitle": "Importera regelkonfigurationer från fil",
+  "importRules": "Importera regler",
+  "importRulesButton": "Importera regler",
+  "importRulesDialogTitle": "Importera regler",
+  "importRulesError": "Misslyckades att importera regler: {error}",
+  "importRulesInstructions": "Importera regler från en CSV-fil",
+  "importRulesSuccess": "Regler importerade framgångsrikt",
+  "importRulesTitle": "Importera regler",
+  "importSuccess": "Import lyckades",
+  "incomingCallInterceptAction": "Åtgärd vid inkommande samtal",
+  "incomingCallNotification": "Notifiering vid inkommande samtal",
+  "incorrectPassword": "Felaktigt lösenord",
+  "initializing": "Initierar",
+  "installed": "Installerades",
+  "insufficientMarks": "Otillräckliga poäng",
+  "insurance": "Försäkring",
+  "interceptAction": "Avlyssningsåtgärd",
+  "interceptionActionSettingsSubtitle": "Ange hur blockerade samtal hanteras",
+  "interceptionActionSettingsTitle": "Inställningar för avlyssningsåtgärder",
+  "interceptionTimeInterval": "Avlyssningsintervall",
+  "internet": "Internet",
+  "intervalSetSuccess": "{service} uppdateringsintervall satt till {days} dagar",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Ogiltigt innehållsregex",
+  "invalidLabel": "Ogiltig etikett",
+  "invalidRegexPattern": "Ogiltigt reguljärt uttrycksmönster",
+  "invalidSenderRegex": "Ogiltigt avsändarregex",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Gå med i Telegram-kanalen och gruppen för mer information",
+  "jsLogsTitle": "JS-loggar",
+  "jsonFormat": "JSON-format",
+  "keepAllVersions": "Behåll alla versioner",
+  "keepAllVersionsDescription": "Behåll alla historiska versioner av varje säkerhetskopia",
+  "keepAllVersionsLabel": "Behåll alla versioner",
+  "keepAllVersionsSubtitle": "Behåll historiska versioner av varje säkerhetskopia",
+  "keepAllVersionsTitle": "Behåll alla versioner",
+  "label": "Etikett",
+  "labelAddedSuccessfully": "Etiketten \"{name}\" lades till framgångsrikt",
+  "labelCategories": "Etikettkategorier",
+  "labelDeleted": "Etikett borttagen",
+  "labelDescription": "Etiketter hjälper dig att bättre hantera kontakter, lägga till anpassade etiketter till telefonnummer för enkel identifiering av samtal och meddelanden.",
+  "labelFilter": "Etikettfilter",
+  "labelFilterTooltip": "Etikettfilter",
+  "labelIconColor": "Etikettikonfärg",
+  "labelManagement": "Etiketthantering",
+  "labelNotFound": "Etiketten hittades inte",
+  "labelRemoved": "Etikett borttagen",
+  "labelRemoveFailed": "Kunde inte ta bort etikett: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "Etiketter",
+  "labelsColor": "Etikettfärger",
+  "labelsDeleted": "{count} etiketter borttagna",
+  "labelsExportedSuccessfully": "Etiketter exporterade framgångsrikt",
+  "labelsFontSize": "Etiketttextstorlek",
+  "labelsImportedSuccessfully": "Lyckades importera {count} etiketter",
+  "labelsPosition": "Etikettposition",
+  "labelTag": "Etikett: {labelId}",
+  "labelUpdated": "Etikett uppdaterad",
+  "labelUpdateFailed": "Kunde inte uppdatera etikett: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "Etiketten \"$labelText\" uppdaterades framgångsrikt",
+  "languageSettings": "Språkinställningar",
+  "languageSettingsSubtitle": "Ändra applikationens visningsspråk",
+  "languageSettingsTitle": "Språkinställningar",
+  "last30Days": "Senaste 30 dagarna",
+  "last7Days": "Senaste 7 dagarna",
+  "lastSyncLabel": "Senaste synkronisering",
+  "lastUpdated": "Senast uppdaterad: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "Livstidsmedlemskap",
+  "lifetimeMembershipDescription": "Engångsköp, lås upp alla premiumfunktioner och framtida uppdateringar permanent",
+  "loadContactsFailed": "Kunde inte ladda kontakter: {error}",
+  "loadDataFailed": "Kunde inte ladda data",
+  "loadFailed": "Laddning misslyckades",
+  "loading": "Laddar...",
+  "loadingData": "Laddar data...",
+  "loadingTags": "Laddar taggar...",
+  "loadLabelFailed": "Kunde inte ladda etiketter: {error}",
+  "loadLabelsFailed": "Kunde inte ladda etiketter: {error}",
+  "loadMarkCountFailed": "Kunde inte ladda markerade telefonnummer: {error}",
+  "loadMarkedPhonesFailed": "Kunde inte ladda markerade telefonnummer: {error}",
+  "loadMore": "Ladda mer",
+  "loadPluginButton": "Ladda plugin",
+  "loadPluginsFailed": "Kunde inte ladda plugins: {error}",
+  "loadSettingsFailed": "Kunde inte ladda inställningar: {error}",
+  "loadSmsRulesFailed": "Kunde inte ladda SMS-regler: {error}",
+  "loadStatusFailedMessage": "Kunde inte ladda status",
+  "loadSubscriptionsFailed": "Kunde inte ladda prenumerationer: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "Lån",
+  "localBackupTitle": "Lokal säkerhetskopiering",
+  "localCounterFilter": "Lokalt räknarfilter",
+  "localCounterFilterSubtitle": "Filtrera automatiskt skräppostsamtal baserat på samtalsfrekvens",
+  "localCountFilter": "Lokalt räknefilter",
+  "localCountFilterDescription": "Avlyssna frekventa samtal baserat på lokala nummerantal",
+  "localCountFilterExplanationContent": "Det lokala räknefiltret analyserar samtalsloggposter för att automatiskt identifiera och blockera frekventa skräppostsamtal.",
+  "localCountFilterExplanationTitle": "Förklaring av lokalt räknefilter",
+  "localCountFilterHowItWorksPoint1": "• Bestäm om du ska blockera baserat på numrets räknarvärde",
+  "localCountFilterHowItWorksPoint2": "• När ett nummers antal överskrider den inställda tröskeln kan du välja att automatiskt blockera det",
+  "localCountFilterHowItWorksPoint3": "• Du kan selektivt tillåta nummer som inte överskrider tröskeln",
+  "localCountFilterHowItWorksPoint4": "• Du kan välja om du vill logga alla frågeloggar",
+  "localCountFiltering": "Lokal räknefiltrering",
+  "localCountFilteringExplanation": "• Lokal räknefiltrering: Filtreringsregler baserade på lokalt markeringsantal",
+  "localCountFilterSettings": "Inställningar för lokalt räknefilter",
+  "localCountFilterUseCases": "Detta filter är särskilt lämpligt för att identifiera automatiserade skräppostsamtal och marknadsföringssamtal.",
+  "localFilterSettings": "Inställningar för lokalt filter",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "Lokal avisering inaktiverad",
+  "localNotificationEnabled": "Lokal avisering aktiverad",
+  "localServices": "Lokala tjänster",
+  "locationColor": "Platsfärg",
+  "locationFontSize": "Platstextstorlek",
+  "locationIconColor": "Platsikonfärg",
+  "locationPosition": "Plats position",
+  "logAllLocalQueries": "Logga alla lokala frågor",
+  "logAllLocalQueriesDescription": "Registrera loggar för alla lokala nummerfrågor",
+  "logAllRemoteQueries": "Logga alla fjärrfrågor",
+  "logAllRemoteQueriesDescription": "Registrera alla fjärrnummerfrågeoperationer",
+  "manage": "Hantera kontakter",
+  "manageContacts": "Hantera",
+  "manageFavoriteContacts": "Hantera favoritkontakter",
+  "manageFilterRules": "Hantera filterregler",
+  "manageFilterRulesDescription": "Lägg till, redigera eller ta bort SMS-filterregler",
+  "manageFrequentContacts": "Hantera frekventa kontakter",
+  "markCounts": "Markera antal",
+  "markCount": "Markera antal",
+  "markedByCount": "Markerad av {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "Markerade telefonnummer",
+  "markExchange": "Markera utbyte",
+  "markPhone": "Markera telefonnummer",
+  "markPhoneFailed": "Misslyckades med att markera telefonnummer: {error}",
+  "markPhoneManagementSubtitle": "För att markera telefonnummer",
+  "markPhoneManagementTitle": "Hantering av markerade telefonnummer",
+  "markPhoneSuccess": "Telefonnummer markerat framgångsrikt",
+  "matchFailed": "Matchning misslyckades!",
+  "matchFailedMessage": "Matchning misslyckades.",
+  "matchNumbersWithSpecialCharacters": "matchar specifikt nummerformat",
+  "matchNumbersWithSpecialCharactersTitle": "Matcha nummer med specialtecken:",
+  "matchSpecificDigitPatterns": "matchar XXX-XXXX-XXXX-format",
+  "matchSpecificDigitPatternsTitle": "Matcha specifika digitsmönster:",
+  "matchSuccessful": "Matchning lyckades!",
+  "matchSuccessfulMessage": "Matchning lyckades!",
+  "medical": "Medicinsk",
+  "membershipPrivileges": "Medlemsförmåner",
+  "migrationTool": "Migreringsverktyg",
+  "migrationToolTitle": "Migreringsverktyg",
+  "minutes": "minuter",
+  "month": "Månad",
+  "monthly": "Månatlig",
+  "monthlyCallCount": "Månatliga samtal",
+  "monthlyChartTitle": "Månatliga blockerade samtal",
+  "monthlyMembership": "Månatligt medlemskap",
+  "monthlyMembershipDescription": "Lås upp alla premiumfunktioner, förnyas automatiskt månadsvis",
+  "monthlyTotal": "Månatligt totalt",
+  "monthlyTotalLabel": "Månatligt totalt",
+  "moreOptions": "Fler alternativ",
+  "mute": "Tysta",
+  "name": "Namn",
+  "nameAndPhoneNumberCannotBeEmpty": "Namn och telefonnummer kan inte vara tomma",
+  "nameAndPhoneNumberRequired": "Namn och telefonnummer kan inte vara tomma",
+  "nameColor": "Namnfärg",
+  "nameFontSize": "Namn teckensnittsstorlek",
+  "nameLabel": "Namn: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "Namnposition",
+  "nameUnknown": "Namn: Okänd",
+  "nameWithValue": "Namn: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "Nytt lösenord",
+  "nextStep": "Nästa",
+  "noAction": "Ingen åtgärd",
+  "noActionRules": "Inga åtgärdsregler",
+  "noActiveCloudSyncServiceMessage": "Ingen aktiv molnsynkroniseringstjänst",
+  "noCallLogs": "Inga samtalshistorik",
+  "noCallRecords": "Inga samtalsuppgifter",
+  "noContacts": "Inga kontakter ännu",
+  "noContactsYet": "Inga kontakter ännu",
+  "noData": "Ingen data",
+  "noDevicesRegisteredMessage": "Inga enheter registrerade",
+  "noDevicesRegisteredYet": "Inga enheter registrerade ännu.",
+  "noFilters": "Inga filter ännu",
+  "noLabels": "Inga etiketter ännu",
+  "noMarkedPhones": "Inga markerade telefonnummer",
+  "noMatchingContacts": "Inga matchande kontakter",
+  "noMatchingContactsFound": "Inga matchande kontakter hittades",
+  "noMatchingNumbersFound": "Inga matchande nummer hittades",
+  "noMatchingRecords": "Inga matchande samtalsuppgifter",
+  "noMatchingRules": "Inga matchande {ruleType}",
+  "none": "Ingen",
+  "noneServiceType": "Ingen",
+  "noPlugins": "Inga plugins ännu",
+  "noRecords": "Inga samtalsuppgifter",
+  "noResultReturned": "Inget resultat returnerades",
+  "noResultReturnedLog": "Inget resultat returnerades från plugin",
+  "noRules": "Inga {ruleType} ännu",
+  "noRulesPrompt": "Inga regler hittades, lägg till regler",
+  "noRulesToExport": "Inga regler att exportera",
+  "noSmsFilterRulesYet": "Inga SMS-filterregler ännu",
+  "noSmsRulesYet": "Inga SMS-regler ännu",
+  "noSubscriptions": "Inga prenumerationer",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "Inga prenumerationer ännu",
+  "notGranted": "Inte beviljat",
+  "notificationMode": "Notifieringsläge",
+  "notificationModeDescription": "Visa uppringarinformation i meddelandefältet",
+  "notificationPermission": "Notifieringsbehörighet",
+  "notificationPermissionDescription": "Används för att visa aviseringar om inkommande samtal och meddelanden.",
+  "notifications": "Notifieringar",
+  "notificationSettings": "Notifieringsinställningar",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "Notifieringsinställningar sparade framgångsrikt",
+  "notSet": "Inte inställt",
+  "notVerifiedText": "Inte verifierad",
+  "noValidSmsRulesFoundInFile": "Inga giltiga SMS-regler hittades i filen",
+  "number": "Nummer",
+  "numberColor": "Nummerfärg",
+  "numberFontSize": "Nummer teckensnittsstorlek",
+  "numberPosition": "Nummerposition",
+  "numberSearch": "Nummersökning",
+  "numberTypeColor": "Nummertypfärg",
+  "numberTypeFontSize": "Nummertyp teckensnittsstorlek",
+  "numberTypePosition": "Nummertypsposition",
+  "ok": "OK",
+  "okButton": "OK",
+  "onboardingCompleteDescription": "Din samtals säkerhetshanterare är redo, börja njuta av en säker samtalsupplevelse!",
+  "onboardingLanguageDescription": "Välj ditt föredragna språk för bästa upplevelse.",
+  "onboardingPermissionsDescription": "För att erbjuda full service behöver vi följande behörigheter:",
+  "onboardingPowerfulSpamBlockingDescription": "Blockera skräpsamtal och meddelanden med ett klick, anpassa blockeringsregler och ge dig en tyst miljö.",
+  "onboardingSmartCallerIdDescription": "Identifiera okända samtal automatiskt, markera misstänkta nummer och skydda din samtals säkerhet.",
+  "onboardingWelcomeDescription": "Din samtals expert, som erbjuder omfattande identifierings- och blockeringssamtalstjänster.",
+  "oneDriveAuthDescription": "Auktorisera med systemkonfigurerad OneDrive-klient-ID och nyckel",
+  "oneDriveAuthorizationHint": "Auktorisera med systemkonfigurerad OneDrive-klient-ID och nyckel",
+  "oneDriveConfigTitle": "OneDrive-konfiguration",
+  "oneDriveConfigurationTitle": "OneDrive-konfiguration",
+  "onlineCallerIdSubscription": "Prenumeration på online nummerpresentatör",
+  "openAppSettings": "Öppna appinställningar",
+  "openAppSettingsFailed": "Kunde inte öppna appinställningar: {error}",
+  "operationFailed": "Åtgärden misslyckades: {error}",
+  "operationFailure": "Åtgärden misslyckades",
+  "operationSuccess": "Åtgärden lyckades",
+  "other": "Annat",
+  "ourOtherApps": "Våra andra appar",
+  "overlayMode": "Flytande fönster",
+  "overlayModeDescription": "Visa nummerpresentatörsinformation i ett flytande fönster",
+  "overlayPermission": "Överläggsrättighet",
+  "overlayPermissionDescription": "Används för att visa inkommande samtalssöverlägg.",
+  "overview": "Översikt",
+  "password": "Lösenord",
+  "passwordCannotBeEmpty": "Lösenordet kan inte vara tomt",
+  "passwordLabel": "Lösenord",
+  "passwordsDoNotMatch": "Lösenorden matchar inte",
+  "passwordSetSuccessfully": "Lösenordet har angetts korrekt",
+  "pattern": "Mönster",
+  "pendingSync": "Väntar på synkronisering",
+  "periodMonth": "Månad",
+  "periodWeek": "Vecka",
+  "periodYear": "År",
+  "permissionDenied": "Behörighetsbegäran nekad",
+  "permissionGranted": "Behörighet beviljad",
+  "permissionManagement": "Behörighetshantering",
+  "phoneCallsTab": "Telefon",
+  "phoneNumber": "Telefonnummer",
+  "phoneNumberCannotBeEmpty": "Telefonnummer kan inte vara tomt",
+  "phoneNumberHint": "Ange telefonnummer",
+  "phoneNumberHintText": "Ange telefonnummer för att lägga till regel",
+  "phoneNumberLabel": "Telefonnummer",
+  "phoneNumberRegexRequired": "Ange både telefonnummer och regex-mönster",
+  "phoneNumberRequired": "Telefonnummer krävs",
+  "phoneNumberTypeFixedLine": "Fast telefon",
+  "phoneNumberTypeFixedLineOrMobile": "Fast telefon eller mobil",
+  "phoneNumberTypeMobile": "Mobil",
+  "phoneNumberTypePager": "personsökare",
+  "phoneNumberTypePersonalNumber": "Personligt nummer",
+  "phoneNumberTypePremiumRate": "Premiumtariff",
+  "phoneNumberTypeSharedCost": "Delad kostnad",
+  "phoneNumberTypeTollFree": "Avgiftsfritt",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "Okänd",
+  "phoneNumberTypeVoicemail": "Röstmeddelande",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "Telefonbehörighet",
+  "phonePermissionDescription": "Används för att identifiera och blockera inkommande samtal.",
+  "phoneRule": "Telefonregel",
+  "phoneRuleEditDialog": "Redigeringsdialog för telefonregel",
+  "phoneRuleManagement": "Hantering av telefonregler",
+  "phoneRuleSubscription": "Prenumeration på telefonregler",
+  "phoneSubscription": "Telefonprenumeration",
+  "phoneSubscriptionRulesDescription": "Prenumerera på listor med telefonregler via URL för att automatiskt uppdatera vitlistade och svartlistade regler. Stöder regel filer i JSON-format.",
+  "phoneSubscriptionTitle": "Prenumerationer på telefonregler",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "Välj en etikett och ange ett giltigt telefonnummer",
+  "pluginAddedSuccess": "Tillägg \"{name}\" har lagts till korrekt",
+  "pluginDeleted": "Tillägget har tagits bort",
+  "pluginLatestVersion": "Tillägget är redan den senaste versionen",
+  "pluginListExportSuccess": "Tilläggslistan har exporterats korrekt",
+  "pluginLoadedSuccessfully": "Tillägget har laddats korrekt",
+  "pluginManagement": "Tilläggshantering",
+  "pluginManagementSubtitle": "Hantera och konfigurera tredjepartstillägg",
+  "pluginManagementTitle": "Tilläggshantering",
+  "pluginName": "Tilläggsnamn",
+  "pluginNotLoaded": "Tillägget har ännu inte laddats. Ladda tillägget först.",
+  "pluginsDeleted": "{count} tillägg har tagits bort korrekt.",
+  "pluginService": "Tilläggstjänst",
+  "pluginTestPageTitle": "Tilläggstest",
+  "pluginUpdateSuccess": "Tillägget har uppdaterats korrekt",
+  "pluginUrl": "Tilläggs-URL",
+  "pluginUrlCannotBeEmpty": "Tilläggs-URL kan inte vara tom",
+  "pluginUrlHint": "Ange tilläggs-URL",
+  "pluginUrlLabel": "Tilläggs-URL",
+  "pluginVersion": "Tilläggsversion",
+  "political": "Politisk",
+  "powerfulSpamBlocking": "Kraftfull spamfiltrering",
+  "previousStep": "Föregående",
+  "prioritizeRemoteAction": "Prioritera inställningar för fjärsåtgärder",
+  "prioritizeRemoteActionDescription": "Prioritera åtgärdsinställningar från fjärrdatabasen",
+  "processing": "Bearbetar...",
+  "processingOperation": "Bearbetar...",
+  "purchase": "Köp",
+  "quarterlyMembership": "Kvartalsmedlemskap",
+  "quarterlyMembershipDescription": "Lås upp alla premiumfunktioner, automatisk förnyelse kvartalsvis",
+  "queryButton": "Fråga",
+  "queryFailed": "Frågan misslyckades",
+  "queryFailedLog": "Frågan misslyckades",
+  "querying": "Frågar...",
+  "queryingPhoneNumber": "Frågar telefonnummer",
+  "queryResultTitle": "Frågeresultat",
+  "ready": "Redo!",
+  "receiveWeeklyStatistics": "Ta emot veckovisa statistik",
+  "recruiter": "Rekryterare",
+  "reEnterPasswordHint": "Vänligen ange lösenordet igen",
+  "refresh": "Uppdatera",
+  "refreshPermissionStatus": "Uppdatera behörighetsstatus",
+  "refreshTooltip": "Uppdatera",
+  "regexError": "Regex-fel: {error}",
+  "regexErrorMessage": "Regex-fel: {error}",
+  "regexPattern": "Reguljärt uttrycksmönster",
+  "regexPatternExplanation": "Förklaring av reguljärt uttrycksmönster",
+  "regexPatternExplanationButton": "Förklaring av reguljärt uttrycksmönster",
+  "regexPatternLabel": "Reguljärt uttrycksmönster",
+  "regexPatternsExamples": "Använd standard syntax för reguljära uttryck för att definiera mönster. Exempel:",
+  "regexPatternsForPhoneNumberMatching": "Reguljära uttrycksmönster för matchning av telefonnummer",
+  "regexRule": "Reguljärt uttrycksregel",
+  "regexRuleAddFailed": "Misslyckades att lägga till reguljär uttrycksregel: {error}",
+  "regexRuleAddSuccess": "Reguljär uttrycksregel tillagd",
+  "regexRuleManagement": "Hantering av reguljära uttrycksregler",
+  "regexRuleNamePatternRequired": "Regelnamn och reguljärt uttrycksmönster får inte vara tomma",
+  "regexRules": "Reguljära uttrycksregler",
+  "regexTesterTitle": "Reguljär uttryckstestare",
+  "regexValidationFailed": "Reguljär uttrycksvalidering misslyckades: {error}",
+  "regexValidationSuccess": "Reguljär uttrycksvalidering lyckades",
+  "region": "Region",
+  "registeredDevicesTitle": "Registrerade enheter",
+  "rejectAllCalls": "Avvisa alla samtal",
+  "rejectAllCallsDescription": "När aktiverat kommer alla samtal att avvisas med högsta prioritet",
+  "rejectAllNumbers": "Avvisa alla nummer",
+  "rejectAllNumbersDesc": "Avvisa alla inkommande samtal när aktiverat",
+  "rejectExceededNumbers": "Avvisa överskridna nummer",
+  "rejectExceededNumbersDescription": "Avvisa automatiskt nummer som överskrider tröskelvärdet",
+  "remoteFilterSettings": "Inställningar för fjärrfilter",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "Inställningar för fjärrnummerfilter",
+  "remoteNumberFilter": "Fjärrnummerfilter",
+  "remoteNumberFilterDatabaseInfo": "Detta filter använder en oberoende fjärrdatabas för att hämta den senaste nummerinformationen.",
+  "remoteNumberFilterDescription": "Avbryt trakasserande samtal baserat på information från fjärrdatabasen",
+  "remoteNumberFilterExplanationContent": "Fjärrnummerfiltret identifierar och blockerar spam-samtal genom att fråga en fjärrdatabas baserat på antal nummer.",
+  "remoteNumberFilterExplanationTitle": "Förklaring av fjärrnummerfilter",
+  "remoteNumberFilterFeatureCountThreshold": "• Antalströskel: Bestäm baserat på nummers förekomstfrekvens",
+  "remoteNumberFilterFeatureFilterAction": "• Filteråtgärder: Konfigurera hur nummer som överskrider tröskeln ska hanteras",
+  "remoteNumberFilterFeaturePriority": "• Prioriteringsinställningar: Ställ in prioritet för fjärråtgärder",
+  "remoteNumberFilterFeatures": "Funktioner:",
+  "remoteNumberFiltering": "Fjärrnummerfiltrering",
+  "remoteNumberFilteringExplanation": "• Fjärrnummerfiltrering: Filtreringsregler baserade på information från fjärrdatabasen",
+  "remoteNumberFilterSubtitle": "Identifiera spam-samtal med hjälp av molndatabas och communityrapporter",
+  "removeAdsDescription": "Ta permanent bort alla annonser i appen för en smidigare upplevelse",
+  "removeAdsTitle": "Ta bort annonser",
+  "removedFromFavoriteContacts": "Borttagen från favoritkontakter",
+  "removedFromFavorites": "Borttagen från favoritkontakter",
+  "removeFavorite": "Ta bort favorit",
+  "removeFromFavorites": "Ta bort från favoriter",
+  "renameButton": "Byt namn",
+  "renameDeviceDialogTitle": "Byt namn på enhet",
+  "renameDeviceTitle": "Byt namn på enhet",
+  "replaceCurrentSettingsConfirmation": "Detta kommer att ersätta alla dina nuvarande inställningar. Är du säker på att du vill fortsätta?",
+  "requestAllPermissions": "Begär alla behörigheter",
+  "requestPermission": "Begär behörighet",
+  "requestPermissionFailed": "Misslyckades att begära behörighet: {error}",
+  "requiredMarks": "{count} Märken",
+  "reset": "Återställ",
+  "restore": "Återställ",
+  "restoreApplicationSettingsFromBackup": "Återställ programinställningar från säkerhetskopia",
+  "restoreApplicationSettingsFromBackupSubtitle": "Återställ programinställningar från säkerhetskopia",
+  "restoreButton": "Återställ",
+  "restoreFailedWithError": "Återställning från molnet misslyckades: {error}",
+  "restoreFromCloud": "Återställ från molnet",
+  "restoreFromCloudDescription": "Återställ inställningar och regler från molnlagring",
+  "restoreFromCloudFailed": "Misslyckades att återställa från molnet: {error}",
+  "restoreFromCloudLabel": "Återställ från molnet",
+  "restoreFromCloudSuccess": "Återställdes framgångsrikt från molnet",
+  "restoreFromCloudTitle": "Återställ från molnet",
+  "restoreFromLocal": "Återställ från lokalt",
+  "restorePurchases": "Återställ köp",
+  "restoreSectionTitle": "Återställ",
+  "restoreSettings": "Återställ inställningar",
+  "restoreSettingsConfirmation": "Detta kommer att ersätta alla dina nuvarande inställningar. Är du säker på att du vill fortsätta?",
+  "restoreSettingsDialogTitle": "Återställ inställningar",
+  "restoreSettingsTitle": "Återställ inställningar",
+  "restoreSuccessFromLocal": "Återställdes framgångsrikt från lokalt",
+  "restoreSuccessMessage": "Återställdes framgångsrikt från molnet",
+  "retry": "Försök igen",
+  "ridesharing": "Samåkning",
+  "risk": "Risk",
+  "robocall": "Robotsamtal",
+  "ruleAction": "Regelåtgärd",
+  "ruleAddButton": "Lägg till regel",
+  "ruleAddedSuccess": "Regel tillagd",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "Misslyckades att lägga till regel: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "Regel tillagd",
+  "ruleDeleteConfirmContent": "Är du säker på att du vill ta bort denna {ruleType}?",
+  "ruleDeleteConfirmTitle": "Ta bort regel",
+  "ruleDeletedSuccess": "Regel borttagen",
+  "ruleDeletedSuccessfully": "Regel borttagen",
+  "ruleDeleteFailed": "Misslyckades att ta bort regel: {error}",
+  "ruleDeleteFailure": "Misslyckades att ta bort regel: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "Regel borttagen",
+  "ruleDisabledSuccessfully": "Regel inaktiverad",
+  "ruleEnabledSuccessfully": "Regel aktiverad",
+  "ruleLoadFailed": "Misslyckades att ladda regler: {error}",
+  "ruleManagement": "Regelhantering",
+  "ruleManagementTitle": "Regelhantering",
+  "ruleName": "Regelnamn",
+  "ruleNameAndContentRegexCannotBeEmpty": "Regelnamn och innehållsregex får inte vara tomma",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "Regelnamn och telefonnummer får inte vara tomma",
+  "ruleNameHint": "t.ex. Familj, Vänner, etc.",
+  "ruleNameLabel": "Regelnamn",
+  "ruleNamePatternRequired": "Vänligen ange regelnamn och mönster",
+  "ruleNameRequired": "Regelnamn och telefonnummer får inte vara tomma",
+  "ruleNotExist": "Regel finns inte eller har raderats",
+  "ruleNotFound": "Regel hittades inte: {error}",
+  "ruleSavedSuccessfully": "Regel sparad!",
+  "ruleSavedSuccessMessage": "Regel sparad!",
+  "ruleSaveFailed": "Sparning misslyckades: {error}",
+  "ruleSaveFailedMessage": "Sparning misslyckades: {error}",
+  "ruleSaveSuccess": "Regel sparad!",
+  "rulesExportedSuccessfully": "Regler exporterade",
+  "rulesExportedTo": "Regler exporterade till: {path}",
+  "rulesImported": "Regler importerade",
+  "rulesImportedSuccessfully": "{count} regler importerade",
+  "rulesImportFailed": "Kunde inte importera regler: {error}",
+  "ruleStatistics": "Regelstatistik",
+  "ruleStatusChanged": "Regel {status} lyckades",
+  "ruleToggleFailed": "Åtgärd misslyckades: {error}",
+  "ruleToggleSuccess": "Regel {status} lyckades",
+  "ruleUpdateFailed": "Kunde inte uppdatera regel: {error}",
+  "ruleUpdateSuccess": "Regel uppdaterad",
+  "ruleVerification": "Regelverifiering",
+  "save": "Spara",
+  "saveButton": "Spara",
+  "saveButtonLabel": "SPARA",
+  "saveButtonText": "Spara",
+  "saveFailed": "Sparning misslyckades: {error}",
+  "saveFilter": "Spara filter",
+  "saveSettings": "Spara inställningar",
+  "saveSettingsFailed": "Kunde inte spara inställningar: {error}",
+  "scamsLikely": "Potentiellt bedrägeri",
+  "search": "Sök",
+  "searchContacts": "Sök kontakter",
+  "searchError": "Sökfel: {error}",
+  "searchFilters": "Sökfilter",
+  "searchForContacts": "Sök efter kontakter",
+  "searchHint": "Sök...",
+  "searchSettingsSubtitle": "Sök kontakter, etiketter, blocklistor, tillåtlistor, etc.",
+  "searchSettingsTitle": "Sökinställningar",
+  "securityMessage": "Lita inte på telefonsamtal. Verifiera alltid kundtjänstnummer oberoende. Dela aldrig lösenord, verifieringskoder, kortnummer eller personlig information.",
+  "selectActionToPerform": "Välj åtgärd att utföra när regeln matchar",
+  "selectActionWhenBlockingCalls": "Välj åtgärd vid blockering av samtal",
+  "selectActionWhenRuleMatches": "Välj åtgärd när regeln matchar",
+  "selectAll": "Markera alla",
+  "selectCountry": "Välj land",
+  "selectDateRange": "Välj datumintervall",
+  "selectedDateRange": "Valt datumintervall",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} objekt valda",
+  "selectedLabel": "Vald:",
+  "selectExportFormat": "Välj exportformat",
+  "selectLabel": "Välj etikett",
+  "selectLabelAndEnterPhoneNumber": "Vänligen välj en etikett och ange ett giltigt telefonnummer",
+  "selectLanguage": "Välj språk",
+  "selectMultiple": "Välj flera",
+  "selectPeriod": "Välj period",
+  "selectSimCard": "Välj SIM-kort",
+  "selectSimSlot": "Välj SIM-kortplats",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "Välj den specifika åtgärden som ska utföras vid blockering av samtal",
+  "selectTag": "Välj tagg",
+  "selectTags": "Välj taggar",
+  "selectTrustedDataSource": "Vänligen välj betrodda datakällor",
+  "selectYourLanguage": "Välj ditt språk",
+  "sender": "Avsändare",
+  "senderRegexOptional": "Avsändar-regex (valfritt)",
+  "serverAddressLabel": "Serveradress",
+  "serviceTypeContact": "Kontaktprenumeration",
+  "serviceTypeLabel": "Tjänstetyp",
+  "serviceTypePhone": "Telefonprenumeration",
+  "serviceTypePlugin": "Pluginuppdatering",
+  "serviceTypeSms": "SMS-prenumeration",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "Ställ in",
+  "setEncryptionPassword": "Ställ in krypteringslösenord",
+  "setEncryptionPasswordDescription": "Ange krypteringslösenord för säkerhetskopiering och återställning",
+  "setEncryptionPasswordLabel": "Ställ in krypteringslösenord",
+  "setEncryptionPasswordTitle": "Ställ in krypteringslösenord",
+  "setPasswordButton": "Ställ in",
+  "settings": "Inställningar",
+  "settingsBackedUpTo": "Inställningar säkerhetskopierade till: {path}",
+  "settingsLoaded": "Inställningar laddade",
+  "settingsLoadFailed": "Kunde inte ladda inställningar: {error}",
+  "settingsRestoredSuccessfully": "Inställningar återställda. Starta om appen för att ändringarna ska börja gälla.",
+  "settingsSaved": "Inställningar sparade",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "Kunde inte spara inställningar: {error}",
+  "settingsTab": "Inställningar",
+  "settingsTitle": "Inställningar",
+  "setup": "Inställning",
+  "showContactEditDialogStaticMethod": "Statisk metod för att visa kontaktredigeringsdialogruta",
+  "showExplanation": "Visa förklaring",
+  "silence": "Tysta",
+  "silenceAndNoAnswer": "Tysta och inget svar",
+  "silenceNoAnswer": "Tysta inget svar",
+  "silentCallVoiceClone": "Tyst samtal röstklon",
+  "silentRules": "Tysta regler",
+  "simCard": "SIM-kort {simNumber}",
+  "simCardColor": "SIM-kortfärg",
+  "simCardConfigurationExplanation": "• SIM-kortkonfiguration: Ställ in oberoende filterregler för varje SIM-kort",
+  "simCardFilterRules": "SIM-kortfilterregler",
+  "simCardFilterRulesDescription": "Ställ in olika filterregler baserat på SIM-kortplatser",
+  "simCardFontSize": "SIM-kort teckensnittsstorlek",
+  "simCardPosition": "SIM-kortets placering",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "Kunde inte ladda SIM-kortinformation: {error}",
+  "simRuleInstructions": "SIM-kortplatsregler låter dig konfigurera oberoende filtreringsregler för varje SIM-kortplats.",
+  "simRuleInstructionsTitle": "SIM-kortplatsregler",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "Hantering av SIM-kortplatsregler",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "Det gick inte att ladda SIM-data: {error}",
+  "simSlotFilterConfiguration": "Filterkonfiguration för SIM-kortplats",
+  "simSlotFilterConfigurationDescription": "Möjliggör inställning av filterregler per SIM-kortplats",
+  "simSlotFilterDescription": "Konfigurera oberoende filtreringsregler för varje SIM-kort:",
+  "simSlotFilterSettingsTitle": "Filterinställningar för SIM-kortplats {slotNumber}",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "Det gick inte att ladda SIM-kortplatser: {error}",
+  "simSlotManagement": "Hantering av SIM-kortplatser",
+  "simSlotOperationFailed": "SIM-kortplatsåtgärd misslyckades: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "SIM-kortplats {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• SIM-kortplatsregler: Oberoende filtreringsstrategier per SIM",
+  "simSlotRuleListTitle": "Lista över SIM-kortplatsregler",
+  "simSlotRuleManagement": "SIM-kortplatsregler",
+  "simSlotRuleManagementTitle": "Regelhantering",
+  "simSlotSettings": "SIM-kortplatsinställningar",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "SIM-kortplats {slotNumber}",
+  "skip": "Hoppa över",
+  "smartCallerId": "Smart samtalsidentifiering",
+  "sms": "SMS",
+  "smsFilterDescription": "SMS-filtrering hjälper dig att automatiskt filtrera bort skräppostmeddelanden och hålla din meddelandelista ren. Du kan ställa in filterregler och aviseringsmetoder.",
+  "smsFilterDisabled": "SMS-filtrering inaktiverad",
+  "smsFilterEnabled": "SMS-filtrering aktiverad",
+  "smsFilterRuleAddedSuccessfully": "SMS-filterregel lades till framgångsrikt",
+  "smsFilterRules": "SMS-filterregler",
+  "smsFilterSettings": "Inställningar för SMS-filter",
+  "smsHistory": "SMS-historik",
+  "smsManagement": "SMS-hantering",
+  "smsPermission": "SMS-behörighet",
+  "smsPermissionDescription": "Används för att filtrera bort skräppostmeddelanden.",
+  "smsRuleAddedSuccessfully": "SMS-regel lades till framgångsrikt",
+  "smsRuleDeletedSuccessfully": "SMS-regel raderades framgångsrikt",
+  "smsRuleLoadFailed": "Det gick inte att ladda SMS-regler: {error}",
+  "smsRuleManagement": "Hantering av SMS-regler",
+  "smsRulesExportedSuccessfully": "SMS-regler exporterades framgångsrikt till {filePath}",
+  "smsRulesImportedSuccessfully": "SMS-regler importerades framgångsrikt",
+  "smsRuleSubscription": "Prenumeration på SMS-regler",
+  "smsRuleUpdatedSuccessfully": "SMS-regel uppdaterades framgångsrikt",
+  "smsSettingsSubtitle": "SMS-filtrering och blockering av nyckelord",
+  "smsSettingsTitle": "SMS-inställningar",
+  "smsSubscription": "SMS-prenumeration",
+  "smsSubscriptionAddedSuccessfully": "SMS-prenumeration lades till framgångsrikt",
+  "smsSubscriptionRulesDescription": "Prenumerera på SMS-regel listor via URL, stöder reguljära uttryck. Du kan ställa in blockera eller tillåt åtgärder.",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "Vissa behörighetsförfrågningar nekades",
+  "spamLikely": "Troligt spam",
+  "startColor": "Startfärg",
+  "startDate": "Startdatum",
+  "startUsing": "Kom igång",
+  "statAnswered": "Besvarade",
+  "statBlocked": "Blockerade",
+  "staticMethodShowCallerIdDialog": "Statisk metod för att visa dialogen med information om den som ringer",
+  "staticMethodToDisplayCountrySelectionDialog": "Statisk metod för att visa dialogen för landval",
+  "staticMethodToDisplayDialog": "Statisk metod för att visa dialogen",
+  "statistics": "Statistik",
+  "statisticsExportFeatureComingSoon": "Funktion för export av statistik kommer snart",
+  "statisticsGrid": "Statistikrutnät",
+  "statisticsPageTitle": "Dataanalys",
+  "stirColor": "STIR-färg",
+  "stirFontSize": "STIR-teckensnittsstorlek",
+  "stirPosition": "STIR-position",
+  "storagePermission": "Lagringsbehörighet",
+  "storagePermissionDescription": "Används för att spara inställningar och regler.",
+  "subscribe": "Prenumerera",
+  "subscriptionAddSuccess": "Prenumerationen \"{name}\" lades till framgångsrikt",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "Är du säker på att du vill radera denna prenumeration?",
+  "subscriptionDeleteConfirmTitle": "Radera prenumeration",
+  "subscriptionDeleted": "Prenumeration raderad",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "Prenumeration raderades framgångsrikt",
+  "subscriptionDeleteFailed": "Det gick inte att radera prenumeration: {error}",
+  "subscriptionDeleteSuccess": "Prenumeration raderad",
+  "subscriptionEmptyState": "Inga prenumerationer tillgängliga",
+  "subscriptionEmptyText": "Inga prenumerationer ännu",
+  "subscriptionLoadFailed": "Det gick inte att ladda prenumerationer: {error}",
+  "subscriptionLoadingFailed": "Det gick inte att ladda prenumerationer: {error}",
+  "subscriptionManagementTitle": "Prenumerationshantering",
+  "subscriptionName": "Prenumerationsnamn",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "Prenumerationsnamn och URL kan inte vara tomma",
+  "subscriptionNameHint": "Ange prenumerationsnamn",
+  "subscriptionPageTitle": "Prenumerationshantering",
+  "subscriptionStatusChangeFailed": "Det gick inte att ändra status för prenumeration: {error}",
+  "subscriptionToggleFailed": "Det gick inte att växla status för prenumeration: {error}",
+  "subscriptionUpdateFailed": "Det gick inte att uppdatera prenumeration: {error}",
+  "subscriptionUpdateSuccess": "Prenumeration uppdaterades framgångsrikt",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "Prenumerations-URL",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "Ange prenumerations-URL",
+  "successfullyImportedRules": "Lyckades importera {count} regler",
+  "supportSync": "Stöd för synkronisering",
+  "survey": "Enkät",
+  "syncDevicesButton": "Synkronisera enheter",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "Synkronisering misslyckades",
+  "syncFailedMessage": "Synkronisering misslyckades",
+  "syncFolderNameHint": "Ange mappnamn för synkronisering (standard: NotificationManager)",
+  "syncFolderNameLabel": "Mappnamn för synkronisering",
+  "synchronized": "Synkroniserad",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "Synkroniserar...",
+  "syncNow": "Synkronisera nu",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "Synka nu",
+  "syncStatusTitle": "Synkroniseringsstatus",
+  "syncStatusUpdatedMessage": "Synkroniseringsstatus uppdaterad",
+  "syncSuccessful": "Synkronisering lyckades",
+  "syncSuccessMessage": "Synkronisering lyckades",
+  "syncWithCloudStorage": "Synkronisera med molnlagring",
+  "syncWithCloudStorageSubtitle": "Synkronisera med molnlagring",
+  "systemFeatures": "Systemfunktioner:",
+  "systemSettingsTitle": "Systeminställningar",
+  "tabAll": "Alla",
+  "tabAnswered": "Besvarade",
+  "tabBlocked": "Blockerade",
+  "tabMissed": "Missade",
+  "tabOutgoing": "Utgående",
+  "tagLabel": "Tagg: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "Taggar uppdaterade",
+  "takeaway": "Takeaway",
+  "telecommunication": "Telekommunikation",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TESTA",
+  "testButtonLabel": "TESTA",
+  "testConnectionButton": "Testa anslutning",
+  "textColorsSetting": "Text- och etikettfärger",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "Den här appen är ett kraftfullt verktyg för nummeridentifiering som låter dig identifiera och blockera oönskade samtal.",
+  "thisWeek": "Den här veckan",
+  "timeInterceptor": "Tidsblockerare",
+  "timeInterceptorDescription": "Avbryt/tillåt automatiskt potentiella samtal baserat på samtalsfrekvens",
+  "timeInterceptorExplanation": "• Tidsblockerare: Avbryt/tillåt upprepade samtal inom en kort tid",
+  "timeInterceptorExplanationContent": "Funktionen för avbrott av samtalsfrekvens analyserar samtalsfrekvensen för att automatiskt identifiera och avbryta/tillåta frekventa skräppostsamtal.",
+  "timeInterceptorExplanationTitle": "Förklaring av avbrott av samtalsfrekvens",
+  "timeInterceptorSettingsTitle": "Inställningar för avbrott av samtalsfrekvens",
+  "timeInterceptorSubtitle": "Avbryt automatiskt potentiella skräppostsamtal baserat på samtalsfrekvens",
+  "timeInterceptorTitle": "Aktivera avbrott av samtalsfrekvens",
+  "timeWindowDescription": "Ställ in tidsfönstrets storlek för att tillåta upprepade samtal. Samtal från samma nummer inom detta fönster tillåts.",
+  "timeWindowLabel": "Tidsfönster för avbrott (minuter): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "Ställ in tidsfönstrets storlek för att tillåta upprepade samtal. Samtal från samma nummer inom detta fönster tillåts.",
+  "today": "Idag",
+  "total": "Totalt",
+  "totalBlocked": "Totalt blockerade",
+  "totalFiltered": "Totalt filtrerade",
+  "transferDataBetweenDevicesOrPlatforms": "Överför data mellan enheter eller plattformar",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "Överför data mellan enheter eller plattformar",
+  "travelTicketing": "Resebiljetter",
+  "trend": "Trend",
+  "trendChart": "Trenddiagram",
+  "tutorial": "Handledning",
+  "type": "Typ",
+  "unassignedSIMCard": "Ej tilldelat SIM-kort",
+  "unknown": "Okänd",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "Okänd etikett",
+  "unknownTag": "Tagg: Okänd",
+  "unregisterButton": "Avregistrera",
+  "unregisterDeviceConfirmationMessage": "Är du säker på att du vill avregistrera {deviceName}?",
+  "unregisterDeviceTitle": "Avregistrera enhet",
+  "unsupportedFileFormat": "Filformat som inte stöds",
+  "update": "Uppdatera",
+  "updateAllNow": "Uppdatera alla nu",
+  "updateCallFilterConfig": "Uppdatera inställningar för samtalsfilter",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "Kunde inte uppdatera kontakt: {error}",
+  "updateFavoriteStatus": "Uppdatera favoritstatus",
+  "updateFavoriteStatusFailed": "Kunde inte uppdatera favoritstatus: {error}",
+  "updateInterval": "Uppdateringsintervall",
+  "updateLabelFailed": "Kunde inte uppdatera etikett",
+  "updateNow": "Uppdatera nu",
+  "updatePlugin": "Uppdatera plugin",
+  "updatePluginFailed": "Kunde inte uppdatera plugin: {error}",
+  "updateRuleFailed": "Kunde inte uppdatera regel: {error}",
+  "updateSubscriptionFailed": "Kunde inte uppdatera prenumeration: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} uppdaterades framgångsrikt ({count} regler)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "Uppdatera taggar",
+  "useCasesPoint1": "• Identifiera skräppostsamtal som ringer upp automatiskt",
+  "useCasesPoint2": "• Avbryt marknadsföringssamtal som ringer flera gånger under en kort period",
+  "useCasesPoint3": "• Förhindra telefonbombning och trakasserier",
+  "useCasesTitle": "Användningsfall:",
+  "useGlobalSettings": "Använd globala inställningar",
+  "userEmail": "user@example.com",
+  "usernameLabel": "Användarnamn",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "Använd standard regex-syntax för att definiera mönster. Exempel:",
+  "validateRegex": "Validera Regex",
+  "verificationFailedText": "Misslyckades",
+  "verifiedText": "Verifierad",
+  "verify": "Verifiera",
+  "version": "Version: {version}",
+  "vipExchangeDescription": "Byt VIP-medlemskap mot antal telefonnummer-markeringar",
+  "vipExchangeTitle": "Markera VIP-utbyte",
+  "watchAd": "Titta på annons",
+  "watchAdForTemp": "Titta på annons för tillfälliga privilegier",
+  "watchAdForTempDescription": "Titta på en kort annons för att tillfälligt låsa upp några premiumfunktioner",
+  "webDAVConfigTitle": "WebDAV-konfiguration",
+  "webdavConfigurationTitle": "WebDAV-konfiguration",
+  "webdavPasswordHint": "Ange WebDAV-lösenord",
+  "webdavServerAddressHint": "Ange WebDAV-serveradress",
+  "webdavUsernameHint": "Ange WebDAV-användarnamn",
+  "week": "Vecka",
+  "weekly": "Veckovis",
+  "weeklyBlockedCallsSummary": "Sammanfattning av blockerade samtal per vecka",
+  "weeklyChartTitle": "Blockerade samtal per vecka",
+  "weeklyReport": "Veckorapport",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "Ta emot veckovis sammanfattningsrapport om blockeringsaktivitet för samtal",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "Välkommen",
+  "whitelist": "Vitlista",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "Vitlista",
+  "width": "Bredd",
+  "wildcardMatchingDescription": "Använd '.' för att matcha valfri tecken (t.ex. '123.456' matchar 123-456)",
+  "wildcardMatchingTitle": "Tecknwildcard matchning:",
+  "wildcardSupportForFlexibleFiltering": "Wildcard-stöd för flexibel filtrering",
+  "windowSizeSetting": "Fönsterstorlek",
+  "year": "År",
+  "yearly": "Årligen",
+  "yearlyChartTitle": "Årliga blockerade samtal",
+  "noSimCardsDetected": "Inga SIM-kort upptäckta",
+  "filterManagementDescription": "Ställ in samtalsfilter",
+  "callerIdCustomizationSubtitle": "Anpassa layouten för nummerpresentation",
+  "fraudAlerSettingTitle": "Inställning för bedrägerilarm",
+  "fraudAlerSettingSubtitle": "För att ställa in bedrägerilarm",
+  "enableFraudAlert": "Aktivera bedrägerilarm",
+  "enableFraudAlertDescription": "Varning för misstänkta bedrägerisamtal",
+  "enableVibration": "Aktivera vibration",
+  "enableVibrationDescription": "Vibrera när samtalet misstänks vara bedrägeri",
+  "notificationSettingsTitle": "Inställningar för aviseringar",
+  "useLocalNotification": "Använd lokala aviseringar",
+  "useLocalNotificationDescription": "Aktivera lokala aviseringar för inkommande samtal",
+  "cancelLocalNotification": "Stäng lokala aviseringar",
+  "useStirNotification": "Använd avisering från STIR",
+  "useStirNotificationDescription": "Aktivera STIR-aviseringar för inkommande samtal",
+  "cancelLocalNotificationDescription": "Stäng lokala aviseringar automatiskt",
+  "callerIdSettingsTitle": "Inställningar för nummerpresentation",
+  "callerIdSettingsSubtitle": "För att ställa in inkommande samtalsavisering och visningsläge",
+  "purchaseTitle": "Köpa",
+  "purchaseSubtitle": "För att köpa tjänsten",
+  "callerIdNotificationTitle": "Info om inkommande samtal",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Nummer: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "Blockerat samtal",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "Blockerat samtal från {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Verifierad",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Inte verifierad",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Verifiering misslyckades",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Okänd verifieringsstatus",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "STIR/SHAKEN-verifiering",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} för nummer {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "Inställningar för rullande säkerhetsmeddelande",
+  "messageColor": "Meddelandefärg",
+  "messageFontSize": "Meddelandets teckenstorlek",
+  "messagePosition": "Meddelandets position",
+  "containerWidth": "Behållarens bredd",
+  "scrollSpeed": "Scrollhastighet",
+  "enableSecurityMessage": "Aktivera säkerhetsmeddelande",
+  "fraudAlertTitle": "Bedrägerilarm",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "Potentiellt bedrägerisamtal från {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "Misslyckades med att ladda regler: {error}",
+  "loadCallLogFailed": "Misslyckades med att ladda samtalslogg: {error}",
+  "noBlockedTypeData": "Ingen data om blockeringstyp tillgänglig",
+  "importEntity": "Importera {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} importerades framgångsrikt, totalt {count} poster importerades",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "Misslyckades med att importera {entityTypeName}: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Exportera {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} exporterades framgångsrikt",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "Misslyckades med att exportera {entityTypeName}: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "Molnsynkroniseringstjänst",
+  "membershipCenter": "Medlemskapscenter",
+  "redeemVipWithMarks": "Lös in VIP med märken",
+  "currentMarkCount": "Nuvarande antal märken",
+  "markMoreNumbersForMore": "Märk fler nummer för fler märken",
+  "noAds": "Inga annonser",
+  "cloudBackup": "Molnbackup",
+  "callerIdEnhancement": "Förbättring av nummerpresentation",
+  "voiceRecognition": "Röstigenkänning",
+  "feature": "Funktion",
+  "normalUser": "Normal användare",
+  "vipUser": "VIP-användare",
+  "temporaryVip": "Tillfällig VIP",
+  "removeAds": "Ta bort annonser",
+  "unknownAction": "Okänd åtgärd",
+  "settingsBackup": "Säkerhetskopiering av inställningar ",
+  "allServicesStatusTitle": "Aktuell status för alla tjänster",
+  "allServicesStatusSubtitle": "Aktuell status för varje molntjänst",
+  "redirect": "Omdirigera",
+  "notify": "Meddela",
+  "log": "Logg",
+  "custom": "Anpassad",
+  "allowActionDescription": "Samtal kommer att tillåtas, även om numret finns på blocklistan.",
+  "blockActionDescription": "Samtal kommer att blockeras och visas i samtalsloggen.",
+  "silenceActionDescription": "Samtal kommer att tystas men visas i samtalsloggen.",
+  "noneActionDescription": "Ingen speciell åtgärd kommer att vidtas för samtalet.",
+  "redirectActionDescription": "Omdirigera samtalet till ett angivet nummer.",
+  "labelActionDescription": "Lägg till en etikett för samtalet för enkel identifiering.",
+  "notifyActionDescription": "Skicka en avisering när ett samtal tas emot.",
+  "logActionDescription": "Logga samtalsinformationen utan att vidta någon annan åtgärd.",
+  "customActionDescription": "Utför en anpassad åtgärd.",
+  "synced": "Synkroniserad",
+  "needVipAccess": "Du behöver VIP-åtkomst för att använda den här funktionen",
+  "importExportDescription": "Importera eller exportera {entityTypeName} data",
+  "importExportTitle": "Import/Export",
+  "noPhoneRules": "Inga telefonregler hittades",
+  "noRegexRules": "Inga regex-regler hittades",
+  "noAllowedBlockedRules": "Inga tillåtna/blockerade regler hittades",
+  "importExport": "Import/Export",
+  "filterByAction": "Filtrera efter åtgärd",
+  "upgradeToVip": "Uppgradera till VIP",
+  "batteryOptimizationPermission": "Batterioptimering",
+  "batteryOptimizationPermissionDescription": "Tillåt appen att köras i bakgrunden för att tillhandahålla tjänster som nummerpresentation.",
+  "permissionTitle": "Specialbehörigheter",
+  "permissionSubtitle": "Hantera behörigheter för överlägg och batterioptimering",
+  "themeSettingsTitle": "Temainställningar",
+  "themeSettingsSubtitle": "Välj ditt favorit tema",
+  "databaseSyncTitle": "Databasesynkronisering",
+  "countrySyncSettingsTitle": "Landbaserade inställningar för databasesynkronisering",
+  "countrySyncSettingsSubtitle": "Välj länder för datasynkronisering",
+  "countryDataDisclaimer": "Observera: Databasen kanske inte innehåller data för alla specifika länder eller regioner.",
+  "editSubscription": "Redigera prenumeration",
+  "searchByNameOrPhoneNumber": "Sök efter namn eller telefonnummer",
+  "allowedBlockedRulesInfo": "Tillåtna/blockerade regler används för att matcha samtal till specifika telefonnummer, vilka har högsta prioritet.",
+  "searchPhoneRulesHint": "Sök telefonregler",
+  "phoneRulesInfo": "Telefonregler används för att matcha samtal till specifika telefonnummer, vilka har lägre prioritet. Vissa kommer från telefonregelprenumerationer.",
+  "searchSubscriptionsHint": "Sök prenumerationer",
+  "searchPluginsHint": "Sök plugins",
+  "searchLabelsHint": "Sök etiketter",
+  "pluginDescription": "Pluginbeskrivning",
+  "enterPluginDescription": "Ange pluginbeskrivning",
+  "searchRegexRulesHint": "Sök regex-regler",
+  "regexRulesInfo": "Regex-regler används för att filtrera samtal baserat på Regex-mönster.",
+  "searchMarkedPhonesHint": "Sök markerade telefoner",
+  "searchContactSubscriptionsHint": "Sök kontaktprenumerationer",
+  "showAllContacts": "Visa alla kontakter",
+  "showFavorites": "Visa favoriter",
+  "manualEntry": "Information om manuell inmatning",
+  "scriptSaved": "Skript sparat",
+  "editScriptFor": "Redigera skript för {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "Spara skript",
+  "testPlugin": "Testa plugin",
+  "description": "Beskrivning",
+  "accessTargetUrl": "Åtkomst till målets URL",
+  "result": "Resultat",
+  "editScript": "Redigera skript",
+  "numberFormat": "Nummerformat",
+  "nationalNumber": "Nationellt nummer",
+  "e164Number": "E164-nummer",
+  "pluginRulesInfo": "Av säkerhetsskäl, använd endast plugins från betrodda källor. Använd gärna våra mallar för att skapa dina egna anpassade plugins!",
+  "advancedMode": "Avancerat läge",
+  "pleaseEnterAtLeastOneNumber": "Ange minst ett nummer.",
+  "openInWebView": "Öppna i WebView",
+  "pluginLabel": "Pluginetikett",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "Bakgrundsfärg för meddelande",
+  "clearAllCallLogs": "Rensa alla samtalsloggar",
+  "clearAllCallLogsConfirmation": "Bekräfta att rensa alla samtalsloggar",
+  "allCallLogsCleared": "Alla samtalsloggar rensade",
+  "unblocked": "Avblockerad",
+  "blockNumber": "Blockera nummer",
+  "blockNumberSuccess": "Blockering av nummer lyckades",
+  "blockNumberFailed": "Blockering av nummer misslyckades",
+  "unblockNumberConfirmation": "Är du säker på att du vill avblockera {phoneNumber}?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "Ringer {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "Visa detaljer",
+  "unblock": "Avblockera",
+  "unblockNumber": "Avblockera nummer",
+  "unblockNumberSuccess": "Nummer avblockerat framgångsrikt",
+  "unblockNumberFailed": "Avblockering av nummer misslyckades",
+  "serviceNotAvailable": "Tjänsten är inte tillgänglig",
+  "callingNumberFailed": "Samtalsnummer misslyckades",
+  "listView": "Listvy",
+  "timelineView": "Tidslinjevy",
+  "nameCannotBeEmpty": "Namn kan inte vara tomt",
+  "selectAction": "Välj åtgärd",
+  "selectTargetService": "Välj måltjänst",
+  "callDetails": "Samtalsdetaljer",
+  "callType": "Samtalstyp",
+  "callTime": "Samtalstid",
+  "numberInvalidFormat": "Ogiltigt nummerformat",
+  "membershipFeature": "Medlemskapsfunktion",
+  "medium": "Medium",
+  "verificationReport": "Verifieringsrapport",
+  "finalRisk": "Slutlig risk",
+  "simState": "SIM-status",
+  "ipCountry": "IP-land",
+  "simCountry": "SIM-land",
+  "isRoaming": "Roaming",
+  "isNumberMatch": "Nummermatchning",
+  "support": "Support",
+  "rewardedAdService": "Belönad annonstjänst",
+  "hasVipPrivilegeExceptAds": "Du har redan VIP-privilegier (förutom annonser)",
+  "hasTempPrivilegeWithExpiry": "Du har redan tillfälliga privilegier, utgångsdatum: {expiryDate}",
+  "watchMoreAdsForTempVip": "Du behöver titta på {count} annonser till för att få tillfälliga VIP-privilegier",
+  "grantedTempPurchaseWithExpiry": "Du har beviljats {days} dagars tillfällig köpprivilegium. Utgångsdatum: {expiryDate}",
+  "tempPurchaseExpired": "Tillfälligt köpprivilegium har gått ut",
+  "loadingAd": "Laddar annons...",
+  "earnedTempVip": "Fick tillfälligt VIP",
+  "vipExchangeService": "VIP-utbytesservice",
+  "marksInsufficient": "Otillräckliga märken för utbyte",
+  "invalidExchangeRule": "Ogiltig utbytesregel",
+  "exchangeSuccess": "Framgångsrikt utbytt mot {description}, utgångsdatum: {expiryDate}",
+  "exchangeFailed": "Utbyte misslyckades: {error}",
+  "vip3DaysWithAds": "3-dagars VIP med annonser (endast synkronisering)",
+  "vip5DaysNoAds": "5-dagars fullfjädrad annonsfri VIP",
+  "vip7DaysNoAds": "7-dagars fullfjädrad annonsfri VIP",
+  "noNotifications": "Inga aviseringar",
+  "clearAllNotifications": "Rensa alla aviseringar",
+  "clearAllNotificationsConfirmation": "Bekräfta att rensa alla aviseringar",
+  "allNotificationsCleared": "Alla aviseringar raderade",
+  "clearButton": "Rensa",
+  "justNow": "Nyss",
+  "minutesAgo": "{count,plural, =1{1 minut sedan} other{{count} minuter sedan}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1 timme sedan} other{{count} timmar sedan}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1 dag sedan} other{{count} dagar sedan}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "Igår",
+  "deletionProposal": "Raderingsförslag",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "Raderingsförslag",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "Skapa förslag",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "Skapa raderingsförslag",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "Anledning",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "Föråldrat nummer",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Sekretessproblem",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Inte i tjänst",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Felaktigt identifierad",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Felaktig information",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "Felaktigt markerad",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "Annan",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "Skicka",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "Avbryt",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "Status",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "Väntande",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "Aktiv",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "Slutförd",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "Utgången",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "Risk nivå",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "Verifierad",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "Låg",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "Hög",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "Okänd",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "Röstningsförlopp",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "Godkänn: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "Avvisa: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "Totalt: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "Godkänn",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "Avvisa",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "Skapad: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "Visa rapport",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "Dölj rapport",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "Förslagsstatistik",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "Totalt antal förslag",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "Aktiva förslag",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "Slutförda förslag",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "Mina röster",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "Förslag skapat framgångsrikt",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "Misslyckades att skapa förslag",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "Röst inlämnad framgångsrikt",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "Misslyckades att lämna in röst",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "Inga förslag hittades",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "Laddar förslag...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "Uppdatera förslag",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "Totalt antal väntande förslag",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "Hög risk",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "Medelrisk",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "Låg risk",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "Samhällspåverkan",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "Kritiska problem",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "Samhällsengagemang",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "Ingen aktivitet",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "Låg",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "Måttlig",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "Hög",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "Mycket hög",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "Röstat",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "Samhällsröster",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "Väntar på fler samhällsröster",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "Detta förslag har behandlats",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "STÖTTAD",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "AVVISAD",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "GODKÄND",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "AVVISAD",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "SLUTFÖRD",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "VÄNTANDE",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "Kritisk",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "Avvisa",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "Mycket låg",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "Aviseringar om resultat och uppdateringar av röstning på raderingsförslag.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "Raderingsförslag skapat",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "Ditt raderingsförslag för {phoneNumber} har skickats för granskning av samhället.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "Förslag godkänt ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "Raderingsförslaget för {phoneNumber} har godkänts av samhället ({supportPercentage}% stöd, {totalVotes} röster).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "Förslag avvisat ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "Raderingsförslaget för {phoneNumber} har avvisats av samhället ({supportPercentage}% stöd, {totalVotes} röster).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "Samhällsröstning har startat",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "Ett nytt raderingsförslag för {phoneNumber} är nu öppet för samhällsröstning.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "Röstning avslutad",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "Samhällsröstningen för {phoneNumber} har avslutats. Resultat: {result} ({supportPercentage}% stöd).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "Ny röst mottagen",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "Någon röstade för att {voteType} raderingen av {phoneNumber}. Nuvarande röster: {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "Misslyckades att ladda röstantal",
+  "voteCount": "Röstantal",
+  "deletionProposalInfo": "Information om raderingsförslag",
+  "deletionProposalDescription": "Föreslå nummer för radering som bryter mot samhällsriktlinjerna. Ditt deltagande hjälper till att hålla plattformen säker.",
+  "voteToEarnVip": "Rösta på förslag för att tjäna VIP-förmåner!",
+  "voteFailed": "Röstning misslyckades",
+  "searchProposals": "Sök efter förslag",
+  "defaultNotifications": "Standardaviseringar",
+  "defaultNotificationsDescription": "Standardaviseringkanal för appen.",
+  "blockedCallNotifications": "Blockerade samtalaviseringar",
+  "blockedCallNotificationsDescription": "Visar information om blockerade samtal.",
+  "stirVerification": "STIR/SHAKEN-verifiering",
+  "stirVerificationDescription": "Visar STIR/SHAKEN-verifieringsresultat för nummer.",
+  "fraudAlerts": "Säkerhetsvarningar",
+  "fraudAlertsDescription": "Visar varningar för potentiellt bedrägliga samtal.",
+  "notificationFrequencyDescription": "Välj hur ofta du får aviseringar om nya förslag till borttagning. Du kan få dem omedelbart, i batcher eller med ett anpassat intervall.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "Omedelbart",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "Få en avisering så snart ett förslag har skapats.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "Batcher",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "Få en sammanfattning av aviseringar periodvis.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "Anpassad",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "Definiera ditt eget intervall för att ta emot aviseringar.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "Anpassad frekvens",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} min",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} h",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "Väntande förslag",
+  "pendingProposalsBody": "Du har {count, plural, =0 {inga väntande förslag} one {1 väntande förslag} other {{count} väntande förslag}}.",
+  "guidelinesLabel": "Riktlinjer",
+  "reportingGuidelines": "• Rapportera endast nummer som är genuint problematiska\n• Ange korrekta och detaljerade skäl\n• Välj lämplig risknivå baserat på allvarlighetsgrad\n• Falska rapporter kan leda till begränsningar av kontot",
+  "riskLevelLabel": "Risknivå",
+  "riskLevelDescription": "Risknivå för numret",
+  "phoneNumberMinDigits": "Telefonnummer måste vara minst 7 siffror långt",
+  "provideDetailedExplanation": "Ange en detaljerad förklaring (minst 10 tecken)",
+  "reasonMinCharacters": "Anledningen måste vara minst 10 tecken lång",
+  "countryCodeTwoLetters": "Landskod (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Landskod (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "t.ex. SE, DE, FR",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "Landskod krävs",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "Landskoden måste vara 2 bokstäver lång",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "Telefonnummer måste vara minst 7 siffror långt",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "Ange detaljerad förklaring (minst 10 tecken)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "Anledning krävs",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "Anledningen måste vara minst 10 tecken lång",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "Riktlinjer",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• Rapportera endast nummer som är genuint problematiska\n• Ange korrekta och detaljerade skäl\n• Välj lämplig risknivå baserat på allvarlighetsgrad\n• Falska rapporter kan leda till begränsningar av kontot",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "Kritisk",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "Medel",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "Mycket låg",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "Mycket låg - Mindre irritation, sällsynta samtal",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "Låg - Enstaka oönskade samtal",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "Medel - Regelbunden spam eller telemarketing",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "Hög - Ihållande trakasserier eller bluffningsförsök",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "Kritisk - Farliga bluffar eller hot",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "Aviseringsfrekvens",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "Aviseringsfrekvens (timmar)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "Fel: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "Röster: {totalVotes} ({supportPercentage}% stöd)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "Stöd ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "Motsättningar ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "Nyss",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes}m sedan",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours}h sedan",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days}d sedan",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "Aviseringsfrekvens (timmar)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} röster ({supportPercentage}% stöd)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 timmar} =1{1 timme} other{{count} timmar}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "Viktigt meddelande",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "Nummer hämtas från internet och användarinlämningar. Vi kan inte garantera att ett nummer, när det väl har tagits bort, inte kommer att lämnas in igen av andra användare eller källor. Vänligen sök och verifiera information aktivt.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Plats",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIM-kort",
+  "liveActivitiesSettingsTitle": "Inställningar för Live-aktiviteter",
+  "elementsSettingsTitle": "Inställningar för element",
+  "liveActivityMode": "Live-aktivitet",
+  "liveActivityModeDescription": "Visar samtalsinformation som en beständig avisering på låsskärmen och i Dynamic Island (iOS).",
+  "phoneNumberType": "Telefonnummer Typ",
+  "liveActivitiesTestEndActivity": "Avsluta aktivitet",
+  "liveActivitiesTestSendNewActivity": "Skicka ny aktivitet",
+  "liveActivitiesTestUpdateActivity": "Uppdatera aktivitet",
+  "liveActivityControlsTitle": "Kontroller för Live-aktiviteter",
+  "liveActivitiesTestTitle": "Test av Live-aktiviteter",
+  "liveActivitiesTestSubtitle": "Testa aviseringsaktiviteten i realtid.",
+  "liveNotificationCustomizationTitle": "Anpassning av Live-aviseringar",
+  "liveNotificationCustomizationSubtitle": "Anpassa utseendet på live-aviseringar.",
+  "notification_instructions": "Instruktioner:\n1. Tryck på \"SKICKA\" för att skapa eller uppdatera en avisering.\n2. Gå till din startskärm eller dra ner aviseringsträdet för att se resultatet.\n3. Tryck på \"AVSLUTA\" för att avfärda aviseringen.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "Avbryt avisering automatiskt",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "Om markerat kommer aviseringen automatiskt att avfärdas när användaren trycker på den.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "Ange fördröjningstid",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Förslagsdetaljer",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "Filtrera efter status",
+  "proposalNotFound": "Förslag hittades inte",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "Bearbetad",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Visa alla",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "Filtrera och sortera",
+  "filterVerifiedOwner": "Filtrera verifierad ägare",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "Filtrera efter",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "Sortera äldsta",
+  "sortNewest": "Sortera nyaste",
+  "sortMostPopular": "Sortera mest populära",
+  "sortLeastPopular": "Sortera minst populära",
+  "sortBy": "Sortera efter",
+  "simRulesNotFound": "SIM-regler hittades inte",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "SIM-kortplatsregler",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "Inget SIM-kort upptäckt",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "Ogiltig SIM-data",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "SIM-kortdata",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "SIM-kortplats",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "Aktivera filtrering",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "Detaljerade inställningar",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "Ingångsvy",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "Avvisad",
+  "callTypeSilenced": "Tystad",
+  "callTypeVoicemail": "Röstmeddelande",
+  "callTypeUnknownIntercept": "Okänd avlyssning",
+  "andMoreItems": "och {count} till",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

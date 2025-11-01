@@ -1,0 +1,3092 @@
+{
+  "@@locale": "uk",
+  "aboutContactSubscription": "Про підписку на контакти",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "Про мітки",
+  "aboutPhoneSubscriptionRules": "Про правила підписки на телефони",
+  "aboutPhoneSubscriptions": "Про підписки на телефони",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "Підпишіться на списки телефонних правил за допомогою URL, автоматично оновлюйте правила. Підтримує файли правил у форматах JSON, CSV.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "Про фільтрування SMS",
+  "aboutSmsSubscriptionRules": "Про правила підписки на SMS",
+  "aboutSubtitle": "Версія програми та юридична інформація",
+  "aboutTitle": "Про програму",
+  "action": "Дія",
+  "actionAll": "Усі",
+  "actionAllow": "Дозволити",
+  "actionBlock": "Блокувати",
+  "actionFilterAll": "Усі фільтри",
+  "actionFilterTitle": "Фільтрувати за типом дії",
+  "actionFilterTooltip": "Фільтр дії",
+  "actionNone": "Без дії",
+  "actionSilence": "Без звуку",
+  "actionTag": "Дія: {actionType}",
+  "actionType": "Тип дії",
+  "actionUnknown": "Невідомо",
+  "add": "Додати",
+  "addAllowedBlockedRule": "Додати правило дозволу/блокування",
+  "addAllowSubscription": "Додати підписку на дозвіл",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Додати підписку на блокування",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Додати контакт",
+  "addContactFailed": "Не вдалося додати контакт: {error}",
+  "addedToAllowedRules": "Додано до правил дозволу",
+  "addedToBlacklist": "Додано до чорного списку",
+  "addedToBlockedRules": "Додано до правил блокування",
+  "addedToFavoriteContacts": "Додано до улюблених контактів",
+  "addedToFavorites": "Додано до улюблених контактів",
+  "addedToWhitelist": "Додано до білого списку",
+  "addFavorite": "Додати в улюблене",
+  "addFilter": "Додати фільтр",
+  "addLabel": "Додати мітку",
+  "addLabelButton": "Додати мітку",
+  "addLabelFailed": "Не вдалося додати мітку: {error}",
+  "addLabelToCall": "Додати мітку до запису виклику",
+  "addName": "Додати ім'я",
+  "addNoneSubscription": "Додати підписку без дії",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "Використовується для додавання або редагування контактної інформації",
+  "addPhoneMark": "Додати позначку телефону",
+  "addPhoneNumberRule": "Додати правило номера телефону",
+  "addPlugin": "Додати плагін",
+  "addPluginFailed": "Не вдалося додати плагін",
+  "addPluginFailedWithError": "Не вдалося додати плагін: {error}",
+  "addPluginFromLocalFile": "Додати плагін з локального файлу",
+  "addPluginFromUrl": "Додати плагін за URL",
+  "addRegexRule": "Додати правило регулярного виразу",
+  "addRule": "Додати правило",
+  "addRuleButton": "Додати правило",
+  "addRuleFailed": "Не вдалося додати правило: {error}",
+  "addRuleTooltip": "Додати правило",
+  "addSilenceSubscription": "Додати підписку на беззвучний режим",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "Додати правило SIM",
+  "addSmsFilterRule": "Додати правило фільтра SMS",
+  "addSmsRule": "Додати правило SMS",
+  "addSmsSubscription": "Додати підписку на SMS",
+  "addSubscription": "Додати підписку",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Додати підписку",
+  "addSubscriptionFailed": "Не вдалося додати підписку: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Додати підписку",
+  "addToAllowedRules": "Додати до правил дозволу",
+  "addToBlacklist": "Додати до чорного списку",
+  "addToBlockedRules": "Додати до правил блокування",
+  "addToFavoriteContacts": "Додати до улюблених контактів",
+  "addToFavorites": "Додати до улюблених",
+  "addToRules": "Додати до правил",
+  "addToWhitelist": "Додати до білого списку",
+  "adPlaceholder": "Місце для реклами",
+  "agent": "Агент",
+  "all": "Усі",
+  "allCallsTab": "Усі",
+  "allDataClearedSuccessfully": "Усі дані успішно очищено",
+  "allow": "Дозволити",
+  "allowAllAllowRules": "Дозволити всі правила дозволу",
+  "allowAllAllowRulesDesc": "Дозволити виклики з правил дозволу",
+  "allowAllBlacklistedNumbers": "Дозволити всі номери з чорного списку",
+  "allowAllBlacklistedNumbersDesc": "Дозволити виклики з чорного списку",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "Дозволити всі правила блокування",
+  "allowAllBlockRulesDesc": "Дозволити виклики з правил блокування",
+  "allowAllowedNumbers": "Дозволити дозволені номери",
+  "allowAllowedNumbersDesc": "Дозволити виклики з білого списку",
+  "allowBlock": "Дозволити/Заблокувати",
+  "allowBlockedNumbers": "Дозволити заблоковані номери",
+  "allowBlockedNumbersDesc": "Дозволити виклики з чорного списку",
+  "allowedBlockedRule": "Правило дозволу/блокування",
+  "allowedBlockedRuleEditDialogTitle": "Редагувати правило дозволу/блокування",
+  "allowedBlockedRuleManagement": "Керування правилами дозволу/блокування",
+  "allowNonExceededNumbers": "Дозволити номери, які не перевищують ліміт",
+  "allowNonExceededNumbersDescription": "Автоматично дозволяти номери, які не перевищують порогове значення лічильника",
+  "allowRegexAllowRules": "Дозволити правила дозволу за регулярними виразами",
+  "allowRegexAllowRulesDesc": "Увімкнути порівняння шаблонів регулярних виразів для правил дозволу",
+  "allowRegexAllowRulesDescription": "Увімкнути правила дозволу на основі регулярних виразів",
+  "allowRegexBlockRules": "Дозволити правила блокування за регулярними виразами",
+  "allowRegexBlockRulesDesc": "Увімкнути порівняння шаблонів регулярних виразів для правил блокування",
+  "allowRegexBlockRulesDescription": "Увімкнути правила блокування на основі регулярних виразів",
+  "allowRule": "Правило дозволу",
+  "allowRules": "Правила дозволу",
+  "allowWhitelistedNumbers": "Дозволити номери з білого списку",
+  "allowWhitelistedNumbersDescription": "Дозволити всі номери з білого списку",
+  "allPermissionsGranted": "Всі дозволи надано",
+  "allSettingsCompleted": "Всі налаштування завершено.",
+  "allUpdateSuccess": "Всі оновлення завершено ({count} правил)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "Відповісти, потім покласти слухавку",
+  "appLegalese": "© 2023 Your Call Your Rule. Всі права захищені.",
+  "applicationSoftware": "Програмне забезпечення",
+  "apply": "Застосувати",
+  "appName": "Your Call Your Rule",
+  "authorizationFailedCheckCredentialsMessage": "Помилка авторизації: Будь ласка, перевірте ID клієнта та ключ",
+  "authorizationFailedMessage": "Помилка авторизації",
+  "authorizationSuccessMessage": "Авторизація успішна",
+  "authorizeLoginButton": "Авторизувати вхід",
+  "automotiveIndustry": "Автомобільна промисловість",
+  "autoSyncLabel": "Автоматична синхронізація",
+  "autoUpdate": "Автоматичне оновлення",
+  "autoUpdateDescription": "Встановіть інтервали автоматичного оновлення для підписок або оновіть вручну",
+  "autoUpdateSettings": "Налаштування автоматичного оновлення",
+  "autoUpdateSettingsSubtitle": "Керування автоматичними оновленнями для правил і плагінів",
+  "autoUpdateSettingsTitle": "Налаштування автоматичного оновлення",
+  "autoUpdateSubtitle": "Керування автоматичними оновленнями для правил і плагінів",
+  "autoUpdateTitle": "Автоматичне оновлення",
+  "avatarBorderColor": "Колір рамки аватара",
+  "avatarBorderSize": "Розмір рамки аватара",
+  "avatarIconSizesSetting": "Розміри аватара та іконок",
+  "avatarPosition": "Позиція аватара",
+  "avatarSize": "Розмір аватара",
+  "axisPosition": "Позиція {axis}",
+  "backgroundGradientSetting": "Фоновий градієнт",
+  "backup": "Резервна копія",
+  "backupAndRestore": "Резервне копіювання та відновлення",
+  "backupAndRestoreSubtitle": "Створення резервної копії або відновлення даних програми",
+  "backupAndRestoreTitle": "Резервне копіювання та відновлення",
+  "backupFailed": "Резервне копіювання не вдалося",
+  "backupFailedMessage": "Резервне копіювання не вдалося",
+  "backupFailedWithError": "Резервне копіювання не вдалося: {error}",
+  "backupRestoreSubtitle": "Створення резервної копії або відновлення даних програми",
+  "backupRestoreTitle": "Резервне копіювання та відновлення",
+  "backupSectionTitle": "Резервне копіювання",
+  "backupSettings": "Налаштування резервного копіювання",
+  "backupSettingsDialogTitle": "Налаштування резервного копіювання",
+  "backupSettingsTitle": "Налаштування резервного копіювання",
+  "backupSuccessMessage": "Успішно створено резервну копію в хмарі",
+  "backupSuccessToLocal": "Резервна копія успішно збережена до: {path}",
+  "backupToCloud": "Резервне копіювання до хмари",
+  "backupToCloudDescription": "Створити резервну копію налаштувань і правил у хмарному сховищі",
+  "backupToCloudFailed": "Не вдалося створити резервну копію в хмарі: {error}",
+  "backupToCloudLabel": "Резервне копіювання до хмари",
+  "backupToCloudSuccess": "Успішно створено резервну копію в хмарі",
+  "backupToCloudTitle": "Резервне копіювання до хмари",
+  "backupToLocalLabel": "Резервне копіювання на локальний пристрій",
+  "bank": "Банк",
+  "basicInfo": "Основна інформація",
+  "basicRuleFilter": "Базовий фільтр правил",
+  "basicRuleFiltering": "Базова фільтрація правил",
+  "basicRuleFilteringExplanation": "• Базова фільтрація правил: Фільтрація правил на основі чорного, білого списків та регулярних виразів",
+  "basicRuleFilterSettings": "Налаштування базового фільтра правил",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "Фільтрувати дзвінки за допомогою чорного/білого списку та регулярних виразів",
+  "batchDeleteContacts": "Групове видалення контактів",
+  "batchDeleteContactsConfirm": "Ви впевнені, що хочете видалити {count} вибраних контактів?",
+  "batchDeleteFailed": "Групове видалення не вдалося",
+  "batchDeleteLabelsConfirm": "Ви впевнені, що хочете видалити {count} міток?",
+  "blacklist": "Чорний список",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "Чорний і білий списки",
+  "blacklistLabel": "Чорний список",
+  "blackWhiteList": "Чорний/Білий список",
+  "block": "Блокувати",
+  "blockCalls": "Блокувати дзвінки",
+  "blocked": "Заблоковано",
+  "blockedCallAction": "Дія при заблокованому дзвінку",
+  "blockedCalls": "Заблоковані дзвінки",
+  "blockedCallsTitle": "Заблоковані дзвінки",
+  "blockedCommunications": "Заблоковані комунікації",
+  "blockedPhoneLabel": "Заблоковані дзвінки",
+  "blockedSpamCalls": "Заблоковані спам-дзвінки",
+  "blockingTrend": "Тенденція блокування",
+  "blockInternationalCalls": "відповідає номерам, які не починаються на + або 00",
+  "blockInternationalCallsTitle": "Блокувати міжнародні дзвінки",
+  "blockLandlineNumbersTitle": "Блокувати стаціонарні номери",
+  "blockMobileNumbers": "відповідає номерам, які не починаються на 13-19",
+  "blockMobileNumbersTitle": "Блокувати мобільні номери",
+  "blockPremiumRateNumbers": "відповідає номерам, які не починаються на 118 або 120-190",
+  "blockPremiumRateNumbersTitle": "Блокувати номери преміум-класу",
+  "blockRule": "Правило блокування",
+  "blockRules": "Правила блокування",
+  "blockSpecificAreaCodes": "відповідає номерам, що починаються на 0 + 2-3 цифри",
+  "blockSpecificAreaCodesTitle": "Блокувати певні коди зон:",
+  "blockTypeAnalysisTitle": "Аналіз типів блокування",
+  "both": "Обидва",
+  "bulkDelete": "Групове видалення контактів",
+  "bulkDeleteContacts": "Групове видалення контактів",
+  "bulkDeleteLabels": "Групове видалення міток",
+  "call": "Дзвінок",
+  "callback": "Передзвонити",
+  "callbackTo": "Передзвонити на {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "Блокування дзвінків",
+  "callerIdApp": "Програма ідентифікації абонента",
+  "callerIdCustomizationTitle": "Налаштування ідентифікатора абонента",
+  "callerIdDialogTitle": "Інформація про ідентифікатор абонента",
+  "callerIdDisplayMode": "Режим відображення Caller ID",
+  "callerIdMarkedByCount": "Позначено {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "Попередній перегляд Caller ID",
+  "callFilter": "Фільтр дзвінків",
+  "callFilterDescription": "Коли увімкнено, вхідні дзвінки перевіряються відповідно до списку правил нижче. Правила фільтрації дзвінків за замовчуванням не синхронізуються між пристроями.",
+  "callFilterRules": "Правила фільтрації дзвінків",
+  "callFilterRulesDescription": "Встановити основні правила для фільтрації дзвінків",
+  "callFilterSettings": "Налаштування фільтра дзвінків",
+  "callFrequencyInterceptionSubtitle": "Встановити обмеження частоти дзвінків та правила блокування",
+  "callFrequencyInterceptionTitle": "Перехоплення частоти дзвінків",
+  "callHistory": "Історія дзвінків",
+  "callHistoryInfoDesc": "Тут відображається ваша історія дзвінків, включаючи вхідні, вихідні та пропущені дзвінки.",
+  "callHistoryInfoTitle": "Історія дзвінків",
+  "callHistoryInitFailed": "Не вдалося ініціалізувати історію дзвінків: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "Не вдалося оновити історію дзвінків: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "Історія дзвінків",
+  "callHistoryTimelineEarlier": "Раніше",
+  "callHistoryTimelineToday": "Сьогодні",
+  "callHistoryTimelineYesterday": "Вчора",
+  "callScreeningPermission": "Дозвіл на перевірку дзвінків",
+  "callScreeningPermissionDescription": "Використовується для перевірки та блокування спам-дзвінків.",
+  "callScreeningPermissionNotGranted": "Дозвіл на перевірку дзвінків не надано, це може вплинути на функціональність програми.",
+  "callSettingsSubtitle": "Налаштування Caller ID, фільтрації та блокування",
+  "callSettingsTitle": "Налаштування дзвінків",
+  "callStatistics": "Статистика дзвінків",
+  "callTypeAnswered": "Відповідано",
+  "callTypeBlocked": "Заблоковано",
+  "callTypeIconColor": "Колір іконки типу дзвінка",
+  "callTypeMissed": "Пропущений дзвінок",
+  "callTypeOutgoing": "Вихідний",
+  "callTypePosition": "Позиція типу дзвінка",
+  "callTypeUnknown": "Невідомо",
+  "cancelButton": "Скасувати",
+  "carRental": "Оренда авто",
+  "carrier": "Оператор",
+  "carrierColor": "Колір оператора",
+  "carrierFontSize": "Розмір шрифту оператора",
+  "carrierPosition": "Позиція оператора",
+  "changeLabel": "Змінити мітку",
+  "changePluginStatusFailed": "Не вдалося змінити статус плагіна: {error}",
+  "changeSubscriptionStatusFailed": "Не вдалося змінити статус підписки: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "Змінити тег",
+  "charity": "Благодійність",
+  "chartMonthFormat": "Місяць {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "1 день тому",
+  "chartOneMonthAgo": "1 місяць тому",
+  "chartOneWeekAgo": "1 тиждень тому",
+  "chartTenDaysAgo": "10 днів тому",
+  "chartThreeDaysAgo": "3 дні тому",
+  "chartToday": "Сьогодні",
+  "checkFileFormat": "Будь ласка, перевірте формат файлу або дозволи",
+  "checkPermissionFailed": "Не вдалося перевірити дозволи: {error}",
+  "chooseDefaultInterceptAction": "Виберіть дію перехоплення за замовчуванням",
+  "clearAllData": "Очистити всі дані",
+  "clearAllDataConfirmation": "Ви впевнені, що хочете очистити всі дані програми? Цю дію не можна скасувати.",
+  "clearAllDataDescription": "Очистити всі дані програми",
+  "clearAllDataLabel": "Очистити всі дані",
+  "clearFilter": "Очистити фільтр",
+  "clearLabelFilter": "Очистити фільтр міток",
+  "clearLabelFilterButton": "Очистити фільтр міток",
+  "closeButton": "Закрити",
+  "cloudSync": "Хмарна синхронізація",
+  "cloudSyncAndBackupTitle": "Хмарна синхронізація та резервне копіювання",
+  "cloudSyncSettingsSubtitle": "Налаштувати WebDAV, OneDrive та Google Drive",
+  "cloudSyncSettingsTitle": "Налаштування хмарної синхронізації",
+  "cloudSyncTitle": "Хмарна синхронізація",
+  "collapseLabelSelector": "Згорнути селектор міток",
+  "collection": "Стягнення заборгованості",
+  "colorPickerTitle": "Вибрати колір",
+  "configManagement": "Управління конфігурацією",
+  "configUpdated": "Конфігурація оновлена",
+  "configurationAdvice": "За допомогою належної конфігурації ви можете встановити різні стратегії фільтрації для робочих та особистих SIM-карток.",
+  "configureBackupOptions": "Налаштувати параметри резервного копіювання",
+  "configureBackupOptionsSubtitle": "Налаштувати параметри резервного копіювання",
+  "configureCloudSyncService": "Налаштувати службу хмарної синхронізації",
+  "configureCloudSyncServiceHint": "Будь ласка, налаштуйте службу хмарної синхронізації, щоб увімкнути багатопристроєву синхронізацію.",
+  "configureCloudSyncServiceMessage": "Будь ласка, налаштуйте службу хмарної синхронізації, щоб увімкнути багатопристроєву синхронізацію.",
+  "configureSimCardFilterRules": "Налаштувати правила фільтрації SIM-карток",
+  "configureSyncServiceHint": "Спочатку налаштуйте службу синхронізації в налаштуваннях хмарної синхронізації",
+  "confirm": "Підтвердити",
+  "confirmBatchDeleteContacts": "Ви впевнені, що хочете видалити вибрані",
+  "confirmButton": "Підтвердити",
+  "confirmDelete": "Підтвердити видалення",
+  "confirmDeleteContact": "Ви впевнені, що хочете видалити",
+  "confirmDeleteContactName": "Підтвердити видалення?",
+  "confirmDeleteFilter": "Ви впевнені, що хочете видалити цей фільтр?",
+  "confirmDeleteLabel": "Ви впевнені, що хочете видалити мітку \"{name}\"",
+  "confirmDeletePlugin": "Ви впевнені, що хочете видалити плагін \"{name}\"?",
+  "confirmDeletePlugins": "Ви впевнені, що хочете видалити {count} плагінів?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "Ви впевнені, що хочете видалити це правило? Цю дію не можна скасувати.",
+  "confirmDeleteSelectedContacts": "Ви впевнені, що хочете видалити вибрані контакти?",
+  "confirmDeleteSmsFilterRule": "Ви впевнені, що хочете видалити це правило фільтрації SMS?",
+  "confirmDeleteSmsRule": "Ви впевнені, що хочете видалити це правило SMS?",
+  "confirmDeleteSubscription": "Ви впевнені, що хочете видалити цю підписку?",
+  "confirmDeleteSubscriptions": "Ви впевнені, що хочете видалити {name}?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "Підтвердити пароль",
+  "confirmPasswordLabel": "Підтвердити пароль",
+  "connectedStatus": "Підключено",
+  "connectionFailedCheckCredentialsMessage": "Помилка підключення: Будь ласка, перевірте адресу сервера, ім'я користувача та пароль",
+  "connectionFailedMessage": "Помилка підключення",
+  "connectionStatusLabel": "Статус з'єднання",
+  "connectionSuccessMessage": "З'єднання успішне",
+  "contactAddSuccess": "Контакт успішно додано",
+  "contactDeleted": "Контакт видалено",
+  "contactEditDialog": "Діалог редагування контакту",
+  "contactNameHint": "Введіть ім'я контакту (необов'язково)",
+  "contactNameLabel": "Ім'я",
+  "contactNameOptional": "Ім'я контакту (необов'язково)",
+  "contactNotFound": "Контакт не знайдено",
+  "contacts": "контакти",
+  "contactsDeleted": "Видалено {count} контактів",
+  "contactSettingsSubtitle": "Керування контактами та налаштування міток",
+  "contactSettingsTitle": "Налаштування контактів",
+  "contactsLoadingFailed": "Не вдалося завантажити контакти: {error}",
+  "contactsManagement": "Керування контактами",
+  "contactsManagementPageTitle": "Сторінка керування контактами",
+  "contactsPageTitle": "Керування контактами",
+  "contactsPermission": "Дозвіл на доступ до контактів",
+  "contactsPermissionDescription": "Використовується для ідентифікації дзвінків від контактів.",
+  "contactsTab": "Контакти",
+  "contactSubscriptionDescription": "Підпишіться на списки контактів за допомогою URL-адреси, автоматично оновлюйте інформацію про контакти та мітки. Підтримує дані у форматі JSON.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "Не вдалося завантажити підписки на контакти: {error}",
+  "contactSubscriptionPageTitle": "Підписки на контакти",
+  "contactUpdateSuccess": "Контакт успішно оновлено",
+  "contactUs": "Зв'язатися з нами",
+  "content": "Вміст",
+  "contentRegex": "Регулярний вираз вмісту",
+  "countColor": "Колір лічильника",
+  "countFontSize": "Розмір шрифту лічильника",
+  "countPosition": "Позиція лічильника",
+  "country": "Країна",
+  "countryNameColor": "Колір назви країни",
+  "countryNameFontSize": "Розмір шрифту назви країни",
+  "countryRegionNamePosition": "Позиція назви країни/регіону",
+  "countrySelectionDialog": "Діалог вибору країни",
+  "countrySelectionDialogDescription": "Використовується для вибору країни для запиту інформації про ідентифікатор абонента",
+  "countThresholdDescription": "Встановіть мінімальний поріг лічильника, необхідний для спрацьовування дій фільтрації",
+  "countThresholdLabel": "Поріг лічильника",
+  "countThresholdSettings": "Налаштування порогу лічильника",
+  "countThresholdValue": "Поріг лічильника: {count}",
+  "createdRules": "Створені правила",
+  "csvFormat": "Формат CSV",
+  "currentDeviceChip": "Поточний",
+  "currentDeviceLabel": "Мітка поточного пристрою",
+  "currentDeviceTitle": "Поточний пристрій",
+  "currentLabels": "Поточні мітки:",
+  "currentLanguage": "Поточна мова",
+  "currentPasswordLabel": "Поточний пароль",
+  "customerService": "Служба підтримки клієнтів",
+  "customRange": "Користувацький діапазон",
+  "dailyStatistics": "Щоденна статистика",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "Отримувати щоденну статистику про заблоковані дзвінки та повідомлення",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "Панель керування",
+  "dataAnalysis": "Аналіз даних",
+  "dataAnalysisDashboardPage": "Сторінка панелі керування аналізу даних",
+  "dataExport": "Експорт даних",
+  "dataLoadFailure": "Не вдалося завантажити дані: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "Не вдалося завантажити дані: {error}",
+  "dataMigration": "Міграція даних",
+  "dataMigrationDescription": "Ця функція дозволяє переносити всі ваші дані між пристроями. Наразі ви можете використовувати функції резервного копіювання та відновлення для ручної міграції даних.",
+  "dataMigrationDialogContent": "Ця функція дозволяє переносити всі ваші дані між пристроями. Наразі ви можете використовувати функції резервного копіювання та відновлення для ручної міграції даних.",
+  "dataMigrationDialogTitle": "Міграція даних",
+  "dataMigrationSectionTitle": "Міграція даних",
+  "dataSourceReminder": "Нагадування про джерело даних",
+  "days": "{count, plural, one{1 день} few{{count} дні} many{{count} днів} other{{count} днів}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} VIP",
+  "debtCollection": "Стягнення заборгованості",
+  "defaultPeriod": "Тиждень",
+  "delete": "Видалити",
+  "deleteButton": "Видалити",
+  "deleteContact": "Видалити контакт",
+  "deleteContactConfirm": "Ви впевнені, що хочете видалити {name}?",
+  "deleteContactConfirmation": "Ви впевнені, що хочете видалити контакт",
+  "deleteDeviceConfirmation": "Ви впевнені, що хочете видалити {deviceName}?",
+  "deleteDeviceDialogTitle": "Видалити пристрій",
+  "deleteFailed": "Не вдалося видалити: {error}",
+  "deleteFilter": "Видалити фільтр",
+  "deleteLabel": "Видалити мітку",
+  "deleteLabelFailed": "Не вдалося видалити мітку: {error}",
+  "deletePlugin": "Видалити плагін",
+  "deletePluginFailed": "Не вдалося видалити плагін: {error}",
+  "deletePlugins": "Видалити плагіни",
+  "deletePluginsFailed": "Не вдалося видалити плагіни: {error}",
+  "deleteRule": "Видалити правило",
+  "deleteRuleFailed": "Не вдалося видалити: {error}",
+  "deleteSelected": "Видалити вибране",
+  "deleteSmsRule": "Видалити правило SMS",
+  "deleteSubscription": "Видалити підписку",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "Ви впевнені, що хочете видалити підписку \"{name}\"?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "Не вдалося видалити підписку: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "Успішно видалено",
+  "delivery": "Доставка",
+  "deviceDeletedSuccessfully": "Пристрій успішно видалено",
+  "deviceDeletedSuccessfullyMessage": "Пристрій успішно видалено",
+  "deviceIdLabel": "ID пристрою",
+  "deviceIDLabel": "ID пристрою",
+  "deviceManagementSubtitle": "Керування синхронізацією на кількох пристроях",
+  "deviceManagementTitle": "Керування пристроями",
+  "deviceModelLabel": "Модель пристрою",
+  "deviceName": "Назва пристрою",
+  "deviceNameCannotBeEmpty": "Назва пристрою не може бути порожньою",
+  "deviceNameHint": "Будь ласка, введіть назву пристрою",
+  "deviceNameLabel": "Назва пристрою",
+  "deviceRenamedSuccessfully": "Пристрій успішно перейменовано",
+  "deviceRenamedSuccessfullyMessage": "Пристрій успішно перейменовано",
+  "devicesSyncedSuccessfully": "Пристрої успішно синхронізовано",
+  "devicesSyncedSuccessfullyMessage": "Пристрої успішно синхронізовано",
+  "devicesSynchronizedSuccessfullyMessage": "Пристрої успішно синхронізовано",
+  "deviceUnregisteredSuccessfullyMessage": "Пристрій успішно від’єднано",
+  "dialogTitle": "Пояснення шаблону Regex",
+  "differentFromLocalCounter": "Ця функція відрізняється від локального лічильника, оскільки вона фокусується на повторюваних шаблонах дзвінків протягом короткого часу, а не на довгостроковому підрахунку позначок.",
+  "disabled": "Вимкнено",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "Вимкнено",
+  "disableGlobalPlugins": "Вимкнути глобальні плагіни",
+  "disableSubscriptionSuccessfully": "Підписку успішно вимкнено",
+  "disconnectButton": "Від’єднати",
+  "disconnectedMessage": "Від’єднано",
+  "disconnectedStatus": "Від’єднано",
+  "disconnectFailedMessage": "Не вдалося від’єднати",
+  "done": "Готово",
+  "dualSimAdvice": "Ця функція особливо корисна для телефонів із двома SIM-картками для встановлення різних стратегій фільтрування для робочої та особистої SIM-карток.",
+  "earlier": "Раніше",
+  "ecommerce": "Електронна комерція",
+  "edit": "Редагувати",
+  "editContact": "Редагувати контакт",
+  "editFilter": "Редагувати фільтр",
+  "editLabel": "Редагувати мітку",
+  "editPhoneRule": "Редагувати правило телефону",
+  "editPhoneRules": "Використовується для редагування правил телефону",
+  "editPhoneRuleTitle": "Редагувати правило телефону",
+  "editRule": "Редагувати правило",
+  "editSmsRule": "Редагувати правило SMS",
+  "education": "Освіта",
+  "elementPositionsSetting": "Позиції елементів",
+  "email": "Електронна пошта",
+  "emailOptional": "Електронна пошта (необов'язково)",
+  "enableCallFilter": "Увімкнути фільтр дзвінків",
+  "enableCallFilterDescription": "Якщо увімкнено, вхідні дзвінки перевіряються за списком правил нижче. Правила фільтрування дзвінків за замовчуванням не синхронізуються між пристроями.",
+  "enabled": "Увімкнено",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "Увімкнено",
+  "enableEncryption": "Увімкнути шифрування",
+  "enableEncryptionDescription": "Шифрувати файли резервного копіювання",
+  "enableEncryptionLabel": "Увімкнути шифрування",
+  "enableEncryptionSubtitle": "Файли резервного копіювання будуть зашифровані",
+  "enableEncryptionTitle": "Увімкнути шифрування",
+  "enableGlobalPlugins": "Увімкнути глобальні плагіни",
+  "enableLocalCountFilter": "Увімкнути локальний фільтр лічильника",
+  "enableLocalCountFilterDescription": "Автоматично фільтрувати спам-дзвінки на основі кількості позначок дзвінків",
+  "enableLocalNotification": "Використовувати локальне сповіщення",
+  "enableLocalNotificationDescription": "Якщо увімкнено, сповіщення про відфільтровані повідомлення відображатимуться на пристрої",
+  "enableLocationSummary": "Місцезнаходження",
+  "enableMuteRules": "Увімкнути правила вимкнення звуку",
+  "enableMuteRulesDesc": "Застосувати конфігурацію правил перехоплення вимкнення звуку",
+  "enableNoneActionRules": "Увімкнути правила без дії",
+  "enableNoneActionRulesDesc": "Дозволити конфігурації правил без дій перехоплення",
+  "enableNotifications": "Увімкнути сповіщення",
+  "enableRemoteNumberFilter": "Увімкнути віддалений фільтр номерів",
+  "enableRemoteNumberFilterDescription": "Використовувати віддалену базу даних для фільтрування номерів",
+  "enableRule": "Увімкнути правило",
+  "enableSmsFilter": "Увімкнути фільтрування SMS",
+  "enableSmsFilterDescription": "Якщо увімкнено, повідомлення будуть автоматично фільтруватися відповідно до правил",
+  "enableStatisticsNotifications": "Увімкнути сповіщення статистики",
+  "enableSubscriptionSuccessfully": "Підписку успішно увімкнено",
+  "enableTimeInterception": "Увімкнути часове перехоплення",
+  "enableTimeInterceptionDescription": "Перехоплювати повторювані дзвінки протягом короткого часу",
+  "enableTimeInterceptor": "Увімкнути часовий перехоплювач",
+  "endCallImmediately": "Завершити дзвінок негайно",
+  "endColor": "Кінцевий колір",
+  "endDate": "Дата закінчення",
+  "enhancedFilterInstructionsTitle": "Покращена система фільтрів",
+  "enhancedFilterSettings": "Налаштування покращеного фільтру",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "Налаштування покращеного фільтру",
+  "enhancedFilterSystemDescription": "Покращена система фільтрів підтримує як глобальні правила, так і конфігурації фільтрування для кожної SIM-картки.",
+  "enterBothPhoneNumberAndRegexPattern": "Будь ласка, введіть як номер телефону, так і шаблон regex",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Будь ласка, введіть як номер телефону, так і шаблон regex.",
+  "enterContactName": "Будь ласка, введіть ім'я контакту",
+  "enterCurrentPasswordHint": "Будь ласка, введіть поточний пароль",
+  "enterDeviceName": "Введіть назву пристрою",
+  "enterDeviceNameHint": "Будь ласка, введіть назву пристрою",
+  "enterEmail": "Будь ласка, введіть електронну пошту",
+  "enterEmailOptional": "Будь ласка, введіть електронну пошту (необов'язково)",
+  "enterEncryptionPasswordHint": "Введіть пароль шифрування",
+  "enterEncryptionPasswordTitle": "Введіть пароль шифрування",
+  "enterFilterName": "Будь ласка, введіть назву фільтра",
+  "enterFilterPattern": "Будь ласка, введіть шаблон фільтра",
+  "enterIconCode": "Введіть код значка",
+  "enterName": "Введіть ім'я контакту",
+  "enterNewDeviceNameHint": "Введіть нову назву для цього пристрою",
+  "enterNewPasswordHint": "Будь ласка, введіть новий пароль",
+  "enterPasswordAgain": "Введіть пароль ще раз",
+  "enterPasswordHint": "Будь ласка, введіть пароль",
+  "enterPhoneNumber": "Введіть номер телефону",
+  "enterPhoneNumberHint": "Введіть номер телефону для тестування",
+  "enterPhoneNumberMultiple": "Будь ласка, введіть номер телефону, кілька номерів через кому",
+  "enterPhoneNumberToStartSearch": "Введіть номер телефону, щоб розпочати пошук",
+  "enterPhoneNumberToVerify": "Введіть номер телефону для перевірки",
+  "enterPluginName": "Введіть назву плагіна",
+  "enterPluginUrl": "Введіть URL-адресу плагіна",
+  "enterRegexHint": "Введіть шаблон regex",
+  "enterRuleNameAndPattern": "Будь ласка, введіть назву правила та шаблон",
+  "enterRuleNameAndPatternMessage": "Будь ласка, введіть як назву правила, так і шаблон regex.",
+  "enterRuleNameHint": "Введіть назву правила",
+  "enterSearchContent": "Будь ласка, введіть вміст для пошуку",
+  "enterSubscriptionName": "Введіть назву підписки",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "Введіть URL-адресу підписки",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "Будь ласка, введіть назву папки синхронізації (за замовчуванням: NotificationManager)",
+  "entertainment": "Розваги",
+  "enterValidNameAndUrl": "Будь ласка, введіть дійсну назву та URL-адресу",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "Будь ласка, введіть дійсну URL-адресу",
+  "enterVersion": "Введіть версію",
+  "enterWebDAVPasswordHint": "Будь ласка, введіть пароль WebDAV",
+  "enterWebDAVServerAddressHint": "Будь ласка, введіть адресу сервера WebDAV",
+  "enterWebDAVUsernameHint": "Будь ласка, введіть ім'я користувача WebDAV",
+  "errorDeletingDeviceMessage": "Помилка видалення пристрою: {error}",
+  "errorLoadingPlugin": "Помилка завантаження плагіна",
+  "errorOccurredMessage": "Виникла помилка: {error}",
+  "errorRenamingDeviceMessage": "Помилка перейменування пристрою: {error}",
+  "errorSynchronizingDevicesMessage": "Помилка синхронізації пристроїв: {error}",
+  "errorSyncingDevicesMessage": "Помилка синхронізації пристроїв: {error}",
+  "errorText": "Помилка",
+  "errorUnregisteringDeviceMessage": "Помилка скасування реєстрації пристрою: {error}",
+  "exampleBlock400Prefix": "напр. Блокувати номери з префіксом 400",
+  "exampleBlockMarketingSms": "напр. Блокувати маркетингові SMS",
+  "exampleContentRegex": "напр., .*offer.*",
+  "exampleContentRegexHint": "Приклад регулярного виразу вмісту",
+  "exampleCouponPromotionDiscount": "напр. .*(coupon|promotion|discount).*",
+  "exampleFamilyFriends": "напр. Сім'я, Друзі тощо.",
+  "examplePhoneNumber": "напр. 10086, 12345 тощо.",
+  "exampleRegex400Prefix": "Приклад регулярного виразу для префіксу 400",
+  "exampleRegexFormat": "Приклад: формат ^10086$",
+  "exampleSenderRegexHint": "Приклад",
+  "exchange": "Обмін",
+  "exchangeNow": "Обміняти зараз",
+  "exchangeVip": "Обміняти VIP",
+  "expandLabelSelector": "Розгорнути селектор міток",
+  "expiryTime": "Час закінчення терміну дії: {time}",
+  "export": "Експорт",
+  "exportAllApplicationSettings": "Експортувати всі налаштування програми",
+  "exportAllApplicationSettingsSubtitle": "Експортувати всі налаштування програми",
+  "exportAllRuleConfigurations": "Експортувати всі конфігурації правил",
+  "exportAllRuleConfigurationsSubtitle": "Експортувати всі конфігурації правил",
+  "exportComplete": "Експорт завершено",
+  "exportConfig": "Експортувати конфігурацію",
+  "exportContacts": "Експортувати контакти",
+  "exportData": "Експортувати дані",
+  "exportError": "Помилка експорту",
+  "exportFailed": "Помилка експорту",
+  "exportFailure": "Не вдалося експортувати конфігурацію",
+  "exportFeatureComingSoon": "Функція експорту незабаром буде доступна",
+  "exporting": "Експорт...",
+  "exportLabels": "Експортувати мітки",
+  "exportLabelsFailed": "Не вдалося експортувати мітки: {error}",
+  "exportPluginList": "Експортувати список плагінів",
+  "exportPluginListFailed": "Не вдалося експортувати список плагінів: {error}",
+  "exportRules": "Експортувати правила",
+  "exportRulesDialogTitle": "Експорт правил",
+  "exportRulesTitle": "Експорт правил",
+  "exportSmsRules": "Експортувати правила SMS",
+  "exportStatisticsData": "Експортувати статистичні дані",
+  "exportSuccess": "Експорт успішний",
+  "exportSuccesslly": "Конфігурацію успішно експортовано",
+  "failedToAddContact": "Не вдалося додати контакт",
+  "failedToAddRule": "Не вдалося додати правило: {error}",
+  "failedToAddSmsRule": "Не вдалося додати правило SMS: {error}",
+  "failedToAddSmsSubscription": "Не вдалося додати підписку SMS: {error}",
+  "failedToBackupSettings": "Не вдалося створити резервну копію налаштувань: {error}",
+  "failedToDecryptBackupFile": "Не вдалося розшифрувати файл резервної копії",
+  "failedToDeleteDevice": "Не вдалося видалити пристрій",
+  "failedToDeleteSmsRule": "Не вдалося видалити правило SMS: {error}",
+  "failedToExportRules": "Не вдалося експортувати правила: {error}",
+  "failedToExportSmsRules": "Не вдалося експортувати правила SMS: {error}",
+  "failedToGetCallerIdInfo": "Не вдалося отримати інформацію про ідентифікатор абонента: {error}",
+  "failedToImportRules": "Не вдалося імпортувати правила: {error}",
+  "failedToImportSmsRules": "Не вдалося імпортувати правила SMS: {error}",
+  "failedToLoadContacts": "Не вдалося завантажити контакти",
+  "failedToLoadPlugin": "Не вдалося завантажити плагін",
+  "failedToRenameDevice": "Не вдалося перейменувати пристрій",
+  "failedToRestoreSettings": "Не вдалося відновити налаштування",
+  "failedToRestoreSettingsWithError": "Не вдалося відновити налаштування: {error}",
+  "failedToSetPassword": "Не вдалося встановити пароль: {error}",
+  "failedToSyncDevices": "Не вдалося синхронізувати пристрої",
+  "failedToToggleRuleStatus": "Не вдалося змінити статус правила: {error}",
+  "failedToToggleSubscriptionStatus": "Не вдалося змінити статус підписки",
+  "failedToUpdateContact": "Не вдалося оновити контакт",
+  "failedToUpdateSmsRule": "Не вдалося оновити правило SMS: {error}",
+  "failure": "Збій",
+  "favoriteContacts": "Вибрані контакти",
+  "featureAddRules": "• Додавання правил, специфічних для номера телефону",
+  "featureCenter": "Центр функцій",
+  "featureEnableDisable": "• Увімкнення/вимкнення різних фільтрів для кожної SIM-карти",
+  "featureListTitle": "Функції:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• Керування списками правил для кожної SIM-карти",
+  "features": "Функції",
+  "fetchingCallerIdInfo": "Отримання інформації про ідентифікатор абонента...",
+  "fileSavedTo": "Файл збережено в: {path}",
+  "filter": "Фільтр",
+  "filterByLabel": "Фільтрувати за міткою",
+  "filterClear": "Очистити фільтр",
+  "filterControlPanelTitle": "Панель керування фільтром",
+  "filterControlSubtitle": "Керування статусом увімкнення/вимкнення всіх фільтрів",
+  "filterControlTitle": "Керування фільтрами",
+  "filterDeleteFailed": "Не вдалося видалити фільтр",
+  "filterDeleteSuccess": "Фільтр успішно видалено",
+  "filterDetails": "Деталі фільтра",
+  "filtered": "Відфільтровано",
+  "filteredSms": "Відфільтровані SMS",
+  "filteredSmsLabel": "Відфільтровані SMS",
+  "filterExplanation": "Пояснення фільтра",
+  "filterManagement": "Керування фільтрами",
+  "filterName": "Назва фільтра",
+  "filterPattern": "Шаблон фільтра",
+  "filterPriorityNote": "Примітка: Існують пріоритетні зв'язки між фільтрами, деталі дивіться в довідковій документації",
+  "filterSaveFailed": "Не вдалося зберегти фільтр",
+  "filterSaveSuccess": "Фільтр успішно збережено",
+  "filterSettings": "Налаштування фільтра",
+  "filterSettingsTitle": "Налаштування фільтра",
+  "filterSMS": "Фільтрувати SMS",
+  "filterToggleInstructions": "Увімкніть або вимкніть фільтри для цього SIM-слота:",
+  "filterToggleStatus": "{status} фільтр: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "Тип фільтра",
+  "financial": "Фінансовий",
+  "flexibleCombinationFeature": "• Гнучкі комбінації: Увімкнення/вимкнення фільтрів для кожного SIM-слота",
+  "fontSizesSetting": "Розміри шрифту",
+  "foundRules": "Знайдено {count} правил",
+  "foundRulesDoYouWantToImport": "Знайдено {count} правил. Бажаєте їх імпортувати?",
+  "foundRulesToImport": "Знайдено {count} правил. Бажаєте їх імпортувати?",
+  "fraudAlert": "ПОПЕРЕДЖЕННЯ ПРО ШАХРАЙСТВО - Покладіть слухавку",
+  "fraudScamLikely": "Ймовірна шахрайська схема",
+  "free": "Безкоштовно",
+  "functionSettingsTitle": "Налаштування функцій",
+  "generalUpdateFailure": "Оновлення не вдалося: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Отримати безкоштовно",
+  "github": "GitHub",
+  "globalFilterDescription": "Налаштувати глобальні фільтри для всіх SIM-карт:",
+  "globalFilterFeature": "• Глобальні фільтри: Базові правила для всіх вхідних дзвінків",
+  "globalFilterSettings": "Налаштування глобального фільтра",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "Налаштуйте параметри глобального фільтра, які застосовуються до всіх SIM-слотів:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Пошук контактів, міток, чорних/білих списків тощо.",
+  "globalSearchTitle": "Глобальний пошук",
+  "globalSettings": "Глобальні налаштування",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Позиція відображення реклами Google",
+  "googleAdMobIntegrationText": "Реклама Google AdMob може бути інтегрована тут",
+  "googleDriveAuthDescription": "Авторизуватися, використовуючи системно налаштований ідентифікатор клієнта та ключ Google Drive",
+  "googleDriveAuthorizationHint": "Авторизуватися, використовуючи системно налаштований ідентифікатор клієнта та ключ Google Drive",
+  "googleDriveConfigTitle": "Налаштування Google Drive",
+  "googleDriveConfigurationTitle": "Налаштування Google Drive",
+  "government": "Уряд",
+  "granted": "Надано",
+  "grantNecessaryPermissions": "Надати необхідні дозволи",
+  "grantPermissions": "Надати дозволи",
+  "headhunter": "Хедхантер",
+  "height": "Висота",
+  "homePageTitle": "Головна сторінка",
+  "homeTab": "Головна",
+  "howItWorksPoint1": "• Система автоматично дозволить дзвінки з того самого номера протягом встановленого часового вікна",
+  "howItWorksPoint2": "• Коротші часові вікна призводять до суворішого перехоплення; довші часові вікна призводять до менш суворого перехоплення",
+  "howItWorksPoint3": "• Система перевіряє журнал дзвінків, щоб визначити, чи це повторний дзвінок",
+  "howItWorksTitle": "Як це працює:",
+  "iconCodeOptional": "Код іконки (необов'язково)",
+  "iconSize": "Розмір іконки",
+  "import": "Імпорт",
+  "important": "Важливо",
+  "importButton": "Імпорт",
+  "importConfig": "Імпортувати конфігурацію",
+  "importContacts": "Імпортувати контакти",
+  "importExportContacts": "Імпорт/Експорт контактів",
+  "importExportContactsTooltip": "Імпорт/Експорт контактів",
+  "importExportRules": "Імпорт/Експорт правил",
+  "importFailed": "Імпорт не вдалося: {error}",
+  "importFailure": "Не вдалося імпортувати конфігурацію",
+  "importFeatureComingSoon": "Функція імпорту незабаром з'явиться",
+  "importLabels": "Імпортувати мітки",
+  "importLabelsFailed": "Не вдалося імпортувати мітки: {error}",
+  "importPluginList": "Імпортувати список плагінів",
+  "importPluginListFailed": "Не вдалося імпортувати список плагінів: {error}",
+  "importPluginSuccess": "Успішно імпортовано {count} плагінів",
+  "importRuleConfigurationsFromFile": "Імпортувати конфігурації правил із файлу",
+  "importRuleConfigurationsFromFileSubtitle": "Імпортувати конфігурації правил із файлу",
+  "importRules": "Імпортувати правила",
+  "importRulesButton": "Імпортувати правила",
+  "importRulesDialogTitle": "Імпорт правил",
+  "importRulesError": "Не вдалося імпортувати правила: {error}",
+  "importRulesInstructions": "Імпортувати правила з файлу CSV",
+  "importRulesSuccess": "Правила успішно імпортовано",
+  "importRulesTitle": "Імпорт правил",
+  "importSuccess": "Імпорт успішний",
+  "incomingCallInterceptAction": "Дія перехоплення вхідного дзвінка",
+  "incomingCallNotification": "Сповіщення про вхідний дзвінок",
+  "incorrectPassword": "Неправильний пароль",
+  "initializing": "Ініціалізація",
+  "installed": "Встановлено",
+  "insufficientMarks": "Недостатньо оцінок",
+  "insurance": "Страхування",
+  "interceptAction": "Дія перехоплення",
+  "interceptionActionSettingsSubtitle": "Встановіть, як обробляються заблоковані дзвінки",
+  "interceptionActionSettingsTitle": "Налаштування дії перехоплення",
+  "interceptionTimeInterval": "Часовий інтервал перехоплення",
+  "internet": "Інтернет",
+  "intervalSetSuccess": "Інтервал оновлення {service} встановлено на {days} днів",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Недійсний регулярний вираз вмісту",
+  "invalidLabel": "Недійсний тег",
+  "invalidRegexPattern": "Недійсний шаблон regex",
+  "invalidSenderRegex": "Недійсний regex відправника",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Приєднуйтесь до Telegram-каналу та групи для отримання додаткової інформації",
+  "jsLogsTitle": "Журнали JS",
+  "jsonFormat": "Формат JSON",
+  "keepAllVersions": "Зберігати всі версії",
+  "keepAllVersionsDescription": "Зберігати всі історичні версії кожної резервної копії",
+  "keepAllVersionsLabel": "Зберігати всі версії",
+  "keepAllVersionsSubtitle": "Зберігати історичні версії кожної резервної копії",
+  "keepAllVersionsTitle": "Зберігати всі версії",
+  "label": "Тег",
+  "labelAddedSuccessfully": "Тег \"{name}\" успішно додано",
+  "labelCategories": "Категорії тегів",
+  "labelDeleted": "Тег видалено",
+  "labelDescription": "Теги допомагають краще керувати контактами, додавати власні теги до телефонних номерів для легкої ідентифікації дзвінків та повідомлень.",
+  "labelFilter": "Фільтр тегів",
+  "labelFilterTooltip": "Фільтр тегів",
+  "labelIconColor": "Колір іконки тегу",
+  "labelManagement": "Керування тегами",
+  "labelNotFound": "Тег не знайдено",
+  "labelRemoved": "Тег видалено",
+  "labelRemoveFailed": "Не вдалося видалити тег: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "Теги",
+  "labelsColor": "Колір тегів",
+  "labelsDeleted": "Видалено {count} тегів",
+  "labelsExportedSuccessfully": "Теги успішно експортовано",
+  "labelsFontSize": "Розмір шрифту тегів",
+  "labelsImportedSuccessfully": "Успішно імпортовано {count} тегів",
+  "labelsPosition": "Позиція тегів",
+  "labelTag": "Тег: {labelId}",
+  "labelUpdated": "Тег оновлено",
+  "labelUpdateFailed": "Не вдалося оновити тег: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "Тег \"$labelText\" успішно оновлено",
+  "languageSettings": "Налаштування мови",
+  "languageSettingsSubtitle": "Змінити мову відображення програми",
+  "languageSettingsTitle": "Налаштування мови",
+  "last30Days": "Останні 30 днів",
+  "last7Days": "Останні 7 днів",
+  "lastSyncLabel": "Остання синхронізація",
+  "lastUpdated": "Востаннє оновлено: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "Довічне членство",
+  "lifetimeMembershipDescription": "Одноразова покупка, постійне розблокування всіх преміум-функцій та майбутніх оновлень",
+  "loadContactsFailed": "Не вдалося завантажити контакти: {error}",
+  "loadDataFailed": "Не вдалося завантажити дані",
+  "loadFailed": "Помилка завантаження",
+  "loading": "Завантаження...",
+  "loadingData": "Завантаження даних...",
+  "loadingTags": "Завантаження тегів...",
+  "loadLabelFailed": "Не вдалося завантажити теги: {error}",
+  "loadLabelsFailed": "Не вдалося завантажити теги: {error}",
+  "loadMarkCountFailed": "Не вдалося завантажити позначені номери: {error}",
+  "loadMarkedPhonesFailed": "Не вдалося завантажити позначені телефони: {error}",
+  "loadMore": "Завантажити ще",
+  "loadPluginButton": "Завантажити плагін",
+  "loadPluginsFailed": "Не вдалося завантажити плагіни: {error}",
+  "loadSettingsFailed": "Не вдалося завантажити налаштування: {error}",
+  "loadSmsRulesFailed": "Не вдалося завантажити SMS-правила: {error}",
+  "loadStatusFailedMessage": "Не вдалося завантажити статус",
+  "loadSubscriptionsFailed": "Не вдалося завантажити підписки: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "Позика",
+  "localBackupTitle": "Локальна резервна копія",
+  "localCounterFilter": "Локальний лічильник-фільтр",
+  "localCounterFilterSubtitle": "Автоматично фільтрувати спам-дзвінки на основі частоти дзвінків",
+  "localCountFilter": "Локальний фільтр за лічильником",
+  "localCountFilterDescription": "Перехоплювати часті дзвінки на основі локальних лічильників номерів",
+  "localCountFilterExplanationContent": "Локальний фільтр за лічильником аналізує записи історії дзвінків для автоматичного виявлення та блокування частих спам-дзвінків.",
+  "localCountFilterExplanationTitle": "Пояснення локального фільтра за лічильником",
+  "localCountFilterHowItWorksPoint1": "• Визначати, чи блокувати номер, на основі значення лічильника номера",
+  "localCountFilterHowItWorksPoint2": "• Коли лічильник номера перевищує встановлений поріг, ви можете вибрати автоматичне блокування",
+  "localCountFilterHowItWorksPoint3": "• Ви можете вибірково дозволити номери, які не перевищують поріг",
+  "localCountFilterHowItWorksPoint4": "• Ви можете вибрати, чи записувати всі журнали запитів",
+  "localCountFiltering": "Локальна фільтрація за лічильником",
+  "localCountFilteringExplanation": "• Локальна фільтрація за лічильником: Правила фільтрації на основі локального лічильника позначень",
+  "localCountFilterSettings": "Налаштування локального фільтра за лічильником",
+  "localCountFilterUseCases": "Цей фільтр особливо підходить для ідентифікації автоматичних спам-дзвінків та маркетингових дзвінків.",
+  "localFilterSettings": "Налаштування локального фільтра",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "Локальне сповіщення вимкнено",
+  "localNotificationEnabled": "Локальне сповіщення увімкнено",
+  "localServices": "Локальні служби",
+  "locationColor": "Колір розташування",
+  "locationFontSize": "Розмір шрифту розташування",
+  "locationIconColor": "Колір іконки розташування",
+  "locationPosition": "Позиція розташування",
+  "logAllLocalQueries": "Записувати всі локальні запити",
+  "logAllLocalQueriesDescription": "Записувати журнали для всіх запитів локальних номерів",
+  "logAllRemoteQueries": "Записувати всі віддалені запити",
+  "logAllRemoteQueriesDescription": "Записувати всі операції запитів віддалених номерів",
+  "manage": "Керувати контактами",
+  "manageContacts": "Керувати",
+  "manageFavoriteContacts": "Керувати улюбленими контактами",
+  "manageFilterRules": "Керувати правилами фільтрації",
+  "manageFilterRulesDescription": "Додавати, редагувати або видаляти правила SMS-фільтрації",
+  "manageFrequentContacts": "Керувати частими контактами",
+  "markCounts": "Лічильники позначень",
+  "markCount": "Лічильник позначень",
+  "markedByCount": "Позначено {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "Позначені телефонні номери",
+  "markExchange": "Обмін позначками",
+  "markPhone": "Позначити телефонний номер",
+  "markPhoneFailed": "Не вдалося позначити номер телефону: {error}",
+  "markPhoneManagementSubtitle": "Щоб позначити номери телефонів",
+  "markPhoneManagementTitle": "Керування позначенням телефонів",
+  "markPhoneSuccess": "Номер телефону успішно позначено",
+  "matchFailed": "Збій збігу!",
+  "matchFailedMessage": "Збій збігу.",
+  "matchNumbersWithSpecialCharacters": "збігається з певним форматом номера",
+  "matchNumbersWithSpecialCharactersTitle": "Збіг номерів зі спеціальними символами:",
+  "matchSpecificDigitPatterns": "збігається з форматом XXX-XXXX-XXXX",
+  "matchSpecificDigitPatternsTitle": "Збіг певних шаблонів цифр:",
+  "matchSuccessful": "Збіг успішний!",
+  "matchSuccessfulMessage": "Збіг успішний!",
+  "medical": "Медичний",
+  "membershipPrivileges": "Привілеї членства",
+  "migrationTool": "Інструмент міграції",
+  "migrationToolTitle": "Інструмент міграції",
+  "minutes": "хвилини",
+  "month": "Місяць",
+  "monthly": "Щомісячно",
+  "monthlyCallCount": "Щомісячні дзвінки",
+  "monthlyChartTitle": "Щомісячні заблоковані дзвінки",
+  "monthlyMembership": "Щомісячне членство",
+  "monthlyMembershipDescription": "Розблокуйте всі преміум-функції, автоматичне поновлення щомісяця",
+  "monthlyTotal": "Щомісячна сума",
+  "monthlyTotalLabel": "Щомісячна сума",
+  "moreOptions": "Більше опцій",
+  "mute": "Вимкнути звук",
+  "name": "Ім'я",
+  "nameAndPhoneNumberCannotBeEmpty": "Ім'я та номер телефону не можуть бути порожніми",
+  "nameAndPhoneNumberRequired": "Ім'я та номер телефону не можуть бути порожніми",
+  "nameColor": "Колір імені",
+  "nameFontSize": "Розмір шрифту імені",
+  "nameLabel": "Ім'я: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "Позиція імені",
+  "nameUnknown": "Ім'я: Невідомо",
+  "nameWithValue": "Ім'я: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "Новий пароль",
+  "nextStep": "Далі",
+  "noAction": "Без дії",
+  "noActionRules": "Правила без дії",
+  "noActiveCloudSyncServiceMessage": "Немає активної служби хмарної синхронізації",
+  "noCallLogs": "Немає журналів дзвінків",
+  "noCallRecords": "Немає записів дзвінків",
+  "noContacts": "Немає контактів",
+  "noContactsYet": "Немає контактів",
+  "noData": "Немає даних",
+  "noDevicesRegisteredMessage": "Немає зареєстрованих пристроїв",
+  "noDevicesRegisteredYet": "Немає зареєстрованих пристроїв.",
+  "noFilters": "Немає фільтрів",
+  "noLabels": "Немає міток",
+  "noMarkedPhones": "Немає позначених номерів телефонів",
+  "noMatchingContacts": "Немає відповідних контактів",
+  "noMatchingContactsFound": "Не знайдено відповідних контактів",
+  "noMatchingNumbersFound": "Не знайдено відповідних номерів",
+  "noMatchingRecords": "Немає відповідних записів дзвінків",
+  "noMatchingRules": "Немає відповідних {ruleType}",
+  "none": "Немає",
+  "noneServiceType": "Немає",
+  "noPlugins": "Немає плагінів",
+  "noRecords": "Немає записів дзвінків",
+  "noResultReturned": "Не повернуто результату",
+  "noResultReturnedLog": "Не повернуто результату від плагіна",
+  "noRules": "Немає {ruleType}",
+  "noRulesPrompt": "Правил не знайдено, будь ласка, додайте правила",
+  "noRulesToExport": "Немає правил для експорту",
+  "noSmsFilterRulesYet": "Немає правил фільтрації SMS",
+  "noSmsRulesYet": "Немає правил SMS",
+  "noSubscriptions": "Немає підписок",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "Немає підписок",
+  "notGranted": "Не надано",
+  "notificationMode": "Режим сповіщень",
+  "notificationModeDescription": "Показувати інформацію про абонента в панелі сповіщень",
+  "notificationPermission": "Дозвіл на сповіщення",
+  "notificationPermissionDescription": "Використовується для відображення сповіщень про вхідні дзвінки та повідомлення.",
+  "notifications": "Сповіщення",
+  "notificationSettings": "Налаштування сповіщень",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "Налаштування сповіщень успішно збережено",
+  "notSet": "Не встановлено",
+  "notVerifiedText": "Не підтверджено",
+  "noValidSmsRulesFoundInFile": "У файлі не знайдено дійсних правил SMS",
+  "number": "Номер",
+  "numberColor": "Колір номера",
+  "numberFontSize": "Розмір шрифту номера",
+  "numberPosition": "Позиція номера",
+  "numberSearch": "Пошук номера",
+  "numberTypeColor": "Колір типу номера",
+  "numberTypeFontSize": "Розмір шрифту типу номера",
+  "numberTypePosition": "Позиція типу номера",
+  "ok": "OK",
+  "okButton": "OK",
+  "onboardingCompleteDescription": "Ваш менеджер безпеки дзвінків готовий, почніть насолоджуватися безпечним спілкуванням!",
+  "onboardingLanguageDescription": "Виберіть бажану мову для найкращого досвіду.",
+  "onboardingPermissionsDescription": "Щоб забезпечити повний сервіс, нам потрібні такі дозволи:",
+  "onboardingPowerfulSpamBlockingDescription": "Блокування спам-дзвінків та повідомлень в один клік, налаштування правил блокування та забезпечення тихого середовища.",
+  "onboardingSmartCallerIdDescription": "Автоматично ідентифікуйте невідомі дзвінки, позначайте підозрілі номери та захищайте свою безпеку дзвінків.",
+  "onboardingWelcomeDescription": "Ваш експерт з керування дзвінками, який надає комплексні послуги ідентифікації та блокування дзвінків.",
+  "oneDriveAuthDescription": "Авторизуйтеся за допомогою системного ідентифікатора клієнта OneDrive та ключа",
+  "oneDriveAuthorizationHint": "Авторизуйтеся за допомогою системного ідентифікатора клієнта OneDrive та ключа",
+  "oneDriveConfigTitle": "Налаштування OneDrive",
+  "oneDriveConfigurationTitle": "Налаштування OneDrive",
+  "onlineCallerIdSubscription": "Онлайн-підписка на визначник номера",
+  "openAppSettings": "Відкрити налаштування програми",
+  "openAppSettingsFailed": "Не вдалося відкрити налаштування програми: {error}",
+  "operationFailed": "Операція не вдалася: {error}",
+  "operationFailure": "Операція не вдалася",
+  "operationSuccess": "Операція виконана успішно",
+  "other": "Інше",
+  "ourOtherApps": "Інші наші програми",
+  "overlayMode": "Плаваюче вікно",
+  "overlayModeDescription": "Показувати інформацію про абонента в плаваючому вікні",
+  "overlayPermission": "Дозвіл накладання",
+  "overlayPermissionDescription": "Використовується для відображення накладання вхідного дзвінка.",
+  "overview": "Огляд",
+  "password": "Пароль",
+  "passwordCannotBeEmpty": "Пароль не може бути порожнім",
+  "passwordLabel": "Пароль",
+  "passwordsDoNotMatch": "Паролі не збігаються",
+  "passwordSetSuccessfully": "Пароль встановлено успішно",
+  "pattern": "Шаблон",
+  "pendingSync": "Очікується синхронізація",
+  "periodMonth": "Місяць",
+  "periodWeek": "Тиждень",
+  "periodYear": "Рік",
+  "permissionDenied": "У запиті на дозвіл відмовлено",
+  "permissionGranted": "Дозвіл надано",
+  "permissionManagement": "Керування дозволами",
+  "phoneCallsTab": "Телефон",
+  "phoneNumber": "Номер телефону",
+  "phoneNumberCannotBeEmpty": "Номер телефону не може бути порожнім",
+  "phoneNumberHint": "Введіть номер телефону",
+  "phoneNumberHintText": "Введіть номер телефону, щоб додати правило",
+  "phoneNumberLabel": "Номер телефону",
+  "phoneNumberRegexRequired": "Будь ласка, введіть як номер телефону, так і шаблон regex",
+  "phoneNumberRequired": "Потрібен номер телефону",
+  "phoneNumberTypeFixedLine": "Фіксована лінія",
+  "phoneNumberTypeFixedLineOrMobile": "Фіксована лінія або мобільний",
+  "phoneNumberTypeMobile": "Мобільний",
+  "phoneNumberTypePager": "Пейджер",
+  "phoneNumberTypePersonalNumber": "Особистий номер",
+  "phoneNumberTypePremiumRate": "Преміум-тариф",
+  "phoneNumberTypeSharedCost": "Спільна вартість",
+  "phoneNumberTypeTollFree": "Безкоштовний",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "Невідомо",
+  "phoneNumberTypeVoicemail": "Голосова пошта",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "Дозвіл на телефон",
+  "phonePermissionDescription": "Використовується для ідентифікації та блокування вхідних дзвінків.",
+  "phoneRule": "Правило телефону",
+  "phoneRuleEditDialog": "Діалогове вікно редагування правила телефону",
+  "phoneRuleManagement": "Керування правилами телефону",
+  "phoneRuleSubscription": "Підписка на правила телефону",
+  "phoneSubscription": "Підписка на телефон",
+  "phoneSubscriptionRulesDescription": "Підпишіться на списки правил телефону через URL-адресу, щоб автоматично оновлювати правила білого та чорного списків. Підтримує файли правил у форматі JSON.",
+  "phoneSubscriptionTitle": "Підписки на правила телефону",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "Будь ласка, виберіть мітку та введіть дійсний номер телефону",
+  "pluginAddedSuccess": "Плагін \"{name}\" успішно додано",
+  "pluginDeleted": "Плагін видалено",
+  "pluginLatestVersion": "Плагін вже має останню версію",
+  "pluginListExportSuccess": "Список плагінів успішно експортовано",
+  "pluginLoadedSuccessfully": "Плагін успішно завантажено",
+  "pluginManagement": "Керування плагінами",
+  "pluginManagementSubtitle": "Керування та налаштування сторонніх плагінів",
+  "pluginManagementTitle": "Керування плагінами",
+  "pluginName": "Назва плагіна",
+  "pluginNotLoaded": "Плагін ще не завантажено. Будь ласка, спочатку завантажте плагін.",
+  "pluginsDeleted": "{count} плагінів успішно видалено.",
+  "pluginService": "Служба плагінів",
+  "pluginTestPageTitle": "Тест плагіна",
+  "pluginUpdateSuccess": "Плагін успішно оновлено",
+  "pluginUrl": "URL-адреса плагіна",
+  "pluginUrlCannotBeEmpty": "URL-адреса плагіна не може бути порожньою",
+  "pluginUrlHint": "Введіть URL-адресу плагіна",
+  "pluginUrlLabel": "URL-адреса плагіна",
+  "pluginVersion": "Версія плагіна",
+  "political": "Політичний",
+  "powerfulSpamBlocking": "Потужне блокування спаму",
+  "previousStep": "Назад",
+  "prioritizeRemoteAction": "Пріоритет налаштувань віддалених дій",
+  "prioritizeRemoteActionDescription": "Надавати пріоритет налаштуванням дій із віддаленої бази даних",
+  "processing": "Обробка...",
+  "processingOperation": "Обробка...",
+  "purchase": "Придбати",
+  "quarterlyMembership": "Щоквартальне членство",
+  "quarterlyMembershipDescription": "Розблокуйте всі преміум-функції, автопоновлення щоквартально",
+  "queryButton": "Запит",
+  "queryFailed": "Запит не вдалося",
+  "queryFailedLog": "Запит не вдалося",
+  "querying": "Запитування...",
+  "queryingPhoneNumber": "Запитування номера телефону",
+  "queryResultTitle": "Результат запиту",
+  "ready": "Готово!",
+  "receiveWeeklyStatistics": "Отримувати щотижневу статистику",
+  "recruiter": "Рекрутер",
+  "reEnterPasswordHint": "Будь ласка, повторно введіть пароль",
+  "refresh": "Оновити",
+  "refreshPermissionStatus": "Оновити статус дозволу",
+  "refreshTooltip": "Оновити",
+  "regexError": "Помилка regex: {error}",
+  "regexErrorMessage": "Помилка regex: {error}",
+  "regexPattern": "Шаблон регулярного виразу",
+  "regexPatternExplanation": "Пояснення шаблону регулярного виразу",
+  "regexPatternExplanationButton": "Пояснення шаблону регулярного виразу",
+  "regexPatternLabel": "Шаблон регулярного виразу",
+  "regexPatternsExamples": "Використовуйте стандартний синтаксис регулярних виразів для визначення шаблонів. Приклади:",
+  "regexPatternsForPhoneNumberMatching": "Шаблони регулярних виразів для відповідності телефонним номерам",
+  "regexRule": "Правило регулярного виразу",
+  "regexRuleAddFailed": "Не вдалося додати правило регулярного виразу: {error}",
+  "regexRuleAddSuccess": "Правило регулярного виразу успішно додано",
+  "regexRuleManagement": "Керування правилами регулярних виразів",
+  "regexRuleNamePatternRequired": "Ім'я правила та шаблон регулярного виразу не можуть бути порожніми",
+  "regexRules": "Правила регулярних виразів",
+  "regexTesterTitle": "Тестер регулярних виразів",
+  "regexValidationFailed": "Перевірка регулярного виразу не вдалася: {error}",
+  "regexValidationSuccess": "Перевірка регулярного виразу успішна",
+  "region": "Регіон",
+  "registeredDevicesTitle": "Зареєстровані пристрої",
+  "rejectAllCalls": "Відхиляти всі дзвінки",
+  "rejectAllCallsDescription": "Коли увімкнено, усі дзвінки відхилятимуться з найвищим пріоритетом",
+  "rejectAllNumbers": "Відхилити всі номери",
+  "rejectAllNumbersDesc": "Відхиляти всі вхідні дзвінки, коли увімкнено",
+  "rejectExceededNumbers": "Відхиляти номери, що перевищують ліміт",
+  "rejectExceededNumbersDescription": "Автоматично відхиляти номери, які перевищують порогове значення кількості",
+  "remoteFilterSettings": "Налаштування віддаленого фільтра",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "Налаштування віддаленого фільтра номерів",
+  "remoteNumberFilter": "Віддалений фільтр номерів",
+  "remoteNumberFilterDatabaseInfo": "Цей фільтр використовує незалежну віддалену базу даних для отримання актуальної інформації про номери.",
+  "remoteNumberFilterDescription": "Перехоплювати спам-дзвінки на основі інформації з віддаленої бази даних",
+  "remoteNumberFilterExplanationContent": "Віддалений фільтр номерів ідентифікує та блокує спам-дзвінки шляхом запиту віддаленої бази даних на основі кількості дзвінків.",
+  "remoteNumberFilterExplanationTitle": "Пояснення віддаленого фільтра номерів",
+  "remoteNumberFilterFeatureCountThreshold": "• Порогове значення кількості: Визначається на основі частоти появи номера",
+  "remoteNumberFilterFeatureFilterAction": "• Дії фільтра: Налаштуйте, як поводитися з номерами, що перевищують порогове значення",
+  "remoteNumberFilterFeaturePriority": "• Налаштування пріоритету: Встановіть пріоритет для віддалених дій",
+  "remoteNumberFilterFeatures": "Особливості:",
+  "remoteNumberFiltering": "Віддалене фільтрування номерів",
+  "remoteNumberFilteringExplanation": "• Віддалене фільтрування номерів: Правила фільтрування на основі інформації з віддаленої бази даних",
+  "remoteNumberFilterSubtitle": "Ідентифікація спам-дзвінків за допомогою хмарної бази даних та звітів спільноти",
+  "removeAdsDescription": "Назавжди видалити всю рекламу в додатку для більш плавного досвіду",
+  "removeAdsTitle": "Видалити рекламу",
+  "removedFromFavoriteContacts": "Видалено з улюблених контактів",
+  "removedFromFavorites": "Видалено з улюблених контактів",
+  "removeFavorite": "Видалити з улюблених",
+  "removeFromFavorites": "Видалити з улюблених",
+  "renameButton": "Перейменувати",
+  "renameDeviceDialogTitle": "Перейменувати пристрій",
+  "renameDeviceTitle": "Перейменувати пристрій",
+  "replaceCurrentSettingsConfirmation": "Це замінить усі ваші поточні налаштування. Ви впевнені, що хочете продовжити?",
+  "requestAllPermissions": "Запросити всі дозволи",
+  "requestPermission": "Запит дозволу",
+  "requestPermissionFailed": "Не вдалося запросити дозвіл: {error}",
+  "requiredMarks": "{count} позначок",
+  "reset": "Скинути",
+  "restore": "Відновити",
+  "restoreApplicationSettingsFromBackup": "Відновити налаштування програми з резервної копії",
+  "restoreApplicationSettingsFromBackupSubtitle": "Відновити налаштування програми з резервної копії",
+  "restoreButton": "Відновити",
+  "restoreFailedWithError": "Не вдалося відновити з хмари: {error}",
+  "restoreFromCloud": "Відновити з хмари",
+  "restoreFromCloudDescription": "Відновити налаштування та правила з хмарного сховища",
+  "restoreFromCloudFailed": "Не вдалося відновити з хмари: {error}",
+  "restoreFromCloudLabel": "Відновити з хмари",
+  "restoreFromCloudSuccess": "Успішно відновлено з хмари",
+  "restoreFromCloudTitle": "Відновити з хмари",
+  "restoreFromLocal": "Відновити з локального сховища",
+  "restorePurchases": "Відновити покупки",
+  "restoreSectionTitle": "Відновлення",
+  "restoreSettings": "Відновити налаштування",
+  "restoreSettingsConfirmation": "Це замінить усі ваші поточні налаштування. Ви впевнені, що хочете продовжити?",
+  "restoreSettingsDialogTitle": "Відновити налаштування",
+  "restoreSettingsTitle": "Відновити налаштування",
+  "restoreSuccessFromLocal": "Успішно відновлено з локального сховища",
+  "restoreSuccessMessage": "Успішно відновлено з хмари",
+  "retry": "Повторити спробу",
+  "ridesharing": "Спільні поїздки",
+  "risk": "Ризик",
+  "robocall": "Рободзвінок",
+  "ruleAction": "Дія правила",
+  "ruleAddButton": "Додати правило",
+  "ruleAddedSuccess": "Правило успішно додано",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "Не вдалося додати правило: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "Правило успішно додано",
+  "ruleDeleteConfirmContent": "Ви впевнені, що хочете видалити це {ruleType}?",
+  "ruleDeleteConfirmTitle": "Видалити правило",
+  "ruleDeletedSuccess": "Правило успішно видалено",
+  "ruleDeletedSuccessfully": "Правило успішно видалено",
+  "ruleDeleteFailed": "Не вдалося видалити правило: {error}",
+  "ruleDeleteFailure": "Не вдалося видалити правило: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "Правило успішно видалено",
+  "ruleDisabledSuccessfully": "Правило успішно вимкнено",
+  "ruleEnabledSuccessfully": "Правило успішно увімкнено",
+  "ruleLoadFailed": "Не вдалося завантажити правила: {error}",
+  "ruleManagement": "Керування правилами",
+  "ruleManagementTitle": "Керування правилами",
+  "ruleName": "Ім'я правила",
+  "ruleNameAndContentRegexCannotBeEmpty": "Ім'я правила та регулярний вираз вмісту не можуть бути порожніми",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "Ім'я правила та номер телефону не можуть бути порожніми",
+  "ruleNameHint": "напр. Сім'я, Друзі тощо",
+  "ruleNameLabel": "Ім'я правила",
+  "ruleNamePatternRequired": "Будь ласка, введіть ім'я правила та шаблон",
+  "ruleNameRequired": "Ім'я правила та номер телефону не можуть бути порожніми",
+  "ruleNotExist": "Правило не існує або було видалено",
+  "ruleNotFound": "Правило не знайдено: {error}",
+  "ruleSavedSuccessfully": "Правило успішно збережено!",
+  "ruleSavedSuccessMessage": "Правило успішно збережено!",
+  "ruleSaveFailed": "Помилка збереження: {error}",
+  "ruleSaveFailedMessage": "Помилка збереження: {error}",
+  "ruleSaveSuccess": "Правило успішно збережено!",
+  "rulesExportedSuccessfully": "Правила успішно експортовано",
+  "rulesExportedTo": "Правила експортовано до: {path}",
+  "rulesImported": "Правила успішно імпортовано",
+  "rulesImportedSuccessfully": "Успішно імпортовано {count} правил",
+  "rulesImportFailed": "Не вдалося імпортувати правила: {error}",
+  "ruleStatistics": "Статистика правил",
+  "ruleStatusChanged": "Правило успішно {status}",
+  "ruleToggleFailed": "Операція не вдалася: {error}",
+  "ruleToggleSuccess": "Правило успішно {status}",
+  "ruleUpdateFailed": "Не вдалося оновити правило: {error}",
+  "ruleUpdateSuccess": "Правило успішно оновлено",
+  "ruleVerification": "Перевірка правила",
+  "save": "Зберегти",
+  "saveButton": "Зберегти",
+  "saveButtonLabel": "ЗБЕРЕГТИ",
+  "saveButtonText": "Зберегти",
+  "saveFailed": "Збереження не вдалося: {error}",
+  "saveFilter": "Зберегти фільтр",
+  "saveSettings": "Зберегти налаштування",
+  "saveSettingsFailed": "Не вдалося зберегти налаштування: {error}",
+  "scamsLikely": "Ймовірно шахрайство",
+  "search": "Пошук",
+  "searchContacts": "Пошук контактів",
+  "searchError": "Помилка пошуку: {error}",
+  "searchFilters": "Фільтри пошуку",
+  "searchForContacts": "Пошук контактів",
+  "searchHint": "Пошук...",
+  "searchSettingsSubtitle": "Пошук контактів, міток, чорних/білих списків тощо.",
+  "searchSettingsTitle": "Налаштування пошуку",
+  "securityMessage": "Не довіряйте жодним телефонним дзвінкам. Завжди перевіряйте номери служби підтримки самостійно. Ніколи не діліться паролями, кодами верифікації, номерами карток чи особистою інформацією.",
+  "selectActionToPerform": "Оберіть дію, яку слід виконати при збігу правила",
+  "selectActionWhenBlockingCalls": "Оберіть дію при блокуванні дзвінків",
+  "selectActionWhenRuleMatches": "Оберіть дію при збігу правила",
+  "selectAll": "Вибрати все",
+  "selectCountry": "Вибрати країну",
+  "selectDateRange": "Вибрати діапазон дат",
+  "selectedDateRange": "Вибраний діапазон дат",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "Вибрано {count} елементів",
+  "selectedLabel": "Вибрано:",
+  "selectExportFormat": "Вибрати формат експорту",
+  "selectLabel": "Вибрати мітку",
+  "selectLabelAndEnterPhoneNumber": "Будь ласка, оберіть мітку та введіть дійсний номер телефону",
+  "selectLanguage": "Вибрати мову",
+  "selectMultiple": "Вибрати декілька",
+  "selectPeriod": "Вибрати період",
+  "selectSimCard": "Вибрати SIM-карту",
+  "selectSimSlot": "Вибрати слот SIM-карти",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "Оберіть конкретну дію, яку слід виконати при блокуванні дзвінків",
+  "selectTag": "Вибрати тег",
+  "selectTags": "Вибрати теги",
+  "selectTrustedDataSource": "Будь ласка, оберіть довірені джерела даних",
+  "selectYourLanguage": "Виберіть свою мову",
+  "sender": "Відправник",
+  "senderRegexOptional": "Регулярний вираз відправника (необов'язково)",
+  "serverAddressLabel": "Адреса сервера",
+  "serviceTypeContact": "Підписка на контакти",
+  "serviceTypeLabel": "Тип послуги",
+  "serviceTypePhone": "Телефонна підписка",
+  "serviceTypePlugin": "Оновлення плагіна",
+  "serviceTypeSms": "SMS-підписка",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "Встановити",
+  "setEncryptionPassword": "Встановити пароль шифрування",
+  "setEncryptionPasswordDescription": "Встановити пароль шифрування для резервного копіювання та відновлення",
+  "setEncryptionPasswordLabel": "Встановити пароль шифрування",
+  "setEncryptionPasswordTitle": "Встановити пароль шифрування",
+  "setPasswordButton": "Встановити",
+  "settings": "Налаштування",
+  "settingsBackedUpTo": "Налаштування збережено до: {path}",
+  "settingsLoaded": "Налаштування завантажено",
+  "settingsLoadFailed": "Не вдалося завантажити налаштування: {error}",
+  "settingsRestoredSuccessfully": "Налаштування успішно відновлено. Перезапустіть програму, щоб зміни набули чинності.",
+  "settingsSaved": "Налаштування збережено",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "Не вдалося зберегти налаштування: {error}",
+  "settingsTab": "Налаштування",
+  "settingsTitle": "Налаштування",
+  "setup": "Налаштування",
+  "showContactEditDialogStaticMethod": "Статичний метод для відображення діалогового вікна редагування контакту",
+  "showExplanation": "Показати пояснення",
+  "silence": "Без звуку",
+  "silenceAndNoAnswer": "Без звуку та без відповіді",
+  "silenceNoAnswer": "Без звуку, без відповіді",
+  "silentCallVoiceClone": "Тихий дзвінок, клонування голосу",
+  "silentRules": "Правила беззвучного режиму",
+  "simCard": "SIM-карта {simNumber}",
+  "simCardColor": "Колір SIM-карти",
+  "simCardConfigurationExplanation": "• Конфігурація SIM-карти: Встановіть незалежні правила фільтрації для кожної SIM-карти",
+  "simCardFilterRules": "Правила фільтрації SIM-карти",
+  "simCardFilterRulesDescription": "Встановіть різні правила фільтрації залежно від слотів SIM-карти",
+  "simCardFontSize": "Розмір шрифту SIM-карти",
+  "simCardPosition": "Позиція SIM-карти",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "Не вдалося завантажити інформацію про SIM-карту: {error}",
+  "simRuleInstructions": "Правила слотів SIM-карти дозволяють налаштувати незалежні правила фільтрації для кожного слота SIM-карти.",
+  "simRuleInstructionsTitle": "Правила слотів SIM-карти",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "Керування правилами слотів SIM-карти",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "Не вдалося завантажити дані SIM-карти: {error}",
+  "simSlotFilterConfiguration": "Налаштування фільтрації слотів SIM-карти",
+  "simSlotFilterConfigurationDescription": "Дозволяє встановлювати правила фільтрації за слотом SIM-карти",
+  "simSlotFilterDescription": "Налаштуйте незалежні правила фільтрації для кожної SIM-карти:",
+  "simSlotFilterSettingsTitle": "Налаштування фільтра {slotNumber} слота SIM-карти",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "Не вдалося завантажити слоти SIM-карти: {error}",
+  "simSlotManagement": "Керування слотами SIM-карти",
+  "simSlotOperationFailed": "Операція зі слотом SIM-карти не вдалася: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "Позиція слота SIM-карти {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• Правила слотів SIM-карти: Незалежні стратегії фільтрації для кожної SIM-карти",
+  "simSlotRuleListTitle": "Список правил слотів SIM-карти",
+  "simSlotRuleManagement": "Правила слотів SIM-карти",
+  "simSlotRuleManagementTitle": "Керування правилами",
+  "simSlotSettings": "Налаштування слотів SIM-карти",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "Слот SIM-карти {slotNumber}",
+  "skip": "Пропустити",
+  "smartCallerId": "Розумна ідентифікація абонента",
+  "sms": "SMS",
+  "smsFilterDescription": "Фільтрація SMS допомагає автоматично відфільтровувати спам-повідомлення та підтримувати список повідомлень чистим. Ви можете налаштувати правила фільтрації та методи сповіщень.",
+  "smsFilterDisabled": "Фільтрацію SMS вимкнено",
+  "smsFilterEnabled": "Фільтрацію SMS увімкнено",
+  "smsFilterRuleAddedSuccessfully": "Правило фільтрації SMS успішно додано",
+  "smsFilterRules": "Правила фільтрації SMS",
+  "smsFilterSettings": "Налаштування фільтрації SMS",
+  "smsHistory": "Історія SMS",
+  "smsManagement": "Керування SMS",
+  "smsPermission": "Дозвіл на SMS",
+  "smsPermissionDescription": "Використовується для фільтрації спам-повідомлень.",
+  "smsRuleAddedSuccessfully": "Правило SMS успішно додано",
+  "smsRuleDeletedSuccessfully": "Правило SMS успішно видалено",
+  "smsRuleLoadFailed": "Не вдалося завантажити правила SMS: {error}",
+  "smsRuleManagement": "Керування правилами SMS",
+  "smsRulesExportedSuccessfully": "Правила SMS успішно експортовано до {filePath}",
+  "smsRulesImportedSuccessfully": "Правила SMS успішно імпортовано",
+  "smsRuleSubscription": "Підписка на правила SMS",
+  "smsRuleUpdatedSuccessfully": "Правило SMS успішно оновлено",
+  "smsSettingsSubtitle": "Фільтрація SMS та блокування за ключовими словами",
+  "smsSettingsTitle": "Налаштування SMS",
+  "smsSubscription": "Підписка на SMS",
+  "smsSubscriptionAddedSuccessfully": "Підписку на SMS успішно додано",
+  "smsSubscriptionRulesDescription": "Підпишіться на списки правил SMS за допомогою URL-адреси, підтримується зіставлення з регулярними виразами. Ви можете встановити дії блокування або дозволу.",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "У деяких запитах на дозвіл відмовлено",
+  "spamLikely": "Ймовірно спам",
+  "startColor": "Початковий колір",
+  "startDate": "Дата початку",
+  "startUsing": "Почати",
+  "statAnswered": "Прийнято",
+  "statBlocked": "Заблоковано",
+  "staticMethodShowCallerIdDialog": "Статичний метод для відображення діалогового вікна інформації про абонента",
+  "staticMethodToDisplayCountrySelectionDialog": "Статичний метод для відображення діалогового вікна вибору країни",
+  "staticMethodToDisplayDialog": "Статичний метод для відображення діалогового вікна",
+  "statistics": "Статистика",
+  "statisticsExportFeatureComingSoon": "Функція експорту статистики скоро з'явиться",
+  "statisticsGrid": "Сітка статистики",
+  "statisticsPageTitle": "Аналіз даних",
+  "stirColor": "Колір STIR",
+  "stirFontSize": "Розмір шрифту STIR",
+  "stirPosition": "Позиція STIR",
+  "storagePermission": "Дозвіл на зберігання",
+  "storagePermissionDescription": "Використовується для збереження налаштувань та правил.",
+  "subscribe": "Підписатися",
+  "subscriptionAddSuccess": "Підписку \"{name}\" успішно додано",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "Ви впевнені, що хочете видалити цю підписку?",
+  "subscriptionDeleteConfirmTitle": "Видалити підписку",
+  "subscriptionDeleted": "Підписку видалено",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "Підписку успішно видалено",
+  "subscriptionDeleteFailed": "Не вдалося видалити підписку: {error}",
+  "subscriptionDeleteSuccess": "Підписку видалено",
+  "subscriptionEmptyState": "Немає доступних підписок",
+  "subscriptionEmptyText": "Поки що немає підписок",
+  "subscriptionLoadFailed": "Не вдалося завантажити підписки: {error}",
+  "subscriptionLoadingFailed": "Не вдалося завантажити підписки: {error}",
+  "subscriptionManagementTitle": "Керування підписками",
+  "subscriptionName": "Назва підписки",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "Назва підписки та URL-адреса не можуть бути порожніми",
+  "subscriptionNameHint": "Введіть назву підписки",
+  "subscriptionPageTitle": "Керування підписками",
+  "subscriptionStatusChangeFailed": "Не вдалося змінити статус підписки: {error}",
+  "subscriptionToggleFailed": "Не вдалося перемкнути статус підписки: {error}",
+  "subscriptionUpdateFailed": "Не вдалося оновити підписку: {error}",
+  "subscriptionUpdateSuccess": "Підписку успішно оновлено",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "URL-адреса підписки",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "Введіть URL-адресу підписки",
+  "successfullyImportedRules": "Успішно імпортовано {count} правил",
+  "supportSync": "Підтримка синхронізації",
+  "survey": "Опитування",
+  "syncDevicesButton": "Синхронізувати пристрої",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "Не вдалося синхронізувати",
+  "syncFailedMessage": "Помилка синхронізації",
+  "syncFolderNameHint": "Введіть назву папки синхронізації (за замовчуванням: NotificationManager)",
+  "syncFolderNameLabel": "Назва папки синхронізації",
+  "synchronized": "Синхронізовано",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "Синхронізація...",
+  "syncNow": "Синхронізувати зараз",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "Синхронізувати зараз",
+  "syncStatusTitle": "Статус синхронізації",
+  "syncStatusUpdatedMessage": "Статус синхронізації оновлено",
+  "syncSuccessful": "Синхронізація успішна",
+  "syncSuccessMessage": "Синхронізація успішна",
+  "syncWithCloudStorage": "Синхронізувати з хмарним сховищем",
+  "syncWithCloudStorageSubtitle": "Синхронізувати з хмарним сховищем",
+  "systemFeatures": "Системні функції:",
+  "systemSettingsTitle": "Системні налаштування",
+  "tabAll": "Усі",
+  "tabAnswered": "Відповідані",
+  "tabBlocked": "Заблоковані",
+  "tabMissed": "Пропущені",
+  "tabOutgoing": "Вихідні",
+  "tagLabel": "Тег: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "Теги оновлено",
+  "takeaway": "Ключовий момент",
+  "telecommunication": "Телекомунікації",
+  "telegram": "Telegram",
+  "telemarketing": "Телемаркетинг",
+  "testButton": "ТЕСТ",
+  "testButtonLabel": "ТЕСТ",
+  "testConnectionButton": "Перевірити з'єднання",
+  "textColorsSetting": "Кольори тексту та міток",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "Ця програма є потужним інструментом ідентифікації абонента, який дозволяє ідентифікувати та блокувати небажані дзвінки.",
+  "thisWeek": "Цього тижня",
+  "timeInterceptor": "Перехоплювач часу",
+  "timeInterceptorDescription": "Автоматично перехоплювати/дозволяти потенційні дзвінки на основі частоти дзвінків",
+  "timeInterceptorExplanation": "• Перехоплювач часу: Перехоплювати/дозволяти повторні дзвінки протягом короткого часу",
+  "timeInterceptorExplanationContent": "Функція перехоплення за частотою дзвінків аналізує частоту дзвінків для автоматичної ідентифікації та перехоплення/дозволу частих спам-дзвінків.",
+  "timeInterceptorExplanationTitle": "Пояснення перехоплення за частотою дзвінків",
+  "timeInterceptorSettingsTitle": "Налаштування перехоплення за частотою дзвінків",
+  "timeInterceptorSubtitle": "Автоматично перехоплювати потенційні спам-дзвінки на основі частоти дзвінків",
+  "timeInterceptorTitle": "Увімкнути перехоплення за частотою дзвінків",
+  "timeWindowDescription": "Встановіть розмір часового вікна для дозволу повторних дзвінків. Дзвінки з того самого номера в межах цього вікна будуть дозволені",
+  "timeWindowLabel": "Часове вікно перехоплення (хвилини): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "Встановіть розмір часового вікна для дозволу повторних дзвінків. Дзвінки з того самого номера в межах цього вікна будуть дозволені",
+  "today": "Сьогодні",
+  "total": "Усього",
+  "totalBlocked": "Усього заблоковано",
+  "totalFiltered": "Усього відфільтровано",
+  "transferDataBetweenDevicesOrPlatforms": "Передача даних між пристроями або платформами",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "Передача даних між пристроями або платформами",
+  "travelTicketing": "Продаж квитків на подорожі",
+  "trend": "Тенденція",
+  "trendChart": "Діаграма тенденцій",
+  "tutorial": "Посібник",
+  "type": "Тип",
+  "unassignedSIMCard": "Непризначена SIM-картка",
+  "unknown": "Невідомо",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "Невідома мітка",
+  "unknownTag": "Тег: Невідомо",
+  "unregisterButton": "Скасувати реєстрацію",
+  "unregisterDeviceConfirmationMessage": "Ви впевнені, що хочете скасувати реєстрацію {deviceName}?",
+  "unregisterDeviceTitle": "Скасувати реєстрацію пристрою",
+  "unsupportedFileFormat": "Непідтримуваний формат файлу",
+  "update": "Оновити",
+  "updateAllNow": "Оновити все зараз",
+  "updateCallFilterConfig": "Оновити конфігурацію фільтра дзвінків",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "Не вдалося оновити контакт: {error}",
+  "updateFavoriteStatus": "Оновити статус вибраного",
+  "updateFavoriteStatusFailed": "Не вдалося оновити статус вибраного: {error}",
+  "updateInterval": "Інтервал оновлення",
+  "updateLabelFailed": "Не вдалося оновити мітку",
+  "updateNow": "Оновити зараз",
+  "updatePlugin": "Оновити плагін",
+  "updatePluginFailed": "Не вдалося оновити плагін: {error}",
+  "updateRuleFailed": "Не вдалося оновити правило: {error}",
+  "updateSubscriptionFailed": "Не вдалося оновити підписку: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} успішно оновлено ({count} правил)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "Оновити теги",
+  "useCasesPoint1": "• Ідентифікувати спам-дзвінки з автоповтором набору",
+  "useCasesPoint2": "• Перехоплювати маркетингові дзвінки, які дзвонять кілька разів протягом короткого періоду",
+  "useCasesPoint3": "• Запобігати телефонному бомбардуванню та переслідуванню",
+  "useCasesTitle": "Варіанти використання:",
+  "useGlobalSettings": "Використовувати глобальні налаштування",
+  "userEmail": "user@example.com",
+  "usernameLabel": "Ім'я користувача",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "Використовуйте стандартний синтаксис regex для визначення шаблонів. Приклади:",
+  "validateRegex": "Перевірити Regex",
+  "verificationFailedText": "Невдало",
+  "verifiedText": "Перевірено",
+  "verify": "Перевірити",
+  "version": "Версія: {version}",
+  "vipExchangeDescription": "Обміняти VIP-членство на кількість позначок телефонних номерів",
+  "vipExchangeTitle": "Обмін позначок VIP",
+  "watchAd": "Переглянути рекламу",
+  "watchAdForTemp": "Переглянути рекламу для тимчасових привілеїв",
+  "watchAdForTempDescription": "Перегляньте коротку рекламу, щоб тимчасово розблокувати деякі преміум-функції",
+  "webDAVConfigTitle": "Конфігурація WebDAV",
+  "webdavConfigurationTitle": "Конфігурація WebDAV",
+  "webdavPasswordHint": "Будь ласка, введіть пароль WebDAV",
+  "webdavServerAddressHint": "Будь ласка, введіть адресу сервера WebDAV",
+  "webdavUsernameHint": "Будь ласка, введіть ім'я користувача WebDAV",
+  "week": "Тиждень",
+  "weekly": "Щотижнево",
+  "weeklyBlockedCallsSummary": "Щотижневий звіт про заблоковані дзвінки",
+  "weeklyChartTitle": "Щотижневі заблоковані дзвінки",
+  "weeklyReport": "Щотижневий звіт",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "Отримувати щотижневий звіт про активність блокування дзвінків",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "Ласкаво просимо",
+  "whitelist": "Білий список",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "Білий список",
+  "width": "Ширина",
+  "wildcardMatchingDescription": "Використовуйте '.' для відповідності будь-якому символу (наприклад, '123.456' відповідає 123-456)",
+  "wildcardMatchingTitle": "Зіставлення за шаблоном:",
+  "wildcardSupportForFlexibleFiltering": "Підтримка шаблонів для гнучкої фільтрації",
+  "windowSizeSetting": "Розмір вікна",
+  "year": "Рік",
+  "yearly": "Щорічно",
+  "yearlyChartTitle": "Щорічні заблоковані дзвінки",
+  "noSimCardsDetected": "SIM-картки не виявлено",
+  "filterManagementDescription": "Налаштування фільтрів дзвінків",
+  "callerIdCustomizationSubtitle": "Налаштувати макет ідентифікатора абонента",
+  "fraudAlerSettingTitle": "Налаштування оповіщення про шахрайство",
+  "fraudAlerSettingSubtitle": "Налаштувати оповіщення про шахрайство",
+  "enableFraudAlert": "Увімкнути оповіщення про шахрайство",
+  "enableFraudAlertDescription": "Сповіщення про підозрілі шахрайські дзвінки",
+  "enableVibration": "Увімкнути вібрацію",
+  "enableVibrationDescription": "Вібрація при підозрілих шахрайських дзвінках",
+  "notificationSettingsTitle": "Налаштування сповіщень",
+  "useLocalNotification": "Використовувати локальні сповіщення",
+  "useLocalNotificationDescription": "Увімкнути локальні сповіщення для вхідних дзвінків",
+  "cancelLocalNotification": "Закрити локальні сповіщення",
+  "useStirNotification": "Використовувати сповіщення STIR",
+  "useStirNotificationDescription": "Увімкнути сповіщення STIR для вхідних дзвінків",
+  "cancelLocalNotificationDescription": "Автоматично закривати локальні сповіщення",
+  "callerIdSettingsTitle": "Налаштування ідентифікатора абонента",
+  "callerIdSettingsSubtitle": "Налаштування сповіщень про вхідні дзвінки та режиму відображення",
+  "purchaseTitle": "Придбання",
+  "purchaseSubtitle": "Придбати послугу",
+  "callerIdNotificationTitle": "Інформація про вхідний дзвінок",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Номер: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "Заблокований дзвінок",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "Заблокований дзвінок від {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Перевірено",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Не перевірено",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Перевірка не вдалася",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Невідомий статус перевірки",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "Перевірка STIR/SHAKEN",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} для номера {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "Налаштування повідомлення безпеки, що прокручується",
+  "messageColor": "Колір повідомлення",
+  "messageFontSize": "Розмір шрифту повідомлення",
+  "messagePosition": "Позиція повідомлення",
+  "containerWidth": "Ширина контейнера",
+  "scrollSpeed": "Швидкість прокручування",
+  "enableSecurityMessage": "Увімкнути повідомлення безпеки",
+  "fraudAlertTitle": "Оповіщення про шахрайство",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "Можливий шахрайський дзвінок від {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "Не вдалося завантажити правила: {error}",
+  "loadCallLogFailed": "Не вдалося завантажити журнал дзвінків: {error}",
+  "noBlockedTypeData": "Немає даних про тип блокування",
+  "importEntity": "Імпорт {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} успішно імпортовано, всього імпортовано {count} записів",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "Не вдалося імпортувати {entityTypeName}: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Експорт {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} успішно експортовано",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "Не вдалося експортувати {entityTypeName}: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "Служба хмарної синхронізації",
+  "membershipCenter": "Центр членства",
+  "redeemVipWithMarks": "Активувати VIP за бали",
+  "currentMarkCount": "Поточна кількість балів",
+  "markMoreNumbersForMore": "Позначте більше номерів, щоб отримати більше балів",
+  "noAds": "Без реклами",
+  "cloudBackup": "Хмарне резервне копіювання",
+  "callerIdEnhancement": "Покращення ідентифікатора абонента",
+  "voiceRecognition": "Розпізнавання голосу",
+  "feature": "Функція",
+  "normalUser": "Звичайний користувач",
+  "vipUser": "VIP користувач",
+  "temporaryVip": "Тимчасовий VIP",
+  "removeAds": "Видалити рекламу",
+  "unknownAction": "Невідома дія",
+  "settingsBackup": "Резервне копіювання налаштувань ",
+  "allServicesStatusTitle": "Поточний статус послуг",
+  "allServicesStatusSubtitle": "Поточний статус кожної хмарної служби",
+  "redirect": "Переадресувати",
+  "notify": "Сповістити",
+  "log": "Записати в журнал",
+  "custom": "Власноруч",
+  "allowActionDescription": "Дзвінки будуть дозволені, навіть якщо номер є у списку блокування.",
+  "blockActionDescription": "Дзвінки будуть заблоковані та відображені в журналі дзвінків.",
+  "silenceActionDescription": "Дзвінки будуть безшумними, але відображені в журналі дзвінків.",
+  "noneActionDescription": "Жодних спеціальних дій для дзвінка не буде вжито.",
+  "redirectActionDescription": "Переадресувати дзвінок на вказаний номер.",
+  "labelActionDescription": "Додати мітку до дзвінка для легкої ідентифікації.",
+  "notifyActionDescription": "Надіслати сповіщення про отримання дзвінка.",
+  "logActionDescription": "Записати інформацію про дзвінок у журнал, не виконуючи інших дій.",
+  "customActionDescription": "Виконати власноручну дію.",
+  "synced": "Синхронізовано",
+  "needVipAccess": "Щоб використовувати цю функцію, вам потрібен VIP-доступ",
+  "importExportDescription": "Імпорт або експорт даних {entityTypeName}",
+  "importExportTitle": "Імпорт/Експорт",
+  "noPhoneRules": "Правил для телефонів не знайдено",
+  "noRegexRules": "Правил регулярних виразів не знайдено",
+  "noAllowedBlockedRules": "Правил дозволених/заблокованих номерів не знайдено",
+  "importExport": "Імпорт/Експорт",
+  "filterByAction": "Фільтрувати за дією",
+  "upgradeToVip": "Оновити до VIP",
+  "batteryOptimizationPermission": "Оптимізація батареї",
+  "batteryOptimizationPermissionDescription": "Дозволити додатку працювати у фоновому режимі для надання таких послуг, як ідентифікація абонента.",
+  "permissionTitle": "Спеціальні дозволи",
+  "permissionSubtitle": "Керування дозволами накладання та оптимізацію батареї",
+  "themeSettingsTitle": "Налаштування теми",
+  "themeSettingsSubtitle": "Виберіть улюблену тему",
+  "databaseSyncTitle": "Синхронізація бази даних",
+  "countrySyncSettingsTitle": "Налаштування синхронізації бази даних за країнами",
+  "countrySyncSettingsSubtitle": "Виберіть країни для синхронізації даних",
+  "countryDataDisclaimer": "Зверніть увагу: База даних може не містити дані для всіх конкретних країн або регіонів.",
+  "editSubscription": "Редагувати підписку",
+  "searchByNameOrPhoneNumber": "Пошук за ім'ям або номером телефону",
+  "allowedBlockedRulesInfo": "Правила дозволено/заблоковано використовуються для зіставлення викликів з певними телефонними номерами, які мають найвищий пріоритет.",
+  "searchPhoneRulesHint": "Пошук правил телефону",
+  "phoneRulesInfo": "Правила телефону використовуються для зіставлення викликів з певними телефонними номерами, які мають нижчий пріоритет. Деякі з них походять із підписок phoneRule",
+  "searchSubscriptionsHint": "Пошук підписок",
+  "searchPluginsHint": "Пошук плагінів",
+  "searchLabelsHint": "Пошук міток",
+  "pluginDescription": "Опис плагіна",
+  "enterPluginDescription": "Введіть опис плагіна",
+  "searchRegexRulesHint": "Пошук правил regex",
+  "regexRulesInfo": "Правила regex використовуються для фільтрації викликів на основі шаблонів Regex.",
+  "searchMarkedPhonesHint": "Пошук позначених телефонів",
+  "searchContactSubscriptionsHint": "Пошук контактних підписок",
+  "showAllContacts": "Показати всі контакти",
+  "showFavorites": "Показати вибране",
+  "manualEntry": "Інформація про ручне введення",
+  "scriptSaved": "Скрипт збережено",
+  "editScriptFor": "Редагувати скрипт для {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "Зберегти скрипт",
+  "testPlugin": "Тестувати плагін",
+  "description": "Опис",
+  "accessTargetUrl": "Доступ до цільової URL-адреси",
+  "result": "Результат",
+  "editScript": "Редагувати скрипт",
+  "numberFormat": "Формат номера",
+  "nationalNumber": "Національний номер",
+  "e164Number": "Номер E164",
+  "pluginRulesInfo": "З міркувань безпеки використовуйте плагіни лише з надійних джерел. Не соромтеся використовувати наші шаблони для створення власних користувацьких плагінів!",
+  "advancedMode": "Розширений режим",
+  "pleaseEnterAtLeastOneNumber": "Будь ласка, введіть принаймні один номер.",
+  "openInWebView": "Відкрити у WebView",
+  "pluginLabel": "Мітка плагіна",
+  "pluginID": "Ідентифікатор",
+  "pluginURL": "URL-адреса",
+  "messageBackgroundColor": "Колір фону повідомлення",
+  "clearAllCallLogs": "Очистити всі журнали викликів",
+  "clearAllCallLogsConfirmation": "Підтвердити очищення всіх журналів викликів",
+  "allCallLogsCleared": "Усі журнали викликів очищено",
+  "unblocked": "Розблоковано",
+  "blockNumber": "Заблокувати номер",
+  "blockNumberSuccess": "Номер успішно заблоковано",
+  "blockNumberFailed": "Не вдалося заблокувати номер",
+  "unblockNumberConfirmation": "Ви впевнені, що хочете розблокувати {phoneNumber}?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "Виклик {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "Переглянути деталі",
+  "unblock": "Розблокувати",
+  "unblockNumber": "Розблокувати номер",
+  "unblockNumberSuccess": "Номер успішно розблоковано",
+  "unblockNumberFailed": "Не вдалося розблокувати номер",
+  "serviceNotAvailable": "Послуга недоступна",
+  "callingNumberFailed": "Не вдалося викликати номер",
+  "listView": "Перегляд списку",
+  "timelineView": "Перегляд хронології",
+  "nameCannotBeEmpty": "Ім'я не може бути порожнім",
+  "selectAction": "Виберіть дію",
+  "selectTargetService": "Виберіть цільову послугу",
+  "callDetails": "Деталі виклику",
+  "callType": "Тип виклику",
+  "callTime": "Час виклику",
+  "numberInvalidFormat": "Невірний формат номера",
+  "membershipFeature": "Функція членства",
+  "medium": "Середній",
+  "verificationReport": "Звіт про перевірку",
+  "finalRisk": "Кінцевий ризик",
+  "simState": "Стан SIM-карти",
+  "ipCountry": "Країна IP",
+  "simCountry": "Країна SIM-карти",
+  "isRoaming": "Роумінг",
+  "isNumberMatch": "Збіг номера",
+  "support": "Підтримка",
+  "rewardedAdService": "Послуга реклами з винагородою",
+  "hasVipPrivilegeExceptAds": "Ви вже маєте VIP-привілеї (крім реклами)",
+  "hasTempPrivilegeWithExpiry": "Ви вже маєте тимчасові привілеї, термін дії: {expiryDate}",
+  "watchMoreAdsForTempVip": "Вам потрібно переглянути ще {count} реклам, щоб отримати тимчасові VIP-привілеї",
+  "grantedTempPurchaseWithExpiry": "Вам надано {days} днів тимчасових привілеїв покупки. Термін дії: {expiryDate}",
+  "tempPurchaseExpired": "Термін дії тимчасового привілею покупки закінчився",
+  "loadingAd": "Завантаження реклами...",
+  "earnedTempVip": "Отримано тимчасовий VIP",
+  "vipExchangeService": "Послуга обміну VIP",
+  "marksInsufficient": "Недостатньо балів для обміну",
+  "invalidExchangeRule": "Недійсне правило обміну",
+  "exchangeSuccess": "Успішно обміняно на {description}, термін дії: {expiryDate}",
+  "exchangeFailed": "Помилка обміну: {error}",
+  "vip3DaysWithAds": "3-денний VIP з рекламою (лише синхронізація)",
+  "vip5DaysNoAds": "5-денний повнофункціональний VIP без реклами",
+  "vip7DaysNoAds": "7-денний повнофункціональний VIP без реклами",
+  "noNotifications": "Немає сповіщень",
+  "clearAllNotifications": "Очистити всі сповіщення",
+  "clearAllNotificationsConfirmation": "Підтвердити очищення всіх сповіщень",
+  "allNotificationsCleared": "Усі сповіщення очищено",
+  "clearButton": "Очистити",
+  "justNow": "Щойно",
+  "minutesAgo": "{count,plural, =1{1 хвилину тому} other{{count} хвилин тому}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1 годину тому} other{{count} годин тому}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1 день тому} other{{count} днів тому}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "Вчора",
+  "deletionProposal": "Пропозиція видалення",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "Пропозиції видалення",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "Створити пропозицію",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "Створити пропозицію видалення",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "Причина",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "Застарілий номер",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Проблема конфіденційності",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Не обслуговується",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Неправильно ідентифікований",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Неточна інформація",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "Неправильно позначений",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "Інше",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "Надіслати",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "Скасувати",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "Статус",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "Очікує",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "Активний",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "Завершено",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "Термін дії закінчився",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "Рівень ризику",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "Перевірено",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "Низький",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "Високий",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "Невідомо",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "Прогрес голосування",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "Згода: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "Не згода: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "Усього: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "Погоджуюсь",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "Не погоджуюсь",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "Створено: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "Показати звіт",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "Приховати звіт",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "Статистика пропозицій",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "Усього пропозицій",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "Активні пропозиції",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "Завершені пропозиції",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "Мої голоси",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "Пропозицію успішно створено",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "Не вдалося створити пропозицію",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "Голос успішно надіслано",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "Не вдалося надіслати голос",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "Пропозицій не знайдено",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "Завантаження пропозицій...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "Оновити пропозиції",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "Усього очікуючих пропозицій",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "Високий ризик",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "Середній ризик",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "Низький ризик",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "Вплив на спільноту",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "Критичні проблеми",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "Участь спільноти",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "Немає активності",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "Низький",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "Помірний",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "Високий",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "Дуже високий",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "Проголосовано",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "Голоси спільноти",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "Очікування більшої кількості голосів спільноти",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "Цю пропозицію оброблено",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "ПІДТРИМАНО",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "ПРОТИ",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "СХВАЛЕНО",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "ВІДХИЛЕНО",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "ЗАВЕРШЕНО",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "ОЧІКУЄ",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "Критичний",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "Проти",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "Дуже низький",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "Сповіщення про результати голосування та оновлення пропозицій видалення.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "Пропозицію видалення створено",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "Вашу пропозицію видалення номера {phoneNumber} надіслано на розгляд спільноти.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "Пропозицію схвалено ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "Пропозицію видалення номера {phoneNumber} схвалено спільнотою ({supportPercentage}% підтримки, {totalVotes} голосів).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "Пропозицію відхилено ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "Пропозицію видалення номера {phoneNumber} відхилено спільнотою ({supportPercentage}% підтримки, {totalVotes} голосів).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "Розпочато голосування спільноти",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "Нова пропозиція видалення номера {phoneNumber} відкрита для голосування спільноти.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "Голосування завершено",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "Голосування спільноти щодо {phoneNumber} завершено. Результат: {result} ({supportPercentage}% підтримки).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "Отримано новий голос",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "Хтось проголосував {voteType} видалення номера {phoneNumber}. Поточна кількість голосів: {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "Не вдалося завантажити кількість голосів",
+  "voteCount": "Кількість голосів",
+  "deletionProposalInfo": "Інформація про пропозицію видалення",
+  "deletionProposalDescription": "Запропонуйте номери для видалення, які порушують правила спільноти. Ваша участь допомагає забезпечити безпеку платформи.",
+  "voteToEarnVip": "Голосуйте за пропозиції, щоб отримати VIP-привілеї!",
+  "voteFailed": "Не вдалося проголосувати",
+  "searchProposals": "Пошук пропозицій",
+  "defaultNotifications": "Сповіщення за замовчуванням",
+  "defaultNotificationsDescription": "Канал сповіщень за замовчуванням для програми.",
+  "blockedCallNotifications": "Сповіщення про заблоковані дзвінки",
+  "blockedCallNotificationsDescription": "Відображає інформацію про заблоковані дзвінки.",
+  "stirVerification": "STIR/SHAKEN Верифікація",
+  "stirVerificationDescription": "Відображає результати верифікації STIR/SHAKEN для номерів.",
+  "fraudAlerts": "Шахрайські сповіщення",
+  "fraudAlertsDescription": "Відображає попередження про потенційно шахрайські дзвінки.",
+  "notificationFrequencyDescription": "Оберіть, як часто ви отримуєте сповіщення про нові пропозиції видалення. Ви можете отримувати їх негайно, партіями або через власний інтервал.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "Негайно",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "Отримувати сповіщення, як тільки пропозиція створена.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "Партіями",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "Отримувати зведення сповіщень періодично.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "Власний",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "Визначте власний інтервал для отримання сповіщень.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "Власна частота",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} хв",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} год",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} год {minutes} хв",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "Очікувані пропозиції",
+  "pendingProposalsBody": "У вас {count, plural, =0 {немає очікуваних пропозицій} one {1 очікувана пропозиція} few {{count} очікувані пропозиції} other {{count} очікуваних пропозицій}}.",
+  "guidelinesLabel": "Правила",
+  "reportingGuidelines": "• Повідомляйте лише про номери, які дійсно є проблемними\n• Надайте точні та детальні причини\n• Оберіть відповідний рівень ризику на основі серйозності\n• Неправдиві повідомлення можуть призвести до обмежень облікового запису",
+  "riskLevelLabel": "Рівень ризику",
+  "riskLevelDescription": "Рівень ризику номера",
+  "phoneNumberMinDigits": "Номер телефону повинен містити не менше 7 цифр",
+  "provideDetailedExplanation": "Надайте детальне пояснення (мінімум 10 символів)",
+  "reasonMinCharacters": "Причина повинна містити не менше 10 символів",
+  "countryCodeTwoLetters": "Код країни (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Код країни (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "напр. US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "Код країни є обов'язковим",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "Код країни повинен складатися з 2 літер",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "Номер телефону повинен містити не менше 7 цифр",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "Надайте детальне пояснення (мінімум 10 символів)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "Причина є обов'язковою",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "Причина повинна містити не менше 10 символів",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "Правила",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• Повідомляйте лише про номери, які дійсно є проблемними\n• Надайте точні та детальні причини\n• Оберіть відповідний рівень ризику на основі серйозності\n• Неправдиві повідомлення можуть призвести до обмежень облікового запису",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "Критичний",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "Середній",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "Дуже низький",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "Дуже низький - Незначна незручність, нечасті дзвінки",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "Низький - Випадкові небажані дзвінки",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "Середній - Регулярний спам або телемаркетинг",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "Високий - Постійне переслідування або спроби шахрайства",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "Критичний - Небезпечні шахрайства або погрози",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "Частота сповіщень",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "Частота сповіщень (години)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "Помилка: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "Голоси: {totalVotes} ({supportPercentage}% підтримки)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "Підтримати ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "Оскаржити ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "Щойно",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes} хв тому",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours} год тому",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days} дн. тому",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "Частота сповіщень (Години)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} голосів ({supportPercentage}% підтримки)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 годин} =1{1 година} few{{count} години} other{{count} годин}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "Важливе повідомлення",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "Номери отримані з Інтернету та користувацьких даних. Ми не можемо гарантувати, що номер, після видалення, не буде повторно доданий іншими користувачами або джерелами. Будь ласка, активно шукайте та перевіряйте інформацію.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "Аватар",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Місцезнаходження",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIM-карта",
+  "liveActivitiesSettingsTitle": "Налаштування Live Activities",
+  "elementsSettingsTitle": "Налаштування елементів",
+  "liveActivityMode": "Live Activity",
+  "liveActivityModeDescription": "Відображає інформацію про дзвінок як постійне сповіщення на екрані блокування та в Dynamic Island (iOS).",
+  "phoneNumberType": "Тип номера телефону",
+  "liveActivitiesTestEndActivity": "Завершити дію",
+  "liveActivitiesTestSendNewActivity": "Надіслати нову дію",
+  "liveActivitiesTestUpdateActivity": "Оновити дію",
+  "liveActivityControlsTitle": "Керування Live Activity",
+  "liveActivitiesTestTitle": "Тест Live Activities",
+  "liveActivitiesTestSubtitle": "Протестуйте сповіщення Live Activity.",
+  "liveNotificationCustomizationTitle": "Налаштування сповіщень Live Activity",
+  "liveNotificationCustomizationSubtitle": "Налаштуйте вигляд сповіщень Live Activity.",
+  "notification_instructions": "Інструкції:\n1. Натисніть \"НАДІСЛАТИ\", щоб створити або оновити сповіщення.\n2. Перейдіть на головний екран або потягніть униз панель сповіщень, щоб побачити результат.\n3. Натисніть \"ЗАВЕРШИТИ\", щоб закрити сповіщення.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "Автоматичне скасування сповіщення",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "Якщо позначено, сповіщення буде автоматично закрито, коли користувач натисне на нього.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "Встановити час затримки",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Деталі пропозиції",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "Фільтрувати за статусом",
+  "proposalNotFound": "Пропозицію не знайдено",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "Опрацьовано",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Показати всі",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "Фільтрація та сортування",
+  "filterVerifiedOwner": "Фільтрувати за підтвердженим власником",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "Фільтрувати за",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "Сортувати за найстарішими",
+  "sortNewest": "Сортувати за найновішими",
+  "sortMostPopular": "Сортувати за найпопулярнішими",
+  "sortLeastPopular": "Сортувати за найменш популярними",
+  "sortBy": "Сортувати за",
+  "simRulesNotFound": "Правила SIM-карти не знайдено",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "Правила SIM-слота",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "SIM-карта не виявлена",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "Недійсні дані SIM-карти",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "Дані SIM-карти",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "SIM-слот",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "Увімкнути фільтрацію",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "Детальні налаштування",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "Перегляд точки входу",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "Відхилено",
+  "callTypeSilenced": "Без звуку",
+  "callTypeVoicemail": "Голосова пошта",
+  "callTypeUnknownIntercept": "Невідоме перехоплення",
+  "andMoreItems": "та ще {count} елементів",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

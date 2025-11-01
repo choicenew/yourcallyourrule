@@ -1,0 +1,3092 @@
+{
+  "@@locale": "ja",
+  "aboutContactSubscription": "連絡先サブスクリプションについて",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "ラベルについて",
+  "aboutPhoneSubscriptionRules": "電話サブスクリプションルールについて",
+  "aboutPhoneSubscriptions": "電話サブスクリプションについて",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "URL経由で電話ルールリストをサブスクライブし、ルールを自動的に更新します。JSON、CSV形式のルールファイルをサポートしています。",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "SMSフィルタリングについて",
+  "aboutSmsSubscriptionRules": "SMSサブスクリプションルールについて",
+  "aboutSubtitle": "アプリケーションのバージョンと法的情報",
+  "aboutTitle": "概要",
+  "action": "アクション",
+  "actionAll": "すべて",
+  "actionAllow": "許可",
+  "actionBlock": "ブロック",
+  "actionFilterAll": "すべてのフィルター",
+  "actionFilterTitle": "アクションタイプでフィルタリング",
+  "actionFilterTooltip": "アクションフィルター",
+  "actionNone": "アクションなし",
+  "actionSilence": "サイレント",
+  "actionTag": "アクション: {actionType}",
+  "actionType": "アクションタイプ",
+  "actionUnknown": "不明",
+  "add": "追加",
+  "addAllowedBlockedRule": "許可/ブロックルールを追加",
+  "addAllowSubscription": "許可サブスクリプションを追加",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "ブロックサブスクリプションを追加",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "連絡先を追加",
+  "addContactFailed": "連絡先の追加に失敗しました: {error}",
+  "addedToAllowedRules": "許可ルールに追加されました",
+  "addedToBlacklist": "ブラックリストに追加されました",
+  "addedToBlockedRules": "ブロックルールに追加されました",
+  "addedToFavoriteContacts": "お気に入りの連絡先に追加されました",
+  "addedToFavorites": "お気に入りの連絡先に追加されました",
+  "addedToWhitelist": "ホワイトリストに追加されました",
+  "addFavorite": "お気に入りに追加",
+  "addFilter": "フィルターを追加",
+  "addLabel": "ラベルを追加",
+  "addLabelButton": "ラベルを追加",
+  "addLabelFailed": "ラベルの追加に失敗しました: {error}",
+  "addLabelToCall": "通話記録にラベルを追加",
+  "addName": "名前を追加",
+  "addNoneSubscription": "なしサブスクリプションを追加",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "連絡先情報を追加または編集するために使用",
+  "addPhoneMark": "電話マークを追加",
+  "addPhoneNumberRule": "電話番号ルールを追加",
+  "addPlugin": "プラグインを追加",
+  "addPluginFailed": "プラグインの追加に失敗しました",
+  "addPluginFailedWithError": "プラグインの追加に失敗しました: {error}",
+  "addPluginFromLocalFile": "ローカルファイルからプラグインを追加",
+  "addPluginFromUrl": "URLからプラグインを追加",
+  "addRegexRule": "正規表現ルールを追加",
+  "addRule": "ルールを追加",
+  "addRuleButton": "ルールを追加",
+  "addRuleFailed": "ルールの追加に失敗しました: {error}",
+  "addRuleTooltip": "ルールを追加",
+  "addSilenceSubscription": "サイレンスサブスクリプションを追加",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "SIMルールを追加",
+  "addSmsFilterRule": "SMSフィルタールールを追加",
+  "addSmsRule": "SMSルールを追加",
+  "addSmsSubscription": "SMSサブスクリプションを追加",
+  "addSubscription": "サブスクリプションを追加",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "サブスクリプションを追加",
+  "addSubscriptionFailed": "サブスクリプションの追加に失敗しました: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "サブスクリプションを追加",
+  "addToAllowedRules": "許可ルールに追加",
+  "addToBlacklist": "ブラックリストに追加",
+  "addToBlockedRules": "ブロックされたルールに追加",
+  "addToFavoriteContacts": "お気に入りの連絡先に追加",
+  "addToFavorites": "お気に入りに追加",
+  "addToRules": "ルールに追加",
+  "addToWhitelist": "ホワイトリストに追加",
+  "adPlaceholder": "広告プレースホルダー",
+  "agent": "エージェント",
+  "all": "すべて",
+  "allCallsTab": "すべて",
+  "allDataClearedSuccessfully": "すべてのデータが正常にクリアされました",
+  "allow": "許可",
+  "allowAllAllowRules": "すべての許可ルールを許可する",
+  "allowAllAllowRulesDesc": "許可ルールからの通話を許可する",
+  "allowAllBlacklistedNumbers": "すべてのブラックリストに登録された番号を許可する",
+  "allowAllBlacklistedNumbersDesc": "ブラックリストからの通話を許可する",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "すべてのブロックルールを許可する",
+  "allowAllBlockRulesDesc": "ブロックルールからの通話を許可する",
+  "allowAllowedNumbers": "許可された番号を許可する",
+  "allowAllowedNumbersDesc": "許可リストからの通話を許可する",
+  "allowBlock": "許可/ブロック",
+  "allowBlockedNumbers": "ブロックされた番号を許可する",
+  "allowBlockedNumbersDesc": "ブロックリストからの通話を許可する",
+  "allowedBlockedRule": "許可/ブロックルール",
+  "allowedBlockedRuleEditDialogTitle": "許可/ブロックルールの編集",
+  "allowedBlockedRuleManagement": "許可/ブロックルールの管理",
+  "allowNonExceededNumbers": "制限を超えない番号を許可する",
+  "allowNonExceededNumbersDescription": "カウントのしきい値を超えない番号を自動的に許可する",
+  "allowRegexAllowRules": "Regex許可ルールを許可する",
+  "allowRegexAllowRulesDesc": "許可ルールの正規表現パターンマッチングを有効にする",
+  "allowRegexAllowRulesDescription": "正規表現ベースの許可ルールを有効にする",
+  "allowRegexBlockRules": "Regexブロックルールを許可する",
+  "allowRegexBlockRulesDesc": "ブロックルールの正規表現パターンマッチングを有効にする",
+  "allowRegexBlockRulesDescription": "正規表現ベースのブロックルールを有効にする",
+  "allowRule": "許可ルール",
+  "allowRules": "許可ルール",
+  "allowWhitelistedNumbers": "ホワイトリストに登録された番号を許可する",
+  "allowWhitelistedNumbersDescription": "ホワイトリストのすべての番号を許可する",
+  "allPermissionsGranted": "すべての権限が付与されました",
+  "allSettingsCompleted": "すべての設定が完了しました。",
+  "allUpdateSuccess": "すべての更新が完了しました ({count} 件のルール)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "応答してから電話を切る",
+  "appLegalese": "© 2023 Your Call Your Rule。All rights reserved.",
+  "applicationSoftware": "アプリケーションソフトウェア",
+  "apply": "適用",
+  "appName": "Your Call Your Rule",
+  "authorizationFailedCheckCredentialsMessage": "認証に失敗しました: クライアントIDとキーを確認してください",
+  "authorizationFailedMessage": "認証に失敗しました",
+  "authorizationSuccessMessage": "認証に成功しました",
+  "authorizeLoginButton": "ログインを認証",
+  "automotiveIndustry": "自動車産業",
+  "autoSyncLabel": "自動同期",
+  "autoUpdate": "自動更新",
+  "autoUpdateDescription": "サブスクリプションの自動更新間隔を設定するか、手動で更新します",
+  "autoUpdateSettings": "自動更新設定",
+  "autoUpdateSettingsSubtitle": "ルールとプラグインの自動更新を管理する",
+  "autoUpdateSettingsTitle": "自動更新設定",
+  "autoUpdateSubtitle": "ルールとプラグインの自動更新を管理する",
+  "autoUpdateTitle": "自動更新",
+  "avatarBorderColor": "アバターの境界線の色",
+  "avatarBorderSize": "アバターの境界線のサイズ",
+  "avatarIconSizesSetting": "アバターとアイコンのサイズ",
+  "avatarPosition": "アバターの位置",
+  "avatarSize": "アバターのサイズ",
+  "axisPosition": "{axis} の位置",
+  "backgroundGradientSetting": "背景のグラデーション",
+  "backup": "バックアップ",
+  "backupAndRestore": "バックアップと復元",
+  "backupAndRestoreSubtitle": "アプリケーションデータをバックアップまたは復元します",
+  "backupAndRestoreTitle": "バックアップと復元",
+  "backupFailed": "バックアップに失敗しました",
+  "backupFailedMessage": "バックアップに失敗しました",
+  "backupFailedWithError": "バックアップに失敗しました: {error}",
+  "backupRestoreSubtitle": "アプリケーションデータをバックアップまたは復元します",
+  "backupRestoreTitle": "バックアップと復元",
+  "backupSectionTitle": "バックアップ",
+  "backupSettings": "バックアップ設定",
+  "backupSettingsDialogTitle": "バックアップ設定",
+  "backupSettingsTitle": "バックアップ設定",
+  "backupSuccessMessage": "クラウドへのバックアップに成功しました",
+  "backupSuccessToLocal": "ローカルへのバックアップに成功しました: {path}",
+  "backupToCloud": "クラウドにバックアップ",
+  "backupToCloudDescription": "設定とルールをクラウドストレージにバックアップします",
+  "backupToCloudFailed": "クラウドへのバックアップに失敗しました: {error}",
+  "backupToCloudLabel": "クラウドにバックアップ",
+  "backupToCloudSuccess": "クラウドへのバックアップに成功しました",
+  "backupToCloudTitle": "クラウドにバックアップ",
+  "backupToLocalLabel": "ローカルにバックアップ",
+  "bank": "銀行",
+  "basicInfo": "基本情報",
+  "basicRuleFilter": "基本ルールフィルタ",
+  "basicRuleFiltering": "基本ルールフィルタリング",
+  "basicRuleFilteringExplanation": "• 基本ルールフィルタリング：ブラックリスト、ホワイトリスト、および正規表現に基づくフィルタリングルール",
+  "basicRuleFilterSettings": "基本ルールフィルタ設定",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "ブラックリスト/ホワイトリストと正規表現を使用して通話をフィルタリングします",
+  "batchDeleteContacts": "連絡先を一括削除",
+  "batchDeleteContactsConfirm": "{count} 件の選択した連絡先を削除してもよろしいですか？",
+  "batchDeleteFailed": "一括削除に失敗しました",
+  "batchDeleteLabelsConfirm": "{count} 個のラベルを削除してもよろしいですか？",
+  "blacklist": "ブラックリスト",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "ブラックリストとホワイトリスト",
+  "blacklistLabel": "ブラックリスト",
+  "blackWhiteList": "ブラック/ホワイトリスト",
+  "block": "ブロック",
+  "blockCalls": "通話をブロック",
+  "blocked": "ブロック済み",
+  "blockedCallAction": "ブロックされた通話の処理",
+  "blockedCalls": "ブロックされた通話",
+  "blockedCallsTitle": "ブロックされた通話",
+  "blockedCommunications": "ブロックされた通信",
+  "blockedPhoneLabel": "ブロックされた通話",
+  "blockedSpamCalls": "ブロックされた迷惑電話",
+  "blockingTrend": "ブロックの傾向",
+  "blockInternationalCalls": "+ または 00 で始まらない番号に一致します",
+  "blockInternationalCallsTitle": "国際電話をブロック",
+  "blockLandlineNumbersTitle": "固定電話番号をブロック",
+  "blockMobileNumbers": "13～19 で始まらない番号に一致します",
+  "blockMobileNumbersTitle": "携帯電話番号をブロック",
+  "blockPremiumRateNumbers": "118 または 120～190 で始まらない番号に一致します",
+  "blockPremiumRateNumbersTitle": "プレミアムレート番号をブロック",
+  "blockRule": "ブロックルール",
+  "blockRules": "ブロックルール",
+  "blockSpecificAreaCodes": "0 + 2～3 桁で始まる番号に一致します",
+  "blockSpecificAreaCodesTitle": "特定の市外局番をブロック：",
+  "blockTypeAnalysisTitle": "ブロックタイプの分析",
+  "both": "両方",
+  "bulkDelete": "連絡先を一括削除",
+  "bulkDeleteContacts": "連絡先を一括削除",
+  "bulkDeleteLabels": "ラベルを一括削除",
+  "call": "電話",
+  "callback": "コールバック",
+  "callbackTo": "{number} にコールバックする",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "通話ブロック",
+  "callerIdApp": "発信者番号アプリ",
+  "callerIdCustomizationTitle": "発信者番号をカスタマイズ",
+  "callerIdDialogTitle": "発信者番号情報",
+  "callerIdDisplayMode": "発信者ID表示モード",
+  "callerIdMarkedByCount": "{count} によってマークされました",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "発信者IDプレビュー",
+  "callFilter": "通話フィルター",
+  "callFilterDescription": "有効にすると、着信は以下のルールリストと照合されます。通話フィルタリングルールは、デフォルトではデバイス間で同期されません。",
+  "callFilterRules": "通話フィルタールール",
+  "callFilterRulesDescription": "通話フィルタリングの基本的なルールを設定する",
+  "callFilterSettings": "通話フィルター設定",
+  "callFrequencyInterceptionSubtitle": "通話頻度の制限とブロックルールを設定する",
+  "callFrequencyInterceptionTitle": "通話頻度インターセプション",
+  "callHistory": "通話履歴",
+  "callHistoryInfoDesc": "着信、発信、不在着信を含む、あなたの通話履歴を表示します。",
+  "callHistoryInfoTitle": "通話履歴",
+  "callHistoryInitFailed": "通話履歴の初期化に失敗しました: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "通話履歴の更新に失敗しました: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "通話履歴",
+  "callHistoryTimelineEarlier": "それ以前",
+  "callHistoryTimelineToday": "今日",
+  "callHistoryTimelineYesterday": "昨日",
+  "callScreeningPermission": "通話スクリーニング権限",
+  "callScreeningPermissionDescription": "スパム通話のスクリーニングとブロックに使用されます。",
+  "callScreeningPermissionNotGranted": "通話スクリーニング権限が付与されていません。アプリの機能に影響する可能性があります。",
+  "callSettingsSubtitle": "発信者ID、フィルタリング、ブロック設定",
+  "callSettingsTitle": "通話設定",
+  "callStatistics": "通話統計",
+  "callTypeAnswered": "応答済み",
+  "callTypeBlocked": "ブロック",
+  "callTypeIconColor": "通話タイプのアイコンの色",
+  "callTypeMissed": "不在着信",
+  "callTypeOutgoing": "発信",
+  "callTypePosition": "通話タイプの位置",
+  "callTypeUnknown": "不明",
+  "cancelButton": "キャンセル",
+  "carRental": "レンタカー",
+  "carrier": "キャリア",
+  "carrierColor": "キャリアの色",
+  "carrierFontSize": "キャリアのフォントサイズ",
+  "carrierPosition": "キャリアの位置",
+  "changeLabel": "ラベルを変更",
+  "changePluginStatusFailed": "プラグインステータスの変更に失敗しました: {error}",
+  "changeSubscriptionStatusFailed": "サブスクリプションステータスの変更に失敗しました: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "タグを変更",
+  "charity": "慈善団体",
+  "chartMonthFormat": "{month} 月",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "1 日前",
+  "chartOneMonthAgo": "1 か月前",
+  "chartOneWeekAgo": "1 週間前",
+  "chartTenDaysAgo": "10 日前",
+  "chartThreeDaysAgo": "3 日前",
+  "chartToday": "今日",
+  "checkFileFormat": "ファイル形式または権限を確認してください",
+  "checkPermissionFailed": "権限の確認に失敗しました: {error}",
+  "chooseDefaultInterceptAction": "デフォルトのインターセプトアクションを選択",
+  "clearAllData": "すべてのデータを消去",
+  "clearAllDataConfirmation": "本当にすべてのアプリケーションデータを消去しますか？この操作は元に戻せません。",
+  "clearAllDataDescription": "すべてのアプリケーションデータを消去",
+  "clearAllDataLabel": "すべてのデータを消去",
+  "clearFilter": "フィルターをクリア",
+  "clearLabelFilter": "ラベルフィルターをクリア",
+  "clearLabelFilterButton": "ラベルフィルターをクリア",
+  "closeButton": "閉じる",
+  "cloudSync": "クラウド同期",
+  "cloudSyncAndBackupTitle": "クラウド同期とバックアップ",
+  "cloudSyncSettingsSubtitle": "WebDAV、OneDrive、Google Driveを設定する",
+  "cloudSyncSettingsTitle": "クラウド同期設定",
+  "cloudSyncTitle": "クラウド同期",
+  "collapseLabelSelector": "ラベルセレクターを折りたたむ",
+  "collection": "債権回収",
+  "colorPickerTitle": "色を選択",
+  "configManagement": "構成管理",
+  "configUpdated": "構成を更新しました",
+  "configurationAdvice": "適切な構成を通じて、仕事用と個人用のSIMカードに異なるフィルタリング戦略を設定できます。",
+  "configureBackupOptions": "バックアップオプションを設定",
+  "configureBackupOptionsSubtitle": "バックアップオプションを設定",
+  "configureCloudSyncService": "クラウド同期サービスを設定",
+  "configureCloudSyncServiceHint": "マルチデバイス同期を有効にするには、クラウド同期サービスを設定してください。",
+  "configureCloudSyncServiceMessage": "マルチデバイス同期を有効にするには、クラウド同期サービスを設定してください。",
+  "configureSimCardFilterRules": "SIMカードフィルタールールを設定",
+  "configureSyncServiceHint": "まずクラウド同期設定で同期サービスを設定してください",
+  "confirm": "確認",
+  "confirmBatchDeleteContacts": "選択したものを削除してもよろしいですか",
+  "confirmButton": "確認",
+  "confirmDelete": "削除の確認",
+  "confirmDeleteContact": "本当に削除しますか",
+  "confirmDeleteContactName": "削除の確認？",
+  "confirmDeleteFilter": "本当にこのフィルターを削除しますか？",
+  "confirmDeleteLabel": "ラベル \"{name}\" を削除してもよろしいですか",
+  "confirmDeletePlugin": "プラグイン \"{name}\" を削除してもよろしいですか？",
+  "confirmDeletePlugins": "{count}個のプラグインを削除してもよろしいですか？",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "本当にこのルールを削除しますか？この操作は元に戻せません。",
+  "confirmDeleteSelectedContacts": "選択した連絡先を削除してもよろしいですか？",
+  "confirmDeleteSmsFilterRule": "本当にこのSMSフィルタールールを削除しますか？",
+  "confirmDeleteSmsRule": "本当にこのSMSルールを削除しますか？",
+  "confirmDeleteSubscription": "このサブスクリプションを削除してもよろしいですか？",
+  "confirmDeleteSubscriptions": "{name}を削除してもよろしいですか？",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "パスワードの確認",
+  "confirmPasswordLabel": "パスワードの確認",
+  "connectedStatus": "接続済み",
+  "connectionFailedCheckCredentialsMessage": "接続に失敗しました: サーバーアドレス、ユーザー名、パスワードを確認してください",
+  "connectionFailedMessage": "接続に失敗しました",
+  "connectionStatusLabel": "接続ステータス",
+  "connectionSuccessMessage": "接続に成功しました",
+  "contactAddSuccess": "連絡先が正常に追加されました",
+  "contactDeleted": "連絡先を削除しました",
+  "contactEditDialog": "連絡先編集ダイアログ",
+  "contactNameHint": "連絡先名を入力してください (任意)",
+  "contactNameLabel": "名前",
+  "contactNameOptional": "連絡先名 (任意)",
+  "contactNotFound": "連絡先が見つかりません",
+  "contacts": "連絡先",
+  "contactsDeleted": "{count} 件の連絡先を削除しました",
+  "contactSettingsSubtitle": "連絡先の管理とラベル設定",
+  "contactSettingsTitle": "連絡先設定",
+  "contactsLoadingFailed": "連絡先の読み込みに失敗しました: {error}",
+  "contactsManagement": "連絡先管理",
+  "contactsManagementPageTitle": "連絡先管理ページ",
+  "contactsPageTitle": "連絡先",
+  "contactsPermission": "連絡先権限",
+  "contactsPermissionDescription": "連絡先通話を識別するために使用します。",
+  "contactsTab": "連絡先",
+  "contactSubscriptionDescription": "URL経由で連絡先リストを購読し、連絡先情報とラベルを自動的に更新します。JSON形式のデータをサポートします。",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "連絡先サブスクリプションの読み込みに失敗しました: {error}",
+  "contactSubscriptionPageTitle": "連絡先サブスクリプション",
+  "contactUpdateSuccess": "連絡先が正常に更新されました",
+  "contactUs": "お問い合わせ",
+  "content": "コンテンツ",
+  "contentRegex": "コンテンツ正規表現",
+  "countColor": "カウントの色",
+  "countFontSize": "カウントのフォントサイズ",
+  "countPosition": "カウントの位置",
+  "country": "国",
+  "countryNameColor": "国名の色",
+  "countryNameFontSize": "国名のフォントサイズ",
+  "countryRegionNamePosition": "国/地域名の位置",
+  "countrySelectionDialog": "国選択ダイアログ",
+  "countrySelectionDialogDescription": "発信者番号情報を照会する国を選択するために使用します",
+  "countThresholdDescription": "フィルタリングアクションをトリガーするために必要な最小カウントのしきい値を設定します",
+  "countThresholdLabel": "カウントのしきい値",
+  "countThresholdSettings": "カウントのしきい値設定",
+  "countThresholdValue": "カウントのしきい値: {count}",
+  "createdRules": "作成されたルール",
+  "csvFormat": "CSV形式",
+  "currentDeviceChip": "現在",
+  "currentDeviceLabel": "現在のデバイスラベル",
+  "currentDeviceTitle": "現在のデバイス",
+  "currentLabels": "現在のラベル:",
+  "currentLanguage": "現在の言語",
+  "currentPasswordLabel": "現在のパスワード",
+  "customerService": "カスタマーサービス",
+  "customRange": "カスタム範囲",
+  "dailyStatistics": "毎日の統計",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "ブロックされた通話とメッセージに関する毎日の統計を受け取ります",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "ダッシュボード",
+  "dataAnalysis": "データ分析",
+  "dataAnalysisDashboardPage": "データ分析ダッシュボードページ",
+  "dataExport": "データエクスポート",
+  "dataLoadFailure": "データの読み込みに失敗しました: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "データの読み込みに失敗しました: {error}",
+  "dataMigration": "データ移行",
+  "dataMigrationDescription": "この機能により、デバイス間でデータをすべて転送できます。現在、バックアップと復元機能を使用して、手動でデータを移行できます。",
+  "dataMigrationDialogContent": "この機能により、デバイス間でデータをすべて転送できます。現在、バックアップと復元機能を使用して、手動でデータを移行できます。",
+  "dataMigrationDialogTitle": "データ移行",
+  "dataMigrationSectionTitle": "データ移行",
+  "dataSourceReminder": "データソースのリマインダー",
+  "days": "{count, plural, =1{1日} other{{count}日}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} 日間VIP",
+  "debtCollection": "債権回収",
+  "defaultPeriod": "週",
+  "delete": "削除",
+  "deleteButton": "削除",
+  "deleteContact": "連絡先を削除",
+  "deleteContactConfirm": "{name}を削除してもよろしいですか？",
+  "deleteContactConfirmation": "連絡先を削除してもよろしいですか？",
+  "deleteDeviceConfirmation": "{deviceName}を削除してもよろしいですか？",
+  "deleteDeviceDialogTitle": "デバイスを削除",
+  "deleteFailed": "削除に失敗しました: {error}",
+  "deleteFilter": "フィルターを削除",
+  "deleteLabel": "ラベルを削除",
+  "deleteLabelFailed": "ラベルの削除に失敗しました: {error}",
+  "deletePlugin": "プラグインを削除",
+  "deletePluginFailed": "プラグインの削除に失敗しました: {error}",
+  "deletePlugins": "プラグインを削除",
+  "deletePluginsFailed": "プラグインの削除に失敗しました: {error}",
+  "deleteRule": "ルールを削除",
+  "deleteRuleFailed": "削除に失敗しました: {error}",
+  "deleteSelected": "選択したものを削除",
+  "deleteSmsRule": "SMSルールを削除",
+  "deleteSubscription": "サブスクリプションを削除",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "サブスクリプション \"{name}\" を削除してもよろしいですか？",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "サブスクリプションの削除に失敗しました: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "削除に成功しました",
+  "delivery": "配信",
+  "deviceDeletedSuccessfully": "デバイスは正常に削除されました",
+  "deviceDeletedSuccessfullyMessage": "デバイスは正常に削除されました",
+  "deviceIdLabel": "デバイスID",
+  "deviceIDLabel": "デバイスID",
+  "deviceManagementSubtitle": "マルチデバイス同期を管理する",
+  "deviceManagementTitle": "デバイス管理",
+  "deviceModelLabel": "デバイスモデル",
+  "deviceName": "デバイス名",
+  "deviceNameCannotBeEmpty": "デバイス名は空にできません",
+  "deviceNameHint": "デバイス名を入力してください",
+  "deviceNameLabel": "デバイス名",
+  "deviceRenamedSuccessfully": "デバイス名を変更しました",
+  "deviceRenamedSuccessfullyMessage": "デバイス名を正常に変更しました",
+  "devicesSyncedSuccessfully": "デバイスを同期しました",
+  "devicesSyncedSuccessfullyMessage": "デバイスを正常に同期しました",
+  "devicesSynchronizedSuccessfullyMessage": "デバイスを正常に同期しました",
+  "deviceUnregisteredSuccessfullyMessage": "デバイスの登録を解除しました",
+  "dialogTitle": "正規表現パターンの説明",
+  "differentFromLocalCounter": "この機能は、長期間のマークカウントではなく、短期間での繰り返し呼び出しパターンに焦点を当てているため、ローカルカウンターフィルターとは異なります。",
+  "disabled": "無効",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "無効",
+  "disableGlobalPlugins": "グローバルプラグインを無効にする",
+  "disableSubscriptionSuccessfully": "サブスクリプションを無効にしました",
+  "disconnectButton": "切断",
+  "disconnectedMessage": "切断されました",
+  "disconnectedStatus": "切断",
+  "disconnectFailedMessage": "切断に失敗しました",
+  "done": "完了",
+  "dualSimAdvice": "この機能は、仕事用と個人用のSIMカードで異なるフィルタリング戦略を設定するために、デュアルSIMの携帯電話で特に役立ちます。",
+  "earlier": "前へ",
+  "ecommerce": "Eコマース",
+  "edit": "編集",
+  "editContact": "連絡先を編集",
+  "editFilter": "フィルターを編集",
+  "editLabel": "ラベルを編集",
+  "editPhoneRule": "電話ルールを編集",
+  "editPhoneRules": "電話ルールを編集するために使用します",
+  "editPhoneRuleTitle": "電話ルールを編集",
+  "editRule": "ルールを編集",
+  "editSmsRule": "SMSルールを編集",
+  "education": "教育",
+  "elementPositionsSetting": "要素の位置",
+  "email": "メール",
+  "emailOptional": "メール（オプション）",
+  "enableCallFilter": "コールフィルターを有効にする",
+  "enableCallFilterDescription": "有効にすると、着信は以下のルールリストと照合されます。通話フィルタリングルールは、デフォルトではデバイス間で同期されません。",
+  "enabled": "有効",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "有効",
+  "enableEncryption": "暗号化を有効にする",
+  "enableEncryptionDescription": "バックアップファイルを暗号化する",
+  "enableEncryptionLabel": "暗号化を有効にする",
+  "enableEncryptionSubtitle": "バックアップファイルは暗号化されます",
+  "enableEncryptionTitle": "暗号化を有効にする",
+  "enableGlobalPlugins": "グローバルプラグインを有効にする",
+  "enableLocalCountFilter": "ローカルカウントフィルターを有効にする",
+  "enableLocalCountFilterDescription": "コールマークカウントに基づいてスパム通話を自動的にフィルタリングします",
+  "enableLocalNotification": "ローカル通知を使用する",
+  "enableLocalNotificationDescription": "有効にすると、フィルタリングされたメッセージの通知がデバイスに表示されます",
+  "enableLocationSummary": "場所",
+  "enableMuteRules": "ミュートルールを有効にする",
+  "enableMuteRulesDesc": "ミュートインターセプションルールの設定を適用する",
+  "enableNoneActionRules": "アクションなしルールを有効にする",
+  "enableNoneActionRulesDesc": "インターセプションアクションなしでルール設定を許可する",
+  "enableNotifications": "通知を有効にする",
+  "enableRemoteNumberFilter": "リモート番号フィルターを有効にする",
+  "enableRemoteNumberFilterDescription": "リモートデータベースを使用して番号をフィルタリングする",
+  "enableRule": "ルールを有効にする",
+  "enableSmsFilter": "SMSフィルタリングを有効にする",
+  "enableSmsFilterDescription": "有効にすると、メッセージはルールに従って自動的にフィルタリングされます",
+  "enableStatisticsNotifications": "統計通知を有効にする",
+  "enableSubscriptionSuccessfully": "サブスクリプションを正常に有効にしました",
+  "enableTimeInterception": "時間インターセプションを有効にする",
+  "enableTimeInterceptionDescription": "短時間内での繰り返し呼び出しをインターセプトする",
+  "enableTimeInterceptor": "時間インターセプターを有効にする",
+  "endCallImmediately": "すぐに通話を終了する",
+  "endColor": "終了色",
+  "endDate": "終了日",
+  "enhancedFilterInstructionsTitle": "拡張フィルターシステム",
+  "enhancedFilterSettings": "拡張フィルター設定",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "拡張フィルター設定",
+  "enhancedFilterSystemDescription": "拡張フィルターシステムは、グローバルルールとSIMカードごとのフィルタリング設定の両方をサポートしています。",
+  "enterBothPhoneNumberAndRegexPattern": "電話番号と正規表現パターンの両方入力してください",
+  "enterBothPhoneNumberAndRegexPatternMessage": "電話番号と正規表現パターンの両方入力してください。",
+  "enterContactName": "連絡先名を入力してください",
+  "enterCurrentPasswordHint": "現在のパスワードを入力してください",
+  "enterDeviceName": "デバイス名を入力してください",
+  "enterDeviceNameHint": "デバイス名を入力してください",
+  "enterEmail": "メールアドレスを入力してください",
+  "enterEmailOptional": "メールアドレスを入力してください（オプション）",
+  "enterEncryptionPasswordHint": "暗号化パスワードを入力してください",
+  "enterEncryptionPasswordTitle": "暗号化パスワードを入力",
+  "enterFilterName": "フィルター名を入力してください",
+  "enterFilterPattern": "フィルターパターンを入力してください",
+  "enterIconCode": "アイコンコードを入力してください",
+  "enterName": "連絡先名を入力してください",
+  "enterNewDeviceNameHint": "このデバイスの新しい名前を入力してください",
+  "enterNewPasswordHint": "新しいパスワードを入力してください",
+  "enterPasswordAgain": "パスワードを再入力してください",
+  "enterPasswordHint": "パスワードを入力してください",
+  "enterPhoneNumber": "電話番号を入力してください",
+  "enterPhoneNumberHint": "テストする電話番号を入力してください",
+  "enterPhoneNumberMultiple": "電話番号を入力してください。複数の番号はカンマで区切ってください",
+  "enterPhoneNumberToStartSearch": "検索を開始する電話番号を入力してください",
+  "enterPhoneNumberToVerify": "確認する電話番号を入力してください",
+  "enterPluginName": "プラグイン名を入力してください",
+  "enterPluginUrl": "プラグインURLアドレスを入力してください",
+  "enterRegexHint": "正規表現パターンを入力してください",
+  "enterRuleNameAndPattern": "ルール名とパターンを入力してください",
+  "enterRuleNameAndPatternMessage": "ルール名と正規表現パターンの両方を入力してください。",
+  "enterRuleNameHint": "ルール名を入力してください",
+  "enterSearchContent": "検索内容を入力してください",
+  "enterSubscriptionName": "サブスクリプション名を入力してください",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "サブスクリプションURLを入力してください",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "同期フォルダー名を入力してください（デフォルト：NotificationManager）",
+  "entertainment": "エンターテイメント",
+  "enterValidNameAndUrl": "有効な名前とURLを入力してください",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "有効なURLを入力してください",
+  "enterVersion": "バージョンを入力してください",
+  "enterWebDAVPasswordHint": "WebDAVパスワードを入力してください",
+  "enterWebDAVServerAddressHint": "WebDAVサーバーアドレスを入力してください",
+  "enterWebDAVUsernameHint": "WebDAVユーザー名を入力してください",
+  "errorDeletingDeviceMessage": "デバイスの削除エラー：{error}",
+  "errorLoadingPlugin": "プラグインの読み込みエラー",
+  "errorOccurredMessage": "エラーが発生しました：{error}",
+  "errorRenamingDeviceMessage": "デバイスの名前変更エラー：{error}",
+  "errorSynchronizingDevicesMessage": "デバイスの同期エラー：{error}",
+  "errorSyncingDevicesMessage": "デバイスの同期エラー：{error}",
+  "errorText": "エラー",
+  "errorUnregisteringDeviceMessage": "デバイスの登録解除エラー：{error}",
+  "exampleBlock400Prefix": "例：400プレフィックス番号をブロック",
+  "exampleBlockMarketingSms": "例：マーケティングSMSをブロック",
+  "exampleContentRegex": "例：.*offer.*",
+  "exampleContentRegexHint": "コンテンツ正規表現の例",
+  "exampleCouponPromotionDiscount": "例：.*(coupon|promotion|discount).*",
+  "exampleFamilyFriends": "例：家族、友人など",
+  "examplePhoneNumber": "例：10086、12345など",
+  "exampleRegex400Prefix": "400プレフィックスの正規表現の例",
+  "exampleRegexFormat": "例：^10086$形式",
+  "exampleSenderRegexHint": "例",
+  "exchange": "交換",
+  "exchangeNow": "今すぐ交換",
+  "exchangeVip": "VIPを交換",
+  "expandLabelSelector": "ラベルセレクターを展開",
+  "expiryTime": "有効期限：{time}",
+  "export": "エクスポート",
+  "exportAllApplicationSettings": "すべてのアプリケーション設定をエクスポート",
+  "exportAllApplicationSettingsSubtitle": "すべてのアプリケーション設定をエクスポートする",
+  "exportAllRuleConfigurations": "すべてのルール設定をエクスポート",
+  "exportAllRuleConfigurationsSubtitle": "すべてのルール設定をエクスポートする",
+  "exportComplete": "エクスポート完了",
+  "exportConfig": "設定をエクスポート",
+  "exportContacts": "連絡先をエクスポート",
+  "exportData": "データをエクスポート",
+  "exportError": "エクスポートエラー",
+  "exportFailed": "エクスポートに失敗しました",
+  "exportFailure": "設定のエクスポートに失敗しました",
+  "exportFeatureComingSoon": "エクスポート機能は間もなく利用可能になります",
+  "exporting": "エクスポート中...",
+  "exportLabels": "ラベルのエクスポート",
+  "exportLabelsFailed": "ラベルのエクスポートに失敗しました: {error}",
+  "exportPluginList": "プラグインリストのエクスポート",
+  "exportPluginListFailed": "プラグインリストのエクスポートに失敗しました: {error}",
+  "exportRules": "ルールのエクスポート",
+  "exportRulesDialogTitle": "ルールのエクスポート",
+  "exportRulesTitle": "ルールのエクスポート",
+  "exportSmsRules": "SMSルールのエクスポート",
+  "exportStatisticsData": "統計データのエクスポート",
+  "exportSuccess": "エクスポート成功",
+  "exportSuccesslly": "設定のエクスポートに成功しました",
+  "failedToAddContact": "連絡先の追加に失敗しました",
+  "failedToAddRule": "ルールの追加に失敗しました: {error}",
+  "failedToAddSmsRule": "SMSルールの追加に失敗しました: {error}",
+  "failedToAddSmsSubscription": "SMSサブスクリプションの追加に失敗しました: {error}",
+  "failedToBackupSettings": "設定のバックアップに失敗しました: {error}",
+  "failedToDecryptBackupFile": "バックアップファイルの復号に失敗しました",
+  "failedToDeleteDevice": "デバイスの削除に失敗しました",
+  "failedToDeleteSmsRule": "SMSルールの削除に失敗しました: {error}",
+  "failedToExportRules": "ルールのエクスポートに失敗しました: {error}",
+  "failedToExportSmsRules": "SMSルールのエクスポートに失敗しました: {error}",
+  "failedToGetCallerIdInfo": "発信者ID情報の取得に失敗しました: {error}",
+  "failedToImportRules": "ルールのインポートに失敗しました: {error}",
+  "failedToImportSmsRules": "SMSルールのインポートに失敗しました: {error}",
+  "failedToLoadContacts": "連絡先の読み込みに失敗しました",
+  "failedToLoadPlugin": "プラグインの読み込みに失敗しました",
+  "failedToRenameDevice": "デバイスの名前変更に失敗しました",
+  "failedToRestoreSettings": "設定の復元に失敗しました",
+  "failedToRestoreSettingsWithError": "設定の復元に失敗しました: {error}",
+  "failedToSetPassword": "パスワードの設定に失敗しました: {error}",
+  "failedToSyncDevices": "デバイスの同期に失敗しました",
+  "failedToToggleRuleStatus": "ルールのステータスの切り替えに失敗しました: {error}",
+  "failedToToggleSubscriptionStatus": "サブスクリプションのステータスの切り替えに失敗しました",
+  "failedToUpdateContact": "連絡先の更新に失敗しました",
+  "failedToUpdateSmsRule": "SMSルールの更新に失敗しました: {error}",
+  "failure": "失敗",
+  "favoriteContacts": "お気に入りの連絡先",
+  "featureAddRules": "• 電話番号固有のルールを追加",
+  "featureCenter": "機能センター",
+  "featureEnableDisable": "• SIMごとに異なるフィルターを有効/無効にする",
+  "featureListTitle": "機能:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• SIMごとにルールリストを管理",
+  "features": "機能",
+  "fetchingCallerIdInfo": "発信者ID情報を取得中...",
+  "fileSavedTo": "ファイルは以下に保存されました: {path}",
+  "filter": "フィルター",
+  "filterByLabel": "ラベルでフィルタリング",
+  "filterClear": "フィルターをクリア",
+  "filterControlPanelTitle": "フィルターコントロールパネル",
+  "filterControlSubtitle": "すべてのフィルターのオン/オフステータスを管理",
+  "filterControlTitle": "フィルターコントロール",
+  "filterDeleteFailed": "フィルターの削除に失敗しました",
+  "filterDeleteSuccess": "フィルターを正常に削除しました",
+  "filterDetails": "フィルターの詳細",
+  "filtered": "フィルタリング済み",
+  "filteredSms": "フィルタリングされたSMS",
+  "filteredSmsLabel": "フィルタリングされたSMS",
+  "filterExplanation": "フィルターの説明",
+  "filterManagement": "フィルター管理",
+  "filterName": "フィルター名",
+  "filterPattern": "フィルターパターン",
+  "filterPriorityNote": "注意：フィルター間には優先順位の関係があります。詳細については、ヘルプドキュメントを参照してください。",
+  "filterSaveFailed": "フィルターの保存に失敗しました",
+  "filterSaveSuccess": "フィルターを正常に保存しました",
+  "filterSettings": "フィルター設定",
+  "filterSettingsTitle": "フィルター設定",
+  "filterSMS": "SMSのフィルター",
+  "filterToggleInstructions": "このSIMスロットのフィルターを有効または無効にします:",
+  "filterToggleStatus": "{status} フィルター: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "フィルタータイプ",
+  "financial": "金融",
+  "flexibleCombinationFeature": "• 柔軟な組み合わせ: SIMスロットごとにフィルターを有効/無効にする",
+  "fontSizesSetting": "フォントサイズ",
+  "foundRules": "{count}個のルールが見つかりました",
+  "foundRulesDoYouWantToImport": "{count}個のルールが見つかりました。インポートしますか？",
+  "foundRulesToImport": "{count}個のルールが見つかりました。インポートしますか？",
+  "fraudAlert": "詐欺アラート - 通話を切断してください",
+  "fraudScamLikely": "詐欺の可能性あり",
+  "free": "無料",
+  "functionSettingsTitle": "機能設定",
+  "generalUpdateFailure": "更新に失敗しました: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "無料で入手",
+  "github": "GitHub",
+  "globalFilterDescription": "すべてのSIMカードのグローバルフィルターを設定します:",
+  "globalFilterFeature": "• グローバルフィルター: すべての着信通話の基本ルール",
+  "globalFilterSettings": "グローバルフィルター設定",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "すべてのSIMスロットに適用されるグローバルフィルター設定を構成します:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "連絡先、ラベル、ブラックリスト、ホワイトリストなどを検索します。",
+  "globalSearchTitle": "グローバル検索",
+  "globalSettings": "グローバル設定",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Google広告の表示位置",
+  "googleAdMobIntegrationText": "ここにGoogle AdMob広告を統合できます",
+  "googleDriveAuthDescription": "システム設定されたGoogle DriveクライアントIDとキーを使用して認証します",
+  "googleDriveAuthorizationHint": "システム設定されたGoogle DriveクライアントIDとキーを使用して認証します",
+  "googleDriveConfigTitle": "Googleドライブ設定",
+  "googleDriveConfigurationTitle": "Googleドライブ設定",
+  "government": "政府",
+  "granted": "許可済み",
+  "grantNecessaryPermissions": "必要な権限を付与する",
+  "grantPermissions": "権限を付与する",
+  "headhunter": "ヘッドハンター",
+  "height": "高さ",
+  "homePageTitle": "ホームページ",
+  "homeTab": "ホーム",
+  "howItWorksPoint1": "• システムは、設定された時間枠内で同じ番号からの通話を自動的に許可します",
+  "howItWorksPoint2": "• 時間枠が短いほど、インターセプトは厳しくなります。時間枠が長いほど、インターセプトは緩くなります",
+  "howItWorksPoint3": "• システムは、コールログをチェックして、繰り返しコールかどうかを判断します",
+  "howItWorksTitle": "仕組み:",
+  "iconCodeOptional": "アイコンコード（オプション）",
+  "iconSize": "アイコンサイズ",
+  "import": "インポート",
+  "important": "重要",
+  "importButton": "インポート",
+  "importConfig": "設定をインポート",
+  "importContacts": "連絡先をインポート",
+  "importExportContacts": "連絡先のインポート/エクスポート",
+  "importExportContactsTooltip": "連絡先のインポート/エクスポート",
+  "importExportRules": "ルールのインポート/エクスポート",
+  "importFailed": "インポートに失敗しました：{error}",
+  "importFailure": "設定のインポートに失敗しました",
+  "importFeatureComingSoon": "インポート機能は近日公開予定です",
+  "importLabels": "ラベルのインポート",
+  "importLabelsFailed": "ラベルのインポートに失敗しました：{error}",
+  "importPluginList": "プラグインリストをインポート",
+  "importPluginListFailed": "プラグインリストのインポートに失敗しました：{error}",
+  "importPluginSuccess": "{count}個のプラグインを正常にインポートしました",
+  "importRuleConfigurationsFromFile": "ファイルからルール設定をインポート",
+  "importRuleConfigurationsFromFileSubtitle": "ファイルからルール設定をインポート",
+  "importRules": "ルールのインポート",
+  "importRulesButton": "ルールをインポート",
+  "importRulesDialogTitle": "ルールのインポート",
+  "importRulesError": "ルールのインポートに失敗しました：{error}",
+  "importRulesInstructions": "CSVファイルからルールをインポートします",
+  "importRulesSuccess": "ルールが正常にインポートされました",
+  "importRulesTitle": "ルールのインポート",
+  "importSuccess": "インポートに成功しました",
+  "incomingCallInterceptAction": "着信時のインターセプトアクション",
+  "incomingCallNotification": "着信通知",
+  "incorrectPassword": "パスワードが正しくありません",
+  "initializing": "初期化中",
+  "installed": "インストール済み",
+  "insufficientMarks": "十分なマークがありません",
+  "insurance": "保険",
+  "interceptAction": "インターセプトアクション",
+  "interceptionActionSettingsSubtitle": "ブロックされた通話の処理方法を設定します",
+  "interceptionActionSettingsTitle": "インターセプトアクション設定",
+  "interceptionTimeInterval": "インターセプト間隔",
+  "internet": "インターネット",
+  "intervalSetSuccess": "{service} の更新間隔が{days}日に設定されました",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "無効なコンテンツ正規表現",
+  "invalidLabel": "無効なラベル",
+  "invalidRegexPattern": "無効な正規表現パターン",
+  "invalidSenderRegex": "無効な送信者正規表現",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "詳細については、Telegramチャンネルとグループに参加してください",
+  "jsLogsTitle": "JS ログ",
+  "jsonFormat": "JSON形式",
+  "keepAllVersions": "すべてのバージョンを保持",
+  "keepAllVersionsDescription": "各バックアップのすべての履歴バージョンを保持します",
+  "keepAllVersionsLabel": "すべてのバージョンを保持",
+  "keepAllVersionsSubtitle": "各バックアップの履歴バージョンを保持",
+  "keepAllVersionsTitle": "すべてのバージョンを保持",
+  "label": "ラベル",
+  "labelAddedSuccessfully": "ラベル \"{name}\" が正常に追加されました",
+  "labelCategories": "ラベルカテゴリ",
+  "labelDeleted": "ラベルが削除されました",
+  "labelDescription": "ラベルは、連絡先の管理を改善し、電話番号にカスタムラベルを追加して、通話とメッセージを簡単に識別するのに役立ちます。",
+  "labelFilter": "ラベルフィルター",
+  "labelFilterTooltip": "ラベルフィルター",
+  "labelIconColor": "ラベルアイコンの色",
+  "labelManagement": "ラベル管理",
+  "labelNotFound": "ラベルが見つかりません",
+  "labelRemoved": "ラベルが削除されました",
+  "labelRemoveFailed": "ラベルの削除に失敗しました: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "ラベル",
+  "labelsColor": "ラベルの色",
+  "labelsDeleted": "{count} 個のラベルが削除されました",
+  "labelsExportedSuccessfully": "ラベルが正常にエクスポートされました",
+  "labelsFontSize": "ラベルのフォントサイズ",
+  "labelsImportedSuccessfully": "{count} 個のラベルが正常にインポートされました",
+  "labelsPosition": "ラベルの位置",
+  "labelTag": "ラベル: {labelId}",
+  "labelUpdated": "ラベルが更新されました",
+  "labelUpdateFailed": "ラベルの更新に失敗しました: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "ラベル \"$labelText\" が正常に更新されました",
+  "languageSettings": "言語設定",
+  "languageSettingsSubtitle": "アプリケーションの表示言語を変更します",
+  "languageSettingsTitle": "言語設定",
+  "last30Days": "過去30日間",
+  "last7Days": "過去7日間",
+  "lastSyncLabel": "最終同期",
+  "lastUpdated": "最終更新: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "生涯メンバーシップ",
+  "lifetimeMembershipDescription": "1回限りの購入で、すべてのプレミアム機能と今後のアップデートを永久にアンロックします",
+  "loadContactsFailed": "連絡先の読み込みに失敗しました: {error}",
+  "loadDataFailed": "データの読み込みに失敗しました",
+  "loadFailed": "読み込みに失敗しました",
+  "loading": "読み込み中...",
+  "loadingData": "データを読み込み中...",
+  "loadingTags": "タグを読み込み中...",
+  "loadLabelFailed": "ラベルの読み込みに失敗しました: {error}",
+  "loadLabelsFailed": "ラベルの読み込みに失敗しました: {error}",
+  "loadMarkCountFailed": "マークされた電話番号の読み込みに失敗しました: {error}",
+  "loadMarkedPhonesFailed": "マークされた電話番号の読み込みに失敗しました: {error}",
+  "loadMore": "もっと読み込む",
+  "loadPluginButton": "プラグインを読み込む",
+  "loadPluginsFailed": "プラグインの読み込みに失敗しました: {error}",
+  "loadSettingsFailed": "設定の読み込みに失敗しました: {error}",
+  "loadSmsRulesFailed": "SMSルールの読み込みに失敗しました: {error}",
+  "loadStatusFailedMessage": "ステータスの読み込みに失敗しました",
+  "loadSubscriptionsFailed": "サブスクリプションの読み込みに失敗しました: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "ローン",
+  "localBackupTitle": "ローカルバックアップ",
+  "localCounterFilter": "ローカルカウンターフィルター",
+  "localCounterFilterSubtitle": "通話頻度に基づいて迷惑電話を自動的にフィルタリングします",
+  "localCountFilter": "ローカルカウントフィルター",
+  "localCountFilterDescription": "ローカル番号のカウントに基づいて、頻繁な通話を遮断します",
+  "localCountFilterExplanationContent": "ローカルカウントフィルターは、通話履歴を分析して、頻繁な迷惑電話を自動的に識別してブロックします。",
+  "localCountFilterExplanationTitle": "ローカルカウントフィルターの説明",
+  "localCountFilterHowItWorksPoint1": "• 番号のカウント値に基づいてブロックするかどうかを決定する",
+  "localCountFilterHowItWorksPoint2": "• 番号のカウントが設定されたしきい値を超えた場合、自動的にブロックすることを選択できます",
+  "localCountFilterHowItWorksPoint3": "• しきい値を超えない番号を個別に許可することができます",
+  "localCountFilterHowItWorksPoint4": "• すべてのクエリログを記録するかどうかを選択できます",
+  "localCountFiltering": "ローカルカウントフィルタリング",
+  "localCountFilteringExplanation": "• ローカルカウントフィルタリング: ローカルマーキングカウントに基づくフィルタリングルール",
+  "localCountFilterSettings": "ローカルカウントフィルター設定",
+  "localCountFilterUseCases": "このフィルターは、自動ダイヤルによる迷惑電話やマーケティングコールを特定するのに特に適しています。",
+  "localFilterSettings": "ローカルフィルター設定",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "ローカル通知は無効になっています",
+  "localNotificationEnabled": "ローカル通知は有効になっています",
+  "localServices": "ローカルサービス",
+  "locationColor": "位置の色",
+  "locationFontSize": "位置のフォントサイズ",
+  "locationIconColor": "位置のアイコンの色",
+  "locationPosition": "位置",
+  "logAllLocalQueries": "すべてのローカルクエリをログに記録する",
+  "logAllLocalQueriesDescription": "すべてのローカル番号クエリのログを記録する",
+  "logAllRemoteQueries": "すべてのリモートクエリをログに記録する",
+  "logAllRemoteQueriesDescription": "すべてのリモート番号クエリ操作を記録する",
+  "manage": "連絡先の管理",
+  "manageContacts": "管理",
+  "manageFavoriteContacts": "お気に入りの連絡先を管理",
+  "manageFilterRules": "フィルタールールの管理",
+  "manageFilterRulesDescription": "SMSフィルタールールの追加、編集、または削除",
+  "manageFrequentContacts": "頻繁な連絡先の管理",
+  "markCounts": "マーク数",
+  "markCount": "マーク数",
+  "markedByCount": "{count} によってマークされました",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "マークされた電話番号",
+  "markExchange": "マーク交換",
+  "markPhone": "電話番号をマーク",
+  "markPhoneFailed": "電話番号のマーキングに失敗しました: {error}",
+  "markPhoneManagementSubtitle": "電話番号をマークするには",
+  "markPhoneManagementTitle": "電話マーク管理",
+  "markPhoneSuccess": "電話番号が正常にマークされました",
+  "matchFailed": "マッチングに失敗しました！",
+  "matchFailedMessage": "マッチングに失敗しました。",
+  "matchNumbersWithSpecialCharacters": "特定の番号形式に一致します",
+  "matchNumbersWithSpecialCharactersTitle": "特殊文字を含む番号に一致させる:",
+  "matchSpecificDigitPatterns": "XXX-XXXX-XXXX形式に一致します",
+  "matchSpecificDigitPatternsTitle": "特定の数字パターンに一致させる:",
+  "matchSuccessful": "マッチングに成功しました！",
+  "matchSuccessfulMessage": "マッチングに成功しました！",
+  "medical": "医療",
+  "membershipPrivileges": "メンバーシップ特典",
+  "migrationTool": "移行ツール",
+  "migrationToolTitle": "移行ツール",
+  "minutes": "分",
+  "month": "月",
+  "monthly": "毎月",
+  "monthlyCallCount": "月間通話数",
+  "monthlyChartTitle": "月間ブロックされた通話数",
+  "monthlyMembership": "月額メンバーシップ",
+  "monthlyMembershipDescription": "すべてのプレミアム機能をアンロックし、毎月自動更新されます",
+  "monthlyTotal": "月間合計",
+  "monthlyTotalLabel": "月間合計",
+  "moreOptions": "その他のオプション",
+  "mute": "ミュート",
+  "name": "名前",
+  "nameAndPhoneNumberCannotBeEmpty": "名前と電話番号は空にできません",
+  "nameAndPhoneNumberRequired": "名前と電話番号は必須です",
+  "nameColor": "名前の色",
+  "nameFontSize": "名前のフォントサイズ",
+  "nameLabel": "名前：{name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "名前の位置",
+  "nameUnknown": "名前：不明",
+  "nameWithValue": "名前：{name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "新しいパスワード",
+  "nextStep": "次へ",
+  "noAction": "アクションなし",
+  "noActionRules": "アクションルールなし",
+  "noActiveCloudSyncServiceMessage": "アクティブなクラウド同期サービスがありません",
+  "noCallLogs": "通話ログなし",
+  "noCallRecords": "通話記録なし",
+  "noContacts": "まだ連絡先がありません",
+  "noContactsYet": "まだ連絡先がありません",
+  "noData": "データなし",
+  "noDevicesRegisteredMessage": "登録されているデバイスがありません",
+  "noDevicesRegisteredYet": "まだ登録されているデバイスがありません。",
+  "noFilters": "まだフィルタがありません",
+  "noLabels": "まだラベルがありません",
+  "noMarkedPhones": "マークされた電話番号はありません",
+  "noMatchingContacts": "一致する連絡先がありません",
+  "noMatchingContactsFound": "一致する連絡先が見つかりませんでした",
+  "noMatchingNumbersFound": "一致する番号が見つかりませんでした",
+  "noMatchingRecords": "一致する通話記録がありません",
+  "noMatchingRules": "一致する{ruleType}がありません",
+  "none": "なし",
+  "noneServiceType": "なし",
+  "noPlugins": "まだプラグインはありません",
+  "noRecords": "通話記録がありません",
+  "noResultReturned": "結果が返されませんでした",
+  "noResultReturnedLog": "プラグインから結果が返されませんでした",
+  "noRules": "まだ{ruleType}がありません",
+  "noRulesPrompt": "ルールが見つかりませんでした。ルールを追加してください",
+  "noRulesToExport": "エクスポートするルールがありません",
+  "noSmsFilterRulesYet": "まだSMSフィルタールールはありません",
+  "noSmsRulesYet": "まだSMSルールはありません",
+  "noSubscriptions": "サブスクリプションがありません",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "まだサブスクリプションはありません",
+  "notGranted": "許可されていません",
+  "notificationMode": "通知モード",
+  "notificationModeDescription": "通知バーに発信者情報を表示します",
+  "notificationPermission": "通知許可",
+  "notificationPermissionDescription": "着信通話とメッセージの通知を表示するために使用されます。",
+  "notifications": "通知",
+  "notificationSettings": "通知設定",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "通知設定が正常に保存されました",
+  "notSet": "未設定",
+  "notVerifiedText": "未確認",
+  "noValidSmsRulesFoundInFile": "ファイルに有効なSMSルールが見つかりませんでした",
+  "number": "番号",
+  "numberColor": "番号の色",
+  "numberFontSize": "番号のフォントサイズ",
+  "numberPosition": "番号の位置",
+  "numberSearch": "番号検索",
+  "numberTypeColor": "番号タイプの色",
+  "numberTypeFontSize": "番号タイプのフォントサイズ",
+  "numberTypePosition": "番号タイプの位置",
+  "ok": "OK",
+  "okButton": "OK",
+  "onboardingCompleteDescription": "あなたの通話セキュリティマネージャーは準備ができました。安全な通話体験をお楽しみください！",
+  "onboardingLanguageDescription": "最高の体験のために、ご希望の言語を選択してください。",
+  "onboardingPermissionsDescription": "完全なサービスを提供するために、次の権限が必要です。",
+  "onboardingPowerfulSpamBlockingDescription": "ワンクリックでスパム通話とメッセージをブロックし、ブロックルールをカスタマイズして、静かな環境を提供します。",
+  "onboardingSmartCallerIdDescription": "不明な通話を自動的に識別し、不審な番号をマークし、通話の安全性を保護します。",
+  "onboardingWelcomeDescription": "あなたの通話管理のエキスパート。包括的な通話識別とブロックサービスを提供します。",
+  "oneDriveAuthDescription": "システムで設定されたOneDriveクライアントIDとキーを使用して承認します",
+  "oneDriveAuthorizationHint": "システムで設定されたOneDriveクライアントIDとキーを使用して承認します",
+  "oneDriveConfigTitle": "OneDrive設定",
+  "oneDriveConfigurationTitle": "OneDrive設定",
+  "onlineCallerIdSubscription": "オンライン発信者 ID サブスクリプション",
+  "openAppSettings": "アプリ設定を開く",
+  "openAppSettingsFailed": "アプリ設定を開けませんでした: {error}",
+  "operationFailed": "操作に失敗しました: {error}",
+  "operationFailure": "操作に失敗しました",
+  "operationSuccess": "操作は成功しました",
+  "other": "その他",
+  "ourOtherApps": "その他のアプリ",
+  "overlayMode": "フローティングウィンドウ",
+  "overlayModeDescription": "フローティングウィンドウで発信者情報を表示します",
+  "overlayPermission": "オーバーレイ許可",
+  "overlayPermissionDescription": "着信コールのオーバーレイを表示するために使用されます。",
+  "overview": "概要",
+  "password": "パスワード",
+  "passwordCannotBeEmpty": "パスワードは空にできません",
+  "passwordLabel": "パスワード",
+  "passwordsDoNotMatch": "パスワードが一致しません",
+  "passwordSetSuccessfully": "パスワードが正常に設定されました",
+  "pattern": "パターン",
+  "pendingSync": "同期保留中",
+  "periodMonth": "月",
+  "periodWeek": "週",
+  "periodYear": "年",
+  "permissionDenied": "許可要求が拒否されました",
+  "permissionGranted": "許可されました",
+  "permissionManagement": "許可管理",
+  "phoneCallsTab": "電話",
+  "phoneNumber": "電話番号",
+  "phoneNumberCannotBeEmpty": "電話番号は空にできません",
+  "phoneNumberHint": "電話番号を入力してください",
+  "phoneNumberHintText": "ルールを追加するには電話番号を入力してください",
+  "phoneNumberLabel": "電話番号",
+  "phoneNumberRegexRequired": "電話番号と正規表現パターンの両方を入力してください",
+  "phoneNumberRequired": "電話番号は必須です",
+  "phoneNumberTypeFixedLine": "固定回線",
+  "phoneNumberTypeFixedLineOrMobile": "固定回線または携帯電話",
+  "phoneNumberTypeMobile": "携帯電話",
+  "phoneNumberTypePager": "ポケットベル",
+  "phoneNumberTypePersonalNumber": "パーソナルナンバー",
+  "phoneNumberTypePremiumRate": "プレミアム料金",
+  "phoneNumberTypeSharedCost": "共有コスト",
+  "phoneNumberTypeTollFree": "フリーダイヤル",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "不明",
+  "phoneNumberTypeVoicemail": "ボイスメール",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "電話許可",
+  "phonePermissionDescription": "着信を識別してブロックするために使用されます。",
+  "phoneRule": "電話ルール",
+  "phoneRuleEditDialog": "電話ルールの編集ダイアログ",
+  "phoneRuleManagement": "電話ルール管理",
+  "phoneRuleSubscription": "電話ルールサブスクリプション",
+  "phoneSubscription": "電話サブスクリプション",
+  "phoneSubscriptionRulesDescription": "URL経由で電話ルールリストをサブスクライブして、ホワイトリストとブラックリストのルールを自動的に更新します。JSON形式のルールファイルをサポートしています。",
+  "phoneSubscriptionTitle": "電話ルールサブスクリプション",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "ラベルを選択し、有効な電話番号を入力してください",
+  "pluginAddedSuccess": "プラグイン \"{name}\" が正常に追加されました",
+  "pluginDeleted": "プラグインを削除しました",
+  "pluginLatestVersion": "プラグインはすでに最新バージョンです",
+  "pluginListExportSuccess": "プラグインリストが正常にエクスポートされました",
+  "pluginLoadedSuccessfully": "プラグインが正常に読み込まれました",
+  "pluginManagement": "プラグイン管理",
+  "pluginManagementSubtitle": "サードパーティプラグインを管理および設定する",
+  "pluginManagementTitle": "プラグイン管理",
+  "pluginName": "プラグイン名",
+  "pluginNotLoaded": "プラグインはまだ読み込まれていません。最初にプラグインを読み込んでください。",
+  "pluginsDeleted": "{count} 個のプラグインが正常に削除されました。",
+  "pluginService": "プラグインサービス",
+  "pluginTestPageTitle": "プラグインテスト",
+  "pluginUpdateSuccess": "プラグインが正常に更新されました",
+  "pluginUrl": "プラグインURL",
+  "pluginUrlCannotBeEmpty": "プラグインURLは空にできません",
+  "pluginUrlHint": "プラグインURLを入力してください",
+  "pluginUrlLabel": "プラグインURL",
+  "pluginVersion": "プラグインバージョン",
+  "political": "政治的",
+  "powerfulSpamBlocking": "強力なスパムブロック",
+  "previousStep": "前へ",
+  "prioritizeRemoteAction": "リモートアクション設定を優先する",
+  "prioritizeRemoteActionDescription": "リモートデータベースからのアクション設定を優先する",
+  "processing": "処理中...",
+  "processingOperation": "処理中...",
+  "purchase": "購入",
+  "quarterlyMembership": "四半期メンバーシップ",
+  "quarterlyMembershipDescription": "すべてのプレミアム機能をアンロックし、四半期ごとに自動更新",
+  "queryButton": "照会",
+  "queryFailed": "照会に失敗しました",
+  "queryFailedLog": "照会に失敗しました",
+  "querying": "照会中...",
+  "queryingPhoneNumber": "電話番号を照会中",
+  "queryResultTitle": "照会結果",
+  "ready": "準備完了！",
+  "receiveWeeklyStatistics": "毎週の統計を受け取る",
+  "recruiter": "採用担当者",
+  "reEnterPasswordHint": "パスワードを再入力してください",
+  "refresh": "更新",
+  "refreshPermissionStatus": "許可ステータスを更新",
+  "refreshTooltip": "更新",
+  "regexError": "正規表現エラー: {error}",
+  "regexErrorMessage": "正規表現エラー: {error}",
+  "regexPattern": "正規表現パターン",
+  "regexPatternExplanation": "正規表現パターンの説明",
+  "regexPatternExplanationButton": "正規表現パターンの説明",
+  "regexPatternLabel": "正規表現パターン",
+  "regexPatternsExamples": "標準の正規表現構文を使用してパターンを定義します。例：",
+  "regexPatternsForPhoneNumberMatching": "電話番号の一致のための正規表現パターン",
+  "regexRule": "正規表現ルール",
+  "regexRuleAddFailed": "正規表現ルールの追加に失敗しました: {error}",
+  "regexRuleAddSuccess": "正規表現ルールが正常に追加されました",
+  "regexRuleManagement": "正規表現ルール管理",
+  "regexRuleNamePatternRequired": "ルール名と正規表現パターンは空にできません",
+  "regexRules": "正規表現ルール",
+  "regexTesterTitle": "正規表現テスター",
+  "regexValidationFailed": "正規表現の検証に失敗しました: {error}",
+  "regexValidationSuccess": "正規表現の検証に成功しました",
+  "region": "地域",
+  "registeredDevicesTitle": "登録済みデバイス",
+  "rejectAllCalls": "すべての通話を拒否",
+  "rejectAllCallsDescription": "有効にすると、すべての通話が最高の優先度で拒否されます",
+  "rejectAllNumbers": "すべての番号を拒否",
+  "rejectAllNumbersDesc": "有効にすると、すべての着信通話を拒否します",
+  "rejectExceededNumbers": "超過した番号を拒否",
+  "rejectExceededNumbersDescription": "カウントのしきい値を超える番号を自動的に拒否します",
+  "remoteFilterSettings": "リモートフィルター設定",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "リモート番号フィルター設定",
+  "remoteNumberFilter": "リモート番号フィルター",
+  "remoteNumberFilterDatabaseInfo": "このフィルターは、最新の番号情報を取得するために、独立したリモートデータベースを使用します。",
+  "remoteNumberFilterDescription": "リモートデータベース情報に基づいて、嫌がらせ電話を阻止します",
+  "remoteNumberFilterExplanationContent": "リモート番号フィルターは、番号カウントに基づいてリモートデータベースに問い合わせることにより、迷惑電話を特定しブロックします。",
+  "remoteNumberFilterExplanationTitle": "リモート番号フィルターの説明",
+  "remoteNumberFilterFeatureCountThreshold": "• カウントしきい値: 番号の出現頻度に基づいて決定",
+  "remoteNumberFilterFeatureFilterAction": "• フィルターアクション: しきい値を超える番号の処理方法を設定",
+  "remoteNumberFilterFeaturePriority": "• 優先度設定: リモートアクションの優先度を設定",
+  "remoteNumberFilterFeatures": "特徴:",
+  "remoteNumberFiltering": "リモート番号フィルタリング",
+  "remoteNumberFilteringExplanation": "• リモート番号フィルタリング: リモートデータベース情報に基づくフィルタリングルール",
+  "remoteNumberFilterSubtitle": "クラウドデータベースとコミュニティレポートを使用して、迷惑電話を特定します",
+  "removeAdsDescription": "よりスムーズな体験のために、アプリ内のすべての広告を完全に削除します",
+  "removeAdsTitle": "広告を削除",
+  "removedFromFavoriteContacts": "お気に入りの連絡先から削除しました",
+  "removedFromFavorites": "お気に入りから削除しました",
+  "removeFavorite": "お気に入りから削除",
+  "removeFromFavorites": "お気に入りから削除",
+  "renameButton": "名前を変更",
+  "renameDeviceDialogTitle": "デバイスの名前を変更",
+  "renameDeviceTitle": "デバイスの名前を変更",
+  "replaceCurrentSettingsConfirmation": "これにより、現在のすべての設定が置き換えられます。続行してもよろしいですか？",
+  "requestAllPermissions": "すべての権限を要求",
+  "requestPermission": "権限を要求",
+  "requestPermissionFailed": "権限の要求に失敗しました: {error}",
+  "requiredMarks": "{count} マーク",
+  "reset": "リセット",
+  "restore": "復元",
+  "restoreApplicationSettingsFromBackup": "バックアップからアプリケーション設定を復元",
+  "restoreApplicationSettingsFromBackupSubtitle": "バックアップからアプリケーション設定を復元します",
+  "restoreButton": "復元",
+  "restoreFailedWithError": "クラウドからの復元に失敗しました: {error}",
+  "restoreFromCloud": "クラウドから復元",
+  "restoreFromCloudDescription": "クラウドストレージから設定とルールを復元します",
+  "restoreFromCloudFailed": "クラウドからの復元に失敗しました: {error}",
+  "restoreFromCloudLabel": "クラウドから復元",
+  "restoreFromCloudSuccess": "クラウドから正常に復元されました",
+  "restoreFromCloudTitle": "クラウドから復元",
+  "restoreFromLocal": "ローカルから復元",
+  "restorePurchases": "購入を復元",
+  "restoreSectionTitle": "復元",
+  "restoreSettings": "設定を復元",
+  "restoreSettingsConfirmation": "これにより、現在のすべての設定が置き換えられます。続行してもよろしいですか？",
+  "restoreSettingsDialogTitle": "設定を復元",
+  "restoreSettingsTitle": "設定を復元",
+  "restoreSuccessFromLocal": "ローカルから正常に復元されました",
+  "restoreSuccessMessage": "クラウドから正常に復元されました",
+  "retry": "再試行",
+  "ridesharing": "ライドシェア",
+  "risk": "リスク",
+  "robocall": "ロボコール",
+  "ruleAction": "ルールの操作",
+  "ruleAddButton": "ルールを追加",
+  "ruleAddedSuccess": "ルールが正常に追加されました",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "ルールの追加に失敗しました: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "ルールが正常に追加されました",
+  "ruleDeleteConfirmContent": "この{ruleType}を削除してもよろしいですか？",
+  "ruleDeleteConfirmTitle": "ルールを削除",
+  "ruleDeletedSuccess": "ルールが正常に削除されました",
+  "ruleDeletedSuccessfully": "ルールが正常に削除されました",
+  "ruleDeleteFailed": "ルールの削除に失敗しました: {error}",
+  "ruleDeleteFailure": "ルールの削除に失敗しました: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "ルールが正常に削除されました",
+  "ruleDisabledSuccessfully": "ルールは正常に無効化されました",
+  "ruleEnabledSuccessfully": "ルールは正常に有効化されました",
+  "ruleLoadFailed": "ルールの読み込みに失敗しました: {error}",
+  "ruleManagement": "ルール管理",
+  "ruleManagementTitle": "ルール管理",
+  "ruleName": "ルール名",
+  "ruleNameAndContentRegexCannotBeEmpty": "ルール名とコンテンツの正規表現は空にできません",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "ルール名と電話番号は空にできません",
+  "ruleNameHint": "例：家族、友人など",
+  "ruleNameLabel": "ルール名",
+  "ruleNamePatternRequired": "ルール名とパターンを入力してください",
+  "ruleNameRequired": "ルール名と電話番号は空にできません",
+  "ruleNotExist": "ルールが存在しないか、削除されました",
+  "ruleNotFound": "ルールが見つかりません: {error}",
+  "ruleSavedSuccessfully": "ルールは正常に保存されました！",
+  "ruleSavedSuccessMessage": "ルールは正常に保存されました！",
+  "ruleSaveFailed": "保存に失敗しました: {error}",
+  "ruleSaveFailedMessage": "保存に失敗しました: {error}",
+  "ruleSaveSuccess": "ルールは正常に保存されました！",
+  "rulesExportedSuccessfully": "ルールは正常にエクスポートされました",
+  "rulesExportedTo": "ルールがエクスポートされました: {path}",
+  "rulesImported": "ルールは正常にインポートされました",
+  "rulesImportedSuccessfully": "{count} 件のルールが正常にインポートされました",
+  "rulesImportFailed": "ルールのインポートに失敗しました: {error}",
+  "ruleStatistics": "ルールの統計",
+  "ruleStatusChanged": "ルール {status} は正常に変更されました",
+  "ruleToggleFailed": "操作に失敗しました: {error}",
+  "ruleToggleSuccess": "ルール {status} は正常に変更されました",
+  "ruleUpdateFailed": "ルールの更新に失敗しました: {error}",
+  "ruleUpdateSuccess": "ルールは正常に更新されました",
+  "ruleVerification": "ルール検証",
+  "save": "保存",
+  "saveButton": "保存",
+  "saveButtonLabel": "保存",
+  "saveButtonText": "保存",
+  "saveFailed": "保存に失敗しました: {error}",
+  "saveFilter": "フィルターを保存",
+  "saveSettings": "設定を保存",
+  "saveSettingsFailed": "設定の保存に失敗しました: {error}",
+  "scamsLikely": "詐欺の可能性",
+  "search": "検索",
+  "searchContacts": "連絡先を検索",
+  "searchError": "検索エラー: {error}",
+  "searchFilters": "フィルターを検索",
+  "searchForContacts": "連絡先を検索",
+  "searchHint": "検索...",
+  "searchSettingsSubtitle": "連絡先、ラベル、ブラックリスト、ホワイトリストなどを検索します。",
+  "searchSettingsTitle": "検索設定",
+  "securityMessage": "電話を信頼しないでください。常にカスタマーサービス番号を個別に確認してください。パスワード、確認コード、カード番号、個人情報を決して共有しないでください。",
+  "selectActionToPerform": "ルールが一致した場合に実行するアクションを選択してください",
+  "selectActionWhenBlockingCalls": "通話をブロックする場合のアクションを選択",
+  "selectActionWhenRuleMatches": "ルールが一致した場合のアクションを選択",
+  "selectAll": "すべて選択",
+  "selectCountry": "国を選択",
+  "selectDateRange": "日付範囲を選択",
+  "selectedDateRange": "選択された日付範囲",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} 個のアイテムが選択されました",
+  "selectedLabel": "選択済み:",
+  "selectExportFormat": "エクスポート形式を選択",
+  "selectLabel": "ラベルを選択",
+  "selectLabelAndEnterPhoneNumber": "ラベルを選択して、有効な電話番号を入力してください",
+  "selectLanguage": "言語を選択",
+  "selectMultiple": "複数選択",
+  "selectPeriod": "期間を選択",
+  "selectSimCard": "SIMカードを選択",
+  "selectSimSlot": "SIMスロットを選択",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "通話拒否時の特定のアクションを選択",
+  "selectTag": "タグを選択",
+  "selectTags": "タグを選択",
+  "selectTrustedDataSource": "信頼できるデータソースを選択してください",
+  "selectYourLanguage": "言語を選択",
+  "sender": "送信者",
+  "senderRegexOptional": "送信者Regex (オプション)",
+  "serverAddressLabel": "サーバーアドレス",
+  "serviceTypeContact": "連絡先サブスクリプション",
+  "serviceTypeLabel": "サービスタイプ",
+  "serviceTypePhone": "電話サブスクリプション",
+  "serviceTypePlugin": "プラグインアップデート",
+  "serviceTypeSms": "SMSサブスクリプション",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "設定",
+  "setEncryptionPassword": "暗号化パスワードを設定",
+  "setEncryptionPasswordDescription": "バックアップと復元のために暗号化パスワードを設定します",
+  "setEncryptionPasswordLabel": "暗号化パスワードを設定",
+  "setEncryptionPasswordTitle": "暗号化パスワードを設定",
+  "setPasswordButton": "設定",
+  "settings": "設定",
+  "settingsBackedUpTo": "設定のバックアップ先: {path}",
+  "settingsLoaded": "設定を読み込みました",
+  "settingsLoadFailed": "設定の読み込みに失敗しました: {error}",
+  "settingsRestoredSuccessfully": "設定が正常に復元されました。変更を有効にするには、アプリを再起動してください。",
+  "settingsSaved": "設定を保存しました",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "設定の保存に失敗しました: {error}",
+  "settingsTab": "設定",
+  "settingsTitle": "設定",
+  "setup": "セットアップ",
+  "showContactEditDialogStaticMethod": "連絡先編集ダイアログを表示するための静的メソッド",
+  "showExplanation": "説明を表示",
+  "silence": "サイレンス",
+  "silenceAndNoAnswer": "サイレンスと応答なし",
+  "silenceNoAnswer": "サイレンス、応答なし",
+  "silentCallVoiceClone": "サイレントコール音声クローン",
+  "silentRules": "サイレントルール",
+  "simCard": "SIMカード {simNumber}",
+  "simCardColor": "SIMカードの色",
+  "simCardConfigurationExplanation": "• SIMカード構成: 各SIMカードに独立したフィルタリングルールを設定します",
+  "simCardFilterRules": "SIMカードのフィルタリングルール",
+  "simCardFilterRulesDescription": "SIMカードスロットに基づいて異なるフィルタリングルールを設定します",
+  "simCardFontSize": "SIMカードのフォントサイズ",
+  "simCardPosition": "SIMカードの位置",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "SIMカード情報の読み込みに失敗しました: {error}",
+  "simRuleInstructions": "SIMスロットルールを使用すると、各SIMスロットに対して独立したフィルタリングルールを設定できます。",
+  "simRuleInstructionsTitle": "SIMスロットルール",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "SIMスロットルール管理",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "SIMデータの読み込みに失敗しました: {error}",
+  "simSlotFilterConfiguration": "SIMスロットフィルタ設定",
+  "simSlotFilterConfigurationDescription": "SIMスロットごとにフィルタールールを設定できます。",
+  "simSlotFilterDescription": "各SIMカードに対して独立したフィルタリングルールを設定します:",
+  "simSlotFilterSettingsTitle": "SIMスロット {slotNumber} フィルタ設定",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "SIMスロットの読み込みに失敗しました: {error}",
+  "simSlotManagement": "SIMスロット管理",
+  "simSlotOperationFailed": "SIMスロット操作に失敗しました: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "SIMスロット位置 {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• SIMスロットルール: SIMごとに独立したフィルタリング戦略",
+  "simSlotRuleListTitle": "SIMスロットルールリスト",
+  "simSlotRuleManagement": "SIMスロットルール",
+  "simSlotRuleManagementTitle": "ルール管理",
+  "simSlotSettings": "SIMスロット設定",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "SIMスロット {slotNumber}",
+  "skip": "スキップ",
+  "smartCallerId": "スマートコールID",
+  "sms": "SMS",
+  "smsFilterDescription": "SMSフィルタリングは、迷惑メッセージを自動的にフィルタリングし、メッセージリストをクリーンに保つのに役立ちます。フィルタールールと通知方法を設定できます。",
+  "smsFilterDisabled": "SMSフィルタリング無効",
+  "smsFilterEnabled": "SMSフィルタリング有効",
+  "smsFilterRuleAddedSuccessfully": "SMSフィルタールールが正常に追加されました",
+  "smsFilterRules": "SMSフィルタールール",
+  "smsFilterSettings": "SMSフィルタ設定",
+  "smsHistory": "SMS履歴",
+  "smsManagement": "SMS管理",
+  "smsPermission": "SMS許可",
+  "smsPermissionDescription": "迷惑メッセージをフィルタリングするために使用されます。",
+  "smsRuleAddedSuccessfully": "SMSルールが正常に追加されました",
+  "smsRuleDeletedSuccessfully": "SMSルールが正常に削除されました",
+  "smsRuleLoadFailed": "SMSルールの読み込みに失敗しました: {error}",
+  "smsRuleManagement": "SMSルール管理",
+  "smsRulesExportedSuccessfully": "SMSルールが {filePath} に正常にエクスポートされました",
+  "smsRulesImportedSuccessfully": "SMSルールが正常にインポートされました",
+  "smsRuleSubscription": "SMSルールサブスクリプション",
+  "smsRuleUpdatedSuccessfully": "SMSルールが正常に更新されました",
+  "smsSettingsSubtitle": "SMSフィルタリングとキーワードブロック",
+  "smsSettingsTitle": "SMS設定",
+  "smsSubscription": "SMSサブスクリプション",
+  "smsSubscriptionAddedSuccessfully": "SMSサブスクリプションが正常に追加されました",
+  "smsSubscriptionRulesDescription": "URL経由でSMSルールリストを購読し、正規表現のマッチングをサポートします。ブロックまたは許可のアクションを設定できます。",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "一部の権限要求が拒否されました",
+  "spamLikely": "スパムの可能性あり",
+  "startColor": "開始色",
+  "startDate": "開始日",
+  "startUsing": "始める",
+  "statAnswered": "回答済み",
+  "statBlocked": "ブロック済み",
+  "staticMethodShowCallerIdDialog": "発信者ID情報ダイアログを表示するための静的メソッド",
+  "staticMethodToDisplayCountrySelectionDialog": "国選択ダイアログを表示するための静的メソッド",
+  "staticMethodToDisplayDialog": "ダイアログを表示するための静的メソッド",
+  "statistics": "統計",
+  "statisticsExportFeatureComingSoon": "統計エクスポート機能は近日公開予定です",
+  "statisticsGrid": "統計グリッド",
+  "statisticsPageTitle": "データ分析",
+  "stirColor": "STIRの色",
+  "stirFontSize": "STIRのフォントサイズ",
+  "stirPosition": "STIRの位置",
+  "storagePermission": "ストレージの許可",
+  "storagePermissionDescription": "設定とルールを保存するために使用します。",
+  "subscribe": "購読する",
+  "subscriptionAddSuccess": "購読 \"{name}\" が正常に追加されました",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "この購読を削除してもよろしいですか？",
+  "subscriptionDeleteConfirmTitle": "購読の削除",
+  "subscriptionDeleted": "購読を削除しました",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "購読が正常に削除されました",
+  "subscriptionDeleteFailed": "購読の削除に失敗しました: {error}",
+  "subscriptionDeleteSuccess": "購読を削除しました",
+  "subscriptionEmptyState": "利用可能な購読はありません",
+  "subscriptionEmptyText": "まだ購読はありません",
+  "subscriptionLoadFailed": "購読の読み込みに失敗しました: {error}",
+  "subscriptionLoadingFailed": "購読の読み込みに失敗しました: {error}",
+  "subscriptionManagementTitle": "購読管理",
+  "subscriptionName": "購読名",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "購読名とURLは空にできません",
+  "subscriptionNameHint": "購読名を入力してください",
+  "subscriptionPageTitle": "購読管理",
+  "subscriptionStatusChangeFailed": "購読ステータスの変更に失敗しました: {error}",
+  "subscriptionToggleFailed": "購読ステータスの切り替えに失敗しました: {error}",
+  "subscriptionUpdateFailed": "購読の更新に失敗しました: {error}",
+  "subscriptionUpdateSuccess": "購読が正常に更新されました",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "購読URL",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "購読URLを入力してください",
+  "successfullyImportedRules": "{count} 件のルールを正常にインポートしました",
+  "supportSync": "同期のサポート",
+  "survey": "アンケート",
+  "syncDevicesButton": "デバイスの同期",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "同期に失敗しました",
+  "syncFailedMessage": "同期に失敗しました",
+  "syncFolderNameHint": "同期フォルダー名を入力してください (デフォルト: NotificationManager)",
+  "syncFolderNameLabel": "同期フォルダー名",
+  "synchronized": "同期済み",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "同期中...",
+  "syncNow": "今すぐ同期",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "今すぐ同期",
+  "syncStatusTitle": "同期ステータス",
+  "syncStatusUpdatedMessage": "同期ステータスが更新されました",
+  "syncSuccessful": "同期に成功しました",
+  "syncSuccessMessage": "同期に成功しました",
+  "syncWithCloudStorage": "クラウドストレージと同期",
+  "syncWithCloudStorageSubtitle": "クラウドストレージと同期",
+  "systemFeatures": "システム機能：",
+  "systemSettingsTitle": "システム設定",
+  "tabAll": "すべて",
+  "tabAnswered": "応答済み",
+  "tabBlocked": "ブロック済み",
+  "tabMissed": "不在着信",
+  "tabOutgoing": "発信",
+  "tagLabel": "タグ：{tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "タグを更新しました",
+  "takeaway": "持ち帰り",
+  "telecommunication": "電気通信",
+  "telegram": "Telegram",
+  "telemarketing": "テレマーケティング",
+  "testButton": "テスト",
+  "testButtonLabel": "テスト",
+  "testConnectionButton": "接続をテスト",
+  "textColorsSetting": "テキストとラベルの色",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "このアプリは、不要な電話を識別してブロックできる強力な発信者番号ツールです。",
+  "thisWeek": "今週",
+  "timeInterceptor": "時間インターセプター",
+  "timeInterceptorDescription": "通話頻度に基づいて、潜在的な通話を自動的に傍受/許可します",
+  "timeInterceptorExplanation": "• 時間インターセプター：短時間内での繰り返し通話を傍受/許可します",
+  "timeInterceptorExplanationContent": "通話頻度傍受機能は、通話頻度を分析して、頻繁な迷惑電話を自動的に識別して傍受/許可します。",
+  "timeInterceptorExplanationTitle": "通話頻度傍受の説明",
+  "timeInterceptorSettingsTitle": "通話頻度傍受設定",
+  "timeInterceptorSubtitle": "通話頻度に基づいて、潜在的な迷惑電話を自動的に傍受します",
+  "timeInterceptorTitle": "通話頻度傍受を有効にする",
+  "timeWindowDescription": "繰り返し通話を許可する時間枠を設定します。このウィンドウ内の同じ番号からの通話は許可されます",
+  "timeWindowLabel": "傍受時間枠（分）：{minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "繰り返し通話を許可する時間枠を設定します。このウィンドウ内の同じ番号からの通話は許可されます",
+  "today": "今日",
+  "total": "合計",
+  "totalBlocked": "合計ブロック",
+  "totalFiltered": "合計フィルタリング",
+  "transferDataBetweenDevicesOrPlatforms": "デバイスまたはプラットフォーム間でデータを転送する",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "デバイスまたはプラットフォーム間でデータを転送する",
+  "travelTicketing": "旅行のチケット",
+  "trend": "トレンド",
+  "trendChart": "トレンドチャート",
+  "tutorial": "チュートリアル",
+  "type": "タイプ",
+  "unassignedSIMCard": "未割り当てのSIMカード",
+  "unknown": "不明",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "不明なラベル",
+  "unknownTag": "タグ: 不明",
+  "unregisterButton": "登録解除",
+  "unregisterDeviceConfirmationMessage": "{deviceName}の登録を解除してもよろしいですか？",
+  "unregisterDeviceTitle": "デバイスの登録解除",
+  "unsupportedFileFormat": "サポートされていないファイル形式",
+  "update": "アップデート",
+  "updateAllNow": "すべて今すぐ更新",
+  "updateCallFilterConfig": "通話フィルタ設定を更新",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "連絡先の更新に失敗しました: {error}",
+  "updateFavoriteStatus": "お気に入りステータスを更新",
+  "updateFavoriteStatusFailed": "お気に入りステータスの更新に失敗しました: {error}",
+  "updateInterval": "更新間隔",
+  "updateLabelFailed": "ラベルの更新に失敗しました",
+  "updateNow": "今すぐ更新",
+  "updatePlugin": "プラグインを更新",
+  "updatePluginFailed": "プラグインの更新に失敗しました: {error}",
+  "updateRuleFailed": "ルールの更新に失敗しました: {error}",
+  "updateSubscriptionFailed": "サブスクリプションの更新に失敗しました: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service}が正常に更新されました（{count}ルール）",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "タグを更新",
+  "useCasesPoint1": "• 自動リダイヤルスパム通話を識別する",
+  "useCasesPoint2": "• 短期間に複数回発信するマーケティング通話を阻止する",
+  "useCasesPoint3": "• 電話爆弾と嫌がらせを防止する",
+  "useCasesTitle": "ユースケース:",
+  "useGlobalSettings": "グローバル設定を使用",
+  "userEmail": "user@example.com",
+  "usernameLabel": "ユーザー名",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "パターンを定義するには、標準の正規表現構文を使用します。例：",
+  "validateRegex": "正規表現を検証",
+  "verificationFailedText": "失敗",
+  "verifiedText": "確認済み",
+  "verify": "確認",
+  "version": "バージョン: {version}",
+  "vipExchangeDescription": "電話番号マーキングカウントでVIPメンバーシップを交換する",
+  "vipExchangeTitle": "マーク交換VIP",
+  "watchAd": "広告を見る",
+  "watchAdForTemp": "一時的に広告を見る",
+  "watchAdForTempDescription": "いくつかのプレミアム機能を一時的にアンロックするために、短い広告をご覧ください",
+  "webDAVConfigTitle": "WebDAV設定",
+  "webdavConfigurationTitle": "WebDAV設定",
+  "webdavPasswordHint": "WebDAVパスワードを入力してください",
+  "webdavServerAddressHint": "WebDAVサーバーアドレスを入力してください",
+  "webdavUsernameHint": "WebDAVユーザー名を入力してください",
+  "week": "週",
+  "weekly": "毎週",
+  "weeklyBlockedCallsSummary": "週ごとのブロックされた通話の概要",
+  "weeklyChartTitle": "週ごとのブロックされた通話",
+  "weeklyReport": "週次レポート",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "通話ブロックアクティビティの週次サマリーレポートを受け取ります",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "ようこそ",
+  "whitelist": "ホワイトリスト",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "ホワイトリスト",
+  "width": "幅",
+  "wildcardMatchingDescription": "「.」を使用して任意の文字に一致させます（例：「123.456」は123-456に一致します）",
+  "wildcardMatchingTitle": "ワイルドカードマッチング:",
+  "wildcardSupportForFlexibleFiltering": "柔軟なフィルタリングのためのワイルドカードサポート",
+  "windowSizeSetting": "ウィンドウサイズ",
+  "year": "年",
+  "yearly": "年間",
+  "yearlyChartTitle": "年間のブロックされた通話",
+  "noSimCardsDetected": "SIMカードが検出されませんでした",
+  "filterManagementDescription": "通話フィルターを設定する",
+  "callerIdCustomizationSubtitle": "発信者IDレイアウトをカスタマイズする",
+  "fraudAlerSettingTitle": "詐欺アラート設定",
+  "fraudAlerSettingSubtitle": "詐欺アラートを設定する",
+  "enableFraudAlert": "詐欺アラートを有効にする",
+  "enableFraudAlertDescription": "詐欺の疑いのある通話に対するアラート",
+  "enableVibration": "バイブレーションを有効にする",
+  "enableVibrationDescription": "詐欺の疑いのある通話の場合にバイブレーションする",
+  "notificationSettingsTitle": "通知設定",
+  "useLocalNotification": "ローカル通知を使用する",
+  "useLocalNotificationDescription": "着信に対してローカル通知を有効にする",
+  "cancelLocalNotification": "ローカル通知を閉じる",
+  "useStirNotification": "STIRからの通知を使用する",
+  "useStirNotificationDescription": "着信に対してSTIR通知を有効にする",
+  "cancelLocalNotificationDescription": "ローカル通知を自動的に閉じる",
+  "callerIdSettingsTitle": "発信者ID設定",
+  "callerIdSettingsSubtitle": "着信通知と表示モードを設定する",
+  "purchaseTitle": "購入",
+  "purchaseSubtitle": "サービスを購入する",
+  "callerIdNotificationTitle": "着信情報",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "番号: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "ブロックされた通話",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "{phoneNumber}からのブロックされた通話",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "検証済み",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "未検証",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "検証失敗",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "不明な検証ステータス",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "STIR/SHAKEN検証",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "番号{phoneNumber}の{stirResultMessage}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "スクロールセキュリティメッセージ設定",
+  "messageColor": "メッセージの色",
+  "messageFontSize": "メッセージフォントサイズ",
+  "messagePosition": "メッセージの位置",
+  "containerWidth": "コンテナの幅",
+  "scrollSpeed": "スクロール速度",
+  "enableSecurityMessage": "セキュリティメッセージを有効にする",
+  "fraudAlertTitle": "詐欺アラート",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "{phoneNumber}からの潜在的な詐欺通話",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "ルールの読み込みに失敗しました: {error}",
+  "loadCallLogFailed": "通話履歴の読み込みに失敗しました: {error}",
+  "noBlockedTypeData": "ブロックされた種類のデータはありません",
+  "importEntity": "{entityTypeName}をインポート",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName}のインポートに成功しました。合計{count}件のレコードがインポートされました",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "{entityTypeName}のインポートに失敗しました: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "{entityTypeName}をエクスポート",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName}のエクスポートに成功しました",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "{entityTypeName}のエクスポートに失敗しました: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "クラウド同期サービス",
+  "membershipCenter": "メンバーシップセンター",
+  "redeemVipWithMarks": "マークでVIPを交換",
+  "currentMarkCount": "現在のマーク数",
+  "markMoreNumbersForMore": "さらに多くのマークのためにさらに多くの番号をマーク",
+  "noAds": "広告なし",
+  "cloudBackup": "クラウドバックアップ",
+  "callerIdEnhancement": "発信者IDの強化",
+  "voiceRecognition": "音声認識",
+  "feature": "機能",
+  "normalUser": "通常ユーザー",
+  "vipUser": "VIPユーザー",
+  "temporaryVip": "一時的なVIP",
+  "removeAds": "広告を削除",
+  "unknownAction": "不明なアクション",
+  "settingsBackup": "設定のバックアップ ",
+  "allServicesStatusTitle": "現在のサービスステータス",
+  "allServicesStatusSubtitle": "各クラウドサービスの現在のステータス",
+  "redirect": "リダイレクト",
+  "notify": "通知",
+  "log": "ログ",
+  "custom": "カスタム",
+  "allowActionDescription": "番号がブロックリストに載っていても、通話は許可されます。",
+  "blockActionDescription": "通話はブロックされ、通話履歴に表示されます。",
+  "silenceActionDescription": "通話はサイレントになりますが、通話履歴に表示されます。",
+  "noneActionDescription": "通話に対して特別なアクションは実行されません。",
+  "redirectActionDescription": "通話を指定された番号にリダイレクトします。",
+  "labelActionDescription": "識別しやすいように通話にラベルを追加します。",
+  "notifyActionDescription": "通話を受信したときに通知を送信します。",
+  "logActionDescription": "他のアクションを実行せずに、通話情報を記録します。",
+  "customActionDescription": "カスタムアクションを実行します。",
+  "synced": "同期済み",
+  "needVipAccess": "この機能を使用するには、VIPアクセスが必要です",
+  "importExportDescription": "{entityTypeName}データをインポートまたはエクスポートします",
+  "importExportTitle": "インポート/エクスポート",
+  "noPhoneRules": "電話ルールが見つかりません",
+  "noRegexRules": "正規表現ルールが見つかりません",
+  "noAllowedBlockedRules": "許可/ブロックルールが見つかりません",
+  "importExport": "インポート/エクスポート",
+  "filterByAction": "アクションでフィルタリング",
+  "upgradeToVip": "VIPにアップグレード",
+  "batteryOptimizationPermission": "バッテリー最適化",
+  "batteryOptimizationPermissionDescription": "発信者番号などのサービスを提供するために、アプリがバックグラウンドで実行されることを許可します。",
+  "permissionTitle": "特別許可",
+  "permissionSubtitle": "オーバーレイとバッテリー最適化の許可を管理します",
+  "themeSettingsTitle": "テーマ設定",
+  "themeSettingsSubtitle": "お気に入りのテーマを選択してください",
+  "databaseSyncTitle": "データベース同期",
+  "countrySyncSettingsTitle": "国別データベース同期設定",
+  "countrySyncSettingsSubtitle": "データ同期する国を選択してください",
+  "countryDataDisclaimer": "ご注意ください: データベースには、すべての特定の国または地域のデータが含まれていない場合があります。",
+  "editSubscription": "サブスクリプションを編集",
+  "searchByNameOrPhoneNumber": "名前または電話番号で検索",
+  "allowedBlockedRulesInfo": "許可/ブロックルールは、特定の電話番号への通話に一致させるために使用され、これが最優先されます。",
+  "searchPhoneRulesHint": "電話ルールを検索",
+  "phoneRulesInfo": "電話ルールは、特定の電話番号への通話に一致させるために使用され、優先順位が低くなります。一部はphoneRuleサブスクリプションから取得されます",
+  "searchSubscriptionsHint": "サブスクリプションを検索",
+  "searchPluginsHint": "プラグインを検索",
+  "searchLabelsHint": "ラベルを検索",
+  "pluginDescription": "プラグインの説明",
+  "enterPluginDescription": "プラグインの説明を入力してください",
+  "searchRegexRulesHint": "正規表現ルールを検索",
+  "regexRulesInfo": "正規表現ルールは、正規表現パターンに基づいて通話をフィルタリングするために使用されます。",
+  "searchMarkedPhonesHint": "マークされた電話を検索",
+  "searchContactSubscriptionsHint": "連絡先サブスクリプションを検索",
+  "showAllContacts": "すべての連絡先を表示",
+  "showFavorites": "お気に入りを表示",
+  "manualEntry": "手動入力情報",
+  "scriptSaved": "スクリプトを保存しました",
+  "editScriptFor": "{pluginName}のスクリプトを編集",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "スクリプトを保存",
+  "testPlugin": "プラグインをテスト",
+  "description": "説明",
+  "accessTargetUrl": "ターゲットURLへのアクセス",
+  "result": "結果",
+  "editScript": "スクリプトを編集",
+  "numberFormat": "番号形式",
+  "nationalNumber": "国内番号",
+  "e164Number": "E164番号",
+  "pluginRulesInfo": "セキュリティのため、信頼できるソースのプラグインのみを使用してください。独自のカスタムプラグインを作成するために、当社のテンプレートをご自由にお使いください！",
+  "advancedMode": "詳細モード",
+  "pleaseEnterAtLeastOneNumber": "少なくとも1つの番号を入力してください。",
+  "openInWebView": "WebViewで開く",
+  "pluginLabel": "プラグインラベル",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "メッセージの背景色",
+  "clearAllCallLogs": "すべての通話履歴をクリア",
+  "clearAllCallLogsConfirmation": "すべての通話履歴をクリアすることを確認してください",
+  "allCallLogsCleared": "すべての通話履歴がクリアされました",
+  "unblocked": "ブロック解除されました",
+  "blockNumber": "ブロック番号",
+  "blockNumberSuccess": "ブロック番号成功",
+  "blockNumberFailed": "ブロック番号失敗",
+  "unblockNumberConfirmation": "{phoneNumber}のブロックを解除してもよろしいですか？",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "{phoneNumber}に電話中...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "詳細を表示",
+  "unblock": "ブロック解除",
+  "unblockNumber": "番号ブロック解除",
+  "unblockNumberSuccess": "番号のブロックを正常に解除しました",
+  "unblockNumberFailed": "番号のブロック解除に失敗しました",
+  "serviceNotAvailable": "サービスは利用できません",
+  "callingNumberFailed": "電話番号への発信に失敗しました",
+  "listView": "リストビュー",
+  "timelineView": "タイムラインビュー",
+  "nameCannotBeEmpty": "名前は空にできません",
+  "selectAction": "アクションを選択",
+  "selectTargetService": "対象サービスを選択",
+  "callDetails": "通話の詳細",
+  "callType": "通話タイプ",
+  "callTime": "通話時間",
+  "numberInvalidFormat": "番号の形式が正しくありません",
+  "membershipFeature": "メンバーシップ機能",
+  "medium": "媒体",
+  "verificationReport": "検証レポート",
+  "finalRisk": "最終的なリスク",
+  "simState": "SIM状態",
+  "ipCountry": "IP国",
+  "simCountry": "SIM国",
+  "isRoaming": "ローミング中",
+  "isNumberMatch": "番号の一致",
+  "support": "サポート",
+  "rewardedAdService": "リワード広告サービス",
+  "hasVipPrivilegeExceptAds": "既にVIP特典（広告を除く）があります",
+  "hasTempPrivilegeWithExpiry": "既に一時的な特典があり、有効期限は{expiryDate}です",
+  "watchMoreAdsForTempVip": "一時的なVIP特典を得るには、さらに{count}個の広告を視聴する必要があります",
+  "grantedTempPurchaseWithExpiry": "{days}日間の期間限定購入特典が付与されました。有効期限：{expiryDate}",
+  "tempPurchaseExpired": "一時的な購入特典が期限切れになりました",
+  "loadingAd": "広告を読み込み中...",
+  "earnedTempVip": "一時的なVIPを獲得しました",
+  "vipExchangeService": "VIP交換サービス",
+  "marksInsufficient": "交換に必要なポイントが不足しています",
+  "invalidExchangeRule": "無効な交換ルール",
+  "exchangeSuccess": "{description}と交換しました。有効期限：{expiryDate}",
+  "exchangeFailed": "交換に失敗しました: {error}",
+  "vip3DaysWithAds": "広告付き3日間VIP (同期のみ)",
+  "vip5DaysNoAds": "広告なし5日間フル機能VIP",
+  "vip7DaysNoAds": "広告なし7日間フル機能VIP",
+  "noNotifications": "通知はありません",
+  "clearAllNotifications": "すべての通知をクリア",
+  "clearAllNotificationsConfirmation": "すべての通知をクリアすることを確認しますか？",
+  "allNotificationsCleared": "すべての通知をクリアしました",
+  "clearButton": "クリア",
+  "justNow": "たった今",
+  "minutesAgo": "{count,plural, =1{1分前} other{{count}分前}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1時間前} other{{count}時間前}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1日前} other{{count}日前}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "昨日",
+  "deletionProposal": "削除提案",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "削除提案",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "提案を作成",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "削除提案を作成",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "理由",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "古くなった番号",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "プライバシーの問題",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "サービス対象外",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "誤って識別された",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "不正確な情報",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "誤ってマークされた",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "その他",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "送信",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "キャンセル",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "ステータス",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "保留中",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "アクティブ",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "完了",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "期限切れ",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "リスクレベル",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "検証済み",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "低",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "高",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "不明",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "投票の進行状況",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "賛成: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "反対: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "合計: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "賛成",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "反対",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "作成日: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "レポートを表示",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "レポートを非表示",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "提案統計",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "提案の合計",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "アクティブな提案",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "完了した提案",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "私の投票",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "提案が正常に作成されました",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "提案の作成に失敗しました",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "投票が正常に送信されました",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "投票の送信に失敗しました",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "提案が見つかりませんでした",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "提案を読み込んでいます...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "提案を更新",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "保留中の提案の合計",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "高リスク",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "中リスク",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "低リスク",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "コミュニティへの影響",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "重大な問題",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "コミュニティへの参加",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "活動なし",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "低",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "中程度",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "高",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "非常に高い",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "投票済み",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "コミュニティ投票",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "より多くのコミュニティ投票を待機中",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "この提案は処理されました",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "支持",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "反対",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "承認済み",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "拒否されました",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "完了",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "保留中",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "重大",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "反対する",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "非常に低い",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "削除提案の投票結果と更新に関する通知。",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "削除提案が作成されました",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "{phoneNumber} の削除提案がコミュニティレビューのために提出されました。",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "提案承認 ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "{phoneNumber} の削除提案がコミュニティによって承認されました (支持率 {supportPercentage}%, 総投票数 {totalVotes}票)。",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "提案拒否 ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "{phoneNumber} の削除提案がコミュニティによって拒否されました (支持率 {supportPercentage}%, 総投票数 {totalVotes}票)。",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "コミュニティ投票が開始されました",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "{phoneNumber} の新しい削除提案がコミュニティ投票のために公開されました。",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "投票が完了しました",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "{phoneNumber} のコミュニティ投票が終了しました。結果: {result} ({supportPercentage}% 支持)。",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "新しい投票を受信しました",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "誰かが {phoneNumber} の削除に {voteType} と投票しました。現在の投票数: {totalVotes}。",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "投票数の読み込みに失敗しました",
+  "voteCount": "投票数",
+  "deletionProposalInfo": "削除提案の情報",
+  "deletionProposalDescription": "コミュニティガイドラインに違反する削除対象の番号を提案します。あなたの参加はプラットフォームの安全維持に役立ちます。",
+  "voteToEarnVip": "VIP特典を獲得するために提案に投票しましょう！",
+  "voteFailed": "投票に失敗しました",
+  "searchProposals": "提案を検索",
+  "defaultNotifications": "デフォルトの通知",
+  "defaultNotificationsDescription": "アプリのデフォルト通知チャネル。",
+  "blockedCallNotifications": "ブロックされた通話の通知",
+  "blockedCallNotificationsDescription": "ブロックされた通話に関する情報を表示します。",
+  "stirVerification": "STIR/SHAKEN認証",
+  "stirVerificationDescription": "番号のSTIR/SHAKEN認証結果を表示します。",
+  "fraudAlerts": "詐欺アラート",
+  "fraudAlertsDescription": "詐欺の可能性のある通話に関する警告を表示します。",
+  "notificationFrequencyDescription": "新しい削除提案に関する通知を受け取る頻度を選択します。即時、バッチ、またはカスタムの間隔で受信できます。",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "即時",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "提案が作成されたらすぐに通知を受け取ります。",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "バッチ",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "通知の概要を定期的に受け取ります。",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "カスタム",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "通知を受け取るための独自の間隔を定義します。",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "カスタム頻度",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} 分",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} 時間",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} 時間 {minutes} 分",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "保留中の提案",
+  "pendingProposalsBody": "保留中の提案が{count, plural, =0 {ありません} one {1件あります} other {{count}件あります}}。",
+  "guidelinesLabel": "ガイドライン",
+  "reportingGuidelines": "• 実際に問題のある番号のみを報告する\n• 正確で詳細な理由を提供する\n• 深刻度に応じて適切なリスクレベルを選択する\n• 虚偽の報告はアカウントの制限につながる可能性があります",
+  "riskLevelLabel": "リスクレベル",
+  "riskLevelDescription": "番号のリスクレベル",
+  "phoneNumberMinDigits": "電話番号は7桁以上である必要があります",
+  "provideDetailedExplanation": "詳細な説明を提供する（10文字以上）",
+  "reasonMinCharacters": "理由は10文字以上である必要があります",
+  "countryCodeTwoLetters": "国コード (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "国コード (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "例：US、CN、GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "国コードは必須です",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "国コードは2文字でなければなりません",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "電話番号は7桁以上である必要があります",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "詳細な説明を提供する（10文字以上）",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "理由は必須です",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "理由は10文字以上である必要があります",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "ガイドライン",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• 実際に問題のある番号のみを報告する\n• 正確で詳細な理由を提供する\n• 深刻度に応じて適切なリスクレベルを選択する\n• 虚偽の報告はアカウントの制限につながる可能性があります",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "重大",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "中",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "非常に低い",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "非常に低い - 軽度の迷惑行為、まれな通話",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "低い - 時折迷惑な通話",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "中 - 定期的なスパムまたはテレマーケティング",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "高い - しつこい嫌がらせまたは詐欺の試み",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "重大 - 危険な詐欺または脅威",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "通知頻度",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "通知頻度（時間）",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "エラー: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "投票: {totalVotes} ({supportPercentage}% 支持)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "支持 ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "反対 ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "たった今",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes}分前",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours}時間前",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days}日前",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "通知頻度（時間）",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} 票（{supportPercentage}% 支持）",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 時間} =1{1 時間} other{{count} 時間}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "重要なお知らせ",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "数値はインターネットとユーザーからの投稿に基づいています。削除された数値が、他のユーザーまたはソースによって再投稿されないことを保証することはできません。積極的に情報を検索し、検証してください。",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "アバター",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "場所",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIMカード",
+  "liveActivitiesSettingsTitle": "ライブアクティビティ設定",
+  "elementsSettingsTitle": "要素設定",
+  "liveActivityMode": "ライブアクティビティ",
+  "liveActivityModeDescription": "通話情報を、ロック画面とダイナミックアイランド（iOS）に永続的な通知として表示します。",
+  "phoneNumberType": "電話番号の種類",
+  "liveActivitiesTestEndActivity": "アクティビティを終了",
+  "liveActivitiesTestSendNewActivity": "新しいアクティビティを送信",
+  "liveActivitiesTestUpdateActivity": "アクティビティを更新",
+  "liveActivityControlsTitle": "ライブアクティビティコントロール",
+  "liveActivitiesTestTitle": "ライブアクティビティテスト",
+  "liveActivitiesTestSubtitle": "ライブアクティビティ通知をテストします。",
+  "liveNotificationCustomizationTitle": "ライブ通知のカスタマイズ",
+  "liveNotificationCustomizationSubtitle": "ライブ通知の外観をカスタマイズします。",
+  "notification_instructions": "手順:\n1. 「送信」をタップして通知を作成または更新します。\n2. ホーム画面に移動するか、通知トレイを引き下げて結果を確認します。\n3. 「終了」をタップして通知を閉じます。",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "自動通知キャンセル",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "チェックすると、ユーザーが通知をタップしたときに通知が自動的に閉じられます。",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "遅延時間を設定",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "提案の詳細",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "ステータスでフィルタリング",
+  "proposalNotFound": "提案が見つかりません",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "処理済み",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "すべて表示",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "フィルターと並べ替え",
+  "filterVerifiedOwner": "検証済みの所有者をフィルタリング",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "フィルター",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "古い順に並べ替え",
+  "sortNewest": "新しい順に並べ替え",
+  "sortMostPopular": "人気順に並べ替え",
+  "sortLeastPopular": "不人気順に並べ替え",
+  "sortBy": "並べ替え",
+  "simRulesNotFound": "SIMルールが見つかりません",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "SIMスロットルール",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "SIMカードが検出されません",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "無効なSIMデータ",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "SIMカードデータ",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "SIMスロット",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "フィルタリングを有効にする",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "詳細設定",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "エントリーポイントビュー",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "拒否",
+  "callTypeSilenced": "サイレント",
+  "callTypeVoicemail": "ボイスメール",
+  "callTypeUnknownIntercept": "不明なインターセプト",
+  "andMoreItems": "他{count}件",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

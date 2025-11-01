@@ -1,0 +1,3088 @@
+{
+  "@@locale": "km",
+  "aboutContactSubscription": "អំពីការជាវទំនាក់ទំនង",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "អំពីស្លាក",
+  "aboutPhoneSubscriptionRules": "អំពីច្បាប់ជាវទូរស័ព្ទ",
+  "aboutPhoneSubscriptions": "អំពីការជាវទូរស័ព្ទ",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "ជាវបញ្ជីច្បាប់ទូរស័ព្ទតាមរយៈ URL អាប់ដេតច្បាប់ដោយស្វ័យប្រវត្តិ។ គាំទ្រឯកសារច្បាប់ទម្រង់ JSON, CSV។",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "អំពីការត្រងសារ SMS",
+  "aboutSmsSubscriptionRules": "អំពីច្បាប់ជាវសារ SMS",
+  "aboutSubtitle": "កំណែកម្មវិធី និងព័ត៌មានស្របច្បាប់",
+  "aboutTitle": "អំពី",
+  "action": "សកម្មភាព",
+  "actionAll": "ទាំងអស់",
+  "actionAllow": "អនុញ្ញាត",
+  "actionBlock": "ទប់ស្កាត់",
+  "actionFilterAll": "តម្រងទាំងអស់",
+  "actionFilterTitle": "តម្រងតាមប្រភេទសកម្មភាព",
+  "actionFilterTooltip": "តម្រងសកម្មភាព",
+  "actionNone": "គ្មានសកម្មភាព",
+  "actionSilence": "ស្ងាត់",
+  "actionTag": "សកម្មភាព៖ {actionType}",
+  "actionType": "ប្រភេទសកម្មភាព",
+  "actionUnknown": "មិនស្គាល់",
+  "add": "បន្ថែម",
+  "addAllowedBlockedRule": "បន្ថែមច្បាប់អនុញ្ញាត/ទប់ស្កាត់",
+  "addAllowSubscription": "បន្ថែមការជាវអនុញ្ញាត",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "បន្ថែមការជាវទប់ស្កាត់",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "បន្ថែមទំនាក់ទំនង",
+  "addContactFailed": "បរាជ័យក្នុងការបន្ថែមទំនាក់ទំនង៖ {error}",
+  "addedToAllowedRules": "បានបន្ថែមទៅក្នុងច្បាប់ដែលបានអនុញ្ញាត",
+  "addedToBlacklist": "បានបន្ថែមទៅក្នុងបញ្ជីខ្មៅ",
+  "addedToBlockedRules": "បានបន្ថែមទៅក្នុងច្បាប់ដែលបានទប់ស្កាត់",
+  "addedToFavoriteContacts": "បានបន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត",
+  "addedToFavorites": "បានបន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត",
+  "addedToWhitelist": "បានបន្ថែមទៅក្នុងបញ្ជីស",
+  "addFavorite": "បន្ថែមទំនាក់ទំនងដែលចូលចិត្ត",
+  "addFilter": "បន្ថែមតម្រង",
+  "addLabel": "បន្ថែមស្លាក",
+  "addLabelButton": "បន្ថែមស្លាក",
+  "addLabelFailed": "បរាជ័យក្នុងការបន្ថែមស្លាក៖ {error}",
+  "addLabelToCall": "បន្ថែមស្លាកទៅកំណត់ត្រាវីដេអូ",
+  "addName": "បន្ថែមឈ្មោះ",
+  "addNoneSubscription": "បន្ថែមការជាវគ្មាន",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "ប្រើដើម្បីបន្ថែម ឬកែសម្រួលព័ត៌មានទំនាក់ទំនង",
+  "addPhoneMark": "បន្ថែមសញ្ញាទូរស័ព្ទ",
+  "addPhoneNumberRule": "បន្ថែមច្បាប់លេខទូរស័ព្ទ",
+  "addPlugin": "បន្ថែមកម្មវិធីជំនួយ",
+  "addPluginFailed": "បរាជ័យក្នុងការបន្ថែមកម្មវិធីជំនួយ",
+  "addPluginFailedWithError": "បរាជ័យក្នុងការបន្ថែមកម្មវិធីជំនួយ៖ {error}",
+  "addPluginFromLocalFile": "បន្ថែមកម្មវិធីជំនួយពីឯកសារក្នុងមូលដ្ឋាន",
+  "addPluginFromUrl": "បន្ថែមកម្មវិធីជំនួយពី URL",
+  "addRegexRule": "បន្ថែមច្បាប់ Regex",
+  "addRule": "បន្ថែមច្បាប់",
+  "addRuleButton": "បន្ថែមច្បាប់",
+  "addRuleFailed": "បរាជ័យក្នុងការបន្ថែមច្បាប់៖ {error}",
+  "addRuleTooltip": "បន្ថែមច្បាប់",
+  "addSilenceSubscription": "បន្ថែមការជាវស្ងាត់",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "បន្ថែមច្បាប់ SIM",
+  "addSmsFilterRule": "បន្ថែមច្បាប់ត្រង SMS",
+  "addSmsRule": "បន្ថែមច្បាប់ SMS",
+  "addSmsSubscription": "បន្ថែមការជាវ SMS",
+  "addSubscription": "បន្ថែមការជាវ",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "បន្ថែមការជាវ",
+  "addSubscriptionFailed": "បរាជ័យក្នុងការបន្ថែមការជាវ៖ {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "បន្ថែមការជាវ",
+  "addToAllowedRules": "បន្ថែមទៅក្នុងច្បាប់ដែលបានអនុញ្ញាត",
+  "addToBlacklist": "បន្ថែមទៅក្នុងបញ្ជីខ្មៅ",
+  "addToBlockedRules": "បន្ថែមទៅក្នុងច្បាប់ដែលបានទប់ស្កាត់",
+  "addToFavoriteContacts": "បន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត",
+  "addToFavorites": "បន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត",
+  "addToRules": "បន្ថែមទៅក្នុងច្បាប់",
+  "addToWhitelist": "បន្ថែមទៅក្នុងបញ្ជីស",
+  "adPlaceholder": "Ad Placeholder",
+  "agent": "ភ្នាក់ងារ",
+  "all": "ទាំងអស់",
+  "allCallsTab": "ទាំងអស់",
+  "allDataClearedSuccessfully": "បានលុបទិន្នន័យទាំងអស់ដោយជោគជ័យ",
+  "allow": "អនុញ្ញាត",
+  "allowAllAllowRules": "អនុញ្ញាតច្បាប់អនុញ្ញាតទាំងអស់",
+  "allowAllAllowRulesDesc": "អនុញ្ញាតការហៅទូរស័ព្ទពីច្បាប់អនុញ្ញាត",
+  "allowAllBlacklistedNumbers": "អនុញ្ញាតលេខក្នុងបញ្ជីខ្មៅទាំងអស់",
+  "allowAllBlacklistedNumbersDesc": "អនុញ្ញាតការហៅទូរស័ព្ទពីបញ្ជីទប់ស្កាត់",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "អនុញ្ញាតច្បាប់ទប់ស្កាត់ទាំងអស់",
+  "allowAllBlockRulesDesc": "អនុញ្ញាតការហៅទូរស័ព្ទពីច្បាប់ទប់ស្កាត់",
+  "allowAllowedNumbers": "អនុញ្ញាតលេខដែលបានអនុញ្ញាត",
+  "allowAllowedNumbersDesc": "អនុញ្ញាតការហៅទូរស័ព្ទពីបញ្ជីអនុញ្ញាត",
+  "allowBlock": "អនុញ្ញាត/ទប់ស្កាត់",
+  "allowBlockedNumbers": "អនុញ្ញាតលេខដែលបានទប់ស្កាត់",
+  "allowBlockedNumbersDesc": "អនុញ្ញាតការហៅទូរស័ព្ទពីបញ្ជីទប់ស្កាត់",
+  "allowedBlockedRule": "ច្បាប់អនុញ្ញាត/ទប់ស្កាត់",
+  "allowedBlockedRuleEditDialogTitle": "កែសម្រួលច្បាប់អនុញ្ញាត/ទប់ស្កាត់",
+  "allowedBlockedRuleManagement": "ការគ្រប់គ្រងច្បាប់អនុញ្ញាត/ទប់ស្កាត់",
+  "allowNonExceededNumbers": "អនុញ្ញាតលេខដែលមិនលើសពីចំនួនកំណត់",
+  "allowNonExceededNumbersDescription": "អនុញ្ញាតដោយស្វ័យប្រវត្តិនូវលេខដែលមិនលើសពីចំនួនកំណត់",
+  "allowRegexAllowRules": "អនុញ្ញាតច្បាប់ Regex អនុញ្ញាត",
+  "allowRegexAllowRulesDesc": "បើកដំណើរការការផ្គូផ្គងលំនាំ regex សម្រាប់ច្បាប់អនុញ្ញាត",
+  "allowRegexAllowRulesDescription": "បើកដំណើរការច្បាប់អនុញ្ញាតផ្អែកលើ regex",
+  "allowRegexBlockRules": "អនុញ្ញាតច្បាប់ Regex ទប់ស្កាត់",
+  "allowRegexBlockRulesDesc": "បើកដំណើរការការផ្គូផ្គងលំនាំ regex សម្រាប់ច្បាប់ទប់ស្កាត់",
+  "allowRegexBlockRulesDescription": "បើកដំណើរការច្បាប់ទប់ស្កាត់ផ្អែកលើ regex",
+  "allowRule": "ច្បាប់អនុញ្ញាត",
+  "allowRules": "ច្បាប់អនុញ្ញាត",
+  "allowWhitelistedNumbers": "អនុញ្ញាតលេខទូរស័ព្ទក្នុងបញ្ជីស",
+  "allowWhitelistedNumbersDescription": "អនុញ្ញាតលេខទូរស័ព្ទទាំងអស់ក្នុងបញ្ជីស",
+  "allPermissionsGranted": "បានផ្តល់សិទ្ធិទាំងអស់",
+  "allSettingsCompleted": "បានបញ្ចប់ការកំណត់ទាំងអស់។",
+  "allUpdateSuccess": "បានបញ្ចប់ការអាប់ដេតទាំងអស់ ({count} ច្បាប់)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "ឆ្លើយតប រួចផ្ដាច់",
+  "appLegalese": "© 2023 Your Call Your Rule. រក្សាសិទ្ធិគ្រប់យ៉ាង។",
+  "applicationSoftware": "កម្មវិធី",
+  "apply": "អនុវត្ត",
+  "appName": "Your Call Your Rule",
+  "authorizationFailedCheckCredentialsMessage": "ការអនុញ្ញាតបរាជ័យ៖ សូមពិនិត្យមើល Client ID និង Key",
+  "authorizationFailedMessage": "ការអនុញ្ញាតបរាជ័យ",
+  "authorizationSuccessMessage": "ការអនុញ្ញាតជោគជ័យ",
+  "authorizeLoginButton": "អនុញ្ញាតការចូល",
+  "automotiveIndustry": "ឧស្សាហកម្មរថយន្ត",
+  "autoSyncLabel": "ធ្វើសមកាលកម្មដោយស្វ័យប្រវត្តិ",
+  "autoUpdate": "ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ",
+  "autoUpdateDescription": "កំណត់ចន្លោះពេលធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិសម្រាប់ការជាវ ឬធ្វើបច្ចុប្បន្នភាពដោយដៃ",
+  "autoUpdateSettings": "ការកំណត់ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ",
+  "autoUpdateSettingsSubtitle": "គ្រប់គ្រងការធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិសម្រាប់ច្បាប់ និងកម្មវិធីបន្ថែម",
+  "autoUpdateSettingsTitle": "ការកំណត់ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ",
+  "autoUpdateSubtitle": "គ្រប់គ្រងការធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិសម្រាប់ច្បាប់ និងកម្មវិធីបន្ថែម",
+  "autoUpdateTitle": "ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ",
+  "avatarBorderColor": "ពណ៌ព្រំដែនរូបតំណាង",
+  "avatarBorderSize": "ទំហំព្រំដែនរូបតំណាង",
+  "avatarIconSizesSetting": "ទំហំរូបតំណាង និងរូបសញ្ញា",
+  "avatarPosition": "ទីតាំងរូបតំណាង",
+  "avatarSize": "ទំហំរូបតំណាង",
+  "axisPosition": "ទីតាំង {axis}",
+  "backgroundGradientSetting": "ការកំណត់ជម្រាលផ្ទៃខាងក្រោយ",
+  "backup": "បម្រុងទុក",
+  "backupAndRestore": "បម្រុងទុក និងស្ដារឡើងវិញ",
+  "backupAndRestoreSubtitle": "បម្រុងទុក ឬស្ដារទិន្នន័យកម្មវិធីឡើងវិញ",
+  "backupAndRestoreTitle": "បម្រុងទុក និងស្ដារឡើងវិញ",
+  "backupFailed": "ការបម្រុងទុកបរាជ័យ",
+  "backupFailedMessage": "ការបម្រុងទុកបរាជ័យ",
+  "backupFailedWithError": "ការបម្រុងទុកបរាជ័យ៖ {error}",
+  "backupRestoreSubtitle": "បម្រុងទុក ឬស្ដារទិន្នន័យកម្មវិធីឡើងវិញ",
+  "backupRestoreTitle": "បម្រុងទុក និងស្ដារឡើងវិញ",
+  "backupSectionTitle": "បម្រុងទុក",
+  "backupSettings": "ការកំណត់ការបម្រុងទុក",
+  "backupSettingsDialogTitle": "ការកំណត់ការបម្រុងទុក",
+  "backupSettingsTitle": "ការកំណត់ការបម្រុងទុក",
+  "backupSuccessMessage": "បានបម្រុងទុកទៅពពកដោយជោគជ័យ",
+  "backupSuccessToLocal": "ការបម្រុងទុកជោគជ័យទៅ៖ {path}",
+  "backupToCloud": "បម្រុងទុកទៅពពក",
+  "backupToCloudDescription": "បម្រុងទុកការកំណត់ និងច្បាប់ទៅកន្លែងផ្ទុកពពក",
+  "backupToCloudFailed": "បរាជ័យក្នុងការបម្រុងទុកទៅពពក៖ {error}",
+  "backupToCloudLabel": "បម្រុងទុកទៅពពក",
+  "backupToCloudSuccess": "បានបម្រុងទុកទៅពពកដោយជោគជ័យ",
+  "backupToCloudTitle": "បម្រុងទុកទៅពពក",
+  "backupToLocalLabel": "បម្រុងទុកទៅក្នុងម៉ាស៊ីន",
+  "bank": "ធនាគារ",
+  "basicInfo": "ព័ត៌មានមូលដ្ឋាន",
+  "basicRuleFilter": "តម្រងច្បាប់មូលដ្ឋាន",
+  "basicRuleFiltering": "ការត្រងច្បាប់មូលដ្ឋាន",
+  "basicRuleFilteringExplanation": "• ការត្រងច្បាប់មូលដ្ឋាន៖ ត្រងច្បាប់ដោយផ្អែកលើបញ្ជីខ្មៅ បញ្ជីស និង regex",
+  "basicRuleFilterSettings": "ការកំណត់តម្រងច្បាប់មូលដ្ឋាន",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "ត្រងការហៅទូរស័ព្ទដោយប្រើបញ្ជីខ្មៅ/បញ្ជីស និងកន្សោមធម្មតា",
+  "batchDeleteContacts": "លុបទំនាក់ទំនងជាបាច់",
+  "batchDeleteContactsConfirm": "តើអ្នកប្រាកដថាអ្នកចង់លុបទំនាក់ទំនងដែលបានជ្រើសរើស {count} ដែរឬទេ?",
+  "batchDeleteFailed": "ការលុបជាបាច់បរាជ័យ",
+  "batchDeleteLabelsConfirm": "តើអ្នកប្រាកដថាអ្នកចង់លុបស្លាក {count} ដែរឬទេ?",
+  "blacklist": "បញ្ជីខ្មៅ",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "ការដាក់ក្នុងបញ្ជីខ្មៅ និងបញ្ជីស",
+  "blacklistLabel": "បញ្ជីខ្មៅ",
+  "blackWhiteList": "បញ្ជីខ្មៅ/ស",
+  "block": "ទប់ស្កាត់",
+  "blockCalls": "ទប់ស្កាត់ការហៅទូរស័ព្ទ",
+  "blocked": "បានទប់ស្កាត់",
+  "blockedCallAction": "សកម្មភាពការហៅដែលបានទប់ស្កាត់",
+  "blockedCalls": "ការហៅដែលបានទប់ស្កាត់",
+  "blockedCallsTitle": "ការហៅដែលបានទប់ស្កាត់",
+  "blockedCommunications": "ទំនាក់ទំនងដែលបានទប់ស្កាត់",
+  "blockedPhoneLabel": "ការហៅដែលបានទប់ស្កាត់",
+  "blockedSpamCalls": "ការហៅទូរស័ព្ទសារឥតបានការដែលបានទប់ស្កាត់",
+  "blockingTrend": "និន្នាការទប់ស្កាត់",
+  "blockInternationalCalls": "ផ្គូផ្គងលេខដែលមិនចាប់ផ្តើមដោយ + ឬ 00",
+  "blockInternationalCallsTitle": "ទប់ស្កាត់ការហៅអន្តរជាតិ",
+  "blockLandlineNumbersTitle": "ទប់ស្កាត់លេខទូរស័ព្ទលើគោក",
+  "blockMobileNumbers": "ផ្គូផ្គងលេខដែលមិនចាប់ផ្តើមដោយ 13-19",
+  "blockMobileNumbersTitle": "ទប់ស្កាត់លេខទូរស័ព្ទចល័ត",
+  "blockPremiumRateNumbers": "ផ្គូផ្គងលេខដែលមិនចាប់ផ្តើមដោយ 118 ឬ 120-190",
+  "blockPremiumRateNumbersTitle": "ទប់ស្កាត់លេខគិតតម្លៃពិសេស",
+  "blockRule": "ច្បាប់ទប់ស្កាត់",
+  "blockRules": "ច្បាប់ទប់ស្កាត់",
+  "blockSpecificAreaCodes": "ផ្គូផ្គងលេខដែលចាប់ផ្តើមដោយ 0 + 2-3 ខ្ទង់",
+  "blockSpecificAreaCodesTitle": "ទប់ស្កាត់លេខកូដតំបន់ជាក់លាក់៖",
+  "blockTypeAnalysisTitle": "ការវិភាគប្រភេទនៃការទប់ស្កាត់",
+  "both": "ទាំងពីរ",
+  "bulkDelete": "លុបជាបាច់ទំនាក់ទំនង",
+  "bulkDeleteContacts": "លុបទំនាក់ទំនងជាបាច់",
+  "bulkDeleteLabels": "លុបស្លាបជាបាច់",
+  "call": "ហៅ",
+  "callback": "ហៅត្រឡប់",
+  "callbackTo": "ហៅត្រឡប់ទៅ {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "ការទប់ស្កាត់ការហៅ",
+  "callerIdApp": "កម្មវិធី Caller ID",
+  "callerIdCustomizationTitle": "ប្ដូរតាមបំណង Caller ID",
+  "callerIdDialogTitle": "ព័ត៌មាន Caller ID",
+  "callerIdDisplayMode": "របៀបបង្ហាញអត្តសញ្ញាណអ្នកហៅ",
+  "callerIdMarkedByCount": "សម្គាល់ដោយ {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "ទិដ្ឋភាព​ជា​មុន​អត្តសញ្ញាណ​អ្នក​ហៅ",
+  "callFilter": "តម្រង​ការ​ហៅ",
+  "callFilterDescription": "នៅពេល​បើក​ដំណើរការ ការ​ហៅ​ចូល​នឹង​ត្រូវ​បាន​ត្រួតពិនិត្យ​ប្រឆាំង​នឹង​បញ្ជី​ច្បាប់​ខាងក្រោម។ ច្បាប់​តម្រង​ការ​ហៅ​មិន​ត្រូវ​បាន​ធ្វើ​សមកាលកម្ម​រវាង​ឧបករណ៍​តាម​លំនាំដើម​ទេ។",
+  "callFilterRules": "ច្បាប់​តម្រង​ការ​ហៅ",
+  "callFilterRulesDescription": "កំណត់​ច្បាប់​ជា​មូលដ្ឋាន​សម្រាប់​តម្រង​ការ​ហៅ",
+  "callFilterSettings": "ការ​កំណត់​តម្រង​ការ​ហៅ",
+  "callFrequencyInterceptionSubtitle": "កំណត់​ដែន​កំណត់​ប្រេកង់​ការ​ហៅ និង​ច្បាប់​ទប់ស្កាត់",
+  "callFrequencyInterceptionTitle": "ការ​ទប់ស្កាត់​ប្រេកង់​ការ​ហៅ",
+  "callHistory": "ប្រវត្តិ​ការ​ហៅ",
+  "callHistoryInfoDesc": "នៅ​ទីនេះ​បង្ហាញ​ប្រវត្តិ​ការ​ហៅ​របស់​អ្នក រួម​ទាំង​ការ​ហៅ​ចូល ការ​ហៅ​ចេញ និង​ការ​ហៅ​ខកខាន។",
+  "callHistoryInfoTitle": "ប្រវត្តិ​ការ​ហៅ",
+  "callHistoryInitFailed": "មិន​អាច​ចាប់ផ្ដើម​ប្រវត្តិ​ការ​ហៅ​បាន​ទេ៖ {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "មិន​អាច​ធ្វើ​បច្ចុប្បន្នភាព​ប្រវត្តិ​ការ​ហៅ​បាន​ទេ៖ {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "ប្រវត្តិ​ការ​ហៅ",
+  "callHistoryTimelineEarlier": "មុន​នេះ",
+  "callHistoryTimelineToday": "ថ្ងៃ​នេះ",
+  "callHistoryTimelineYesterday": "ម្សិលមិញ",
+  "callScreeningPermission": "ការ​អនុញ្ញាត​ត្រួត​ពិនិត្យ​ការ​ហៅ",
+  "callScreeningPermissionDescription": "ប្រើ​ដើម្បី​ត្រួត​ពិនិត្យ និង​ទប់ស្កាត់​ការ​ហៅ​សារ​ឥត​បាន​ការ។",
+  "callScreeningPermissionNotGranted": "មិន​បាន​ផ្ដល់​ការ​អនុញ្ញាត​ត្រួត​ពិនិត្យ​ការ​ហៅ​ទេ វា​អាច​ប៉ះពាល់​ដល់​មុខងារ​របស់​កម្មវិធី។",
+  "callSettingsSubtitle": "ការ​កំណត់​អត្តសញ្ញាណ​អ្នក​ហៅ ការ​តម្រង និង​ការ​ទប់ស្កាត់",
+  "callSettingsTitle": "ការ​កំណត់​ការ​ហៅ",
+  "callStatistics": "ស្ថិតិ​ការ​ហៅ",
+  "callTypeAnswered": "បាន​ឆ្លើយ",
+  "callTypeBlocked": "បាន​ទប់ស្កាត់",
+  "callTypeIconColor": "ពណ៌​រូប​តំណាង​ប្រភេទ​ការ​ហៅ",
+  "callTypeMissed": "ការ​ហៅ​ខកខាន",
+  "callTypeOutgoing": "ការ​ហៅ​ចេញ",
+  "callTypePosition": "ទីតាំង​ប្រភេទ​ការ​ហៅ",
+  "callTypeUnknown": "មិន​ស្គាល់",
+  "cancelButton": "បោះបង់",
+  "carRental": "ជួល​រថយន្ត",
+  "carrier": "ក្រុមហ៊ុន​ដឹក​ជញ្ជូន",
+  "carrierColor": "ពណ៌​ក្រុមហ៊ុន​ដឹក​ជញ្ជូន",
+  "carrierFontSize": "ទំហំ​អក្សរ​ក្រុមហ៊ុន​ដឹក​ជញ្ជូន",
+  "carrierPosition": "ទីតាំង​ក្រុមហ៊ុន​ដឹក​ជញ្ជូន",
+  "changeLabel": "ផ្លាស់ប្ដូរ​ស្លាក",
+  "changePluginStatusFailed": "មិន​អាច​ផ្លាស់ប្ដូរ​ស្ថានភាព​កម្មវិធី​ជំនួយ​បាន​ទេ៖ {error}",
+  "changeSubscriptionStatusFailed": "មិន​អាច​ផ្លាស់ប្ដូរ​ស្ថានភាព​ការ​ជាវ​បាន​ទេ៖ {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "ផ្លាស់ប្ដូរ​ស្លាក",
+  "charity": "អង្គការ​សប្បុរសធម៌",
+  "chartMonthFormat": "ខែ {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "១ ថ្ងៃ​មុន",
+  "chartOneMonthAgo": "១ ខែ​មុន",
+  "chartOneWeekAgo": "១ សប្តាហ៍​មុន",
+  "chartTenDaysAgo": "១០ ថ្ងៃ​មុន",
+  "chartThreeDaysAgo": "៣ ថ្ងៃ​មុន",
+  "chartToday": "ថ្ងៃ​នេះ",
+  "checkFileFormat": "សូម​ពិនិត្យ​ទ្រង់ទ្រាយ​ឯកសារ ឬ​ការ​អនុញ្ញាត",
+  "checkPermissionFailed": "មិន​អាច​ត្រួត​ពិនិត្យ​ការ​អនុញ្ញាត​បាន​ទេ៖ {error}",
+  "chooseDefaultInterceptAction": "ជ្រើសរើស​សកម្មភាព​ទប់ស្កាត់​លំនាំដើម",
+  "clearAllData": "លុប​ទិន្នន័យ​ទាំងអស់",
+  "clearAllDataConfirmation": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ទិន្នន័យ​កម្មវិធី​ទាំងអស់? សកម្មភាព​នេះ​មិន​អាច​យក​មក​វិញ​បាន​ទេ។",
+  "clearAllDataDescription": "លុប​ទិន្នន័យ​កម្មវិធី​ទាំងអស់",
+  "clearAllDataLabel": "លុប​ទិន្នន័យ​ទាំងអស់",
+  "clearFilter": "លុប​តម្រង",
+  "clearLabelFilter": "លុប​តម្រង​ស្លាក",
+  "clearLabelFilterButton": "លុប​តម្រង​ស្លាក",
+  "closeButton": "បិទ",
+  "cloudSync": "ការ​ធ្វើ​សមកាលកម្ម​ពពក",
+  "cloudSyncAndBackupTitle": "ការ​ធ្វើ​សមកាលកម្ម & ការ​បម្រុង​ទុក​ពពក",
+  "cloudSyncSettingsSubtitle": "កំណត់​រចនាសម្ព័ន្ធ WebDAV, OneDrive និង Google Drive",
+  "cloudSyncSettingsTitle": "ការ​កំណត់​ការ​ធ្វើ​សមកាលកម្ម​ពពក",
+  "cloudSyncTitle": "ការ​ធ្វើ​សមកាលកម្ម​ពពក",
+  "collapseLabelSelector": "បង្រួម​អ្នក​ជ្រើសរើស​ស្លាក",
+  "collection": "ការ​ប្រមូល​បំណុល",
+  "colorPickerTitle": "ជ្រើសរើស​ពណ៌",
+  "configManagement": "ការ​គ្រប់គ្រង​ការ​កំណត់​រចនាសម្ព័ន្ធ",
+  "configUpdated": "ការ​កំណត់​រចនាសម្ព័ន្ធ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព",
+  "configurationAdvice": "តាម​រយៈ​ការ​កំណត់​រចនាសម្ព័ន្ធ​ត្រឹមត្រូវ អ្នក​អាច​កំណត់​យុទ្ធសាស្ត្រ​តម្រង​ផ្សេងៗ​គ្នា​សម្រាប់​ស៊ីម​កាត​ការងារ និង​ស៊ីម​កាត​ផ្ទាល់ខ្លួន។",
+  "configureBackupOptions": "កំណត់​រចនាសម្ព័ន្ធ​ជម្រើស​បម្រុង​ទុក",
+  "configureBackupOptionsSubtitle": "កំណត់​រចនាសម្ព័ន្ធ​ជម្រើស​បម្រុង​ទុក",
+  "configureCloudSyncService": "កំណត់​រចនាសម្ព័ន្ធ​សេវា​ធ្វើ​សមកាលកម្ម​ពពក",
+  "configureCloudSyncServiceHint": "សូម​កំណត់​រចនាសម្ព័ន្ធ​សេវា​ធ្វើ​សមកាលកម្ម​ពពក​ដើម្បី​បើក​ដំណើរការ​ការ​ធ្វើ​សមកាលកម្ម​ច្រើន​ឧបករណ៍។",
+  "configureCloudSyncServiceMessage": "សូម​កំណត់​រចនាសម្ព័ន្ធ​សេវា​ធ្វើ​សមកាលកម្ម​ពពក​ដើម្បី​បើក​ដំណើរការ​ការ​ធ្វើ​សមកាលកម្ម​ច្រើន​ឧបករណ៍។",
+  "configureSimCardFilterRules": "កំណត់​រចនាសម្ព័ន្ធ​ច្បាប់​តម្រង​ស៊ីម​កាត",
+  "configureSyncServiceHint": "សូម​កំណត់​រចនាសម្ព័ន្ធ​សេវា​ធ្វើ​សមកាលកម្ម​ក្នុង​ការ​កំណត់​ការ​ធ្វើ​សមកាលកម្ម​ពពក​ជាមុន​សិន",
+  "confirm": "បញ្ជាក់",
+  "confirmBatchDeleteContacts": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ការ​ជ្រើសរើស",
+  "confirmButton": "បញ្ជាក់",
+  "confirmDelete": "បញ្ជាក់​ការ​លុប",
+  "confirmDeleteContact": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប",
+  "confirmDeleteContactName": "បញ្ជាក់​ការ​លុប?",
+  "confirmDeleteFilter": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​តម្រង​នេះ?",
+  "confirmDeleteLabel": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ស្លាក \"{name}\"",
+  "confirmDeletePlugin": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​កម្មវិធី​ជំនួយ \"{name}\"?",
+  "confirmDeletePlugins": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​កម្មវិធី​ជំនួយ {count} នេះ?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ច្បាប់​នេះ? សកម្មភាព​នេះ​មិន​អាច​យក​មក​វិញ​បាន​ទេ។",
+  "confirmDeleteSelectedContacts": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ទំនាក់ទំនង​ដែល​បាន​ជ្រើសរើស?",
+  "confirmDeleteSmsFilterRule": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ច្បាប់​តម្រង SMS នេះ?",
+  "confirmDeleteSmsRule": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ច្បាប់ SMS នេះ?",
+  "confirmDeleteSubscription": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ការ​ជាវ​នេះ?",
+  "confirmDeleteSubscriptions": "តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប {name}?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "បញ្ជាក់​ពាក្យ​សម្ងាត់",
+  "confirmPasswordLabel": "បញ្ជាក់​ពាក្យ​សម្ងាត់",
+  "connectedStatus": "បាន​ភ្ជាប់",
+  "connectionFailedCheckCredentialsMessage": "ការ​តភ្ជាប់​បរាជ័យ៖ សូម​ពិនិត្យ​អាសយដ្ឋាន​ម៉ាស៊ីន​បម្រើ ឈ្មោះ​អ្នក​ប្រើ និង​ពាក្យ​សម្ងាត់",
+  "connectionFailedMessage": "ការ​តភ្ជាប់​បរាជ័យ",
+  "connectionStatusLabel": "ស្ថានភាព",
+  "connectionSuccessMessage": "ការតភ្ជាប់ជោគជ័យ",
+  "contactAddSuccess": "ទំនាក់ទំនងត្រូវបានបន្ថែមដោយជោគជ័យ",
+  "contactDeleted": "ទំនាក់ទំនងត្រូវបានលុប",
+  "contactEditDialog": "ការសន្ទនាបកស្រាយទំនាក់ទំនង",
+  "contactNameHint": "បញ្ចូលឈ្មោះទំនាក់ទំនង (ជាជម្រើស)",
+  "contactNameLabel": "ឈ្មោះ",
+  "contactNameOptional": "ឈ្មោះទំនាក់ទំនង (ជាជម្រើស)",
+  "contactNotFound": "រកមិនឃើញទំនាក់ទំនង",
+  "contacts": "ទំនាក់ទំនង",
+  "contactsDeleted": "បានលុបទំនាក់ទំនង {count}",
+  "contactSettingsSubtitle": "ការគ្រប់គ្រងទំនាក់ទំនង និងការកំណត់ស្លាក",
+  "contactSettingsTitle": "ការកំណត់ទំនាក់ទំនង",
+  "contactsLoadingFailed": "មិនអាចផ្ទុកទំនាក់ទំនង៖ {error}",
+  "contactsManagement": "ការគ្រប់គ្រងទំនាក់ទំនង",
+  "contactsManagementPageTitle": "ទំព័រគ្រប់គ្រងទំនាក់ទំនង",
+  "contactsPageTitle": "ការគ្រប់គ្រងទំនាក់ទំនង",
+  "contactsPermission": "ការអនុញ្ញាតទំនាក់ទំនង",
+  "contactsPermissionDescription": "ប្រើដើម្បីកំណត់អត្តសញ្ញាណការហៅទូរស័ព្ទទំនាក់ទំនង។",
+  "contactsTab": "ទំនាក់ទំនង",
+  "contactSubscriptionDescription": "ជាវបញ្ជីទំនាក់ទំនងតាមរយៈ URL អាប់ដេតព័ត៌មានទំនាក់ទំនង និងស្លាកដោយស្វ័យប្រវត្តិ។ គាំទ្រទិន្នន័យទ្រង់ទ្រាយ JSON។",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "មិនអាចផ្ទុកការជាវទំនាក់ទំនង៖ {error}",
+  "contactSubscriptionPageTitle": "ការជាវទំនាក់ទំនង",
+  "contactUpdateSuccess": "ទំនាក់ទំនងត្រូវបានអាប់ដេតដោយជោគជ័យ",
+  "contactUs": "ទាក់ទងមកយើង",
+  "content": "ខ្លឹមសារ",
+  "contentRegex": "ខ្លឹមសារ Regex",
+  "countColor": "ពណ៌ចំនួន",
+  "countFontSize": "ទំហំពុម្ពអក្សរចំនួន",
+  "countPosition": "ទីតាំងចំនួន",
+  "country": "ប្រទេស",
+  "countryNameColor": "ពណ៌ឈ្មោះប្រទេស",
+  "countryNameFontSize": "ទំហំពុម្ពអក្សរឈ្មោះប្រទេស",
+  "countryRegionNamePosition": "ទីតាំងឈ្មោះប្រទេស/តំបន់",
+  "countrySelectionDialog": "ការសន្ទនាជ្រើសរើសប្រទេស",
+  "countrySelectionDialogDescription": "ប្រើដើម្បីជ្រើសរើសប្រទេសដើម្បីស្វែងរកព័ត៌មានអត្តសញ្ញាណអ្នកទូរស័ព្ទ",
+  "countThresholdDescription": "កំណត់ចំនួនអប្បបរមាដែលទាមទារដើម្បីបង្កឱ្យមានសកម្មភាពត្រង",
+  "countThresholdLabel": "ដែនកំណត់ចំនួន",
+  "countThresholdSettings": "ការកំណត់ដែនកំណត់ចំនួន",
+  "countThresholdValue": "ដែនកំណត់ចំនួន៖ {count}",
+  "createdRules": "ច្បាប់ដែលបានបង្កើត",
+  "csvFormat": "ទ្រង់ទ្រាយ CSV",
+  "currentDeviceChip": "បច្ចុប្បន្ន",
+  "currentDeviceLabel": "ស្លាប៊ rekordឧបករណ៍បច្ចុប្បន្ន",
+  "currentDeviceTitle": "ឧបករណ៍បច្ចុប្បន្ន",
+  "currentLabels": "ស្លាប៊ rekordបច្ចុប្បន្ន៖",
+  "currentLanguage": "ភាសា​បច្ចុប្បន្ន",
+  "currentPasswordLabel": "ពាក្យសម្ងាត់បច្ចុប្បន្ន",
+  "customerService": "សេវាកម្មអតិថិជន",
+  "customRange": "ជួរផ្ទាល់ខ្លួន",
+  "dailyStatistics": "ស្ថិតិប្រចាំថ្ងៃ",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "ទទួលបានស្ថិតិប្រចាំថ្ងៃអំពីការហៅ និងសារដែលត្រូវបានទប់ស្កាត់",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "ផ្ទាំងគ្រប់គ្រង",
+  "dataAnalysis": "ការវិភាគទិន្នន័យ",
+  "dataAnalysisDashboardPage": "ទំព័រផ្ទាំងគ្រប់គ្រងការវិភាគទិន្នន័យ",
+  "dataExport": "ការនាំចេញទិន្នន័យ",
+  "dataLoadFailure": "មិនអាចផ្ទុកទិន្នន័យ៖ {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "មិនអាចផ្ទុកទិន្នន័យ៖ {error}",
+  "dataMigration": "ការផ្លាស់ទីលំនៅទិន្នន័យ",
+  "dataMigrationDescription": "មុខងារនេះអនុញ្ញាតឱ្យអ្នកផ្ទេរទិន្នន័យទាំងអស់របស់អ្នករវាងឧបករណ៍។ បច្ចុប្បន្នអ្នកអាចប្រើមុខងារបម្រុងទុក និងស្តារឡើងវិញដើម្បីផ្លាស់ទីលំនៅទិន្នន័យរបស់អ្នកដោយដៃ។",
+  "dataMigrationDialogContent": "មុខងារនេះអនុញ្ញាតឱ្យអ្នកផ្ទេរទិន្នន័យទាំងអស់របស់អ្នករវាងឧបករណ៍។ បច្ចុប្បន្នអ្នកអាចប្រើមុខងារបម្រុងទុក និងស្តារឡើងវិញដើម្បីផ្លាស់ទីលំនៅទិន្នន័យរបស់អ្នកដោយដៃ។",
+  "dataMigrationDialogTitle": "ការផ្លាស់ទីលំនៅទិន្នន័យ",
+  "dataMigrationSectionTitle": "ការផ្លាស់ទីលំនៅទិន្នន័យ",
+  "dataSourceReminder": "ការរំលឹកប្រភពទិន្នន័យ",
+  "days": "{count, plural, =1{1 ថ្ងៃ} other{{count} ថ្ងៃ}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} ថ្ងៃ VIP",
+  "debtCollection": "ការប្រមូលបំណុល",
+  "defaultPeriod": "សប្តាហ៍",
+  "delete": "លុប",
+  "deleteButton": "លុប",
+  "deleteContact": "លុបទំនាក់ទំនង",
+  "deleteContactConfirm": "តើអ្នកប្រាកដថាអ្នកចង់លុប {name}?",
+  "deleteContactConfirmation": "តើអ្នកប្រាកដថាអ្នកចង់លុបទំនាក់ទំនង",
+  "deleteDeviceConfirmation": "តើអ្នកប្រាកដថាអ្នកចង់លុប {deviceName}?",
+  "deleteDeviceDialogTitle": "លុបឧបករណ៍",
+  "deleteFailed": "លុបរងការខាតបង់៖ {error}",
+  "deleteFilter": "លុបតម្រង",
+  "deleteLabel": "លុបស្លាប៊ rekord",
+  "deleteLabelFailed": "មិនអាចលុបស្លាប៊ rekord៖ {error}",
+  "deletePlugin": "លុបកម្មវិធីបន្ថែម",
+  "deletePluginFailed": "មិនអាចលុបកម្មវិធីបន្ថែម៖ {error}",
+  "deletePlugins": "លុបកម្មវិធីបន្ថែម",
+  "deletePluginsFailed": "មិនអាចលុបកម្មវិធីបន្ថែម៖ {error}",
+  "deleteRule": "លុបច្បាប់",
+  "deleteRuleFailed": "លុបរងការខាតបង់៖ {error}",
+  "deleteSelected": "លុបដែលបានជ្រើសរើស",
+  "deleteSmsRule": "លុបច្បាប់ SMS",
+  "deleteSubscription": "លុបការជាវ",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "តើអ្នកប្រាកដថាអ្នកចង់លុបការជាវ \"{name}\"?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "មិនអាចលុបការជាវ៖ {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "លុបជោគជ័យ",
+  "delivery": "ការដឹកជញ្ជូន",
+  "deviceDeletedSuccessfully": "ឧបករណ៍ត្រូវបានលុបដោយជោគជ័យ",
+  "deviceDeletedSuccessfullyMessage": "ឧបករណ៍ត្រូវបានលុបដោយជោគជ័យ",
+  "deviceIdLabel": "លេខសម្គាល់ឧបករណ៍",
+  "deviceIDLabel": "លេខសម្គាល់ឧបករណ៍",
+  "deviceManagementSubtitle": "គ្រប់គ្រងការធ្វើសមកាលកម្មឧបករណ៍ច្រើន",
+  "deviceManagementTitle": "ការគ្រប់គ្រងឧបករណ៍",
+  "deviceModelLabel": "ម៉ូដែលឧបករណ៍",
+  "deviceName": "ឈ្មោះឧបករណ៍",
+  "deviceNameCannotBeEmpty": "ឈ្មោះឧបករណ៍មិនអាចទទេបាន",
+  "deviceNameHint": "សូមបញ្ចូលឈ្មោះឧបករណ៍",
+  "deviceNameLabel": "ឈ្មោះឧបករណ៍",
+  "deviceRenamedSuccessfully": "បានប្តូរឈ្មោះឧបករណ៍ដោយជោគជ័យ",
+  "deviceRenamedSuccessfullyMessage": "បានប្តូរឈ្មោះឧបករណ៍ដោយជោគជ័យ",
+  "devicesSyncedSuccessfully": "បានធ្វើសមកាលកម្មឧបករណ៍ដោយជោគជ័យ",
+  "devicesSyncedSuccessfullyMessage": "បានធ្វើសមកាលកម្មឧបករណ៍ដោយជោគជ័យ",
+  "devicesSynchronizedSuccessfullyMessage": "បានធ្វើសមកាលកម្មឧបករណ៍ដោយជោគជ័យ",
+  "deviceUnregisteredSuccessfullyMessage": "បានលុបការចុះឈ្មោះឧបករណ៍ដោយជោគជ័យ",
+  "dialogTitle": "ការពន្យល់គំរូ Regex",
+  "differentFromLocalCounter": "មុខងារនេះខុសពីតម្រងរាប់ក្នុងមូលដ្ឋាន ដោយសារវាកផ្តោតលើលំនាំការហៅទូរស័ព្ទដែលកើតឡើងម្តងហើយម្តងទៀតក្នុងរយៈពេលខ្លី ជាជាងចំនួនកំណត់ចំណាំរយៈពេលវែង។",
+  "disabled": "បានបិទ",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "បានបិទ",
+  "disableGlobalPlugins": "បិទកម្មវិធីជំនួយសកល",
+  "disableSubscriptionSuccessfully": "បានបិទការជាវដោយជោគជ័យ",
+  "disconnectButton": "ផ្តាច់",
+  "disconnectedMessage": "បានផ្តាច់",
+  "disconnectedStatus": "បានផ្តាច់",
+  "disconnectFailedMessage": "ការផ្តាច់មិនបានជោគជ័យ",
+  "done": "រួចរាល់",
+  "dualSimAdvice": "មុខងារនេះមានប្រយោជន៍ជាពិសេសសម្រាប់ទូរស័ព្ទ Dual-SIM ដើម្បីកំណត់យុទ្ធសាស្ត្រតម្រងផ្សេងៗគ្នាសម្រាប់កាត SIM ការងារ និងផ្ទាល់ខ្លួន។",
+  "earlier": "ពីមុន",
+  "ecommerce": "ពាណិជ្ជកម្មអេឡិចត្រូនិក",
+  "edit": "កែសម្រួល",
+  "editContact": "កែសម្រួលទំនាក់ទំនង",
+  "editFilter": "កែសម្រួលតម្រង",
+  "editLabel": "កែសម្រួលស្លាក",
+  "editPhoneRule": "កែសម្រួលច្បាប់ទូរស័ព្ទ",
+  "editPhoneRules": "ប្រើដើម្បីកែសម្រួលច្បាប់ទូរស័ព្ទ",
+  "editPhoneRuleTitle": "កែសម្រួលច្បាប់ទូរស័ព្ទ",
+  "editRule": "កែសម្រួលច្បាប់",
+  "editSmsRule": "កែសម្រួលច្បាប់ SMS",
+  "education": "អប់រំ",
+  "elementPositionsSetting": "ទីតាំងធាតុ",
+  "email": "អ៊ីមែល",
+  "emailOptional": "អ៊ីមែល (ជាជម្រើស)",
+  "enableCallFilter": "បើកដំណើរការតម្រងការហៅទូរស័ព្ទ",
+  "enableCallFilterDescription": "នៅពេលបើកដំណើរការ ការហៅទូរស័ព្ទចូលនឹងត្រូវបានពិនិត្យដោយប្រៀបធៀបជាមួយបញ្ជីច្បាប់ខាងក្រោម។ ច្បាប់តម្រងការហៅទូរស័ព្ទមិនត្រូវបានធ្វើសមកាលកម្មរវាងឧបករណ៍ដោយលំនាំដើមទេ។",
+  "enabled": "បានបើក",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "បានបើក",
+  "enableEncryption": "បើកការអ៊ិនគ្រីប",
+  "enableEncryptionDescription": "អ៊ិនគ្រីបឯកសារបម្រុងទុក",
+  "enableEncryptionLabel": "បើកការអ៊ិនគ្រីប",
+  "enableEncryptionSubtitle": "ឯកសារបម្រុងទុកនឹងត្រូវបានអ៊ិនគ្រីប",
+  "enableEncryptionTitle": "បើកការអ៊ិនគ្រីប",
+  "enableGlobalPlugins": "បើកកម្មវិធីជំនួយសកល",
+  "enableLocalCountFilter": "បើកដំណើរការតម្រងរាប់ក្នុងមូលដ្ឋាន",
+  "enableLocalCountFilterDescription": "តម្រងការហៅទូរស័ព្ទឥតបានការដោយស្វ័យប្រវត្តិដោយផ្អែកលើចំនួនកំណត់ចំណាំការហៅទូរស័ព្ទ",
+  "enableLocalNotification": "ប្រើការជូនដំណឹងក្នុងមូលដ្ឋាន",
+  "enableLocalNotificationDescription": "នៅពេលបើកដំណើរការ ការជូនដំណឹងសម្រាប់សារដែលបានតម្រងនឹងត្រូវបានបង្ហាញនៅលើឧបករណ៍",
+  "enableLocationSummary": "ទីតាំង",
+  "enableMuteRules": "បើកដំណើរការច្បាប់បិទសំឡេង",
+  "enableMuteRulesDesc": "អនុវត្តការកំណត់រចនាសម្ព័ន្ធច្បាប់ទប់ស្កាត់ការបិទសំឡេង",
+  "enableNoneActionRules": "បើកដំណើរការច្បាប់គ្មានសកម្មភាព",
+  "enableNoneActionRulesDesc": "អនុញ្ញាតការកំណត់រចនាសម្ព័ន្ធច្បាប់ដោយគ្មានសកម្មភាពទប់ស្កាត់",
+  "enableNotifications": "បើកដំណើរការការជូនដំណឹង",
+  "enableRemoteNumberFilter": "បើកដំណើរការតម្រងលេខពីចម្ងាយ",
+  "enableRemoteNumberFilterDescription": "ប្រើមូលដ្ឋានទិន្នន័យពីចម្ងាយដើម្បីតម្រងលេខ",
+  "enableRule": "បើកដំណើរការច្បាប់",
+  "enableSmsFilter": "បើកដំណើរការតម្រង SMS",
+  "enableSmsFilterDescription": "នៅពេលបើកដំណើរការ សារនឹងត្រូវបានតម្រងដោយស្វ័យប្រវត្តិដោយយោងតាមច្បាប់",
+  "enableStatisticsNotifications": "បើកដំណើរការការជូនដំណឹងស្ថិតិ",
+  "enableSubscriptionSuccessfully": "បានបើកការជាវដោយជោគជ័យ",
+  "enableTimeInterception": "បើកដំណើរការការទប់ស្កាត់ពេលវេលា",
+  "enableTimeInterceptionDescription": "ទប់ស្កាត់ការហៅទូរស័ព្ទម្តងហើយម្តងទៀតក្នុងរយៈពេលខ្លី",
+  "enableTimeInterceptor": "បើកដំណើរការឧបករណ៍ទប់ស្កាត់ពេលវេលា",
+  "endCallImmediately": "បញ្ចប់ការហៅភ្លាមៗ",
+  "endColor": "ពណ៌បញ្ចប់",
+  "endDate": "កាលបរិច្ឆេទបញ្ចប់",
+  "enhancedFilterInstructionsTitle": "ចំណារពន្យល់ប្រព័ន្ធតម្រងកែលម្អ",
+  "enhancedFilterSettings": "ការកំណត់ប្រព័ន្ធតម្រងកែលម្អ",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "ការកំណត់ប្រព័ន្ធតម្រងកែលម្អ",
+  "enhancedFilterSystemDescription": "ប្រព័ន្ធតម្រងកែលម្អគាំទ្រទាំងច្បាប់សកល និងការកំណត់រចនាសម្ព័ន្ធតម្រងក្នុងមួយកាត SIM",
+  "enterBothPhoneNumberAndRegexPattern": "សូមបញ្ចូលទាំងលេខទូរស័ព្ទ និងគំរូ Regex",
+  "enterBothPhoneNumberAndRegexPatternMessage": "សូមបញ្ចូលទាំងលេខទូរស័ព្ទ និងគំរូ Regex។",
+  "enterContactName": "សូមបញ្ចូលឈ្មោះទំនាក់ទំនង",
+  "enterCurrentPasswordHint": "សូមបញ្ចូលពាក្យសម្ងាត់បច្ចុប្បន្ន",
+  "enterDeviceName": "បញ្ចូលឈ្មោះឧបករណ៍",
+  "enterDeviceNameHint": "សូមបញ្ចូលឈ្មោះឧបករណ៍",
+  "enterEmail": "សូមបញ្ចូលអ៊ីមែល",
+  "enterEmailOptional": "សូមបញ្ចូលអ៊ីមែល (ជាជម្រើស)",
+  "enterEncryptionPasswordHint": "បញ្ចូលពាក្យសម្ងាត់អ៊ិនគ្រីប",
+  "enterEncryptionPasswordTitle": "បញ្ចូលពាក្យសម្ងាត់អ៊ិនគ្រីប",
+  "enterFilterName": "សូមបញ្ចូលឈ្មោះតម្រង",
+  "enterFilterPattern": "សូមបញ្ចូលគំរូតម្រង",
+  "enterIconCode": "បញ្ចូលកូដរូបតំណាង",
+  "enterName": "បញ្ចូលឈ្មោះទំនាក់ទំនង",
+  "enterNewDeviceNameHint": "បញ្ចូលឈ្មោះថ្មីសម្រាប់ឧបករណ៍នេះ",
+  "enterNewPasswordHint": "សូមបញ្ចូលពាក្យសម្ងាត់ថ្មី",
+  "enterPasswordAgain": "បញ្ចូលពាក្យសម្ងាត់ម្តងទៀត",
+  "enterPasswordHint": "សូមបញ្ចូលពាក្យសម្ងាត់",
+  "enterPhoneNumber": "បញ្ចូលលេខទូរស័ព្ទ",
+  "enterPhoneNumberHint": "បញ្ចូលលេខទូរស័ព្ទដើម្បីសាកល្បង",
+  "enterPhoneNumberMultiple": "សូមបញ្ចូលលេខទូរស័ព្ទ លេខជាច្រើនបំបែកដោយសញ្ញាក្បៀស",
+  "enterPhoneNumberToStartSearch": "បញ្ចូលលេខទូរស័ព្ទដើម្បីចាប់ផ្តើមស្វែងរក",
+  "enterPhoneNumberToVerify": "បញ្ចូលលេខទូរស័ព្ទដើម្បីផ្ទៀងផ្ទាត់",
+  "enterPluginName": "បញ្ចូលឈ្មោះកម្មវិធីជំនួយ",
+  "enterPluginUrl": "បញ្ចូលអាសយដ្ឋាន URL របស់កម្មវិធីជំនួយ",
+  "enterRegexHint": "បញ្ចូលគំរូ regex",
+  "enterRuleNameAndPattern": "សូមបញ្ចូលឈ្មោះច្បាប់ និងគំរូ",
+  "enterRuleNameAndPatternMessage": "សូមបញ្ចូលnému ក្បួន និងលំនាំ regex ទាំងពីរ។",
+  "enterRuleNameHint": "បញ្ចូលឈ្មោះក្បួន",
+  "enterSearchContent": "សូមបញ្ចូលមាតិកាស្វែងរក",
+  "enterSubscriptionName": "បញ្ចូលឈ្មោះការជាវ",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "បញ្ចូល URL ការជាវ",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "សូមបញ្ចូលឈ្មោះថតសម្រាប់ធ្វើសមកាលកម្ម (លំនាំដើម: NotificationManager)",
+  "entertainment": "កម្សាន្ត",
+  "enterValidNameAndUrl": "សូមបញ្ចូលឈ្មោះ និង URL ដែលត្រឹមត្រូវ",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "សូមបញ្ចូល URL ដែលត្រឹមត្រូវ",
+  "enterVersion": "បញ្ចូលកំណែ",
+  "enterWebDAVPasswordHint": "សូមបញ្ចូលលេខសម្ងាត់ WebDAV",
+  "enterWebDAVServerAddressHint": "សូមបញ្ចូលអាសយដ្ឋានម៉ាស៊ីទ័រ WebDAV",
+  "enterWebDAVUsernameHint": "សូមបញ្ចូលឈ្មោះអ្នកប្រើ WebDAV",
+  "errorDeletingDeviceMessage": "មានកំហុសក្នុងការលុបឧបករណ៍៖ {error}",
+  "errorLoadingPlugin": "មានកំហុសក្នុងការផ្ទុកកម្មវិធីបន្ថែម",
+  "errorOccurredMessage": "មានកំហុសកើតឡើង៖ {error}",
+  "errorRenamingDeviceMessage": "មានកំហុសក្នុងការប្តូរឈ្មោះឧបករណ៍៖ {error}",
+  "errorSynchronizingDevicesMessage": "មានកំហុសក្នុងការធ្វើសមកាលកម្មឧបករណ៍៖ {error}",
+  "errorSyncingDevicesMessage": "មានកំហុសក្នុងការធ្វើសមកាលកម្មឧបករណ៍៖ {error}",
+  "errorText": "កំហុស",
+  "errorUnregisteringDeviceMessage": "មានកំហុសក្នុងការលុបការចុះឈ្មោះឧបករណ៍៖ {error}",
+  "exampleBlock400Prefix": "ឧទាហរណ៍ ប្លុកលេខ 400 មុខ",
+  "exampleBlockMarketingSms": "ឧទាហរណ៍ ប្លុក SMS ទីផ្សារ",
+  "exampleContentRegex": "ឧទាហរណ៍, .*offer.*",
+  "exampleContentRegexHint": "ឧទាហរណ៍ លំនាំ regex មាតិកា",
+  "exampleCouponPromotionDiscount": "ឧទាហរណ៍ .*(coupon|promotion|discount).*",
+  "exampleFamilyFriends": "ឧទាហរណ៍ គ្រួសារ, មិត្តភក្តិ, ល.",
+  "examplePhoneNumber": "ឧទាហរណ៍ 10086, 12345, ល.",
+  "exampleRegex400Prefix": "ឧទាហរណ៍ លំនាំ regex សម្រាប់លេខ 400 មុខ",
+  "exampleRegexFormat": "ឧទាហរណ៍: ^10086$",
+  "exampleSenderRegexHint": "ឧទាហរណ៍",
+  "exchange": "ផ្លាស់ប្តូរ",
+  "exchangeNow": "ផ្លាស់ប្តូរឥឡូវនេះ",
+  "exchangeVip": "ផ្លាស់ប្តូរ VIP",
+  "expandLabelSelector": "ពង្រីកអ្នកជ្រើសរើសស្លាក",
+  "expiryTime": "ពេលវេលាផុតកំណត់៖ {time}",
+  "export": "នាំចេញ",
+  "exportAllApplicationSettings": "នាំចេញការកំណត់កម្មវិធីទាំងអស់",
+  "exportAllApplicationSettingsSubtitle": "នាំចេញការកំណត់កម្មវិធីទាំងអស់",
+  "exportAllRuleConfigurations": "នាំចេញការកំណត់ក្បួនទាំងអស់",
+  "exportAllRuleConfigurationsSubtitle": "នាំចេញការកំណត់ក្បួនទាំងអស់",
+  "exportComplete": "ការនាំចេញបានបញ្ចប់",
+  "exportConfig": "នាំចេញការកំណត់",
+  "exportContacts": "នាំចេញទំនាក់ទំនង",
+  "exportData": "នាំចេញទិន្នន័យ",
+  "exportError": "កំហុសក្នុងការនាំចេញ",
+  "exportFailed": "បរាជ័យក្នុងការនាំចេញ",
+  "exportFailure": "បរាជ័យក្នុងការនាំចេញការកំណត់",
+  "exportFeatureComingSoon": "មុខងារនាំចេញនឹងមកដល់ឆាប់ៗនេះ",
+  "exporting": "កំពុងនាំចេញ...",
+  "exportLabels": "នាំចេញស្លាក",
+  "exportLabelsFailed": "បរាជ័យក្នុងការនាំចេញស្លាក៖ {error}",
+  "exportPluginList": "នាំចេញបញ្ជីកម្មវិធីបន្ថែម",
+  "exportPluginListFailed": "បរាជ័យក្នុងការនាំចេញបញ្ជីកម្មវិធីបន្ថែម៖ {error}",
+  "exportRules": "នាំចេញក្បួន",
+  "exportRulesDialogTitle": "នាំចេញក្បួន",
+  "exportRulesTitle": "នាំចេញក្បួន",
+  "exportSmsRules": "នាំចេញក្បួន SMS",
+  "exportStatisticsData": "នាំចេញទិន្នន័យស្ថិតិ",
+  "exportSuccess": "ការនាំចេញជោគជ័យ",
+  "exportSuccesslly": "ការកំណត់ត្រូវបាននាំចេញដោយជោគជ័យ",
+  "failedToAddContact": "បរាជ័យក្នុងការបន្ថែមទំនាក់ទំនង",
+  "failedToAddRule": "បរាជ័យក្នុងការបន្ថែមប��ួន៖ {error}",
+  "failedToAddSmsRule": "បរាជ័យក្នុងការបន្ថែមប��ួន SMS៖ {error}",
+  "failedToAddSmsSubscription": "បរាជ័យក្នុងការបន្ថែមការជាវ SMS៖ {error}",
+  "failedToBackupSettings": "បរាជ័យក្នុងការបម្រុងទុកការកំណត់៖ {error}",
+  "failedToDecryptBackupFile": "បរាជ័យក្នុងការឌិកគ្រីបឯ��រ����������",
+  "failedToDeleteDevice": "បរាជ័យក្នុងការលុបឧបករណ៍",
+  "failedToDeleteSmsRule": "បរាជ័យក្នុងការលុបប��ួន SMS៖ {error}",
+  "failedToExportRules": "បរាជ័យក្នុងការនាំចេញក្បួន៖ {error}",
+  "failedToExportSmsRules": "បរាជ័យក្នុងការនាំចេញក្បួន SMS៖ {error}",
+  "failedToGetCallerIdInfo": "បរាជ័យក្នុងការទទួលព័����������������������",
+  "failedToImportRules": "បរាជ័យក្នុងការនាំចូលក្បួន៖ {error}",
+  "failedToImportSmsRules": "បរាជ័យក្នុងការនាំចូលក��������������",
+  "failedToLoadContacts": "បរាជ័យក្នុងការផ្ទុកទំនាក់ទំនង",
+  "failedToLoadPlugin": "បរាជ័យក្នុងការផ្ទុកកម្មវិធីបន្ថែម",
+  "failedToRenameDevice": "បរាជ័យក្នុងការប្តូរឈ្មោះឧបករណ៍",
+  "failedToRestoreSettings": "បរាជ័យក្នុងការ������������",
+  "failedToRestoreSettingsWithError": "បរាជ័យក្នុងការ������������៖ {error}",
+  "failedToSetPassword": "បរាជ័យក្នុងការកំណត់លេខសម្ងាត់៖ {error}",
+  "failedToSyncDevices": "បរាជ័យក្នុងការធ្វើសមកាលកម្មឧបករណ៍",
+  "failedToToggleRuleStatus": "បរាជ័យក្នុងការប������������",
+  "failedToToggleSubscriptionStatus": "បរាជ័យក្នុងការប������������",
+  "failedToUpdateContact": "បរាជ័យក្នុងការ����������",
+  "failedToUpdateSmsRule": "បរាជ័យក្នុងការ������������",
+  "failure": "បរាជ័យ",
+  "favoriteContacts": "ទំនាក់ទំនងដែលចូលចិត្ត",
+  "featureAddRules": "• បន្ថែម������������",
+  "featureCenter": "មជ្ឈមណ្ឌ����",
+  "featureEnableDisable": "• ������������",
+  "featureListTitle": "មុខងារ៖",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• ������������",
+  "features": "មុខងារ",
+  "fetchingCallerIdInfo": "កំព����������",
+  "fileSavedTo": "ឯ������������",
+  "filter": "����������",
+  "filterByLabel": "����������",
+  "filterClear": "����������",
+  "filterControlPanelTitle": "����������",
+  "filterControlSubtitle": "����������",
+  "filterControlTitle": "ការគ្រប់គ្រងតម្រង",
+  "filterDeleteFailed": "លុបតម្រងមិនបានជោគជ័យ",
+  "filterDeleteSuccess": "ល��តម្រងដោយជោគជ័យ",
+  "filterDetails": "ព័��������������������",
+  "filtered": "បានតម្រ����",
+  "filteredSms": "សារ SMS ដែល��������",
+  "filteredSmsLabel": "សារ SMS ដែល������",
+  "filterExplanation": "ការព������������������",
+  "filterManagement": "ការគ្រប់គ្រងតម្រ����",
+  "filterName": "ឈ្មោះតម្រ����",
+  "filterPattern": "គ������������������",
+  "filterPriorityNote": "ចំណ���������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+  "filterSettings": "ការកំណត់រ������",
+  "filterSettingsTitle": "ការកំណត់តម្រ����",
+  "filterSMS": "តម្រ���� SMS",
+  "filterToggleInstructions": "បើ����������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������",
+  "filterToggleStatus": "{status} filter: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "ប្រភេទ����",
+  "financial": "ហ��������",
+  "flexibleCombinationFeature": "• ��������������������������������������������������������",
+  "fontSizesSetting": "������������",
+  "foundRules": "������ {count} rules",
+  "foundRulesDoYouWantToImport": "Found {count} rules. Do you want to import them?",
+  "foundRulesToImport": "Found {count} rules. Do you want to import them?",
+  "fraudAlert": "FRAUD ALERT - Hang up the call",
+  "fraudScamLikely": "Fraud Scam Likely",
+  "free": "Free",
+  "functionSettingsTitle": "Function Settings",
+  "generalUpdateFailure": "Update failed: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Get Free",
+  "github": "GitHub",
+  "globalFilterDescription": "Configure global filters for all SIM cards:",
+  "globalFilterFeature": "• Global Filters: Basic rules for all incoming calls",
+  "globalFilterSettings": "Global Filter Settings",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "Configure global filter settings that apply to all SIM slots:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Search contacts, labels, blacklists, whitelists, etc.",
+  "globalSearchTitle": "Global Search",
+  "globalSettings": "Global Settings",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Google Ad Display Position",
+  "googleAdMobIntegrationText": "Google AdMob ads can be integrated here",
+  "googleDriveAuthDescription": "Authorize using system-configured Google Drive client ID and key",
+  "googleDriveAuthorizationHint": "Authorize using system-configured Google Drive client ID and key",
+  "googleDriveConfigTitle": "Google Drive Configuration",
+  "googleDriveConfigurationTitle": "Google Drive Configuration",
+  "government": "Government",
+  "granted": "Granted",
+  "grantNecessaryPermissions": "Grant Necessary Permissions",
+  "grantPermissions": "Grant Permissions",
+  "headhunter": "Headhunter",
+  "height": "Height",
+  "homePageTitle": "Home Page",
+  "homeTab": "Home",
+  "howItWorksPoint1": "• The system will automatically allow calls from the same number within the set time window",
+  "howItWorksPoint2": "• Shorter time windows result in stricter interception; longer time windows result in looser interception",
+  "howItWorksPoint3": "• The system checks call logs to determine if it's a repeated call",
+  "howItWorksTitle": "How It Works:",
+  "iconCodeOptional": "Icon Code (Optional)",
+  "iconSize": "Icon Size",
+  "import": "Import",
+  "important": "Important",
+  "importButton": "Import",
+  "importConfig": "Import Configuration",
+  "importContacts": "Import Contacts",
+  "importExportContacts": "Import/Export Contacts",
+  "importExportContactsTooltip": "Import/Export Contacts",
+  "importExportRules": "Import/Export Rules",
+  "importFailed": "Import failed: {error}",
+  "importFailure": "Failed to import configuration",
+  "importFeatureComingSoon": "Import feature coming soon",
+  "importLabels": "Import Labels",
+  "importLabelsFailed": "Failed to import labels: {error}",
+  "importPluginList": "Import Plugin List",
+  "importPluginListFailed": "Failed to import plugin list: {error}",
+  "importPluginSuccess": "Successfully imported {count} plugins",
+  "importRuleConfigurationsFromFile": "Import Rule Configurations from File",
+  "importRuleConfigurationsFromFileSubtitle": "Import rule configurations from file",
+  "importRules": "Import Rules",
+  "importRulesButton": "Import Rules",
+  "importRulesDialogTitle": "Import Rules",
+  "importRulesError": "Failed to import rules: {error}",
+  "importRulesInstructions": "Import rules from a CSV file",
+  "importRulesSuccess": "Rules imported successfully",
+  "importRulesTitle": "Import Rules",
+  "importSuccess": "Import successful",
+  "incomingCallInterceptAction": "Incoming Call Intercept Action",
+  "incomingCallNotification": "Incoming Call Notification",
+  "incorrectPassword": "Incorrect password",
+  "initializing": "Initializing",
+  "installed": "Installed",
+  "insufficientMarks": "Insufficient Marks",
+  "insurance": "Insurance",
+  "interceptAction": "Intercept Action",
+  "interceptionActionSettingsSubtitle": "Set how blocked calls are handled",
+  "interceptionActionSettingsTitle": "Interception Action Settings",
+  "interceptionTimeInterval": "Interception Time Interval",
+  "internet": "Internet",
+  "intervalSetSuccess": "{service} update interval set to {days} days",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Invalid content regex",
+  "invalidLabel": "ស្លាកដែលមិនត្រឹមត្រូវ",
+  "invalidRegexPattern": "លំនាំ​អិច​ប្រេស​ដែល​មិន​ត្រឹមត្រូវ",
+  "invalidSenderRegex": "លំនាំ​អិច​ប្រេស​អ្នក​ផ្ញើ​ដែល​មិន​ត្រឹមត្រូវ",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "ចូល Telegram 頻道和群組以獲取更多資訊",
+  "jsLogsTitle": "កំណត់ហេតុ JS",
+  "jsonFormat": "ទម្រង់ JSON",
+  "keepAllVersions": "រក្សា​កំណែ​ទាំងអស់",
+  "keepAllVersionsDescription": "រក្សា​កំណែ​ប្រវត្តិសាស្រ្ត​ទាំងអស់​នៃ​ការ​បម្រុង​ទុក​នីមួយៗ",
+  "keepAllVersionsLabel": "រក្សា​កំណែ​ទាំងអស់",
+  "keepAllVersionsSubtitle": "រក្សា​កំណែ​ប្រវត្តិសាស្រ្ត​នៃ​ការ​បម្រុង​ទុក​នីមួយៗ",
+  "keepAllVersionsTitle": "រក្សា​កំណែ​ទាំងអស់",
+  "label": "ស្លាក",
+  "labelAddedSuccessfully": "ស្លាក \"{name}\" ត្រូវបានបន្ថែមដោយជោគជ័យ",
+  "labelCategories": "ប្រភេទស្លាក",
+  "labelDeleted": "ស្លាក​ត្រូវបាន​លុប",
+  "labelDescription": "ស្លាក​ជួយ​អ្នក​គ្រប់គ្រង​ទំនាក់ទំនង​បាន​កាន់តែ​ប្រសើរ​ បន្ថែម​ស្លាក​ផ្ទាល់ខ្លួន​ទៅ​លេខ​ទូរស័ព្ទ​ដើម្បី​កំណត់​អត្តសញ្ញាណ​ការ​ហៅ​ទូរស័ព្ទ​និង​សារ​បាន​យ៉ាង​ងាយស្រួល",
+  "labelFilter": "តម្រង​ស្លាក",
+  "labelFilterTooltip": "តម្រង​ស្លាក",
+  "labelIconColor": "ពណ៌​រូបតំណាង​ស្លាក",
+  "labelManagement": "ការ​គ្រប់គ្រង​ស្លាក",
+  "labelNotFound": "រក​មិនឃើញ​ស្លាក",
+  "labelRemoved": "ស្លាក​ត្រូវបាន​ដកចេញ",
+  "labelRemoveFailed": "បរាជ័យ​ក្នុងការ​ដកចេញ​ស្លាក៖ {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "ស្លាក",
+  "labelsColor": "ពណ៌​ស្លាក",
+  "labelsDeleted": "លុប​ស្លាក​{count}",
+  "labelsExportedSuccessfully": "នាំចេញ​ស្លាក​ដោយ​ជោគជ័យ",
+  "labelsFontSize": "ទំហំ​ពុម្ព​អក្សរ​ស្លាក",
+  "labelsImportedSuccessfully": "បាន​នាំចូល​ស្លាក​{count} ដោយ​ជោគជ័យ",
+  "labelsPosition": "ទីតាំង​ស្លាក",
+  "labelTag": "ស្លាក៖ {labelId}",
+  "labelUpdated": "ស្លាក​ត្រូវបាន​ធ្វើបច្ចុប្បន្នភាព",
+  "labelUpdateFailed": "បរាជ័យ​ក្នុងការ​ធ្វើបច្ចុប្បន្នភាព​ស្លាក៖ {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "ស្លាក \"$labelText\" ត្រូវបាន​ធ្វើបច្ចុប្បន្នភាព​ដោយ​ជោគជ័យ",
+  "languageSettings": "ការ​កំណត់​ភាសា",
+  "languageSettingsSubtitle": "ផ្លាស់ប្តូរ​ភាសា​បង្ហាញ​កម្មវិធី",
+  "languageSettingsTitle": "ការ​កំណត់​ភាសា",
+  "last30Days": "30​ថ្ងៃ​ចុងក្រោយ",
+  "last7Days": "7​ថ្ងៃ​ចុងក្រោយ",
+  "lastSyncLabel": "ការ​ធ្វើ​សមកាលកម្ម​ចុងក្រោយ",
+  "lastUpdated": "ធ្វើបច្ចុប្បន្នភាព​ចុងក្រោយ៖ {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "សមាជិកភាព​ពេញ​មួយជីវិត",
+  "lifetimeMembershipDescription": "ការទិញ​តែមួយ​ដង​ปลด​សោរ​មុខងារ​ពិសេស​ទាំងអស់​និង​ការ​អាប់ដេត​នាពេល​អនាគត​ជា​រៀង​រហូត",
+  "loadContactsFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​ទំនាក់ទំនង៖ {error}",
+  "loadDataFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​ទិន្នន័យ",
+  "loadFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក",
+  "loading": "កំពុង​ផ្ទុក...",
+  "loadingData": "កំពុង​ផ្ទុក​ទិន្នន័យ...",
+  "loadingTags": "កំពុង​ផ្ទុក​ស្លាក...",
+  "loadLabelFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​ស្លាក៖ {error}",
+  "loadLabelsFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​ស្លាក៖ {error}",
+  "loadMarkCountFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់៖ {error}",
+  "loadMarkedPhonesFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់៖ {error}",
+  "loadMore": "ផ្ទុក​បន្ថែម",
+  "loadPluginButton": "ផ្ទុក​កម្មវិធី​ជំនួយ",
+  "loadPluginsFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​កម្មវិធី​ជំនួយ៖ {error}",
+  "loadSettingsFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​ការ​កំណត់៖ {error}",
+  "loadSmsRulesFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​ច្បាប់ SMS៖ {error}",
+  "loadStatusFailedMessage": "បរាជ័យ​ក្នុងការ​ផ្ទុក​ស្ថានភាព",
+  "loadSubscriptionsFailed": "បរាជ័យ​ក្នុងការ​ផ្ទុក​ការ​ជាវ៖ {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "ប្រាក់កម្ចី",
+  "localBackupTitle": "ការ​បម្រុង​ទុក​ក្នុង​មូលដ្ឋាន",
+  "localCounterFilter": "តម្រង​ឧបករណ៍​រាប់​ក្នុង​មូលដ្ឋាន",
+  "localCounterFilterSubtitle": "ស្វ័យប្រវត្តិកម្ម​ច្រោះ​ការ​ហៅ​ដែល​មិន​ចង់បាន​ដោយ​ផ្អែក​លើ​ភាពញឹកញាប់​នៃ​ការ​ហៅ",
+  "localCountFilter": "តម្រង​ចំនួន​ក្នុង​មូលដ្ឋាន",
+  "localCountFilterDescription": "ទប់ស្កាត់​ការ​ហៅ​ញឹកញាប់​ដោយ​ផ្អែក​លើ​ចំនួន​លេខ​ក្នុង​មូលដ្ឋាន",
+  "localCountFilterExplanationContent": "តម្រង​ចំនួន​ក្នុង​មូលដ្ឋាន​វិភាគ​កំណត់ហេតុ​ប្រវត្តិ​ការ​ហៅ​ដើម្បី​កំណត់​អត្តសញ្ញាណ​និង​ទប់ស្កាត់​ការ​ហៅ​ដែល​មិន​ចង់បាន​ញឹកញាប់​ដោយ​ស្វ័យប្រវត្តិកម្ម",
+  "localCountFilterExplanationTitle": "ការពន្យល់​អំពី​តម្រង​ចំនួន​ក្នុង​មូលដ្ឋាន",
+  "localCountFilterHowItWorksPoint1": "• កំណត់​ថាតើ​ត្រូវ​ទប់ស្កាត់​ដោយ​ផ្អែក​លើ​តម្លៃ​ចំនួន​របស់​លេខ",
+  "localCountFilterHowItWorksPoint2": "• នៅពេល​ចំនួន​របស់​លេខ​លើស​ពី​ដែន​កំណត់​ អ្នក​អាច​ជ្រើសរើស​ទប់ស្កាត់​ដោយ​ស្វ័យប្រវត្តិកម្ម",
+  "localCountFilterHowItWorksPoint3": "• អ្នក​អាច​ជ្រើសរើស​អនុញ្ញាត​លេខ​ដែល​មិន​លើស​ពី​ដែន​",
+  "localCountFilterHowItWorksPoint4": "• អ្នក​អាច​ជ្រើសរើស​ថាតើ​ត្រូវ​កត់ត្រា​កំណត់ហេតុ​សំណួរ​ទាំងអស់",
+  "localCountFiltering": "ការ​ច្រោះ​តាម​ចំនួន​ក្នុង​មូលដ្ឋាន",
+  "localCountFilteringExplanation": "• ការ​ច្រោះ​តាម​ចំនួន​ក្នុង​មូលដ្ឋាន៖ ច្បាប់​ច្រោះ​ដោយ​ផ្អែក​លើ​ចំនួន​សម្គាល់​ក្នុង​មូលដ្ឋាន",
+  "localCountFilterSettings": "ការ​កំណត់​តម្រង​ចំនួន​ក្នុង​មូលដ្ឋាន",
+  "localCountFilterUseCases": "តម្រង​នេះ​គឺ​សមរម្យ​ជាពិសេស​សម្រាប់​ការ​កំណត់​អត្តសញ្ញាណ​ការ​ហៅ​ដែល​មិន​ចង់បាន​ដោយ​ម៉ាស៊ីន​ស្វ័យប្រវត្តិ​និង​ការ​ហៅ​ទីផ្សារ",
+  "localFilterSettings": "ការ​កំណត់​តម្រង​ក្នុង​មូលដ្ឋាន",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "ការ​ជូនដំណឹង​ក្នុង​មូលដ្ឋាន​ត្រូវបាន​បិទ",
+  "localNotificationEnabled": "ការ​ជូនដំណឹង​ក្នុង​មូលដ្ឋាន​ត្រូវបាន​បើក",
+  "localServices": "សេវា​ក្នុង​មូលដ្ឋាន",
+  "locationColor": "ពណ៌​ទីតាំង",
+  "locationFontSize": "ទំហំ​ពុម្ព​អក្សរ​ទីតាំង",
+  "locationIconColor": "ពណ៌​រូបតំណាង​ទីតាំង",
+  "locationPosition": "ទីតាំង​ទីតាំង",
+  "logAllLocalQueries": "កត់ត្រា​សំណួរ​ក្នុង​មូលដ្ឋាន​ទាំងអស់",
+  "logAllLocalQueriesDescription": "កត់ត្រា​កំណត់ហេតុ​សម្រាប់​សំណួរ​លេខ​ក្នុង​មូលដ្ឋាន​ទាំងអស់",
+  "logAllRemoteQueries": "កត់ត្រា​សំណួរ​ពី​ចម្ងាយ​ទាំងអស់",
+  "logAllRemoteQueriesDescription": "កត់ត្រា​ប្រតិបត្តិការ​សំណួរ​លេខ​ពី​ចម្ងាយ​ទាំងអស់",
+  "manage": "គ្រប់គ្រង",
+  "manageContacts": "គ្រប់គ្រង​ទំនាក់ទំនង",
+  "manageFavoriteContacts": "គ្រប់គ្រង​ទំនាក់ទំនង​ដែល​ចូលចិត្ត",
+  "manageFilterRules": "គ្រប់គ្រង​ច្បាប់​តម្រង",
+  "manageFilterRulesDescription": "បន្ថែម​ កែសម្រួល​ ឬ​លុប​ច្បាប់​តម្រង SMS",
+  "manageFrequentContacts": "គ្រប់គ្រង​ទំនាក់ទំនង​ញឹកញាប់",
+  "markCounts": "ចំនួន​សម្គាល់",
+  "markCount": "ចំនួន​សម្គាល់",
+  "markedByCount": "បាន​សម្គាល់​ដោយ​{count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "បញ្ជី​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់",
+  "markExchange": "ផ្លាស់ប្តូរ​ស្លាក",
+  "markPhone": "សម្គាល់​លេខ​ទូរស័ព្ទ",
+  "markPhoneFailed": "បរាជ័យ​ក្នុងការ​សម្គាល់​លេខ​ទូរស័ព្ទ៖ {error}",
+  "markPhoneManagementSubtitle": "ដើម្បី​សម្គាល់​លេខ​ទូរស័ព្ទ",
+  "markPhoneManagementTitle": "ការ​គ្រប់គ្រង​សម្គាល់​លេខ​ទូរស័ព្ទ",
+  "markPhoneSuccess": "លេខ​ទូរស័ព្ទ​ត្រូវ​បាន​សម្គាល់​ដោយ​ជោគជ័យ",
+  "matchFailed": "ការ​ផ្គូផ្គង​បរាជ័យ!",
+  "matchFailedMessage": "ការ​ផ្គូផ្គង​បរាជ័យ។",
+  "matchNumbersWithSpecialCharacters": "ផ្គូផ្គង​ទ្រង់ទ្រាយ​លេខ​ពិសេស",
+  "matchNumbersWithSpecialCharactersTitle": "ផ្គូផ្គង​លេខ​ជាមួយ​តួអក្សរ​ពិសេស៖",
+  "matchSpecificDigitPatterns": "ផ្គូផ្គង​ទ្រង់ទ្រាយ XXX-XXXX-XXXX",
+  "matchSpecificDigitPatternsTitle": "ផ្គូផ្គង​លំនាំ​លេខ​ជាក់លាក់៖",
+  "matchSuccessful": "ការ​ផ្គូផ្គង​ជោគជ័យ!",
+  "matchSuccessfulMessage": "ការ​ផ្គូផ្គង​ជោគជ័យ!",
+  "medical": "វេជ្ជសាស្ត្រ",
+  "membershipPrivileges": "សិទ្ធិ​ជា​សមាជិក",
+  "migrationTool": "ឧបករណ៍​ផ្លាស់ទី​ទិន្នន័យ",
+  "migrationToolTitle": "ឧបករណ៍​ផ្លាស់ទី​ទិន្នន័យ",
+  "minutes": "នាទី",
+  "month": "ខែ",
+  "monthly": "ប្រចាំខែ",
+  "monthlyCallCount": "ការ​ហៅ​ទូរស័ព្ទ​ប្រចាំខែ",
+  "monthlyChartTitle": "ការ​ហៅ​ទូរស័ព្ទ​ដែល​បាន​ទប់ស្កាត់​ប្រចាំខែ",
+  "monthlyMembership": "សមាជិកភាព​ប្រចាំខែ",
+  "monthlyMembershipDescription": "ដោះសោ​លក្ខណៈ​ពិសេស​ទាំងអស់​ដែល​ជា​បុព្វលាភ​ដោយ​ស្វ័យប្រវត្តិ​បន្ត​រៀងរាល់ខែ",
+  "monthlyTotal": "សរុប​ប្រចាំខែ",
+  "monthlyTotalLabel": "សរុប​ប្រចាំខែ",
+  "moreOptions": "ជម្រើស​បន្ថែម",
+  "mute": "បិទ​សំឡេង",
+  "name": "ឈ្មោះ",
+  "nameAndPhoneNumberCannotBeEmpty": "ឈ្មោះ និង​លេខ​ទូរស័ព្ទ​មិន​អាច​ទទេ​បាន​ទេ",
+  "nameAndPhoneNumberRequired": "ឈ្មោះ និង​លេខ​ទូរស័ព្ទ​ត្រូវ​បាន​ទាមទារ",
+  "nameColor": "ពណ៌​ឈ្មោះ",
+  "nameFontSize": "ទំហំ​ពុម្ព​អក្សរ​ឈ្មោះ",
+  "nameLabel": "ឈ្មោះ៖ {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "ទីតាំង​ឈ្មោះ",
+  "nameUnknown": "ឈ្មោះ៖ មិន​ស្គាល់",
+  "nameWithValue": "ឈ្មោះ៖ {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "ពាក្យសម្ងាត់​ថ្មី",
+  "nextStep": "បន្ទាប់",
+  "noAction": "គ្មាន​សកម្មភាព",
+  "noActionRules": "គ្មាន​ច្បាប់​សកម្មភាព",
+  "noActiveCloudSyncServiceMessage": "គ្មាន​សេវា​ធ្វើ​សមកាលកម្ម​ពពក​សកម្ម",
+  "noCallLogs": "គ្មាន​កំណត់ត្រា​ការ​ហៅ​ទូរស័ព្ទ",
+  "noCallRecords": "គ្មាន​កំណត់ត្រា​ការ​ហៅ​ទូរស័ព្ទ",
+  "noContacts": "មិន​ទាន់​មាន​ទំនាក់ទំនង",
+  "noContactsYet": "មិន​ទាន់​មាន​ទំនាក់ទំនង",
+  "noData": "គ្មាន​ទិន្នន័យ",
+  "noDevicesRegisteredMessage": "មិន​មាន​ឧបករណ៍​ដែល​បាន​ចុះឈ្មោះ",
+  "noDevicesRegisteredYet": "មិន​ទាន់​មាន​ឧបករណ៍​ដែល​បាន​ចុះឈ្មោះ។",
+  "noFilters": "មិន​ទាន់​មាន​តម្រង",
+  "noLabels": "មិន​ទាន់​មាន​ស្លាក",
+  "noMarkedPhones": "គ្មាន​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់",
+  "noMatchingContacts": "គ្មាន​ទំនាក់ទំនង​ដែល​ផ្គូផ្គង",
+  "noMatchingContactsFound": "រក​មិន​ឃើញ​ទំនាក់ទំនង​ដែល​ផ្គូផ្គង",
+  "noMatchingNumbersFound": "រក​មិន​ឃើញ​លេខ​ដែល​ផ្គូផ្គង",
+  "noMatchingRecords": "គ្មាន​កំណត់ត្រា​ការ​ហៅ​ទូរស័ព្ទ​ដែល​ផ្គូផ្គង",
+  "noMatchingRules": "គ្មាន​{ruleType}​ដែល​ផ្គូផ្គង",
+  "none": "គ្មាន",
+  "noneServiceType": "គ្មាន",
+  "noPlugins": "មិន​ទាន់​មាន​កម្មវិធី​ជំនួយ",
+  "noRecords": "គ្មាន​កំណត់ត្រា​ការ​ហៅ​ទូរស័ព្ទ",
+  "noResultReturned": "មិន​មាន​លទ្ធផល​ត្រឡប់​មក​វិញ",
+  "noResultReturnedLog": "មិន​មាន​លទ្ធផល​ត្រឡប់​មក​ពី​កម្មវិធី​ជំនួយ",
+  "noRules": "មិន​ទាន់​មាន​{ruleType}",
+  "noRulesPrompt": "រក​មិន​ឃើញ​ច្បាប់ សូម​បន្ថែម​ច្បាប់",
+  "noRulesToExport": "គ្មាន​ច្បាប់​សម្រាប់​នាំចេញ",
+  "noSmsFilterRulesYet": "មិន​ទាន់​មាន​ច្បាប់​តម្រង SMS",
+  "noSmsRulesYet": "មិន​ទាន់​មាន​ច្បាប់ SMS",
+  "noSubscriptions": "គ្មាន​ការ​ជាវ",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "មិន​ទាន់​មាន​ការ​ជាវ",
+  "notGranted": "មិន​បាន​ផ្តល់",
+  "notificationMode": "របៀប​ជូន​ដំណឹង",
+  "notificationModeDescription": "បង្ហាញ​ព័ត៌មាន​អ្នក​ហៅ​ក្នុង​របារ​ជូន​ដំណឹង",
+  "notificationPermission": "ការ​អនុញ្ញាត​ការ​ជូន​ដំណឹង",
+  "notificationPermissionDescription": "ប្រើ​ដើម្បី​បង្ហាញ​ការ​ជូន​ដំណឹង​ការ​ហៅ​ចូល និង​សារ។",
+  "notifications": "ការ​ជូន​ដំណឹង",
+  "notificationSettings": "ការ​កំណត់​ការ​ជូន​ដំណឹង",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "ការ​កំណត់​ការ​ជូន​ដំណឹង​ត្រូវ​បាន​រក្សាទុក​ដោយ​ជោគជ័យ",
+  "notSet": "មិន​បាន​កំណត់",
+  "notVerifiedText": "មិន​បាន​ផ្ទៀងផ្ទាត់",
+  "noValidSmsRulesFoundInFile": "រក​មិន​ឃើញ​ច្បាប់ SMS ដែល​មាន​សុពលភាព​ក្នុង​ឯកសារ",
+  "number": "លេខ",
+  "numberColor": "ពណ៌​លេខ",
+  "numberFontSize": "ទំហំ​ពុម្ព​អក្សរ​លេខ",
+  "numberPosition": "ទីតាំង​លេខ",
+  "numberSearch": "ស្វែងរក​លេខ",
+  "numberTypeColor": "ពណ៌​ប្រភេទ​លេខ",
+  "numberTypeFontSize": "ទំហំ​ពុម្ព​អក្សរ​ប្រភេទ​លេខ",
+  "numberTypePosition": "ទីតាំង​ប្រភេទ​លេខ",
+  "ok": "យល់ព្រម",
+  "okButton": "យល់ព្រម",
+  "onboardingCompleteDescription": "អ្នក​គ្រប់គ្រង​សុវត្ថិភាព​ការ​ហៅ​ទូរស័ព្ទ​របស់​អ្នក​រួចរាល់​ហើយ ចាប់ផ្តើម​រីករាយ​នឹង​បទពិសោធន៍​ការ​ហៅ​ទូរស័ព្ទ​ប្រកបដោយ​សុវត្ថិភាព!",
+  "onboardingLanguageDescription": "ជ្រើសរើស​ភាសា​ដែល​អ្នក​ពេញចិត្ត​សម្រាប់​បទពិសោធន៍​ល្អ​បំផុត។",
+  "onboardingPermissionsDescription": "ដើម្បី​ផ្តល់​សេវា​ពេញលេញ យើង​ត្រូវការ​ការ​អនុញ្ញាត​ដូចខាងក្រោម៖",
+  "onboardingPowerfulSpamBlockingDescription": "ទប់ស្កាត់​ការ​ហៅ​ទូរស័ព្ទ​សារ​ឥតបានការ​ដោយ​ចុច​តែ​ម្តង ប្តូរ​ច្បាប់​ទប់ស្កាត់ ហើយ​ផ្តល់​បរិយាកាស​ស្ងប់ស្ងាត់​ដល់​អ្នក។",
+  "onboardingSmartCallerIdDescription": "កំណត់​អត្តសញ្ញាណ​ការ​ហៅ​ទូរស័ព្ទ​ដែល​មិន​ស្គាល់​ដោយ​ស្វ័យប្រវត្តិ សម្គាល់​លេខ​ដែល​គួរ​ឱ្យ​សង្ស័យ ហើយ​ការពារ​សុវត្ថិភាព​ការ​ហៅ​ទូរស័ព្ទ​របស់​អ្នក។",
+  "onboardingWelcomeDescription": "អ្នក​ជំនាញ​គ្រប់គ្រង​ការ​ហៅ​ទូរស័ព្ទ​របស់​អ្នក ដែល​ផ្តល់​សេវា​កំណត់​អត្តសញ្ញាណ និង​ទប់ស្កាត់​ការ​ហៅ​ទូរស័ព្ទ​គ្រប់ជ្រុងជ្រោយ។",
+  "oneDriveAuthDescription": "ផ្តល់​សិទ្ធិ​ដោយ​ប្រើ​អត្តសញ្ញាណ​អតិថិជន OneDrive ដែល​បាន​កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ និង​កូនសោ",
+  "oneDriveAuthorizationHint": "ផ្តល់​សិទ្ធិ​ដោយ​ប្រើ​អត្តសញ្ញាណ​អតិថិជន OneDrive ដែល​បាន​កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ និង​កូនសោ",
+  "oneDriveConfigTitle": "ការ​កំណត់​រចនាសម្ព័ន្ធ OneDrive",
+  "oneDriveConfigurationTitle": "ការ​កំណត់​រចនាសម្ព័ន្ធ OneDrive",
+  "onlineCallerIdSubscription": "ការជាវលេខសម្គាល់អ្នកហៅចូលតាមអ៊ីនធឺណិត",
+  "openAppSettings": "បើកការកំណត់កម្មវិធី",
+  "openAppSettingsFailed": "បរាជ័យក្នុងការបើកការកំណត់កម្មវិធី៖ {error}",
+  "operationFailed": "ប្រតិបត្តិការបរាជ័យ៖ {error}",
+  "operationFailure": "ប្រតិបត្តិការបរាជ័យ",
+  "operationSuccess": "ប្រតិបត្តិការបានជោគជ័យ",
+  "other": "ផ្សេងទៀត",
+  "ourOtherApps": "កម្មវិធីផ្សេងទៀតរបស់យើង",
+  "overlayMode": "បង្អួចអណ្តែត",
+  "overlayModeDescription": "បង្ហាញព័ត៌មានអ្នកហៅចូលក្នុងបង្អួចអណ្តែត",
+  "overlayPermission": "ការអនុញ្ញាតបង្អួចអណ្តែត",
+  "overlayPermissionDescription": "ប្រើដើម្បីបង្ហាញបង្អួចហៅចូល។",
+  "overview": "ទិដ្ឋភាពទូទៅ",
+  "password": "ពាក្យសម្ងាត់",
+  "passwordCannotBeEmpty": "ពាក្យសម្ងាត់មិនអាចទទេបានទេ",
+  "passwordLabel": "ពាក្យសម្ងាត់",
+  "passwordsDoNotMatch": "ពាក្យសម្ងាត់មិនស៊ីគ្នាទេ",
+  "passwordSetSuccessfully": "បានកំណត់ពាក្យសម្ងាត់ដោយជោគជ័យ",
+  "pattern": "គំរូ",
+  "pendingSync": "កំពុងរង់ចាំការធ្វើសមកាលកម្ម",
+  "periodMonth": "ខែ",
+  "periodWeek": "សប្តាហ៍",
+  "periodYear": "ឆ្នាំ",
+  "permissionDenied": "សំណើអនុញ្ញាតត្រូវបានបដិសេធ",
+  "permissionGranted": "ការអនុញ្ញាតត្រូវបានផ្តល់ជូន",
+  "permissionManagement": "ការគ្រប់គ្រងការអនុញ្ញាត",
+  "phoneCallsTab": "ទូរស័ព្ទ",
+  "phoneNumber": "លេខទូរស័ព្ទ",
+  "phoneNumberCannotBeEmpty": "លេខទូរស័ព្ទមិនអាចទទេបានទេ",
+  "phoneNumberHint": "បញ្ចូលលេខទូរស័ព្ទ",
+  "phoneNumberHintText": "បញ្ចូលលេខទូរស័ព្ទដើម្បីបន្ថែមច្បាប់",
+  "phoneNumberLabel": "លេខទូរស័ព្ទ",
+  "phoneNumberRegexRequired": "សូមបញ្ចូលទាំងលេខទូរស័ព្ទ និងគំរូ regex",
+  "phoneNumberRequired": "លេខទូរស័ព្ទត្រូវបានទាមទារ",
+  "phoneNumberTypeFixedLine": "ទូរស័ព្ទស្ថានីយ",
+  "phoneNumberTypeFixedLineOrMobile": "ទូរស័ព្ទស្ថានីយ ឬទូរស័ព្ទចល័ត",
+  "phoneNumberTypeMobile": "ទូរស័ព្ទចល័ត",
+  "phoneNumberTypePager": "ទូរសារ",
+  "phoneNumberTypePersonalNumber": "លេខផ្ទាល់ខ្លួន",
+  "phoneNumberTypePremiumRate": "អត្រាបុព្វលាភ",
+  "phoneNumberTypeSharedCost": "ការចំណាយរួមគ្នា",
+  "phoneNumberTypeTollFree": "ឥតគិតថ្លៃ",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "មិនស្គាល់",
+  "phoneNumberTypeVoicemail": "សារជាសំឡេង",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "ការអនុញ្ញាតទូរស័ព្ទ",
+  "phonePermissionDescription": "ប្រើដើម្បីកំណត់អត្តសញ្ញាណ និងទប់ស្កាត់ការហៅចូល។",
+  "phoneRule": "ច្បាប់ទូរស័ព្ទ",
+  "phoneRuleEditDialog": "ប្រអប់កែសម្រួលច្បាប់ទូរស័ព្ទ",
+  "phoneRuleManagement": "ការគ្រប់គ្រងច្បាប់ទូរស័ព្ទ",
+  "phoneRuleSubscription": "ការជាវច្បាប់ទូរស័ព្ទ",
+  "phoneSubscription": "ការជាវទូរស័ព្ទ",
+  "phoneSubscriptionRulesDescription": "ជាវបញ្ជីច្បាប់ទូរស័ព្ទតាមរយៈ URL ដើម្បីធ្វើបច្ចុប្បន្នភាពបញ្ជីសរុប និងបញ្ជីខ្មៅដោយស្វ័យប្រវត្តិ។ គាំទ្រឯកសារច្បាប់ក្នុងទម្រង់ JSON។",
+  "phoneSubscriptionTitle": "ការជាវច្បាប់ទូរស័ព្ទ",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "សូមជ្រើសរើសស្លាក និងបញ្ចូលលេខទូរស័ព្ទត្រឹមត្រូវ",
+  "pluginAddedSuccess": "បានបន្ថែមកម្មវិធីជំនួយ \"{name}\" ដោយជោគជ័យ",
+  "pluginDeleted": "បានលុបកម្មវិធីជំនួយ",
+  "pluginLatestVersion": "កម្មវិធីជំនួយគឺជាកំណែចុងក្រោយបំផុតហើយ",
+  "pluginListExportSuccess": "បាននាំចេញបញ្ជីកម្មវិធីជំនួយដោយជោគជ័យ",
+  "pluginLoadedSuccessfully": "បានផ្ទុកកម្មវិធីជំនួយដោយជោគជ័យ",
+  "pluginManagement": "ការគ្រប់គ្រងកម្មវិធីជំនួយ",
+  "pluginManagementSubtitle": "គ្រប់គ្រង និងកំណត់រចនាសម្ព័ន្ធកម្មវិធីជំនួយភាគីទីបី",
+  "pluginManagementTitle": "ការគ្រប់គ្រងកម្មវិធីជំនួយ",
+  "pluginName": "ឈ្មោះកម្មវិធីជំនួយ",
+  "pluginNotLoaded": "កម្មវិធីជំនួយមិនទាន់ត្រូវបានផ្ទុកទេ។ សូមផ្ទុកកម្មវិធីជំនួយជាមុនសិន។",
+  "pluginsDeleted": "បានលុបកម្មវិធីជំនួយ {count} ដោយជោគជ័យ។",
+  "pluginService": "សេវាកម្មកម្មវិធីជំនួយ",
+  "pluginTestPageTitle": "ការធ្វើតេស្តកម្មវិធីជំនួយ",
+  "pluginUpdateSuccess": "បានធ្វើបច្ចុប្បន្នភាពកម្មវិធីជំនួយដោយជោគជ័យ",
+  "pluginUrl": "URL កម្មវិធីជំនួយ",
+  "pluginUrlCannotBeEmpty": "URL កម្មវិធីជំនួយមិនអាចទទេបានទេ",
+  "pluginUrlHint": "បញ្ចូល URL កម្មវិធីជំនួយ",
+  "pluginUrlLabel": "URL កម្មវិធីជំនួយ",
+  "pluginVersion": "កំណែកម្មវិធីជំនួយ",
+  "political": "នយោបាយ",
+  "powerfulSpamBlocking": "ការទប់ស្កាត់សារឥតបានការដ៏មានអានុភាព",
+  "previousStep": "មុន",
+  "prioritizeRemoteAction": " prioritizing action settings from the remote database",
+  "prioritizeRemoteActionDescription": " prioritize action settings from the remote database",
+  "processing": "កំពុងដំណើរការ...",
+  "processingOperation": "កំពុងដំណើរការ...",
+  "purchase": "ទិញ",
+  "quarterlyMembership": "សមាជិកភាពប្រចាំត្រីមាស",
+  "quarterlyMembershipDescription": "ដោះសោមុខងារបុព្វលាភទាំងអស់ ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិរៀងរាល់ត្រីមាស",
+  "queryButton": "ស្វែងរក",
+  "queryFailed": "ការស្វែងរកបរាជ័យ",
+  "queryFailedLog": "ការស្វែងរកបរាជ័យ",
+  "querying": "កំពុងស្វែងរក...",
+  "queryingPhoneNumber": "កំពុងស្វែងរកលេខទូរស័ព្ទ",
+  "queryResultTitle": "លទ្ធផលស្វែងរក",
+  "ready": "រួចរាល់!",
+  "receiveWeeklyStatistics": "ទទួលបានស្ថិតិប្រចាំសប្តាហ៍",
+  "recruiter": "អ្នកជ្រើសរើសបុគ្គលិក",
+  "reEnterPasswordHint": "សូមបញ្ចូលពាក្យសម្ងាត់ឡើងវិញ",
+  "refresh": "ធ្វើបច្ចុប្បន្នភាព",
+  "refreshPermissionStatus": "ធ្វើបច្ចុប្បន្នភាពស្ថានភាពការអនុញ្ញាត",
+  "refreshTooltip": "ធ្វើបច្ចុប្បន្នភាព",
+  "regexError": "កំហុស Regex៖ {error}",
+  "regexErrorMessage": "កំហុស Regex៖ {error}",
+  "regexPattern": "ទម្រង់​正则表达式",
+  "regexPatternExplanation": "ការពន្យល់​ទម្រង់​正则表达式",
+  "regexPatternExplanationButton": "ការពន្យល់​ទម្រង់​正则表达式",
+  "regexPatternLabel": "ទម្រង់​正则表达式",
+  "regexPatternsExamples": "ប្រើ​វេយ្យាករណ៍​正则表达式​ស្តង់ដារ​ដើម្បី​កំណត់​ទម្រង់​។ ឧទាហរណ៍​៖",
+  "regexPatternsForPhoneNumberMatching": "ទម្រង់​正则表达式​សម្រាប់​ការ​ផ្គូផ្គង​លេខ​ទូរស័ព្ទ",
+  "regexRule": "ច្បាប់​正则表达式",
+  "regexRuleAddFailed": "បរាជ័យ​ក្នុង​ការ​បន្ថែម​ច្បាប់​正则表达式​៖ {error}",
+  "regexRuleAddSuccess": "បាន​បន្ថែម​ច្បាប់​正则表达式​ដោយ​ជោគជ័យ",
+  "regexRuleManagement": "ការ​គ្រប់គ្រង​ច្បាប់​正则表达式",
+  "regexRuleNamePatternRequired": "ឈ្មោះ​ច្បាប់​និង​ទម្រង់​正则表达式​មិន​អាច​ទទេ​បាន​ទេ",
+  "regexRules": "ច្បាប់​正则表达式",
+  "regexTesterTitle": "ឧបករណ៍​ทดสอบ​正则表达式",
+  "regexValidationFailed": "ការ​ផ្ទៀងផ្ទាត់​正则表达式​បរាជ័យ​៖ {error}",
+  "regexValidationSuccess": "ការ​ផ្ទៀងផ្ទាត់​正则表达式​ជោគជ័យ",
+  "region": "តំបន់",
+  "registeredDevicesTitle": "ឧបករណ៍​ដែល​បាន​ចុះបញ្ជី",
+  "rejectAllCalls": "បដិសេធ​ការ​ហៅ​ទាំងអស់",
+  "rejectAllCallsDescription": "ពេល​បើក​, ការ​ហៅ​ទាំងអស់​នឹង​ត្រូវ​បាន​បដិសេធ​ដោយ​មាន​អាទិភាព​ខ្ពស់​បំផុត",
+  "rejectAllNumbers": "បដិសេធ​លេខ​ទាំងអស់",
+  "rejectAllNumbersDesc": "បដិសេធ​ការ​ហៅ​ចូល​ទាំងអស់​ពេល​បើក",
+  "rejectExceededNumbers": "បដិសេធ​លេខ​ដែល​លើស​កំណត់",
+  "rejectExceededNumbersDescription": "បដិសេធ​លេខ​ដោយ​ស្វ័យ​ប្រវត្តិ​ដែល​លើស​ពី​ចំនួន​កំណត់",
+  "remoteFilterSettings": "ការ​កំណត់​តម្រង​ពី​ចម្ងាយ",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "ការ​កំណត់​តម្រង​លេខ​ពី​ចម្ងាយ",
+  "remoteNumberFilter": "តម្រង​លេខ​ពី​ចម្ងាយ",
+  "remoteNumberFilterDatabaseInfo": "តម្រង​នេះ​ប្រើ​មូលដ្ឋាន​ទិន្នន័យ​ពី​ចម្ងាយ​ឯករាជ្យ​ដើម្បី​ទទួល​បាន​ព័ត៌មាន​លេខ​ចុងក្រោយ​បំផុត​។",
+  "remoteNumberFilterDescription": "ស្ទាក់​ចាប់​ការ​ហៅ​រំខាន​ដោយ​ផ្អែក​លើ​ព័ត៌មាន​មូលដ្ឋាន​ទិន្នន័យ​ពី​ចម្ងាយ",
+  "remoteNumberFilterExplanationContent": "តម្រង​លេខ​ពី​ចម្ងាយ​កំណត់​អត្តសញ្ញាណ​និង​ទប់ស្កាត់​ការ​ហៅ​សារ​ឥត​បាន​ការ​ដោយ​ការ​សាកសួរ​មូលដ្ឋាន​ទិន្នន័យ​ពី​ចម្ងាយ​ដោយ​ផ្អែក​លើ​ចំនួន​លេខ​។",
+  "remoteNumberFilterExplanationTitle": "ការពន្យល់​តម្រង​លេខ​ពី​ចម្ងាយ",
+  "remoteNumberFilterFeatureCountThreshold": "• ចំនួន​កំណត់​៖ កំណត់​ដោយ​ផ្អែក​លើ​ភាព​ញឹកញាប់​នៃ​ការ​កើតឡើង​នៃ​លេខ",
+  "remoteNumberFilterFeatureFilterAction": "• សកម្មភាព​តម្រង​៖ កំណត់​ពី​របៀប​ដោះស្រាយ​លេខ​ដែល​លើស​ពី​កំណត់",
+  "remoteNumberFilterFeaturePriority": "• ការ​កំណត់​អាទិភាព​៖ កំណត់​អាទិភាព​សម្រាប់​សកម្មភាព​ពី​ចម្ងាយ",
+  "remoteNumberFilterFeatures": "លក្ខណៈពិសេស​៖",
+  "remoteNumberFiltering": "ការ​กรอง​លេខ​ពី​ចម្ងាយ",
+  "remoteNumberFilteringExplanation": "• ការ​กรอง​លេខ​ពី​ចម្ងាយ​៖ ច្បាប់​តម្រង​ផ្អែក​លើ​ព័ត៌មាន​មូលដ្ឋាន​ទិន្នន័យ​ពី​ចម្ងាយ",
+  "remoteNumberFilterSubtitle": "កំណត់​អត្តសញ្ញាណ​ការ​ហៅ​សារ​ឥត​បាន​ការ​ដោយ​ប្រើ​មូលដ្ឋាន​ទិន្នន័យ​ពពក​និង​របាយការណ៍​សហគមន៍",
+  "removeAdsDescription": "លុប​ការ​ផ្សាយ​ទាំងអស់​ជា​អចិន្ត្រៃយ៍​ក្នុង​កម្មវិធី​ដើម្បី​បទពិសោធន៍​កាន់តែ​រលូន",
+  "removeAdsTitle": "លុប​ការ​ផ្សាយ",
+  "removedFromFavoriteContacts": "បាន​ដក​ចេញ​ពី​ទំនាក់ទំនង​ដែល​ចូលចិត្ត",
+  "removedFromFavorites": "បាន​ដក​ចេញ​ពី​ទំនាក់ទំនង​ដែល​ចូលចិត្ត",
+  "removeFavorite": "លុប​ទំនាក់ទំនង​ដែល​ចូលចិត្ត",
+  "removeFromFavorites": "ដក​ចេញ​ពី​ទំនាក់ទំនង​ដែល​ចូលចិត្ត",
+  "renameButton": "ប្តូរ​ឈ្មោះ",
+  "renameDeviceDialogTitle": "ប្តូរ​ឈ្មោះ​ឧបករណ៍",
+  "renameDeviceTitle": "ប្តូរ​ឈ្មោះ​ឧបករណ៍",
+  "replaceCurrentSettingsConfirmation": "នេះ​នឹង​ជំនួស​ការ​កំណត់​បច្ចុប្បន្ន​ទាំងអស់​របស់​អ្នក​។ តើ​អ្នក​ប្រាកដ​ថា​ចង់​បន្ត​ទេ​?",
+  "requestAllPermissions": "ស្នើសុំ​សិទ្ធិ​ទាំងអស់",
+  "requestPermission": "ស្នើសុំ​សិទ្ធិ",
+  "requestPermissionFailed": "បរាជ័យ​ក្នុង​ការ​ស្នើសុំ​សិទ្ធិ​៖ {error}",
+  "requiredMarks": "{count} ពិន្ទុ",
+  "reset": "កំណត់​ឡើងវិញ",
+  "restore": "ស្តារ​ឡើងវិញ",
+  "restoreApplicationSettingsFromBackup": "ស្តារ​ការ​កំណត់​កម្មវិធី​ឡើងវិញ​ពី​ការ​បម្រុង​ទុក",
+  "restoreApplicationSettingsFromBackupSubtitle": "ស្តារ​ការ​កំណត់​កម្មវិធី​ឡើងវិញ​ពី​ការ​បម្រុង​ទុក",
+  "restoreButton": "ស្តារ​ឡើងវិញ",
+  "restoreFailedWithError": "បរាជ័យ​ក្នុង​ការ​ស្តារ​ពី​ពពក​៖ {error}",
+  "restoreFromCloud": "ស្តារ​ឡើងវិញ​ពី​ពពក",
+  "restoreFromCloudDescription": "ស្តារ​ការ​កំណត់​និង​ច្បាប់​ឡើងវិញ​ពី​កន្លែង​ផ្ទុក​ពពក",
+  "restoreFromCloudFailed": "បរាជ័យ​ក្នុង​ការ​ស្តារ​ពី​ពពក​៖ {error}",
+  "restoreFromCloudLabel": "ស្តារ​ឡើងវិញ​ពី​ពពក",
+  "restoreFromCloudSuccess": "បាន​ស្តារ​ឡើងវិញ​ពី​ពពក​ដោយ​ជោគជ័យ",
+  "restoreFromCloudTitle": "ស្តារ​ឡើងវិញ​ពី​ពពក",
+  "restoreFromLocal": "ស្តារ​ឡើងវិញ​ពី​ក្នុង​ស្រុក",
+  "restorePurchases": "ស្តារ​ការ​ទិញ​ឡើងវិញ",
+  "restoreSectionTitle": "ស្តារ​ឡើងវិញ",
+  "restoreSettings": "ស្តារ​ការ​កំណត់​ឡើងវិញ",
+  "restoreSettingsConfirmation": "នេះ​នឹង​ជំនួស​ការ​កំណត់​បច្ចុប្បន្ន​ទាំងអស់​របស់​អ្នក​។ តើ​អ្នក​ប្រាកដ​ថា​ចង់​បន្ត​ទេ​?",
+  "restoreSettingsDialogTitle": "ស្តារ​ការ​កំណត់​ឡើងវិញ",
+  "restoreSettingsTitle": "ស្តារ​ការ​កំណត់​ឡើងវិញ",
+  "restoreSuccessFromLocal": "បាន​ស្តារ​ឡើងវិញ​ពី​ក្នុង​ស្រុក​ដោយ​ជោគជ័យ",
+  "restoreSuccessMessage": "បាន​ស្តារ​ឡើងវិញ​ពី​ពពក​ដោយ​ជោគជ័យ",
+  "retry": "ព្យាយាម​ម្ដង​ទៀត",
+  "ridesharing": "ការ​ចែករំលែក​ការ​ជិះ",
+  "risk": "ហានិភ័យ",
+  "robocall": "ការ​ហៅ​ robo",
+  "ruleAction": "សកម្មភាព​ច្បាប់",
+  "ruleAddButton": "បន្ថែម​ច្បាប់",
+  "ruleAddedSuccess": "បាន​បន្ថែម​ច្បាប់​ដោយ​ជោគជ័យ",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "បរាជ័យ​ក្នុង​ការ​បន្ថែម​ច្បាប់​៖ {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "បាន​បន្ថែម​ច្បាប់​ដោយ​ជោគជ័យ",
+  "ruleDeleteConfirmContent": "តើ​អ្នក​ប្រាកដ​ថា​ចង់​លុប​ {ruleType} នេះ​ទេ​?",
+  "ruleDeleteConfirmTitle": "លុប​ច្បាប់",
+  "ruleDeletedSuccess": "បាន​លុប​ច្បាប់​ដោយ​ជោគជ័យ",
+  "ruleDeletedSuccessfully": "បាន​លុប​ច្បាប់​ដោយ​ជោគជ័យ",
+  "ruleDeleteFailed": "បរាជ័យ​ក្នុង​ការ​លុប​ច្បាប់​៖ {error}",
+  "ruleDeleteFailure": "បរាជ័យ​ក្នុង​ការ​លុប​ច្បាប់​៖ {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "បាន​លុប​ច្បាប់​ដោយ​ជោគជ័យ",
+  "ruleDisabledSuccessfully": "បាន​បិទ​ច្បាប់​ដោយ​ជោគជ័យ",
+  "ruleEnabledSuccessfully": "បាន​បើក​ច្បាប់​ដោយ​ជោគជ័យ",
+  "ruleLoadFailed": "បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ច្បាប់​៖ {error}",
+  "ruleManagement": "ការ​គ្រប់គ្រង​ច្បាប់",
+  "ruleManagementTitle": "ការ​គ្រប់គ្រង​ច្បាប់",
+  "ruleName": "ឈ្មោះ​ច្បាប់",
+  "ruleNameAndContentRegexCannotBeEmpty": "ឈ្មោះ​ច្បាប់​និង​ទម្រង់​正则表达式​នៃ​ខ្លឹមសារ​មិន​អាច​ទទេ​បាន​ទេ",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "ឈ្មោះ​ច្បាប់​និង​លេខ​ទូរស័ព្ទ​មិន​អាច​ទទេ​បាន​ទេ",
+  "ruleNameHint": "ឧទាហរណ៍​៖ គ្រួសារ​, មិត្តភក្តិ​, ល​។",
+  "ruleNameLabel": "ឈ្មោះ​ច្បាប់",
+  "ruleNamePatternRequired": "សូម​បញ្ចូល​ឈ្មោះ​ច្បាប់​និង​ទម្រង់​",
+  "ruleNameRequired": "ឈ្មោះ​ច្បាប់​និង​លេខ​ទូរស័ព្ទ​មិន​អាច​ទទេ​បាន​ទេ",
+  "ruleNotExist": "ច្បាប់មិនមាន ឬត្រូវបានលុបចោល",
+  "ruleNotFound": "មិនរកឃើញច្បាប់៖ {error}",
+  "ruleSavedSuccessfully": "រក្សាទុកច្បាប់ដោយជោគជ័យ!",
+  "ruleSavedSuccessMessage": "រក្សាទុកច្បាប់ដោយជោគជ័យ!",
+  "ruleSaveFailed": "រក្សាទុកមិនបានសម្រេច៖ {error}",
+  "ruleSaveFailedMessage": "រក្សាទុកមិនបានសម្រេច៖ {error}",
+  "ruleSaveSuccess": "រក្សាទុកច្បាប់ដោយជោគជ័យ!",
+  "rulesExportedSuccessfully": "បាននាំចេញច្បាប់ដោយជោគជ័យ",
+  "rulesExportedTo": "បាននាំចេញច្បាប់ទៅ៖ {path}",
+  "rulesImported": "បាននាំចូលច្បាប់ដោយជោគជ័យ",
+  "rulesImportedSuccessfully": "បាននាំចូលច្បាប់ {count} ដោយជោគជ័យ",
+  "rulesImportFailed": "មិនអាចនាំចូលច្បាប់បាន៖ {error}",
+  "ruleStatistics": "ស្ថិតិច្បាប់",
+  "ruleStatusChanged": "ច្បាប់ {status} ដោយជោគជ័យ",
+  "ruleToggleFailed": "ប្រតិបត្តិការមិនបានសម្រេច៖ {error}",
+  "ruleToggleSuccess": "ច្បាប់ {status} ដោយជោគជ័យ",
+  "ruleUpdateFailed": "មិនអាចធ្វើបច្ចុប្បន្នភាពច្បាប់បាន៖ {error}",
+  "ruleUpdateSuccess": "ធ្វើបច្ចុប្បន្នភាពច្បាប់ដោយជោគជ័យ",
+  "ruleVerification": "ការផ្ទៀងផ្ទាត់ច្បាប់",
+  "save": "រក្សាទុក",
+  "saveButton": "រក្សាទុក",
+  "saveButtonLabel": "រក្សាទុក",
+  "saveButtonText": "រក្សាទុក",
+  "saveFailed": "រក្សាទុកមិនបានសម្រេច៖ {error}",
+  "saveFilter": "រក្សាទុកតម្រង",
+  "saveSettings": "រក្សាទុកការកំណត់",
+  "saveSettingsFailed": "មិនអាចរក្សាទុកការកំណត់បាន៖ {error}",
+  "scamsLikely": "លទ្ធភាពនៃការបោកប្រាស់",
+  "search": "ស្វែងរក",
+  "searchContacts": "ស្វែងរកទំនាក់ទំនង",
+  "searchError": "កំហុសក្នុងការស្វែងរក៖ {error}",
+  "searchFilters": "តម្រងស្វែងរក",
+  "searchForContacts": "ស្វែងរកទំនាក់ទំនង",
+  "searchHint": "ស្វែងរក...",
+  "searchSettingsSubtitle": "ស្វែងរកទំនាក់ទំនង, ការដាក់ស្លាក, បញ្ជីខ្មៅ, បញ្ជីស, ល.",
+  "searchSettingsTitle": "ការកំណត់ស្វែងរក",
+  "securityMessage": "កុំទុកចិត្តការហៅទូរស័ព្ទណាមួយ។ តែងតែផ្ទៀងផ្ទាត់លេខសេវាអតិថិជនដោយឯករាជ្យ។ កុំចែករំលែកលេខសម្ងាត់, លេខកូដផ្ទៀងផ្ទាត់, លេខកាត, ឬព័ត៌មានផ្ទាល់ខ្លួន។",
+  "selectActionToPerform": "ជ្រើសរើសសកម្មភាពដែលត្រូវអនុវត្ត នៅពេលច្បាប់ត្រូវគ្នា",
+  "selectActionWhenBlockingCalls": "ជ្រើសរើសសកម្មភាព នៅពេលរារាំងការហៅទូរស័ព្ទ",
+  "selectActionWhenRuleMatches": "ជ្រើសរើសសកម្មភាព នៅពេលច្បាប់ត្រូវគ្នា",
+  "selectAll": "ជ្រើសរើសទាំងអស់",
+  "selectCountry": "ជ្រើសរើសប្រទេស",
+  "selectDateRange": "ជ្រើសរើសជួរកាលបរិច្ឆេទ",
+  "selectedDateRange": "ជួរកាលបរិច្ឆេទដែលបានជ្រើសរើស",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} អង្គភាពបានជ្រើសរើស",
+  "selectedLabel": "បានជ្រើសរើស៖",
+  "selectExportFormat": "ជ្រើសរើសទម្រង់នាំចេញ",
+  "selectLabel": "ជ្រើសរើសស្លាក",
+  "selectLabelAndEnterPhoneNumber": "សូមជ្រើសរើសស្លាក និងបញ្ចូលលេខទូរស័ព្ទដែលមានសុពលភាព",
+  "selectLanguage": "ជ្រើសរើសភាសា",
+  "selectMultiple": "ជ្រើសរើសច្រើន",
+  "selectPeriod": "ជ្រើសរើសរយៈពេល",
+  "selectSimCard": "ជ្រើសរើសកាត SIM",
+  "selectSimSlot": "ជ្រើសរើសរន្ធ SIM",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "ជ្រើសរើសសកម្មភាពជាក់លាក់ នៅពេលរារាំងការហៅទូរស័ព្ទ",
+  "selectTag": "ជ្រើសរើសស្លាក",
+  "selectTags": "ជ្រើសរើសស្លាក",
+  "selectTrustedDataSource": "សូមជ្រើសរើសប្រភពទិន្នន័យដែលទុកចិត្ត",
+  "selectYourLanguage": "ជ្រើសរើសភាសារបស់អ្នក",
+  "sender": "អ្នកផ្ញើ",
+  "senderRegexOptional": "អ្នកផ្ញើ Regex (ស្រេចចិត្ត)",
+  "serverAddressLabel": "អាសយដ្ឋានម៉ាស៊ីនមេ",
+  "serviceTypeContact": "ការជាវទំនាក់ទំនង",
+  "serviceTypeLabel": "ប្រភេទសេវា",
+  "serviceTypePhone": "ការជាវទូរស័ព្ទ",
+  "serviceTypePlugin": "ការធ្វើបច្ចុប្បន្នភាពកម្មវិធីជំនួយ",
+  "serviceTypeSms": "ការជាវ SMS",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "កំណត់",
+  "setEncryptionPassword": "កំណត់លេខសម្ងាត់ការអ៊ិនគ្រីប",
+  "setEncryptionPasswordDescription": "កំណត់លេខសម្ងាត់ការអ៊ិនគ្រីបសម្រាប់ការបម្រុងទុក និងការស្ដារឡើងវិញ",
+  "setEncryptionPasswordLabel": "កំណត់លេខសម្ងាត់ការអ៊ិនគ្រីប",
+  "setEncryptionPasswordTitle": "កំណត់លេខសម្ងាត់ការអ៊ិនគ្រីប",
+  "setPasswordButton": "កំណត់",
+  "settings": "ការកំណត់",
+  "settingsBackedUpTo": "ការកំណត់ត្រូវបានបម្រុងទុកទៅ៖ {path}",
+  "settingsLoaded": "ការកំណត់ត្រូវបានផ្ទុក",
+  "settingsLoadFailed": "មិនអាចផ្ទុកការកំណត់បាន៖ {error}",
+  "settingsRestoredSuccessfully": "បានស្ដារការកំណត់ដោយជោគជ័យ។ សូមចាប់ផ្ដើមកម្មវិធីឡើងវិញ ដើម្បីឲ្យការផ្លាស់ប្ដូរមានប្រសិទ្ធភាព។",
+  "settingsSaved": "ការកំណត់ត្រូវបានរក្សាទុក",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "មិនអាចរក្សាទុកការកំណត់បាន៖ {error}",
+  "settingsTab": "ការកំណត់",
+  "settingsTitle": "ការកំណត់",
+  "setup": "ការរៀបចំ",
+  "showContactEditDialogStaticMethod": "វិធីសាស្ត្រឋិតិវន្ត ដើម្បីបង្ហាញប្រអប់កែសម្រួលទំនាក់ទំនង",
+  "showExplanation": "បង្ហាញការពន្យល់",
+  "silence": "ស្ងាត់",
+  "silenceAndNoAnswer": "ស្ងាត់ និងគ្មានចម្លើយ",
+  "silenceNoAnswer": "ស្ងាត់គ្មានចម្លើយ",
+  "silentCallVoiceClone": "ការក្លូនសំឡេងហៅទូរស័ព្ទស្ងាត់",
+  "silentRules": "ច្បាប់ស្ងាត់",
+  "simCard": "កាត SIM {simNumber}",
+  "simCardColor": "ពណ៌កាត SIM",
+  "simCardConfigurationExplanation": "• ការកំណត់រចនាសម្ព័ន្ធកាត SIM៖ កំណត់ច្បាប់ច្រោះឯករាជ្យសម្រាប់កាត SIM នីមួយៗ",
+  "simCardFilterRules": "ច្បាប់ច្រោះកាត SIM",
+  "simCardFilterRulesDescription": "កំណត់ច្បាប់ច្រោះផ្សេងៗគ្នា ដោយផ្អែកលើរន្ធ SIM",
+  "simCardFontSize": "ទំហំពុម្ពអក្សរកាត SIM",
+  "simCardPosition": "ទីតាំងកាត SIM",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "មិនអាចផ្ទុកព័ត៌មានកាត SIM បាន៖ {error}",
+  "simRuleInstructions": "ច្បាប់​រន្ធ SIM អនុញ្ញាត​ឱ្យ​អ្នក​កំណត់​រចនាសម្ព័ន្ធ​ច្បាប់​តម្រង​ឯករាជ្យ​សម្រាប់​រន្ធ SIM នីមួយៗ។",
+  "simRuleInstructionsTitle": "ច្បាប់​រន្ធ SIM",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "ការ​គ្រប់គ្រង​ច្បាប់​រន្ធ SIM",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ទិន្នន័យ SIM៖ {error}",
+  "simSlotFilterConfiguration": "ការ​កំណត់​រចនាសម្ព័ន្ធ​តម្រង​រន្ធ SIM",
+  "simSlotFilterConfigurationDescription": "អនុញ្ញាត​ឱ្យ​កំណត់​ច្បាប់​តម្រង​តាម​រន្ធ SIM",
+  "simSlotFilterDescription": "កំណត់​រចនាសម្ព័ន្ធ​ច្បាប់​តម្រង​ឯករាជ្យ​សម្រាប់​កាត SIM នីមួយៗ៖",
+  "simSlotFilterSettingsTitle": "ការ​កំណត់​រចនាសម្ព័ន្ធ​តម្រង​រន្ធ SIM {slotNumber}",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "បរាជ័យ​ក្នុង​ការ​ផ្ទុក​រន្ធ SIM៖ {error}",
+  "simSlotManagement": "ការ​គ្រប់គ្រង​រន្ធ SIM",
+  "simSlotOperationFailed": "ប្រតិបត្តិការ​រន្ធ SIM ៖ {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "ទីតាំង​រន្ធ SIM {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleListTitle": "បញ្ជី​ច្បាប់​រន្ធ SIM",
+  "simSlotRuleManagement": "ច្បាប់​រន្ធ SIM",
+  "simSlotRuleManagementTitle": "ការ​គ្រប់គ្រង​ច្បាប់",
+  "simSlotSettings": "ការ​កំណត់​រន្ធ SIM",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "រន្ធ SIM {slotNumber}",
+  "skip": "រំលង",
+  "smartCallerId": "ការ​កំណត់​អត្តសញ្ញាណ​អ្នក​ហៅ​ទូរសព្ទ​ឆ្លាតវៃ",
+  "sms": "សារ SMS",
+  "smsFilterDescription": "ការ​ច្រោះ​សារ SMS ជួយ​អ្នក​ច្រោះ​សារ​ឥត​បាន​ការ​ដោយ​ស្វ័យ​ប្រវត្តិ​ និង​រក្សា​បញ្ជី​សារ​របស់​អ្នក​ឱ្យ​ស្អាត។ អ្នក​អាច​កំណត់​ច្បាប់​ច្រោះ​ និង​វិធី​ជូន​ដំណឹង។",
+  "smsFilterDisabled": "ការ​ច្រោះ​សារ SMS ៖ ៖",
+  "smsFilterEnabled": "ការ​ច្រោះ​សារ SMS ៖ ៖",
+  "smsFilterRuleAddedSuccessfully": "បាន​បន្ថែម​ច្បាប់​ច្រោះ​សារ SMS ជោគជ័យ",
+  "smsFilterRules": "ច្បាប់​ច្រោះ​សារ SMS",
+  "smsFilterSettings": "ការ​កំណត់​រចនាសម្ព័ន្ធ​តម្រង​សារ SMS",
+  "smsHistory": "ប្រវត្តិ​សារ SMS",
+  "smsManagement": "ការ​គ្រប់គ្រង​សារ SMS",
+  "smsPermission": "ការ​អនុញ្ញាត​សារ SMS",
+  "smsPermissionDescription": "ប្រើ​ដើម្បី​ច្រោះ​សារ​ឥត​បាន​ការ។",
+  "smsRuleAddedSuccessfully": "បាន​បន្ថែម​ច្បាប់​សារ SMS ជោគជ័យ",
+  "smsRuleDeletedSuccessfully": "បាន​លុប​ច្បាប់​សារ SMS ជោគជ័យ",
+  "smsRuleLoadFailed": "បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ច្បាប់​សារ SMS៖ {error}",
+  "smsRuleManagement": "ការ​គ្រប់គ្រង​ច្បាប់​សារ SMS",
+  "smsRulesExportedSuccessfully": "បាន​នាំចេញ​ច្បាប់​សារ SMS ជោគជ័យ​ទៅ `{filePath}`",
+  "smsRulesImportedSuccessfully": "បាន​នាំចូល​ច្បាប់​សារ SMS ជោគជ័យ",
+  "smsRuleSubscription": "ការ​ជាវ​ច្បាប់​សារ SMS",
+  "smsRuleUpdatedSuccessfully": "បាន​ធ្វើ​បច្ចុប្បន្នភាព​ច្បាប់​សារ SMS ជោគជ័យ",
+  "smsSettingsSubtitle": "ការ​ច្រោះ​សារ SMS និង​ការ​ទប់ស្កាត់​ពាក្យ​គន្លឹះ",
+  "smsSettingsTitle": "ការ​កំណត់​សារ SMS",
+  "smsSubscription": "ការ​ជាវ​សារ SMS",
+  "smsSubscriptionAddedSuccessfully": "បាន​បន្ថែម​ការ​ជាវ​សារ SMS ជោគជ័យ",
+  "smsSubscriptionRulesDescription": "ជាវ​បញ្ជី​ច្បាប់​សារ SMS តាម​រយៈ URL ដែល​គាំទ្រ​ការ​ផ្គូផ្គង​កន្សោម​ទៀងទាត់។ អ្នក​អាច​កំណត់​សកម្មភាព​ទប់ស្កាត់​ ឬ​អនុញ្ញាត។",
+  "smsTab": "សារ SMS",
+  "somePermissionsDenied": "ការ​ស្នើសុំ​ការ​អនុញ្ញាត​មួយ​ចំនួន​ត្រូវ​បាន​បដិសេធ",
+  "spamLikely": "ទំនង​ជា​សារ​ឥត​បាន​ការ",
+  "startColor": "ពណ៌​ចាប់ផ្ដើម",
+  "startDate": "កាលបរិច្ឆេទ​ចាប់ផ្ដើម",
+  "startUsing": "ចាប់ផ្ដើម​ប្រើ",
+  "statAnswered": "បាន​ឆ្លើយ",
+  "statBlocked": "បាន​ទប់ស្កាត់",
+  "staticMethodShowCallerIdDialog": "វិធី​សាស្ត្រ​ថេរ​ដើម្បី​បង្ហាញ​ប្រអប់​ព័ត៌មាន​អត្តសញ្ញាណ​អ្នក​ហៅ",
+  "staticMethodToDisplayCountrySelectionDialog": "វិធី​សាស្ត្រ​ថេរ​ដើម្បី​បង្ហាញ​ប្រអប់​ជ្រើសរើស​ប្រទេស",
+  "staticMethodToDisplayDialog": "វិធី​សាស្ត្រ​ថេរ​ដើម្បី​បង្ហាញ​ប្រអប់",
+  "statistics": "ស្ថិតិ",
+  "statisticsExportFeatureComingSoon": "មុខងារ​នាំចេញ​ស្ថិតិ​នឹង​មក​ដល់​ឆាប់ៗ​នេះ",
+  "statisticsGrid": "តារាង​ស្ថិតិ",
+  "statisticsPageTitle": "ការ​វិភាគ​ទិន្នន័យ",
+  "stirColor": "ពណ៌ STIR",
+  "stirFontSize": "ទំហំ​ពុម្ព STIR",
+  "stirPosition": "ទីតាំង STIR",
+  "storagePermission": "ការ​អនុញ្ញាត​ផ្ទុក",
+  "storagePermissionDescription": "ប្រើ​ដើម្បី​រក្សា​ទុក​ការ​កំណត់​ និង​ច្បាប់។",
+  "subscribe": "ជាវ",
+  "subscriptionAddSuccess": "បាន​បន្ថែម​ការ​ជាវ \"{name}\" ជោគជ័យ",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "តើ​អ្នក​ប្រាកដ​ថា​អ្នក​ចង់​លុប​ការ​ជាវ​នេះ​ទេ?",
+  "subscriptionDeleteConfirmTitle": "លុប​ការ​ជាវ",
+  "subscriptionDeleted": "បាន​លុប​ការ​ជាវ",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "បាន​លុប​ការ​ជាវ​ជោគជ័យ",
+  "subscriptionDeleteFailed": "បរាជ័យ​ក្នុង​ការ​លុប​ការ​ជាវ៖ {error}",
+  "subscriptionDeleteSuccess": "បាន​លុប​ការ​ជាវ",
+  "subscriptionEmptyState": "មិន​មាន​ការ​ជាវ​ទេ",
+  "subscriptionEmptyText": "មិន​ទាន់​មាន​ការ​ជាវ​ទេ",
+  "subscriptionLoadFailed": "បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ការ​ជាវ៖ {error}",
+  "subscriptionLoadingFailed": "បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ការ​ជាវ៖ {error}",
+  "subscriptionManagementTitle": "ការ​គ្រប់គ្រង​ការ​ជាវ",
+  "subscriptionName": "ឈ្មោះ​ការ​ជាវ",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "ឈ្មោះ​ការ​ជាវ និង URL មិន​អាច​ទទេ។",
+  "subscriptionNameHint": "បញ្ចូល​ឈ្មោះ​ការ​ជាវ",
+  "subscriptionPageTitle": "ការ​គ្រប់គ្រង​ការ​ជាវ",
+  "subscriptionStatusChangeFailed": "បរាជ័យ​ក្នុង​ការ​ផ្លាស់ប្ដូរ​ស្ថានភាព​ការ​ជាវ៖ {error}",
+  "subscriptionToggleFailed": "បរាជ័យ​ក្នុង​ការ​ប្ដូរ​ស្ថានភាព​ការ​ជាវ៖ {error}",
+  "subscriptionUpdateFailed": "បរាជ័យ​ក្នុង​ការ​ធ្វើ​បច្ចុប្បន្នភាព​ការ​ជាវ៖ {error}",
+  "subscriptionUpdateSuccess": "បាន​ធ្វើ​បច្ចុប្បន្នភាព​ការ​ជាវ​ជោគជ័យ",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "URL ការ​ជាវ",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "បញ្ចូល​ URL ការ​ជាវ",
+  "successfullyImportedRules": "បាន​នាំចូល​ច្បាប់ {count} ជោគជ័យ",
+  "supportSync": "គាំទ្រ​ការ​ធ្វើ​សមកាលកម្ម",
+  "survey": "ការ​ស្ទង់​មតិ",
+  "syncDevicesButton": "ធ្វើ​សមកាលកម្ម​ឧបករណ៍",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "បរាជ័យ​ក្នុង​ការ​ធ្វើ​សមកាលកម្ម",
+  "syncFailedMessage": "បរាជ័យ​ក្នុង​ការ​ធ្វើ​សមកាលកម្ម",
+  "syncFolderNameHint": "សូម​បញ្ចូល​ឈ្មោះ​ថត​ធ្វើ​សមកាលកម្ម (លំនាំដើម៖ NotificationManager)",
+  "syncFolderNameLabel": "ឈ្មោះ​ថត​ធ្វើ​សមកាលកម្ម",
+  "synchronized": "បាន​ធ្វើ​សមកាលកម្ម",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "កំពុង​ធ្វើ​សមកាលកម្ម...",
+  "syncNow": "ធ្វើ​សមកាលកម្ម​ឥឡូវនេះ",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "ធ្វើសមកាលកម្មឥឡូវនេះ",
+  "syncStatusTitle": "ស្ថានភាពធ្វើសមកាលកម្ម",
+  "syncStatusUpdatedMessage": "ស្ថានភាពធ្វើសមកាលកម្មត្រូវបានអាប់ដេត",
+  "syncSuccessful": "ធ្វើសមកាលកម្មបានជោគជ័យ",
+  "syncSuccessMessage": "ធ្វើសមកាលកម្មបានជោគជ័យ",
+  "syncWithCloudStorage": "ធ្វើសមកាលកម្មជាមួយ Cloud Storage",
+  "syncWithCloudStorageSubtitle": "ធ្វើសមកាលកម្មជាមួយ Cloud Storage",
+  "systemFeatures": "លក្ខណៈពិសេសប្រព័ន្ធ៖",
+  "systemSettingsTitle": "ការកំណត់ប្រព័ន្ធ",
+  "tabAll": "ទាំងអស់",
+  "tabAnswered": "បានទទួល",
+  "tabBlocked": "បានទប់ស្កាត់",
+  "tabMissed": "បានខកខាន",
+  "tabOutgoing": "ការហៅចេញ",
+  "tagLabel": "ស្លាក៖ {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "ស្លាកត្រូវបានអាប់ដេត",
+  "takeaway": "ចំណុចសំខាន់",
+  "telecommunication": "ទូរគមនាគមន៍",
+  "telegram": "Telegram",
+  "telemarketing": "ទីផ្សារទូរស័ព្ទ",
+  "testButton": "សាកល្បង",
+  "testButtonLabel": "សាកល្បង",
+  "testConnectionButton": "សាកល្បងការតភ្ជាប់",
+  "textColorsSetting": "ពណ៌អក្សរ និងស្លាក",
+  "thisWeek": "សប្តាហ៍នេះ",
+  "timeInterceptor": "ការស្ទាក់ចាប់តាមពេលវេលា",
+  "timeInterceptorDescription": "ស្ទាក់ចាប់/អនុញ្ញាតការហៅទូរសព្ទដោយស្វ័យប្រវត្តិដោយផ្អែកលើភាពញឹកញាប់នៃការហៅទូរសព្ទ",
+  "timeInterceptorExplanation": "• ឧបករណ៍ស្ទាក់ចាប់ពេលវេលា៖ ស្ទាក់ចាប់/អនុញ្ញាតការហៅទូរសព្ទដដែលៗក្នុងរយៈពេលខ្លី",
+  "timeInterceptorExplanationContent": "មុខងារស្ទាក់ចាប់ភាពញឹកញាប់នៃការហៅទូរសព្ទ វិភាគភាពញឹកញាប់នៃការហៅទូរសព្ទ ដើម្បីកំណត់អត្តសញ្ញាណ និងស្ទាក់ចាប់/អនុញ្ញាតការហៅទូរសព្ទសារឥតបានការញឹកញាប់ដោយស្វ័យប្រវត្តិ។",
+  "timeInterceptorExplanationTitle": "ការពន្យល់អំពីការស្ទាក់ចាប់ភាពញឹកញាប់នៃការហៅទូរសព្ទ",
+  "timeInterceptorSettingsTitle": "ការកំណត់ការស្ទាក់ចាប់ភាពញឹកញាប់នៃការហៅទូរសព្ទ",
+  "timeInterceptorSubtitle": "ស្ទាក់ចាប់ការហៅទូរសព្ទសារឥតបានការដែលមានសក្តានុពលដោយស្វ័យប្រវត្តិដោយផ្អែកលើភាពញឹកញាប់នៃការហៅទូរសព្ទ",
+  "timeInterceptorTitle": "បើកការស្ទាក់ចាប់ភាពញឹកញាប់នៃការហៅទូរសព្ទ",
+  "timeWindowDescription": "កំណត់ទំហំបង្អួចពេលវេលាសម្រាប់ការអនុញ្ញាតការហៅទូរសព្ទដដែលៗ។ ការហៅទូរសព្ទពីលេខដដែលៗក្នុងបង្អួចនេះនឹងត្រូវបានអនុញ្ញាត",
+  "timeWindowLabel": "បង្អួចពេលវេលាស្ទាក់ចាប់ (នាទី)៖ {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "កំណត់ទំហំបង្អួចពេលវេលាសម្រាប់ការអនុញ្ញាតការហៅទូរសព្ទដដែលៗ។ ការហៅទូរសព្ទពីលេខដដែលៗក្នុងបង្អួចនេះនឹងត្រូវបានអនុញ្ញាត",
+  "today": "ថ្ងៃនេះ",
+  "total": "សរុប",
+  "totalBlocked": "សរុបដែលបានទប់ស្កាត់",
+  "totalFiltered": "សរុបដែលបានត្រង",
+  "transferDataBetweenDevicesOrPlatforms": "ផ្ទេរទិន្នន័យរវាងឧបករណ៍ ឬវេទិកា",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "ផ្ទេរទិន្នន័យរវាងឧបករណ៍ ឬវេទិកា",
+  "travelTicketing": "សំបុត្រធ្វើដំណើរ",
+  "trend": "និន្នាការ",
+  "trendChart": "គំនូសតាងនិន្នាការ",
+  "tutorial": "ការបង្រៀន",
+  "type": "ប្រភេទ",
+  "unassignedSIMCard": "ស៊ីមកាតដែលមិនបានកំណត់",
+  "unknown": "មិនស្គាល់",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "ស្លាកមិនស្គាល់",
+  "unknownTag": "ស្លាក៖ មិនស្គាល់",
+  "unregisterButton": "លុបការចុះឈ្មោះ",
+  "unregisterDeviceConfirmationMessage": "តើអ្នកប្រាកដថាចង់លុបការចុះឈ្មោះ {deviceName} ដែរឬទេ?",
+  "unregisterDeviceTitle": "លុបការចុះឈ្មោះឧបករណ៍",
+  "unsupportedFileFormat": "ទម្រង់ឯកសារមិនត្រូវបានគាំទ្រ",
+  "update": "អាប់ដេត",
+  "updateAllNow": "អាប់ដេតទាំងអស់ឥឡូវនេះ",
+  "updateCallFilterConfig": "អាប់ដេតការកំណត់រចនាសម្ព័ន្ធតម្រងការហៅទូរសព្ទ",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "មិនអាចអាប់ដេតទំនាក់ទំនងបានទេ៖ {error}",
+  "updateFavoriteStatus": "អាប់ដេតស្ថានភាពដែលពេញចិត្ត",
+  "updateFavoriteStatusFailed": "មិនអាចអាប់ដេតស្ថានភាពដែលពេញចិត្តបានទេ៖ {error}",
+  "updateInterval": "ចន្លោះពេលអាប់ដេត",
+  "updateLabelFailed": "មិនអាចអាប់ដេតស្លាកបានទេ",
+  "updateNow": "អាប់ដេតឥឡូវនេះ",
+  "updatePlugin": "អាប់ដេត Plugin",
+  "updatePluginFailed": "មិនអាចអាប់ដេត Plugin បានទេ៖ {error}",
+  "updateRuleFailed": "មិនអាចអាប់ដេតក្បួនបានទេ៖ {error}",
+  "updateSubscriptionFailed": "មិនអាចអាប់ដេតការជាវបានទេ៖ {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} ត្រូវបានអាប់ដេតដោយជោគជ័យ ({count} ក្បួន)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "អាប់ដេតស្លាក",
+  "useCasesPoint1": "• កំណត់អត្តសញ្ញាណការហៅទូរសព្ទសារឥតបានការដែលហៅត្រឡប់ដោយស្វ័យប្រវត្តិ",
+  "useCasesPoint2": "• ស្ទាក់ចាប់ការហៅទូរសព្ទទីផ្សារដែលហៅច្រើនដងក្នុងរយៈពេលខ្លី",
+  "useCasesPoint3": "• ការពារការទម្លាក់គ្រាប់បែកតាមទូរស័ព្ទ និងការយាយី",
+  "useCasesTitle": "ករណីប្រើប្រាស់៖",
+  "useGlobalSettings": "ប្រើការកំណត់សកល",
+  "userEmail": "user@example.com",
+  "usernameLabel": "ឈ្មោះអ្នកប្រើប្រាស់",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "ប្រើវាក្យសម្ព័ន្ធ regex ស្តង់ដារដើម្បីកំណត់លំនាំ។ ឧទាហរណ៍៖",
+  "validateRegex": "ផ្ទៀងផ្ទាត់ Regex",
+  "verificationFailedText": "បរាជ័យ",
+  "verifiedText": "បានផ្ទៀងផ្ទាត់",
+  "verify": "ផ្ទៀងផ្ទាត់",
+  "version": "កំណែ៖ {version}",
+  "vipExchangeDescription": "ប្ដូរសមាជិកភាព VIP ជាមួយនឹងចំនួនសម្គាល់លេខទូរសព្ទ",
+  "vipExchangeTitle": "ប្តូរសម្គាល់ VIP",
+  "watchAd": "មើលពាណិជ្ជកម្ម",
+  "watchAdForTemp": "មើលពាណិជ្ជកម្មសម្រាប់ឯកសិទ្ធិបណ្ដោះអាសន្ន",
+  "watchAdForTempDescription": "មើលពាណិជ្ជកម្មខ្លីមួយដើម្បីដោះសោមុខងារពិសេសមួយចំនួនជាបណ្ដោះអាសន្ន",
+  "webDAVConfigTitle": "ការកំណត់រចនាសម្ព័ន្ធ WebDAV",
+  "webdavConfigurationTitle": "ការកំណត់រចនាសម្ព័ន្ធ WebDAV",
+  "webdavPasswordHint": "សូមបញ្ចូលពាក្យសម្ងាត់ WebDAV",
+  "webdavServerAddressHint": "សូមបញ្ចូលអាសយដ្ឋានម៉ាស៊ីនមេ WebDAV",
+  "webdavUsernameHint": "សូមបញ្ចូលឈ្មោះអ្នកប្រើប្រាស់ WebDAV",
+  "week": "សប្តាហ៍",
+  "weekly": "ប្រចាំសប្តាហ៍",
+  "weeklyBlockedCallsSummary": "សេចក្តីសង្ខេបការហៅទូរសព្ទដែលបានទប់ស្កាត់ប្រចាំសប្តាហ៍",
+  "weeklyChartTitle": "ការហៅទូរសព្ទដែលបានទប់ស្កាត់ប្រចាំសប្តាហ៍",
+  "weeklyReport": "របាយការណ៍ប្រចាំសប្តាហ៍",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "ទទួលរបាយការណ៍សង្ខេបប្រចាំសប្តាហ៍អំពីសកម្មភាពទប់ស្កាត់ការហៅទូរសព្ទ",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "សូមស្វាគមន៍",
+  "whitelist": "បញ្ជីអនុញ្ញាត",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "បញ្ជីអនុញ្ញាត",
+  "width": "ទទឹង",
+  "wildcardMatchingDescription": "ប្រើ '.' ដើម្បីផ្គូផ្គងតួអក្សរណាមួយ (ឧទាហរណ៍ '123.456' ផ្គូផ្គង 123-456)",
+  "wildcardMatchingTitle": "ការផ្គូផ្គងវ៉ាយខាត:",
+  "wildcardSupportForFlexibleFiltering": "ការគាំទ្រវ៉ាយខាតសម្រាប់ការត្រងបត់បែន",
+  "windowSizeSetting": "ទំហំបង្អួច",
+  "year": "ឆ្នាំ",
+  "yearly": "ប្រចាំឆ្នាំ",
+  "yearlyChartTitle": "ការហៅទូរសព្ទដែលបានបិទប្រចាំឆ្នាំ",
+  "noSimCardsDetected": "មិនបានរកឃើញស៊ីមកាតទេ",
+  "filterManagementDescription": "កំណត់តម្រងការហៅទូរសព្ទ",
+  "callerIdCustomizationSubtitle": "ប្ដូររូបរាង Caller ID តាមចំណង់ចំណូលចិត្ត",
+  "fraudAlerSettingTitle": "ការកំណត់ការជូនដំណឹងក្លែងក្លាយ",
+  "fraudAlerSettingSubtitle": "ដើម្បីកំណត់ការជូនដំណឹងក្លែងក្លាយ",
+  "enableFraudAlert": "បើកការជូនដំណឹងក្លែងក្លាយ",
+  "enableFraudAlertDescription": "ជូនដំណឹងសម្រាប់ការហៅទូរសព្ទដែលសង្ស័យថាជាការបោកប្រាស់",
+  "enableVibration": "បើកការរំញ័រ",
+  "enableVibrationDescription": "រំញ័រនៅពេលហៅទូរសព្ទដែលសង្ស័យថាជាការបោកប្រាស់",
+  "notificationSettingsTitle": "ការកំណត់ការជូនដំណឹង",
+  "useLocalNotification": "ប្រើការជូនដំណឹងក្នុងមូលដ្ឋាន",
+  "useLocalNotificationDescription": "បើកការជូនដំណឹងក្នុងមូលដ្ឋានសម្រាប់ការហៅចូល",
+  "cancelLocalNotification": "បិទការជូនដំណឹងក្នុងមូលដ្ឋាន",
+  "useStirNotification": "ប្រើការជូនដំណឹងពី STIR",
+  "useStirNotificationDescription": "បើកការជូនដំណឹង STIR សម្រាប់ការហៅចូល",
+  "cancelLocalNotificationDescription": "បិទការជូនដំណឹងក្នុងមូលដ្ឋានដោយស្វ័យប្រវត្តិ",
+  "callerIdSettingsTitle": "ការកំណត់ Caller ID",
+  "callerIdSettingsSubtitle": "ដើម្បីកំណត់ការជូនដំណឹងការហៅចូល & របៀបបង្ហាញ",
+  "purchaseTitle": "ទិញ",
+  "purchaseSubtitle": "ដើម្បីទិញសេវាកម្ម",
+  "callerIdNotificationTitle": "ព័ត៌មានការហៅចូល",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "លេខទូរសព្ទ: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "ការហៅដែលបានបិទ",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "ការហៅដែលបានបិទពី {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "បានផ្ទៀងផ្ទាត់",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "មិនបានផ្ទៀងផ្ទាត់",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "ការផ្ទៀងផ្ទាត់បរាជ័យ",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "ស្ថានភាពផ្ទៀងផ្ទាត់មិនស្គាល់",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "ការផ្ទៀងផ្ទាត់ STIR/SHAKEN",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} សម្រាប់លេខ {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "ការកំណត់សារសុវត្ថិភាពរំកិល",
+  "messageColor": "ពណ៌សារ",
+  "messageFontSize": "ទំហំអក្សរសារ",
+  "messagePosition": "ទីតាំងសារ",
+  "containerWidth": "ទទឹងប្រអប់",
+  "scrollSpeed": "ល្បឿនរំកិល",
+  "enableSecurityMessage": "បើកសារសុវត្ថិភាព",
+  "fraudAlertTitle": "ការជូនដំណឹងក្លែងក្លាយ",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "ការហៅក្លែងក្លាយដែលសង្ស័យពី {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "បរាជ័យក្នុងការផ្ទុកច្បាប់: {error}",
+  "loadCallLogFailed": "បរាជ័យក្នុងការផ្ទុកកំណត់ហេតុការហៅ: {error}",
+  "noBlockedTypeData": "គ្មានទិន្នន័យប្រភេទដែលបានបិទទេ",
+  "importEntity": "នាំចូល {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} បាននាំចូលដោយជោគជ័យ សរុប {count} កំណត់ត្រាបាននាំចូល",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "បរាជ័យក្នុងការនាំចូល {entityTypeName}: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "នាំចេញ {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} បាននាំចេញដោយជោគជ័យ",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "បរាជ័យក្នុងការនាំចេញ {entityTypeName}: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "សេវាកម្មធ្វើសមកាលកម្មពពក",
+  "membershipCenter": "មជ្ឈមណ្ឌលសមាជិកភាព",
+  "redeemVipWithMarks": "ប្តូរ VIP ដោយប្រើ Marks",
+  "currentMarkCount": "ចំនួន Marks បច្ចុប្បន្ន",
+  "markMoreNumbersForMore": "សម្គាល់លេខបន្ថែមដើម្បីទទួលបាន Marks បន្ថែម",
+  "noAds": "គ្មានពាណិជ្ជកម្ម",
+  "cloudBackup": "បម្រុងទុកពពក",
+  "callerIdEnhancement": "ការពង្រឹង Caller ID",
+  "voiceRecognition": "ការសម្គាល់សំឡេង",
+  "feature": "លក្ខណៈពិសេស",
+  "normalUser": "អ្នកប្រើប្រាស់ធម្មតា",
+  "vipUser": "អ្នកប្រើប្រាស់ VIP",
+  "temporaryVip": "VIP បណ្តោះអាសន្ន",
+  "removeAds": "លុបពាណិជ្ជកម្ម",
+  "unknownAction": "សកម្មភាពមិនស្គាល់",
+  "settingsBackup": "ការបម្រុងទុកការកំណត់",
+  "allServicesStatusTitle": "ស្ថានភាពសេវាកម្មបច្ចុប្បន្ន",
+  "allServicesStatusSubtitle": "ស្ថានភាពបច្ចុប្បន្ននៃសេវាកម្មពពកនីមួយៗ",
+  "redirect": "ប្តូរទិស",
+  "notify": "ជូនដំណឹង",
+  "log": "កំណត់ហេតុ",
+  "custom": "ផ្ទាល់ខ្លួន",
+  "allowActionDescription": "ការហៅទូរសព្ទនឹងត្រូវបានអនុញ្ញាត ទោះបីជាលេខនោះស្ថិតនៅក្នុងបញ្ជីបិទក៏ដោយ។",
+  "blockActionDescription": "ការហៅទូរសព្ទនឹងត្រូវបានបិទ និងបង្ហាញនៅក្នុងកំណត់ហេតុការហៅ។",
+  "silenceActionDescription": "ការហៅទូរសព្ទនឹងត្រូវបានបិទសំឡេង ប៉ុន្តែបង្ហាញនៅក្នុងកំណត់ហេតុការហៅ។",
+  "noneActionDescription": "គ្មានសកម្មភាពពិសេសណាមួយនឹងត្រូវធ្វើសម្រាប់ការហៅទូរសព្ទនោះទេ។",
+  "redirectActionDescription": "ប្តូរទិសការហៅទៅកាន់លេខដែលបានបញ្ជាក់។",
+  "labelActionDescription": "បន្ថែមស្លាកទៅការហៅសម្រាប់ការកំណត់អត្តសញ្ញាណងាយស្រួល។",
+  "notifyActionDescription": "ផ្ញើការជូនដំណឹងនៅពេលទទួលបានការហៅទូរសព្ទ។",
+  "logActionDescription": "កត់ត្រាព័ត៌មានការហៅដោយមិនធ្វើសកម្មភាពផ្សេងទៀត។",
+  "customActionDescription": "អនុវត្តសកម្មភាពផ្ទាល់ខ្លួន។",
+  "synced": "ធ្វើសមកាលកម្មហើយ",
+  "needVipAccess": "អ្នកត្រូវការសិទ្ធិ VIP ដើម្បីប្រើលក្ខណៈពិសេសនេះ",
+  "importExportDescription": "នាំចូល ឬនាំចេញទិន្នន័យ {entityTypeName}",
+  "importExportTitle": "នាំចូល/នាំចេញ",
+  "noPhoneRules": "មិនបានរកឃើញច្បាប់ទូរសព្ទទេ",
+  "noRegexRules": "មិនបានរកឃើញច្បាប់ regex ទេ",
+  "noAllowedBlockedRules": "មិនបានរកឃើញច្បាប់អនុញ្ញាត/បិទទេ",
+  "importExport": "នាំចូល/នាំចេញ",
+  "filterByAction": "ត្រងតាមសកម្មភាព",
+  "upgradeToVip": "ដំឡើងទៅ VIP",
+  "batteryOptimizationPermission": "ការបង្កើនប្រសិទ្ធភាពថ្ម",
+  "batteryOptimizationPermissionDescription": "អនុញ្ញាតឱ្យកម្មវិធីដំណើរការក្នុងផ្ទៃខាងក្រោយដើម្បីផ្តល់សេវាកម្មដូចជា caller ID។",
+  "permissionTitle": "សិទ្ធិពិសេស",
+  "permissionSubtitle": "គ្រប់គ្រងសិទ្ធិត្រួតលើ និងការបង្កើនប្រសិទ្ធភាពថ្ម",
+  "themeSettingsTitle": "ការកំណត់រូបរាង",
+  "themeSettingsSubtitle": "ជ្រើសរើសរូបរាងដែលអ្នកចូលចិត្ត",
+  "databaseSyncTitle": "ការធ្វើសមកាលកម្មមូលដ្ឋានទិន្នន័យ",
+  "countrySyncSettingsTitle": "ការកំណត់ការធ្វើសមកាលកម្មមូលដ្ឋានទិន្នន័យតាមប្រទេស",
+  "countrySyncSettingsSubtitle": "ជ្រើសរើសប្រទេសសម្រាប់ការធ្វើសមកាលកម្មទិន្នន័យ",
+  "countryDataDisclaimer": "សូមចំណាំ៖ មូលដ្ឋានទិន្នន័យអាចមិនរួមបញ្ចូលទិន្នន័យសម្រាប់ប្រទេស ឬតំបន់ជាក់លាក់ទាំងអស់នោះទេ។",
+  "editSubscription": "កែសម្រួលការជាវ",
+  "searchByNameOrPhoneNumber": "ស្វែងរកតាមឈ្មោះ ឬលេខទូរស័ព្ទ",
+  "allowedBlockedRulesInfo": "ច្បាប់អនុញ្ញាត/ទប់ស្កាត់ត្រូវបានប្រើដើម្បីផ្គូផ្គងការហៅទូរសព្ទទៅលេខទូរសព្ទជាក់លាក់ ដែលមានអាទិភាពខ្ពស់បំផុត។",
+  "searchPhoneRulesHint": "ស្វែងរកច្បាប់ទូរស័ព្ទ",
+  "phoneRulesInfo": "ច្បាប់ទូរស័ព្ទត្រូវបានប្រើដើម្បីផ្គូផ្គងការហៅទូរសព្ទទៅលេខទូរសព្ទជាក់លាក់ ដែលមានអាទិភាពទាបជាង។ មួយចំនួនបានមកពីការជាវ phoneRule",
+  "searchSubscriptionsHint": "ស្វែងរកការជាវ",
+  "searchPluginsHint": "ស្វែងរកកម្មវិធីជំនួយ",
+  "searchLabelsHint": "ស្វែងរកស្លាក",
+  "pluginDescription": "ការពិពណ៌នាកម្មវិធីជំនួយ",
+  "enterPluginDescription": "បញ្ចូលការពិពណ៌នាកម្មវិធីជំនួយ",
+  "searchRegexRulesHint": "ស្វែងរកច្បាប់ Regex",
+  "regexRulesInfo": "ច្បាប់ Regex ត្រូវបានប្រើដើម្បីច្រោះការហៅទូរសព្ទដោយផ្អែកលើលំនាំ Regex។",
+  "searchMarkedPhonesHint": "ស្វែងរកលេខទូរស័ព្ទដែលបានសម្គាល់",
+  "searchContactSubscriptionsHint": "ស្វែងរកការជាវទំនាក់ទំនង",
+  "showAllContacts": "បង្ហាញទំនាក់ទំនងទាំងអស់",
+  "showFavorites": "បង្ហាញចំណូលចិត្ត",
+  "manualEntry": "ព័ត៌មានបញ្ចូលដោយដៃ",
+  "scriptSaved": "ស្គ្រីបត្រូវបានរក្សាទុក",
+  "editScriptFor": "កែសម្រួលស្គ្រីបសម្រាប់ {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "រក្សាទុកស្គ្រីប",
+  "testPlugin": "សាកល្បងកម្មវិធីជំនួយ",
+  "description": "ការពិពណ៌នា",
+  "accessTargetUrl": "ចូលប្រើ URL គោលដៅ",
+  "result": "លទ្ធផល",
+  "editScript": "កែសម្រួលស្គ្រីប",
+  "numberFormat": "ទម្រង់លេខ",
+  "nationalNumber": "លេខជាតិ",
+  "e164Number": "លេខ E164",
+  "pluginRulesInfo": "សម្រាប់សុវត្ថិភាព សូមប្រើកម្មវិធីជំនួយពីប្រភពដែលគួរឱ្យទុកចិត្តតែប៉ុណ្ណោះ។ មានអារម្មណ៍សេរីក្នុងការប្រើប្រាស់គំរូរបស់យើងដើម្បីបង្កើតកម្មវិធីជំនួយផ្ទាល់ខ្លួនរបស់អ្នក!",
+  "advancedMode": "របៀបកម្រិតខ្ពស់",
+  "pleaseEnterAtLeastOneNumber": "សូមបញ្ចូលយ៉ាងហោចណាស់មួយលេខ។",
+  "openInWebView": "បើកក្នុង WebView",
+  "pluginLabel": "ស្លាកកម្មវិធីជំនួយ",
+  "pluginID": "លេខសម្គាល់",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "ពណ៌ផ្ទៃខាងក្រោយសារ",
+  "clearAllCallLogs": "សម្អាតកំណត់ហេតុការហៅទូរសព្ទទាំងអស់",
+  "clearAllCallLogsConfirmation": "បញ្ជាក់ដើម្បីសម្អាតកំណត់ហេតុការហៅទូរសព្ទទាំងអស់",
+  "allCallLogsCleared": "កំណត់ហេតុការហៅទូរសព្ទទាំងអស់ត្រូវបានសម្អាត",
+  "unblocked": "បានដោះប្លុក",
+  "blockNumber": "ទប់ស្កាត់លេខ",
+  "blockNumberSuccess": "ការទប់ស្កាត់លេខបានជោគជ័យ",
+  "blockNumberFailed": "ការទប់ស្កាត់លេខបរាជ័យ",
+  "unblockNumberConfirmation": "តើអ្នកប្រាកដថាចង់ដោះប្លុក {phoneNumber} មែនទេ?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "កំពុងហៅទូរស័ព្ទ {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "មើលលម្អិត",
+  "unblock": "ដោះប្លុក",
+  "unblockNumber": "ដោះប្លុកលេខ",
+  "unblockNumberSuccess": "លេខត្រូវបានដោះប្លុកដោយជោគជ័យ",
+  "unblockNumberFailed": "ការដោះប្លុកលេខបរាជ័យ",
+  "serviceNotAvailable": "សេវាកម្មមិនមានទេ",
+  "callingNumberFailed": "ការហៅទូរស័ព្ទបរាជ័យ",
+  "listView": "ទិដ្ឋភាពបញ្ជី",
+  "timelineView": "ទិដ្ឋភាពបន្ទាត់ពេលវេលា",
+  "nameCannotBeEmpty": "ឈ្មោះមិនអាចទទេបានទេ",
+  "selectAction": "ជ្រើសរើសសកម្មភាព",
+  "selectTargetService": "ជ្រើសរើសសេវាកម្មគោលដៅ",
+  "callDetails": "ព័ត៌មានលម្អិតនៃការហៅទូរស័ព្ទ",
+  "callType": "ប្រភេទនៃការហៅទូរស័ព្ទ",
+  "callTime": "ពេលវេលាហៅទូរស័ព្ទ",
+  "numberInvalidFormat": "ទម្រង់លេខមិនត្រឹមត្រូវ",
+  "membershipFeature": "មុខងារសមាជិកភាព",
+  "medium": "មធ្យម",
+  "verificationReport": "របាយការណ៍ផ្ទៀងផ្ទាត់",
+  "finalRisk": "ហានិភ័យចុងក្រោយ",
+  "simState": "ស្ថានភាពស៊ីម",
+  "ipCountry": "ប្រទេស IP",
+  "simCountry": "ប្រទេសស៊ីម",
+  "isRoaming": "រ៉ូមីង",
+  "isNumberMatch": "ផ្គូផ្គងលេខ",
+  "support": "ជំនួយ",
+  "rewardedAdService": "សេវាកម្មផ្សាយពាណិជ្ជកម្មដែលទទួលបានរង្វាន់",
+  "hasVipPrivilegeExceptAds": "អ្នកមានសិទ្ធិ VIP រួចហើយ (លើកលែងតែការផ្សាយពាណិជ្ជកម្ម)",
+  "hasTempPrivilegeWithExpiry": "អ្នកមានសិទ្ធិបណ្ដោះអាសន្នរួចហើយ ថ្ងៃផុតកំណត់៖ {expiryDate}",
+  "watchMoreAdsForTempVip": "អ្នកត្រូវមើលការផ្សាយពាណិជ្ជកម្ម {count} បន្ថែមទៀតដើម្បីទទួលបានសិទ្ធិ VIP បណ្ដោះអាសន្ន",
+  "grantedTempPurchaseWithExpiry": "អ្នកត្រូវបានផ្តល់សិទ្ធិទិញបណ្ដោះអាសន្ន {days} ថ្ងៃ។ ថ្ងៃផុតកំណត់៖ {expiryDate}",
+  "tempPurchaseExpired": "សិទ្ធិទិញបណ្ដោះអាសន្នបានផុតកំណត់",
+  "loadingAd": "កំពុងផ្ទុកការផ្សាយពាណិជ្ជកម្ម...",
+  "earnedTempVip": "ទទួលបាន VIP បណ្ដោះអាសន្ន",
+  "vipExchangeService": "សេវាកម្មប្តូរ VIP",
+  "marksInsufficient": "ពិន្ទុមិនគ្រប់គ្រាន់ដើម្បីប្តូរ",
+  "invalidExchangeRule": "ច្បាប់ប្តូរមិនត្រឹមត្រូវ",
+  "exchangeSuccess": "បានប្តូរជោគជ័យសម្រាប់ {description} ថ្ងៃផុតកំណត់៖ {expiryDate}",
+  "exchangeFailed": "ការប្តូរបរាជ័យ៖ {error}",
+  "vip3DaysWithAds": "VIP 3 ថ្ងៃជាមួយការផ្សាយពាណិជ្ជកម្ម (ធ្វើសមកាលកម្មតែប៉ុណ្ណោះ)",
+  "vip5DaysNoAds": "VIP 5 ថ្ងៃពេញលេញគ្មានការផ្សាយពាណិជ្ជកម្ម",
+  "vip7DaysNoAds": "VIP 7 ថ្ងៃពេញលេញគ្មានការផ្សាយពាណិជ្ជកម្ម",
+  "noNotifications": "គ្មានការជូនដំណឹង",
+  "clearAllNotifications": "សម្អាតការជូនដំណឹងទាំងអស់",
+  "clearAllNotificationsConfirmation": "បញ្ជាក់ដើម្បីសម្អាតការជូនដំណឹងទាំងអស់",
+  "allNotificationsCleared": "ការជូនដំណឹងទាំងអស់ត្រូវបានជម្រះ",
+  "clearButton": "ជម្រះ",
+  "justNow": "ឥឡូវនេះ",
+  "minutesAgo": "{count,plural, =1{1 នាទីមុន} other{{count} នាទីមុន}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1 ម៉ោងមុន} other{{count} ម៉ោងមុន}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1 ថ្ងៃមុន} other{{count} ថ្ងៃមុន}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "ម្សិលមិញ",
+  "deletionProposal": "សំណើលុប",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "សំណើលុប",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "បង្កើតសំណើ",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "បង្កើតសំណើលុប",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "មូលហេតុ",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "លេខហួសសម័យ",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "បញ្ហាឯកជនភាព",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "មិនដំណើរការ",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "កំណត់អត្តសញ្ញាណខុស",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "ព័ត៌មានមិនត្រឹមត្រូវ",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "សម្គាល់ខុស",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "ផ្សេងៗ",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "ដាក់ស្នើ",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "បោះបង់",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "ស្ថានភាព",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "កំពុងរង់ចាំ",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "សកម្ម",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "បានបញ្ចប់",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "ផុតកំណត់",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "កម្រិតហានិភ័យ",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "បានផ្ទៀងផ្ទាត់",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "ទាប",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "ខ្ពស់",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "មិនស្គាល់",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "វឌ្ឍនភាពនៃការបោះឆ្នោត",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "យល់ព្រម: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "មិនយល់ព្រម: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "សរុប: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "យល់ព្រម",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "មិនយល់ព្រម",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "បានបង្កើត: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "បង្ហាញរបាយការណ៍",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "លាក់របាយការណ៍",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "ស្ថិតិសំណើ",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "សំណើសរុប",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "សំណើសកម្ម",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "សំណើបានបញ្ចប់",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "ការបោះឆ្នោតរបស់ខ្ញុំ",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "សំណើត្រូវបានបង្កើតដោយជោគជ័យ",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "បរាជ័យក្នុងការបង្កើតសំណើ",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "ការបោះឆ្នោតត្រូវបានដាក់ស្នើដោយជោគជ័យ",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "បរាជ័យក្នុងការដាក់ស្នើការបោះឆ្នោត",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "មិនមានសំណើទេ",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "កំពុងផ្ទុកសំណើ...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "ធ្វើបច្ចុប្បន្នភាពសំណើ",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "សំណើកំពុងរង់ចាំសរុប",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "ហានិភ័យខ្ពស់",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "ហានិភ័យមធ្យម",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "ហានិភ័យទាប",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "ផលប៉ះពាល់សហគមន៍",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "បញ្ហាសំខាន់",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "ការចូលរួមសហគមន៍",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "គ្មានសកម្មភាព",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "ទាប",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "មធ្យម",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "ខ្ពស់",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "ខ្ពស់ខ្លាំង",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "បានបោះឆ្នោត",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "ការបោះឆ្នោតសហគមន៍",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "កំពុងរង់ចាំការបោះឆ្នោតសហគមន៍បន្ថែម",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "សំណើនេះត្រូវបានដំណើរការហើយ",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "បានគាំទ្រ",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "បានប្រឆាំង",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "បានអនុម័ត",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "បានបដិសេធ",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "បានបញ្ចប់",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "កំពុងរង់ចាំ",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "សំខាន់",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "ប្រឆាំង",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "ទាបខ្លាំង",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "ការជូនដំណឹងអំពីលទ្ធផលបោះឆ្នោតសំណើលុប និងការអាប់ដេត។",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "សំណើលុបត្រូវបានបង្កើត",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "សំណើលុបរបស់អ្នកសម្រាប់ {phoneNumber} ត្រូវបានដាក់ស្នើសម្រាប់ការពិនិត្យសហគមន៍។",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "សំណើត្រូវបានអនុម័ត ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "សំណើលុបសម្រាប់ {phoneNumber} ត្រូវបានអនុម័តដោយសហគមន៍ ({supportPercentage}% គាំទ្រ, {totalVotes} សន្លឹកឆ្នោត)។",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "សំណើត្រូវបានបដិសេធ ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "សំណើលុបសម្រាប់ {phoneNumber} ត្រូវបានបដិសេធដោយសហគមន៍ ({supportPercentage}% គាំទ្រ, {totalVotes} សន្លឹកឆ្នោត)។",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "ការបោះឆ្នោតសហគមន៍បានចាប់ផ្តើម",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "សំណើលុបថ្មីសម្រាប់ {phoneNumber} ឥឡូវនេះបើកសម្រាប់ការបោះឆ្នោតសហគមន៍ហើយ។",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "ការបោះឆ្នោតបានបញ្ចប់",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "ការបោះឆ្នោតសហគមន៍សម្រាប់ {phoneNumber} បានបញ្ចប់។ លទ្ធផល៖ {result} ({supportPercentage}% គាំទ្រ)។",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "បានទទួលសន្លឹកឆ្នោតថ្មី",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "នរណាម្នាក់បានបោះឆ្នោត {voteType} ការលុប {phoneNumber}។ សន្លឹកឆ្នោតបច្ចុប្បន្ន៖ {totalVotes}។",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "បរាជ័យក្នុងការផ្ទុកចំនួនសន្លឹកឆ្នោត",
+  "voteCount": "ចំនួនសន្លឹកឆ្នោត",
+  "deletionProposalInfo": "ព័ត៌មានសំណើលុប",
+  "deletionProposalDescription": "ស្នើសុំលេខសម្រាប់លុបដែលបំពានគោលការណ៍ណែនាំសហគមន៍។ ការចូលរួមរបស់អ្នកជួយរក្សាវេទិកាឱ្យមានសុវត្ថិភាព។",
+  "voteToEarnVip": "បោះឆ្នោតលើសំណើដើម្បីទទួលបានសិទ្ធិ VIP!",
+  "voteFailed": "ការបោះឆ្នោតបរាជ័យ",
+  "searchProposals": "ស្វែងរកសំណើ",
+  "defaultNotifications": "ការជូនដំណឹងលំនាំដើម",
+  "defaultNotificationsDescription": "ឆានែលជូនដំណឹងលំនាំដើមសម្រាប់កម្មវិធី។",
+  "blockedCallNotifications": "ការជូនដំណឹងការហៅទូរសព្ទដែលបានបិទ",
+  "blockedCallNotificationsDescription": "បង្ហាញព័ត៌មានអំពីការហៅទូរសព្ទដែលបានបិទ។",
+  "stirVerification": "ការផ្ទៀងផ្ទាត់ STIR/SHAKEN",
+  "stirVerificationDescription": "បង្ហាញលទ្ធផលផ្ទៀងផ្ទាត់ STIR/SHAKEN សម្រាប់លេខទូរសព្ទ។",
+  "fraudAlerts": "ការជូនដំណឹងអំពីការបន្លំ",
+  "fraudAlertsDescription": "បង្ហាញការព្រមានសម្រាប់ការហៅទូរសព្ទដែលអាចបោកប្រាស់បាន។",
+  "notificationFrequencyDescription": "ជ្រើសរើសភាពញឹកញាប់នៃការទទួលការជូនដំណឹងអំពីសំណើលុបថ្មី។ អ្នកអាចទទួលវាភ្លាមៗ ជាបាច់ ឬតាមចន្លោះពេលផ្ទាល់ខ្លួន។",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "ភ្លាមៗ",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "ទទួលការជូនដំណឹងភ្លាមៗនៅពេលសំណើត្រូវបានបង្កើតឡើង។",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "ជាបាច់",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "ទទួលសេចក្តីសង្ខេបនៃការជូនដំណឹងតាមកាលកំណត់។",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "ផ្ទាល់ខ្លួន",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "កំណត់ចន្លោះពេលផ្ទាល់ខ្លួនរបស់អ្នកសម្រាប់ការទទួលការជូនដំណឹង។",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "ភាពញឹកញាប់ផ្ទាល់ខ្លួន",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} នាទី",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} ម៉ោង",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} ម៉ោង {minutes} នាទី",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "សំណើដែលកំពុងរង់ចាំ",
+  "pendingProposalsBody": "អ្នកមាន {count, plural, =0 {គ្មានសំណើដែលកំពុងរង់ចាំ} one {សំណើដែលកំពុងរង់ចាំ ១} other {{count} សំណើដែលកំពុងរង់ចាំ}}។",
+  "guidelinesLabel": "គោលការណ៍ណែនាំ",
+  "reportingGuidelines": "• រាយការណ៍តែលេខដែលពិតជាមានបញ្ហា\n• ផ្ដល់ហេតុផលត្រឹមត្រូវ និងលម្អិត\n• ជ្រើសរើសកម្រិតហានិភ័យសមស្របដោយផ្អែកលើភាពធ្ងន់ធ្ងរ\n• ការរាយការណ៍មិនពិតអាចបណ្ដាលឱ្យមានការរឹតបន្តឹងគណនី",
+  "riskLevelLabel": "កម្រិតហានិភ័យ",
+  "riskLevelDescription": "កម្រិតហានិភ័យនៃលេខ",
+  "phoneNumberMinDigits": "លេខទូរសព្ទត្រូវតែមានយ៉ាងហោចណាស់ ៧ ខ្ទង់",
+  "provideDetailedExplanation": "ផ្ដល់ការពន្យល់លម្អិត (យ៉ាងហោចណាស់ ១០ តួអក្សរ)",
+  "reasonMinCharacters": "ហេតុផលត្រូវតែមានយ៉ាងហោចណាស់ ១០ តួអក្សរ",
+  "countryCodeTwoLetters": "លេខកូដប្រទេស (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "លេខកូដប្រទេស (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "ឧទាហរណ៍៖ US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "លេខកូដប្រទេសត្រូវបានទាមទារ",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "លេខកូដប្រទេសត្រូវតែមាន ២ តួអក្សរ",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "លេខទូរសព្ទត្រូវតែមានយ៉ាងហោចណាស់ ៧ ខ្ទង់",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "ផ្ដល់ការពន្យល់លម្អិត (យ៉ាងហោចណាស់ ១០ តួអក្សរ)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "ហេតុផលត្រូវបានទាមទារ",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "ហេតុផលត្រូវតែមានយ៉ាងហោចណាស់ ១០ តួអក្សរ",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "គោលការណ៍ណែនាំ",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• រាយការណ៍តែលេខដែលពិតជាមានបញ្ហា\n• ផ្ដល់ហេតុផលត្រឹមត្រូវ និងលម្អិត\n• ជ្រើសរើសកម្រិតហានិភ័យសមស្របដោយផ្អែកលើភាពធ្ងន់ធ្ងរ\n• ការរាយការណ៍មិនពិតអាចបណ្ដាលឱ្យមានការរឹតបន្តឹងគណនី",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "ធ្ងន់ធ្ងរ",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "មធ្យម",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "ទាបបំផុត",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "ទាបបំផុត - ការរំខានបន្តិចបន្តួច ការហៅទូរសព្ទមិនញឹកញាប់",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "ទាប - ការហៅទូរសព្ទដែលមិនចង់បានម្តងម្កាល",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "មធ្យម - សារឥតបានការទៀងទាត់ ឬការលក់តាមទូរសព្ទ",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "ខ្ពស់ - ការយាយីជាប់លាប់ ឬការប៉ុនប៉ងបោកប្រាស់",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "ធ្ងន់ធ្ងរ - ការបោកប្រាស់គ្រោះថ្នាក់ ឬការគំរាមកំហែង",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "ភាពញឹកញាប់នៃការជូនដំណឹង",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "ភាពញឹកញាប់នៃការជូនដំណឹង (ម៉ោង)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "កំហុស៖ {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "ការបោះឆ្នោត៖ {totalVotes} ({supportPercentage}% គាំទ្រ)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "គាំទ្រ ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "ប្រឆាំង ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "ទើបតែឥឡូវនេះ",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes} នាទីមុន",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours} ម៉ោងមុន",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days} ថ្ងៃមុន",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "ភាពញឹកញាប់នៃការជូនដំណឹង (ម៉ោង)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} សំឡេងឆ្នោត ({supportPercentage}% គាំទ្រ)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 ម៉ោង} =1{1 ម៉ោង} other{{count} ម៉ោង}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "សេចក្តីជូនដំណឹងសំខាន់",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "លេខត្រូវបានដកស្រង់ចេញពីអ៊ីនធឺណិត និងការដាក់ស្នើរបស់អ្នកប្រើប្រាស់។ យើងមិនអាចធានាថាលេខមួយនៅពេលដែលត្រូវបានលុបនឹងមិនត្រូវបានដាក់ស្នើឡើងវិញដោយអ្នកប្រើប្រាស់ ឬប្រភពផ្សេងទៀតទេ។ សូមស្វែងរក និងផ្ទៀងផ្ទាត់ព័ត៌មានយ៉ាងសកម្ម។",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "រូបតំណាង",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "ទីតាំង",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "កាត SIM",
+  "liveActivitiesSettingsTitle": "ការកំណត់សកម្មភាពបន្តផ្ទាល់",
+  "elementsSettingsTitle": "ការកំណត់ធាតុ",
+  "liveActivityMode": "សកម្មភាពបន្តផ្ទាល់",
+  "liveActivityModeDescription": "បង្ហាញព័ត៌មានការហៅទូរសព្ទជាការជូនដំណឹងជាប់លាប់នៅលើអេក្រង់ចាក់សោ និងនៅក្នុង Dynamic Island (iOS)។",
+  "phoneNumberType": "ប្រភេទលេខទូរសព្ទ",
+  "liveActivitiesTestEndActivity": "បញ្ចប់សកម្មភាព",
+  "liveActivitiesTestSendNewActivity": "ផ្ញើសកម្មភាពថ្មី",
+  "liveActivitiesTestUpdateActivity": "អាប់ដេតសកម្មភាព",
+  "liveActivityControlsTitle": "ការត្រួតពិនិត្យសកម្មភាពបន្តផ្ទាល់",
+  "liveActivitiesTestTitle": "ការសាកល្បងសកម្មភាពបន្តផ្ទាល់",
+  "liveActivitiesTestSubtitle": "សាកល្បងការជូនដំណឹងសកម្មភាពបន្តផ្ទាល់។",
+  "liveNotificationCustomizationTitle": "ការប្ដូរតាមបំណងការជូនដំណឹងបន្តផ្ទាល់",
+  "liveNotificationCustomizationSubtitle": "ប្ដូរតាមបំណងរូបរាងនៃការជូនដំណឹងបន្តផ្ទាល់។",
+  "notification_instructions": "វិធីណែនាំ៖\n1. ចុច \"SEND\" ដើម្បីបង្កើត ឬអាប់ដេតការជូនដំណឹង។\n2. ចូលទៅកាន់អេក្រង់ដើមរបស់អ្នក ឬទាញថាសការជូនដំណឹងចុះក្រោមដើម្បីមើលលទ្ធផល។\n3. ចុច \"END\" ដើម្បីបិទការជូនដំណឹង។",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "ការលុបការជូនដំណឹងដោយស្វ័យប្រវត្តិ",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "ប្រសិនបើធីក ការជូនដំណឹងនឹងត្រូវបានបិទដោយស្វ័យប្រវត្តិនៅពេលអ្នកប្រើប្រាស់ចុចលើវា។",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "កំណត់ពេលវេលាពន្យារពេល",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "ព័ត៌មានលម្អិតសំណើ",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "ចម្រោះតាមស្ថានភាព",
+  "proposalNotFound": "រកមិនឃើញសំណើ",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "បានដំណើរការ",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "បង្ហាញទាំងអស់",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "ចម្រោះ និងតម្រៀប",
+  "filterVerifiedOwner": "ចម្រោះម្ចាស់ដែលបានផ្ទៀងផ្ទាត់",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "ចម្រោះតាម",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "តម្រៀបចាស់ជាងគេ",
+  "sortNewest": "តម្រៀបថ្មីជាងគេ",
+  "sortMostPopular": "តម្រៀបពេញនិយមបំផុត",
+  "sortLeastPopular": "តម្រៀបពេញនិយមតិចបំផុត",
+  "sortBy": "តម្រៀបតាម",
+  "simRulesNotFound": "រកមិនឃើញច្បាប់ SIM",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "ច្បាប់រន្ធ SIM",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "រកមិនឃើញកាត SIM",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "ទិន្នន័យ SIM មិនត្រឹមត្រូវ",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "ទិន្នន័យកាត SIM",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "រន្ធ SIM",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "បើកការចម្រោះ",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "ការកំណត់លម្អិត",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "ទិដ្ឋភាពចំណុចចូល",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "បដិសេធ",
+  "callTypeSilenced": "បិទសំឡេង",
+  "callTypeVoicemail": "សារសំឡេង",
+  "callTypeUnknownIntercept": "ការស្ទាក់ចាប់ដែលមិនស្គាល់",
+  "andMoreItems": "និង {count} ធាតុផ្សេងទៀត",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}
