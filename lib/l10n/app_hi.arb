@@ -1,0 +1,3092 @@
+{
+  "@@locale": "hi",
+  "aboutContactSubscription": "संपर्क सदस्यता के बारे में",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "लेबल के बारे में",
+  "aboutPhoneSubscriptionRules": "फ़ोन सदस्यता नियमों के बारे में",
+  "aboutPhoneSubscriptions": "फ़ोन सब्सक्रिप्शन के बारे में",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "यूआरएल के माध्यम से फ़ोन नियम सूचियों की सदस्यता लें, नियमों को स्वचालित रूप से अपडेट करें। JSON, CSV प्रारूप नियम फ़ाइलों का समर्थन करता है।",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "एसएमएस फ़िल्टरिंग के बारे में",
+  "aboutSmsSubscriptionRules": "एसएमएस सदस्यता नियमों के बारे में",
+  "aboutSubtitle": "एप्लिकेशन संस्करण और कानूनी जानकारी",
+  "aboutTitle": "के बारे में",
+  "action": "कार्रवाई",
+  "actionAll": "सभी",
+  "actionAllow": "अनुमति दें",
+  "actionBlock": "ब्लॉक करें",
+  "actionFilterAll": "सभी फ़िल्टर",
+  "actionFilterTitle": "कार्रवाई प्रकार के अनुसार फ़िल्टर करें",
+  "actionFilterTooltip": "कार्रवाई फ़िल्टर",
+  "actionNone": "कोई कार्रवाई नहीं",
+  "actionSilence": "शांत",
+  "actionTag": "कार्रवाई: {actionType}",
+  "actionType": "कार्रवाई प्रकार",
+  "actionUnknown": "अज्ञात",
+  "add": "जोड़ें",
+  "addAllowedBlockedRule": "अनुमति/ब्लॉक नियम जोड़ें",
+  "addAllowSubscription": "अनुमति सदस्यता जोड़ें",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "ब्लॉक सदस्यता जोड़ें",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "संपर्क जोड़ें",
+  "addContactFailed": "संपर्क जोड़ने में विफल: {error}",
+  "addedToAllowedRules": "अनुमत नियमों में जोड़ा गया",
+  "addedToBlacklist": "ब्लैकलिस्ट में जोड़ा गया",
+  "addedToBlockedRules": "ब्लॉक किए गए नियमों में जोड़ा गया",
+  "addedToFavoriteContacts": "पसंदीदा संपर्कों में जोड़ा गया",
+  "addedToFavorites": "पसंदीदा में जोड़ा गया",
+  "addedToWhitelist": "व्हाइटलिस्ट में जोड़ा गया",
+  "addFavorite": "पसंदीदा जोड़ें",
+  "addFilter": "फ़िल्टर जोड़ें",
+  "addLabel": "लेबल जोड़ें",
+  "addLabelButton": "लेबल जोड़ें",
+  "addLabelFailed": "लेबल जोड़ने में विफल: {error}",
+  "addLabelToCall": "कॉल रिकॉर्ड में लेबल जोड़ें",
+  "addName": "नाम जोड़ें",
+  "addNoneSubscription": "कोई सदस्यता नहीं जोड़ें",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "संपर्क जानकारी जोड़ने या संपादित करने के लिए उपयोग किया जाता है",
+  "addPhoneMark": "फ़ोन चिह्न जोड़ें",
+  "addPhoneNumberRule": "फ़ोन नंबर नियम जोड़ें",
+  "addPlugin": "प्लगइन जोड़ें",
+  "addPluginFailed": "प्लगइन जोड़ने में विफल",
+  "addPluginFailedWithError": "प्लगइन जोड़ने में विफल: {error}",
+  "addPluginFromLocalFile": "स्थानीय फ़ाइल से प्लगइन जोड़ें",
+  "addPluginFromUrl": "यूआरएल से प्लगइन जोड़ें",
+  "addRegexRule": "रेगेक्स नियम जोड़ें",
+  "addRule": "नियम जोड़ें",
+  "addRuleButton": "नियम जोड़ें",
+  "addRuleFailed": "नियम जोड़ने में विफल: {error}",
+  "addRuleTooltip": "नियम जोड़ें",
+  "addSilenceSubscription": "साइलेंस सदस्यता जोड़ें",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "सिम नियम जोड़ें",
+  "addSmsFilterRule": "एसएमएस फ़िल्टर नियम जोड़ें",
+  "addSmsRule": "एसएमएस नियम जोड़ें",
+  "addSmsSubscription": "एसएमएस सदस्यता जोड़ें",
+  "addSubscription": "सदस्यता जोड़ें",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "सदस्यता जोड़ें",
+  "addSubscriptionFailed": "सदस्यता जोड़ने में विफल: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "सदस्यता जोड़ें",
+  "addToAllowedRules": "अनुमत नियमों में जोड़ें",
+  "addToBlacklist": "ब्लैकलिस्ट में जोड़ें",
+  "addToBlockedRules": "ब्लॉक किए गए नियमों में जोड़ें",
+  "addToFavoriteContacts": "पसंदीदा संपर्कों में जोड़ें",
+  "addToFavorites": "पसंदीदा में जोड़ें",
+  "addToRules": "नियमों में जोड़ें",
+  "addToWhitelist": "व्हाइटलिस्ट में जोड़ें",
+  "adPlaceholder": "विज्ञापन प्लेसहोल्डर",
+  "agent": "एजेंट",
+  "all": "सभी",
+  "allCallsTab": "सभी",
+  "allDataClearedSuccessfully": "सभी डेटा सफलतापूर्वक साफ़ हो गया",
+  "allow": "अनुमति दें",
+  "allowAllAllowRules": "सभी अनुमति नियमों को अनुमति दें",
+  "allowAllAllowRulesDesc": "अनुमति नियमों से कॉल की अनुमति दें",
+  "allowAllBlacklistedNumbers": "सभी ब्लैकलिस्टेड नंबरों को अनुमति दें",
+  "allowAllBlacklistedNumbersDesc": "ब्लॉकलिस्ट से कॉल की अनुमति दें",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "सभी ब्लॉक नियमों को ब्लॉक करें",
+  "allowAllBlockRulesDesc": "ब्लॉक नियमों से कॉल की अनुमति दें",
+  "allowAllowedNumbers": "अनुमत संख्याओं को अनुमति दें",
+  "allowAllowedNumbersDesc": "व्हाइटलिस्ट से कॉल की अनुमति दें",
+  "allowBlock": "अनुमति/ब्लॉक",
+  "allowBlockedNumbers": "ब्लॉक की गई संख्याओं को अनुमति दें",
+  "allowBlockedNumbersDesc": "ब्लॉकलिस्ट से कॉल की अनुमति दें",
+  "allowedBlockedRule": "अनुमति/ब्लॉक नियम",
+  "allowedBlockedRuleEditDialogTitle": "अनुमति/ब्लॉक नियम संपादित करें",
+  "allowedBlockedRuleManagement": "अनुमति/ब्लॉक नियम प्रबंधन",
+  "allowNonExceededNumbers": "गैर-अधिक संख्या वाली संख्याओं को अनुमति दें",
+  "allowNonExceededNumbersDescription": "गणना सीमा से अधिक नहीं होने वाली संख्याओं को स्वचालित रूप से अनुमति दें",
+  "allowRegexAllowRules": "रेगेक्स अनुमति नियमों को अनुमति दें",
+  "allowRegexAllowRulesDesc": "अनुमति नियमों के लिए रेगेक्स पैटर्न मिलान सक्षम करें",
+  "allowRegexAllowRulesDescription": "रेगेक्स-आधारित अनुमति नियमों को सक्षम करें",
+  "allowRegexBlockRules": "रेगेक्स ब्लॉक नियमों को ब्लॉक करें",
+  "allowRegexBlockRulesDesc": "ब्लॉक नियमों के लिए रेगेक्स पैटर्न मिलान सक्षम करें",
+  "allowRegexBlockRulesDescription": "रेगेक्स-आधारित ब्लॉक नियमों को सक्षम करें",
+  "allowRule": "अनुमति नियम",
+  "allowRules": "अनुमति नियम",
+  "allowWhitelistedNumbers": "व्हाइटलिस्टेड नंबरों की अनुमति दें",
+  "allowWhitelistedNumbersDescription": "व्हाइटलिस्ट में सभी नंबरों की अनुमति दें",
+  "allPermissionsGranted": "सभी अनुमतियाँ दी गईं",
+  "allSettingsCompleted": "सभी सेटिंग्स पूरी हो गईं।",
+  "allUpdateSuccess": "सभी अपडेट पूरे हुए ({count} नियम)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "उत्तर दें फिर हैंग अप करें",
+  "appLegalese": "© 2023 आपकी कॉल आपका नियम। सर्वाधिकार सुरक्षित।",
+  "applicationSoftware": "एप्लिकेशन सॉफ्टवेयर",
+  "apply": "लागू करें",
+  "appName": "आपकी कॉल आपका नियम",
+  "authorizationFailedCheckCredentialsMessage": "प्रमाणीकरण विफल: कृपया क्लाइंट आईडी और कुंजी जांचें",
+  "authorizationFailedMessage": "प्रमाणीकरण विफल",
+  "authorizationSuccessMessage": "प्रमाणीकरण सफल",
+  "authorizeLoginButton": "लॉगिन अधिकृत करें",
+  "automotiveIndustry": "ऑटोमोटिव उद्योग",
+  "autoSyncLabel": "ऑटो सिंक",
+  "autoUpdate": "ऑटो अपडेट",
+  "autoUpdateDescription": "सदस्यों के लिए ऑटो-अपडेट अंतराल सेट करें या मैन्युअल रूप से अपडेट करें",
+  "autoUpdateSettings": "ऑटो अपडेट सेटिंग्स",
+  "autoUpdateSettingsSubtitle": "नियमों और प्लगइन्स के लिए स्वचालित अपडेट प्रबंधित करें",
+  "autoUpdateSettingsTitle": "ऑटो अपडेट सेटिंग्स",
+  "autoUpdateSubtitle": "नियमों और प्लगइन्स के लिए स्वचालित अपडेट प्रबंधित करें",
+  "autoUpdateTitle": "ऑटो अपडेट",
+  "avatarBorderColor": "अवतार बॉर्डर रंग",
+  "avatarBorderSize": "अवतार बॉर्डर का आकार",
+  "avatarIconSizesSetting": "अवतार और आइकन आकार",
+  "avatarPosition": "अवतार स्थिति",
+  "avatarSize": "अवतार आकार",
+  "axisPosition": "{axis} स्थिति",
+  "backgroundGradientSetting": "पृष्ठभूमि ग्रेडिएंट",
+  "backup": "बैकअप",
+  "backupAndRestore": "बैकअप और पुनर्स्थापित करें",
+  "backupAndRestoreSubtitle": "एप्लिकेशन डेटा का बैकअप या पुनर्स्थापित करें",
+  "backupAndRestoreTitle": "बैकअप और पुनर्स्थापित करें",
+  "backupFailed": "बैकअप विफल",
+  "backupFailedMessage": "बैकअप विफल",
+  "backupFailedWithError": "बैकअप विफल: {error}",
+  "backupRestoreSubtitle": "एप्लिकेशन डेटा का बैकअप या पुनर्स्थापित करें",
+  "backupRestoreTitle": "बैकअप और पुनर्स्थापित करें",
+  "backupSectionTitle": "बैकअप",
+  "backupSettings": "बैकअप सेटिंग्स",
+  "backupSettingsDialogTitle": "बैकअप सेटिंग्स",
+  "backupSettingsTitle": "बैकअप सेटिंग्स",
+  "backupSuccessMessage": "क्लाउड पर सफलतापूर्वक बैकअप किया गया",
+  "backupSuccessToLocal": "स्थानीय बैकअप सफल: {path}",
+  "backupToCloud": "क्लाउड पर बैकअप",
+  "backupToCloudDescription": "क्लाउड स्टोरेज पर सेटिंग्स और नियमों का बैकअप लें",
+  "backupToCloudFailed": "क्लाउड पर बैकअप विफल: {error}",
+  "backupToCloudLabel": "क्लाउड पर बैकअप",
+  "backupToCloudSuccess": "क्लाउड पर सफलतापूर्वक बैकअप किया गया",
+  "backupToCloudTitle": "क्लाउड पर बैकअप",
+  "backupToLocalLabel": "स्थानीय बैकअप",
+  "bank": "बैंक",
+  "basicInfo": "बुनियादी जानकारी",
+  "basicRuleFilter": "बुनियादी नियम फ़िल्टर",
+  "basicRuleFiltering": "बुनियादी नियम फ़िल्टरिंग",
+  "basicRuleFilteringExplanation": "• बुनियादी नियम फ़िल्टरिंग: ब्लैकलिस्ट, व्हाइटलिस्ट और रेगेक्स पर आधारित नियम फ़िल्टर करें",
+  "basicRuleFilterSettings": "बुनियादी नियम फ़िल्टर सेटिंग्स",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "ब्लैकलिस्ट/व्हाइटलिस्ट और रेगुलर एक्सप्रेशन का उपयोग करके कॉल फ़िल्टर करें",
+  "batchDeleteContacts": "संपर्कों को बैच में हटाएं",
+  "batchDeleteContactsConfirm": "क्या आप वाकई {count} चयनित संपर्क हटाना चाहते हैं?",
+  "batchDeleteFailed": "बैच डिलीट विफल",
+  "batchDeleteLabelsConfirm": "क्या आप वाकई {count} लेबल हटाना चाहते हैं?",
+  "blacklist": "ब्लैकलिस्ट",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "ब्लैकलिस्ट और व्हाइटलिस्टिंग",
+  "blacklistLabel": "ब्लैकलिस्ट",
+  "blackWhiteList": "ब्लैक/व्हाइट लिस्ट",
+  "block": "ब्लॉक",
+  "blockCalls": "कॉल ब्लॉक करें",
+  "blocked": "ब्लॉक किया गया",
+  "blockedCallAction": "ब्लॉक की गई कॉल क्रिया",
+  "blockedCalls": "ब्लॉक की गई कॉल्स",
+  "blockedCallsTitle": "ब्लॉक की गई कॉल्स",
+  "blockedCommunications": "ब्लॉक किया गया संचार",
+  "blockedPhoneLabel": "ब्लॉक की गई कॉल्स",
+  "blockedSpamCalls": "ब्लॉक की गई स्पैम कॉल्स",
+  "blockingTrend": "ब्लॉकिंग का रुझान",
+  "blockInternationalCalls": "+ या 00 से शुरू नहीं होने वाले नंबरों से मेल खाता है",
+  "blockInternationalCallsTitle": "अंतर्राष्ट्रीय कॉल ब्लॉक करें",
+  "blockLandlineNumbersTitle": "लैंडलाइन नंबर ब्लॉक करें",
+  "blockMobileNumbers": "13-19 से शुरू नहीं होने वाले नंबरों से मेल खाता है",
+  "blockMobileNumbersTitle": "मोबाइल नंबर ब्लॉक करें",
+  "blockPremiumRateNumbers": "118 या 120-190 से शुरू नहीं होने वाले नंबरों से मेल खाता है",
+  "blockPremiumRateNumbersTitle": "प्रीमियम रेट नंबर ब्लॉक करें",
+  "blockRule": "ब्लॉक नियम",
+  "blockRules": "ब्लॉक नियम",
+  "blockSpecificAreaCodes": "0 + 2-3 अंकों से शुरू होने वाले नंबरों से मेल खाता है",
+  "blockSpecificAreaCodesTitle": "विशिष्ट क्षेत्र कोड ब्लॉक करें:",
+  "blockTypeAnalysisTitle": "ब्लॉक प्रकार विश्लेषण",
+  "both": "दोनों",
+  "bulkDelete": "संपर्कों को बैच में हटाएं",
+  "bulkDeleteContacts": "संपर्कों को बैच में हटाएं",
+  "bulkDeleteLabels": "लेबल को बैच में हटाएं",
+  "call": "कॉल",
+  "callback": "कॉल बैक",
+  "callbackTo": "{number} को कॉल बैक करें",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "कॉल ब्लॉकिंग",
+  "callerIdApp": "कॉलर आईडी ऐप",
+  "callerIdCustomizationTitle": "कॉलर आईडी कस्टमाइज़ करें",
+  "callerIdDialogTitle": "कॉलर आईडी जानकारी",
+  "callerIdDisplayMode": "कॉलर आईडी डिस्प्ले मोड",
+  "callerIdMarkedByCount": "{count} द्वारा चिह्नित",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "कॉलर आईडी पूर्वावलोकन",
+  "callFilter": "कॉल फ़िल्टर",
+  "callFilterDescription": "सक्षम होने पर, आने वाली कॉलों को नीचे दी गई नियम सूची के विरुद्ध जाँचा जाता है। डिफ़ॉल्ट रूप से कॉल फ़िल्टरिंग नियम उपकरणों के बीच सिंक नहीं होते हैं।",
+  "callFilterRules": "कॉल फ़िल्टर नियम",
+  "callFilterRulesDescription": "कॉल फ़िल्टरिंग के लिए बुनियादी नियम सेट करें",
+  "callFilterSettings": "कॉल फ़िल्टर सेटिंग्स",
+  "callFrequencyInterceptionSubtitle": "कॉल फ़्रीक्वेंसी सीमाएँ और अवरुद्ध करने के नियम सेट करें",
+  "callFrequencyInterceptionTitle": "कॉल फ़्रीक्वेंसी इंटरसेप्शन",
+  "callHistory": "कॉल इतिहास",
+  "callHistoryInfoDesc": "यहां आपका कॉल इतिहास दिखाया गया है, जिसमें इनबाउंड, आउटगोइंग और मिस्ड कॉल शामिल हैं।",
+  "callHistoryInfoTitle": "कॉल इतिहास",
+  "callHistoryInitFailed": "कॉल इतिहास आरम्भ करने में विफल: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "कॉल इतिहास ताज़ा करने में विफल: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "कॉल इतिहास",
+  "callHistoryTimelineEarlier": "पहले",
+  "callHistoryTimelineToday": "आज",
+  "callHistoryTimelineYesterday": "कल",
+  "callScreeningPermission": "कॉल स्क्रीनिंग अनुमति",
+  "callScreeningPermissionDescription": "स्पैम कॉल को स्क्रीन और ब्लॉक करने के लिए उपयोग किया जाता है।",
+  "callScreeningPermissionNotGranted": "कॉल स्क्रीनिंग अनुमति नहीं दी गई है, ऐप की कार्यक्षमता प्रभावित हो सकती है।",
+  "callSettingsSubtitle": "कॉलर आईडी, फ़िल्टरिंग और अवरुद्ध करने की सेटिंग्स",
+  "callSettingsTitle": "कॉल सेटिंग्स",
+  "callStatistics": "कॉल आँकड़े",
+  "callTypeAnswered": "उत्तर दिया गया",
+  "callTypeBlocked": "ब्लॉक किया गया",
+  "callTypeIconColor": "कॉल प्रकार आइकन रंग",
+  "callTypeMissed": "मिस्ड कॉल",
+  "callTypeOutgoing": "आउटगोइंग",
+  "callTypePosition": "कॉल प्रकार की स्थिति",
+  "callTypeUnknown": "अज्ञात",
+  "cancelButton": "रद्द करें",
+  "carRental": "कार रेंटल",
+  "carrier": "वाहक",
+  "carrierColor": "वाहक रंग",
+  "carrierFontSize": "वाहक फ़ॉन्ट आकार",
+  "carrierPosition": "वाहक की स्थिति",
+  "changeLabel": "लेबल बदलें",
+  "changePluginStatusFailed": "प्लगइन स्थिति बदलने में विफल: {error}",
+  "changeSubscriptionStatusFailed": "सदस्यता स्थिति बदलने में विफल: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "टैग बदलें",
+  "charity": "दान",
+  "chartMonthFormat": "महीना {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "1 दिन पहले",
+  "chartOneMonthAgo": "1 महीना पहले",
+  "chartOneWeekAgo": "1 सप्ताह पहले",
+  "chartTenDaysAgo": "10 दिन पहले",
+  "chartThreeDaysAgo": "3 दिन पहले",
+  "chartToday": "आज",
+  "checkFileFormat": "कृपया फ़ाइल फ़ॉर्मेट या अनुमतियाँ जाँचें",
+  "checkPermissionFailed": "अनुमतियाँ जाँचने में विफल: {error}",
+  "chooseDefaultInterceptAction": "डिफ़ॉल्ट इंटरसेप्ट एक्शन चुनें",
+  "clearAllData": "सभी डेटा साफ़ करें",
+  "clearAllDataConfirmation": "क्या आप निश्चित रूप से सभी एप्लिकेशन डेटा को साफ़ करना चाहते हैं? इस क्रिया को वापस नहीं लिया जा सकता है।",
+  "clearAllDataDescription": "सभी एप्लिकेशन डेटा को साफ़ करें",
+  "clearAllDataLabel": "सभी डेटा साफ़ करें",
+  "clearFilter": "फ़िल्टर साफ़ करें",
+  "clearLabelFilter": "लेबल फ़िल्टर साफ़ करें",
+  "clearLabelFilterButton": "लेबल फ़िल्टर साफ़ करें",
+  "closeButton": "बंद करें",
+  "cloudSync": "क्लाउड सिंक",
+  "cloudSyncAndBackupTitle": "क्लाउड सिंक और बैकअप",
+  "cloudSyncSettingsSubtitle": "WebDAV, OneDrive और Google Drive कॉन्फ़िगर करें",
+  "cloudSyncSettingsTitle": "क्लाउड सिंक सेटिंग्स",
+  "cloudSyncTitle": "क्लाउड सिंक",
+  "collapseLabelSelector": "लेबल चयनकर्ता को छोटा करें",
+  "collection": "कर्ज संग्रह",
+  "colorPickerTitle": "रंग चुनें",
+  "configManagement": "कॉन्फ़िगरेशन प्रबंधन",
+  "configUpdated": "कॉन्फ़िगरेशन अपडेट किया गया",
+  "configurationAdvice": "उचित कॉन्फ़िगरेशन के माध्यम से, आप कार्य और व्यक्तिगत सिम कार्ड के लिए विभिन्न फ़िल्टरिंग रणनीतियाँ सेट कर सकते हैं।",
+  "configureBackupOptions": "बैकअप विकल्प कॉन्फ़िगर करें",
+  "configureBackupOptionsSubtitle": "बैकअप विकल्प कॉन्फ़िगर करें",
+  "configureCloudSyncService": "क्लाउड सिंक सेवा कॉन्फ़िगर करें",
+  "configureCloudSyncServiceHint": "कृपया मल्टी-डिवाइस सिंक्रनाइज़ेशन सक्षम करने के लिए क्लाउड सिंक सेवा कॉन्फ़िगर करें।",
+  "configureCloudSyncServiceMessage": "कृपया मल्टी-डिवाइस सिंक्रनाइज़ेशन सक्षम करने के लिए क्लाउड सिंक सेवा कॉन्फ़िगर करें।",
+  "configureSimCardFilterRules": "सिम कार्ड फ़िल्टर नियम कॉन्फ़िगर करें",
+  "configureSyncServiceHint": "कृपया पहले क्लाउड सिंक सेटिंग्स में सिंक सेवा कॉन्फ़िगर करें",
+  "confirm": "पुष्टि करें",
+  "confirmBatchDeleteContacts": "क्या आप चयनित को हटाना चाहते हैं",
+  "confirmButton": "पुष्टि करें",
+  "confirmDelete": "हटाने की पुष्टि करें",
+  "confirmDeleteContact": "क्या आप हटाना चाहते हैं",
+  "confirmDeleteContactName": "हटाने की पुष्टि करें?",
+  "confirmDeleteFilter": "क्या आप इस फ़िल्टर को हटाना चाहते हैं?",
+  "confirmDeleteLabel": "क्या आप लेबल \"{name}\" को हटाना चाहते हैं",
+  "confirmDeletePlugin": "क्या आप प्लगइन \"{name}\" को हटाना चाहते हैं?",
+  "confirmDeletePlugins": "क्या आप {count} प्लगइन्स हटाना चाहते हैं?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "क्या आप इस नियम को हटाना चाहते हैं? इस क्रिया को वापस नहीं लिया जा सकता है।",
+  "confirmDeleteSelectedContacts": "क्या आप चयनित संपर्कों को हटाना चाहते हैं?",
+  "confirmDeleteSmsFilterRule": "क्या आप इस एसएमएस फ़िल्टर नियम को हटाना चाहते हैं?",
+  "confirmDeleteSmsRule": "क्या आप इस एसएमएस नियम को हटाना चाहते हैं?",
+  "confirmDeleteSubscription": "क्या आप इस सदस्यता को हटाना चाहते हैं?",
+  "confirmDeleteSubscriptions": "क्या आप {name} को हटाना चाहते हैं?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "पासवर्ड की पुष्टि करें",
+  "confirmPasswordLabel": "पासवर्ड की पुष्टि करें",
+  "connectedStatus": "कनेक्टेड",
+  "connectionFailedCheckCredentialsMessage": "कनेक्शन विफल: कृपया सर्वर पता, उपयोगकर्ता नाम और पासवर्ड जाँचें",
+  "connectionFailedMessage": "कनेक्शन विफल",
+  "connectionStatusLabel": "कनेक्शन स्थिति",
+  "connectionSuccessMessage": "कनेक्शन सफल",
+  "contactAddSuccess": "संपर्क सफलतापूर्वक जोड़ा गया",
+  "contactDeleted": "संपर्क हटा दिया गया",
+  "contactEditDialog": "संपर्क संपादन डायलॉग",
+  "contactNameHint": "संपर्क का नाम दर्ज करें (वैकल्पिक)",
+  "contactNameLabel": "नाम",
+  "contactNameOptional": "संपर्क का नाम (वैकल्पिक)",
+  "contactNotFound": "संपर्क नहीं मिला",
+  "contacts": "संपर्क",
+  "contactsDeleted": "{count} संपर्क हटाए गए",
+  "contactSettingsSubtitle": "संपर्क प्रबंधन और लेबल सेटिंग्स",
+  "contactSettingsTitle": "संपर्क सेटिंग्स",
+  "contactsLoadingFailed": "संपर्क लोड करने में विफल: {error}",
+  "contactsManagement": "संपर्क प्रबंधन",
+  "contactsManagementPageTitle": "संपर्क प्रबंधन पृष्ठ",
+  "contactsPageTitle": "संपर्क प्रबंधन",
+  "contactsPermission": "संपर्क अनुमति",
+  "contactsPermissionDescription": "संपर्क कॉल की पहचान करने के लिए उपयोग किया जाता है।",
+  "contactsTab": "संपर्क",
+  "contactSubscriptionDescription": "URL के माध्यम से संपर्क सूचियों की सदस्यता लें, संपर्क जानकारी और लेबल को स्वचालित रूप से अपडेट करें। JSON प्रारूप डेटा का समर्थन करता है।",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "संपर्क सब्सक्रिप्शन लोड करने में विफल: {error}",
+  "contactSubscriptionPageTitle": "संपर्क सब्सक्रिप्शन",
+  "contactUpdateSuccess": "संपर्क सफलतापूर्वक अपडेट किया गया",
+  "contactUs": "हमसे संपर्क करें",
+  "content": "सामग्री",
+  "contentRegex": "सामग्री रेगुलर एक्सप्रेशन",
+  "countColor": "गिनती का रंग",
+  "countFontSize": "गिनती का फ़ॉन्ट आकार",
+  "countPosition": "गिनती की स्थिति",
+  "country": "देश",
+  "countryNameColor": "देश के नाम का रंग",
+  "countryNameFontSize": "देश के नाम का फ़ॉन्ट आकार",
+  "countryRegionNamePosition": "देश/क्षेत्र के नाम की स्थिति",
+  "countrySelectionDialog": "देश चयन डायलॉग",
+  "countrySelectionDialogDescription": "कॉलर आईडी जानकारी की क्वेरी के लिए देश का चयन करने के लिए उपयोग किया जाता है",
+  "countThresholdDescription": "फ़िल्टरिंग क्रियाओं को ट्रिगर करने के लिए आवश्यक न्यूनतम गिनती थ्रेशोल्ड सेट करें",
+  "countThresholdLabel": "गिनती थ्रेशोल्ड",
+  "countThresholdSettings": "गिनती थ्रेशोल्ड सेटिंग्स",
+  "countThresholdValue": "गिनती थ्रेशोल्ड: {count}",
+  "createdRules": "बनाए गए नियम",
+  "csvFormat": "CSV प्रारूप",
+  "currentDeviceChip": "वर्तमान",
+  "currentDeviceLabel": "वर्तमान डिवाइस लेबल",
+  "currentDeviceTitle": "वर्तमान डिवाइस",
+  "currentLabels": "वर्तमान लेबल:",
+  "currentLanguage": "वर्तमान भाषा",
+  "currentPasswordLabel": "वर्तमान पासवर्ड",
+  "customerService": "ग्राहक सेवा",
+  "customRange": "कस्टम सीमा",
+  "dailyStatistics": "दैनिक आँकड़े",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "ब्लॉक किए गए कॉल और संदेशों के बारे में दैनिक आँकड़े प्राप्त करें",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "डैशबोर्ड",
+  "dataAnalysis": "डेटा विश्लेषण",
+  "dataAnalysisDashboardPage": "डेटा विश्लेषण डैशबोर्ड पृष्ठ",
+  "dataExport": "डेटा निर्यात",
+  "dataLoadFailure": "डेटा लोड विफल: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "डेटा लोड करने में विफल: {error}",
+  "dataMigration": "डेटा माइग्रेशन",
+  "dataMigrationDescription": "यह सुविधा आपको अपने सभी डेटा को उपकरणों के बीच स्थानांतरित करने की अनुमति देती है। वर्तमान में, आप अपने डेटा को मैन्युअल रूप से स्थानांतरित करने के लिए बैकअप और पुनर्स्थापना सुविधाओं का उपयोग कर सकते हैं।",
+  "dataMigrationDialogContent": "यह सुविधा आपको अपने सभी डेटा को उपकरणों के बीच स्थानांतरित करने की अनुमति देती है। वर्तमान में, आप अपने डेटा को मैन्युअल रूप से स्थानांतरित करने के लिए बैकअप और पुनर्स्थापना सुविधाओं का उपयोग कर सकते हैं।",
+  "dataMigrationDialogTitle": "डेटा माइग्रेशन",
+  "dataMigrationSectionTitle": "डेटा माइग्रेशन",
+  "dataSourceReminder": "डेटा स्रोत अनुस्मारक",
+  "days": "{count, plural, =1{1 दिन} other{{count} दिन}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} दिन वीआईपी",
+  "debtCollection": "ऋण वसूली",
+  "defaultPeriod": "सप्ताह",
+  "delete": "हटाएं",
+  "deleteButton": "हटाएं",
+  "deleteContact": "संपर्क हटाएं",
+  "deleteContactConfirm": "क्या आप वाकई {name} को हटाना चाहते हैं?",
+  "deleteContactConfirmation": "क्या आप वाकई संपर्क हटाना चाहते हैं",
+  "deleteDeviceConfirmation": "क्या आप वाकई {deviceName} को हटाना चाहते हैं?",
+  "deleteDeviceDialogTitle": "डिवाइस हटाएं",
+  "deleteFailed": "हटाना विफल: {error}",
+  "deleteFilter": "फ़िल्टर हटाएं",
+  "deleteLabel": "लेबल हटाएं",
+  "deleteLabelFailed": "लेबल हटाने में विफल: {error}",
+  "deletePlugin": "प्लगइन हटाएं",
+  "deletePluginFailed": "प्लगइन हटाने में विफल: {error}",
+  "deletePlugins": "प्लगइन्स हटाएं",
+  "deletePluginsFailed": "प्लगइन्स हटाने में विफल: {error}",
+  "deleteRule": "नियम हटाएं",
+  "deleteRuleFailed": "हटाना विफल: {error}",
+  "deleteSelected": "चयनित हटाएं",
+  "deleteSmsRule": "एसएमएस नियम हटाएं",
+  "deleteSubscription": "सदस्यता हटाएं",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "क्या आप वाकई सदस्यता \"{name}\" हटाना चाहते हैं?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "सदस्यता हटाने में विफल: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "हटाना सफल",
+  "delivery": "वितरण",
+  "deviceDeletedSuccessfully": "डिवाइस सफलतापूर्वक हटा दिया गया",
+  "deviceDeletedSuccessfullyMessage": "डिवाइस सफलतापूर्वक हटा दिया गया",
+  "deviceIdLabel": "डिवाइस आईडी",
+  "deviceIDLabel": "डिवाइस आईडी",
+  "deviceManagementSubtitle": "बहु-डिवाइस सिंक्रोनाइज़ेशन का प्रबंधन करें",
+  "deviceManagementTitle": "डिवाइस प्रबंधन",
+  "deviceModelLabel": "डिवाइस मॉडल",
+  "deviceName": "डिवाइस का नाम",
+  "deviceNameCannotBeEmpty": "डिवाइस का नाम खाली नहीं हो सकता",
+  "deviceNameHint": "कृपया डिवाइस का नाम दर्ज करें",
+  "deviceNameLabel": "डिवाइस का नाम",
+  "deviceRenamedSuccessfully": "डिवाइस का नाम सफलतापूर्वक बदल दिया गया",
+  "deviceRenamedSuccessfullyMessage": "डिवाइस का नाम सफलतापूर्वक बदल दिया गया",
+  "devicesSyncedSuccessfully": "डिवाइस सफलतापूर्वक सिंक हो गए",
+  "devicesSyncedSuccessfullyMessage": "डिवाइस सफलतापूर्वक सिंक हो गए",
+  "devicesSynchronizedSuccessfullyMessage": "डिवाइस सफलतापूर्वक सिंक हो गए",
+  "deviceUnregisteredSuccessfullyMessage": "डिवाइस सफलतापूर्वक अनरजिस्टर हो गया",
+  "dialogTitle": "रेगेक्स पैटर्न स्पष्टीकरण",
+  "differentFromLocalCounter": "यह सुविधा स्थानीय काउंटर फ़िल्टर से भिन्न है, क्योंकि यह लंबी अवधि के मार्किंग काउंट्स के बजाय थोड़े समय में दोहराए गए कॉल पैटर्न पर ध्यान केंद्रित करती है।",
+  "disabled": "अक्षम",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "अक्षम",
+  "disableGlobalPlugins": "ग्लोबल प्लगइन्स को अक्षम करें",
+  "disableSubscriptionSuccessfully": "सब्सक्रिप्शन सफलतापूर्वक अक्षम कर दिया गया",
+  "disconnectButton": "डिस्कनेक्ट करें",
+  "disconnectedMessage": "डिस्कनेक्ट हो गया",
+  "disconnectedStatus": "डिस्कनेक्ट हो गया",
+  "disconnectFailedMessage": "डिस्कनेक्ट करने में विफल",
+  "done": "पूर्ण",
+  "dualSimAdvice": "यह सुविधा विशेष रूप से डुअल-सिम फोन के लिए उपयोगी है ताकि वर्क और पर्सनल सिम कार्ड के लिए अलग-अलग फ़िल्टरिंग रणनीतियाँ सेट की जा सकें।",
+  "earlier": "पहले",
+  "ecommerce": "ई-कॉमर्स",
+  "edit": "संपादित करें",
+  "editContact": "संपर्क संपादित करें",
+  "editFilter": "फ़िल्टर संपादित करें",
+  "editLabel": "लेबल संपादित करें",
+  "editPhoneRule": "फ़ोन नियम संपादित करें",
+  "editPhoneRules": "फ़ोन नियमों को संपादित करने के लिए उपयोग किया जाता है",
+  "editPhoneRuleTitle": "फ़ोन नियम संपादित करें",
+  "editRule": "नियम संपादित करें",
+  "editSmsRule": "एसएमएस नियम संपादित करें",
+  "education": "शिक्षा",
+  "elementPositionsSetting": "एलिमेंट की स्थिति",
+  "email": "ईमेल",
+  "emailOptional": "ईमेल (वैकल्पिक)",
+  "enableCallFilter": "कॉल फ़िल्टर सक्षम करें",
+  "enableCallFilterDescription": "सक्षम होने पर, इनकमिंग कॉलों की जांच नीचे नियम सूची के विरुद्ध की जाती है। कॉल फ़िल्टरिंग नियम डिफ़ॉल्ट रूप से डिवाइसों के बीच सिंक नहीं होते हैं।",
+  "enabled": "सक्षम",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "सक्षम",
+  "enableEncryption": "एन्क्रिप्शन सक्षम करें",
+  "enableEncryptionDescription": "बैकअप फ़ाइलों को एन्क्रिप्ट करें",
+  "enableEncryptionLabel": "एन्क्रिप्शन सक्षम करें",
+  "enableEncryptionSubtitle": "बैकअप फ़ाइलें एन्क्रिप्टेड होंगी",
+  "enableEncryptionTitle": "एन्क्रिप्शन सक्षम करें",
+  "enableGlobalPlugins": "ग्लोबल प्लगइन्स सक्षम करें",
+  "enableLocalCountFilter": "स्थानीय काउंट फ़िल्टर सक्षम करें",
+  "enableLocalCountFilterDescription": "कॉल मार्किंग काउंट के आधार पर स्वचालित रूप से स्पैम कॉल फ़िल्टर करें",
+  "enableLocalNotification": "स्थानीय सूचना का प्रयोग करें",
+  "enableLocalNotificationDescription": "सक्षम होने पर, फ़िल्टर किए गए संदेशों के लिए सूचनाएं डिवाइस पर प्रदर्शित की जाएंगी",
+  "enableLocationSummary": "स्थान",
+  "enableMuteRules": "म्यूट नियम सक्षम करें",
+  "enableMuteRulesDesc": "म्यूट इंटरसेप्शन नियमों के कॉन्फ़िगरेशन लागू करें",
+  "enableNoneActionRules": "कोई एक्शन नियम नहीं सक्षम करें",
+  "enableNoneActionRulesDesc": "बिना इंटरसेप्शन एक्शन वाले नियम कॉन्फ़िगरेशन की अनुमति दें",
+  "enableNotifications": "सूचनाएं सक्षम करें",
+  "enableRemoteNumberFilter": "रिमोट नंबर फ़िल्टर सक्षम करें",
+  "enableRemoteNumberFilterDescription": "नंबरों को फ़िल्टर करने के लिए रिमोट डेटाबेस का उपयोग करें",
+  "enableRule": "नियम सक्षम करें",
+  "enableSmsFilter": "एसएमएस फ़िल्टरिंग सक्षम करें",
+  "enableSmsFilterDescription": "सक्षम होने पर, संदेशों को नियमों के अनुसार स्वचालित रूप से फ़िल्टर किया जाएगा",
+  "enableStatisticsNotifications": "सांख्यिकी सूचनाएं सक्षम करें",
+  "enableSubscriptionSuccessfully": "सब्सक्रिप्शन सफलतापूर्वक सक्षम कर दिया गया",
+  "enableTimeInterception": "समय इंटरसेप्शन सक्षम करें",
+  "enableTimeInterceptionDescription": "थोड़े समय में दोहराए गए कॉलों को इंटरसेप्ट करें",
+  "enableTimeInterceptor": "समय इंटरसेप्टर सक्षम करें",
+  "endCallImmediately": "कॉल तुरंत समाप्त करें",
+  "endColor": "अंतिम रंग",
+  "endDate": "अंतिम तिथि",
+  "enhancedFilterInstructionsTitle": "उन्नत फ़िल्टर सिस्टम",
+  "enhancedFilterSettings": "उन्नत फ़िल्टर सेटिंग्स",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "उन्नत फ़िल्टर सेटिंग्स",
+  "enhancedFilterSystemDescription": "उन्नत फ़िल्टर सिस्टम ग्लोबल नियमों और प्रति-सिम कार्ड फ़िल्टरिंग कॉन्फ़िगरेशन दोनों का समर्थन करता है।",
+  "enterBothPhoneNumberAndRegexPattern": "कृपया फ़ोन नंबर और रेगेक्स पैटर्न दोनों दर्ज करें",
+  "enterBothPhoneNumberAndRegexPatternMessage": "कृपया फ़ोन नंबर और रेगेक्स पैटर्न दोनों दर्ज करें।",
+  "enterContactName": "कृपया संपर्क का नाम दर्ज करें",
+  "enterCurrentPasswordHint": "कृपया वर्तमान पासवर्ड दर्ज करें",
+  "enterDeviceName": "डिवाइस का नाम दर्ज करें",
+  "enterDeviceNameHint": "कृपया डिवाइस का नाम दर्ज करें",
+  "enterEmail": "कृपया ईमेल दर्ज करें",
+  "enterEmailOptional": "कृपया ईमेल (वैकल्पिक) दर्ज करें",
+  "enterEncryptionPasswordHint": "एन्क्रिप्शन पासवर्ड दर्ज करें",
+  "enterEncryptionPasswordTitle": "एन्क्रिप्शन पासवर्ड दर्ज करें",
+  "enterFilterName": "कृपया फ़िल्टर का नाम दर्ज करें",
+  "enterFilterPattern": "कृपया फ़िल्टर पैटर्न दर्ज करें",
+  "enterIconCode": "आइकन कोड दर्ज करें",
+  "enterName": "संपर्क का नाम दर्ज करें",
+  "enterNewDeviceNameHint": "इस डिवाइस के लिए नया नाम दर्ज करें",
+  "enterNewPasswordHint": "कृपया नया पासवर्ड दर्ज करें",
+  "enterPasswordAgain": "पासवर्ड फिर से दर्ज करें",
+  "enterPasswordHint": "कृपया पासवर्ड दर्ज करें",
+  "enterPhoneNumber": "फ़ोन नंबर दर्ज करें",
+  "enterPhoneNumberHint": "परीक्षण के लिए फ़ोन नंबर दर्ज करें",
+  "enterPhoneNumberMultiple": "कृपया फ़ोन नंबर दर्ज करें, कॉमा से अलग किए गए कई नंबर",
+  "enterPhoneNumberToStartSearch": "खोज शुरू करने के लिए फ़ोन नंबर दर्ज करें",
+  "enterPhoneNumberToVerify": "सत्यापित करने के लिए फ़ोन नंबर दर्ज करें",
+  "enterPluginName": "प्लगइन का नाम दर्ज करें",
+  "enterPluginUrl": "प्लगइन यूआरएल पता दर्ज करें",
+  "enterRegexHint": "रेगेक्स पैटर्न दर्ज करें",
+  "enterRuleNameAndPattern": "कृपया नियम का नाम और पैटर्न दर्ज करें",
+  "enterRuleNameAndPatternMessage": "कृपया नियम का नाम और रेगुलर एक्सप्रेशन पैटर्न दोनों दर्ज करें।",
+  "enterRuleNameHint": "नियम का नाम दर्ज करें",
+  "enterSearchContent": "कृपया खोज सामग्री दर्ज करें",
+  "enterSubscriptionName": "सदस्यता का नाम दर्ज करें",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "सदस्यता URL दर्ज करें",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "कृपया सिंक फ़ोल्डर का नाम दर्ज करें (डिफ़ॉल्ट: NotificationManager)",
+  "entertainment": "मनोरंजन",
+  "enterValidNameAndUrl": "कृपया मान्य नाम और URL दर्ज करें",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "कृपया एक मान्य URL दर्ज करें",
+  "enterVersion": "संस्करण दर्ज करें",
+  "enterWebDAVPasswordHint": "कृपया WebDAV पासवर्ड दर्ज करें",
+  "enterWebDAVServerAddressHint": "कृपया WebDAV सर्वर का पता दर्ज करें",
+  "enterWebDAVUsernameHint": "कृपया WebDAV उपयोगकर्ता नाम दर्ज करें",
+  "errorDeletingDeviceMessage": "डिवाइस हटाने में त्रुटि: {error}",
+  "errorLoadingPlugin": "प्लगइन लोड करने में त्रुटि",
+  "errorOccurredMessage": "एक त्रुटि हुई: {error}",
+  "errorRenamingDeviceMessage": "डिवाइस का नाम बदलने में त्रुटि: {error}",
+  "errorSynchronizingDevicesMessage": "डिवाइस को सिंक्रनाइज़ करने में त्रुटि: {error}",
+  "errorSyncingDevicesMessage": "डिवाइस को सिंक करने में त्रुटि: {error}",
+  "errorText": "त्रुटि",
+  "errorUnregisteringDeviceMessage": "डिवाइस को अनरजिस्टर करने में त्रुटि: {error}",
+  "exampleBlock400Prefix": "जैसे, 400 प्रीफ़िक्स नंबर ब्लॉक करें",
+  "exampleBlockMarketingSms": "जैसे, मार्केटिंग SMS ब्लॉक करें",
+  "exampleContentRegex": "जैसे, .*ऑफर.*",
+  "exampleContentRegexHint": "उदाहरण सामग्री रेगुलर एक्सप्रेशन",
+  "exampleCouponPromotionDiscount": "जैसे, .*(कूपन|प्रमोशन|डिस्काउंट).*",
+  "exampleFamilyFriends": "जैसे, परिवार, दोस्त, आदि।",
+  "examplePhoneNumber": "जैसे, 10086, 12345, आदि।",
+  "exampleRegex400Prefix": "400 प्रीफ़िक्स के लिए उदाहरण रेगुलर एक्सप्रेशन",
+  "exampleRegexFormat": "उदाहरण: ^10086$ प्रारूप",
+  "exampleSenderRegexHint": "उदाहरण",
+  "exchange": "एक्सचेंज",
+  "exchangeNow": "अभी एक्सचेंज करें",
+  "exchangeVip": "VIP एक्सचेंज करें",
+  "expandLabelSelector": "लेबल चयनकर्ता का विस्तार करें",
+  "expiryTime": "समाप्ति समय: {time}",
+  "export": "निर्यात",
+  "exportAllApplicationSettings": "सभी एप्लिकेशन सेटिंग्स निर्यात करें",
+  "exportAllApplicationSettingsSubtitle": "सभी एप्लिकेशन सेटिंग्स निर्यात करें",
+  "exportAllRuleConfigurations": "सभी नियम कॉन्फ़िगरेशन निर्यात करें",
+  "exportAllRuleConfigurationsSubtitle": "सभी नियम कॉन्फ़िगरेशन निर्यात करें",
+  "exportComplete": "निर्यात पूर्ण",
+  "exportConfig": "कॉन्फ़िगरेशन निर्यात करें",
+  "exportContacts": "संपर्क निर्यात करें",
+  "exportData": "डेटा निर्यात करें",
+  "exportError": "निर्यात त्रुटि",
+  "exportFailed": "निर्यात विफल",
+  "exportFailure": "कॉन्फ़िगरेशन निर्यात करने में विफल",
+  "exportFeatureComingSoon": "निर्यात सुविधा जल्द ही आ रही है",
+  "exporting": "निर्यात हो रहा है...",
+  "exportLabels": "लेबल निर्यात करें",
+  "exportLabelsFailed": "लेबल निर्यात करने में विफल: {error}",
+  "exportPluginList": "प्लगइन सूची निर्यात करें",
+  "exportPluginListFailed": "प्लगइन सूची निर्यात करने में विफल: {error}",
+  "exportRules": "नियम निर्यात करें",
+  "exportRulesDialogTitle": "नियम निर्यात करें",
+  "exportRulesTitle": "नियम निर्यात करें",
+  "exportSmsRules": "SMS नियम निर्यात करें",
+  "exportStatisticsData": "सांख्यिकी डेटा निर्यात करें",
+  "exportSuccess": "निर्यात सफल",
+  "exportSuccesslly": "कॉन्फ़िगरेशन सफलतापूर्वक निर्यात किया गया",
+  "failedToAddContact": "संपर्क जोड़ने में विफल",
+  "failedToAddRule": "नियम जोड़ने में विफल: {error}",
+  "failedToAddSmsRule": "SMS नियम जोड़ने में विफल: {error}",
+  "failedToAddSmsSubscription": "SMS सदस्यता जोड़ने में विफल: {error}",
+  "failedToBackupSettings": "सेटिंग्स का बैकअप लेने में विफल: {error}",
+  "failedToDecryptBackupFile": "बैकअप फ़ाइल को डिक्रिप्ट करने में विफल",
+  "failedToDeleteDevice": "डिवाइस हटाने में विफल",
+  "failedToDeleteSmsRule": "SMS नियम हटाने में विफल: {error}",
+  "failedToExportRules": "नियम निर्यात करने में विफल: {error}",
+  "failedToExportSmsRules": "SMS नियम निर्यात करने में विफल: {error}",
+  "failedToGetCallerIdInfo": "कॉलर आईडी जानकारी प्राप्त करने में विफल: {error}",
+  "failedToImportRules": "नियम आयात करने में विफल: {error}",
+  "failedToImportSmsRules": "SMS नियम आयात करने में विफल: {error}",
+  "failedToLoadContacts": "संपर्क लोड करने में विफल",
+  "failedToLoadPlugin": "प्लगइन लोड करने में विफल",
+  "failedToRenameDevice": "डिवाइस का नाम बदलने में विफल",
+  "failedToRestoreSettings": "सेटिंग्स को बहाल करने में विफल",
+  "failedToRestoreSettingsWithError": "सेटिंग्स को बहाल करने में विफल: {error}",
+  "failedToSetPassword": "पासवर्ड सेट करने में विफल: {error}",
+  "failedToSyncDevices": "डिवाइस को सिंक करने में विफल",
+  "failedToToggleRuleStatus": "नियम स्थिति टॉगल करने में विफल: {error}",
+  "failedToToggleSubscriptionStatus": "सदस्यता स्थिति टॉगल करने में विफल",
+  "failedToUpdateContact": "संपर्क को अपडेट करने में विफल",
+  "failedToUpdateSmsRule": "SMS नियम को अपडेट करने में विफल: {error}",
+  "failure": "विफलता",
+  "favoriteContacts": "पसंदीदा संपर्क",
+  "featureAddRules": "• फ़ोन नंबर विशिष्ट नियम जोड़ें",
+  "featureCenter": "फ़ीचर सेंटर",
+  "featureEnableDisable": "• SIM प्रति विभिन्न फ़िल्टर सक्षम/अक्षम करें",
+  "featureListTitle": "विशेषताएँ:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• SIM प्रति नियम सूचियों का प्रबंधन करें",
+  "features": "विशेषताएँ",
+  "fetchingCallerIdInfo": "कॉलर आईडी जानकारी प्राप्त की जा रही है...",
+  "fileSavedTo": "फ़ाइल यहाँ सहेजी गई: {path}",
+  "filter": "फ़िल्टर",
+  "filterByLabel": "लेबल द्वारा फ़िल्टर करें",
+  "filterClear": "फ़िल्टर साफ़ करें",
+  "filterControlPanelTitle": "फ़िल्टर नियंत्रण पैनल",
+  "filterControlSubtitle": "सभी फ़िल्टर की चालू/बंद स्थिति का प्रबंधन करें",
+  "filterControlTitle": "फ़िल्टर नियंत्रण",
+  "filterDeleteFailed": "फ़िल्टर हटाने में विफल",
+  "filterDeleteSuccess": "फ़िल्टर सफलतापूर्वक हटाया गया",
+  "filterDetails": "फ़िल्टर विवरण",
+  "filtered": "फ़िल्टर किया गया",
+  "filteredSms": "फ़िल्टर किया गया SMS",
+  "filteredSmsLabel": "फ़िल्टर किया गया SMS",
+  "filterExplanation": "फ़िल्टर स्पष्टीकरण",
+  "filterManagement": "फ़िल्टर प्रबंधन",
+  "filterName": "फ़िल्टर नाम",
+  "filterPattern": "फ़िल्टर पैटर्न",
+  "filterPriorityNote": "ध्यान दें: फ़िल्टर के बीच प्राथमिकता संबंध हैं, विवरण के लिए सहायता दस्तावेज़ देखें",
+  "filterSaveFailed": "फ़िल्टर सहेजने में विफल",
+  "filterSaveSuccess": "फ़िल्टर सफलतापूर्वक सहेजा गया",
+  "filterSettings": "फ़िल्टर सेटिंग्स",
+  "filterSettingsTitle": "फ़िल्टर सेटिंग्स",
+  "filterSMS": "फ़िल्टर SMS",
+  "filterToggleInstructions": "इस SIM स्लॉट के लिए फ़िल्टर सक्षम या अक्षम करें:",
+  "filterToggleStatus": "{status} फ़िल्टर: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "फ़िल्टर प्रकार",
+  "financial": "वित्तीय",
+  "flexibleCombinationFeature": "• लचीले संयोजन: प्रति SIM स्लॉट फ़िल्टर सक्षम/अक्षम करें",
+  "fontSizesSetting": "फ़ॉन्ट आकार",
+  "foundRules": "{count} नियम मिले",
+  "foundRulesDoYouWantToImport": "{count} नियम मिले। क्या आप उन्हें आयात करना चाहते हैं?",
+  "foundRulesToImport": "{count} नियम मिले। क्या आप उन्हें आयात करना चाहते हैं?",
+  "fraudAlert": "धोखाधड़ी अलर्ट - कॉल काट दें",
+  "fraudScamLikely": "धोखाधड़ी घोटाला संभावित",
+  "free": "मुफ़्त",
+  "functionSettingsTitle": "कार्य सेटिंग्स",
+  "generalUpdateFailure": "अपडेट विफल: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "मुफ़्त पाएं",
+  "github": "गिटहब",
+  "globalFilterDescription": "सभी SIM कार्ड के लिए वैश्विक फ़िल्टर कॉन्फ़िगर करें:",
+  "globalFilterFeature": "• वैश्विक फ़िल्टर: सभी आने वाली कॉलों के लिए बुनियादी नियम",
+  "globalFilterSettings": "वैश्विक फ़िल्टर सेटिंग्स",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "सभी SIM स्लॉट पर लागू होने वाली वैश्विक फ़िल्टर सेटिंग्स कॉन्फ़िगर करें:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "संपर्क, लेबल, ब्लैकलिस्ट, व्हॉइटलिस्ट आदि खोजें।",
+  "globalSearchTitle": "वैश्विक खोज",
+  "globalSettings": "वैश्विक सेटिंग्स",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Google विज्ञापन प्रदर्शन स्थिति",
+  "googleAdMobIntegrationText": "Google AdMob विज्ञापन यहाँ एकीकृत किए जा सकते हैं",
+  "googleDriveAuthDescription": "सिस्टम-कॉन्फ़िगर किए गए Google Drive क्लाइंट आईडी और कुंजी का उपयोग करके अधिकृत करें",
+  "googleDriveAuthorizationHint": "सिस्टम-कॉन्फ़िगर किए गए Google Drive क्लाइंट आईडी और कुंजी का उपयोग करके अधिकृत करें",
+  "googleDriveConfigTitle": "Google Drive कॉन्फ़िगरेशन",
+  "googleDriveConfigurationTitle": "Google Drive कॉन्फ़िगरेशन",
+  "government": "सरकार",
+  "granted": "अनुदानित",
+  "grantNecessaryPermissions": "आवश्यक अनुमतियाँ दें",
+  "grantPermissions": "अनुमतियाँ दें",
+  "headhunter": "हेडहंटर",
+  "height": "ऊंचाई",
+  "homePageTitle": "होम पेज",
+  "homeTab": "होम",
+  "howItWorksPoint1": "• सिस्टम स्वचालित रूप से निर्धारित समय सीमा के भीतर उसी नंबर से कॉल की अनुमति देगा",
+  "howItWorksPoint2": "• छोटी समय सीमाएँ सख्त अवरोधन का कारण बनती हैं; लंबी समय सीमाएँ ढीले अवरोधन का कारण बनती हैं",
+  "howItWorksPoint3": "• सिस्टम कॉल लॉग की जाँच करके निर्धारित करता है कि यह दोहराई गई कॉल है या नहीं",
+  "howItWorksTitle": "यह कैसे काम करता है:",
+  "iconCodeOptional": "आइकन कोड (वैकल्पिक)",
+  "iconSize": "आइकन आकार",
+  "import": "आयात",
+  "important": "महत्वपूर्ण",
+  "importButton": "आयात",
+  "importConfig": "विन्यास आयात करें",
+  "importContacts": "संपर्क आयात करें",
+  "importExportContacts": "संपर्क आयात/निर्यात",
+  "importExportContactsTooltip": "संपर्क आयात/निर्यात",
+  "importExportRules": "नियम आयात/निर्यात",
+  "importFailed": "आयात विफल: {error}",
+  "importFailure": "विन्यास आयात करने में विफल",
+  "importFeatureComingSoon": "आयात सुविधा जल्द ही आ रही है",
+  "importLabels": "लेबल आयात करें",
+  "importLabelsFailed": "लेबल आयात करने में विफल: {error}",
+  "importPluginList": "प्लगइन सूची आयात करें",
+  "importPluginListFailed": "प्लगइन सूची आयात करने में विफल: {error}",
+  "importPluginSuccess": "सफलतापूर्वक {count} प्लगइन आयात किए गए",
+  "importRuleConfigurationsFromFile": "फ़ाइल से नियम विन्यास आयात करें",
+  "importRuleConfigurationsFromFileSubtitle": "फ़ाइल से नियम विन्यास आयात करें",
+  "importRules": "नियम आयात करें",
+  "importRulesButton": "नियम आयात करें",
+  "importRulesDialogTitle": "नियम आयात करें",
+  "importRulesError": "नियम आयात करने में विफल: {error}",
+  "importRulesInstructions": "CSV फ़ाइल से नियम आयात करें",
+  "importRulesSuccess": "नियम सफलतापूर्वक आयात किए गए",
+  "importRulesTitle": "नियम आयात करें",
+  "importSuccess": "आयात सफल",
+  "incomingCallInterceptAction": "आने वाली कॉल अवरोधन क्रिया",
+  "incomingCallNotification": "आने वाली कॉल सूचना",
+  "incorrectPassword": "गलत पासवर्ड",
+  "initializing": "आरंभ किया जा रहा है",
+  "installed": "स्थापित",
+  "insufficientMarks": "अपर्याप्त अंक",
+  "insurance": "बीमा",
+  "interceptAction": "अवरोधन क्रिया",
+  "interceptionActionSettingsSubtitle": "ब्लॉक की गई कॉलों को कैसे संभाला जाता है, यह सेट करें",
+  "interceptionActionSettingsTitle": "अवरोधन क्रिया सेटिंग्स",
+  "interceptionTimeInterval": "अवरोधन समय अंतराल",
+  "internet": "इंटरनेट",
+  "intervalSetSuccess": "{service} अपडेट अंतराल {days} दिनों पर सेट किया गया",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "अमान्य सामग्री रेगुलर एक्सप्रेशन",
+  "invalidLabel": "अमान्य लेबल",
+  "invalidRegexPattern": "अमान्य रेगुलर एक्सप्रेशन पैटर्न",
+  "invalidSenderRegex": "अमान्य प्रेषक रेगुलर एक्सप्रेशन",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "अधिक जानकारी के लिए टेलीग्राम चैनल और ग्रुप में शामिल हों",
+  "jsLogsTitle": "जेएस लॉग्स",
+  "jsonFormat": "जेएसओएन प्रारूप",
+  "keepAllVersions": "सभी संस्करण रखें",
+  "keepAllVersionsDescription": "प्रत्येक बैकअप के सभी ऐतिहासिक संस्करण रखें",
+  "keepAllVersionsLabel": "सभी संस्करण रखें",
+  "keepAllVersionsSubtitle": "प्रत्येक बैकअप के ऐतिहासिक संस्करण रखें",
+  "keepAllVersionsTitle": "सभी संस्करण रखें",
+  "label": "लेबल",
+  "labelAddedSuccessfully": "लेबल \"{name}\" सफलतापूर्वक जोड़ा गया",
+  "labelCategories": "लेबल श्रेणियाँ",
+  "labelDeleted": "लेबल हटा दिया गया",
+  "labelDescription": "लेबल आपको संपर्कों को बेहतर ढंग से प्रबंधित करने में मदद करते हैं, कॉल और संदेशों की आसान पहचान के लिए फ़ोन नंबरों में कस्टम लेबल जोड़ते हैं।",
+  "labelFilter": "लेबल फ़िल्टर",
+  "labelFilterTooltip": "लेबल फ़िल्टर",
+  "labelIconColor": "लेबल आइकन रंग",
+  "labelManagement": "लेबल प्रबंधन",
+  "labelNotFound": "लेबल नहीं मिला",
+  "labelRemoved": "लेबल हटा दिया गया",
+  "labelRemoveFailed": "लेबल हटाने में विफल: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "लेबल",
+  "labelsColor": "लेबल रंग",
+  "labelsDeleted": "{count} लेबल हटा दिए गए",
+  "labelsExportedSuccessfully": "लेबल सफलतापूर्वक निर्यात किए गए",
+  "labelsFontSize": "लेबल फ़ॉन्ट आकार",
+  "labelsImportedSuccessfully": "{count} लेबल सफलतापूर्वक आयात किए गए",
+  "labelsPosition": "लेबल स्थिति",
+  "labelTag": "लेबल: {labelId}",
+  "labelUpdated": "लेबल अपडेट किया गया",
+  "labelUpdateFailed": "लेबल अपडेट करने में विफल: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "लेबल \"$labelText\" सफलतापूर्वक अपडेट किया गया",
+  "languageSettings": "भाषा सेटिंग्स",
+  "languageSettingsSubtitle": "एप्लिकेशन डिस्प्ले भाषा बदलें",
+  "languageSettingsTitle": "भाषा सेटिंग्स",
+  "last30Days": "पिछले 30 दिन",
+  "last7Days": "पिछले 7 दिन",
+  "lastSyncLabel": "अंतिम सिंक",
+  "lastUpdated": "अंतिम अपडेट: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "आजीवन सदस्यता",
+  "lifetimeMembershipDescription": "एकमुश्त खरीद, सभी प्रीमियम सुविधाओं और भविष्य के अपडेट को स्थायी रूप से अनलॉक करें",
+  "loadContactsFailed": "संपर्क लोड करने में विफल: {error}",
+  "loadDataFailed": "डेटा लोड करने में विफल",
+  "loadFailed": "लोड विफल",
+  "loading": "लोड हो रहा है...",
+  "loadingData": "डेटा लोड हो रहा है...",
+  "loadingTags": "टैग लोड हो रहे हैं...",
+  "loadLabelFailed": "लेबल लोड करने में विफल: {error}",
+  "loadLabelsFailed": "लेबल लोड करने में विफल: {error}",
+  "loadMarkCountFailed": "चिह्नित फ़ोन नंबर लोड करने में विफल: {error}",
+  "loadMarkedPhonesFailed": "चिह्नित फ़ोन लोड करने में विफल: {error}",
+  "loadMore": "और लोड करें",
+  "loadPluginButton": "प्लगइन लोड करें",
+  "loadPluginsFailed": "प्लगइन लोड करने में विफल: {error}",
+  "loadSettingsFailed": "सेटिंग्स लोड करने में विफल: {error}",
+  "loadSmsRulesFailed": "एसएमएस नियम लोड करने में विफल: {error}",
+  "loadStatusFailedMessage": "स्थिति लोड करने में विफल",
+  "loadSubscriptionsFailed": "सदस्यताएँ लोड करने में विफल: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "ऋण",
+  "localBackupTitle": "स्थानीय बैकअप",
+  "localCounterFilter": "स्थानीय काउंटर फ़िल्टर",
+  "localCounterFilterSubtitle": "कॉल आवृत्ति के आधार पर स्वचालित रूप से स्पैम कॉल फ़िल्टर करें",
+  "localCountFilter": "स्थानीय गणना फ़िल्टर",
+  "localCountFilterDescription": "स्थानीय नंबर गणनाओं के आधार पर लगातार कॉल को इंटरसेप्ट करें",
+  "localCountFilterExplanationContent": "स्थानीय गणना फ़िल्टर स्वचालित रूप से लगातार स्पैम कॉल की पहचान और ब्लॉक करने के लिए कॉल इतिहास रिकॉर्ड का विश्लेषण करता है।",
+  "localCountFilterExplanationTitle": "स्थानीय गणना फ़िल्टर स्पष्टीकरण",
+  "localCountFilterHowItWorksPoint1": "• संख्या के गणना मान के आधार पर ब्लॉक करना है या नहीं, यह निर्धारित करें",
+  "localCountFilterHowItWorksPoint2": "• जब किसी नंबर की गणना निर्धारित सीमा से अधिक हो जाती है, तो आप उसे स्वचालित रूप से ब्लॉक करना चुन सकते हैं",
+  "localCountFilterHowItWorksPoint3": "• आप उन नंबरों को चुनिंदा रूप से अनुमति दे सकते हैं जो सीमा से अधिक नहीं हैं",
+  "localCountFilterHowItWorksPoint4": "• आप चुन सकते हैं कि सभी क्वेरी लॉग रिकॉर्ड किए जाएं या नहीं",
+  "localCountFiltering": "स्थानीय गणना फ़िल्टरिंग",
+  "localCountFilteringExplanation": "• स्थानीय गणना फ़िल्टरिंग: स्थानीय अंकन गणना के आधार पर फ़िल्टरिंग नियम",
+  "localCountFilterSettings": "स्थानीय गणना फ़िल्टर सेटिंग्स",
+  "localCountFilterUseCases": "यह फ़िल्टर विशेष रूप से ऑटो-डायल्ड स्पैम कॉल और मार्केटिंग कॉल की पहचान के लिए उपयुक्त है।",
+  "localFilterSettings": "स्थानीय फ़िल्टर सेटिंग्स",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "स्थानीय सूचना अक्षम",
+  "localNotificationEnabled": "स्थानीय सूचना सक्षम",
+  "localServices": "स्थानीय सेवाएँ",
+  "locationColor": "स्थान रंग",
+  "locationFontSize": "स्थान फ़ॉन्ट आकार",
+  "locationIconColor": "स्थान आइकन रंग",
+  "locationPosition": "स्थान स्थिति",
+  "logAllLocalQueries": "सभी स्थानीय क्वेरी लॉग करें",
+  "logAllLocalQueriesDescription": "सभी स्थानीय नंबर क्वेरी के लिए लॉग रिकॉर्ड करें",
+  "logAllRemoteQueries": "सभी दूरस्थ क्वेरी लॉग करें",
+  "logAllRemoteQueriesDescription": "सभी दूरस्थ नंबर क्वेरी संचालन रिकॉर्ड करें",
+  "manage": "प्रबंधित करें",
+  "manageContacts": "संपर्कों का प्रबंधन करें",
+  "manageFavoriteContacts": "पसंदीदा संपर्कों का प्रबंधन करें",
+  "manageFilterRules": "फ़िल्टर नियम प्रबंधित करें",
+  "manageFilterRulesDescription": "एसएमएस फ़िल्टर नियम जोड़ें, संपादित करें या हटाएं",
+  "manageFrequentContacts": "बार-बार आने वाले संपर्कों का प्रबंधन करें",
+  "markCounts": "चिह्नित गणनाएँ",
+  "markCount": "चिह्नित गणना",
+  "markedByCount": "{count} द्वारा चिह्नित",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "चिह्नित फ़ोन नंबर",
+  "markExchange": "चिह्नित विनिमय",
+  "markPhone": "फ़ोन नंबर को चिह्नित करें",
+  "markPhoneFailed": "फ़ोन नंबर को चिह्नित करने में विफल: {error}",
+  "markPhoneManagementSubtitle": "फ़ोन नंबरों को चिह्नित करने के लिए",
+  "markPhoneManagementTitle": "फ़ोन प्रबंधन को चिह्नित करें",
+  "markPhoneSuccess": "फ़ोन नंबर सफलतापूर्वक चिह्नित किया गया",
+  "matchFailed": "मिलान विफल!",
+  "matchFailedMessage": "मिलान विफल।",
+  "matchNumbersWithSpecialCharacters": "विशेष वर्णों के साथ विशिष्ट संख्या प्रारूप का मिलान करता है",
+  "matchNumbersWithSpecialCharactersTitle": "विशेष वर्णों के साथ संख्याओं का मिलान करें:",
+  "matchSpecificDigitPatterns": "XXX-XXXX-XXXX प्रारूप से मेल खाता है",
+  "matchSpecificDigitPatternsTitle": "विशिष्ट अंक पैटर्न का मिलान करें:",
+  "matchSuccessful": "मिलान सफल!",
+  "matchSuccessfulMessage": "मिलान सफल!",
+  "medical": "चिकित्सा",
+  "membershipPrivileges": "सदस्यता विशेषाधिकार",
+  "migrationTool": "माइग्रेशन टूल",
+  "migrationToolTitle": "माइग्रेशन टूल",
+  "minutes": "मिनट",
+  "month": "महीना",
+  "monthly": "मासिक",
+  "monthlyCallCount": "मासिक कॉल",
+  "monthlyChartTitle": "मासिक अवरुद्ध कॉल",
+  "monthlyMembership": "मासिक सदस्यता",
+  "monthlyMembershipDescription": "सभी प्रीमियम सुविधाओं को अनलॉक करें, मासिक रूप से ऑटो-नवीनीकरण करें",
+  "monthlyTotal": "मासिक कुल",
+  "monthlyTotalLabel": "मासिक कुल",
+  "moreOptions": "अधिक विकल्प",
+  "mute": "म्यूट",
+  "name": "नाम",
+  "nameAndPhoneNumberCannotBeEmpty": "नाम और फ़ोन नंबर खाली नहीं हो सकते",
+  "nameAndPhoneNumberRequired": "नाम और फ़ोन नंबर खाली नहीं हो सकते",
+  "nameColor": "नाम का रंग",
+  "nameFontSize": "नाम फ़ॉन्ट आकार",
+  "nameLabel": "नाम: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "नाम की स्थिति",
+  "nameUnknown": "नाम: अज्ञात",
+  "nameWithValue": "नाम: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "नया पासवर्ड",
+  "nextStep": "अगला",
+  "noAction": "कोई कार्रवाई नहीं",
+  "noActionRules": "कोई कार्रवाई नियम नहीं",
+  "noActiveCloudSyncServiceMessage": "कोई सक्रिय क्लाउड सिंक सेवा नहीं",
+  "noCallLogs": "कोई कॉल लॉग नहीं",
+  "noCallRecords": "कोई कॉल रिकॉर्ड नहीं",
+  "noContacts": "अभी तक कोई संपर्क नहीं",
+  "noContactsYet": "अभी तक कोई संपर्क नहीं",
+  "noData": "कोई डेटा नहीं",
+  "noDevicesRegisteredMessage": "कोई डिवाइस पंजीकृत नहीं",
+  "noDevicesRegisteredYet": "अभी तक कोई डिवाइस पंजीकृत नहीं है।",
+  "noFilters": "अभी तक कोई फ़िल्टर नहीं",
+  "noLabels": "अभी तक कोई लेबल नहीं",
+  "noMarkedPhones": "कोई चिह्नित फ़ोन नंबर नहीं",
+  "noMatchingContacts": "कोई मिलान संपर्क नहीं",
+  "noMatchingContactsFound": "कोई मिलान संपर्क नहीं मिला",
+  "noMatchingNumbersFound": "कोई मिलान संख्या नहीं मिली",
+  "noMatchingRecords": "कोई मिलान कॉल रिकॉर्ड नहीं",
+  "noMatchingRules": "कोई मिलान {ruleType} नहीं",
+  "none": "कोई नहीं",
+  "noneServiceType": "कोई नहीं",
+  "noPlugins": "अभी तक कोई प्लगइन नहीं",
+  "noRecords": "कोई कॉल रिकॉर्ड नहीं",
+  "noResultReturned": "कोई परिणाम वापस नहीं आया",
+  "noResultReturnedLog": "प्लगइन से कोई परिणाम वापस नहीं आया",
+  "noRules": "अभी तक कोई {ruleType} नहीं",
+  "noRulesPrompt": "कोई नियम नहीं मिला, कृपया नियम जोड़ें",
+  "noRulesToExport": "निर्यात करने के लिए कोई नियम नहीं",
+  "noSmsFilterRulesYet": "अभी तक कोई SMS फ़िल्टर नियम नहीं",
+  "noSmsRulesYet": "अभी तक कोई SMS नियम नहीं",
+  "noSubscriptions": "कोई सदस्यता नहीं",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "अभी तक कोई सदस्यता नहीं",
+  "notGranted": "अनुदानित नहीं",
+  "notificationMode": "सूचना मोड",
+  "notificationModeDescription": "सूचना बार में कॉलर की जानकारी दिखाएँ",
+  "notificationPermission": "सूचना अनुमति",
+  "notificationPermissionDescription": "आने वाली कॉल और संदेश सूचनाओं को प्रदर्शित करने के लिए उपयोग किया जाता है।",
+  "notifications": "सूचनाएं",
+  "notificationSettings": "सूचना सेटिंग्स",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "सूचना सेटिंग्स सफलतापूर्वक सहेजी गईं",
+  "notSet": "सेट नहीं",
+  "notVerifiedText": "सत्यापित नहीं",
+  "noValidSmsRulesFoundInFile": "फ़ाइल में कोई वैध SMS नियम नहीं मिला",
+  "number": "संख्या",
+  "numberColor": "संख्या का रंग",
+  "numberFontSize": "संख्या फ़ॉन्ट आकार",
+  "numberPosition": "संख्या की स्थिति",
+  "numberSearch": "संख्या खोज",
+  "numberTypeColor": "संख्या प्रकार का रंग",
+  "numberTypeFontSize": "संख्या प्रकार का फ़ॉन्ट आकार",
+  "numberTypePosition": "संख्या प्रकार की स्थिति",
+  "ok": "ठीक",
+  "okButton": "ठीक",
+  "onboardingCompleteDescription": "आपका कॉल सुरक्षा प्रबंधक तैयार है, एक सुरक्षित कॉल अनुभव का आनंद लेना शुरू करें!",
+  "onboardingLanguageDescription": "सर्वोत्तम अनुभव के लिए अपनी पसंदीदा भाषा चुनें।",
+  "onboardingPermissionsDescription": "पूरी सेवा प्रदान करने के लिए, हमें निम्नलिखित अनुमतियों की आवश्यकता है:",
+  "onboardingPowerfulSpamBlockingDescription": "स्पैम कॉल और संदेशों का एक-क्लिक अवरोधन, अवरोधन नियमों को अनुकूलित करें, और आपको एक शांत वातावरण प्रदान करें।",
+  "onboardingSmartCallerIdDescription": "अज्ञात कॉल की स्वचालित रूप से पहचान करें, संदिग्ध संख्याओं को चिह्नित करें, और अपनी कॉल सुरक्षा की रक्षा करें।",
+  "onboardingWelcomeDescription": "आपका कॉल प्रबंधन विशेषज्ञ, व्यापक कॉल पहचान और अवरोधन सेवाएं प्रदान करता है।",
+  "oneDriveAuthDescription": "सिस्टम-कॉन्फ़िगर किए गए OneDrive क्लाइंट आईडी और कुंजी का उपयोग करके अधिकृत करें",
+  "oneDriveAuthorizationHint": "सिस्टम-कॉन्फ़िगर किए गए OneDrive क्लाइंट आईडी और कुंजी का उपयोग करके अधिकृत करें",
+  "oneDriveConfigTitle": "OneDrive कॉन्फ़िगरेशन",
+  "oneDriveConfigurationTitle": "OneDrive कॉन्फ़िगरेशन",
+  "onlineCallerIdSubscription": "ऑनलाइन कॉलर आईडी सब्सक्रिप्शन",
+  "openAppSettings": "ऐप सेटिंग्स खोलें",
+  "openAppSettingsFailed": "ऐप सेटिंग्स खोलने में विफल: {error}",
+  "operationFailed": "ऑपरेशन विफल: {error}",
+  "operationFailure": "ऑपरेशन विफल",
+  "operationSuccess": "ऑपरेशन सफल",
+  "other": "अन्य",
+  "ourOtherApps": "हमारे अन्य ऐप्स",
+  "overlayMode": "फ्लोटिंग विंडो",
+  "overlayModeDescription": "कॉलर की जानकारी एक फ्लोटिंग विंडो में दिखाएं",
+  "overlayPermission": "ओवरले अनुमति",
+  "overlayPermissionDescription": "इनकमिंग कॉल ओवरले प्रदर्शित करने के लिए उपयोग किया जाता है।",
+  "overview": "अवलोकन",
+  "password": "पासवर्ड",
+  "passwordCannotBeEmpty": "पासवर्ड खाली नहीं हो सकता",
+  "passwordLabel": "पासवर्ड",
+  "passwordsDoNotMatch": "पासवर्ड मेल नहीं खाते",
+  "passwordSetSuccessfully": "पासवर्ड सफलतापूर्वक सेट किया गया",
+  "pattern": "पैटर्न",
+  "pendingSync": "सिंक लंबित",
+  "periodMonth": "महीना",
+  "periodWeek": "सप्ताह",
+  "periodYear": "वर्ष",
+  "permissionDenied": "अनुमति अनुरोध अस्वीकृत",
+  "permissionGranted": "अनुमति दी गई",
+  "permissionManagement": "अनुमति प्रबंधन",
+  "phoneCallsTab": "फ़ोन",
+  "phoneNumber": "फ़ोन नंबर",
+  "phoneNumberCannotBeEmpty": "फ़ोन नंबर खाली नहीं हो सकता",
+  "phoneNumberHint": "फ़ोन नंबर दर्ज करें",
+  "phoneNumberHintText": "नियम जोड़ने के लिए फ़ोन नंबर दर्ज करें",
+  "phoneNumberLabel": "फ़ोन नंबर",
+  "phoneNumberRegexRequired": "कृपया फ़ोन नंबर और रेगुलर एक्सप्रेशन पैटर्न दोनों दर्ज करें",
+  "phoneNumberRequired": "फ़ोन नंबर आवश्यक है",
+  "phoneNumberTypeFixedLine": "फिक्स्ड लाइन",
+  "phoneNumberTypeFixedLineOrMobile": "फिक्स्ड लाइन या मोबाइल",
+  "phoneNumberTypeMobile": "मोबाइल",
+  "phoneNumberTypePager": "पेजर",
+  "phoneNumberTypePersonalNumber": "व्यक्तिगत नंबर",
+  "phoneNumberTypePremiumRate": "प्रीमियम दर",
+  "phoneNumberTypeSharedCost": "साझा लागत",
+  "phoneNumberTypeTollFree": "टोल फ्री",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "अज्ञात",
+  "phoneNumberTypeVoicemail": "वॉइसमेल",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "फ़ोन अनुमति",
+  "phonePermissionDescription": "इनकमिंग कॉल की पहचान और ब्लॉक करने के लिए उपयोग किया जाता है।",
+  "phoneRule": "फ़ोन नियम",
+  "phoneRuleEditDialog": "फ़ोन नियम संपादन डायलॉग",
+  "phoneRuleManagement": "फ़ोन नियम प्रबंधन",
+  "phoneRuleSubscription": "फ़ोन नियम सब्सक्रिप्शन",
+  "phoneSubscription": "फ़ोन सब्सक्रिप्शन",
+  "phoneSubscriptionRulesDescription": "व्हाइटलिस्ट और ब्लैकलिस्ट नियमों को स्वचालित रूप से अपडेट करने के लिए URL के माध्यम से फ़ोन नियम सूचियों को सब्सक्राइब करें। JSON प्रारूप नियम फ़ाइलों का समर्थन करता है।",
+  "phoneSubscriptionTitle": "फ़ोन नियम सब्सक्रिप्शन",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "कृपया एक लेबल चुनें और एक वैध फ़ोन नंबर दर्ज करें",
+  "pluginAddedSuccess": "प्लगइन \"{name}\" सफलतापूर्वक जोड़ा गया",
+  "pluginDeleted": "प्लगइन हटा दिया गया",
+  "pluginLatestVersion": "प्लगइन पहले से ही नवीनतम संस्करण है",
+  "pluginListExportSuccess": "प्लगइन सूची सफलतापूर्वक निर्यात की गई",
+  "pluginLoadedSuccessfully": "प्लगइन सफलतापूर्वक लोड किया गया",
+  "pluginManagement": "प्लगइन प्रबंधन",
+  "pluginManagementSubtitle": "तृतीय-पक्ष प्लगइन्स का प्रबंधन और कॉन्फ़िगर करें",
+  "pluginManagementTitle": "प्लगइन प्रबंधन",
+  "pluginName": "प्लगइन नाम",
+  "pluginNotLoaded": "प्लगइन अभी तक लोड नहीं हुआ है। कृपया पहले प्लगइन लोड करें।",
+  "pluginsDeleted": "{count} प्लगइन्स सफलतापूर्वक हटा दिए गए।",
+  "pluginService": "प्लगइन सेवा",
+  "pluginTestPageTitle": "प्लगइन परीक्षण",
+  "pluginUpdateSuccess": "प्लगइन अपडेट सफलतापूर्वक हो गया",
+  "pluginUrl": "प्लगइन URL",
+  "pluginUrlCannotBeEmpty": "प्लगइन URL खाली नहीं हो सकता",
+  "pluginUrlHint": "प्लगइन URL दर्ज करें",
+  "pluginUrlLabel": "प्लगइन URL",
+  "pluginVersion": "प्लगइन संस्करण",
+  "political": "राजनीतिक",
+  "powerfulSpamBlocking": "शक्तिशाली स्पैम ब्लॉकिंग",
+  "previousStep": "पिछला",
+  "prioritizeRemoteAction": "रिमोट एक्शन सेटिंग्स को प्राथमिकता दें",
+  "prioritizeRemoteActionDescription": "रिमोट डेटाबेस से एक्शन सेटिंग्स को प्राथमिकता दें",
+  "processing": "प्रसंस्करण...",
+  "processingOperation": "प्रसंस्करण...",
+  "purchase": "खरीदें",
+  "quarterlyMembership": "त्रैमासिक सदस्यता",
+  "quarterlyMembershipDescription": "सभी प्रीमियम सुविधाओं को अनलॉक करें, त्रैमासिक ऑटो-नवीनीकरण",
+  "queryButton": "क्वेरी",
+  "queryFailed": "क्वेरी विफल",
+  "queryFailedLog": "क्वेरी विफल",
+  "querying": "क्वेरी कर रहा है...",
+  "queryingPhoneNumber": "फ़ोन नंबर क्वेरी कर रहा है",
+  "queryResultTitle": "क्वेरी परिणाम",
+  "ready": "तैयार!",
+  "receiveWeeklyStatistics": "साप्ताहिक आँकड़े प्राप्त करें",
+  "recruiter": "भर्तीकर्ता",
+  "reEnterPasswordHint": "कृपया पासवर्ड पुनः दर्ज करें",
+  "refresh": "ताज़ा करें",
+  "refreshPermissionStatus": "अनुमति स्थिति ताज़ा करें",
+  "refreshTooltip": "ताज़ा करें",
+  "regexError": "रेगुलर एक्सप्रेशन त्रुटि: {error}",
+  "regexErrorMessage": "रेगुलर एक्सप्रेशन त्रुटि: {error}",
+  "regexPattern": "रेगेक्स पैटर्न",
+  "regexPatternExplanation": "रेगेक्स पैटर्न स्पष्टीकरण",
+  "regexPatternExplanationButton": "रेगेक्स पैटर्न स्पष्टीकरण",
+  "regexPatternLabel": "रेगेक्स पैटर्न",
+  "regexPatternsExamples": "पैटर्न परिभाषित करने के लिए मानक रेगेक्स सिंटैक्स का उपयोग करें। उदाहरण:",
+  "regexPatternsForPhoneNumberMatching": "फ़ोन नंबर मिलान के लिए रेगेक्स पैटर्न",
+  "regexRule": "रेगेक्स नियम",
+  "regexRuleAddFailed": "रेगेक्स नियम जोड़ने में विफल: {error}",
+  "regexRuleAddSuccess": "रेगेक्स नियम सफलतापूर्वक जोड़ा गया",
+  "regexRuleManagement": "रेगेक्स नियम प्रबंधन",
+  "regexRuleNamePatternRequired": "नियम का नाम और रेगेक्स पैटर्न खाली नहीं हो सकता",
+  "regexRules": "रेगेक्स नियम",
+  "regexTesterTitle": "रेगेक्स परीक्षक",
+  "regexValidationFailed": "रेगेक्स सत्यापन विफल: {error}",
+  "regexValidationSuccess": "रेगेक्स सत्यापन सफल",
+  "region": "क्षेत्र",
+  "registeredDevicesTitle": "पंजीकृत डिवाइस",
+  "rejectAllCalls": "सभी कॉल अस्वीकार करें",
+  "rejectAllCallsDescription": "सक्षम होने पर, उच्चतम प्राथमिकता के साथ सभी कॉल अस्वीकार कर दिए जाएंगे",
+  "rejectAllNumbers": "सभी नंबर अस्वीकार करें",
+  "rejectAllNumbersDesc": "सक्षम होने पर सभी इनकमिंग कॉल अस्वीकार करें",
+  "rejectExceededNumbers": "सीमा से अधिक नंबर अस्वीकार करें",
+  "rejectExceededNumbersDescription": "संख्या सीमा से अधिक वाले नंबरों को स्वचालित रूप से अस्वीकार करें",
+  "remoteFilterSettings": "रिमोट फ़िल्टर सेटिंग्स",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "रिमोट नंबर फ़िल्टर सेटिंग्स",
+  "remoteNumberFilter": "रिमोट नंबर फ़िल्टर",
+  "remoteNumberFilterDatabaseInfo": "यह फ़िल्टर नवीनतम नंबर जानकारी प्राप्त करने के लिए एक स्वतंत्र रिमोट डेटाबेस का उपयोग करता है।",
+  "remoteNumberFilterDescription": "रिमोट डेटाबेस जानकारी के आधार पर परेशान करने वाली कॉलों को रोकें",
+  "remoteNumberFilterExplanationContent": "रिमोट नंबर फ़िल्टर नंबर गणना के आधार पर रिमोट डेटाबेस से पूछताछ करके स्पैम कॉल की पहचान करता है और उन्हें ब्लॉक करता है।",
+  "remoteNumberFilterExplanationTitle": "रिमोट नंबर फ़िल्टर स्पष्टीकरण",
+  "remoteNumberFilterFeatureCountThreshold": "• गणना थ्रेशोल्ड: नंबर की आवृत्ति के आधार पर निर्धारित करें",
+  "remoteNumberFilterFeatureFilterAction": "• फ़िल्टर क्रियाएँ: थ्रेशोल्ड से अधिक नंबरों को कैसे संभालना है, इसे कॉन्फ़िगर करें",
+  "remoteNumberFilterFeaturePriority": "• प्राथमिकता सेटिंग्स: रिमोट क्रियाओं के लिए प्राथमिकता निर्धारित करें",
+  "remoteNumberFilterFeatures": "विशेषताएँ:",
+  "remoteNumberFiltering": "रिमोट नंबर फ़िल्टरिंग",
+  "remoteNumberFilteringExplanation": "• रिमोट नंबर फ़िल्टरिंग: रिमोट डेटाबेस जानकारी के आधार पर फ़िल्टरिंग नियम",
+  "remoteNumberFilterSubtitle": "क्लाउड डेटाबेस और सामुदायिक रिपोर्ट का उपयोग करके स्पैम कॉल की पहचान करें",
+  "removeAdsDescription": "एक सहज अनुभव के लिए ऐप में सभी विज्ञापनों को स्थायी रूप से हटा दें",
+  "removeAdsTitle": "विज्ञापन हटाएं",
+  "removedFromFavoriteContacts": "पसंदीदा संपर्कों से हटा दिया गया",
+  "removedFromFavorites": "पसंदीदा से हटा दिया गया",
+  "removeFavorite": "पसंदीदा हटाएं",
+  "removeFromFavorites": "पसंदीदा से हटाएं",
+  "renameButton": "नाम बदलें",
+  "renameDeviceDialogTitle": "डिवाइस का नाम बदलें",
+  "renameDeviceTitle": "डिवाइस का नाम बदलें",
+  "replaceCurrentSettingsConfirmation": "यह आपकी सभी वर्तमान सेटिंग्स को बदल देगा। क्या आप जारी रखना चाहते हैं?",
+  "requestAllPermissions": "सभी अनुमतियों का अनुरोध करें",
+  "requestPermission": "अनुमति का अनुरोध करें",
+  "requestPermissionFailed": "अनुमति का अनुरोध करने में विफल: {error}",
+  "requiredMarks": "{count} अंक",
+  "reset": "रीसेट करें",
+  "restore": "पुनर्स्थापित करें",
+  "restoreApplicationSettingsFromBackup": "बैकअप से एप्लिकेशन सेटिंग्स पुनर्स्थापित करें",
+  "restoreApplicationSettingsFromBackupSubtitle": "बैकअप से एप्लिकेशन सेटिंग्स पुनर्स्थापित करें",
+  "restoreButton": "पुनर्स्थापित करें",
+  "restoreFailedWithError": "क्लाउड से पुनर्स्थापना विफल: {error}",
+  "restoreFromCloud": "क्लाउड से पुनर्स्थापित करें",
+  "restoreFromCloudDescription": "क्लाउड स्टोरेज से सेटिंग्स और नियम पुनर्स्थापित करें",
+  "restoreFromCloudFailed": "क्लाउड से पुनर्स्थापना विफल: {error}",
+  "restoreFromCloudLabel": "क्लाउड से पुनर्स्थापित करें",
+  "restoreFromCloudSuccess": "क्लाउड से सफलतापूर्वक पुनर्स्थापित किया गया",
+  "restoreFromCloudTitle": "क्लाउड से पुनर्स्थापित करें",
+  "restoreFromLocal": "स्थानीय से पुनर्स्थापित करें",
+  "restorePurchases": "खरीदें पुनर्स्थापित करें",
+  "restoreSectionTitle": "पुनर्स्थापित करें",
+  "restoreSettings": "सेटिंग्स पुनर्स्थापित करें",
+  "restoreSettingsConfirmation": "यह आपकी सभी वर्तमान सेटिंग्स को बदल देगा। क्या आप जारी रखना चाहते हैं?",
+  "restoreSettingsDialogTitle": "सेटिंग्स पुनर्स्थापित करें",
+  "restoreSettingsTitle": "सेटिंग्स पुनर्स्थापित करें",
+  "restoreSuccessFromLocal": "स्थानीय से सफलतापूर्वक पुनर्स्थापित किया गया",
+  "restoreSuccessMessage": "क्लाउड से सफलतापूर्वक पुनर्स्थापित किया गया",
+  "retry": "पुनः प्रयास करें",
+  "ridesharing": "राइडशेयरिंग",
+  "risk": "जोखिम",
+  "robocall": "रोबोकॉल",
+  "ruleAction": "नियम क्रिया",
+  "ruleAddButton": "नियम जोड़ें",
+  "ruleAddedSuccess": "नियम सफलतापूर्वक जोड़ा गया",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "नियम जोड़ने में विफल: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "नियम सफलतापूर्वक जोड़ा गया",
+  "ruleDeleteConfirmContent": "क्या आप निश्चित रूप से इस {ruleType} को हटाना चाहते हैं?",
+  "ruleDeleteConfirmTitle": "नियम हटाएं",
+  "ruleDeletedSuccess": "नियम सफलतापूर्वक हटा दिया गया",
+  "ruleDeletedSuccessfully": "नियम सफलतापूर्वक हटा दिया गया",
+  "ruleDeleteFailed": "नियम हटाने में विफल: {error}",
+  "ruleDeleteFailure": "नियम हटाने में विफल: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "नियम सफलतापूर्वक हटा दिया गया",
+  "ruleDisabledSuccessfully": "नियम सफलतापूर्वक अक्षम किया गया",
+  "ruleEnabledSuccessfully": "नियम सफलतापूर्वक सक्षम किया गया",
+  "ruleLoadFailed": "नियम लोड करने में विफल: {error}",
+  "ruleManagement": "नियम प्रबंधन",
+  "ruleManagementTitle": "नियम प्रबंधन",
+  "ruleName": "नियम का नाम",
+  "ruleNameAndContentRegexCannotBeEmpty": "नियम का नाम और सामग्री रेगेक्स खाली नहीं हो सकता",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "नियम का नाम और फ़ोन नंबर खाली नहीं हो सकता",
+  "ruleNameHint": "जैसे, परिवार, दोस्त, आदि।",
+  "ruleNameLabel": "नियम का नाम",
+  "ruleNamePatternRequired": "कृपया नियम का नाम और पैटर्न दर्ज करें",
+  "ruleNameRequired": "नियम का नाम और फ़ोन नंबर खाली नहीं हो सकता",
+  "ruleNotExist": "नियम मौजूद नहीं है या हटा दिया गया है",
+  "ruleNotFound": "नियम नहीं मिला: {error}",
+  "ruleSavedSuccessfully": "नियम सफलतापूर्वक सहेजा गया!",
+  "ruleSavedSuccessMessage": "नियम सफलतापूर्वक सहेजा गया!",
+  "ruleSaveFailed": "सहेजना विफल: {error}",
+  "ruleSaveFailedMessage": "सहेजना विफल: {error}",
+  "ruleSaveSuccess": "नियम सफलतापूर्वक सहेजा गया!",
+  "rulesExportedSuccessfully": "नियम सफलतापूर्वक निर्यात किए गए",
+  "rulesExportedTo": "नियम यहाँ निर्यात किए गए: {path}",
+  "rulesImported": "नियम सफलतापूर्वक आयात किए गए",
+  "rulesImportedSuccessfully": "{count} नियम सफलतापूर्वक आयात किए गए",
+  "rulesImportFailed": "नियम आयात करने में विफल: {error}",
+  "ruleStatistics": "नियम के आँकड़े",
+  "ruleStatusChanged": "नियम {status} सफलतापूर्वक",
+  "ruleToggleFailed": "ऑपरेशन विफल: {error}",
+  "ruleToggleSuccess": "नियम {status} सफलतापूर्वक",
+  "ruleUpdateFailed": "नियम को अपडेट करने में विफल: {error}",
+  "ruleUpdateSuccess": "नियम सफलतापूर्वक अपडेट किया गया",
+  "ruleVerification": "नियम सत्यापन",
+  "save": "सहेजें",
+  "saveButton": "सहेजें",
+  "saveButtonLabel": "सहेजें",
+  "saveButtonText": "सहेजें",
+  "saveFailed": "सहेजना विफल: {error}",
+  "saveFilter": "फ़िल्टर सहेजें",
+  "saveSettings": "सेटिंग्स सहेजें",
+  "saveSettingsFailed": "सेटिंग्स सहेजने में विफल: {error}",
+  "scamsLikely": "संभावित घोटाले",
+  "search": "खोजें",
+  "searchContacts": "संपर्कों को खोजें",
+  "searchError": "खोज त्रुटि: {error}",
+  "searchFilters": "खोज फ़िल्टर",
+  "searchForContacts": "संपर्कों के लिए खोजें",
+  "searchHint": "खोजें...",
+  "searchSettingsSubtitle": "संपर्क, लेबल, ब्लैकलिस्ट, व्हिटेलिस्ट आदि खोजें।",
+  "searchSettingsTitle": "खोज सेटिंग्स",
+  "securityMessage": "किसी भी फोन कॉल पर भरोसा न करें। हमेशा ग्राहक सेवा नंबरों को स्वतंत्र रूप से सत्यापित करें। कभी भी पासवर्ड, सत्यापन कोड, कार्ड नंबर या व्यक्तिगत जानकारी साझा न करें।",
+  "selectActionToPerform": "नियम मिलने पर करने के लिए कार्रवाई का चयन करें",
+  "selectActionWhenBlockingCalls": "कॉल ब्लॉक करते समय कार्रवाई चुनें",
+  "selectActionWhenRuleMatches": "नियम मिलने पर कार्रवाई चुनें",
+  "selectAll": "सभी चुनें",
+  "selectCountry": "देश चुनें",
+  "selectDateRange": "दिनांक सीमा चुनें",
+  "selectedDateRange": "चयनित दिनांक सीमा",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} आइटम चयनित",
+  "selectedLabel": "चयनित:",
+  "selectExportFormat": "निर्यात प्रारूप चुनें",
+  "selectLabel": "लेबल चुनें",
+  "selectLabelAndEnterPhoneNumber": "कृपया एक लेबल चुनें और एक मान्य फ़ोन नंबर दर्ज करें",
+  "selectLanguage": "भाषा चुनें",
+  "selectMultiple": "एकाधिक चुनें",
+  "selectPeriod": "अवधि चुनें",
+  "selectSimCard": "सिम कार्ड चुनें",
+  "selectSimSlot": "सिम स्लॉट चुनें",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "कॉल ब्लॉक करते समय करने के लिए विशिष्ट कार्रवाई चुनें",
+  "selectTag": "टैग चुनें",
+  "selectTags": "टैग चुनें",
+  "selectTrustedDataSource": "कृपया विश्वसनीय डेटा स्रोत चुनें",
+  "selectYourLanguage": "अपनी भाषा चुनें",
+  "sender": "प्रेषक",
+  "senderRegexOptional": "प्रेषक रेगेक्स (वैकल्पिक)",
+  "serverAddressLabel": "सर्वर पता",
+  "serviceTypeContact": "संपर्क सदस्यता",
+  "serviceTypeLabel": "सेवा प्रकार",
+  "serviceTypePhone": "फ़ोन सदस्यता",
+  "serviceTypePlugin": "प्लगइन अपडेट",
+  "serviceTypeSms": "एसएमएस सदस्यता",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "सेट करें",
+  "setEncryptionPassword": "एन्क्रिप्शन पासवर्ड सेट करें",
+  "setEncryptionPasswordDescription": "बैकअप और पुनर्स्थापना के लिए एन्क्रिप्शन पासवर्ड सेट करें",
+  "setEncryptionPasswordLabel": "एन्क्रिप्शन पासवर्ड सेट करें",
+  "setEncryptionPasswordTitle": "एन्क्रिप्शन पासवर्ड सेट करें",
+  "setPasswordButton": "सेट करें",
+  "settings": "सेटिंग्स",
+  "settingsBackedUpTo": "सेटिंग्स यहाँ बैकअप की गई हैं: {path}",
+  "settingsLoaded": "सेटिंग्स लोड हो गईं",
+  "settingsLoadFailed": "सेटिंग्स लोड करने में विफल: {error}",
+  "settingsRestoredSuccessfully": "सेटिंग्स सफलतापूर्वक पुनर्स्थापित कर दी गई हैं। कृपया परिवर्तनों को प्रभावी करने के लिए ऐप को पुनरारंभ करें।",
+  "settingsSaved": "सेटिंग्स सहेजी गईं",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "सेटिंग्स सहेजने में विफल: {error}",
+  "settingsTab": "सेटिंग्स",
+  "settingsTitle": "सेटिंग्स",
+  "setup": "सेटअप",
+  "showContactEditDialogStaticMethod": "संपर्क संपादन संवाद प्रदर्शित करने की स्थैतिक विधि",
+  "showExplanation": "स्पष्टीकरण दिखाएं",
+  "silence": "शांत करें",
+  "silenceAndNoAnswer": "शांत करें और कोई उत्तर नहीं",
+  "silenceNoAnswer": "शांत करें कोई उत्तर नहीं",
+  "silentCallVoiceClone": "शांत कॉल वॉयस क्लोन",
+  "silentRules": "शांत नियम",
+  "simCard": "सिम कार्ड {simNumber}",
+  "simCardColor": "सिम कार्ड रंग",
+  "simCardConfigurationExplanation": "• सिम कार्ड कॉन्फ़िगरेशन: प्रत्येक सिम कार्ड के लिए स्वतंत्र फ़िल्टरिंग नियम सेट करें",
+  "simCardFilterRules": "सिम कार्ड फ़िल्टर नियम",
+  "simCardFilterRulesDescription": "सिम कार्ड स्लॉट के आधार पर विभिन्न फ़िल्टरिंग नियम सेट करें",
+  "simCardFontSize": "सिम कार्ड फ़ॉन्ट आकार",
+  "simCardPosition": "सिम कार्ड स्थिति",
+  "simInfo": "सिम {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "सिम कार्ड जानकारी लोड करने में विफल: {error}",
+  "simRuleInstructions": "SIM स्लॉट नियम आपको प्रत्येक SIM स्लॉट के लिए स्वतंत्र फ़िल्टरिंग नियम कॉन्फ़िगर करने की अनुमति देते हैं।",
+  "simRuleInstructionsTitle": "SIM स्लॉट नियम",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "SIM स्लॉट नियम प्रबंधन",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "SIM डेटा लोड करने में विफल: {error}",
+  "simSlotFilterConfiguration": "SIM स्लॉट फ़िल्टर कॉन्फ़िगरेशन",
+  "simSlotFilterConfigurationDescription": "SIM स्लॉट द्वारा फ़िल्टर नियम निर्धारित करने की अनुमति",
+  "simSlotFilterDescription": "प्रत्येक सिम कार्ड के लिए स्वतंत्र फ़िल्टरिंग नियम कॉन्फ़िगर करें:",
+  "simSlotFilterSettingsTitle": "SIM स्लॉट {slotNumber} फ़िल्टर सेटिंग्स",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "SIM स्लॉट लोड करने में विफल: {error}",
+  "simSlotManagement": "SIM स्लॉट प्रबंधन",
+  "simSlotOperationFailed": "SIM स्लॉट ऑपरेशन विफल: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "SIM स्लॉट स्थिति {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• SIM स्लॉट नियम: प्रति SIM स्वतंत्र फ़िल्टरिंग रणनीतियाँ",
+  "simSlotRuleListTitle": "SIM स्लॉट नियमों की सूची",
+  "simSlotRuleManagement": "SIM स्लॉट नियम",
+  "simSlotRuleManagementTitle": "नियम प्रबंधन",
+  "simSlotSettings": "SIM स्लॉट सेटिंग्स",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "SIM स्लॉट {slotNumber}",
+  "skip": "छोड़ें",
+  "smartCallerId": "स्मार्ट कॉलर आईडी पहचान",
+  "sms": "SMS",
+  "smsFilterDescription": "SMS फ़िल्टरिंग आपको स्पैम संदेशों को स्वचालित रूप से फ़िल्टर करने और आपकी संदेश सूची को साफ़ रखने में मदद करती है। आप फ़िल्टर नियम और सूचना विधियाँ सेट कर सकते हैं।",
+  "smsFilterDisabled": "SMS फ़िल्टरिंग अक्षम",
+  "smsFilterEnabled": "SMS फ़िल्टरिंग सक्षम",
+  "smsFilterRuleAddedSuccessfully": "SMS फ़िल्टर नियम सफलतापूर्वक जोड़ा गया",
+  "smsFilterRules": "SMS फ़िल्टर नियम",
+  "smsFilterSettings": "SMS फ़िल्टर सेटिंग्स",
+  "smsHistory": "SMS इतिहास",
+  "smsManagement": "SMS प्रबंधन",
+  "smsPermission": "SMS अनुमति",
+  "smsPermissionDescription": "स्पैम संदेशों को फ़िल्टर करने के लिए उपयोग किया जाता है।",
+  "smsRuleAddedSuccessfully": "SMS नियम सफलतापूर्वक जोड़ा गया",
+  "smsRuleDeletedSuccessfully": "SMS नियम सफलतापूर्वक हटा दिया गया",
+  "smsRuleLoadFailed": "SMS नियम लोड करने में विफल: {error}",
+  "smsRuleManagement": "SMS नियम प्रबंधन",
+  "smsRulesExportedSuccessfully": "SMS नियम सफलतापूर्वक {filePath} में निर्यात किए गए",
+  "smsRulesImportedSuccessfully": "SMS नियम सफलतापूर्वक आयात किए गए",
+  "smsRuleSubscription": "SMS नियम सदस्यता",
+  "smsRuleUpdatedSuccessfully": "SMS नियम सफलतापूर्वक अपडेट किया गया",
+  "smsSettingsSubtitle": "SMS फ़िल्टरिंग और कीवर्ड अवरुद्ध करना",
+  "smsSettingsTitle": "SMS सेटिंग्स",
+  "smsSubscription": "SMS सदस्यता",
+  "smsSubscriptionAddedSuccessfully": "SMS सदस्यता सफलतापूर्वक जोड़ी गई",
+  "smsSubscriptionRulesDescription": "URL के माध्यम से SMS नियम सूचियों की सदस्यता लें, जो रेगुलर एक्सप्रेशन मिलान का समर्थन करती हैं। आप ब्लॉक या अनुमति क्रियाएँ सेट कर सकते हैं।",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "कुछ अनुमतियों के अनुरोध अस्वीकार कर दिए गए",
+  "spamLikely": "संभावित स्पैम",
+  "startColor": "प्रारंभ रंग",
+  "startDate": "प्रारंभ तिथि",
+  "startUsing": "शुरू करें",
+  "statAnswered": "उत्तर दिया",
+  "statBlocked": "अवरुद्ध",
+  "staticMethodShowCallerIdDialog": "कॉलर आईडी सूचना संवाद दिखाने की स्थिर विधि",
+  "staticMethodToDisplayCountrySelectionDialog": "देश चयन संवाद दिखाने की स्थिर विधि",
+  "staticMethodToDisplayDialog": "संवाद दिखाने की स्थिर विधि",
+  "statistics": "आँकड़े",
+  "statisticsExportFeatureComingSoon": "आँकड़े निर्यात सुविधा जल्द ही आ रही है",
+  "statisticsGrid": "आँकड़े ग्रिड",
+  "statisticsPageTitle": "डेटा विश्लेषण",
+  "stirColor": "STIR रंग",
+  "stirFontSize": "STIR फ़ॉन्ट आकार",
+  "stirPosition": "STIR स्थिति",
+  "storagePermission": "भंडारण अनुमति",
+  "storagePermissionDescription": "सेटिंग्स और नियमों को सहेजने के लिए उपयोग किया जाता है।",
+  "subscribe": "सदस्यता लें",
+  "subscriptionAddSuccess": "सदस्यता \"{name}\" सफलतापूर्वक जोड़ी गई",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "क्या आप निश्चित रूप से इस सदस्यता को हटाना चाहते हैं?",
+  "subscriptionDeleteConfirmTitle": "सदस्यता हटाएं",
+  "subscriptionDeleted": "सदस्यता हटाई गई",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "सदस्यता सफलतापूर्वक हटाई गई",
+  "subscriptionDeleteFailed": "सदस्यता हटाने में विफल: {error}",
+  "subscriptionDeleteSuccess": "सदस्यता हटाई गई",
+  "subscriptionEmptyState": "कोई सदस्यता उपलब्ध नहीं",
+  "subscriptionEmptyText": "अभी तक कोई सदस्यता नहीं",
+  "subscriptionLoadFailed": "सदस्यताएँ लोड करने में विफल: {error}",
+  "subscriptionLoadingFailed": "सदस्यताएँ लोड करने में विफल: {error}",
+  "subscriptionManagementTitle": "सदस्यता प्रबंधन",
+  "subscriptionName": "सदस्यता का नाम",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "सदस्यता का नाम और URL खाली नहीं हो सकते",
+  "subscriptionNameHint": "सदस्यता का नाम दर्ज करें",
+  "subscriptionPageTitle": "सदस्यता प्रबंधन",
+  "subscriptionStatusChangeFailed": "सदस्यता स्थिति बदलने में विफल: {error}",
+  "subscriptionToggleFailed": "सदस्यता स्थिति को टॉगल करने में विफल: {error}",
+  "subscriptionUpdateFailed": "सदस्यता अपडेट करने में विफल: {error}",
+  "subscriptionUpdateSuccess": "सदस्यता सफलतापूर्वक अपडेट की गई",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "सदस्यता URL",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "सदस्यता URL दर्ज करें",
+  "successfullyImportedRules": "सफलतापूर्वक {count} नियम आयात किए गए",
+  "supportSync": "सिंक का समर्थन करें",
+  "survey": "सर्वेक्षण",
+  "syncDevicesButton": "डिवाइस सिंक करें",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "सिंक विफल",
+  "syncFailedMessage": "सिंक विफल",
+  "syncFolderNameHint": "कृपया सिंक फ़ोल्डर का नाम दर्ज करें (डिफ़ॉल्ट: NotificationManager)",
+  "syncFolderNameLabel": "सिंक फ़ोल्डर का नाम",
+  "synchronized": "सिंक्रनाइज़्ड",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "सिंकिंग...",
+  "syncNow": "अभी सिंक करें",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "अभी सिंक करें",
+  "syncStatusTitle": "सिंक स्थिति",
+  "syncStatusUpdatedMessage": "सिंक स्थिति अपडेट की गई",
+  "syncSuccessful": "सिंक सफल",
+  "syncSuccessMessage": "सिंक सफल",
+  "syncWithCloudStorage": "क्लाउड स्टोरेज के साथ सिंक करें",
+  "syncWithCloudStorageSubtitle": "क्लाउड स्टोरेज के साथ सिंक करें",
+  "systemFeatures": "सिस्टम फ़ीचर्स:",
+  "systemSettingsTitle": "सिस्टम सेटिंग्स",
+  "tabAll": "सभी",
+  "tabAnswered": "उत्तर दिया गया",
+  "tabBlocked": "ब्लॉक किया गया",
+  "tabMissed": "छूटा हुआ",
+  "tabOutgoing": "आउटगोइंग",
+  "tagLabel": "टैग: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "टैग अपडेट किए गए",
+  "takeaway": "टेकअवे",
+  "telecommunication": "दूरसंचार",
+  "telegram": "टेलीग्राम",
+  "telemarketing": "टेलीमार्केटिंग",
+  "testButton": "परीक्षण",
+  "testButtonLabel": "परीक्षण",
+  "testConnectionButton": "कनेक्शन का परीक्षण करें",
+  "textColorsSetting": "टेक्स्ट और लेबल रंग",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "यह ऐप एक शक्तिशाली कॉलर आईडी टूल है जो आपको अवांछित कॉल की पहचान करने और ब्लॉक करने की अनुमति देता है।",
+  "thisWeek": "इस सप्ताह",
+  "timeInterceptor": "टाइम इंटरसेप्टर",
+  "timeInterceptorDescription": "कॉल फ़्रीक्वेंसी के आधार पर संभावित कॉल को स्वचालित रूप से इंटरसेप्ट/अनुमति दें",
+  "timeInterceptorExplanation": "• टाइम इंटरसेप्टर: कम समय में बार-बार होने वाली कॉल को इंटरसेप्ट/अनुमति दें",
+  "timeInterceptorExplanationContent": "कॉल फ़्रीक्वेंसी इंटरसेप्शन सुविधा बार-बार होने वाली स्पैम कॉल की स्वचालित रूप से पहचान और इंटरसेप्ट/अनुमति के लिए कॉल फ़्रीक्वेंसी का विश्लेषण करती है।",
+  "timeInterceptorExplanationTitle": "कॉल फ़्रीक्वेंसी इंटरसेप्शन स्पष्टीकरण",
+  "timeInterceptorSettingsTitle": "कॉल फ़्रीक्वेंसी इंटरसेप्शन सेटिंग्स",
+  "timeInterceptorSubtitle": "कॉल फ़्रीक्वेंसी के आधार पर संभावित स्पैम कॉल को स्वचालित रूप से इंटरसेप्ट करें",
+  "timeInterceptorTitle": "कॉल फ़्रीक्वेंसी इंटरसेप्शन सक्षम करें",
+  "timeWindowDescription": "बार-बार होने वाली कॉल को अनुमति देने के लिए समय विंडो का आकार सेट करें। इस विंडो के भीतर एक ही नंबर से कॉल की अनुमति दी जाएगी",
+  "timeWindowLabel": "इंटरसेप्शन टाइम विंडो (मिनट): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "बार-बार होने वाली कॉल को अनुमति देने के लिए समय विंडो का आकार सेट करें। इस विंडो के भीतर एक ही नंबर से कॉल की अनुमति दी जाएगी",
+  "today": "आज",
+  "total": "कुल",
+  "totalBlocked": "कुल ब्लॉक",
+  "totalFiltered": "कुल फ़िल्टर किया गया",
+  "transferDataBetweenDevicesOrPlatforms": "डिवाइस या प्लेटफ़ॉर्म के बीच डेटा स्थानांतरित करें",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "डिवाइस या प्लेटफ़ॉर्म के बीच डेटा स्थानांतरित करें",
+  "travelTicketing": "यात्रा टिकटिंग",
+  "trend": "ट्रेंड",
+  "trendChart": "ट्रेंड चार्ट",
+  "tutorial": "ट्यूटोरियल",
+  "type": "प्रकार",
+  "unassignedSIMCard": "असाइन न किया गया सिम कार्ड",
+  "unknown": "अज्ञात",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "अज्ञात लेबल",
+  "unknownTag": "टैग: अज्ञात",
+  "unregisterButton": "अनपंजीकृत करें",
+  "unregisterDeviceConfirmationMessage": "क्या आप निश्चित रूप से {deviceName} को अनपंजीकृत करना चाहते हैं?",
+  "unregisterDeviceTitle": "डिवाइस को अनपंजीकृत करें",
+  "unsupportedFileFormat": "असमर्थित फ़ाइल प्रारूप",
+  "update": "अपडेट करें",
+  "updateAllNow": "सभी को अभी अपडेट करें",
+  "updateCallFilterConfig": "कॉल फ़िल्टर कॉन्फ़िगरेशन अपडेट करें",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "संपर्क अपडेट करने में विफल: {error}",
+  "updateFavoriteStatus": "पसंदीदा स्थिति अपडेट करें",
+  "updateFavoriteStatusFailed": "पसंदीदा स्थिति अपडेट करने में विफल: {error}",
+  "updateInterval": "अपडेट अंतराल",
+  "updateLabelFailed": "लेबल अपडेट करने में विफल",
+  "updateNow": "अभी अपडेट करें",
+  "updatePlugin": "प्लगइन अपडेट करें",
+  "updatePluginFailed": "प्लगइन अपडेट करने में विफल: {error}",
+  "updateRuleFailed": "नियम अपडेट करने में विफल: {error}",
+  "updateSubscriptionFailed": "सदस्यता अपडेट करने में विफल: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} सफलतापूर्वक अपडेट किया गया ({count} नियम)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "टैग अपडेट करें",
+  "useCasesPoint1": "• ऑटो-रीडायल स्पैम कॉल की पहचान करें",
+  "useCasesPoint2": "• मार्केटिंग कॉल को इंटरसेप्ट करें जो कम समय में कई बार कॉल करते हैं",
+  "useCasesPoint3": "• फ़ोन बॉम्बिंग और उत्पीड़न को रोकें",
+  "useCasesTitle": "उपयोग के मामले:",
+  "useGlobalSettings": "वैश्विक सेटिंग्स का उपयोग करें",
+  "userEmail": "user@example.com",
+  "usernameLabel": "उपयोगकर्ता नाम",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "पैटर्न को परिभाषित करने के लिए मानक रेगएक्स सिंटैक्स का उपयोग करें। उदाहरण:",
+  "validateRegex": "रेगएक्स मान्य करें",
+  "verificationFailedText": "विफल",
+  "verifiedText": "सत्यापित",
+  "verify": "सत्यापित करें",
+  "version": "संस्करण: {version}",
+  "vipExchangeDescription": "फ़ोन नंबर मार्किंग काउंट के साथ वीआईपी सदस्यता का आदान-प्रदान करें",
+  "vipExchangeTitle": "मार्किंग एक्सचेंज वीआईपी",
+  "watchAd": "विज्ञापन देखें",
+  "watchAdForTemp": "अस्थायी विशेषाधिकारों के लिए विज्ञापन देखें",
+  "watchAdForTempDescription": "कुछ प्रीमियम सुविधाओं को अस्थायी रूप से अनलॉक करने के लिए एक छोटा विज्ञापन देखें",
+  "webDAVConfigTitle": "वेबडीएवी कॉन्फ़िगरेशन",
+  "webdavConfigurationTitle": "वेबडीएवी कॉन्फ़िगरेशन",
+  "webdavPasswordHint": "कृपया वेबडीएवी पासवर्ड दर्ज करें",
+  "webdavServerAddressHint": "कृपया वेबडीएवी सर्वर पता दर्ज करें",
+  "webdavUsernameHint": "कृपया वेबडीएवी उपयोगकर्ता नाम दर्ज करें",
+  "week": "सप्ताह",
+  "weekly": "साप्ताहिक",
+  "weeklyBlockedCallsSummary": "साप्ताहिक ब्लॉक की गई कॉल का सारांश",
+  "weeklyChartTitle": "साप्ताहिक ब्लॉक की गई कॉल",
+  "weeklyReport": "साप्ताहिक रिपोर्ट",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "कॉल ब्लॉकिंग गतिविधि की साप्ताहिक सारांश रिपोर्ट प्राप्त करें",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "स्वागत है",
+  "whitelist": "व्हाइटलिस्ट",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "व्हाइटलिस्ट",
+  "width": "चौड़ाई",
+  "wildcardMatchingDescription": "किसी भी कैरेक्टर से मिलान करने के लिए '.' का उपयोग करें (जैसे '123.456' 123-456 से मेल खाता है)",
+  "wildcardMatchingTitle": "वाइल्डकार्ड मिलान:",
+  "wildcardSupportForFlexibleFiltering": "लचीले फ़िल्टरिंग के लिए वाइल्डकार्ड समर्थन",
+  "windowSizeSetting": "विंडो का आकार",
+  "year": "वर्ष",
+  "yearly": "वार्षिक",
+  "yearlyChartTitle": "वार्षिक ब्लॉक किए गए कॉल",
+  "noSimCardsDetected": "कोई सिम कार्ड नहीं मिला",
+  "filterManagementDescription": "कॉल फ़िल्टर सेट करें",
+  "callerIdCustomizationSubtitle": "कॉलर आईडी लेआउट को अनुकूलित करें",
+  "fraudAlerSettingTitle": "धोखाधड़ी अलर्ट सेटिंग",
+  "fraudAlerSettingSubtitle": "धोखाधड़ी अलर्ट सेट करने के लिए",
+  "enableFraudAlert": "धोखाधड़ी अलर्ट सक्षम करें",
+  "enableFraudAlertDescription": "संदिग्ध घोटाले वाले कॉलों के लिए अलर्ट",
+  "enableVibration": "कंपन सक्षम करें",
+  "enableVibrationDescription": "संदिग्ध घोटाले वाले कॉलों के लिए कंपकंपी",
+  "notificationSettingsTitle": "सूचना सेटिंग्स",
+  "useLocalNotification": "स्थानीय सूचनाओं का उपयोग करें",
+  "useLocalNotificationDescription": "आने वाले कॉलों के लिए स्थानीय सूचनाएं सक्षम करें",
+  "cancelLocalNotification": "स्थानीय सूचनाएं बंद करें",
+  "useStirNotification": "STIR से सूचना का उपयोग करें",
+  "useStirNotificationDescription": "आने वाले कॉलों के लिए STIR सूचनाएं सक्षम करें",
+  "cancelLocalNotificationDescription": "स्थानीय सूचनाएं स्वचालित रूप से बंद करें",
+  "callerIdSettingsTitle": "कॉलर आईडी सेटिंग्स",
+  "callerIdSettingsSubtitle": "आने वाली कॉल सूचना और डिस्प्ले मोड सेट करने के लिए",
+  "purchaseTitle": "खरीद",
+  "purchaseSubtitle": "सेवा खरीदने के लिए",
+  "callerIdNotificationTitle": "आने वाली कॉल की जानकारी",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "नंबर: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "ब्लॉक किया गया कॉल",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "{phoneNumber} से ब्लॉक किया गया कॉल",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "सत्यापित",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "सत्यापित नहीं",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "सत्यापन विफल",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "अज्ञात सत्यापन स्थिति",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "STIR/SHAKEN सत्यापन",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "नंबर {phoneNumber} के लिए {stirResultMessage}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "स्क्रॉलिंग सुरक्षा संदेश सेटिंग्स",
+  "messageColor": "संदेश का रंग",
+  "messageFontSize": "संदेश का फ़ॉन्ट आकार",
+  "messagePosition": "संदेश की स्थिति",
+  "containerWidth": "कंटेनर चौड़ाई",
+  "scrollSpeed": "स्क्रॉल गति",
+  "enableSecurityMessage": "सुरक्षा संदेश सक्षम करें",
+  "fraudAlertTitle": "धोखाधड़ी अलर्ट",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "{phoneNumber} से संभावित धोखाधड़ी वाला कॉल",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "नियम लोड करने में विफल: {error}",
+  "loadCallLogFailed": "कॉल लॉग लोड करने में विफल: {error}",
+  "noBlockedTypeData": "कोई ब्लॉक किया गया प्रकार डेटा उपलब्ध नहीं है",
+  "importEntity": "{entityTypeName} आयात करें",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} सफलतापूर्वक आयात किया गया, कुल {count} रिकॉर्ड आयात किए गए",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "{entityTypeName} आयात करने में विफल: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "{entityTypeName} निर्यात करें",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} सफलतापूर्वक निर्यात किया गया",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "{entityTypeName} निर्यात करने में विफल: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "क्लाउड सिंक सेवा",
+  "membershipCenter": "सदस्यता केंद्र",
+  "redeemVipWithMarks": "मार्क्स के साथ वीआईपी रिडीम करें",
+  "currentMarkCount": "वर्तमान मार्क्स की संख्या",
+  "markMoreNumbersForMore": "अधिक मार्क्स के लिए अधिक नंबरों को चिह्नित करें",
+  "noAds": "कोई विज्ञापन नहीं",
+  "cloudBackup": "क्लाउड बैकअप",
+  "callerIdEnhancement": "कॉलर आईडी एन्हांसमेंट",
+  "voiceRecognition": "आवाज पहचान",
+  "feature": "सुविधा",
+  "normalUser": "सामान्य उपयोगकर्ता",
+  "vipUser": "वीआईपी उपयोगकर्ता",
+  "temporaryVip": "अस्थायी वीआईपी",
+  "removeAds": "विज्ञापन हटाएं",
+  "unknownAction": "अज्ञात कार्रवाई",
+  "settingsBackup": "सेटिंग्स बैकअप ",
+  "allServicesStatusTitle": "वर्तमान सेवा स्थिति",
+  "allServicesStatusSubtitle": "प्रत्येक क्लाउड सेवा की वर्तमान स्थिति",
+  "redirect": "पुनर्निर्देशित",
+  "notify": "सूचित करें",
+  "log": "लॉग",
+  "custom": "कस्टम",
+  "allowActionDescription": "कॉल की अनुमति दी जाएगी, भले ही नंबर ब्लॉकलिस्ट में हो।",
+  "blockActionDescription": "कॉल ब्लॉक कर दिए जाएंगे और कॉल लॉग में दिखाए जाएंगे।",
+  "silenceActionDescription": "कॉल म्यूट कर दिए जाएंगे लेकिन कॉल लॉग में दिखाए जाएंगे।",
+  "noneActionDescription": "कॉल के लिए कोई विशेष कार्रवाई नहीं की जाएगी।",
+  "redirectActionDescription": "कॉल को एक निर्दिष्ट नंबर पर पुनर्निर्देशित करें।",
+  "labelActionDescription": "आसान पहचान के लिए कॉल में एक लेबल जोड़ें।",
+  "notifyActionDescription": "कॉल प्राप्त होने पर एक सूचना भेजें।",
+  "logActionDescription": "बिना कोई अन्य कार्रवाई किए कॉल की जानकारी लॉग करें।",
+  "customActionDescription": "एक कस्टम कार्रवाई करें।",
+  "synced": "सिंक किया गया",
+  "needVipAccess": "इस सुविधा का उपयोग करने के लिए आपको वीआईपी पहुंच की आवश्यकता है",
+  "importExportDescription": "{entityTypeName} डेटा आयात या निर्यात करें",
+  "importExportTitle": "आयात/निर्यात",
+  "noPhoneRules": "कोई फ़ोन नियम नहीं मिला",
+  "noRegexRules": "कोई रेगेक्स नियम नहीं मिला",
+  "noAllowedBlockedRules": "कोई अनुमत/ब्लॉक किए गए नियम नहीं मिले",
+  "importExport": "आयात/निर्यात",
+  "filterByAction": "कार्रवाई के अनुसार फ़िल्टर करें",
+  "upgradeToVip": "वीआईपी में अपग्रेड करें",
+  "batteryOptimizationPermission": "बैटरी ऑप्टिमाइज़ेशन",
+  "batteryOptimizationPermissionDescription": "कॉलर आईडी जैसी सेवाएं प्रदान करने के लिए ऐप को पृष्ठभूमि में चलने की अनुमति दें।",
+  "permissionTitle": "विशेष अनुमतियाँ",
+  "permissionSubtitle": "ओवरले और बैटरी ऑप्टिमाइज़ेशन अनुमतियों का प्रबंधन करें",
+  "themeSettingsTitle": "थीम सेटिंग्स",
+  "themeSettingsSubtitle": "अपनी पसंदीदा थीम चुनें",
+  "databaseSyncTitle": "डेटाबेस सिंक",
+  "countrySyncSettingsTitle": "देश आधारित डेटाबेस सिंक सेटिंग्स",
+  "countrySyncSettingsSubtitle": "डेटा सिंक्रनाइज़ेशन के लिए देशों का चयन करें",
+  "countryDataDisclaimer": "कृपया ध्यान दें: डेटाबेस में सभी विशिष्ट देशों या क्षेत्रों के लिए डेटा शामिल नहीं हो सकता है।",
+  "editSubscription": "सदस्यता संपादित करें",
+  "searchByNameOrPhoneNumber": "नाम या फ़ोन नंबर से खोजें",
+  "allowedBlockedRulesInfo": "अनुमत/अवरोधित नियम विशिष्ट फ़ोन नंबरों से कॉल मिलान के लिए उपयोग किए जाते हैं, जिनकी प्राथमिकता सबसे अधिक होती है।",
+  "searchPhoneRulesHint": "फ़ोन नियमों की खोज करें",
+  "phoneRulesInfo": "फ़ोन नियम विशिष्ट फ़ोन नंबरों से कॉल मिलान के लिए उपयोग किए जाते हैं, जिनकी प्राथमिकता कम होती है। कुछ फ़ोन नियम सब्सक्रिप्शन से आते हैं",
+  "searchSubscriptionsHint": "सदस्यताएँ खोजें",
+  "searchPluginsHint": "प्लगइन्स खोजें",
+  "searchLabelsHint": "लेबल खोजें",
+  "pluginDescription": "प्लगइन विवरण",
+  "enterPluginDescription": "प्लगइन विवरण दर्ज करें",
+  "searchRegexRulesHint": "रेगेक्स नियमों की खोज करें",
+  "regexRulesInfo": "रेगेक्स नियम रेगेक्स पैटर्न के आधार पर कॉल को फ़िल्टर करने के लिए उपयोग किए जाते हैं।",
+  "searchMarkedPhonesHint": "चिह्नित फ़ोन खोजें",
+  "searchContactSubscriptionsHint": "संपर्क सदस्यताएँ खोजें",
+  "showAllContacts": "सभी संपर्क दिखाएँ",
+  "showFavorites": "पसंदीदा दिखाएँ",
+  "manualEntry": "मैनुअल प्रविष्टि जानकारी",
+  "scriptSaved": "स्क्रिप्ट सहेजी गई",
+  "editScriptFor": "{pluginName} के लिए स्क्रिप्ट संपादित करें",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "स्क्रिप्ट सहेजें",
+  "testPlugin": "प्लगइन का परीक्षण करें",
+  "description": "विवरण",
+  "accessTargetUrl": "लक्ष्य URL तक पहुँचें",
+  "result": "परिणाम",
+  "editScript": "स्क्रिप्ट संपादित करें",
+  "numberFormat": "नंबर प्रारूप",
+  "nationalNumber": "राष्ट्रीय नंबर",
+  "e164Number": "E164 नंबर",
+  "pluginRulesInfo": "सुरक्षा के लिए, कृपया केवल विश्वसनीय स्रोतों से प्लगइन्स का उपयोग करें। अपने स्वयं के कस्टम प्लगइन्स बनाने के लिए हमारे टेम्प्लेट का उपयोग करने के लिए स्वतंत्र महसूस करें!",
+  "advancedMode": "एडवांस्ड मोड",
+  "pleaseEnterAtLeastOneNumber": "कृपया कम से कम एक नंबर दर्ज करें।",
+  "openInWebView": "वेबव्यू में खोलें",
+  "pluginLabel": "प्लगइन लेबल",
+  "pluginID": "आईडी",
+  "pluginURL": "यूआरएल",
+  "messageBackgroundColor": "संदेश पृष्ठभूमि रंग",
+  "clearAllCallLogs": "सभी कॉल लॉग साफ़ करें",
+  "clearAllCallLogsConfirmation": "सभी कॉल लॉग साफ़ करने की पुष्टि करें",
+  "allCallLogsCleared": "सभी कॉल लॉग साफ़ कर दिए गए",
+  "unblocked": "अवरोधित नहीं",
+  "blockNumber": "नंबर ब्लॉक करें",
+  "blockNumberSuccess": "नंबर ब्लॉक सफलतापूर्वक हुआ",
+  "blockNumberFailed": "नंबर ब्लॉक करने में विफल रहा",
+  "unblockNumberConfirmation": "क्या आप वाकई {phoneNumber} को अनब्लॉक करना चाहते हैं?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "{phoneNumber} को कॉल कर रहे हैं...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "विवरण देखें",
+  "unblock": "अनब्लॉक करें",
+  "unblockNumber": "नंबर अनब्लॉक करें",
+  "unblockNumberSuccess": "नंबर सफलतापूर्वक अनब्लॉक हो गया",
+  "unblockNumberFailed": "नंबर अनब्लॉक करने में विफल रहा",
+  "serviceNotAvailable": "सेवा उपलब्ध नहीं है",
+  "callingNumberFailed": "नंबर को कॉल करने में विफल रहा",
+  "listView": "सूची दृश्य",
+  "timelineView": "समयरेखा दृश्य",
+  "nameCannotBeEmpty": "नाम खाली नहीं हो सकता",
+  "selectAction": "क्रिया का चयन करें",
+  "selectTargetService": "लक्ष्य सेवा का चयन करें",
+  "callDetails": "कॉल विवरण",
+  "callType": "कॉल प्रकार",
+  "callTime": "कॉल समय",
+  "numberInvalidFormat": "नंबर अमान्य प्रारूप",
+  "membershipFeature": "सदस्यता सुविधा",
+  "medium": "मध्यम",
+  "verificationReport": "सत्यापन रिपोर्ट",
+  "finalRisk": "अंतिम जोखिम",
+  "simState": "सिम स्थिति",
+  "ipCountry": "आईपी देश",
+  "simCountry": "सिम देश",
+  "isRoaming": "रोमिंग",
+  "isNumberMatch": "नंबर मिलान",
+  "support": "सहायता",
+  "rewardedAdService": "पुरस्कृत विज्ञापन सेवा",
+  "hasVipPrivilegeExceptAds": "आपके पास पहले से ही वीआईपी विशेषाधिकार हैं (विज्ञापनों को छोड़कर)",
+  "hasTempPrivilegeWithExpiry": "आपके पास पहले से ही अस्थायी विशेषाधिकार हैं, समाप्ति तिथि: {expiryDate}",
+  "watchMoreAdsForTempVip": "अस्थायी वीआईपी विशेषाधिकार प्राप्त करने के लिए आपको {count} और विज्ञापन देखने होंगे",
+  "grantedTempPurchaseWithExpiry": "आपको {days} दिनों के अस्थायी खरीद विशेषाधिकार प्रदान किए गए हैं। समाप्ति तिथि: {expiryDate}",
+  "tempPurchaseExpired": "अस्थायी खरीद विशेषाधिकार समाप्त हो गया है",
+  "loadingAd": "विज्ञापन लोड हो रहा है...",
+  "earnedTempVip": "अस्थायी वीआईपी अर्जित किया",
+  "vipExchangeService": "वीआईपी एक्सचेंज सेवा",
+  "marksInsufficient": "एक्सचेंज के लिए अंक अपर्याप्त हैं",
+  "invalidExchangeRule": "अमान्य एक्सचेंज नियम",
+  "exchangeSuccess": "{description} के लिए सफलतापूर्वक एक्सचेंज किया गया, समाप्ति तिथि: {expiryDate}",
+  "exchangeFailed": "एक्सचेंज विफल: {error}",
+  "vip3DaysWithAds": "3-दिवसीय वीआईपी विज्ञापनों के साथ (केवल सिंक)",
+  "vip5DaysNoAds": "5-दिवसीय पूर्ण-विशेषताओं वाला विज्ञापन-मुक्त वीआईपी",
+  "vip7DaysNoAds": "7-दिवसीय पूर्ण-विशेषताओं वाला विज्ञापन-मुक्त वीआईपी",
+  "noNotifications": "कोई सूचना नहीं",
+  "clearAllNotifications": "सभी सूचनाएं साफ़ करें",
+  "clearAllNotificationsConfirmation": "सभी सूचनाएं साफ़ करने की पुष्टि करें",
+  "allNotificationsCleared": "सभी सूचनाएँ साफ कर दी गईं",
+  "clearButton": "साफ़ करें",
+  "justNow": "अभी",
+  "minutesAgo": "{count,plural, =1{1 मिनट पहले} other{{count} मिनट पहले}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1 घंटे पहले} other{{count} घंटे पहले}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1 दिन पहले} other{{count} दिन पहले}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "कल",
+  "deletionProposal": "हटाने का प्रस्ताव",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "हटाने के प्रस्ताव",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "प्रस्ताव बनाएं",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "हटाने का प्रस्ताव बनाएं",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "कारण",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "पुराना नंबर",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "गोपनीयता चिंता",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "सेवा में नहीं",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "गलत पहचान",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "गलत जानकारी",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "गलत चिह्नित",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "अन्य",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "जमा करें",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "रद्द करें",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "स्थिति",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "लंबित",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "सक्रिय",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "पूर्ण",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "समाप्त",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "जोखिम स्तर",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "सत्यापित",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "कम",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "उच्च",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "अज्ञात",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "मतदान प्रगति",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "सहमत: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "असहमत: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "कुल: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "सहमत",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "असहमत",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "बनाया गया: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "रिपोर्ट दिखाएं",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "रिपोर्ट छिपाएं",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "प्रस्ताव आँकड़े",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "कुल प्रस्ताव",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "सक्रिय प्रस्ताव",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "पूर्ण प्रस्ताव",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "मेरे वोट",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "प्रस्ताव सफलतापूर्वक बनाया गया",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "प्रस्ताव बनाने में विफल",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "वोट सफलतापूर्वक जमा किया गया",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "वोट जमा करने में विफल",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "कोई प्रस्ताव नहीं मिला",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "प्रस्ताव लोड हो रहे हैं...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "प्रस्ताव रीफ़्रेश करें",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "कुल लंबित प्रस्ताव",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "उच्च जोखिम",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "मध्यम जोखिम",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "कम जोखिम",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "सामुदायिक प्रभाव",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "गंभीर मुद्दे",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "सामुदायिक भागीदारी",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "कोई गतिविधि नहीं",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "कम",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "मध्यम",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "उच्च",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "बहुत उच्च",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "वोट दिया",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "सामुदायिक वोट",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "अधिक सामुदायिक वोटों की प्रतीक्षा है",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "यह प्रस्ताव संसाधित हो गया है",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "समर्थित",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "विरोध किया",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "अनुमोदित",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "अस्वीकृत",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "पूर्ण",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "लंबित",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "गंभीर",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "विरोध",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "बहुत कम",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "हटाने के प्रस्तावों के वोटिंग परिणामों और अपडेट के बारे में सूचनाएँ।",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "हटाने का प्रस्ताव बनाया गया",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "{phoneNumber} के लिए आपका हटाने का प्रस्ताव सामुदायिक समीक्षा के लिए प्रस्तुत किया गया है।",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "प्रस्ताव स्वीकृत ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "{phoneNumber} के लिए हटाने के प्रस्ताव को समुदाय द्वारा स्वीकृत कर दिया गया है ({supportPercentage}% समर्थन, {totalVotes} वोट)।",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "प्रस्ताव अस्वीकृत ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "{phoneNumber} के लिए हटाने के प्रस्ताव को समुदाय द्वारा अस्वीकृत कर दिया गया है ({supportPercentage}% समर्थन, {totalVotes} वोट)।",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "सामुदायिक मतदान शुरू हुआ",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "{phoneNumber} के लिए एक नया हटाने का प्रस्ताव अब सामुदायिक मतदान के लिए खुला है।",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "मतदान पूर्ण",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "{phoneNumber} के लिए सामुदायिक मतदान समाप्त हो गया है। परिणाम: {result} ({supportPercentage}% समर्थन)।",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "नया वोट प्राप्त हुआ",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "किसी ने {phoneNumber} को हटाने के लिए {voteType} किया। वर्तमान वोट: {totalVotes}।",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "वोटों की संख्या लोड करने में विफल",
+  "voteCount": "वोटों की संख्या",
+  "deletionProposalInfo": "हटाने के प्रस्ताव की जानकारी",
+  "deletionProposalDescription": "सामुदायिक दिशानिर्देशों का उल्लंघन करने वाले नंबरों को हटाने के लिए प्रस्ताव करें। आपकी भागीदारी मंच को सुरक्षित रखने में मदद करती है।",
+  "voteToEarnVip": "वीआईपी विशेषाधिकार अर्जित करने के लिए प्रस्तावों पर वोट करें!",
+  "voteFailed": "वोट विफल",
+  "searchProposals": "प्रस्तावों की खोज करें",
+  "defaultNotifications": "डिफ़ॉल्ट सूचनाएँ",
+  "defaultNotificationsDescription": "ऐप के लिए डिफ़ॉल्ट सूचना चैनल।",
+  "blockedCallNotifications": "ब्लॉक किए गए कॉल सूचनाएँ",
+  "blockedCallNotificationsDescription": "अवरुद्ध कॉलों के बारे में जानकारी प्रदर्शित करता है।",
+  "stirVerification": "STIR/SHAKEN सत्यापन",
+  "stirVerificationDescription": "नंबरों के लिए STIR/SHAKEN सत्यापन परिणाम प्रदर्शित करता है।",
+  "fraudAlerts": "धोखाधड़ी अलर्ट",
+  "fraudAlertsDescription": "संभावित धोखाधड़ी वाले कॉलों के लिए चेतावनियाँ प्रदर्शित करता है।",
+  "notificationFrequencyDescription": "चुनें कि आपको नए विलोपन प्रस्तावों के बारे में कितनी बार सूचनाएं प्राप्त होती हैं। आप उन्हें तुरंत, बैचों में, या कस्टम अंतराल पर प्राप्त कर सकते हैं।",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "तुरंत",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "जैसे ही कोई प्रस्ताव बनाया जाता है, तुरंत सूचना प्राप्त करें।",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "बैच में",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "समय-समय पर सूचनाओं का सारांश प्राप्त करें।",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "कस्टम",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "सूचनाएं प्राप्त करने के लिए अपना अंतराल परिभाषित करें।",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "कस्टम आवृत्ति",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} मिनट",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} घंटे",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} घंटे {minutes} मिनट",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "लंबित प्रस्ताव",
+  "pendingProposalsBody": "आपके पास {count, plural, =0 {कोई लंबित प्रस्ताव नहीं} one {1 लंबित प्रस्ताव} other {{count} लंबित प्रस्ताव}} हैं।",
+  "guidelinesLabel": "दिशानिर्देश",
+  "reportingGuidelines": "• केवल उन नंबरों की रिपोर्ट करें जो वास्तव में समस्याग्रस्त हैं\n• सटीक और विस्तृत कारण प्रदान करें\n• गंभीरता के आधार पर उचित जोखिम स्तर चुनें\n• गलत रिपोर्ट के परिणामस्वरूप खाता प्रतिबंध लग सकते हैं",
+  "riskLevelLabel": "जोखिम स्तर",
+  "riskLevelDescription": "नंबर का जोखिम स्तर",
+  "phoneNumberMinDigits": "फ़ोन नंबर में कम से कम 7 अंक होने चाहिए",
+  "provideDetailedExplanation": "विस्तृत स्पष्टीकरण प्रदान करें (न्यूनतम 10 वर्ण)",
+  "reasonMinCharacters": "कारण कम से कम 10 वर्णों का होना चाहिए",
+  "countryCodeTwoLetters": "देश कोड (ISO 3166-1 अल्फा-2) *",
+  "countryCodeLabel": "देश कोड (ISO 3166-1 अल्फा-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "जैसे, US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "देश कोड आवश्यक है",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "देश कोड 2 अक्षर का होना चाहिए",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "फ़ोन नंबर में कम से कम 7 अंक होने चाहिए",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "विस्तृत स्पष्टीकरण प्रदान करें (न्यूनतम 10 वर्ण)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "कारण आवश्यक है",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "कारण कम से कम 10 वर्णों का होना चाहिए",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "दिशानिर्देश",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• केवल उन नंबरों की रिपोर्ट करें जो वास्तव में समस्याग्रस्त हैं\n• सटीक और विस्तृत कारण प्रदान करें\n• गंभीरता के आधार पर उचित जोखिम स्तर चुनें\n• गलत रिपोर्ट के परिणामस्वरूप खाता प्रतिबंध लग सकते हैं",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "गंभीर",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "मध्यम",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "बहुत कम",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "बहुत कम - मामूली झुंझलाहट, कभी-कभी कॉल",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "कम - कभी-कभी अवांछित कॉल",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "मध्यम - नियमित स्पैम या टेलीमार्केटिंग",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "उच्च - लगातार उत्पीड़न या घोटाले के प्रयास",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "गंभीर - खतरनाक घोटाले या धमकियाँ",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "सूचना आवृत्ति",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "सूचना आवृत्ति (घंटे)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "त्रुटि: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "वोट: {totalVotes} ({supportPercentage}% समर्थन)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "समर्थन ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "विरोध ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "अभी",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes} मिनट पहले",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours} घंटे पहले",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days} दिन पहले",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "सूचना आवृत्ति (घंटे)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} वोट ({supportPercentage}% समर्थन)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 घंटे} =1{1 घंटा} other{{count} घंटे}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "महत्वपूर्ण सूचना",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "नंबर इंटरनेट और उपयोगकर्ता सबमिशन से प्राप्त होते हैं। हम गारंटी नहीं दे सकते कि एक नंबर, एक बार हटाए जाने के बाद, अन्य उपयोगकर्ताओं या स्रोतों द्वारा फिर से सबमिट नहीं किया जाएगा। कृपया सक्रिय रूप से खोजें और जानकारी सत्यापित करें।",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "अवतार",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "स्थान",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "सिम कार्ड",
+  "liveActivitiesSettingsTitle": "लाइव एक्टिविटीज सेटिंग्स",
+  "elementsSettingsTitle": "एलिमेंट्स सेटिंग्स",
+  "liveActivityMode": "लाइव एक्टिविटी",
+  "liveActivityModeDescription": "कॉल की जानकारी को लॉक स्क्रीन पर और डायनामिक आइलैंड (iOS) में एक लगातार सूचना के रूप में प्रदर्शित करता है।",
+  "phoneNumberType": "फ़ोन नंबर प्रकार",
+  "liveActivitiesTestEndActivity": "गतिविधि समाप्त करें",
+  "liveActivitiesTestSendNewActivity": "नई गतिविधि भेजें",
+  "liveActivitiesTestUpdateActivity": "गतिविधि अपडेट करें",
+  "liveActivityControlsTitle": "लाइव एक्टिविटी कंट्रोल्स",
+  "liveActivitiesTestTitle": "लाइव एक्टिविटीज टेस्ट",
+  "liveActivitiesTestSubtitle": "लाइव एक्टिविटी अधिसूचना का परीक्षण करें।",
+  "liveNotificationCustomizationTitle": "लाइव अधिसूचना अनुकूलन",
+  "liveNotificationCustomizationSubtitle": "लाइव सूचनाओं की उपस्थिति को अनुकूलित करें।",
+  "notification_instructions": "निर्देश:\n1. एक सूचना बनाने या अपडेट करने के लिए \"भेजें\" पर टैप करें।\n2. परिणाम देखने के लिए अपने होम स्क्रीन पर जाएं या अधिसूचना ट्रे को नीचे खींचें।\n3. अधिसूचना को बंद करने के लिए \"समाप्त करें\" पर टैप करें।",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "ऑटो कैंसिल अधिसूचना",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "यदि चेक किया गया है, तो उपयोगकर्ता द्वारा टैप करने पर अधिसूचना स्वचालित रूप से बंद हो जाएगी।",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "विलंब समय सेट करें",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "प्रस्ताव विवरण",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "स्थिति के अनुसार फ़िल्टर करें",
+  "proposalNotFound": "प्रस्ताव नहीं मिला",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "संसाधित",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "सभी दिखाएं",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "फ़िल्टर और सॉर्ट करें",
+  "filterVerifiedOwner": "सत्यापित मालिक द्वारा फ़िल्टर करें",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "द्वारा फ़िल्टर करें",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "सबसे पुराना सॉर्ट करें",
+  "sortNewest": "सबसे नया सॉर्ट करें",
+  "sortMostPopular": "सबसे लोकप्रिय सॉर्ट करें",
+  "sortLeastPopular": "सबसे कम लोकप्रिय सॉर्ट करें",
+  "sortBy": "द्वारा सॉर्ट करें",
+  "simRulesNotFound": "सिम नियम नहीं मिले",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "सिम स्लॉट नियम",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "कोई सिम कार्ड नहीं मिला",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "अमान्य सिम डेटा",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "सिम कार्ड डेटा",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "सिम स्लॉट",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "फ़िल्टरिंग सक्षम करें",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "विस्तृत सेटिंग्स",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "प्रवेश बिंदु दृश्य",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "अस्वीकृत",
+  "callTypeSilenced": "शांत",
+  "callTypeVoicemail": "वॉइसमेल",
+  "callTypeUnknownIntercept": "अज्ञात इंटरसेप्ट",
+  "andMoreItems": "और {count} अधिक आइटम",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

@@ -1,0 +1,3092 @@
+{
+  "@@locale": "fil",
+  "aboutContactSubscription": "Tungkol sa Subscription ng Contact",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "Tungkol sa Mga Label",
+  "aboutPhoneSubscriptionRules": "Tungkol sa Mga Panuntunan sa Subscription ng Telepono",
+  "aboutPhoneSubscriptions": "Tungkol sa Mga Subscription ng Telepono",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "Mag-subscribe sa mga listahan ng panuntunan sa telepono sa pamamagitan ng URL, awtomatikong i-update ang mga panuntunan. Sinusuportahan ang mga file ng panuntunan sa format na JSON, CSV.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "Tungkol sa Pag-filter ng SMS",
+  "aboutSmsSubscriptionRules": "Tungkol sa Mga Panuntunan sa Subscription ng SMS",
+  "aboutSubtitle": "Impormasyon sa bersyon ng application at legal",
+  "aboutTitle": "Tungkol",
+  "action": "Aksyon",
+  "actionAll": "Lahat",
+  "actionAllow": "Payagan",
+  "actionBlock": "I-block",
+  "actionFilterAll": "Lahat ng Filter",
+  "actionFilterTitle": "Salain ayon sa Uri ng Aksyon",
+  "actionFilterTooltip": "Filter ng Aksyon",
+  "actionNone": "Walang Aksyon",
+  "actionSilence": "Katahimikan",
+  "actionTag": "Aksyon: {actionType}",
+  "actionType": "Uri ng Aksyon",
+  "actionUnknown": "Hindi Alam",
+  "add": "Idagdag",
+  "addAllowedBlockedRule": "Magdagdag ng Panuntunan sa Pagpayag/Pag-block",
+  "addAllowSubscription": "Magdagdag ng Subscription sa Pagpayag",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Magdagdag ng Subscription sa Pag-block",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Magdagdag ng Contact",
+  "addContactFailed": "Hindi maidagdag ang contact: {error}",
+  "addedToAllowedRules": "Idinagdag sa Mga Pinayagang Panuntunan",
+  "addedToBlacklist": "Idinagdag sa Blacklist",
+  "addedToBlockedRules": "Idinagdag sa Mga Naka-block na Panuntunan",
+  "addedToFavoriteContacts": "Idinagdag sa mga paboritong contact",
+  "addedToFavorites": "Idinagdag sa mga paborito",
+  "addedToWhitelist": "Idinagdag sa Whitelist",
+  "addFavorite": "Magdagdag ng Paborito",
+  "addFilter": "Magdagdag ng Filter",
+  "addLabel": "Magdagdag ng Label",
+  "addLabelButton": "Magdagdag ng Label",
+  "addLabelFailed": "Hindi maidagdag ang label: {error}",
+  "addLabelToCall": "Magdagdag ng Label sa Tala ng Tawag",
+  "addName": "Magdagdag ng Pangalan",
+  "addNoneSubscription": "Magdagdag ng Subscription na Wala",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "Ginagamit upang magdagdag o mag-edit ng impormasyon ng contact",
+  "addPhoneMark": "Magdagdag ng Marka ng Telepono",
+  "addPhoneNumberRule": "Magdagdag ng Panuntunan sa Numero ng Telepono",
+  "addPlugin": "Magdagdag ng Plugin",
+  "addPluginFailed": "Hindi maidagdag ang plugin",
+  "addPluginFailedWithError": "Hindi maidagdag ang plugin: {error}",
+  "addPluginFromLocalFile": "Magdagdag ng Plugin mula sa Lokal na File",
+  "addPluginFromUrl": "Magdagdag ng Plugin mula sa URL",
+  "addRegexRule": "Magdagdag ng Panuntunan sa Regex",
+  "addRule": "Magdagdag ng Panuntunan",
+  "addRuleButton": "Magdagdag ng Panuntunan",
+  "addRuleFailed": "Hindi maidagdag ang panuntunan: {error}",
+  "addRuleTooltip": "Magdagdag ng Panuntunan",
+  "addSilenceSubscription": "Magdagdag ng Subscription sa Katahimikan",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "Magdagdag ng Panuntunan sa SIM",
+  "addSmsFilterRule": "Magdagdag ng Panuntunan sa Filter ng SMS",
+  "addSmsRule": "Magdagdag ng Panuntunan sa SMS",
+  "addSmsSubscription": "Magdagdag ng Subscription sa SMS",
+  "addSubscription": "Magdagdag ng Subscription",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Magdagdag ng Subscription",
+  "addSubscriptionFailed": "Hindi maidagdag ang subscription: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Magdagdag ng Subscription",
+  "addToAllowedRules": "Idagdag sa Mga Pinayagang Panuntunan",
+  "addToBlacklist": "Idagdag sa Blacklist",
+  "addToBlockedRules": "Idagdag sa Mga Naka-block na Panuntunan",
+  "addToFavoriteContacts": "Idagdag sa Mga Paboritong Contact",
+  "addToFavorites": "Idagdag sa Mga Paborito",
+  "addToRules": "Idagdag sa Mga Panuntunan",
+  "addToWhitelist": "Idagdag sa Whitelist",
+  "adPlaceholder": "Placeholder ng Ad",
+  "agent": "Ahente",
+  "all": "Lahat",
+  "allCallsTab": "Lahat",
+  "allDataClearedSuccessfully": "Matagumpay na nabura ang lahat ng data",
+  "allow": "Payagan",
+  "allowAllAllowRules": "Payagan Lahat ng Panuntunan sa Pagpayag",
+  "allowAllAllowRulesDesc": "Payagan ang mga tawag mula sa mga panuntunan sa pagpayag",
+  "allowAllBlacklistedNumbers": "Payagan Lahat ng Naka-blacklist na Numero",
+  "allowAllBlacklistedNumbersDesc": "Payagan ang mga tawag mula sa listahan ng pag-block",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "Payagan Lahat ng Panuntunan sa Pag-block",
+  "allowAllBlockRulesDesc": "Payagan ang mga tawag mula sa mga panuntunan sa pag-block",
+  "allowAllowedNumbers": "Payagan ang Mga Pinayagang Numero",
+  "allowAllowedNumbersDesc": "Payagan ang mga tawag mula sa listahan ng pagpayag",
+  "allowBlock": "Payagan/I-block",
+  "allowBlockedNumbers": "Payagan ang Mga Naka-block na Numero",
+  "allowBlockedNumbersDesc": "Payagan ang mga tawag mula sa listahan ng pag-block",
+  "allowedBlockedRule": "Panuntunan sa Pagpayag/Pag-block",
+  "allowedBlockedRuleEditDialogTitle": "I-edit ang Panuntunan sa Pagpayag/Pag-block",
+  "allowedBlockedRuleManagement": "Pamamahala ng Panuntunan sa Pagpayag/Pag-block",
+  "allowNonExceededNumbers": "Payagan ang Mga Numero na Hindi Lumampas",
+  "allowNonExceededNumbersDescription": "Awtomatikong payagan ang mga numero na hindi lumalagpas sa bilang na threshold",
+  "allowRegexAllowRules": "Payagan ang Mga Panuntunan sa Pagpayag na Regex",
+  "allowRegexAllowRulesDesc": "Paganahin ang pagtutugma ng pattern ng regex para sa mga panuntunan sa pagpayag",
+  "allowRegexAllowRulesDescription": "Paganahin ang mga panuntunan sa pagpayag na nakabatay sa regex",
+  "allowRegexBlockRules": "Payagan ang Mga Panuntunan sa Pag-block na Regex",
+  "allowRegexBlockRulesDesc": "Paganahin ang pagtutugma ng pattern ng regex para sa mga panuntunan sa pag-block",
+  "allowRegexBlockRulesDescription": "Paganahin ang mga panuntunan sa pag-block na nakabatay sa regex",
+  "allowRule": "Panuntunan sa Pagpayag",
+  "allowRules": "Mga Panuntunan sa Pagpayag",
+  "allowWhitelistedNumbers": "Pahintulutan ang mga Naka-Whitelist na Numero",
+  "allowWhitelistedNumbersDescription": "Payagan ang lahat ng numero sa whitelist",
+  "allPermissionsGranted": "Lahat ng Pahintulot ay Ibinigay",
+  "allSettingsCompleted": "Tapos na ang lahat ng setting.",
+  "allUpdateSuccess": "Tapos na ang lahat ng update ({count} mga panuntunan)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "Sumagot pagkatapos saka ibaba ang telepono",
+  "appLegalese": "© 2023 Your Call Your Rule. Lahat ng karapatan ay nakalaan.",
+  "applicationSoftware": "Software ng Aplikasyon",
+  "apply": "Ilapat",
+  "appName": "Your Call Your Rule",
+  "authorizationFailedCheckCredentialsMessage": "Nabigo ang awtorisasyon: Pakisuri ang client ID at susi",
+  "authorizationFailedMessage": "Nabigo ang awtorisasyon",
+  "authorizationSuccessMessage": "Naging matagumpay ang awtorisasyon",
+  "authorizeLoginButton": "Awtorisahan ang Pag-login",
+  "automotiveIndustry": "Industriya ng Sasakyan",
+  "autoSyncLabel": "Awtomatikong Pag-sync",
+  "autoUpdate": "Awtomatikong Pag-update",
+  "autoUpdateDescription": "Itakda ang mga pagitan ng awtomatikong pag-update para sa mga subscription o manu-manong mag-update",
+  "autoUpdateSettings": "Mga Setting ng Awtomatikong Pag-update",
+  "autoUpdateSettingsSubtitle": "Pamahalaan ang mga awtomatikong pag-update para sa mga panuntunan at plugin",
+  "autoUpdateSettingsTitle": "Mga Setting ng Awtomatikong Pag-update",
+  "autoUpdateSubtitle": "Pamahalaan ang mga awtomatikong pag-update para sa mga panuntunan at plugin",
+  "autoUpdateTitle": "Awtomatikong Pag-update",
+  "avatarBorderColor": "Kulay ng Border ng Avatar",
+  "avatarBorderSize": "Sukat ng Border ng Avatar",
+  "avatarIconSizesSetting": "Mga Sukat ng Avatar at Icon",
+  "avatarPosition": "Posisyon ng Avatar",
+  "avatarSize": "Sukat ng Avatar",
+  "axisPosition": "{axis} na Posisyon",
+  "backgroundGradientSetting": "Gradient ng Background",
+  "backup": "Backup",
+  "backupAndRestore": "Backup at Pag-restore",
+  "backupAndRestoreSubtitle": "Mag-backup o mag-restore ng data ng aplikasyon",
+  "backupAndRestoreTitle": "Backup & Pag-restore",
+  "backupFailed": "Nabigo ang backup",
+  "backupFailedMessage": "Nabigo ang backup",
+  "backupFailedWithError": "Nabigo ang backup: {error}",
+  "backupRestoreSubtitle": "Mag-backup o mag-restore ng data ng aplikasyon",
+  "backupRestoreTitle": "Backup & Pag-restore",
+  "backupSectionTitle": "Backup",
+  "backupSettings": "Mga Setting ng Backup",
+  "backupSettingsDialogTitle": "Mga Setting ng Backup",
+  "backupSettingsTitle": "Mga Setting ng Backup",
+  "backupSuccessMessage": "Naging matagumpay ang pag-backup sa cloud",
+  "backupSuccessToLocal": "Naging matagumpay ang backup sa: {path}",
+  "backupToCloud": "Mag-backup sa Cloud",
+  "backupToCloudDescription": "Mag-backup ng mga setting at panuntunan sa cloud storage",
+  "backupToCloudFailed": "Nabigong mag-backup sa cloud: {error}",
+  "backupToCloudLabel": "Mag-backup sa Cloud",
+  "backupToCloudSuccess": "Naging matagumpay ang pag-backup sa cloud",
+  "backupToCloudTitle": "Mag-backup sa Cloud",
+  "backupToLocalLabel": "Mag-backup sa Lokal",
+  "bank": "Bangko",
+  "basicInfo": "Pangunahing Impormasyon",
+  "basicRuleFilter": "Pangunahing Filter ng Panuntunan",
+  "basicRuleFiltering": "Pangunahing Pag-filter ng Panuntunan",
+  "basicRuleFilteringExplanation": "• Pangunahing Pag-filter ng Panuntunan: Pag-filter ng mga panuntunan batay sa blacklist, whitelist, at regex",
+  "basicRuleFilterSettings": "Mga Setting ng Pangunahing Filter ng Panuntunan",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "Salain ang mga tawag gamit ang blacklist/whitelist at mga regular na expression",
+  "batchDeleteContacts": "Maramihang Pagbura ng mga Contact",
+  "batchDeleteContactsConfirm": "Sigurado ka bang gusto mong burahin ang {count} napiling mga contact?",
+  "batchDeleteFailed": "Nabigo ang maramihang pagbura",
+  "batchDeleteLabelsConfirm": "Sigurado ka bang gusto mong burahin ang {count} mga label?",
+  "blacklist": "Blacklist",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "Pag-blacklist at Pag-whitelist",
+  "blacklistLabel": "Blacklist",
+  "blackWhiteList": "Listahan ng Black/White",
+  "block": "I-block",
+  "blockCalls": "I-block ang mga Tawag",
+  "blocked": "Naka-block",
+  "blockedCallAction": "Aksyon sa Naka-block na Tawag",
+  "blockedCalls": "Mga Naka-block na Tawag",
+  "blockedCallsTitle": "Mga Naka-block na Tawag",
+  "blockedCommunications": "Mga Naka-block na Komunikasyon",
+  "blockedPhoneLabel": "Mga Naka-block na Tawag",
+  "blockedSpamCalls": "Mga Naka-block na Spam na Tawag",
+  "blockingTrend": "Trend ng Pag-block",
+  "blockInternationalCalls": "tumutugma sa mga numero na hindi nagsisimula sa + o 00",
+  "blockInternationalCallsTitle": "I-block ang mga Internasyonal na Tawag",
+  "blockLandlineNumbersTitle": "I-block ang mga Numero ng Landline",
+  "blockMobileNumbers": "tumutugma sa mga numero na hindi nagsisimula sa 13-19",
+  "blockMobileNumbersTitle": "I-block ang mga Numero ng Mobile",
+  "blockPremiumRateNumbers": "tumutugma sa mga numero na hindi nagsisimula sa 118 o 120-190",
+  "blockPremiumRateNumbersTitle": "I-block ang mga Numero ng Premium Rate",
+  "blockRule": "Panuntunan sa Pag-block",
+  "blockRules": "Mga Panuntunan sa Pag-block",
+  "blockSpecificAreaCodes": "tumutugma sa mga numero na nagsisimula sa 0 + 2-3 digit",
+  "blockSpecificAreaCodesTitle": "I-block ang mga partikular na area code:",
+  "blockTypeAnalysisTitle": "Pagsusuri ng Uri ng Pag-block",
+  "both": "Pareho",
+  "bulkDelete": "Maramihang Pagbura ng mga Contact",
+  "bulkDeleteContacts": "Maramihang Pagbura ng mga Contact",
+  "bulkDeleteLabels": "Maramihang Pagbura ng mga Label",
+  "call": "Tawag",
+  "callback": "Tumawag Pabalik",
+  "callbackTo": "Tumawag pabalik sa {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "Pag-block ng Tawag",
+  "callerIdApp": "App ng Caller ID",
+  "callerIdCustomizationTitle": "I-customize ang Caller ID",
+  "callerIdDialogTitle": "Impormasyon ng Caller ID",
+  "callerIdDisplayMode": "Paraan ng Pagpapakita ng Caller ID",
+  "callerIdMarkedByCount": "Minarkahan ng {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "Preview ng Caller ID",
+  "callFilter": "Filter ng Tawag",
+  "callFilterDescription": "Kapag pinagana, ang mga papasok na tawag ay susuriin laban sa listahan ng panuntunan sa ibaba. Ang mga panuntunan sa pag-filter ng tawag ay hindi awtomatikong nagsi-sync sa pagitan ng mga device.",
+  "callFilterRules": "Mga Panuntunan sa Filter ng Tawag",
+  "callFilterRulesDescription": "Magtakda ng mga pangunahing panuntunan para sa pag-filter ng tawag",
+  "callFilterSettings": "Mga Setting ng Filter ng Tawag",
+  "callFrequencyInterceptionSubtitle": "Magtakda ng mga limitasyon sa dalas ng tawag at mga panuntunan sa pag-block",
+  "callFrequencyInterceptionTitle": "Pagharang sa Dalas ng Tawag",
+  "callHistory": "Kasaysayan ng Tawag",
+  "callHistoryInfoDesc": "Dito ipinapakita ang iyong kasaysayan ng tawag, kabilang ang mga papasok, papalabas, at hindi nasagot na tawag.",
+  "callHistoryInfoTitle": "Kasaysayan ng Tawag",
+  "callHistoryInitFailed": "Nabigo ang pag-initialize ng kasaysayan ng tawag: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "Nabigo ang pag-refresh ng kasaysayan ng tawag: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "Kasaysayan ng Tawag",
+  "callHistoryTimelineEarlier": "Mas Maaga",
+  "callHistoryTimelineToday": "Ngayon",
+  "callHistoryTimelineYesterday": "Kahapon",
+  "callScreeningPermission": "Pahintulot sa Pagsala ng Tawag",
+  "callScreeningPermissionDescription": "Ginagamit para salain at i-block ang mga spam call.",
+  "callScreeningPermissionNotGranted": "Hindi naibigay ang pahintulot sa pagsala ng tawag, maaaring makaapekto sa paggana ng app.",
+  "callSettingsSubtitle": "Mga setting ng Caller ID, pag-filter, at pag-block",
+  "callSettingsTitle": "Mga Setting ng Tawag",
+  "callStatistics": "Mga Estadistika ng Tawag",
+  "callTypeAnswered": "Nasagot",
+  "callTypeBlocked": "Naka-block",
+  "callTypeIconColor": "Kulay ng Icon ng Uri ng Tawag",
+  "callTypeMissed": "Hindi Nasagot na Tawag",
+  "callTypeOutgoing": "Papalabas",
+  "callTypePosition": "Posisyon ng Uri ng Tawag",
+  "callTypeUnknown": "Hindi Alam",
+  "cancelButton": "Kanselahin",
+  "carRental": "Pag-upa ng Sasakyan",
+  "carrier": "Carrier",
+  "carrierColor": "Kulay ng Carrier",
+  "carrierFontSize": "Sukat ng Font ng Carrier",
+  "carrierPosition": "Posisyon ng Carrier",
+  "changeLabel": "Baguhin ang Label",
+  "changePluginStatusFailed": "Nabigo ang pagbabago ng status ng plugin: {error}",
+  "changeSubscriptionStatusFailed": "Nabigo ang pagbabago ng status ng subscription: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "Baguhin ang Tag",
+  "charity": "Kawanggawa",
+  "chartMonthFormat": "Buwan {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "1 araw ang nakalipas",
+  "chartOneMonthAgo": "1 buwan ang nakalipas",
+  "chartOneWeekAgo": "1 linggo ang nakalipas",
+  "chartTenDaysAgo": "10 araw ang nakalipas",
+  "chartThreeDaysAgo": "3 araw ang nakalipas",
+  "chartToday": "Ngayon",
+  "checkFileFormat": "Pakisuri ang format ng file o mga pahintulot",
+  "checkPermissionFailed": "Nabigo ang pagsusuri ng mga pahintulot: {error}",
+  "chooseDefaultInterceptAction": "Pumili ng default na aksyon sa pagharang",
+  "clearAllData": "Burahin Lahat ng Data",
+  "clearAllDataConfirmation": "Sigurado ka bang gusto mong burahin ang lahat ng data ng application? Ang aksyong ito ay hindi maaaring bawiin.",
+  "clearAllDataDescription": "Burahin ang lahat ng data ng application",
+  "clearAllDataLabel": "Burahin Lahat ng Data",
+  "clearFilter": "Burahin ang Filter",
+  "clearLabelFilter": "Burahin ang Filter ng Label",
+  "clearLabelFilterButton": "Burahin ang Filter ng Label",
+  "closeButton": "Isara",
+  "cloudSync": "Pag-sync sa Cloud",
+  "cloudSyncAndBackupTitle": "Pag-sync at Pag-backup sa Cloud",
+  "cloudSyncSettingsSubtitle": "I-configure ang WebDAV, OneDrive, at Google Drive",
+  "cloudSyncSettingsTitle": "Mga Setting ng Pag-sync sa Cloud",
+  "cloudSyncTitle": "Pag-sync sa Cloud",
+  "collapseLabelSelector": "Isara ang Tagapili ng Label",
+  "collection": "Pangongolekta ng Utang",
+  "colorPickerTitle": "Pumili ng Kulay",
+  "configManagement": "Pamamahala ng Konfigurasyon",
+  "configUpdated": "Na-update ang Konfigurasyon",
+  "configurationAdvice": "Sa pamamagitan ng tamang konfigurasyon, maaari kang magtakda ng iba't ibang mga estratehiya sa pag-filter para sa mga SIM card sa trabaho at personal. ",
+  "configureBackupOptions": "I-configure ang mga Opsyon sa Pag-backup",
+  "configureBackupOptionsSubtitle": "I-configure ang mga opsyon sa pag-backup",
+  "configureCloudSyncService": "I-configure ang Serbisyo ng Pag-sync sa Cloud",
+  "configureCloudSyncServiceHint": "Pakisuyong i-configure ang isang serbisyo ng pag-sync sa cloud upang paganahin ang multi-device synchronization.",
+  "configureCloudSyncServiceMessage": "Pakisuyong i-configure ang isang serbisyo ng pag-sync sa cloud upang paganahin ang multi-device synchronization.",
+  "configureSimCardFilterRules": "I-configure ang mga Panuntunan sa Filter ng SIM Card",
+  "configureSyncServiceHint": "Pakisuyong i-configure muna ang sync service sa mga setting ng cloud sync",
+  "confirm": "Kumpirmahin",
+  "confirmBatchDeleteContacts": "Sigurado ka bang gusto mong burahin ang mga napiling",
+  "confirmButton": "Kumpirmahin",
+  "confirmDelete": "Kumpirmahin ang Pagbubura",
+  "confirmDeleteContact": "Sigurado ka bang gusto mong burahin ang",
+  "confirmDeleteContactName": "Kumpirmahin ang pagbubura?",
+  "confirmDeleteFilter": "Sigurado ka bang gusto mong burahin ang filter na ito?",
+  "confirmDeleteLabel": "Sigurado ka bang gusto mong burahin ang label na \"{name}\"",
+  "confirmDeletePlugin": "Sigurado ka bang gusto mong burahin ang plugin na \"{name}\"?",
+  "confirmDeletePlugins": "Sigurado ka bang gusto mong burahin ang {count} na plugin?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "Sigurado ka bang gusto mong burahin ang panuntunang ito? Ang aksyong ito ay hindi maaaring bawiin.",
+  "confirmDeleteSelectedContacts": "Sigurado ka bang burahin ang mga napiling contact?",
+  "confirmDeleteSmsFilterRule": "Sigurado ka bang gusto mong burahin ang SMS filter rule na ito?",
+  "confirmDeleteSmsRule": "Sigurado ka bang gusto mong burahin ang SMS rule na ito?",
+  "confirmDeleteSubscription": "Sigurado ka bang gusto mong burahin ang subscription na ito?",
+  "confirmDeleteSubscriptions": "Sigurado ka bang gusto mong burahin ang {name}?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "Kumpirmahin ang Password",
+  "confirmPasswordLabel": "Kumpirmahin ang Password",
+  "connectedStatus": "Konektado",
+  "connectionFailedCheckCredentialsMessage": "Nabigo ang koneksyon: Pakisuri ang address ng server, username, at password",
+  "connectionFailedMessage": "Nabigo ang koneksyon",
+  "connectionStatusLabel": "Katayuan ng Koneksyon",
+  "connectionSuccessMessage": "Matagumpay ang koneksyon",
+  "contactAddSuccess": "Matagumpay na nadagdag ang contact",
+  "contactDeleted": "Nabura ang contact",
+  "contactEditDialog": "Dialog para sa Pag-edit ng Contact",
+  "contactNameHint": "Ilagay ang pangalan ng contact (opsyonal)",
+  "contactNameLabel": "Pangalan",
+  "contactNameOptional": "Pangalan ng contact (opsyonal)",
+  "contactNotFound": "Hindi natagpuan ang contact",
+  "contacts": "mga contact",
+  "contactsDeleted": "Nabura ang {count} na contact",
+  "contactSettingsSubtitle": "Pamamahala ng contact at mga setting ng label",
+  "contactSettingsTitle": "Mga Setting ng Contact",
+  "contactsLoadingFailed": "Nabigong i-load ang mga contact: {error}",
+  "contactsManagement": "Pamamahala ng mga Contact",
+  "contactsManagementPageTitle": "Pahina ng Pamamahala ng mga Contact",
+  "contactsPageTitle": "Pamamahala ng mga Contact",
+  "contactsPermission": "Pahintulot sa Mga Contact",
+  "contactsPermissionDescription": "Ginagamit upang matukoy ang mga tawag sa contact.",
+  "contactsTab": "Mga Contact",
+  "contactSubscriptionDescription": "Mag-subscribe sa mga listahan ng contact sa pamamagitan ng URL, awtomatikong i-update ang impormasyon at mga label ng contact. Sinusuportahan ang data sa format na JSON.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "Nabigong i-load ang mga subscription ng contact: {error}",
+  "contactSubscriptionPageTitle": "Mga Subscription ng Contact",
+  "contactUpdateSuccess": "Matagumpay na na-update ang contact",
+  "contactUs": "Makipag-ugnayan sa Amin",
+  "content": "Nilalaman",
+  "contentRegex": "Regex ng Nilalaman",
+  "countColor": "Kulay ng Bilang",
+  "countFontSize": "Laki ng Font ng Bilang",
+  "countPosition": "Posisyon ng Bilang",
+  "country": "Bansa",
+  "countryNameColor": "Kulay ng Pangalan ng Bansa",
+  "countryNameFontSize": "Laki ng Font ng Pangalan ng Bansa",
+  "countryRegionNamePosition": "Posisyon ng Pangalan ng Bansa/Rehiyon",
+  "countrySelectionDialog": "Dialog sa Pagpili ng Bansa",
+  "countrySelectionDialogDescription": "Ginagamit upang pumili ng bansa para sa pagkuha ng impormasyon ng caller ID",
+  "countThresholdDescription": "Itakda ang pinakamababang threshold ng bilang na kinakailangan upang ma-trigger ang mga aksyon sa pag-filter",
+  "countThresholdLabel": "Threshold ng Bilang",
+  "countThresholdSettings": "Mga Setting ng Threshold ng Bilang",
+  "countThresholdValue": "Threshold ng Bilang: {count}",
+  "createdRules": "Mga Nalikhang Panuntunan",
+  "csvFormat": "Format na CSV",
+  "currentDeviceChip": "Kasalukuyan",
+  "currentDeviceLabel": "Label ng Kasalukuyang Device",
+  "currentDeviceTitle": "Kasalukuyang Device",
+  "currentLabels": "Mga Kasalukuyang Label:",
+  "currentLanguage": "Kasalukuyang Wika",
+  "currentPasswordLabel": "Kasalukuyang Password",
+  "customerService": "Serbisyo sa Kostumer",
+  "customRange": "Pasadyang Saklaw",
+  "dailyStatistics": "Pang-araw-araw na Estadistika",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "Tumanggap ng pang-araw-araw na istatistika tungkol sa mga blocked na tawag at mensahe",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "Dashboard",
+  "dataAnalysis": "Pagsusuri ng Datos",
+  "dataAnalysisDashboardPage": "Pahina ng Dashboard ng Pagsusuri ng Datos",
+  "dataExport": "Pag-export ng Datos",
+  "dataLoadFailure": "Nabigong i-load ang datos: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "Nabigong i-load ang datos: {error}",
+  "dataMigration": "Migrasyon ng Datos",
+  "dataMigrationDescription": "Ang tampok na ito ay nagpapahintulot sa iyo na ilipat ang lahat ng iyong data sa pagitan ng mga device. Sa kasalukuyan, maaari mong gamitin ang mga tampok ng backup at restore upang manu-manong ilipat ang iyong data.",
+  "dataMigrationDialogContent": "Ang tampok na ito ay nagpapahintulot sa iyo na ilipat ang lahat ng iyong data sa pagitan ng mga device. Sa kasalukuyan, maaari mong gamitin ang mga tampok ng backup at restore upang manu-manong ilipat ang iyong data.",
+  "dataMigrationDialogTitle": "Migrasyon ng Datos",
+  "dataMigrationSectionTitle": "Migrasyon ng Datos",
+  "dataSourceReminder": "Paalala sa Pinagmulan ng Datos",
+  "days": "{count, plural, =1{1 araw} other{{count} araw}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} Araw na VIP",
+  "debtCollection": "Pagkolekta ng Utang",
+  "defaultPeriod": "Linggo",
+  "delete": "Burahin",
+  "deleteButton": "Burahin",
+  "deleteContact": "Burahin ang Contact",
+  "deleteContactConfirm": "Sigurado ka bang gusto mong burahin si {name}?",
+  "deleteContactConfirmation": "Sigurado ka bang gusto mong burahin ang contact",
+  "deleteDeviceConfirmation": "Sigurado ka bang gusto mong burahin ang {deviceName}?",
+  "deleteDeviceDialogTitle": "Burahin ang Device",
+  "deleteFailed": "Nabigong burahin: {error}",
+  "deleteFilter": "Burahin ang Filter",
+  "deleteLabel": "Burahin ang Label",
+  "deleteLabelFailed": "Nabigong burahin ang label: {error}",
+  "deletePlugin": "Burahin ang Plugin",
+  "deletePluginFailed": "Nabigong burahin ang plugin: {error}",
+  "deletePlugins": "Burahin ang mga Plugin",
+  "deletePluginsFailed": "Nabigong burahin ang mga plugin: {error}",
+  "deleteRule": "Burahin ang Panuntunan",
+  "deleteRuleFailed": "Nabigong burahin: {error}",
+  "deleteSelected": "Burahin ang Pinili",
+  "deleteSmsRule": "Burahin ang Panuntunan sa SMS",
+  "deleteSubscription": "Burahin ang Subscription",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "Sigurado ka bang gusto mong burahin ang subscription \"{name}\"?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "Nabigong burahin ang subscription: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "Matagumpay na nabura",
+  "delivery": "Pagpapadala",
+  "deviceDeletedSuccessfully": "Matagumpay na nabura ang device",
+  "deviceDeletedSuccessfullyMessage": "Matagumpay na nabura ang device",
+  "deviceIdLabel": "Device ID",
+  "deviceIDLabel": "Device ID",
+  "deviceManagementSubtitle": "Pamahalaan ang multi-device synchronization",
+  "deviceManagementTitle": "Pamamahala ng Device",
+  "deviceModelLabel": "Modelo ng Device",
+  "deviceName": "Pangalan ng Device",
+  "deviceNameCannotBeEmpty": "Hindi maaaring walang laman ang pangalan ng device",
+  "deviceNameHint": "Mangyaring ilagay ang pangalan ng device",
+  "deviceNameLabel": "Pangalan ng Device",
+  "deviceRenamedSuccessfully": "Matagumpay na napalitan ang pangalan ng device",
+  "deviceRenamedSuccessfullyMessage": "Matagumpay na napalitan ang pangalan ng device",
+  "devicesSyncedSuccessfully": "Matagumpay na na-synchronize ang mga device",
+  "devicesSyncedSuccessfullyMessage": "Matagumpay na na-synchronize ang mga device",
+  "devicesSynchronizedSuccessfullyMessage": "Matagumpay na na-synchronize ang mga device",
+  "deviceUnregisteredSuccessfullyMessage": "Matagumpay na na-unregistered ang device",
+  "dialogTitle": "Paliwanag sa Regex Pattern",
+  "differentFromLocalCounter": "Iba ang tampok na ito sa local counter filter, dahil nakatuon ito sa mga paulit-ulit na pattern ng tawag sa maikling panahon sa halip na sa pangmatagalang pagmamarka ng bilang.",
+  "disabled": "Naka-disable",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "Naka-disable",
+  "disableGlobalPlugins": "I-disable ang mga global plugin",
+  "disableSubscriptionSuccessfully": "Matagumpay na na-disable ang subscription",
+  "disconnectButton": "Idiskonekta",
+  "disconnectedMessage": "Naka-disconnect",
+  "disconnectedStatus": "Naka-disconnect",
+  "disconnectFailedMessage": "Nabigo ang pagdiskonekta",
+  "done": "Tapos na",
+  "dualSimAdvice": "Partikular na kapaki-pakinabang ang tampok na ito para sa dual-SIM na telepono upang magtakda ng iba't ibang mga estratehiya sa pag-filter para sa trabaho at personal na mga SIM card.",
+  "earlier": "Mas maaga",
+  "ecommerce": "Ecommerce",
+  "edit": "I-edit",
+  "editContact": "I-edit ang Contact",
+  "editFilter": "I-edit ang Filter",
+  "editLabel": "I-edit ang Label",
+  "editPhoneRule": "I-edit ang Panuntunan ng Telepono",
+  "editPhoneRules": "Ginamit para sa pag-edit ng mga panuntunan sa telepono",
+  "editPhoneRuleTitle": "I-edit ang Panuntunan ng Telepono",
+  "editRule": "I-edit ang Panuntunan",
+  "editSmsRule": "I-edit ang Panuntunan ng SMS",
+  "education": "Edukasyon",
+  "elementPositionsSetting": "Mga Posisyon ng Elemento",
+  "email": "Email",
+  "emailOptional": "Email (Opsyonal)",
+  "enableCallFilter": "Paganahin ang Call Filter",
+  "enableCallFilterDescription": "Kapag pinagana, ang mga papasok na tawag ay susuriin laban sa listahan ng panuntunan sa ibaba. Ang mga panuntunan sa pag-filter ng tawag ay hindi naka-synchronize sa pagitan ng mga device bilang default.",
+  "enabled": "Pinagana",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "Pinagana",
+  "enableEncryption": "Paganahin ang Encryption",
+  "enableEncryptionDescription": "I-encrypt ang mga backup na file",
+  "enableEncryptionLabel": "Paganahin ang Encryption",
+  "enableEncryptionSubtitle": "Ang mga backup na file ay mai-encrypt",
+  "enableEncryptionTitle": "Paganahin ang Encryption",
+  "enableGlobalPlugins": "Paganahin ang mga global plugin",
+  "enableLocalCountFilter": "Paganahin ang Local Count Filter",
+  "enableLocalCountFilterDescription": "Awtomatikong i-filter ang mga spam call batay sa bilang ng pagmamarka ng tawag",
+  "enableLocalNotification": "Gumamit ng Lokal na Notipikasyon",
+  "enableLocalNotificationDescription": "Kapag pinagana, ang mga notipikasyon para sa mga na-filter na mensahe ay ipapakita sa device",
+  "enableLocationSummary": "Lokasyon",
+  "enableMuteRules": "Paganahin ang Mute Rules",
+  "enableMuteRulesDesc": "Ilapat ang pagsasaayos ng mga panuntunan sa intercept ng mute",
+  "enableNoneActionRules": "Paganahin ang Mga Panuntunan na Walang Aksyon",
+  "enableNoneActionRulesDesc": "Payagan ang mga pagsasaayos ng panuntunan na walang mga aksyon ng intercept",
+  "enableNotifications": "Paganahin ang mga Notipikasyon",
+  "enableRemoteNumberFilter": "Paganahin ang Remote Number Filter",
+  "enableRemoteNumberFilterDescription": "Gumamit ng remote na database para i-filter ang mga numero",
+  "enableRule": "Paganahin ang Panuntunan",
+  "enableSmsFilter": "Paganahin ang Pag-filter ng SMS",
+  "enableSmsFilterDescription": "Kapag pinagana, ang mga mensahe ay awtomatikong ifi-filter ayon sa mga panuntunan",
+  "enableStatisticsNotifications": "Paganahin ang Mga Notipikasyon sa Estadistika",
+  "enableSubscriptionSuccessfully": "Matagumpay na na-enable ang subscription",
+  "enableTimeInterception": "Paganahin ang Time Interception",
+  "enableTimeInterceptionDescription": "I-intercept ang mga paulit-ulit na tawag sa loob ng maikling panahon",
+  "enableTimeInterceptor": "Paganahin ang Time Interceptor",
+  "endCallImmediately": "Tapusin agad ang tawag",
+  "endColor": "Kulay ng Pagtatapos",
+  "endDate": "Petsa ng Pagtatapos",
+  "enhancedFilterInstructionsTitle": "Pinahusay na Sistema ng Filter",
+  "enhancedFilterSettings": "Mga Pagsasaayos ng Pinahusay na Filter",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "Mga Pagsasaayos ng Pinahusay na Filter",
+  "enhancedFilterSystemDescription": "Sinusuportahan ng pinahusay na sistema ng filter ang parehong mga global na panuntunan at mga pagsasaayos ng pag-filter bawat SIM card.",
+  "enterBothPhoneNumberAndRegexPattern": "Mangyaring ilagay ang parehong numero ng telepono at regex pattern",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Mangyaring ilagay ang parehong numero ng telepono at regex pattern.",
+  "enterContactName": "Mangyaring ilagay ang pangalan ng contact",
+  "enterCurrentPasswordHint": "Mangyaring ilagay ang kasalukuyang password",
+  "enterDeviceName": "Ilagay ang Pangalan ng Device",
+  "enterDeviceNameHint": "Mangyaring ilagay ang pangalan ng device",
+  "enterEmail": "Mangyaring ilagay ang email",
+  "enterEmailOptional": "Mangyaring ilagay ang email (opsyonal)",
+  "enterEncryptionPasswordHint": "Ilagay ang encryption password",
+  "enterEncryptionPasswordTitle": "Ilagay ang Encryption Password",
+  "enterFilterName": "Mangyaring ilagay ang pangalan ng filter",
+  "enterFilterPattern": "Mangyaring ilagay ang pattern ng filter",
+  "enterIconCode": "Ilagay ang code ng icon",
+  "enterName": "Ilagay ang pangalan ng contact",
+  "enterNewDeviceNameHint": "Maglagay ng bagong pangalan para sa device na ito",
+  "enterNewPasswordHint": "Mangyaring ilagay ang bagong password",
+  "enterPasswordAgain": "Ilagay muli ang Password",
+  "enterPasswordHint": "Mangyaring ilagay ang password",
+  "enterPhoneNumber": "Ilagay ang numero ng telepono",
+  "enterPhoneNumberHint": "Ilagay ang numero ng telepono upang subukan",
+  "enterPhoneNumberMultiple": "Mangyaring ilagay ang numero ng telepono, maraming numero na pinaghihiwalay ng kuwit",
+  "enterPhoneNumberToStartSearch": "Ilagay ang numero ng telepono upang simulan ang paghahanap",
+  "enterPhoneNumberToVerify": "Ilagay ang numero ng telepono upang i-verify",
+  "enterPluginName": "Ilagay ang Pangalan ng Plugin",
+  "enterPluginUrl": "Ilagay ang URL address ng plugin",
+  "enterRegexHint": "Ilagay ang regex pattern",
+  "enterRuleNameAndPattern": "Mangyaring ilagay ang pangalan ng panuntunan at pattern",
+  "enterRuleNameAndPatternMessage": "Pakilagay parehong pangalan ng tuntunin at regex pattern.",
+  "enterRuleNameHint": "Ilagay ang pangalan ng tuntunin",
+  "enterSearchContent": "Pakilagay ang nilalaman na hahanapin",
+  "enterSubscriptionName": "Ilagay ang pangalan ng subscription",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "Ilagay ang URL ng subscription",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "Pakilagay ang pangalan ng sync folder (default: NotificationManager)",
+  "entertainment": "Libangan",
+  "enterValidNameAndUrl": "Pakilagay ang wastong pangalan at URL",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "Pakilagay ang wastong URL",
+  "enterVersion": "Ilagay ang Bersyon",
+  "enterWebDAVPasswordHint": "Pakilagay ang WebDAV password",
+  "enterWebDAVServerAddressHint": "Pakilagay ang WebDAV server address",
+  "enterWebDAVUsernameHint": "Pakilagay ang WebDAV username",
+  "errorDeletingDeviceMessage": "Nagkaroon ng error sa pagtanggal ng device: {error}",
+  "errorLoadingPlugin": "Nagkaroon ng error sa pag-load ng plugin",
+  "errorOccurredMessage": "Nagkaroon ng error: {error}",
+  "errorRenamingDeviceMessage": "Nagkaroon ng error sa pagpapalit ng pangalan ng device: {error}",
+  "errorSynchronizingDevicesMessage": "Nagkaroon ng error sa pag-synchronize ng mga device: {error}",
+  "errorSyncingDevicesMessage": "Nagkaroon ng error sa pag-sync ng mga device: {error}",
+  "errorText": "Error",
+  "errorUnregisteringDeviceMessage": "Nagkaroon ng error sa pag-unregister ng device: {error}",
+  "exampleBlock400Prefix": "hal. Block 400 prefix numbers",
+  "exampleBlockMarketingSms": "hal. Block marketing SMS",
+  "exampleContentRegex": "hal., .*offer.*",
+  "exampleContentRegexHint": "Halimbawang Content Regex",
+  "exampleCouponPromotionDiscount": "hal. .*(coupon|promotion|discount).*",
+  "exampleFamilyFriends": "hal. Pamilya, Kaibigan, atbp.",
+  "examplePhoneNumber": "hal. 10086, 12345, atbp.",
+  "exampleRegex400Prefix": "Halimbawang regex para sa 400 prefix",
+  "exampleRegexFormat": "Halimbawa: ^10086$ format",
+  "exampleSenderRegexHint": "Halimbawa",
+  "exchange": "Palitan",
+  "exchangeNow": "Palitan Ngayon",
+  "exchangeVip": "Palitan ang VIP",
+  "expandLabelSelector": "Palawakin ang Label Selector",
+  "expiryTime": "Oras ng pagka-expire: {time}",
+  "export": "I-export",
+  "exportAllApplicationSettings": "I-export ang lahat ng setting ng application",
+  "exportAllApplicationSettingsSubtitle": "I-export ang lahat ng setting ng application",
+  "exportAllRuleConfigurations": "I-export ang Lahat ng Konpigurasyon ng Tuntunin",
+  "exportAllRuleConfigurationsSubtitle": "I-export ang lahat ng konpigurasyon ng tuntunin",
+  "exportComplete": "Kumpleto ang Pag-export",
+  "exportConfig": "I-export ang Konpigurasyon",
+  "exportContacts": "I-export ang mga Kontak",
+  "exportData": "I-export ang Datos",
+  "exportError": "Pag-export ng Error",
+  "exportFailed": "Nabigong i-export",
+  "exportFailure": "Nabigong i-export ang konpigurasyon",
+  "exportFeatureComingSoon": "Malapit na ang tampok na pag-export",
+  "exporting": "Nag-e-export...",
+  "exportLabels": "I-export ang mga Label",
+  "exportLabelsFailed": "Nabigong i-export ang mga label: {error}",
+  "exportPluginList": "I-export ang Listahan ng Plugin",
+  "exportPluginListFailed": "Nabigong i-export ang listahan ng plugin: {error}",
+  "exportRules": "I-export ang mga Tuntunin",
+  "exportRulesDialogTitle": "I-export ang mga Tuntunin",
+  "exportRulesTitle": "I-export ang mga Tuntunin",
+  "exportSmsRules": "I-export ang mga Tuntunin sa SMS",
+  "exportStatisticsData": "I-export ang Datos ng Estadistika",
+  "exportSuccess": "Matagumpay ang Pag-export",
+  "exportSuccesslly": "Matagumpay na na-export ang konpigurasyon",
+  "failedToAddContact": "Nabigong magdagdag ng kontak",
+  "failedToAddRule": "Nabigong magdagdag ng tuntunin: {error}",
+  "failedToAddSmsRule": "Nabigong magdagdag ng SMS na tuntunin: {error}",
+  "failedToAddSmsSubscription": "Nabigong magdagdag ng SMS subscription: {error}",
+  "failedToBackupSettings": "Nabigong mag-backup ng mga setting: {error}",
+  "failedToDecryptBackupFile": "Nabigong i-decrypt ang backup file",
+  "failedToDeleteDevice": "Nabigong tanggalin ang device",
+  "failedToDeleteSmsRule": "Nabigong tanggalin ang SMS na tuntunin: {error}",
+  "failedToExportRules": "Nabigong i-export ang mga tuntunin: {error}",
+  "failedToExportSmsRules": "Nabigong i-export ang mga SMS na tuntunin: {error}",
+  "failedToGetCallerIdInfo": "Nabigong makuha ang impormasyon ng caller ID: {error}",
+  "failedToImportRules": "Nabigong i-import ang mga tuntunin: {error}",
+  "failedToImportSmsRules": "Nabigong i-import ang mga SMS na tuntunin: {error}",
+  "failedToLoadContacts": "Nabigong i-load ang mga kontak",
+  "failedToLoadPlugin": "Nabigong i-load ang plugin",
+  "failedToRenameDevice": "Nabigong palitan ang pangalan ng device",
+  "failedToRestoreSettings": "Nabigong i-restore ang mga setting",
+  "failedToRestoreSettingsWithError": "Nabigong i-restore ang mga setting: {error}",
+  "failedToSetPassword": "Nabigong itakda ang password: {error}",
+  "failedToSyncDevices": "Nabigong i-sync ang mga device",
+  "failedToToggleRuleStatus": "Nabigong baguhin ang status ng tuntunin: {error}",
+  "failedToToggleSubscriptionStatus": "Nabigong baguhin ang status ng subscription",
+  "failedToUpdateContact": "Nabigong i-update ang kontak",
+  "failedToUpdateSmsRule": "Nabigong i-update ang SMS na tuntunin: {error}",
+  "failure": "Pagkabigo",
+  "favoriteContacts": "Mga Paboritong Kontak",
+  "featureAddRules": "• Magdagdag ng mga tuntunin para sa partikular na numero ng telepono",
+  "featureCenter": "Sentro ng Tampok",
+  "featureEnableDisable": "• Paganahin/hindi paganahin ang iba't ibang filter bawat SIM",
+  "featureListTitle": "Mga Tampok:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• Pamahalaan ang mga listahan ng tuntunin bawat SIM",
+  "features": "Mga Tampok",
+  "fetchingCallerIdInfo": "Kinukuha ang impormasyon ng caller ID...",
+  "fileSavedTo": "Nai-save ang file sa: {path}",
+  "filter": "Salain",
+  "filterByLabel": "Salain ayon sa Label",
+  "filterClear": "Burahin ang Filter",
+  "filterControlPanelTitle": "Panel ng Kontrol ng Filter",
+  "filterControlSubtitle": "Pamahalaan ang on/off na status ng lahat ng filter",
+  "filterControlTitle": "Kontrol sa Pag-filter",
+  "filterDeleteFailed": "Nabigo ang pagtanggal ng filter",
+  "filterDeleteSuccess": "Matagumpay na natanggal ang filter",
+  "filterDetails": "Mga Detalye ng Filter",
+  "filtered": "Na-filter",
+  "filteredSms": "Na-filter na SMS",
+  "filteredSmsLabel": "Na-filter na SMS",
+  "filterExplanation": "Paliwanag ng Filter",
+  "filterManagement": "Pamamahala ng Filter",
+  "filterName": "Pangalan ng Filter",
+  "filterPattern": "Pattern ng Filter",
+  "filterPriorityNote": "Tandaan: May mga relasyon sa priyoridad sa pagitan ng mga filter, mangyaring sumangguni sa dokumentasyon ng tulong para sa mga detalye",
+  "filterSaveFailed": "Nabigo ang pag-save ng filter",
+  "filterSaveSuccess": "Matagumpay na na-save ang filter",
+  "filterSettings": "Mga Setting ng Filter",
+  "filterSettingsTitle": "Mga Setting ng Filter",
+  "filterSMS": "I-filter ang SMS",
+  "filterToggleInstructions": "Paganahin o huwag paganahin ang mga filter para sa SIM slot na ito:",
+  "filterToggleStatus": "{status} filter: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "Uri ng Filter",
+  "financial": "Pinansyal",
+  "flexibleCombinationFeature": "• Flexible na Kombinasyon: Paganahin/huwag paganahin ang mga filter bawat SIM slot",
+  "fontSizesSetting": "Mga Sukat ng Font",
+  "foundRules": "Nakita ang {count} na panuntunan",
+  "foundRulesDoYouWantToImport": "Nakita ang {count} na panuntunan. Nais mo bang i-import ang mga ito?",
+  "foundRulesToImport": "Nakita ang {count} na panuntunan. Nais mo bang i-import ang mga ito?",
+  "fraudAlert": "BABALA sa PANDARAYA - Ibaba ang tawag",
+  "fraudScamLikely": "Malamang na Pandaraya o Scam",
+  "free": "Libre",
+  "functionSettingsTitle": "Mga Setting ng Paggana",
+  "generalUpdateFailure": "Nabigo ang pag-update: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Kumuha ng Libre",
+  "github": "GitHub",
+  "globalFilterDescription": "I-configure ang mga pandaigdigang filter para sa lahat ng SIM card:",
+  "globalFilterFeature": "• Mga Pandaigdigang Filter: Mga pangunahing panuntunan para sa lahat ng papasok na tawag",
+  "globalFilterSettings": "Mga Setting ng Pandaigdigang Filter",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "I-configure ang mga setting ng pandaigdigang filter na nalalapat sa lahat ng SIM slot:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Maghanap ng mga contact, label, blacklist, whitelist, atbp.",
+  "globalSearchTitle": "Pandaigdigang Paghahanap",
+  "globalSettings": "Mga Pandaigdigang Setting",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Posisyon ng Pagpapakita ng Google Ad",
+  "googleAdMobIntegrationText": "Maaaring isama dito ang mga Google AdMob ad",
+  "googleDriveAuthDescription": "Pahintulutan gamit ang system-configured na Google Drive client ID at key",
+  "googleDriveAuthorizationHint": "Pahintulutan gamit ang system-configured na Google Drive client ID at key",
+  "googleDriveConfigTitle": "Konfigurasyon ng Google Drive",
+  "googleDriveConfigurationTitle": "Konfigurasyon ng Google Drive",
+  "government": "Gobyerno",
+  "granted": "Ibinigay",
+  "grantNecessaryPermissions": "Magbigay ng mga Kinakailangang Pahintulot",
+  "grantPermissions": "Magbigay ng mga Pahintulot",
+  "headhunter": "Headhunter",
+  "height": "Taas",
+  "homePageTitle": "Pangunahing Pahina",
+  "homeTab": "Bahay",
+  "howItWorksPoint1": "• Awtomatikong papayagan ng sistema ang mga tawag mula sa parehong numero sa loob ng itinakdang time window",
+  "howItWorksPoint2": "• Ang mas maikling time windows ay nagreresulta sa mas mahigpit na pagharang; ang mas mahabang time windows ay nagreresulta sa mas maluwag na pagharang",
+  "howItWorksPoint3": "• Sinusuri ng sistema ang mga call log upang matukoy kung ito ay isang paulit-ulit na tawag",
+  "howItWorksTitle": "Paano Ito Gumagana:",
+  "iconCodeOptional": "Icon Code (Opsyonal)",
+  "iconSize": "Laki ng Icon",
+  "import": "Mag-import",
+  "important": "Mahalaga",
+  "importButton": "Mag-import",
+  "importConfig": "Mag-import ng Konfigurasyon",
+  "importContacts": "Mag-import ng mga Contact",
+  "importExportContacts": "Mag-import/Mag-export ng mga Contact",
+  "importExportContactsTooltip": "Mag-import/Mag-export ng mga Contact",
+  "importExportRules": "Mag-import/Mag-export ng mga Panuntunan",
+  "importFailed": "Nabigo ang pag-import: {error}",
+  "importFailure": "Nabigong mag-import ng konfigurasyon",
+  "importFeatureComingSoon": "Darating na ang feature ng pag-import",
+  "importLabels": "Mag-import ng mga Label",
+  "importLabelsFailed": "Nabigong mag-import ng mga label: {error}",
+  "importPluginList": "Mag-import ng Listahan ng Plugin",
+  "importPluginListFailed": "Nabigong mag-import ng listahan ng plugin: {error}",
+  "importPluginSuccess": "Matagumpay na na-import ang {count} na plugin",
+  "importRuleConfigurationsFromFile": "Mag-import ng mga Konfigurasyon ng Panuntunan mula sa File",
+  "importRuleConfigurationsFromFileSubtitle": "Mag-import ng mga konfigurasyon ng panuntunan mula sa file",
+  "importRules": "Mag-import ng mga Panuntunan",
+  "importRulesButton": "Mag-import ng mga Panuntunan",
+  "importRulesDialogTitle": "Mag-import ng mga Panuntunan",
+  "importRulesError": "Nabigong mag-import ng mga panuntunan: {error}",
+  "importRulesInstructions": "Mag-import ng mga panuntunan mula sa isang CSV file",
+  "importRulesSuccess": "Matagumpay na na-import ang mga panuntunan",
+  "importRulesTitle": "Mag-import ng mga Panuntunan",
+  "importSuccess": "Matagumpay ang pag-import",
+  "incomingCallInterceptAction": "Aksyon sa Pagharang ng Papasok na Tawag",
+  "incomingCallNotification": "Abiso sa Papasok na Tawag",
+  "incorrectPassword": "Maling password",
+  "initializing": "Nag-i-initialize",
+  "installed": "Naka-install",
+  "insufficientMarks": "Kulang sa mga Marka",
+  "insurance": "Seguro",
+  "interceptAction": "Aksyon sa Pagharang",
+  "interceptionActionSettingsSubtitle": "Itakda kung paano hinahawakan ang mga binablock na tawag",
+  "interceptionActionSettingsTitle": "Mga Setting ng Aksyon sa Pagharang",
+  "interceptionTimeInterval": "Interval ng Oras ng Pagharang",
+  "internet": "Internet",
+  "intervalSetSuccess": "Ang {service} update interval ay itinakda sa {days} araw",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Hindi balido ang content regex",
+  "invalidLabel": "Di-balido ang label",
+  "invalidRegexPattern": "Di-balido ang regex pattern",
+  "invalidSenderRegex": "Di-balido ang sender regex",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Sumali sa Telegram Channel at Group para sa Karagdagang Impormasyon",
+  "jsLogsTitle": "JS Logs",
+  "jsonFormat": "JSON Format",
+  "keepAllVersions": "Panatilihin Lahat ng Bersyon",
+  "keepAllVersionsDescription": "Panatilihin ang lahat ng makasaysayang bersyon ng bawat backup",
+  "keepAllVersionsLabel": "Panatilihin Lahat ng Bersyon",
+  "keepAllVersionsSubtitle": "Panatilihin ang mga makasaysayang bersyon ng bawat backup",
+  "keepAllVersionsTitle": "Panatilihin Lahat ng Bersyon",
+  "label": "Label",
+  "labelAddedSuccessfully": "Matagumpay na naidagdag ang label na \"{name}\"",
+  "labelCategories": "Mga Kategorya ng Label",
+  "labelDeleted": "Nabura ang label",
+  "labelDescription": "Tinutulungan ka ng mga label na mas mahusay na pamahalaan ang mga contact, magdagdag ng mga custom na label sa mga numero ng telepono para sa madaling pagkilala ng mga tawag at mensahe.",
+  "labelFilter": "Salain ng Label",
+  "labelFilterTooltip": "Salain ng Label",
+  "labelIconColor": "Kulay ng Icon ng Label",
+  "labelManagement": "Pamamahala ng Label",
+  "labelNotFound": "Hindi nahanap ang label",
+  "labelRemoved": "Natanggal ang label",
+  "labelRemoveFailed": "Nabigong tanggalin ang label: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "Mga Label",
+  "labelsColor": "Kulay ng mga Label",
+  "labelsDeleted": "{count} mga label ang nabura",
+  "labelsExportedSuccessfully": "Matagumpay na na-export ang mga label",
+  "labelsFontSize": "Laki ng Font ng mga Label",
+  "labelsImportedSuccessfully": "Matagumpay na na-import ang {count} mga label",
+  "labelsPosition": "Posisyon ng mga Label",
+  "labelTag": "Label: {labelId}",
+  "labelUpdated": "Na-update ang label",
+  "labelUpdateFailed": "Nabigong i-update ang label: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "Matagumpay na na-update ang label na \"$labelText\"",
+  "languageSettings": "Mga Setting ng Wika",
+  "languageSettingsSubtitle": "Baguhin ang display language ng application",
+  "languageSettingsTitle": "Mga Setting ng Wika",
+  "last30Days": "Huling 30 Araw",
+  "last7Days": "Huling 7 Araw",
+  "lastSyncLabel": "Huling Sync",
+  "lastUpdated": "Huling na-update: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "Lifetime Membership",
+  "lifetimeMembershipDescription": "Isang beses na pagbili, permanente na ma-unlock ang lahat ng premium na feature at mga future update",
+  "loadContactsFailed": "Nabigong i-load ang mga contact: {error}",
+  "loadDataFailed": "Nabigong i-load ang data",
+  "loadFailed": "Nabigong i-load",
+  "loading": "Naglo-load...",
+  "loadingData": "Naglo-load ng Data...",
+  "loadingTags": "Naglo-load ng mga tag...",
+  "loadLabelFailed": "Nabigong i-load ang mga label: {error}",
+  "loadLabelsFailed": "Nabigong i-load ang mga label: {error}",
+  "loadMarkCountFailed": "Nabigong i-load ang mga minarkahang numero ng telepono: {error}",
+  "loadMarkedPhonesFailed": "Nabigong i-load ang mga minarkahang numero: {error}",
+  "loadMore": "I-load Pa",
+  "loadPluginButton": "I-load ang Plugin",
+  "loadPluginsFailed": "Nabigong i-load ang mga plugin: {error}",
+  "loadSettingsFailed": "Nabigong i-load ang mga setting: {error}",
+  "loadSmsRulesFailed": "Nabigong i-load ang mga SMS rule: {error}",
+  "loadStatusFailedMessage": "Nabigong i-load ang status",
+  "loadSubscriptionsFailed": "Nabigong i-load ang mga subscription: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "Pautang",
+  "localBackupTitle": "Lokal na Backup",
+  "localCounterFilter": "Lokal na Salain ng Bilang",
+  "localCounterFilterSubtitle": "Awtomatikong salain ang mga spam call batay sa dalas ng tawag",
+  "localCountFilter": "Lokal na Salain ng Bilang",
+  "localCountFilterDescription": "Pigilan ang madalas na mga tawag batay sa mga bilang ng lokal na numero",
+  "localCountFilterExplanationContent": "Sinusuri ng lokal na count filter ang mga tala ng kasaysayan ng tawag upang awtomatikong matukoy at ma-block ang madalas na spam call.",
+  "localCountFilterExplanationTitle": "Paliwanag sa Lokal na Bilang na Salain",
+  "localCountFilterHowItWorksPoint1": "• Tukuyin kung iba-block batay sa bilang ng numero",
+  "localCountFilterHowItWorksPoint2": "• Kapag lumampas ang bilang ng numero sa itinakdang threshold, maaari mo itong awtomatikong i-block",
+  "localCountFilterHowItWorksPoint3": "• Maaari mong piliing payagan ang mga numero na hindi lumampas sa threshold",
+  "localCountFilterHowItWorksPoint4": "• Maaari mong piliin kung itatala ang lahat ng query log",
+  "localCountFiltering": "Lokal na Pagsasala ng Bilang",
+  "localCountFilteringExplanation": "• Lokal na Pagsasala ng Bilang: Mga tuntunin sa pagsasala batay sa lokal na bilang ng pagmamarka",
+  "localCountFilterSettings": "Mga Setting ng Lokal na Bilang na Salain",
+  "localCountFilterUseCases": "Ang filter na ito ay partikular na angkop para sa pagtukoy ng mga auto-dialed spam call at marketing call.",
+  "localFilterSettings": "Mga Setting ng Lokal na Salain",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "Lokal na notipikasyon ay hindi naka-enable",
+  "localNotificationEnabled": "Lokal na notipikasyon ay naka-enable",
+  "localServices": "Mga Lokal na Serbisyo",
+  "locationColor": "Kulay ng Lokasyon",
+  "locationFontSize": "Laki ng Font ng Lokasyon",
+  "locationIconColor": "Kulay ng Icon ng Lokasyon",
+  "locationPosition": "Posisyon ng Lokasyon",
+  "logAllLocalQueries": "Itala Lahat ng Lokal na Query",
+  "logAllLocalQueriesDescription": "Magtala ng mga log para sa lahat ng lokal na query ng numero",
+  "logAllRemoteQueries": "Itala Lahat ng Remote na Query",
+  "logAllRemoteQueriesDescription": "Magtala ng lahat ng operasyon ng query ng remote na numero",
+  "manage": "Pamahalaan",
+  "manageContacts": "Pamahalaan ang mga Contact",
+  "manageFavoriteContacts": "Pamahalaan ang mga Paboritong Contact",
+  "manageFilterRules": "Pamahalaan ang mga Tuntunin ng Salain",
+  "manageFilterRulesDescription": "Magdagdag, mag-edit, o magtanggal ng mga SMS filter rule",
+  "manageFrequentContacts": "Pamahalaan ang mga Madalas na Contact",
+  "markCounts": "Mga Bilang ng Marka",
+  "markCount": "Bilang ng Marka",
+  "markedByCount": "Minarkahan ng {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "Listahan ng mga Minarkahang Telepono",
+  "markExchange": "Palitan ng Marka",
+  "markPhone": "Markahan ang Numero ng Telepono",
+  "markPhoneFailed": "Nabigo na markahan ang numero ng telepono: {error}",
+  "markPhoneManagementSubtitle": "Para sa Pag-marka ng Mga Numero ng Telepono",
+  "markPhoneManagementTitle": "Pamamahala sa Pag-marka ng Telepono",
+  "markPhoneSuccess": "Matagumpay na namarkahan ang numero ng telepono",
+  "matchFailed": "Nabigo ang tugma!",
+  "matchFailedMessage": "Nabigo ang tugma.",
+  "matchNumbersWithSpecialCharacters": "tumutugma sa tiyak na format ng numero",
+  "matchNumbersWithSpecialCharactersTitle": "Itugma ang mga numero na may mga espesyal na karakter:",
+  "matchSpecificDigitPatterns": "tumutugma sa format na XXX-XXXX-XXXX",
+  "matchSpecificDigitPatternsTitle": "Itugma ang mga tiyak na pattern ng digit:",
+  "matchSuccessful": "Matagumpay ang tugma!",
+  "matchSuccessfulMessage": "Matagumpay ang tugma!",
+  "medical": "Medikal",
+  "membershipPrivileges": "Mga Pribilehiyo sa Membership",
+  "migrationTool": "Tool sa Paglipat",
+  "migrationToolTitle": "Tool sa Paglipat",
+  "minutes": "minuto",
+  "month": "Buwan",
+  "monthly": "Buwanan",
+  "monthlyCallCount": "Mga Tawag sa Buwanan",
+  "monthlyChartTitle": "Mga Blocked na Tawag sa Buwanan",
+  "monthlyMembership": "Buwanang Membership",
+  "monthlyMembershipDescription": "I-unlock ang lahat ng premium na feature, awtomatikong magre-renew buwan-buwan",
+  "monthlyTotal": "Kabuuang Buwanan",
+  "monthlyTotalLabel": "Kabuuang Buwanan",
+  "moreOptions": "Higit pang mga Opsyon",
+  "mute": "I-mute",
+  "name": "Pangalan",
+  "nameAndPhoneNumberCannotBeEmpty": "Hindi maaaring walang laman ang pangalan at numero ng telepono",
+  "nameAndPhoneNumberRequired": "Hindi maaaring walang laman ang pangalan at numero ng telepono",
+  "nameColor": "Kulay ng Pangalan",
+  "nameFontSize": "Laki ng Font ng Pangalan",
+  "nameLabel": "Pangalan: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "Posisyon ng Pangalan",
+  "nameUnknown": "Pangalan: Hindi Alam",
+  "nameWithValue": "Pangalan: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "Bagong Password",
+  "nextStep": "Susunod",
+  "noAction": "Walang Aksyon",
+  "noActionRules": "Mga Panuntunan na Walang Aksyon",
+  "noActiveCloudSyncServiceMessage": "Walang aktibong cloud sync service",
+  "noCallLogs": "Walang Mga Tala ng Tawag",
+  "noCallRecords": "Walang mga tala ng tawag",
+  "noContacts": "Wala pang mga contact",
+  "noContactsYet": "Wala pang mga contact",
+  "noData": "Walang Data",
+  "noDevicesRegisteredMessage": "Walang mga rehistradong device",
+  "noDevicesRegisteredYet": "Wala pang mga rehistradong device.",
+  "noFilters": "Wala pang mga filter",
+  "noLabels": "Wala pang mga label",
+  "noMarkedPhones": "Walang mga namarkahang numero ng telepono",
+  "noMatchingContacts": "Walang mga tugmang contact",
+  "noMatchingContactsFound": "Walang natagpuang mga tugmang contact",
+  "noMatchingNumbersFound": "Walang natagpuang mga tugmang numero",
+  "noMatchingRecords": "Walang mga tugmang tala ng tawag",
+  "noMatchingRules": "Walang natagpuang {ruleType}",
+  "none": "Wala",
+  "noneServiceType": "Wala",
+  "noPlugins": "Wala pang mga plugin",
+  "noRecords": "Walang mga tala ng tawag",
+  "noResultReturned": "Walang resulta na ibinalik",
+  "noResultReturnedLog": "Walang resulta na ibinalik mula sa plugin",
+  "noRules": "Wala pang {ruleType}",
+  "noRulesPrompt": "Walang natagpuang mga panuntunan, mangyaring magdagdag ng mga panuntunan",
+  "noRulesToExport": "Walang mga panuntunan na maaaring i-export",
+  "noSmsFilterRulesYet": "Wala pang mga panuntunan sa pag-filter ng SMS",
+  "noSmsRulesYet": "Wala pang mga panuntunan sa SMS",
+  "noSubscriptions": "Walang mga subscription",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "Wala pang mga Subscription",
+  "notGranted": "Hindi Ibinigay",
+  "notificationMode": "Mode ng Notipikasyon",
+  "notificationModeDescription": "Ipakita ang impormasyon ng tumatawag sa notification bar",
+  "notificationPermission": "Pahintulot sa Notipikasyon",
+  "notificationPermissionDescription": "Ginagamit upang ipakita ang mga notipikasyon ng papasok na tawag at mensahe.",
+  "notifications": "Mga Notipikasyon",
+  "notificationSettings": "Mga Setting ng Notipikasyon",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "Matagumpay na na-save ang mga setting ng notipikasyon",
+  "notSet": "Hindi Naitakda",
+  "notVerifiedText": "Hindi Beripikado",
+  "noValidSmsRulesFoundInFile": "Walang mga balidong panuntunan sa SMS na natagpuan sa file",
+  "number": "Numero",
+  "numberColor": "Kulay ng Numero",
+  "numberFontSize": "Laki ng Font ng Numero",
+  "numberPosition": "Posisyon ng Numero",
+  "numberSearch": "Paghahanap ng Numero",
+  "numberTypeColor": "Kulay ng Uri ng Numero",
+  "numberTypeFontSize": "Laki ng Font ng Uri ng Numero",
+  "numberTypePosition": "Posisyon ng Uri ng Numero",
+  "ok": "OK",
+  "okButton": "OK",
+  "onboardingCompleteDescription": "Handa na ang iyong call security manager, simulan ang pagtangkilik ng isang ligtas na karanasan sa pagtawag!",
+  "onboardingLanguageDescription": "Piliin ang iyong gustong wika para sa pinakamahusay na karanasan.",
+  "onboardingPermissionsDescription": "Upang maibigay ang buong serbisyo, kailangan namin ang mga sumusunod na pahintulot:",
+  "onboardingPowerfulSpamBlockingDescription": "Isang-click na pag-block ng mga spam na tawag at mensahe, i-customize ang mga panuntunan sa pag-block, at bigyan ka ng tahimik na kapaligiran.",
+  "onboardingSmartCallerIdDescription": "Awtomatikong kilalanin ang mga hindi kilalang tawag, markahan ang mga kahina-hinalang numero, at protektahan ang iyong kaligtasan sa pagtawag.",
+  "onboardingWelcomeDescription": "Ang iyong call management expert, nagbibigay ng kumprehensibong pagkakakilanlan ng tawag at serbisyo sa pag-block.",
+  "oneDriveAuthDescription": "Mag-authorize gamit ang system-configured OneDrive client ID at key",
+  "oneDriveAuthorizationHint": "Mag-authorize gamit ang system-configured OneDrive client ID at key",
+  "oneDriveConfigTitle": "Konfigurasyon ng OneDrive",
+  "oneDriveConfigurationTitle": "Konfigurasyon ng OneDrive",
+  "onlineCallerIdSubscription": "Online Caller ID Subscription",
+  "openAppSettings": "Buksan ang mga setting ng app",
+  "openAppSettingsFailed": "Nabigong buksan ang mga setting ng app: {error}",
+  "operationFailed": "Nabigo ang operasyon: {error}",
+  "operationFailure": "Nabigo ang operasyon",
+  "operationSuccess": "Naging matagumpay ang operasyon",
+  "other": "Iba pa",
+  "ourOtherApps": "Ang Aming Iba Pang Apps",
+  "overlayMode": "Nak Floating na Window",
+  "overlayModeDescription": "Ipakita ang impormasyon ng tumatawag sa isang nak floating na window",
+  "overlayPermission": "Pahintulot sa Overlay",
+  "overlayPermissionDescription": "Ginagamit upang ipakita ang overlay ng papasok na tawag.",
+  "overview": "Pangkalahatang-ideya",
+  "password": "Password",
+  "passwordCannotBeEmpty": "Hindi maaaring walang laman ang password",
+  "passwordLabel": "Password",
+  "passwordsDoNotMatch": "Hindi magkatugma ang mga password",
+  "passwordSetSuccessfully": "Matagumpay na na-set ang password",
+  "pattern": "Pattern",
+  "pendingSync": "Naghihintay ng Sync",
+  "periodMonth": "Buwan",
+  "periodWeek": "Linggo",
+  "periodYear": "Taon",
+  "permissionDenied": "Nakuha ang pagtanggi sa kahilingan sa pahintulot",
+  "permissionGranted": "Nakuha ang pahintulot",
+  "permissionManagement": "Pamamahala ng Pahintulot",
+  "phoneCallsTab": "Telepono",
+  "phoneNumber": "Numero ng Telepono",
+  "phoneNumberCannotBeEmpty": "Hindi maaaring walang laman ang numero ng telepono",
+  "phoneNumberHint": "Ilagay ang numero ng telepono",
+  "phoneNumberHintText": "Ilagay ang numero ng telepono para magdagdag ng rule",
+  "phoneNumberLabel": "Numero ng Telepono",
+  "phoneNumberRegexRequired": "Mangyaring ilagay parehong numero ng telepono at regex pattern",
+  "phoneNumberRequired": "Kailangan ang numero ng telepono",
+  "phoneNumberTypeFixedLine": "Fixed line",
+  "phoneNumberTypeFixedLineOrMobile": "Fixed line o mobile",
+  "phoneNumberTypeMobile": "Mobile",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypePersonalNumber": "Personal na numero",
+  "phoneNumberTypePremiumRate": "Premium rate",
+  "phoneNumberTypeSharedCost": "Shared cost",
+  "phoneNumberTypeTollFree": "Toll free",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "Hindi Kilala",
+  "phoneNumberTypeVoicemail": "Voicemail",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "Pahintulot sa Telepono",
+  "phonePermissionDescription": "Ginagamit upang makilala at harangan ang mga papasok na tawag.",
+  "phoneRule": "Phone Rule",
+  "phoneRuleEditDialog": "Phone Rule Edit Dialog",
+  "phoneRuleManagement": "Pamamahala ng Phone Rule",
+  "phoneRuleSubscription": "Subscription ng Phone Rule",
+  "phoneSubscription": "Subscription ng Telepono",
+  "phoneSubscriptionRulesDescription": "Mag-subscribe sa mga listahan ng phone rule sa pamamagitan ng URL upang awtomatikong i-update ang mga rule ng whitelist at blacklist. Sinusuportahan ang mga rule file na nasa format na JSON.",
+  "phoneSubscriptionTitle": "Mga Subscription ng Phone Rule",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "Mangyaring pumili ng label at maglagay ng wastong numero ng telepono",
+  "pluginAddedSuccess": "Matagumpay na nadagdag ang Plugin \"{name}\"",
+  "pluginDeleted": "Nabura ang plugin",
+  "pluginLatestVersion": "Nasa pinakabagong bersyon na ang plugin",
+  "pluginListExportSuccess": "Matagumpay na na-export ang listahan ng mga plugin",
+  "pluginLoadedSuccessfully": "Matagumpay na na-load ang plugin",
+  "pluginManagement": "Pamamahala ng Plugin",
+  "pluginManagementSubtitle": "Pamahalaan at i-configure ang mga third-party plugin",
+  "pluginManagementTitle": "Pamamahala ng Plugin",
+  "pluginName": "Pangalan ng Plugin",
+  "pluginNotLoaded": "Hindi pa naka-load ang plugin. Mangyaring i-load muna ang plugin.",
+  "pluginsDeleted": "Matagumpay na nabura ang {count} na mga plugin.",
+  "pluginService": "Serbisyo ng Plugin",
+  "pluginTestPageTitle": "Pagsubok ng Plugin",
+  "pluginUpdateSuccess": "Matagumpay na na-update ang plugin",
+  "pluginUrl": "URL ng Plugin",
+  "pluginUrlCannotBeEmpty": "Hindi maaaring walang laman ang URL ng plugin",
+  "pluginUrlHint": "Ilagay ang URL ng plugin",
+  "pluginUrlLabel": "URL ng Plugin",
+  "pluginVersion": "Bersyon ng Plugin",
+  "political": "Pampulitika",
+  "powerfulSpamBlocking": "Malakas na Pag-block ng Spam",
+  "previousStep": "Nakaraan",
+  "prioritizeRemoteAction": "Unahin ang Mga Setting ng Remote Action",
+  "prioritizeRemoteActionDescription": "Unahin ang mga setting ng aksyon mula sa remote database",
+  "processing": "Nagpoproseso...",
+  "processingOperation": "Nagpoproseso...",
+  "purchase": "Pagbili",
+  "quarterlyMembership": "Quarterly Membership",
+  "quarterlyMembershipDescription": "I-unlock ang lahat ng premium na feature, auto-renew kada quarter",
+  "queryButton": "Query",
+  "queryFailed": "Nabigo ang query",
+  "queryFailedLog": "Nabigo ang query",
+  "querying": "Nangunguhin...",
+  "queryingPhoneNumber": "Nangunguhin ang numero ng telepono",
+  "queryResultTitle": "Resulta ng Query",
+  "ready": "Handa na!",
+  "receiveWeeklyStatistics": "Makatanggap ng lingguhang statistics",
+  "recruiter": "Recruiter",
+  "reEnterPasswordHint": "Mangyaring muling ilagay ang password",
+  "refresh": "I-refresh",
+  "refreshPermissionStatus": "I-refresh ang status ng pahintulot",
+  "refreshTooltip": "I-refresh",
+  "regexError": "Regex error: {error}",
+  "regexErrorMessage": "Regex error: {error}",
+  "regexPattern": "Regex Pattern",
+  "regexPatternExplanation": "Paliwanag ng Regex Pattern",
+  "regexPatternExplanationButton": "Paliwanag ng Regex Pattern",
+  "regexPatternLabel": "Regex Pattern",
+  "regexPatternsExamples": "Gumamit ng karaniwang syntax ng regex upang tukuyin ang mga pattern. Halimbawa:",
+  "regexPatternsForPhoneNumberMatching": "Mga Pattern ng Regex para sa Pagtutugma ng Numero ng Telepono",
+  "regexRule": "Regex Rule",
+  "regexRuleAddFailed": "Nabigong idagdag ang regex rule: {error}",
+  "regexRuleAddSuccess": "Matagumpay na naidagdag ang regex rule",
+  "regexRuleManagement": "Pamamahala ng Regex Rule",
+  "regexRuleNamePatternRequired": "Hindi maaaring walang laman ang pangalan ng rule at regex pattern",
+  "regexRules": "Mga Regex Rule",
+  "regexTesterTitle": "Regex Tester",
+  "regexValidationFailed": "Nabigo ang pagpapatunay ng regex: {error}",
+  "regexValidationSuccess": "Matagumpay ang pagpapatunay ng regex",
+  "region": "Rehiyon",
+  "registeredDevicesTitle": "Mga Nakarehistrong Device",
+  "rejectAllCalls": "Tanggihan Lahat ng Tawag",
+  "rejectAllCallsDescription": "Kapag pinagana, lahat ng tawag ay tatanggihan na may pinakamataas na priyoridad",
+  "rejectAllNumbers": "Tanggihan Lahat ng Numero",
+  "rejectAllNumbersDesc": "Tanggihan lahat ng papasok na tawag kapag pinagana",
+  "rejectExceededNumbers": "Tanggihan ang mga Nalate na Numero",
+  "rejectExceededNumbersDescription": "Awtomatikong tanggihan ang mga numero na lumalagpas sa threshold ng bilang",
+  "remoteFilterSettings": "Mga Setting ng Remote Filter",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "Mga Setting ng Remote Number Filter",
+  "remoteNumberFilter": "Remote Number Filter",
+  "remoteNumberFilterDatabaseInfo": "Ang filter na ito ay gumagamit ng isang independiyenteng remote database upang makuha ang pinakabagong impormasyon ng numero.",
+  "remoteNumberFilterDescription": "Salain ang mga nakakainis na tawag batay sa impormasyon ng remote database",
+  "remoteNumberFilterExplanationContent": "Tinutukoy at hinaharangan ng remote number filter ang mga spam call sa pamamagitan ng pagtatanong sa isang remote database batay sa bilang ng mga numero.",
+  "remoteNumberFilterExplanationTitle": "Paliwanag ng Remote Number Filter",
+  "remoteNumberFilterFeatureCountThreshold": "• Threshold ng Bilang: Tukuyin batay sa dalas ng paglitaw ng numero",
+  "remoteNumberFilterFeatureFilterAction": "• Mga Aksyon sa Pag-filter: I-configure kung paano haharapin ang mga numero na lumalagpas sa threshold",
+  "remoteNumberFilterFeaturePriority": "• Mga Setting ng Priyoridad: Itakda ang priyoridad para sa mga aksyon sa remote",
+  "remoteNumberFilterFeatures": "Mga Tampok:",
+  "remoteNumberFiltering": "Remote Number Filtering",
+  "remoteNumberFilteringExplanation": "• Remote Number Filtering: Mga panuntunan sa pag-filter batay sa impormasyon ng remote database",
+  "remoteNumberFilterSubtitle": "Tukuyin ang mga spam call gamit ang cloud database at mga ulat ng komunidad",
+  "removeAdsDescription": "Permanenteng alisin ang lahat ng ad sa app para sa mas maayos na karanasan",
+  "removeAdsTitle": "Alisin ang mga Ad",
+  "removedFromFavoriteContacts": "Tinanggal mula sa mga paboritong contact",
+  "removedFromFavorites": "Tinanggal mula sa mga paborito",
+  "removeFavorite": "Alisin ang Paborito",
+  "removeFromFavorites": "Alisin sa Mga Paborito",
+  "renameButton": "Palitan ang Pangalan",
+  "renameDeviceDialogTitle": "Palitan ang Pangalan ng Device",
+  "renameDeviceTitle": "Palitan ang Pangalan ng Device",
+  "replaceCurrentSettingsConfirmation": "Ito ay papalitan ang lahat ng iyong kasalukuyang mga setting. Sigurado ka bang gusto mong magpatuloy?",
+  "requestAllPermissions": "Hilingin Lahat ng Pahintulot",
+  "requestPermission": "Hilingin ang Pahintulot",
+  "requestPermissionFailed": "Nabigong hilingin ang pahintulot: {error}",
+  "requiredMarks": "{count} Mga Marka",
+  "reset": "I-reset",
+  "restore": "Ibalik",
+  "restoreApplicationSettingsFromBackup": "Ibalik ang Mga Setting ng Application mula sa Backup",
+  "restoreApplicationSettingsFromBackupSubtitle": "Ibalik ang mga setting ng application mula sa backup",
+  "restoreButton": "Ibalik",
+  "restoreFailedWithError": "Nabigo ang pag-restore mula sa cloud: {error}",
+  "restoreFromCloud": "Ibalik mula sa Cloud",
+  "restoreFromCloudDescription": "Ibalik ang mga setting at tuntunin mula sa imbakan ng cloud",
+  "restoreFromCloudFailed": "Nabigong i-restore mula sa cloud: {error}",
+  "restoreFromCloudLabel": "Ibalik mula sa Cloud",
+  "restoreFromCloudSuccess": "Matagumpay na na-restore mula sa cloud",
+  "restoreFromCloudTitle": "Ibalik mula sa Cloud",
+  "restoreFromLocal": "Ibalik mula sa Lokal",
+  "restorePurchases": "Ibalik ang mga Pagbili",
+  "restoreSectionTitle": "Ibalik",
+  "restoreSettings": "Ibalik ang mga Setting",
+  "restoreSettingsConfirmation": "Ito ay papalitan ang lahat ng iyong kasalukuyang mga setting. Sigurado ka bang gusto mong magpatuloy?",
+  "restoreSettingsDialogTitle": "Ibalik ang mga Setting",
+  "restoreSettingsTitle": "Ibalik ang mga Setting",
+  "restoreSuccessFromLocal": "Matagumpay na na-restore mula sa lokal",
+  "restoreSuccessMessage": "Matagumpay na na-restore mula sa cloud",
+  "retry": "Subukang muli",
+  "ridesharing": "Ridesharing",
+  "risk": "Panganib",
+  "robocall": "Robocall",
+  "ruleAction": "Aksyon ng Tuntunin",
+  "ruleAddButton": "Idagdag ang Tuntunin",
+  "ruleAddedSuccess": "Matagumpay na naidagdag ang tuntunin",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "Nabigong idagdag ang tuntunin: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "Matagumpay na naidagdag ang tuntunin",
+  "ruleDeleteConfirmContent": "Sigurado ka bang gusto mong tanggalin ang {ruleType} na ito?",
+  "ruleDeleteConfirmTitle": "Tanggalin ang Tuntunin",
+  "ruleDeletedSuccess": "Matagumpay na natanggal ang tuntunin",
+  "ruleDeletedSuccessfully": "Matagumpay na natanggal ang tuntunin",
+  "ruleDeleteFailed": "Nabigong tanggalin ang tuntunin: {error}",
+  "ruleDeleteFailure": "Nabigong tanggalin ang tuntunin: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "Matagumpay na natanggal ang tuntunin",
+  "ruleDisabledSuccessfully": "Matagumpay na na-disable ang tuntunin",
+  "ruleEnabledSuccessfully": "Matagumpay na na-enable ang tuntunin",
+  "ruleLoadFailed": "Nabigong i-load ang mga tuntunin: {error}",
+  "ruleManagement": "Pamamahala ng Tuntunin",
+  "ruleManagementTitle": "Pamamahala ng Tuntunin",
+  "ruleName": "Pangalan ng Tuntunin",
+  "ruleNameAndContentRegexCannotBeEmpty": "Hindi maaaring walang laman ang pangalan ng tuntunin at content regex",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "Hindi maaaring walang laman ang pangalan ng tuntunin at numero ng telepono",
+  "ruleNameHint": "hal., Pamilya, Mga Kaibigan, atbp.",
+  "ruleNameLabel": "Pangalan ng Tuntunin",
+  "ruleNamePatternRequired": "Mangyaring ilagay ang pangalan at pattern ng tuntunin",
+  "ruleNameRequired": "Hindi maaaring walang laman ang pangalan ng tuntunin at numero ng telepono",
+  "ruleNotExist": "Hindi umiiral ang panuntunan o nabura na ito",
+  "ruleNotFound": "Hindi natagpuan ang panuntunan: {error}",
+  "ruleSavedSuccessfully": "Matagumpay na na-save ang panuntunan!",
+  "ruleSavedSuccessMessage": "Matagumpay na na-save ang panuntunan!",
+  "ruleSaveFailed": "Nabigo ang pag-save: {error}",
+  "ruleSaveFailedMessage": "Nabigo ang pag-save: {error}",
+  "ruleSaveSuccess": "Matagumpay na na-save ang panuntunan!",
+  "rulesExportedSuccessfully": "Matagumpay na na-export ang mga panuntunan",
+  "rulesExportedTo": "Na-export ang mga panuntunan sa: {path}",
+  "rulesImported": "Matagumpay na na-import ang mga panuntunan",
+  "rulesImportedSuccessfully": "{count} na panuntunan ang matagumpay na na-import",
+  "rulesImportFailed": "Nabigong i-import ang mga panuntunan: {error}",
+  "ruleStatistics": "Mga Istatistika ng Panuntunan",
+  "ruleStatusChanged": "Matagumpay na nagbago ang panuntunan {status}",
+  "ruleToggleFailed": "Nabigo ang operasyon: {error}",
+  "ruleToggleSuccess": "Matagumpay na nagbago ang panuntunan {status}",
+  "ruleUpdateFailed": "Nabigong i-update ang panuntunan: {error}",
+  "ruleUpdateSuccess": "Matagumpay na na-update ang panuntunan",
+  "ruleVerification": "Pag-verify ng Panuntunan",
+  "save": "Save",
+  "saveButton": "Save",
+  "saveButtonLabel": "SAVE",
+  "saveButtonText": "Save",
+  "saveFailed": "Nabigo ang pag-save: {error}",
+  "saveFilter": "Save Filter",
+  "saveSettings": "Save Settings",
+  "saveSettingsFailed": "Nabigong i-save ang mga setting: {error}",
+  "scamsLikely": "Malamang na Scams",
+  "search": "Search",
+  "searchContacts": "Search Contacts",
+  "searchError": "Error sa paghahanap: {error}",
+  "searchFilters": "Search Filters",
+  "searchForContacts": "Search for contacts",
+  "searchHint": "Search...",
+  "searchSettingsSubtitle": "Maghanap ng mga contact, label, blacklist, whitelist, atbp.",
+  "searchSettingsTitle": "Search Settings",
+  "securityMessage": "Huwag magtiwala sa anumang tawag sa telepono. Laging i-verify ang mga numero ng customer service nang independiyente. Huwag kailanman ibahagi ang mga password, code ng pagpapatunay, numero ng card, o personal na impormasyon.",
+  "selectActionToPerform": "Piliin ang aksyon na gagawin kapag tumugma ang panuntunan",
+  "selectActionWhenBlockingCalls": "Piliin ang aksyon kapag nagba-block ng mga tawag",
+  "selectActionWhenRuleMatches": "Piliin ang aksyon kapag tumugma ang panuntunan",
+  "selectAll": "Select All",
+  "selectCountry": "Select Country",
+  "selectDateRange": "Select Date Range",
+  "selectedDateRange": "Napiling date range",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} na item ang napili",
+  "selectedLabel": "Napili:",
+  "selectExportFormat": "Select Export Format",
+  "selectLabel": "Select Label",
+  "selectLabelAndEnterPhoneNumber": "Mangyaring pumili ng label at maglagay ng wastong numero ng telepono",
+  "selectLanguage": "Select Language",
+  "selectMultiple": "Select Multiple",
+  "selectPeriod": "Select Period",
+  "selectSimCard": "Select SIM Card",
+  "selectSimSlot": "Select SIM Slot",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "Piliin ang tiyak na aksyon na gagawin kapag nagba-block ng mga tawag",
+  "selectTag": "Select Tag",
+  "selectTags": "Select Tags",
+  "selectTrustedDataSource": "Mangyaring pumili ng mga pinagkakatiwalaang data source",
+  "selectYourLanguage": "Select Your Language",
+  "sender": "Sender",
+  "senderRegexOptional": "Sender Regex (Opsyonal)",
+  "serverAddressLabel": "Server Address",
+  "serviceTypeContact": "Contact Subscription",
+  "serviceTypeLabel": "Service Type",
+  "serviceTypePhone": "Phone Subscription",
+  "serviceTypePlugin": "Plugin Update",
+  "serviceTypeSms": "SMS Subscription",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "Set",
+  "setEncryptionPassword": "Set Encryption Password",
+  "setEncryptionPasswordDescription": "Magtakda ng password ng encryption para sa backup at restore",
+  "setEncryptionPasswordLabel": "Set Encryption Password",
+  "setEncryptionPasswordTitle": "Set Encryption Password",
+  "setPasswordButton": "Set",
+  "settings": "Settings",
+  "settingsBackedUpTo": "Na-backup ang mga setting sa: {path}",
+  "settingsLoaded": "Na-load ang mga setting",
+  "settingsLoadFailed": "Nabigong i-load ang mga setting: {error}",
+  "settingsRestoredSuccessfully": "Matagumpay na naibalik ang mga setting. Mangyaring i-restart ang app para magkabisa ang mga pagbabago.",
+  "settingsSaved": "Na-save ang mga setting",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "Nabigong i-save ang mga setting: {error}",
+  "settingsTab": "Settings",
+  "settingsTitle": "Settings",
+  "setup": "Setup",
+  "showContactEditDialogStaticMethod": "Static method para ipakita ang contact edit dialog",
+  "showExplanation": "Show Explanation",
+  "silence": "Silence",
+  "silenceAndNoAnswer": "Silence and No Answer",
+  "silenceNoAnswer": "Silence No Answer",
+  "silentCallVoiceClone": "Silent Call Voice Clone",
+  "silentRules": "Silent Rules",
+  "simCard": "SIM Card {simNumber}",
+  "simCardColor": "SIM Card Color",
+  "simCardConfigurationExplanation": "• SIM Card Configuration: Magtakda ng mga independenteng panuntunan sa pag-filter para sa bawat SIM card",
+  "simCardFilterRules": "SIM Card Filter Rules",
+  "simCardFilterRulesDescription": "Magtakda ng iba't ibang panuntunan sa pag-filter batay sa mga SIM card slot",
+  "simCardFontSize": "SIM Card Font Size",
+  "simCardPosition": "SIM Card Position",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "Nabigong i-load ang impormasyon ng SIM card: {error}",
+  "simRuleInstructions": "Ang mga tuntunin sa SIM slot ay nagbibigay-daan sa iyo na i-configure ang mga independiyenteng tuntunin sa pag-filter para sa bawat SIM slot.",
+  "simRuleInstructionsTitle": "Mga Tuntunin sa SIM Slot",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "Pamamahala ng Tuntunin sa SIM Slot",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "Nabigong i-load ang data ng SIM: {error}",
+  "simSlotFilterConfiguration": "Konfigurasyon ng Filter ng SIM Slot",
+  "simSlotFilterConfigurationDescription": "Pinapayagan ang pagtatakda ng mga tuntunin sa pag-filter ayon sa SIM slot",
+  "simSlotFilterDescription": "Mag-configure ng mga independiyenteng tuntunin sa pag-filter para sa bawat SIM card:",
+  "simSlotFilterSettingsTitle": "Mga Setting ng Filter ng SIM Slot {slotNumber}",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "Nabigong i-load ang mga SIM slot: {error}",
+  "simSlotManagement": "Pamamahala ng SIM Slot",
+  "simSlotOperationFailed": "Nabigong isagawa ang operasyon sa SIM slot: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "Posisyon ng SIM Slot {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• Mga Tuntunin sa SIM Slot: Mga independiyenteng estratehiya sa pag-filter bawat SIM",
+  "simSlotRuleListTitle": "Listahan ng mga Tuntunin sa SIM Slot",
+  "simSlotRuleManagement": "Mga Tuntunin sa SIM Slot",
+  "simSlotRuleManagementTitle": "Pamamahala ng Tuntunin",
+  "simSlotSettings": "Mga Setting ng SIM Slot",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "SIM Slot {slotNumber}",
+  "skip": "Laktawan",
+  "smartCallerId": "Smart Identification ng Tumatawag",
+  "sms": "SMS",
+  "smsFilterDescription": "Ang pag-filter ng SMS ay tumutulong sa iyo na awtomatikong i-filter ang mga spam message at panatilihing malinis ang iyong listahan ng mensahe. Maaari kang magtakda ng mga tuntunin sa pag-filter at mga pamamaraan ng notipikasyon.",
+  "smsFilterDisabled": "Naka-disable ang pag-filter ng SMS",
+  "smsFilterEnabled": "Naka-enable ang pag-filter ng SMS",
+  "smsFilterRuleAddedSuccessfully": "Matagumpay na naidagdag ang tuntunin sa filter ng SMS",
+  "smsFilterRules": "Mga Tuntunin sa Filter ng SMS",
+  "smsFilterSettings": "Mga Setting ng Filter ng SMS",
+  "smsHistory": "Kasaysayan ng SMS",
+  "smsManagement": "Pamamahala ng SMS",
+  "smsPermission": "Pahintulot sa SMS",
+  "smsPermissionDescription": "Ginamit upang i-filter ang mga spam message.",
+  "smsRuleAddedSuccessfully": "Matagumpay na naidagdag ang tuntunin sa SMS",
+  "smsRuleDeletedSuccessfully": "Matagumpay na nabura ang tuntunin sa SMS",
+  "smsRuleLoadFailed": "Nabigong i-load ang mga tuntunin sa SMS: {error}",
+  "smsRuleManagement": "Pamamahala ng Tuntunin sa SMS",
+  "smsRulesExportedSuccessfully": "Matagumpay na na-export ang mga tuntunin sa SMS sa {filePath}",
+  "smsRulesImportedSuccessfully": "Matagumpay na na-import ang mga tuntunin sa SMS",
+  "smsRuleSubscription": "Subscription ng Tuntunin sa SMS",
+  "smsRuleUpdatedSuccessfully": "Matagumpay na na-update ang tuntunin sa SMS",
+  "smsSettingsSubtitle": "Pag-filter ng SMS at pag-block ng keyword",
+  "smsSettingsTitle": "Mga Setting ng SMS",
+  "smsSubscription": "Subscription sa SMS",
+  "smsSubscriptionAddedSuccessfully": "Matagumpay na naidagdag ang subscription sa SMS",
+  "smsSubscriptionRulesDescription": "Mag-subscribe sa mga listahan ng tuntunin sa SMS sa pamamagitan ng URL, na sumusuporta sa pagtutugma ng regular na ekspresyon. Maaari kang magtakda ng mga aksyon na i-block o pahintulutan.",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "Ilan sa mga kahilingan sa pahintulot ay tinanggihan",
+  "spamLikely": "Malamang Spam",
+  "startColor": "Simulang Kulay",
+  "startDate": "Petsa ng Simula",
+  "startUsing": "Magsimulang Gumamit",
+  "statAnswered": "Nasagot",
+  "statBlocked": "Naka-block",
+  "staticMethodShowCallerIdDialog": "Static na paraan upang ipakita ang Dialog ng Impormasyon ng Caller ID",
+  "staticMethodToDisplayCountrySelectionDialog": "Static na paraan upang ipakita ang dialog ng pagpili ng bansa",
+  "staticMethodToDisplayDialog": "Static na paraan upang ipakita ang dialog",
+  "statistics": "Istatistika",
+  "statisticsExportFeatureComingSoon": "Ang feature na pag-export ng istatistika ay paparating na",
+  "statisticsGrid": "Grid ng Istatistika",
+  "statisticsPageTitle": "Pagsusuri ng Data",
+  "stirColor": "Kulay ng STIR",
+  "stirFontSize": "Laki ng Font ng STIR",
+  "stirPosition": "Posisyon ng STIR",
+  "storagePermission": "Pahintulot sa Imbakan",
+  "storagePermissionDescription": "Ginamit upang i-save ang mga setting at tuntunin.",
+  "subscribe": "Mag-subscribe",
+  "subscriptionAddSuccess": "Matagumpay na naidagdag ang subscription \"{name}\"",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "Sigurado ka bang gusto mong burahin ang subscription na ito?",
+  "subscriptionDeleteConfirmTitle": "Burahin ang Subscription",
+  "subscriptionDeleted": "Nabura ang Subscription",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "Matagumpay na nabura ang subscription",
+  "subscriptionDeleteFailed": "Nabigong burahin ang subscription: {error}",
+  "subscriptionDeleteSuccess": "Nabura ang subscription",
+  "subscriptionEmptyState": "Walang subscription na magagamit",
+  "subscriptionEmptyText": "Wala pang subscription",
+  "subscriptionLoadFailed": "Nabigong i-load ang mga subscription: {error}",
+  "subscriptionLoadingFailed": "Nabigong i-load ang mga subscription: {error}",
+  "subscriptionManagementTitle": "Pamamahala ng Subscription",
+  "subscriptionName": "Pangalan ng Subscription",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "Hindi maaaring walang laman ang pangalan at URL ng subscription",
+  "subscriptionNameHint": "Ilagay ang pangalan ng subscription",
+  "subscriptionPageTitle": "Pamamahala ng Subscription",
+  "subscriptionStatusChangeFailed": "Nabigong baguhin ang status ng subscription: {error}",
+  "subscriptionToggleFailed": "Nabigong i-toggle ang status ng subscription: {error}",
+  "subscriptionUpdateFailed": "Nabigong i-update ang subscription: {error}",
+  "subscriptionUpdateSuccess": "Matagumpay na na-update ang subscription",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "URL ng Subscription",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "Ilagay ang URL ng subscription",
+  "successfullyImportedRules": "Matagumpay na na-import ang {count} na tuntunin",
+  "supportSync": "Suportahan ang Sync",
+  "survey": "Survey",
+  "syncDevicesButton": "I-sync ang mga Device",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "Nabigo ang sync",
+  "syncFailedMessage": "Nabigo ang sync",
+  "syncFolderNameHint": "Mangyaring ilagay ang pangalan ng folder ng sync (default: NotificationManager)",
+  "syncFolderNameLabel": "Pangalan ng Folder ng Sync",
+  "synchronized": "Na-synchronize",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "Nag-si-sync...",
+  "syncNow": "I-sync Ngayon",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "Sync Ngayon",
+  "syncStatusTitle": "Katayuan ng Sync",
+  "syncStatusUpdatedMessage": "Na-update ang katayuan ng sync",
+  "syncSuccessful": "Matagumpay ang Sync",
+  "syncSuccessMessage": "Matagumpay ang Sync",
+  "syncWithCloudStorage": "Mag-sync sa Cloud Storage",
+  "syncWithCloudStorageSubtitle": "Mag-sync sa cloud storage",
+  "systemFeatures": "Mga Tampok ng Sistema:",
+  "systemSettingsTitle": "Mga Setting ng Sistema",
+  "tabAll": "Lahat",
+  "tabAnswered": "Nasagot",
+  "tabBlocked": "Naharangan",
+  "tabMissed": "Namiss",
+  "tabOutgoing": "Papunta",
+  "tagLabel": "Lagay: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "Na-update ang mga lagay",
+  "takeaway": "Takeaway",
+  "telecommunication": "Telekomunikasyon",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "testButtonLabel": "TEST",
+  "testConnectionButton": "Subukan ang Koneksyon",
+  "textColorsSetting": "Mga Kulay ng Teksto at Label",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "Ang app na ito ay isang makapangyarihang tool sa pagkilala ng tumatawag na nagbibigay-daan sa iyong tukuyin at harangan ang mga hindi kanais-nais na tawag.",
+  "thisWeek": "Linggong Ito",
+  "timeInterceptor": "Time Interceptor",
+  "timeInterceptorDescription": "Awtomatikong harangan/payagan ang mga potensyal na tawag batay sa dalas ng pagtawag",
+  "timeInterceptorExplanation": "• Time Interceptor: Harangan/payagan ang mga paulit-ulit na tawag sa maikling panahon",
+  "timeInterceptorExplanationContent": "Sinusuri ng feature na ito ang dalas ng pagtawag upang awtomatikong tukuyin at harangan/payagan ang mga madalas na spam na tawag.",
+  "timeInterceptorExplanationTitle": "Paliwanag sa Pagsagap ng Dalas ng Tawag",
+  "timeInterceptorSettingsTitle": "Mga Setting ng Pagsagap ng Dalas ng Tawag",
+  "timeInterceptorSubtitle": "Awtomatikong harangan ang mga potensyal na spam na tawag batay sa dalas ng pagtawag",
+  "timeInterceptorTitle": "Paganahin ang Pagsagap ng Dalas ng Tawag",
+  "timeWindowDescription": "Itakda ang laki ng time window para sa pagpapahintulot sa mga paulit-ulit na tawag. Ang mga tawag mula sa parehong numero sa loob ng window na ito ay papayagan",
+  "timeWindowLabel": "Oras ng Pagsagap (minuto): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "Itakda ang laki ng time window para sa pagpapahintulot sa mga paulit-ulit na tawag. Ang mga tawag mula sa parehong numero sa loob ng window na ito ay papayagan",
+  "today": "Ngayon",
+  "total": "Kabuuan",
+  "totalBlocked": "Kabuuang Naharangan",
+  "totalFiltered": "Kabuuang Nafilter",
+  "transferDataBetweenDevicesOrPlatforms": "Ilipat ang data sa pagitan ng mga device o platform",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "Ilipat ang data sa pagitan ng mga device o platform",
+  "travelTicketing": "Pag-book ng Biyahe",
+  "trend": "Trend",
+  "trendChart": "Tsart ng Trend",
+  "tutorial": "Tutorial",
+  "type": "Uri",
+  "unassignedSIMCard": "Hindi Nakamalay na SIM Card",
+  "unknown": "Hindi Alam",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "Hindi Alam na Label",
+  "unknownTag": "Lagay: Hindi Alam",
+  "unregisterButton": "I-unregister",
+  "unregisterDeviceConfirmationMessage": "Sigurado ka bang nais mong i-unregister ang {deviceName}?",
+  "unregisterDeviceTitle": "I-unregister ang Device",
+  "unsupportedFileFormat": "Hindi Suportadong Pormat ng File",
+  "update": "Update",
+  "updateAllNow": "I-update Lahat Ngayon",
+  "updateCallFilterConfig": "I-update ang Konpigurasyon ng Call Filter",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "Nabigong i-update ang contact: {error}",
+  "updateFavoriteStatus": "I-update ang Katayuan sa Paborito",
+  "updateFavoriteStatusFailed": "Nabigong i-update ang katayuan sa paborito: {error}",
+  "updateInterval": "Pagitan ng Update",
+  "updateLabelFailed": "Nabigong i-update ang label",
+  "updateNow": "I-update Ngayon",
+  "updatePlugin": "I-update ang Plugin",
+  "updatePluginFailed": "Nabigong i-update ang plugin: {error}",
+  "updateRuleFailed": "Nabigong i-update ang tuntunin: {error}",
+  "updateSubscriptionFailed": "Nabigong i-update ang subscription: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "Matagumpay na na-update ang {service} ({count} na tuntunin)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "I-update ang mga Lagay",
+  "useCasesPoint1": "• Kilalanin ang mga spam na tawag na auto-redial",
+  "useCasesPoint2": "• Harangan ang mga tawag sa marketing na tumatawag nang maraming beses sa maikling panahon",
+  "useCasesPoint3": "• Pigilan ang phone bombing at panliligalig",
+  "useCasesTitle": "Mga Paggamit:",
+  "useGlobalSettings": "Gamitin ang Pandaigdigang Mga Setting",
+  "userEmail": "user@example.com",
+  "usernameLabel": "Username",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "Gumamit ng karaniwang regex syntax upang tukuyin ang mga pattern. Mga Halimbawa:",
+  "validateRegex": "I-validate ang Regex",
+  "verificationFailedText": "Nabigo",
+  "verifiedText": "Verified",
+  "verify": "Verify",
+  "version": "Bersyon: {version}",
+  "vipExchangeDescription": "Ipagpalit ang VIP membership sa mga bilang ng pagmamarka ng numero ng telepono",
+  "vipExchangeTitle": "Markahan ang Palitan na VIP",
+  "watchAd": "Manood ng Ad",
+  "watchAdForTemp": "Manood ng Ad para sa Pansamantalang Pribilehiyo",
+  "watchAdForTempDescription": "Manood ng isang maikling ad upang pansamantalang i-unlock ang ilang premium na feature",
+  "webDAVConfigTitle": "Konpigurasyon ng WebDAV",
+  "webdavConfigurationTitle": "Konpigurasyon ng WebDAV",
+  "webdavPasswordHint": "Mangyaring ilagay ang WebDAV password",
+  "webdavServerAddressHint": "Mangyaring ilagay ang WebDAV server address",
+  "webdavUsernameHint": "Mangyaring ilagay ang WebDAV username",
+  "week": "Linggo",
+  "weekly": "Lingguhan",
+  "weeklyBlockedCallsSummary": "Buod ng Lingguhang Naharang na Tawag",
+  "weeklyChartTitle": "Lingguhang Naharang na Tawag",
+  "weeklyReport": "Lingguhang Ulat",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "Makatanggap ng lingguhang buod ng ulat ng aktibidad sa pagharang ng tawag",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "Maligayang pagdating",
+  "whitelist": "Whitelist",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "Whitelist",
+  "width": "Lapad",
+  "wildcardMatchingDescription": "Gamitin ang '.' upang itugma ang anumang karakter (hal. '123.456' ay tumutugma sa 123-456)",
+  "wildcardMatchingTitle": "Pagtutugma ng wildcard:",
+  "wildcardSupportForFlexibleFiltering": "Suporta sa Wildcard para sa Flexible na Pag-filter",
+  "windowSizeSetting": "Sukat ng Window",
+  "year": "Taon",
+  "yearly": "Taun-taon",
+  "yearlyChartTitle": "Taunang mga Tawag na Naharang",
+  "noSimCardsDetected": "Walang SIM card na natukoy",
+  "filterManagementDescription": "Magtakda ng mga Filter ng Tawag",
+  "callerIdCustomizationSubtitle": "I-customize ang Layout ng Caller ID",
+  "fraudAlerSettingTitle": "Pagtatakda ng Alerto sa Pandaraya",
+  "fraudAlerSettingSubtitle": "Upang Magtakda ng Alerto sa Pandaraya",
+  "enableFraudAlert": "Paganahin ang Alerto sa Pandaraya",
+  "enableFraudAlertDescription": "Alerto para sa mga pinaghihinalaang scam calls",
+  "enableVibration": "Paganahin ang Pag-vibrate",
+  "enableVibrationDescription": "Mag-vibrate kapag ang tawag ay pinaghihinalaang scam calls",
+  "notificationSettingsTitle": "Mga Setting ng Notification",
+  "useLocalNotification": "Gumamit ng Lokal na Notification",
+  "useLocalNotificationDescription": "Paganahin ang lokal na notification para sa mga papasok na tawag",
+  "cancelLocalNotification": "Isara ang Lokal na Notification",
+  "useStirNotification": "Gumamit ng Notification mula sa STIR",
+  "useStirNotificationDescription": "Paganahin ang STIR notification para sa mga papasok na tawag",
+  "cancelLocalNotificationDescription": "Isara ang Lokal na Notification Nang Awtomatiko",
+  "callerIdSettingsTitle": "Mga Setting ng Caller ID",
+  "callerIdSettingsSubtitle": "Upang Mag-set up ng Papasok na Tawag na Notification at Display Mode",
+  "purchaseTitle": "Pagbili",
+  "purchaseSubtitle": "Upang Bilhin ang Serbisyo",
+  "callerIdNotificationTitle": "Impormasyon ng Papasok na Tawag",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Numero: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "Naharang na Tawag",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "Naharang na tawag mula sa {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Napatunayan",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Hindi Napatunayan",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Nabigo ang Pagpapatunay",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Hindi Alam ang Katayuan ng Pagpapatunay",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "STIR/SHAKEN na Pagpapatunay",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} para sa numerong {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "Mga Setting ng Scrolling Security Message",
+  "messageColor": "Kulay ng Mensahe",
+  "messageFontSize": "Sukat ng Font ng Mensahe",
+  "messagePosition": "Posisyon ng Mensahe",
+  "containerWidth": "Lapad ng Lalagyan",
+  "scrollSpeed": "Bilis ng Pag-scroll",
+  "enableSecurityMessage": "Paganahin ang Mensahe sa Seguridad",
+  "fraudAlertTitle": "Alerto sa Pandaraya",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "Posibleng pandaraya na tawag mula sa {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "Nabigong i-load ang mga patakaran: {error}",
+  "loadCallLogFailed": "Nabigong i-load ang call log: {error}",
+  "noBlockedTypeData": "Walang available na data ng uri ng naharang",
+  "importEntity": "Mag-import ng {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "Matagumpay na na-import ang {entityTypeName}, kabuuang {count} na mga record ang na-import",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "Nabigong i-import ang {entityTypeName}: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Mag-export ng {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "Matagumpay na na-export ang {entityTypeName}",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "Nabigong i-export ang {entityTypeName}: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "Serbisyo ng Cloud Sync",
+  "membershipCenter": "Sentro ng Pagiging Miyembro",
+  "redeemVipWithMarks": "Mag-redeem ng VIP gamit ang mga Marka",
+  "currentMarkCount": "Kasalukuyang Bilang ng Marka",
+  "markMoreNumbersForMore": "Magmarka ng higit pang mga numero para sa higit pang mga marka",
+  "noAds": "Walang Ads",
+  "cloudBackup": "Cloud Backup",
+  "callerIdEnhancement": "Pagpapahusay ng Caller ID",
+  "voiceRecognition": "Pagkilala sa Boses",
+  "feature": "Feature",
+  "normalUser": "Normal na User",
+  "vipUser": "VIP User",
+  "temporaryVip": "Pansamantalang VIP",
+  "removeAds": "Alisin ang Ads",
+  "unknownAction": "Hindi Alam na Aksyon",
+  "settingsBackup": "Pag-backup ng mga Setting ",
+  "allServicesStatusTitle": "Kasalukuyang Katayuan ng Serbisyo",
+  "allServicesStatusSubtitle": "Kasalukuyang Katayuan ng Bawat Cloud Service",
+  "redirect": "I-redirect",
+  "notify": "Magbigay-alam",
+  "log": "Mag-log",
+  "custom": "Pasadyang",
+  "allowActionDescription": "Papayagan ang mga tawag, kahit na ang numero ay nasa blocklist.",
+  "blockActionDescription": "Ang mga tawag ay haharangin at ipapakita sa call log.",
+  "silenceActionDescription": "Ang mga tawag ay papatahimikin ngunit ipapakita sa call log.",
+  "noneActionDescription": "Walang espesyal na aksyon ang gagawin para sa tawag.",
+  "redirectActionDescription": "I-redirect ang tawag sa isang tinukoy na numero.",
+  "labelActionDescription": "Magdagdag ng label sa tawag para madaling matukoy.",
+  "notifyActionDescription": "Magpadala ng notification kapag may natanggap na tawag.",
+  "logActionDescription": "Mag-log ng impormasyon ng tawag nang hindi gumagawa ng anumang iba pang aksyon.",
+  "customActionDescription": "Magsagawa ng pasadyang aksyon.",
+  "synced": "Na-sync",
+  "needVipAccess": "Kailangan mo ng VIP access upang magamit ang feature na ito",
+  "importExportDescription": "Mag-import o mag-export ng data ng {entityTypeName}",
+  "importExportTitle": "Mag-import/Mag-export",
+  "noPhoneRules": "Walang natagpuang mga panuntunan sa telepono",
+  "noRegexRules": "Walang natagpuang mga panuntunan sa regex",
+  "noAllowedBlockedRules": "Walang natagpuang pinahintulutan/naharang na mga panuntunan",
+  "importExport": "Mag-import/Mag-export",
+  "filterByAction": "Salain ayon sa Aksyon",
+  "upgradeToVip": "Mag-upgrade sa VIP",
+  "batteryOptimizationPermission": "Pag-optimize ng Baterya",
+  "batteryOptimizationPermissionDescription": "Pahintulutan ang app na tumakbo sa background upang magbigay ng mga serbisyo tulad ng caller ID.",
+  "permissionTitle": "Mga Espesyal na Pahintulot",
+  "permissionSubtitle": "Pamahalaan ang mga pahintulot sa overlay at pag-optimize ng baterya",
+  "themeSettingsTitle": "Mga Setting ng Tema",
+  "themeSettingsSubtitle": "Piliin ang iyong paboritong tema",
+  "databaseSyncTitle": "Pag-sync ng Database",
+  "countrySyncSettingsTitle": "Mga Setting ng Pag-sync ng Database Batay sa Bansa",
+  "countrySyncSettingsSubtitle": "Pumili ng mga bansa para sa pag-synchronize ng data",
+  "countryDataDisclaimer": "Paalala: Maaaring hindi kasama sa database ang data para sa lahat ng partikular na bansa o rehiyon.",
+  "editSubscription": "I-edit ang Subscription",
+  "searchByNameOrPhoneNumber": "Hanapin Ayon sa Pangalan o Numero ng Telepono",
+  "allowedBlockedRulesInfo": "Ang mga pinapayagan/na-block na panuntunan ay ginagamit upang itugma ang mga tawag sa mga partikular na numero ng telepono, na may pinakamataas na priyoridad.",
+  "searchPhoneRulesHint": "Hanapin ang mga panuntunan sa telepono",
+  "phoneRulesInfo": "Ang mga panuntunan sa telepono ay ginagamit upang itugma ang mga tawag sa mga partikular na numero ng telepono, na may mas mababang priyoridad. Ang ilan ay nagmumula sa mga subscription sa phoneRule.",
+  "searchSubscriptionsHint": "Hanapin ang mga subscription",
+  "searchPluginsHint": "Hanapin ang mga plugin",
+  "searchLabelsHint": "Hanapin ang mga label",
+  "pluginDescription": "Deskripsyon ng Plugin",
+  "enterPluginDescription": "Ilagay ang deskripsyon ng plugin",
+  "searchRegexRulesHint": "Hanapin ang mga panuntunan sa regex",
+  "regexRulesInfo": "Ang mga panuntunan sa Regex ay ginagamit upang salain ang mga tawag batay sa mga Pattern ng Regex.",
+  "searchMarkedPhonesHint": "Hanapin ang mga naka-markang telepono",
+  "searchContactSubscriptionsHint": "Hanapin ang mga subscription sa contact",
+  "showAllContacts": "Ipakita ang Lahat ng Contact",
+  "showFavorites": "Ipakita ang Mga Paborito",
+  "manualEntry": "Impormasyon sa Manu-manong Pagpasok",
+  "scriptSaved": "Naisave ang script",
+  "editScriptFor": "I-edit ang script para sa {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "I-save ang Script",
+  "testPlugin": "Subukan ang Plugin",
+  "description": "Deskripsyon",
+  "accessTargetUrl": "I-access ang Target na URL",
+  "result": "Resulta",
+  "editScript": "I-edit ang Script",
+  "numberFormat": "Format ng Numero",
+  "nationalNumber": "Pambansang Numero",
+  "e164Number": "E164 na Numero",
+  "pluginRulesInfo": "Para sa seguridad, gamitin lamang ang mga plugin mula sa mga mapagkakatiwalaang pinagmulan. Huwag mag-atubiling gamitin ang aming mga template upang lumikha ng iyong sariling mga custom na plugin!",
+  "advancedMode": "Advanced Mode",
+  "pleaseEnterAtLeastOneNumber": "Mangyaring maglagay ng hindi bababa sa isang numero.",
+  "openInWebView": "Buksan sa WebView",
+  "pluginLabel": "Label ng Plugin",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "Kulay ng Background ng Mensahe",
+  "clearAllCallLogs": "Tanggalin Lahat ng Tala ng Tawag",
+  "clearAllCallLogsConfirmation": "Kumpirmahin upang tanggalin ang lahat ng tala ng tawag",
+  "allCallLogsCleared": "Nalinisan na ang lahat ng tala ng tawag",
+  "unblocked": "Naka-unblock",
+  "blockNumber": "I-block ang Numero",
+  "blockNumberSuccess": "Matagumpay na na-block ang numero",
+  "blockNumberFailed": "Nabigo ang pag-block ng numero",
+  "unblockNumberConfirmation": "Sigurado ka bang gusto mong i-unblock si {phoneNumber}?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "Tumatawag kay {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "Tingnan ang Detalye",
+  "unblock": "I-unblock",
+  "unblockNumber": "I-unblock ang Numero",
+  "unblockNumberSuccess": "Matagumpay na na-unblock ang numero",
+  "unblockNumberFailed": "Nabigo ang pag-unblock ng numero",
+  "serviceNotAvailable": "Hindi magagamit ang serbisyo",
+  "callingNumberFailed": "Nabigo ang pagtawag sa numero",
+  "listView": "List View",
+  "timelineView": "Timeline View",
+  "nameCannotBeEmpty": "Hindi maaaring walang laman ang pangalan",
+  "selectAction": "Piliin ang aksyon",
+  "selectTargetService": "Piliin ang target na serbisyo",
+  "callDetails": "Mga Detalye ng Tawag",
+  "callType": "Uri ng Tawag",
+  "callTime": "Oras ng Tawag",
+  "numberInvalidFormat": "Hindi wastong format ng numero",
+  "membershipFeature": "Feature ng Miyembro",
+  "medium": "Medium",
+  "verificationReport": "Ulat sa Pag-verify",
+  "finalRisk": "Pinal na Panganib",
+  "simState": "Estado ng SIM",
+  "ipCountry": "Bansa ng IP",
+  "simCountry": "Bansa ng SIM",
+  "isRoaming": "Naka-roaming",
+  "isNumberMatch": "Pagtugma ng Numero",
+  "support": "Suporta",
+  "rewardedAdService": "Serbisyo ng Rewarded Ad",
+  "hasVipPrivilegeExceptAds": "Mayroon ka nang mga VIP na pribilehiyo (maliban sa mga ad)",
+  "hasTempPrivilegeWithExpiry": "Mayroon ka nang pansamantalang pribilehiyo, expiration date: {expiryDate}",
+  "watchMoreAdsForTempVip": "Kailangan mong manood ng {count} pang mga ad para magkaroon ng pansamantalang VIP na pribilehiyo",
+  "grantedTempPurchaseWithExpiry": "Binigyan ka ng {days} araw ng pansamantalang pribilehiyo sa pagbili. Expiration date: {expiryDate}",
+  "tempPurchaseExpired": "Nag-expire na ang pansamantalang pribilehiyo sa pagbili",
+  "loadingAd": "Naglo-load ng Ad...",
+  "earnedTempVip": "Nakakuha ng pansamantalang VIP",
+  "vipExchangeService": "Serbisyo ng VIP Exchange",
+  "marksInsufficient": "Hindi sapat ang mga marka para ipagpalit",
+  "invalidExchangeRule": "Hindi wastong panuntunan sa pagpapalit",
+  "exchangeSuccess": "Matagumpay na naipagpalit para sa {description}, expiration date: {expiryDate}",
+  "exchangeFailed": "Nabigo ang pagpapalit: {error}",
+  "vip3DaysWithAds": "3-araw na VIP na may mga ad (sync lamang)",
+  "vip5DaysNoAds": "5-araw na full-featured VIP na walang ad",
+  "vip7DaysNoAds": "7-araw na full-featured VIP na walang ad",
+  "noNotifications": "Walang mga abiso",
+  "clearAllNotifications": "Tanggalin Lahat ng Abiso",
+  "clearAllNotificationsConfirmation": "Kumpirmahin upang tanggalin ang lahat ng abiso",
+  "allNotificationsCleared": "Naubos na ang lahat ng notipikasyon",
+  "clearButton": "Linisin",
+  "justNow": "Kagabi lang",
+  "minutesAgo": "{count,plural, =1{1 minuto ang nakalipas} other{{count} minuto ang nakalipas}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1 oras ang nakalipas} other{{count} oras ang nakalipas}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1 araw ang nakalipas} other{{count} araw ang nakalipas}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "Kahapon",
+  "deletionProposal": "Panukala sa Pambura",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "Mga Panukala sa Pambura",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "Gumawa ng Panukala",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "Gumawa ng Panukala sa Pambura",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "Dahilan",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "Lumipas na ang Numero",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Alalahanin sa Pagkapribado",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Hindi Nasa Serbisyo",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Maling Pagkakakilanlan",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Maling Impormasyon",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "Maling Marka",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "Iba Pa",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "Ipasa",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "Kanselahin",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "Katayuan",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "Nakabinbin",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "Aktibo",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "Nakumpleto",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "Nag-expire",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "Antas ng Panganib",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "Napatunayan",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "Mababa",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "Mataas",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "Hindi Alam",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "Pag-usad ng Boto",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "Sumasang-ayon: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "Hindi Sumasang-ayon: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "Kabuuan: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "Sumang-ayon",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "Hindi Sumang-ayon",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "Ginawa: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "Ipakita ang Ulat",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "Itago ang Ulat",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "Mga Estadistika ng Panukala",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "Kabuuang Panukala",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "Mga Aktibong Panukala",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "Mga Nakumpletong Panukala",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "Mga Boto Ko",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "Matagumpay na nagawa ang panukala",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "Nabigong gumawa ng panukala",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "Matagumpay na naipasa ang boto",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "Nabigong ipasa ang boto",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "Walang nakitang mga panukala",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "Naglo-load ng mga panukala...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "I-refresh ang mga Panukala",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "Kabuuang Nakabinbing Panukala",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "Mataas na Panganib",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "Katamtamang Panganib",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "Mababang Panganib",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "Epekto sa Komunidad",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "Mahahalagang Isyu",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "Partisipasyon ng Komunidad",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "Walang Aktibidad",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "Mababa",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "Katamtaman",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "Mataas",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "Napakataas",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "Bumoto",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "Mga Boto ng Komunidad",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "Naghihintay ng higit pang boto ng komunidad",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "Ang panukalang ito ay naproseso na",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "SINUPORTAHAN",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "TINUTULAYAN",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "APRUBAHAN",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "TINAGILAN",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "NAKUMPLETO",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "NAKABINBIN",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "KRITIKAL",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "Tumuligsa",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "Napakababa",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "Mga abiso tungkol sa mga resulta ng boto ng panukala sa pagbura at mga update.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "Nagawa ang Panukala sa Pagbura",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "Ang iyong panukala sa pagbura para sa {phoneNumber} ay naipasa na para sa pagsusuri ng komunidad.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "Naaprubahan ang Panukala ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "Ang panukala sa pagbura para sa {phoneNumber} ay naaprubahan ng komunidad ({supportPercentage}% suporta, {totalVotes} boto).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "Tinagil ang Panukala ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "Ang panukala sa pagbura para sa {phoneNumber} ay tinagil ng komunidad ({supportPercentage}% suporta, {totalVotes} boto).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "Nagsimula na ang Boto ng Komunidad",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "Isang bagong panukala sa pagbura para sa {phoneNumber} ay bukas na para sa boto ng komunidad.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "Tapos na ang Pagboto",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "Nagtapos na ang boto ng komunidad para sa {phoneNumber}. Resulta: {result} ({supportPercentage}% suporta).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "May Bagong Boto na Natanggap",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "May bumoto para {voteType} ang pagbura ng {phoneNumber}. Kasalukuyang boto: {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "Nabigong i-load ang bilang ng boto",
+  "voteCount": "Bilang ng Boto",
+  "deletionProposalInfo": "Impormasyon sa Panukala sa Pagbura",
+  "deletionProposalDescription": "Magpanukala ng mga numero para sa pagbura na lumalabag sa mga alituntunin ng komunidad. Ang iyong pakikilahok ay nakakatulong upang mapanatiling ligtas ang platform.",
+  "voteToEarnVip": "Bumoto sa mga panukala upang kumita ng VIP pribilehiyo!",
+  "voteFailed": "Nabigo ang boto",
+  "searchProposals": "Hanapin ang mga Panukala",
+  "defaultNotifications": "Mga Karaniwang Notipikasyon",
+  "defaultNotificationsDescription": "Karaniwang channel ng notipikasyon para sa app.",
+  "blockedCallNotifications": "Mga Notipikasyon ng Tawag na Binlock",
+  "blockedCallNotificationsDescription": "Nagpapakita ng impormasyon tungkol sa mga naka-block na tawag.",
+  "stirVerification": "STIR/SHAKEN Verification",
+  "stirVerificationDescription": "Nagpapakita ng mga resulta ng STIR/SHAKEN verification para sa mga numero.",
+  "fraudAlerts": "Mga Alerto sa Pandaraya",
+  "fraudAlertsDescription": "Nagpapakita ng mga babala para sa mga posibleng fraudulent na tawag.",
+  "notificationFrequencyDescription": "Pumili kung gaano kadalas ka tumatanggap ng mga notipikasyon tungkol sa mga bagong panukala sa pagtanggal. Maaari mong matanggap ang mga ito kaagad, sa mga batch, o sa isang custom na pagitan.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "Kaagad",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "Tumanggap ng notipikasyon sa sandaling malikha ang isang panukala.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "Naka-batch",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "Tumanggap ng buod ng mga notipikasyon paminsan-minsan.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "Pasadya",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "Tukuyin ang iyong sariling pagitan para sa pagtanggap ng mga notipikasyon.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "Pasadya na Pagitan",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} min",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} h",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "Mga Nakabinbing Panukala",
+  "pendingProposalsBody": "Mayroon kang {count, plural, =0 {walang nakabinbing panukala} one {1 nakabinbing panukala} other {{count} nakabinbing panukala}}.",
+  "guidelinesLabel": "Mga Alituntunin",
+  "reportingGuidelines": "• I-report lamang ang mga numero na tunay na may problema\n• Magbigay ng tumpak at detalyadong mga dahilan\n• Pumili ng naaangkop na antas ng panganib batay sa kalubhaan\n• Ang mga maling ulat ay maaaring magresulta sa mga restriksyon sa account",
+  "riskLevelLabel": "Antas ng Panganib",
+  "riskLevelDescription": "Antas ng panganib ng numero",
+  "phoneNumberMinDigits": "Ang numero ng telepono ay dapat hindi bababa sa 7 digit",
+  "provideDetailedExplanation": "Magbigay ng detalyadong paliwanag (minimum 10 character)",
+  "reasonMinCharacters": "Ang dahilan ay dapat hindi bababa sa 10 character",
+  "countryCodeTwoLetters": "Country Code (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Country Code (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "hal., US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "Kinakailangan ang country code",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "Ang country code ay dapat 2 letra",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "Ang numero ng telepono ay dapat hindi bababa sa 7 digit",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "Magbigay ng detalyadong paliwanag (minimum 10 character)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "Kinakailangan ang dahilan",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "Ang dahilan ay dapat hindi bababa sa 10 character",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "Mga Alituntunin",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• I-report lamang ang mga numero na tunay na may problema\n• Magbigay ng tumpak at detalyadong mga dahilan\n• Pumili ng naaangkop na antas ng panganib batay sa kalubhaan\n• Ang mga maling ulat ay maaaring magresulta sa mga restriksyon sa account",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "Kritikal",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "Katamtaman",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "Napaka-mababa",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "Napaka-mababa - Maliit na abala, paminsan-minsang mga tawag",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "Mababa - Paminsan-minsang hindi kanais-nais na mga tawag",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "Katamtaman - Regular na spam o telemarketing",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "Mataas - Paulit-ulit na panliligalig o mga pagtatangka sa scam",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "Kritikal - Mapanganib na mga scam o banta",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "Pagitan ng Notipikasyon",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "Pagitan ng Notipikasyon (oras)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "Error: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "Mga Boto: {totalVotes} ({supportPercentage}% suporta)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "Suporta ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "Tutol ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "Kagabi lang",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes}m ang nakalipas",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours}h ang nakalipas",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days}d ang nakalipas",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "Pagitan ng Notipikasyon (Oras)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} boto ({supportPercentage}% suporta)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 oras} =1{1 oras} other{{count} oras}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "Mahalagang Paalala",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "Ang mga numero ay nanggagaling sa internet at mga isinumite ng user. Hindi namin magagarantiya na ang isang numero, kapag natanggal, ay hindi muling isusumite ng ibang mga user o pinagmulan. Mangyaring aktibong maghanap at kumpirmahin ang impormasyon.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Lokasyon",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIM Card",
+  "liveActivitiesSettingsTitle": "Mga Setting ng Live Activities",
+  "elementsSettingsTitle": "Mga Setting ng Elements",
+  "liveActivityMode": "Live Activity",
+  "liveActivityModeDescription": "Nagpapakita ng impormasyon ng tawag bilang isang persistent notification sa lock screen at sa Dynamic Island (iOS).",
+  "phoneNumberType": "Uri ng Numero ng Telepono",
+  "liveActivitiesTestEndActivity": "Tapusin ang Aktibidad",
+  "liveActivitiesTestSendNewActivity": "Magpadala ng Bagong Aktibidad",
+  "liveActivitiesTestUpdateActivity": "I-update ang Aktibidad",
+  "liveActivityControlsTitle": "Mga Kontrol sa Live Activity",
+  "liveActivitiesTestTitle": "Live Activities Test",
+  "liveActivitiesTestSubtitle": "Subukan ang live activity Notification.",
+  "liveNotificationCustomizationTitle": "Pag-customize ng Live Notification",
+  "liveNotificationCustomizationSubtitle": "I-customize ang hitsura ng mga live notification.",
+  "notification_instructions": "Mga Tagubilin:\n1. I-tap ang \"IPADALA\" upang lumikha o mag-update ng notipikasyon.\n2. Pumunta sa iyong home screen o hilahin pababa ang notification tray upang makita ang resulta.\n3. I-tap ang \"TAPUSIN\" upang isara ang notipikasyon.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "Awtomatikong Kanselahin ang Notipikasyon",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "Kung naka-check, ang notipikasyon ay awtomatikong isasara kapag ito ay tinapik ng user.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "Magtakda ng Oras ng Pagkaantala",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Mga Detalye ng Panukala",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "Salain Ayon sa Katayuan",
+  "proposalNotFound": "Hindi natagpuan ang panukala",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "Naproseso",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Ipakita Lahat",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "Salain at Ayusin",
+  "filterVerifiedOwner": "Salain ang Beripikadong May-ari",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "Salain Ayon sa",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "Ayusin ang Pinakamatanda",
+  "sortNewest": "Ayusin ang Pinakabago",
+  "sortMostPopular": "Ayusin ang Pinakapopular",
+  "sortLeastPopular": "Ayusin ang Pinakakaunti ang Popular",
+  "sortBy": "Ayusin Ayon sa",
+  "simRulesNotFound": "Hindi natagpuan ang mga SIM Rule",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "Mga SIM Slot Rule",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "Walang SIM card na nakita",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "Hindi balido ang SIM data",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "SIM Card Data",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "SIM Slot",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "Paganahin ang Pag-filter",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "Detalyadong Mga Setting",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "Tingnan ang Entry Point",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "Tinanggihan",
+  "callTypeSilenced": "Pinatahimik",
+  "callTypeVoicemail": "Voicemail",
+  "callTypeUnknownIntercept": "Hindi Kilalang Intercept",
+  "andMoreItems": "at {count} pang mga item",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

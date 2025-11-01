@@ -1,5 +1,5 @@
 {
-  "@@locale": "zh",
+  "@@locale": "zh_CN",
   "aboutContactSubscription": "关于联系人订阅",
   "@aboutContactSubscription": {
     "description": "About contact subscription title"
