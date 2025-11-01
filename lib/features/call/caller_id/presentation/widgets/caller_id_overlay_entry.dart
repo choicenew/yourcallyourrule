@@ -9,6 +9,7 @@ import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_content_builder.dart';
 import 'package:yourcallyourrule/features/call/caller_id/providers/callerid_style_security_provider.dart';
+import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
 class CallerIdOverlayEntry extends ConsumerStatefulWidget {
   const CallerIdOverlayEntry({super.key});
@@ -80,15 +81,44 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
 
     // 【关键修改点】: 在 build 方法中 watch 新的 provider
     final asyncConfig = ref.watch(callerIdStyleSecurityProvider);
+// 添加语言切换
+    final asyncLocale = ref.watch(localeProvider);
+
     debugPrint("当前配置:${asyncConfig.toString()}");
-    return Material(
-      color: Colors.transparent,
-      child: asyncConfig.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, stack) => Center(child: Text('Error: $err')),
+
+
+
+    // 等待语言加载完成
+    return asyncLocale.when(
+      loading: () => const Material(color: Colors.transparent, child: Center(child: CircularProgressIndicator())),
+      error: (err, stack) => Material(color: Colors.transparent, child: Center(child: Text('Lang Error: $err'))),
+      data: (locale) {
+        // 2. 使用 Localizations.override 将加载的 locale 应用到子组件
+        return Localizations.override(
+          context: context,
+          locale: locale,
+          child: Builder( // 使用 Builder 获取包含新 locale 的 context
+            builder: (localizedContext) {
+              // 从这里开始，所有的 AppLocalizations.of(localizedContext) 都会使用正确的语言
+              
+              if (_callerIdData == null) {
+                return const Material(
+                  color: Colors.transparent,
+                  child: Center(child: CircularProgressIndicator()),
+                );
+              }
+
+
+
+              // 等待样式配置加载完成
+              return asyncConfig.when(
+                loading: () => const Material(color: Colors.transparent, child: Center(child: CircularProgressIndicator())),
+                error: (err, stack) => Material(color: Colors.transparent, child: Center(child: Text('Config Error: $err'))),
         data: (config) {
           // 在 Isolate 中，浮窗通常是可关闭的
-           return InkWell(
+                 return Material(
+                    color: Colors.transparent,
+                    child: InkWell(
             key: Key(_callerIdData!.id),
            
              onTap: () {
@@ -100,18 +130,22 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
             child: CallerIdContentBuilder.buildOverlayContainer(
               config: config,
               child: CallerIdContentBuilder.buildCallerIdContent(
-                context: context,
+     context: localizedContext, // 传递新的 context
                 callerIdData: _callerIdData!,
                 config: config,
                 simInfo: _simInfo,
                 stirInfo: _stirInfo,
                 isDraggable: false, // 在真实来电中，元素不可拖动
-              ),
-            ),
-            
-          );
-        },
-      ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

@@ -46,14 +46,14 @@
     <uses-permission
         android:name="android.permission.BIND_CALL_SCREENING_SERVICE"/>
     <!-- Permissions options for the `sms` group -->
-    <uses-permission
+    <!-- <uses-permission
         android:name="android.permission.READ_SMS"/>
     <uses-permission
         android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission
         android:name="android.permission.RECEIVE_MMS"/>
     <uses-permission
-        android:name="android.permission.RECEIVE_WAP_PUSH"/>
+        android:name="android.permission.RECEIVE_WAP_PUSH"/> -->
     <!--  ===  存储和媒体  ===  -->
     <uses-permission
         android:name="android.permission.ACCESS_SELECTED_PHOTOS"/>
@@ -267,7 +267,7 @@
             </intent-filter>
         </receiver>
         <!--  ===  SMS Receiver  ===  -->
-        <receiver
+        <!-- <receiver
             android:name=".SmsReceiver"
             android:exported="true"
             android:permission="android.permission.BROADCAST_SMS">
@@ -275,7 +275,7 @@
                 <action
                     android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
-        </receiver>
+        </receiver> -->
         <!--  ===  Flutter Local Notification  ===  -->
         <receiver
             android:exported="false"
