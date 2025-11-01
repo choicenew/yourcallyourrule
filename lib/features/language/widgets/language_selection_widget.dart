@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';

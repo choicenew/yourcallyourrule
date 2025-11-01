@@ -54,6 +54,12 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
+        // --- 核心修改在这里 ---
+    // 1. 在 build 方法的顶部 watch provider。
+    //    我们不需要使用它的返回值，目的仅仅是为了让这个页面
+    //    订阅 localeProvider 的变化。当语言切换时，
+    //    这个 watch 会触发整个 OnboardingPage 的重建。
+    ref.watch(localeProvider);
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(

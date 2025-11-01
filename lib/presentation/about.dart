@@ -169,7 +169,7 @@ class _AboutPageState extends State<AboutPage> {
                         style: textTheme.titleMedium,
                       ),
                       trailing: Icon(Icons.chevron_right, color: colorScheme.primary),
-                      onTap: () => _launchUrl(Uri.parse('https://github.com/haygcao/yourcallyourruletranslation')),
+                      onTap: () => _launchUrl(Uri.parse('https://github.com/choicenew/yourcallrule')),
                     ),
                   ),
                   
@@ -193,7 +193,7 @@ class _AboutPageState extends State<AboutPage> {
                             _buildSocialMediaButton(
                               context, 
                               Icons.code, // 使用代码图标替代GitHub图标
-                              'https://github.com/haygcao/yourcallyourruletranslation',
+                              'https://github.com/choicenew/yourcallrule',
                               AppLocalizations.of(context)!.github,
                             ),
                             const SizedBox(width: 24),

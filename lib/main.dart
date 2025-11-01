@@ -10,6 +10,7 @@ import 'package:yourcallyourrule/features/call/call_history/provider/call_event_
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_control_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
+import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/location/services/provider/location_sync_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
@@ -152,6 +153,13 @@ class MyApp extends ConsumerWidget {
 
        // 2. Watch the new provider to get the current theme mode
     final themeMode = ref.watch(themeModeProvider);
+
+    // 1. 监听 localeProvider 的状态
+    // 直接 watch provider 并获取其 .value
+    // .value 在有数据时返回 Locale，在加载或错误时返回 null
+    // 这正是 MaterialApp 的 locale 属性所期望的 (Locale?)
+    final locale = ref.watch(localeProvider).value;
+
     // 仅在非覆盖层模式下初始化后台同步服务
     // 后台同步服务已包含通话记录同步任务，不需要再单独初始化前台同步服务
     if (!isOverlayMode) {
@@ -188,6 +196,10 @@ class MyApp extends ConsumerWidget {
 
 
       routerConfig: appRouter.router,
+
+
+          // 直接将获取到的 locale 或 null 赋值
+      locale: locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
     );
