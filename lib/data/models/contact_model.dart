@@ -1,182 +1,130 @@
-// 联系人数据模型，用于数据层与领域层之间的转换
+// lib/data/models/contact_model.dart
 
-import '../../core/entities/phone/phone_entry.dart';
-import '../../core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'base_model.dart';
 
-// 联系人模型类
-class ContactModel extends BaseModel<PhoneEntry> {
+// 联系人数据模型，用于数据层与领域层之间的转换
+class ContactModel extends BaseModel<Contact> {
   // 电话号码
-  final String phoneNumber;
-  
-  // 联系人名称
+  final List<String> phoneNumbers;
+   // 联系人名称
   final String name;
   
   // 头像（可选）
   final String? avatar;
-  
-  // 备注（可选）
-  final String? note;
-  
-  // 标签ID列表（可选）
+   
+ // 标签ID列表（可选）
   final List<String>? labelIds;
-  
-  // 是否收藏
   final bool isFavorite;
-  
-  // 最后更新时间
-  final DateTime lastUpdated;
-
-  // 网站链接
+  final String? email;
+  final String? website;
+  final String? group;
   final String? url;
 
-  // 构造函数
   const ContactModel({
     required super.id,
-    required this.phoneNumber,
+    required this.phoneNumbers,
     required this.name,
     this.avatar,
-    this.note,
     this.labelIds,
     this.isFavorite = false,
-    required this.lastUpdated,
+    this.email,
+    this.website,
+    this.group,
     this.url,
   });
-  
+
   // 从Map创建模型
   factory ContactModel.fromMap(Map<String, dynamic> map) {
     return ContactModel(
-      id: map['id'],
-      phoneNumber: map['phoneNumber'],
-      name: map['name'],
-      avatar: map['avatar'],
-      note: map['note'],
-      labelIds: map['labelIds'] != null 
-          ? List<String>.from(map['labelIds']) 
-          : null,
-      isFavorite: (map['isFavorite'] ?? 0) == 1,
-      lastUpdated: map['lastUpdated'] != null 
-          ? DateTime.parse(map['lastUpdated']) 
-          : DateTime.now(),
-      url: map['url'],
+      id: map['id'] as String,
+      name: map['name'] as String,
+      phoneNumbers: List<String>.from(map['phoneNumbers'] ?? []),
+      email: map['email'] as String?,
+      labelIds: map['labelIds'] != null ? List<String>.from(map['labelIds']) : null,
+      avatar: map['avatar'] as String?,
+      website: map['website'] as String?,
+      group: map['group'] as String?,
+      url: map['url'] as String?,
+      isFavorite: (map['isFavorite'] as bool? ?? false),
     );
   }
-  
+
   // 将模型转换为Map
   @override
   Map<String, dynamic> toMap() {
     final map = super.toMap();
     map.addAll({
-      'phoneNumber': phoneNumber,
       'name': name,
-      'avatar': avatar,
-      'note': note,
+      'phoneNumbers': phoneNumbers,
+      'email': email,
       'labelIds': labelIds,
-      'isFavorite': isFavorite ? 1 : 0,
-      'lastUpdated': lastUpdated.toIso8601String(),
+      'avatar': avatar,
+      'website': website,
+      'group': group,
       'url': url,
+      'isFavorite': isFavorite,
     });
     return map;
   }
-  
+
   // 将模型转换为实体
   @override
-  ContactEntity toEntity() {
-    return ContactEntity(
+  Contact toEntity() {
+    return Contact(
       id: id,
-      phoneNumber: PhoneNumber(phoneNumber),
       name: name,
-      avatar: avatar,
-      note: note,
+      phoneNumbers: phoneNumbers,
+      email: email,
       labelIds: labelIds,
-      isFavorite: isFavorite,
-      lastUpdated: lastUpdated,
+      avatar: avatar,
+      website: website,
+      group: group,
       url: url,
+      isFavorite: isFavorite,
     );
   }
-  
+
   // 从实体创建模型
-  static ContactModel fromEntity(ContactEntity entity) {
+  static ContactModel fromEntity(Contact entity) {
     return ContactModel(
       id: entity.id,
-      phoneNumber: entity.phoneNumber.value,
-      name: entity.name!,
-      avatar: entity.avatar,
-      note: entity.note,
+      name: entity.name,
+      phoneNumbers: entity.phoneNumbers,
+      email: entity.email,
       labelIds: entity.labelIds,
-      isFavorite: entity.isFavorite,
-      lastUpdated: entity.lastUpdated,
+      avatar: entity.avatar,
+      website: entity.website,
+      group: entity.group,
       url: entity.url,
+      isFavorite: entity.isFavorite,
     );
   }
 
   // copyWith 方法
   ContactModel copyWith({
     String? id,
-    String? phoneNumber,
     String? name,
-    String? avatar,
-    String? note,
+    List<String>? phoneNumbers,
+    String? email,
     List<String>? labelIds,
-    bool? isFavorite,
-    DateTime? lastUpdated,
+    String? avatar,
+    String? website,
+    String? group,
     String? url,
+    bool? isFavorite,
   }) {
     return ContactModel(
       id: id ?? this.id,
-      phoneNumber: phoneNumber ?? this.phoneNumber,
       name: name ?? this.name,
-      avatar: avatar ?? this.avatar,
-      note: note ?? this.note,
+      phoneNumbers: phoneNumbers ?? this.phoneNumbers,
+      email: email ?? this.email,
       labelIds: labelIds ?? this.labelIds,
-      isFavorite: isFavorite ?? this.isFavorite,
-      lastUpdated: lastUpdated ?? this.lastUpdated,
+      avatar: avatar ?? this.avatar,
+      website: website ?? this.website,
+      group: group ?? this.group,
       url: url ?? this.url,
+      isFavorite: isFavorite ?? this.isFavorite,
     );
-  }
-}
-
-// 联系人实体类，继承自PhoneEntry
-class ContactEntity extends PhoneEntry {
-  // 备注（可选）
-  final String? note;
-  
-  // 标签ID列表（可选）
-  final List<String>? labelIds;
-  
-  // 是否收藏
-  final bool isFavorite;
-  
-  // 最后更新时间
-  final DateTime lastUpdated;
-
-  // 网站链接
-  final String? url;
-
-  // 构造函数
-  const ContactEntity({
-    required super.id,
-    required super.phoneNumber,
-    required String super.name,
-    super.avatar,
-    this.note,
-    this.labelIds,
-    this.isFavorite = false,
-    required this.lastUpdated,
-    this.url,
-  });
-  
-  // 重写toMap方法，添加联系人特有的字段
-  @override
-  Map<String, dynamic> toMap() {
-    final map = super.toMap();
-    map.addAll({
-      'note': note,
-      'labelIds': labelIds,
-      'isFavorite': isFavorite,
-      'lastUpdated': lastUpdated.toIso8601String(),
-      'url': url,
-    });
-    return map;
   }
 }

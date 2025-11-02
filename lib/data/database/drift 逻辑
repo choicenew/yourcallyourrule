@@ -1,0 +1,23 @@
+1. 废弃 database_manager.dart 中的旧抽象类
+旧的 DatabaseManager 抽象类是基于 sqflite 的 Map<String, dynamic> 和 String table 设计的。在 Drift 的世界里，我们直接与类型化的数据库实例和 DAO (Data Access Objects) 交互，这个抽象层已经没有存在的必要了。
+行动：
+可以直接删除 database_manager.dart 文件，或者将其内容完全替换。我们将不再需要 LocalDatabaseManager 和 RemoteDatabaseManager 这两个抽象类和它们的 Impl 实现。取而代之的是 Drift 自动生成的数据库类。
+2. 重构 DatabaseService.dart (核心变化)
+DatabaseService 的角色将发生根本性转变。它不再是一个数据库操作的代理，而是数据库实例的持有者和数据源（DataSources）的初始化工厂。
+3. 重构所有的数据源 (DataSources)
+这是连锁反应的下一步。之前你的 LocalContactDataSource 接收的是 LocalDatabaseManager，现在它应该直接接收 Drift 生成的 LocalDatabase 实例，并且其内部所有方法都要用 Drift 的 API 重写。
+总结与行动计划
+这个新方案的步骤非常清晰：
+删除旧抽象层：删除或清空 database_manager.dart。我们不再需要 LocalDatabaseManager 和 RemoteDatabaseManager。
+重构 DatabaseService：
+让它直接持有 LocalDatabase 和 RemoteDatabase 的实例。
+将构造函数清空，创建一个 async initialize() 方法来负责所有实例的创建和依赖注入。
+移除所有旧的、基于 Map 和 String 的数据库操作代理方法。它的职责简化为“持有实例”和“初始化”。
+重构所有 DataSource 类：
+修改它们的构造函数，让它们直接接收 LocalDatabase 或 RemoteDatabase 实例。
+重写内部所有方法，使用 Drift 的类型安全 API（select, into, insert, update, watch 等）。
+修改方法的签名，使其接收和返回 Drift 生成的数据类（如 Contact, ContactsCompanion）而不是 Map。
+
+
+在所有使用 DataSource 的地方（比如 Repositoryimpl 层或 BLoC/Provider），更新调用方式以匹配新的类型安全的方法签名。
+ 可以自动生成的就让他自动生成， 减少生动写的出错概率

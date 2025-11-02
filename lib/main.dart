@@ -122,7 +122,7 @@ void overlayMain() {
   WidgetsFlutterBinding.ensureInitialized();
 
   // 设置为覆盖层模式（只读模式）
-  isOverlayMode = false;
+  isOverlayMode = true;
 
 
 

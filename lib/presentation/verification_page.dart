@@ -19,7 +19,7 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
+import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 
 // [重构]: 导入所有需要的 Provider，而不是 Service 定义。
 
@@ -47,7 +47,7 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
   Map<String, bool> _verificationResults = {};
   CallerIdData? _callerIdData;
   Map<String, dynamic> _legacyPluginData = {};
-  PluginData? _pluginData;
+  PluginSourceData? _pluginSourceData;
 
   // [重构]: 移除所有 Service 成员变量。
   // late CallFilterService _callFilterService;
@@ -56,7 +56,7 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
 
   // [注释]: StreamSubscription 仍然需要在 State 中管理其生命周期。
   StreamSubscription<Map<String, dynamic>>? _legacyPluginSubscription;
-  StreamSubscription<PluginData>? _pluginSubscription;
+  StreamSubscription<PluginSourceData>? _pluginSubscription;
 
   @override
   void initState() {
@@ -77,7 +77,7 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
         if (mounted) setState(() => _legacyPluginData = data);
       });
       _pluginSubscription = callerIdService.pluginDataStream.listen((data) {
-        if (mounted) setState(() => _pluginData = data);
+        if (mounted) setState(() => _pluginSourceData = data);
       });
     }
   }
@@ -232,16 +232,16 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
                 onPressed: _testShowCallerIdOverlay,
                 child: const Text('Test Overlay'))
           ],
-          if (_pluginData != null) ...[  
+          if (_pluginSourceData != null) ...[  
             const Divider(),
             const Text('Plugin Data:'),
-            Text('Name: ${_pluginData?.name ?? "Unknown"}'),
-            Text('SourceLabel: ${_pluginData?.sourceLabel ?? "Unknown"}'),            
-            Text('Label: ${_pluginData?.predefinedLabel ?? _pluginData?.sourceLabel ?? "Unknown"}'),
-            Text('Location: ${[_pluginData?.province, _pluginData?.city].where((e) => e != null).join(", ")}'),
-            Text('Carrier: ${_pluginData?.carrier ?? "Unknown"}'),
-            Text('Count: ${_pluginData?.count ?? 0}'),
-            Text('Action: ${_pluginData?.action.toString() ?? "RuleAction.none"}'),
+            Text('Name: ${_pluginSourceData?.name ?? "Unknown"}'),
+            Text('SourceLabel: ${_pluginSourceData?.sourceLabel ?? "Unknown"}'),            
+            Text('Label: ${_pluginSourceData?.predefinedLabel ?? _pluginSourceData?.sourceLabel ?? "Unknown"}'),
+            Text('Location: ${[_pluginSourceData?.province, _pluginSourceData?.city].where((e) => e != null).join(", ")}'),
+            Text('Carrier: ${_pluginSourceData?.carrier ?? "Unknown"}'),
+            Text('Count: ${_pluginSourceData?.count ?? 0}'),
+            Text('Action: ${_pluginSourceData?.action.toString() ?? "RuleAction.none"}'),
           ],
           if (_legacyPluginData.isNotEmpty) ...[
             const Divider(),

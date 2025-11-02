@@ -1,0 +1,101 @@
+是的，你现在的 Drift 代码名字有问题。这是一个非常重要且容易忽略的细节，如果现在不处理，将来会让你的代码非常混乱。
+我之前建议的 @DataClassName('...Data') 正是为了解决这个问题。
+问题出在哪里？
+让我们以 Plugin 为例：
+在你的业务领域层 (core/entities)，你有一个类：
+code
+Dart
+// core/entities/plugin/plugin_entry.dart
+class PluginEntry extends BaseEntity { /* ... */ }
+这个类代表了“插件”这个业务概念。它包含了业务逻辑需要的字段和方法。这是你的“官方”模型。
+在你新的 Drift 数据库定义中，你这样写：
+code
+Dart
+// data/database/local/local_database.dart
+@DataClassName('Plugin') // <--- 问题在这里
+class Plugins extends Table { /* ... */ }
+@DataClassName('Plugin') 这行代码告诉 Drift 的代码生成器：“请为我生成一个名为 Plugin 的数据类，用来表示数据库 plugins 表中的一行数据。”
+冲突就此产生！
+当你运行 build_runner 后，Drift 会在 local_database.g.dart 文件里生成一个 class Plugin { ... }。
+现在，你的项目中就有了两个都叫 Plugin 的类（或者名字非常相似，比如 Plugin 和 PluginEntry），它们代表的东西完全不同：
+一个是业务实体 (PluginEntry)。
+另一个是数据库表的数据行 (Plugin)。
+这会导致以下严重问题：
+命名冲突和混淆：当你在代码中写 Plugin 时，IDE 和你自己都可能搞不清楚你到底想用哪个类。你可能需要写 import '...' as core_plugin; 这样的代码来区分，非常麻烦。
+职责不清：Repository 层的核心职责之一就是在这两种模型之间进行转换。如果它们名字一样，会让人非常困惑，难以理解数据转换的逻辑。
+维护困难：将来如果有人接手你的代码，他会花大量时间去搞清楚这两个同名的类到底有什么区别。
+如何正确地解决这个问题？
+解决方案非常简单，就是遵循我之前的建议：给 Drift 生成的数据类起一个明确的、带有“数据层”含义的名字。
+你只需要修改 @DataClassName 注解即可。
+正确的修改示例：
+code
+Dart
+// data/database/local/local_database.dart
+
+// ...
+
+// 原来的写法，会导致命名冲突
+// @DataClassName('Plugin') 
+// class Plugins extends Table { ... }
+
+// 正确的写法
+@DataClassName('PluginData') // 或者 PluginDbData, PluginRow, PluginTableData
+class Plugins extends Table {
+  TextColumn get id => text().withLength(min: 1)();
+  TextColumn get name => text().withLength(min: 1)();
+  // ... 其他字段
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+// 对 CallHistory 也一样
+// 原来的写法
+// @DataClassName('CallHistoryEntry')
+// class CallHistory extends Table { ... }
+
+// 正确的写法 (假设你的业务实体叫 CallLog)
+@DataClassName('CallLogData')
+class CallHistory extends Table {
+  // ... 字段定义 ...
+}
+
+// 对 Contacts 也一样
+// 原来的写法
+// @DataClassName('Contact')
+// class Contacts extends Table { ... }
+
+// 正确的写法 (假设你的业务实体叫 ContactEntry)
+@DataClassName('ContactData')
+class Contacts extends Table {
+  // ... 字段定义 ...
+}
+你需要把你 local_database.dart 和 remote_database.dart 中的每一个 @DataClassName 都检查一遍，确保它生成的名字不会和你 core/entities 里的任何一个类名产生冲突或混淆。
+修改完之后，再次运行 build_runner：
+code
+Bash
+flutter pub run build_runner build --delete-conflicting-outputs
+现在，Drift 就会生成 class PluginData, class CallLogData, class ContactData 这些清晰明了的类。
+当你在 RepositoryImpl 中写转换逻辑时，代码会变得无比清晰：
+code
+Dart
+// 在你的 ...RepositoryImpl.dart 文件里
+
+// 把从数据库拿到的 PluginData 转换成业务需要的 PluginEntry
+PluginEntry _mapDataToEntity(PluginData data) {
+  return PluginEntry(
+    id: data.id,
+    name: data.name,
+    // ...
+  );
+}
+
+// 把业务需要的 PluginEntry 转换成可以存入数据库的 PluginsCompanion
+PluginsCompanion _mapEntityToCompanion(PluginEntry entity) {
+  return PluginsCompanion(
+    id: Value(entity.id),
+    name: Value(entity.name),
+    // ...
+  );
+}
+这样的代码，每个类的职责都一目了然，几乎不可能出错。
+总结：是的，你现在的 Drift 文件名字有问题。请务必采纳这个建议，为 Drift 生成的数据类更换一个更明确的名字，以避免未来的混乱和维护困难。

@@ -13,7 +13,7 @@ import 'package:flutter_contacts/flutter_contacts.dart' as fluttercontact;
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 
-import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
+import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
@@ -53,7 +53,7 @@ class CallerIdService {
   final LabelService _labelService;
   final _legacyPluginDataSubject = BehaviorSubject<Map<String, dynamic>>();
   final LocationService _locationService;
-  final _pluginDataSubject = BehaviorSubject<PluginData>();
+  final _pluginDataSubject = BehaviorSubject<PluginSourceData>();
   final PluginInvokerService _pluginService;
   final PredefinedLabelService _predefinedLabelService;
   final RemoteNumberService _remoteNumberService;
@@ -62,7 +62,7 @@ class CallerIdService {
   bool _pluginSyncTriggered = false;
 
   /// 插件数据流
-  Stream<PluginData> get pluginDataStream => _pluginDataSubject.stream;
+  Stream<PluginSourceData> get pluginDataStream => _pluginDataSubject.stream;
 
   /// 兼容性插件数据流
   Stream<Map<String, dynamic>> get legacyPluginDataStream =>
@@ -224,10 +224,10 @@ class CallerIdService {
     debugPrint('[CallerIdService] 插件First plugin result: $firstResult');
     
     // 转换为PluginData实体（仅用于构建CallerIdData，不发布到数据流）
-    PluginData? pluginData;
+    PluginSourceData? pluginSourceData;
     if (firstResult != null) {
-      pluginData = PluginData.fromMap(firstResult);
-      debugPrint('[CallerIdService] 插件Converted PluginData: ${pluginData.toMap()}'); 
+      pluginSourceData = PluginSourceData.fromMap(firstResult);
+      debugPrint('[CallerIdService] 插件Converted PluginSourceData: ${pluginSourceData.toMap()}'); 
     }
     
     // 异步处理所有插件的完整数据（包括发布到数据流）
@@ -247,7 +247,7 @@ class CallerIdService {
         finalContact?.name ??
         phoneRule?.name ??
         remoteNumberEntry?.name ??
-        pluginData?.name ??
+        pluginSourceData?.name ??
         'Unknown';
 
     // 确定标签ID
@@ -267,7 +267,7 @@ class CallerIdService {
 
     // 第三阶段：使用插件标签（当前面都未找到时）
     final labelFromPlugin = (labelFromId == null && labelFromRemote == null)
-        ? pluginData?.predefinedLabel
+        ? pluginSourceData?.predefinedLabel
         : null;
 
     labelText =
@@ -275,7 +275,7 @@ class CallerIdService {
 
     // 确定头像
     String? avatar =
-        finalContact?.avatar ?? phoneRule?.avatar ?? pluginData?.avatar;
+        finalContact?.avatar ?? phoneRule?.avatar ?? pluginSourceData?.avatar;
 
     
     // 如果没有头像但有标签，使用标签构建头像路径
@@ -286,7 +286,7 @@ class CallerIdService {
     // 确定计数
     final count = phoneRule?.count ??
         remoteNumberEntry?.count ??
-        pluginData?.count ??
+        pluginSourceData?.count ??
         0;
 
     // 9. 创建CallerIdData对象
@@ -297,7 +297,7 @@ class CallerIdService {
     // 确定动作
     final action = phoneRule?.action ?? 
                   remoteNumberEntry?.action ?? 
-                  pluginData?.action ?? 
+                  pluginSourceData?.action ?? 
                   labelEntry?.action ?? 
                   RuleAction.none;
     
@@ -323,8 +323,8 @@ class CallerIdService {
     // 在那里会使用完整的插件数据进行处理，避免重复处理
     // 原有逻辑：
     // if (labelEntry == null && phoneRule?.labelId == null) {
-    //   if (pluginData?.predefinedLabel != null) {
-    //     final labels = await _predefinedLabelService.getLabelsByText(pluginData!.predefinedLabel!);
+    //   if (pluginSourceData?.predefinedLabel != null) {
+    //     final labels = await _predefinedLabelService.getLabelsByText(pluginSourceData!.predefinedLabel!);
     //     if (labels.isNotEmpty) {
     //       final entry = LabelPhoneEntry(
     //         id: '',
@@ -355,7 +355,7 @@ class CallerIdService {
       final mergedData = _mergePluginResults(allResults);
       
       // 转换为PluginData实体并发布到数据流
-      final completePluginData = PluginData.fromMap(mergedData);
+      final completePluginData = PluginSourceData.fromMap(mergedData);
       
       // 检查是否已经发布过相同的数据，避免重复发布
       if (_pluginDataSubject.hasValue && 

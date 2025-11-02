@@ -78,7 +78,7 @@ final class AdCacheProvider extends $NotifierProvider<AdCache, AdCacheState> {
   }
 }
 
-String _$adCacheHash() => r'5925b4ea4b1a7e5bb6700830b53dc06594dba13a';
+String _$adCacheHash() => r'4e6b7ff61ace5ed87227a9447451073bb8d036a1';
 
 /// 【核心修改】: 使用 @riverpod 注解
 ///

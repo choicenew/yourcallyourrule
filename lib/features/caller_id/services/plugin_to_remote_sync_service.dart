@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
+import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
@@ -20,7 +20,7 @@ class PluginToRemoteSyncService {
   PluginToRemoteSyncService(this._remoteNumberService);
 
   /// 开始监听插件数据流并同步到远程号码服务
-  void startSync(Stream<PluginData> pluginDataStream, [Stream<LabelPhoneEntry>? labelPhoneEntryStream]) {
+  void startSync(Stream<PluginSourceData> pluginDataStream, [Stream<LabelPhoneEntry>? labelPhoneEntryStream]) {
     _dataSubscription?.cancel();
     
     // 合并两个数据流，使用merge操作符
@@ -30,7 +30,7 @@ class PluginToRemoteSyncService {
       
       _dataSubscription = mergedStream.listen((event) {
         if (event['type'] == 'plugin') {
-          _handleData(event['data'] as PluginData, null);
+          _handleData(event['data'] as PluginSourceData, null);
         } else if (event['type'] == 'label') {
           _handleData(null, event['data'] as LabelPhoneEntry);
         }
@@ -43,11 +43,11 @@ class PluginToRemoteSyncService {
 
   /// 统一处理数据并转换为远程号码条目
   /// 可以处理PluginData或LabelPhoneEntry
-  Future<void> _handleData(PluginData? pluginData, LabelPhoneEntry? labelPhoneEntry) async {
+  Future<void> _handleData(PluginSourceData? pluginSourceData, LabelPhoneEntry? labelPhoneEntry) async {
     // 确定要处理的电话号码
     PhoneNumber? phoneNumber;
-    if (pluginData != null && pluginData.phoneNumber != null) {
-      phoneNumber = PhoneNumber.fromString(pluginData.phoneNumber!);
+    if (pluginSourceData != null && pluginSourceData.phoneNumber != null) {
+      phoneNumber = PhoneNumber.fromString(pluginSourceData.phoneNumber!);
     } else if (labelPhoneEntry != null) {
       phoneNumber = labelPhoneEntry.phoneNumber;
     } else {
@@ -61,11 +61,11 @@ class PluginToRemoteSyncService {
       final updatedEntry = RemoteNumberEntry(
         id: existingEntry.id,
         phoneNumber: phoneNumber,
-        name: _determineName(pluginData, labelPhoneEntry, existingEntry),
-        label: _determineLabel(pluginData, existingEntry),
+        name: _determineName(pluginSourceData, labelPhoneEntry, existingEntry),
+        label: _determineLabel(pluginSourceData, existingEntry),
         priority: existingEntry.priority,
-        count: pluginData?.count ?? existingEntry.count,
-        action: _determineAction(pluginData, labelPhoneEntry, existingEntry),
+        count: pluginSourceData?.count ?? existingEntry.count,
+        action: _determineAction(pluginSourceData, labelPhoneEntry, existingEntry),
         isEnabled: existingEntry.isEnabled,
       );
       await _remoteNumberService.updateRemoteNumber(updatedEntry);
@@ -81,11 +81,11 @@ class PluginToRemoteSyncService {
       final newEntry = RemoteNumberEntry(
         id: const Uuid().v4(),
         phoneNumber: phoneNumber,
-        name: pluginData?.name ?? labelPhoneEntry?.name ?? '',
-        label: pluginData?.predefinedLabel ?? '',
+        name: pluginSourceData?.name ?? labelPhoneEntry?.name ?? '',
+        label: pluginSourceData?.predefinedLabel ?? '',
         priority: const RulePriority(0),
-        count: pluginData?.count ?? 0,
-        action: _determineAction(pluginData, labelPhoneEntry, null),
+        count: pluginSourceData?.count ?? 0,
+        action: _determineAction(pluginSourceData, labelPhoneEntry, null),
         isEnabled: true,
       );
       await _remoteNumberService.addRemoteNumber(newEntry);
@@ -100,9 +100,9 @@ class PluginToRemoteSyncService {
   }
   
   /// 确定名称
-  String _determineName(PluginData? pluginData, LabelPhoneEntry? labelPhoneEntry, RemoteNumberEntry existingEntry) {
-    if (pluginData?.name != null && pluginData!.name!.isNotEmpty) {
-      return pluginData.name!;
+  String _determineName(PluginSourceData? pluginSourceData, LabelPhoneEntry? labelPhoneEntry, RemoteNumberEntry existingEntry) {
+    if (pluginSourceData?.name != null && pluginSourceData!.name!.isNotEmpty) {
+      return pluginSourceData.name!;
     } else if (labelPhoneEntry != null && labelPhoneEntry.name.isNotEmpty) {
       return labelPhoneEntry.name;
     }
@@ -110,19 +110,19 @@ class PluginToRemoteSyncService {
   }
   
   /// 确定标签
-  String _determineLabel(PluginData? pluginData, RemoteNumberEntry existingEntry) {
-    if (pluginData?.predefinedLabel != null && pluginData!.predefinedLabel!.isNotEmpty) {
-      return pluginData.predefinedLabel!;
+  String _determineLabel(PluginSourceData? pluginSourceData, RemoteNumberEntry existingEntry) {
+    if (pluginSourceData?.predefinedLabel != null && pluginSourceData!.predefinedLabel!.isNotEmpty) {
+      return pluginSourceData.predefinedLabel!;
     }
     
     return existingEntry.label;
    }
    
    /// 确定动作
-   RuleAction _determineAction(PluginData? pluginData, LabelPhoneEntry? labelPhoneEntry, RemoteNumberEntry? existingEntry) {
+   RuleAction _determineAction(PluginSourceData? pluginSourceData, LabelPhoneEntry? labelPhoneEntry, RemoteNumberEntry? existingEntry) {
      // 优先使用插件数据中的动作
-     if (pluginData != null && pluginData.action != RuleAction.none) {
-       return pluginData.action;
+     if (pluginSourceData != null && pluginSourceData.action != RuleAction.none) {
+       return pluginSourceData.action;
      }
      
      // 其次使用标签电话条目中的动作
