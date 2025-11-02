@@ -5,18 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/contacts/provider/contact_service_provider.dart';
-import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/contact_edit_dialog.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
-import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 
@@ -149,7 +145,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
               return ListTile(
                 leading: _buildContactAvatar(contact),
                 title: Text(contact.name),
-                subtitle: Text(contact.phoneNumbers.first),
+                subtitle: Text(contact.phoneNumbers.join(', ')),
                 trailing: IconButton(
                   icon: Icon(
                     contact.isFavorite ? Icons.star : Icons.star_border,
@@ -461,7 +457,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(contact.phoneNumbers.first),
+            Text(contact.phoneNumbers.join(', ')),
             _buildLabelChips(contact.labelIds),
           ],
         ),

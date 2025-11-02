@@ -20,18 +20,23 @@ class LocalContactDataSource implements LocalDataSource<ContactModel> {
   
   // 构造函数
   LocalContactDataSource(this._databaseManager);
-  
-  // 获取所有联系人
+// 获取所有联系人
   @override
   Future<List<ContactModel>> getAll() async {
     final db = await _databaseManager.database;
     final List<Map<String, dynamic>> maps = await db.query(_tableName);
-    
     return List.generate(maps.length, (i) {
-      return ContactModel.fromMap(maps[i]);
+      final map = Map<String, dynamic>.from(maps[i]);
+      if (map['phoneNumbers'] is String) {
+        map['phoneNumbers'] = jsonDecode(map['phoneNumbers']);
+      }
+      if (map['labelIds'] is String) {
+        map['labelIds'] = jsonDecode(map['labelIds']);
+      }
+      return ContactModel.fromMap(map);
     });
   }
-  
+
   // 根据ID获取联系人
   @override
   Future<ContactModel?> getById(String id) async {
@@ -41,60 +46,34 @@ class LocalContactDataSource implements LocalDataSource<ContactModel> {
       where: 'id = ?',
       whereArgs: [id],
     );
-    
     if (maps.isNotEmpty) {
-      return ContactModel.fromMap(maps.first);
+      final map = Map<String, dynamic>.from(maps.first);
+      if (map['phoneNumbers'] is String) {
+        map['phoneNumbers'] = jsonDecode(map['phoneNumbers']);
+      }
+      if (map['labelIds'] is String) {
+        map['labelIds'] = jsonDecode(map['labelIds']);
+      }
+      return ContactModel.fromMap(map);
     }
     return null;
   }
-  
-  // 根据电话号码获取联系人
-  Future<ContactModel?> getByPhoneNumber(String phoneNumber) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'phoneNumber = ?',
-      whereArgs: [phoneNumber],
-    );
-    
-    if (maps.isNotEmpty) {
-      return ContactModel.fromMap(maps.first);
-    }
-    return null;
-  }
-  
-  // 插入联系人
+
   @override
   Future<String> insert(ContactModel contact) async {
     final db = await _databaseManager.database;
-    
-    // 如果没有ID，生成一个新的UUID
     final String id = contact.id.isEmpty ? const Uuid().v4() : contact.id;
-    final ContactModel contactWithId = contact.id.isEmpty
-        ? ContactModel(
-            id: id,
-            phoneNumber: contact.phoneNumber,
-            name: contact.name,
-            avatar: contact.avatar,
-            note: contact.note,
-            labelIds: contact.labelIds,
-            isFavorite: contact.isFavorite,
-            lastUpdated: contact.lastUpdated,
-          )
-        : contact;
-    
-    // 将labelIds列表转换为JSON字符串
-    final Map<String, dynamic> contactMap = contactWithId.toMap();
+    final contactWithId = contact.copyWith(id: id);
+    final contactMap = contactWithId.toMap();
+    contactMap['phoneNumbers'] = jsonEncode(contactWithId.phoneNumbers);
     if (contactWithId.labelIds != null) {
       contactMap['labelIds'] = jsonEncode(contactWithId.labelIds);
     }
-    
     await db.insert(
       _tableName,
       contactMap,
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
-    
     return id;
   }
   
@@ -102,13 +81,11 @@ class LocalContactDataSource implements LocalDataSource<ContactModel> {
   @override
   Future<int> update(ContactModel contact) async {
     final db = await _databaseManager.database;
-    
-    // 将labelIds列表转换为JSON字符串
-    final Map<String, dynamic> contactMap = contact.toMap();
+    final contactMap = contact.toMap();
+    contactMap['phoneNumbers'] = jsonEncode(contact.phoneNumbers);
     if (contact.labelIds != null) {
       contactMap['labelIds'] = jsonEncode(contact.labelIds);
     }
-    
     return await db.update(
       _tableName,
       contactMap,
@@ -121,7 +98,6 @@ class LocalContactDataSource implements LocalDataSource<ContactModel> {
   @override
   Future<int> delete(String id) async {
     final db = await _databaseManager.database;
-    
     return await db.delete(
       _tableName,
       where: 'id = ?',
@@ -134,40 +110,23 @@ class LocalContactDataSource implements LocalDataSource<ContactModel> {
   Future<List<String>> insertAll(List<ContactModel> contacts) async {
     final List<String> ids = [];
     final db = await _databaseManager.database;
-    
     await db.transaction((txn) async {
       for (final contact in contacts) {
-        // 如果没有ID，生成一个新的UUID
         final String id = contact.id.isEmpty ? const Uuid().v4() : contact.id;
-        final ContactModel contactWithId = contact.id.isEmpty
-            ? ContactModel(
-                id: id,
-                phoneNumber: contact.phoneNumber,
-                name: contact.name,
-                avatar: contact.avatar,
-                note: contact.note,
-                labelIds: contact.labelIds,
-                isFavorite: contact.isFavorite,
-                lastUpdated: contact.lastUpdated,
-              )
-            : contact;
-        
-        // 将labelIds列表转换为JSON字符串
-        final Map<String, dynamic> contactMap = contactWithId.toMap();
+        final contactWithId = contact.copyWith(id: id);
+        final contactMap = contactWithId.toMap();
+        contactMap['phoneNumbers'] = jsonEncode(contactWithId.phoneNumbers);
         if (contactWithId.labelIds != null) {
           contactMap['labelIds'] = jsonEncode(contactWithId.labelIds);
         }
-        
         await txn.insert(
           _tableName,
           contactMap,
           conflictAlgorithm: ConflictAlgorithm.replace,
         );
-        
         ids.add(id);
       }
     });
-    
     return ids;
   }
   
@@ -176,55 +135,72 @@ class LocalContactDataSource implements LocalDataSource<ContactModel> {
   Future<int> updateAll(List<ContactModel> contacts) async {
     int count = 0;
     final db = await _databaseManager.database;
-    
     await db.transaction((txn) async {
       for (final contact in contacts) {
-        // 将labelIds列表转换为JSON字符串
-        final Map<String, dynamic> contactMap = contact.toMap();
+        final contactMap = contact.toMap();
+        contactMap['phoneNumbers'] = jsonEncode(contact.phoneNumbers);
         if (contact.labelIds != null) {
           contactMap['labelIds'] = jsonEncode(contact.labelIds);
         }
-        
         final int updated = await txn.update(
           _tableName,
           contactMap,
           where: 'id = ?',
           whereArgs: [contact.id],
         );
-        
         count += updated;
       }
     });
-    
     return count;
   }
   
   // 批量删除联系人
   @override
   Future<int> deleteAll(List<String> ids) async {
-    int count = 0;
+       if (ids.isEmpty) {
+      return 0;
+    }
     final db = await _databaseManager.database;
-    
-    await db.transaction((txn) async {
-      for (final id in ids) {
-        final int deleted = await txn.delete(
-          _tableName,
-          where: 'id = ?',
-          whereArgs: [id],
-        );
-        
-        count += deleted;
-      }
-    });
-    
-    return count;
+    // 生成与 ids 数量相匹配的占位符 '?, ?, ?'
+    final placeholders = List.filled(ids.length, '?').join(', ');
+    return await db.delete(
+      _tableName,
+      where: 'id IN ($placeholders)', // 使用生成的占位符
+      whereArgs: ids, // 直接传递列表
+    );
   }
   
-  // 清空所有联系人
+  
+  
+  
+  
+  
+
   @override
   Future<void> clear() async {
     final db = await _databaseManager.database;
     await db.delete(_tableName);
+  }
+
+  // 根据电话号码获取联系人
+  Future<ContactModel?> getByPhoneNumber(String phoneNumber) async {
+    final db = await _databaseManager.database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      _tableName,
+      where: 'phoneNumbers LIKE ?',
+      whereArgs: ['%"$phoneNumber"%'],
+    );
+    if (maps.isNotEmpty) {
+      final map = Map<String, dynamic>.from(maps.first);
+      if (map['phoneNumbers'] is String) {
+        map['phoneNumbers'] = jsonDecode(map['phoneNumbers']);
+      }
+      if (map['labelIds'] is String) {
+        map['labelIds'] = jsonDecode(map['labelIds']);
+      }
+      return ContactModel.fromMap(map);
+    }
+    return null;
   }
 
   Future<int> count() async {

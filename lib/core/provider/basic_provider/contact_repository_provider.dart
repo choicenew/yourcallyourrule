@@ -95,7 +95,7 @@ class ContactRepositoryImpl implements ContactRepository {
     return Contact(
       id: model.id,
       name: model.name,
-      phoneNumbers: [model.phoneNumber], // Assuming phoneNumber is a single string
+      phoneNumbers: model.phoneNumbers, // Directly use the list
       email: null, // email is not in ContactModel
       labelIds: model.labelIds,
       avatar: model.avatar,
@@ -110,12 +110,12 @@ class ContactRepositoryImpl implements ContactRepository {
     return ContactModel(
       id: entity.id,
       name: entity.name,
-      phoneNumber: entity.phoneNumbers.isNotEmpty ? entity.phoneNumbers.first : '',
+      phoneNumbers: entity.phoneNumbers, // Directly use the list
       labelIds: entity.labelIds,
       avatar: entity.avatar,
-      note: null, // note is not in Contact
+     
       isFavorite: entity.isFavorite,
-      lastUpdated: DateTime.now(),
+     
       url: entity.url,
     );
   }

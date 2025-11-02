@@ -83,9 +83,18 @@ dependencies:
     sdk: flutter
 
   flutter_secure_storage: ^9.0.0
+ 
+  sqlite3_flutter_libs: ^0.5.0
+ 
+ 
+
+
+
+
+
   live_activities: ^2.4.2
   
-  floor: ^1.4.2
+  floor: any
   flex_color_scheme: ^8.2.0
   fl_country_code_picker: ^0.1.9+1
 
@@ -165,11 +174,14 @@ dependencies:
     git:
       url: https://github.com/haygcao/floating_window_android.git
       ref: local # 或者特定的 commit hash 或 branch/tag name
+  drift: any
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  drift_dev: any
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

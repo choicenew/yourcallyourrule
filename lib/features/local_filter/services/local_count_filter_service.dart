@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_data.dart';
+import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
@@ -29,10 +29,10 @@ class LocalCountFilterService implements CallFilterInterface {
   final CallerIdService _callerIdService;
   final Ref _ref;
 
-  PluginData? _latestPluginData;
+  PluginSourceData? _latestPluginData;
   
   // 订阅处理
-  StreamSubscription<PluginData>? _pluginDataSubscription;
+  StreamSubscription<PluginSourceData>? _pluginDataSubscription;
 // 构造函数明确依赖关系
   LocalCountFilterService({
     required CallerIdService callerIdService,
@@ -75,8 +75,8 @@ class LocalCountFilterService implements CallFilterInterface {
   @override
   Future<void> initialize() async {
     // 订阅插件数据流
-    _pluginDataSubscription ??= _callerIdService.pluginDataStream.listen((pluginData) {
-      _latestPluginData = pluginData;
+    _pluginDataSubscription ??= _callerIdService.pluginDataStream.listen((pluginSourceData) {
+      _latestPluginData = pluginSourceData;
     });
   }
   

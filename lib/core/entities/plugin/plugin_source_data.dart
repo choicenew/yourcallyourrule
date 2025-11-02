@@ -1,7 +1,7 @@
 
 import '../../value_objects/rule_action.dart';
 
-class PluginData {
+class PluginSourceData {
   final String? predefinedLabel;
   final String? sourceLabel;
   final String? avatar;
@@ -14,7 +14,7 @@ class PluginData {
   final RuleAction action;
   final Map<String, dynamic> extra;
 
-  PluginData({
+  PluginSourceData({
     this.predefinedLabel,
     this.sourceLabel,
     this.avatar,
@@ -29,7 +29,7 @@ class PluginData {
   }) : extra = extra ?? {};
 
   // 新增fromMap工厂方法
-  factory PluginData.fromMap(Map<String, dynamic> map) {
+  factory PluginSourceData.fromMap(Map<String, dynamic> map) {
     final extra = Map<String, dynamic>.from(map);
     
     // 提取并移除已知字段
@@ -50,7 +50,7 @@ class PluginData {
       action = RuleAction.fromString(actionStr);
     }
 
-    return PluginData(
+    return PluginSourceData(
       predefinedLabel: predefinedLabel,
       sourceLabel: sourceLabel,
       avatar: avatar,
@@ -81,7 +81,7 @@ class PluginData {
     }..addAll(extra);
   }
 
-  PluginData copyWith({
+  PluginSourceData copyWith({
     String? predefinedLabel,
     String? sourceLabel,
     String? avatar,
@@ -94,7 +94,7 @@ class PluginData {
     RuleAction? action,
     Map<String, dynamic>? extra,
   }) {
-    return PluginData(
+    return PluginSourceData(
       predefinedLabel: predefinedLabel ?? this.predefinedLabel,
       sourceLabel: sourceLabel ?? this.sourceLabel,
       avatar: avatar ?? this.avatar,
@@ -110,14 +110,14 @@ class PluginData {
   }
 
   // 保留现有fromJson方法
-  factory PluginData.fromJson(Map<String, dynamic> json) {
+  factory PluginSourceData.fromJson(Map<String, dynamic> json) {
     // 解析action字段，如果存在
     RuleAction action = RuleAction.none;
     if (json['action'] != null && json['action'] is String && json['action'].isNotEmpty) {
       action = RuleAction.fromString(json['action']);
     }
     
-    return PluginData(
+    return PluginSourceData(
       predefinedLabel: json['predefinedLabel'],
       action: action,
       sourceLabel: json['sourceLabel'],
