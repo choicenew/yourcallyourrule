@@ -80,11 +80,11 @@ class $RemoteNumbersTable extends RemoteNumbers
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
-  static const VerificationMeta _labelsJsonMeta = const VerificationMeta(
-    'labelsJson',
+  static const VerificationMeta _labels_jsonMeta = const VerificationMeta(
+    'labels_json',
   );
   @override
-  late final GeneratedColumn<String> labelsJson = GeneratedColumn<String>(
+  late final GeneratedColumn<String> labels_json = GeneratedColumn<String>(
     'labels_json',
     aliasedName,
     true,
@@ -100,7 +100,7 @@ class $RemoteNumbersTable extends RemoteNumbers
     priority,
     action,
     count,
-    labelsJson,
+    labels_json,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -164,8 +164,11 @@ class $RemoteNumbersTable extends RemoteNumbers
     }
     if (data.containsKey('labels_json')) {
       context.handle(
-        _labelsJsonMeta,
-        labelsJson.isAcceptableOrUnknown(data['labels_json']!, _labelsJsonMeta),
+        _labels_jsonMeta,
+        labels_json.isAcceptableOrUnknown(
+          data['labels_json']!,
+          _labels_jsonMeta,
+        ),
       );
     }
     return context;
@@ -211,7 +214,7 @@ class $RemoteNumbersTable extends RemoteNumbers
             DriftSqlType.int,
             data['${effectivePrefix}count'],
           )!,
-      labelsJson: attachedDatabase.typeMapping.read(
+      labels_json: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}labels_json'],
       ),
@@ -233,7 +236,7 @@ class RemoteNumberData extends DataClass
   final int priority;
   final String action;
   final int count;
-  final String? labelsJson;
+  final String? labels_json;
   const RemoteNumberData({
     required this.id,
     required this.phoneNumber,
@@ -242,7 +245,7 @@ class RemoteNumberData extends DataClass
     required this.priority,
     required this.action,
     required this.count,
-    this.labelsJson,
+    this.labels_json,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -256,8 +259,8 @@ class RemoteNumberData extends DataClass
     map['priority'] = Variable<int>(priority);
     map['action'] = Variable<String>(action);
     map['count'] = Variable<int>(count);
-    if (!nullToAbsent || labelsJson != null) {
-      map['labels_json'] = Variable<String>(labelsJson);
+    if (!nullToAbsent || labels_json != null) {
+      map['labels_json'] = Variable<String>(labels_json);
     }
     return map;
   }
@@ -271,10 +274,10 @@ class RemoteNumberData extends DataClass
       priority: Value(priority),
       action: Value(action),
       count: Value(count),
-      labelsJson:
-          labelsJson == null && nullToAbsent
+      labels_json:
+          labels_json == null && nullToAbsent
               ? const Value.absent()
-              : Value(labelsJson),
+              : Value(labels_json),
     );
   }
 
@@ -291,7 +294,7 @@ class RemoteNumberData extends DataClass
       priority: serializer.fromJson<int>(json['priority']),
       action: serializer.fromJson<String>(json['action']),
       count: serializer.fromJson<int>(json['count']),
-      labelsJson: serializer.fromJson<String?>(json['labelsJson']),
+      labels_json: serializer.fromJson<String?>(json['labels_json']),
     );
   }
   @override
@@ -305,7 +308,7 @@ class RemoteNumberData extends DataClass
       'priority': serializer.toJson<int>(priority),
       'action': serializer.toJson<String>(action),
       'count': serializer.toJson<int>(count),
-      'labelsJson': serializer.toJson<String?>(labelsJson),
+      'labels_json': serializer.toJson<String?>(labels_json),
     };
   }
 
@@ -317,7 +320,7 @@ class RemoteNumberData extends DataClass
     int? priority,
     String? action,
     int? count,
-    Value<String?> labelsJson = const Value.absent(),
+    Value<String?> labels_json = const Value.absent(),
   }) => RemoteNumberData(
     id: id ?? this.id,
     phoneNumber: phoneNumber ?? this.phoneNumber,
@@ -326,7 +329,7 @@ class RemoteNumberData extends DataClass
     priority: priority ?? this.priority,
     action: action ?? this.action,
     count: count ?? this.count,
-    labelsJson: labelsJson.present ? labelsJson.value : this.labelsJson,
+    labels_json: labels_json.present ? labels_json.value : this.labels_json,
   );
   RemoteNumberData copyWithCompanion(RemoteNumbersCompanion data) {
     return RemoteNumberData(
@@ -338,8 +341,8 @@ class RemoteNumberData extends DataClass
       priority: data.priority.present ? data.priority.value : this.priority,
       action: data.action.present ? data.action.value : this.action,
       count: data.count.present ? data.count.value : this.count,
-      labelsJson:
-          data.labelsJson.present ? data.labelsJson.value : this.labelsJson,
+      labels_json:
+          data.labels_json.present ? data.labels_json.value : this.labels_json,
     );
   }
 
@@ -353,7 +356,7 @@ class RemoteNumberData extends DataClass
           ..write('priority: $priority, ')
           ..write('action: $action, ')
           ..write('count: $count, ')
-          ..write('labelsJson: $labelsJson')
+          ..write('labels_json: $labels_json')
           ..write(')'))
         .toString();
   }
@@ -367,7 +370,7 @@ class RemoteNumberData extends DataClass
     priority,
     action,
     count,
-    labelsJson,
+    labels_json,
   );
   @override
   bool operator ==(Object other) =>
@@ -380,7 +383,7 @@ class RemoteNumberData extends DataClass
           other.priority == this.priority &&
           other.action == this.action &&
           other.count == this.count &&
-          other.labelsJson == this.labelsJson);
+          other.labels_json == this.labels_json);
 }
 
 class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
@@ -391,7 +394,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
   final Value<int> priority;
   final Value<String> action;
   final Value<int> count;
-  final Value<String?> labelsJson;
+  final Value<String?> labels_json;
   final Value<int> rowid;
   const RemoteNumbersCompanion({
     this.id = const Value.absent(),
@@ -401,7 +404,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     this.priority = const Value.absent(),
     this.action = const Value.absent(),
     this.count = const Value.absent(),
-    this.labelsJson = const Value.absent(),
+    this.labels_json = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   RemoteNumbersCompanion.insert({
@@ -412,7 +415,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     this.priority = const Value.absent(),
     this.action = const Value.absent(),
     this.count = const Value.absent(),
-    this.labelsJson = const Value.absent(),
+    this.labels_json = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        phoneNumber = Value(phoneNumber),
@@ -425,7 +428,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     Expression<int>? priority,
     Expression<String>? action,
     Expression<int>? count,
-    Expression<String>? labelsJson,
+    Expression<String>? labels_json,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -436,7 +439,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
       if (priority != null) 'priority': priority,
       if (action != null) 'action': action,
       if (count != null) 'count': count,
-      if (labelsJson != null) 'labels_json': labelsJson,
+      if (labels_json != null) 'labels_json': labels_json,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -449,7 +452,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     Value<int>? priority,
     Value<String>? action,
     Value<int>? count,
-    Value<String?>? labelsJson,
+    Value<String?>? labels_json,
     Value<int>? rowid,
   }) {
     return RemoteNumbersCompanion(
@@ -460,7 +463,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
       priority: priority ?? this.priority,
       action: action ?? this.action,
       count: count ?? this.count,
-      labelsJson: labelsJson ?? this.labelsJson,
+      labels_json: labels_json ?? this.labels_json,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -489,8 +492,8 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     if (count.present) {
       map['count'] = Variable<int>(count.value);
     }
-    if (labelsJson.present) {
-      map['labels_json'] = Variable<String>(labelsJson.value);
+    if (labels_json.present) {
+      map['labels_json'] = Variable<String>(labels_json.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -508,7 +511,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
           ..write('priority: $priority, ')
           ..write('action: $action, ')
           ..write('count: $count, ')
-          ..write('labelsJson: $labelsJson, ')
+          ..write('labels_json: $labels_json, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -3360,7 +3363,7 @@ typedef $$RemoteNumbersTableCreateCompanionBuilder =
       Value<int> priority,
       Value<String> action,
       Value<int> count,
-      Value<String?> labelsJson,
+      Value<String?> labels_json,
       Value<int> rowid,
     });
 typedef $$RemoteNumbersTableUpdateCompanionBuilder =
@@ -3372,7 +3375,7 @@ typedef $$RemoteNumbersTableUpdateCompanionBuilder =
       Value<int> priority,
       Value<String> action,
       Value<int> count,
-      Value<String?> labelsJson,
+      Value<String?> labels_json,
       Value<int> rowid,
     });
 
@@ -3494,8 +3497,8 @@ class $$RemoteNumbersTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get labelsJson => $composableBuilder(
-    column: $table.labelsJson,
+  ColumnFilters<String> get labels_json => $composableBuilder(
+    column: $table.labels_json,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -3595,8 +3598,8 @@ class $$RemoteNumbersTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get labelsJson => $composableBuilder(
-    column: $table.labelsJson,
+  ColumnOrderings<String> get labels_json => $composableBuilder(
+    column: $table.labels_json,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -3633,8 +3636,8 @@ class $$RemoteNumbersTableAnnotationComposer
   GeneratedColumn<int> get count =>
       $composableBuilder(column: $table.count, builder: (column) => column);
 
-  GeneratedColumn<String> get labelsJson => $composableBuilder(
-    column: $table.labelsJson,
+  GeneratedColumn<String> get labels_json => $composableBuilder(
+    column: $table.labels_json,
     builder: (column) => column,
   );
 
@@ -3735,7 +3738,7 @@ class $$RemoteNumbersTableTableManager
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<int> count = const Value.absent(),
-                Value<String?> labelsJson = const Value.absent(),
+                Value<String?> labels_json = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => RemoteNumbersCompanion(
                 id: id,
@@ -3745,7 +3748,7 @@ class $$RemoteNumbersTableTableManager
                 priority: priority,
                 action: action,
                 count: count,
-                labelsJson: labelsJson,
+                labels_json: labels_json,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -3757,7 +3760,7 @@ class $$RemoteNumbersTableTableManager
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<int> count = const Value.absent(),
-                Value<String?> labelsJson = const Value.absent(),
+                Value<String?> labels_json = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => RemoteNumbersCompanion.insert(
                 id: id,
@@ -3767,7 +3770,7 @@ class $$RemoteNumbersTableTableManager
                 priority: priority,
                 action: action,
                 count: count,
-                labelsJson: labelsJson,
+                labels_json: labels_json,
                 rowid: rowid,
               ),
           withReferenceMapper:

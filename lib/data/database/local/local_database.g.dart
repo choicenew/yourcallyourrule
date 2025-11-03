@@ -572,7 +572,7 @@ class ContactsCompanion extends UpdateCompanion<ContactData> {
 }
 
 class $CallHistoryTable extends CallHistory
-    with TableInfo<$CallHistoryTable, CallHistoryEntryData> {
+    with TableInfo<$CallHistoryTable, CallHistoryData> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -743,7 +743,7 @@ class $CallHistoryTable extends CallHistory
   static const String $name = 'call_history';
   @override
   VerificationContext validateIntegrity(
-    Insertable<CallHistoryEntryData> instance, {
+    Insertable<CallHistoryData> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -852,9 +852,9 @@ class $CallHistoryTable extends CallHistory
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  CallHistoryEntryData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  CallHistoryData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return CallHistoryEntryData(
+    return CallHistoryData(
       id:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
@@ -920,8 +920,7 @@ class $CallHistoryTable extends CallHistory
   }
 }
 
-class CallHistoryEntryData extends DataClass
-    implements Insertable<CallHistoryEntryData> {
+class CallHistoryData extends DataClass implements Insertable<CallHistoryData> {
   final String id;
   final String phoneNumber;
   final String? name;
@@ -935,7 +934,7 @@ class CallHistoryEntryData extends DataClass
   final String? countryIso;
   final int? subscriptionId;
   final String? labelIds;
-  const CallHistoryEntryData({
+  const CallHistoryData({
     required this.id,
     required this.phoneNumber,
     this.name,
@@ -1029,12 +1028,12 @@ class CallHistoryEntryData extends DataClass
     );
   }
 
-  factory CallHistoryEntryData.fromJson(
+  factory CallHistoryData.fromJson(
     Map<String, dynamic> json, {
     ValueSerializer? serializer,
   }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return CallHistoryEntryData(
+    return CallHistoryData(
       id: serializer.fromJson<String>(json['id']),
       phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
       name: serializer.fromJson<String?>(json['name']),
@@ -1070,7 +1069,7 @@ class CallHistoryEntryData extends DataClass
     };
   }
 
-  CallHistoryEntryData copyWith({
+  CallHistoryData copyWith({
     String? id,
     String? phoneNumber,
     Value<String?> name = const Value.absent(),
@@ -1084,7 +1083,7 @@ class CallHistoryEntryData extends DataClass
     Value<String?> countryIso = const Value.absent(),
     Value<int?> subscriptionId = const Value.absent(),
     Value<String?> labelIds = const Value.absent(),
-  }) => CallHistoryEntryData(
+  }) => CallHistoryData(
     id: id ?? this.id,
     phoneNumber: phoneNumber ?? this.phoneNumber,
     name: name.present ? name.value : this.name,
@@ -1101,8 +1100,8 @@ class CallHistoryEntryData extends DataClass
         subscriptionId.present ? subscriptionId.value : this.subscriptionId,
     labelIds: labelIds.present ? labelIds.value : this.labelIds,
   );
-  CallHistoryEntryData copyWithCompanion(CallHistoryCompanion data) {
-    return CallHistoryEntryData(
+  CallHistoryData copyWithCompanion(CallHistoryCompanion data) {
+    return CallHistoryData(
       id: data.id.present ? data.id.value : this.id,
       phoneNumber:
           data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
@@ -1133,7 +1132,7 @@ class CallHistoryEntryData extends DataClass
 
   @override
   String toString() {
-    return (StringBuffer('CallHistoryEntryData(')
+    return (StringBuffer('CallHistoryData(')
           ..write('id: $id, ')
           ..write('phoneNumber: $phoneNumber, ')
           ..write('name: $name, ')
@@ -1170,7 +1169,7 @@ class CallHistoryEntryData extends DataClass
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is CallHistoryEntryData &&
+      (other is CallHistoryData &&
           other.id == this.id &&
           other.phoneNumber == this.phoneNumber &&
           other.name == this.name &&
@@ -1186,7 +1185,7 @@ class CallHistoryEntryData extends DataClass
           other.labelIds == this.labelIds);
 }
 
-class CallHistoryCompanion extends UpdateCompanion<CallHistoryEntryData> {
+class CallHistoryCompanion extends UpdateCompanion<CallHistoryData> {
   final Value<String> id;
   final Value<String> phoneNumber;
   final Value<String?> name;
@@ -1236,7 +1235,7 @@ class CallHistoryCompanion extends UpdateCompanion<CallHistoryEntryData> {
        phoneNumber = Value(phoneNumber),
        timestamp = Value(timestamp),
        callType = Value(callType);
-  static Insertable<CallHistoryEntryData> custom({
+  static Insertable<CallHistoryData> custom({
     Expression<String>? id,
     Expression<String>? phoneNumber,
     Expression<String>? name,
@@ -6458,7 +6457,7 @@ class $LabelPhonesTable extends LabelPhones
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
-  static const String $name = 'label_phone';
+  static const String $name = 'label_phones';
   @override
   VerificationContext validateIntegrity(
     Insertable<LabelPhoneData> instance, {
@@ -8795,21 +8794,17 @@ class $$CallHistoryTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $CallHistoryTable,
-          CallHistoryEntryData,
+          CallHistoryData,
           $$CallHistoryTableFilterComposer,
           $$CallHistoryTableOrderingComposer,
           $$CallHistoryTableAnnotationComposer,
           $$CallHistoryTableCreateCompanionBuilder,
           $$CallHistoryTableUpdateCompanionBuilder,
           (
-            CallHistoryEntryData,
-            BaseReferences<
-              _$LocalDatabase,
-              $CallHistoryTable,
-              CallHistoryEntryData
-            >,
+            CallHistoryData,
+            BaseReferences<_$LocalDatabase, $CallHistoryTable, CallHistoryData>,
           ),
-          CallHistoryEntryData,
+          CallHistoryData,
           PrefetchHooks Function()
         > {
   $$CallHistoryTableTableManager(_$LocalDatabase db, $CallHistoryTable table)
@@ -8907,21 +8902,17 @@ typedef $$CallHistoryTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $CallHistoryTable,
-      CallHistoryEntryData,
+      CallHistoryData,
       $$CallHistoryTableFilterComposer,
       $$CallHistoryTableOrderingComposer,
       $$CallHistoryTableAnnotationComposer,
       $$CallHistoryTableCreateCompanionBuilder,
       $$CallHistoryTableUpdateCompanionBuilder,
       (
-        CallHistoryEntryData,
-        BaseReferences<
-          _$LocalDatabase,
-          $CallHistoryTable,
-          CallHistoryEntryData
-        >,
+        CallHistoryData,
+        BaseReferences<_$LocalDatabase, $CallHistoryTable, CallHistoryData>,
       ),
-      CallHistoryEntryData,
+      CallHistoryData,
       PrefetchHooks Function()
     >;
 typedef $$RulesTableCreateCompanionBuilder =

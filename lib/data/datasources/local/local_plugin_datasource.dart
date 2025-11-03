@@ -1,130 +1,145 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:yourcallyourrule/data/database/database_manager.dart';
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:drift/drift.dart';
+import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/data/models/plugin_model.dart';
 
-class LocalPluginDataSource {
-  final LocalDatabaseManager _dbManager;
+import '../../database/local/local_database.dart';
+import '../datasource_interface.dart';
 
-  LocalPluginDataSource(this._dbManager);
+class LocalPluginDataSource implements LocalDataSource<PluginModel> {
+  final LocalDatabase _db;
+  final Uuid _uuid = const Uuid();
 
-  Future<Database> get _db async => _dbManager.database;
+  LocalPluginDataSource(this._db);
 
-  Future<List<Map<String, dynamic>>> queryAll() async {
-    final db = await _db;
-    return await db.query('plugins');
-  }
-
-  Future<Map<String, dynamic>?> queryById(String id) async {
-    final db = await _db;
-    final maps = await db.query(
-      'plugins',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-    if (maps.isEmpty) return null;
-    return maps.first;
-  }
-
-  Future<String> insert(PluginModel plugin) async {
-    final db = await _db;
-    await db.insert(
-      'plugins',
-      plugin.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-    return plugin.id;
-  }
-
-  Future<int> update(PluginModel plugin) async {
-    final db = await _db;
-    return db.update(
-      'plugins',
-      plugin.toMap(),
-      where: 'id = ?',
-      whereArgs: [plugin.id],
+  PluginModel _fromData(PluginData data) {
+    return PluginModel(
+      id: data.id,
+      name: data.name,
+      url: data.url,
+      version: data.version,
+      description: data.description ?? '',
+      isEnabled: data.isEnabled == 1,
+      pluginOrder: data.pluginOrder,
+      isAutoUpdate: data.isAutoUpdate == 1,
     );
   }
 
+  PluginsCompanion _toCompanion(PluginModel model) {
+    return PluginsCompanion(
+      id: Value(model.id),
+      name: Value(model.name),
+      url: Value(model.url),
+      version: Value(model.version),
+      description: Value(model.description),
+      isEnabled: Value(model.isEnabled ? 1 : 0),
+      pluginOrder: Value(model.pluginOrder),
+      isAutoUpdate: Value(model.isAutoUpdate ? 1 : 0),
+    );
+  }
+
+  @override
+  Future<List<PluginModel>> getAll() async {
+    final data = await (_db.select(_db.plugins)..orderBy([(t) => OrderingTerm(expression: t.pluginOrder)])).get();
+    return data.map(_fromData).toList();
+  }
+
+  @override
+  Future<PluginModel?> getById(String id) async {
+    final data = await (_db.select(_db.plugins)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
+    return data != null ? _fromData(data) : null;
+  }
+
+  @override
+  Future<String> insert(PluginModel model) async {
+    final id = model.id.isEmpty ? _uuid.v4() : model.id;
+    final companion = _toCompanion(model).copyWith(id: Value(id));
+    await _db.into(_db.plugins).insert(companion, mode: InsertMode.replace);
+    return id;
+  }
+
+  @override
+  Future<List<String>> insertAll(List<PluginModel> models) async {
+    final ids = <String>[];
+    await _db.batch((batch) {
+      for (final model in models) {
+        final id = model.id.isEmpty ? _uuid.v4() : model.id;
+        ids.add(id);
+        final companion = _toCompanion(model).copyWith(id: Value(id));
+        batch.insert(_db.plugins, companion, mode: InsertMode.replace);
+      }
+    });
+    return ids;
+  }
+
+  @override
+  Future<int> update(PluginModel model) async {
+    return await (_db.update(_db.plugins)..where((tbl) => tbl.id.equals(model.id))).write(_toCompanion(model));
+  }
+
+  @override
+  Future<int> updateAll(List<PluginModel> items) async {
+    await _db.batch((batch) {
+      for (final item in items) {
+        batch.update(
+          _db.plugins,
+          _toCompanion(item),
+          where: (tbl) => tbl.id.equals(item.id),
+        );
+      }
+    });
+    return items.length;
+  }
+
+  @override
   Future<int> delete(String id) async {
-    final db = await _db;
-    return db.delete(
-      'plugins',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return await (_db.delete(_db.plugins)..where((tbl) => tbl.id.equals(id))).go();
   }
 
-  Future<Map<String, dynamic>?> getByUrl(String url) async {
-    final db = await _db;
-    final maps = await db.query(
-      'plugins',
-      where: 'url = ?',
-      whereArgs: [url],
-    );
-    if (maps.isEmpty) return null;
-    return maps.first;
+  @override
+  Future<int> deleteAll(List<String> ids) async {
+    if (ids.isEmpty) return 0;
+    return await (_db.delete(_db.plugins)..where((tbl) => tbl.id.isIn(ids))).go();
   }
 
-  Future<List<Map<String, dynamic>>> searchByName(String name) async {
-    final db = await _db;
-    return await db.query(
-      'plugins',
-      where: 'name LIKE ?',
-      whereArgs: ['%$name%'],
-    );
+  @override
+  Future<void> clear() async {
+    await _db.delete(_db.plugins).go();
   }
 
-  Future<List<Map<String, dynamic>>> getAllDisabled() async {
-    final db = await _db;
-    return await db.query(
-      'plugins',
-      where: 'isEnabled = ?',
-      whereArgs: [0],
-    );
+  Future<PluginModel?> getByUrl(String url) async {
+    final data = await (_db.select(_db.plugins)..where((tbl) => tbl.url.equals(url))).getSingleOrNull();
+    return data != null ? _fromData(data) : null;
   }
 
-  Future<List<Map<String, dynamic>>> getEnabled() async {
-    final db = await _db;
-    return await db.query(
-      'plugins',
-      where: 'isEnabled = ?',
-      whereArgs: [1],
-    );
+  Future<List<PluginModel>> searchByName(String name) async {
+    final data = await (_db.select(_db.plugins)..where((tbl) => tbl.name.like('%$name%'))).get();
+    return data.map(_fromData).toList();
   }
 
-  Future<List<Map<String, dynamic>>> getByType(String type) async {
-    final db = await _db;
-    return await db.query(
-      'plugins',
-      where: 'type = ?',
-      whereArgs: [type],
-    );
+  Future<List<PluginModel>> getEnabled() async {
+    final data = await (_db.select(_db.plugins)..where((tbl) => tbl.isEnabled.equals(1))).get();
+    return data.map(_fromData).toList();
   }
 
-  Future<List<Map<String, dynamic>>> getAllEnabled() async {
-    final db = await _db;
-    return await db.query(
-      'plugins',
-      where: 'isEnabled = ?',
-      whereArgs: [1],
-    );
+  @override
+  Future<String> exportData() async {
+    final items = await getAll();
+    return jsonEncode(items.map((item) => item.toMap()).toList());
   }
 
-  Future<List<Map<String, dynamic>>> getByCategory(String category) async {
-    final db = await _db;
-    return await db.query(
-      'plugins',
-      where: 'category = ?',
-      whereArgs: [category],
-    );
-  }
-
-  Future<List<Map<String, dynamic>>> getByName(String name) async {
-    final db = await _db;
-    return await db.query(
-      'plugins',
-      where: 'name = ?',
-      whereArgs: [name],
-    );
+  @override
+  Future<bool> importData(String data) async {
+    try {
+      final List<dynamic> maps = jsonDecode(data);
+      final items = maps.map((map) => PluginModel.fromMap(map as Map<String, dynamic>)).toList();
+      await insertAll(items);
+      return true;
+    } catch (e) {
+      print('Error importing plugin data: $e');
+      return false;
+    }
   }
 }

@@ -1,92 +1,122 @@
+// local_sms_regex_rule_data_source.dart (Drift 优化版)
+
 import 'dart:async';
 import 'dart:convert';
-
-import 'package:sqflite/sqflite.dart';
+import 'package:drift/drift.dart' hide Column;
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/data/models/sms_regex_rule_model.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
-
-import '../../database/database_manager.dart';
+import '../../../data/models/sms_regex_rule_model.dart';
 import '../datasource_interface.dart';
 
 class LocalSmsRegexRuleDataSource implements LocalDataSource<SmsRegexRuleModel> {
-  final LocalDatabaseManager _databaseManager;
-  static const String _tableName = 'sms_rules';
+  
+  final LocalDatabase _database;
+  final Uuid _uuid = const Uuid();
 
-  LocalSmsRegexRuleDataSource(this._databaseManager);
+  LocalSmsRegexRuleDataSource(this._database);
+
+  // --- 辅助方法: 数据转换 ---
+
+  /// 将 Drift 生成的 SmsRuleData (数据库行数据) 转换为 SmsRegexRuleModel
+  SmsRegexRuleModel _fromData(SmsRuleData data) {
+    return SmsRegexRuleModel(
+      // 修正：增加防御性检查，确保 ID 非空
+      id: data.id ?? _uuid.v4(),
+      name: data.name,
+      priority: data.priority,
+      action: data.action,
+      contentRegex: data.contentRegex,
+      senderRegex: data.senderRegex,
+      isEnabled: data.isEnabled == 1,
+    );
+  }
+
+  /// 将 SmsRegexRuleModel (应用模型) 转换为 Drift Companion (用于写入数据库)
+  SmsRulesCompanion _toCompanion(SmsRegexRuleModel model) {
+    return SmsRulesCompanion(
+      id: Value(model.id),
+      name: Value(model.name),
+      priority: Value(model.priority),
+      action: Value(model.action),
+      contentRegex: Value(model.contentRegex),
+      senderRegex: Value(model.senderRegex),
+      isEnabled: Value(model.isEnabled ? 1 : 0),
+      ruleType: Value(model.ruleType), // 继承自 RuleModel
+    );
+  }
+
+  // --- 核心 CRUD ---
 
   @override
   Future<List<SmsRegexRuleModel>> getAll() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(_tableName);
-    return maps.map((map) => SmsRegexRuleModel.fromMap(map)).toList();
+    final results = await _database.select(_database.smsRules).get();
+    return results.map(_fromData).toList();
   }
 
   @override
   Future<SmsRegexRuleModel?> getById(String id) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-    return maps.isNotEmpty ? SmsRegexRuleModel.fromMap(maps.first) : null;
+    final result = await (_database.select(_database.smsRules)
+      ..where((tbl) => tbl.id.equals(id)))
+      .getSingleOrNull();
+      
+    return result != null ? _fromData(result) : null;
   }
 
   @override
   Future<String> insert(SmsRegexRuleModel rule) async {
     _validateRegex(rule);
-    final db = await _databaseManager.database;
-    final String id = rule.id.isEmpty ? const Uuid().v4() : rule.id;
-    final ruleWithId = rule.id.isEmpty ? rule.copyWith(id: id) : rule;
+    
+    final String id = rule.id.isEmpty ? _uuid.v4() : rule.id;
+    
+    // 1. 创建 Companion
+    final companion = _toCompanion(rule);
+    // 2. 注入 ID
+    final companionWithId = companion.copyWith(id: Value(id));
 
-    await db.insert(
-      _tableName,
-      ruleWithId.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    // 使用 insertOnConflictUpdate 实现 ConflictAlgorithm.replace
+    await _database.into(_database.smsRules).insertOnConflictUpdate(companionWithId);
+    
     return id;
   }
 
   @override
   Future<int> update(SmsRegexRuleModel rule) async {
     _validateRegex(rule);
-    final db = await _databaseManager.database;
-    return db.update(
-      _tableName,
-      rule.toMap(),
-      where: 'id = ?',
-      whereArgs: [rule.id],
-    );
+    final companion = _toCompanion(rule);
+    
+    return await (_database.update(_database.smsRules)
+      ..where((tbl) => tbl.id.equals(rule.id)))
+      .write(companion);
   }
 
   @override
   Future<int> delete(String id) async {
-    final db = await _databaseManager.database;
-    return db.delete(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return await (_database.delete(_database.smsRules)
+      ..where((tbl) => tbl.id.equals(id)))
+      .go();
   }
 
-  // 批量操作方法保持与现有数据源一致
+  // 批量操作方法
   @override
   Future<List<String>> insertAll(List<SmsRegexRuleModel> rules) async {
     final List<String> ids = [];
-    final db = await _databaseManager.database;
 
-    await db.transaction((txn) async {
+    await _database.batch((batch) {
       for (final rule in rules) {
-        final String id = rule.id.isEmpty ? const Uuid().v4() : rule.id;
-        final ruleWithId = rule.id.isEmpty ? rule.copyWith(id: id) : rule;
-
-        await txn.insert(
-          _tableName,
-          ruleWithId.toMap(),
-          conflictAlgorithm: ConflictAlgorithm.replace,
-        );
+        _validateRegex(rule); // 仍然需要在批量插入时进行验证
+        
+        final String id = rule.id.isEmpty ? _uuid.v4() : rule.id;
         ids.add(id);
+
+        final companion = _toCompanion(rule);
+        final companionWithId = companion.copyWith(id: Value(id));
+
+        batch.insert(
+          _database.smsRules,
+          companionWithId,
+          mode: InsertMode.insertOrReplace,
+        );
       }
     });
     return ids;
@@ -94,23 +124,26 @@ class LocalSmsRegexRuleDataSource implements LocalDataSource<SmsRegexRuleModel> 
 
   @override
   Future<int> updateAll(List<SmsRegexRuleModel> rules) async {
-    int count = 0;
-    final db = await _databaseManager.database;
-
-    await db.transaction((txn) async {
+    // 尽管我们使用 batch，但验证仍需在循环内完成
+    for (final rule in rules) {
+      _validateRegex(rule);
+    }
+    
+    await _database.batch((batch) {
       for (final rule in rules) {
-        count += await txn.update(
-          _tableName,
-          rule.toMap(),
-          where: 'id = ?',
-          whereArgs: [rule.id],
+        batch.update(
+          _database.smsRules,
+          _toCompanion(rule),
+          where: (tbl) => tbl.id.equals(rule.id),
         );
       }
     });
-    return count;
+    // 返回尝试更新的记录数
+    return rules.length;
   }
 
   void _validateRegex(SmsRegexRuleModel rule) {
+    // 业务逻辑验证，保持不变
     try {
       RegExp(rule.contentRegex);
       if (rule.senderRegex != null) RegExp(rule.senderRegex!);
@@ -121,27 +154,18 @@ class LocalSmsRegexRuleDataSource implements LocalDataSource<SmsRegexRuleModel> 
 
   // 其他必要接口实现
   @override
-  @override
   Future<void> clear() async {
-    final db = await _databaseManager.database;
-    await db.delete(_tableName);
+    await _database.delete(_database.smsRules).go();
   }
 
   @override
   Future<int> deleteAll(List<String> ids) async {
-    int count = 0;
-    final db = await _databaseManager.database;
-
-    await db.transaction((txn) async {
-      for (final id in ids) {
-        count += await txn.delete(
-          _tableName,
-          where: 'id = ?',
-          whereArgs: [id],
-        );
-      }
-    });
-    return count;
+    if (ids.isEmpty) return 0;
+    
+    // 使用 whereIn 优化批量删除
+    return await (_database.delete(_database.smsRules)
+      ..where((tbl) => tbl.id.isIn(ids)))
+      .go();
   }
 
   @override
@@ -153,11 +177,12 @@ class LocalSmsRegexRuleDataSource implements LocalDataSource<SmsRegexRuleModel> 
   @override
   Future<bool> importData(String data) async {
     try {
-      final List<dynamic> jsonList = jsonDecode(data);
-      final rules = jsonList.map((j) => SmsRegexRuleModel.fromMap(j)).toList();
+      final List<dynamic> jsonList = jsonDecode(data) as List<dynamic>;
+      final rules = jsonList.map((j) => SmsRegexRuleModel.fromMap(j as Map<String, dynamic>)).toList();
       await insertAll(rules);
       return true;
     } catch (e) {
+      // 错误处理
       return false;
     }
   }

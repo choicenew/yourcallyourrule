@@ -1,131 +1,134 @@
-// 本地订阅数据源实现类，用于处理本地订阅数据的CRUD操作
+// local_subscription_data_source.dart (最终优化版，不依赖 Model.copyWith)
 
 import 'dart:async';
 import 'dart:convert';
-
-import 'package:sqflite/sqflite.dart';
+import 'package:drift/drift.dart' hide Column;
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/core/value_objects/url.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart'; // 假设这是 LocalDatabase 的路径
 
 import '../../../data/models/subscription_model.dart';
-import '../../database/database_manager.dart';
 import '../datasource_interface.dart';
 
 // 本地订阅数据源实现
 class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionModel> {
-  // 数据库管理器
-  final LocalDatabaseManager _databaseManager;
   
-  // 表名
-  static const String _tableName = 'subscriptions';
+  final LocalDatabase _database;
+  final Uuid _uuid = const Uuid();
   
-  // 构造函数
-  LocalSubscriptionDataSource(this._databaseManager);
+  LocalSubscriptionDataSource(this._database);
   
-  // 获取所有订阅
+  // --- 辅助方法: 数据转换 ---
+
+  /// 将 Drift 生成的 SubscriptionData 转换为 BaseSubscriptionModel (多态转换)
+  BaseSubscriptionModel _fromData(SubscriptionData data) {
+    // 1. 基础字段映射 (由于 data 已经强类型，我们直接使用字段)
+    final String id = data.id ?? _uuid.v4();
+    final String urlString = data.url;
+    final DateTime lastUpdated = DateTime.parse(data.lastUpdated);
+    final String tableType = data.table_type;
+    
+    // 2. 根据 table_type 创建相应的 Model
+    switch (tableType) {
+      case 'contact':
+        return ContactSubscriptionModel(
+          id: id,
+          name: data.name,
+          url: Url.fromString(urlString),
+          isEnabled: data.isEnabled == 1,
+          lastUpdated: lastUpdated,
+          autoUpdate: data.autoUpdate == 1,
+          contactGroup: data.contact_group,
+        );
+      case 'sms':
+        return SmsSubscriptionModel(
+          id: id,
+          name: data.name,
+          url: Url.fromString(urlString),
+          isEnabled: data.isEnabled == 1,
+          lastUpdated: lastUpdated,
+          autoUpdate: data.autoUpdate == 1,
+          action: RuleAction.fromString(data.action),
+        );
+      case 'phone':
+      default:
+        return SubscriptionModel(
+          id: id,
+          name: data.name,
+          url: Url.fromString(urlString),
+          isEnabled: data.isEnabled == 1,
+          lastUpdated: lastUpdated,
+          autoUpdate: data.autoUpdate == 1,
+          action: RuleAction.fromString(data.action),
+        );
+    }
+  }
+
+  /// 将 BaseSubscriptionModel 转换为 Drift Companion
+  SubscriptionsCompanion _toCompanion(BaseSubscriptionModel model) {
+    // 基础字段
+    final baseCompanion = SubscriptionsCompanion(
+      id: Value(model.id), // 保持原样，insert/insertAll 会修正
+      name: Value(model.name),
+      url: Value(model.url.toString()),
+      isEnabled: Value(model.isEnabled ? 1 : 0),
+      lastUpdated: Value(model.lastUpdated.toIso8601String()),
+      autoUpdate: Value(model.autoUpdate ? 1 : 0),
+    );
+
+    // 子类特有字段和 table_type 注入
+    if (model is ContactSubscriptionModel) {
+      return baseCompanion.copyWith(
+        table_type: const Value('contact'),
+        contact_group: Value(model.contactGroup),
+        action: const Value.absent(), // 明确设为 absent，确保没有旧值污染
+        keyword_filters: const Value.absent(),
+      );
+    } else if (model is SmsSubscriptionModel) {
+      return baseCompanion.copyWith(
+        table_type: const Value('sms'),
+        action: Value(model.action.toString()),
+        contact_group: const Value.absent(),
+        keyword_filters: const Value.absent(),
+      );
+    } else { // SubscriptionModel (Phone)
+      return baseCompanion.copyWith(
+        table_type: const Value('phone'),
+        action: Value((model as SubscriptionModel).action.toString()),
+        contact_group: const Value.absent(),
+        keyword_filters: const Value.absent(),
+      );
+    }
+  }
+
+  // --- 核心 CRUD ---
+  
   @override
   Future<List<BaseSubscriptionModel>> getAll() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(_tableName);
-    
-    return List.generate(maps.length, (i) {
-      final map = maps[i];
-      final String? tableType = map['table_type'];
-      switch (tableType) {
-        case 'contact':
-          return ContactSubscriptionModel.fromMap(map);
-        case 'sms':
-          return SmsSubscriptionModel.fromMap(map);
-        case 'phone':
-        default:
-          return SubscriptionModel.fromMap(map);
-      }
-    });
+    final results = await _database.select(_database.subscriptions).get();
+    return results.map(_fromData).toList();
   }
   
-  // 根据ID获取订阅
   @override
   Future<BaseSubscriptionModel?> getById(String id) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-    
-    if (maps.isNotEmpty) {
-      final map = maps.first;
-      final String? tableType = map['table_type'];
-      switch (tableType) {
-        case 'contact':
-          return ContactSubscriptionModel.fromMap(map);
-        case 'sms':
-          return SmsSubscriptionModel.fromMap(map);
-        case 'phone':
-        default:
-          return SubscriptionModel.fromMap(map);
-      }
-    }
-    return null;
+    final result = await (_database.select(_database.subscriptions)
+      ..where((tbl) => tbl.id.equals(id))
+      ..limit(1))
+      .getSingleOrNull();
+      
+    return result != null ? _fromData(result) : null;
   }
   
-  // 插入订阅
+  // 插入订阅 (Drift 惯用法)
   @override
   Future<String> insert(BaseSubscriptionModel subscription) async {
-    final db = await _databaseManager.database;
+    final String id = subscription.id.isEmpty ? _uuid.v4() : subscription.id;
     
-    // 如果没有ID，生成一个新的UUID
-    final String id = subscription.id.isEmpty ? const Uuid().v4() : subscription.id;
-    final BaseSubscriptionModel subscriptionWithId;
+    final companion = _toCompanion(subscription);
+    final companionWithId = companion.copyWith(id: Value(id));
     
-    // 根据订阅类型创建不同的订阅模型
-    if (subscription.id.isEmpty) {
-      if (subscription is ContactSubscriptionModel) {
-        subscriptionWithId = ContactSubscriptionModel(
-          id: id,
-          name: subscription.name,
-          url: subscription.url,
-          isEnabled: subscription.isEnabled,
-          lastUpdated: subscription.lastUpdated,
-          autoUpdate: subscription.autoUpdate,
-          contactGroup: subscription.contactGroup,
-        );
-      } else if (subscription is SmsSubscriptionModel) {
-        subscriptionWithId = SmsSubscriptionModel(
-          id: id,
-          name: subscription.name,
-          url: subscription.url,
-          isEnabled: subscription.isEnabled,
-          lastUpdated: subscription.lastUpdated,
-          autoUpdate: subscription.autoUpdate,
-          action: subscription.action,
-     
-        );
-      } else if (subscription is SubscriptionModel) {
-        subscriptionWithId = SubscriptionModel(
-          id: id,
-          name: subscription.name,
-          url: subscription.url,
-          isEnabled: subscription.isEnabled,
-          action: subscription.action,
-          lastUpdated: subscription.lastUpdated,
-          autoUpdate: subscription.autoUpdate,
-        );
-      } else {
-        // 如果是其他类型的BaseSubscriptionModel，抛出异常
-        // 这里的异常表示当前只支持ContactSubscriptionModel、SmsSubscriptionModel和SubscriptionModel三种类型
-        // 如果传入了其他类型的BaseSubscriptionModel子类，则会抛出此异常
-        throw Exception('不支持的订阅类型：${subscription.runtimeType}。当前仅支持ContactSubscriptionModel、SmsSubscriptionModel和SubscriptionModel');
-      }
-    } else {
-      subscriptionWithId = subscription;
-    }
-    
-    await db.insert(
-      _tableName,
-      subscriptionWithId.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    await _database.into(_database.subscriptions).insertOnConflictUpdate(companionWithId);
     
     return id;
   }
@@ -133,90 +136,39 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
   // 更新订阅
   @override
   Future<int> update(BaseSubscriptionModel subscription) async {
-    final db = await _databaseManager.database;
+    final companion = _toCompanion(subscription);
     
-    return await db.update(
-      _tableName,
-      subscription.toMap(),
-      where: 'id = ?',
-      whereArgs: [subscription.id],
-    );
+    return await (_database.update(_database.subscriptions)
+      ..where((tbl) => tbl.id.equals(subscription.id)))
+      .write(companion);
   }
   
   // 删除订阅
   @override
   Future<int> delete(String id) async {
-    final db = await _databaseManager.database;
-    
-    return await db.delete(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return await (_database.delete(_database.subscriptions)
+      ..where((tbl) => tbl.id.equals(id)))
+      .go();
   }
   
   // 批量插入订阅
   @override
   Future<List<String>> insertAll(List<BaseSubscriptionModel> subscriptions) async {
     final List<String> ids = [];
-    final db = await _databaseManager.database;
     
-    await db.transaction((txn) async {
+    await _database.batch((batch) {
       for (final subscription in subscriptions) {
-        // 如果没有ID，生成一个新的UUID
-        final String id = subscription.id.isEmpty ? const Uuid().v4() : subscription.id;
-        final BaseSubscriptionModel subscriptionWithId;
-        
-        // 根据订阅类型创建不同的订阅模型
-        if (subscription.id.isEmpty) {
-          if (subscription is ContactSubscriptionModel) {
-            subscriptionWithId = ContactSubscriptionModel(
-              id: id,
-              name: subscription.name,
-              url: subscription.url,
-              isEnabled: subscription.isEnabled,
-              lastUpdated: subscription.lastUpdated,
-              autoUpdate: subscription.autoUpdate,
-              contactGroup: subscription.contactGroup,
-            );
-          } else if (subscription is SmsSubscriptionModel) {
-            subscriptionWithId = SmsSubscriptionModel(
-              id: id,
-              name: subscription.name,
-              url: subscription.url,
-              isEnabled: subscription.isEnabled,
-              lastUpdated: subscription.lastUpdated,
-              autoUpdate: subscription.autoUpdate,
-              action: subscription.action,
-             
-            );
-          } else if (subscription is SubscriptionModel) {
-            subscriptionWithId = SubscriptionModel(
-              id: id,
-              name: subscription.name,
-              url: subscription.url,
-              isEnabled: subscription.isEnabled,
-              action: subscription.action,
-              lastUpdated: subscription.lastUpdated,
-              autoUpdate: subscription.autoUpdate,
-            );
-          } else {
-            // 如果是其他类型的BaseSubscriptionModel，抛出异常
-            // 这里的异常表示当前只支持ContactSubscriptionModel、SmsSubscriptionModel和SubscriptionModel三种类型
-            // 如果传入了其他类型的BaseSubscriptionModel子类，则会抛出此异常
-            throw Exception('不支持的订阅类型：${subscription.runtimeType}。当前仅支持ContactSubscriptionModel、SmsSubscriptionModel和SubscriptionModel');
-          }
-        } else {
-          subscriptionWithId = subscription;
-        }
-        
-        await txn.insert(
-          _tableName,
-          subscriptionWithId.toMap(),
-          conflictAlgorithm: ConflictAlgorithm.replace,
-        );
-        
+        final String id = subscription.id.isEmpty ? _uuid.v4() : subscription.id;
         ids.add(id);
+        
+        final companion = _toCompanion(subscription);
+        final companionWithId = companion.copyWith(id: Value(id));
+
+        batch.insert(
+          _database.subscriptions,
+          companionWithId,
+          mode: InsertMode.insertOrReplace,
+        );
       }
     });
     
@@ -226,51 +178,31 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
   // 批量更新订阅
   @override
   Future<int> updateAll(List<BaseSubscriptionModel> subscriptions) async {
-    int count = 0;
-    final db = await _databaseManager.database;
-    
-    await db.transaction((txn) async {
+    await _database.batch((batch) {
       for (final subscription in subscriptions) {
-        final int updated = await txn.update(
-          _tableName,
-          subscription.toMap(),
-          where: 'id = ?',
-          whereArgs: [subscription.id],
+        batch.update(
+          _database.subscriptions,
+          _toCompanion(subscription),
+          where: (tbl) => tbl.id.equals(subscription.id),
         );
-        
-        count += updated;
       }
     });
     
-    return count;
+    return subscriptions.length;
   }
   
   // 批量删除订阅
   @override
   Future<int> deleteAll(List<String> ids) async {
-    int count = 0;
-    final db = await _databaseManager.database;
-    
-    await db.transaction((txn) async {
-      for (final id in ids) {
-        final int deleted = await txn.delete(
-          _tableName,
-          where: 'id = ?',
-          whereArgs: [id],
-        );
-        
-        count += deleted;
-      }
-    });
-    
-    return count;
+    return await (_database.delete(_database.subscriptions)
+      ..where((tbl) => tbl.id.isIn(ids)))
+      .go();
   }
   
   // 清空所有订阅
   @override
   Future<void> clear() async {
-    final db = await _databaseManager.database;
-    await db.delete(_tableName);
+    await _database.delete(_database.subscriptions).go();
   }
   
   // 导出订阅数据
@@ -290,34 +222,15 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
       
       for (final map in subscriptionMaps) {
         final subscriptionMap = map as Map<String, dynamic>;
-        // 根据表类型创建不同的订阅模型
         final String? tableType = subscriptionMap['table_type'];
+        
+        // 使用 fromMap 进行反序列化
         if (tableType == 'contact') {
-          subscriptions.add(ContactSubscriptionModel(
-            id: subscriptionMap['id'],
-            name: subscriptionMap['name'],
-            url: subscriptionMap['url'],
-            isEnabled: subscriptionMap['isEnabled'] == 1,
-            lastUpdated: DateTime.parse(subscriptionMap['lastUpdated']),
-            autoUpdate: subscriptionMap['autoUpdate'] == 1,
-            contactGroup: subscriptionMap['contact_group'],
-          ));
+          subscriptions.add(ContactSubscriptionModel.fromMap(subscriptionMap));
         } else if (tableType == 'sms') {
-          subscriptions.add(SmsSubscriptionModel(
-            id: subscriptionMap['id'],
-            name: subscriptionMap['name'],
-            url: subscriptionMap['url'],
-            isEnabled: subscriptionMap['isEnabled'] == 1,
-            lastUpdated: DateTime.parse(subscriptionMap['lastUpdated']),
-            autoUpdate: subscriptionMap['autoUpdate'] == 1,
-            action: RuleAction.fromString(subscriptionMap['action']),
-            
-          ));
-        } else if (tableType == 'phone') {
-          subscriptions.add(SubscriptionModel.fromMap(subscriptionMap));
+           subscriptions.add(SmsSubscriptionModel.fromMap(subscriptionMap));
         } else {
-          // 默认情况下，如果没有指定类型，则假定为标准订阅
-          subscriptions.add(SubscriptionModel.fromMap(subscriptionMap));
+           subscriptions.add(SubscriptionModel.fromMap(subscriptionMap));
         }
       }
       
@@ -328,132 +241,29 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
     }
   }
   
+  // --- 额外查询方法 ---
+  
+  // 辅助方法：统一的 WHERE 条件查询和多态转换
+  Future<List<BaseSubscriptionModel>> _queryWhere(Expression<bool> whereClause) async {
+    final results = await (_database.select(_database.subscriptions)
+      ..where((tbl) => whereClause))
+      .get();
+    return results.map(_fromData).toList();
+  }
+  
   // 获取启用的订阅
   Future<List<BaseSubscriptionModel>> getEnabledSubscriptions() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'isEnabled = ?',
-      whereArgs: [1],
-    );
-    
-    return List.generate(maps.length, (i) {
-      final map = maps[i];
-      // 根据表类型创建不同的订阅模型
-      final String? tableType = map['table_type'];
-      if (tableType == 'contact') {
-        return ContactSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          isEnabled: map['isEnabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          contactGroup: map['contact_group'],
-        );
-      } else if (tableType == 'sms') {
-        return SmsSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          isEnabled: map['isEnabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          action: RuleAction.fromString(map['action']),
-         
-        );
-      } else if (tableType == 'phone') {
-        return SubscriptionModel.fromMap(map);
-      } else {
-        // 默认情况下，如果没有指定类型，则假定为标准订阅
-        return SubscriptionModel.fromMap(map);
-      }
-    });
+    return _queryWhere(_database.subscriptions.isEnabled.equals(1));
   }
   
   // 获取自动更新的订阅
   Future<List<BaseSubscriptionModel>> getAutoUpdateSubscriptions() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'autoUpdate = ?',
-      whereArgs: [1],
-    );
-    
-    return List.generate(maps.length, (i) {
-      final map = maps[i];
-      // 根据表类型创建不同的订阅模型
-      final String? tableType = map['table_type'];
-      if (tableType == 'contact') {
-        return ContactSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          isEnabled: map['isEnabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          contactGroup: map['contact_group'],
-        );
-      } else if (tableType == 'sms') {
-        return SmsSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          isEnabled: map['isEnabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          action: RuleAction.fromString(map['action']),
-        
-        );
-      } else if (tableType == 'phone') {
-        return SubscriptionModel.fromMap(map);
-      } else {
-        // 默认情况下，如果没有指定类型，则假定为标准订阅
-        return SubscriptionModel.fromMap(map);
-      }
-    });
+    return _queryWhere(_database.subscriptions.autoUpdate.equals(1));
   }
   
   // 根据类型获取订阅
   Future<List<BaseSubscriptionModel>> getByType(String type) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'table_type = ?',
-      whereArgs: [type],
-    );
-    
-    return List.generate(maps.length, (i) {
-      final map = maps[i];
-      // 根据表类型创建不同的订阅模型
-      if (type == 'contact') {
-        return ContactSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          isEnabled: map['isEnabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          contactGroup: map['contact_group'],
-        );
-      } else if (type == 'sms') {
-        return SmsSubscriptionModel(
-          id: map['id'],
-          name: map['name'],
-          url: map['url'],
-          isEnabled: map['isEnabled'] == 1,
-          lastUpdated: DateTime.parse(map['lastUpdated']),
-          autoUpdate: map['autoUpdate'] == 1,
-          action: RuleAction.fromString(map['action']),
-        
-        );
-      } else if (type == 'phone') {
-        return SubscriptionModel.fromMap(map);
-      } else {
-        // 默认情况下，如果没有指定类型，则假定为标准订阅
-        return SubscriptionModel.fromMap(map);
-      }
-    });
+    return _queryWhere(_database.subscriptions.table_type.equals(type));
   }
 
   Future<List<BaseSubscriptionModel>> queryAll() async {
@@ -465,63 +275,23 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
   }
 
   Future<List<BaseSubscriptionModel>> getByName(String name) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'name = ?',
-      whereArgs: [name],
-    );
-
-    return List.generate(maps.length, (i) {
-      final map = maps[i];
-      final String? tableType = map['table_type'];
-      switch (tableType) {
-        case 'contact':
-          return ContactSubscriptionModel.fromMap(map);
-        case 'sms':
-          return SmsSubscriptionModel.fromMap(map);
-        case 'phone':
-        default:
-          return SubscriptionModel.fromMap(map);
-      }
-    });
+    return _queryWhere(_database.subscriptions.name.equals(name));
   }
 
   Future<BaseSubscriptionModel?> getByUrl(String url) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'url = ?',
-      whereArgs: [url],
-    );
-
-    if (maps.isNotEmpty) {
-      final map = maps.first;
-      final String? tableType = map['table_type'];
-      switch (tableType) {
-        case 'contact':
-          return ContactSubscriptionModel.fromMap(map);
-        case 'sms':
-          return SmsSubscriptionModel.fromMap(map);
-        case 'phone':
-        default:
-          return SubscriptionModel.fromMap(map);
-      }
-    }
-    return null;
+    final result = await (_database.select(_database.subscriptions)
+      ..where((tbl) => tbl.url.equals(url))
+      ..limit(1))
+      .getSingleOrNull();
+      
+    return result != null ? _fromData(result) : null;
   }
 
   Future<List<BaseSubscriptionModel>> getByContactName(String contactName) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'name = ? AND table_type = ?',
-      whereArgs: [contactName, 'contact'],
-    );
-
-     return List.generate(maps.length, (i) {
-      final map = maps[i];
-      return ContactSubscriptionModel.fromMap(map);
-    });
+    final results = await (_database.select(_database.subscriptions)
+      ..where((tbl) => tbl.name.equals(contactName) & tbl.table_type.equals('contact')))
+      .get();
+    
+    return results.map(_fromData).toList();
   }
 }

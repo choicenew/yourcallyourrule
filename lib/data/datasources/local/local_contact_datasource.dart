@@ -1,232 +1,170 @@
-// 本地联系人数据源实现类，用于处理本地联系人数据的CRUD操作
-
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:sqflite/sqflite.dart';
+import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/models/contact_model.dart';
 
-import '../../../data/models/contact_model.dart';
-import '../../database/database_manager.dart';
+import '../../database/local/local_database.dart';
 import '../datasource_interface.dart';
 
-// 本地联系人数据源实现
 class LocalContactDataSource implements LocalDataSource<ContactModel> {
-  // 数据库管理器
-  final LocalDatabaseManager _databaseManager;
-  
-  // 表名
-  static const String _tableName = 'contacts';
-  
-  // 构造函数
-  LocalContactDataSource(this._databaseManager);
-// 获取所有联系人
-  @override
-  Future<List<ContactModel>> getAll() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(_tableName);
-    return List.generate(maps.length, (i) {
-      final map = Map<String, dynamic>.from(maps[i]);
-      if (map['phoneNumbers'] is String) {
-        map['phoneNumbers'] = jsonDecode(map['phoneNumbers']);
-      }
-      if (map['labelIds'] is String) {
-        map['labelIds'] = jsonDecode(map['labelIds']);
-      }
-      return ContactModel.fromMap(map);
-    });
+  final LocalDatabase _database;
+
+  LocalContactDataSource(this._database);
+
+  ContactModel _fromData(ContactData data) {
+    return ContactModel(
+      id: data.id,
+      name: data.name,
+      phoneNumbers: (jsonDecode(data.phoneNumber) as List<dynamic>).cast<String>(),
+      avatar: data.avatar,
+      labelIds: data.labelIds != null ? (jsonDecode(data.labelIds!) as List<dynamic>).cast<String>() : null,
+      isFavorite: data.isFavorite == 1,
+      // The following fields are not in ContactData, so they will be null or default.
+      // You might need to adjust your model or database schema if these are required.
+      email: null, 
+      website: null,
+      group: null,
+      url: data.url,
+    );
   }
 
-  // 根据ID获取联系人
+  ContactsCompanion _toCompanion(ContactModel contact) {
+    return ContactsCompanion(
+      id: Value(contact.id),
+      name: Value(contact.name),
+      phoneNumber: Value(jsonEncode(contact.phoneNumbers)),
+      avatar: Value(contact.avatar),
+      labelIds: Value(contact.labelIds != null ? jsonEncode(contact.labelIds) : null),
+      isFavorite: Value(contact.isFavorite ? 1 : 0),
+      url: Value(contact.url),
+      lastUpdated: Value(DateTime.now().toIso8601String()), // Assuming lastUpdated should be set on every write
+    );
+  }
+
+  @override
+  Future<List<ContactModel>> getAll() async {
+    final data = await _database.select(_database.contacts).get();
+    return data.map(_fromData).toList();
+  }
+
   @override
   Future<ContactModel?> getById(String id) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-    if (maps.isNotEmpty) {
-      final map = Map<String, dynamic>.from(maps.first);
-      if (map['phoneNumbers'] is String) {
-        map['phoneNumbers'] = jsonDecode(map['phoneNumbers']);
-      }
-      if (map['labelIds'] is String) {
-        map['labelIds'] = jsonDecode(map['labelIds']);
-      }
-      return ContactModel.fromMap(map);
-    }
-    return null;
+    final data = await (_database.select(_database.contacts)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
+    return data != null ? _fromData(data) : null;
   }
 
   @override
   Future<String> insert(ContactModel contact) async {
-    final db = await _databaseManager.database;
-    final String id = contact.id.isEmpty ? const Uuid().v4() : contact.id;
-    final contactWithId = contact.copyWith(id: id);
-    final contactMap = contactWithId.toMap();
-    contactMap['phoneNumbers'] = jsonEncode(contactWithId.phoneNumbers);
-    if (contactWithId.labelIds != null) {
-      contactMap['labelIds'] = jsonEncode(contactWithId.labelIds);
-    }
-    await db.insert(
-      _tableName,
-      contactMap,
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    final id = contact.id.isEmpty ? const Uuid().v4() : contact.id;
+    final companion = _toCompanion(contact).copyWith(id: Value(id));
+    await _database.into(_database.contacts).insert(companion, mode: InsertMode.replace);
     return id;
   }
-  
-  // 更新联系人
+
   @override
   Future<int> update(ContactModel contact) async {
-    final db = await _databaseManager.database;
-    final contactMap = contact.toMap();
-    contactMap['phoneNumbers'] = jsonEncode(contact.phoneNumbers);
-    if (contact.labelIds != null) {
-      contactMap['labelIds'] = jsonEncode(contact.labelIds);
-    }
-    return await db.update(
-      _tableName,
-      contactMap,
-      where: 'id = ?',
-      whereArgs: [contact.id],
-    );
+    return await (_database.update(_database.contacts)..where((tbl) => tbl.id.equals(contact.id))).write(_toCompanion(contact));
   }
-  
-  // 删除联系人
+
   @override
   Future<int> delete(String id) async {
-    final db = await _databaseManager.database;
-    return await db.delete(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return await (_database.delete(_database.contacts)..where((tbl) => tbl.id.equals(id))).go();
   }
-  
-  // 批量插入联系人
+
   @override
   Future<List<String>> insertAll(List<ContactModel> contacts) async {
-    final List<String> ids = [];
-    final db = await _databaseManager.database;
-    await db.transaction((txn) async {
+    final ids = <String>[];
+    await _database.batch((batch) {
       for (final contact in contacts) {
-        final String id = contact.id.isEmpty ? const Uuid().v4() : contact.id;
-        final contactWithId = contact.copyWith(id: id);
-        final contactMap = contactWithId.toMap();
-        contactMap['phoneNumbers'] = jsonEncode(contactWithId.phoneNumbers);
-        if (contactWithId.labelIds != null) {
-          contactMap['labelIds'] = jsonEncode(contactWithId.labelIds);
-        }
-        await txn.insert(
-          _tableName,
-          contactMap,
-          conflictAlgorithm: ConflictAlgorithm.replace,
-        );
+        final id = contact.id.isEmpty ? const Uuid().v4() : contact.id;
         ids.add(id);
+        final companion = _toCompanion(contact).copyWith(id: Value(id));
+        batch.insert(_database.contacts, companion, mode: InsertMode.replace);
       }
     });
     return ids;
   }
-  
-  // 批量更新联系人
+
   @override
   Future<int> updateAll(List<ContactModel> contacts) async {
-    int count = 0;
-    final db = await _databaseManager.database;
-    await db.transaction((txn) async {
+    await _database.batch((batch) {
       for (final contact in contacts) {
-        final contactMap = contact.toMap();
-        contactMap['phoneNumbers'] = jsonEncode(contact.phoneNumbers);
-        if (contact.labelIds != null) {
-          contactMap['labelIds'] = jsonEncode(contact.labelIds);
-        }
-        final int updated = await txn.update(
-          _tableName,
-          contactMap,
-          where: 'id = ?',
-          whereArgs: [contact.id],
+        batch.update(
+          _database.contacts,
+          _toCompanion(contact),
+          where: (tbl) => tbl.id.equals(contact.id),
         );
-        count += updated;
       }
     });
-    return count;
+    return contacts.length;
   }
-  
-  // 批量删除联系人
+
   @override
   Future<int> deleteAll(List<String> ids) async {
-       if (ids.isEmpty) {
-      return 0;
-    }
-    final db = await _databaseManager.database;
-    // 生成与 ids 数量相匹配的占位符 '?, ?, ?'
-    final placeholders = List.filled(ids.length, '?').join(', ');
-    return await db.delete(
-      _tableName,
-      where: 'id IN ($placeholders)', // 使用生成的占位符
-      whereArgs: ids, // 直接传递列表
-    );
+    if (ids.isEmpty) return 0;
+    return await (_database.delete(_database.contacts)..where((tbl) => tbl.id.isIn(ids))).go();
   }
-  
-  
-  
-  
-  
-  
 
   @override
   Future<void> clear() async {
-    final db = await _databaseManager.database;
-    await db.delete(_tableName);
+    await _database.delete(_database.contacts).go();
   }
 
-  // 根据电话号码获取联系人
-  Future<ContactModel?> getByPhoneNumber(String phoneNumber) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'phoneNumbers LIKE ?',
-      whereArgs: ['%"$phoneNumber"%'],
-    );
-    if (maps.isNotEmpty) {
-      final map = Map<String, dynamic>.from(maps.first);
-      if (map['phoneNumbers'] is String) {
-        map['phoneNumbers'] = jsonDecode(map['phoneNumbers']);
-      }
-      if (map['labelIds'] is String) {
-        map['labelIds'] = jsonDecode(map['labelIds']);
-      }
-      return ContactModel.fromMap(map);
-    }
-    return null;
-  }
-
-  Future<int> count() async {
-    final db = await _databaseManager.database;
-    final result = await db.rawQuery('SELECT COUNT(*) FROM $_tableName');
-    return Sqflite.firstIntValue(result) ?? 0;
-  }
-
-  // 导出联系人数据
   @override
   Future<String> exportData() async {
     final contacts = await getAll();
-    final List<Map<String, dynamic>> contactMaps = contacts.map((contact) => contact.toMap()).toList();
-    return jsonEncode(contactMaps);
+    return jsonEncode(contacts.map((contact) => contact.toMap()).toList());
   }
-  
-  // 导入联系人数据
+
   @override
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> contactMaps = jsonDecode(data) as List<dynamic>;
-      final List<ContactModel> contacts = contactMaps.map((map) => ContactModel.fromMap(map as Map<String, dynamic>)).toList();
+      final contacts = contactMaps.map((map) => ContactModel.fromMap(map as Map<String, dynamic>)).toList();
       await insertAll(contacts);
       return true;
     } catch (e) {
+      print('Error importing contact data: $e');
       return false;
     }
+  }
+
+  // =======================================================================
+  // Custom Queries
+  // =======================================================================
+
+  Future<ContactModel?> getByPhoneNumber(String phoneNumber) async {
+    // In Drift, we can't use LIKE on a JSON string as reliably as in sqflite for this purpose.
+    // A more robust way is to fetch all and filter in Dart, or use a custom query.
+    // For simplicity and correctness, let's filter in Dart.
+    // This can be inefficient for large datasets.
+    final allContacts = await getAll();
+    for (final contact in allContacts) {
+      if (contact.phoneNumbers.contains(phoneNumber)) {
+        return contact;
+      }
+    }
+    return null;
+    
+    // Alternative with custom query (might be better for performance)
+    /*
+    final escapedPhoneNumber = jsonEncode(phoneNumber); // '"1234567890"'
+    final query = customSelect(
+      'SELECT * FROM contacts WHERE json_extract(phone_numbers, '$') LIKE ?',
+      variables: [Variable.withString('%$escapedPhoneNumber%')],
+      readsFrom: {contacts},
+    );
+    final result = await query.getSingleOrNull();
+    return result != null ? _fromData(ContactData.fromData(result.data)) : null;
+    */
+  }
+
+  Future<int> count() async {
+    final expression = countAll();
+    final query = _database.selectOnly(_database.contacts)..addColumns([expression]);
+    final result = await query.map((row) => row.read(expression)).getSingle();
+    return result ?? 0; // 确保返回非空 int
   }
 }

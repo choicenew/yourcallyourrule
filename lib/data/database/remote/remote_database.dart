@@ -164,6 +164,7 @@ class RemoteDatabase extends _$RemoteDatabase {
   @override
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (Migrator m) async {
+         // m.createAll() 会自动创建所有表和在 @DriftDatabase 外部声明的索引
       await m.createAll();
       
       // Insert default sync config
@@ -179,7 +180,7 @@ class RemoteDatabase extends _$RemoteDatabase {
     onUpgrade: (Migrator m, int from, int to) async {
       if (from < 2) {
         // Version 1 to 2 migration
-        if (from == 1) {
+      await transaction(() async {
           // Step 1: Read data before any write operations
           final oldPendingOps = await customSelect('SELECT * FROM pending_operations').get();
           final oldNumbers = await customSelect('SELECT id, phoneNumber FROM remote_numbers').get();
@@ -189,7 +190,7 @@ class RemoteDatabase extends _$RemoteDatabase {
           };
           
           // Step 2: Create a batch for all write operations
-          await transaction(() async {
+        
             // Rename old table
             await customStatement('ALTER TABLE remote_numbers RENAME TO remote_numbers_old');
             
@@ -199,7 +200,7 @@ class RemoteDatabase extends _$RemoteDatabase {
             await m.createTable(pendingOperations);
             
             // Create index
-            await customStatement('CREATE INDEX IF NOT EXISTS idx_number_countries_country_iso_code ON number_countries(countryIsoCode)');
+         //   await customStatement('CREATE INDEX IF NOT EXISTS idx_number_countries_country_iso_code ON number_countries(countryIsoCode)');
             
             // Migrate data
             await customStatement('''
@@ -230,7 +231,7 @@ class RemoteDatabase extends _$RemoteDatabase {
             await customStatement('DROP INDEX IF EXISTS idx_remote_numbers_phone_number');
           });
         }
-      }
+   
       
       if (from < 3) {
         // Version 2 to 3 migration
@@ -238,8 +239,8 @@ class RemoteDatabase extends _$RemoteDatabase {
           await m.createTable(proposalSubmissions);
           await m.createTable(proposalVotes);
           
-          await customStatement('CREATE INDEX IF NOT EXISTS idx_submissions_proposer_time ON proposal_submissions(proposer_id, submission_time)');
-          await customStatement('CREATE INDEX IF NOT EXISTS idx_votes_voter_consumed ON proposal_votes(voter_id, is_consumed)');
+        //  await customStatement('CREATE INDEX IF NOT EXISTS idx_submissions_proposer_time ON proposal_submissions(proposer_id, submission_time)');
+        //  await customStatement('CREATE INDEX IF NOT EXISTS idx_votes_voter_consumed ON proposal_votes(voter_id, is_consumed)');
         });
       }
     },
