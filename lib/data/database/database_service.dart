@@ -4,8 +4,8 @@ import 'dart:async';
 
 
 import 'package:flutter/foundation.dart';
-import 'package:yourcallyourrule/data/database/local/local_database_manager.dart';
-import 'package:yourcallyourrule/data/database/remote/remote_database_manager.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
+import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_call_log_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_contact_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_label_datasource.dart';
@@ -18,7 +18,6 @@ import 'package:yourcallyourrule/data/datasources/local/local_sim_slot_rule_data
 import 'package:yourcallyourrule/data/datasources/local/local_sms_regex_rule_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_subscription_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
-import 'database_manager.dart';
 import 'sync/incremental_sync_manager_remote_database.dart';
 import 'sync/api_service.dart';
 import 'sync/device_id_service.dart';
@@ -32,9 +31,9 @@ import 'package:yourcallyourrule/data/repositories/config/config_repository.dart
 class DatabaseService {
   static final DatabaseService _instance = DatabaseService._internal();
   
-  // 数据库管理器
-  late final LocalDatabaseManager _localDatabaseManager;
-  late final RemoteDatabaseManager _remoteDatabaseManager;
+  // Drift 数据库实例
+  late final LocalDatabase localDatabase;
+  late final RemoteDatabase remoteDatabase;
   
   // 数据源
   late final LocalContactDataSource localContactDataSource;
@@ -52,27 +51,24 @@ class DatabaseService {
   
   late final IncrementalSyncManager incrementalSyncManager;
   
-  // 表变化监听器
-  final Map<String, StreamController<List<Map<String, dynamic>>>> _tableControllers = {};
-  
   // 私有构造函数
   DatabaseService._internal() {
-    _localDatabaseManager = LocalDatabaseManagerImpl();
-    _remoteDatabaseManager = RemoteDatabaseManagerImpl();
+    localDatabase = LocalDatabase();
+    remoteDatabase = RemoteDatabase();
     
     // 初始化数据源
-    localContactDataSource = LocalContactDataSource(_localDatabaseManager);
-    localLabelDataSource = LocalLabelDataSource(_localDatabaseManager);
-    localPhoneRuleDataSource = LocalPhoneRuleDataSource(_localDatabaseManager);
-    localRegexRuleDataSource = LocalRegexRuleDataSource(_localDatabaseManager);
-    localCallLogDataSource = LocalCallLogDataSource(_localDatabaseManager);
-    localSmsRegexRuleDataSource = LocalSmsRegexRuleDataSource(_localDatabaseManager);
-    localSubscriptionDataSource = LocalSubscriptionDataSource(_localDatabaseManager);
-    localLocationDataSource = LocalLocationDataSource(_localDatabaseManager);
-    localPluginDataSource = LocalPluginDataSource(_localDatabaseManager);
-    remoteNumberDataSource = RemoteNumberDataSource(_remoteDatabaseManager);
-    localPredefinedLabelDataSource = LocalPredefinedLabelDataSource(_localDatabaseManager);
-    localSimSlotRuleDataSource = LocalSimSlotRuleDataSource(_localDatabaseManager);
+    localContactDataSource = LocalContactDataSource(localDatabase);
+    localLabelDataSource = LocalLabelDataSource(localDatabase);
+    localPhoneRuleDataSource = LocalPhoneRuleDataSource(localDatabase);
+    localRegexRuleDataSource = LocalRegexRuleDataSource(localDatabase);
+    localCallLogDataSource = LocalCallLogDataSource(localDatabase);
+    localSmsRegexRuleDataSource = LocalSmsRegexRuleDataSource(localDatabase);
+    localSubscriptionDataSource = LocalSubscriptionDataSource(localDatabase);
+    localLocationDataSource = LocalLocationDataSource(localDatabase);
+    localPluginDataSource = LocalPluginDataSource(localDatabase);
+    remoteNumberDataSource = RemoteNumberDataSource(remoteDatabase);
+    localPredefinedLabelDataSource = LocalPredefinedLabelDataSource(localDatabase);
+    localSimSlotRuleDataSource = LocalSimSlotRuleDataSource(localDatabase);
 
     final configRepository = SharedPreferencesConfigRepository();
     final apiService = ApiService();
@@ -98,230 +94,13 @@ class DatabaseService {
     return _instance;
   }
   
-  // 初始化数据库
-  Future<void> initialize() async {
-
-
-
-
-
-    try {
-      final instance = DatabaseService._instance;
-      // 触发数据库初始化
-      await instance._localDatabaseManager.database;
-      await instance._remoteDatabaseManager.database;
-      debugPrint('数据库初始化完成');
-    } catch (e) {
-      debugPrint('数据库初始化错误: $e');
-      rethrow;
-    }
-  }
-  
-  // 关闭数据库
-  Future<void> close() async {
-    // 关闭所有流控制器
-    _tableControllers.forEach((_, controller) => controller.close());
-    _tableControllers.clear();
-    
-    await _localDatabaseManager.close();
-    await _remoteDatabaseManager.close();
-  }
-  
-  // 监听表变化
-  Stream<List<Map<String, dynamic>>> watchTable(String table) {
-    if (!_tableControllers.containsKey(table)) {
-      _tableControllers[table] = StreamController<List<Map<String, dynamic>>>.broadcast();
-      // 初始化时发送一次数据
-      queryAll(table).then((data) {
-        if (!_tableControllers[table]!.isClosed) {
-          _tableControllers[table]!.add(data);
-        }
-      });
-    }
-    return _tableControllers[table]!.stream;
-  }
-  
-  // 通知表监听器
-  void _notifyTableListeners(String table) {
-    if (_tableControllers.containsKey(table) && !_tableControllers[table]!.isClosed) {
-      queryAll(table).then((data) {
-        if (!_tableControllers[table]!.isClosed) {
-          _tableControllers[table]!.add(data);
-        }
-      });
-    }
-  }
-  
-  // 获取本地数据库管理器
-  LocalDatabaseManager get localDatabaseManager => _localDatabaseManager;
-  
-  // 获取远程数据库管理器
-  RemoteDatabaseManager get remoteDatabaseManager => _remoteDatabaseManager;
-  
   // 同步远程数据到本地
   Future<bool> syncRemoteToLocal() async {
     try {
       return await incrementalSyncManager.syncIncremental();
     } catch (e) {
+      debugPrint('Sync failed: $e');
       return false;
     }
-  }
-  
-  // 电话号码查询服务方法
-  Future<List<Map<String, dynamic>>> queryByPhoneNumber(String table, String phoneNumber) async {
-    try {
-      if (table == 'remote_numbers') {
-        return await _remoteDatabaseManager.queryByPhoneNumber(table, phoneNumber);
-      }
-      return await _localDatabaseManager.queryByPhoneNumber(table, phoneNumber);
-    } catch (e) {
-      return [];
-    }
-  }
-
-  // 检查远程号码
-  Future<Map<String, dynamic>?> checkRemoteNumber(String phoneNumber) async {
-    try {
-      // 查询远程号码
-      final remoteNumber = await remoteNumberDataSource.getByPhoneNumber(phoneNumber);
-      
-      // 如果找到远程号码，返回相关信息
-      if (remoteNumber != null) {
-        return {
-          'name': remoteNumber.name,
-          'label': remoteNumber.label,
-          'priority': remoteNumber.priority,
-          'action': remoteNumber.action,
-        };
-      }
-      
-      return null;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  // 数据库操作方法
-  Future<List<Map<String, dynamic>>> queryAll(String table) async {
-    final db = await _localDatabaseManager.database;
-    return await db.query(table);
-  }
-
-  Future<Map<String, dynamic>?> queryById(String table, String id) async {
-    final db = await _localDatabaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      table,
-      where: 'id = ?',
-      whereArgs: [id],
-      limit: 1,
-    );
-    return maps.isNotEmpty ? maps.first : null;
-  }
-
-  Future<List<Map<String, dynamic>>> queryWhere(String table, String field, dynamic value) async {
-    final db = await _localDatabaseManager.database;
-    return await db.query(
-      table,
-      where: '$field = ?',
-      whereArgs: [value],
-    );
-  }
-
-  Future<List<Map<String, dynamic>>> queryLike(String table, String field, String pattern) async {
-    final db = await _localDatabaseManager.database;
-    return await db.query(
-      table,
-      where: '$field LIKE ?',
-      whereArgs: ['%$pattern%'],
-    );
-  }
-
-  Future<int> insert(String table, Map<String, dynamic> data) async {
-    final db = await _localDatabaseManager.database;
-    final result = await db.insert(table, data);
-    _notifyTableListeners(table);
-    return result;
-  }
-
-  Future<int> update(String table, String id, Map<String, dynamic> data) async {
-    final db = await _localDatabaseManager.database;
-    final result = await db.update(
-      table,
-      data,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-    _notifyTableListeners(table);
-    return result;
-  }
-
-  Future<int> delete(String table, String id) async {
-    final db = await _localDatabaseManager.database;
-    final result = await db.delete(
-      table,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-    _notifyTableListeners(table);
-    return result;
-  }
-
-  // 远程数据库操作方法
-  Future<List<Map<String, dynamic>>> queryAllRemote(String table) async {
-    final db = await _remoteDatabaseManager.database;
-    return await db.query(table);
-  }
-
-  Future<Map<String, dynamic>?> queryByIdRemote(String table, String id) async {
-    final db = await _remoteDatabaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      table,
-      where: 'id = ?',
-      whereArgs: [id],
-      limit: 1,
-    );
-    return maps.isNotEmpty ? maps.first : null;
-  }
-
-  Future<List<Map<String, dynamic>>> queryWhereRemote(String table, String field, dynamic value) async {
-    final db = await _remoteDatabaseManager.database;
-    return await db.query(
-      table,
-      where: '$field = ?',
-      whereArgs: [value],
-    );
-  }
-
-  Future<List<Map<String, dynamic>>> queryLikeRemote(String table, String field, String pattern) async {
-    final db = await _remoteDatabaseManager.database;
-    return await db.query(
-      table,
-      where: '$field LIKE ?',
-      whereArgs: ['%$pattern%'],
-    );
-  }
-
-  Future<int> insertRemote(String table, Map<String, dynamic> data) async {
-    final db = await _remoteDatabaseManager.database;
-    return await db.insert(table, data);
-  }
-
-  Future<int> updateRemote(String table, String id, Map<String, dynamic> data) async {
-    final db = await _remoteDatabaseManager.database;
-    return await db.update(
-      table,
-      data,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-  }
-
-  Future<int> deleteRemote(String table, String id) async {
-    final db = await _remoteDatabaseManager.database;
-    return await db.delete(
-      table,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
   }
 }

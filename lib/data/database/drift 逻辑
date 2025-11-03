@@ -21,3 +21,95 @@ DatabaseService 的角色将发生根本性转变。它不再是一个数据库�
 
 在所有使用 DataSource 的地方（比如 Repositoryimpl 层或 BLoC/Provider），更新调用方式以匹配新的类型安全的方法签名。
  可以自动生成的就让他自动生成， 减少生动写的出错概率
+
+ 举个例子啊
+ 重构 LocalLabelDataSource (这是唯一需要动大手术的地方)
+code
+Dart
+// data/datasources/local/local_label_datasource.dart (迁移后)
+
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
+import 'package:yourcallyourrule/data/models/label_phone_model.dart'; // 仍然需要 Model
+import 'package:drift/drift.dart' hide Column;
+
+class LocalLabelDataSource { // 注意：这个类名和旧的完全一样
+  final LocalDatabase _db; // 依赖 Drift
+  LocalLabelDataSource(this._db);
+
+  // 【方法签名不变】返回 Future<List<LabelModel>>
+  Future<List<LabelModel>> getAll() async {
+    final List<LabelPhoneData> dataList = await _db.select(_db.labelPhones).get();
+    // 【关键】在内部完成 DriftData -> Map -> Model 的转换
+    return dataList.map((data) => LabelModel.fromMap(data.toJson())).toList();
+  }
+
+  // 【方法签名不变】返回 Future<LabelModel?>
+  Future<LabelModel?> getById(String id) async {
+    final data = await (_db.select(_db.labelPhones)..where((t) => t.id.equals(id))).getSingleOrNull();
+    if (data == null) return null;
+    return LabelModel.fromMap(data.toJson());
+  }
+
+  // 【方法签名不变】接收 LabelModel
+  Future<String> insert(LabelModel label) async {
+    // 你的 Model 有 toMap()，Drift 的 Companion 可以从 Map 创建
+    final companion = LabelPhonesCompanion.fromJson(label.toMap());
+    await _db.into(_db.labelPhones).insert(companion, mode: InsertMode.replace);
+    return label.id.isEmpty ? companion.id.value : label.id; // 返回 ID
+  }
+
+  // ... 对这个文件里的【所有】公共方法，都进行同样的重构 ...
+  // ... 目标：让调用它的 LabelPhoneRepositoryImpl 感觉不到任何变化 ...
+}
+步骤 3: 调整 DatabaseService (小改动)
+code
+Dart
+class DatabaseService {
+  late final LocalDatabase localDatabase;
+  late final LocalLabelDataSource localLabelDataSource;
+  // ...
+  DatabaseService._internal() {
+    localDatabase = LocalDatabase();
+    localLabelDataSource = LocalLabelDataSource(localDatabase);
+    // ...
+  }
+}
+这就是这个迁移方案的强大之处和最终目的：
+最终的结论：只有底层发生了变化
+层级	文件示例	迁移后的状态	你的代码是否需要改动？
+最底层（数据库）	LocalDatabaseManager	移除，被 Drift 数据库实例取代	大改 (DatabaseService 中的初始化)
+数据源层	LocalLabelDataSource	作为适配器重写	大改 (所有内部实现)
+数据模型层	LabelModel	保持纯洁，仅处理 Map 转换	不用改动！
+仓库实现层	LabelPhoneRepositoryImpl	保持代码逻辑不变，继续调用 _dataSource	不用改动！
+领域实体层	LabelPhoneEntry	保持不变	不用改动！
+上层逻辑	CallLogService, Provider	保持不变	不用改动！
+为什么 RepositoryImpl 不用改？
+以 LabelPhoneRepositoryImpl 中的 getAll() 为例：
+code
+Dart
+// LabelPhoneRepositoryImpl.dart (无需改动)
+@override
+Future<List<LabelPhoneEntry>> getAll() async {
+  // 1. 调用 DataSource，期望得到 List<LabelModel>
+  final models = await _dataSource.getAll(); 
+  
+  // 2. 将 Model 转换为 Entity
+  return models.map((model) => LabelPhoneEntry.fromMap(model.toMap())).toList();
+}
+旧的 DataSource 返回 List<LabelModel>。
+新的 DataSource 内部虽然用 Drift 查数据，但它通过 data.toJson() -> LabelModel.fromMap() 的方式，保证了它返回给 RepositoryImpl 的仍然是 List<LabelModel>。
+契约完美履行。 你的 RepositoryImpl 根本不知道底层发生了地震。
+为什么 Model 不用改？
+以 LabelModel 为例：
+code
+Dart
+// LabelModel.dart (无需改动)
+// ...
+factory LabelModel.fromMap(Map<String, dynamic> map) { /* ... */ }
+@override
+Map<String, dynamic> toMap() { /* ... */ }
+// ...
+Model 只需要处理 Map，而 Drift 自动生成的 DataClass 提供了 .toJson() (即 Map)。
+DataSource 在重构后，正是利用了 Model 的这些 Map 转换能力。
+结论：
+你的分析是 100% 正确的。通过在 DataSource 这一层做数据转换适配，你成功地将底层技术栈的变更风险和工作量隔离在了数据访问层和启动配置层。

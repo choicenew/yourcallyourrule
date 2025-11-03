@@ -22,6 +22,19 @@ class PluginModel extends BaseModel<PluginEntry> {
     required this.isAutoUpdate,
   });
 
+  factory PluginModel.fromMap(Map<String, dynamic> map) {
+    return PluginModel(
+      id: map['id'],
+      name: map['name'],
+      url: map['url'],
+      version: map['version'],
+      description: map['description'],
+      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      pluginOrder: map['pluginOrder'] ?? 0,
+      isAutoUpdate: (map['isAutoUpdate'] ?? 0) == 1,
+    );
+  }
+
   factory PluginModel.fromEntity(PluginEntry entity) {
     return PluginModel(
       id: entity.id,

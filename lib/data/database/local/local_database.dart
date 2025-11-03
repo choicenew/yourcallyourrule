@@ -28,7 +28,7 @@ class Contacts extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('CallHistoryEntryData')
+@DataClassName('CallHistoryData')
 class CallHistory extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();
@@ -190,8 +190,8 @@ class PredefinedLabels extends Table {
 
 @DataClassName('LabelPhoneData')
 class LabelPhones extends Table {
-  @override
-  String get tableName => 'label_phone';
+  
+  
 
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().nullable()();
@@ -336,7 +336,11 @@ class LocalDatabase extends _$LocalDatabase {
       if (from < 3) {
         // Version 2 to 3 migration
         // Add ruleType column to labelPhone table if it doesn't exist
-        await customStatement('ALTER TABLE labelPhone ADD COLUMN ruleType TEXT NOT NULL DEFAULT "label"');
+          // 【新增步骤】如果旧表名存在，就将其重命名为新的、遵循约定的表名
+                await customStatement('ALTER TABLE label_phone RENAME TO label_phones');
+                
+                // 【修正步骤】然后使用 m.addColumn，现在它会指向正确的新名字 'label_phones'
+                await m.addColumn(labelPhones, labelPhones.ruleType);
       }
       
       if (from < 4) {

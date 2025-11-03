@@ -1,130 +1,207 @@
-// 本地正则规则数据源实现类，用于处理本地正则规则数据的CRUD操作
+// local_regex_rule_data_source.dart (优化版)
 
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:sqflite/sqflite.dart';
+import 'package:drift/drift.dart' hide Column;
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 import '../../../data/models/regex_rule_model.dart';
-import '../../database/database_manager.dart';
 import '../datasource_interface.dart';
 
-// 本地正则规则数据源实现
+/// 本地正则规则数据源实现 (使用 Drift)
 class LocalRegexRuleDataSource implements LocalDataSource<RegexRuleModel> {
-  // 数据库管理器
-  final LocalDatabaseManager _databaseManager;
-
-  // 表名
-  static const String _tableName = 'regex_rules';
-
+  
+  // 使用具体的 Drift 数据库实例
+  final LocalDatabase _database;
+  final Uuid _uuid = const Uuid(); // 使用 Uuid 实例
+  
   // 构造函数
-  LocalRegexRuleDataSource(this._databaseManager);
+  LocalRegexRuleDataSource(this._database);
+  
+  // --- 辅助方法: 数据转换 ---
+
+  /// 将 Drift 生成的 RegexRuleData (数据库行数据) 转换为 RegexRuleModel
+  RegexRuleModel _fromData(RegexRuleData data) {
+    return RegexRuleModel(
+      // 这里的 id 应该是非空的，但在 fromData 中处理一下 null-safety
+      id: data.id ?? const Uuid().v4(), // id 可能为 null，但我们通常保证它存在 
+      name: data.name,
+      priority: data.priority,
+      action: data.action,
+      pattern: data.pattern,
+      isEnabled: data.isEnabled == 1,
+      subscriptionId: data.subscriptionId,
+      ruleType: data.ruleType,
+    );
+  }
+
+  /// 将 RegexRuleModel (应用模型) 转换为 Drift Companion (用于写入数据库)
+  /// 注意：这里只负责映射字段，不负责 ID 的生成或修正。
+  RegexRulesCompanion _toCompanion(RegexRuleModel model) {
+    return RegexRulesCompanion(
+      id: Value(model.id),
+      name: Value(model.name),
+      priority: Value(model.priority),
+      action: Value(model.action),
+      pattern: Value(model.pattern),
+      isEnabled: Value(model.isEnabled ? 1 : 0),
+      subscriptionId: Value(model.subscriptionId),
+      ruleType: Value(model.ruleType),
+    );
+  }
+  
+  // --- 核心 CRUD / 业务逻辑 ---
+  
+  /// 通用保存/插入逻辑
+  Future<String> _save(RegexRuleModel rule) async {
+    final String id = rule.id.isEmpty ? _uuid.v4() : rule.id;
+    
+    // 1. 创建 Companion
+    final companion = _toCompanion(rule);
+    
+    // 2. 使用 Companion.copyWith 注入生成的 ID
+    final companionWithId = companion.copyWith(id: Value(id));
+
+    // 使用 insertOnConflictUpdate 实现 ConflictAlgorithm.replace 的效果
+    await _database.into(_database.regexRules).insertOnConflictUpdate(companionWithId);
+    
+    return id;
+  }
+  
 
   // 获取所有正则规则
   @override
   Future<List<RegexRuleModel>> getAll() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(_tableName);
-
-    return List.generate(maps.length, (i) {
-      final map = maps[i];
-      // 根据规则类型创建不同的规则模型
-      switch (map['ruleType']) {
-        case 'regex':
-          return RegexRuleModel.fromMap(map);
-        default:
-          throw Exception('Unknown rule type: ${map['ruleType']}');
-      }
-    });
+    final results = await _database.select(_database.regexRules).get();
+    return results.map(_fromData).toList();
   }
 
   // 根据ID获取正则规则
   @override
   Future<RegexRuleModel?> getById(String id) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    final query = _database.select(_database.regexRules)
+      ..where((tbl) => tbl.id.equals(id))
+      ..limit(1);
+      
+    final result = await query.getSingleOrNull();
 
-    if (maps.isNotEmpty) {
-      return RegexRuleModel.fromMap(maps.first);
-    }
-    return null;
+    return result != null ? _fromData(result) : null;
   }
 
-  // 保存正则规则
+  // 插入单个规则
+  @override
+  Future<String> insert(RegexRuleModel model) async {
+    return _save(model);
+  }
+  
+  // 保存正则规则 (与 insert 逻辑相同，用于兼容接口)
   @override
   Future<String> save(RegexRuleModel rule) async {
-    final db = await _databaseManager.database;
-    
-    String id = rule.id;
-    RegexRuleModel ruleWithId;
-    
-    if (id.isEmpty) {
-      id = const Uuid().v4();
-      ruleWithId = RegexRuleModel(
-        id: id,
-        name: rule.name,
-        pattern: rule.pattern,
-        action: rule.action,
-        priority: rule.priority,
-        isEnabled: rule.isEnabled,
-        subscriptionId: rule.subscriptionId,
-        ruleType: 'regex',
-      );
-    } else {
-      ruleWithId = rule;
-    }
-
-    await db.insert(
-      _tableName,
-      ruleWithId.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-
-    return id;
+    return _save(rule);
   }
+
 
   // 更新正则规则
   @override
   Future<int> update(RegexRuleModel rule) async {
-    final db = await _databaseManager.database;
-
-    return await db.update(
-      _tableName,
-      rule.toMap(),
-      where: 'id = ?',
-      whereArgs: [rule.id],
-    );
+    final companion = _toCompanion(rule);
+    
+    // 针对特定 ID 的记录执行更新
+    final updatedRows = await (_database.update(_database.regexRules)
+      ..where((tbl) => tbl.id.equals(rule.id)))
+      .write(companion);
+      
+    return updatedRows;
   }
   
-  // 插入单个规则
+  // 删除正则规则
   @override
-  Future<String> insert(RegexRuleModel model) async {
-    return save(model);
+  Future<int> delete(String id) async {
+    return await (_database.delete(_database.regexRules)
+      ..where((tbl) => tbl.id.equals(id)))
+      .go();
   }
   
   // 批量插入规则
   @override
   Future<List<String>> insertAll(List<RegexRuleModel> models) async {
     final List<String> ids = [];
-    for (final model in models) {
-      final id = await save(model);
-      ids.add(id);
-    }
+    
+    // 使用 batch 实现高效的批量插入
+    await _database.batch((batch) {
+      for (final rule in models) {
+        final id = rule.id.isEmpty ? _uuid.v4() : rule.id;
+        ids.add(id);
+
+        final companion = _toCompanion(rule);
+        final companionWithId = companion.copyWith(id: Value(id)); // 使用 Companion.copyWith
+
+        batch.insert(
+          _database.regexRules,
+          companionWithId,
+          mode: InsertMode.insertOrReplace,
+        );
+      }
+    });
     return ids;
   }
   
-  // 清空表
+  // 批量保存正则规则 (与 insertAll 逻辑一致，仅名称不同)
   @override
-  Future<void> clear() async {
-    final db = await _databaseManager.database;
-    await db.delete(_tableName);
+  Future<List<String>> saveAll(List<RegexRuleModel> rules) async {
+    return insertAll(rules);
+  }
+
+
+  // 批量更新正则规则
+  @override
+  Future<int> updateAll(List<RegexRuleModel> rules) async {
+    // 使用 batch 进行批量更新
+    await _database.batch((batch) {
+      for (final rule in rules) {
+        batch.update(
+          _database.regexRules,
+          _toCompanion(rule),
+          where: (tbl) => tbl.id.equals(rule.id),
+        );
+      }
+    });
+
+    // 返回尝试更新的记录总数，以保持接口兼容性
+    return rules.length;
+  }
+
+  // 批量删除正则规则
+  @override
+  Future<int> deleteAll(List<String> ids) async {
+    // 使用 whereIn 优化批量删除
+    return await (_database.delete(_database.regexRules)
+      ..where((tbl) => tbl.id.isIn(ids)))
+      .go();
   }
   
+  // 清空表 (deleteAllRecords, clear 都是删除所有记录)
+  @override
+  Future<void> clear() async {
+    await _database.delete(_database.regexRules).go();
+  }
+
+  // 删除所有正则规则 (实现与 clear 相同)
+  Future<int> deleteAllRecords() async {
+    return await _database.delete(_database.regexRules).go();
+  }
+
+  // 获取正则规则数量
+  Future<int> count() async {
+    final countExp = _database.regexRules.id.count();
+    final query = _database.selectOnly(_database.regexRules)..addColumns([countExp]);
+    
+    final result = await query.map((row) => row.read(countExp)).getSingle();
+    return result ?? 0;
+  }
+
   // 导出数据
   @override
   Future<String> exportData() async {
@@ -137,8 +214,8 @@ class LocalRegexRuleDataSource implements LocalDataSource<RegexRuleModel> {
   @override
   Future<bool> importData(String data) async {
     try {
-      final List<dynamic> maps = jsonDecode(data);
-      final List<RegexRuleModel> rules = maps.map((map) => RegexRuleModel.fromMap(map)).toList();
+      final List<dynamic> maps = jsonDecode(data) as List<dynamic>;
+      final List<RegexRuleModel> rules = maps.map((map) => RegexRuleModel.fromMap(map as Map<String, dynamic>)).toList();
       await insertAll(rules);
       return true;
     } catch (e) {
@@ -147,182 +224,50 @@ class LocalRegexRuleDataSource implements LocalDataSource<RegexRuleModel> {
     }
   }
 
-  // 删除正则规则
-  @override
-  Future<int> delete(String id) async {
-    final db = await _databaseManager.database;
-
-    return await db.delete(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-  }
-
-  // 批量保存正则规则
-  @override
-  Future<List<String>> saveAll(List<RegexRuleModel> rules) async {
-    final List<String> ids = [];
-    final db = await _databaseManager.database;
-
-    await db.transaction((txn) async {
-      for (final rule in rules) {
-        String id = rule.id;
-        RegexRuleModel ruleWithId;
-        
-        if (id.isEmpty) {
-          id = const Uuid().v4();
-          ruleWithId = RegexRuleModel(
-            id: id,
-            name: rule.name,
-            pattern: rule.pattern,
-            action: rule.action,
-            priority: rule.priority,
-            isEnabled: rule.isEnabled,
-          );
-        } else {
-          ruleWithId = rule;
-        }
-
-        await txn.insert(
-          _tableName,
-          ruleWithId.toMap(),
-          conflictAlgorithm: ConflictAlgorithm.replace,
-        );
-
-        ids.add(id);
-      }
-    });
-
-    return ids;
-  }
-
-  // 批量更新正则规则
-  @override
-  Future<int> updateAll(List<RegexRuleModel> rules) async {
-    int count = 0;
-    final db = await _databaseManager.database;
-
-    await db.transaction((txn) async {
-      for (final rule in rules) {
-        final int updated = await txn.update(
-          _tableName,
-          rule.toMap(),
-          where: 'id = ?',
-          whereArgs: [rule.id],
-        );
-
-        count += updated;
-      }
-    });
-
-    return count;
-  }
-
-  // 批量删除正则规则
-  @override
-  Future<int> deleteAll(List<String> ids) async {
-    int count = 0;
-    final db = await _databaseManager.database;
-
-    await db.transaction((txn) async {
-      for (final id in ids) {
-        final int deleted = await txn.delete(
-          _tableName,
-          where: 'id = ?',
-          whereArgs: [id],
-        );
-
-        count += deleted;
-      }
-    });
-
-    return count;
-  }
-
-  // 删除所有正则规则
-  @override
-  Future<int> deleteAllRecords() async {
-    final db = await _databaseManager.database;
-    return await db.delete(_tableName);
-  }
-
-  // 获取正则规则数量
-  @override
-  Future<int> count() async {
-    final db = await _databaseManager.database;
-    final result = await db.rawQuery('SELECT COUNT(*) FROM $_tableName');
-    return Sqflite.firstIntValue(result) ?? 0;
-  }
-
-  // 根据模式获取规则
+  // 根据模式获取规则 (pattern 是主键，理论上只有一个)
   Future<RegexRuleModel?> getByPattern(String pattern) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'pattern = ?',
-      whereArgs: [pattern],
-    );
+    final query = _database.select(_database.regexRules)
+      ..where((tbl) => tbl.pattern.equals(pattern))
+      ..limit(1);
 
-    if (maps.isNotEmpty) {
-      return RegexRuleModel.fromMap(maps.first);
-    }
-    return null;
+    final result = await query.getSingleOrNull();
+
+    return result != null ? _fromData(result) : null;
   }
 
   // 获取启用的正则规则
   Future<List<RegexRuleModel>> getEnabledRules() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'isEnabled = ?',
-      whereArgs: [1],
-    );
+    final query = _database.select(_database.regexRules)
+      ..where((tbl) => tbl.isEnabled.equals(1));
 
-    return List.generate(maps.length, (i) {
-      return RegexRuleModel.fromMap(maps[i]);
-    });
+    final results = await query.get();
+    return results.map(_fromData).toList();
   }
 
   // 获取禁用的正则规则
   Future<List<RegexRuleModel>> getDisabledRules() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'isEnabled = ?',
-      whereArgs: [0],
-    );
+    final query = _database.select(_database.regexRules)
+      ..where((tbl) => tbl.isEnabled.equals(0));
 
-    return List.generate(maps.length, (i) {
-      return RegexRuleModel.fromMap(maps[i]);
-    });
+    final results = await query.get();
+    return results.map(_fromData).toList();
   }
 
   // 根据优先级获取正则规则
   Future<List<RegexRuleModel>> getByPriority(int priority) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'priority = ?',
-      whereArgs: [priority],
-    );
+    final query = _database.select(_database.regexRules)
+      ..where((tbl) => tbl.priority.equals(priority));
 
-    return List.generate(maps.length, (i) {
-      return RegexRuleModel.fromMap(maps[i]);
-    });
+    final results = await query.get();
+    return results.map(_fromData).toList();
   }
 
   // 根据名称搜索正则规则
   Future<List<RegexRuleModel>> searchByName(String name) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'name LIKE ?',
-      whereArgs: ['%$name%'],
-    );
+    final query = _database.select(_database.regexRules)
+      ..where((tbl) => tbl.name.like('%$name%'));
 
-    return List.generate(maps.length, (i) {
-      return RegexRuleModel.fromMap(maps[i]);
-    });
+    final results = await query.get();
+    return results.map(_fromData).toList();
   }
 }

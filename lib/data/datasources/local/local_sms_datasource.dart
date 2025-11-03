@@ -1,100 +1,110 @@
-// 本地短信数据源实现类，用于处理本地短信数据的CRUD操作
+// local_sms_data_source.dart (最终优化版)
 
 import 'dart:async';
 import 'dart:convert';
-
-import 'package:sqflite/sqflite.dart';
+import 'package:drift/drift.dart' hide Column;
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 import '../../../data/models/sms_model.dart';
-import '../../database/database_manager.dart';
 import '../datasource_interface.dart';
 
-// 本地短信数据源实现
+// 本地短信数据源实现 (使用 Drift)
 class LocalSmsDataSource implements LocalDataSource<SmsModel> {
-  // 数据库管理器
-  final LocalDatabaseManager _databaseManager;
   
-  // 表名
-  static const String _tableName = 'sms';
+  final LocalDatabase _database;
+  final Uuid _uuid = const Uuid();
   
   // 构造函数
-  LocalSmsDataSource(this._databaseManager);
+  LocalSmsDataSource(this._database);
   
+  // --- 辅助方法: 数据转换 ---
+
+  /// 将 Drift 生成的 SmsMessageData (数据库行数据) 转换为 SmsModel
+  SmsModel _fromData(SmsMessageData data) {
+    // 1. LabelIds 反序列化: 从逗号分隔字符串转回 List<String>
+    List<String>? parsedLabelIds;
+    if (data.labelIds != null && data.labelIds!.isNotEmpty) {
+      parsedLabelIds = data.labelIds!.split(',').where((s) => s.isNotEmpty).toList();
+    }
+    
+    // 2. Timestamp 解析: 从 ISO8601 字符串转回 DateTime
+    DateTime parsedTimestamp = DateTime.parse(data.timestamp);
+
+    return SmsModel(
+      // 修正：确保 ID 即使在意外情况下为 null 也能得到一个有效的 UUID
+      id: data.id ?? _uuid.v4(),
+      phoneNumber: data.phoneNumber,
+      contactName: data.contactName,
+      messageType: data.messageType,
+      content: data.content,
+      timestamp: parsedTimestamp, 
+      isRead: data.isRead == 1,
+      simInfo: data.simInfo,
+      isMarked: data.isMarked == 1,
+      labelIds: parsedLabelIds,
+    );
+  }
+  
+  /// 将 SmsModel (应用模型) 转换为 Drift Companion (用于写入数据库)
+  SmsCompanion _toCompanion(SmsModel model) {
+    // 1. LabelIds 序列化: 从 List<String>? 转为逗号分隔字符串
+    final String? labelIdsString = model.labelIds?.join(',');
+
+    return SmsCompanion(
+      // ID 字段将由 insert/insertAll 方法通过 Companion.copyWith 注入
+      id: Value(model.id), 
+      phoneNumber: Value(model.phoneNumber),
+      contactName: Value(model.contactName),
+      messageType: Value(model.messageType),
+      content: Value(model.content),
+      timestamp: Value(model.timestamp.toIso8601String()),
+      isRead: Value(model.isRead ? 1 : 0),
+      simInfo: Value(model.simInfo),
+      isMarked: Value(model.isMarked ? 1 : 0),
+      // 存储为逗号分隔字符串
+      labelIds: Value(labelIdsString),
+    );
+  }
+  
+  // --- 核心 CRUD ---
+
   // 获取所有短信
   @override
   Future<List<SmsModel>> getAll() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(_tableName);
-    
-    return List.generate(maps.length, (i) {
-      return SmsModel.fromMap(maps[i]);
-    });
+    final results = await _database.select(_database.sms).get();
+    return results.map(_fromData).toList();
   }
   
   // 根据ID获取短信
   @override
   Future<SmsModel?> getById(String id) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    final result = await (_database.select(_database.sms)
+      ..where((tbl) => tbl.id.equals(id))
+      ..limit(1))
+      .getSingleOrNull();
     
-    if (maps.isNotEmpty) {
-      return SmsModel.fromMap(maps.first);
-    }
-    return null;
+    return result != null ? _fromData(result) : null;
   }
   
   // 根据电话号码获取短信
   Future<List<SmsModel>> getByPhoneNumber(String phoneNumber) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'phoneNumber = ?',
-      whereArgs: [phoneNumber],
-    );
+    final results = await (_database.select(_database.sms)
+      ..where((tbl) => tbl.phoneNumber.equals(phoneNumber)))
+      .get();
     
-    return List.generate(maps.length, (i) {
-      return SmsModel.fromMap(maps[i]);
-    });
+    return results.map(_fromData).toList();
   }
   
-  // 插入短信
+  // 插入短信 (使用 Companion.copyWith 注入 ID)
   @override
   Future<String> insert(SmsModel sms) async {
-    final db = await _databaseManager.database;
+    final String id = sms.id.isEmpty ? _uuid.v4() : sms.id;
     
-    // 如果没有ID，生成一个新的UUID
-    final String id = sms.id.isEmpty ? const Uuid().v4() : sms.id;
-    final SmsModel smsWithId = sms.id.isEmpty
-        ? SmsModel(
-            id: id,
-            phoneNumber: sms.phoneNumber,
-            contactName: sms.contactName,
-            messageType: sms.messageType,
-            content: sms.content,
-            timestamp: sms.timestamp,
-            isRead: sms.isRead,
-            simInfo: sms.simInfo,
-            isMarked: sms.isMarked,
-            labelIds: sms.labelIds,
-          )
-        : sms;
+    final companion = _toCompanion(sms);
+    final companionWithId = companion.copyWith(id: Value(id));
     
-    // 将labelIds列表转换为JSON字符串
-    final Map<String, dynamic> smsMap = smsWithId.toMap();
-    if (smsWithId.labelIds != null) {
-      smsMap['labelIds'] = jsonEncode(smsWithId.labelIds);
-    }
-    
-    await db.insert(
-      _tableName,
-      smsMap,
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    await _database.into(_database.sms).insertOnConflictUpdate(companionWithId);
     
     return id;
   }
@@ -102,72 +112,39 @@ class LocalSmsDataSource implements LocalDataSource<SmsModel> {
   // 更新短信
   @override
   Future<int> update(SmsModel sms) async {
-    final db = await _databaseManager.database;
+    final companion = _toCompanion(sms);
     
-    // 将labelIds列表转换为JSON字符串
-    final Map<String, dynamic> smsMap = sms.toMap();
-    if (sms.labelIds != null) {
-      smsMap['labelIds'] = jsonEncode(sms.labelIds);
-    }
-    
-    return await db.update(
-      _tableName,
-      smsMap,
-      where: 'id = ?',
-      whereArgs: [sms.id],
-    );
+    return await (_database.update(_database.sms)
+      ..where((tbl) => tbl.id.equals(sms.id)))
+      .write(companion);
   }
   
   // 删除短信
   @override
   Future<int> delete(String id) async {
-    final db = await _databaseManager.database;
-    
-    return await db.delete(
-      _tableName,
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return await (_database.delete(_database.sms)
+      ..where((tbl) => tbl.id.equals(id)))
+      .go();
   }
   
   // 批量插入短信
   @override
   Future<List<String>> insertAll(List<SmsModel> smsList) async {
     final List<String> ids = [];
-    final db = await _databaseManager.database;
     
-    await db.transaction((txn) async {
+    await _database.batch((batch) {
       for (final sms in smsList) {
-        // 如果没有ID，生成一个新的UUID
-        final String id = sms.id.isEmpty ? const Uuid().v4() : sms.id;
-        final SmsModel smsWithId = sms.id.isEmpty
-            ? SmsModel(
-                id: id,
-                phoneNumber: sms.phoneNumber,
-                contactName: sms.contactName,
-                messageType: sms.messageType,
-                content: sms.content,
-                timestamp: sms.timestamp,
-                isRead: sms.isRead,
-                simInfo: sms.simInfo,
-                isMarked: sms.isMarked,
-                labelIds: sms.labelIds,
-              )
-            : sms;
-        
-        // 将labelIds列表转换为JSON字符串
-        final Map<String, dynamic> smsMap = smsWithId.toMap();
-        if (smsWithId.labelIds != null) {
-          smsMap['labelIds'] = jsonEncode(smsWithId.labelIds);
-        }
-        
-        await txn.insert(
-          _tableName,
-          smsMap,
-          conflictAlgorithm: ConflictAlgorithm.replace,
-        );
-        
+        final String id = sms.id.isEmpty ? _uuid.v4() : sms.id;
         ids.add(id);
+
+        final companion = _toCompanion(sms);
+        final companionWithId = companion.copyWith(id: Value(id));
+
+        batch.insert(
+          _database.sms,
+          companionWithId,
+          mode: InsertMode.insertOrReplace,
+        );
       }
     });
     
@@ -177,57 +154,31 @@ class LocalSmsDataSource implements LocalDataSource<SmsModel> {
   // 批量更新短信
   @override
   Future<int> updateAll(List<SmsModel> smsList) async {
-    int count = 0;
-    final db = await _databaseManager.database;
-    
-    await db.transaction((txn) async {
+    await _database.batch((batch) {
       for (final sms in smsList) {
-        // 将labelIds列表转换为JSON字符串
-        final Map<String, dynamic> smsMap = sms.toMap();
-        if (sms.labelIds != null) {
-          smsMap['labelIds'] = jsonEncode(sms.labelIds);
-        }
-        
-        final int updated = await txn.update(
-          _tableName,
-          smsMap,
-          where: 'id = ?',
-          whereArgs: [sms.id],
+        batch.update(
+          _database.sms,
+          _toCompanion(sms),
+          where: (tbl) => tbl.id.equals(sms.id),
         );
-        
-        count += updated;
       }
     });
     
-    return count;
+    return smsList.length; // 返回尝试更新的数量
   }
   
   // 批量删除短信
   @override
   Future<int> deleteAll(List<String> ids) async {
-    int count = 0;
-    final db = await _databaseManager.database;
-    
-    await db.transaction((txn) async {
-      for (final id in ids) {
-        final int deleted = await txn.delete(
-          _tableName,
-          where: 'id = ?',
-          whereArgs: [id],
-        );
-        
-        count += deleted;
-      }
-    });
-    
-    return count;
+    return await (_database.delete(_database.sms)
+      ..where((tbl) => tbl.id.isIn(ids)))
+      .go();
   }
   
   // 清空所有短信
   @override
   Future<void> clear() async {
-    final db = await _databaseManager.database;
-    await db.delete(_tableName);
+    await _database.delete(_database.sms).go();
   }
   
   // 导出短信数据
@@ -247,75 +198,52 @@ class LocalSmsDataSource implements LocalDataSource<SmsModel> {
       await insertAll(smsList);
       return true;
     } catch (e) {
+      // 错误处理
       return false;
     }
   }
   
   // 根据短信类型获取短信
   Future<List<SmsModel>> getByMessageType(String messageType) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'messageType = ?',
-      whereArgs: [messageType],
-    );
+    final results = await (_database.select(_database.sms)
+      ..where((tbl) => tbl.messageType.equals(messageType)))
+      .get();
     
-    return List.generate(maps.length, (i) {
-      return SmsModel.fromMap(maps[i]);
-    });
+    return results.map(_fromData).toList();
   }
   
   // 获取未读短信
   Future<List<SmsModel>> getUnreadSms() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'isRead = ?',
-      whereArgs: [0],
-    );
+    final results = await (_database.select(_database.sms)
+      ..where((tbl) => tbl.isRead.equals(0)))
+      .get();
     
-    return List.generate(maps.length, (i) {
-      return SmsModel.fromMap(maps[i]);
-    });
+    return results.map(_fromData).toList();
   }
   
   // 标记短信为已读
   Future<int> markAsRead(String id) async {
-    final db = await _databaseManager.database;
-    
-    return await db.update(
-      _tableName,
-      {'isRead': 1},
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return await (_database.update(_database.sms)
+      ..where((tbl) => tbl.id.equals(id)))
+      // 只需要更新 isRead 字段
+      .write(SmsCompanion(isRead: const Value(1))); 
   }
   
   // 获取标记的短信
   Future<List<SmsModel>> getMarkedSms() async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'isMarked = ?',
-      whereArgs: [1],
-    );
+    final results = await (_database.select(_database.sms)
+      ..where((tbl) => tbl.isMarked.equals(1)))
+      .get();
     
-    return List.generate(maps.length, (i) {
-      return SmsModel.fromMap(maps[i]);
-    });
+    return results.map(_fromData).toList();
   }
   
   // 根据内容搜索短信
   Future<List<SmsModel>> searchByContent(String keyword) async {
-    final db = await _databaseManager.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      _tableName,
-      where: 'content LIKE ?',
-      whereArgs: ['%$keyword%'],
-    );
+    final results = await (_database.select(_database.sms)
+      ..where((tbl) => tbl.content.like('%$keyword%')))
+      .get();
     
-    return List.generate(maps.length, (i) {
-      return SmsModel.fromMap(maps[i]);
-    });
+    return results.map(_fromData).toList();
   }
 }

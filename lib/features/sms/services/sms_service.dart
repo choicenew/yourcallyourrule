@@ -2,7 +2,6 @@ import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
-import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/repositories/sms_subscription_repository.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
