@@ -14,12 +14,25 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
 
   // Stream controller for mark count changes
   final StreamController<int> _markCountController = StreamController<int>.broadcast();
+  // Subscription to user mark count table changes
+  StreamSubscription<UserMarkCountData?>? _userMarkCountSubscription;
+  bool _disposed = false;
 
   LocalLabelMarkStatisticsDataSource(this._db) {
     // Listen to changes in the user mark count table and update the stream
-    _db.select(_db.userMarkCount).watchSingleOrNull().listen((countData) {
-      _markCountController.add(countData?.total_count ?? 0);
-    });
+    _userMarkCountSubscription = _db
+        .select(_db.userMarkCount)
+        .watchSingleOrNull()
+        .listen(
+      (countData) {
+        if (!_markCountController.isClosed) {
+          _markCountController.add(countData?.total_count ?? 0);
+        }
+      },
+      onError: (error, stackTrace) {
+        print('Error listening to user mark count changes: $error');
+      },
+    );
   }
 
   Stream<int> get markCountStream => _markCountController.stream;
@@ -191,6 +204,24 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
     } catch (e) {
       print('Error importing label mark statistics data: $e');
       return false;
+    }
+  }
+
+  // Dispose resources: cancel table change subscription and close stream controller
+  void dispose() {
+    if (_disposed) return;
+    _disposed = true;
+    try {
+      _userMarkCountSubscription?.cancel();
+    } catch (e) {
+      print('LocalLabelMarkStatisticsDataSource dispose subscription error: $e');
+    }
+    try {
+      if (!_markCountController.isClosed) {
+        _markCountController.close();
+      }
+    } catch (e) {
+      print('LocalLabelMarkStatisticsDataSource dispose controller error: $e');
     }
   }
 }

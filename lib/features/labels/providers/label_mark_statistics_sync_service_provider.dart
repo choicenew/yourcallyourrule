@@ -1,17 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
-
+import 'package:yourcallyourrule/core/provider/basic_provider/label_mark_statistics_repository_provider.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_sync_service.dart';
-import 'package:yourcallyourrule/data/repositories/label_mark_statistics_repository.dart';
-import 'package:yourcallyourrule/data/datasources/local/local_label_mark_statistics_datasource.dart';
-import 'package:yourcallyourrule/data/database/local/local_database_manager.dart';
 
 /// 标记统计服务提供者
 final labelMarkStatisticsServiceProvider = Provider<LabelMarkStatisticsService>((ref) {
-  final repository = LabelMarkStatisticsRepositoryImpl(
-    LocalLabelMarkStatisticsDataSource(LocalDatabaseManagerImpl())
-  );
+  final repository = ref.watch(labelMarkStatisticsRepositoryProvider);
   return LabelMarkStatisticsService(repository);
 });
 

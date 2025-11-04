@@ -189,4 +189,19 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
           ..where((tbl) => tbl.labelId.equals(labelId)))
         .go();
   }
+  // 在 drift 版本中恢复 getByName
+Future<List<LabelModel>> getByName(String name) async {
+  final query = _database.select(_database.labelPhones)
+    ..where((tbl) => tbl.name.equals(name));
+  final data = await query.get();
+  return data.map(_fromData).toList();
+}
+
+Future<List<LabelModel>> getByRuleType(String ruleType) async {
+  final query = _database.select(_database.labelPhones)
+    ..where((tbl) => tbl.ruleType.equals(ruleType));
+  final data = await query.get();
+  return data.map(_fromData).toList();
+}
+
 }

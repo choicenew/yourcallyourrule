@@ -2,14 +2,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
 import 'package:yourcallyourrule/data/repositories/label_mark_statistics_repository.dart';
-import 'package:yourcallyourrule/data/datasources/local/local_label_mark_statistics_datasource.dart';
-import 'package:yourcallyourrule/data/database/local/local_database_manager.dart';
+import '../datasource/datasource_provider.dart';
 
 /// 标记统计服务提供者
 final labelMarkStatisticsServiceProvider = Provider<LabelMarkStatisticsService>((ref) {
-  final repository = LabelMarkStatisticsRepositoryImpl(
-    LocalLabelMarkStatisticsDataSource(LocalDatabaseManagerImpl())
-  );
+  final localLabelMarkStatisticsDataSource = ref.watch(localLabelMarkStatisticsDataSourceProvider);
+  final repository = LabelMarkStatisticsRepositoryImpl(localLabelMarkStatisticsDataSource);
   return LabelMarkStatisticsService(repository);
 });
 

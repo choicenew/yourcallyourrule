@@ -5,17 +5,14 @@ import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import '../../data/repositories/label_mark_statistics_repository.dart';
-import '../../data/datasources/local/local_label_mark_statistics_datasource.dart';
-import '../../data/database/local/local_database_manager.dart';
+import 'package:yourcallyourrule/core/provider/basic_provider/label_mark_statistics_repository_provider.dart';
 import '../models/vip_exchange_rule_model.dart';
 import '../purchase_state.dart';
 
 // VIP兑换服务提供者
 final vipExchangeServiceProvider = Provider<VipExchangeService>((ref) {
   final purchaseState = ref.watch(purchaseStateProvider.notifier);
-  final labelMarkStatisticsRepository = LabelMarkStatisticsRepositoryImpl(
-    LocalLabelMarkStatisticsDataSource(LocalDatabaseManagerImpl()),
-  );
+  final labelMarkStatisticsRepository = ref.watch(labelMarkStatisticsRepositoryProvider);
   return VipExchangeService(purchaseState, labelMarkStatisticsRepository);
 });
 

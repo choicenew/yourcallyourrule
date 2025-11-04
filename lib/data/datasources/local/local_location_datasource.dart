@@ -182,4 +182,25 @@ class LocalLocationDataSource implements LocalDataSource<LocationModel> {
       return _fromData(locationData);
     }).map((e) => e.toEntity()).toList();
   }
+
+ /// 恢复的函数：根据名称查询，实际查询 countryName 列。
+  /// 实现方式与 getByRegion 完全一致。
+  Future<List<LocationModel>> getByName(String name) async {
+    final data = await (_db.select(_db.locations)
+      ..where((tbl) => tbl.countryName.equals(name)))
+      .get();
+    return data.map(_fromData).toList();
+  }
+
+
+ /// 恢复的函数：根据类型查询，实际查询 numberType 列。
+  /// 直接接收一个整数作为类型，符合数据库的存储方式。
+  Future<List<LocationModel>> getByType(int type) async {
+    final data = await (_db.select(_db.locations)
+      ..where((tbl) => tbl.numberType.equals(type)))
+      .get();
+    return data.map(_fromData).toList();
+  }
+
+  
 }

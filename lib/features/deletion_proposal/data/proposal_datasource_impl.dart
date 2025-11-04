@@ -1,17 +1,15 @@
 import 'dart:convert';
-import 'package:sqflite/sqflite.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/data/database/database_manager.dart';
+import 'package:drift/drift.dart' hide Column; // hide Column to avoid name clash
+import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
 
 class ProposalDataSourceImpl implements ProposalDataSource {
-  final RemoteDatabaseManager _databaseManager;
-  static const String _pendingOperationsTable = 'pending_operations';
-  static const String _activeProposalsTable = 'active_deletion_proposals';
+  final RemoteDatabase _db;
 
-  ProposalDataSourceImpl(this._databaseManager);
+  ProposalDataSourceImpl(this._db);
 
   // --- 核心提议状态管理 (`active_deletion_proposals` 表) ---
   // (这部分是新的逻辑，用于管理本地状态，保持不变)
@@ -22,49 +20,49 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     required bool isOwner,
     String? verificationReportJson,
   }) async {
-    final db = await _databaseManager.database;
     final now = DateTime.now().toIso8601String();
-    await db.transaction((txn) async {
-      final existing = await txn.query(
-        _activeProposalsTable,
-        where: 'phoneNumber = ?',
-        whereArgs: [phoneNumber],
-        limit: 1,
-      );
-      if (existing.isEmpty) {
-        await txn.insert(_activeProposalsTable, {
-          'phoneNumber': phoneNumber,
-          'proposal_start_time': now,
-          'status': ProposalStatus.pending.name,
-          'highest_risk_level': riskLevel,
-          'proposal_count': 1,
-          'verified_owner_count': isOwner ? 1 : 0,
-          'last_updated': now,
-          'verificationReportJson': verificationReportJson,
-        });
+    await _db.transaction(() async {
+      final existing = await (_db.select(_db.activeDeletionProposals)
+            ..where((t) => t.phoneNumber.equals(phoneNumber)))
+          .getSingleOrNull();
+
+      if (existing == null) {
+        await _db.into(_db.activeDeletionProposals).insert(
+          ActiveDeletionProposalsCompanion.insert(
+            phoneNumber: phoneNumber,
+            proposal_start_time: now,
+            highest_risk_level: riskLevel,
+            last_updated: now,
+            status: Value(ProposalStatus.pending.name),
+            proposal_count: const Value(1),
+            verified_owner_count: Value(isOwner ? 1 : 0),
+            verificationReportJson: Value(verificationReportJson),
+          ),
+        );
       } else {
-        final current = existing.first;
-        final currentRiskLevel = current['highest_risk_level'] as String;
-        final currentProposalCount = current['proposal_count'] as int;
-        final currentOwnerCount = current['verified_owner_count'] as int;
+        final currentRiskLevel = existing.highest_risk_level;
+        final currentProposalCount = existing.proposal_count;
+        final currentOwnerCount = existing.verified_owner_count;
+
         String newRiskLevel = currentRiskLevel;
         if (riskLevel == 'Verified' || currentRiskLevel == 'Verified') {
           newRiskLevel = 'Verified';
         } else if (riskLevel == 'Low' && currentRiskLevel != 'Verified') {
           newRiskLevel = 'Low';
         }
-        await txn.update(
-          _activeProposalsTable,
-          {
-            'proposal_count': currentProposalCount + 1,
-            'verified_owner_count': currentOwnerCount + (isOwner ? 1 : 0),
-            'highest_risk_level': newRiskLevel,
-            'last_updated': now,
-            'verificationReportJson':
-                verificationReportJson ?? current['verificationReportJson'],
-          },
-          where: 'phoneNumber = ?',
-          whereArgs: [phoneNumber],
+
+        await (_db.update(_db.activeDeletionProposals)
+              ..where((t) => t.phoneNumber.equals(phoneNumber)))
+            .write(
+          ActiveDeletionProposalsCompanion(
+            proposal_count: Value(currentProposalCount + 1),
+            verified_owner_count: Value(currentOwnerCount + (isOwner ? 1 : 0)),
+            highest_risk_level: Value(newRiskLevel),
+            last_updated: Value(now),
+            verificationReportJson: Value(
+              verificationReportJson ?? existing.verificationReportJson,
+            ),
+          ),
         );
       }
     });
@@ -72,26 +70,41 @@ class ProposalDataSourceImpl implements ProposalDataSource {
 
   @override
   Future<List<Proposal>> getActiveDeletionProposals() async {
-    final db = await _databaseManager.database;
-    final maps = await db.query(
-      _activeProposalsTable,
-      where: 'status = ?',
-      whereArgs: [ProposalStatus.pending.name],
-      orderBy: 'proposal_start_time ASC',
-    );
-    return maps.map((map) => Proposal.fromMap(map)).toList();
+    final rows = await (_db.select(_db.activeDeletionProposals)
+          ..where((t) => t.status.equals(ProposalStatus.pending.name))
+          ..orderBy([(t) => OrderingTerm.asc(t.proposal_start_time)]))
+        .get();
+    return rows.map((r) => Proposal.fromMap({
+          'phoneNumber': r.phoneNumber,
+          'proposal_start_time': r.proposal_start_time,
+          'status': r.status,
+          'highest_risk_level': r.highest_risk_level,
+          'proposal_count': r.proposal_count,
+          'verified_owner_count': r.verified_owner_count,
+          'last_updated': r.last_updated,
+          'verificationReportJson': r.verificationReportJson,
+          'labels_json': null,
+        })).toList();
   }
 
   @override
   Future<List<Proposal>> getExpiredDeletionProposals(Duration timeout) async {
-    final db = await _databaseManager.database;
     final cutoffTime = DateTime.now().subtract(timeout).toIso8601String();
-    final maps = await db.query(
-      _activeProposalsTable,
-      where: 'status = ? AND proposal_start_time < ?',
-      whereArgs: [ProposalStatus.pending.name, cutoffTime],
-    );
-    return maps.map((map) => Proposal.fromMap(map)).toList();
+    final rows = await (_db.select(_db.activeDeletionProposals)
+          ..where((t) => t.status.equals(ProposalStatus.pending.name))
+          ..where((t) => t.proposal_start_time.isSmallerThanValue(cutoffTime)))
+        .get();
+    return rows.map((r) => Proposal.fromMap({
+          'phoneNumber': r.phoneNumber,
+          'proposal_start_time': r.proposal_start_time,
+          'status': r.status,
+          'highest_risk_level': r.highest_risk_level,
+          'proposal_count': r.proposal_count,
+          'verified_owner_count': r.verified_owner_count,
+          'last_updated': r.last_updated,
+          'verificationReportJson': r.verificationReportJson,
+          'labels_json': null,
+        })).toList();
   }
 
   @override
@@ -99,39 +112,31 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     String phoneNumber,
     String status,
   ) async {
-    final db = await _databaseManager.database;
     final validStatus = ProposalStatus.fromString(status);
-    await db.update(
-      _activeProposalsTable,
-      {
-        'status': validStatus.name,
-        'last_updated': DateTime.now().toIso8601String(),
-      },
-      where: 'phoneNumber = ?',
-      whereArgs: [phoneNumber],
+    await (_db.update(_db.activeDeletionProposals)
+          ..where((t) => t.phoneNumber.equals(phoneNumber)))
+        .write(
+      ActiveDeletionProposalsCompanion(
+        status: Value(validStatus.name),
+        last_updated: Value(DateTime.now().toIso8601String()),
+      ),
     );
   }
 
   @override
   Future<void> deleteDeletionProposal(String phoneNumber) async {
-    final db = await _databaseManager.database;
-    await db.delete(
-      _activeProposalsTable,
-      where: 'phoneNumber = ?',
-      whereArgs: [phoneNumber],
-    );
+    await (_db.delete(_db.activeDeletionProposals)
+          ..where((t) => t.phoneNumber.equals(phoneNumber)))
+        .go();
   }
 
   @override
   Future<bool> hasActiveDeletionProposal(String phoneNumber) async {
-    final db = await _databaseManager.database;
-    final result = await db.query(
-      _activeProposalsTable,
-      where: 'phoneNumber = ? AND status = ?',
-      whereArgs: [phoneNumber, ProposalStatus.pending.name],
-      limit: 1,
-    );
-    return result.isNotEmpty;
+    final row = await (_db.select(_db.activeDeletionProposals)
+          ..where((t) => t.phoneNumber.equals(phoneNumber))
+          ..where((t) => t.status.equals(ProposalStatus.pending.name)))
+        .getSingleOrNull();
+    return row != null;
   }
 
   @override
@@ -143,14 +148,12 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   Future<void> cleanupCompletedDeletionProposals(
     Duration retentionPeriod,
   ) async {
-    final db = await _databaseManager.database;
     final cutoffTime =
         DateTime.now().subtract(retentionPeriod).toIso8601String();
-    await db.delete(
-      _activeProposalsTable,
-      where: 'status != ? AND last_updated < ?',
-      whereArgs: [ProposalStatus.pending.name, cutoffTime],
-    );
+    await (_db.delete(_db.activeDeletionProposals)
+          ..where((t) => t.status.isNotIn([ProposalStatus.pending.name]))
+          ..where((t) => t.last_updated.isSmallerThanValue(cutoffTime)))
+        .go();
   }
 
   // --- 日志管理 (proposal_submissions, proposal_votes 表) ---
@@ -159,23 +162,28 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     required String proposerId,
     required String phoneNumber,
   }) async {
-    final db = await _databaseManager.database;
-    await db.insert('proposal_submissions', {
-      'id': const Uuid().v4(),
-      'proposer_id': proposerId,
-      'phone_number': phoneNumber,
-      'submission_time': DateTime.now().toIso8601String(),
-    });
+    await _db.into(_db.proposalSubmissions).insert(
+      ProposalSubmissionsCompanion.insert(
+        id: const Uuid().v4(),
+        proposer_id: proposerId,
+        phone_number: phoneNumber,
+        submission_time: DateTime.now().toIso8601String(),
+      ),
+    );
   }
 
   @override
   Future<int> countRecentProposals(String proposerId, DateTime since) async {
-    final db = await _databaseManager.database;
-    final result = await db.rawQuery(
-      'SELECT COUNT(*) FROM proposal_submissions WHERE proposer_id = ? AND submission_time >= ?',
-      [proposerId, since.toIso8601String()],
-    );
-    return Sqflite.firstIntValue(result) ?? 0;
+    final query = await _db.customSelect(
+      'SELECT COUNT(*) AS cnt FROM proposal_submissions WHERE proposer_id = ? AND submission_time >= ?',
+      variables: [
+        Variable<String>(proposerId),
+        Variable<String>(since.toIso8601String()),
+      ],
+      readsFrom: {_db.proposalSubmissions},
+    ).getSingle();
+    final cnt = query.data['cnt'] as int?;
+    return cnt ?? 0;
   }
 
   @override
@@ -183,48 +191,53 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     required String voterId,
     required String proposalId,
   }) async {
-    final db = await _databaseManager.database;
-    await db.insert('proposal_votes', {
-      'id': const Uuid().v4(),
-      'voter_id': voterId,
-      'proposal_id': proposalId,
-      'vote_time': DateTime.now().toIso8601String(),
-      'is_consumed': 0,
-    });
+    await _db.into(_db.proposalVotes).insert(
+      ProposalVotesCompanion.insert(
+        id: const Uuid().v4(),
+        voter_id: voterId,
+        proposal_id: proposalId,
+        vote_time: DateTime.now().toIso8601String(),
+        is_consumed: const Value(0),
+      ),
+    );
   }
 
   @override
   Future<int> countUnconsumedVotes(String voterId) async {
-    final db = await _databaseManager.database;
-    final result = await db.rawQuery(
-      'SELECT COUNT(*) FROM proposal_votes WHERE voter_id = ? AND is_consumed = 0',
-      [voterId],
-    );
-    return Sqflite.firstIntValue(result) ?? 0;
+    final query = await _db.customSelect(
+      'SELECT COUNT(*) AS cnt FROM proposal_votes WHERE voter_id = ? AND is_consumed = 0',
+      variables: [Variable<String>(voterId)],
+      readsFrom: {_db.proposalVotes},
+    ).getSingle();
+    final cnt = query.data['cnt'] as int?;
+    return cnt ?? 0;
   }
 
   @override
   Future<void> consumeVotes(String voterId, int count) async {
-    final db = await _databaseManager.database;
-    final votes = await db.query(
-      'proposal_votes',
-      where: 'voter_id = ? AND is_consumed = 0',
-      whereArgs: [voterId],
-      orderBy: 'vote_time ASC',
-      limit: count,
-    );
-    if (votes.length < count) throw Exception('Not enough unconsumed votes');
-    if (votes.isEmpty) return;
-    final batch = db.batch();
-    for (final vote in votes) {
-      batch.update(
-        'proposal_votes',
-        {'is_consumed': 1},
-        where: 'id = ?',
-        whereArgs: [vote['id']],
-      );
-    }
-    await batch.commit(noResult: true);
+    await _db.transaction(() async {
+      final votes = await (_db.select(_db.proposalVotes)
+            ..where((t) => t.voter_id.equals(voterId))
+            ..where((t) => t.is_consumed.equals(0))
+            ..orderBy([(t) => OrderingTerm.asc(t.vote_time)])
+            ..limit(count))
+          .get();
+
+      if (votes.length < count) {
+        throw Exception('Not enough unconsumed votes');
+      }
+      if (votes.isEmpty) return;
+
+      for (final v in votes) {
+        await (_db.update(_db.proposalVotes)
+              ..where((t) => t.id.equals(v.id)))
+            .write(
+          const ProposalVotesCompanion(
+            is_consumed: Value(1),
+          ),
+        );
+      }
+    });
   }
 
   // =======================================================================
@@ -240,14 +253,15 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     required String phoneNumber,
     Map<String, dynamic>? payload,
   }) async {
-    final db = await _databaseManager.database;
-    await db.insert(_pendingOperationsTable, {
-      'id': const Uuid().v4(),
-      'entityId': phoneNumber,
-      'operation': operation,
-      'payload': payload != null ? jsonEncode(payload) : null,
-      'timestamp': DateTime.now().toIso8601String(),
-    });
+    await _db.into(_db.pendingOperations).insert(
+      PendingOperationsCompanion.insert(
+        id: const Uuid().v4(),
+        entityId: phoneNumber,
+        operation: operation,
+        payload: Value(payload != null ? jsonEncode(payload) : null),
+        timestamp: DateTime.now().toIso8601String(),
+      ),
+    );
   }
 
   @override
@@ -288,46 +302,53 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   @override
   Future<List<Map<String, dynamic>>>
   getPendingDeletionProposalOperations() async {
-    final db = await _databaseManager.database;
-    return await db.query(
-      _pendingOperationsTable,
-      where: 'operation = ?',
-      whereArgs: ['PROPOSE_DELETION'],
-      orderBy: 'timestamp ASC',
-    );
+    final rows = await (_db.select(_db.pendingOperations)
+          ..where((t) => t.operation.equals('PROPOSE_DELETION'))
+          ..orderBy([(t) => OrderingTerm.asc(t.timestamp)]))
+        .get();
+    return rows
+        .map((r) => {
+              'id': r.id,
+              'entityId': r.entityId,
+              'operation': r.operation,
+              'payload': r.payload,
+              'timestamp': r.timestamp,
+            })
+        .toList();
   }
 
   @override
   Future<List<Map<String, dynamic>>> getPendingDeletionVotes() async {
-    final db = await _databaseManager.database;
-    return await db.query(
-      _pendingOperationsTable,
-      where: 'operation = ?',
-      whereArgs: ['VOTE_DELETION'],
-      orderBy: 'timestamp ASC',
-    );
+    final rows = await (_db.select(_db.pendingOperations)
+          ..where((t) => t.operation.equals('VOTE_DELETION'))
+          ..orderBy([(t) => OrderingTerm.asc(t.timestamp)]))
+        .get();
+    return rows
+        .map((r) => {
+              'id': r.id,
+              'entityId': r.entityId,
+              'operation': r.operation,
+              'payload': r.payload,
+              'timestamp': r.timestamp,
+            })
+        .toList();
   }
 
   @override
   Future<bool> hasPendingDeletionProposal(String phoneNumber) async {
-    final db = await _databaseManager.database;
-    final result = await db.query(
-      _pendingOperationsTable,
-      where: 'operation = ? AND entityId = ?',
-      whereArgs: ['PROPOSE_DELETION', phoneNumber],
-      limit: 1,
-    );
-    return result.isNotEmpty;
+    final row = await (_db.select(_db.pendingOperations)
+          ..where((t) => t.operation.equals('PROPOSE_DELETION'))
+          ..where((t) => t.entityId.equals(phoneNumber)))
+        .getSingleOrNull();
+    return row != null;
   }
 
   @override
   Future<void> clearDeletionOperations(String phoneNumber) async {
-    final db = await _databaseManager.database;
-    await db.delete(
-      _pendingOperationsTable,
-      where: 'entityId = ? AND (operation = ? OR operation = ?)',
-      whereArgs: [phoneNumber, 'PROPOSE_DELETION', 'VOTE_DELETION'],
-    );
+    await (_db.delete(_db.pendingOperations)
+          ..where((t) => t.entityId.equals(phoneNumber))
+          ..where((t) => t.operation.isIn(['PROPOSE_DELETION', 'VOTE_DELETION'])))
+        .go();
   }
 
 
@@ -336,15 +357,21 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   // =======================================================================
   @override
   Future<Proposal?> getProposalInfo(String phoneNumber) async {
-    final db = await _databaseManager.database;
-    final result = await db.query(
-      _activeProposalsTable,
-      where: 'phoneNumber = ?',
-      whereArgs: [phoneNumber],
-     
-    );
-    // 正确返回 Future<Proposal?>
-    return result.isNotEmpty ? Proposal.fromMap(result.first) : null;
+    final r = await (_db.select(_db.activeDeletionProposals)
+          ..where((t) => t.phoneNumber.equals(phoneNumber)))
+        .getSingleOrNull();
+    if (r == null) return null;
+    return Proposal.fromMap({
+      'phoneNumber': r.phoneNumber,
+      'proposal_start_time': r.proposal_start_time,
+      'status': r.status,
+      'highest_risk_level': r.highest_risk_level,
+      'proposal_count': r.proposal_count,
+      'verified_owner_count': r.verified_owner_count,
+      'last_updated': r.last_updated,
+      'verificationReportJson': r.verificationReportJson,
+      'labels_json': null,
+    });
   }
 
   // =======================================================================
@@ -354,23 +381,20 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   @override
   Future<Map<String, dynamic>?> getPendingProposalOperationInfo(String phoneNumber) async {
     try {
-      final db = await _databaseManager.database;
-      final List<Map<String, dynamic>> proposals = await db.query(
-        _pendingOperationsTable,
-        where: 'entityId = ? AND operation = ?',
-        whereArgs: [phoneNumber, 'PROPOSE_DELETION'],
-      );
+      final row = await (_db.select(_db.pendingOperations)
+            ..where((t) => t.entityId.equals(phoneNumber))
+            ..where((t) => t.operation.equals('PROPOSE_DELETION')))
+          .getSingleOrNull();
 
-      if (proposals.isNotEmpty) {
-        final proposal = proposals.first;
-        final String? payloadStr = proposal['payload'] as String?;
+      if (row != null) {
+        final String? payloadStr = row.payload;
         if (payloadStr != null) {
-          return jsonDecode(payloadStr);
+          return jsonDecode(payloadStr) as Map<String, dynamic>;
         }
       }
       return null;
     } catch (e) {
-      print('ProposalDataSource: Error getting proposal info: $e');
+      // 保持错误处理，但不抛出以避免上层崩溃
       return null;
     }
   }

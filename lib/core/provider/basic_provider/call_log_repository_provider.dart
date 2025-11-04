@@ -22,15 +22,15 @@ class CallLogRepositoryImpl implements CallLogRepository {
 
   @override
   Future<List<CallLog>> getAll() async {
-    final maps = await _dataSource.queryAll();
-    return maps.map((map) => fromMap(map)).toList();
+    final models = await _dataSource.getAll();
+    return models.map((model) => model.toEntity()).toList();
   }
 
   @override
   Future<CallLog?> getById(String id) async {
-    final map = await _dataSource.queryById(id);
-    if (map == null) return null;
-    return fromMap(map);
+    final model = await _dataSource.getById(id);
+    if (model == null) return null;
+    return model.toEntity();
   }
 
   @override
@@ -213,6 +213,6 @@ class CallLogRepositoryImpl implements CallLogRepository {
 
   @override
   Stream<List<CallLog>> watchLogs() {
-    return _dataSource.watchAll().map((maps) => maps.map((map) => fromMap(map)).toList());
+    return _dataSource.watchAll().map((models) => models.map((model) => model.toEntity()).toList());
   }
 }

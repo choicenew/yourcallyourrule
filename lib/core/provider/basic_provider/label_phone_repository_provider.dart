@@ -4,6 +4,7 @@ import 'package:yourcallyourrule/core/repositories/label_phone_repository.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_label_datasource.dart';
 import 'package:yourcallyourrule/data/models/label_phone_model.dart';
 
+
 import '../datasource/local_label_datasource_provider.dart';
 
 /// 电话标签仓库提供者
@@ -22,25 +23,25 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
   @override
   Future<List<LabelPhoneEntry>> getAll() async {
     final models = await _dataSource.getAll();
-    return models.map((model) => LabelPhoneEntry.fromMap(model.toMap())).toList();
+    return models.map((model) => model.toEntity()).toList();
   }
 
   @override
   Future<LabelPhoneEntry?> getById(String id) async {
     final model = await _dataSource.getById(id);
     if (model == null) return null;
-    return LabelPhoneEntry.fromMap(model.toMap());
+    return model.toEntity();
   }
 
   @override
   Future<LabelPhoneEntry> save(LabelPhoneEntry entity) async {
-    await _dataSource.insert(LabelModel.fromMap(entity.toMap()));
+    await _dataSource.insert(LabelModel.fromEntity(entity));
     return entity;
   }
 
   @override
   Future<LabelPhoneEntry> update(LabelPhoneEntry entity) async {
-    await _dataSource.update(LabelModel.fromMap(entity.toMap()));
+    await _dataSource.update(LabelModel.fromEntity(entity));
     return entity;
   }
 
@@ -64,7 +65,7 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
 
   @override
   Future<List<LabelPhoneEntry>> saveAll(List<LabelPhoneEntry> entities) async {
-    final models = entities.map((e) => LabelModel.fromMap(e.toMap())).toList();
+    final models = entities.map((e) => LabelModel.fromEntity(e)).toList();
     await _dataSource.insertAll(models);
     return entities;
   }
@@ -90,13 +91,13 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
   Future<LabelPhoneEntry?> getByName(String name) async {
     final models = await _dataSource.getByName(name);
     if (models.isEmpty) return null;
-    return LabelPhoneEntry.fromMap(models.first.toMap());
+    return models.first.toEntity();
   }
 
   @override
   Future<List<LabelPhoneEntry>> getByType(String type) async {
-    final models = await _dataSource.getByType(type);
-    return models.map((model) => LabelPhoneEntry.fromMap(model.toMap())).toList();
+    final models = await _dataSource.getByRuleType(type);
+    return models.map((model) => model.toEntity()).toList();
   }
 
   @override
@@ -107,8 +108,8 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
 
   @override
   Future<List<LabelPhoneEntry>> getAllEnabled() async {
-    final models = await _dataSource.getAllEnabled();
-    return models.map((model) => LabelPhoneEntry.fromMap(model.toMap())).toList();
+    final models = await _dataSource.getEnabledLabels();
+    return models.map((model) => model.toEntity()).toList();
   }
 
   @override
@@ -117,12 +118,12 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
     if (models.isEmpty) {
       return null;
     }
-    return LabelPhoneEntry.fromMap(models.first.toMap());
+    return models.first.toEntity();
   }
 
   @override
   Future<List<LabelPhoneEntry>> getByLabelId(String labelId) async {
     final models = await _dataSource.getByLabelId(labelId);
-    return models.map((model) => LabelPhoneEntry.fromMap(model.toMap())).toList();
+    return models.map((model) => model.toEntity()).toList();
   }
 }

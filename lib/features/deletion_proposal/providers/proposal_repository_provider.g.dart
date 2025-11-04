@@ -55,7 +55,7 @@ final class ProposalDataSourceProvider
 }
 
 String _$proposalDataSourceHash() =>
-    r'903de49119ca0b92c6ee231bec196ae640862166';
+    r'b85a3d4cfb7204cf9fff31038852ea8d262746a1';
 
 @ProviderFor(proposalRepository)
 const proposalRepositoryProvider = ProposalRepositoryProvider._();
