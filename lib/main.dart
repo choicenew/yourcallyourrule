@@ -42,8 +42,8 @@ Future<void> main() async {
     // 初始化广告SDK
     await MobileAds.instance.initialize();
 
-    // 初始化数据库服务
-    await DatabaseService().initialize();
+    // 初始化数据库服务（单例构造已完成内部初始化，无需显式 initialize）
+    DatabaseService();
     
    
    

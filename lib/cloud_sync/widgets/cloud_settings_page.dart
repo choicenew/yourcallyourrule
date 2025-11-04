@@ -3,10 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/cloud_config_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/provider/cloud_sync_provider.dart';
-import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.dart';
 import 'package:yourcallyourrule/cloud_sync/widgets/all_cloud_sync_status_section.dart';
 import 'package:yourcallyourrule/cloud_sync/widgets/cloud_sync_status_section.dart';
-import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/presentation/cloud/google_sign_in_test_page.dart';
 
