@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';

@@ -59,7 +59,8 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
 
   @override
   Future<bool> delete(RemoteNumberEntry entity) async {
-    return await deleteById(entity.id);
+    // 使用电话号码作为唯一标识进行删除，确保与数据源的主键一致
+    return await deleteById(entity.phoneNumber.value);
   }
 
   @override
@@ -114,8 +115,9 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
     if (entities.isEmpty) {
       return true;
     }
-    final ids = entities.map((e) => e.id).toList();
-    final result = await _dataSource.deleteAll(ids);
+    // 批量删除时按电话号码列表进行，匹配数据源的主键 phoneNumber
+    final phoneNumbers = entities.map((e) => e.phoneNumber.value).toList();
+    final result = await _dataSource.deleteAll(phoneNumbers);
     return result > 0;
   }
 
@@ -137,7 +139,6 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
 
   Future<bool> syncRemoteNumbers() async {
     try {
-      await _remoteDataAccess.logAccess('sync', 'sync');
       final hasPermission = await _remoteDataAccess.checkAccessPermission('sync');
       if (!hasPermission) {
         return false;
@@ -152,7 +153,7 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
   Future<RemoteNumberEntry?> incrementCount(PhoneNumber phoneNumber) async {
     final entry = await getByPhoneNumber(phoneNumber);
     if (entry != null) {
-      await _dataSource.atomicIncrementCount(entry.id, 1);
+      await _dataSource.atomicIncrementCount(entry.phoneNumber.value, 1);
       return entry.incrementCount();
     }
     return null;

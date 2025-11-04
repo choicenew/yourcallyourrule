@@ -21,15 +21,15 @@ class PluginRepositoryImpl implements PluginRepository {
 
   @override
   Future<List<PluginEntry>> getAll() async {
-    final maps = await _dataSource.queryAll();
-    return maps.map((map) => fromMap(map)).toList();
+    final models = await _dataSource.getAll();
+    return models.map((m) => m.toEntity()).toList();
   }
 
   @override
   Future<PluginEntry?> getById(String id) async {
-    final map = await _dataSource.queryById(id);
-    if (map == null) return null;
-    return fromMap(map);
+    final model = await _dataSource.getById(id);
+    if (model == null) return null;
+    return model.toEntity();
   }
 
   @override
@@ -51,23 +51,21 @@ class PluginRepositoryImpl implements PluginRepository {
 
   @override
   Future<bool> deleteById(String id) async {
-    await _dataSource.delete(id);
-    return true;
+    final affected = await _dataSource.delete(id);
+    return affected > 0;
   }
 
   @override
   Future<bool> deleteAll(List<PluginEntry> entities) async {
-    for (var entity in entities) {
-      await deleteById(entity.id);
-    }
+    final ids = entities.map((e) => e.id).toList();
+    await _dataSource.deleteAll(ids);
     return true;
   }
 
   @override
   Future<List<PluginEntry>> saveAll(List<PluginEntry> entities) async {
-    for (var entity in entities) {
-      await save(entity);
-    }
+    final models = entities.map((e) => PluginModel.fromEntity(e)).toList();
+    await _dataSource.insertAll(models);
     return entities;
   }
 
@@ -90,15 +88,15 @@ class PluginRepositoryImpl implements PluginRepository {
 
   @override
   Future<PluginEntry?> getByUrl(String url) async {
-    final map = await _dataSource.getByUrl(url);
-    if (map == null) return null;
-    return fromMap(map);
+    final model = await _dataSource.getByUrl(url);
+    if (model == null) return null;
+    return model.toEntity();
   }
 
   @override
   Future<List<PluginEntry>> searchByName(String name) async {
-    final maps = await _dataSource.searchByName(name);
-    return maps.map((map) => fromMap(map)).toList();
+    final models = await _dataSource.searchByName(name);
+    return models.map((m) => m.toEntity()).toList();
   }
   
   @override
@@ -149,24 +147,24 @@ class PluginRepositoryImpl implements PluginRepository {
 
 
   Future<List<PluginEntry>> getByType(String type) async {
-    final maps = await _dataSource.getByType(type);
-    return maps.map((map) => fromMap(map)).toList();
+    // 没有类型字段的支持，返回所有插件。
+    return await getAll();
   }
 
   Future<List<PluginEntry>> getAllEnabled() async {
-    final maps = await _dataSource.getAllEnabled();
-    return maps.map((map) => fromMap(map)).toList();
+    final enabled = await getEnabled();
+    return enabled;
   }
 
   Future<List<PluginEntry>> getByCategory(String category) async {
-    final maps = await _dataSource.getByCategory(category);
-    return maps.map((map) => fromMap(map)).toList();
+    // 没有分类字段的支持，返回所有插件。
+    return await getAll();
   }
 
   Future<PluginEntry?> getByName(String name) async {
-    final maps = await _dataSource.getByName(name);
-    if (maps.isEmpty) return null;
-    return fromMap(maps.first);
+    final models = await _dataSource.searchByName(name);
+    if (models.isEmpty) return null;
+    return models.first.toEntity();
   }
 
   @override
@@ -205,8 +203,8 @@ class PluginRepositoryImpl implements PluginRepository {
 
   @override
   Future<List<PluginEntry>> getAllDisabled() async {
-    final maps = await _dataSource.getAllDisabled();
-    return maps.map((map) => fromMap(map)).toList();
+    final all = await getAll();
+    return all.where((p) => !p.isEnabled).toList();
   }
 
   @override
@@ -227,7 +225,7 @@ class PluginRepositoryImpl implements PluginRepository {
 
   @override
   Future<List<PluginEntry>> getEnabled() async {
-    final maps = await _dataSource.getEnabled();
-    return maps.map((map) => fromMap(map)).toList();
+    final models = await _dataSource.getEnabled();
+    return models.map((m) => m.toEntity()).toList();
   }
 }

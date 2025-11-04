@@ -21,15 +21,15 @@ class LocationRepositoryImpl implements LocationRepository {
 
   @override
   Future<List<LocationEntry>> getAll() async {
-    final maps = await _dataSource.queryAll();
-    return maps.map((map) => fromMap(map)).toList();
+    final models = await _dataSource.getAll();
+    return models.map((model) => model.toEntity()).toList();
   }
 
   @override
   Future<LocationEntry?> getById(String id) async {
-    final map = await _dataSource.queryById(id);
-    if (map == null) return null;
-    return fromMap(map);
+    final model = await _dataSource.getById(id);
+    if (model == null) return null;
+    return model.toEntity();
   }
 
   @override
@@ -46,12 +46,14 @@ class LocationRepositoryImpl implements LocationRepository {
   
   @override
   Future<LocationEntry?> getByPhoneNumber(String phone) async {
-    return await _dataSource.getByPhoneNumber(phone);
+    final entry = await _dataSource.getByPhoneNumber(phone);
+    return entry;
   }
   
   @override
   Future<List<LocationEntry>> getLocationsByRegion(String region) async {
-    return await _dataSource.getByRegion(region);
+    final entries = await _dataSource.getByRegion(region);
+    return entries;
   }
   
   @override
@@ -72,17 +74,15 @@ class LocationRepositoryImpl implements LocationRepository {
 
   @override
   Future<bool> deleteAll(List<LocationEntry> entities) async {
-    for (var entity in entities) {
-      await deleteById(entity.id);
-    }
+    final ids = entities.map((e) => e.id).toList();
+    await _dataSource.deleteAll(ids);
     return true;
   }
 
   @override
   Future<List<LocationEntry>> saveAll(List<LocationEntry> entities) async {
-    for (var entity in entities) {
-      await save(entity);
-    }
+    final models = entities.map((e) => LocationModel.fromEntity(e)).toList();
+    await _dataSource.insertAll(models);
     return entities;
   }
 
@@ -103,28 +103,16 @@ class LocationRepositoryImpl implements LocationRepository {
     return LocationEntry.fromMap(map);
   }
 
-  Future<List<LocationEntry>> getByName(String name) async {
-    final maps = await _dataSource.getByName(name);
-    return maps.map((map) => fromMap(map)).toList();
-  }
 
-  Future<List<LocationEntry>> getByType(String type) async {
-    final maps = await _dataSource.getByType(type);
-    return maps.map((map) => fromMap(map)).toList();
-  }
 
-  Future<List<LocationEntry>> getAllEnabled() async {
-    final maps = await _dataSource.getAllEnabled();
-    return maps.map((map) => fromMap(map)).toList();
-  }
 
-  Future<List<LocationEntry>> getUserCreatedLocations() async {
-    final maps = await _dataSource.getUserCreatedLocations();
-    return maps.map((map) => fromMap(map)).toList();
-  }
 
-  Future<List<LocationEntry>> getSystemLocations() async {
-    final maps = await _dataSource.getSystemLocations();
-    return maps.map((map) => fromMap(map)).toList();
-  }
+
+
+
+
+
+
+
+
 }

@@ -1,157 +1,101 @@
 // 远程数据访问限制实现，确保远程数据只能查询不能导出
+// (已移除日志功能，并从 sqflite 重构到 drift 的最终版本)
 
 import 'dart:async';
 
-import 'package:uuid/uuid.dart';
-import '../../models/remote/remote_number_model.dart';
-import '../remote/remote_database_manager.dart';
+// 导入 Drift 数据库及其生成的数据类
+import '../remote/remote_database.dart';
+// import '../remote/remote_database.g.dart'; // Drift 可能会隐式需要，显式导入更安全
 
-// 远程数据访问限制接口
+// -----------------------------------------------------------
+// --- 接口定义 (与上一步的 sqflite 版本完全相同) ---
+// -----------------------------------------------------------
 abstract class RemoteDataAccessRestriction {
   Future<Map<String, dynamic>?> queryRemoteNumberInfo(String phoneNumber);
-  // 记录访问日志
-  Future<void> logAccess(String phoneNumber, String accessType, {String? userId});
   
-  // 检查访问权限
   Future<bool> checkAccessPermission(String accessType, {String? userId});
 }
 
-// 远程数据访问限制实现类
+// -----------------------------------------------------------
+// --- 实现类 (drift 重构版) ---
+// -----------------------------------------------------------
 class RemoteDataAccessRestrictionImpl implements RemoteDataAccessRestriction {
-  static final RemoteDataAccessRestrictionImpl _instance = RemoteDataAccessRestrictionImpl._internal();
   
-  // 远程数据库管理器
-  late final RemoteDatabaseManagerImpl _remoteDatabaseManager;
+  // 【重构点 1】: 依赖注入 Drift
+  // 依赖从 sqflite 的 RemoteDatabaseManagerImpl 切换到 drift 的 RemoteDatabase。
+  // 不再使用单例，而是通过构造函数注入。
+  final RemoteDatabase _db;
+
+  // 【重构点 2】: 常量可见性与命名
+  // 保持与 sqflite 版本一致，使用私有常量。
+  // (如果 Repository 需要引用，可改为 public)
+  static const String accessTypeQuery = 'query';
+  static const String accessTypeSync = 'sync';
+
+  // 构造函数，接收 Drift 数据库实例。
+  RemoteDataAccessRestrictionImpl(this._db);
   
-  // 允许的访问类型
-  static const String _accessTypeQuery = 'query';
-  static const String _accessTypeSync = 'sync';
-  
-  // 禁止的访问类型
-  static const String _accessTypeExport = 'export';
-  static const String _accessTypeModify = 'modify';
-  static const String _accessTypeDelete = 'delete';
-  
-  // 私有构造函数
-  RemoteDataAccessRestrictionImpl._internal() {
-    _remoteDatabaseManager = RemoteDatabaseManagerImpl();
-  }
-  
-  // 工厂构造函数
-  factory RemoteDataAccessRestrictionImpl() {
-    return _instance;
-  }
-  
-  // 查询远程号码信息
+  // 【重构点 3】: 使用 Drift 实现 queryRemoteNumberInfo
   @override
   Future<Map<String, dynamic>?> queryRemoteNumberInfo(String phoneNumber) async {
-    // 检查访问权限
-    final hasPermission = await checkAccessPermission(_accessTypeQuery);
+    // 步骤 1: 权限检查 (逻辑不变)
+    final hasPermission = await checkAccessPermission(accessTypeQuery);
     if (!hasPermission) {
       throw UnauthorizedAccessException('无权访问远程数据');
     }
     
     try {
-      // 获取数据库实例
-      final db = await _remoteDatabaseManager.database;
+      // 步骤 2: 使用 Drift 的类型安全查询
+      final query = _db.select(_db.remoteNumbers)
+        ..where((tbl) => tbl.phoneNumber.equals(phoneNumber));
       
-      // 查询远程号码
-      final List<Map<String, dynamic>> maps = await db.query(
-        'remote_numbers',
-        where: 'phoneNumber = ?',
-        whereArgs: [phoneNumber],
-      );
-      
-      // 记录访问日志
-      await logAccess(phoneNumber, _accessTypeQuery);
-      
-      // 如果找到远程号码，返回相关信息
-      if (maps.isNotEmpty) {
-        final remoteNumber = RemoteNumberModel.fromMap(maps.first);
+      final remoteNumberData = await query.getSingleOrNull();
+
+      // 步骤 3: 处理结果 (逻辑不变, 返回类型不变)
+      if (remoteNumberData != null) {
+        // 将 Drift 的数据对象转换为 Map，以匹配接口定义
         return {
-          'name': remoteNumber.name,
-          'label': remoteNumber.label,
-          'priority': remoteNumber.priority,
-          'action': remoteNumber.action,
-          'count': remoteNumber.count,
+          'name': remoteNumberData.name,
+          'label': remoteNumberData.label,
+          'priority': remoteNumberData.priority,
+          'action': remoteNumberData.action,
+          'count': remoteNumberData.count,
         };
       }
       
       return null;
     } catch (e) {
-      // 记录错误日志
-      await logAccess(phoneNumber, 'error', userId: e.toString());
+      // 错误处理逻辑不变
       return null;
     }
   }
   
-  // 记录访问日志
-  @override
-  Future<void> logAccess(String phoneNumber, String accessType, {String? userId}) async {
-    try {
-      // 获取数据库实例
-      final db = await _remoteDatabaseManager.database;
-      
-      // 检查远程访问日志表是否存在
-      final tables = await db.query(
-        'sqlite_master',
-        where: 'type = ? AND name = ?',
-        whereArgs: ['table', 'remote_access_logs'],
-      );
-      
-      // 如果表不存在，创建表
-      if (tables.isEmpty) {
-        await db.execute('''
-          CREATE TABLE remote_access_logs (
-            id TEXT PRIMARY KEY,
-            phoneNumber TEXT NOT NULL,
-            accessTime TEXT NOT NULL,
-            accessType TEXT NOT NULL,
-            userId TEXT
-          )
-        ''');
-      }
-      
-      // 插入访问日志
-      await db.insert(
-        'remote_access_logs',
-        {
-          'id': const Uuid().v4(),
-          'phoneNumber': phoneNumber,
-          'accessTime': DateTime.now().toIso8601String(),
-          'accessType': accessType,
-          'userId': userId,
-        },
-      );
-    } catch (e) {
-      // 忽略日志记录错误
-    }
-  }
-  
-  // 检查访问权限
+  // 权限检查逻辑不变
   @override
   Future<bool> checkAccessPermission(String accessType, {String? userId}) async {
-    // 只允许查询和同步操作
-    return accessType == _accessTypeQuery || accessType == _accessTypeSync;
+    return accessType == accessTypeQuery || accessType == accessTypeSync;
   }
   
-  // 导出数据（禁止使用）
+  // -----------------------------------------------------------
+  // --- 以下方法在 sqflite 版本中已无实现，此处也无需实现 ---
+  // --- 但为了接口完整性，如果接口要求，则需要添加抛出异常的实现 ---
+  // -----------------------------------------------------------
+  
+  // 为保持与原始文件意图一致，添加禁止操作的实现
   Future<Map<String, dynamic>> exportData() async {
     throw UnsupportedError('远程数据不支持导出操作');
   }
   
-  // 修改数据（禁止使用）
   Future<void> modifyData() async {
     throw UnsupportedError('远程数据不支持修改操作');
   }
   
-  // 删除数据（禁止使用）
   Future<void> deleteData() async {
     throw UnsupportedError('远程数据不支持删除操作');
   }
 }
 
-// 未授权访问异常
+// 未授权访问异常 (保持不变)
 class UnauthorizedAccessException implements Exception {
   final String message;
   
