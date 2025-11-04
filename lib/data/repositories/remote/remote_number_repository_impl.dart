@@ -1,6 +1,7 @@
 import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_data_access_restriction.dart';
 import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_remote_database.dart';
 import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
@@ -100,10 +101,11 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
   Future<bool> shouldAcceptBasedOnCount(PhoneNumber phoneNumber, int threshold) async {
     final entry = await getByPhoneNumber(phoneNumber);
     if (entry != null) {
-      if (entry.isCountExceeded(threshold) && entry.action == 'block') {
+      final exceeded = entry.isCountExceeded(threshold);
+      if (exceeded && entry.action.type == RuleActionType.block) {
         return false;
       }
-      if (entry.isCountExceeded(threshold) && entry.action == 'allow') {
+      if (exceeded && entry.action.type == RuleActionType.allow) {
         return true;
       }
     }
