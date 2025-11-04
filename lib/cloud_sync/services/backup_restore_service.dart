@@ -10,7 +10,7 @@ import 'package:yourcallyourrule/cloud_sync/entities/backup_config_entity.dart';
 import 'package:yourcallyourrule/cloud_sync/entities/backup_version_entity.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_backup_service.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 import 'backup_encryption_service.dart';
 
@@ -151,7 +151,7 @@ class BackupRestoreService {
   Future<String> backupRules(List<RuleBase> rules, String destination) async {
     _ensureInitialized();
     try {
-      final db = DatabaseService().localDatabase;
+      final db = LocalDatabase();
 
       // 自动枚举所有包含 "rule" 的业务表
       final tableRows = await db.customSelect(
@@ -270,7 +270,7 @@ class BackupRestoreService {
     _ensureInitialized();
 
     try {
-      final db = DatabaseService().localDatabase;
+      final db = LocalDatabase();
 
       // 1) 导出所有业务表为 JSON（自动枚举）
       final tableRows = await db.customSelect(
@@ -801,7 +801,7 @@ class BackupRestoreService {
   Future<String> backupDatabaseSnapshot(String destination) async {
     _ensureInitialized();
     try {
-      final db = DatabaseService().localDatabase;
+      final db = LocalDatabase();
 
       final timestamp = DateTime.now().millisecondsSinceEpoch;
       final tempSnapshotPath =
@@ -845,7 +845,7 @@ class BackupRestoreService {
   Future<void> restoreDatabaseSnapshot(String source) async {
     _ensureInitialized();
     try {
-      final db = DatabaseService().localDatabase;
+      final db = LocalDatabase();
 
       final srcFile = File(source);
       if (!await srcFile.exists()) {
@@ -930,7 +930,7 @@ class BackupRestoreService {
   }) async {
     _ensureInitialized();
     try {
-      final db = DatabaseService().localDatabase;
+      final db = LocalDatabase();
 
       // 列出所有非系统表
       final tableRows = await db.customSelect(
@@ -1014,7 +1014,7 @@ class BackupRestoreService {
   }) async {
     _ensureInitialized();
     try {
-      final db = DatabaseService().localDatabase;
+      final db = LocalDatabase();
 
       final srcFile = File(source);
       if (!await srcFile.exists()) {
@@ -1073,7 +1073,7 @@ class BackupRestoreService {
     List<String>? excludeTables,
     bool clearBeforeInsert = true,
   }) async {
-    final db = DatabaseService().localDatabase;
+    final db = LocalDatabase();
 
     // 列出现有库所有非系统表
     final tableRows = await db.customSelect(
