@@ -81,7 +81,7 @@ class LabelModel extends RuleModel {
       id: entity.id,
       phoneNumber: entity.phoneNumber.value,
       labelId: entity.labelId,
-      name: entity.name ?? '',
+      name: entity.name,
       icon: entity.icon,
       avatar: entity.avatar,
       priority: entity.priority.value,
