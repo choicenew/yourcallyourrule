@@ -10,6 +10,7 @@ import '../../../main.dart' show isOverlayMode;
 import 'package:uuid/uuid.dart';
 
 part 'local_database.g.dart';
+part 'drift_migration_helper.dart';
 
 // Table definitions
 @DataClassName('ContactData')
@@ -190,9 +191,6 @@ class PredefinedLabels extends Table {
 
 @DataClassName('LabelPhoneData')
 class LabelPhones extends Table {
-  
-  
-
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().nullable()();
   TextColumn get icon => text().nullable()();
@@ -250,17 +248,30 @@ class UserMarkCount extends Table {
 // Database class
 @DriftDatabase(
   tables: [
-    Contacts, CallHistory, Rules, PhoneRules, RegexRules, Subscriptions, 
-    Sms, SmsRules, Plugins, Locations, PredefinedLabels, LabelPhones, 
-    SimSlotRules, LabelMarkStatistics, UserMarkCount
+    Contacts,
+    CallHistory,
+    Rules,
+    PhoneRules,
+    RegexRules,
+    Subscriptions,
+    Sms,
+    SmsRules,
+    Plugins,
+    Locations,
+    PredefinedLabels,
+    LabelPhones,
+    SimSlotRules,
+    LabelMarkStatistics,
+    UserMarkCount,
   ],
 )
 class LocalDatabase extends _$LocalDatabase {
   // Singleton instance
   static final LocalDatabase _instance = LocalDatabase._internal();
-  
+
   // Stream controllers for table changes
-  final Map<String, StreamController<List<Map<String, dynamic>>>> _tableControllers = {};
+  final Map<String, StreamController<List<Map<String, dynamic>>>>
+  _tableControllers = {};
 
   // Factory constructor
   factory LocalDatabase() => _instance;
@@ -279,11 +290,11 @@ class LocalDatabase extends _$LocalDatabase {
       final file = File(p.join(dbFolder.path, 'local_database.db'));
       return NativeDatabase(
         file,
-        
+
         logStatements: false,
         setup: (db) {
           db.execute('PRAGMA foreign_keys = ON');
-           // 【关键改动在这里】
+          // 【关键改动在这里】
           // 如果是 Overlay 模式，就将此连接设置为只读
           if (isOverlayMode) {
             db.execute('PRAGMA query_only = ON');
@@ -327,27 +338,20 @@ class LocalDatabase extends _$LocalDatabase {
     },
     onUpgrade: (Migrator m, int from, int to) async {
       if (from < 2) {
-        // Version 1 to 2 migration
-        if (from == 1) {
-          // Migration logic for version 1 to 2
-        }
+        await _DriftMigrationHelper.upgradeFrom1To2(m, this);
       }
-      
+
       if (from < 3) {
         // Version 2 to 3 migration
         // Add ruleType column to labelPhone table if it doesn't exist
-          // 【新增步骤】如果旧表名存在，就将其重命名为新的、遵循约定的表名
-                await customStatement('ALTER TABLE label_phone RENAME TO label_phones');
-                
-                // 【修正步骤】然后使用 m.addColumn，现在它会指向正确的新名字 'label_phones'
-                await m.addColumn(labelPhones, labelPhones.ruleType);
+        // 【新增步骤】如果旧表名存在，就将其重命名为新的、遵循约定的表名
+        await _DriftMigrationHelper.upgradeFrom2To3(m, this);
       }
-      
+
       if (from < 4) {
         // Version 3 to 4 migration
         // Add endTime and duration columns to call_history table
-        await customStatement('ALTER TABLE call_history ADD COLUMN endTime TEXT');
-        await customStatement('ALTER TABLE call_history ADD COLUMN duration INTEGER');
+        await _DriftMigrationHelper.upgradeFrom3To4(m, this);
       }
     },
   );
