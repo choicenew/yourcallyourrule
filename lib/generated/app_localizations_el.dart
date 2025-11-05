@@ -6263,4 +6263,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String andMoreItems(int count) {
     return 'και άλλα $count στοιχεία';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

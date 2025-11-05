@@ -6219,4 +6219,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String andMoreItems(int count) {
     return 'ja $count muuta kohdetta';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

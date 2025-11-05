@@ -5999,4 +5999,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String andMoreItems(int count) {
     return '他$count件';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

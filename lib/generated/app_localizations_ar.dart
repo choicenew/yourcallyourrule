@@ -6147,4 +6147,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String andMoreItems(int count) {
     return 'و $count عناصر أخرى';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

@@ -6257,4 +6257,7 @@ class AppLocalizationsXh extends AppLocalizations {
   String andMoreItems(int count) {
     return 'kunye $count ezinye izinto';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

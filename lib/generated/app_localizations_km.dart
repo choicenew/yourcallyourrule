@@ -6201,4 +6201,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String andMoreItems(int count) {
     return 'និង $count ធាតុផ្សេងទៀត';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

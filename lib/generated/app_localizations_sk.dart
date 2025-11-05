@@ -6234,4 +6234,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String andMoreItems(int count) {
     return 'a $count ďalších položiek';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

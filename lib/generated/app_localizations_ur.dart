@@ -6194,4 +6194,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String andMoreItems(int count) {
     return 'اور $count مزید آئٹمز';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

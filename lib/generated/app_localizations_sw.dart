@@ -6242,4 +6242,7 @@ class AppLocalizationsSw extends AppLocalizations {
   String andMoreItems(int count) {
     return 'na vitu vingine $count';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

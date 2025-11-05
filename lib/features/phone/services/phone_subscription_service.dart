@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
-import 'package:yourcallyourrule/core/services/import_export_service.dart';
 
 import '../../../core/entities/rule/rule_base.dart';
 import '../../../core/entities/rule/phone_rule.dart';
+import '../../../core/entities/rule/allowed_blocked_rule.dart';
 import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/repositories/rule_repository.dart';
 import '../../../core/repositories/subscription_repository.dart';
@@ -127,61 +127,78 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
   }
 
   /// 从URL获取规则，但不保存
-  Future<List<RuleBase>> fetchRulesFromSubscription(Subscription subscription) async {
+  Future<List<RuleBase>> fetchRulesFromSubscription(Subscription subscription, {String? ruleTypeOverride}) async {
     final data = await downloadFromUrl(subscription.url.toString());
     final rules = await _ruleImportExportService.parseImportData(data);
     
-    final processedRules = rules.map((rule) {
-      if (rule is PhoneRule) {
-        // 如果规则的动作类型与订阅的动作类型不一致，则使用订阅的动作类型
-        if (rule.action.type != subscription.action.type) {
-          return rule.copyWith(
-            action: subscription.action,
-            subscriptionId: subscription.id
-          );
-        } else {
-          // 如果动作类型一致，只需标记为已订阅
-          return rule.copyWith(
-            subscriptionId: subscription.id
-          );
-        }
-      }
-      return rule;
-    }).toList();
+    final processedRules = _processRulesWithOverride(rules, subscription, ruleTypeOverride);
     
     return processedRules;
   }
 
+  List<RuleBase> _processRulesWithOverride(List<RuleBase> rules, Subscription subscription, String? ruleTypeOverride) {
+    final mapped = <RuleBase>[];
+    for (final rule in rules) {
+      if (rule is PhoneRule) {
+        final phoneRule = rule;
+        if (ruleTypeOverride == 'allow_block') {
+          // 转换为允许/阻止规则
+          mapped.add(
+            AllowedBlockedRule(
+              id: phoneRule.id,
+              name: phoneRule.name,
+              action: subscription.action,
+              phoneNumber: phoneRule.phoneNumber,
+              labelId: phoneRule.labelId,
+              isEnabled: phoneRule.isEnabled,
+              count: phoneRule.count,
+              avatar: phoneRule.avatar,
+              subscriptionId: subscription.id,
+              ruleType: 'allow_block',
+            ),
+          );
+        } else {
+          // 默认处理为电话规则
+          final updated = phoneRule.copyWith(
+            action: subscription.action,
+            subscriptionId: subscription.id,
+            ruleType: 'phone_rule',
+          );
+          mapped.add(updated);
+        }
+      } else if (rule is RegexRule) {
+        // 如果选择regex，仅保留regex规则
+        if (ruleTypeOverride == null || ruleTypeOverride == 'regex') {
+          mapped.add(
+            rule.copyWith(
+              action: subscription.action,
+              subscriptionId: subscription.id,
+              ruleType: 'regex',
+            ),
+          );
+        }
+      } else {
+        // 其他类型原样保留
+        mapped.add(rule);
+      }
+    }
+    return mapped;
+  }
+
   /// 从订阅URL导入规则并保存
-  Future<List<RuleBase>> importAndSaveRulesFromSubscription(Subscription subscription) async {
+  Future<List<RuleBase>> importAndSaveRulesFromSubscription(Subscription subscription, {String? ruleTypeOverride}) async {
     debugPrint('[PhoneSubscriptionService] >>> Starting import for subscription: ${subscription.name}');
     // 1. 使用 importFromUrl 从URL获取规则
     final rules = await _ruleImportExportService.importFromUrl(subscription.url.toString());
     debugPrint('[PhoneSubscriptionService] ... Fetched ${rules.length} rules from URL.');
 
-    // 2. 处理规则：覆盖action并标记为已订阅，添加subscriptionId关联
-    final processedRules = rules.map((rule) {
-      if (rule is PhoneRule) {
-        return rule.copyWith(
-          name: '${subscription.id}#${rule.name}', // 添加订阅ID作为前缀
-          action: subscription.action, // 使用订阅的action覆盖
-          ruleType: 'phone_rule', // 确保设置正确的ruleType
-          subscriptionId: subscription.id, // 添加订阅ID关联
-        );
-      } else if (rule is RegexRule) {
-        return rule.copyWith(
-          name: '${subscription.id}#${rule.name}', // 添加订阅ID作为前缀
-          action: subscription.action, // 使用订阅的action覆盖
-          ruleType: 'regex', // 确保设置正确的ruleType
-          subscriptionId: subscription.id, // 添加订阅ID关联
-        );
-      }
-      return rule;
-    }).toList();
+    // 2. 按选择的规则类型进行处理：覆盖action、设置订阅关联
+    final processedRules = _processRulesWithOverride(rules, subscription, ruleTypeOverride);
     
     // 分离电话规则和正则规则
     final phoneRules = processedRules.whereType<PhoneRule>().toList();
     final regexRules = processedRules.whereType<RegexRule>().toList();
+    final allowedBlockedRules = processedRules.whereType<AllowedBlockedRule>().toList();
     
     debugPrint('[PhoneSubscriptionService] ... Processed ${phoneRules.length} phone rules and ${regexRules.length} regex rules.');
 
@@ -195,6 +212,10 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
       await _ruleRepository.saveAll(regexRules);
       debugPrint('[PhoneSubscriptionService] ... Saved ${regexRules.length} regex rules to the repository.');
     }
+    if (allowedBlockedRules.isNotEmpty) {
+      await _ruleRepository.saveAll(allowedBlockedRules);
+      debugPrint('[PhoneSubscriptionService] ... Saved ${allowedBlockedRules.length} allowed/blocked rules to the repository.');
+    }
     
     // 4. 更新订阅的时间戳
     await updateLastUpdated(subscription.id, DateTime.now());
@@ -204,12 +225,13 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
   }
 
   /// 核心规则更新方法（不更新时间戳）
-  Future<List<RuleBase>> _updateRulesCore(Subscription subscription) async {
-    final rules = await fetchRulesFromSubscription(subscription);
+  Future<List<RuleBase>> _updateRulesCore(Subscription subscription, {String? ruleTypeOverride}) async {
+    final rules = await fetchRulesFromSubscription(subscription, ruleTypeOverride: ruleTypeOverride);
     
     // 分离电话规则和正则规则
     final phoneRules = rules.whereType<PhoneRule>().toList();
     final regexRules = rules.whereType<RegexRule>().toList();
+    final allowedBlockedRules = rules.whereType<AllowedBlockedRule>().toList();
     
     // 分别保存不同类型的规则
     if (phoneRules.isNotEmpty) {
@@ -219,14 +241,17 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     if (regexRules.isNotEmpty) {
       await _ruleRepository.saveAll(regexRules);
     }
+    if (allowedBlockedRules.isNotEmpty) {
+      await _ruleRepository.saveAll(allowedBlockedRules);
+    }
     
     return rules;
   }
 
   /// 自动更新（带时间戳更新）
-  Future<List<RuleBase>> updateRulesFromSubscription(Subscription subscription) async {
+  Future<List<RuleBase>> updateRulesFromSubscription(Subscription subscription, {String? ruleTypeOverride}) async {
     try {
-      final result = await _updateRulesCore(subscription);
+      final result = await _updateRulesCore(subscription, ruleTypeOverride: ruleTypeOverride);
       await updateLastUpdated(subscription.id, DateTime.now());
       return result;
     } catch (e) {
@@ -235,9 +260,9 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
   }
 
   /// 手动更新（不带时间戳更新）
-  Future<List<RuleBase>> manualUpdateRulesFromSubscription(Subscription subscription) async {
+  Future<List<RuleBase>> manualUpdateRulesFromSubscription(Subscription subscription, {String? ruleTypeOverride}) async {
     try {
-      return await _updateRulesCore(subscription);
+      return await _updateRulesCore(subscription, ruleTypeOverride: ruleTypeOverride);
     } catch (e) {
       throw Exception('手动更新规则失败: $e');
     }

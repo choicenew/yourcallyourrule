@@ -3304,11 +3304,11 @@ class $SubscriptionsTable extends Subscriptions
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _table_typeMeta = const VerificationMeta(
-    'table_type',
+  static const VerificationMeta _tableTypeMeta = const VerificationMeta(
+    'tableType',
   );
   @override
-  late final GeneratedColumn<String> table_type = GeneratedColumn<String>(
+  late final GeneratedColumn<String> tableType = GeneratedColumn<String>(
     'table_type',
     aliasedName,
     false,
@@ -3352,22 +3352,22 @@ class $SubscriptionsTable extends Subscriptions
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
-  static const VerificationMeta _contact_groupMeta = const VerificationMeta(
-    'contact_group',
+  static const VerificationMeta _contactGroupMeta = const VerificationMeta(
+    'contactGroup',
   );
   @override
-  late final GeneratedColumn<String> contact_group = GeneratedColumn<String>(
+  late final GeneratedColumn<String> contactGroup = GeneratedColumn<String>(
     'contact_group',
     aliasedName,
     true,
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
-  static const VerificationMeta _keyword_filtersMeta = const VerificationMeta(
-    'keyword_filters',
+  static const VerificationMeta _keywordFiltersMeta = const VerificationMeta(
+    'keywordFilters',
   );
   @override
-  late final GeneratedColumn<String> keyword_filters = GeneratedColumn<String>(
+  late final GeneratedColumn<String> keywordFilters = GeneratedColumn<String>(
     'keyword_filters',
     aliasedName,
     true,
@@ -3389,12 +3389,12 @@ class $SubscriptionsTable extends Subscriptions
     id,
     name,
     url,
-    table_type,
+    tableType,
     isEnabled,
     lastUpdated,
     autoUpdate,
-    contact_group,
-    keyword_filters,
+    contactGroup,
+    keywordFilters,
     action,
   ];
   @override
@@ -3432,11 +3432,11 @@ class $SubscriptionsTable extends Subscriptions
     }
     if (data.containsKey('table_type')) {
       context.handle(
-        _table_typeMeta,
-        table_type.isAcceptableOrUnknown(data['table_type']!, _table_typeMeta),
+        _tableTypeMeta,
+        tableType.isAcceptableOrUnknown(data['table_type']!, _tableTypeMeta),
       );
     } else if (isInserting) {
-      context.missing(_table_typeMeta);
+      context.missing(_tableTypeMeta);
     }
     if (data.containsKey('is_enabled')) {
       context.handle(
@@ -3463,19 +3463,19 @@ class $SubscriptionsTable extends Subscriptions
     }
     if (data.containsKey('contact_group')) {
       context.handle(
-        _contact_groupMeta,
-        contact_group.isAcceptableOrUnknown(
+        _contactGroupMeta,
+        contactGroup.isAcceptableOrUnknown(
           data['contact_group']!,
-          _contact_groupMeta,
+          _contactGroupMeta,
         ),
       );
     }
     if (data.containsKey('keyword_filters')) {
       context.handle(
-        _keyword_filtersMeta,
-        keyword_filters.isAcceptableOrUnknown(
+        _keywordFiltersMeta,
+        keywordFilters.isAcceptableOrUnknown(
           data['keyword_filters']!,
-          _keyword_filtersMeta,
+          _keywordFiltersMeta,
         ),
       );
     }
@@ -3509,7 +3509,7 @@ class $SubscriptionsTable extends Subscriptions
             DriftSqlType.string,
             data['${effectivePrefix}url'],
           )!,
-      table_type:
+      tableType:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}table_type'],
@@ -3529,11 +3529,11 @@ class $SubscriptionsTable extends Subscriptions
             DriftSqlType.int,
             data['${effectivePrefix}auto_update'],
           )!,
-      contact_group: attachedDatabase.typeMapping.read(
+      contactGroup: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}contact_group'],
       ),
-      keyword_filters: attachedDatabase.typeMapping.read(
+      keywordFilters: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}keyword_filters'],
       ),
@@ -3556,23 +3556,23 @@ class SubscriptionData extends DataClass
   final String id;
   final String name;
   final String url;
-  final String table_type;
+  final String tableType;
   final int isEnabled;
   final String lastUpdated;
   final int autoUpdate;
-  final String? contact_group;
-  final String? keyword_filters;
+  final String? contactGroup;
+  final String? keywordFilters;
   final String action;
   const SubscriptionData({
     required this.id,
     required this.name,
     required this.url,
-    required this.table_type,
+    required this.tableType,
     required this.isEnabled,
     required this.lastUpdated,
     required this.autoUpdate,
-    this.contact_group,
-    this.keyword_filters,
+    this.contactGroup,
+    this.keywordFilters,
     required this.action,
   });
   @override
@@ -3581,15 +3581,15 @@ class SubscriptionData extends DataClass
     map['id'] = Variable<String>(id);
     map['name'] = Variable<String>(name);
     map['url'] = Variable<String>(url);
-    map['table_type'] = Variable<String>(table_type);
+    map['table_type'] = Variable<String>(tableType);
     map['is_enabled'] = Variable<int>(isEnabled);
     map['last_updated'] = Variable<String>(lastUpdated);
     map['auto_update'] = Variable<int>(autoUpdate);
-    if (!nullToAbsent || contact_group != null) {
-      map['contact_group'] = Variable<String>(contact_group);
+    if (!nullToAbsent || contactGroup != null) {
+      map['contact_group'] = Variable<String>(contactGroup);
     }
-    if (!nullToAbsent || keyword_filters != null) {
-      map['keyword_filters'] = Variable<String>(keyword_filters);
+    if (!nullToAbsent || keywordFilters != null) {
+      map['keyword_filters'] = Variable<String>(keywordFilters);
     }
     map['action'] = Variable<String>(action);
     return map;
@@ -3600,18 +3600,18 @@ class SubscriptionData extends DataClass
       id: Value(id),
       name: Value(name),
       url: Value(url),
-      table_type: Value(table_type),
+      tableType: Value(tableType),
       isEnabled: Value(isEnabled),
       lastUpdated: Value(lastUpdated),
       autoUpdate: Value(autoUpdate),
-      contact_group:
-          contact_group == null && nullToAbsent
+      contactGroup:
+          contactGroup == null && nullToAbsent
               ? const Value.absent()
-              : Value(contact_group),
-      keyword_filters:
-          keyword_filters == null && nullToAbsent
+              : Value(contactGroup),
+      keywordFilters:
+          keywordFilters == null && nullToAbsent
               ? const Value.absent()
-              : Value(keyword_filters),
+              : Value(keywordFilters),
       action: Value(action),
     );
   }
@@ -3625,12 +3625,12 @@ class SubscriptionData extends DataClass
       id: serializer.fromJson<String>(json['id']),
       name: serializer.fromJson<String>(json['name']),
       url: serializer.fromJson<String>(json['url']),
-      table_type: serializer.fromJson<String>(json['table_type']),
+      tableType: serializer.fromJson<String>(json['tableType']),
       isEnabled: serializer.fromJson<int>(json['isEnabled']),
       lastUpdated: serializer.fromJson<String>(json['lastUpdated']),
       autoUpdate: serializer.fromJson<int>(json['autoUpdate']),
-      contact_group: serializer.fromJson<String?>(json['contact_group']),
-      keyword_filters: serializer.fromJson<String?>(json['keyword_filters']),
+      contactGroup: serializer.fromJson<String?>(json['contactGroup']),
+      keywordFilters: serializer.fromJson<String?>(json['keywordFilters']),
       action: serializer.fromJson<String>(json['action']),
     );
   }
@@ -3641,12 +3641,12 @@ class SubscriptionData extends DataClass
       'id': serializer.toJson<String>(id),
       'name': serializer.toJson<String>(name),
       'url': serializer.toJson<String>(url),
-      'table_type': serializer.toJson<String>(table_type),
+      'tableType': serializer.toJson<String>(tableType),
       'isEnabled': serializer.toJson<int>(isEnabled),
       'lastUpdated': serializer.toJson<String>(lastUpdated),
       'autoUpdate': serializer.toJson<int>(autoUpdate),
-      'contact_group': serializer.toJson<String?>(contact_group),
-      'keyword_filters': serializer.toJson<String?>(keyword_filters),
+      'contactGroup': serializer.toJson<String?>(contactGroup),
+      'keywordFilters': serializer.toJson<String?>(keywordFilters),
       'action': serializer.toJson<String>(action),
     };
   }
@@ -3655,25 +3655,24 @@ class SubscriptionData extends DataClass
     String? id,
     String? name,
     String? url,
-    String? table_type,
+    String? tableType,
     int? isEnabled,
     String? lastUpdated,
     int? autoUpdate,
-    Value<String?> contact_group = const Value.absent(),
-    Value<String?> keyword_filters = const Value.absent(),
+    Value<String?> contactGroup = const Value.absent(),
+    Value<String?> keywordFilters = const Value.absent(),
     String? action,
   }) => SubscriptionData(
     id: id ?? this.id,
     name: name ?? this.name,
     url: url ?? this.url,
-    table_type: table_type ?? this.table_type,
+    tableType: tableType ?? this.tableType,
     isEnabled: isEnabled ?? this.isEnabled,
     lastUpdated: lastUpdated ?? this.lastUpdated,
     autoUpdate: autoUpdate ?? this.autoUpdate,
-    contact_group:
-        contact_group.present ? contact_group.value : this.contact_group,
-    keyword_filters:
-        keyword_filters.present ? keyword_filters.value : this.keyword_filters,
+    contactGroup: contactGroup.present ? contactGroup.value : this.contactGroup,
+    keywordFilters:
+        keywordFilters.present ? keywordFilters.value : this.keywordFilters,
     action: action ?? this.action,
   );
   SubscriptionData copyWithCompanion(SubscriptionsCompanion data) {
@@ -3681,21 +3680,20 @@ class SubscriptionData extends DataClass
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       url: data.url.present ? data.url.value : this.url,
-      table_type:
-          data.table_type.present ? data.table_type.value : this.table_type,
+      tableType: data.tableType.present ? data.tableType.value : this.tableType,
       isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
       lastUpdated:
           data.lastUpdated.present ? data.lastUpdated.value : this.lastUpdated,
       autoUpdate:
           data.autoUpdate.present ? data.autoUpdate.value : this.autoUpdate,
-      contact_group:
-          data.contact_group.present
-              ? data.contact_group.value
-              : this.contact_group,
-      keyword_filters:
-          data.keyword_filters.present
-              ? data.keyword_filters.value
-              : this.keyword_filters,
+      contactGroup:
+          data.contactGroup.present
+              ? data.contactGroup.value
+              : this.contactGroup,
+      keywordFilters:
+          data.keywordFilters.present
+              ? data.keywordFilters.value
+              : this.keywordFilters,
       action: data.action.present ? data.action.value : this.action,
     );
   }
@@ -3706,12 +3704,12 @@ class SubscriptionData extends DataClass
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('url: $url, ')
-          ..write('table_type: $table_type, ')
+          ..write('tableType: $tableType, ')
           ..write('isEnabled: $isEnabled, ')
           ..write('lastUpdated: $lastUpdated, ')
           ..write('autoUpdate: $autoUpdate, ')
-          ..write('contact_group: $contact_group, ')
-          ..write('keyword_filters: $keyword_filters, ')
+          ..write('contactGroup: $contactGroup, ')
+          ..write('keywordFilters: $keywordFilters, ')
           ..write('action: $action')
           ..write(')'))
         .toString();
@@ -3722,12 +3720,12 @@ class SubscriptionData extends DataClass
     id,
     name,
     url,
-    table_type,
+    tableType,
     isEnabled,
     lastUpdated,
     autoUpdate,
-    contact_group,
-    keyword_filters,
+    contactGroup,
+    keywordFilters,
     action,
   );
   @override
@@ -3737,12 +3735,12 @@ class SubscriptionData extends DataClass
           other.id == this.id &&
           other.name == this.name &&
           other.url == this.url &&
-          other.table_type == this.table_type &&
+          other.tableType == this.tableType &&
           other.isEnabled == this.isEnabled &&
           other.lastUpdated == this.lastUpdated &&
           other.autoUpdate == this.autoUpdate &&
-          other.contact_group == this.contact_group &&
-          other.keyword_filters == this.keyword_filters &&
+          other.contactGroup == this.contactGroup &&
+          other.keywordFilters == this.keywordFilters &&
           other.action == this.action);
 }
 
@@ -3750,24 +3748,24 @@ class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
   final Value<String> id;
   final Value<String> name;
   final Value<String> url;
-  final Value<String> table_type;
+  final Value<String> tableType;
   final Value<int> isEnabled;
   final Value<String> lastUpdated;
   final Value<int> autoUpdate;
-  final Value<String?> contact_group;
-  final Value<String?> keyword_filters;
+  final Value<String?> contactGroup;
+  final Value<String?> keywordFilters;
   final Value<String> action;
   final Value<int> rowid;
   const SubscriptionsCompanion({
     this.id = const Value.absent(),
     this.name = const Value.absent(),
     this.url = const Value.absent(),
-    this.table_type = const Value.absent(),
+    this.tableType = const Value.absent(),
     this.isEnabled = const Value.absent(),
     this.lastUpdated = const Value.absent(),
     this.autoUpdate = const Value.absent(),
-    this.contact_group = const Value.absent(),
-    this.keyword_filters = const Value.absent(),
+    this.contactGroup = const Value.absent(),
+    this.keywordFilters = const Value.absent(),
     this.action = const Value.absent(),
     this.rowid = const Value.absent(),
   });
@@ -3775,29 +3773,29 @@ class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
     required String id,
     required String name,
     required String url,
-    required String table_type,
+    required String tableType,
     this.isEnabled = const Value.absent(),
     required String lastUpdated,
     this.autoUpdate = const Value.absent(),
-    this.contact_group = const Value.absent(),
-    this.keyword_filters = const Value.absent(),
+    this.contactGroup = const Value.absent(),
+    this.keywordFilters = const Value.absent(),
     this.action = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        name = Value(name),
        url = Value(url),
-       table_type = Value(table_type),
+       tableType = Value(tableType),
        lastUpdated = Value(lastUpdated);
   static Insertable<SubscriptionData> custom({
     Expression<String>? id,
     Expression<String>? name,
     Expression<String>? url,
-    Expression<String>? table_type,
+    Expression<String>? tableType,
     Expression<int>? isEnabled,
     Expression<String>? lastUpdated,
     Expression<int>? autoUpdate,
-    Expression<String>? contact_group,
-    Expression<String>? keyword_filters,
+    Expression<String>? contactGroup,
+    Expression<String>? keywordFilters,
     Expression<String>? action,
     Expression<int>? rowid,
   }) {
@@ -3805,12 +3803,12 @@ class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
       if (id != null) 'id': id,
       if (name != null) 'name': name,
       if (url != null) 'url': url,
-      if (table_type != null) 'table_type': table_type,
+      if (tableType != null) 'table_type': tableType,
       if (isEnabled != null) 'is_enabled': isEnabled,
       if (lastUpdated != null) 'last_updated': lastUpdated,
       if (autoUpdate != null) 'auto_update': autoUpdate,
-      if (contact_group != null) 'contact_group': contact_group,
-      if (keyword_filters != null) 'keyword_filters': keyword_filters,
+      if (contactGroup != null) 'contact_group': contactGroup,
+      if (keywordFilters != null) 'keyword_filters': keywordFilters,
       if (action != null) 'action': action,
       if (rowid != null) 'rowid': rowid,
     });
@@ -3820,12 +3818,12 @@ class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
     Value<String>? id,
     Value<String>? name,
     Value<String>? url,
-    Value<String>? table_type,
+    Value<String>? tableType,
     Value<int>? isEnabled,
     Value<String>? lastUpdated,
     Value<int>? autoUpdate,
-    Value<String?>? contact_group,
-    Value<String?>? keyword_filters,
+    Value<String?>? contactGroup,
+    Value<String?>? keywordFilters,
     Value<String>? action,
     Value<int>? rowid,
   }) {
@@ -3833,12 +3831,12 @@ class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
       id: id ?? this.id,
       name: name ?? this.name,
       url: url ?? this.url,
-      table_type: table_type ?? this.table_type,
+      tableType: tableType ?? this.tableType,
       isEnabled: isEnabled ?? this.isEnabled,
       lastUpdated: lastUpdated ?? this.lastUpdated,
       autoUpdate: autoUpdate ?? this.autoUpdate,
-      contact_group: contact_group ?? this.contact_group,
-      keyword_filters: keyword_filters ?? this.keyword_filters,
+      contactGroup: contactGroup ?? this.contactGroup,
+      keywordFilters: keywordFilters ?? this.keywordFilters,
       action: action ?? this.action,
       rowid: rowid ?? this.rowid,
     );
@@ -3856,8 +3854,8 @@ class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
     if (url.present) {
       map['url'] = Variable<String>(url.value);
     }
-    if (table_type.present) {
-      map['table_type'] = Variable<String>(table_type.value);
+    if (tableType.present) {
+      map['table_type'] = Variable<String>(tableType.value);
     }
     if (isEnabled.present) {
       map['is_enabled'] = Variable<int>(isEnabled.value);
@@ -3868,11 +3866,11 @@ class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
     if (autoUpdate.present) {
       map['auto_update'] = Variable<int>(autoUpdate.value);
     }
-    if (contact_group.present) {
-      map['contact_group'] = Variable<String>(contact_group.value);
+    if (contactGroup.present) {
+      map['contact_group'] = Variable<String>(contactGroup.value);
     }
-    if (keyword_filters.present) {
-      map['keyword_filters'] = Variable<String>(keyword_filters.value);
+    if (keywordFilters.present) {
+      map['keyword_filters'] = Variable<String>(keywordFilters.value);
     }
     if (action.present) {
       map['action'] = Variable<String>(action.value);
@@ -3889,12 +3887,12 @@ class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('url: $url, ')
-          ..write('table_type: $table_type, ')
+          ..write('tableType: $tableType, ')
           ..write('isEnabled: $isEnabled, ')
           ..write('lastUpdated: $lastUpdated, ')
           ..write('autoUpdate: $autoUpdate, ')
-          ..write('contact_group: $contact_group, ')
-          ..write('keyword_filters: $keyword_filters, ')
+          ..write('contactGroup: $contactGroup, ')
+          ..write('keywordFilters: $keywordFilters, ')
           ..write('action: $action, ')
           ..write('rowid: $rowid')
           ..write(')'))
@@ -7044,7 +7042,7 @@ class $SimSlotRulesTable extends SimSlotRules
     false,
     type: DriftSqlType.string,
     requiredDuringInsert: false,
-    defaultValue: const Constant('sim_slot'),
+    defaultValue: const Constant('simSlot'),
   );
   @override
   List<GeneratedColumn> get $columns => [
@@ -7569,23 +7567,23 @@ class $LabelMarkStatisticsTable extends LabelMarkStatistics
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _phone_numberMeta = const VerificationMeta(
+  static const VerificationMeta _phoneNumberMeta = const VerificationMeta(
+    'phoneNumber',
+  );
+  @override
+  late final GeneratedColumn<String> phoneNumber = GeneratedColumn<String>(
     'phone_number',
-  );
-  @override
-  late final GeneratedColumn<String> phone_number = GeneratedColumn<String>(
-    'phone_number',
     aliasedName,
     false,
     additionalChecks: GeneratedColumn.checkTextLength(minTextLength: 1),
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _label_idMeta = const VerificationMeta(
-    'label_id',
+  static const VerificationMeta _labelIdMeta = const VerificationMeta(
+    'labelId',
   );
   @override
-  late final GeneratedColumn<String> label_id = GeneratedColumn<String>(
+  late final GeneratedColumn<String> labelId = GeneratedColumn<String>(
     'label_id',
     aliasedName,
     false,
@@ -7593,11 +7591,11 @@ class $LabelMarkStatisticsTable extends LabelMarkStatistics
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _marked_atMeta = const VerificationMeta(
-    'marked_at',
+  static const VerificationMeta _markedAtMeta = const VerificationMeta(
+    'markedAt',
   );
   @override
-  late final GeneratedColumn<String> marked_at = GeneratedColumn<String>(
+  late final GeneratedColumn<String> markedAt = GeneratedColumn<String>(
     'marked_at',
     aliasedName,
     false,
@@ -7605,11 +7603,11 @@ class $LabelMarkStatisticsTable extends LabelMarkStatistics
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _is_countedMeta = const VerificationMeta(
-    'is_counted',
+  static const VerificationMeta _isCountedMeta = const VerificationMeta(
+    'isCounted',
   );
   @override
-  late final GeneratedColumn<int> is_counted = GeneratedColumn<int>(
+  late final GeneratedColumn<int> isCounted = GeneratedColumn<int>(
     'is_counted',
     aliasedName,
     false,
@@ -7620,10 +7618,10 @@ class $LabelMarkStatisticsTable extends LabelMarkStatistics
   @override
   List<GeneratedColumn> get $columns => [
     id,
-    phone_number,
-    label_id,
-    marked_at,
-    is_counted,
+    phoneNumber,
+    labelId,
+    markedAt,
+    isCounted,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -7644,35 +7642,35 @@ class $LabelMarkStatisticsTable extends LabelMarkStatistics
     }
     if (data.containsKey('phone_number')) {
       context.handle(
-        _phone_numberMeta,
-        phone_number.isAcceptableOrUnknown(
+        _phoneNumberMeta,
+        phoneNumber.isAcceptableOrUnknown(
           data['phone_number']!,
-          _phone_numberMeta,
+          _phoneNumberMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_phone_numberMeta);
+      context.missing(_phoneNumberMeta);
     }
     if (data.containsKey('label_id')) {
       context.handle(
-        _label_idMeta,
-        label_id.isAcceptableOrUnknown(data['label_id']!, _label_idMeta),
+        _labelIdMeta,
+        labelId.isAcceptableOrUnknown(data['label_id']!, _labelIdMeta),
       );
     } else if (isInserting) {
-      context.missing(_label_idMeta);
+      context.missing(_labelIdMeta);
     }
     if (data.containsKey('marked_at')) {
       context.handle(
-        _marked_atMeta,
-        marked_at.isAcceptableOrUnknown(data['marked_at']!, _marked_atMeta),
+        _markedAtMeta,
+        markedAt.isAcceptableOrUnknown(data['marked_at']!, _markedAtMeta),
       );
     } else if (isInserting) {
-      context.missing(_marked_atMeta);
+      context.missing(_markedAtMeta);
     }
     if (data.containsKey('is_counted')) {
       context.handle(
-        _is_countedMeta,
-        is_counted.isAcceptableOrUnknown(data['is_counted']!, _is_countedMeta),
+        _isCountedMeta,
+        isCounted.isAcceptableOrUnknown(data['is_counted']!, _isCountedMeta),
       );
     }
     return context;
@@ -7689,22 +7687,22 @@ class $LabelMarkStatisticsTable extends LabelMarkStatistics
             DriftSqlType.string,
             data['${effectivePrefix}id'],
           )!,
-      phone_number:
+      phoneNumber:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}phone_number'],
           )!,
-      label_id:
+      labelId:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}label_id'],
           )!,
-      marked_at:
+      markedAt:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}marked_at'],
           )!,
-      is_counted:
+      isCounted:
           attachedDatabase.typeMapping.read(
             DriftSqlType.int,
             data['${effectivePrefix}is_counted'],
@@ -7721,35 +7719,35 @@ class $LabelMarkStatisticsTable extends LabelMarkStatistics
 class LabelMarkStatisticData extends DataClass
     implements Insertable<LabelMarkStatisticData> {
   final String id;
-  final String phone_number;
-  final String label_id;
-  final String marked_at;
-  final int is_counted;
+  final String phoneNumber;
+  final String labelId;
+  final String markedAt;
+  final int isCounted;
   const LabelMarkStatisticData({
     required this.id,
-    required this.phone_number,
-    required this.label_id,
-    required this.marked_at,
-    required this.is_counted,
+    required this.phoneNumber,
+    required this.labelId,
+    required this.markedAt,
+    required this.isCounted,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
-    map['phone_number'] = Variable<String>(phone_number);
-    map['label_id'] = Variable<String>(label_id);
-    map['marked_at'] = Variable<String>(marked_at);
-    map['is_counted'] = Variable<int>(is_counted);
+    map['phone_number'] = Variable<String>(phoneNumber);
+    map['label_id'] = Variable<String>(labelId);
+    map['marked_at'] = Variable<String>(markedAt);
+    map['is_counted'] = Variable<int>(isCounted);
     return map;
   }
 
   LabelMarkStatisticsCompanion toCompanion(bool nullToAbsent) {
     return LabelMarkStatisticsCompanion(
       id: Value(id),
-      phone_number: Value(phone_number),
-      label_id: Value(label_id),
-      marked_at: Value(marked_at),
-      is_counted: Value(is_counted),
+      phoneNumber: Value(phoneNumber),
+      labelId: Value(labelId),
+      markedAt: Value(markedAt),
+      isCounted: Value(isCounted),
     );
   }
 
@@ -7760,10 +7758,10 @@ class LabelMarkStatisticData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return LabelMarkStatisticData(
       id: serializer.fromJson<String>(json['id']),
-      phone_number: serializer.fromJson<String>(json['phone_number']),
-      label_id: serializer.fromJson<String>(json['label_id']),
-      marked_at: serializer.fromJson<String>(json['marked_at']),
-      is_counted: serializer.fromJson<int>(json['is_counted']),
+      phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
+      labelId: serializer.fromJson<String>(json['labelId']),
+      markedAt: serializer.fromJson<String>(json['markedAt']),
+      isCounted: serializer.fromJson<int>(json['isCounted']),
     );
   }
   @override
@@ -7771,37 +7769,34 @@ class LabelMarkStatisticData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
-      'phone_number': serializer.toJson<String>(phone_number),
-      'label_id': serializer.toJson<String>(label_id),
-      'marked_at': serializer.toJson<String>(marked_at),
-      'is_counted': serializer.toJson<int>(is_counted),
+      'phoneNumber': serializer.toJson<String>(phoneNumber),
+      'labelId': serializer.toJson<String>(labelId),
+      'markedAt': serializer.toJson<String>(markedAt),
+      'isCounted': serializer.toJson<int>(isCounted),
     };
   }
 
   LabelMarkStatisticData copyWith({
     String? id,
-    String? phone_number,
-    String? label_id,
-    String? marked_at,
-    int? is_counted,
+    String? phoneNumber,
+    String? labelId,
+    String? markedAt,
+    int? isCounted,
   }) => LabelMarkStatisticData(
     id: id ?? this.id,
-    phone_number: phone_number ?? this.phone_number,
-    label_id: label_id ?? this.label_id,
-    marked_at: marked_at ?? this.marked_at,
-    is_counted: is_counted ?? this.is_counted,
+    phoneNumber: phoneNumber ?? this.phoneNumber,
+    labelId: labelId ?? this.labelId,
+    markedAt: markedAt ?? this.markedAt,
+    isCounted: isCounted ?? this.isCounted,
   );
   LabelMarkStatisticData copyWithCompanion(LabelMarkStatisticsCompanion data) {
     return LabelMarkStatisticData(
       id: data.id.present ? data.id.value : this.id,
-      phone_number:
-          data.phone_number.present
-              ? data.phone_number.value
-              : this.phone_number,
-      label_id: data.label_id.present ? data.label_id.value : this.label_id,
-      marked_at: data.marked_at.present ? data.marked_at.value : this.marked_at,
-      is_counted:
-          data.is_counted.present ? data.is_counted.value : this.is_counted,
+      phoneNumber:
+          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      labelId: data.labelId.present ? data.labelId.value : this.labelId,
+      markedAt: data.markedAt.present ? data.markedAt.value : this.markedAt,
+      isCounted: data.isCounted.present ? data.isCounted.value : this.isCounted,
     );
   }
 
@@ -7809,87 +7804,87 @@ class LabelMarkStatisticData extends DataClass
   String toString() {
     return (StringBuffer('LabelMarkStatisticData(')
           ..write('id: $id, ')
-          ..write('phone_number: $phone_number, ')
-          ..write('label_id: $label_id, ')
-          ..write('marked_at: $marked_at, ')
-          ..write('is_counted: $is_counted')
+          ..write('phoneNumber: $phoneNumber, ')
+          ..write('labelId: $labelId, ')
+          ..write('markedAt: $markedAt, ')
+          ..write('isCounted: $isCounted')
           ..write(')'))
         .toString();
   }
 
   @override
   int get hashCode =>
-      Object.hash(id, phone_number, label_id, marked_at, is_counted);
+      Object.hash(id, phoneNumber, labelId, markedAt, isCounted);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is LabelMarkStatisticData &&
           other.id == this.id &&
-          other.phone_number == this.phone_number &&
-          other.label_id == this.label_id &&
-          other.marked_at == this.marked_at &&
-          other.is_counted == this.is_counted);
+          other.phoneNumber == this.phoneNumber &&
+          other.labelId == this.labelId &&
+          other.markedAt == this.markedAt &&
+          other.isCounted == this.isCounted);
 }
 
 class LabelMarkStatisticsCompanion
     extends UpdateCompanion<LabelMarkStatisticData> {
   final Value<String> id;
-  final Value<String> phone_number;
-  final Value<String> label_id;
-  final Value<String> marked_at;
-  final Value<int> is_counted;
+  final Value<String> phoneNumber;
+  final Value<String> labelId;
+  final Value<String> markedAt;
+  final Value<int> isCounted;
   final Value<int> rowid;
   const LabelMarkStatisticsCompanion({
     this.id = const Value.absent(),
-    this.phone_number = const Value.absent(),
-    this.label_id = const Value.absent(),
-    this.marked_at = const Value.absent(),
-    this.is_counted = const Value.absent(),
+    this.phoneNumber = const Value.absent(),
+    this.labelId = const Value.absent(),
+    this.markedAt = const Value.absent(),
+    this.isCounted = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   LabelMarkStatisticsCompanion.insert({
     required String id,
-    required String phone_number,
-    required String label_id,
-    required String marked_at,
-    this.is_counted = const Value.absent(),
+    required String phoneNumber,
+    required String labelId,
+    required String markedAt,
+    this.isCounted = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
-       phone_number = Value(phone_number),
-       label_id = Value(label_id),
-       marked_at = Value(marked_at);
+       phoneNumber = Value(phoneNumber),
+       labelId = Value(labelId),
+       markedAt = Value(markedAt);
   static Insertable<LabelMarkStatisticData> custom({
     Expression<String>? id,
-    Expression<String>? phone_number,
-    Expression<String>? label_id,
-    Expression<String>? marked_at,
-    Expression<int>? is_counted,
+    Expression<String>? phoneNumber,
+    Expression<String>? labelId,
+    Expression<String>? markedAt,
+    Expression<int>? isCounted,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
-      if (phone_number != null) 'phone_number': phone_number,
-      if (label_id != null) 'label_id': label_id,
-      if (marked_at != null) 'marked_at': marked_at,
-      if (is_counted != null) 'is_counted': is_counted,
+      if (phoneNumber != null) 'phone_number': phoneNumber,
+      if (labelId != null) 'label_id': labelId,
+      if (markedAt != null) 'marked_at': markedAt,
+      if (isCounted != null) 'is_counted': isCounted,
       if (rowid != null) 'rowid': rowid,
     });
   }
 
   LabelMarkStatisticsCompanion copyWith({
     Value<String>? id,
-    Value<String>? phone_number,
-    Value<String>? label_id,
-    Value<String>? marked_at,
-    Value<int>? is_counted,
+    Value<String>? phoneNumber,
+    Value<String>? labelId,
+    Value<String>? markedAt,
+    Value<int>? isCounted,
     Value<int>? rowid,
   }) {
     return LabelMarkStatisticsCompanion(
       id: id ?? this.id,
-      phone_number: phone_number ?? this.phone_number,
-      label_id: label_id ?? this.label_id,
-      marked_at: marked_at ?? this.marked_at,
-      is_counted: is_counted ?? this.is_counted,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      labelId: labelId ?? this.labelId,
+      markedAt: markedAt ?? this.markedAt,
+      isCounted: isCounted ?? this.isCounted,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -7900,17 +7895,17 @@ class LabelMarkStatisticsCompanion
     if (id.present) {
       map['id'] = Variable<String>(id.value);
     }
-    if (phone_number.present) {
-      map['phone_number'] = Variable<String>(phone_number.value);
+    if (phoneNumber.present) {
+      map['phone_number'] = Variable<String>(phoneNumber.value);
     }
-    if (label_id.present) {
-      map['label_id'] = Variable<String>(label_id.value);
+    if (labelId.present) {
+      map['label_id'] = Variable<String>(labelId.value);
     }
-    if (marked_at.present) {
-      map['marked_at'] = Variable<String>(marked_at.value);
+    if (markedAt.present) {
+      map['marked_at'] = Variable<String>(markedAt.value);
     }
-    if (is_counted.present) {
-      map['is_counted'] = Variable<int>(is_counted.value);
+    if (isCounted.present) {
+      map['is_counted'] = Variable<int>(isCounted.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -7922,10 +7917,10 @@ class LabelMarkStatisticsCompanion
   String toString() {
     return (StringBuffer('LabelMarkStatisticsCompanion(')
           ..write('id: $id, ')
-          ..write('phone_number: $phone_number, ')
-          ..write('label_id: $label_id, ')
-          ..write('marked_at: $marked_at, ')
-          ..write('is_counted: $is_counted, ')
+          ..write('phoneNumber: $phoneNumber, ')
+          ..write('labelId: $labelId, ')
+          ..write('markedAt: $markedAt, ')
+          ..write('isCounted: $isCounted, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -7948,11 +7943,11 @@ class $UserMarkCountTable extends UserMarkCount
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _total_countMeta = const VerificationMeta(
-    'total_count',
+  static const VerificationMeta _totalCountMeta = const VerificationMeta(
+    'totalCount',
   );
   @override
-  late final GeneratedColumn<int> total_count = GeneratedColumn<int>(
+  late final GeneratedColumn<int> totalCount = GeneratedColumn<int>(
     'total_count',
     aliasedName,
     false,
@@ -7960,11 +7955,11 @@ class $UserMarkCountTable extends UserMarkCount
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
-  static const VerificationMeta _last_updatedMeta = const VerificationMeta(
-    'last_updated',
+  static const VerificationMeta _lastUpdatedMeta = const VerificationMeta(
+    'lastUpdated',
   );
   @override
-  late final GeneratedColumn<String> last_updated = GeneratedColumn<String>(
+  late final GeneratedColumn<String> lastUpdated = GeneratedColumn<String>(
     'last_updated',
     aliasedName,
     false,
@@ -7973,7 +7968,7 @@ class $UserMarkCountTable extends UserMarkCount
     requiredDuringInsert: true,
   );
   @override
-  List<GeneratedColumn> get $columns => [id, total_count, last_updated];
+  List<GeneratedColumn> get $columns => [id, totalCount, lastUpdated];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -7993,23 +7988,20 @@ class $UserMarkCountTable extends UserMarkCount
     }
     if (data.containsKey('total_count')) {
       context.handle(
-        _total_countMeta,
-        total_count.isAcceptableOrUnknown(
-          data['total_count']!,
-          _total_countMeta,
-        ),
+        _totalCountMeta,
+        totalCount.isAcceptableOrUnknown(data['total_count']!, _totalCountMeta),
       );
     }
     if (data.containsKey('last_updated')) {
       context.handle(
-        _last_updatedMeta,
-        last_updated.isAcceptableOrUnknown(
+        _lastUpdatedMeta,
+        lastUpdated.isAcceptableOrUnknown(
           data['last_updated']!,
-          _last_updatedMeta,
+          _lastUpdatedMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_last_updatedMeta);
+      context.missing(_lastUpdatedMeta);
     }
     return context;
   }
@@ -8025,12 +8017,12 @@ class $UserMarkCountTable extends UserMarkCount
             DriftSqlType.string,
             data['${effectivePrefix}id'],
           )!,
-      total_count:
+      totalCount:
           attachedDatabase.typeMapping.read(
             DriftSqlType.int,
             data['${effectivePrefix}total_count'],
           )!,
-      last_updated:
+      lastUpdated:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}last_updated'],
@@ -8047,27 +8039,27 @@ class $UserMarkCountTable extends UserMarkCount
 class UserMarkCountData extends DataClass
     implements Insertable<UserMarkCountData> {
   final String id;
-  final int total_count;
-  final String last_updated;
+  final int totalCount;
+  final String lastUpdated;
   const UserMarkCountData({
     required this.id,
-    required this.total_count,
-    required this.last_updated,
+    required this.totalCount,
+    required this.lastUpdated,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
-    map['total_count'] = Variable<int>(total_count);
-    map['last_updated'] = Variable<String>(last_updated);
+    map['total_count'] = Variable<int>(totalCount);
+    map['last_updated'] = Variable<String>(lastUpdated);
     return map;
   }
 
   UserMarkCountCompanion toCompanion(bool nullToAbsent) {
     return UserMarkCountCompanion(
       id: Value(id),
-      total_count: Value(total_count),
-      last_updated: Value(last_updated),
+      totalCount: Value(totalCount),
+      lastUpdated: Value(lastUpdated),
     );
   }
 
@@ -8078,8 +8070,8 @@ class UserMarkCountData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return UserMarkCountData(
       id: serializer.fromJson<String>(json['id']),
-      total_count: serializer.fromJson<int>(json['total_count']),
-      last_updated: serializer.fromJson<String>(json['last_updated']),
+      totalCount: serializer.fromJson<int>(json['totalCount']),
+      lastUpdated: serializer.fromJson<String>(json['lastUpdated']),
     );
   }
   @override
@@ -8087,29 +8079,27 @@ class UserMarkCountData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
-      'total_count': serializer.toJson<int>(total_count),
-      'last_updated': serializer.toJson<String>(last_updated),
+      'totalCount': serializer.toJson<int>(totalCount),
+      'lastUpdated': serializer.toJson<String>(lastUpdated),
     };
   }
 
   UserMarkCountData copyWith({
     String? id,
-    int? total_count,
-    String? last_updated,
+    int? totalCount,
+    String? lastUpdated,
   }) => UserMarkCountData(
     id: id ?? this.id,
-    total_count: total_count ?? this.total_count,
-    last_updated: last_updated ?? this.last_updated,
+    totalCount: totalCount ?? this.totalCount,
+    lastUpdated: lastUpdated ?? this.lastUpdated,
   );
   UserMarkCountData copyWithCompanion(UserMarkCountCompanion data) {
     return UserMarkCountData(
       id: data.id.present ? data.id.value : this.id,
-      total_count:
-          data.total_count.present ? data.total_count.value : this.total_count,
-      last_updated:
-          data.last_updated.present
-              ? data.last_updated.value
-              : this.last_updated,
+      totalCount:
+          data.totalCount.present ? data.totalCount.value : this.totalCount,
+      lastUpdated:
+          data.lastUpdated.present ? data.lastUpdated.value : this.lastUpdated,
     );
   }
 
@@ -8117,65 +8107,65 @@ class UserMarkCountData extends DataClass
   String toString() {
     return (StringBuffer('UserMarkCountData(')
           ..write('id: $id, ')
-          ..write('total_count: $total_count, ')
-          ..write('last_updated: $last_updated')
+          ..write('totalCount: $totalCount, ')
+          ..write('lastUpdated: $lastUpdated')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, total_count, last_updated);
+  int get hashCode => Object.hash(id, totalCount, lastUpdated);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is UserMarkCountData &&
           other.id == this.id &&
-          other.total_count == this.total_count &&
-          other.last_updated == this.last_updated);
+          other.totalCount == this.totalCount &&
+          other.lastUpdated == this.lastUpdated);
 }
 
 class UserMarkCountCompanion extends UpdateCompanion<UserMarkCountData> {
   final Value<String> id;
-  final Value<int> total_count;
-  final Value<String> last_updated;
+  final Value<int> totalCount;
+  final Value<String> lastUpdated;
   final Value<int> rowid;
   const UserMarkCountCompanion({
     this.id = const Value.absent(),
-    this.total_count = const Value.absent(),
-    this.last_updated = const Value.absent(),
+    this.totalCount = const Value.absent(),
+    this.lastUpdated = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   UserMarkCountCompanion.insert({
     required String id,
-    this.total_count = const Value.absent(),
-    required String last_updated,
+    this.totalCount = const Value.absent(),
+    required String lastUpdated,
     this.rowid = const Value.absent(),
   }) : id = Value(id),
-       last_updated = Value(last_updated);
+       lastUpdated = Value(lastUpdated);
   static Insertable<UserMarkCountData> custom({
     Expression<String>? id,
-    Expression<int>? total_count,
-    Expression<String>? last_updated,
+    Expression<int>? totalCount,
+    Expression<String>? lastUpdated,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
-      if (total_count != null) 'total_count': total_count,
-      if (last_updated != null) 'last_updated': last_updated,
+      if (totalCount != null) 'total_count': totalCount,
+      if (lastUpdated != null) 'last_updated': lastUpdated,
       if (rowid != null) 'rowid': rowid,
     });
   }
 
   UserMarkCountCompanion copyWith({
     Value<String>? id,
-    Value<int>? total_count,
-    Value<String>? last_updated,
+    Value<int>? totalCount,
+    Value<String>? lastUpdated,
     Value<int>? rowid,
   }) {
     return UserMarkCountCompanion(
       id: id ?? this.id,
-      total_count: total_count ?? this.total_count,
-      last_updated: last_updated ?? this.last_updated,
+      totalCount: totalCount ?? this.totalCount,
+      lastUpdated: lastUpdated ?? this.lastUpdated,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -8186,11 +8176,11 @@ class UserMarkCountCompanion extends UpdateCompanion<UserMarkCountData> {
     if (id.present) {
       map['id'] = Variable<String>(id.value);
     }
-    if (total_count.present) {
-      map['total_count'] = Variable<int>(total_count.value);
+    if (totalCount.present) {
+      map['total_count'] = Variable<int>(totalCount.value);
     }
-    if (last_updated.present) {
-      map['last_updated'] = Variable<String>(last_updated.value);
+    if (lastUpdated.present) {
+      map['last_updated'] = Variable<String>(lastUpdated.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -8202,8 +8192,8 @@ class UserMarkCountCompanion extends UpdateCompanion<UserMarkCountData> {
   String toString() {
     return (StringBuffer('UserMarkCountCompanion(')
           ..write('id: $id, ')
-          ..write('total_count: $total_count, ')
-          ..write('last_updated: $last_updated, ')
+          ..write('totalCount: $totalCount, ')
+          ..write('lastUpdated: $lastUpdated, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -9849,12 +9839,12 @@ typedef $$SubscriptionsTableCreateCompanionBuilder =
       required String id,
       required String name,
       required String url,
-      required String table_type,
+      required String tableType,
       Value<int> isEnabled,
       required String lastUpdated,
       Value<int> autoUpdate,
-      Value<String?> contact_group,
-      Value<String?> keyword_filters,
+      Value<String?> contactGroup,
+      Value<String?> keywordFilters,
       Value<String> action,
       Value<int> rowid,
     });
@@ -9863,12 +9853,12 @@ typedef $$SubscriptionsTableUpdateCompanionBuilder =
       Value<String> id,
       Value<String> name,
       Value<String> url,
-      Value<String> table_type,
+      Value<String> tableType,
       Value<int> isEnabled,
       Value<String> lastUpdated,
       Value<int> autoUpdate,
-      Value<String?> contact_group,
-      Value<String?> keyword_filters,
+      Value<String?> contactGroup,
+      Value<String?> keywordFilters,
       Value<String> action,
       Value<int> rowid,
     });
@@ -9897,8 +9887,8 @@ class $$SubscriptionsTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get table_type => $composableBuilder(
-    column: $table.table_type,
+  ColumnFilters<String> get tableType => $composableBuilder(
+    column: $table.tableType,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -9917,13 +9907,13 @@ class $$SubscriptionsTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get contact_group => $composableBuilder(
-    column: $table.contact_group,
+  ColumnFilters<String> get contactGroup => $composableBuilder(
+    column: $table.contactGroup,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get keyword_filters => $composableBuilder(
-    column: $table.keyword_filters,
+  ColumnFilters<String> get keywordFilters => $composableBuilder(
+    column: $table.keywordFilters,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -9957,8 +9947,8 @@ class $$SubscriptionsTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get table_type => $composableBuilder(
-    column: $table.table_type,
+  ColumnOrderings<String> get tableType => $composableBuilder(
+    column: $table.tableType,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -9977,13 +9967,13 @@ class $$SubscriptionsTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get contact_group => $composableBuilder(
-    column: $table.contact_group,
+  ColumnOrderings<String> get contactGroup => $composableBuilder(
+    column: $table.contactGroup,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get keyword_filters => $composableBuilder(
-    column: $table.keyword_filters,
+  ColumnOrderings<String> get keywordFilters => $composableBuilder(
+    column: $table.keywordFilters,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -10011,10 +10001,8 @@ class $$SubscriptionsTableAnnotationComposer
   GeneratedColumn<String> get url =>
       $composableBuilder(column: $table.url, builder: (column) => column);
 
-  GeneratedColumn<String> get table_type => $composableBuilder(
-    column: $table.table_type,
-    builder: (column) => column,
-  );
+  GeneratedColumn<String> get tableType =>
+      $composableBuilder(column: $table.tableType, builder: (column) => column);
 
   GeneratedColumn<int> get isEnabled =>
       $composableBuilder(column: $table.isEnabled, builder: (column) => column);
@@ -10029,13 +10017,13 @@ class $$SubscriptionsTableAnnotationComposer
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get contact_group => $composableBuilder(
-    column: $table.contact_group,
+  GeneratedColumn<String> get contactGroup => $composableBuilder(
+    column: $table.contactGroup,
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get keyword_filters => $composableBuilder(
-    column: $table.keyword_filters,
+  GeneratedColumn<String> get keywordFilters => $composableBuilder(
+    column: $table.keywordFilters,
     builder: (column) => column,
   );
 
@@ -10087,24 +10075,24 @@ class $$SubscriptionsTableTableManager
                 Value<String> id = const Value.absent(),
                 Value<String> name = const Value.absent(),
                 Value<String> url = const Value.absent(),
-                Value<String> table_type = const Value.absent(),
+                Value<String> tableType = const Value.absent(),
                 Value<int> isEnabled = const Value.absent(),
                 Value<String> lastUpdated = const Value.absent(),
                 Value<int> autoUpdate = const Value.absent(),
-                Value<String?> contact_group = const Value.absent(),
-                Value<String?> keyword_filters = const Value.absent(),
+                Value<String?> contactGroup = const Value.absent(),
+                Value<String?> keywordFilters = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => SubscriptionsCompanion(
                 id: id,
                 name: name,
                 url: url,
-                table_type: table_type,
+                tableType: tableType,
                 isEnabled: isEnabled,
                 lastUpdated: lastUpdated,
                 autoUpdate: autoUpdate,
-                contact_group: contact_group,
-                keyword_filters: keyword_filters,
+                contactGroup: contactGroup,
+                keywordFilters: keywordFilters,
                 action: action,
                 rowid: rowid,
               ),
@@ -10113,24 +10101,24 @@ class $$SubscriptionsTableTableManager
                 required String id,
                 required String name,
                 required String url,
-                required String table_type,
+                required String tableType,
                 Value<int> isEnabled = const Value.absent(),
                 required String lastUpdated,
                 Value<int> autoUpdate = const Value.absent(),
-                Value<String?> contact_group = const Value.absent(),
-                Value<String?> keyword_filters = const Value.absent(),
+                Value<String?> contactGroup = const Value.absent(),
+                Value<String?> keywordFilters = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => SubscriptionsCompanion.insert(
                 id: id,
                 name: name,
                 url: url,
-                table_type: table_type,
+                tableType: tableType,
                 isEnabled: isEnabled,
                 lastUpdated: lastUpdated,
                 autoUpdate: autoUpdate,
-                contact_group: contact_group,
-                keyword_filters: keyword_filters,
+                contactGroup: contactGroup,
+                keywordFilters: keywordFilters,
                 action: action,
                 rowid: rowid,
               ),
@@ -12063,19 +12051,19 @@ typedef $$SimSlotRulesTableProcessedTableManager =
 typedef $$LabelMarkStatisticsTableCreateCompanionBuilder =
     LabelMarkStatisticsCompanion Function({
       required String id,
-      required String phone_number,
-      required String label_id,
-      required String marked_at,
-      Value<int> is_counted,
+      required String phoneNumber,
+      required String labelId,
+      required String markedAt,
+      Value<int> isCounted,
       Value<int> rowid,
     });
 typedef $$LabelMarkStatisticsTableUpdateCompanionBuilder =
     LabelMarkStatisticsCompanion Function({
       Value<String> id,
-      Value<String> phone_number,
-      Value<String> label_id,
-      Value<String> marked_at,
-      Value<int> is_counted,
+      Value<String> phoneNumber,
+      Value<String> labelId,
+      Value<String> markedAt,
+      Value<int> isCounted,
       Value<int> rowid,
     });
 
@@ -12093,23 +12081,23 @@ class $$LabelMarkStatisticsTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get phone_number => $composableBuilder(
-    column: $table.phone_number,
+  ColumnFilters<String> get phoneNumber => $composableBuilder(
+    column: $table.phoneNumber,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get label_id => $composableBuilder(
-    column: $table.label_id,
+  ColumnFilters<String> get labelId => $composableBuilder(
+    column: $table.labelId,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get marked_at => $composableBuilder(
-    column: $table.marked_at,
+  ColumnFilters<String> get markedAt => $composableBuilder(
+    column: $table.markedAt,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get is_counted => $composableBuilder(
-    column: $table.is_counted,
+  ColumnFilters<int> get isCounted => $composableBuilder(
+    column: $table.isCounted,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -12128,23 +12116,23 @@ class $$LabelMarkStatisticsTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get phone_number => $composableBuilder(
-    column: $table.phone_number,
+  ColumnOrderings<String> get phoneNumber => $composableBuilder(
+    column: $table.phoneNumber,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get label_id => $composableBuilder(
-    column: $table.label_id,
+  ColumnOrderings<String> get labelId => $composableBuilder(
+    column: $table.labelId,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get marked_at => $composableBuilder(
-    column: $table.marked_at,
+  ColumnOrderings<String> get markedAt => $composableBuilder(
+    column: $table.markedAt,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get is_counted => $composableBuilder(
-    column: $table.is_counted,
+  ColumnOrderings<int> get isCounted => $composableBuilder(
+    column: $table.isCounted,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -12161,21 +12149,19 @@ class $$LabelMarkStatisticsTableAnnotationComposer
   GeneratedColumn<String> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
 
-  GeneratedColumn<String> get phone_number => $composableBuilder(
-    column: $table.phone_number,
+  GeneratedColumn<String> get phoneNumber => $composableBuilder(
+    column: $table.phoneNumber,
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get label_id =>
-      $composableBuilder(column: $table.label_id, builder: (column) => column);
+  GeneratedColumn<String> get labelId =>
+      $composableBuilder(column: $table.labelId, builder: (column) => column);
 
-  GeneratedColumn<String> get marked_at =>
-      $composableBuilder(column: $table.marked_at, builder: (column) => column);
+  GeneratedColumn<String> get markedAt =>
+      $composableBuilder(column: $table.markedAt, builder: (column) => column);
 
-  GeneratedColumn<int> get is_counted => $composableBuilder(
-    column: $table.is_counted,
-    builder: (column) => column,
-  );
+  GeneratedColumn<int> get isCounted =>
+      $composableBuilder(column: $table.isCounted, builder: (column) => column);
 }
 
 class $$LabelMarkStatisticsTableTableManager
@@ -12225,33 +12211,33 @@ class $$LabelMarkStatisticsTableTableManager
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
-                Value<String> phone_number = const Value.absent(),
-                Value<String> label_id = const Value.absent(),
-                Value<String> marked_at = const Value.absent(),
-                Value<int> is_counted = const Value.absent(),
+                Value<String> phoneNumber = const Value.absent(),
+                Value<String> labelId = const Value.absent(),
+                Value<String> markedAt = const Value.absent(),
+                Value<int> isCounted = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => LabelMarkStatisticsCompanion(
                 id: id,
-                phone_number: phone_number,
-                label_id: label_id,
-                marked_at: marked_at,
-                is_counted: is_counted,
+                phoneNumber: phoneNumber,
+                labelId: labelId,
+                markedAt: markedAt,
+                isCounted: isCounted,
                 rowid: rowid,
               ),
           createCompanionCallback:
               ({
                 required String id,
-                required String phone_number,
-                required String label_id,
-                required String marked_at,
-                Value<int> is_counted = const Value.absent(),
+                required String phoneNumber,
+                required String labelId,
+                required String markedAt,
+                Value<int> isCounted = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => LabelMarkStatisticsCompanion.insert(
                 id: id,
-                phone_number: phone_number,
-                label_id: label_id,
-                marked_at: marked_at,
-                is_counted: is_counted,
+                phoneNumber: phoneNumber,
+                labelId: labelId,
+                markedAt: markedAt,
+                isCounted: isCounted,
                 rowid: rowid,
               ),
           withReferenceMapper:
@@ -12293,15 +12279,15 @@ typedef $$LabelMarkStatisticsTableProcessedTableManager =
 typedef $$UserMarkCountTableCreateCompanionBuilder =
     UserMarkCountCompanion Function({
       required String id,
-      Value<int> total_count,
-      required String last_updated,
+      Value<int> totalCount,
+      required String lastUpdated,
       Value<int> rowid,
     });
 typedef $$UserMarkCountTableUpdateCompanionBuilder =
     UserMarkCountCompanion Function({
       Value<String> id,
-      Value<int> total_count,
-      Value<String> last_updated,
+      Value<int> totalCount,
+      Value<String> lastUpdated,
       Value<int> rowid,
     });
 
@@ -12319,13 +12305,13 @@ class $$UserMarkCountTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get total_count => $composableBuilder(
-    column: $table.total_count,
+  ColumnFilters<int> get totalCount => $composableBuilder(
+    column: $table.totalCount,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get last_updated => $composableBuilder(
-    column: $table.last_updated,
+  ColumnFilters<String> get lastUpdated => $composableBuilder(
+    column: $table.lastUpdated,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -12344,13 +12330,13 @@ class $$UserMarkCountTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get total_count => $composableBuilder(
-    column: $table.total_count,
+  ColumnOrderings<int> get totalCount => $composableBuilder(
+    column: $table.totalCount,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get last_updated => $composableBuilder(
-    column: $table.last_updated,
+  ColumnOrderings<String> get lastUpdated => $composableBuilder(
+    column: $table.lastUpdated,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -12367,13 +12353,13 @@ class $$UserMarkCountTableAnnotationComposer
   GeneratedColumn<String> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
 
-  GeneratedColumn<int> get total_count => $composableBuilder(
-    column: $table.total_count,
+  GeneratedColumn<int> get totalCount => $composableBuilder(
+    column: $table.totalCount,
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get last_updated => $composableBuilder(
-    column: $table.last_updated,
+  GeneratedColumn<String> get lastUpdated => $composableBuilder(
+    column: $table.lastUpdated,
     builder: (column) => column,
   );
 }
@@ -12420,25 +12406,25 @@ class $$UserMarkCountTableTableManager
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
-                Value<int> total_count = const Value.absent(),
-                Value<String> last_updated = const Value.absent(),
+                Value<int> totalCount = const Value.absent(),
+                Value<String> lastUpdated = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => UserMarkCountCompanion(
                 id: id,
-                total_count: total_count,
-                last_updated: last_updated,
+                totalCount: totalCount,
+                lastUpdated: lastUpdated,
                 rowid: rowid,
               ),
           createCompanionCallback:
               ({
                 required String id,
-                Value<int> total_count = const Value.absent(),
-                required String last_updated,
+                Value<int> totalCount = const Value.absent(),
+                required String lastUpdated,
                 Value<int> rowid = const Value.absent(),
               }) => UserMarkCountCompanion.insert(
                 id: id,
-                total_count: total_count,
-                last_updated: last_updated,
+                totalCount: totalCount,
+                lastUpdated: lastUpdated,
                 rowid: rowid,
               ),
           withReferenceMapper:

@@ -6216,4 +6216,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String andMoreItems(int count) {
     return 've $count öğe daha';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

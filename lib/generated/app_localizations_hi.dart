@@ -6195,4 +6195,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String andMoreItems(int count) {
     return 'और $count अधिक आइटम';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

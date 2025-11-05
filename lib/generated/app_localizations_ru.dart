@@ -6251,4 +6251,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String andMoreItems(int count) {
     return 'и еще $count элемента';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

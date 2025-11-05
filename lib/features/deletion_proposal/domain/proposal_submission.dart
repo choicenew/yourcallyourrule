@@ -14,18 +14,18 @@ class ProposalSubmission {
   factory ProposalSubmission.fromMap(Map<String, dynamic> map) {
     return ProposalSubmission(
       id: map['id'],
-      proposerId: map['proposer_id'],
-      phoneNumber: map['phone_number'],
-      submissionTime: DateTime.parse(map['submission_time']),
+      proposerId: map['proposerId'],
+      phoneNumber: map['phoneNumber'],
+      submissionTime: DateTime.parse(map['submissionTime']),
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'proposer_id': proposerId,
-      'phone_number': phoneNumber,
-      'submission_time': submissionTime.toIso8601String(),
+      'proposerId': proposerId,
+      'phoneNumber': phoneNumber,
+      'submissionTime': submissionTime.toIso8601String(),
     };
   }
 }

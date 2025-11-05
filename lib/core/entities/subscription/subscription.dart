@@ -38,7 +38,7 @@ class Subscription extends BaseEntity {
       'action': action.toString(),
       'lastUpdated': lastUpdated.toIso8601String(),
       'autoUpdate': autoUpdate ? 1 : 0,
-      'table_type': tableType, // 添加表类型字段
+      'tableType': tableType, // 添加表类型字段
     };
   }
 
@@ -55,7 +55,7 @@ class Subscription extends BaseEntity {
       action: action,
       lastUpdated: DateTime.parse(map['lastUpdated']),
       autoUpdate: (map['autoUpdate'] ?? 0) == 1,
-      tableType: map['table_type'] ?? 'phone', // 从map中获取表类型
+      tableType: map['tableType'] ?? 'phone', // 从map中获取表类型
     );
   }
 

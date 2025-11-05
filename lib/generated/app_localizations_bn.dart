@@ -6206,4 +6206,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String andMoreItems(int count) {
     return 'এবং আরও $count আইটেম';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

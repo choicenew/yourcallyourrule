@@ -6246,4 +6246,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String andMoreItems(int count) {
     return 'та ще $count елементів';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

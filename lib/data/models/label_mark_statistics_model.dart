@@ -26,10 +26,10 @@ class LabelMarkRecordModel extends BaseModel<void> {
   factory LabelMarkRecordModel.fromMap(Map<String, dynamic> map) {
     return LabelMarkRecordModel(
       id: map['id'],
-      phoneNumber: map['phone_number'],
-      labelId: map['label_id'],
-      markedAt: DateTime.parse(map['marked_at']),
-      isCounted: map['is_counted'] == 1,
+      phoneNumber: map['phoneNumber'],
+      labelId: map['labelId'],
+      markedAt: DateTime.parse(map['markedAt']),
+      isCounted: map['isCounted'] == 1,
     );
   }
 
@@ -38,10 +38,10 @@ class LabelMarkRecordModel extends BaseModel<void> {
   Map<String, dynamic> toMap() {
     final map = super.toMap();
     map.addAll({
-      'phone_number': phoneNumber,
-      'label_id': labelId,
-      'marked_at': markedAt.toIso8601String(),
-      'is_counted': isCounted ? 1 : 0,
+      'phoneNumber': phoneNumber,
+      'labelId': labelId,
+      'markedAt': markedAt.toIso8601String(),
+      'isCounted': isCounted ? 1 : 0,
     });
     return map;
   }
@@ -72,8 +72,8 @@ class UserMarkCountModel extends BaseModel<void> {
   factory UserMarkCountModel.fromMap(Map<String, dynamic> map) {
     return UserMarkCountModel(
       id: map['id'],
-      totalCount: map['total_count'],
-      lastUpdated: DateTime.parse(map['last_updated']),
+      totalCount: map['totalCount'],
+      lastUpdated: DateTime.parse(map['lastUpdated']),
     );
   }
 
@@ -82,8 +82,8 @@ class UserMarkCountModel extends BaseModel<void> {
   Map<String, dynamic> toMap() {
     final map = super.toMap();
     map.addAll({
-      'total_count': totalCount,
-      'last_updated': lastUpdated.toIso8601String(),
+      'totalCount': totalCount,
+      'lastUpdated': lastUpdated.toIso8601String(),
     });
     return map;
   }

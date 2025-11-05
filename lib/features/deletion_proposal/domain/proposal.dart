@@ -32,7 +32,7 @@ class Proposal {
   /// 包含详细验证报告的原始JSON字符串。
   /// `reason` 字段被封装在此JSON中。
   final String? verificationReportJson;
-// 【MODIFIED】: 新增了 `labels_json` 字段，以匹配从服务器同步回来的数据。
+// 【MODIFIED】: 新增了 `labelsJson` 字段，以匹配从服务器同步回来的数据。
   final String? labelsJson;
   /// 标准的公共构造函数。
   Proposal({
@@ -54,15 +54,15 @@ class Proposal {
     try {
       return Proposal(
         phoneNumber: map['phoneNumber'] as String,
-        proposalStartTime: DateTime.parse(map['proposal_start_time'] as String),
+        proposalStartTime: DateTime.parse(map['proposalStartTime'] as String),
         status: ProposalStatus.fromString(map['status'] as String),
-        highestRiskLevel: map['highest_risk_level'] as String,
-        proposalCount: map['proposal_count'] as int,
-        verifiedOwnerCount: map['verified_owner_count'] as int,
-        lastUpdated: DateTime.parse(map['last_updated'] as String),
+        highestRiskLevel: map['highestRiskLevel'] as String,
+        proposalCount: map['proposalCount'] as int,
+        verifiedOwnerCount: map['verifiedOwnerCount'] as int,
+        lastUpdated: DateTime.parse(map['lastUpdated'] as String),
         verificationReportJson: map['verificationReportJson'] as String?,
-           // 【MODIFIED】: 从 map 中读取 `labels_json`
-        labelsJson: map['labels_json'] as String?,
+           // 【MODIFIED】: 从 map 中读取 `labelsJson`
+        labelsJson: map['labelsJson'] as String?,
       );
     } catch (e, stackTrace) {
       // 抛出一个更详细的异常，便于调试。
@@ -77,13 +77,14 @@ class Proposal {
   Map<String, dynamic> toMap() {
     return {
       'phoneNumber': phoneNumber,
-      'proposal_start_time': proposalStartTime.toIso8601String(),
+      'proposalStartTime': proposalStartTime.toIso8601String(),
       'status': status.name,
-      'highest_risk_level': highestRiskLevel,
-      'proposal_count': proposalCount,
-      'verified_owner_count': verifiedOwnerCount,
-      'last_updated': lastUpdated.toIso8601String(),
+      'highestRiskLevel': highestRiskLevel,
+      'proposalCount': proposalCount,
+      'verifiedOwnerCount': verifiedOwnerCount,
+      'lastUpdated': lastUpdated.toIso8601String(),
       'verificationReportJson': verificationReportJson,
+      'labelsJson': labelsJson,
     };
   }
   

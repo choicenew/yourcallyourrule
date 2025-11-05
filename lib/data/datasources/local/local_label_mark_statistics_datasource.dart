@@ -26,7 +26,7 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
         .listen(
       (countData) {
         if (!_markCountController.isClosed) {
-          _markCountController.add(countData?.total_count ?? 0);
+          _markCountController.add(countData?.totalCount ?? 0);
         }
       },
       onError: (error, stackTrace) {
@@ -41,10 +41,10 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
   LabelMarkRecordModel _fromRecordData(LabelMarkStatisticData data) {
     return LabelMarkRecordModel(
       id: data.id,
-      phoneNumber: data.phone_number,
-      labelId: data.label_id,
-      markedAt: DateTime.parse(data.marked_at),
-      isCounted: data.is_counted == 1,
+      phoneNumber: data.phoneNumber,
+      labelId: data.labelId,
+      markedAt: DateTime.parse(data.markedAt),
+      isCounted: data.isCounted == 1,
     );
   }
 
@@ -52,10 +52,10 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
   LabelMarkStatisticsCompanion _toRecordCompanion(LabelMarkRecordModel model) {
     return LabelMarkStatisticsCompanion(
       id: Value(model.id),
-      phone_number: Value(model.phoneNumber),
-      label_id: Value(model.labelId),
-      marked_at: Value(model.markedAt.toIso8601String()),
-      is_counted: Value(model.isCounted ? 1 : 0),
+      phoneNumber: Value(model.phoneNumber),
+      labelId: Value(model.labelId),
+      markedAt: Value(model.markedAt.toIso8601String()),
+      isCounted: Value(model.isCounted ? 1 : 0),
     );
   }
 
@@ -66,7 +66,7 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
 
     // Check if the number has already been marked
     final existingMark = await (_db.select(_db.labelMarkStatistics)
-          ..where((tbl) => tbl.phone_number.equals(phoneNumber)))
+          ..where((tbl) => tbl.phoneNumber.equals(phoneNumber)))
         .getSingleOrNull();
 
     if (existingMark != null) {
@@ -78,20 +78,20 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
       final markId = _uuid.v4();
       await _db.into(_db.labelMarkStatistics).insert(LabelMarkStatisticsCompanion.insert(
             id: markId,
-            phone_number: phoneNumber,
-            label_id: labelId,
-            marked_at: DateTime.now().toIso8601String(),
-            is_counted: const Value(1),
+            phoneNumber: phoneNumber,
+            labelId: labelId,
+            markedAt: DateTime.now().toIso8601String(),
+            isCounted: const Value(1),
           ));
 
       // Increment the user mark count
       final countRecord = await (_db.select(_db.userMarkCount)..limit(1)).getSingleOrNull();
       if (countRecord != null) {
-        final newCount = (countRecord.total_count) + 1;
+        final newCount = (countRecord.totalCount) + 1;
         await (_db.update(_db.userMarkCount)..where((tbl) => tbl.id.equals(countRecord.id))).write(
           UserMarkCountCompanion(
-            total_count: Value(newCount),
-            last_updated: Value(DateTime.now().toIso8601String()),
+            totalCount: Value(newCount),
+            lastUpdated: Value(DateTime.now().toIso8601String()),
           ),
         );
       }
@@ -102,7 +102,7 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
 
   Future<int> getMarkCount() async {
      final countRecord = await (_db.select(_db.userMarkCount)..limit(1)).getSingleOrNull();
-     return countRecord?.total_count ?? 0;
+     return countRecord?.totalCount ?? 0;
   }
 
   Future<void> resetMarkCount() async {
@@ -110,8 +110,8 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
      if (countRecord != null) {
         await (_db.update(_db.userMarkCount)..where((tbl) => tbl.id.equals(countRecord.id))).write(
           UserMarkCountCompanion(
-            total_count: const Value(0),
-            last_updated: Value(DateTime.now().toIso8601String()),
+            totalCount: const Value(0),
+            lastUpdated: Value(DateTime.now().toIso8601String()),
           ),
         );
      }

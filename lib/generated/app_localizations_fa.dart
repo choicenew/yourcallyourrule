@@ -6169,4 +6169,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String andMoreItems(int count) {
     return 'و $count مورد دیگر';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

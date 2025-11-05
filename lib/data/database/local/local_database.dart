@@ -106,12 +106,12 @@ class Subscriptions extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
   TextColumn get url => text().withLength(min: 1)();
-  TextColumn get table_type => text().withLength(min: 1)();
+  TextColumn get tableType => text().withLength(min: 1)();
   IntColumn get isEnabled => integer().withDefault(const Constant(1))();
   TextColumn get lastUpdated => text().withLength(min: 1)();
   IntColumn get autoUpdate => integer().withDefault(const Constant(0))();
-  TextColumn get contact_group => text().nullable()();
-  TextColumn get keyword_filters => text().nullable()();
+  TextColumn get contactGroup => text().nullable()();
+  TextColumn get keywordFilters => text().nullable()();
   TextColumn get action => text().withDefault(const Constant('none'))();
 
   @override
@@ -217,7 +217,7 @@ class SimSlotRules extends Table {
   IntColumn get simSlotIndex => integer()();
   TextColumn get labelId => text().withLength(min: 1)();
   TextColumn get avatar => text().nullable()();
-  TextColumn get ruleType => text().withDefault(const Constant('sim_slot'))();
+  TextColumn get ruleType => text().withDefault(const Constant('simSlot'))();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -226,10 +226,10 @@ class SimSlotRules extends Table {
 @DataClassName('LabelMarkStatisticData')
 class LabelMarkStatistics extends Table {
   TextColumn get id => text().withLength(min: 1)();
-  TextColumn get phone_number => text().withLength(min: 1)();
-  TextColumn get label_id => text().withLength(min: 1)();
-  TextColumn get marked_at => text().withLength(min: 1)();
-  IntColumn get is_counted => integer().withDefault(const Constant(1))();
+  TextColumn get phoneNumber => text().withLength(min: 1)();
+  TextColumn get labelId => text().withLength(min: 1)();
+  TextColumn get markedAt => text().withLength(min: 1)();
+  IntColumn get isCounted => integer().withDefault(const Constant(1))();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -238,8 +238,8 @@ class LabelMarkStatistics extends Table {
 @DataClassName('UserMarkCountData')
 class UserMarkCount extends Table {
   TextColumn get id => text().withLength(min: 1)();
-  IntColumn get total_count => integer().withDefault(const Constant(0))();
-  TextColumn get last_updated => text().withLength(min: 1)();
+  IntColumn get totalCount => integer().withDefault(const Constant(0))();
+  TextColumn get lastUpdated => text().withLength(min: 1)();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -355,8 +355,8 @@ class LocalDatabase extends _$LocalDatabase {
           userMarkCount,
           UserMarkCountCompanion.insert(
             id: const Uuid().v4(),
-            total_count: const Value(0),
-            last_updated: DateTime.now().toIso8601String(),
+            totalCount: const Value(0),
+            lastUpdated: DateTime.now().toIso8601String(),
           ),
         );
       });

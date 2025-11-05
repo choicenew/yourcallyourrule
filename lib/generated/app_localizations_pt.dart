@@ -6257,4 +6257,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String andMoreItems(int count) {
     return 'e mais $count itens';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

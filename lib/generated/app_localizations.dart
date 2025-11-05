@@ -11035,6 +11035,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'and {count} more items'**
   String andMoreItems(int count);
+
+  /// No description provided for @ruleType.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Type'**
+  String get ruleType;
 }
 
 class _AppLocalizationsDelegate

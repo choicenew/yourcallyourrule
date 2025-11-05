@@ -6145,4 +6145,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String andMoreItems(int count) {
     return 'และอีก $count รายการ';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

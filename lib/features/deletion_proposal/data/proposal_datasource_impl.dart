@@ -30,19 +30,19 @@ class ProposalDataSourceImpl implements ProposalDataSource {
         await _db.into(_db.activeDeletionProposals).insert(
           ActiveDeletionProposalsCompanion.insert(
             phoneNumber: phoneNumber,
-            proposal_start_time: now,
-            highest_risk_level: riskLevel,
-            last_updated: now,
+            proposalStartTime: now,
+            highestRiskLevel: riskLevel,
+            lastUpdated: now,
             status: Value(ProposalStatus.pending.name),
-            proposal_count: const Value(1),
-            verified_owner_count: Value(isOwner ? 1 : 0),
+            proposalCount: const Value(1),
+            verifiedOwnerCount: Value(isOwner ? 1 : 0),
             verificationReportJson: Value(verificationReportJson),
           ),
         );
       } else {
-        final currentRiskLevel = existing.highest_risk_level;
-        final currentProposalCount = existing.proposal_count;
-        final currentOwnerCount = existing.verified_owner_count;
+        final currentRiskLevel = existing.highestRiskLevel;
+        final currentProposalCount = existing.proposalCount;
+        final currentOwnerCount = existing.verifiedOwnerCount;
 
         String newRiskLevel = currentRiskLevel;
         if (riskLevel == 'Verified' || currentRiskLevel == 'Verified') {
@@ -55,10 +55,10 @@ class ProposalDataSourceImpl implements ProposalDataSource {
               ..where((t) => t.phoneNumber.equals(phoneNumber)))
             .write(
           ActiveDeletionProposalsCompanion(
-            proposal_count: Value(currentProposalCount + 1),
-            verified_owner_count: Value(currentOwnerCount + (isOwner ? 1 : 0)),
-            highest_risk_level: Value(newRiskLevel),
-            last_updated: Value(now),
+            proposalCount: Value(currentProposalCount + 1),
+            verifiedOwnerCount: Value(currentOwnerCount + (isOwner ? 1 : 0)),
+            highestRiskLevel: Value(newRiskLevel),
+            lastUpdated: Value(now),
             verificationReportJson: Value(
               verificationReportJson ?? existing.verificationReportJson,
             ),
@@ -72,18 +72,18 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   Future<List<Proposal>> getActiveDeletionProposals() async {
     final rows = await (_db.select(_db.activeDeletionProposals)
           ..where((t) => t.status.equals(ProposalStatus.pending.name))
-          ..orderBy([(t) => OrderingTerm.asc(t.proposal_start_time)]))
+          ..orderBy([(t) => OrderingTerm.asc(t.proposalStartTime)]))
         .get();
     return rows.map((r) => Proposal.fromMap({
           'phoneNumber': r.phoneNumber,
-          'proposal_start_time': r.proposal_start_time,
+          'proposalStartTime': r.proposalStartTime,
           'status': r.status,
-          'highest_risk_level': r.highest_risk_level,
-          'proposal_count': r.proposal_count,
-          'verified_owner_count': r.verified_owner_count,
-          'last_updated': r.last_updated,
+          'highestRiskLevel': r.highestRiskLevel,
+          'proposalCount': r.proposalCount,
+          'verifiedOwnerCount': r.verifiedOwnerCount,
+          'lastUpdated': r.lastUpdated,
           'verificationReportJson': r.verificationReportJson,
-          'labels_json': null,
+          'labelsJson': null,
         })).toList();
   }
 
@@ -92,18 +92,18 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     final cutoffTime = DateTime.now().subtract(timeout).toIso8601String();
     final rows = await (_db.select(_db.activeDeletionProposals)
           ..where((t) => t.status.equals(ProposalStatus.pending.name))
-          ..where((t) => t.proposal_start_time.isSmallerThanValue(cutoffTime)))
+          ..where((t) => t.proposalStartTime.isSmallerThanValue(cutoffTime)))
         .get();
     return rows.map((r) => Proposal.fromMap({
           'phoneNumber': r.phoneNumber,
-          'proposal_start_time': r.proposal_start_time,
+          'proposalStartTime': r.proposalStartTime,
           'status': r.status,
-          'highest_risk_level': r.highest_risk_level,
-          'proposal_count': r.proposal_count,
-          'verified_owner_count': r.verified_owner_count,
-          'last_updated': r.last_updated,
+          'highestRiskLevel': r.highestRiskLevel,
+          'proposalCount': r.proposalCount,
+          'verifiedOwnerCount': r.verifiedOwnerCount,
+          'lastUpdated': r.lastUpdated,
           'verificationReportJson': r.verificationReportJson,
-          'labels_json': null,
+          'labelsJson': null,
         })).toList();
   }
 
@@ -118,7 +118,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
         .write(
       ActiveDeletionProposalsCompanion(
         status: Value(validStatus.name),
-        last_updated: Value(DateTime.now().toIso8601String()),
+        lastUpdated: Value(DateTime.now().toIso8601String()),
       ),
     );
   }
@@ -152,7 +152,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
         DateTime.now().subtract(retentionPeriod).toIso8601String();
     await (_db.delete(_db.activeDeletionProposals)
           ..where((t) => t.status.isNotIn([ProposalStatus.pending.name]))
-          ..where((t) => t.last_updated.isSmallerThanValue(cutoffTime)))
+          ..where((t) => t.lastUpdated.isSmallerThanValue(cutoffTime)))
         .go();
   }
 
@@ -165,9 +165,9 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     await _db.into(_db.proposalSubmissions).insert(
       ProposalSubmissionsCompanion.insert(
         id: const Uuid().v4(),
-        proposer_id: proposerId,
-        phone_number: phoneNumber,
-        submission_time: DateTime.now().toIso8601String(),
+        proposerId: proposerId,
+        phoneNumber: phoneNumber,
+        submissionTime: DateTime.now().toIso8601String(),
       ),
     );
   }
@@ -194,10 +194,10 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     await _db.into(_db.proposalVotes).insert(
       ProposalVotesCompanion.insert(
         id: const Uuid().v4(),
-        voter_id: voterId,
-        proposal_id: proposalId,
-        vote_time: DateTime.now().toIso8601String(),
-        is_consumed: const Value(0),
+        voterId: voterId,
+        proposalId: proposalId,
+        voteTime: DateTime.now().toIso8601String(),
+        isConsumed: const Value(0),
       ),
     );
   }
@@ -217,9 +217,9 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   Future<void> consumeVotes(String voterId, int count) async {
     await _db.transaction(() async {
       final votes = await (_db.select(_db.proposalVotes)
-            ..where((t) => t.voter_id.equals(voterId))
-            ..where((t) => t.is_consumed.equals(0))
-            ..orderBy([(t) => OrderingTerm.asc(t.vote_time)])
+            ..where((t) => t.voterId.equals(voterId))
+            ..where((t) => t.isConsumed.equals(0))
+            ..orderBy([(t) => OrderingTerm.asc(t.voteTime)])
             ..limit(count))
           .get();
 
@@ -233,7 +233,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
               ..where((t) => t.id.equals(v.id)))
             .write(
           const ProposalVotesCompanion(
-            is_consumed: Value(1),
+            isConsumed: Value(1),
           ),
         );
       }
@@ -363,14 +363,14 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     if (r == null) return null;
     return Proposal.fromMap({
       'phoneNumber': r.phoneNumber,
-      'proposal_start_time': r.proposal_start_time,
+      'proposalStartTime': r.proposalStartTime,
       'status': r.status,
-      'highest_risk_level': r.highest_risk_level,
-      'proposal_count': r.proposal_count,
-      'verified_owner_count': r.verified_owner_count,
-      'last_updated': r.last_updated,
+      'highestRiskLevel': r.highestRiskLevel,
+      'proposalCount': r.proposalCount,
+      'verifiedOwnerCount': r.verifiedOwnerCount,
+      'lastUpdated': r.lastUpdated,
       'verificationReportJson': r.verificationReportJson,
-      'labels_json': null,
+      'labelsJson': null,
     });
   }
 

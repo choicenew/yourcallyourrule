@@ -87,7 +87,7 @@ class SubscriptionModel extends BaseSubscriptionModel<Subscription> {
     return super.toMap()
       ..addAll({
         'action': action.toString(),
-        'table_type': 'phone', // 添加默认类型
+        'tableType': 'phone', // 添加默认类型
       });
   }
 
@@ -127,7 +127,7 @@ class ContactSubscriptionModel extends BaseSubscriptionModel<ContactSubscription
       isEnabled: map['isEnabled'] == 1,
       lastUpdated: DateTime.parse(map['lastUpdated']),
       autoUpdate: map['autoUpdate'] == 1,
-      contactGroup: map['contact_group'],
+      contactGroup: map['contactGroup'],
     );
   }
 
@@ -146,8 +146,8 @@ class ContactSubscriptionModel extends BaseSubscriptionModel<ContactSubscription
   Map<String, dynamic> toMap() {
     return super.toMap()
       ..addAll({
-        'contact_group': contactGroup,
-        'table_type': 'contact'
+        'contactGroup': contactGroup,
+        'tableType': 'contact'
       });
   }
   
@@ -204,7 +204,7 @@ class SmsSubscriptionModel extends SubscriptionModel {
   Map<String, dynamic> toMap() {
     return super.toMap()
       ..addAll({
-        'table_type': 'sms',
+        'tableType': 'sms',
       });
   }
 

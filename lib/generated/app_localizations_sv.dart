@@ -6220,4 +6220,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String andMoreItems(int count) {
     return 'och $count till';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

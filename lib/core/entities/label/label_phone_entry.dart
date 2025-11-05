@@ -51,7 +51,7 @@ class LabelPhoneEntry extends RuleBase {
   Map<String, dynamic> toMap() {
     final map = super.toMap(); // 获取基类的 map (id, name, priority, action, isEnabled)
     map.addAll({
-      'type': 'label_phone_entry', // 添加类型标识符，用于反序列化
+      'type': 'labelPhoneEntry', // 添加类型标识符，用于反序列化
       'phoneNumber': phoneNumber.value,
       'labelId': labelId,
       'avatar': avatar,
@@ -63,7 +63,7 @@ class LabelPhoneEntry extends RuleBase {
   // 从Map创建实例的工厂构造函数 - 处理可选字段和默认值
   factory LabelPhoneEntry.fromMap(Map<String, dynamic> map) {
     // 确认类型是否匹配，如果 'type' 字段存在的话
-    // assert(map['type'] == 'label_phone_entry', 'Map is not for LabelPhoneEntry');
+    // assert(map['type'] == 'labelPhoneEntry', 'Map is not for LabelPhoneEntry');
 
     return LabelPhoneEntry(
       id: map['id'],

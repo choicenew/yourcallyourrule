@@ -6301,4 +6301,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String andMoreItems(int count) {
     return 'va $count ta qo\'shimcha element';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

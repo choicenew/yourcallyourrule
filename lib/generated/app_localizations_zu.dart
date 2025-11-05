@@ -6279,4 +6279,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String andMoreItems(int count) {
     return 'kanye nezinto ezingaba $count';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

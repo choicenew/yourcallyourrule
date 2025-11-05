@@ -6222,4 +6222,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String andMoreItems(int count) {
     return 'da ƙarin abubuwa $count';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

@@ -6176,4 +6176,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String andMoreItems(int count) {
     return 'và $count mục khác';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

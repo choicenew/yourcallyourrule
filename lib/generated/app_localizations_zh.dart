@@ -5937,6 +5937,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String andMoreItems(int count) {
     return '以及更多 $count 个项目';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).

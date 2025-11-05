@@ -6002,4 +6002,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String andMoreItems(int count) {
     return '그리고 $count개 더';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }
