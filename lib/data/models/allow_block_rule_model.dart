@@ -5,7 +5,6 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/data/models/rule_model.dart';
 
 
-import '../../core/entities/rule/regex_rule.dart';
 import '../../core/value_objects/rule_priority.dart';
 import '../../core/value_objects/rule_action.dart';
 
