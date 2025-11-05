@@ -6200,4 +6200,7 @@ class AppLocalizationsId extends AppLocalizations {
   String andMoreItems(int count) {
     return 'dan $count item lainnya';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

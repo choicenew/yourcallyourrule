@@ -31,7 +31,7 @@ class RemoteNumberDataSource
       priority: Value(model.priority),
       action: Value(model.action),
       count: Value(model.count),
-      labels_json: Value(modelMap['labels_json'] as String?),
+      labelsJson: Value(modelMap['labelsJson'] as String?),
     );
   }
 
@@ -239,12 +239,12 @@ class RemoteNumberDataSource
 
       if (existing != null) {
         Map<String, int> labelsCount = {};
-        if (existing.labels_json != null && existing.labels_json!.isNotEmpty) {
+        if (existing.labelsJson != null && existing.labelsJson!.isNotEmpty) {
           try {
             labelsCount =
-                Map<String, int>.from(jsonDecode(existing.labels_json!));
+                Map<String, int>.from(jsonDecode(existing.labelsJson!));
           } catch (e) {
-            print('Error parsing labels_json: $e');
+            print('Error parsing labelsJson: $e');
           }
         }
         labelsCount[label] = (labelsCount[label] ?? 0) + 1;
@@ -261,7 +261,7 @@ class RemoteNumberDataSource
         final companion = RemoteNumbersCompanion(
           count: Value(existing.count + 1),
           label: Value(topLabel),
-          labels_json: Value(jsonEncode(labelsCount)),
+          labelsJson: Value(jsonEncode(labelsCount)),
         );
         final updated = await (_database.update(_database.remoteNumbers)
               ..where((tbl) => tbl.phoneNumber.equals(phoneNumber)))
@@ -281,7 +281,7 @@ class RemoteNumberDataSource
           phoneNumber: phoneNumber,
           label: label,
           count: const Value(1),
-          labels_json: Value(jsonEncode({label: 1})),
+          labelsJson: Value(jsonEncode({label: 1})),
         );
         await _database.into(_database.remoteNumbers).insert(companion);
         await _logOperation('VOTE', phoneNumber, payload: {
@@ -625,8 +625,8 @@ class RemoteNumberDataSource
         ..where((tbl) => tbl.phoneNumber.equals(phoneNumber));
       final result = await query.getSingleOrNull();
       
-      if (result != null && result.labels_json != null) {
-        return jsonDecode(result.labels_json!);
+      if (result != null && result.labelsJson != null) {
+        return jsonDecode(result.labelsJson!);
       }
       return null;
     } catch (e) {

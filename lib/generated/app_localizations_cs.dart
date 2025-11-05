@@ -6211,4 +6211,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String andMoreItems(int count) {
     return 'a dalších $count položek';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

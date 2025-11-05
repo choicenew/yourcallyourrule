@@ -27,7 +27,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
     final String id = data.id ?? _uuid.v4();
     final String urlString = data.url;
     final DateTime lastUpdated = DateTime.parse(data.lastUpdated);
-    final String tableType = data.table_type;
+    final String tableType = data.tableType;
     
     // 2. 根据 table_type 创建相应的 Model
     switch (tableType) {
@@ -38,8 +38,8 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
           url: Url.fromString(urlString),
           isEnabled: data.isEnabled == 1,
           lastUpdated: lastUpdated,
-          autoUpdate: data.autoUpdate == 1,
-          contactGroup: data.contact_group,
+      autoUpdate: data.autoUpdate == 1,
+          contactGroup: data.contactGroup,
         );
       case 'sms':
         return SmsSubscriptionModel(
@@ -80,24 +80,24 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
     // 子类特有字段和 table_type 注入
     if (model is ContactSubscriptionModel) {
       return baseCompanion.copyWith(
-        table_type: const Value('contact'),
-        contact_group: Value(model.contactGroup),
+        tableType: const Value('contact'),
+        contactGroup: Value(model.contactGroup),
         action: const Value.absent(), // 明确设为 absent，确保没有旧值污染
-        keyword_filters: const Value.absent(),
+        keywordFilters: const Value.absent(),
       );
     } else if (model is SmsSubscriptionModel) {
       return baseCompanion.copyWith(
-        table_type: const Value('sms'),
+        tableType: const Value('sms'),
         action: Value(model.action.toString()),
-        contact_group: const Value.absent(),
-        keyword_filters: const Value.absent(),
+        contactGroup: const Value.absent(),
+        keywordFilters: const Value.absent(),
       );
     } else { // SubscriptionModel (Phone)
       return baseCompanion.copyWith(
-        table_type: const Value('phone'),
+        tableType: const Value('phone'),
         action: Value((model as SubscriptionModel).action.toString()),
-        contact_group: const Value.absent(),
-        keyword_filters: const Value.absent(),
+        contactGroup: const Value.absent(),
+        keywordFilters: const Value.absent(),
       );
     }
   }
@@ -222,7 +222,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
       
       for (final map in subscriptionMaps) {
         final subscriptionMap = map as Map<String, dynamic>;
-        final String? tableType = subscriptionMap['table_type'];
+        final String? tableType = subscriptionMap['tableType'];
         
         // 使用 fromMap 进行反序列化
         if (tableType == 'contact') {
@@ -263,7 +263,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
   
   // 根据类型获取订阅
   Future<List<BaseSubscriptionModel>> getByType(String type) async {
-    return _queryWhere(_database.subscriptions.table_type.equals(type));
+    return _queryWhere(_database.subscriptions.tableType.equals(type));
   }
 
   Future<List<BaseSubscriptionModel>> queryAll() async {
@@ -289,7 +289,7 @@ class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionMod
 
   Future<List<BaseSubscriptionModel>> getByContactName(String contactName) async {
     final results = await (_database.select(_database.subscriptions)
-      ..where((tbl) => tbl.name.equals(contactName) & tbl.table_type.equals('contact')))
+      ..where((tbl) => tbl.name.equals(contactName) & tbl.tableType.equals('contact')))
       .get();
     
     return results.map(_fromData).toList();

@@ -45,7 +45,7 @@ class RemoteNumberDataSource
       priority: Value(model.priority),
       action: Value(model.action),
       count: Value(model.count),
-      labels_json: const Value.absent(), 
+      labelsJson: const Value.absent(), 
     );
   }
   
@@ -428,7 +428,7 @@ class RemoteNumberDataSource
       if (existingNumber != null) {
         
         final currentCount = existingNumber.count;
-        final labelsJson = existingNumber.labels_json;
+        final labelsJson = existingNumber.labelsJson;
         if (labelsJson != null && labelsJson.isNotEmpty) {
           try {
             labelsCount = Map<String, int>.from(jsonDecode(labelsJson).map((k, v) => MapEntry(k, v is int ? v : int.tryParse(v.toString()) ?? 0)));
@@ -454,7 +454,7 @@ class RemoteNumberDataSource
         companion = RemoteNumbersCompanion(
           count: Value(newCount),
           label: Value(topLabel),
-          labels_json: Value(jsonEncode(labelsCount)),
+          labelsJson: Value(jsonEncode(labelsCount)),
         );
         
         result = await (_database.update(_database.remoteNumbers)
@@ -482,7 +482,7 @@ class RemoteNumberDataSource
           phoneNumber: phoneNumber,
           label: label,
           count: Value(1), // 修正：使用 Value(1)
-          labels_json: Value(jsonEncode(labelsCount)),
+          labelsJson: Value(jsonEncode(labelsCount)),
         );
         
         result = await _database.into(_database.remoteNumbers).insert(companion);

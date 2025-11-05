@@ -6297,4 +6297,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String andMoreItems(int count) {
     return 'at $count pang mga item';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }

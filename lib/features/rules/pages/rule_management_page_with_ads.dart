@@ -14,8 +14,6 @@ import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_p
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/rules/services/phone_rule_import_export_adapter.dart';
 import 'package:yourcallyourrule/features/common/dialogs/filter_dialogs.dart';
-import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
-import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_list_card.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';

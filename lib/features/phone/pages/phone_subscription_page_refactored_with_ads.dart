@@ -27,6 +27,8 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
   String _searchKeyword = '';
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _urlController = TextEditingController();
+  // 订阅的导入规则类型覆盖，键为订阅ID，值为 'phone_rule' | 'allow_block' | 'regex'
+  final Map<String, String> _subscriptionRuleTypeOverrides = {};
 
   @override
   void initState() {
@@ -89,22 +91,31 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
   }
 
   Future<void> _updateSubscription(Subscription subscription) async {
-    setState(() {
-      _isLoading = true;
-    });
-
     try {
       final phoneSubscriptionService = ref.read(phoneSubscriptionServiceProvider);
-      await phoneSubscriptionService.manualUpdateRulesFromSubscription(subscription);
+      // 后台同步更新并更新时间戳
+      final selectedRuleType = _subscriptionRuleTypeOverrides[subscription.id] ?? 'phone_rule';
+      await phoneSubscriptionService.updateRulesFromSubscription(
+        subscription,
+        ruleTypeOverride: selectedRuleType,
+      );
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateSuccess)),
       );
+      // 更新当前订阅项，避免整页刷新
+      final updated = await phoneSubscriptionService.getById(subscription.id);
+      if (updated != null) {
+        setState(() {
+          final index = _subscriptions.indexWhere((s) => s.id == subscription.id);
+          if (index != -1) {
+            _subscriptions[index] = updated;
+          }
+        });
+      }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('${AppLocalizations.of(context)!.updateSubscriptionFailed}: $e')),
       );
-    } finally {
-      await _loadSubscriptions();
     }
   }
 
@@ -148,6 +159,11 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
     _urlController.text = subscription?.url.toString() ?? '';
     final isEditing = subscription != null;
     RuleAction selectedAction = subscription?.action ?? RuleAction.none;
+    // 规则类型选择：默认为 phone_rule；编辑时加载已有的覆盖
+    String selectedRuleType =
+        (subscription != null && _subscriptionRuleTypeOverrides.containsKey(subscription.id))
+            ? _subscriptionRuleTypeOverrides[subscription.id]!
+            : 'phone_rule';
 
     String dialogTitle = isEditing
         ? AppLocalizations.of(context)!.editSubscription
@@ -200,6 +216,35 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                         }
                       },
                     ),
+                    const SizedBox(height: 16),
+                    DropdownButtonFormField<String>(
+                      value: selectedRuleType,
+                      decoration: InputDecoration(
+                        labelText: AppLocalizations.of(context)!.ruleType,
+                        border: const OutlineInputBorder(),
+                      ),
+                      items: [
+                        DropdownMenuItem<String>(
+                          value: 'phone_rule',
+                          child: Text(AppLocalizations.of(context)!.phoneRule),
+                        ),
+                        DropdownMenuItem<String>(
+                          value: 'allow_block',
+                          child: Text(AppLocalizations.of(context)!.allowedBlockedRule),
+                        ),
+                        DropdownMenuItem<String>(
+                          value: 'regex',
+                          child: Text(AppLocalizations.of(context)!.regexRule),
+                        ),
+                      ],
+                      onChanged: (String? newValue) {
+                        if (newValue != null) {
+                          setState(() {
+                            selectedRuleType = newValue;
+                          });
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -229,11 +274,15 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                           action: selectedAction,
                         );
                         await phoneSubscriptionService.updateSubscription(updatedSubscription);
+                        // 更新该订阅的规则类型覆盖
+                        _subscriptionRuleTypeOverrides[updatedSubscription.id] = selectedRuleType;
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateSuccess)),
                         );
                       } else {
-                        await phoneSubscriptionService.addSubscription(name, url, action: selectedAction);
+                        final newSub = await phoneSubscriptionService.addSubscription(name, url, action: selectedAction);
+                        // 保存新增订阅的规则类型覆盖
+                        _subscriptionRuleTypeOverrides[newSub.id] = selectedRuleType;
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionAddSuccess(name))),
                         );
@@ -276,7 +325,11 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
 
       // 调用新的导入服务
       final phoneSubscriptionService = ref.read(phoneSubscriptionServiceProvider);
-      final rules = await phoneSubscriptionService.importAndSaveRulesFromSubscription(subscription);
+      final selectedRuleType = _subscriptionRuleTypeOverrides[subscription.id] ?? 'phone_rule';
+      final rules = await phoneSubscriptionService.importAndSaveRulesFromSubscription(
+        subscription,
+        ruleTypeOverride: selectedRuleType,
+      );
       final count = rules.length;
 
       // 关闭加载对话框
@@ -289,8 +342,18 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                 '${AppLocalizations.of(context)!.importSuccess}: $count ${AppLocalizations.of(context)!.rulesImported}')),
       );
       
-      // 导入后刷新订阅列表以更新时间戳
-      await _loadSubscriptions();
+      // 导入后后台更新当前订阅的最后更新时间，避免整页刷新
+      try {
+        final updated = await phoneSubscriptionService.getById(subscription.id);
+        if (updated != null) {
+          setState(() {
+            final index = _subscriptions.indexWhere((s) => s.id == subscription.id);
+            if (index != -1) {
+              _subscriptions[index] = updated;
+            }
+          });
+        }
+      } catch (_) {}
 
     } catch (e) {
       // 关闭加载对话框

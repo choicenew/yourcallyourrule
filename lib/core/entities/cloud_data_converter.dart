@@ -150,7 +150,7 @@ class CloudDataConverter {
         return PhoneRule.fromMap(data);
       case 'RegexRule':
         return RegexRule.fromMap(data);
-      case 'sms_regex':
+      case 'smsRegex':
         return SmsRegexRule.fromMap(data);
       case 'ContactRule':
         return ContactRule.fromMap(data);

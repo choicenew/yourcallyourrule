@@ -61,6 +61,8 @@ class RuleListCard extends ConsumerWidget {
             Row(
               children: [
                 CircleAvatar(
+                    // 添加一个唯一的 Key，它会随着 avatar 的变化而变化
+  key: ValueKey(avatar ?? labelId), // 如果avatar为null，则使用labelId作为key
                   backgroundColor: AvatarUtils.getColorFromName(labelId),
                   radius: 25,
                   backgroundImage: AvatarUtils.getAvatarImage(avatar, labelIdToTextMap[labelId]),

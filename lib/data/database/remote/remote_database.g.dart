@@ -80,11 +80,11 @@ class $RemoteNumbersTable extends RemoteNumbers
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
-  static const VerificationMeta _labels_jsonMeta = const VerificationMeta(
-    'labels_json',
+  static const VerificationMeta _labelsJsonMeta = const VerificationMeta(
+    'labelsJson',
   );
   @override
-  late final GeneratedColumn<String> labels_json = GeneratedColumn<String>(
+  late final GeneratedColumn<String> labelsJson = GeneratedColumn<String>(
     'labels_json',
     aliasedName,
     true,
@@ -100,7 +100,7 @@ class $RemoteNumbersTable extends RemoteNumbers
     priority,
     action,
     count,
-    labels_json,
+    labelsJson,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -164,11 +164,8 @@ class $RemoteNumbersTable extends RemoteNumbers
     }
     if (data.containsKey('labels_json')) {
       context.handle(
-        _labels_jsonMeta,
-        labels_json.isAcceptableOrUnknown(
-          data['labels_json']!,
-          _labels_jsonMeta,
-        ),
+        _labelsJsonMeta,
+        labelsJson.isAcceptableOrUnknown(data['labels_json']!, _labelsJsonMeta),
       );
     }
     return context;
@@ -214,7 +211,7 @@ class $RemoteNumbersTable extends RemoteNumbers
             DriftSqlType.int,
             data['${effectivePrefix}count'],
           )!,
-      labels_json: attachedDatabase.typeMapping.read(
+      labelsJson: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}labels_json'],
       ),
@@ -236,7 +233,7 @@ class RemoteNumberData extends DataClass
   final int priority;
   final String action;
   final int count;
-  final String? labels_json;
+  final String? labelsJson;
   const RemoteNumberData({
     required this.id,
     required this.phoneNumber,
@@ -245,7 +242,7 @@ class RemoteNumberData extends DataClass
     required this.priority,
     required this.action,
     required this.count,
-    this.labels_json,
+    this.labelsJson,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -259,8 +256,8 @@ class RemoteNumberData extends DataClass
     map['priority'] = Variable<int>(priority);
     map['action'] = Variable<String>(action);
     map['count'] = Variable<int>(count);
-    if (!nullToAbsent || labels_json != null) {
-      map['labels_json'] = Variable<String>(labels_json);
+    if (!nullToAbsent || labelsJson != null) {
+      map['labels_json'] = Variable<String>(labelsJson);
     }
     return map;
   }
@@ -274,10 +271,10 @@ class RemoteNumberData extends DataClass
       priority: Value(priority),
       action: Value(action),
       count: Value(count),
-      labels_json:
-          labels_json == null && nullToAbsent
+      labelsJson:
+          labelsJson == null && nullToAbsent
               ? const Value.absent()
-              : Value(labels_json),
+              : Value(labelsJson),
     );
   }
 
@@ -294,7 +291,7 @@ class RemoteNumberData extends DataClass
       priority: serializer.fromJson<int>(json['priority']),
       action: serializer.fromJson<String>(json['action']),
       count: serializer.fromJson<int>(json['count']),
-      labels_json: serializer.fromJson<String?>(json['labels_json']),
+      labelsJson: serializer.fromJson<String?>(json['labelsJson']),
     );
   }
   @override
@@ -308,7 +305,7 @@ class RemoteNumberData extends DataClass
       'priority': serializer.toJson<int>(priority),
       'action': serializer.toJson<String>(action),
       'count': serializer.toJson<int>(count),
-      'labels_json': serializer.toJson<String?>(labels_json),
+      'labelsJson': serializer.toJson<String?>(labelsJson),
     };
   }
 
@@ -320,7 +317,7 @@ class RemoteNumberData extends DataClass
     int? priority,
     String? action,
     int? count,
-    Value<String?> labels_json = const Value.absent(),
+    Value<String?> labelsJson = const Value.absent(),
   }) => RemoteNumberData(
     id: id ?? this.id,
     phoneNumber: phoneNumber ?? this.phoneNumber,
@@ -329,7 +326,7 @@ class RemoteNumberData extends DataClass
     priority: priority ?? this.priority,
     action: action ?? this.action,
     count: count ?? this.count,
-    labels_json: labels_json.present ? labels_json.value : this.labels_json,
+    labelsJson: labelsJson.present ? labelsJson.value : this.labelsJson,
   );
   RemoteNumberData copyWithCompanion(RemoteNumbersCompanion data) {
     return RemoteNumberData(
@@ -341,8 +338,8 @@ class RemoteNumberData extends DataClass
       priority: data.priority.present ? data.priority.value : this.priority,
       action: data.action.present ? data.action.value : this.action,
       count: data.count.present ? data.count.value : this.count,
-      labels_json:
-          data.labels_json.present ? data.labels_json.value : this.labels_json,
+      labelsJson:
+          data.labelsJson.present ? data.labelsJson.value : this.labelsJson,
     );
   }
 
@@ -356,7 +353,7 @@ class RemoteNumberData extends DataClass
           ..write('priority: $priority, ')
           ..write('action: $action, ')
           ..write('count: $count, ')
-          ..write('labels_json: $labels_json')
+          ..write('labelsJson: $labelsJson')
           ..write(')'))
         .toString();
   }
@@ -370,7 +367,7 @@ class RemoteNumberData extends DataClass
     priority,
     action,
     count,
-    labels_json,
+    labelsJson,
   );
   @override
   bool operator ==(Object other) =>
@@ -383,7 +380,7 @@ class RemoteNumberData extends DataClass
           other.priority == this.priority &&
           other.action == this.action &&
           other.count == this.count &&
-          other.labels_json == this.labels_json);
+          other.labelsJson == this.labelsJson);
 }
 
 class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
@@ -394,7 +391,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
   final Value<int> priority;
   final Value<String> action;
   final Value<int> count;
-  final Value<String?> labels_json;
+  final Value<String?> labelsJson;
   final Value<int> rowid;
   const RemoteNumbersCompanion({
     this.id = const Value.absent(),
@@ -404,7 +401,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     this.priority = const Value.absent(),
     this.action = const Value.absent(),
     this.count = const Value.absent(),
-    this.labels_json = const Value.absent(),
+    this.labelsJson = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   RemoteNumbersCompanion.insert({
@@ -415,7 +412,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     this.priority = const Value.absent(),
     this.action = const Value.absent(),
     this.count = const Value.absent(),
-    this.labels_json = const Value.absent(),
+    this.labelsJson = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        phoneNumber = Value(phoneNumber),
@@ -428,7 +425,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     Expression<int>? priority,
     Expression<String>? action,
     Expression<int>? count,
-    Expression<String>? labels_json,
+    Expression<String>? labelsJson,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -439,7 +436,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
       if (priority != null) 'priority': priority,
       if (action != null) 'action': action,
       if (count != null) 'count': count,
-      if (labels_json != null) 'labels_json': labels_json,
+      if (labelsJson != null) 'labels_json': labelsJson,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -452,7 +449,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     Value<int>? priority,
     Value<String>? action,
     Value<int>? count,
-    Value<String?>? labels_json,
+    Value<String?>? labelsJson,
     Value<int>? rowid,
   }) {
     return RemoteNumbersCompanion(
@@ -463,7 +460,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
       priority: priority ?? this.priority,
       action: action ?? this.action,
       count: count ?? this.count,
-      labels_json: labels_json ?? this.labels_json,
+      labelsJson: labelsJson ?? this.labelsJson,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -492,8 +489,8 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
     if (count.present) {
       map['count'] = Variable<int>(count.value);
     }
-    if (labels_json.present) {
-      map['labels_json'] = Variable<String>(labels_json.value);
+    if (labelsJson.present) {
+      map['labels_json'] = Variable<String>(labelsJson.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -511,7 +508,7 @@ class RemoteNumbersCompanion extends UpdateCompanion<RemoteNumberData> {
           ..write('priority: $priority, ')
           ..write('action: $action, ')
           ..write('count: $count, ')
-          ..write('labels_json: $labels_json, ')
+          ..write('labelsJson: $labelsJson, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -2022,10 +2019,11 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
       'REFERENCES remote_numbers (phone_number) ON DELETE CASCADE',
     ),
   );
-  static const VerificationMeta _proposal_start_timeMeta =
-      const VerificationMeta('proposal_start_time');
+  static const VerificationMeta _proposalStartTimeMeta = const VerificationMeta(
+    'proposalStartTime',
+  );
   @override
-  late final GeneratedColumn<String> proposal_start_time =
+  late final GeneratedColumn<String> proposalStartTime =
       GeneratedColumn<String>(
         'proposal_start_time',
         aliasedName,
@@ -2043,22 +2041,22 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
     requiredDuringInsert: false,
     defaultValue: const Constant('pending'),
   );
-  static const VerificationMeta _highest_risk_levelMeta =
-      const VerificationMeta('highest_risk_level');
-  @override
-  late final GeneratedColumn<String> highest_risk_level =
-      GeneratedColumn<String>(
-        'highest_risk_level',
-        aliasedName,
-        false,
-        type: DriftSqlType.string,
-        requiredDuringInsert: true,
-      );
-  static const VerificationMeta _proposal_countMeta = const VerificationMeta(
-    'proposal_count',
+  static const VerificationMeta _highestRiskLevelMeta = const VerificationMeta(
+    'highestRiskLevel',
   );
   @override
-  late final GeneratedColumn<int> proposal_count = GeneratedColumn<int>(
+  late final GeneratedColumn<String> highestRiskLevel = GeneratedColumn<String>(
+    'highest_risk_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _proposalCountMeta = const VerificationMeta(
+    'proposalCount',
+  );
+  @override
+  late final GeneratedColumn<int> proposalCount = GeneratedColumn<int>(
     'proposal_count',
     aliasedName,
     false,
@@ -2066,10 +2064,10 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
-  static const VerificationMeta _verified_owner_countMeta =
-      const VerificationMeta('verified_owner_count');
+  static const VerificationMeta _verifiedOwnerCountMeta =
+      const VerificationMeta('verifiedOwnerCount');
   @override
-  late final GeneratedColumn<int> verified_owner_count = GeneratedColumn<int>(
+  late final GeneratedColumn<int> verifiedOwnerCount = GeneratedColumn<int>(
     'verified_owner_count',
     aliasedName,
     false,
@@ -2077,11 +2075,11 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
-  static const VerificationMeta _last_updatedMeta = const VerificationMeta(
-    'last_updated',
+  static const VerificationMeta _lastUpdatedMeta = const VerificationMeta(
+    'lastUpdated',
   );
   @override
-  late final GeneratedColumn<String> last_updated = GeneratedColumn<String>(
+  late final GeneratedColumn<String> lastUpdated = GeneratedColumn<String>(
     'last_updated',
     aliasedName,
     false,
@@ -2102,12 +2100,12 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
   @override
   List<GeneratedColumn> get $columns => [
     phoneNumber,
-    proposal_start_time,
+    proposalStartTime,
     status,
-    highest_risk_level,
-    proposal_count,
-    verified_owner_count,
-    last_updated,
+    highestRiskLevel,
+    proposalCount,
+    verifiedOwnerCount,
+    lastUpdated,
     verificationReportJson,
   ];
   @override
@@ -2135,14 +2133,14 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
     }
     if (data.containsKey('proposal_start_time')) {
       context.handle(
-        _proposal_start_timeMeta,
-        proposal_start_time.isAcceptableOrUnknown(
+        _proposalStartTimeMeta,
+        proposalStartTime.isAcceptableOrUnknown(
           data['proposal_start_time']!,
-          _proposal_start_timeMeta,
+          _proposalStartTimeMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_proposal_start_timeMeta);
+      context.missing(_proposalStartTimeMeta);
     }
     if (data.containsKey('status')) {
       context.handle(
@@ -2152,43 +2150,43 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
     }
     if (data.containsKey('highest_risk_level')) {
       context.handle(
-        _highest_risk_levelMeta,
-        highest_risk_level.isAcceptableOrUnknown(
+        _highestRiskLevelMeta,
+        highestRiskLevel.isAcceptableOrUnknown(
           data['highest_risk_level']!,
-          _highest_risk_levelMeta,
+          _highestRiskLevelMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_highest_risk_levelMeta);
+      context.missing(_highestRiskLevelMeta);
     }
     if (data.containsKey('proposal_count')) {
       context.handle(
-        _proposal_countMeta,
-        proposal_count.isAcceptableOrUnknown(
+        _proposalCountMeta,
+        proposalCount.isAcceptableOrUnknown(
           data['proposal_count']!,
-          _proposal_countMeta,
+          _proposalCountMeta,
         ),
       );
     }
     if (data.containsKey('verified_owner_count')) {
       context.handle(
-        _verified_owner_countMeta,
-        verified_owner_count.isAcceptableOrUnknown(
+        _verifiedOwnerCountMeta,
+        verifiedOwnerCount.isAcceptableOrUnknown(
           data['verified_owner_count']!,
-          _verified_owner_countMeta,
+          _verifiedOwnerCountMeta,
         ),
       );
     }
     if (data.containsKey('last_updated')) {
       context.handle(
-        _last_updatedMeta,
-        last_updated.isAcceptableOrUnknown(
+        _lastUpdatedMeta,
+        lastUpdated.isAcceptableOrUnknown(
           data['last_updated']!,
-          _last_updatedMeta,
+          _lastUpdatedMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_last_updatedMeta);
+      context.missing(_lastUpdatedMeta);
     }
     if (data.containsKey('verification_report_json')) {
       context.handle(
@@ -2216,7 +2214,7 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
             DriftSqlType.string,
             data['${effectivePrefix}phone_number'],
           )!,
-      proposal_start_time:
+      proposalStartTime:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}proposal_start_time'],
@@ -2226,22 +2224,22 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
             DriftSqlType.string,
             data['${effectivePrefix}status'],
           )!,
-      highest_risk_level:
+      highestRiskLevel:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}highest_risk_level'],
           )!,
-      proposal_count:
+      proposalCount:
           attachedDatabase.typeMapping.read(
             DriftSqlType.int,
             data['${effectivePrefix}proposal_count'],
           )!,
-      verified_owner_count:
+      verifiedOwnerCount:
           attachedDatabase.typeMapping.read(
             DriftSqlType.int,
             data['${effectivePrefix}verified_owner_count'],
           )!,
-      last_updated:
+      lastUpdated:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}last_updated'],
@@ -2262,33 +2260,33 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
 class ActiveDeletionProposalData extends DataClass
     implements Insertable<ActiveDeletionProposalData> {
   final String phoneNumber;
-  final String proposal_start_time;
+  final String proposalStartTime;
   final String status;
-  final String highest_risk_level;
-  final int proposal_count;
-  final int verified_owner_count;
-  final String last_updated;
+  final String highestRiskLevel;
+  final int proposalCount;
+  final int verifiedOwnerCount;
+  final String lastUpdated;
   final String? verificationReportJson;
   const ActiveDeletionProposalData({
     required this.phoneNumber,
-    required this.proposal_start_time,
+    required this.proposalStartTime,
     required this.status,
-    required this.highest_risk_level,
-    required this.proposal_count,
-    required this.verified_owner_count,
-    required this.last_updated,
+    required this.highestRiskLevel,
+    required this.proposalCount,
+    required this.verifiedOwnerCount,
+    required this.lastUpdated,
     this.verificationReportJson,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['phone_number'] = Variable<String>(phoneNumber);
-    map['proposal_start_time'] = Variable<String>(proposal_start_time);
+    map['proposal_start_time'] = Variable<String>(proposalStartTime);
     map['status'] = Variable<String>(status);
-    map['highest_risk_level'] = Variable<String>(highest_risk_level);
-    map['proposal_count'] = Variable<int>(proposal_count);
-    map['verified_owner_count'] = Variable<int>(verified_owner_count);
-    map['last_updated'] = Variable<String>(last_updated);
+    map['highest_risk_level'] = Variable<String>(highestRiskLevel);
+    map['proposal_count'] = Variable<int>(proposalCount);
+    map['verified_owner_count'] = Variable<int>(verifiedOwnerCount);
+    map['last_updated'] = Variable<String>(lastUpdated);
     if (!nullToAbsent || verificationReportJson != null) {
       map['verification_report_json'] = Variable<String>(
         verificationReportJson,
@@ -2300,12 +2298,12 @@ class ActiveDeletionProposalData extends DataClass
   ActiveDeletionProposalsCompanion toCompanion(bool nullToAbsent) {
     return ActiveDeletionProposalsCompanion(
       phoneNumber: Value(phoneNumber),
-      proposal_start_time: Value(proposal_start_time),
+      proposalStartTime: Value(proposalStartTime),
       status: Value(status),
-      highest_risk_level: Value(highest_risk_level),
-      proposal_count: Value(proposal_count),
-      verified_owner_count: Value(verified_owner_count),
-      last_updated: Value(last_updated),
+      highestRiskLevel: Value(highestRiskLevel),
+      proposalCount: Value(proposalCount),
+      verifiedOwnerCount: Value(verifiedOwnerCount),
+      lastUpdated: Value(lastUpdated),
       verificationReportJson:
           verificationReportJson == null && nullToAbsent
               ? const Value.absent()
@@ -2320,18 +2318,12 @@ class ActiveDeletionProposalData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return ActiveDeletionProposalData(
       phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
-      proposal_start_time: serializer.fromJson<String>(
-        json['proposal_start_time'],
-      ),
+      proposalStartTime: serializer.fromJson<String>(json['proposalStartTime']),
       status: serializer.fromJson<String>(json['status']),
-      highest_risk_level: serializer.fromJson<String>(
-        json['highest_risk_level'],
-      ),
-      proposal_count: serializer.fromJson<int>(json['proposal_count']),
-      verified_owner_count: serializer.fromJson<int>(
-        json['verified_owner_count'],
-      ),
-      last_updated: serializer.fromJson<String>(json['last_updated']),
+      highestRiskLevel: serializer.fromJson<String>(json['highestRiskLevel']),
+      proposalCount: serializer.fromJson<int>(json['proposalCount']),
+      verifiedOwnerCount: serializer.fromJson<int>(json['verifiedOwnerCount']),
+      lastUpdated: serializer.fromJson<String>(json['lastUpdated']),
       verificationReportJson: serializer.fromJson<String?>(
         json['verificationReportJson'],
       ),
@@ -2342,12 +2334,12 @@ class ActiveDeletionProposalData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'phoneNumber': serializer.toJson<String>(phoneNumber),
-      'proposal_start_time': serializer.toJson<String>(proposal_start_time),
+      'proposalStartTime': serializer.toJson<String>(proposalStartTime),
       'status': serializer.toJson<String>(status),
-      'highest_risk_level': serializer.toJson<String>(highest_risk_level),
-      'proposal_count': serializer.toJson<int>(proposal_count),
-      'verified_owner_count': serializer.toJson<int>(verified_owner_count),
-      'last_updated': serializer.toJson<String>(last_updated),
+      'highestRiskLevel': serializer.toJson<String>(highestRiskLevel),
+      'proposalCount': serializer.toJson<int>(proposalCount),
+      'verifiedOwnerCount': serializer.toJson<int>(verifiedOwnerCount),
+      'lastUpdated': serializer.toJson<String>(lastUpdated),
       'verificationReportJson': serializer.toJson<String?>(
         verificationReportJson,
       ),
@@ -2356,21 +2348,21 @@ class ActiveDeletionProposalData extends DataClass
 
   ActiveDeletionProposalData copyWith({
     String? phoneNumber,
-    String? proposal_start_time,
+    String? proposalStartTime,
     String? status,
-    String? highest_risk_level,
-    int? proposal_count,
-    int? verified_owner_count,
-    String? last_updated,
+    String? highestRiskLevel,
+    int? proposalCount,
+    int? verifiedOwnerCount,
+    String? lastUpdated,
     Value<String?> verificationReportJson = const Value.absent(),
   }) => ActiveDeletionProposalData(
     phoneNumber: phoneNumber ?? this.phoneNumber,
-    proposal_start_time: proposal_start_time ?? this.proposal_start_time,
+    proposalStartTime: proposalStartTime ?? this.proposalStartTime,
     status: status ?? this.status,
-    highest_risk_level: highest_risk_level ?? this.highest_risk_level,
-    proposal_count: proposal_count ?? this.proposal_count,
-    verified_owner_count: verified_owner_count ?? this.verified_owner_count,
-    last_updated: last_updated ?? this.last_updated,
+    highestRiskLevel: highestRiskLevel ?? this.highestRiskLevel,
+    proposalCount: proposalCount ?? this.proposalCount,
+    verifiedOwnerCount: verifiedOwnerCount ?? this.verifiedOwnerCount,
+    lastUpdated: lastUpdated ?? this.lastUpdated,
     verificationReportJson:
         verificationReportJson.present
             ? verificationReportJson.value
@@ -2382,27 +2374,25 @@ class ActiveDeletionProposalData extends DataClass
     return ActiveDeletionProposalData(
       phoneNumber:
           data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
-      proposal_start_time:
-          data.proposal_start_time.present
-              ? data.proposal_start_time.value
-              : this.proposal_start_time,
+      proposalStartTime:
+          data.proposalStartTime.present
+              ? data.proposalStartTime.value
+              : this.proposalStartTime,
       status: data.status.present ? data.status.value : this.status,
-      highest_risk_level:
-          data.highest_risk_level.present
-              ? data.highest_risk_level.value
-              : this.highest_risk_level,
-      proposal_count:
-          data.proposal_count.present
-              ? data.proposal_count.value
-              : this.proposal_count,
-      verified_owner_count:
-          data.verified_owner_count.present
-              ? data.verified_owner_count.value
-              : this.verified_owner_count,
-      last_updated:
-          data.last_updated.present
-              ? data.last_updated.value
-              : this.last_updated,
+      highestRiskLevel:
+          data.highestRiskLevel.present
+              ? data.highestRiskLevel.value
+              : this.highestRiskLevel,
+      proposalCount:
+          data.proposalCount.present
+              ? data.proposalCount.value
+              : this.proposalCount,
+      verifiedOwnerCount:
+          data.verifiedOwnerCount.present
+              ? data.verifiedOwnerCount.value
+              : this.verifiedOwnerCount,
+      lastUpdated:
+          data.lastUpdated.present ? data.lastUpdated.value : this.lastUpdated,
       verificationReportJson:
           data.verificationReportJson.present
               ? data.verificationReportJson.value
@@ -2414,12 +2404,12 @@ class ActiveDeletionProposalData extends DataClass
   String toString() {
     return (StringBuffer('ActiveDeletionProposalData(')
           ..write('phoneNumber: $phoneNumber, ')
-          ..write('proposal_start_time: $proposal_start_time, ')
+          ..write('proposalStartTime: $proposalStartTime, ')
           ..write('status: $status, ')
-          ..write('highest_risk_level: $highest_risk_level, ')
-          ..write('proposal_count: $proposal_count, ')
-          ..write('verified_owner_count: $verified_owner_count, ')
-          ..write('last_updated: $last_updated, ')
+          ..write('highestRiskLevel: $highestRiskLevel, ')
+          ..write('proposalCount: $proposalCount, ')
+          ..write('verifiedOwnerCount: $verifiedOwnerCount, ')
+          ..write('lastUpdated: $lastUpdated, ')
           ..write('verificationReportJson: $verificationReportJson')
           ..write(')'))
         .toString();
@@ -2428,12 +2418,12 @@ class ActiveDeletionProposalData extends DataClass
   @override
   int get hashCode => Object.hash(
     phoneNumber,
-    proposal_start_time,
+    proposalStartTime,
     status,
-    highest_risk_level,
-    proposal_count,
-    verified_owner_count,
-    last_updated,
+    highestRiskLevel,
+    proposalCount,
+    verifiedOwnerCount,
+    lastUpdated,
     verificationReportJson,
   );
   @override
@@ -2441,72 +2431,71 @@ class ActiveDeletionProposalData extends DataClass
       identical(this, other) ||
       (other is ActiveDeletionProposalData &&
           other.phoneNumber == this.phoneNumber &&
-          other.proposal_start_time == this.proposal_start_time &&
+          other.proposalStartTime == this.proposalStartTime &&
           other.status == this.status &&
-          other.highest_risk_level == this.highest_risk_level &&
-          other.proposal_count == this.proposal_count &&
-          other.verified_owner_count == this.verified_owner_count &&
-          other.last_updated == this.last_updated &&
+          other.highestRiskLevel == this.highestRiskLevel &&
+          other.proposalCount == this.proposalCount &&
+          other.verifiedOwnerCount == this.verifiedOwnerCount &&
+          other.lastUpdated == this.lastUpdated &&
           other.verificationReportJson == this.verificationReportJson);
 }
 
 class ActiveDeletionProposalsCompanion
     extends UpdateCompanion<ActiveDeletionProposalData> {
   final Value<String> phoneNumber;
-  final Value<String> proposal_start_time;
+  final Value<String> proposalStartTime;
   final Value<String> status;
-  final Value<String> highest_risk_level;
-  final Value<int> proposal_count;
-  final Value<int> verified_owner_count;
-  final Value<String> last_updated;
+  final Value<String> highestRiskLevel;
+  final Value<int> proposalCount;
+  final Value<int> verifiedOwnerCount;
+  final Value<String> lastUpdated;
   final Value<String?> verificationReportJson;
   final Value<int> rowid;
   const ActiveDeletionProposalsCompanion({
     this.phoneNumber = const Value.absent(),
-    this.proposal_start_time = const Value.absent(),
+    this.proposalStartTime = const Value.absent(),
     this.status = const Value.absent(),
-    this.highest_risk_level = const Value.absent(),
-    this.proposal_count = const Value.absent(),
-    this.verified_owner_count = const Value.absent(),
-    this.last_updated = const Value.absent(),
+    this.highestRiskLevel = const Value.absent(),
+    this.proposalCount = const Value.absent(),
+    this.verifiedOwnerCount = const Value.absent(),
+    this.lastUpdated = const Value.absent(),
     this.verificationReportJson = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   ActiveDeletionProposalsCompanion.insert({
     required String phoneNumber,
-    required String proposal_start_time,
+    required String proposalStartTime,
     this.status = const Value.absent(),
-    required String highest_risk_level,
-    this.proposal_count = const Value.absent(),
-    this.verified_owner_count = const Value.absent(),
-    required String last_updated,
+    required String highestRiskLevel,
+    this.proposalCount = const Value.absent(),
+    this.verifiedOwnerCount = const Value.absent(),
+    required String lastUpdated,
     this.verificationReportJson = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : phoneNumber = Value(phoneNumber),
-       proposal_start_time = Value(proposal_start_time),
-       highest_risk_level = Value(highest_risk_level),
-       last_updated = Value(last_updated);
+       proposalStartTime = Value(proposalStartTime),
+       highestRiskLevel = Value(highestRiskLevel),
+       lastUpdated = Value(lastUpdated);
   static Insertable<ActiveDeletionProposalData> custom({
     Expression<String>? phoneNumber,
-    Expression<String>? proposal_start_time,
+    Expression<String>? proposalStartTime,
     Expression<String>? status,
-    Expression<String>? highest_risk_level,
-    Expression<int>? proposal_count,
-    Expression<int>? verified_owner_count,
-    Expression<String>? last_updated,
+    Expression<String>? highestRiskLevel,
+    Expression<int>? proposalCount,
+    Expression<int>? verifiedOwnerCount,
+    Expression<String>? lastUpdated,
     Expression<String>? verificationReportJson,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (phoneNumber != null) 'phone_number': phoneNumber,
-      if (proposal_start_time != null)
-        'proposal_start_time': proposal_start_time,
+      if (proposalStartTime != null) 'proposal_start_time': proposalStartTime,
       if (status != null) 'status': status,
-      if (highest_risk_level != null) 'highest_risk_level': highest_risk_level,
-      if (proposal_count != null) 'proposal_count': proposal_count,
-      if (verified_owner_count != null)
-        'verified_owner_count': verified_owner_count,
-      if (last_updated != null) 'last_updated': last_updated,
+      if (highestRiskLevel != null) 'highest_risk_level': highestRiskLevel,
+      if (proposalCount != null) 'proposal_count': proposalCount,
+      if (verifiedOwnerCount != null)
+        'verified_owner_count': verifiedOwnerCount,
+      if (lastUpdated != null) 'last_updated': lastUpdated,
       if (verificationReportJson != null)
         'verification_report_json': verificationReportJson,
       if (rowid != null) 'rowid': rowid,
@@ -2515,23 +2504,23 @@ class ActiveDeletionProposalsCompanion
 
   ActiveDeletionProposalsCompanion copyWith({
     Value<String>? phoneNumber,
-    Value<String>? proposal_start_time,
+    Value<String>? proposalStartTime,
     Value<String>? status,
-    Value<String>? highest_risk_level,
-    Value<int>? proposal_count,
-    Value<int>? verified_owner_count,
-    Value<String>? last_updated,
+    Value<String>? highestRiskLevel,
+    Value<int>? proposalCount,
+    Value<int>? verifiedOwnerCount,
+    Value<String>? lastUpdated,
     Value<String?>? verificationReportJson,
     Value<int>? rowid,
   }) {
     return ActiveDeletionProposalsCompanion(
       phoneNumber: phoneNumber ?? this.phoneNumber,
-      proposal_start_time: proposal_start_time ?? this.proposal_start_time,
+      proposalStartTime: proposalStartTime ?? this.proposalStartTime,
       status: status ?? this.status,
-      highest_risk_level: highest_risk_level ?? this.highest_risk_level,
-      proposal_count: proposal_count ?? this.proposal_count,
-      verified_owner_count: verified_owner_count ?? this.verified_owner_count,
-      last_updated: last_updated ?? this.last_updated,
+      highestRiskLevel: highestRiskLevel ?? this.highestRiskLevel,
+      proposalCount: proposalCount ?? this.proposalCount,
+      verifiedOwnerCount: verifiedOwnerCount ?? this.verifiedOwnerCount,
+      lastUpdated: lastUpdated ?? this.lastUpdated,
       verificationReportJson:
           verificationReportJson ?? this.verificationReportJson,
       rowid: rowid ?? this.rowid,
@@ -2544,23 +2533,23 @@ class ActiveDeletionProposalsCompanion
     if (phoneNumber.present) {
       map['phone_number'] = Variable<String>(phoneNumber.value);
     }
-    if (proposal_start_time.present) {
-      map['proposal_start_time'] = Variable<String>(proposal_start_time.value);
+    if (proposalStartTime.present) {
+      map['proposal_start_time'] = Variable<String>(proposalStartTime.value);
     }
     if (status.present) {
       map['status'] = Variable<String>(status.value);
     }
-    if (highest_risk_level.present) {
-      map['highest_risk_level'] = Variable<String>(highest_risk_level.value);
+    if (highestRiskLevel.present) {
+      map['highest_risk_level'] = Variable<String>(highestRiskLevel.value);
     }
-    if (proposal_count.present) {
-      map['proposal_count'] = Variable<int>(proposal_count.value);
+    if (proposalCount.present) {
+      map['proposal_count'] = Variable<int>(proposalCount.value);
     }
-    if (verified_owner_count.present) {
-      map['verified_owner_count'] = Variable<int>(verified_owner_count.value);
+    if (verifiedOwnerCount.present) {
+      map['verified_owner_count'] = Variable<int>(verifiedOwnerCount.value);
     }
-    if (last_updated.present) {
-      map['last_updated'] = Variable<String>(last_updated.value);
+    if (lastUpdated.present) {
+      map['last_updated'] = Variable<String>(lastUpdated.value);
     }
     if (verificationReportJson.present) {
       map['verification_report_json'] = Variable<String>(
@@ -2577,12 +2566,12 @@ class ActiveDeletionProposalsCompanion
   String toString() {
     return (StringBuffer('ActiveDeletionProposalsCompanion(')
           ..write('phoneNumber: $phoneNumber, ')
-          ..write('proposal_start_time: $proposal_start_time, ')
+          ..write('proposalStartTime: $proposalStartTime, ')
           ..write('status: $status, ')
-          ..write('highest_risk_level: $highest_risk_level, ')
-          ..write('proposal_count: $proposal_count, ')
-          ..write('verified_owner_count: $verified_owner_count, ')
-          ..write('last_updated: $last_updated, ')
+          ..write('highestRiskLevel: $highestRiskLevel, ')
+          ..write('proposalCount: $proposalCount, ')
+          ..write('verifiedOwnerCount: $verifiedOwnerCount, ')
+          ..write('lastUpdated: $lastUpdated, ')
           ..write('verificationReportJson: $verificationReportJson, ')
           ..write('rowid: $rowid')
           ..write(')'))
@@ -2605,33 +2594,33 @@ class $ProposalSubmissionsTable extends ProposalSubmissions
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _proposer_idMeta = const VerificationMeta(
-    'proposer_id',
+  static const VerificationMeta _proposerIdMeta = const VerificationMeta(
+    'proposerId',
   );
   @override
-  late final GeneratedColumn<String> proposer_id = GeneratedColumn<String>(
+  late final GeneratedColumn<String> proposerId = GeneratedColumn<String>(
     'proposer_id',
     aliasedName,
     false,
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _phone_numberMeta = const VerificationMeta(
-    'phone_number',
+  static const VerificationMeta _phoneNumberMeta = const VerificationMeta(
+    'phoneNumber',
   );
   @override
-  late final GeneratedColumn<String> phone_number = GeneratedColumn<String>(
+  late final GeneratedColumn<String> phoneNumber = GeneratedColumn<String>(
     'phone_number',
     aliasedName,
     false,
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _submission_timeMeta = const VerificationMeta(
-    'submission_time',
+  static const VerificationMeta _submissionTimeMeta = const VerificationMeta(
+    'submissionTime',
   );
   @override
-  late final GeneratedColumn<String> submission_time = GeneratedColumn<String>(
+  late final GeneratedColumn<String> submissionTime = GeneratedColumn<String>(
     'submission_time',
     aliasedName,
     false,
@@ -2641,9 +2630,9 @@ class $ProposalSubmissionsTable extends ProposalSubmissions
   @override
   List<GeneratedColumn> get $columns => [
     id,
-    proposer_id,
-    phone_number,
-    submission_time,
+    proposerId,
+    phoneNumber,
+    submissionTime,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -2664,36 +2653,33 @@ class $ProposalSubmissionsTable extends ProposalSubmissions
     }
     if (data.containsKey('proposer_id')) {
       context.handle(
-        _proposer_idMeta,
-        proposer_id.isAcceptableOrUnknown(
-          data['proposer_id']!,
-          _proposer_idMeta,
-        ),
+        _proposerIdMeta,
+        proposerId.isAcceptableOrUnknown(data['proposer_id']!, _proposerIdMeta),
       );
     } else if (isInserting) {
-      context.missing(_proposer_idMeta);
+      context.missing(_proposerIdMeta);
     }
     if (data.containsKey('phone_number')) {
       context.handle(
-        _phone_numberMeta,
-        phone_number.isAcceptableOrUnknown(
+        _phoneNumberMeta,
+        phoneNumber.isAcceptableOrUnknown(
           data['phone_number']!,
-          _phone_numberMeta,
+          _phoneNumberMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_phone_numberMeta);
+      context.missing(_phoneNumberMeta);
     }
     if (data.containsKey('submission_time')) {
       context.handle(
-        _submission_timeMeta,
-        submission_time.isAcceptableOrUnknown(
+        _submissionTimeMeta,
+        submissionTime.isAcceptableOrUnknown(
           data['submission_time']!,
-          _submission_timeMeta,
+          _submissionTimeMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_submission_timeMeta);
+      context.missing(_submissionTimeMeta);
     }
     return context;
   }
@@ -2709,17 +2695,17 @@ class $ProposalSubmissionsTable extends ProposalSubmissions
             DriftSqlType.string,
             data['${effectivePrefix}id'],
           )!,
-      proposer_id:
+      proposerId:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}proposer_id'],
           )!,
-      phone_number:
+      phoneNumber:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}phone_number'],
           )!,
-      submission_time:
+      submissionTime:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}submission_time'],
@@ -2736,31 +2722,31 @@ class $ProposalSubmissionsTable extends ProposalSubmissions
 class ProposalSubmissionData extends DataClass
     implements Insertable<ProposalSubmissionData> {
   final String id;
-  final String proposer_id;
-  final String phone_number;
-  final String submission_time;
+  final String proposerId;
+  final String phoneNumber;
+  final String submissionTime;
   const ProposalSubmissionData({
     required this.id,
-    required this.proposer_id,
-    required this.phone_number,
-    required this.submission_time,
+    required this.proposerId,
+    required this.phoneNumber,
+    required this.submissionTime,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
-    map['proposer_id'] = Variable<String>(proposer_id);
-    map['phone_number'] = Variable<String>(phone_number);
-    map['submission_time'] = Variable<String>(submission_time);
+    map['proposer_id'] = Variable<String>(proposerId);
+    map['phone_number'] = Variable<String>(phoneNumber);
+    map['submission_time'] = Variable<String>(submissionTime);
     return map;
   }
 
   ProposalSubmissionsCompanion toCompanion(bool nullToAbsent) {
     return ProposalSubmissionsCompanion(
       id: Value(id),
-      proposer_id: Value(proposer_id),
-      phone_number: Value(phone_number),
-      submission_time: Value(submission_time),
+      proposerId: Value(proposerId),
+      phoneNumber: Value(phoneNumber),
+      submissionTime: Value(submissionTime),
     );
   }
 
@@ -2771,9 +2757,9 @@ class ProposalSubmissionData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return ProposalSubmissionData(
       id: serializer.fromJson<String>(json['id']),
-      proposer_id: serializer.fromJson<String>(json['proposer_id']),
-      phone_number: serializer.fromJson<String>(json['phone_number']),
-      submission_time: serializer.fromJson<String>(json['submission_time']),
+      proposerId: serializer.fromJson<String>(json['proposerId']),
+      phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
+      submissionTime: serializer.fromJson<String>(json['submissionTime']),
     );
   }
   @override
@@ -2781,36 +2767,34 @@ class ProposalSubmissionData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
-      'proposer_id': serializer.toJson<String>(proposer_id),
-      'phone_number': serializer.toJson<String>(phone_number),
-      'submission_time': serializer.toJson<String>(submission_time),
+      'proposerId': serializer.toJson<String>(proposerId),
+      'phoneNumber': serializer.toJson<String>(phoneNumber),
+      'submissionTime': serializer.toJson<String>(submissionTime),
     };
   }
 
   ProposalSubmissionData copyWith({
     String? id,
-    String? proposer_id,
-    String? phone_number,
-    String? submission_time,
+    String? proposerId,
+    String? phoneNumber,
+    String? submissionTime,
   }) => ProposalSubmissionData(
     id: id ?? this.id,
-    proposer_id: proposer_id ?? this.proposer_id,
-    phone_number: phone_number ?? this.phone_number,
-    submission_time: submission_time ?? this.submission_time,
+    proposerId: proposerId ?? this.proposerId,
+    phoneNumber: phoneNumber ?? this.phoneNumber,
+    submissionTime: submissionTime ?? this.submissionTime,
   );
   ProposalSubmissionData copyWithCompanion(ProposalSubmissionsCompanion data) {
     return ProposalSubmissionData(
       id: data.id.present ? data.id.value : this.id,
-      proposer_id:
-          data.proposer_id.present ? data.proposer_id.value : this.proposer_id,
-      phone_number:
-          data.phone_number.present
-              ? data.phone_number.value
-              : this.phone_number,
-      submission_time:
-          data.submission_time.present
-              ? data.submission_time.value
-              : this.submission_time,
+      proposerId:
+          data.proposerId.present ? data.proposerId.value : this.proposerId,
+      phoneNumber:
+          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      submissionTime:
+          data.submissionTime.present
+              ? data.submissionTime.value
+              : this.submissionTime,
     );
   }
 
@@ -2818,78 +2802,77 @@ class ProposalSubmissionData extends DataClass
   String toString() {
     return (StringBuffer('ProposalSubmissionData(')
           ..write('id: $id, ')
-          ..write('proposer_id: $proposer_id, ')
-          ..write('phone_number: $phone_number, ')
-          ..write('submission_time: $submission_time')
+          ..write('proposerId: $proposerId, ')
+          ..write('phoneNumber: $phoneNumber, ')
+          ..write('submissionTime: $submissionTime')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode =>
-      Object.hash(id, proposer_id, phone_number, submission_time);
+  int get hashCode => Object.hash(id, proposerId, phoneNumber, submissionTime);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is ProposalSubmissionData &&
           other.id == this.id &&
-          other.proposer_id == this.proposer_id &&
-          other.phone_number == this.phone_number &&
-          other.submission_time == this.submission_time);
+          other.proposerId == this.proposerId &&
+          other.phoneNumber == this.phoneNumber &&
+          other.submissionTime == this.submissionTime);
 }
 
 class ProposalSubmissionsCompanion
     extends UpdateCompanion<ProposalSubmissionData> {
   final Value<String> id;
-  final Value<String> proposer_id;
-  final Value<String> phone_number;
-  final Value<String> submission_time;
+  final Value<String> proposerId;
+  final Value<String> phoneNumber;
+  final Value<String> submissionTime;
   final Value<int> rowid;
   const ProposalSubmissionsCompanion({
     this.id = const Value.absent(),
-    this.proposer_id = const Value.absent(),
-    this.phone_number = const Value.absent(),
-    this.submission_time = const Value.absent(),
+    this.proposerId = const Value.absent(),
+    this.phoneNumber = const Value.absent(),
+    this.submissionTime = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   ProposalSubmissionsCompanion.insert({
     required String id,
-    required String proposer_id,
-    required String phone_number,
-    required String submission_time,
+    required String proposerId,
+    required String phoneNumber,
+    required String submissionTime,
     this.rowid = const Value.absent(),
   }) : id = Value(id),
-       proposer_id = Value(proposer_id),
-       phone_number = Value(phone_number),
-       submission_time = Value(submission_time);
+       proposerId = Value(proposerId),
+       phoneNumber = Value(phoneNumber),
+       submissionTime = Value(submissionTime);
   static Insertable<ProposalSubmissionData> custom({
     Expression<String>? id,
-    Expression<String>? proposer_id,
-    Expression<String>? phone_number,
-    Expression<String>? submission_time,
+    Expression<String>? proposerId,
+    Expression<String>? phoneNumber,
+    Expression<String>? submissionTime,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
-      if (proposer_id != null) 'proposer_id': proposer_id,
-      if (phone_number != null) 'phone_number': phone_number,
-      if (submission_time != null) 'submission_time': submission_time,
+      if (proposerId != null) 'proposer_id': proposerId,
+      if (phoneNumber != null) 'phone_number': phoneNumber,
+      if (submissionTime != null) 'submission_time': submissionTime,
       if (rowid != null) 'rowid': rowid,
     });
   }
 
   ProposalSubmissionsCompanion copyWith({
     Value<String>? id,
-    Value<String>? proposer_id,
-    Value<String>? phone_number,
-    Value<String>? submission_time,
+    Value<String>? proposerId,
+    Value<String>? phoneNumber,
+    Value<String>? submissionTime,
     Value<int>? rowid,
   }) {
     return ProposalSubmissionsCompanion(
       id: id ?? this.id,
-      proposer_id: proposer_id ?? this.proposer_id,
-      phone_number: phone_number ?? this.phone_number,
-      submission_time: submission_time ?? this.submission_time,
+      proposerId: proposerId ?? this.proposerId,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      submissionTime: submissionTime ?? this.submissionTime,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -2900,14 +2883,14 @@ class ProposalSubmissionsCompanion
     if (id.present) {
       map['id'] = Variable<String>(id.value);
     }
-    if (proposer_id.present) {
-      map['proposer_id'] = Variable<String>(proposer_id.value);
+    if (proposerId.present) {
+      map['proposer_id'] = Variable<String>(proposerId.value);
     }
-    if (phone_number.present) {
-      map['phone_number'] = Variable<String>(phone_number.value);
+    if (phoneNumber.present) {
+      map['phone_number'] = Variable<String>(phoneNumber.value);
     }
-    if (submission_time.present) {
-      map['submission_time'] = Variable<String>(submission_time.value);
+    if (submissionTime.present) {
+      map['submission_time'] = Variable<String>(submissionTime.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -2919,9 +2902,9 @@ class ProposalSubmissionsCompanion
   String toString() {
     return (StringBuffer('ProposalSubmissionsCompanion(')
           ..write('id: $id, ')
-          ..write('proposer_id: $proposer_id, ')
-          ..write('phone_number: $phone_number, ')
-          ..write('submission_time: $submission_time, ')
+          ..write('proposerId: $proposerId, ')
+          ..write('phoneNumber: $phoneNumber, ')
+          ..write('submissionTime: $submissionTime, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -2943,44 +2926,44 @@ class $ProposalVotesTable extends ProposalVotes
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _voter_idMeta = const VerificationMeta(
+  static const VerificationMeta _voterIdMeta = const VerificationMeta(
+    'voterId',
+  );
+  @override
+  late final GeneratedColumn<String> voterId = GeneratedColumn<String>(
     'voter_id',
-  );
-  @override
-  late final GeneratedColumn<String> voter_id = GeneratedColumn<String>(
-    'voter_id',
     aliasedName,
     false,
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _proposal_idMeta = const VerificationMeta(
-    'proposal_id',
+  static const VerificationMeta _proposalIdMeta = const VerificationMeta(
+    'proposalId',
   );
   @override
-  late final GeneratedColumn<String> proposal_id = GeneratedColumn<String>(
+  late final GeneratedColumn<String> proposalId = GeneratedColumn<String>(
     'proposal_id',
     aliasedName,
     false,
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _vote_timeMeta = const VerificationMeta(
-    'vote_time',
+  static const VerificationMeta _voteTimeMeta = const VerificationMeta(
+    'voteTime',
   );
   @override
-  late final GeneratedColumn<String> vote_time = GeneratedColumn<String>(
+  late final GeneratedColumn<String> voteTime = GeneratedColumn<String>(
     'vote_time',
     aliasedName,
     false,
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _is_consumedMeta = const VerificationMeta(
-    'is_consumed',
+  static const VerificationMeta _isConsumedMeta = const VerificationMeta(
+    'isConsumed',
   );
   @override
-  late final GeneratedColumn<int> is_consumed = GeneratedColumn<int>(
+  late final GeneratedColumn<int> isConsumed = GeneratedColumn<int>(
     'is_consumed',
     aliasedName,
     false,
@@ -2991,10 +2974,10 @@ class $ProposalVotesTable extends ProposalVotes
   @override
   List<GeneratedColumn> get $columns => [
     id,
-    voter_id,
-    proposal_id,
-    vote_time,
-    is_consumed,
+    voterId,
+    proposalId,
+    voteTime,
+    isConsumed,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -3015,38 +2998,32 @@ class $ProposalVotesTable extends ProposalVotes
     }
     if (data.containsKey('voter_id')) {
       context.handle(
-        _voter_idMeta,
-        voter_id.isAcceptableOrUnknown(data['voter_id']!, _voter_idMeta),
+        _voterIdMeta,
+        voterId.isAcceptableOrUnknown(data['voter_id']!, _voterIdMeta),
       );
     } else if (isInserting) {
-      context.missing(_voter_idMeta);
+      context.missing(_voterIdMeta);
     }
     if (data.containsKey('proposal_id')) {
       context.handle(
-        _proposal_idMeta,
-        proposal_id.isAcceptableOrUnknown(
-          data['proposal_id']!,
-          _proposal_idMeta,
-        ),
+        _proposalIdMeta,
+        proposalId.isAcceptableOrUnknown(data['proposal_id']!, _proposalIdMeta),
       );
     } else if (isInserting) {
-      context.missing(_proposal_idMeta);
+      context.missing(_proposalIdMeta);
     }
     if (data.containsKey('vote_time')) {
       context.handle(
-        _vote_timeMeta,
-        vote_time.isAcceptableOrUnknown(data['vote_time']!, _vote_timeMeta),
+        _voteTimeMeta,
+        voteTime.isAcceptableOrUnknown(data['vote_time']!, _voteTimeMeta),
       );
     } else if (isInserting) {
-      context.missing(_vote_timeMeta);
+      context.missing(_voteTimeMeta);
     }
     if (data.containsKey('is_consumed')) {
       context.handle(
-        _is_consumedMeta,
-        is_consumed.isAcceptableOrUnknown(
-          data['is_consumed']!,
-          _is_consumedMeta,
-        ),
+        _isConsumedMeta,
+        isConsumed.isAcceptableOrUnknown(data['is_consumed']!, _isConsumedMeta),
       );
     }
     return context;
@@ -3063,22 +3040,22 @@ class $ProposalVotesTable extends ProposalVotes
             DriftSqlType.string,
             data['${effectivePrefix}id'],
           )!,
-      voter_id:
+      voterId:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}voter_id'],
           )!,
-      proposal_id:
+      proposalId:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}proposal_id'],
           )!,
-      vote_time:
+      voteTime:
           attachedDatabase.typeMapping.read(
             DriftSqlType.string,
             data['${effectivePrefix}vote_time'],
           )!,
-      is_consumed:
+      isConsumed:
           attachedDatabase.typeMapping.read(
             DriftSqlType.int,
             data['${effectivePrefix}is_consumed'],
@@ -3095,35 +3072,35 @@ class $ProposalVotesTable extends ProposalVotes
 class ProposalVoteData extends DataClass
     implements Insertable<ProposalVoteData> {
   final String id;
-  final String voter_id;
-  final String proposal_id;
-  final String vote_time;
-  final int is_consumed;
+  final String voterId;
+  final String proposalId;
+  final String voteTime;
+  final int isConsumed;
   const ProposalVoteData({
     required this.id,
-    required this.voter_id,
-    required this.proposal_id,
-    required this.vote_time,
-    required this.is_consumed,
+    required this.voterId,
+    required this.proposalId,
+    required this.voteTime,
+    required this.isConsumed,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
-    map['voter_id'] = Variable<String>(voter_id);
-    map['proposal_id'] = Variable<String>(proposal_id);
-    map['vote_time'] = Variable<String>(vote_time);
-    map['is_consumed'] = Variable<int>(is_consumed);
+    map['voter_id'] = Variable<String>(voterId);
+    map['proposal_id'] = Variable<String>(proposalId);
+    map['vote_time'] = Variable<String>(voteTime);
+    map['is_consumed'] = Variable<int>(isConsumed);
     return map;
   }
 
   ProposalVotesCompanion toCompanion(bool nullToAbsent) {
     return ProposalVotesCompanion(
       id: Value(id),
-      voter_id: Value(voter_id),
-      proposal_id: Value(proposal_id),
-      vote_time: Value(vote_time),
-      is_consumed: Value(is_consumed),
+      voterId: Value(voterId),
+      proposalId: Value(proposalId),
+      voteTime: Value(voteTime),
+      isConsumed: Value(isConsumed),
     );
   }
 
@@ -3134,10 +3111,10 @@ class ProposalVoteData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return ProposalVoteData(
       id: serializer.fromJson<String>(json['id']),
-      voter_id: serializer.fromJson<String>(json['voter_id']),
-      proposal_id: serializer.fromJson<String>(json['proposal_id']),
-      vote_time: serializer.fromJson<String>(json['vote_time']),
-      is_consumed: serializer.fromJson<int>(json['is_consumed']),
+      voterId: serializer.fromJson<String>(json['voterId']),
+      proposalId: serializer.fromJson<String>(json['proposalId']),
+      voteTime: serializer.fromJson<String>(json['voteTime']),
+      isConsumed: serializer.fromJson<int>(json['isConsumed']),
     );
   }
   @override
@@ -3145,35 +3122,35 @@ class ProposalVoteData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<String>(id),
-      'voter_id': serializer.toJson<String>(voter_id),
-      'proposal_id': serializer.toJson<String>(proposal_id),
-      'vote_time': serializer.toJson<String>(vote_time),
-      'is_consumed': serializer.toJson<int>(is_consumed),
+      'voterId': serializer.toJson<String>(voterId),
+      'proposalId': serializer.toJson<String>(proposalId),
+      'voteTime': serializer.toJson<String>(voteTime),
+      'isConsumed': serializer.toJson<int>(isConsumed),
     };
   }
 
   ProposalVoteData copyWith({
     String? id,
-    String? voter_id,
-    String? proposal_id,
-    String? vote_time,
-    int? is_consumed,
+    String? voterId,
+    String? proposalId,
+    String? voteTime,
+    int? isConsumed,
   }) => ProposalVoteData(
     id: id ?? this.id,
-    voter_id: voter_id ?? this.voter_id,
-    proposal_id: proposal_id ?? this.proposal_id,
-    vote_time: vote_time ?? this.vote_time,
-    is_consumed: is_consumed ?? this.is_consumed,
+    voterId: voterId ?? this.voterId,
+    proposalId: proposalId ?? this.proposalId,
+    voteTime: voteTime ?? this.voteTime,
+    isConsumed: isConsumed ?? this.isConsumed,
   );
   ProposalVoteData copyWithCompanion(ProposalVotesCompanion data) {
     return ProposalVoteData(
       id: data.id.present ? data.id.value : this.id,
-      voter_id: data.voter_id.present ? data.voter_id.value : this.voter_id,
-      proposal_id:
-          data.proposal_id.present ? data.proposal_id.value : this.proposal_id,
-      vote_time: data.vote_time.present ? data.vote_time.value : this.vote_time,
-      is_consumed:
-          data.is_consumed.present ? data.is_consumed.value : this.is_consumed,
+      voterId: data.voterId.present ? data.voterId.value : this.voterId,
+      proposalId:
+          data.proposalId.present ? data.proposalId.value : this.proposalId,
+      voteTime: data.voteTime.present ? data.voteTime.value : this.voteTime,
+      isConsumed:
+          data.isConsumed.present ? data.isConsumed.value : this.isConsumed,
     );
   }
 
@@ -3181,86 +3158,86 @@ class ProposalVoteData extends DataClass
   String toString() {
     return (StringBuffer('ProposalVoteData(')
           ..write('id: $id, ')
-          ..write('voter_id: $voter_id, ')
-          ..write('proposal_id: $proposal_id, ')
-          ..write('vote_time: $vote_time, ')
-          ..write('is_consumed: $is_consumed')
+          ..write('voterId: $voterId, ')
+          ..write('proposalId: $proposalId, ')
+          ..write('voteTime: $voteTime, ')
+          ..write('isConsumed: $isConsumed')
           ..write(')'))
         .toString();
   }
 
   @override
   int get hashCode =>
-      Object.hash(id, voter_id, proposal_id, vote_time, is_consumed);
+      Object.hash(id, voterId, proposalId, voteTime, isConsumed);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is ProposalVoteData &&
           other.id == this.id &&
-          other.voter_id == this.voter_id &&
-          other.proposal_id == this.proposal_id &&
-          other.vote_time == this.vote_time &&
-          other.is_consumed == this.is_consumed);
+          other.voterId == this.voterId &&
+          other.proposalId == this.proposalId &&
+          other.voteTime == this.voteTime &&
+          other.isConsumed == this.isConsumed);
 }
 
 class ProposalVotesCompanion extends UpdateCompanion<ProposalVoteData> {
   final Value<String> id;
-  final Value<String> voter_id;
-  final Value<String> proposal_id;
-  final Value<String> vote_time;
-  final Value<int> is_consumed;
+  final Value<String> voterId;
+  final Value<String> proposalId;
+  final Value<String> voteTime;
+  final Value<int> isConsumed;
   final Value<int> rowid;
   const ProposalVotesCompanion({
     this.id = const Value.absent(),
-    this.voter_id = const Value.absent(),
-    this.proposal_id = const Value.absent(),
-    this.vote_time = const Value.absent(),
-    this.is_consumed = const Value.absent(),
+    this.voterId = const Value.absent(),
+    this.proposalId = const Value.absent(),
+    this.voteTime = const Value.absent(),
+    this.isConsumed = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   ProposalVotesCompanion.insert({
     required String id,
-    required String voter_id,
-    required String proposal_id,
-    required String vote_time,
-    this.is_consumed = const Value.absent(),
+    required String voterId,
+    required String proposalId,
+    required String voteTime,
+    this.isConsumed = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
-       voter_id = Value(voter_id),
-       proposal_id = Value(proposal_id),
-       vote_time = Value(vote_time);
+       voterId = Value(voterId),
+       proposalId = Value(proposalId),
+       voteTime = Value(voteTime);
   static Insertable<ProposalVoteData> custom({
     Expression<String>? id,
-    Expression<String>? voter_id,
-    Expression<String>? proposal_id,
-    Expression<String>? vote_time,
-    Expression<int>? is_consumed,
+    Expression<String>? voterId,
+    Expression<String>? proposalId,
+    Expression<String>? voteTime,
+    Expression<int>? isConsumed,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
-      if (voter_id != null) 'voter_id': voter_id,
-      if (proposal_id != null) 'proposal_id': proposal_id,
-      if (vote_time != null) 'vote_time': vote_time,
-      if (is_consumed != null) 'is_consumed': is_consumed,
+      if (voterId != null) 'voter_id': voterId,
+      if (proposalId != null) 'proposal_id': proposalId,
+      if (voteTime != null) 'vote_time': voteTime,
+      if (isConsumed != null) 'is_consumed': isConsumed,
       if (rowid != null) 'rowid': rowid,
     });
   }
 
   ProposalVotesCompanion copyWith({
     Value<String>? id,
-    Value<String>? voter_id,
-    Value<String>? proposal_id,
-    Value<String>? vote_time,
-    Value<int>? is_consumed,
+    Value<String>? voterId,
+    Value<String>? proposalId,
+    Value<String>? voteTime,
+    Value<int>? isConsumed,
     Value<int>? rowid,
   }) {
     return ProposalVotesCompanion(
       id: id ?? this.id,
-      voter_id: voter_id ?? this.voter_id,
-      proposal_id: proposal_id ?? this.proposal_id,
-      vote_time: vote_time ?? this.vote_time,
-      is_consumed: is_consumed ?? this.is_consumed,
+      voterId: voterId ?? this.voterId,
+      proposalId: proposalId ?? this.proposalId,
+      voteTime: voteTime ?? this.voteTime,
+      isConsumed: isConsumed ?? this.isConsumed,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -3271,17 +3248,17 @@ class ProposalVotesCompanion extends UpdateCompanion<ProposalVoteData> {
     if (id.present) {
       map['id'] = Variable<String>(id.value);
     }
-    if (voter_id.present) {
-      map['voter_id'] = Variable<String>(voter_id.value);
+    if (voterId.present) {
+      map['voter_id'] = Variable<String>(voterId.value);
     }
-    if (proposal_id.present) {
-      map['proposal_id'] = Variable<String>(proposal_id.value);
+    if (proposalId.present) {
+      map['proposal_id'] = Variable<String>(proposalId.value);
     }
-    if (vote_time.present) {
-      map['vote_time'] = Variable<String>(vote_time.value);
+    if (voteTime.present) {
+      map['vote_time'] = Variable<String>(voteTime.value);
     }
-    if (is_consumed.present) {
-      map['is_consumed'] = Variable<int>(is_consumed.value);
+    if (isConsumed.present) {
+      map['is_consumed'] = Variable<int>(isConsumed.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -3293,10 +3270,10 @@ class ProposalVotesCompanion extends UpdateCompanion<ProposalVoteData> {
   String toString() {
     return (StringBuffer('ProposalVotesCompanion(')
           ..write('id: $id, ')
-          ..write('voter_id: $voter_id, ')
-          ..write('proposal_id: $proposal_id, ')
-          ..write('vote_time: $vote_time, ')
-          ..write('is_consumed: $is_consumed, ')
+          ..write('voterId: $voterId, ')
+          ..write('proposalId: $proposalId, ')
+          ..write('voteTime: $voteTime, ')
+          ..write('isConsumed: $isConsumed, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -3363,7 +3340,7 @@ typedef $$RemoteNumbersTableCreateCompanionBuilder =
       Value<int> priority,
       Value<String> action,
       Value<int> count,
-      Value<String?> labels_json,
+      Value<String?> labelsJson,
       Value<int> rowid,
     });
 typedef $$RemoteNumbersTableUpdateCompanionBuilder =
@@ -3375,7 +3352,7 @@ typedef $$RemoteNumbersTableUpdateCompanionBuilder =
       Value<int> priority,
       Value<String> action,
       Value<int> count,
-      Value<String?> labels_json,
+      Value<String?> labelsJson,
       Value<int> rowid,
     });
 
@@ -3497,8 +3474,8 @@ class $$RemoteNumbersTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get labels_json => $composableBuilder(
-    column: $table.labels_json,
+  ColumnFilters<String> get labelsJson => $composableBuilder(
+    column: $table.labelsJson,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -3598,8 +3575,8 @@ class $$RemoteNumbersTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get labels_json => $composableBuilder(
-    column: $table.labels_json,
+  ColumnOrderings<String> get labelsJson => $composableBuilder(
+    column: $table.labelsJson,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -3636,8 +3613,8 @@ class $$RemoteNumbersTableAnnotationComposer
   GeneratedColumn<int> get count =>
       $composableBuilder(column: $table.count, builder: (column) => column);
 
-  GeneratedColumn<String> get labels_json => $composableBuilder(
-    column: $table.labels_json,
+  GeneratedColumn<String> get labelsJson => $composableBuilder(
+    column: $table.labelsJson,
     builder: (column) => column,
   );
 
@@ -3738,7 +3715,7 @@ class $$RemoteNumbersTableTableManager
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<int> count = const Value.absent(),
-                Value<String?> labels_json = const Value.absent(),
+                Value<String?> labelsJson = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => RemoteNumbersCompanion(
                 id: id,
@@ -3748,7 +3725,7 @@ class $$RemoteNumbersTableTableManager
                 priority: priority,
                 action: action,
                 count: count,
-                labels_json: labels_json,
+                labelsJson: labelsJson,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -3760,7 +3737,7 @@ class $$RemoteNumbersTableTableManager
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<int> count = const Value.absent(),
-                Value<String?> labels_json = const Value.absent(),
+                Value<String?> labelsJson = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => RemoteNumbersCompanion.insert(
                 id: id,
@@ -3770,7 +3747,7 @@ class $$RemoteNumbersTableTableManager
                 priority: priority,
                 action: action,
                 count: count,
-                labels_json: labels_json,
+                labelsJson: labelsJson,
                 rowid: rowid,
               ),
           withReferenceMapper:
@@ -4846,24 +4823,24 @@ typedef $$SyncConfigTableProcessedTableManager =
 typedef $$ActiveDeletionProposalsTableCreateCompanionBuilder =
     ActiveDeletionProposalsCompanion Function({
       required String phoneNumber,
-      required String proposal_start_time,
+      required String proposalStartTime,
       Value<String> status,
-      required String highest_risk_level,
-      Value<int> proposal_count,
-      Value<int> verified_owner_count,
-      required String last_updated,
+      required String highestRiskLevel,
+      Value<int> proposalCount,
+      Value<int> verifiedOwnerCount,
+      required String lastUpdated,
       Value<String?> verificationReportJson,
       Value<int> rowid,
     });
 typedef $$ActiveDeletionProposalsTableUpdateCompanionBuilder =
     ActiveDeletionProposalsCompanion Function({
       Value<String> phoneNumber,
-      Value<String> proposal_start_time,
+      Value<String> proposalStartTime,
       Value<String> status,
-      Value<String> highest_risk_level,
-      Value<int> proposal_count,
-      Value<int> verified_owner_count,
-      Value<String> last_updated,
+      Value<String> highestRiskLevel,
+      Value<int> proposalCount,
+      Value<int> verifiedOwnerCount,
+      Value<String> lastUpdated,
       Value<String?> verificationReportJson,
       Value<int> rowid,
     });
@@ -4913,8 +4890,8 @@ class $$ActiveDeletionProposalsTableFilterComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  ColumnFilters<String> get proposal_start_time => $composableBuilder(
-    column: $table.proposal_start_time,
+  ColumnFilters<String> get proposalStartTime => $composableBuilder(
+    column: $table.proposalStartTime,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -4923,23 +4900,23 @@ class $$ActiveDeletionProposalsTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get highest_risk_level => $composableBuilder(
-    column: $table.highest_risk_level,
+  ColumnFilters<String> get highestRiskLevel => $composableBuilder(
+    column: $table.highestRiskLevel,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get proposal_count => $composableBuilder(
-    column: $table.proposal_count,
+  ColumnFilters<int> get proposalCount => $composableBuilder(
+    column: $table.proposalCount,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get verified_owner_count => $composableBuilder(
-    column: $table.verified_owner_count,
+  ColumnFilters<int> get verifiedOwnerCount => $composableBuilder(
+    column: $table.verifiedOwnerCount,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get last_updated => $composableBuilder(
-    column: $table.last_updated,
+  ColumnFilters<String> get lastUpdated => $composableBuilder(
+    column: $table.lastUpdated,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -4981,8 +4958,8 @@ class $$ActiveDeletionProposalsTableOrderingComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  ColumnOrderings<String> get proposal_start_time => $composableBuilder(
-    column: $table.proposal_start_time,
+  ColumnOrderings<String> get proposalStartTime => $composableBuilder(
+    column: $table.proposalStartTime,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -4991,23 +4968,23 @@ class $$ActiveDeletionProposalsTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get highest_risk_level => $composableBuilder(
-    column: $table.highest_risk_level,
+  ColumnOrderings<String> get highestRiskLevel => $composableBuilder(
+    column: $table.highestRiskLevel,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get proposal_count => $composableBuilder(
-    column: $table.proposal_count,
+  ColumnOrderings<int> get proposalCount => $composableBuilder(
+    column: $table.proposalCount,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get verified_owner_count => $composableBuilder(
-    column: $table.verified_owner_count,
+  ColumnOrderings<int> get verifiedOwnerCount => $composableBuilder(
+    column: $table.verifiedOwnerCount,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get last_updated => $composableBuilder(
-    column: $table.last_updated,
+  ColumnOrderings<String> get lastUpdated => $composableBuilder(
+    column: $table.lastUpdated,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -5049,31 +5026,31 @@ class $$ActiveDeletionProposalsTableAnnotationComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
-  GeneratedColumn<String> get proposal_start_time => $composableBuilder(
-    column: $table.proposal_start_time,
+  GeneratedColumn<String> get proposalStartTime => $composableBuilder(
+    column: $table.proposalStartTime,
     builder: (column) => column,
   );
 
   GeneratedColumn<String> get status =>
       $composableBuilder(column: $table.status, builder: (column) => column);
 
-  GeneratedColumn<String> get highest_risk_level => $composableBuilder(
-    column: $table.highest_risk_level,
+  GeneratedColumn<String> get highestRiskLevel => $composableBuilder(
+    column: $table.highestRiskLevel,
     builder: (column) => column,
   );
 
-  GeneratedColumn<int> get proposal_count => $composableBuilder(
-    column: $table.proposal_count,
+  GeneratedColumn<int> get proposalCount => $composableBuilder(
+    column: $table.proposalCount,
     builder: (column) => column,
   );
 
-  GeneratedColumn<int> get verified_owner_count => $composableBuilder(
-    column: $table.verified_owner_count,
+  GeneratedColumn<int> get verifiedOwnerCount => $composableBuilder(
+    column: $table.verifiedOwnerCount,
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get last_updated => $composableBuilder(
-    column: $table.last_updated,
+  GeneratedColumn<String> get lastUpdated => $composableBuilder(
+    column: $table.lastUpdated,
     builder: (column) => column,
   );
 
@@ -5149,44 +5126,44 @@ class $$ActiveDeletionProposalsTableTableManager
           updateCompanionCallback:
               ({
                 Value<String> phoneNumber = const Value.absent(),
-                Value<String> proposal_start_time = const Value.absent(),
+                Value<String> proposalStartTime = const Value.absent(),
                 Value<String> status = const Value.absent(),
-                Value<String> highest_risk_level = const Value.absent(),
-                Value<int> proposal_count = const Value.absent(),
-                Value<int> verified_owner_count = const Value.absent(),
-                Value<String> last_updated = const Value.absent(),
+                Value<String> highestRiskLevel = const Value.absent(),
+                Value<int> proposalCount = const Value.absent(),
+                Value<int> verifiedOwnerCount = const Value.absent(),
+                Value<String> lastUpdated = const Value.absent(),
                 Value<String?> verificationReportJson = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => ActiveDeletionProposalsCompanion(
                 phoneNumber: phoneNumber,
-                proposal_start_time: proposal_start_time,
+                proposalStartTime: proposalStartTime,
                 status: status,
-                highest_risk_level: highest_risk_level,
-                proposal_count: proposal_count,
-                verified_owner_count: verified_owner_count,
-                last_updated: last_updated,
+                highestRiskLevel: highestRiskLevel,
+                proposalCount: proposalCount,
+                verifiedOwnerCount: verifiedOwnerCount,
+                lastUpdated: lastUpdated,
                 verificationReportJson: verificationReportJson,
                 rowid: rowid,
               ),
           createCompanionCallback:
               ({
                 required String phoneNumber,
-                required String proposal_start_time,
+                required String proposalStartTime,
                 Value<String> status = const Value.absent(),
-                required String highest_risk_level,
-                Value<int> proposal_count = const Value.absent(),
-                Value<int> verified_owner_count = const Value.absent(),
-                required String last_updated,
+                required String highestRiskLevel,
+                Value<int> proposalCount = const Value.absent(),
+                Value<int> verifiedOwnerCount = const Value.absent(),
+                required String lastUpdated,
                 Value<String?> verificationReportJson = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => ActiveDeletionProposalsCompanion.insert(
                 phoneNumber: phoneNumber,
-                proposal_start_time: proposal_start_time,
+                proposalStartTime: proposalStartTime,
                 status: status,
-                highest_risk_level: highest_risk_level,
-                proposal_count: proposal_count,
-                verified_owner_count: verified_owner_count,
-                last_updated: last_updated,
+                highestRiskLevel: highestRiskLevel,
+                proposalCount: proposalCount,
+                verifiedOwnerCount: verifiedOwnerCount,
+                lastUpdated: lastUpdated,
                 verificationReportJson: verificationReportJson,
                 rowid: rowid,
               ),
@@ -5267,17 +5244,17 @@ typedef $$ActiveDeletionProposalsTableProcessedTableManager =
 typedef $$ProposalSubmissionsTableCreateCompanionBuilder =
     ProposalSubmissionsCompanion Function({
       required String id,
-      required String proposer_id,
-      required String phone_number,
-      required String submission_time,
+      required String proposerId,
+      required String phoneNumber,
+      required String submissionTime,
       Value<int> rowid,
     });
 typedef $$ProposalSubmissionsTableUpdateCompanionBuilder =
     ProposalSubmissionsCompanion Function({
       Value<String> id,
-      Value<String> proposer_id,
-      Value<String> phone_number,
-      Value<String> submission_time,
+      Value<String> proposerId,
+      Value<String> phoneNumber,
+      Value<String> submissionTime,
       Value<int> rowid,
     });
 
@@ -5295,18 +5272,18 @@ class $$ProposalSubmissionsTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get proposer_id => $composableBuilder(
-    column: $table.proposer_id,
+  ColumnFilters<String> get proposerId => $composableBuilder(
+    column: $table.proposerId,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get phone_number => $composableBuilder(
-    column: $table.phone_number,
+  ColumnFilters<String> get phoneNumber => $composableBuilder(
+    column: $table.phoneNumber,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get submission_time => $composableBuilder(
-    column: $table.submission_time,
+  ColumnFilters<String> get submissionTime => $composableBuilder(
+    column: $table.submissionTime,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -5325,18 +5302,18 @@ class $$ProposalSubmissionsTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get proposer_id => $composableBuilder(
-    column: $table.proposer_id,
+  ColumnOrderings<String> get proposerId => $composableBuilder(
+    column: $table.proposerId,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get phone_number => $composableBuilder(
-    column: $table.phone_number,
+  ColumnOrderings<String> get phoneNumber => $composableBuilder(
+    column: $table.phoneNumber,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get submission_time => $composableBuilder(
-    column: $table.submission_time,
+  ColumnOrderings<String> get submissionTime => $composableBuilder(
+    column: $table.submissionTime,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -5353,18 +5330,18 @@ class $$ProposalSubmissionsTableAnnotationComposer
   GeneratedColumn<String> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
 
-  GeneratedColumn<String> get proposer_id => $composableBuilder(
-    column: $table.proposer_id,
+  GeneratedColumn<String> get proposerId => $composableBuilder(
+    column: $table.proposerId,
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get phone_number => $composableBuilder(
-    column: $table.phone_number,
+  GeneratedColumn<String> get phoneNumber => $composableBuilder(
+    column: $table.phoneNumber,
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get submission_time => $composableBuilder(
-    column: $table.submission_time,
+  GeneratedColumn<String> get submissionTime => $composableBuilder(
+    column: $table.submissionTime,
     builder: (column) => column,
   );
 }
@@ -5416,29 +5393,29 @@ class $$ProposalSubmissionsTableTableManager
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
-                Value<String> proposer_id = const Value.absent(),
-                Value<String> phone_number = const Value.absent(),
-                Value<String> submission_time = const Value.absent(),
+                Value<String> proposerId = const Value.absent(),
+                Value<String> phoneNumber = const Value.absent(),
+                Value<String> submissionTime = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => ProposalSubmissionsCompanion(
                 id: id,
-                proposer_id: proposer_id,
-                phone_number: phone_number,
-                submission_time: submission_time,
+                proposerId: proposerId,
+                phoneNumber: phoneNumber,
+                submissionTime: submissionTime,
                 rowid: rowid,
               ),
           createCompanionCallback:
               ({
                 required String id,
-                required String proposer_id,
-                required String phone_number,
-                required String submission_time,
+                required String proposerId,
+                required String phoneNumber,
+                required String submissionTime,
                 Value<int> rowid = const Value.absent(),
               }) => ProposalSubmissionsCompanion.insert(
                 id: id,
-                proposer_id: proposer_id,
-                phone_number: phone_number,
-                submission_time: submission_time,
+                proposerId: proposerId,
+                phoneNumber: phoneNumber,
+                submissionTime: submissionTime,
                 rowid: rowid,
               ),
           withReferenceMapper:
@@ -5480,19 +5457,19 @@ typedef $$ProposalSubmissionsTableProcessedTableManager =
 typedef $$ProposalVotesTableCreateCompanionBuilder =
     ProposalVotesCompanion Function({
       required String id,
-      required String voter_id,
-      required String proposal_id,
-      required String vote_time,
-      Value<int> is_consumed,
+      required String voterId,
+      required String proposalId,
+      required String voteTime,
+      Value<int> isConsumed,
       Value<int> rowid,
     });
 typedef $$ProposalVotesTableUpdateCompanionBuilder =
     ProposalVotesCompanion Function({
       Value<String> id,
-      Value<String> voter_id,
-      Value<String> proposal_id,
-      Value<String> vote_time,
-      Value<int> is_consumed,
+      Value<String> voterId,
+      Value<String> proposalId,
+      Value<String> voteTime,
+      Value<int> isConsumed,
       Value<int> rowid,
     });
 
@@ -5510,23 +5487,23 @@ class $$ProposalVotesTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get voter_id => $composableBuilder(
-    column: $table.voter_id,
+  ColumnFilters<String> get voterId => $composableBuilder(
+    column: $table.voterId,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get proposal_id => $composableBuilder(
-    column: $table.proposal_id,
+  ColumnFilters<String> get proposalId => $composableBuilder(
+    column: $table.proposalId,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get vote_time => $composableBuilder(
-    column: $table.vote_time,
+  ColumnFilters<String> get voteTime => $composableBuilder(
+    column: $table.voteTime,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get is_consumed => $composableBuilder(
-    column: $table.is_consumed,
+  ColumnFilters<int> get isConsumed => $composableBuilder(
+    column: $table.isConsumed,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -5545,23 +5522,23 @@ class $$ProposalVotesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get voter_id => $composableBuilder(
-    column: $table.voter_id,
+  ColumnOrderings<String> get voterId => $composableBuilder(
+    column: $table.voterId,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get proposal_id => $composableBuilder(
-    column: $table.proposal_id,
+  ColumnOrderings<String> get proposalId => $composableBuilder(
+    column: $table.proposalId,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get vote_time => $composableBuilder(
-    column: $table.vote_time,
+  ColumnOrderings<String> get voteTime => $composableBuilder(
+    column: $table.voteTime,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get is_consumed => $composableBuilder(
-    column: $table.is_consumed,
+  ColumnOrderings<int> get isConsumed => $composableBuilder(
+    column: $table.isConsumed,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -5578,19 +5555,19 @@ class $$ProposalVotesTableAnnotationComposer
   GeneratedColumn<String> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
 
-  GeneratedColumn<String> get voter_id =>
-      $composableBuilder(column: $table.voter_id, builder: (column) => column);
+  GeneratedColumn<String> get voterId =>
+      $composableBuilder(column: $table.voterId, builder: (column) => column);
 
-  GeneratedColumn<String> get proposal_id => $composableBuilder(
-    column: $table.proposal_id,
+  GeneratedColumn<String> get proposalId => $composableBuilder(
+    column: $table.proposalId,
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get vote_time =>
-      $composableBuilder(column: $table.vote_time, builder: (column) => column);
+  GeneratedColumn<String> get voteTime =>
+      $composableBuilder(column: $table.voteTime, builder: (column) => column);
 
-  GeneratedColumn<int> get is_consumed => $composableBuilder(
-    column: $table.is_consumed,
+  GeneratedColumn<int> get isConsumed => $composableBuilder(
+    column: $table.isConsumed,
     builder: (column) => column,
   );
 }
@@ -5637,33 +5614,33 @@ class $$ProposalVotesTableTableManager
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
-                Value<String> voter_id = const Value.absent(),
-                Value<String> proposal_id = const Value.absent(),
-                Value<String> vote_time = const Value.absent(),
-                Value<int> is_consumed = const Value.absent(),
+                Value<String> voterId = const Value.absent(),
+                Value<String> proposalId = const Value.absent(),
+                Value<String> voteTime = const Value.absent(),
+                Value<int> isConsumed = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => ProposalVotesCompanion(
                 id: id,
-                voter_id: voter_id,
-                proposal_id: proposal_id,
-                vote_time: vote_time,
-                is_consumed: is_consumed,
+                voterId: voterId,
+                proposalId: proposalId,
+                voteTime: voteTime,
+                isConsumed: isConsumed,
                 rowid: rowid,
               ),
           createCompanionCallback:
               ({
                 required String id,
-                required String voter_id,
-                required String proposal_id,
-                required String vote_time,
-                Value<int> is_consumed = const Value.absent(),
+                required String voterId,
+                required String proposalId,
+                required String voteTime,
+                Value<int> isConsumed = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => ProposalVotesCompanion.insert(
                 id: id,
-                voter_id: voter_id,
-                proposal_id: proposal_id,
-                vote_time: vote_time,
-                is_consumed: is_consumed,
+                voterId: voterId,
+                proposalId: proposalId,
+                voteTime: voteTime,
+                isConsumed: isConsumed,
                 rowid: rowid,
               ),
           withReferenceMapper:

@@ -20,7 +20,7 @@ class _DriftMigrationHelper {
     if (!await _tableExists(db, 'phone_rules')) await m.createTable(db.phoneRules);
     if (!await _tableExists(db, 'regex_rules')) await m.createTable(db.regexRules);
     
-    await m.addColumn(db.subscriptions, db.subscriptions.table_type);
+    await m.addColumn(db.subscriptions, db.subscriptions.tableType);
     await db.customStatement("UPDATE subscriptions SET table_type = 'phone' WHERE table_type IS NULL OR table_type = ''");
 
     await _migratePhoneBlacklist(m, db);

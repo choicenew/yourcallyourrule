@@ -18,7 +18,7 @@ class RemoteNumbers extends Table {
   IntColumn get priority => integer().withDefault(const Constant(0))();
   TextColumn get action => text().withDefault(const Constant('none'))();
   IntColumn get count => integer().withDefault(const Constant(0))();
-  TextColumn get labels_json => text().nullable()();
+  TextColumn get labelsJson => text().nullable()();
 
   @override
   Set<Column> get primaryKey => {phoneNumber};
@@ -74,12 +74,12 @@ class SyncConfig extends Table {
 @DataClassName('ActiveDeletionProposalData')
 class ActiveDeletionProposals extends Table {
   TextColumn get phoneNumber => text().references(RemoteNumbers, #phoneNumber, onDelete: KeyAction.cascade)();
-  TextColumn get proposal_start_time => text()();
+  TextColumn get proposalStartTime => text()();
   TextColumn get status => text().withDefault(const Constant('pending'))();
-  TextColumn get highest_risk_level => text()();
-  IntColumn get proposal_count => integer().withDefault(const Constant(0))();
-  IntColumn get verified_owner_count => integer().withDefault(const Constant(0))();
-  TextColumn get last_updated => text()();
+  TextColumn get highestRiskLevel => text()();
+  IntColumn get proposalCount => integer().withDefault(const Constant(0))();
+  IntColumn get verifiedOwnerCount => integer().withDefault(const Constant(0))();
+  TextColumn get lastUpdated => text()();
   TextColumn get verificationReportJson => text().nullable()();
 
   @override
@@ -89,9 +89,9 @@ class ActiveDeletionProposals extends Table {
 @DataClassName('ProposalSubmissionData')
 class ProposalSubmissions extends Table {
   TextColumn get id => text()();
-  TextColumn get proposer_id => text()();
-  TextColumn get phone_number => text()();
-  TextColumn get submission_time => text()();
+  TextColumn get proposerId => text()();
+  TextColumn get phoneNumber => text()();
+  TextColumn get submissionTime => text()();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -100,10 +100,10 @@ class ProposalSubmissions extends Table {
 @DataClassName('ProposalVoteData')
 class ProposalVotes extends Table {
   TextColumn get id => text()();
-  TextColumn get voter_id => text()();
-  TextColumn get proposal_id => text()();
-  TextColumn get vote_time => text()();
-  IntColumn get is_consumed => integer().withDefault(const Constant(0))();
+  TextColumn get voterId => text()();
+  TextColumn get proposalId => text()();
+  TextColumn get voteTime => text()();
+  IntColumn get isConsumed => integer().withDefault(const Constant(0))();
 
   @override
   Set<Column> get primaryKey => {id};

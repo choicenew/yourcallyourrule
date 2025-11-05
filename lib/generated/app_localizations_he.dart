@@ -6086,4 +6086,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String andMoreItems(int count) {
     return 'ועוד $count פריטים';
   }
+
+  @override
+  String get ruleType => 'Rule Type';
 }
