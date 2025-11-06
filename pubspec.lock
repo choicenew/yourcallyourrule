@@ -744,14 +744,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_app_group_directory:
-    dependency: transitive
-    description:
-      name: flutter_app_group_directory
-      sha256: "680ef9b2dee84c237cd7bb7fc78bc45867b32556a8a5f0de61278078b9fefd05"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   flutter_appauth:
     dependency: "direct main"
     description:
@@ -1471,14 +1463,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.0"
-  live_activities:
+  live_updates:
     dependency: "direct main"
     description:
-      name: live_activities
-      sha256: d1bbc466ddb0c9eea11d6e3e34673319b5b46bcad03a4997e55769261f643601
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.2"
+      path: "."
+      ref: local
+      resolved-ref: "79c8d4cbcb2a405c4d1d16e6c20104e52558a04d"
+      url: "https://github.com/choicenew/live_updates.git"
+    source: git
+    version: "0.0.1"
   logger:
     dependency: "direct main"
     description:

@@ -1,6 +1,6 @@
 // lib/features/call/live_activities/handlers/live_activity_handler.dart
 
-import 'package:live_activities/live_activities.dart';
+import 'package:live_updates/live_updates.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
 
@@ -31,7 +31,6 @@ Future<LiveActivityHandler> liveActivityHandler(Ref ref) async {
 /// 专门负责处理 Live Activity 相关的创建、更新和结束逻辑
 class LiveActivityHandler {
   final LiveNotificationConfigService _configService;
-  final LiveActivities _liveActivitiesPlugin;
   final Uuid _uuid;
 
   String? _currentActivityId;
@@ -40,13 +39,11 @@ class LiveActivityHandler {
   LiveActivityHandler({
     required LiveNotificationConfigService configService,
   })  : _configService = configService,
-        _liveActivitiesPlugin = LiveActivities(),
         _uuid = const Uuid();
 
   /// 初始化
   Future<void> initialize() async {
-    // 这里的 appGroupId 需要是你在 Android 项目中配置的
-    await _liveActivitiesPlugin.init(appGroupId: "group.com.yours.yourcallyourrule");
+    // live_updates 无需插件实例初始化，这里保留空实现以兼容调用方。
   }
 
   /// 显示或更新来电信息 Live Activity
@@ -65,10 +62,22 @@ class LiveActivityHandler {
       );
 
       if (_currentActivityId != null) {
-        await _liveActivitiesPlugin.updateActivity(_currentActivityId!, payload);
+        await LiveUpdates.showLayoutNotification(
+          notificationId: _currentActivityId!.hashCode,
+          layoutName: 'live_activity',
+          smallIconName: 'ic_notification',
+          ongoing: true,
+          viewData: payload,
+        );
       } else {
         final newActivityId = _uuid.v4();
-        await _liveActivitiesPlugin.createActivity(newActivityId, payload);
+        await LiveUpdates.showLayoutNotification(
+          notificationId: newActivityId.hashCode,
+          layoutName: 'live_activity',
+          smallIconName: 'ic_notification',
+          ongoing: true,
+          viewData: payload,
+        );
         _currentActivityId = newActivityId;
       }
     } catch (e) {
@@ -80,7 +89,7 @@ class LiveActivityHandler {
   Future<void> endActivity() async {
     if (_currentActivityId != null) {
       try {
-        await _liveActivitiesPlugin.endActivity(_currentActivityId!);
+        await LiveUpdates.cancelNotification(_currentActivityId!.hashCode);
         _currentActivityId = null;
       } catch (e) {
         print('Failed to end Live Activity: $e');
