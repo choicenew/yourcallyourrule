@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:live_updates/live_updates.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
@@ -113,13 +115,13 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Icon(Icons.notifications_active, size: 80, color: Colors.blue),
-              const SizedBox(height: 24),
+              const Icon(Icons.notifications_active, size: 50, color: Colors.blue),
+              const SizedBox(height: 15),
               Text(
                 AppLocalizations.of(context)!.liveActivityControlsTitle,
                 style: Theme.of(context).textTheme.headlineSmall,
@@ -138,7 +140,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
                   style: const TextStyle(fontFamily: 'monospace'),
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 15),
               ElevatedButton.icon(
                 icon: const Icon(Icons.send),
                 label: Text(_activityId == null ? AppLocalizations.of(context)!.liveActivitiesTestSendNewActivity : AppLocalizations.of(context)!.liveActivitiesTestUpdateActivity),
@@ -158,12 +160,14 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
                 ),
                 onPressed: _activityId == null ? null : _endLiveActivity,
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 15),
               Text(
                 AppLocalizations.of(context)!.notification_instructions,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Color.fromARGB(255, 117, 117, 117)),
               ),
+              const SizedBox(height: 12),
+                   InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
             ],
           ),
         ),
