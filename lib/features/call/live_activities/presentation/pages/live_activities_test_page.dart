@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:live_activities/live_activities.dart';
+import 'package:live_updates/live_updates.dart';
 import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
@@ -20,7 +20,6 @@ class LiveActivitiesTestPage extends ConsumerStatefulWidget {
 }
 
 class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage> {
-  final _liveActivitiesPlugin = LiveActivities();
   String? _activityId; // 这个ID现在由我们自己生成和管理
   String _status = "Ready to send.";
   final _uuid = const Uuid(); // Uuid 生成器实例
@@ -28,8 +27,6 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
   @override
   void initState() {
     super.initState();
-    // 确保插件已初始化
-    _liveActivitiesPlugin.init(appGroupId: "group.com.yours.yourcallyourrule"); // <-- 请看下面的解释
   }
 
   /// 发送一个真实的 Live Activity 通知
@@ -49,24 +46,38 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
     final mockStirInfo = CallerIdMockData.mockStirInfoData();
 
     try {
-      final payload = await LiveNotificationPayloadBuilder.build(config, mockData, mockSimInfo, mockStirInfo);
+      final payload = await LiveNotificationPayloadBuilder.build(
+        config,
+        mockData,
+        mockSimInfo,
+        mockStirInfo,
+      );
 
       if (_activityId != null) {
-        // --- API 修正：updateActivity 需要 activityId 和 data ---
-        await _liveActivitiesPlugin.updateActivity(_activityId!, payload);
+        await LiveUpdates.showLayoutNotification(
+          notificationId: _activityId!.hashCode,
+          layoutName: 'live_activity',
+          smallIconName: 'ic_notification',
+          ongoing: true,
+          viewData: payload,
+        );
         setState(() {
           _status = "Successfully updated activity with ID:\n$_activityId";
         });
       } else {
-        // --- API 修正：createActivity 需要一个我们自己生成的唯一 ID ---
-        final newActivityId = _uuid.v4(); // 生成一个唯一的ID
-        await _liveActivitiesPlugin.createActivity(newActivityId, payload);
+        final newActivityId = _uuid.v4();
+        await LiveUpdates.showLayoutNotification(
+          notificationId: newActivityId.hashCode,
+          layoutName: 'live_activity',
+          smallIconName: 'ic_notification',
+          ongoing: true,
+          viewData: payload,
+        );
         setState(() {
           _activityId = newActivityId;
           _status = "Successfully created activity with ID:\n$newActivityId";
         });
       }
-
     } catch (e) {
       setState(() {
         _status = "Failed to send/update activity: $e";
@@ -81,8 +92,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
       return;
     }
     try {
-      // --- API 用法本身是正确的，保持不变 ---
-      await _liveActivitiesPlugin.endActivity(_activityId!);
+      await LiveUpdates.cancelNotification(_activityId!.hashCode);
       setState(() {
         _status = "Successfully ended activity with ID:\n$_activityId";
         _activityId = null; // 清除ID
