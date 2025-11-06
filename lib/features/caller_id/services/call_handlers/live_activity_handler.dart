@@ -12,6 +12,9 @@ import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/live_notification_config_service.dart';
 
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart'; // 确保这个 import 存在
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service.dart';
 
 part 'live_activity_handler.g.dart';
 
@@ -53,6 +56,23 @@ class LiveActivityHandler {
     required StirInfo? stirInfo,
   }) async {
     try {
+      // 计算并设置通知标题：号码与 SIM 信息进入系统头部
+      final context = AppRouter.navigatorKey.currentContext;
+      final String numberDisplay = callerIdData.phoneNumber.value;
+      final String simSuffix = simInfo == null ? '' : '-SIM${simInfo.simSlotIndex! + 1}';
+      final bool isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
+      final String finalTitle = () {
+        if (context != null) {
+          if (isFraudCall) {
+            return "⚠️ ${AppLocalizations.of(context)!.fraudAlertTitle} ($numberDisplay)$simSuffix";
+          } else {
+            return "${AppLocalizations.of(context)!.callerIdNotificationTitle} ($numberDisplay)$simSuffix";
+          }
+        }
+        // 无 context 回退，保持可读性
+        return "Incoming Call ($numberDisplay)$simSuffix";
+      }();
+
       final config = await _configService.loadConfigOrDefault();
       final payload = await LiveNotificationPayloadBuilder.build(
         config,
@@ -66,6 +86,7 @@ class LiveActivityHandler {
           notificationId: _currentActivityId!.hashCode,
           layoutName: 'live_activity',
           smallIconName: 'ic_notification',
+          title: finalTitle,
           ongoing: true,
           viewData: payload,
         );
@@ -75,6 +96,7 @@ class LiveActivityHandler {
           notificationId: newActivityId.hashCode,
           layoutName: 'live_activity',
           smallIconName: 'ic_notification',
+          title: finalTitle,
           ongoing: true,
           viewData: payload,
         );

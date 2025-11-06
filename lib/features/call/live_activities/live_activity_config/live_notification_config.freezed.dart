@@ -352,7 +352,7 @@ return $default(_that.globalSettings,_that.avatar,_that.name,_that.number,_that.
 @JsonSerializable()
 
 class _LiveNotificationConfig implements LiveNotificationConfig {
-  const _LiveNotificationConfig({this.globalSettings = const LiveGlobalSettings(), this.avatar = const LiveAvatarConfig(), this.name = const LiveTextConfig(fontSize: 18.0), this.number = const LiveTextConfig(), this.location = const LiveTextConfig(), this.carrier = const LiveTextConfig(), this.countryName = const LiveTextConfig(), this.labels = const LiveTextConfig(), this.count = const LiveTextConfig(), this.numberType = const LiveTextConfig(), this.stir = const LiveTextConfig(), this.simCard = const LiveTextConfig(), this.callType = const LiveIconConfig(), this.securityMessage = const LiveSecurityMessageConfig()});
+  const _LiveNotificationConfig({this.globalSettings = const LiveGlobalSettings(), this.avatar = const LiveAvatarConfig(), this.name = const LiveTextConfig(fontSize: 18.0, position: LivePositionConfig(x: 52, y: 8)), this.number = const LiveTextConfig(position: LivePositionConfig(x: 180, y: 30)), this.location = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 50)), this.carrier = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 70)), this.countryName = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 90)), this.labels = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 104)), this.count = const LiveTextConfig(position: LivePositionConfig(x: 200, y: 104)), this.numberType = const LiveTextConfig(position: LivePositionConfig(x: 160, y: 30)), this.stir = const LiveTextConfig(position: LivePositionConfig(x: 220, y: 8)), this.simCard = const LiveTextConfig(position: LivePositionConfig(x: 260, y: 8)), this.callType = const LiveIconConfig(position: LivePositionConfig(x: 0, y: 84)), this.securityMessage = const LiveSecurityMessageConfig(position: LivePositionConfig(x: 0, y: 96))});
   factory _LiveNotificationConfig.fromJson(Map<String, dynamic> json) => _$LiveNotificationConfigFromJson(json);
 
 // --- 全局 ---
@@ -577,7 +577,7 @@ $LiveSecurityMessageConfigCopyWith<$Res> get securityMessage {
 /// @nodoc
 mixin _$LiveGlobalSettings {
 
- String get backgroundColor;// 深灰色背景
+ String get backgroundColor;// 浅灰色背景，符合标准通知UI
  LiveBorderConfig get border;
 /// Create a copy of LiveGlobalSettings
 /// with the given fields replaced by the non-null parameter values.
@@ -782,11 +782,11 @@ return $default(_that.backgroundColor,_that.border);case _:
 @JsonSerializable()
 
 class _LiveGlobalSettings implements LiveGlobalSettings {
-  const _LiveGlobalSettings({this.backgroundColor = '#FF2E2E2E', this.border = const LiveBorderConfig()});
+  const _LiveGlobalSettings({this.backgroundColor = '#FFF2F2F2', this.border = const LiveBorderConfig()});
   factory _LiveGlobalSettings.fromJson(Map<String, dynamic> json) => _$LiveGlobalSettingsFromJson(json);
 
 @override@JsonKey() final  String backgroundColor;
-// 深灰色背景
+// 浅灰色背景，符合标准通知UI
 @override@JsonKey() final  LiveBorderConfig border;
 
 /// Create a copy of LiveGlobalSettings
@@ -1339,7 +1339,7 @@ return $default(_that.visible,_that.size,_that.borderWidth,_that.borderColor,_th
 @JsonSerializable()
 
 class _LiveAvatarConfig implements LiveAvatarConfig {
-  const _LiveAvatarConfig({this.visible = true, this.size = 60.0, this.borderWidth = 1.0, this.borderColor = '#FFFFFFFF', this.position = const LivePositionConfig(x: 16, y: 16)});
+  const _LiveAvatarConfig({this.visible = true, this.size = 60.0, this.borderWidth = 1.0, this.borderColor = '#FFFFFFFF', this.position = const LivePositionConfig(x: 0, y: 8)});
   factory _LiveAvatarConfig.fromJson(Map<String, dynamic> json) => _$LiveAvatarConfigFromJson(json);
 
 @override@JsonKey() final  bool visible;
@@ -1631,7 +1631,7 @@ return $default(_that.visible,_that.size,_that.color,_that.position);case _:
 @JsonSerializable()
 
 class _LiveIconConfig implements LiveIconConfig {
-  const _LiveIconConfig({this.visible = true, this.size = 20.0, this.color = '#FF21F375', this.position = const LivePositionConfig()});
+  const _LiveIconConfig({this.visible = true, this.size = 20.0, this.color = '#FF21F375', this.position = const LivePositionConfig(x: 0, y: 86)});
   factory _LiveIconConfig.fromJson(Map<String, dynamic> json) => _$LiveIconConfigFromJson(json);
 
 @override@JsonKey() final  bool visible;
@@ -1715,7 +1715,8 @@ $LivePositionConfigCopyWith<$Res> get position {
 /// @nodoc
 mixin _$LiveTextConfig {
 
- bool get visible; String get color; double get fontSize; LivePositionConfig get position;
+ bool get visible; String get color;// 默认深色文本，符合标准通知UI
+ double get fontSize; LivePositionConfig get position;
 /// Create a copy of LiveTextConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1921,11 +1922,12 @@ return $default(_that.visible,_that.color,_that.fontSize,_that.position);case _:
 @JsonSerializable()
 
 class _LiveTextConfig implements LiveTextConfig {
-  const _LiveTextConfig({this.visible = true, this.color = '#FFFFFFFF', this.fontSize = 14.0, this.position = const LivePositionConfig()});
+  const _LiveTextConfig({this.visible = true, this.color = '#DE000000', this.fontSize = 14.0, this.position = const LivePositionConfig()});
   factory _LiveTextConfig.fromJson(Map<String, dynamic> json) => _$LiveTextConfigFromJson(json);
 
 @override@JsonKey() final  bool visible;
 @override@JsonKey() final  String color;
+// 默认深色文本，符合标准通知UI
 @override@JsonKey() final  double fontSize;
 @override@JsonKey() final  LivePositionConfig position;
 
@@ -2005,7 +2007,9 @@ $LivePositionConfigCopyWith<$Res> get position {
 /// @nodoc
 mixin _$LiveSecurityMessageConfig {
 
- bool get visible; String get color; double get fontSize; String get backgroundColor; double get height; double get containerWidth; LivePositionConfig get position;
+ bool get visible; String get color;// 安全消息在浅色背景上使用深色文本
+ double get fontSize; String get backgroundColor;// 浅灰背景，展开区域更符合标准UI
+ double get height; double get containerWidth; LivePositionConfig get position;
 /// Create a copy of LiveSecurityMessageConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2214,13 +2218,15 @@ return $default(_that.visible,_that.color,_that.fontSize,_that.backgroundColor,_
 @JsonSerializable()
 
 class _LiveSecurityMessageConfig implements LiveSecurityMessageConfig {
-  const _LiveSecurityMessageConfig({this.visible = true, this.color = '#FFFFFFFF', this.fontSize = 14.0, this.backgroundColor = '#B0515151', this.height = 30.0, this.containerWidth = 300.0, this.position = const LivePositionConfig()});
+  const _LiveSecurityMessageConfig({this.visible = true, this.color = '#DE000000', this.fontSize = 14.0, this.backgroundColor = '#FFE9ECEF', this.height = 30.0, this.containerWidth = 300.0, this.position = const LivePositionConfig(x: 0, y: 96)});
   factory _LiveSecurityMessageConfig.fromJson(Map<String, dynamic> json) => _$LiveSecurityMessageConfigFromJson(json);
 
 @override@JsonKey() final  bool visible;
 @override@JsonKey() final  String color;
+// 安全消息在浅色背景上使用深色文本
 @override@JsonKey() final  double fontSize;
 @override@JsonKey() final  String backgroundColor;
+// 浅灰背景，展开区域更符合标准UI
 @override@JsonKey() final  double height;
 @override@JsonKey() final  double containerWidth;
 @override@JsonKey() final  LivePositionConfig position;

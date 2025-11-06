@@ -14,18 +14,18 @@ abstract class LiveNotificationConfig with _$LiveNotificationConfig {
 
     // --- 元素配置 (100% 参照你的 CallerIdConfig) ---
     @Default(LiveAvatarConfig()) LiveAvatarConfig avatar,
-    @Default(LiveTextConfig(fontSize: 18.0)) LiveTextConfig name,
-    @Default(LiveTextConfig()) LiveTextConfig number,
-    @Default(LiveTextConfig()) LiveTextConfig location, // 对应你的 region
-    @Default(LiveTextConfig()) LiveTextConfig carrier,
-    @Default(LiveTextConfig()) LiveTextConfig countryName, // 独立的国家名
-    @Default(LiveTextConfig()) LiveTextConfig labels,
-    @Default(LiveTextConfig()) LiveTextConfig count,
-    @Default(LiveTextConfig()) LiveTextConfig numberType,
-    @Default(LiveTextConfig()) LiveTextConfig stir,
-    @Default(LiveTextConfig()) LiveTextConfig simCard,
-    @Default(LiveIconConfig()) LiveIconConfig callType,
-    @Default(LiveSecurityMessageConfig()) LiveSecurityMessageConfig securityMessage,
+    @Default(LiveTextConfig(fontSize: 18.0, position: LivePositionConfig(x: 52, y: 8))) LiveTextConfig name,
+    @Default(LiveTextConfig(position: LivePositionConfig(x: 180, y: 30))) LiveTextConfig number,
+    @Default(LiveTextConfig(position: LivePositionConfig(x: 52, y: 50))) LiveTextConfig location, // 对应你的 region
+    @Default(LiveTextConfig(position: LivePositionConfig(x: 52, y: 70))) LiveTextConfig carrier,
+    @Default(LiveTextConfig(position: LivePositionConfig(x: 52, y: 90))) LiveTextConfig countryName, // 独立的国家名
+    @Default(LiveTextConfig(position: LivePositionConfig(x: 52, y: 104))) LiveTextConfig labels,
+    @Default(LiveTextConfig(position: LivePositionConfig(x: 200, y: 104))) LiveTextConfig count,
+    @Default(LiveTextConfig(position: LivePositionConfig(x: 160, y: 30))) LiveTextConfig numberType,
+    @Default(LiveTextConfig(position: LivePositionConfig(x: 220, y: 8))) LiveTextConfig stir,
+    @Default(LiveTextConfig(position: LivePositionConfig(x: 260, y: 8))) LiveTextConfig simCard,
+    @Default(LiveIconConfig(position: LivePositionConfig(x: 0, y: 84))) LiveIconConfig callType,
+    @Default(LiveSecurityMessageConfig(position: LivePositionConfig(x: 0, y: 96))) LiveSecurityMessageConfig securityMessage,
     
   }) = _LiveNotificationConfig;
 
@@ -38,7 +38,7 @@ abstract class LiveNotificationConfig with _$LiveNotificationConfig {
 @freezed
 abstract class LiveGlobalSettings with _$LiveGlobalSettings {
   const factory LiveGlobalSettings({
-    @Default('#FF2E2E2E') String backgroundColor, // 深灰色背景
+    @Default('#FFF2F2F2') String backgroundColor, // 浅灰色背景，符合标准通知UI
     @Default(LiveBorderConfig()) LiveBorderConfig border,
   }) = _LiveGlobalSettings;
 
@@ -65,7 +65,7 @@ abstract class LiveAvatarConfig with _$LiveAvatarConfig {
     @Default(60.0) double size,
     @Default(1.0) double borderWidth,
     @Default('#FFFFFFFF') String borderColor,
-    @Default(LivePositionConfig(x: 16, y: 16)) LivePositionConfig position,
+    @Default(LivePositionConfig(x: 0, y: 8)) LivePositionConfig position,
   }) = _LiveAvatarConfig;
 
   factory LiveAvatarConfig.fromJson(Map<String, dynamic> json) =>
@@ -78,7 +78,7 @@ abstract class LiveIconConfig with _$LiveIconConfig {
       @Default(true) bool visible,
       @Default(20.0) double size,
       @Default('#FF21F375') String color,
-      @Default(LivePositionConfig()) LivePositionConfig position,
+      @Default(LivePositionConfig(x: 0, y: 86)) LivePositionConfig position,
   }) = _LiveIconConfig;
 
     factory LiveIconConfig.fromJson(Map<String, dynamic> json) =>
@@ -89,7 +89,7 @@ abstract class LiveIconConfig with _$LiveIconConfig {
 abstract class LiveTextConfig with _$LiveTextConfig {
   const factory LiveTextConfig({
     @Default(true) bool visible,
-    @Default('#FFFFFFFF') String color,
+    @Default('#DE000000') String color, // 默认深色文本，符合标准通知UI
     @Default(14.0) double fontSize,
     @Default(LivePositionConfig()) LivePositionConfig position,
   }) = _LiveTextConfig;
@@ -102,12 +102,12 @@ abstract class LiveTextConfig with _$LiveTextConfig {
 abstract class LiveSecurityMessageConfig with _$LiveSecurityMessageConfig {
   const factory LiveSecurityMessageConfig({
       @Default(true) bool visible,
-      @Default('#FFFFFFFF') String color,
+      @Default('#DE000000') String color, // 安全消息在浅色背景上使用深色文本
       @Default(14.0) double fontSize,
-      @Default('#B0515151') String backgroundColor,
+      @Default('#FFE9ECEF') String backgroundColor, // 浅灰背景，展开区域更符合标准UI
       @Default(30.0) double height,
       @Default(300.0) double containerWidth,
-      @Default(LivePositionConfig()) LivePositionConfig position,
+      @Default(LivePositionConfig(x: 0, y: 96)) LivePositionConfig position,
   }) = _LiveSecurityMessageConfig;
 
     factory LiveSecurityMessageConfig.fromJson(Map<String, dynamic> json) =>

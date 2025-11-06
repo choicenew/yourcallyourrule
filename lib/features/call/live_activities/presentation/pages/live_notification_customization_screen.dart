@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/customization/color_panel.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/customization/size_panel.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
@@ -87,6 +88,7 @@ class _LiveNotificationCustomizationScreenState
                           AppLocalizations.of(context)!.elementPositionsSetting, 4,
                           _buildElementPositions(config),
                         ),
+                                 nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
                       ],
                     ),
                   ),

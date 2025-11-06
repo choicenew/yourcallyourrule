@@ -8,11 +8,8 @@ import 'package:yourcallyourrule/features/home/pages/carousel_cards.dart';
 import 'package:yourcallyourrule/features/home/pages/feature_center.dart';
 import 'package:yourcallyourrule/features/home/pages/home_app_bar.dart';
 import 'package:yourcallyourrule/features/home/pages/rule_verification_card.dart';
-import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
-import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 import 'package:yourcallyourrule/features/home/widgets/vip_promotion_card.dart';
-import 'package:yourcallyourrule/features/search/widgets/search_widget.dart';
 
 
 import 'package:yourcallyourrule/features/home/widgets/filter_management_widget.dart';

@@ -21,53 +21,58 @@ _LiveNotificationConfig _$LiveNotificationConfigFromJson(
           : LiveAvatarConfig.fromJson(json['avatar'] as Map<String, dynamic>),
   name:
       json['name'] == null
-          ? const LiveTextConfig(fontSize: 18.0)
+          ? const LiveTextConfig(
+            fontSize: 18.0,
+            position: LivePositionConfig(x: 52, y: 8),
+          )
           : LiveTextConfig.fromJson(json['name'] as Map<String, dynamic>),
   number:
       json['number'] == null
-          ? const LiveTextConfig()
+          ? const LiveTextConfig(position: LivePositionConfig(x: 180, y: 30))
           : LiveTextConfig.fromJson(json['number'] as Map<String, dynamic>),
   location:
       json['location'] == null
-          ? const LiveTextConfig()
+          ? const LiveTextConfig(position: LivePositionConfig(x: 52, y: 50))
           : LiveTextConfig.fromJson(json['location'] as Map<String, dynamic>),
   carrier:
       json['carrier'] == null
-          ? const LiveTextConfig()
+          ? const LiveTextConfig(position: LivePositionConfig(x: 52, y: 70))
           : LiveTextConfig.fromJson(json['carrier'] as Map<String, dynamic>),
   countryName:
       json['countryName'] == null
-          ? const LiveTextConfig()
+          ? const LiveTextConfig(position: LivePositionConfig(x: 52, y: 90))
           : LiveTextConfig.fromJson(
             json['countryName'] as Map<String, dynamic>,
           ),
   labels:
       json['labels'] == null
-          ? const LiveTextConfig()
+          ? const LiveTextConfig(position: LivePositionConfig(x: 52, y: 104))
           : LiveTextConfig.fromJson(json['labels'] as Map<String, dynamic>),
   count:
       json['count'] == null
-          ? const LiveTextConfig()
+          ? const LiveTextConfig(position: LivePositionConfig(x: 200, y: 104))
           : LiveTextConfig.fromJson(json['count'] as Map<String, dynamic>),
   numberType:
       json['numberType'] == null
-          ? const LiveTextConfig()
+          ? const LiveTextConfig(position: LivePositionConfig(x: 160, y: 30))
           : LiveTextConfig.fromJson(json['numberType'] as Map<String, dynamic>),
   stir:
       json['stir'] == null
-          ? const LiveTextConfig()
+          ? const LiveTextConfig(position: LivePositionConfig(x: 220, y: 8))
           : LiveTextConfig.fromJson(json['stir'] as Map<String, dynamic>),
   simCard:
       json['simCard'] == null
-          ? const LiveTextConfig()
+          ? const LiveTextConfig(position: LivePositionConfig(x: 260, y: 8))
           : LiveTextConfig.fromJson(json['simCard'] as Map<String, dynamic>),
   callType:
       json['callType'] == null
-          ? const LiveIconConfig()
+          ? const LiveIconConfig(position: LivePositionConfig(x: 0, y: 84))
           : LiveIconConfig.fromJson(json['callType'] as Map<String, dynamic>),
   securityMessage:
       json['securityMessage'] == null
-          ? const LiveSecurityMessageConfig()
+          ? const LiveSecurityMessageConfig(
+            position: LivePositionConfig(x: 0, y: 96),
+          )
           : LiveSecurityMessageConfig.fromJson(
             json['securityMessage'] as Map<String, dynamic>,
           ),
@@ -94,7 +99,7 @@ Map<String, dynamic> _$LiveNotificationConfigToJson(
 
 _LiveGlobalSettings _$LiveGlobalSettingsFromJson(Map<String, dynamic> json) =>
     _LiveGlobalSettings(
-      backgroundColor: json['backgroundColor'] as String? ?? '#FF2E2E2E',
+      backgroundColor: json['backgroundColor'] as String? ?? '#FFF2F2F2',
       border:
           json['border'] == null
               ? const LiveBorderConfig()
@@ -131,7 +136,7 @@ _LiveAvatarConfig _$LiveAvatarConfigFromJson(Map<String, dynamic> json) =>
       borderColor: json['borderColor'] as String? ?? '#FFFFFFFF',
       position:
           json['position'] == null
-              ? const LivePositionConfig(x: 16, y: 16)
+              ? const LivePositionConfig(x: 0, y: 8)
               : LivePositionConfig.fromJson(
                 json['position'] as Map<String, dynamic>,
               ),
@@ -153,7 +158,7 @@ _LiveIconConfig _$LiveIconConfigFromJson(Map<String, dynamic> json) =>
       color: json['color'] as String? ?? '#FF21F375',
       position:
           json['position'] == null
-              ? const LivePositionConfig()
+              ? const LivePositionConfig(x: 0, y: 86)
               : LivePositionConfig.fromJson(
                 json['position'] as Map<String, dynamic>,
               ),
@@ -170,7 +175,7 @@ Map<String, dynamic> _$LiveIconConfigToJson(_LiveIconConfig instance) =>
 _LiveTextConfig _$LiveTextConfigFromJson(Map<String, dynamic> json) =>
     _LiveTextConfig(
       visible: json['visible'] as bool? ?? true,
-      color: json['color'] as String? ?? '#FFFFFFFF',
+      color: json['color'] as String? ?? '#DE000000',
       fontSize: (json['fontSize'] as num?)?.toDouble() ?? 14.0,
       position:
           json['position'] == null
@@ -192,14 +197,14 @@ _LiveSecurityMessageConfig _$LiveSecurityMessageConfigFromJson(
   Map<String, dynamic> json,
 ) => _LiveSecurityMessageConfig(
   visible: json['visible'] as bool? ?? true,
-  color: json['color'] as String? ?? '#FFFFFFFF',
+  color: json['color'] as String? ?? '#DE000000',
   fontSize: (json['fontSize'] as num?)?.toDouble() ?? 14.0,
-  backgroundColor: json['backgroundColor'] as String? ?? '#B0515151',
+  backgroundColor: json['backgroundColor'] as String? ?? '#FFE9ECEF',
   height: (json['height'] as num?)?.toDouble() ?? 30.0,
   containerWidth: (json['containerWidth'] as num?)?.toDouble() ?? 300.0,
   position:
       json['position'] == null
-          ? const LivePositionConfig()
+          ? const LivePositionConfig(x: 0, y: 96)
           : LivePositionConfig.fromJson(
             json['position'] as Map<String, dynamic>,
           ),

@@ -179,16 +179,26 @@ class PluginWebViewService {
           if (_pluginQueryCompleters.containsKey(requestId)) {
             final completer = _pluginQueryCompleters.remove(requestId)!;
             final bool success = result['success'] ?? false;
-            final String? error = result['error'];
+            final String? error = result['error']?.toString();
 
             if (success) {
               debugPrint('[PluginResultChannel] Completing successfully for requestId: $requestId');
               completer.complete(result);
-            } else {
+           } else {
+          // 如果 success 是 false，但 error 字段是 null 或者空字符串，
+          // 我们就认为这是 "没有找到结果" 的正常情况，而不是一个真正的错误。
+          if (error == null || error.isEmpty) {
+            debugPrint(
+                '[PluginResultChannel] Completing with NO RESULT (success:false, no error msg) for requestId: $requestId');
+            completer.complete(null); // 正常返回 null
+          } else {
+            // 只有当 success 是 false 并且 error 字段里有具体错误信息时，
+            // 才把它当作一个真正的异常来处理。
               final errorMessage = error ?? 'Unknown plugin error';
               debugPrint('[PluginResultChannel] Completing with error for requestId: $requestId, Error: $errorMessage');
               completer.completeError(errorMessage);
             }
+          }
             // [修改] 委托会话清理
             _requestInterceptor.cleanupSession(requestId);
           } else {
@@ -379,7 +389,7 @@ class PluginWebViewService {
     // 等待结果
     try {
       return await completer.future.timeout(
-        const Duration(seconds: 20),
+        const Duration(seconds: 30),
         onTimeout: () {
           _pluginQueryCompleters.remove(requestId);
           // [修改] 委托会话清理
