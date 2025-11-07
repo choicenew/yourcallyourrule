@@ -1,6 +1,5 @@
 // lib/features/call/live_activities/models/live_notification_config.dart
 
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'live_notification_config.freezed.dart';
