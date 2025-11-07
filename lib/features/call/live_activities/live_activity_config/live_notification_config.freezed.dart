@@ -352,7 +352,7 @@ return $default(_that.globalSettings,_that.avatar,_that.name,_that.number,_that.
 @JsonSerializable()
 
 class _LiveNotificationConfig implements LiveNotificationConfig {
-  const _LiveNotificationConfig({this.globalSettings = const LiveGlobalSettings(), this.avatar = const LiveAvatarConfig(), this.name = const LiveTextConfig(fontSize: 18.0, position: LivePositionConfig(x: 52, y: 8)), this.number = const LiveTextConfig(position: LivePositionConfig(x: 180, y: 30)), this.location = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 50)), this.carrier = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 70)), this.countryName = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 90)), this.labels = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 104)), this.count = const LiveTextConfig(position: LivePositionConfig(x: 200, y: 104)), this.numberType = const LiveTextConfig(position: LivePositionConfig(x: 160, y: 30)), this.stir = const LiveTextConfig(position: LivePositionConfig(x: 220, y: 8)), this.simCard = const LiveTextConfig(position: LivePositionConfig(x: 260, y: 8)), this.callType = const LiveIconConfig(position: LivePositionConfig(x: 0, y: 84)), this.securityMessage = const LiveSecurityMessageConfig(position: LivePositionConfig(x: 0, y: 96))});
+  const _LiveNotificationConfig({this.globalSettings = const LiveGlobalSettings(), this.avatar = const LiveAvatarConfig(), this.name = const LiveTextConfig(fontSize: 18.0, position: LivePositionConfig(x: 52, y: 8)), this.number = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 30)), this.location = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 50)), this.carrier = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 70)), this.countryName = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 90)), this.labels = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 104)), this.count = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 104)), this.numberType = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 30)), this.stir = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 8)), this.simCard = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 8)), this.callType = const LiveIconConfig(position: LivePositionConfig(x: 0, y: 84)), this.securityMessage = const LiveSecurityMessageConfig(position: LivePositionConfig(x: 0, y: 96))});
   factory _LiveNotificationConfig.fromJson(Map<String, dynamic> json) => _$LiveNotificationConfigFromJson(json);
 
 // --- 全局 ---
@@ -2007,7 +2007,7 @@ $LivePositionConfigCopyWith<$Res> get position {
 /// @nodoc
 mixin _$LiveSecurityMessageConfig {
 
- bool get visible; String get color;// 安全消息在浅色背景上使用深色文本
+ bool get visible; String get color;// 默认红色，符合 Android XML 设置
  double get fontSize; String get backgroundColor;// 浅灰背景，展开区域更符合标准UI
  double get height; double get containerWidth; LivePositionConfig get position;
 /// Create a copy of LiveSecurityMessageConfig
@@ -2218,12 +2218,12 @@ return $default(_that.visible,_that.color,_that.fontSize,_that.backgroundColor,_
 @JsonSerializable()
 
 class _LiveSecurityMessageConfig implements LiveSecurityMessageConfig {
-  const _LiveSecurityMessageConfig({this.visible = true, this.color = '#DE000000', this.fontSize = 14.0, this.backgroundColor = '#FFE9ECEF', this.height = 30.0, this.containerWidth = 300.0, this.position = const LivePositionConfig(x: 0, y: 96)});
+  const _LiveSecurityMessageConfig({this.visible = true, this.color = '#FFD32F2F', this.fontSize = 14.0, this.backgroundColor = '#FFE9ECEF', this.height = 30.0, this.containerWidth = 300.0, this.position = const LivePositionConfig(x: 0, y: 96)});
   factory _LiveSecurityMessageConfig.fromJson(Map<String, dynamic> json) => _$LiveSecurityMessageConfigFromJson(json);
 
 @override@JsonKey() final  bool visible;
 @override@JsonKey() final  String color;
-// 安全消息在浅色背景上使用深色文本
+// 默认红色，符合 Android XML 设置
 @override@JsonKey() final  double fontSize;
 @override@JsonKey() final  String backgroundColor;
 // 浅灰背景，展开区域更符合标准UI

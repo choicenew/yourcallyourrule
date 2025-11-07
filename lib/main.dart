@@ -32,6 +32,7 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   try {
+    
     // 初始化Firebase服务
     final firebaseService = FirebaseService();
     await firebaseService.initialize();

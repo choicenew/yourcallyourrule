@@ -39,14 +39,14 @@ class CallerIdService {
     required PredefinedLabelService predefinedLabelService,
     required RemoteNumberService remoteNumberService,
   })  : _contactService = contactService,
-        _blacklistWhitelistService = ruleManagementService,
+        _ruleManagementService = ruleManagementService,
         _labelService = labelService,
         _locationService = locationService,
         _predefinedLabelService = predefinedLabelService,
         _pluginService = pluginService,
         _remoteNumberService = remoteNumberService;
 
-  final RuleManagementService _blacklistWhitelistService;
+  final RuleManagementService _ruleManagementService;
   final _callerIdSubject = BehaviorSubject<CallerIdData>();
   final ContactService _contactService;
   final _labelPhoneEntrySubject = BehaviorSubject<LabelPhoneEntry>();
@@ -177,7 +177,7 @@ class CallerIdService {
 
     // 4. 查询规则数据 (尝试原始号码、E164、National 格式)
     // 获取所有规则
-    final allRules = await _blacklistWhitelistService.getAllRules();
+    final allRules = await _ruleManagementService.getAllRules();
 
     // 查找匹配的规则
     PhoneRule? phoneRule;
@@ -384,7 +384,7 @@ class CallerIdService {
               vo.PhoneNumber.fromString(e164Number));
           
           // 查询是否存在规则
-          final allRules = await _blacklistWhitelistService.getAllRules();
+          final allRules = await _ruleManagementService.getAllRules();
           final matchingRule = allRules.where((rule) =>
               rule.phoneNumber == vo.PhoneNumber.fromString(e164Number)).firstOrNull;
           

@@ -447,7 +447,7 @@ class PluginWebViewService {
     // 等待结果
     try {
       return await completer.future.timeout(
-        const Duration(seconds: 20),
+        const Duration(seconds: 30),
         onTimeout: () {
           _pluginQueryCompleters.remove(requestId);
           // [修改] 委托会话清理
