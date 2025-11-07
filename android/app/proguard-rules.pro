@@ -21,3 +21,7 @@
 -dontwarn org.bouncycastle.openssl.PEMKeyPair
 -dontwarn org.bouncycastle.openssl.PEMParser
 -dontwarn org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter
+-keep class androidx.window.extensions.** { *; }
+-keep class androidx.window.sidecar.** { *; }
+-keep interface androidx.window.extensions.** { *; }
+-keep interface androidx.window.sidecar.** { *; }
