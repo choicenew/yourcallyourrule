@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/customization/color_panel.dart';
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/customization/size_panel.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
-import 'package:yourcallyourrule/features/call/live_activities/presentation/widgets/live_notification_preview.dart.dart';
+import 'package:yourcallyourrule/features/call/live_activities/presentation/widgets/live_notification_preview.dart';
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

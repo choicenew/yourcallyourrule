@@ -73,12 +73,22 @@ class LiveActivityHandler {
         return "Incoming Call ($numberDisplay)$simSuffix";
       }();
 
+      // 本地化安全消息文本
+      final String securityMessageText = () {
+        if (context != null) {
+          return AppLocalizations.of(context)!.securityMessage;
+        }
+        // 无上下文时的英文回退文本
+        return 'Do not trust any phone calls. Always verify customer service numbers independently. Never share passwords, verification codes, card numbers, or personal information.';
+      }();
+
       final config = await _configService.loadConfigOrDefault();
       final payload = await LiveNotificationPayloadBuilder.build(
         config,
         callerIdData,
         simInfo,
         stirInfo,
+        securityMessage: securityMessageText,
       );
 
       if (_currentActivityId != null) {

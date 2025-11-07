@@ -29,6 +29,7 @@ class LiveNotificationPayloadBuilder {
     CallerIdData data,
     SimInfo? simInfo,
     StirInfo? stirInfo,
+    {String? securityMessage}
   ) async {
     Future<Uint8List> _getAssetBytes(String? path) async {
       if (path == null || path.isEmpty || path.startsWith('http')) return Uint8List(0);
@@ -172,7 +173,7 @@ class LiveNotificationPayloadBuilder {
     // Security message
     if (config.securityMessage.visible) {
       viewData['security_message_text'] = TextViewData(
-        text: 'Security Alert: Potential fraud detected.',
+        text: securityMessage ?? 'Security Alert: Potential fraud detected.',
         textColor: _colorStringToColor(config.securityMessage.color),
         textSize: config.securityMessage.fontSize,
         position: Offset(
