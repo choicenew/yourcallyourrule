@@ -182,7 +182,7 @@
         android:maxLines="2"
         android:ellipsize="end" />
 
-    <!-- Optional progress bar (for future use) -->
+    <!-- Optional progress bar (for future use) 
     <ProgressBar
         android:id="@+id/progress_bar"
         style="@android:style/Widget.ProgressBar.Horizontal"
@@ -192,5 +192,5 @@
         android:layout_marginTop="8dp"
         android:max="100"
         android:progress="0" />
-
+-->
 </RelativeLayout>
