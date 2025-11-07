@@ -34,7 +34,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0' # 确保版本与您项目匹配
+          flutter-version: '3.35.4' # 确保版本与您项目匹配
           channel: 'stable'
           cache: true
       
