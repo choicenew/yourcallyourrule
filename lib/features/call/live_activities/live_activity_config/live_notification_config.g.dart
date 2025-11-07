@@ -28,7 +28,7 @@ _LiveNotificationConfig _$LiveNotificationConfigFromJson(
           : LiveTextConfig.fromJson(json['name'] as Map<String, dynamic>),
   number:
       json['number'] == null
-          ? const LiveTextConfig(position: LivePositionConfig(x: 180, y: 30))
+          ? const LiveTextConfig(position: LivePositionConfig(x: 52, y: 30))
           : LiveTextConfig.fromJson(json['number'] as Map<String, dynamic>),
   location:
       json['location'] == null
@@ -50,19 +50,19 @@ _LiveNotificationConfig _$LiveNotificationConfigFromJson(
           : LiveTextConfig.fromJson(json['labels'] as Map<String, dynamic>),
   count:
       json['count'] == null
-          ? const LiveTextConfig(position: LivePositionConfig(x: 200, y: 104))
+          ? const LiveTextConfig(position: LivePositionConfig(x: 52, y: 104))
           : LiveTextConfig.fromJson(json['count'] as Map<String, dynamic>),
   numberType:
       json['numberType'] == null
-          ? const LiveTextConfig(position: LivePositionConfig(x: 160, y: 30))
+          ? const LiveTextConfig(position: LivePositionConfig(x: 52, y: 30))
           : LiveTextConfig.fromJson(json['numberType'] as Map<String, dynamic>),
   stir:
       json['stir'] == null
-          ? const LiveTextConfig(position: LivePositionConfig(x: 220, y: 8))
+          ? const LiveTextConfig(position: LivePositionConfig(x: 52, y: 8))
           : LiveTextConfig.fromJson(json['stir'] as Map<String, dynamic>),
   simCard:
       json['simCard'] == null
-          ? const LiveTextConfig(position: LivePositionConfig(x: 260, y: 8))
+          ? const LiveTextConfig(position: LivePositionConfig(x: 52, y: 8))
           : LiveTextConfig.fromJson(json['simCard'] as Map<String, dynamic>),
   callType:
       json['callType'] == null
@@ -197,7 +197,7 @@ _LiveSecurityMessageConfig _$LiveSecurityMessageConfigFromJson(
   Map<String, dynamic> json,
 ) => _LiveSecurityMessageConfig(
   visible: json['visible'] as bool? ?? true,
-  color: json['color'] as String? ?? '#DE000000',
+  color: json['color'] as String? ?? '#FFD32F2F',
   fontSize: (json['fontSize'] as num?)?.toDouble() ?? 14.0,
   backgroundColor: json['backgroundColor'] as String? ?? '#FFE9ECEF',
   height: (json['height'] as num?)?.toDouble() ?? 30.0,

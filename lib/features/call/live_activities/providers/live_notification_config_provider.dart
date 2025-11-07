@@ -118,6 +118,25 @@ class LiveNotificationConfigNotifier extends _$LiveNotificationConfigNotifier {
       ));
   }
 
+  /// 更新安全消息样式（颜色、字号、背景色、容器尺寸）
+  void updateSecurityMessageStyle({
+    String? color,
+    double? fontSize,
+    String? backgroundColor,
+    double? height,
+    double? containerWidth,
+  }) {
+    _updateState((config) => config.copyWith(
+      securityMessage: config.securityMessage.copyWith(
+        color: color ?? config.securityMessage.color,
+        fontSize: fontSize ?? config.securityMessage.fontSize,
+        backgroundColor: backgroundColor ?? config.securityMessage.backgroundColor,
+        height: height ?? config.securityMessage.height,
+        containerWidth: containerWidth ?? config.securityMessage.containerWidth,
+      ),
+    ));
+  }
+
   void updateElementPosition(String element, Offset newPosition) {
     _updateState((config) {
       final newPosConfig = LivePositionConfig(x: newPosition.dx, y: newPosition.dy);

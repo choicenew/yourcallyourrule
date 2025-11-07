@@ -155,6 +155,9 @@ class _LiveNotificationCustomizationScreenState
         ColorPanel(title: AppLocalizations.of(context)!.simCardColor, currentColor: colorFromHex(config.simCard.color), onColorChanged: (color) => notifier.updateTextStyle('simCard', color: colorToHex(color))),
         ColorPanel(title: AppLocalizations.of(context)!.avatarBorderColor, currentColor: colorFromHex(config.avatar.borderColor), onColorChanged: (color) => notifier.updateAvatarConfig(borderColor: colorToHex(color))),
         ColorPanel(title: AppLocalizations.of(context)!.callTypeIconColor, currentColor: colorFromHex(config.callType.color), onColorChanged: (color) => notifier.updateIconConfig(color: colorToHex(color))),
+        // 安全消息颜色设置
+        ColorPanel(title: AppLocalizations.of(context)!.messageColor, currentColor: colorFromHex(config.securityMessage.color), onColorChanged: (color) => notifier.updateSecurityMessageStyle(color: colorToHex(color))),
+        ColorPanel(title: AppLocalizations.of(context)!.messageBackgroundColor, currentColor: colorFromHex(config.securityMessage.backgroundColor), onColorChanged: (color) => notifier.updateSecurityMessageStyle(backgroundColor: colorToHex(color))),
       ],
     );
   }
@@ -173,6 +176,8 @@ class _LiveNotificationCustomizationScreenState
         SizePanel(label: AppLocalizations.of(context)!.numberTypeFontSize, currentSize: config.numberType.fontSize, onSizeChanged: (size) => notifier.updateTextStyle('numberType', fontSize: size)),
         SizePanel(label: AppLocalizations.of(context)!.stirFontSize, currentSize: config.stir.fontSize, onSizeChanged: (size) => notifier.updateTextStyle('stir', fontSize: size)),
         SizePanel(label: AppLocalizations.of(context)!.simCardFontSize, currentSize: config.simCard.fontSize, onSizeChanged: (size) => notifier.updateTextStyle('simCard', fontSize: size)),
+        // 安全消息字号设置
+        SizePanel(label: AppLocalizations.of(context)!.messageFontSize, currentSize: config.securityMessage.fontSize, onSizeChanged: (size) => notifier.updateSecurityMessageStyle(fontSize: size)),
       ],
     );
   }
@@ -184,6 +189,9 @@ class _LiveNotificationCustomizationScreenState
         _buildSlider(AppLocalizations.of(context)!.avatarSize, config.avatar.size, 30, 80, (value) => notifier.updateAvatarConfig(size: value)),
         _buildSlider(AppLocalizations.of(context)!.avatarBorderSize, config.avatar.borderWidth, 0, 10, (value) => notifier.updateAvatarConfig(borderWidth: value)),
         _buildSlider(AppLocalizations.of(context)!.iconSize, config.callType.size, 16, 32, (value) => notifier.updateIconConfig(size: value)),
+        // 安全消息容器尺寸设置
+        _buildSlider(AppLocalizations.of(context)!.height, config.securityMessage.height, 20, 60, (value) => notifier.updateSecurityMessageStyle(height: value)),
+        _buildSlider(AppLocalizations.of(context)!.containerWidth, config.securityMessage.containerWidth, 100, 400, (value) => notifier.updateSecurityMessageStyle(containerWidth: value)),
       ],
     );
   }

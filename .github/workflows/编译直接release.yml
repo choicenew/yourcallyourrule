@@ -31,8 +31,13 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.4'
           channel: 'stable'
+
+      - name: Create .env file
+        run: |
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
 
       - name: Get Flutter packages
         run: flutter pub get
@@ -42,6 +47,9 @@ jobs:
           flutter doctor -v
           echo "Flutter Plugins:"
           echo $(cat .flutter-plugins)
+          
+      - name: Generate Envied variables
+        run: flutter pub run build_runner build --delete-conflicting-outputs
 
       # Decode and place keystore
       - name: Decode keystore

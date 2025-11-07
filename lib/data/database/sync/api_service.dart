@@ -1,10 +1,11 @@
 import 'dart:convert';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'package:http/http.dart' as http;
+import 'package:yourcallyourrule/env.dart';
 
 class ApiService {
-  static final String _workerUrl = dotenv.get('CF_WORKER_URL');
-  static final String _apiSecret = dotenv.get('WORKER_API_SECRET');
+  static final String _workerUrl = Env.cfWorkerUrl;
+  static final String _apiSecret = Env.workerApiSecret;
   
   const ApiService();
 
