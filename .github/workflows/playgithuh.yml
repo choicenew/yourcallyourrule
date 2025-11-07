@@ -44,7 +44,7 @@ jobs:
       # --- Envied 密钥处理 ---
       - name: Create .env file for build
         run: |
-          echo "CF_WORK-ER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
           echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
         
       - name: Generate Envied variables
