@@ -1,0 +1,178 @@
+name: Manual Build & Multi-Channel Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  # ==========================================================
+  # JOB 1: 构建所有产物 (Build All Artifacts)
+  # ==========================================================
+  build:
+    name: Build Signed Android Artifacts
+    runs-on: ubuntu-latest
+    outputs:
+      VERSION: ${{ steps.meta.outputs.version }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 获取所有历史记录，以便生成 Release Notes
+
+      - name: Extract version from pubspec.yaml
+        id: meta
+        run: |
+          echo "version=v$(grep 'version: ' pubspec.yaml | sed 's/version: //')" >> $GITHUB_OUTPUT
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.4' # <--- 已更新为您指定的版本
+          channel: 'stable'
+          cache: true
+      
+      - name: Get Flutter packages
+        run: flutter pub get
+      
+      # --- Envied 密钥处理 ---
+      - name: Create .env file for build
+        run: |
+          echo "CF_WORK-ER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+        
+      - name: Generate Envied variables
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+      # ------------------------
+
+      # --- Android 签名配置 ---
+      - name: Decode keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
+
+      - name: Create key.properties
+        run: |
+          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
+          echo "storeFile=key.jks" >> android/key.properties
+      # ------------------------
+
+      - name: Build and Sign AAB and APKs
+        run: |
+          flutter build appbundle --release
+          flutter build apk --split-per-abi --release
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-builds
+          path: |
+            build/app/outputs/bundle/release/app-release.aab
+            build/app/outputs/apk/release/*.apk
+
+  # ==========================================================
+  # JOB 2: 发布到【当前私有】GitHub Release
+  # ==========================================================
+  release_github_private:
+    name: Publish to Private GitHub Release (Current Repo)
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: android-builds
+          path: build/outputs
+          
+      - name: Create Private GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ needs.build.outputs.VERSION }}
+          name: "Internal Build ${{ needs.build.outputs.VERSION }}"
+          generateReleaseNotes: true
+          allowUpdates: true
+          artifacts: "build/outputs/*"
+
+  # ==========================================================
+  # JOB 3: 发布到【公开】GitHub Release
+  # ==========================================================
+  release_github_public:
+    name: Publish to Public GitHub Release
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: android-builds
+          path: build/outputs
+          
+      - name: Create Public GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.MY_PAT }}
+          repository: choicenew/yourcallrule
+          tag: ${{ needs.build.outputs.VERSION }}
+          name: "Release ${{ needs.build.outputs.VERSION }}"
+          generateReleaseNotes: true
+          allowUpdates: true
+          artifacts: "build/outputs/*.apk"
+
+  # ==========================================================
+  # JOB 4: 发布到 Telegram
+  # ==========================================================
+  release_telegram:
+    name: Deploy to Telegram
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: android-builds
+          path: build/outputs
+
+      - name: Send APK to Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            🚀 **New Build Available: ${{ needs.build.outputs.VERSION }}**
+            A new version of YourApp is ready for testing. Download the APK below.
+          document: "build/outputs/app-arm64-v8a-release.apk"
+
+  # ==========================================================
+  # JOB 5: 发布到 Google Play
+  # ==========================================================
+  release_playstore:
+    name: Deploy to Google Play
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: android-builds
+          path: build/outputs
+          
+      - name: Publish to Google Play
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT }}
+          packageName: com.yours.yourcallyourrule # <--- 已更新为您的包名
+          releaseFiles: "build/outputs/app-release.aab"
+          track: internal
