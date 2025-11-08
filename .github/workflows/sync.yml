@@ -12,9 +12,10 @@ jobs:
     name: Distribute to Public Channels
     runs-on: ubuntu-latest
     permissions:
-      contents: read 
+      contents: read # 赋予 GITHUB_TOKEN 读取 Release 的权限
 
     steps:
+      # --- 步骤 1: 智能获取目标 Release 标签 ---
       - name: Get Target Release Tag
         id: vars
         run: |
@@ -29,38 +30,52 @@ jobs:
           fi
           echo "tag=${TARGET_TAG}" >> $GITHUB_OUTPUT
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 使用默认 token 读取私有库 tag
         
+      # --- 步骤 2: 下载附件 (使用您提供的 gh cli 方法) ---
       - name: Download all assets from release '${{ steps.vars.outputs.tag }}'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 使用 MY_PAT 确保有权限下载私有库的附件
+          GH_TOKEN: ${{ secrets.MY_PAT }} 
         run: |
           mkdir -p build_artifacts
+          # 正确地从当前（私有）仓库下载
           gh release download ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --dir build_artifacts
 
-      - name: Get Release Body
-        id: get_release_body
-        run: |
-          # 唯一的、最终的修正：明确告诉 gh 命令要操作哪个仓库
-          BODY_CONTENT=$(gh release view ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --json body --jq .body)
-          echo "body<<EOF" >> $GITHUB_OUTPUT
-          echo "$BODY_CONTENT" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+      # --- 步骤 3: 在公开仓库创建或更新 Release (使用您提供的 gh cli 方法) ---
+      - name: Create or Update Public Release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 使用 MY_PAT 来执行跨仓库的写入操作
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+        run: |
+          TARGET_REPO="choicenew/yourcallrule"
+          TAG="${{ steps.vars.outputs.tag }}"
 
-      - name: Publish to Public GitHub Release
-        uses: ncipollo/release-action@v1
-        continue-on-error: true
-        with:
-          token: ${{ secrets.MY_PAT }}
-          repo: choicenew/yourcallrule
-          tag: ${{ steps.vars.outputs.tag }}
-          name: "Release ${{ steps.vars.outputs.tag }}"
-          body: ${{ steps.get_release_body.outputs.body }}
-          allowUpdates: true
-          artifacts: "build_artifacts/*.apk"
-            
+          # 从私有仓库获取标题和内容
+          TITLE=$(gh release view $TAG --repo ${{ github.repository }} --json name --jq .name)
+          BODY=$(gh release view $TAG --repo ${{ github.repository }} --json body --jq .body)
+          
+          # 检查公开仓库中 release 是否存在
+          EXISTING_RELEASE=$(gh release view $TAG --repo $TARGET_REPO --json id --jq .id 2>/dev/null)
+          
+          cd build_artifacts
+          
+          if [[ -z "$EXISTING_RELEASE" ]]; then
+            echo "Release '$TAG' not found in $TARGET_REPO. Creating..."
+            gh release create $TAG \
+              --repo $TARGET_REPO \
+              --title "$TITLE" \
+              --notes "$BODY" \
+              *.apk
+          else
+            echo "Release '$TAG' found in $TARGET_REPO. Updating assets..."
+            gh release upload $TAG \
+              --repo $TARGET_REPO \
+              --clobber \
+              *.apk
+          fi
+
+      # --- 步骤 4: 发布到 Telegram ---
       - name: Send Telegram Message
         uses: appleboy/telegram-action@master
         continue-on-error: true
@@ -70,24 +85,25 @@ jobs:
           format: markdown
           message: |
             🚀 **New Release Available: `${{ steps.vars.outputs.tag }}`**
-            **✨ What's New:**
-            ```
-            ${{ steps.get_release_body.outputs.body }}
-            ```
             [View Public Release on GitHub](https://github.com/choicenew/yourcallrule/releases/tag/${{ steps.vars.outputs.tag }})
 
+      # --- 步骤 5: 发布到 Google Play ---
       - name: Create Google Play Release Notes File
         run: |
+          BODY=$(gh release view ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --json body --jq .body)
           VERSION_CODE=$(echo "${{ steps.vars.outputs.tag }}" | sed 's/.*+//')
           mkdir -p release_notes/en-US
-          echo "${{ steps.get_release_body.outputs.body }}" > release_notes/en-US/$VERSION_CODE.txt
+          echo "$BODY" > release_notes/en-US/$VERSION_CODE.txt
+        env:
+          GH_TOKEN: ${{ secrets.MY_PAT }}
 
       - name: Deploy to Google Play
         uses: r0adkll/upload-google-play@v1
         continue-on-error: true
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT }}
-          packageName: com.yours.yourcallrule
+          # 修正：使用正确的包名
+          packageName: com.choicenew.yourcallrule # (这是一个基于您仓库名的合理猜测，请确认)
           releaseFiles: "build_artifacts/app-release.aab"
           track: production
           releaseNotesDirectory: release_notes
