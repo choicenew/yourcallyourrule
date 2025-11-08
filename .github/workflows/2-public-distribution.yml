@@ -36,17 +36,18 @@ jobs:
           TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
-          # --- ★★★ 关键修正 1: 移除 "Full Changelog" 部分 ★★★ ---
-          # 使用 sed 命令，找到以 "**Full Changelog**:" 开头的行，并删除它以及之后的所有行
-          CLEAN_BODY=$(echo "$BODY" | sed '/^**Full Changelog**:/,$d')
+          # --- ★★★ 这是最关键的修正 ★★★ ---
+          #    在 sed 命令中，我们必须转义特殊字符 '*'
+          echo "Cleaning release body..."
+          CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
 
           mkdir -p release_assets
           gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "*.apk" --dir release_assets
           
-          # --- ★★★ 关键修正 2: 在公开仓库使用安全的标签名 ★★★ ---
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
 
           # 使用清理过的 BODY 和安全的 TAG 来创建公开 Release
+          echo "Creating public release..."
           gh release create "$SAFE_TARGET_TAG" \
             --repo "$TARGET_REPO" \
             --title "$TITLE" \

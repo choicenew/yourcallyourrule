@@ -57,7 +57,7 @@ class _TestPageState extends State<TestPage> {
   }
 
   void _addLog(String log) {
-    print(log); // 打印到控制台
+    debugPrint(log); // 打印到控制台
     if (mounted) {
       setState(() {
         _jsLogs =
@@ -182,7 +182,7 @@ Future<WebResourceResponse?> _shouldInterceptRequest(
 /// 如果是HTML，它会将所有相对路径的资源URL重写为我们的代理URL。
 String _preprocessHtml(String htmlBody, http.Response response, Uri requestUri) {
   // 假设 _addLog, PROXY_HOST, PROXY_PATH_FETCH 已经定义
-  // void _addLog(String message) { print(message); }
+  // void _addLog(String message) { debugPrint(message); }
   // const PROXY_HOST = 'your-proxy-domain.com';
   // const PROXY_PATH_FETCH = '/fetch';
   final contentType = response.headers['content-type'] ?? '';
