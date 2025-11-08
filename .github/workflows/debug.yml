@@ -9,7 +9,7 @@ on:
 
 jobs:
   sync-release:
-    name: Sync Release Using Proven Commands
+    name: Sync Release Using Proven Methods
     runs-on: ubuntu-latest
     
     steps:
@@ -18,52 +18,59 @@ jobs:
       - name: Authenticate gh CLI with PAT
         run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
 
-      # --- 步骤 2: 获取、下载、并发布 Release ---
-      # 之后的所有 gh 命令都会自动使用上面登录的 PAT
-      - name: Fetch, Download, and Sync Release
+      # --- 步骤 2: 确定要操作的确切 Release 标签 ---
+      - name: Get Exact Target Tag
+        id: get_tag
         run: |
-          set -e # 确保任何命令失败时脚本立刻停止
-
-          # --- A. 从私有仓库获取最新 Release 的完整信息 ---
-          echo "Fetching latest release data from private repo: ${{ github.repository }}"
-          # 这个 gh api 命令在我们 DEBUG 中没有直接测试，但它依赖于成功的认证
-          LATEST_RELEASE_JSON=$(gh api repos/${{ github.repository }}/releases/latest)
-
-          SOURCE_TAG=$(echo "$LATEST_RELEASE_JSON" | jq -r '.tag_name')
-          TITLE=$(echo "$LATEST_RELEASE_JSON" | jq -r '.name')
-          BODY=$(echo "$LATEST_RELEASE_JSON" | jq -r '.body')
-
-          if [[ -z "$SOURCE_TAG" ]]; then
-            echo "::error::Could not find any release in the private repo."
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            # 如果由 release 事件触发，直接使用事件中的确切标签，这是最可靠的方式
+            TARGET_TAG="${{ github.event.release.tag_name }}"
+            echo "Triggered by release event. Using exact tag: $TARGET_TAG"
+          else
+            # 如果是手动触发，我们才去获取列表中的第一个（也就是最新的那个，无论是不是预发布）
+            echo "Manual trigger. Fetching the most recent tag from private repo..."
+            TARGET_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
+          fi
+          
+          if [[ -z "$TARGET_TAG" ]]; then
+            echo "::error::Could not determine a target release tag."
             exit 1
           fi
-          echo "Found source tag: $SOURCE_TAG"
+          
+          echo "tag=${TARGET_TAG}" >> $GITHUB_OUTPUT
 
-          # --- B. 创建一个用于公开仓库的安全标签 ---
+      # --- 步骤 3: 获取、下载并发布 ---
+      # 将所有操作放在一个脚本中，使用我们已验证成功的认证状态
+      - name: Fetch, Download, and Sync Release
+        env:
+          TARGET_REPO: "choicenew/yourcallrule"
+          SOURCE_TAG: ${{ steps.get_tag.outputs.tag }}
+        run: |
+          set -e
+
+          # --- A. 使用【原始标签】从【私有库】获取标题和内容 ---
+          echo "Fetching release details from private repo using tag: $SOURCE_TAG"
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
+          TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
+          # --- B. 使用【原始标签】从【私有库】下载所有附件 ---
+          echo "Downloading assets from private repo using tag: $SOURCE_TAG"
+          mkdir -p release_assets
+          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --dir release_assets
+          
+          # --- C. 创建一个用于公开仓库的安全标签 ---
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
           echo "Using safe target tag for public repo: $SAFE_TARGET_TAG"
 
-          # --- C. 下载所有附件 ---
-          echo "Downloading all assets..."
-          mkdir -p release_assets
-          echo "$LATEST_RELEASE_JSON" | jq -c '.assets[] | {url: .url, name: .name}' | while read -r asset; do
-            ASSET_URL=$(echo "$asset" | jq -r '.url')
-            ASSET_NAME=$(echo "$asset" | jq -r '.name')
-            echo "Downloading $ASSET_NAME..."
-            # 使用 gh api 下载私有附件，这是最官方和可靠的方式
-            gh api --header "Accept: application/octet-stream" "$ASSET_URL" > "release_assets/$ASSET_NAME"
-          done
-          echo "All assets downloaded successfully."
-
           # --- D. 在公开仓库创建或更新 Release ---
-          TARGET_REPO="choicenew/yourcallrule"
           echo "Creating or updating release '$SAFE_TARGET_TAG' in $TARGET_REPO..."
           cd release_assets
           
-          # 我们先尝试删除已存在的 release，确保每次都是全新的创建
+          # 先尝试删除已存在的 release，确保每次都是全新的创建
           gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes || echo "Release '$SAFE_TARGET_TAG' did not exist. Proceeding to create."
 
-          # 使用最基本的 gh release create 命令，它现在一定会成功
+          # 使用最基本的 gh release create 命令
           gh release create "$SAFE_TARGET_TAG" \
             --repo "$TARGET_REPO" \
             --title "$TITLE" \
