@@ -1,85 +1,80 @@
-name: 测试Flutter Debug Build
-on:
-  workflow_dispatch:
-    inputs:
-      build_type:
-        description: 'Build Type (aab/apk/both)'
-        required: true
-        default: 'both'
-        
-jobs:
-  debug-build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.24.0'
-          channel: 'stable'
-          
-      # 修改 build.gradle 添加必要的插件配置
-      - name: Update Gradle Config
-        run: |
-          # 修改根目录的 build.gradle
-          cat > android/build.gradle << 'EOL'
-          buildscript {
-              repositories {
-                  google()
-                  mavenCentral()
-              }
-              dependencies {
-                  classpath 'com.android.tools.build:gradle:7.3.0'
-                  classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
-              }
-          }
-          allprojects {
-              repositories {
-                  google()
-                  mavenCentral()
-              }
-          }
-          EOL
+# .github/workflows/2-public-distribution.yml
 
-      - name: Install Dependencies
-        run: flutter pub get
-          
-      - name: Decode Keystore
+name: 2. Sync Release to Public Repo
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  sync-release:
+    name: Sync Release
+    runs-on: ubuntu-latest
+    
+    steps:
+      # --- 步骤 1: 下载私有仓库的 Release 附件 ---
+      # 这一步直接使用 MY_PAT，权限最足，最稳定。
+      - name: Download assets from private release
+        env:
+          GH_TOKEN: ${{ secrets.MY_PAT }}
         run: |
-          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
-          
-      - name: Create key.properties
-        run: |
-          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
-          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
-          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
-          echo "storeFile=key.jks" >> android/key.properties
-          
-      - name: Build Release
-        run: |
-          if [[ "${{ github.event.inputs.build_type }}" == "aab" || "${{ github.event.inputs.build_type }}" == "both" ]]; then
-            flutter build appbundle --verbose
+          # 如果由 release 事件触发，直接用事件中的 tag，最快最准
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            TAG="${{ github.event.release.tag_name }}"
+          else
+            # 如果是手动触发，就获取最新的 tag
+            TAG=$(gh release list --limit 1 --repo ${{ github.repository }} --json tagName --jq '.[0].tagName')
           fi
-          if [[ "${{ github.event.inputs.build_type }}" == "apk" || "${{ github.event.inputs.build_type }}" == "both" ]]; then
-            flutter build apk --split-per-abi --verbose
-          fi
+
+          echo "Target Tag: $TAG"
           
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-build-artifacts
-          path: |
-            build/app/outputs/bundle/release/app-release.aab
-            build/app/outputs/apk/release/*.apk
-            
-      - name: Extract Version
+          # 创建目录并下载所有附件
+          mkdir -p release_assets
+          gh release download $TAG --repo ${{ github.repository }} --dir release_assets
+
+      # --- 步骤 2: 在公开仓库创建或更新 Release ---
+      # 这一步也完全使用 MY_PAT，模仿成功范例的模式。
+      - name: Create or update release in public repo
+        env:
+          GH_TOKEN: ${{ secrets.MY_PAT }}
         run: |
-          echo "PUBSPEC_VERSION=$(grep -oP 'version:\s*\K[^+]+(?=\+)' pubspec.yaml)" >> $GITHUB_ENV
+          # 再次获取信息，确保一致性
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            TAG="${{ github.event.release.tag_name }}"
+            TITLE="${{ github.event.release.name }}"
+            BODY="${{ github.event.release.body }}"
+          else
+            LATEST_RELEASE_JSON=$(gh release list --limit 1 --repo ${{ github.repository }} --json tagName,name,body)
+            TAG=$(echo "$LATEST_RELEASE_JSON" | jq -r '.[0].tagName')
+            TITLE=$(echo "$LATEST_RELEASE_JSON" | jq -r '.[0].name')
+            BODY=$(echo "$LATEST_RELEASE_JSON" | jq -r '.[0].body')
+          fi
+
+          TARGET_REPO="choicenew/yourcallrule"
+
+          # 检查目标仓库中 Release 是否已存在
+          # 2>/dev/null 会抑制找不到 release 时的错误输出，让脚本继续
+          EXISTING_RELEASE=$(gh release view $TAG --repo $TARGET_REPO --json id 2>/dev/null)
+          
+          cd release_assets
+          
+          if [[ -z "$EXISTING_RELEASE" ]]; then
+            echo "Release '$TAG' not found in $TARGET_REPO. Creating..."
+            gh release create $TAG \
+              --repo $TARGET_REPO \
+              --title "$TITLE" \
+              --notes "$BODY" \
+              *
+          else
+            echo "Release '$TAG' already exists in $TARGET_REPO. Uploading/overwriting assets..."
+            gh release upload $TAG \
+              --repo $TARGET_REPO \
+              --clobber \
+              *
+          fi
+
+      # -----------------------------------------------------
+      # 后续的 Telegram 和 Google Play 步骤可以接在这里
+      # 它们的逻辑和之前一样，是独立的，不受影响
+      # -----------------------------------------------------
