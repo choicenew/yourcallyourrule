@@ -14,47 +14,51 @@ jobs:
     
     steps:
       # --- 步骤 1: 下载私有仓库的 Release 附件 ---
-      # 这一步直接使用 MY_PAT，权限最足，最稳定。
       - name: Download assets from private release
+        id: download_step # 给这一步一个 id，方便后面引用 tag
         env:
           GH_TOKEN: ${{ secrets.MY_PAT }}
         run: |
-          # 如果由 release 事件触发，直接用事件中的 tag，最快最准
           if [[ "${{ github.event_name }}" == "release" ]]; then
             TAG="${{ github.event.release.tag_name }}"
           else
-            # 如果是手动触发，就获取最新的 tag
             TAG=$(gh release list --limit 1 --repo ${{ github.repository }} --json tagName --jq '.[0].tagName')
           fi
 
+          if [[ -z "$TAG" ]]; then
+            echo "::error::Could not find any release in the private repository."
+            exit 1
+          fi
+
           echo "Target Tag: $TAG"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
           
-          # 创建目录并下载所有附件
           mkdir -p release_assets
           gh release download $TAG --repo ${{ github.repository }} --dir release_assets
 
       # --- 步骤 2: 在公开仓库创建或更新 Release ---
-      # 这一步也完全使用 MY_PAT，模仿成功范例的模式。
       - name: Create or update release in public repo
         env:
           GH_TOKEN: ${{ secrets.MY_PAT }}
         run: |
-          # 再次获取信息，确保一致性
+          # 从上一步获取确定的 TAG
+          TAG="${{ steps.download_step.outputs.tag }}"
+
+          # 如果由 release 事件触发，直接用事件中的信息
           if [[ "${{ github.event_name }}" == "release" ]]; then
-            TAG="${{ github.event.release.tag_name }}"
             TITLE="${{ github.event.release.name }}"
             BODY="${{ github.event.release.body }}"
           else
-            LATEST_RELEASE_JSON=$(gh release list --limit 1 --repo ${{ github.repository }} --json tagName,name,body)
-            TAG=$(echo "$LATEST_RELEASE_JSON" | jq -r '.[0].tagName')
-            TITLE=$(echo "$LATEST_RELEASE_JSON" | jq -r '.[0].name')
-            BODY=$(echo "$LATEST_RELEASE_JSON" | jq -r '.[0].body')
+            # 关键修正：先获取 TAG，再用 'gh release view' 获取详情
+            echo "Fetching details for tag $TAG..."
+            RELEASE_DETAILS_JSON=$(gh release view $TAG --repo ${{ github.repository }} --json name,body)
+            TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
+            BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
           fi
 
           TARGET_REPO="choicenew/yourcallrule"
 
           # 检查目标仓库中 Release 是否已存在
-          # 2>/dev/null 会抑制找不到 release 时的错误输出，让脚本继续
           EXISTING_RELEASE=$(gh release view $TAG --repo $TARGET_REPO --json id 2>/dev/null)
           
           cd release_assets
@@ -73,8 +77,3 @@ jobs:
               --clobber \
               *
           fi
-
-      # -----------------------------------------------------
-      # 后续的 Telegram 和 Google Play 步骤可以接在这里
-      # 它们的逻辑和之前一样，是独立的，不受影响
-      # -----------------------------------------------------
