@@ -19,7 +19,6 @@ jobs:
       - name: Extract version from pubspec.yaml
         id: meta
         run: |
-          # 从 pubspec.yaml 提取版本号，并加上 'v' 前缀
           echo "version=v$(grep 'version: ' pubspec.yaml | sed 's/version: //')" >> $GITHUB_OUTPUT
 
       - name: Setup Java 17
@@ -29,22 +28,19 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       
-      # --- 关键修正：严格模仿 beecount 的 Android 环境设置 ---
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
-      # ---------------------------------------------------
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.4' # 您的 Flutter 版本
+          flutter-version: '3.35.4' # 保持您原来的 Flutter 版本不变
           channel: 'stable'
           cache: true
       
       - name: Get Flutter packages
         run: flutter pub get
       
-      # --- Envied 密钥处理 ---
       - name: Create .env file for build
         run: |
           echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
@@ -52,9 +48,7 @@ jobs:
         
       - name: Generate Envied variables
         run: flutter pub run build_runner build --delete-conflicting-outputs
-      # ------------------------
-
-      # --- Android 签名配置 ---
+      
       - name: Decode keystore
         run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
 
@@ -64,8 +58,7 @@ jobs:
           echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
           echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
           echo "storeFile=key.jks" >> android/key.properties
-      # ------------------------
-
+      
       - name: Build and Sign AAB and APKs
         run: |
           flutter build appbundle --release
@@ -75,7 +68,7 @@ jobs:
       # 发布步骤
       # ==========================================================
 
-      # --- 1. 发布到私有 GitHub Release ---
+      # --- 1. 发布到私有 GitHub Release (AAB + 所有 APK) ---
       - name: Publish to Private GitHub Release (Current Repo)
         uses: ncipollo/release-action@v1
         with:
@@ -86,21 +79,22 @@ jobs:
           allowUpdates: true
           artifacts: |
             build/app/outputs/bundle/release/app-release.aab
-            build/app/outputs/apk/release/*.apk
+            build/app/outputs/flutter-apk/*.apk
+            # 修正1: 将 APK 路径从旧的 'apk/release' 改为日志中显示的 'flutter-apk'
 
-      # --- 2. 发布到公开 GitHub Release ---
+      # --- 2. 发布到公开 GitHub Release (所有 APK) ---
       - name: Publish to Public GitHub Release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.MY_PAT }}
-          repository: choicenew/yourcallrule
+          repo: choicenew/yourcallrule # 修正2: 参数名从 'repository' 改为 'repo'
           tag: ${{ steps.meta.outputs.version }}
           name: "Release ${{ steps.meta.outputs.version }}"
           generateReleaseNotes: true
           allowUpdates: true
-          artifacts: "build/app/outputs/apk/release/*.apk"
+          artifacts: "build/app/outputs/flutter-apk/*.apk" # 修正1: 同上，修正 APK 路径
 
-      # --- 3. 发布到 Telegram ---
+      # --- 3. 发布到 Telegram (arm64-v8a APK) ---
       - name: Deploy to Telegram
         uses: appleboy/telegram-action@master
         with:
@@ -109,9 +103,9 @@ jobs:
           message: |
             🚀 **New Build Available: ${{ steps.meta.outputs.version }}**
             A new version of YourApp is ready for testing. Download the APK below.
-          document: "build/app/outputs/apk/release/app-arm64-v8a-release.apk"
+          document: "build/app/outputs/flutter-apk/app-arm64-v8a-release.apk" # 修正1: 同上，修正 APK 路径
 
-      # --- 4. 发布到 Google Play ---
+      # --- 4. 发布到 Google Play (仅 AAB) ---
       - name: Deploy to Google Play
         uses: r0adkll/upload-google-play@v1
         with:
