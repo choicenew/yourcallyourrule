@@ -1,128 +1,135 @@
-# .github/workflows/2-public-distribution.yml
+# .github/workflows/2-public-distribution-final.yml
 
-name: 2. Public Distribution
+name: 2. Sync Release to All Channels (Final Version)
 
 on:
   release:
-    types: [published] # 当私有 Release 被发布时自动触发
-  workflow_dispatch:   # 允许手动触发
+    types: [published]
+  workflow_dispatch:
 
 jobs:
-  distribute:
-    name: Distribute to Public Channels
+  sync-release:
+    name: Sync Release to GitHub, Telegram, and Google Play
     runs-on: ubuntu-latest
-    permissions:
-      contents: read # 只需要读取私有 Release 的权限
-
+    
     steps:
-      # --- 步骤 1: 确定要分发的 Release 标签 ---
-      - name: Get Target Release Tag
-        id: vars
+      # --- 步骤 1: 强制 gh CLI 使用您的 PAT 登录 ---
+      # 这是我们已经证明成功的、最关键的一步
+      - name: Authenticate gh CLI with PAT
+        run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+
+      # --- 步骤 2: 确定要操作的确切 Release 标签 ---
+      - name: Get Exact Target Tag
+        id: get_tag
         run: |
           if [[ "${{ github.event_name }}" == "release" ]]; then
             TARGET_TAG="${{ github.event.release.tag_name }}"
+            echo "Triggered by release event. Using exact tag: $TARGET_TAG"
           else
-            echo "Manual trigger detected. Fetching the latest release tag..."
+            echo "Manual trigger. Fetching the most recent tag from private repo..."
             TARGET_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
           fi
           
           if [[ -z "$TARGET_TAG" ]]; then
-            echo "::error::Could not determine the target release tag."
+            echo "::error::Could not determine a target release tag."
             exit 1
           fi
-
-          echo "Target Release Tag: $TARGET_TAG"
-          echo "tag=$TARGET_TAG" >> $GITHUB_OUTPUT
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      # --- 步骤 2: 从私有 Release 下载所有构建产物 ---
-      - name: Download all artifacts from Private Release
-        run: |
-          mkdir -p build_artifacts
-          echo "Downloading assets for tag ${{ steps.vars.outputs.tag }} from ${{ github.repository }}..."
-          gh release download ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --dir build_artifacts
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # --- 步骤 3: 获取 Release 的详细信息 (标题和内容) ---
-      - name: Get Release Title and Body
-        id: release_info
-        run: |
-          TITLE=$(gh release view ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --json name --jq .name)
-          BODY=$(gh release view ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --json body --jq .body)
-          VERSION_CODE=$(echo "${{ steps.vars.outputs.tag }}" | sed 's/.*+//')
           
-          echo "title<<EOF" >> $GITHUB_OUTPUT
-          echo "$TITLE" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "tag=${TARGET_TAG}" >> $GITHUB_OUTPUT
 
-          echo "body<<EOF" >> $GITHUB_OUTPUT
-          echo "$BODY" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-          echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
+      # --- 步骤 3: 从私有库获取信息并下载附件 ---
+      # 将所有读取操作放在一个脚本中，使用我们已验证成功的认证状态
+      - name: Fetch Details and Download Assets from Private Release
+        id: fetch_data
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_TAG: ${{ steps.get_tag.outputs.tag }}
+        run: |
+          set -e
 
+          # A. 获取标题和正文
+          echo "Fetching release details from private repo using tag: $SOURCE_TAG"
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
+          TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
+          # B. 下载所有附件
+          echo "Downloading assets from private repo using tag: $SOURCE_TAG"
+          mkdir -p release_assets
+          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --dir release_assets
+          
+          # C. 创建安全的公开标签并输出所有信息
+          SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+          VERSION_CODE=$(echo "$SOURCE_TAG" | sed 's/.*[+|-]//')
+
+          echo "safe_tag=${SAFE_TARGET_TAG}" >> $GITHUB_OUTPUT
+          echo "version_code=${VERSION_CODE}" >> $GITHUB_OUTPUT
+          echo "title<<EOF" >> $GITHUB_OUTPUT; echo "$TITLE" >> $GITHUB_OUTPUT; echo "EOF" >> $GITHUB_OUTPUT
+          echo "body<<EOF" >> $GITHUB_OUTPUT; echo "$BODY" >> $GITHUB_OUTPUT; echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "Safe target tag: $SAFE_TARGET_TAG"
+          echo "Version code: $VERSION_CODE"
+      
       # ==========================================================
-      # 分发到各个渠道 (每个步骤都独立，失败不影响其他)
+      # 分发到各个公开渠道
       # ==========================================================
 
       # --- 渠道 1: 发布到公开 GitHub Release ---
-      - name: Publish to Public GitHub Release (choicenew/yourcallrule)
-        uses: ncipollo/release-action@v1
+      - name: Publish to Public GitHub Release
+        # 即使此步骤失败，也继续执行
         continue-on-error: true
-        with:
-          token: ${{ secrets.MY_PAT }}
-          # 修正：使用正确的参数 'repo' 来指定跨仓库发布
-          repo: choicenew/yourcallrule
-          tag: ${{ steps.vars.outputs.tag }}
-          name: "Release ${{ steps.vars.outputs.tag }}"
-          body: ${{ steps.release_info.outputs.body }}
-          allowUpdates: true
-          artifacts: "build_artifacts/*.apk"
-          
+        run: |
+          cd release_assets
+          # 先尝试删除已存在的 release，确保每次都是全新的创建
+          gh release delete "${{ steps.fetch_data.outputs.safe_tag }}" --repo "choicenew/yourcallrule" --yes || echo "Release did not exist. Proceeding to create."
+          # 创建新的 Release
+          gh release create "${{ steps.fetch_data.outputs.safe_tag }}" \
+            --repo "choicenew/yourcallrule" \
+            --title "${{ steps.fetch_data.outputs.title }}" \
+            --notes "${{ steps.fetch_data.outputs.body }}" \
+            *
+
       # --- 渠道 2: 发布到 Telegram ---
       - name: Send Release Notes to Telegram
         uses: appleboy/telegram-action@master
+        # 即使此步骤失败，也继续执行
         continue-on-error: true
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           format: markdown
           message: |
-            🚀 **New Release Available: `${{ steps.vars.outputs.tag }}`**
+            🚀 **New Release Available: `${{ steps.fetch_data.outputs.safe_tag }}`**
 
             **✨ What's New:**
             ```
-            ${{ steps.release_info.outputs.body }}
+            ${{ steps.fetch_data.outputs.body }}
             ```
-            [View Full Release on GitHub](https://github.com/choicenew/yourcallrule/releases/tag/${{ steps.vars.outputs.tag }})
+            [View Full Release on GitHub](https://github.com/choicenew/yourcallrule/releases/tag/${{ steps.fetch_data.outputs.safe_tag }})
 
       - name: Send APK to Telegram
         uses: appleboy/telegram-action@master
+        # 即使此步骤失败，也继续执行
         continue-on-error: true
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          document: "build_artifacts/app-arm64-v8a-release.apk"
-          caption: "Direct download for `${{ steps.vars.outputs.tag }}` (arm64-v8a)."
-          
+          document: "release_assets/app-arm64-v8a-release.apk" # 假设这是您的APK文件名
+          caption: "Direct download for `${{ steps.fetch_data.outputs.safe_tag }}` (arm64-v8a)."
+
       # --- 渠道 3: 发布到 Google Play ---
-      - name: Create Google Play Release Notes
+      - name: Create Google Play Release Notes File
         run: |
           mkdir -p release_notes/en-US
-          echo "${{ steps.release_info.outputs.body }}" > release_notes/en-US/${{ steps.release_info.outputs.version_code }}.txt
+          echo "${{ steps.fetch_data.outputs.body }}" > release_notes/en-US/${{ steps.fetch_data.outputs.version_code }}.txt
 
       - name: Deploy to Google Play
         uses: r0adkll/upload-google-play@v1
+        # 即使此步骤失败，也继续执行
         continue-on-error: true
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT }}
-          # 关键确认: 请务必确保这个包名是您 Google Play Console 中的真实包名
+          # 关键确认: 请您务必确保这个包名是您 Google Play Console 中的真实包名
           packageName: com.yours.yourcallyourrule
-          releaseFiles: "build_artifacts/app-release.aab"
+          releaseFiles: "release_assets/app-release.aab" # 假设这是您的AAB文件名
           track: production
-          # 修正：使用正确的参数 'whatsNewDirectory'
           whatsNewDirectory: release_notes
