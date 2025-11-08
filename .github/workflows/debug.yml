@@ -9,71 +9,87 @@ on:
 
 jobs:
   sync-release:
-    name: Sync Release
+    name: Sync Release to Public Repo
     runs-on: ubuntu-latest
     
     steps:
-      # --- 步骤 1: 下载私有仓库的 Release 附件 ---
-      - name: Download assets from private release
-        id: download_step # 给这一步一个 id，方便后面引用 tag
+      # --- 步骤 1: 从私有仓库，获取所有原始信息 (Tag, Title, Body) ---
+      # 这一步只和您的私有仓库 (source) 对话。
+      - name: Get All Info from Private Release
+        id: source_info
         env:
-          GH_TOKEN: ${{ secrets.MY_PAT }}
+          # 使用 GITHUB_TOKEN 读取当前仓库信息，这是最标准和安全的方式
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # 如果是 release 事件触发，直接从事件中获取信息，最快
           if [[ "${{ github.event_name }}" == "release" ]]; then
             TAG="${{ github.event.release.tag_name }}"
+            TITLE="${{ github.event.release.name }}"
+            BODY="${{ github.event.release.body }}"
+          # 如果是手动触发，则通过 API 查询私有仓库的最新 Release
           else
-            TAG=$(gh release list --limit 1 --repo ${{ github.repository }} --json tagName --jq '.[0].tagName')
+            echo "Manual trigger. Fetching latest release from PRIVATE repo: ${{ github.repository }}"
+            # ★★★ 关键点: 明确从 ${{ github.repository }} (私有仓库) 获取信息 ★★★
+            LATEST_RELEASE_JSON=$(gh release view --repo ${{ github.repository }} --json tagName,name,body)
+            TAG=$(echo "$LATEST_RELEASE_JSON" | jq -r '.tagName')
+            TITLE=$(echo "$LATEST_RELEASE_JSON" | jq -r '.name')
+            BODY=$(echo "$LATEST_RELEASE_JSON" | jq -r '.body')
           fi
 
           if [[ -z "$TAG" ]]; then
-            echo "::error::Could not find any release in the private repository."
+            echo "::error::Could not find any release in the private repo."
             exit 1
           fi
 
-          echo "Target Tag: $TAG"
+          # 将所有获取到的信息输出给后续步骤使用
           echo "tag=$TAG" >> $GITHUB_OUTPUT
-          
-          mkdir -p release_assets
-          gh release download $TAG --repo ${{ github.repository }} --dir release_assets
+          echo "title<<EOF" >> $GITHUB_OUTPUT
+          echo "$TITLE" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          echo "$BODY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
-      # --- 步骤 2: 在公开仓库创建或更新 Release ---
-      - name: Create or update release in public repo
+      # --- 步骤 2: 从私有仓库，下载所有 APK 和其他文件 ---
+      # 这一步也只和您的私有仓库 (source) 对话。
+      - name: Download All Assets from Private Release
         env:
+          # 使用 MY_PAT 确保有最稳定的权限访问私有仓库
           GH_TOKEN: ${{ secrets.MY_PAT }}
         run: |
-          # 从上一步获取确定的 TAG
-          TAG="${{ steps.download_step.outputs.tag }}"
+          mkdir -p release_assets
+          echo "Downloading assets for tag ${{ steps.source_info.outputs.tag }} from private repo..."
+          gh release download ${{ steps.source_info.outputs.tag }} --repo ${{ github.repository }} --dir release_assets
 
-          # 如果由 release 事件触发，直接用事件中的信息
-          if [[ "${{ github.event_name }}" == "release" ]]; then
-            TITLE="${{ github.event.release.name }}"
-            BODY="${{ github.event.release.body }}"
-          else
-            # 关键修正：先获取 TAG，再用 'gh release view' 获取详情
-            echo "Fetching details for tag $TAG..."
-            RELEASE_DETAILS_JSON=$(gh release view $TAG --repo ${{ github.repository }} --json name,body)
-            TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
-            BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
-          fi
-
-          TARGET_REPO="choicenew/yourcallrule"
-
+      # --- 步骤 3: 将所有信息和文件，发送到公开仓库 ---
+      # 这一步只和您的公开仓库 (target) 对话。
+      - name: Create or Update Release in Public Repo
+        env:
+          # 使用 MY_PAT 才有权限写入外部仓库
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+          # 将所有需要的信息作为环境变量传入，确保脚本干净
+          TARGET_REPO: "choicenew/yourcallrule"
+          TAG: ${{ steps.source_info.outputs.tag }}
+          TITLE: ${{ steps.source_info.outputs.title }}
+          BODY: ${{ steps.source_info.outputs.body }}
+        run: |
+          echo "Checking for release '$TAG' in public repo: $TARGET_REPO"
           # 检查目标仓库中 Release 是否已存在
-          EXISTING_RELEASE=$(gh release view $TAG --repo $TARGET_REPO --json id 2>/dev/null)
+          EXISTING_RELEASE=$(gh release view "$TAG" --repo "$TARGET_REPO" --json id 2>/dev/null)
           
           cd release_assets
           
           if [[ -z "$EXISTING_RELEASE" ]]; then
-            echo "Release '$TAG' not found in $TARGET_REPO. Creating..."
-            gh release create $TAG \
-              --repo $TARGET_REPO \
+            echo "Release not found. Creating new release in $TARGET_REPO..."
+            gh release create "$TAG" \
+              --repo "$TARGET_REPO" \
               --title "$TITLE" \
               --notes "$BODY" \
               *
           else
-            echo "Release '$TAG' already exists in $TARGET_REPO. Uploading/overwriting assets..."
-            gh release upload $TAG \
-              --repo $TARGET_REPO \
+            echo "Release found. Uploading and overwriting assets in $TARGET_REPO..."
+            gh release upload "$TAG" \
+              --repo "$TARGET_REPO" \
               --clobber \
               *
           fi
