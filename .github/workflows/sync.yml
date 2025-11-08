@@ -12,10 +12,11 @@ jobs:
     name: Distribute to Public Channels
     runs-on: ubuntu-latest
     permissions:
-      contents: read # 赋予 GITHUB_TOKEN 读取 Release 的权限
+      contents: read # 赋予 GITHUB_TOKEN 读取私有 Release 的权限
 
     steps:
       # --- 步骤 1: 智能获取目标 Release 标签 ---
+      # 这个步骤在当前（私有）仓库中运行，所以使用 ${{ github.repository }}
       - name: Get Target Release Tag
         id: vars
         run: |
@@ -23,39 +24,36 @@ jobs:
             TARGET_TAG="${{ github.event.release.tag_name }}"
           else
             TARGET_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
-            if [[ -z "$TARGET_TAG" ]]; then
-              echo "::error::Could not find any releases in the repository."
-              exit 1
-            fi
           fi
           echo "tag=${TARGET_TAG}" >> $GITHUB_OUTPUT
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 使用默认 token 读取私有库 tag
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
-      # --- 步骤 2: 下载附件 (使用您提供的 gh cli 方法) ---
-      - name: Download all assets from release '${{ steps.vars.outputs.tag }}'
+      # --- 步骤 2: 下载附件 ---
+      # 从当前（私有）仓库的 Release 中下载，所以使用 ${{ github.repository }}
+      - name: Download all assets from Private Release
         env:
-          # 使用 MY_PAT 确保有权限下载私有库的附件
-          GH_TOKEN: ${{ secrets.MY_PAT }} 
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p build_artifacts
-          # 正确地从当前（私有）仓库下载
           gh release download ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --dir build_artifacts
 
-      # --- 步骤 3: 在公开仓库创建或更新 Release (使用您提供的 gh cli 方法) ---
-      - name: Create or Update Public Release
+      # --- 步骤 3: 在公开仓库创建或更新 Release ---
+      - name: Create or Update Public Release in [choicenew/yourcallrule]
         env:
-          # 使用 MY_PAT 来执行跨仓库的写入操作
-          GH_TOKEN: ${{ secrets.MY_PAT }}
+          GH_TOKEN: ${{ secrets.MY_PAT }} # 使用有跨仓库权限的 PAT
         run: |
+          # 明确定义目标仓库
           TARGET_REPO="choicenew/yourcallrule"
           TAG="${{ steps.vars.outputs.tag }}"
 
-          # 从私有仓库获取标题和内容
+          # 从当前（私有）仓库 `${{ github.repository }}` 获取标题和内容
+          echo "Fetching release notes from source repo: ${{ github.repository }}"
           TITLE=$(gh release view $TAG --repo ${{ github.repository }} --json name --jq .name)
           BODY=$(gh release view $TAG --repo ${{ github.repository }} --json body --jq .body)
           
-          # 检查公开仓库中 release 是否存在
+          # 检查目标仓库 $TARGET_REPO 中 release 是否存在
+          echo "Checking for existing release in target repo: $TARGET_REPO"
           EXISTING_RELEASE=$(gh release view $TAG --repo $TARGET_REPO --json id --jq .id 2>/dev/null)
           
           cd build_artifacts
@@ -76,6 +74,7 @@ jobs:
           fi
 
       # --- 步骤 4: 发布到 Telegram ---
+      # 链接指向公开仓库
       - name: Send Telegram Message
         uses: appleboy/telegram-action@master
         continue-on-error: true
@@ -88,22 +87,29 @@ jobs:
             [View Public Release on GitHub](https://github.com/choicenew/yourcallrule/releases/tag/${{ steps.vars.outputs.tag }})
 
       # --- 步骤 5: 发布到 Google Play ---
-      - name: Create Google Play Release Notes File
+      - name: Get Release Body for Google Play
+        id: get_body_for_play
         run: |
           BODY=$(gh release view ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --json body --jq .body)
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          echo "$BODY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Google Play Release Notes File
+        run: |
           VERSION_CODE=$(echo "${{ steps.vars.outputs.tag }}" | sed 's/.*+//')
           mkdir -p release_notes/en-US
-          echo "$BODY" > release_notes/en-US/$VERSION_CODE.txt
-        env:
-          GH_TOKEN: ${{ secrets.MY_PAT }}
+          echo "${{ steps.get_body_for_play.outputs.body }}" > release_notes/en-US/$VERSION_CODE.txt
 
       - name: Deploy to Google Play
         uses: r0adkll/upload-google-play@v1
         continue-on-error: true
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT }}
-          # 修正：使用正确的包名
-          packageName: com.choicenew.yourcallrule # (这是一个基于您仓库名的合理猜测，请确认)
+          # 修正：使用正确的包名 (请您最后确认一下这个是否正确)
+          packageName: com.yours.yourcallyourrule 
           releaseFiles: "build_artifacts/app-release.aab"
           track: production
           releaseNotesDirectory: release_notes
