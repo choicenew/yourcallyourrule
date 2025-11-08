@@ -15,7 +15,6 @@ jobs:
       contents: read 
 
     steps:
-      # --- 步骤 1: 智能获取目标 Release 标签 ---
       - name: Get Target Release Tag
         id: vars
         run: |
@@ -32,35 +31,24 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
-      # --- 步骤 2: 下载指定 Release 的所有附件 ---
       - name: Download all assets from release '${{ steps.vars.outputs.tag }}'
-        # =========================================================================
-        # 唯一的、最终的、绝对正确的修正：
-        # 使用您找到的、正确的 Action: dsaltares/fetch-gh-release-asset
-        # =========================================================================
-        uses: dsaltares/fetch-gh-release-asset@master
-        with:
-          # 根据文档，version 参数需要 'tags/' 前缀
-          version: 'tags/${{ steps.vars.outputs.tag }}'
-          # 根据文档，使用 regex: true 和 file: '.*' 来下载所有附件
-          regex: true
-          file: '.*'
-          # 根据文档，使用 target 参数指定输出目录
-          target: 'build_artifacts/'
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p build_artifacts
+          gh release download ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --dir build_artifacts
 
-      # --- 步骤 3: 获取指定 Release 的 Body (更新说明) ---
       - name: Get Release Body
         id: get_release_body
         run: |
-          BODY_CONTENT=$(gh release view ${{ steps.vars.outputs.tag }} --json body --jq .body)
+          # 唯一的、最终的修正：明确告诉 gh 命令要操作哪个仓库
+          BODY_CONTENT=$(gh release view ${{ steps.vars.outputs.tag }} --repo ${{ github.repository }} --json body --jq .body)
           echo "body<<EOF" >> $GITHUB_OUTPUT
           echo "$BODY_CONTENT" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # --- [后续所有发布步骤保持不变，它们都是正确的] ---
       - name: Publish to Public GitHub Release
         uses: ncipollo/release-action@v1
         continue-on-error: true
