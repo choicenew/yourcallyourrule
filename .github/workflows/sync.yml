@@ -3,11 +3,8 @@
 name: 2. Public Distribution (Smart Rerun)
 
 on:
-  # 触发器一：自动触发，只响应新创建的 Release
   release:
     types: [created]
-
-  # 触发器二：手动触发，无需任何输入
   workflow_dispatch:
 
 jobs:
@@ -19,37 +16,38 @@ jobs:
 
     steps:
       # --- 步骤 1: 智能获取目标 Release 标签 ---
+      # 这个步骤在当前（私有）仓库中运行
       - name: Get Target Release Tag
         id: vars
         run: |
-          # 如果是自动触发，直接从事件中获取 tag
           if [[ "${{ github.event_name }}" == "release" ]]; then
             TARGET_TAG="${{ github.event.release.tag_name }}"
-            echo "Triggered by new release: ${TARGET_TAG}"
-          # 如果是手动触发，使用 GitHub CLI 自动查找最新的 Release tag
+            echo "Triggered by new release in THIS repository: ${TARGET_TAG}"
           else
-            echo "Manual trigger detected. Finding the latest release..."
+            echo "Manual trigger. Finding the latest release in THIS repository..."
+            # gh release list --repo ${{ github.repository }}  <-- 自动使用当前仓库名
             TARGET_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
             if [[ -z "$TARGET_TAG" ]]; then
-              echo "::error::Could not find any releases in the repository."
+              echo "::error::Could not find any releases in THIS repository."
               exit 1
             fi
             echo "Found latest release to process: ${TARGET_TAG}"
           fi
           echo "tag=${TARGET_TAG}" >> $GITHUB_OUTPUT
         env:
-          # GitHub CLI 需要 token 才能访问 API
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       # --- 步骤 2: 下载指定 Release 的所有附件 ---
+      # 这个步骤也在当前（私有）仓库中运行，下载私有 Release 的附件
       - name: Download all assets from release '${{ steps.vars.outputs.tag }}'
-        uses: dsaltares/fetch-release-assets@v1.1.1
+        uses: dsaltares/fetch-release-assets@v1.1.1 
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.vars.outputs.tag }}
           out-path: 'build_artifacts'
 
       # --- 步骤 3: 获取指定 Release 的 Body (更新说明) ---
+      # 这个步骤同样在当前（私有）仓库中运行
       - name: Get Release Body
         id: get_release_body
         run: |
@@ -60,23 +58,21 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # --- [从这里开始，所有发布步骤完全不变，它们都使用上面准备好的变量] ---
-
       # --- 发布到公开 GitHub Release ---
-      - name: Publish to Public GitHub Release
+      # 这是唯一一步需要指定公开仓库名的步骤
+      - name: Publish to Public GitHub Release (choicenew/yourcallrule)
         uses: ncipollo/release-action@v1
         continue-on-error: true
         with:
           token: ${{ secrets.MY_PAT }}
-          repo: choicenew/yourcallrule
+          repo: choicenew/yourcallrule # <-- 明确指定目标是公开仓库
           tag: ${{ steps.vars.outputs.tag }}
           name: "Release ${{ steps.vars.outputs.tag }}"
           body: ${{ steps.get_release_body.outputs.body }}
           allowUpdates: true
           artifacts: "build_artifacts/*.apk"
-
-      # --- 发布到 Telegram & Google Play (保持不变) ---
-      # ... (后续的 Telegram 和 Google Play 步骤无需任何修改) ...
+            
+      # --- 后续所有步骤都与仓库名无关 ---
       - name: Send Telegram Message
         uses: appleboy/telegram-action@master
         continue-on-error: true
@@ -86,14 +82,12 @@ jobs:
           format: markdown
           message: |
             🚀 **New Release Available: `${{ steps.vars.outputs.tag }}`**
-
             **✨ What's New:**
             ```
             ${{ steps.get_release_body.outputs.body }}
             ```
+            [View Public Release on GitHub](https://github.com/choicenew/yourcallrule/releases/tag/${{ steps.vars.outputs.tag }})
 
-            [View Full Release on GitHub](https://github.com/choicenew/yourcallrule/releases/tag/${{ steps.vars.outputs.tag }})
-            
       - name: Create Google Play Release Notes File
         run: |
           VERSION_CODE=$(echo "${{ steps.vars.outputs.tag }}" | sed 's/.*+//')
@@ -105,7 +99,7 @@ jobs:
         continue-on-error: true
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT }}
-          packageName: com.yours.yourcallyourrule
+          packageName: com.yours.yourcallrule
           releaseFiles: "build_artifacts/app-release.aab"
           track: production
           releaseNotesDirectory: release_notes
