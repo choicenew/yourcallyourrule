@@ -1,0 +1,61 @@
+# .github/workflows/2-google-play-distribution.yml
+
+name: 2. Distribute to Google Play
+
+on:
+  workflow_run:
+    # 监听您的第一个工作流，它的名字叫 "Manual Build & Multi-Channel Release"
+    workflows: ["Manual Build & Multi-Channel Release"]
+    types:
+      - completed
+  
+  workflow_dispatch:
+
+jobs:
+  deploy-to-play-store:
+    name: Deploy to Google Play Store
+    # 只有当构建工作流成功，或者您是手动触发时，才运行此任务
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Authenticate gh CLI with PAT
+        run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+
+      - name: Fetch Details and Download AAB from Private Release
+        id: fetch_data
+        run: |
+          set -e
+          echo "Fetching the most recent tag from private repo..."
+          SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
+
+          if [[ -z "$SOURCE_TAG" ]]; then
+            echo "::error::Could not find any release in the private repo to deploy."
+            exit 1
+          fi
+
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json body)
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
+          mkdir -p release_assets
+          # 只下载 AAB 文件
+          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "*.aab" --dir release_assets
+          
+          VERSION_CODE=$(echo "$SOURCE_TAG" | sed 's/.*[+|-]//')
+
+          echo "version_code=${VERSION_CODE}" >> $GITHUB_OUTPUT
+          echo "body<<EOF" >> $GITHUB_OUTPUT; echo "$BODY" >> $GITHUB_OUTPUT; echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Google Play Release Notes File
+        run: |
+          mkdir -p release_notes/en-US
+          echo "${{ steps.fetch_data.outputs.body }}" > release_notes/en-US/${{ steps.fetch_data.outputs.version_code }}.txt
+
+      - name: Deploy to Google Play
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT }}
+          packageName: com.yours.yourcallyourrule # 请您最后确认这个包名
+          releaseFiles: "release_assets/app-release.aab"
+          track: production
+          whatsNewDirectory: release_notes
