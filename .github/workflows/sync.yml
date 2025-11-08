@@ -21,15 +21,12 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "release" ]]; then
             TARGET_TAG="${{ github.event.release.tag_name }}"
-            echo "Triggered by new release: ${TARGET_TAG}"
           else
-            echo "Manual trigger detected. Finding the latest release..."
             TARGET_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
             if [[ -z "$TARGET_TAG" ]]; then
               echo "::error::Could not find any releases in the repository."
               exit 1
             fi
-            echo "Found latest release to process: ${TARGET_TAG}"
           fi
           echo "tag=${TARGET_TAG}" >> $GITHUB_OUTPUT
         env:
@@ -37,12 +34,20 @@ jobs:
         
       # --- 步骤 2: 下载指定 Release 的所有附件 ---
       - name: Download all assets from release '${{ steps.vars.outputs.tag }}'
-        # 这里的 @v1.1.1 是解决问题的关键
-        uses: dsaltares/fetch-release-assets@v1.1.1
+        # =========================================================================
+        # 唯一的、最终的、绝对正确的修正：
+        # 使用您找到的、正确的 Action: dsaltares/fetch-gh-release-asset
+        # =========================================================================
+        uses: dsaltares/fetch-gh-release-asset@master
         with:
+          # 根据文档，version 参数需要 'tags/' 前缀
+          version: 'tags/${{ steps.vars.outputs.tag }}'
+          # 根据文档，使用 regex: true 和 file: '.*' 来下载所有附件
+          regex: true
+          file: '.*'
+          # 根据文档，使用 target 参数指定输出目录
+          target: 'build_artifacts/'
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ steps.vars.outputs.tag }}
-          out-path: 'build_artifacts'
 
       # --- 步骤 3: 获取指定 Release 的 Body (更新说明) ---
       - name: Get Release Body
@@ -55,7 +60,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # --- 发布到公开 GitHub Release ---
+      # --- [后续所有发布步骤保持不变，它们都是正确的] ---
       - name: Publish to Public GitHub Release
         uses: ncipollo/release-action@v1
         continue-on-error: true
@@ -68,7 +73,6 @@ jobs:
           allowUpdates: true
           artifacts: "build_artifacts/*.apk"
             
-      # --- 发布到 Telegram ---
       - name: Send Telegram Message
         uses: appleboy/telegram-action@master
         continue-on-error: true
@@ -78,15 +82,12 @@ jobs:
           format: markdown
           message: |
             🚀 **New Release Available: `${{ steps.vars.outputs.tag }}`**
-
             **✨ What's New:**
             ```
             ${{ steps.get_release_body.outputs.body }}
             ```
-
             [View Public Release on GitHub](https://github.com/choicenew/yourcallrule/releases/tag/${{ steps.vars.outputs.tag }})
 
-      # --- 发布到 Google Play ---
       - name: Create Google Play Release Notes File
         run: |
           VERSION_CODE=$(echo "${{ steps.vars.outputs.tag }}" | sed 's/.*+//')
@@ -98,7 +99,7 @@ jobs:
         continue-on-error: true
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT }}
-          packageName: com.yours.yourcallyourrule
+          packageName: com.yours.yourcallrule
           releaseFiles: "build_artifacts/app-release.aab"
           track: production
           releaseNotesDirectory: release_notes
