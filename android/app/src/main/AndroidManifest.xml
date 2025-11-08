@@ -98,7 +98,7 @@
     <uses-permission
         android:name="android.permission.FOREGROUND_SERVICE"/>
     <!-- 🔥 1. 新增权限：允许应用在精确的时刻启动前台服务 -->
-    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+
 
     <!-- 🔥 2. 新增权限：这是声明特殊用途前台服务的关键 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
