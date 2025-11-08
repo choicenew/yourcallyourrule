@@ -4,8 +4,6 @@ name: 3. Distribute to Telegram
 
 on:
   workflow_run:
-    # ★★★ 这是最关键的修正 ★★★
-    # 监听您的第二个工作流，它的名字叫 "2. Sync Release to Public Repo"
     workflows: ["2. Sync Release to Public Repo"]
     types:
       - completed
@@ -15,7 +13,6 @@ on:
 jobs:
   send-to-telegram:
     name: Send Release to Telegram
-    # 只有当同步工作流成功，或者您是手动触发时，才运行此任务
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     
@@ -29,7 +26,8 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           set -e
-          # 同样，获取私有仓库中最新的那个 Release
+
+          # A. 获取私有仓库中最新的那个 Release
           SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
 
           if [[ -z "$SOURCE_TAG" ]]; then
@@ -40,26 +38,35 @@ jobs:
           RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
+          # B. 下载附件
           mkdir -p release_assets
-          # 只下载我们需要的那个 arm64 APK
           gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "app-arm64-v8a-release.apk" --dir release_assets
           
           APK_PATH="release_assets/app-arm64-v8a-release.apk"
           
-          # 1. 准备消息文本
-          # 公开 Release 的 URL，标签名保持一致
+          # --- C. ★★★ 这是最关键的修正 ★★★ ---
+          #    使用一个完整的、正确的 sed 命令来转义所有 MarkdownV2 的特殊字符
           RELEASE_URL="https://github.com/choicenew/yourcallrule/releases/tag/${SOURCE_TAG}"
-          # 对 MarkdownV2 的特殊字符进行完整转义
-          BODY_ESCAPED=$(echo "$BODY" | sed -e 's/_/\\_/g' -e 's/\*/\\*/g' -e 's/\[/\\[/g' -e 's/]/\\-/g' -e 's/(/\\(/g' -e 's/)/\\)/g' -e 's/~/\\~/g' -e 's/`/\\`/g' -e 's/>/\\>/g' -e 's/#/\\#/g' -e 's/+/\\+/g' -e 's/-/\\-/g' -e 's/=/\\=/g' -e 's/|/\\|/g' -e 's/{/\\{/g' -e 's/}/\\}/g' -e 's/\./\\./g' -e 's/!/\!/g')
+          
+          BODY_ESCAPED=$(echo "$BODY" | sed -e 's/\\/\\\\/g' -e 's/_/\\_/g' -e 's/\*/\\*/g' -e 's/\[/\\[/g' -e 's/]/\]/g' -e 's/(/\\(/g' -e 's/)/\\)/g' -e 's/~/\\~/g' -e 's/`/\\`/g' -e 's/>/\\>/g' -e 's/#/\\#/g' -e 's/+/\\+/g' -e 's/-/\\-/g' -e 's/=/\\=/g' -e 's/|/\\|/g' -e 's/{/\\{/g' -e 's/}/\\}/g' -e 's/\./\\./g' -e 's/!/\\!/g')
 
           MESSAGE="🚀 *New Release Available: \`${SOURCE_TAG}\`*%0A%0A"
           MESSAGE+="$BODY_ESCAPED%0A%0A"
           MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
           
-          # 2. 发送消息
-          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${MESSAGE}" -d "parse_mode=MarkdownV2" -d "disable_web_page_preview=true"
+          # --- D. 发送消息和文件 ---
+          echo "Sending message to Telegram..."
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MESSAGE}" \
+            -d "parse_mode=MarkdownV2" \
+            -d "disable_web_page_preview=true"
 
-          # 3. 发送 APK 文件
-          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" -F "chat_id=${TELEGRAM_CHAT_ID}" -F "document=@${APK_PATH}" -F "caption=Direct download for \`${SOURCE_TAG}\` (arm64-v8a)" -F "parse_mode=MarkdownV2"
+          echo "Sending APK file to Telegram..."
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+            -F "chat_id=${TELEGRAM_CHAT_ID}" \
+            -F "document=@${APK_PATH}" \
+            -F "caption=Direct download for \`${SOURCE_TAG}\` (arm64-v8a)" \
+            -F "parse_mode=MarkdownV2"
 
           echo "✅ Telegram notification and file sent successfully!"
