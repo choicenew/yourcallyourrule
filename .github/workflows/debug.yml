@@ -1,6 +1,6 @@
-# .github/workflows/2-public-distribution-final-auth.yml
+# .github/workflows/2-public-distribution-final.yml
 
-name: 2. Sync Release to Public Repo (Final Auth Version)
+name: 2. Sync Release to Public Repo (Final Version)
 
 on:
   release:
@@ -13,64 +13,47 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # --- 步骤 1: 强制 gh CLI 使用您的 PAT 登录 ---
-      # 这是最关键的一步，它解决了所有认证问题
-      - name: Authenticate gh CLI with PAT
-        run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+      # --- 步骤 1: 使用专业的 Action 从私有仓库获取所有信息和附件 ---
+      # 这个 Action 会正确处理认证，并下载所有文件
+      - name: Fetch All Assets and Info from Private Release
+        uses: dsaltares/fetch-gh-release-asset@master
+        id: fetch_release
+        with:
+          # 从当前（私有）仓库读取
+          repo: ${{ github.repository }}
+          # 使用您的 PAT，这个 Action 会正确使用它
+          token: ${{ secrets.MY_PAT }}
+          # 使用正则表达式 ".*" 来匹配并下载所有附件
+          file: ".*"
+          regex: true
+          # 将所有下载的文件放入一个名为 'release_assets' 的目录中
+          target: "release_assets/"
 
-      # --- 步骤 2: 获取、下载、并发布 Release ---
-      # 之后的所有 gh 命令都会自动使用上面登录的 PAT
-      - name: Fetch, Download, and Sync Release
-        env:
-          TARGET_REPO: "choicenew/yourcallrule"
+      # --- 步骤 2: 创建一个用于公开仓库的安全标签 ---
+      # 这是一个好习惯，可以避免未来可能遇到的问题
+      - name: Create Safe Tag for Public Release
+        id: vars
         run: |
-          set -e # 确保任何命令失败时脚本立刻停止
-
-          # --- A. 从私有仓库获取最新 Release 的完整信息 ---
-          echo "Fetching latest release data from private repo: ${{ github.repository }}"
-          # 使用 gh api, 这是最可靠的方式
-          LATEST_RELEASE_JSON=$(gh api repos/${{ github.repository }}/releases/latest)
-
-          SOURCE_TAG=$(echo "$LATEST_RELEASE_JSON" | jq -r '.tag_name')
-          TITLE=$(echo "$LATEST_RELEASE_JSON" | jq -r '.name')
-          BODY=$(echo "$LATEST_RELEASE_JSON" | jq -r '.body')
-
-          if [[ -z "$SOURCE_TAG" ]]; then
-            echo "::error::Could not find any release in the private repo."
-            exit 1
-          fi
-          echo "Found source tag: $SOURCE_TAG"
-
-          # --- B. 创建一个用于公开仓库的安全标签 ---
-          # 无论原始tag是否包含'+', 都创建一个安全的tag用于发布，避免未来可能的问题
+          SOURCE_TAG="${{ steps.fetch_release.outputs.version }}"
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
-          echo "Using safe target tag for public repo: $SAFE_TARGET_TAG"
+          echo "Original source tag: $SOURCE_TAG"
+          echo "Safe target tag for public repo: $SAFE_TARGET_TAG"
+          echo "safe_tag=${SAFE_TARGET_TAG}" >> $GITHUB_OUTPUT
 
-          # --- C. 下载所有附件 ---
-          echo "Downloading all assets..."
-          mkdir -p release_assets
-          # 从JSON中提取所有附件的下载地址和文件名，然后逐个下载
-          echo "$LATEST_RELEASE_JSON" | jq -c '.assets[] | {url: .url, name: .name}' | while read -r asset; do
-            ASSET_URL=$(echo "$asset" | jq -r '.url')
-            ASSET_NAME=$(echo "$asset" | jq -r '.name')
-            echo "Downloading $ASSET_NAME..."
-            # 使用 gh api 下载私有附件，这是最官方和可靠的方式
-            gh api --header "Accept: application/octet-stream" "$ASSET_URL" > "release_assets/$ASSET_NAME"
-          done
-          echo "All assets downloaded successfully."
-
-          # --- D. 在公开仓库创建或更新 Release ---
-          echo "Creating or updating release '$SAFE_TARGET_TAG' in $TARGET_REPO..."
-          cd release_assets
-          
-          # gh release create 会自动处理创建或更新（如果标签已存在则会失败，但我们用-R来指定仓库）
-          # 我们先尝试删除已存在的 release，确保每次都是全新的创建
-          gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes || echo "Release '$SAFE_TARGET_TAG' did not exist. Proceeding to create."
-
-          gh release create "$SAFE_TARGET_TAG" \
-            --repo "$TARGET_REPO" \
-            --title "$TITLE" \
-            --notes "$BODY" \
-            * # 上传当前目录下的所有文件
-
-          echo "✅ Successfully synced release to public repo."
+      # --- 步骤 3: 使用标准 Action 将所有内容发布到公开仓库 ---
+      - name: Create or Update Release in Public Repo
+        uses: ncipollo/release-action@v1
+        with:
+          # 同样使用您的 PAT 来获得写入权限
+          token: ${{ secrets.MY_PAT }}
+          # 目标是您的公开仓库
+          repo: choicenew/yourcallrule
+          # 使用我们创建的安全标签
+          tag: ${{ steps.vars.outputs.safe_tag }}
+          # 使用第一步获取到的标题和正文
+          name: ${{ steps.fetch_release.outputs.name }}
+          body: ${{ steps.fetch_release.outputs.body }}
+          # 上传我们下载到 'release_assets' 目录中的所有文件
+          artifacts: "release_assets/*"
+          # 允许覆盖已存在的 Release
+          allowUpdates: true
