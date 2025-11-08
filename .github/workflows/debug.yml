@@ -1,6 +1,6 @@
 # .github/workflows/2-public-distribution-final.yml
 
-name: 2. Sync Release to Public Repo (Final Version)
+name: 2. Sync Release to Public Repo (The Right Way)
 
 on:
   release:
@@ -13,47 +13,65 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # --- 步骤 1: 使用专业的 Action 从私有仓库获取所有信息和附件 ---
-      # 这个 Action 会正确处理认证，并下载所有文件
-      - name: Fetch All Assets and Info from Private Release
+      # --- 步骤 1: 确定要操作的确切 Release 标签 ---
+      # 这个步骤确保我们总是知道要处理哪个版本，绝不猜测 'latest'
+      - name: Get Exact Target Tag
+        id: get_tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            # 如果由 release 事件触发，直接使用事件中的确切标签，这是最可靠的方式
+            TARGET_TAG="${{ github.event.release.tag_name }}"
+            echo "Triggered by release event. Using exact tag: $TARGET_TAG"
+          else
+            # 如果是手动触发，我们才去获取列表中的第一个（也就是最新的那个，无论是不是预发布）
+            echo "Manual trigger. Fetching the most recent tag from private repo..."
+            TARGET_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
+          fi
+          
+          if [[ -z "$TARGET_TAG" ]]; then
+            echo "::error::Could not determine a target release tag."
+            exit 1
+          fi
+          
+          echo "tag=${TARGET_TAG}" >> $GITHUB_OUTPUT
+
+      # --- 步骤 2: 使用专业的 Action，并【精确指定版本】，下载附件和信息 ---
+      # 这是对之前失败的直接修正
+      - name: Fetch Specific Release Assets and Info
         uses: dsaltares/fetch-gh-release-asset@master
         id: fetch_release
         with:
-          # 从当前（私有）仓库读取
           repo: ${{ github.repository }}
-          # 使用您的 PAT，这个 Action 会正确使用它
           token: ${{ secrets.MY_PAT }}
-          # 使用正则表达式 ".*" 来匹配并下载所有附件
+          # ★★★ 这是最关键的修正 ★★★
+          # 我们不再让它猜 'latest'，而是通过 'tags/...' 告诉它确切的版本标签
+          version: 'tags/${{ steps.get_tag.outputs.tag }}'
+          # 下载所有文件
           file: ".*"
           regex: true
-          # 将所有下载的文件放入一个名为 'release_assets' 的目录中
           target: "release_assets/"
 
-      # --- 步骤 2: 创建一个用于公开仓库的安全标签 ---
-      # 这是一个好习惯，可以避免未来可能遇到的问题
+      # --- 步骤 3: 创建安全的发布标签 ---
+      # 这仍然是一个好习惯，可以避免未来任何可能的问题
       - name: Create Safe Tag for Public Release
         id: vars
         run: |
           SOURCE_TAG="${{ steps.fetch_release.outputs.version }}"
+          # 替换 '+' 是为了让公开仓库的 URL 更干净
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
-          echo "Original source tag: $SOURCE_TAG"
-          echo "Safe target tag for public repo: $SAFE_TARGET_TAG"
           echo "safe_tag=${SAFE_TARGET_TAG}" >> $GITHUB_OUTPUT
 
-      # --- 步骤 3: 使用标准 Action 将所有内容发布到公开仓库 ---
+      # --- 步骤 4: 将所有内容发布到公开仓库 ---
+      # 使用最标准、最可靠的 ncipollo/release-action
       - name: Create or Update Release in Public Repo
         uses: ncipollo/release-action@v1
         with:
-          # 同样使用您的 PAT 来获得写入权限
           token: ${{ secrets.MY_PAT }}
-          # 目标是您的公开仓库
           repo: choicenew/yourcallrule
-          # 使用我们创建的安全标签
           tag: ${{ steps.vars.outputs.safe_tag }}
-          # 使用第一步获取到的标题和正文
           name: ${{ steps.fetch_release.outputs.name }}
           body: ${{ steps.fetch_release.outputs.body }}
-          # 上传我们下载到 'release_assets' 目录中的所有文件
           artifacts: "release_assets/*"
-          # 允许覆盖已存在的 Release
           allowUpdates: true
