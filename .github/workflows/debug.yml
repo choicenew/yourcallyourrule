@@ -1,6 +1,6 @@
-# .github/workflows/2-public-distribution.yml
+# .github/workflows/2-public-distribution-verbatim-test.yml
 
-name: 2. Sync Release to Public Repo
+name: 2. Sync Release (Verbatim Test)
 
 on:
   release:
@@ -9,87 +9,74 @@ on:
 
 jobs:
   sync-release:
-    name: Sync Release to Public Repo
     runs-on: ubuntu-latest
-    
     steps:
-      # --- 步骤 1: 从私有仓库，获取所有原始信息 (Tag, Title, Body) ---
-      # 这一步只和您的私有仓库 (source) 对话。
-      - name: Get All Info from Private Release
-        id: source_info
-        env:
-          # 使用 GITHUB_TOKEN 读取当前仓库信息，这是最标准和安全的方式
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+
+      # (原封不动保留) 安装 GitHub CLI
+      - name: Setup GitHub CLI
         run: |
-          # 如果是 release 事件触发，直接从事件中获取信息，最快
-          if [[ "${{ github.event_name }}" == "release" ]]; then
-            TAG="${{ github.event.release.tag_name }}"
+          type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update
+          sudo apt install gh -y
+
+      # (原封不动保留) 下载最新 release 的资源
+      - name: Download latest release assets
+        env:
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+        run: |
+          # 获取源仓库的最新 release 标签
+          TAG=$(gh release list --limit 1 --repo ${{ github.repository }} --json tagName --jq '.[0].tagName')
+          echo "Using tag: $TAG"
+          # 创建临时目录存放下载的文件
+          mkdir -p release_files
+          cd release_files
+          # 下载所有 release 资源
+          gh release download $TAG --repo ${{ github.repository }}
+
+      # (只修改了仓库名) 在目标仓库创建或更新 release
+      - name: Create or update release in target repo
+        env:
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+        run: |
+          # 获取源仓库的最新 release 标签
+          TAG=$(gh release list --limit 1 --repo ${{ github.repository }} --json tagName --jq '.[0].tagName')
+          echo "Using tag: $TAG"
+          # 获取源仓库最新 release 的标题和内容, 如果是release触发，则直接使用
+          TITLE=$(gh release view $TAG --repo ${{ github.repository }} --json name --jq '.name')
+          BODY=$(gh release view $TAG --repo ${{ github.repository }} --json body --jq '.body')
+          
+          if [ "${{ github.event_name }}" == "release" ]; then
             TITLE="${{ github.event.release.name }}"
             BODY="${{ github.event.release.body }}"
-          # 如果是手动触发，则通过 API 查询私有仓库的最新 Release
-          else
-            echo "Manual trigger. Fetching latest release from PRIVATE repo: ${{ github.repository }}"
-            # ★★★ 关键点: 明确从 ${{ github.repository }} (私有仓库) 获取信息 ★★★
-            LATEST_RELEASE_JSON=$(gh release view --repo ${{ github.repository }} --json tagName,name,body)
-            TAG=$(echo "$LATEST_RELEASE_JSON" | jq -r '.tagName')
-            TITLE=$(echo "$LATEST_RELEASE_JSON" | jq -r '.name')
-            BODY=$(echo "$LATEST_RELEASE_JSON" | jq -r '.body')
           fi
-
-          if [[ -z "$TAG" ]]; then
-            echo "::error::Could not find any release in the private repo."
-            exit 1
-          fi
-
-          # 将所有获取到的信息输出给后续步骤使用
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-          echo "title<<EOF" >> $GITHUB_OUTPUT
-          echo "$TITLE" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-          echo "body<<EOF" >> $GITHUB_OUTPUT
-          echo "$BODY" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      # --- 步骤 2: 从私有仓库，下载所有 APK 和其他文件 ---
-      # 这一步也只和您的私有仓库 (source) 对话。
-      - name: Download All Assets from Private Release
-        env:
-          # 使用 MY_PAT 确保有最稳定的权限访问私有仓库
-          GH_TOKEN: ${{ secrets.MY_PAT }}
-        run: |
-          mkdir -p release_assets
-          echo "Downloading assets for tag ${{ steps.source_info.outputs.tag }} from private repo..."
-          gh release download ${{ steps.source_info.outputs.tag }} --repo ${{ github.repository }} --dir release_assets
-
-      # --- 步骤 3: 将所有信息和文件，发送到公开仓库 ---
-      # 这一步只和您的公开仓库 (target) 对话。
-      - name: Create or Update Release in Public Repo
-        env:
-          # 使用 MY_PAT 才有权限写入外部仓库
-          GH_TOKEN: ${{ secrets.MY_PAT }}
-          # 将所有需要的信息作为环境变量传入，确保脚本干净
-          TARGET_REPO: "choicenew/testtest"
-          TAG: ${{ steps.source_info.outputs.tag }}
-          TITLE: ${{ steps.source_info.outputs.title }}
-          BODY: ${{ steps.source_info.outputs.body }}
-        run: |
-          echo "Checking for release '$TAG' in public repo: $TARGET_REPO"
-          # 检查目标仓库中 Release 是否已存在
-          EXISTING_RELEASE=$(gh release view "$TAG" --repo "$TARGET_REPO" --json id 2>/dev/null)
           
-          cd release_assets
+          # ★★★ 唯一修改点 ★★★
+          TARGET_REPO="choicenew/yourcallrule"
+
+          # 尝试获取目标仓库的 release 信息
+          RELEASE_ID=$(gh release view $TAG --repo $TARGET_REPO --json id --jq '.id' 2> /dev/null)
           
-          if [[ -z "$EXISTING_RELEASE" ]]; then
-            echo "Release not found. Creating new release in $TARGET_REPO..."
-            gh release create "$TAG" \
-              --repo "$TARGET_REPO" \
+          cd release_files
+          
+          if [ -z "$RELEASE_ID" ]; then
+            # 如果 release 不存在，则创建
+            echo "Release '$TAG' not found in target repo. Creating..."
+            gh release create $TAG \
+              --repo $TARGET_REPO \
               --title "$TITLE" \
               --notes "$BODY" \
               *
           else
-            echo "Release found. Uploading and overwriting assets in $TARGET_REPO..."
-            gh release upload "$TAG" \
-              --repo "$TARGET_REPO" \
+            # 如果 release 存在，则更新
+            echo "Release '$TAG' found in target repo. Updating..."
+            gh release upload $TAG \
+              --repo $TARGET_REPO \
               --clobber \
               *
           fi
+permissions:
+  contents: write
