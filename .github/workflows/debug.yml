@@ -68,7 +68,7 @@ jobs:
           # 使用 MY_PAT 才有权限写入外部仓库
           GH_TOKEN: ${{ secrets.MY_PAT }}
           # 将所有需要的信息作为环境变量传入，确保脚本干净
-          TARGET_REPO: "choicenew/yourcallrule"
+          TARGET_REPO: "choicenew/testtest"
           TAG: ${{ steps.source_info.outputs.tag }}
           TITLE: ${{ steps.source_info.outputs.title }}
           BODY: ${{ steps.source_info.outputs.body }}
