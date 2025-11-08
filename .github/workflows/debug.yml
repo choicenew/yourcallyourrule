@@ -19,7 +19,7 @@ jobs:
           # 使用 MY_PAT 完成所有操作，权限最足
           GH_TOKEN: ${{ secrets.MY_PAT }}
           # 明确定义目标仓库
-          TARGET_REPO: "choicenew/yourcallrule"
+          TARGET_REPO: "choicenew/testtest"
         run: |
           # --- 1. 获取源头（私有库）的、带有 '+' 的原始标签 ---
           if [[ "${{ github.event_name }}" == "release" ]]; then
