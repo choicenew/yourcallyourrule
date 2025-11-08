@@ -19,19 +19,13 @@ jobs:
       - name: Extract metadata from pubspec.yaml
         id: meta
         run: |
-          # 提取版本号，并加上 'v' 前缀
           VERSION_STRING=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
           echo "version=v$VERSION_STRING" >> $GITHUB_OUTPUT
-          # 提取版本代码 (version code)，即 '+' 后面的数字
           echo "version_code=$(echo $VERSION_STRING | sed 's/.*+//')" >> $GITHUB_OUTPUT
 
-      # ==========================================================
-      # 自动化核心：提取最后一次的 Commit 信息
-      # ==========================================================
       - name: Extract Latest Commit Message
         id: commit_message
         run: |
-          # 使用特殊格式来处理多行 commit 信息，确保格式正确
           echo "message<<EOF" >> $GITHUB_OUTPUT
           git log -1 --pretty=%B >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -78,7 +72,7 @@ jobs:
           flutter build apk --split-per-abi --release
 
       # ==========================================================
-      # 发布步骤 (已全部集成自动化更新说明)
+      # 发布步骤 (已全部设置为独立运行，互不影响)
       # ==========================================================
 
       # --- 1. 发布到私有 GitHub Release ---
@@ -88,12 +82,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.meta.outputs.version }}
           name: "Internal Build ${{ steps.meta.outputs.version }}"
-          # 关键修改: 将 commit 信息和自动生成的 changelog 结合起来
           body: |
             **✨ What's New:**
             
             ${{ steps.commit_message.outputs.message }}
-          generateReleaseNotes: true # 这会把 commit 列表追加到 body 内容的下方
+          generateReleaseNotes: true
           allowUpdates: true
           artifacts: |
             build/app/outputs/bundle/release/app-release.aab
@@ -102,12 +95,13 @@ jobs:
       # --- 2. 发布到公开 GitHub Release ---
       - name: Publish to Public GitHub Release
         uses: ncipollo/release-action@v1
+        # 关键修正1: 即使此步骤失败，也继续执行
+        continue-on-error: true 
         with:
-          token: ${{ secrets.MY_PAT }}
+          token: ${{ secrets.MY_PAT }} # 确保这个 PAT 有 repo 权限
           repo: choicenew/yourcallrule
           tag: ${{ steps.meta.outputs.version }}
           name: "Release ${{ steps.meta.outputs.version }}"
-          # 关键修改: 同上，结合 commit 信息和 changelog
           body: |
             **✨ What's New:**
 
@@ -119,11 +113,12 @@ jobs:
       # --- 3. 发布到 Telegram ---
       - name: Send Telegram Message with Update Notes
         uses: appleboy/telegram-action@master
+        # 关键修正2: 即使此步骤失败，也继续执行
+        continue-on-error: true
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           format: markdown
-          # 关键修改: 在消息中包含 commit 信息和下载链接
           message: |
             🚀 **New Release Available: `${{ steps.meta.outputs.version }}`**
 
@@ -136,29 +131,28 @@ jobs:
 
       - name: Attempt to Send APK to Telegram
         uses: appleboy/telegram-action@master
+        # 这个之前已经加了，保持即可
+        continue-on-error: true
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           document: "build/app/outputs/flutter-apk/app-arm64-v8a-release.apk"
           caption: "Direct download for `${{ steps.meta.outputs.version }}` (arm64-v8a)."
-        continue-on-error: true
 
       # --- 4. 发布到 Google Play ---
-
-      # 步骤 4.1: 动态创建 Google Play 需要的更新说明文件
       - name: Create Google Play Release Notes
+        id: create_notes # 给这个步骤一个 id，方便后面引用
         run: |
           mkdir -p release_notes/en-US
-          # 将 commit 信息写入以版本代码命名的文件中
           echo "${{ steps.commit_message.outputs.message }}" > release_notes/en-US/${{ steps.meta.outputs.version_code }}.txt
 
-      # 步骤 4.2: 上传到 Google Play，并引用刚刚创建的说明文件
       - name: Deploy to Google Play
         uses: r0adkll/upload-google-play@v1
+        # 关键修正3: 即使此步骤失败，也继续执行
+        continue-on-error: true
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT }}
           packageName: com.yours.yourcallyourrule
           releaseFiles: "build/app/outputs/bundle/release/app-release.aab"
           track: production
-          # 关键修改: 指向我们动态生成的更新说明文件目录
           releaseNotesDirectory: release_notes
