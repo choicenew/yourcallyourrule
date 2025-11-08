@@ -8,18 +8,33 @@ jobs:
     name: Build and Release Android
     runs-on: ubuntu-latest
     permissions:
-      contents: write # 赋予 job 写入权限，用于创建 Release
+      contents: write # 赋予 job 写入权限，用于在本仓库创建 Release
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 获取所有 git 历史，用于生成 release notes
+          fetch-depth: 0 
 
-      - name: Extract version from pubspec.yaml
+      - name: Extract metadata from pubspec.yaml
         id: meta
         run: |
-          echo "version=v$(grep 'version: ' pubspec.yaml | sed 's/version: //')" >> $GITHUB_OUTPUT
+          # 提取版本号，并加上 'v' 前缀
+          VERSION_STRING=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
+          echo "version=v$VERSION_STRING" >> $GITHUB_OUTPUT
+          # 提取版本代码 (version code)，即 '+' 后面的数字
+          echo "version_code=$(echo $VERSION_STRING | sed 's/.*+//')" >> $GITHUB_OUTPUT
+
+      # ==========================================================
+      # 自动化核心：提取最后一次的 Commit 信息
+      # ==========================================================
+      - name: Extract Latest Commit Message
+        id: commit_message
+        run: |
+          # 使用特殊格式来处理多行 commit 信息，确保格式正确
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          git log -1 --pretty=%B >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Setup Java 17
         uses: actions/setup-java@v4
@@ -34,7 +49,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.4' # 保持您原来的 Flutter 版本不变
+          flutter-version: '3.35.4'
           channel: 'stable'
           cache: true
       
@@ -49,11 +64,9 @@ jobs:
       - name: Generate Envied variables
         run: flutter pub run build_runner build --delete-conflicting-outputs
       
-      - name: Decode keystore
-        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
-
-      - name: Create key.properties
+      - name: Decode keystore and create key.properties
         run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
           echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
           echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
           echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
@@ -65,47 +78,81 @@ jobs:
           flutter build apk --split-per-abi --release
 
       # ==========================================================
-      # 发布步骤
+      # 发布步骤 (已全部集成自动化更新说明)
       # ==========================================================
 
-      # --- 1. 发布到私有 GitHub Release (AAB + 所有 APK) ---
+      # --- 1. 发布到私有 GitHub Release ---
       - name: Publish to Private GitHub Release (Current Repo)
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.meta.outputs.version }}
           name: "Internal Build ${{ steps.meta.outputs.version }}"
-          generateReleaseNotes: true
+          # 关键修改: 将 commit 信息和自动生成的 changelog 结合起来
+          body: |
+            **✨ What's New:**
+            
+            ${{ steps.commit_message.outputs.message }}
+          generateReleaseNotes: true # 这会把 commit 列表追加到 body 内容的下方
           allowUpdates: true
           artifacts: |
             build/app/outputs/bundle/release/app-release.aab
             build/app/outputs/flutter-apk/*.apk
-            # 修正1: 将 APK 路径从旧的 'apk/release' 改为日志中显示的 'flutter-apk'
 
-      # --- 2. 发布到公开 GitHub Release (所有 APK) ---
+      # --- 2. 发布到公开 GitHub Release ---
       - name: Publish to Public GitHub Release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.MY_PAT }}
-          repo: choicenew/yourcallrule # 修正2: 参数名从 'repository' 改为 'repo'
+          repo: choicenew/yourcallrule
           tag: ${{ steps.meta.outputs.version }}
           name: "Release ${{ steps.meta.outputs.version }}"
+          # 关键修改: 同上，结合 commit 信息和 changelog
+          body: |
+            **✨ What's New:**
+
+            ${{ steps.commit_message.outputs.message }}
           generateReleaseNotes: true
           allowUpdates: true
-          artifacts: "build/app/outputs/flutter-apk/*.apk" # 修正1: 同上，修正 APK 路径
+          artifacts: "build/app/outputs/flutter-apk/*.apk"
 
-      # --- 3. 发布到 Telegram (arm64-v8a APK) ---
-      - name: Deploy to Telegram
+      # --- 3. 发布到 Telegram ---
+      - name: Send Telegram Message with Update Notes
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          # 关键修改: 在消息中包含 commit 信息和下载链接
           message: |
-            🚀 **New Build Available: ${{ steps.meta.outputs.version }}**
-            A new version of YourApp is ready for testing. Download the APK below.
-          document: "build/app/outputs/flutter-apk/app-arm64-v8a-release.apk" # 修正1: 同上，修正 APK 路径
+            🚀 **New Release Available: `${{ steps.meta.outputs.version }}`**
 
-      # --- 4. 发布到 Google Play (仅 AAB) ---
+            **✨ What's New:**
+            ```
+            ${{ steps.commit_message.outputs.message }}
+            ```
+
+            [View Full Release on GitHub](https://github.com/choicenew/yourcallrule/releases/tag/${{ steps.meta.outputs.version }})
+
+      - name: Attempt to Send APK to Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          document: "build/app/outputs/flutter-apk/app-arm64-v8a-release.apk"
+          caption: "Direct download for `${{ steps.meta.outputs.version }}` (arm64-v8a)."
+        continue-on-error: true
+
+      # --- 4. 发布到 Google Play ---
+
+      # 步骤 4.1: 动态创建 Google Play 需要的更新说明文件
+      - name: Create Google Play Release Notes
+        run: |
+          mkdir -p release_notes/en-US
+          # 将 commit 信息写入以版本代码命名的文件中
+          echo "${{ steps.commit_message.outputs.message }}" > release_notes/en-US/${{ steps.meta.outputs.version_code }}.txt
+
+      # 步骤 4.2: 上传到 Google Play，并引用刚刚创建的说明文件
       - name: Deploy to Google Play
         uses: r0adkll/upload-google-play@v1
         with:
@@ -113,3 +160,5 @@ jobs:
           packageName: com.yours.yourcallyourrule
           releaseFiles: "build/app/outputs/bundle/release/app-release.aab"
           track: production
+          # 关键修改: 指向我们动态生成的更新说明文件目录
+          releaseNotesDirectory: release_notes
