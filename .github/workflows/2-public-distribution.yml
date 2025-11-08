@@ -1,0 +1,51 @@
+# .github/workflows/3-sync-to-public.yml
+
+name: 3. Sync Release to Public Repo
+
+on:
+  workflow_run:
+    workflows: ["Manual Build & Multi-Channel Release"]
+    types:
+      - completed
+  
+  workflow_dispatch:
+
+jobs:
+  sync-to-public-repo:
+    name: Sync Release to Public Repo
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Authenticate gh CLI with PAT
+        run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+
+      - name: Fetch, Download, and Create Public Release
+        env:
+          TARGET_REPO: "choicenew/yourcallrule"
+        run: |
+          set -e
+          SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
+          
+          if [[ -z "$SOURCE_TAG" ]]; then
+            echo "::error::Could not find any release in the private repo to sync."
+            exit 1
+          fi
+
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
+          TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
+          mkdir -p release_assets
+          # 只下载 APK 文件
+          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "*.apk" --dir release_assets
+          
+          # ★★★ 关键点: 使用 PAT 创建的 Release, 可以触发下游的 release 事件 ★★★
+          gh release create "$SOURCE_TAG" \
+            --repo "$TARGET_REPO" \
+            --title "$TITLE" \
+            --notes "$BODY" \
+            --clobber \
+            release_assets/*
+
+          echo "✅ Successfully created public release: $SOURCE_TAG"
