@@ -25,9 +25,9 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          set -e
+          set -e # 脚本主体部分仍然需要严格的错误检查
 
-          # A. 获取私有仓库中最新的那个 Release
+          # --- A. 获取私有仓库中最新的那个 Release ---
           SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
 
           if [[ -z "$SOURCE_TAG" ]]; then
@@ -38,35 +38,41 @@ jobs:
           RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
-          # B. 下载附件
+          # --- B. 下载附件 ---
           mkdir -p release_assets
           gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "app-arm64-v8a-release.apk" --dir release_assets
           
           APK_PATH="release_assets/app-arm64-v8a-release.apk"
           
-          # --- C. ★★★ 这是最关键的修正 ★★★ ---
-          #    使用一个完整的、正确的 sed 命令来转义所有 MarkdownV2 的特殊字符
-          RELEASE_URL="https://github.com/choicenew/yourcallrule/releases/tag/${SOURCE_TAG}"
+          # --- C. 准备 Telegram 消息 ---
+          SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+          RELEASE_URL="https://github.com/choicenew/yourcallrule/releases/tag/${SAFE_TARGET_TAG}"
           
-          BODY_ESCAPED=$(echo "$BODY" | sed -e 's/\\/\\\\/g' -e 's/_/\\_/g' -e 's/\*/\\*/g' -e 's/\[/\\[/g' -e 's/]/\]/g' -e 's/(/\\(/g' -e 's/)/\\)/g' -e 's/~/\\~/g' -e 's/`/\\`/g' -e 's/>/\\>/g' -e 's/#/\\#/g' -e 's/+/\\+/g' -e 's/-/\\-/g' -e 's/=/\\=/g' -e 's/|/\\|/g' -e 's/{/\\{/g' -e 's/}/\\}/g' -e 's/\./\\./g' -e 's/!/\\!/g')
+          # 移除 "Full Changelog"
+          CLEAN_BODY=$(echo "$BODY" | sed '/^**Full Changelog**:/,$d')
+          # 对清理过的 Body 进行转义
+          BODY_ESCAPED=$(echo "$CLEAN_BODY" | sed -e 's/_/\\_/g' -e 's/\*/\\*/g' -e 's/\[/\\[/g' -e 's/]/\]/g' -e 's/(/\\(/g' -e 's/)/\\)/g' -e 's/~/\\~/g' -e 's/`/\\`/g' -e 's/>/\\>/g' -e 's/#/\\#/g' -e 's/+/\\+/g' -e 's/-/\\-/g' -e 's/=/\\=/g' -e 's/|/\\|g' -e 's/{/\\{/g' -e 's/}/\\}/g' -e 's/\./\\./g' -e 's/!/\\!/g')
 
-          MESSAGE="🚀 *New Release Available: \`${SOURCE_TAG}\`*%0A%0A"
+          MESSAGE="🚀 *New Release Available: \`${SAFE_TARGET_TAG}\`*%0A%0A"
           MESSAGE+="$BODY_ESCAPED%0A%0A"
           MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
           
           # --- D. 发送消息和文件 ---
           echo "Sending message to Telegram..."
-          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+          # 发送消息是关键步骤，如果失败则整个任务失败
+          curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${MESSAGE}" \
             -d "parse_mode=MarkdownV2" \
             -d "disable_web_page_preview=true"
 
           echo "Sending APK file to Telegram..."
-          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+          # --- ★★★ 这是最关键的修正 ★★★ ---
+          #    在命令最后加上 '|| true'，这样即使 curl 失败，脚本也会继续执行
+          (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
             -F "chat_id=${TELEGRAM_CHAT_ID}" \
             -F "document=@${APK_PATH}" \
-            -F "caption=Direct download for \`${SOURCE_TAG}\` (arm64-v8a)" \
-            -F "parse_mode=MarkdownV2"
+            -F "caption=Direct download for \`${SAFE_TARGET_TAG}\` (arm64-v8a)" \
+            -F "parse_mode=MarkdownV2") || true
 
-          echo "✅ Telegram notification and file sent successfully!"
+          echo "✅ Telegram notification process completed."
