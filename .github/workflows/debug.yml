@@ -1,6 +1,6 @@
-# .github/workflows/2-public-distribution-verbatim-test.yml
+# .github/workflows/2-public-distribution.yml
 
-name: 2. Sync Release (Verbatim Test)
+name: 2. Sync Release to Public Repo (with Tag Translation)
 
 on:
   release:
@@ -9,74 +9,67 @@ on:
 
 jobs:
   sync-release:
+    name: Translate Tag and Sync Release
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-
-      # (原封不动保留) 安装 GitHub CLI
-      - name: Setup GitHub CLI
-        run: |
-          type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
-          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-          sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
-          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-          sudo apt update
-          sudo apt install gh -y
-
-      # (原封不动保留) 下载最新 release 的资源
-      - name: Download latest release assets
+      # 这个工作流现在只有一个核心步骤，完成所有逻辑，避免变量传递问题
+      - name: Read from Private, Translate Tag, and Write to Public
         env:
+          # 使用 MY_PAT 完成所有操作，权限最足
           GH_TOKEN: ${{ secrets.MY_PAT }}
+          # 明确定义目标仓库
+          TARGET_REPO: "choicenew/yourcallrule"
         run: |
-          # 获取源仓库的最新 release 标签
-          TAG=$(gh release list --limit 1 --repo ${{ github.repository }} --json tagName --jq '.[0].tagName')
-          echo "Using tag: $TAG"
-          # 创建临时目录存放下载的文件
-          mkdir -p release_files
-          cd release_files
-          # 下载所有 release 资源
-          gh release download $TAG --repo ${{ github.repository }}
-
-      # (只修改了仓库名) 在目标仓库创建或更新 release
-      - name: Create or update release in target repo
-        env:
-          GH_TOKEN: ${{ secrets.MY_PAT }}
-        run: |
-          # 获取源仓库的最新 release 标签
-          TAG=$(gh release list --limit 1 --repo ${{ github.repository }} --json tagName --jq '.[0].tagName')
-          echo "Using tag: $TAG"
-          # 获取源仓库最新 release 的标题和内容, 如果是release触发，则直接使用
-          TITLE=$(gh release view $TAG --repo ${{ github.repository }} --json name --jq '.name')
-          BODY=$(gh release view $TAG --repo ${{ github.repository }} --json body --jq '.body')
-          
-          if [ "${{ github.event_name }}" == "release" ]; then
-            TITLE="${{ github.event.release.name }}"
-            BODY="${{ github.event.release.body }}"
+          # --- 1. 获取源头（私有库）的、带有 '+' 的原始标签 ---
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            SOURCE_TAG="${{ github.event.release.tag_name }}"
+          else
+            SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
           fi
-          
-          # ★★★ 唯一修改点 ★★★
-          TARGET_REPO="choicenew/yourcallrule"
 
-          # 尝试获取目标仓库的 release 信息
-          RELEASE_ID=$(gh release view $TAG --repo $TARGET_REPO --json id --jq '.id' 2> /dev/null)
+          if [[ -z "$SOURCE_TAG" ]]; then
+            echo "::error::Could not find any release in the private repo."
+            exit 1
+          fi
+          echo "Found original source tag (with '+'): $SOURCE_TAG"
+
+          # --- 2. ★★★ 这是最关键的一步 ★★★ ---
+          #    创建一个安全的、用于目标（公开库）的新标签，将 '+' 替换为 '-'
+          SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+          echo "Created safe target tag (with '-'): $SAFE_TARGET_TAG"
+
+          # --- 3. 使用【原始标签】从【私有库】获取标题和内容 ---
+          echo "Fetching release details from private repo using original tag..."
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
+          TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
+          # --- 4. 使用【原始标签】从【私有库】下载所有附件 ---
+          echo "Downloading assets from private repo using original tag..."
+          mkdir -p release_assets
+          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --dir release_assets
           
-          cd release_files
+          # --- 5. 使用【安全的新标签】在【公开库】创建或更新 Release ---
+          echo "Checking for release with SAFE tag '$SAFE_TARGET_TAG' in public repo..."
+          # 检查目标仓库中是否存在使用 SAFE_TARGET_TAG 的 release
+          EXISTING_RELEASE=$(gh release view "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --json id 2>/dev/null)
           
-          if [ -z "$RELEASE_ID" ]; then
-            # 如果 release 不存在，则创建
-            echo "Release '$TAG' not found in target repo. Creating..."
-            gh release create $TAG \
-              --repo $TARGET_REPO \
+          cd release_assets
+          
+          if [[ -z "$EXISTING_RELEASE" ]]; then
+            echo "Release not found. Creating new release with SAFE tag '$SAFE_TARGET_TAG' in $TARGET_REPO..."
+            gh release create "$SAFE_TARGET_TAG" \
+              --repo "$TARGET_REPO" \
               --title "$TITLE" \
               --notes "$BODY" \
               *
           else
-            # 如果 release 存在，则更新
-            echo "Release '$TAG' found in target repo. Updating..."
-            gh release upload $TAG \
-              --repo $TARGET_REPO \
+            echo "Release found. Uploading and overwriting assets for SAFE tag '$SAFE_TARGET_TAG' in $TARGET_REPO..."
+            gh release upload "$SAFE_TARGET_TAG" \
+              --repo "$TARGET_REPO" \
               --clobber \
               *
           fi
-permissions:
-  contents: write
+          
+          echo "✅ Successfully synced release to public repo with safe tag: $SAFE_TARGET_TAG"
