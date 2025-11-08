@@ -40,13 +40,24 @@ android {
 
     signingConfigs {
         release {
+        // 检查 key.properties 文件是否存在
+        if (keystorePropertiesFile.exists()) {
+            // 如果存在，就使用 GitHub Actions 的配置 (从 key.properties 读取)
+            println ">>> 检测到 key.properties, 使用 CI/CD 签名配置"
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        } else {
+            // 如果不存在，就使用你本地的硬编码配置
+            println ">>> 未找到 key.properties, 使用本地签名配置"
             storeFile file('C:\\Users\\Ngokel\\Desktop\\en\\test\\sign\\upload_keystore.jks')
             storePassword 'slroeeb@gmail.com'
             keyAlias 'yourcallyourrule'
             keyPassword 'slroeeb@gmail.com'
         }
     }
-
+}
 /*
     signingConfigs {
         release {
