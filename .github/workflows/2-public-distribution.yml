@@ -1,6 +1,6 @@
-# .github/workflows/3-sync-to-public.yml
+# .github/workflows/2-sync-to-public.yml
 
-name: 3. Sync Release to Public Repo
+name: 2. Sync Release to Public Repo
 
 on:
   workflow_run:
@@ -20,7 +20,7 @@ jobs:
       - name: Authenticate gh CLI with PAT
         run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
 
-      - name: Fetch, Download, and Create Public Release
+      - name: Fetch, Clean, Download, and Create Public Release
         env:
           TARGET_REPO: "choicenew/yourcallrule"
         run: |
@@ -36,16 +36,22 @@ jobs:
           TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
+          # --- ★★★ 关键修正 1: 移除 "Full Changelog" 部分 ★★★ ---
+          # 使用 sed 命令，找到以 "**Full Changelog**:" 开头的行，并删除它以及之后的所有行
+          CLEAN_BODY=$(echo "$BODY" | sed '/^**Full Changelog**:/,$d')
+
           mkdir -p release_assets
-          # 只下载 APK 文件
           gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "*.apk" --dir release_assets
           
-          # ★★★ 关键点: 使用 PAT 创建的 Release, 可以触发下游的 release 事件 ★★★
-          gh release create "$SOURCE_TAG" \
+          # --- ★★★ 关键修正 2: 在公开仓库使用安全的标签名 ★★★ ---
+          SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+
+          # 使用清理过的 BODY 和安全的 TAG 来创建公开 Release
+          gh release create "$SAFE_TARGET_TAG" \
             --repo "$TARGET_REPO" \
             --title "$TITLE" \
-            --notes "$BODY" \
+            --notes "$CLEAN_BODY" \
             --clobber \
             release_assets/*
 
-          echo "✅ Successfully created public release: $SOURCE_TAG"
+          echo "✅ Successfully created public release with safe tag: $SAFE_TARGET_TAG"
