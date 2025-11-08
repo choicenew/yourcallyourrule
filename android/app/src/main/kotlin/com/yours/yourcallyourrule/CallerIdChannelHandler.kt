@@ -110,11 +110,11 @@ fun setupCallerIdChannel() {
                       // 应用还不是默认来电显示应用，引导用户设置
                 setDefaultCallerIdApp()
             }
-        } else {
-            val telephonyManager = activity.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-
-            telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE)
         }
+         registerPhoneStateListener(activity)
+
+         
+        
     }
 
 

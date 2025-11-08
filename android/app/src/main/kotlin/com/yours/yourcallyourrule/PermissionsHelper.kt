@@ -18,7 +18,7 @@ class PermissionsHelper(private val context: Context) {
         Manifest.permission.ANSWER_PHONE_CALLS,
         Manifest.permission.READ_PHONE_NUMBERS,
         Manifest.permission.READ_PHONE_STATE,
-        Manifest.permission.RECEIVE_SMS,
+      //  Manifest.permission.RECEIVE_SMS,
         Manifest.permission.READ_CONTACTS,
         Manifest.permission.READ_CALL_LOG
     )

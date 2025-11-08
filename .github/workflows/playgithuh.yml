@@ -3,8 +3,17 @@ name: Manual Build & Multi-Channel Release
 on:
   workflow_dispatch:
 
+  # 新增：当有代码推送到 main 分支时，检查是否需要运行
+  push:
+    branches:
+      - drift  # 这里改成你的主分支名字，通常是 main 或者 master    
+
 jobs:
   build_and_release:
+    # 关键在这里！添加 if 条件判断
+    # 只有当最新的 commit message 包含 'update version' 时，才执行下面的步骤
+    if: contains(github.event.head_commit.message, 'update version')
+
     name: Build and Release Android
     runs-on: ubuntu-latest
     permissions:

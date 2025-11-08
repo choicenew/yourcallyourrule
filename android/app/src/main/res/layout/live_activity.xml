@@ -1,196 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/live_activity_container"
+<!--
+    这是一个动态布局模板 (Dynamic Layout Template)。
+    使用 FrameLayout 作为根布局，所有子视图(View)都将默认堆叠在左上角。
+    这个XML文件不定义任何视图的位置、边距或相对关系。
+    所有视图的最终位置、尺寸和可见性，都应由原生代码根据传入的数据动态计算和设置。
+    这提供最大的灵活性，以适应任何数据组合。
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dynamic_call_info_container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="200dp"
     android:padding="1dp"
     android:background="@android:color/transparent">
 
-    <!-- Avatar image -->
+    <!-- === 图像组件 === -->
+
+    <!-- 头像 -->
     <ImageView
         android:id="@+id/avatar_image"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:contentDescription="@null"
         android:scaleType="centerCrop" />
 
-    <!-- Call type icon (e.g., incoming/outgoing) -->
+    <!-- 通话类型图标 (来电/去电) -->
     <ImageView
         android:id="@+id/call_type_image"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:contentDescription="@null"
         android:scaleType="centerInside" />
 
-    <!-- Caller name -->
+    <!-- === 核心文本信息 === -->
+
+    <!-- 来电者姓名 -->
     <TextView
         android:id="@+id/caller_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_alignTop="@id/avatar_image"
-        android:layout_marginStart="8dp"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- Caller number -->
+    <!-- 来电者号码 -->
     <TextView
         android:id="@+id/caller_number_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_below="@id/caller_name_text"
-        android:layout_marginStart="8dp"
         android:textColor="#666666"
         android:textSize="14sp"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- Location -->
+    <!-- === 附加文本信息 === -->
+
+    <!-- 位置 -->
     <TextView
         android:id="@+id/location_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_below="@id/caller_number_text"
-        android:layout_marginStart="8dp"
         android:textColor="#666666"
         android:textSize="13sp"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- Carrier -->
+    <!-- 运营商 -->
     <TextView
         android:id="@+id/carrier_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_below="@id/location_text"
-        android:layout_marginStart="8dp"
         android:textColor="#666666"
         android:textSize="13sp"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- Country name -->
+    <!-- 国家名称 -->
     <TextView
         android:id="@+id/country_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_below="@id/carrier_text"
-        android:layout_marginStart="8dp"
         android:textColor="#666666"
         android:textSize="13sp"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- Labels -->
+    <!-- 标签 -->
     <TextView
         android:id="@+id/labels_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_below="@id/country_name_text"
-        android:layout_marginStart="8dp"
         android:textColor="#666666"
         android:textSize="13sp"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- Count -->
+    <!-- 次数 -->
     <TextView
         android:id="@+id/count_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_below="@id/labels_text"
-        android:layout_marginStart="8dp"
         android:textColor="#666666"
         android:textSize="13sp"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- Number type -->
+    <!-- 号码类型 -->
     <TextView
         android:id="@+id/number_type_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_below="@id/count_text"
-        android:layout_marginStart="8dp"
         android:textColor="#666666"
         android:textSize="13sp"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- STIR/SHAKEN -->
+    <!-- STIR/SHAKEN 验证 -->
     <TextView
         android:id="@+id/stir_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_below="@id/number_type_text"
-        android:layout_marginStart="8dp"
         android:textColor="#666666"
         android:textSize="13sp"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- SIM Card -->
+    <!-- SIM 卡信息 -->
     <TextView
         android:id="@+id/sim_card_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/avatar_image"
-        android:layout_toRightOf="@id/avatar_image"
-        android:layout_below="@id/stir_text"
-        android:layout_marginStart="8dp"
         android:textColor="#666666"
         android:textSize="13sp"
         android:maxLines="1"
         android:ellipsize="end" />
 
-    <!-- Security message -->
+    <!-- 安全/警告消息 -->
     <TextView
         android:id="@+id/security_message_text"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/sim_card_text"
-        android:layout_marginTop="8dp"
         android:textColor="#D32F2F"
         android:textSize="13sp"
         android:maxLines="2"
         android:ellipsize="end" />
 
-    <!-- Optional progress bar (for future use) 
+    <!-- (可选) 进度条 
     <ProgressBar
         android:id="@+id/progress_bar"
         style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/security_message_text"
-        android:layout_marginTop="8dp"
         android:max="100"
-        android:progress="0" />
--->
-</RelativeLayout>
+        android:progress="0"
+        android:visibility="gone" /> 默认隐藏 -->
+
+</FrameLayout>

@@ -98,7 +98,7 @@ class CallerIdMonitorService extends _$CallerIdMonitorService {
       if (await FloatingWindowAndroid.isShowing()) {
         FloatingWindowAndroid.closeOverlay();
       }
-      debugPrint('>>> 【MONITOR】: CallerIdMonitorService disposed.');
+      debugPrint('>>> 【MONITOR】: CallerIdMonitorService  FloatingWindowAndroid.closeOverlay.');
     });
 
     debugPrint('>>> 【MONITOR】: CallerIdMonitorService build method completed successfully.');

@@ -54,7 +54,7 @@ class _TestPageState extends State<TestPage> {
   }
 
   void _addLog(String log) {
-    print(log); // 打印到控制台
+    debugPrint(log); // 打印到控制台
     if (mounted) {
       setState(() {
         _jsLogs =
