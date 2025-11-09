@@ -446,10 +446,10 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: d5e6310295789bad2c2104923c1411c904cd6acf
+      resolved-ref: "7efe1db15467b9959fdbc3ab0d3e484e5ac270cc"
       url: "https://github.com/haygcao/dlibphonenumber.git"
     source: git
-    version: "1.1.50"
+    version: "1.1.51"
   drift:
     dependency: "direct main"
     description:
@@ -1475,11 +1475,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: local
-      resolved-ref: cbb8e44cb2847bd30f722773d7584761b497d9c5
+      ref: master
+      resolved-ref: c98d88f8645f2b117a66893f72913baeb3bf15be
       url: "https://github.com/choicenew/live_updates.git"
     source: git
-    version: "0.0.3"
+    version: "0.0.6"
   logger:
     dependency: "direct main"
     description:
@@ -1764,10 +1764,10 @@ packages:
     dependency: transitive
     description:
       name: protobuf
-      sha256: "826d6a306be26f29e5cd9faeb0c97aad5897270341dab6dbd7b8acd675937006"
+      sha256: "2fcc8a202ca7ec17dab7c97d6b6d91cf03aa07fe6f65f8afbb6dfa52cc5bd902"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.1.0"
   provider:
     dependency: transitive
     description:

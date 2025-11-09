@@ -1,6 +1,6 @@
 # .github/workflows/2-sync-to-public.yml
 
-name: 2. Sync Release to Public Repo
+name: 2. Sync Release to Public Repo (The Right Way)
 
 on:
   workflow_run:
@@ -13,7 +13,6 @@ on:
 jobs:
   sync-to-public-repo:
     name: Sync Release to Public Repo
-    # 仅在触发的工作流成功时，或手动触发时运行
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     
@@ -21,56 +20,45 @@ jobs:
       - name: Authenticate gh CLI with PAT
         run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
 
-      - name: Fetch, Clean, Download, and Create Public Release
+      - name: Fetch, Clean, Download, and Sync Release
         env:
+          GH_TOKEN: ${{ secrets.MY_PAT }}
           TARGET_REPO: "choicenew/yourcallrule"
-          # 使用 GITHUB_TOKEN 进行 gh CLI 的认证，也可以用 MY_PAT，但这里只是为了读取 release，用默认的 token 更安全
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -e # 确保任何命令失败时立即退出脚本
-          
-          echo "Fetching latest release from source repo: ${{ github.repository }}"
+          set -e
           SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
           
           if [[ -z "$SOURCE_TAG" ]]; then
             echo "::error::Could not find any release in the private repo to sync."
             exit 1
           fi
-          echo "Found source tag: $SOURCE_TAG"
 
-          echo "Fetching release details..."
           RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
           TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
-          echo "Cleaning release body..."
+          # 移除 "Full Changelog"
           CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
 
-          echo "Downloading release assets..."
           mkdir -p release_assets
           gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "*.apk" --dir release_assets
           
-          # 替换 tag 中的 '+' 字符，因为 '+' 在 URL 或某些系统中是特殊字符
+          # 在公开仓库使用安全的标签名
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
-          echo "Using safe tag for target repo: $SAFE_TARGET_TAG"
 
-          # --- ★★★ 这是关键的修正逻辑 ★★★ ---
-          # 1. 检查目标仓库中是否已存在同名 release
-          echo "Checking for existing release with tag '$SAFE_TARGET_TAG' in repo '$TARGET_REPO'..."
-          if gh release view "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" >/dev/null 2>&1; then
-            # 2. 如果存在，先删除它
-            echo "Release '$SAFE_TARGET_TAG' found. Deleting it before creating a new one."
-            gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes
-          else
-            echo "No existing release found. Proceeding to create."
-          fi
+          # --- ★★★ 这是最关键的修正 ★★★ ---
+          #    使用 "先删除，再创建" 的幂等模式，这永远不会出错
           
-          # 3. 使用清理过的 BODY 和安全的 TAG 来创建公开 Release (已移除 --clobber)
-          echo "Creating public release..."
+          echo "Ensuring a clean slate for release '$SAFE_TARGET_TAG' in target repo..."
+          # 1. 尝试删除已存在的 Release。如果不存在，命令会失败，但 '|| true' 会捕获错误并让脚本继续
+          (gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes && echo "Deleted existing release.") || echo "No existing release found. Proceeding to create."
+
+          # 2. 现在，我们保证目标仓库是干净的，可以安全地创建一个全新的 Release
+          echo "Creating a fresh release '$SAFE_TARGET_TAG' in '$TARGET_REPO'..."
           gh release create "$SAFE_TARGET_TAG" \
             --repo "$TARGET_REPO" \
             --title "$TITLE" \
             --notes "$CLEAN_BODY" \
             release_assets/*
 
-          echo "✅ Successfully created public release with safe tag: $SAFE_TARGET_TAG"
+          echo "✅ Successfully synced public release with safe tag: $SAFE_TARGET_TAG"
