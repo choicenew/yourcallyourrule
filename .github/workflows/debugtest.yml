@@ -25,7 +25,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          set -e
+          set -e # 脚本主体部分仍然需要严格的错误检查
 
           # --- A. 获取私有仓库中最新的那个 Release ---
           SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
@@ -38,21 +38,18 @@ jobs:
           RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
-          # --- B. ★★★ 这是最关键的修正 ★★★ ---
-          #    使用绝对正确的 APK 文件名
-          CORRECT_APK_FILENAME="app-arm64-v8a-release.apk"
-          
-          echo "Downloading asset: $CORRECT_APK_FILENAME ..."
+          # --- B. 下载附件 ---
+          APK_FILENAME="app-arm64-v8a-release.apk"
           mkdir -p release_assets
-          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "$CORRECT_APK_FILENAME" --dir release_assets
+          # 我们也让下载步骤更健壮，如果下载失败就跳过
+          (gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "$APK_FILENAME" --dir release_assets) || echo "Warning: Failed to download APK. Will skip sending the file."
           
-          APK_PATH="release_assets/$CORRECT_APK_FILENAME"
-
+          APK_PATH="release_assets/$APK_FILENAME"
+          
           # --- C. 准备 Telegram 消息 ---
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
           RELEASE_URL="https://github.com/choicenew/yourcallrule/releases/tag/${SAFE_TARGET_TAG}"
           
-          # 移除 "Full Changelog" 并转义
           CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
           BODY_ESCAPED=$(echo "$CLEAN_BODY" | sed -e 's/_/\\_/g' -e 's/\*/\\*/g' -e 's/\[/\\[/g' -e 's/]/\]/g' -e 's/(/\\(/g' -e 's/)/\\)/g' -e 's/~/\\~/g' -e 's/`/\\`/g' -e 's/>/\\>/g' -e 's/#/\\#/g' -e 's/+/\\+/g' -e 's/-/\\-/g' -e 's/=/\\=/g' -e 's/|/\\|/g' -e 's/{/\\{/g' -e 's/}/\\}/g' -e 's/\./\\./g' -e 's/!/\\!/g')
 
@@ -65,17 +62,25 @@ jobs:
           
           # --- D. 发送消息和文件 ---
           echo "Sending message to Telegram..."
+          # 发送消息是关键步骤，如果失败则整个任务失败
           curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${MESSAGE}" \
             -d "parse_mode=MarkdownV2" \
             -d "disable_web_page_preview=true"
 
-          echo "Sending APK file to Telegram..."
-          (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
-            -F "chat_id=${TELEGRAM_CHAT_ID}" \
-            -F "document=@${APK_PATH}" \
-            -F "caption=Direct download for \`${SAFE_TARGET_TAG}\` (arm64-v8a)" \
-            -F "parse_mode=MarkdownV2") || true
+          # --- ★★★ 这是最关键的修正 ★★★ ---
+          #    在发送文件前，先检查文件是否存在
+          if [ -f "$APK_PATH" ]; then
+            echo "Sending APK file to Telegram..."
+            # 在命令最后加上 '|| true'，这样即使 curl 失败（例如文件过大），脚本也会继续执行
+            (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+              -F "chat_id=${TELEGRAM_CHAT_ID}" \
+              -F "document=@${APK_PATH}" \
+              -F "caption=Direct download for \`${SAFE_TARGET_TAG}\` (arm64-v8a)" \
+              -F "parse_mode=MarkdownV2") || echo "Warning: Failed to send APK file, but continuing."
+          else
+            echo "Warning: APK file was not found at '$APK_PATH'. Skipping file send."
+          fi
 
           echo "✅ Telegram notification process completed."
