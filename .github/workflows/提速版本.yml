@@ -9,7 +9,7 @@ on:
 jobs:
   build_and_release:
     if: >-
-      contains(github.event.head_commit.message, 'update version') &&
+      contains(github.event.head_commit.message, 'your update version') &&
       github.repository == 'choicenew/yourcallyourrule'
     name: Build and Release Android
     runs-on: ubuntu-latest
@@ -63,7 +63,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.2' # 请确认这是你项目兼容的最新稳定版
+          flutter-version: '3.35.4' # 请确认这是你项目兼容的最新稳定版
           channel: 'stable'
           cache: true # 这个会缓存 Flutter SDK 本身
 
