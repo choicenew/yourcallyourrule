@@ -26,14 +26,20 @@ class MainActivity : FlutterActivity() {
   //  private lateinit var endCallChannelHandler: EndCallChannelHandler
     private val permissionsHelper = PermissionsHelper(this) // 创建 PermissionsHelper 实例
 
-    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
-           // 获取缓存的引擎实例
-        val cachedEngine = FlutterEngineCache.getInstance().get("my_engine_id")!!
-                // 使用缓存的引擎实例来配置 Flutter
-        cachedEngine.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
+    // 【改动 1：添加这个方法，这是官方标准做法】
+    // 它的作用是告诉 FlutterActivity：“不要自己创建新引擎，去缓存里拿这个id的引擎用”
+    override fun provideFlutterEngine(context: Context): FlutterEngine? {
+        return FlutterEngineCache.getInstance().get("my_engine_id")
+    }
 
+
+      // 【改动 2：简化这个方法，保留您原有的所有逻辑】
+    // 因为 provideFlutterEngine 已经确保了传入的 flutterEngine 就是我们缓存的那个，
+    // 所以我们不再需要在这里手动获取缓存引擎了。
+    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-       // GeneratedPluginRegistrant.registerWith(flutterEngine)
+                    
+            // GeneratedPluginRegistrant.registerWith(flutterEngine)
 
         // 初始化方法通道处理器
         smsChannelHandler = SmsChannelHandler(this, flutterEngine)
@@ -64,7 +70,7 @@ class MainActivity : FlutterActivity() {
 
 // 请求应用所需的所有权限
 private fun requestAppPermissions() {
-    val permissionsHelper = PermissionsHelper(this) 
+   // val permissionsHelper = PermissionsHelper(this) 
     // 检查是否已获得所有权限
     if (permissionsHelper.hasAllPermissions()) {
         initializeAfterPermissions()
@@ -98,7 +104,8 @@ private fun requestAppPermissions() {
         // ... 其他初始化逻辑 ...
 
         // 通知 Flutter 端初始化完成
-        flutterEngine?.dartExecutor?.binaryMessenger?.let { messenger ->
+        // this.flutterEngine 是 FlutterActivity 的一个属性，它引用了当前正在使用的引擎
+        this.flutterEngine?.dartExecutor?.binaryMessenger?.let { messenger ->
             MethodChannel(messenger, smsChannelHandler.smsChannel).invokeMethod(
                 "onSmsInitializationComplete", null
             )// 通知 Flutter 端 smsChannel 初始化完成
@@ -113,7 +120,7 @@ private fun requestAppPermissions() {
             ) // 通知 Flutter 端endcaller 初始化已完成     
         */
         }
-   Log.d("MainActivity", "onEndCallInitializationComplete method invoked") // 打印方法调用信息
+   //Log.d("MainActivity", "onEndCallInitializationComplete method invoked") // 打印方法调用信息
         // 初始化来电显示功能
         callerIdChannelHandler.initializeCallerId()
         Log.d("MainActivity", "initializeCallerId method invoked") // 打印方法调用信息 // 打印 callerid 初始化结果
@@ -171,7 +178,7 @@ private fun requestAppPermissions() {
 
     // 跳转到引导页
     private fun navigateToOnboarding() {
-        //startActivity(createDefaultIntent(this))
+        startActivity(createDefaultIntent(this))
     }
 
     override fun onDestroy() {
