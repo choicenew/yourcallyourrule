@@ -1,100 +1,103 @@
-# Please add these rules to your existing keep rules in order to suppress warnings.
-# This is generated automatically by the Android Gradle plugin.
--dontwarn edu.umd.cs.findbugs.annotations.NonNull
--dontwarn edu.umd.cs.findbugs.annotations.Nullable
--dontwarn edu.umd.cs.findbugs.annotations.SuppressFBWarnings
--dontwarn org.bouncycastle.asn1.ASN1Encodable
--dontwarn org.bouncycastle.asn1.pkcs.PrivateKeyInfo
--dontwarn org.bouncycastle.asn1.x509.AlgorithmIdentifier
--dontwarn org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
--dontwarn org.bouncycastle.cert.X509CertificateHolder
--dontwarn org.bouncycastle.cert.jcajce.JcaX509CertificateHolder
--dontwarn org.bouncycastle.crypto.BlockCipher
--dontwarn org.bouncycastle.crypto.CipherParameters
--dontwarn org.bouncycastle.crypto.InvalidCipherTextException
--dontwarn org.bouncycastle.crypto.engines.AESEngine
--dontwarn org.bouncycastle.crypto.modes.GCMBlockCipher
--dontwarn org.bouncycastle.crypto.params.AEADParameters
--dontwarn org.bouncycastle.crypto.params.KeyParameter
--dontwarn org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider
--dontwarn org.bouncycastle.jce.provider.BouncyCastleProvider
--dontwarn org.bouncycastle.openssl.PEMKeyPair
--dontwarn org.bouncycastle.openssl.PEMParser
--dontwarn org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter
+#====================================================================================
+#== Flutter & Android Core Rules (ABSOLUTELY NECESSARY)
+#====================================================================================
+
+# Flutter's default rules to protect the engine and its plugins.
+# Do not remove these.
+-keep class io.flutter.app.** { *; }
+-keep class io.flutter.plugin.**  { *; }
+-keep class io.flutter.util.**  { *; }
+-keep class io.flutter.view.**  { *; }
+-keep class io.flutter.embedding.**  { *; }
+-dontwarn io.flutter.embedding.**
+
+# This rule is CRITICAL for preventing UnsatisfiedLinkError.
+# It tells ProGuard to not rename any native (JNI) methods and their containing classes.
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+# Keep common Android components from being stripped away.
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.view.View
+
+# Keep Parcelable classes and their CREATOR field, essential for data transfer.
+-keepnames class * implements android.os.Parcelable
+-keepclassmembers class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator CREATOR;
+}
+
+#====================================================================================
+#== Firebase & Google Services Rules
+#====================================================================================
+
+# General rules for Firebase SDKs and Google Play Services.
+-keep class com.google.firebase.** { *; }
+-keep public class com.google.android.gms.** { *; }
+-dontwarn com.google.android.gms.**
+
+# Specific keep rules required by Firebase libraries.
+-keepattributes Signature, *Annotation*
+-keepnames class com.google.android.gms.measurement.AppMeasurement
+-keep class com.google.firebase.messaging.** { *; }
+
+# For Firestore or other libraries that use gRPC.
+-keepclassmembers class * extends io.grpc.internal.Generateddh {
+  <init>(...);
+}
+
+# For libraries using Chromium's network stack.
+-keep class org.chromium.net.** { *; }
+
+#====================================================================================
+#== Google Mobile Ads (AdMob) Rules
+#====================================================================================
+# Required if you use the google_mobile_ads plugin.
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+-keep class com.google.ads.mediation.** { *; }
+
+#====================================================================================
+#== AndroidX & Common Jetpack Library Rules
+#====================================================================================
+
+# For AndroidX WorkManager (detected from your logs).
+-keep class androidx.work.** { *; }
+-dontwarn androidx.work.**
+
+# For AndroidX WindowManager extensions (from your original rules).
 -keep class androidx.window.extensions.** { *; }
 -keep class androidx.window.sidecar.** { *; }
 -keep interface androidx.window.extensions.** { *; }
 -keep interface androidx.window.sidecar.** { *; }
 -dontwarn androidx.window.extensions.**
 -dontwarn androidx.window.sidecar.**
-#====================================================================================
-#== Flutter Core Rules (ABSOLUTELY NECESSARY)
-#== These rules protect the Flutter engine itself from being obfuscated.
-#====================================================================================
--keep class io.flutter.app.** { *; }
--keep class io.flutter.plugin.**  { *; }
--keep class io.flutter.util.**  { *; }
--keep class io.flutter.view.**  { *; }
--keep class io.flutter.embedding.**  { *; }
--keep class io.flutter.embedding.android.**  { *; }
--dontwarn io.flutter.embedding.android.FlutterFragment
--keep class **.R$* {
-    <fields>;
-}
 
 #====================================================================================
-#== Common Firebase Rules
-#== Add these if you use any Firebase plugins (Auth, Firestore, Crashlytics, etc.)
-#====================================================================================
--keep public class com.google.firebase.** { *; }
--keep class com.google.android.gms.** { *; }
--dontwarn com.google.android.gms.**
--keepattributes Signature
--keepattributes *Annotation*
--keep class com.google.firebase.messaging.** { *; }
-
-#====================================================================================
-#== Google Mobile Ads (AdMob) Rules
-#== Add these if you use the google_mobile_ads plugin.
-#====================================================================================
--keep public class com.google.android.gms.ads.** {
-   public *;
-}
--keep class com.google.ads.mediation.** {
-    *;
-}
-
-#====================================================================================
-#== Microsoft MSAL Rules (Based on your AndroidManifest.xml)
-#== Since you have BrowserTabActivity from MSAL, these are likely needed.
-#====================================================================================
--keep class com.microsoft.identity.client.** { *; }
--dontwarn com.microsoft.identity.client.**
-
-#====================================================================================
-#== Other common plugins (add if you use them)
+#== Other Third-Party Library Rules (Add as needed)
 #====================================================================================
 
-# For flutter_local_notifications
--keep class com.dexterous.flutterlocalnotifications.** { *; }
+# BouncyCastle cryptography library (from your original rules).
+-dontwarn org.bouncycastle.**
 
-# For webview_flutter or flutter_inappwebview
--keep public class * extends android.webkit.WebViewClient {
-    public *;
-}
--keep public class * extends android.webkit.WebChromeClient {
-    public *;
-}
-
-# For libraries using Gson for JSON serialization
+# Rules for libraries that might use Gson for JSON serialization.
 -keep class com.google.gson.stream.** { *; }
 -keep class * implements com.google.gson.TypeAdapterFactory
 -keep class * implements com.google.gson.JsonSerializer
 -keep class * implements com.google.gson.JsonDeserializer
 
+# For Microsoft MSAL library (if used, as indicated by BrowserTabActivity in some projects).
+-keep class com.microsoft.identity.client.** { *; }
+-dontwarn com.microsoft.identity.client.**
+
 #====================================================================================
-#== Google Play Core Library Rules
-#== Required by Flutter engine for deferred components support.
+#== Suppress Warnings (Generated by AGP)
 #====================================================================================
--keep class com.google.android.play.core.** { *; }
--dontwarn com.google.android.play.core.**
+# These are safe warnings to ignore, typically related to optional dependencies.
+# This section consolidates all the -dontwarn rules from your original file.
+-dontwarn edu.umd.cs.findbugs.annotations.**
