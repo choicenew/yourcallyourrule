@@ -1,18 +1,18 @@
-# .github/workflows/2-sync-to-public.yml
+# .github/workflows/3-telegram-distribution.yml
 
-name: 2. Sync Release to Public Repo (The Right Way)
+name: 3. Distribute to Telegram
 
 on:
   workflow_run:
-    workflows: ["Manual Build & Multi-Channel Release"]
+    workflows: ["2. Sync Release to Public Repo"]
     types:
       - completed
   
   workflow_dispatch:
 
 jobs:
-  sync-to-public-repo:
-    name: Sync Release to Public Repo
+  send-to-telegram:
+    name: Send Release to Telegram
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     
@@ -20,45 +20,62 @@ jobs:
       - name: Authenticate gh CLI with PAT
         run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
 
-      - name: Fetch, Clean, Download, and Sync Release
+      - name: Fetch, Download, and Send to Telegram
         env:
-          GH_TOKEN: ${{ secrets.MY_PAT }}
-          TARGET_REPO: "choicenew/yourcallrule"
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           set -e
+
+          # --- A. 获取私有仓库中最新的那个 Release ---
           SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
-          
+
           if [[ -z "$SOURCE_TAG" ]]; then
-            echo "::error::Could not find any release in the private repo to sync."
+            echo "::error::Could not find any release in the private repo to send."
             exit 1
           fi
 
           RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
-          TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
-          # 移除 "Full Changelog"
-          CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
-
+          # --- B. ★★★ 这是最关键的修正 ★★★ ---
+          #    使用绝对正确的 APK 文件名
+          CORRECT_APK_FILENAME="app-arm64-v8a-release.apk"
+          
+          echo "Downloading asset: $CORRECT_APK_FILENAME ..."
           mkdir -p release_assets
-          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "*.apk" --dir release_assets
+          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "$CORRECT_APK_FILENAME" --dir release_assets
           
-          # 在公开仓库使用安全的标签名
+          APK_PATH="release_assets/$CORRECT_APK_FILENAME"
+
+          # --- C. 准备 Telegram 消息 ---
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
-
-          # --- ★★★ 这是最关键的修正 ★★★ ---
-          #    使用 "先删除，再创建" 的幂等模式，这永远不会出错
+          RELEASE_URL="https://github.com/choicenew/yourcallrule/releases/tag/${SAFE_TARGET_TAG}"
           
-          echo "Ensuring a clean slate for release '$SAFE_TARGET_TAG' in target repo..."
-          # 1. 尝试删除已存在的 Release。如果不存在，命令会失败，但 '|| true' 会捕获错误并让脚本继续
-          (gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes && echo "Deleted existing release.") || echo "No existing release found. Proceeding to create."
+          # 移除 "Full Changelog" 并转义
+          CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
+          BODY_ESCAPED=$(echo "$CLEAN_BODY" | sed -e 's/_/\\_/g' -e 's/\*/\\*/g' -e 's/\[/\\[/g' -e 's/]/\]/g' -e 's/(/\\(/g' -e 's/)/\\)/g' -e 's/~/\\~/g' -e 's/`/\\`/g' -e 's/>/\\>/g' -e 's/#/\\#/g' -e 's/+/\\+/g' -e 's/-/\\-/g' -e 's/=/\\=/g' -e 's/|/\\|/g' -e 's/{/\\{/g' -e 's/}/\\}/g' -e 's/\./\\./g' -e 's/!/\\!/g')
 
-          # 2. 现在，我们保证目标仓库是干净的，可以安全地创建一个全新的 Release
-          echo "Creating a fresh release '$SAFE_TARGET_TAG' in '$TARGET_REPO'..."
-          gh release create "$SAFE_TARGET_TAG" \
-            --repo "$TARGET_REPO" \
-            --title "$TITLE" \
-            --notes "$CLEAN_BODY" \
-            release_assets/*
+          MESSAGE="🚀 *New Release Available: \`${SAFE_TARGET_TAG}\`*%0A%0A"
+          MESSAGE+="$BODY_ESCAPED%0A%0A"
+          MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
 
-          echo "✅ Successfully synced public release with safe tag: $SAFE_TARGET_TAG"
+          COMMUNITY_MESSAGE="%0A%0A---%0A*Community contributions are welcome\!*%0AWe invite you to PR [plugins](https://github.com/choicenew/yourcallrule/tree/main/plugins) and help improve [translations](https://github.com/choicenew/yourcallrule/tree/main/lib/l10n)\."
+          MESSAGE+="$COMMUNITY_MESSAGE"
+          
+          # --- D. 发送消息和文件 ---
+          echo "Sending message to Telegram..."
+          curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MESSAGE}" \
+            -d "parse_mode=MarkdownV2" \
+            -d "disable_web_page_preview=true"
+
+          echo "Sending APK file to Telegram..."
+          (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+            -F "chat_id=${TELEGRAM_CHAT_ID}" \
+            -F "document=@${APK_PATH}" \
+            -F "caption=Direct download for \`${SAFE_TARGET_TAG}\` (arm64-v8a)" \
+            -F "parse_mode=MarkdownV2") || true
+
+          echo "✅ Telegram notification process completed."
