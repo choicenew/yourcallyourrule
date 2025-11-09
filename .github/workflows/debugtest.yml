@@ -1,66 +1,64 @@
-name: Flutter Debug Build
+# .github/workflows/2-sync-to-public.yml
+
+name: 2. Sync Release to Public Repo (The Right Way)
+
 on:
+  workflow_run:
+    workflows: ["Manual Build & Multi-Channel Release"]
+    types:
+      - completed
+  
   workflow_dispatch:
-    inputs:
-      build_type:
-        description: 'Build Type (aab/apk/both)'
-        required: true
-        default: 'both'
-        
+
 jobs:
-  debug-build:
+  sync-to-public-repo:
+    name: Sync Release to Public Repo
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.24.0'
-          channel: 'stable'
-          
-      # 确保 Flutter 插件被正确设置
-      - name: Configure Flutter
+      # --- 步骤 1: 强制 gh CLI 使用您的 PAT 登录 ---
+      # 这是我们已经证明成功的、最关键的一步
+      - name: Authenticate gh CLI with PAT
+        run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+
+      # --- 步骤 2: 获取、清理、下载并发布 ---
+      - name: Fetch, Clean, Download, and Create Public Release
+        # --- ★★★ 这是最关键的修正 ★★★ ---
+        #    我们在这里明确地将 MY_PAT 注入到整个脚本的环境变量中
+        #    这样，此步骤中的所有 gh 命令都会强制使用它，绝不会退回到 GITHUB_TOKEN
+        env:
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+          TARGET_REPO: "choicenew/yourcallrule"
         run: |
-          flutter pub get
-          # 使用 Flutter 命令生成正确的 settings.gradle
-          flutter create --platforms=android .
+          set -e
+          SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
           
-      - name: Decode Keystore
-        run: |
-          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
-          
-      - name: Create key.properties
-        run: |
-          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
-          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
-          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
-          echo "storeFile=key.jks" >> android/key.properties
-          
-      - name: Build Release
-        run: |
-          if [[ "${{ github.event.inputs.build_type }}" == "aab" || "${{ github.event.inputs.build_type }}" == "both" ]]; then
-            flutter build appbundle --verbose
+          if [[ -z "$SOURCE_TAG" ]]; then
+            echo "::error::Could not find any release in the private repo to sync."
+            exit 1
           fi
-          if [[ "${{ github.event.inputs.build_type }}" == "apk" || "${{ github.event.inputs.build_type }}" == "both" ]]; then
-            flutter build apk --split-per-abi --verbose
-          fi
+
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
+          TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
+          # 移除 "Full Changelog"
+          CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
+
+          mkdir -p release_assets
+          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "*.apk" --dir release_assets
           
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-build-artifacts
-          path: |
-            build/app/outputs/bundle/release/app-release.aab
-            build/app/outputs/apk/release/*.apk
-            
-      - name: Extract Version
-        run: |
-          echo "PUBSPEC_VERSION=$(grep -oP 'version:\s*\K[^+]+(?=\+)' pubspec.yaml)" >> $GITHUB_ENV
+          # 在公开仓库使用安全的标签名
+          SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+
+          # 使用清理过的 BODY 和安全的 TAG 来创建公开 Release
+          # 因为 GH_TOKEN 环境变量已经设置为 MY_PAT，这个命令现在拥有了绝对的权限
+          gh release create "$SAFE_TARGET_TAG" \
+            --repo "$TARGET_REPO" \
+            --title "$TITLE" \
+            --notes "$CLEAN_BODY" \
+            --clobber \
+            release_assets/*
+
+          echo "✅ Successfully created public release with safe tag: $SAFE_TARGET_TAG"
