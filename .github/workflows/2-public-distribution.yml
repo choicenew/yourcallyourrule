@@ -13,6 +13,7 @@ on:
 jobs:
   sync-to-public-repo:
     name: Sync Release to Public Repo
+    # 仅在触发的工作流成功时，或手动触发时运行
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     
@@ -23,36 +24,53 @@ jobs:
       - name: Fetch, Clean, Download, and Create Public Release
         env:
           TARGET_REPO: "choicenew/yourcallrule"
+          # 使用 GITHUB_TOKEN 进行 gh CLI 的认证，也可以用 MY_PAT，但这里只是为了读取 release，用默认的 token 更安全
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -e
+          set -e # 确保任何命令失败时立即退出脚本
+          
+          echo "Fetching latest release from source repo: ${{ github.repository }}"
           SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
           
           if [[ -z "$SOURCE_TAG" ]]; then
             echo "::error::Could not find any release in the private repo to sync."
             exit 1
           fi
+          echo "Found source tag: $SOURCE_TAG"
 
+          echo "Fetching release details..."
           RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
           TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
-          # --- ★★★ 这是最关键的修正 ★★★ ---
-          #    在 sed 命令中，我们必须转义特殊字符 '*'
           echo "Cleaning release body..."
           CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
 
+          echo "Downloading release assets..."
           mkdir -p release_assets
           gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "*.apk" --dir release_assets
           
+          # 替换 tag 中的 '+' 字符，因为 '+' 在 URL 或某些系统中是特殊字符
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+          echo "Using safe tag for target repo: $SAFE_TARGET_TAG"
 
-          # 使用清理过的 BODY 和安全的 TAG 来创建公开 Release
+          # --- ★★★ 这是关键的修正逻辑 ★★★ ---
+          # 1. 检查目标仓库中是否已存在同名 release
+          echo "Checking for existing release with tag '$SAFE_TARGET_TAG' in repo '$TARGET_REPO'..."
+          if gh release view "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" >/dev/null 2>&1; then
+            # 2. 如果存在，先删除它
+            echo "Release '$SAFE_TARGET_TAG' found. Deleting it before creating a new one."
+            gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes
+          else
+            echo "No existing release found. Proceeding to create."
+          fi
+          
+          # 3. 使用清理过的 BODY 和安全的 TAG 来创建公开 Release (已移除 --clobber)
           echo "Creating public release..."
           gh release create "$SAFE_TARGET_TAG" \
             --repo "$TARGET_REPO" \
             --title "$TITLE" \
             --notes "$CLEAN_BODY" \
-            --clobber \
             release_assets/*
 
           echo "✅ Successfully created public release with safe tag: $SAFE_TARGET_TAG"
