@@ -1,6 +1,6 @@
 # .github/workflows/3-telegram-distribution.yml
 
-name: 3. Distribute to Telegram
+name: 3. Distribute to Telegram (The Right Way)
 
 on:
   workflow_run:
@@ -25,11 +25,10 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          set -e # 脚本主体部分仍然需要严格的错误检查
+          set -e
 
-          # --- A. 获取私有仓库中最新的那个 Release ---
+          # --- A. 获取私有仓库中最新的 Release 信息 ---
           SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
-
           if [[ -z "$SOURCE_TAG" ]]; then
             echo "::error::Could not find any release in the private repo to send."
             exit 1
@@ -39,47 +38,51 @@ jobs:
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
           # --- B. 下载附件 ---
+          APK_FILENAME="app-arm64-v8a-release.apk"
           mkdir -p release_assets
-          gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "app-arm64-vS8a-release.apk" --dir release_assets
+          (gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "$APK_FILENAME" --dir release_assets) || echo "Warning: Failed to download APK. Will skip sending the file."
           
-          APK_PATH="release_assets/app-arm64-v8a-release.apk"
+          APK_PATH="release_assets/$APK_FILENAME"
           
-          # --- C. 准备 Telegram 消息 ---
+          # --- C. ★★★ 这是最关键的修正 ★★★ ---
+          #    我们不再手动添加 %0A，而是使用真正的换行符
+          
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
           RELEASE_URL="https://github.com/choicenew/yourcallrule/releases/tag/${SAFE_TARGET_TAG}"
           
-          # 移除 "Full Changelog"
+          # 1. 移除 "Full Changelog"
           CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
-          # 对清理过的 Body 进行转义
-          BODY_ESCAPED=$(echo "$CLEAN_BODY" | sed -e 's/_/\\_/g' -e 's/\*/\\*/g' -e 's/\[/\\[/g' -e 's/]/\]/g' -e 's/(/\\(/g' -e 's/)/\\)/g' -e 's/~/\\~/g' -e 's/`/\\`/g' -e 's/>/\\>/g' -e 's/#/\\#/g' -e 's/+/\\+/g' -e 's/-/\\-/g' -e 's/=/\\=/g' -e 's/|/\\|/g' -e 's/{/\\{/g' -e 's/}/\\}/g' -e 's/\./\\./g' -e 's/!/\\!/g')
 
-          # 构建基础消息
-          MESSAGE="🚀 *New Release Available: \`${SAFE_TARGET_TAG}\`*%0A%0A"
-          MESSAGE+="$BODY_ESCAPED%0A%0A"
+          # 2. 构建消息，使用真正的换行符 ( $'...' 语法)
+          MESSAGE="🚀 *New Release Available: \`${SAFE_TARGET_TAG}\`*"
+          MESSAGE+=$'\n\n' # 两个真正的换行符
+          MESSAGE+="*What's New:*"
+          MESSAGE+=$'\n'
+          MESSAGE+="$CLEAN_BODY"
+          MESSAGE+=$'\n\n'
           MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
 
-          # --- ★★★ 这是最关键的修正 ★★★ ---
-          #    在消息末尾追加社区贡献号召
-          COMMUNITY_MESSAGE="---%0A" # 添加一条分割线
-          COMMUNITY_MESSAGE+="*Community contributions are welcome\!*%0A"
-          COMMUNITY_MESSAGE+="We invite you to PR [plugins](https://github.com/choicenew/yourcallrule/tree/main/plugins) and help improve [translations](https://github.com/choicenew/yourcallrule/tree/main/l10n)\."
+          COMMUNITY_MESSAGE=$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](https://github.com/choicenew/yourcallrule/tree/main/plugins) and help improve [translations](https://github.com/choicenew/yourcallrule/tree/main/lib/l10n).'
+          MESSAGE+="$COMMUNITY_MESSAGE"
           
-          # 将社区消息追加到主消息后面
-          MESSAGE+="%0A%0A${COMMUNITY_MESSAGE}"
-
           # --- D. 发送消息和文件 ---
           echo "Sending message to Telegram..."
           curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${MESSAGE}" \
-            -d "parse_mode=MarkdownV2" \
+            -d "parse_mode=Markdown" \
             -d "disable_web_page_preview=true"
 
-          echo "Sending APK file to Telegram..."
-          (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
-            -F "chat_id=${TELEGRAM_CHAT_ID}" \
-            -F "document=@${APK_PATH}" \
-            -F "caption=Direct download for \`${SAFE_TARGET_TAG}\` (arm64-v8a)" \
-            -F "parse_mode=MarkdownV2") || true
+          # 只有当文件存在时才尝试发送
+          if [ -f "$APK_PATH" ]; then
+            echo "Sending APK file to Telegram..."
+            (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+              -F "chat_id=${TELEGRAM_CHAT_ID}" \
+              -F "document=@${APK_PATH}" \
+              -F "caption=Direct download for \`${SAFE_TARGET_TAG}\` (arm64-v8a)" \
+              -F "parse_mode=Markdown") || echo "Warning: Failed to send APK file, but continuing."
+          else
+            echo "Warning: APK file was not found at '$APK_PATH'. Skipping file send."
+          fi
 
           echo "✅ Telegram notification process completed."
