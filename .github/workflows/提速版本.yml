@@ -1,0 +1,125 @@
+name: Manual Build & Multi-Channel Release 加速
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - drift
+
+jobs:
+  build_and_release:
+    if: >-
+      contains(github.event.head_commit.message, 'update version') &&
+      github.repository == 'choicenew/yourcallyourrule'
+    name: Build and Release Android
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+
+      - name: Extract metadata from pubspec.yaml
+        id: meta
+        run: |
+          VERSION_STRING=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
+          echo "version=v$VERSION_STRING" >> $GITHUB_OUTPUT
+          echo "version_code=$(echo $VERSION_STRING | sed 's/.*+//')" >> $GITHUB_OUTPUT
+
+      - name: Extract Latest Commit Message
+        id: commit_message
+        run: |
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          git log -1 --pretty=%B >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      # ==========================================================
+      # 优化部分：设置环境和高效缓存
+      # ==========================================================
+      
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      
+      # [性能优化 1] - 缓存 Gradle 依赖项 (核心优化)
+      - name: Gradle Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.2' # 请确认这是你项目兼容的最新稳定版
+          channel: 'stable'
+          cache: true # 这个会缓存 Flutter SDK 本身
+
+      # [性能优化 2] - 缓存 Flutter pub 包 (核心优化)
+      - name: Pub Cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.PUB_CACHE }}
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      # ==========================================================
+      # 构建步骤 (与你原有逻辑完全一致)
+      # ==========================================================
+      
+      - name: Get Flutter packages
+        run: flutter pub get
+      
+      - name: Create .env file for build
+        run: |
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+        
+      - name: Generate Envied variables
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+      
+      - name: Decode keystore and create key.properties
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
+          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
+          echo "storeFile=key.jks" >> android/key.properties
+      
+      - name: Build and Sign AAB and APKs
+        run: |
+          flutter build appbundle --release
+          flutter build apk --split-per-abi --release
+
+      # ==========================================================
+      # 发布步骤 (与你原有逻辑完全一致)
+      # ==========================================================
+
+      - name: Publish to Private GitHub Release (Current Repo)
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.meta.outputs.version }}
+          name: "Internal Build ${{ steps.meta.outputs.version }}"
+          body: |
+            **✨ What's New:**
+            
+            ${{ steps.commit_message.outputs.message }}
+          generateReleaseNotes: true
+          allowUpdates: true
+          artifacts: |
+            build/app/outputs/bundle/release/app-release.aab
+            build/app/outputs/flutter-apk/*.apk
