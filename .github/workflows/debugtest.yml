@@ -45,23 +45,24 @@ jobs:
           APK_PATH="release_assets/$APK_FILENAME"
           
           # --- C. ★★★ 这是最关键的修正 ★★★ ---
-          #    我们不再做任何复杂的转义，而是将 Body 转换为纯文本
+          #    我们不再手动添加 %0A，而是使用真正的换行符
           
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
           RELEASE_URL="https://github.com/choicenew/yourcallrule/releases/tag/${SAFE_TARGET_TAG}"
           
           # 1. 移除 "Full Changelog"
           CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
-          # 2. 移除所有 Markdown 字符，转换为纯文本
-          PLAIN_TEXT_BODY=$(echo "$CLEAN_BODY" | sed -e 's/\[\(.*\)\](.*)/\1/g' -e 's/[*`_~|]/ /g')
 
-          # 3. 构建消息
-          MESSAGE="🚀 New Release Available: ${SAFE_TARGET_TAG}%0A%0A"
-          MESSAGE+="What's New:%0A"
-          MESSAGE+="${PLAIN_TEXT_BODY}%0A%0A" 
-          MESSAGE+="View Full Release on GitHub: ${RELEASE_URL}"
+          # 2. 构建消息，使用真正的换行符 ( $'...' 语法)
+          MESSAGE="🚀 *New Release Available: \`${SAFE_TARGET_TAG}\`*"
+          MESSAGE+=$'\n\n' # 两个真正的换行符
+          MESSAGE+="*What's New:*"
+          MESSAGE+=$'\n'
+          MESSAGE+="$CLEAN_BODY"
+          MESSAGE+=$'\n\n'
+          MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
 
-          COMMUNITY_MESSAGE="%0A%0A---%0ACommunity contributions are welcome!%0AWe invite you to PR plugins (https://github.com/choicenew/yourcallrule/tree/main/plugins) and help improve translations (https://github.com/choicenew/yourcallrule/tree/main/lib/l10n)."
+          COMMUNITY_MESSAGE=$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](https://github.com/choicenew/yourcallrule/tree/main/plugins) and help improve [translations](https://github.com/choicenew/yourcallrule/tree/main/lib/l10n).'
           MESSAGE+="$COMMUNITY_MESSAGE"
           
           # --- D. 发送消息和文件 ---
@@ -69,7 +70,8 @@ jobs:
           curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${MESSAGE}" \
-            -d "disable_web_page_preview=false" # 允许链接预览
+            -d "parse_mode=Markdown" \
+            -d "disable_web_page_preview=true"
 
           # 只有当文件存在时才尝试发送
           if [ -f "$APK_PATH" ]; then
@@ -77,7 +79,8 @@ jobs:
             (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
               -F "chat_id=${TELEGRAM_CHAT_ID}" \
               -F "document=@${APK_PATH}" \
-              -F "caption=Direct download for ${SAFE_TARGET_TAG} (arm64-v8a)") || echo "Warning: Failed to send APK file, but continuing."
+              -F "caption=Direct download for \`${SAFE_TARGET_TAG}\` (arm64-v8a)" \
+              -F "parse_mode=Markdown") || echo "Warning: Failed to send APK file, but continuing."
           else
             echo "Warning: APK file was not found at '$APK_PATH'. Skipping file send."
           fi
