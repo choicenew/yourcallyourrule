@@ -20,8 +20,7 @@ class MainActivity : FlutterActivity() {
 
     private lateinit var telephonyManager: TelephonyManager
     private lateinit var telecomManager: TelecomManager
-
-    private lateinit var smsChannelHandler: SmsChannelHandler
+    // private lateinit var smsChannelHandler: SmsChannelHandler
     private lateinit var callerIdChannelHandler: CallerIdChannelHandler
   //  private lateinit var endCallChannelHandler: EndCallChannelHandler
     private val permissionsHelper = PermissionsHelper(this) // 创建 PermissionsHelper 实例
@@ -45,8 +44,8 @@ class MainActivity : FlutterActivity() {
             // GeneratedPluginRegistrant.registerWith(flutterEngine)
 
         // 初始化方法通道处理器
-        smsChannelHandler = SmsChannelHandler(this, flutterEngine)
-        smsChannelHandler.setupSmsChannel() //ChannelHandler 的 setup 方法
+        // smsChannelHandler = SmsChannelHandler(this, flutterEngine)
+        // smsChannelHandler.setupSmsChannel() //ChannelHandler 的 setup 方法
 
         callerIdChannelHandler = CallerIdChannelHandler(this, flutterEngine)
         callerIdChannelHandler.setupCallerIdChannel() //ChannelHandler 的 setup 方法
@@ -131,10 +130,10 @@ private fun requestAppPermissions() {
         // 通知 Flutter 端初始化完成
         // this.flutterEngine 是 FlutterActivity 的一个属性，它引用了当前正在使用的引擎
         this.flutterEngine?.dartExecutor?.binaryMessenger?.let { messenger ->
-            MethodChannel(messenger, smsChannelHandler.smsChannel).invokeMethod(
-                "onSmsInitializationComplete", null
-            )// 通知 Flutter 端 smsChannel 初始化完成
-       //     Log.d("MainActivity", "onSmsInitializationComplete method invoked") // 打印方法调用信息 // 打印 smsChannel 初始化结果
+            // MethodChannel(messenger, smsChannelHandler.smsChannel).invokeMethod(
+            //     "onSmsInitializationComplete", null
+            // )// 通知 Flutter 端 smsChannel 初始化完成
+            // Log.d("MainActivity", "onSmsInitializationComplete method invoked") // 打印方法调用信息 // 打印 smsChannel 初始化结果
             MethodChannel(messenger, callerIdChannelHandler.callerIdChannel).invokeMethod(
                 "onCallerIdInitializationComplete", null
             ) // 通知 Flutter 端callerid 初始化已完成
@@ -150,23 +149,24 @@ private fun requestAppPermissions() {
         callerIdChannelHandler.initializeCallerId()
         Log.d("MainActivity", "initializeCallerId method invoked") // 打印方法调用信息 // 打印 callerid 初始化结果
         // 初始化短信监听器
-        if (permissionsHelper.hasSmsReceivePermission()) {
-            smsChannelHandler.registerSmsListener()
-        }
+        // if (permissionsHelper.hasSmsReceivePermission()) {
+        //     smsChannelHandler.registerSmsListener()
+        // }
     }
 }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == smsChannelHandler.notificationPermissionRequestCode) {
-            val granted = smsChannelHandler.isNotificationPolicyAccessGranted()
-            flutterEngine?.dartExecutor?.binaryMessenger?.let { binaryMessenger ->
-                MethodChannel(binaryMessenger, smsChannelHandler.smsChannel).invokeMethod(
-                    "onNotificationPolicyAccessResult", mapOf("granted" to granted)
-                )
-            }
-        } else if (requestCode == callerIdChannelHandler.requestSetDefaultCallScreeningAppCode) {
+        // if (requestCode == smsChannelHandler.notificationPermissionRequestCode) {
+        //     val granted = smsChannelHandler.isNotificationPolicyAccessGranted()
+        //     flutterEngine?.dartExecutor?.binaryMessenger?.let { binaryMessenger ->
+        //         MethodChannel(binaryMessenger, smsChannelHandler.smsChannel).invokeMethod(
+        //             "onNotificationPolicyAccessResult", mapOf("granted" to granted)
+        //         )
+        //     }
+        // } else if (requestCode == callerIdChannelHandler.requestSetDefaultCallScreeningAppCode) {
+        if (requestCode == callerIdChannelHandler.requestSetDefaultCallScreeningAppCode) {
             if (resultCode == Activity.RESULT_OK) {
                 // 用户成功将应用设置为默认来电显示应用
                 Toast.makeText(this, "The Default Caller ID & Spam App", Toast.LENGTH_SHORT).show()
@@ -209,7 +209,7 @@ private fun requestAppPermissions() {
 
     override fun onDestroy() {
         super.onDestroy()
-        smsChannelHandler.unregisterSmsListener()
+       // smsChannelHandler.unregisterSmsListener()
         callerIdChannelHandler.unregisterCallListeners()
     }
 }
