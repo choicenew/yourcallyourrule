@@ -25,6 +25,9 @@ class MainActivity : FlutterActivity() {
     private lateinit var callerIdChannelHandler: CallerIdChannelHandler
   //  private lateinit var endCallChannelHandler: EndCallChannelHandler
     private val permissionsHelper = PermissionsHelper(this) // 创建 PermissionsHelper 实例
+   // --- 【新增】状态变量，用于解决竞争条件 ---
+    private var arePermissionsGranted = false
+    private var isFlutterEngineConfigured = false
 
     // 【改动 1：添加这个方法，这是官方标准做法】
     // 它的作用是告诉 FlutterActivity：“不要自己创建新引擎，去缓存里拿这个id的引擎用”
@@ -54,6 +57,12 @@ class MainActivity : FlutterActivity() {
 
 
         flutterEngine.plugins.add(CallScreeningPlugin())
+           // --- 【改动 1】---
+        // 标记 Flutter 引擎已配置完成
+        isFlutterEngineConfigured = true
+        // 尝试进行最终的初始化
+        tryFinalInitialization()
+        // -----------------
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +82,11 @@ private fun requestAppPermissions() {
    // val permissionsHelper = PermissionsHelper(this) 
     // 检查是否已获得所有权限
     if (permissionsHelper.hasAllPermissions()) {
-        initializeAfterPermissions()
+          // --- 【改动 2】---
+            // 如果已经有权限，直接标记状态并尝试初始化
+            arePermissionsGranted = true
+            tryFinalInitialization()
+            // -----------------
     } else {
         // 还没有获得所有权限，请求权限
         permissionsHelper.requestAppPermissions(this, permissionsHelper.requestPermissionsCode)
@@ -91,7 +104,11 @@ private fun requestAppPermissions() {
         if (requestCode == permissionsHelper.requestPermissionsCode) {
             if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
                 // 所有权限已授予
-                initializeAfterPermissions()
+               // --- 【改动 3】---
+                // 所有权限已授予，标记状态并尝试初始化
+                arePermissionsGranted = true
+                tryFinalInitialization()
+                // -----------------
             } else {
                 // 权限不足，跳转到引导页
                 navigateToOnboarding()
@@ -100,7 +117,15 @@ private fun requestAppPermissions() {
     }
 
     // 初始化应用并继续执行
-    private fun initializeAfterPermissions() {
+      // --- 【新增】统一的初始化入口，这是解决问题的关键 ---
+    @Synchronized // 添加同步锁，确保线程安全
+    private fun tryFinalInitialization() {
+        // 检查两个条件是否都已满足
+        if (arePermissionsGranted && isFlutterEngineConfigured) {
+            Log.d("MainActivity", "✅ Permissions and Flutter Engine are ready. Starting final initialization.")
+            
+            // 将之前 initializeAfterPermissions() 的所有逻辑移到这里
+            // 此时可以安全地使用 flutterEngine 和 các Handler
         // ... 其他初始化逻辑 ...
 
         // 通知 Flutter 端初始化完成
@@ -129,6 +154,7 @@ private fun requestAppPermissions() {
             smsChannelHandler.registerSmsListener()
         }
     }
+}
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
