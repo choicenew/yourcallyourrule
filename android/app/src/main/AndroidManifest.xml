@@ -98,10 +98,9 @@
     <uses-permission
         android:name="android.permission.FOREGROUND_SERVICE"/>
     <!-- 🔥 1. 新增权限：允许应用在精确的时刻启动前台服务 -->
-
-
     <!-- 🔥 2. 新增权限：这是声明特殊用途前台服务的关键 -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
     <!--  ===  电池优化  ===  -->
     <uses-permission
         android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
@@ -132,9 +131,6 @@
     <!-- Permissions options for the `notification` group -->
     <uses-permission
         android:name="android.permission.POST_NOTIFICATIONS"/>
- 
- 
- 
     <!--  ===  其他  ===  -->
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
@@ -159,7 +155,8 @@
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
-                 to determine the Window background behind the Flutter UI. -->
+                 to determine the Window background behind the Flutter UI. 
+                 android:screenOrientation="portrait"-->
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme"/>
@@ -245,9 +242,9 @@
         <!--  ===  overlay callerid display  ===  -->
         <service
             android:name="com.maojiu.floating_window_android.OverlayService"
-            
             android:foregroundServiceType="specialUse"
-            tools:node="replace">  <!-- tools:node="replace" 确保完全替换插件的声明 -->
+            tools:node="replace">
+            <!-- tools:node="replace" 确保完全替换插件的声明 -->
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="overlay_for_callerid_window"/>
@@ -307,7 +304,6 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-7500321599129263~1001443362"/>
-
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility?hl=en and

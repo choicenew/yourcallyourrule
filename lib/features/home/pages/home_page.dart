@@ -54,7 +54,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const FilterManagementWidget(),
                                         GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
                     const FeatureCenter(),
-                   InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
+                  GoogleAdWidget(adInfo: AdManager.bannerAd),
                  //插入显示购买页
                     const VipPromotionCard(),
                     

@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart'; // 确认路径正确
+// 确认路径正确
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {

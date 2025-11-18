@@ -69,7 +69,7 @@ class _InlineAdaptiveBannerAdWidgetState
         width: widget.width ?? MediaQuery.of(context).size.width,
         margin: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.1),
+          color: Colors.grey.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(16),
         ),
         child: const Center(

@@ -158,7 +158,7 @@ dependencies:
   dio: ^5.8.0+1
   collection: ^1.19.1
   world_flags: any
-  flutter_native_splash: ^2.4.6
+  flutter_native_splash: ^2.4.7
   workmanager: ^0.9.0+3
   extension_google_sign_in_as_googleapis_auth: ^3.0.0
   googleapis_auth: ^2.0.0
