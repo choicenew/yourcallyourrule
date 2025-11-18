@@ -1,20 +1,20 @@
 # A single, unified workflow for building, releasing, syncing, and notifying.
-name: Build, Sync, and Notify
+name: single-Build, Sync, and Notify
 
 on:
   workflow_dispatch: # Allows manual triggering
-  push:
-    branches:
-      - drift # Triggers on push to the 'drift' branch
+ 
+ 
+ 
 
 jobs:
   # ====================================================================
   # JOB 1: Build the app and create a release in the current (private) repo
   # ====================================================================
   build_and_release:
-    if: >-
-      contains(github.event.head_commit.message, 'your update version') &&
-      github.repository == 'choicenew/yourcallyourrule'
+  
+  
+  
     name: 1. Build and Release (Private)
     runs-on: ubuntu-latest
     permissions:
