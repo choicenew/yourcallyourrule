@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -75,6 +77,8 @@ class StatisticsCard extends StatelessWidget {
           ),
           const SizedBox(height: 16),
         ],
+
+         GoogleAdWidget(adInfo: AdManager.bannerAd),
         // Overview card
         Card(
           child: Padding(
@@ -109,7 +113,7 @@ class StatisticsCard extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        
+          GoogleAdWidget(adInfo: AdManager.bannerAd),
         // Risk level breakdown
         Row(
           children: [
@@ -145,7 +149,7 @@ class StatisticsCard extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 16),
-        
+        GoogleAdWidget(adInfo: AdManager.bannerAd),  
         // Additional metrics
         Card(
           child: Padding(
