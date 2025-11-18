@@ -74,7 +74,7 @@ class StatisticsContainerWidget extends ConsumerWidget {
             // 主要数据加载失败，显示错误信息卡片。
             return Card(
               child: SizedBox(
-                height: 200, // 给一个高度
+                height: 300, // 给一个高度
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),

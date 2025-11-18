@@ -4,6 +4,7 @@ import 'package:yourcallyourrule/features/call_statistic/data/services/call_stat
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_type_analysis.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 // [注释]: 导入我们新创建的独立卡片
@@ -59,8 +60,11 @@ class CallStatisticsContainerWidget extends ConsumerWidget {
           const SizedBox(height: 16),
           // [注释]: BlockTypeAnalysis 也是一个自包含的 ConsumerWidget。
           const BlockTypeAnalysis(),
+            const SizedBox(height: 16),
+              const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
           const SizedBox(height: 16),
           _buildExportButton(context),
+
         ],
       ),
     );
