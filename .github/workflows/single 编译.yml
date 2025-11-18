@@ -1,0 +1,184 @@
+# A single, unified workflow for building, releasing to private, and syncing to public.
+name: Build, Release, and Sync
+
+on:
+  workflow_dispatch: # Allows manual triggering
+ 
+ 
+ 
+
+jobs:
+  # ====================================================================
+  # JOB 1: Build the app and create a release in the current (private) repo
+  # ====================================================================
+  build_and_release:
+    # This condition only runs the job if the commit message contains the trigger phrase
+    # and it's running in the correct repository.
+    if: >-
+      contains(github.event.head_commit.message, 'your update version') &&
+      github.repository == 'choicenew/yourcallyourrule'
+    name: 1. Build and Release (Private)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to create a release in this repository
+
+    # We define an output to pass the release tag to the next job
+    outputs:
+      release_tag: ${{ steps.meta.outputs.version }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Needed for git log
+
+      - name: Extract metadata from pubspec.yaml
+        id: meta
+        run: |
+          VERSION_STRING=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
+          echo "version=v$VERSION_STRING" >> $GITHUB_OUTPUT
+
+      - name: Extract Latest Commit Message
+        id: commit_message
+        run: |
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          git log -1 --pretty=%B >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      # --- Environment Setup & Caching ---
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Gradle Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Pub Cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.PUB_CACHE }}
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      # --- Build Steps ---
+      - name: Get Flutter packages
+        run: flutter pub get
+
+      - name: Create .env file for build
+        run: |
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+
+      - name: Generate Envied variables
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: Decode keystore and create key.properties
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
+          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
+          echo "storeFile=key.jks" >> android/key.properties
+
+      - name: Build and Sign AAB and APKs
+        run: |
+          flutter build appbundle --release
+          flutter build apk --split-per-abi --release
+
+      # --- Release Step ---
+      - name: Publish to Private GitHub Release (Current Repo)
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.meta.outputs.version }}
+          name: "Internal Build ${{ steps.meta.outputs.version }}"
+          body: |
+            **✨ What's New:**
+
+            ${{ steps.commit_message.outputs.message }}
+          # This will be replaced by our custom cleaned body in the public release
+          generateReleaseNotes: true 
+          allowUpdates: true
+          artifacts: |
+            build/app/outputs/bundle/release/app-release.aab
+            build/app/outputs/flutter-apk/*.apk
+
+  # ====================================================================
+  # JOB 2: Sync the release to the public repository
+  # ====================================================================
+  sync_to_public:
+    # ★★★ This is the key part:
+    # 1. `needs: build_and_release` makes this job wait for the first one to finish.
+    # 2. `if: success()` ensures this job only runs if the build job was successful.
+    name: 2. Sync Release to Public
+    needs: build_and_release
+    if: success()
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Authenticate gh CLI with PAT
+        # A PAT is required to interact with a different repository.
+        run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+
+      - name: Fetch, Clean, Download, and Sync Release
+        env:
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+          SOURCE_REPO: ${{ github.repository }}
+          TARGET_REPO: "choicenew/yourcallrule"
+          # ★★★ We get the exact tag from the previous job's output. This is very reliable.
+          SOURCE_TAG: ${{ needs.build_and_release.outputs.release_tag }}
+        run: |
+          set -ex # Exit on error and print commands
+
+          echo "Syncing release with tag '$SOURCE_TAG' from '$SOURCE_REPO' to '$TARGET_REPO'..."
+
+          # Fetch the release details (title and body) from the private repo
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo "$SOURCE_REPO" --json name,body)
+          TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
+          # Remove the auto-generated "Full Changelog" section for a cleaner public release
+          CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
+
+          # Download only the APK artifacts from the private release
+          mkdir -p release_assets
+          gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "*.apk" --dir release_assets
+
+          # Create a safe tag for the public repo (replaces '+' which can be problematic)
+          SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+
+          # --- Idempotent Release Creation: Delete if exists, then create ---
+          # This ensures the sync can be re-run without errors.
+
+          echo "Ensuring a clean slate for release '$SAFE_TARGET_TAG' in target repo..."
+          # 1. Attempt to delete the release. `|| true` prevents the workflow from failing if it doesn't exist.
+          (gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes && echo "Deleted existing release.") || echo "No existing release found. Proceeding to create."
+
+          # 2. Create a fresh new release in the public repository
+          echo "Creating a new release '$SAFE_TARGET_TAG' in '$TARGET_REPO'..."
+          gh release create "$SAFE_TARGET_TAG" \
+            --repo "$TARGET_REPO" \
+            --title "$TITLE" \
+            --notes "$CLEAN_BODY" \
+            release_assets/*
+
+          echo "✅ Successfully synced public release with tag: $SAFE_TARGET_TAG"
