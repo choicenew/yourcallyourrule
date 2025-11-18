@@ -5,34 +5,57 @@ flutter_native_splash:
   # background_image: "assets/background.png"
   
   # 图片 - 应用logo
-  image: assets/app_logo.png
+  # 注意：这张图片需要是高分辨率的，插件会自动为 Android 11 及更早版本缩放。
+  image: assets/logo_splash.png
   
-  # 图片的大小，单位是px
-  # 默认为原始图片大小的一半
-  # 如果图片太大或太小，可以调整这个值
   # 移除 branding 配置，避免与主图片冲突
-  # branding: assets/app_logo.png
-  # branding_mode: bottom
+  # 修正：branding 是一个有效的配置，用于在屏幕底部显示品牌 logo。
+  # 注意：这张品牌图片的尺寸在 Android 12+ 上有严格要求，推荐尺寸为 800x320 像素。
+  branding: assets/brand_splash.png
+  branding_mode: bottom
   
   # 移除 branding_dark 配置，避免冲突
-  # branding_dark: assets/app_logo.png
+  # 注意：如果您需要为深色模式提供不同的品牌图片，可以使用 branding_dark。
+  # branding_dark: assets/brand_splash_dark.png
   
-  # Android 12 特定配置
+  # =================================================================== #
+  # Android 12 及更高版本的特定配置
+  # =================================================================== #
   android_12:
-    # 图片
-    image: assets/app_logo.png
+    # 图片 - 应用logo
+    # 警告：这张图片必须符合 Android 12 的尺寸规范！
+    # - 如果是透明背景：图片画布应为 1152x1152 像素，logo 本身要能放进一个直径 768 像素的圆内。
+    # - 如果自带背景：图片画布应为 960x960 像素，logo 本身要能放进一个直径 640 像素的圆内。
+    image: assets/logo_splash.png
+    
     # 图标背景颜色
     icon_background_color: "#FFFFFF"
+
+    # [重要修正]：必须在这里也为 Android 12+ 单独指定品牌图片。
+    # 尺寸必须是 800x320 像素。
+    branding: assets/brand_splash.png
+
+    # ------------------------------------------------------------------- #
     # 图片的大小，单位是px
     # 默认为原始图片大小的一半
     # 如果图片太大或太小，可以调整这个值
-    # image_size: 100
+    # 修正：image_size 不是一个有效的参数。插件不支持在 YAML 中设置图片大小。
+    # 您必须直接修改您的图片文件（如 logo_splash.png），使其符合上面的尺寸规范。
+    # # image_size: 100  <-- 已删除此无效行
+    # ------------------------------------------------------------------- #
     
+  # ------------------------------------------------------------------- #
   # 设置启动屏幕的持续时间（毫秒）
   # 默认为0，表示不延迟
   # 设置为2000毫秒（2秒）以确保启动屏幕有足够时间显示但不会卡死
-  duration_milliseconds: 2000
+  # 修正：duration_milliseconds 不是一个有效的参数。插件不支持在 YAML 中设置显示时长。
+  # 您必须在 main.dart 文件中使用 FlutterNativeSplash.preserve() 和 .remove() 来控制时长。
+  # ------------------------------------------------------------------- #
+ 
+  # 强制竖屏显示
   android_screen_orientation: portrait
+  
+  # 全屏显示，隐藏状态栏
   fullscreen: true
   
   # 设置web的启动屏幕
