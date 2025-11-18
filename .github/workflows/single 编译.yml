@@ -1,28 +1,25 @@
-# A single, unified workflow for building, releasing to private, and syncing to public.
-name: Build, Release, and Sync
+# A single, unified workflow for building, releasing, syncing, and notifying.
+name: Build, Sync, and Notify
 
 on:
   workflow_dispatch: # Allows manual triggering
- 
- 
- 
+  push:
+    branches:
+      - drift # Triggers on push to the 'drift' branch
 
 jobs:
   # ====================================================================
   # JOB 1: Build the app and create a release in the current (private) repo
   # ====================================================================
   build_and_release:
-    # This condition only runs the job if the commit message contains the trigger phrase
-    # and it's running in the correct repository.
     if: >-
       contains(github.event.head_commit.message, 'your update version') &&
       github.repository == 'choicenew/yourcallyourrule'
     name: 1. Build and Release (Private)
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to create a release in this repository
+      contents: write
 
-    # We define an output to pass the release tag to the next job
     outputs:
       release_tag: ${{ steps.meta.outputs.version }}
 
@@ -30,7 +27,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Needed for git log
+          fetch-depth: 0
 
       - name: Extract metadata from pubspec.yaml
         id: meta
@@ -115,8 +112,7 @@ jobs:
             **✨ What's New:**
 
             ${{ steps.commit_message.outputs.message }}
-          # This will be replaced by our custom cleaned body in the public release
-          generateReleaseNotes: true 
+          generateReleaseNotes: true
           allowUpdates: true
           artifacts: |
             build/app/outputs/bundle/release/app-release.aab
@@ -126,55 +122,44 @@ jobs:
   # JOB 2: Sync the release to the public repository
   # ====================================================================
   sync_to_public:
-    # ★★★ This is the key part:
-    # 1. `needs: build_and_release` makes this job wait for the first one to finish.
-    # 2. `if: success()` ensures this job only runs if the build job was successful.
     name: 2. Sync Release to Public
     needs: build_and_release
     if: success()
     runs-on: ubuntu-latest
 
+    outputs:
+      # Pass the safe tag to the next job for the GitHub release URL
+      safe_release_tag: ${{ steps.sync_script.outputs.safe_tag }}
+
     steps:
       - name: Authenticate gh CLI with PAT
-        # A PAT is required to interact with a different repository.
         run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
 
       - name: Fetch, Clean, Download, and Sync Release
+        id: sync_script # Added an ID to this step to reference its output
         env:
           GH_TOKEN: ${{ secrets.MY_PAT }}
           SOURCE_REPO: ${{ github.repository }}
           TARGET_REPO: "choicenew/yourcallrule"
-          # ★★★ We get the exact tag from the previous job's output. This is very reliable.
           SOURCE_TAG: ${{ needs.build_and_release.outputs.release_tag }}
         run: |
-          set -ex # Exit on error and print commands
+          set -ex
 
-          echo "Syncing release with tag '$SOURCE_TAG' from '$SOURCE_REPO' to '$TARGET_REPO'..."
-
-          # Fetch the release details (title and body) from the private repo
           RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo "$SOURCE_REPO" --json name,body)
           TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
-          # Remove the auto-generated "Full Changelog" section for a cleaner public release
           CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
 
-          # Download only the APK artifacts from the private release
           mkdir -p release_assets
           gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "*.apk" --dir release_assets
 
-          # Create a safe tag for the public repo (replaces '+' which can be problematic)
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+          # ★★★ Output the safe tag for the next job
+          echo "safe_tag=${SAFE_TARGET_TAG}" >> $GITHUB_OUTPUT
 
-          # --- Idempotent Release Creation: Delete if exists, then create ---
-          # This ensures the sync can be re-run without errors.
-
-          echo "Ensuring a clean slate for release '$SAFE_TARGET_TAG' in target repo..."
-          # 1. Attempt to delete the release. `|| true` prevents the workflow from failing if it doesn't exist.
           (gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes && echo "Deleted existing release.") || echo "No existing release found. Proceeding to create."
 
-          # 2. Create a fresh new release in the public repository
-          echo "Creating a new release '$SAFE_TARGET_TAG' in '$TARGET_REPO'..."
           gh release create "$SAFE_TARGET_TAG" \
             --repo "$TARGET_REPO" \
             --title "$TITLE" \
@@ -182,3 +167,79 @@ jobs:
             release_assets/*
 
           echo "✅ Successfully synced public release with tag: $SAFE_TARGET_TAG"
+
+  # ====================================================================
+  # JOB 3: Distribute the notification to Telegram
+  # ====================================================================
+  send_to_telegram:
+    name: 3. Send Release to Telegram
+    # ★★★ This job now depends on sync_to_public completing successfully
+    needs: [build_and_release, sync_to_public]
+    if: success()
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Authenticate gh CLI with PAT
+        run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+
+      - name: Fetch, Download, and Send to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Get the original tag from the first job
+          SOURCE_TAG: ${{ needs.build_and_release.outputs.release_tag }}
+          # Get the "safe" tag from the second job for the URL
+          SAFE_TAG: ${{ needs.sync_to_public.outputs.safe_release_tag }}
+          SOURCE_REPO: ${{ github.repository }}
+          TARGET_REPO_URL: "https://github.com/choicenew/yourcallrule"
+        run: |
+          set -e
+
+          # --- A. 获取私有仓库中 Release 的详细信息 ---
+          # 我们不再需要猜测最新标签，而是直接使用从上一步传递过来的精确标签
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo "$SOURCE_REPO" --json name,body)
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
+          # --- B. 下载附件 ---
+          APK_FILENAME="app-arm64-v8a-release.apk"
+          mkdir -p release_assets
+          (gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "$APK_FILENAME" --dir release_assets) || echo "Warning: Failed to download APK. Will skip sending the file."
+
+          APK_PATH="release_assets/$APK_FILENAME"
+          
+          # --- C. 构建消息 (您的原始逻辑) ---
+          RELEASE_URL="${TARGET_REPO_URL}/releases/tag/${SAFE_TAG}"
+          
+          CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
+
+          MESSAGE="🚀 *New Release Available: \`${SAFE_TAG}\`*"
+          MESSAGE+=$'\n\n'
+          MESSAGE+="*What's New:*"
+          MESSAGE+=$'\n'
+          MESSAGE+="$CLEAN_BODY"
+          MESSAGE+=$'\n\n'
+          MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
+
+          COMMUNITY_MESSAGE=$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](https://github.com/choicenew/yourcallrule/tree/main/plugins) and help improve [translations](https://github.com/choicenew/yourcallrule/tree/main/lib/l10n).'
+          MESSAGE+="$COMMUNITY_MESSAGE"
+          
+          # --- D. 发送消息和文件 (您的原始逻辑) ---
+          echo "Sending message to Telegram..."
+          curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MESSAGE}" \
+            -d "parse_mode=Markdown" \
+            -d "disable_web_page_preview=true"
+
+          if [ -f "$APK_PATH" ]; then
+            echo "Sending APK file to Telegram..."
+            (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+              -F "chat_id=${TELEGRAM_CHAT_ID}" \
+              -F "document=@${APK_PATH}" \
+              -F "caption=Direct download for \`${SAFE_TAG}\` (arm64-v8a)" \
+              -F "parse_mode=Markdown") || echo "Warning: Failed to send APK file, but continuing."
+          else
+            echo "Warning: APK file was not found at '$APK_PATH'. Skipping file send."
+          fi
+
+          echo "✅ Telegram notification process completed."
