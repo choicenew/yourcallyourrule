@@ -3313,7 +3313,15 @@
   "statusNotConfigured": "Not Configured",
 "configSaved": "Configuration Saved!",
     "masterDeviceLabel": "Is Master Device (Admin)",
-  "masterDeviceHelp": "Only the master device can initialize the database structure."
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+    "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": { "type": "int" }
+    }
+  },
+  "localDatabaseSyncTitle": "Cloud Sync Settings"
  
  
  

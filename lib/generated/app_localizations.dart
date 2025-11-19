@@ -11045,7 +11045,7 @@ abstract class AppLocalizations {
   /// No description provided for @localDatabaseSyncTitle.
   ///
   /// In en, this message translates to:
-  /// **'Local Database Sync'**
+  /// **'Cloud Sync Settings'**
   String get localDatabaseSyncTitle;
 
   /// No description provided for @localDatabaseSyncDescription.
@@ -11173,6 +11173,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Only the master device can initialize the database structure.'**
   String get masterDeviceHelp;
+
+  /// No description provided for @syncIntervalLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-sync Interval'**
+  String get syncIntervalLabel;
+
+  /// No description provided for @syncIntervalValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Every {hours} hours'**
+  String syncIntervalValue(int hours);
 }
 
 class _AppLocalizationsDelegate

@@ -6218,7 +6218,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get ruleType => 'Rule Type';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'Cloud Sync Settings';
 
   @override
   String get localDatabaseSyncDescription =>
@@ -6287,4 +6287,12 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get masterDeviceHelp =>
       'Only the master device can initialize the database structure.';
+
+  @override
+  String get syncIntervalLabel => 'Auto-sync Interval';
+
+  @override
+  String syncIntervalValue(int hours) {
+    return 'Every $hours hours';
+  }
 }

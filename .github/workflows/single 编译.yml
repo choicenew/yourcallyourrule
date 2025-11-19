@@ -41,7 +41,7 @@ jobs:
           haskell: true  # 清理 Haskell
           large-packages: true # 清理大文件包
           docker-images: true  # 清理 Docker 镜像
-          swap-storage: true   # 优化 Swap
+          swap-storage: false   # 优化 Swap
       # ==============================================
       
       - name: Extract metadata from pubspec.yaml
