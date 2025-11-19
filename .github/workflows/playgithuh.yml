@@ -27,7 +27,21 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 
-
+      # ==============================================
+      # 新增：清理磁盘空间步骤
+      # ==============================================
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: false
+          android: false # 千万不要清理 Android，我们需要它！
+          dotnet: true   # 清理 .NET
+          haskell: true  # 清理 Haskell
+          large-packages: true # 清理大文件包
+          docker-images: true  # 清理 Docker 镜像
+          swap-storage: true   # 优化 Swap
+      # ==============================================
+      
       - name: Extract metadata from pubspec.yaml
         id: meta
         run: |
