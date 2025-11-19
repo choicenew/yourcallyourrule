@@ -60,6 +60,7 @@ import 'package:yourcallyourrule/features/labels/pages/label_management_page_wit
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
 import 'package:yourcallyourrule/purchase/pages/vip_exchange_page.dart';
 import 'package:yourcallyourrule/features/caller_id/presentation/pages/caller_id_settings_page.dart';
+import 'package:yourcallyourrule/supabase_sync/supabase_settings_page.dart';
 
 /// 应用路由配置
 /// 使用GoRouter管理全局路由表
@@ -128,6 +129,7 @@ class AppRouter {
   static const String liveNotificationCustomization = 'live-notification-customization';
   static const String liveActivitiesTest = 'live-activities-test';
   static const String deletionProposal = 'deletion-proposal';
+  static const String supabaseSettings = 'supabase-settings';
 
 
   // 创建路由器
@@ -535,6 +537,12 @@ class AppRouter {
         name: vipExchange,
         builder: (context, state) => const VipExchangePage(),
       ),
+      // supabase云备份设置页面
+      GoRoute(
+        path: '/supabase-settings',
+        name: supabaseSettings,
+        builder: (context, state) => const SupabaseSettingsPage(),
+),
     ],
   );
   

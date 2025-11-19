@@ -3281,7 +3281,39 @@
  
  
  
- "ruleType": "Rule Type"
+ "ruleType": "Rule Type",
+
+   "localDatabaseSyncTitle": "Local Database Sync",
+  "localDatabaseSyncDescription": "Connect your personal Supabase database to sync data across devices.",
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "syncNowButton": "Sync Now",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": { "type": "int" },
+      "pulled": { "type": "int" }
+    }
+  },
+  "syncFailed": "Sync Failed",
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "lastSync": "Last Sync",
+    "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure."
  
  
  
