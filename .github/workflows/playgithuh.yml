@@ -39,7 +39,7 @@ jobs:
           haskell: true  # 清理 Haskell
           large-packages: true # 清理大文件包
           docker-images: true  # 清理 Docker 镜像
-          swap-storage: true   # 优化 Swap
+          swap-storage: false # 建议这里改为 false，因为 Swap 太慢导致了超时，不如直接限制内存
       # ==============================================
       
       - name: Extract metadata from pubspec.yaml
@@ -62,7 +62,21 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'gradle'
-      
+
+                # ==============================================
+      # 2. 限制 Gradle 内存 (解决 Error 143 / 编译慢)
+      # ==============================================
+      - name: Setup Gradle Properties
+        run: |
+          mkdir -p ~/.gradle/
+          # 限制堆内存为 3GB，防止 R8 编译器把内存撑爆
+          echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
+          # 禁用守护进程，CI环境不需要
+          echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
+          echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
+          echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
+
+          
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
