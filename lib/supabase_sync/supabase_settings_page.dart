@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// 引入我们的业务文件
+// 引入业务文件
 import 'supabase_sync_manager.dart'; 
 import 'supabase_sync_providers.dart';
+
+/// 定义当前正在进行的操作类型
+enum _ActiveOperation {
+  none,
+  saving,
+  initializing,
+  syncing
+}
 
 class SupabaseSettingsPage extends ConsumerStatefulWidget {
   const SupabaseSettingsPage({super.key});
@@ -18,6 +28,9 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
   late TextEditingController _urlCtrl;
   late TextEditingController _keyCtrl;
   late TextEditingController _connStringCtrl;
+
+  // ✅ 新增：局部状态，用于区分哪个按钮在转圈
+  _ActiveOperation _currentOp = _ActiveOperation.none;
 
   @override
   void initState() {
@@ -41,8 +54,12 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     if (_connStringCtrl.text.isEmpty) _connStringCtrl.text = config.connectionString;
   }
 
-  Future<void> _saveOnly() async {
-    if (_formKey.currentState!.validate()) {
+  /// 包装保存操作
+  Future<void> _handleSave() async {
+    if (!_formKey.currentState!.validate()) return;
+    
+    setState(() => _currentOp = _ActiveOperation.saving);
+    try {
       await ref.read(supabaseConfigProvider.notifier).saveSettings(
         url: _urlCtrl.text.trim(),
         anonKey: _keyCtrl.text.trim(),
@@ -51,6 +68,50 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
       if (mounted) {
          _showSnackBar(AppLocalizations.of(context)!.configSaved);
       }
+    } finally {
+      if (mounted) setState(() => _currentOp = _ActiveOperation.none);
+    }
+  }
+
+  /// 包装初始化操作
+  Future<void> _handleInitialize() async {
+    // 先保存
+    if (!_formKey.currentState!.validate()) return;
+    
+    setState(() => _currentOp = _ActiveOperation.initializing);
+    try {
+      // 1. 保存配置
+      await ref.read(supabaseConfigProvider.notifier).saveSettings(
+        url: _urlCtrl.text.trim(),
+        anonKey: _keyCtrl.text.trim(),
+        connectionString: _connStringCtrl.text.trim(),
+      );
+      // 2. 执行初始化
+      await ref.read(supabaseSyncControllerProvider.notifier).initializeDatabase();
+    } finally {
+      // 注意：这里不置为 none，因为 Controller 状态变化会触发下面的 ref.listen，
+      // 或者等待 Controller 变回 AsyncData。
+      // 但为了保险起见，我们在 finally 里恢复 UI 状态
+      if (mounted) setState(() => _currentOp = _ActiveOperation.none);
+    }
+  }
+
+  /// 包装同步操作
+  Future<void> _handleSync() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    setState(() => _currentOp = _ActiveOperation.syncing);
+    try {
+      // 1. 保存
+      await ref.read(supabaseConfigProvider.notifier).saveSettings(
+        url: _urlCtrl.text.trim(),
+        anonKey: _keyCtrl.text.trim(),
+        connectionString: _connStringCtrl.text.trim(),
+      );
+      // 2. 同步
+      await ref.read(supabaseSyncControllerProvider.notifier).runSync(force: true);
+    } finally {
+      if (mounted) setState(() => _currentOp = _ActiveOperation.none);
     }
   }
 
@@ -65,7 +126,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     );
   }
 
-  Widget _buildStatusBar(SupabaseConfig config, AppLocalizations l10n) {
+  Widget _buildStatusBar(SupabaseConfig config) {
     final isConfigured = config.url.isNotEmpty && config.anonKey.isNotEmpty;
     return Container(
       width: double.infinity,
@@ -105,11 +166,10 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+   
     final configAsync = ref.watch(supabaseConfigProvider);
-    final syncStateAsync = ref.watch(supabaseSyncControllerProvider);
-
-    // 监听结果
+    
+    // 监听结果 (用于弹窗提示)
     ref.listen<AsyncValue<SyncResult?>>(supabaseSyncControllerProvider, (previous, next) {
       next.when(
         data: (result) {
@@ -118,7 +178,6 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
           }
           else if (result != null && result.success) {
              if (result.skipped) {
-               // 显示跳过提示 (可选)
                _showSnackBar("Sync skipped (Interval)", isError: false);
              } else {
                _showSnackBar(AppLocalizations.of(context)!.syncSuccess(result.pushedCount, result.pulledCount));
@@ -142,10 +201,13 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
         error: (err, stack) => Center(child: Text("${AppLocalizations.of(context)!.errorLoadingSettings}: $err")),
         data: (config) {
           _populateControllers(config);
+          
+          // 如果任何操作正在进行，禁用所有交互
+          final bool isBusy = _currentOp != _ActiveOperation.none;
 
           return Column(
             children: [
-              _buildStatusBar(config, l10n),
+              _buildStatusBar(config),
               
               Expanded(
                 child: ListView(
@@ -165,8 +227,8 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                         ),
                         subtitle: Text(AppLocalizations.of(context)!.masterDeviceHelp, style: const TextStyle(fontSize: 12)),
                         value: config.isMasterDevice,
-                        activeColor: Colors.blue,
-                        onChanged: (val) {
+                        activeThumbColor: Colors.blue,
+                        onChanged: isBusy ? null : (val) {
                           ref.read(supabaseConfigProvider.notifier).toggleMasterDevice(val);
                         },
                       ),
@@ -179,6 +241,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                         children: [
                           TextFormField(
                             controller: _urlCtrl,
+                            enabled: !isBusy,
                             decoration: InputDecoration(
                               labelText: AppLocalizations.of(context)!.supabaseProjectUrl,
                               border: const OutlineInputBorder(),
@@ -189,6 +252,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                           const SizedBox(height: 16),
                           TextFormField(
                             controller: _keyCtrl,
+                            enabled: !isBusy,
                             decoration: InputDecoration(
                               labelText: AppLocalizations.of(context)!.supabaseAnonKey,
                               hintText: AppLocalizations.of(context)!.supabaseAnonKeyHint,
@@ -203,6 +267,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                             const SizedBox(height: 16),
                             TextFormField(
                               controller: _connStringCtrl,
+                              enabled: !isBusy,
                               decoration: InputDecoration(
                                 labelText: AppLocalizations.of(context)!.connectionString,
                                 hintText: "postgres://postgres:pass@db.xxx...:5432/postgres",
@@ -230,7 +295,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                       title: Text(AppLocalizations.of(context)!.syncCallHistory),
                       subtitle: Text(AppLocalizations.of(context)!.syncCallHistorySubtitle),
                       value: config.syncCallLogs,
-                      onChanged: (val) {
+                      onChanged: isBusy ? null : (val) {
                         ref.read(supabaseConfigProvider.notifier).toggleCallLogs(val);
                       },
                     ),
@@ -255,7 +320,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                                   max: 24,
                                   divisions: 23,
                                   label: "${config.syncIntervalHours} h",
-                                  onChanged: (val) {
+                                  onChanged: isBusy ? null : (val) {
                                     ref.read(supabaseConfigProvider.notifier).setSyncInterval(val.toInt());
                                   },
                                 ),
@@ -276,26 +341,32 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                         ],
                       ),
                     ),
+
+                         GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const Divider(height: 30),
 
-                    // 按钮组
+                    // =================================================
+                    // 按钮组 - 修复了转圈逻辑
+                    // =================================================
+
+                    // 1. 保存按钮
                     OutlinedButton.icon(
-                      onPressed: syncStateAsync.isLoading ? null : _saveOnly,
-                      icon: const Icon(Icons.save),
+                      onPressed: isBusy ? null : _handleSave,
+                      icon: _currentOp == _ActiveOperation.saving
+                          ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
+                          : const Icon(Icons.save),
                       label: Text(AppLocalizations.of(context)!.saveButton),
                       style: OutlinedButton.styleFrom(minimumSize: const Size(double.infinity, 45)),
                     ),
                     const SizedBox(height: 12),
 
+                    // 2. 初始化按钮 (仅 Master)
                     if (config.isMasterDevice) ...[
                       OutlinedButton.icon(
-                        onPressed: syncStateAsync.isLoading 
-                          ? null 
-                          : () async {
-                              await _saveOnly();
-                              ref.read(supabaseSyncControllerProvider.notifier).initializeDatabase();
-                            },
-                        icon: const Icon(Icons.settings_ethernet, color: Colors.orange),
+                        onPressed: isBusy ? null : _handleInitialize,
+                        icon: _currentOp == _ActiveOperation.initializing
+                            ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.orange))
+                            : const Icon(Icons.settings_ethernet, color: Colors.orange),
                         label: Text(AppLocalizations.of(context)!.initDbButton, style: const TextStyle(color: Colors.orange)),
                         style: OutlinedButton.styleFrom(
                           minimumSize: const Size(double.infinity, 45),
@@ -305,17 +376,12 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                       const SizedBox(height: 12),
                     ],
 
+                    // 3. 同步按钮
                     FilledButton.icon(
-                      onPressed: syncStateAsync.isLoading 
-                        ? null 
-                        : () async {
-                            await _saveOnly();
-                            // 点击按钮强制同步
-                            ref.read(supabaseSyncControllerProvider.notifier).runSync(force: true);
-                          },
-                      icon: syncStateAsync.isLoading 
-                        ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)) 
-                        : const Icon(Icons.sync),
+                      onPressed: isBusy ? null : _handleSync,
+                      icon: _currentOp == _ActiveOperation.syncing
+                          ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)) 
+                          : const Icon(Icons.sync),
                       label: Text(AppLocalizations.of(context)!.syncNowButton),
                       style: FilledButton.styleFrom(minimumSize: const Size(double.infinity, 50)),
                     ),
