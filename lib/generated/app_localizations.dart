@@ -11156,11 +11156,23 @@ abstract class AppLocalizations {
   /// **'Not Configured'**
   String get statusNotConfigured;
 
-  /// No description provided for @lastSync.
+  /// No description provided for @configSaved.
   ///
   /// In en, this message translates to:
-  /// **'Last Sync'**
-  String get lastSync;
+  /// **'Configuration Saved!'**
+  String get configSaved;
+
+  /// No description provided for @masterDeviceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Is Master Device (Admin)'**
+  String get masterDeviceLabel;
+
+  /// No description provided for @masterDeviceHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the master device can initialize the database structure.'**
+  String get masterDeviceHelp;
 }
 
 class _AppLocalizationsDelegate

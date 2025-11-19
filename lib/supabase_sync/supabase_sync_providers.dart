@@ -4,8 +4,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:yourcallyourrule/core/provider/database_provider/local_database_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
 
-import '../../data/database/local/local_database.dart';
-import '../../data/database/sync/device_id_service.dart';
 import 'supabase_db_initializer.dart';
 import 'supabase_sync_manager.dart';
 
@@ -22,12 +20,15 @@ class SupabaseConfig {
   final String anonKey;
   final String connectionString;
   final bool syncCallLogs;
+  // ✅ 新增：是否为主设备
+  final bool isMasterDevice; 
 
   const SupabaseConfig({
     this.url = '',
     this.anonKey = '',
     this.connectionString = '',
     this.syncCallLogs = false,
+    this.isMasterDevice = true, // 默认为 true，方便第一次使用
   });
 
   SupabaseConfig copyWith({
@@ -35,12 +36,14 @@ class SupabaseConfig {
     String? anonKey,
     String? connectionString,
     bool? syncCallLogs,
+    bool? isMasterDevice,
   }) {
     return SupabaseConfig(
       url: url ?? this.url,
       anonKey: anonKey ?? this.anonKey,
       connectionString: connectionString ?? this.connectionString,
       syncCallLogs: syncCallLogs ?? this.syncCallLogs,
+      isMasterDevice: isMasterDevice ?? this.isMasterDevice,
     );
   }
 }
@@ -52,6 +55,7 @@ class SupabaseConfigNotifier extends _$SupabaseConfigNotifier {
   static const _keyKey = 'supabase_key';
   static const _keyConn = 'supabase_conn_string';
   static const _keyCallLogs = 'supabase_sync_call_logs';
+  static const _keyIsMaster = 'supabase_is_master_device';
 
   @override
   Future<SupabaseConfig> build() async {
@@ -61,6 +65,8 @@ class SupabaseConfigNotifier extends _$SupabaseConfigNotifier {
       anonKey: prefs.getString(_keyKey) ?? '',
       connectionString: prefs.getString(_keyConn) ?? '',
       syncCallLogs: prefs.getBool(_keyCallLogs) ?? false,
+      // 默认读取，如果没有则是 true
+      isMasterDevice: prefs.getBool(_keyIsMaster) ?? true,
     );
   }
 
@@ -84,18 +90,22 @@ class SupabaseConfigNotifier extends _$SupabaseConfigNotifier {
     ));
   }
 
-  /// 切换是否同步 CallLogs
   Future<void> toggleCallLogs(bool value) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(_keyCallLogs, value);
-    
     final current = state.value ?? const SupabaseConfig();
     state = AsyncData(current.copyWith(syncCallLogs: value));
   }
+
+  // ✅ 新增：切换主设备状态
+  Future<void> toggleMasterDevice(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_keyIsMaster, value);
+    final current = state.value ?? const SupabaseConfig();
+    state = AsyncData(current.copyWith(isMasterDevice: value));
+  }
 }
 
-/// 控制同步操作的 Controller (Riverpod 3.0)
-/// 状态为 AsyncValue<SyncResult?>，null 表示未开始
 @riverpod
 class SupabaseSyncController extends _$SupabaseSyncController {
   @override
@@ -110,7 +120,6 @@ class SupabaseSyncController extends _$SupabaseSyncController {
       state = AsyncError("Connection string is missing", StackTrace.current);
       return;
     }
-
     state = const AsyncLoading();
     try {
       final initializer = SupabaseDbInitializer();
@@ -130,7 +139,6 @@ class SupabaseSyncController extends _$SupabaseSyncController {
       state = AsyncError("Supabase URL or Key is missing", StackTrace.current);
       return;
     }
-
     state = const AsyncLoading();
     try {
       // 1. 获取依赖
@@ -150,18 +158,14 @@ class SupabaseSyncController extends _$SupabaseSyncController {
         syncCallLogs: config.syncCallLogs,
       );
 
-      // 4. 运行
       final result = await manager.sync();
-      
+      await client.dispose();
+
       if (result.success) {
         state = AsyncData(result);
       } else {
         state = AsyncError(result.errorMessage ?? "Unknown error", StackTrace.current);
       }
-
-      // 关闭 client
-      await client.dispose();
-
     } catch (e, st) {
       state = AsyncError(e, st);
     }

@@ -4,8 +4,6 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 // 1. 确保引入定义 SyncResult 的文件
 import 'supabase_sync_manager.dart'; 
 import 'supabase_sync_providers.dart';
-// 2. 确保引入生成的本地化包
-
 
 class SupabaseSettingsPage extends ConsumerStatefulWidget {
   const SupabaseSettingsPage({super.key});
@@ -43,13 +41,18 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     if (_connStringCtrl.text.isEmpty) _connStringCtrl.text = config.connectionString;
   }
 
-  Future<void> _save() async {
+  /// 仅保存配置，不执行网络操作
+  Future<void> _saveOnly() async {
     if (_formKey.currentState!.validate()) {
       await ref.read(supabaseConfigProvider.notifier).saveConfig(
         url: _urlCtrl.text.trim(),
         anonKey: _keyCtrl.text.trim(),
         connectionString: _connStringCtrl.text.trim(),
       );
+      // 仅显示保存成功的提示
+      if (mounted) {
+         _showSnackBar(AppLocalizations.of(context)!.configSaved);
+      }
     }
   }
 
@@ -65,11 +68,8 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     );
   }
 
-  /// 构建顶部的状态栏
-  Widget _buildStatusBar(SupabaseConfig config) {
-    // 简单的连接状态判断：如果有 URL 和 Key，视为“已配置/已连接”
+  Widget _buildStatusBar(SupabaseConfig config, AppLocalizations l10n) {
     final isConfigured = config.url.isNotEmpty && config.anonKey.isNotEmpty;
-    
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -77,7 +77,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
       child: Row(
         children: [
           Icon(
-            isConfigured ? Icons.check_circle : Icons.info_outline,
+            isConfigured ? Icons.check_circle : Icons.settings_remote,
             color: isConfigured ? Colors.green : Colors.grey,
           ),
           const SizedBox(width: 12),
@@ -112,19 +112,16 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     final configAsync = ref.watch(supabaseConfigProvider);
     final syncStateAsync = ref.watch(supabaseSyncControllerProvider);
 
-    // ✅ 监听器：处理成功或失败的弹窗
+    // 监听操作结果
     ref.listen<AsyncValue<SyncResult?>>(supabaseSyncControllerProvider, (previous, next) {
       next.when(
         data: (result) {
-          // 情况1: 初始化数据库成功 (result 为 null，但 loading 结束)
           if (previous?.isLoading == true && result == null) {
              _showSnackBar(AppLocalizations.of(context)!.dbInitSuccess);
           }
-          // 情况2: 同步成功
           else if (result != null && result.success) {
             _showSnackBar(AppLocalizations.of(context)!.syncSuccess(result.pushedCount, result.pulledCount));
           }
-          // 情况3: 同步虽然执行了但结果标识为失败
           else if (result != null && !result.success) {
             _showSnackBar(result.errorMessage ?? AppLocalizations.of(context)!.syncFailed, isError: true);
           }
@@ -132,7 +129,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
         error: (err, stack) {
           _showSnackBar("${AppLocalizations.of(context)!.errorPrefix}: $err", isError: true);
         },
-        loading: () {}, // Loading 状态下不做操作
+        loading: () {},
       );
     });
 
@@ -146,20 +143,34 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
 
           return Column(
             children: [
-              // 1. 状态栏放在顶部
-              _buildStatusBar(config),
+              _buildStatusBar(config, l10n),
               
-              // 2. 剩余内容可滚动
               Expanded(
                 child: ListView(
                   padding: const EdgeInsets.all(16),
                   children: [
-                    Text(
-                      AppLocalizations.of(context)!.localDatabaseSyncDescription,
-                      style: const TextStyle(color: Colors.grey),
+                    // 主设备开关 (放在最前面，决定后续内容的显示)
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue.shade50,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.blue.shade100)
+                      ),
+                      child: SwitchListTile(
+                        title: Text(
+                          AppLocalizations.of(context)!.masterDeviceLabel, 
+                          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
+                        ),
+                        subtitle: Text(AppLocalizations.of(context)!.masterDeviceHelp, style: const TextStyle(fontSize: 12)),
+                        value: config.isMasterDevice,
+                        activeColor: Colors.blue,
+                        onChanged: (val) {
+                          ref.read(supabaseConfigProvider.notifier).toggleMasterDevice(val);
+                        },
+                      ),
                     ),
                     const SizedBox(height: 20),
-                    
+
                     Form(
                       key: _formKey,
                       child: Column(
@@ -185,20 +196,31 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                             obscureText: true,
                             validator: (v) => v!.isEmpty ? AppLocalizations.of(context)!.requiredField : null,
                           ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            controller: _connStringCtrl,
-                            decoration: InputDecoration(
-                              labelText: AppLocalizations.of(context)!.connectionString,
-                              // 这里的 Hint 不太好做国际化，保留通用格式即可，或者也在 arb 定义
-                              hintText: "postgres://postgres:pass@db.xxx...:5432/postgres",
-                              helperText: AppLocalizations.of(context)!.connectionStringHelper,
-                              border: const OutlineInputBorder(),
-                              prefixIcon: const Icon(Icons.storage),
+                          
+                          // 动态显示 Connection String
+                          if (config.isMasterDevice) ...[
+                            const SizedBox(height: 16),
+                            TextFormField(
+                              controller: _connStringCtrl,
+                              decoration: InputDecoration(
+                                labelText: AppLocalizations.of(context)!.connectionString,
+                                hintText: "postgres://postgres:pass@db.xxx...:5432/postgres",
+                                helperText: AppLocalizations.of(context)!.connectionStringHelper,
+                                border: const OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.orange),
+                                ),
+                                focusedBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.orange, width: 2),
+                                ),
+                                prefixIcon: const Icon(Icons.storage, color: Colors.orange),
+                              ),
+                              obscureText: true,
+                              // 如果是主设备，则必填；否则非必填
+                              validator: (v) => (config.isMasterDevice && (v == null || v.isEmpty)) 
+                                  ? AppLocalizations.of(context)!.requiredInitField 
+                                  : null,
                             ),
-                            obscureText: true,
-                            validator: (v) => v!.isEmpty ? AppLocalizations.of(context)!.requiredInitField : null,
-                          ),
+                          ],
                         ],
                       ),
                     ),
@@ -215,37 +237,57 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
 
                     const Divider(height: 30),
 
-                    // 按钮区域
-                    Row(
-                      children: [
-                        Expanded(
-                          child: OutlinedButton.icon(
-                            onPressed: syncStateAsync.isLoading 
-                              ? null 
-                              : () async {
-                                  await _save();
-                                  ref.read(supabaseSyncControllerProvider.notifier).initializeDatabase();
-                                },
-                            icon: syncStateAsync.isLoading 
-                              ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2)) 
-                              : const Icon(Icons.settings_ethernet),
-                            label: Text(AppLocalizations.of(context)!.initDbButton),
-                          ),
+                    // === 按钮区域：拆分为 Save, Init, Sync ===
+                    
+                    // 1. Save Configuration (总是显示)
+                    OutlinedButton.icon(
+                      onPressed: syncStateAsync.isLoading ? null : _saveOnly,
+                      icon: const Icon(Icons.save),
+                      label: Text(AppLocalizations.of(context)!.saveButton),
+                      style: OutlinedButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 45),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+
+                    // 2. Initialize Database (仅主设备显示)
+                    if (config.isMasterDevice) ...[
+                      OutlinedButton.icon(
+                        onPressed: syncStateAsync.isLoading 
+                          ? null 
+                          : () async {
+                              // 初始化前自动保存
+                              await _saveOnly();
+                              // 执行初始化
+                              ref.read(supabaseSyncControllerProvider.notifier).initializeDatabase();
+                            },
+                        icon: const Icon(Icons.settings_ethernet, color: Colors.orange),
+                        label: Text(AppLocalizations.of(context)!.initDbButton, style: const TextStyle(color: Colors.orange)),
+                        style: OutlinedButton.styleFrom(
+                          minimumSize: const Size(double.infinity, 45),
+                          side: const BorderSide(color: Colors.orange),
                         ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: FilledButton.icon(
-                            onPressed: syncStateAsync.isLoading 
-                              ? null 
-                              : () async {
-                                  await _save();
-                                  ref.read(supabaseSyncControllerProvider.notifier).runSync();
-                                },
-                            icon: const Icon(Icons.sync),
-                            label: Text(AppLocalizations.of(context)!.syncNowButton),
-                          ),
-                        ),
-                      ],
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+
+                    // 3. Sync Now (总是显示，强调样式)
+                    FilledButton.icon(
+                      onPressed: syncStateAsync.isLoading 
+                        ? null 
+                        : () async {
+                            // 同步前自动保存
+                            await _saveOnly();
+                            // 执行同步
+                            ref.read(supabaseSyncControllerProvider.notifier).runSync();
+                          },
+                      icon: syncStateAsync.isLoading 
+                        ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)) 
+                        : const Icon(Icons.sync),
+                      label: Text(AppLocalizations.of(context)!.syncNowButton),
+                      style: FilledButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 50),
+                      ),
                     ),
                   ],
                 ),
