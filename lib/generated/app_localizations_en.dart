@@ -4391,7 +4391,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get syncDevicesButton => 'Sync Devices';
 
   @override
-  String get syncFailed => 'Sync failed';
+  String get syncFailed => 'Sync Failed';
 
   @override
   String get syncFailedMessage => 'Sync failed';
@@ -6162,4 +6162,68 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ruleType => 'Rule Type';
+
+  @override
+  String get localDatabaseSyncTitle => 'Local Database Sync';
+
+  @override
+  String get localDatabaseSyncDescription =>
+      'Connect your personal Supabase database to sync data across devices.';
+
+  @override
+  String get supabaseProjectUrl => 'Supabase Project URL';
+
+  @override
+  String get supabaseAnonKey => 'Anon Key';
+
+  @override
+  String get supabaseAnonKeyHint => 'API Key, anon public key';
+
+  @override
+  String get connectionString => 'Connection String (URI)';
+
+  @override
+  String get connectionStringHelper =>
+      'Only needed for \'Initialize Database\'';
+
+  @override
+  String get syncCallHistory => 'Sync Call History';
+
+  @override
+  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+
+  @override
+  String get requiredField => 'Required';
+
+  @override
+  String get requiredInitField => 'Required for initialization';
+
+  @override
+  String get initDbButton => 'Initialize Database';
+
+  @override
+  String get dbInitSuccess => 'Database Initialized Successfully!';
+
+  @override
+  String syncSuccess(int pushed, int pulled) {
+    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+  }
+
+  @override
+  String get errorPrefix => 'Error';
+
+  @override
+  String get errorLoadingSettings => 'Error loading settings';
+
+  @override
+  String get statusLabel => 'Status';
+
+  @override
+  String get statusConnected => 'Connected / Configured';
+
+  @override
+  String get statusNotConfigured => 'Not Configured';
+
+  @override
+  String get lastSync => 'Last Sync';
 }

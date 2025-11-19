@@ -7945,7 +7945,7 @@ abstract class AppLocalizations {
   /// No description provided for @syncFailed.
   ///
   /// In en, this message translates to:
-  /// **'Sync failed'**
+  /// **'Sync Failed'**
   String get syncFailed;
 
   /// No description provided for @syncFailedMessage.
@@ -11041,6 +11041,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rule Type'**
   String get ruleType;
+
+  /// No description provided for @localDatabaseSyncTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Local Database Sync'**
+  String get localDatabaseSyncTitle;
+
+  /// No description provided for @localDatabaseSyncDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect your personal Supabase database to sync data across devices.'**
+  String get localDatabaseSyncDescription;
+
+  /// No description provided for @supabaseProjectUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Supabase Project URL'**
+  String get supabaseProjectUrl;
+
+  /// No description provided for @supabaseAnonKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Anon Key'**
+  String get supabaseAnonKey;
+
+  /// No description provided for @supabaseAnonKeyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'API Key, anon public key'**
+  String get supabaseAnonKeyHint;
+
+  /// No description provided for @connectionString.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection String (URI)'**
+  String get connectionString;
+
+  /// No description provided for @connectionStringHelper.
+  ///
+  /// In en, this message translates to:
+  /// **'Only needed for \'Initialize Database\''**
+  String get connectionStringHelper;
+
+  /// No description provided for @syncCallHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync Call History'**
+  String get syncCallHistory;
+
+  /// No description provided for @syncCallHistorySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Include private call logs in sync'**
+  String get syncCallHistorySubtitle;
+
+  /// No description provided for @requiredField.
+  ///
+  /// In en, this message translates to:
+  /// **'Required'**
+  String get requiredField;
+
+  /// No description provided for @requiredInitField.
+  ///
+  /// In en, this message translates to:
+  /// **'Required for initialization'**
+  String get requiredInitField;
+
+  /// No description provided for @initDbButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Initialize Database'**
+  String get initDbButton;
+
+  /// No description provided for @dbInitSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Database Initialized Successfully!'**
+  String get dbInitSuccess;
+
+  /// Message shown when sync completes successfully
+  ///
+  /// In en, this message translates to:
+  /// **'Sync Complete. Sent: {pushed}, Received: {pulled}'**
+  String syncSuccess(int pushed, int pulled);
+
+  /// No description provided for @errorPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get errorPrefix;
+
+  /// No description provided for @errorLoadingSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Error loading settings'**
+  String get errorLoadingSettings;
+
+  /// No description provided for @statusLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get statusLabel;
+
+  /// No description provided for @statusConnected.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected / Configured'**
+  String get statusConnected;
+
+  /// No description provided for @statusNotConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Configured'**
+  String get statusNotConfigured;
+
+  /// No description provided for @lastSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Sync'**
+  String get lastSync;
 }
 
 class _AppLocalizationsDelegate

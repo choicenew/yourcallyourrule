@@ -56,12 +56,16 @@ class SettingsPage extends ConsumerWidget {
           _buildTimeInterceptorCard(context),
           const SizedBox(height: 24),
           _buildSectionTitle(AppLocalizations.of(context)!.cloudSyncAndBackupTitle),
+                    const SizedBox(height: 12),
+          _buildSupabaseSettingsCard(context),
           const SizedBox(height: 8),
           _buildCloudSettingsCard(context),
           const SizedBox(height: 12),
           _buildBackupRestoreCard(context),
           const SizedBox(height: 12),
           _buildDeviceManagementCard(context),
+
+
           const SizedBox(height: 24),
           _buildAboutCard(context),
         ],
@@ -407,6 +411,19 @@ class SettingsPage extends ConsumerWidget {
       subtitle: AppLocalizations.of(context)!.permissionSubtitle,
       onTap: () {
         GoRouter.of(context).push('/special-permissions');
+      },
+    );
+  }
+
+  Widget _buildSupabaseSettingsCard(BuildContext context) {
+    return _buildSettingsCard(
+      context,
+      icon: Icons.cloud_upload,
+      iconColor: Colors.blueAccent,
+      title: "Supabase Cloud Sync",
+      subtitle: "Configure Supabase for cloud backup and sync",
+      onTap: () {
+        GoRouter.of(context).push('/supabase-settings');
       },
     );
   }
