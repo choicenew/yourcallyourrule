@@ -1,6 +1,8 @@
 import 'package:postgres/postgres.dart';
 
+/// 负责直接连接 Supabase Postgres 数据库并创建表结构
 class SupabaseDbInitializer {
+  
   /// 初始化数据库结构
   Future<void> initializeSchema(String connectionUri) async {
     final uri = Uri.parse(connectionUri);
@@ -17,7 +19,7 @@ class SupabaseDbInitializer {
 
     try {
       await connection.runTx((session) async {
-        // 1. 创建自动更新时间戳函数
+        // 1. 创建通用函数：自动更新 updated_at 字段
         await session.execute('''
           CREATE OR REPLACE FUNCTION update_updated_at_column()
           RETURNS TRIGGER AS \$\$
@@ -28,9 +30,9 @@ class SupabaseDbInitializer {
           \$\$ language 'plpgsql';
         ''');
 
-        // ==================== 核心数据表 ====================
-        
-        // 1. Contacts
+        // ==================== 核心业务表 ====================
+
+        // Contacts
         await _createTable(session, 'contacts', '''
           CREATE TABLE IF NOT EXISTS contacts (
             id text PRIMARY KEY,
@@ -41,13 +43,13 @@ class SupabaseDbInitializer {
             note text,
             label_ids text,
             is_favorite integer DEFAULT 0,
-            last_updated text,
+            last_updated text NOT NULL,
             updated_at timestamptz DEFAULT now(),
             modified_by_device text
           );
         ''');
 
-        // 2. Call History
+        // Call History
         await _createTable(session, 'call_history', '''
           CREATE TABLE IF NOT EXISTS call_history (
             id text PRIMARY KEY,
@@ -68,7 +70,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // 3. Sms (Messages)
+        // Sms
         await _createTable(session, 'sms', '''
           CREATE TABLE IF NOT EXISTS sms (
             id text PRIMARY KEY,
@@ -86,9 +88,9 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // ==================== 规则相关表 ====================
+        // ==================== 规则表 ====================
 
-        // 4. Rules (General)
+        // Rules
         await _createTable(session, 'rules', '''
           CREATE TABLE IF NOT EXISTS rules (
             id text PRIMARY KEY,
@@ -108,7 +110,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // 5. Phone Rules
+        // PhoneRules
         await _createTable(session, 'phone_rules', '''
           CREATE TABLE IF NOT EXISTS phone_rules (
             phone_number text PRIMARY KEY,
@@ -127,7 +129,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // 6. Regex Rules
+        // RegexRules
         await _createTable(session, 'regex_rules', '''
           CREATE TABLE IF NOT EXISTS regex_rules (
             pattern text PRIMARY KEY,
@@ -143,7 +145,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // 7. Sms Rules
+        // SmsRules
         await _createTable(session, 'sms_rules', '''
           CREATE TABLE IF NOT EXISTS sms_rules (
             id text PRIMARY KEY,
@@ -158,8 +160,8 @@ class SupabaseDbInitializer {
             modified_by_device text
           );
         ''');
-        
-        // 8. Sim Slot Rules
+
+        // SimSlotRules
         await _createTable(session, 'sim_slot_rules', '''
           CREATE TABLE IF NOT EXISTS sim_slot_rules (
             id text PRIMARY KEY,
@@ -177,9 +179,9 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // ==================== 标签与辅助表 ====================
+        // ==================== 标签与配置表 ====================
 
-        // 9. Predefined Labels
+        // Predefined Labels
         await _createTable(session, 'predefined_labels', '''
           CREATE TABLE IF NOT EXISTS predefined_labels (
             id text PRIMARY KEY,
@@ -191,7 +193,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // 10. Label Phones
+        // Label Phones
         await _createTable(session, 'label_phones', '''
           CREATE TABLE IF NOT EXISTS label_phones (
             id text PRIMARY KEY,
@@ -209,7 +211,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // 11. Label Mark Statistics
+        // Label Mark Statistics
         await _createTable(session, 'label_mark_statistics', '''
           CREATE TABLE IF NOT EXISTS label_mark_statistics (
             id text PRIMARY KEY,
@@ -222,7 +224,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // 12. User Mark Count
+        // User Mark Count
         await _createTable(session, 'user_mark_count', '''
           CREATE TABLE IF NOT EXISTS user_mark_count (
             id text PRIMARY KEY,
@@ -233,9 +235,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // ==================== 其他 ====================
-
-        // 13. Subscriptions
+        // Subscriptions
         await _createTable(session, 'subscriptions', '''
           CREATE TABLE IF NOT EXISTS subscriptions (
             id text PRIMARY KEY,
@@ -253,7 +253,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // 14. Plugins
+        // Plugins
         await _createTable(session, 'plugins', '''
           CREATE TABLE IF NOT EXISTS plugins (
             id text PRIMARY KEY,
@@ -269,7 +269,7 @@ class SupabaseDbInitializer {
           );
         ''');
 
-        // 15. Locations
+        // Locations
         await _createTable(session, 'locations', '''
           CREATE TABLE IF NOT EXISTS locations (
             id text PRIMARY KEY,

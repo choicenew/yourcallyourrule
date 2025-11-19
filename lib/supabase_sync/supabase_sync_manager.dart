@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:drift/drift.dart' as drift;
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../data/database/local/local_database.dart';
 import '../../data/database/sync/device_id_service.dart';
@@ -10,15 +9,17 @@ import '../../data/database/sync/device_id_service.dart';
 /// 同步结果模型
 class SyncResult {
   final bool success;
-  final int pushedCount; // 修复：与调用处参数名一致
-  final int pulledCount; // 修复：与调用处参数名一致
+  final int pushedCount;
+  final int pulledCount;
   final String? errorMessage;
+  final bool skipped; // 是否因未到时间而跳过
 
   SyncResult({
     this.success = false,
     this.pushedCount = 0,
     this.pulledCount = 0,
     this.errorMessage,
+    this.skipped = false,
   });
 }
 
@@ -27,43 +28,59 @@ class SupabaseSyncManager {
   final SupabaseClient _supabase;
   final DeviceIdService _deviceIdService;
   final bool _syncCallLogs;
-
-  static const String _prefLastSyncKey = 'supabase_sync_last_timestamp';
+  
+  // 这些状态由 ConfigRepository 管理，通过构造函数传入
+  final DateTime? _lastSyncTime;
+  final int _syncIntervalHours;
 
   SupabaseSyncManager({
     required LocalDatabase localDb,
     required SupabaseClient supabase,
     required DeviceIdService deviceIdService,
     bool syncCallLogs = false,
+    DateTime? lastSyncTime,
+    int syncIntervalHours = 24,
   })  : _localDb = localDb,
         _supabase = supabase,
         _deviceIdService = deviceIdService,
-        _syncCallLogs = syncCallLogs;
+        _syncCallLogs = syncCallLogs,
+        _lastSyncTime = lastSyncTime,
+        _syncIntervalHours = syncIntervalHours;
 
   /// 执行同步
-  Future<SyncResult> sync() async {
+  /// [force] 如果为 true，忽略时间间隔限制
+  Future<SyncResult> sync({bool force = false}) async {
     try {
-      final deviceId = await _deviceIdService.getDeviceId();
-      final lastSyncTime = await _getLastSyncTime();
-      final now = DateTime.now().toUtc();
+      // 1. 检查时间间隔
+      if (!force && _lastSyncTime != null) {
+        final diff = DateTime.now().difference(_lastSyncTime!);
+        if (diff.inHours < _syncIntervalHours) {
+          debugPrint('⏳ Sync skipped. Last sync: ${_lastSyncTime}, Interval: ${_syncIntervalHours}h');
+          return SyncResult(success: true, skipped: true);
+        }
+      }
 
-      debugPrint('🔄 Sync Start. Device: $deviceId, LastSync: $lastSyncTime');
+      final deviceId = await _deviceIdService.getDeviceId();
+      // 使用 UTC 时间作为基准
+      final now = DateTime.now().toUtc(); 
+
+      debugPrint('🔄 Sync Start. Device: $deviceId, LastSync: $_lastSyncTime');
 
       int totalPushed = 0;
       int totalPulled = 0;
 
-      // 1. Contacts
+      // 2. Sync Contacts
       final contactsRes = await _syncTable(
         tableName: 'contacts',
         deviceId: deviceId,
-        lastSync: lastSyncTime,
+        lastSync: _lastSyncTime,
         getLocalChanges: () async {
           final query = _localDb.select(_localDb.contacts);
           final all = await query.get();
-          if (lastSyncTime == null) return all;
+          if (_lastSyncTime == null) return all;
           return all.where((c) {
             final updated = DateTime.tryParse(c.lastUpdated);
-            return updated != null && updated.isAfter(lastSyncTime);
+            return updated != null && updated.isAfter(_lastSyncTime!);
           }).toList();
         },
         localToRemote: (item) {
@@ -97,11 +114,11 @@ class SupabaseSyncManager {
       totalPushed += contactsRes.pushedCount;
       totalPulled += contactsRes.pulledCount;
 
-      // 2. Rules
+      // 3. Sync Rules
       final rulesRes = await _syncTable(
         tableName: 'rules',
         deviceId: deviceId,
-        lastSync: lastSyncTime,
+        lastSync: _lastSyncTime,
         getLocalChanges: () async => await _localDb.select(_localDb.rules).get(),
         localToRemote: (item) {
           final r = item as RuleData;
@@ -138,11 +155,11 @@ class SupabaseSyncManager {
       totalPushed += rulesRes.pushedCount;
       totalPulled += rulesRes.pulledCount;
 
-      // 3. SmsRules
+      // 4. Sync SmsRules
       final smsRes = await _syncTable(
         tableName: 'sms_rules',
         deviceId: deviceId,
-        lastSync: lastSyncTime,
+        lastSync: _lastSyncTime,
         getLocalChanges: () async => await _localDb.select(_localDb.smsRules).get(),
         localToRemote: (item) {
           final r = item as SmsRuleData;
@@ -173,20 +190,19 @@ class SupabaseSyncManager {
       totalPushed += smsRes.pushedCount;
       totalPulled += smsRes.pulledCount;
 
-      // 4. Call History
+      // 5. Sync Call History
       if (_syncCallLogs) {
         final callRes = await _syncTable(
           tableName: 'call_history',
           deviceId: deviceId,
-          lastSync: lastSyncTime,
+          lastSync: _lastSyncTime,
           getLocalChanges: () async {
             final query = _localDb.select(_localDb.callHistory);
             final all = await query.get();
-            if (lastSyncTime == null) return all;
+            if (_lastSyncTime == null) return all;
             return all.where((log) {
               final ts = int.tryParse(log.timestamp) ?? 0;
-              // 假设 timestamp 是毫秒级
-              return DateTime.fromMillisecondsSinceEpoch(ts).isAfter(lastSyncTime);
+              return DateTime.fromMillisecondsSinceEpoch(ts).isAfter(_lastSyncTime!);
             }).toList();
           },
           localToRemote: (item) {
@@ -227,9 +243,7 @@ class SupabaseSyncManager {
         totalPulled += callRes.pulledCount;
       }
 
-      await _setLastSyncTime(now);
-
-      // 修复：这里不再报错，因为我们定义了对应的命名参数
+      // 注意：这里不保存 LastSyncTime，由 Controller/Provider 负责保存
       return SyncResult(
         success: true,
         pushedCount: totalPushed,
@@ -281,16 +295,5 @@ class SupabaseSyncManager {
     }
 
     return SyncResult(success: true, pushedCount: pushed, pulledCount: pulled);
-  }
-
-  Future<DateTime?> _getLastSyncTime() async {
-    final prefs = await SharedPreferences.getInstance();
-    final str = prefs.getString(_prefLastSyncKey);
-    return str != null ? DateTime.parse(str) : null;
-  }
-
-  Future<void> _setLastSyncTime(DateTime time) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_prefLastSyncKey, time.toIso8601String());
   }
 }

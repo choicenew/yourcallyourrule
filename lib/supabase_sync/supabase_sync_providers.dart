@@ -1,9 +1,10 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:yourcallyourrule/cloud_sync/provider/backup_restore_provider.dart';
 import 'package:yourcallyourrule/core/provider/database_provider/local_database_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
 
+// 引用你的 ConfigRepository
 import 'supabase_db_initializer.dart';
 import 'supabase_sync_manager.dart';
 
@@ -20,15 +21,18 @@ class SupabaseConfig {
   final String anonKey;
   final String connectionString;
   final bool syncCallLogs;
-  // ✅ 新增：是否为主设备
-  final bool isMasterDevice; 
+  final bool isMasterDevice;
+  final int syncIntervalHours;
+  final String? lastSyncTimestamp; // 存储 ISO8601 字符串
 
   const SupabaseConfig({
     this.url = '',
     this.anonKey = '',
     this.connectionString = '',
     this.syncCallLogs = false,
-    this.isMasterDevice = true, // 默认为 true，方便第一次使用
+    this.isMasterDevice = true,
+    this.syncIntervalHours = 24,
+    this.lastSyncTimestamp,
   });
 
   SupabaseConfig copyWith({
@@ -37,6 +41,8 @@ class SupabaseConfig {
     String? connectionString,
     bool? syncCallLogs,
     bool? isMasterDevice,
+    int? syncIntervalHours,
+    String? lastSyncTimestamp,
   }) {
     return SupabaseConfig(
       url: url ?? this.url,
@@ -44,46 +50,65 @@ class SupabaseConfig {
       connectionString: connectionString ?? this.connectionString,
       syncCallLogs: syncCallLogs ?? this.syncCallLogs,
       isMasterDevice: isMasterDevice ?? this.isMasterDevice,
+      syncIntervalHours: syncIntervalHours ?? this.syncIntervalHours,
+      lastSyncTimestamp: lastSyncTimestamp ?? this.lastSyncTimestamp,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'url': url,
+      'anonKey': anonKey,
+      'connectionString': connectionString,
+      'syncCallLogs': syncCallLogs,
+      'isMasterDevice': isMasterDevice,
+      'syncIntervalHours': syncIntervalHours,
+      'lastSyncTimestamp': lastSyncTimestamp,
+    };
+  }
+
+  factory SupabaseConfig.fromMap(Map<String, dynamic> map) {
+    return SupabaseConfig(
+      url: map['url'] as String? ?? '',
+      anonKey: map['anonKey'] as String? ?? '',
+      connectionString: map['connectionString'] as String? ?? '',
+      syncCallLogs: map['syncCallLogs'] as bool? ?? false,
+      isMasterDevice: map['isMasterDevice'] as bool? ?? true,
+      syncIntervalHours: map['syncIntervalHours'] as int? ?? 24,
+      lastSyncTimestamp: map['lastSyncTimestamp'] as String?,
     );
   }
 }
 
-/// 管理 Supabase 配置的 Notifier (Riverpod 3.0)
+/// 管理配置的 Notifier，使用 ConfigRepository
 @riverpod
 class SupabaseConfigNotifier extends _$SupabaseConfigNotifier {
-  static const _keyUrl = 'supabase_url';
-  static const _keyKey = 'supabase_key';
-  static const _keyConn = 'supabase_conn_string';
-  static const _keyCallLogs = 'supabase_sync_call_logs';
-  static const _keyIsMaster = 'supabase_is_master_device';
+  // 唯一的 Config Key，必须以 config_ 开头
+  static const _configKey = 'config_supabase_settings';
 
   @override
   Future<SupabaseConfig> build() async {
-    final prefs = await SharedPreferences.getInstance();
-    return SupabaseConfig(
-      url: prefs.getString(_keyUrl) ?? '',
-      anonKey: prefs.getString(_keyKey) ?? '',
-      connectionString: prefs.getString(_keyConn) ?? '',
-      syncCallLogs: prefs.getBool(_keyCallLogs) ?? false,
-      // 默认读取，如果没有则是 true
-      isMasterDevice: prefs.getBool(_keyIsMaster) ?? true,
-    );
+    final repo = ref.watch(configRepositoryProvider);
+    final json = await repo.getConfig(_configKey);
+    if (json != null) {
+      return SupabaseConfig.fromMap(json);
+    }
+    return const SupabaseConfig();
   }
 
-  /// 保存配置到本地
-  Future<void> saveConfig({
+  Future<void> _saveToRepo(SupabaseConfig config) async {
+    final repo = ref.read(configRepositoryProvider);
+    await repo.saveConfig(_configKey, config.toMap());
+    state = AsyncData(config);
+  }
+
+  Future<void> saveSettings({
     required String url,
     required String anonKey,
     required String connectionString,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_keyUrl, url);
-    await prefs.setString(_keyKey, anonKey);
-    await prefs.setString(_keyConn, connectionString);
-    
-    // 更新 State
     final current = state.value ?? const SupabaseConfig();
-    state = AsyncData(current.copyWith(
+    await _saveToRepo(current.copyWith(
       url: url,
       anonKey: anonKey,
       connectionString: connectionString,
@@ -91,18 +116,24 @@ class SupabaseConfigNotifier extends _$SupabaseConfigNotifier {
   }
 
   Future<void> toggleCallLogs(bool value) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_keyCallLogs, value);
     final current = state.value ?? const SupabaseConfig();
-    state = AsyncData(current.copyWith(syncCallLogs: value));
+    await _saveToRepo(current.copyWith(syncCallLogs: value));
   }
 
-  // ✅ 新增：切换主设备状态
   Future<void> toggleMasterDevice(bool value) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_keyIsMaster, value);
     final current = state.value ?? const SupabaseConfig();
-    state = AsyncData(current.copyWith(isMasterDevice: value));
+    await _saveToRepo(current.copyWith(isMasterDevice: value));
+  }
+
+  Future<void> setSyncInterval(int hours) async {
+    final current = state.value ?? const SupabaseConfig();
+    await _saveToRepo(current.copyWith(syncIntervalHours: hours));
+  }
+
+  /// 仅供 Controller 内部调用：更新最后同步时间
+  Future<void> updateLastSyncTime(DateTime time) async {
+    final current = state.value ?? const SupabaseConfig();
+    await _saveToRepo(current.copyWith(lastSyncTimestamp: time.toIso8601String()));
   }
 }
 
@@ -124,8 +155,6 @@ class SupabaseSyncController extends _$SupabaseSyncController {
     try {
       final initializer = SupabaseDbInitializer();
       await initializer.initializeSchema(config.connectionString);
-      // 成功时不返回 SyncResult，但为了状态一致，我们重置为 null 或显示成功消息
-      // 这里我们不改变 SyncResult，只是退出 Loading
       state = const AsyncData(null); 
     } catch (e, st) {
       state = AsyncError("DB Init Failed: $e", st);
@@ -133,35 +162,45 @@ class SupabaseSyncController extends _$SupabaseSyncController {
   }
 
   /// 执行同步
-  Future<void> runSync() async {
+  Future<void> runSync({bool force = true}) async {
     final config = ref.read(supabaseConfigProvider).value;
     if (config == null || config.url.isEmpty || config.anonKey.isEmpty) {
       state = AsyncError("Supabase URL or Key is missing", StackTrace.current);
       return;
     }
+
     state = const AsyncLoading();
     try {
-      // 1. 获取依赖
-      // 注意：这里假设你有 databaseProvider 和 deviceIdServiceProvider
-      // 如果没有，你需要修改这里的引用方式
       final db = ref.read(localDatabaseProvider); 
       final deviceIdService = ref.read(deviceIdServiceProvider);
 
-      // 2. 创建临时 Client (为了保持独立性)
+      // 创建临时 Client
       final client = SupabaseClient(config.url, config.anonKey);
 
-      // 3. 创建 Manager
+      // 解析上次同步时间
+      DateTime? lastSync;
+      if (config.lastSyncTimestamp != null) {
+        lastSync = DateTime.tryParse(config.lastSyncTimestamp!);
+      }
+
       final manager = SupabaseSyncManager(
         localDb: db,
         supabase: client,
         deviceIdService: deviceIdService,
         syncCallLogs: config.syncCallLogs,
+        lastSyncTime: lastSync,             // 从配置传入
+        syncIntervalHours: config.syncIntervalHours, // 从配置传入
       );
 
-      final result = await manager.sync();
+      final result = await manager.sync(force: force);
       await client.dispose();
 
       if (result.success) {
+        // 如果同步成功且没有跳过，更新配置中的时间
+        if (!result.skipped) {
+          final now = DateTime.now().toUtc();
+          await ref.read(supabaseConfigProvider.notifier).updateLastSyncTime(now);
+        }
         state = AsyncData(result);
       } else {
         state = AsyncError(result.errorMessage ?? "Unknown error", StackTrace.current);
