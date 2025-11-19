@@ -63,7 +63,7 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-                # ==============================================
+      # ==============================================
       # 2. 限制 Gradle 内存 (解决 Error 143 / 编译慢)
       # ==============================================
       - name: Setup Gradle Properties
@@ -76,7 +76,7 @@ jobs:
           echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
           echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
 
-          
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
