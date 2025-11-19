@@ -6,10 +6,9 @@ import 'package:yourcallyourrule/purchase/modern_purchase_card.dart';
 
 // 关键：确保你导入了包含 `purchaseCardFactoryProvider` 的文件
 
-import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/purchase/providers/purchase_card_provider.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
-import 'package:yourcallyourrule/purchase/widgets/purchase_cards.dart'; // 假设 ModernPurchasePage 在这里
+// 假设 ModernPurchasePage 在这里
 
 /// 重构后的购买页面
 /// 这个 Widget 现在是一个 `ConsumerWidget`，因为它不再需要管理任何自己的状态 (StatefulWidget)。
