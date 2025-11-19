@@ -1,0 +1,2 @@
+C:/Users/Ngokel/Desktop/en/test/github/yourcallyourrulemixhistory/android/app/.cxx/release/1j616r2a/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Ngokel/Desktop/en/test/github/yourcallyourrulemixhistory/android/app/.cxx/release/1j616r2a/arm64-v8a/CMakeFiles/rebuild_cache.dir

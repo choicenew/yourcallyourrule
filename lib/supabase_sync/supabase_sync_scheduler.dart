@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SupabaseSyncScheduler {
   // 使用独立的 Key，防止与现有系统冲突
-  static const String _prefKeyLastSync = 'supabase_user_sync_last_timestamp';
+  static const String _prefKeyLastSync = 'config_supabase_user_sync_last_timestamp';
   
   // 默认同步间隔，例如 1 小时
   final Duration _syncInterval;

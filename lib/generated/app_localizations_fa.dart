@@ -6235,5 +6235,12 @@ class AppLocalizationsFa extends AppLocalizations {
   String get statusNotConfigured => 'Not Configured';
 
   @override
-  String get lastSync => 'Last Sync';
+  String get configSaved => 'Configuration Saved!';
+
+  @override
+  String get masterDeviceLabel => 'Is Master Device (Admin)';
+
+  @override
+  String get masterDeviceHelp =>
+      'Only the master device can initialize the database structure.';
 }
