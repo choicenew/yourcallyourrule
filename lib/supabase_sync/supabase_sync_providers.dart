@@ -4,9 +4,9 @@ import 'package:yourcallyourrule/cloud_sync/provider/backup_restore_provider.dar
 import 'package:yourcallyourrule/core/provider/database_provider/local_database_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
 
-// 引用你的 ConfigRepository
 import 'supabase_db_initializer.dart';
 import 'supabase_sync_manager.dart';
+import 'sync_log_service.dart';
 
 
 
@@ -23,7 +23,7 @@ class SupabaseConfig {
   final bool syncCallLogs;
   final bool isMasterDevice;
   final int syncIntervalHours;
-  final String? lastSyncTimestamp; // 存储 ISO8601 字符串
+  final String? lastSyncTimestamp;
 
   const SupabaseConfig({
     this.url = '',
@@ -80,10 +80,16 @@ class SupabaseConfig {
   }
 }
 
-/// 管理配置的 Notifier，使用 ConfigRepository
+// ✅ 注册 SyncLogService Provider
+@riverpod
+SyncLogService syncLogService(Ref ref) {
+  final db = ref.watch(localDatabaseProvider);
+  return SyncLogService(db);
+}
+
+/// 管理配置的 Notifier
 @riverpod
 class SupabaseConfigNotifier extends _$SupabaseConfigNotifier {
-  // 唯一的 Config Key，必须以 config_ 开头
   static const _configKey = 'config_supabase_settings';
 
   @override
@@ -130,13 +136,13 @@ class SupabaseConfigNotifier extends _$SupabaseConfigNotifier {
     await _saveToRepo(current.copyWith(syncIntervalHours: hours));
   }
 
-  /// 仅供 Controller 内部调用：更新最后同步时间
   Future<void> updateLastSyncTime(DateTime time) async {
     final current = state.value ?? const SupabaseConfig();
     await _saveToRepo(current.copyWith(lastSyncTimestamp: time.toIso8601String()));
   }
 }
 
+/// 控制同步逻辑的 Controller
 @riverpod
 class SupabaseSyncController extends _$SupabaseSyncController {
   @override
@@ -144,7 +150,6 @@ class SupabaseSyncController extends _$SupabaseSyncController {
     return null;
   }
 
-  /// 初始化数据库结构
   Future<void> initializeDatabase() async {
     final config = ref.read(supabaseConfigProvider).value;
     if (config == null || config.connectionString.isEmpty) {
@@ -161,7 +166,6 @@ class SupabaseSyncController extends _$SupabaseSyncController {
     }
   }
 
-  /// 执行同步
   Future<void> runSync({bool force = true}) async {
     final config = ref.read(supabaseConfigProvider).value;
     if (config == null || config.url.isEmpty || config.anonKey.isEmpty) {
@@ -173,11 +177,11 @@ class SupabaseSyncController extends _$SupabaseSyncController {
     try {
       final db = ref.read(localDatabaseProvider); 
       final deviceIdService = ref.read(deviceIdServiceProvider);
-
+      final logService = ref.read(syncLogServiceProvider); // ✅ 使用 Provider
+      
       // 创建临时 Client
       final client = SupabaseClient(config.url, config.anonKey);
 
-      // 解析上次同步时间
       DateTime? lastSync;
       if (config.lastSyncTimestamp != null) {
         lastSync = DateTime.tryParse(config.lastSyncTimestamp!);
@@ -187,16 +191,16 @@ class SupabaseSyncController extends _$SupabaseSyncController {
         localDb: db,
         supabase: client,
         deviceIdService: deviceIdService,
+        logService: logService,
         syncCallLogs: config.syncCallLogs,
-        lastSyncTime: lastSync,             // 从配置传入
-        syncIntervalHours: config.syncIntervalHours, // 从配置传入
+        lastSyncTime: lastSync,
+        syncIntervalHours: config.syncIntervalHours,
       );
 
       final result = await manager.sync(force: force);
       await client.dispose();
 
       if (result.success) {
-        // 如果同步成功且没有跳过，更新配置中的时间
         if (!result.skipped) {
           final now = DateTime.now().toUtc();
           await ref.read(supabaseConfigProvider.notifier).updateLastSyncTime(now);

@@ -8,15 +8,57 @@ part of 'supabase_sync_providers.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 管理 Supabase 配置的 Notifier (Riverpod 3.0)
+
+@ProviderFor(syncLogService)
+const syncLogServiceProvider = SyncLogServiceProvider._();
+
+final class SyncLogServiceProvider
+    extends $FunctionalProvider<SyncLogService, SyncLogService, SyncLogService>
+    with $Provider<SyncLogService> {
+  const SyncLogServiceProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'syncLogServiceProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$syncLogServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<SyncLogService> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  SyncLogService create(Ref ref) {
+    return syncLogService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(SyncLogService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<SyncLogService>(value),
+    );
+  }
+}
+
+String _$syncLogServiceHash() => r'9c3a35473d82e12de66adecd149fcdd5a25db309';
+
+/// 管理配置的 Notifier
 
 @ProviderFor(SupabaseConfigNotifier)
 const supabaseConfigProvider = SupabaseConfigNotifierProvider._();
 
-/// 管理 Supabase 配置的 Notifier (Riverpod 3.0)
+/// 管理配置的 Notifier
 final class SupabaseConfigNotifierProvider
     extends $AsyncNotifierProvider<SupabaseConfigNotifier, SupabaseConfig> {
-  /// 管理 Supabase 配置的 Notifier (Riverpod 3.0)
+  /// 管理配置的 Notifier
   const SupabaseConfigNotifierProvider._()
     : super(
         from: null,
@@ -37,9 +79,9 @@ final class SupabaseConfigNotifierProvider
 }
 
 String _$supabaseConfigNotifierHash() =>
-    r'429a62f43f5e6b2d625b5bbebc7c53d27b521675';
+    r'bf999c1262f694c93158f8962380772312051ad9';
 
-/// 管理 Supabase 配置的 Notifier (Riverpod 3.0)
+/// 管理配置的 Notifier
 
 abstract class _$SupabaseConfigNotifier extends $AsyncNotifier<SupabaseConfig> {
   FutureOr<SupabaseConfig> build();
@@ -60,18 +102,15 @@ abstract class _$SupabaseConfigNotifier extends $AsyncNotifier<SupabaseConfig> {
   }
 }
 
-/// 控制同步操作的 Controller (Riverpod 3.0)
-/// 状态为 AsyncValue<SyncResult?>，null 表示未开始
+/// 控制同步逻辑的 Controller
 
 @ProviderFor(SupabaseSyncController)
 const supabaseSyncControllerProvider = SupabaseSyncControllerProvider._();
 
-/// 控制同步操作的 Controller (Riverpod 3.0)
-/// 状态为 AsyncValue<SyncResult?>，null 表示未开始
+/// 控制同步逻辑的 Controller
 final class SupabaseSyncControllerProvider
     extends $AsyncNotifierProvider<SupabaseSyncController, SyncResult?> {
-  /// 控制同步操作的 Controller (Riverpod 3.0)
-  /// 状态为 AsyncValue<SyncResult?>，null 表示未开始
+  /// 控制同步逻辑的 Controller
   const SupabaseSyncControllerProvider._()
     : super(
         from: null,
@@ -92,10 +131,9 @@ final class SupabaseSyncControllerProvider
 }
 
 String _$supabaseSyncControllerHash() =>
-    r'86d8ed2cb52e3b8b783a85276070629d914eaa04';
+    r'514d11c2f441a1d7fb5af148beac68fab6dc85df';
 
-/// 控制同步操作的 Controller (Riverpod 3.0)
-/// 状态为 AsyncValue<SyncResult?>，null 表示未开始
+/// 控制同步逻辑的 Controller
 
 abstract class _$SupabaseSyncController extends $AsyncNotifier<SyncResult?> {
   FutureOr<SyncResult?> build();
