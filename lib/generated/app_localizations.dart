@@ -11185,6 +11185,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Every {hours} hours'**
   String syncIntervalValue(int hours);
+
+  /// No description provided for @vipAccessSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch ads for free or purchase VIP'**
+  String get vipAccessSubtitle;
 }
 
 class _AppLocalizationsDelegate
