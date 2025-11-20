@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
-// 引入业务文件
-import 'supabase_sync_manager.dart'; 
+import 'supabase_sync_manager.dart';
 import 'supabase_sync_providers.dart';
 
-/// 定义当前正在进行的操作类型
-enum _ActiveOperation {
-  none,
-  saving,
-  initializing,
-  syncing
-}
+/// 局部状态：当前正在进行的操作
+enum _ActiveOperation { none, saving, initializing, syncing }
 
 class SupabaseSettingsPage extends ConsumerStatefulWidget {
   const SupabaseSettingsPage({super.key});
@@ -29,7 +22,6 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
   late TextEditingController _keyCtrl;
   late TextEditingController _connStringCtrl;
 
-  // ✅ 新增：局部状态，用于区分哪个按钮在转圈
   _ActiveOperation _currentOp = _ActiveOperation.none;
 
   @override
@@ -49,15 +41,15 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
   }
 
   void _populateControllers(SupabaseConfig config) {
+    // 只有当控制器为空时才填充，避免用户输入被覆盖
     if (_urlCtrl.text.isEmpty) _urlCtrl.text = config.url;
     if (_keyCtrl.text.isEmpty) _keyCtrl.text = config.anonKey;
     if (_connStringCtrl.text.isEmpty) _connStringCtrl.text = config.connectionString;
   }
 
-  /// 包装保存操作
   Future<void> _handleSave() async {
     if (!_formKey.currentState!.validate()) return;
-    
+
     setState(() => _currentOp = _ActiveOperation.saving);
     try {
       await ref.read(supabaseConfigProvider.notifier).saveSettings(
@@ -66,49 +58,43 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
         connectionString: _connStringCtrl.text.trim(),
       );
       if (mounted) {
-         _showSnackBar(AppLocalizations.of(context)!.configSaved);
+        _showSnackBar(AppLocalizations.of(context)!.configSaved);
       }
     } finally {
       if (mounted) setState(() => _currentOp = _ActiveOperation.none);
     }
   }
 
-  /// 包装初始化操作
   Future<void> _handleInitialize() async {
-    // 先保存
     if (!_formKey.currentState!.validate()) return;
-    
+
     setState(() => _currentOp = _ActiveOperation.initializing);
     try {
-      // 1. 保存配置
+      // 先保存
       await ref.read(supabaseConfigProvider.notifier).saveSettings(
         url: _urlCtrl.text.trim(),
         anonKey: _keyCtrl.text.trim(),
         connectionString: _connStringCtrl.text.trim(),
       );
-      // 2. 执行初始化
+      // 再初始化
       await ref.read(supabaseSyncControllerProvider.notifier).initializeDatabase();
     } finally {
-      // 注意：这里不置为 none，因为 Controller 状态变化会触发下面的 ref.listen，
-      // 或者等待 Controller 变回 AsyncData。
-      // 但为了保险起见，我们在 finally 里恢复 UI 状态
       if (mounted) setState(() => _currentOp = _ActiveOperation.none);
     }
   }
 
-  /// 包装同步操作
   Future<void> _handleSync() async {
     if (!_formKey.currentState!.validate()) return;
 
     setState(() => _currentOp = _ActiveOperation.syncing);
     try {
-      // 1. 保存
+      // 先保存
       await ref.read(supabaseConfigProvider.notifier).saveSettings(
         url: _urlCtrl.text.trim(),
         anonKey: _keyCtrl.text.trim(),
         connectionString: _connStringCtrl.text.trim(),
       );
-      // 2. 同步
+      // 再同步
       await ref.read(supabaseSyncControllerProvider.notifier).runSync(force: true);
     } finally {
       if (mounted) setState(() => _currentOp = _ActiveOperation.none);
@@ -126,64 +112,30 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     );
   }
 
-  Widget _buildStatusBar(SupabaseConfig config) {
-    final isConfigured = config.url.isNotEmpty && config.anonKey.isNotEmpty;
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-      color: isConfigured ? Colors.green.shade50 : Colors.grey.shade100,
-      child: Row(
-        children: [
-          Icon(
-            isConfigured ? Icons.check_circle : Icons.settings_remote,
-            color: isConfigured ? Colors.green : Colors.grey,
-          ),
-          const SizedBox(width: 12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                AppLocalizations.of(context)!.statusLabel,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12,
-                  color: Colors.black54,
-                ),
-              ),
-              Text(
-                isConfigured ? AppLocalizations.of(context)!.statusConnected : AppLocalizations.of(context)!.statusNotConfigured,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: isConfigured ? Colors.green.shade700 : Colors.grey.shade700,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-   
+  
+    
+    // 监听配置加载状态
     final configAsync = ref.watch(supabaseConfigProvider);
     
-    // 监听结果 (用于弹窗提示)
+    // 监听 VIP 状态 (用于控制整个页面的某些交互)
+    final purchaseState = ref.watch(purchaseStateProvider);
+    final isVip = purchaseState.isPurchasedOrHasTempAccess();
+
+    // 监听同步结果
     ref.listen<AsyncValue<SyncResult?>>(supabaseSyncControllerProvider, (previous, next) {
       next.when(
         data: (result) {
           if (previous?.isLoading == true && result == null) {
-             _showSnackBar(AppLocalizations.of(context)!.dbInitSuccess);
-          }
-          else if (result != null && result.success) {
-             if (result.skipped) {
-               _showSnackBar("Sync skipped (Interval)", isError: false);
-             } else {
-               _showSnackBar(AppLocalizations.of(context)!.syncSuccess(result.pushedCount, result.pulledCount));
-             }
-          }
-          else if (result != null && !result.success) {
+            _showSnackBar(AppLocalizations.of(context)!.dbInitSuccess);
+          } else if (result != null && result.success) {
+            if (result.skipped) {
+              _showSnackBar("Sync skipped (Interval)", isError: false);
+            } else {
+              _showSnackBar(AppLocalizations.of(context)!.syncSuccess(result.pushedCount, result.pulledCount));
+            }
+          } else if (result != null && !result.success) {
             _showSnackBar(result.errorMessage ?? AppLocalizations.of(context)!.syncFailed, isError: true);
           }
         },
@@ -202,27 +154,28 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
         data: (config) {
           _populateControllers(config);
           
-          // 如果任何操作正在进行，禁用所有交互
           final bool isBusy = _currentOp != _ActiveOperation.none;
+          final bool canSync = isVip && !isBusy;
 
           return Column(
             children: [
-              _buildStatusBar(config),
+              // ✅ 使用独立的无参数组件
+              const _SupabaseStatusBar(),
               
               Expanded(
                 child: ListView(
                   padding: const EdgeInsets.all(16),
                   children: [
-                    // 主设备开关
+                    // Master Device Switch
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.blue.shade50,
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.blue.shade100)
+                        border: Border.all(color: Colors.blue.shade100),
                       ),
                       child: SwitchListTile(
                         title: Text(
-                          AppLocalizations.of(context)!.masterDeviceLabel, 
+                          AppLocalizations.of(context)!.masterDeviceLabel,
                           style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
                         ),
                         subtitle: Text(AppLocalizations.of(context)!.masterDeviceHelp, style: const TextStyle(fontSize: 12)),
@@ -235,6 +188,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                     ),
                     const SizedBox(height: 20),
 
+                    // Form Fields
                     Form(
                       key: _formKey,
                       child: Column(
@@ -281,8 +235,8 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                                 prefixIcon: const Icon(Icons.storage, color: Colors.orange),
                               ),
                               obscureText: true,
-                              validator: (v) => (config.isMasterDevice && (v == null || v.isEmpty)) 
-                                  ? AppLocalizations.of(context)!.requiredInitField 
+                              validator: (v) => (config.isMasterDevice && (v == null || v.isEmpty))
+                                  ? AppLocalizations.of(context)!.requiredInitField
                                   : null,
                             ),
                           ],
@@ -291,6 +245,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                     ),
                     const SizedBox(height: 20),
                     
+                    // Call Logs Switch
                     SwitchListTile(
                       title: Text(AppLocalizations.of(context)!.syncCallHistory),
                       subtitle: Text(AppLocalizations.of(context)!.syncCallHistorySubtitle),
@@ -300,7 +255,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                       },
                     ),
 
-                    // 时间间隔 Slider
+                    // Sync Interval Slider
                     const Divider(),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -341,15 +296,9 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                         ],
                       ),
                     ),
-
-                         GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const Divider(height: 30),
 
-                    // =================================================
-                    // 按钮组 - 修复了转圈逻辑
-                    // =================================================
-
-                    // 1. 保存按钮
+                    // 1. Save Button
                     OutlinedButton.icon(
                       onPressed: isBusy ? null : _handleSave,
                       icon: _currentOp == _ActiveOperation.saving
@@ -360,10 +309,10 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                     ),
                     const SizedBox(height: 12),
 
-                    // 2. 初始化按钮 (仅 Master)
+                    // 2. Init Button (Master & VIP Only)
                     if (config.isMasterDevice) ...[
                       OutlinedButton.icon(
-                        onPressed: isBusy ? null : _handleInitialize,
+                        onPressed: canSync ? _handleInitialize : null,
                         icon: _currentOp == _ActiveOperation.initializing
                             ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.orange))
                             : const Icon(Icons.settings_ethernet, color: Colors.orange),
@@ -376,13 +325,13 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                       const SizedBox(height: 12),
                     ],
 
-                    // 3. 同步按钮
+                    // 3. Sync Button (VIP Only)
                     FilledButton.icon(
-                      onPressed: isBusy ? null : _handleSync,
+                      onPressed: canSync ? _handleSync : null,
                       icon: _currentOp == _ActiveOperation.syncing
-                          ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)) 
-                          : const Icon(Icons.sync),
-                      label: Text(AppLocalizations.of(context)!.syncNowButton),
+                          ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
+                          : (isVip ? const Icon(Icons.sync) : const Icon(Icons.lock)),
+                      label: Text(isVip ? AppLocalizations.of(context)!.syncNowButton : "Upgrade to Sync"), // 如果 "Upgrade to Sync" 也要多语言，请在 arb 中添加 key 并替换
                       style: FilledButton.styleFrom(minimumSize: const Size(double.infinity, 50)),
                     ),
                   ],
@@ -391,6 +340,82 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+/// 独立的无参数状态栏组件
+/// 自动监听 VIP 和 Config 状态
+class _SupabaseStatusBar extends ConsumerWidget {
+  const _SupabaseStatusBar();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+  
+    
+    // 1. 监听 VIP 状态
+    final purchaseState = ref.watch(purchaseStateProvider);
+    final isVip = purchaseState.isPurchasedOrHasTempAccess();
+    
+    // 2. 监听配置状态
+   // AsyncValue.value 会返回当前的数据（如果存在），无论是 Loading 还是 Error 状态（如果之前有数据）
+    final config = ref.watch(supabaseConfigProvider).value;
+    final isConfigured = config != null && config.url.isNotEmpty && config.anonKey.isNotEmpty;
+
+    Color bgColor;
+    IconData icon;
+    Color iconColor;
+    String statusText;
+
+    if (!isVip) {
+      bgColor = Colors.amber.shade50;
+      icon = Icons.lock;
+      iconColor = Colors.amber.shade800;
+      // 这里假设你在 arb 中添加了 vipRequiredForSync
+      // 如果没有，暂时显示英文，或确保添加了该 Key
+      statusText = AppLocalizations.of(context)!.needVipAccess; 
+    } else if (isConfigured) {
+      bgColor = Colors.green.shade50;
+      icon = Icons.check_circle;
+      iconColor = Colors.green;
+      statusText = AppLocalizations.of(context)!.statusConnected;
+    } else {
+      bgColor = Colors.grey.shade100;
+      icon = Icons.settings_remote;
+      iconColor = Colors.grey;
+      statusText = AppLocalizations.of(context)!.statusNotConfigured;
+    }
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      color: bgColor,
+      child: Row(
+        children: [
+          Icon(icon, color: iconColor),
+          const SizedBox(width: 12),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.statusLabel,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  color: Colors.black54,
+                ),
+              ),
+              Text(
+                statusText,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: iconColor,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
