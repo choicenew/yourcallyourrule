@@ -6372,4 +6372,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String syncIntervalValue(int hours) {
     return 'Every $hours hours';
   }
+
+  @override
+  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
 }
