@@ -1,9 +1,12 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:yourcallyourrule/cloud_sync/provider/backup_restore_provider.dart';
 import 'package:yourcallyourrule/core/provider/database_provider/local_database_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
+import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
+import '../../data/database/local/local_database.dart';
+import '../../data/database/sync/device_id_service.dart';
+import '../../data/repositories/config/config_repository.dart';
 import 'supabase_db_initializer.dart';
 import 'supabase_sync_manager.dart';
 import 'sync_log_service.dart';
@@ -12,6 +15,9 @@ import 'sync_log_service.dart';
 
 
 
+
+// 引入 configRepositoryProvider
+import '../../core/provider/providers/config_repository_provider.dart';
 
 part 'supabase_sync_providers.g.dart';
 
@@ -80,14 +86,12 @@ class SupabaseConfig {
   }
 }
 
-// ✅ 注册 SyncLogService Provider
 @riverpod
 SyncLogService syncLogService(Ref ref) {
   final db = ref.watch(localDatabaseProvider);
   return SyncLogService(db);
 }
 
-/// 管理配置的 Notifier
 @riverpod
 class SupabaseConfigNotifier extends _$SupabaseConfigNotifier {
   static const _configKey = 'config_supabase_settings';
@@ -142,7 +146,6 @@ class SupabaseConfigNotifier extends _$SupabaseConfigNotifier {
   }
 }
 
-/// 控制同步逻辑的 Controller
 @riverpod
 class SupabaseSyncController extends _$SupabaseSyncController {
   @override
@@ -150,7 +153,20 @@ class SupabaseSyncController extends _$SupabaseSyncController {
     return null;
   }
 
+  // 辅助方法：检查是否是 VIP
+  bool _checkVipStatus() {
+    // 直接 watch 最新状态
+    final purchaseState = ref.read(purchaseStateProvider);
+    return purchaseState.isPurchasedOrHasTempAccess();
+  }
+
   Future<void> initializeDatabase() async {
+    // ✅ 1. 权限检查
+    if (!_checkVipStatus()) {
+      state = AsyncError("VIP Required to initialize cloud backup.", StackTrace.current);
+      return;
+    }
+
     final config = ref.read(supabaseConfigProvider).value;
     if (config == null || config.connectionString.isEmpty) {
       state = AsyncError("Connection string is missing", StackTrace.current);
@@ -167,6 +183,12 @@ class SupabaseSyncController extends _$SupabaseSyncController {
   }
 
   Future<void> runSync({bool force = true}) async {
+    // ✅ 1. 权限检查
+    if (!_checkVipStatus()) {
+      state = AsyncError("VIP Required for cloud sync.", StackTrace.current);
+      return;
+    }
+
     final config = ref.read(supabaseConfigProvider).value;
     if (config == null || config.url.isEmpty || config.anonKey.isEmpty) {
       state = AsyncError("Supabase URL or Key is missing", StackTrace.current);
@@ -177,9 +199,8 @@ class SupabaseSyncController extends _$SupabaseSyncController {
     try {
       final db = ref.read(localDatabaseProvider); 
       final deviceIdService = ref.read(deviceIdServiceProvider);
-      final logService = ref.read(syncLogServiceProvider); // ✅ 使用 Provider
+      final logService = ref.read(syncLogServiceProvider);
       
-      // 创建临时 Client
       final client = SupabaseClient(config.url, config.anonKey);
 
       DateTime? lastSync;

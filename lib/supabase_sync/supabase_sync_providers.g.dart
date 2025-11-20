@@ -50,15 +50,11 @@ final class SyncLogServiceProvider
 
 String _$syncLogServiceHash() => r'9c3a35473d82e12de66adecd149fcdd5a25db309';
 
-/// 管理配置的 Notifier
-
 @ProviderFor(SupabaseConfigNotifier)
 const supabaseConfigProvider = SupabaseConfigNotifierProvider._();
 
-/// 管理配置的 Notifier
 final class SupabaseConfigNotifierProvider
     extends $AsyncNotifierProvider<SupabaseConfigNotifier, SupabaseConfig> {
-  /// 管理配置的 Notifier
   const SupabaseConfigNotifierProvider._()
     : super(
         from: null,
@@ -81,8 +77,6 @@ final class SupabaseConfigNotifierProvider
 String _$supabaseConfigNotifierHash() =>
     r'bf999c1262f694c93158f8962380772312051ad9';
 
-/// 管理配置的 Notifier
-
 abstract class _$SupabaseConfigNotifier extends $AsyncNotifier<SupabaseConfig> {
   FutureOr<SupabaseConfig> build();
   @$mustCallSuper
@@ -102,15 +96,11 @@ abstract class _$SupabaseConfigNotifier extends $AsyncNotifier<SupabaseConfig> {
   }
 }
 
-/// 控制同步逻辑的 Controller
-
 @ProviderFor(SupabaseSyncController)
 const supabaseSyncControllerProvider = SupabaseSyncControllerProvider._();
 
-/// 控制同步逻辑的 Controller
 final class SupabaseSyncControllerProvider
     extends $AsyncNotifierProvider<SupabaseSyncController, SyncResult?> {
-  /// 控制同步逻辑的 Controller
   const SupabaseSyncControllerProvider._()
     : super(
         from: null,
@@ -131,9 +121,7 @@ final class SupabaseSyncControllerProvider
 }
 
 String _$supabaseSyncControllerHash() =>
-    r'514d11c2f441a1d7fb5af148beac68fab6dc85df';
-
-/// 控制同步逻辑的 Controller
+    r'fe83144fc3ad1a41096fe114f60281882a7260b1';
 
 abstract class _$SupabaseSyncController extends $AsyncNotifier<SyncResult?> {
   FutureOr<SyncResult?> build();
