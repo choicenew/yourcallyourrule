@@ -5,53 +5,42 @@ import 'package:yourcallyourrule/cloud_sync/services/onedrive_sync_service.dart'
 import 'package:yourcallyourrule/cloud_sync/services/webdav_sync_service.dart';
 import 'device_management_provider.dart';
 
-// [无需修改] - Provider 的定义保持不变
-/// Provider for WebDAV sync service
+// [无需修改] 
 final webdavSyncServiceProvider = Provider<CloudSyncService>((ref) {
   final configRepository = ref.watch(configRepositoryProvider);
   return WebDAVSyncService(configRepository: configRepository, ref: ref);
 });
 
-/// Provider for OneDrive sync service
 final onedriveSyncServiceProvider = Provider<CloudSyncService>((ref) {
   final configRepository = ref.watch(configRepositoryProvider);
   return OneDriveSyncService(configRepository: configRepository, ref: ref);
 });
 
-/// Provider for Google Drive sync service
 final googleDriveSyncServiceProvider = Provider<CloudSyncService>((ref) {
   final configRepository = ref.watch(configRepositoryProvider);
   return GoogleDriveSyncService(configRepository: configRepository, ref: ref);
 });
 
-
-// [已修改] - 从 StateProvider 迁移到 NotifierProvider
-// 步骤 1: 创建 Notifier 类来管理状态
+// [无需修改] 保持你原本最简单的 State 写法
 class ActiveSyncServiceNotifier extends Notifier<CloudSyncService?> {
   @override
   CloudSyncService? build() {
-    // 返回初始状态
     return null;
   }
 
-  // 提供一个公共方法来更新状态
   void setActiveService(CloudSyncService? service) {
     state = service;
   }
 }
 
-// 步骤 2: 定义 NotifierProvider
 final activeSyncServiceProvider =
     NotifierProvider<ActiveSyncServiceNotifier, CloudSyncService?>(
   ActiveSyncServiceNotifier.new,
 );
 
-
-// [无需修改] - FutureProvider 的定义和使用方式保持不变
-// 它会正确地监听 activeSyncServiceProvider 的状态变化
-/// Provider for cloud sync status
+// [无需修改]
 final cloudSyncStatusProvider = FutureProvider<Map<String, dynamic>>((ref) async {
-  final activeService = ref.watch(activeSyncServiceProvider); // <- 读取方式不变
+  final activeService = ref.watch(activeSyncServiceProvider);
   if (activeService == null) {
     return {
       'connected': false,
@@ -59,34 +48,34 @@ final cloudSyncStatusProvider = FutureProvider<Map<String, dynamic>>((ref) async
       'auto_sync_enabled': false,
     };
   }
-  
   return activeService.getSyncStatus();
 });
 
-// [无需修改] - FutureProvider 的定义保持不变
-/// Provider for cloud sync status of all services
+// [唯一修改的地方] 
+// 逻辑非常简单：遍历时，看看 activeService 是不是当前这个服务，如果是，就用 activeService。
 final allCloudSyncStatusProvider = FutureProvider<List<Map<String, dynamic>>>((ref) async {
-  final services = [
+  // 1. 拿到那个“唯一真神” (当前活跃且已连接的服务实例)
+  final activeService = ref.watch(activeSyncServiceProvider);
+
+  // 2. 拿到三个“默认替身” (用于占位和初始化)
+  final defaultServices = [
     ref.watch(webdavSyncServiceProvider),
     ref.watch(onedriveSyncServiceProvider),
     ref.watch(googleDriveSyncServiceProvider),
   ];
 
-  final statuses = <Map<String, dynamic>>[];
-  for (final service in services) {
-    try {
-      final status = await service.getSyncStatus();
-      statuses.add(status);
-    } catch (e) {
-      // Handle case where a service might fail to get status
-      statuses.add({
-        'service_type': service.runtimeType.toString().replaceAll('SyncService', ''),
-        'connected': false,
-        'online': false,
-        'error': e.toString(),
-      });
+  // 3. 【核心逻辑】: 遍历列表，并行获取状态
+  // 逻辑只有一句话：如果 activeService 是当前这个类型的实例，就用 activeService，否则用默认的。
+  final futures = defaultServices.map((service) {
+    if (activeService != null && activeService.runtimeType == service.runtimeType) {
+      // 发现 activeService 就是当前这个类型 (例如都是 GoogleDriveSyncService)
+      // 直接使用 activeService 获取状态 (它肯定是 Connected)
+      return activeService.getSyncStatus();
     }
-  }
+    // 否则使用默认实例获取状态 (它肯定是 Disconnected)
+    return service.getSyncStatus();
+  });
 
-  return statuses;
+  // 4. 等待所有结果并返回
+  return Future.wait(futures);
 });
