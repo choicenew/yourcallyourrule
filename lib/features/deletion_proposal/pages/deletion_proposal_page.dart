@@ -5,6 +5,7 @@ import 'package:intl/intl.dart'; // 需要加入这个用于时间格式化，�
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/test_sync_button.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
@@ -536,6 +537,16 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
               _showStatisticsDialog(currentVoteCount);
             },
           ),
+          /*          // =======================================================
+          // --- ✅ 在这里添加测试按钮 ---
+          // =======================================================
+          const Divider(), // 添加一个分割线，让界面更清晰
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 16.0),
+            child: TestSyncButton(), // 直接插入我们创建的测试按钮 Widget
+          ),
+          // =======================================================
+*/
         ],
       ),
     );
