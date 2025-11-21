@@ -93,6 +93,11 @@ class GenericListWithAdsPage<T> extends ConsumerStatefulWidget {
   /// 页面顶部的提示卡片
   final Widget? infoCard;
   
+  /// 【新增参数】是否显示 AppBar
+  /// 默认为 true，这意味着你现有的所有代码都不受影响。
+  /// 当需要在 TabBarView 中使用时，传入 false。
+  final bool showAppBar;
+  
   /// 构造函数
   const GenericListWithAdsPage({
     super.key,
@@ -122,13 +127,12 @@ class GenericListWithAdsPage<T> extends ConsumerStatefulWidget {
     this.searchHintText,
     this.onSearchChanged,
     this.infoCard,
+    this.showAppBar = true, // 默认值为 true
   });
 
   @override
   ConsumerState<GenericListWithAdsPage<T>> createState() => _GenericListWithAdsPageState<T>();
 }
-
-
 
 class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPage<T>> {
   final _searchController = TextEditingController();
@@ -169,22 +173,27 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
 
   @override
   Widget build(BuildContext context) {
+    // 根据 showAppBar 参数决定是否创建 AppBar Widget
+    final appBar = widget.showAppBar 
+        ? AppBar(
+            title: widget.isMultiSelectMode 
+              ? Text(AppLocalizations.of(context)!.selectedItems(widget.selectedItemIds.length)) 
+              : Text(widget.title),
+            backgroundColor: widget.themeColor,
+            leading: widget.isMultiSelectMode 
+              ? IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: widget.onToggleMultiSelectMode,
+                )
+              : null,
+            actions: widget.isMultiSelectMode 
+              ? _buildMultiSelectActions() 
+              : _buildDefaultActions(),
+          )
+        : null; // 如果 showAppBar 为 false，则不传 AppBar
+
     return Scaffold(
-      appBar: AppBar(
-        title: widget.isMultiSelectMode 
-          ? Text(AppLocalizations.of(context)!.selectedItems(widget.selectedItemIds.length)) 
-          : Text(widget.title),
-        backgroundColor: widget.themeColor,
-        leading: widget.isMultiSelectMode 
-          ? IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: widget.onToggleMultiSelectMode,
-            )
-          : null,
-        actions: widget.isMultiSelectMode 
-          ? _buildMultiSelectActions() 
-          : _buildDefaultActions(),
-      ),
+      appBar: appBar,
       body: widget.isLoading
           ? const Center(child: CircularProgressIndicator())
           : _buildContent(),

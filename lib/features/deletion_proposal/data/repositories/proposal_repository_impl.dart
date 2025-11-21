@@ -1,6 +1,7 @@
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/repositories/proposal_repository.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
 
 /// 提议仓库的实现类。
 /// 将所有调用委托给底层的 `ProposalDataSource`。
@@ -110,4 +111,10 @@ class ProposalRepositoryImpl implements ProposalRepository {
     return _dataSource.getProposalInfo(phoneNumber);
   }
  
+  // 【新增实现】
+  @override
+  Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId) =>
+      _dataSource.getMyProposalHistory(deviceId);
+
+
 }
