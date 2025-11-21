@@ -269,6 +269,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                                 ],
                               ),
                               const SizedBox(height: 12),
+                              /*
                               Slider(
                                 value: _selectedRiskLevel.toDouble(),
                                 min: 1,
@@ -281,6 +282,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                                   });
                                 },
                               ),
+                              */
                               Text(
                                 _getRiskLevelDescription(_selectedRiskLevel),
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -298,7 +300,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.surfaceVariant,
+                          color: Theme.of(context).colorScheme.surfaceContainerHighest,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Column(
