@@ -1,4 +1,5 @@
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
 
 /// 提议数据源的抽象接口。
 /// 定义了所有与“提议”功能相关的底层数据操作。
@@ -84,4 +85,11 @@ abstract class ProposalDataSource {
    Future<Map<String, dynamic>?> getPendingProposalOperationInfo(
     String phoneNumber,
   ); // 注意: 这个方法现在查询 pending_operations
+
+  // =======================================================================
+  // 【新增功能】: 获取当前用户的提议历史，聚合查询多张表的状态
+  // =======================================================================
+  Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId);
+
+
 }

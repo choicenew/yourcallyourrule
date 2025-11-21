@@ -1,4 +1,5 @@
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
 
 /// 提议仓库的抽象接口。
 /// 这是领域层与数据层之间的唯一契约。
@@ -57,4 +58,11 @@ abstract class ProposalRepository {
   Future<void> clearDeletionOperations(String phoneNumber);
 // 【核心修正】: 确保 `getProposalInfo` 的返回类型是 Future<Proposal?>
   Future<Proposal?> getProposalInfo(String phoneNumber);
+
+
+  // 【新增接口】
+  Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId);
+
+
+
 }

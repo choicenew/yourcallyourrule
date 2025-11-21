@@ -5,6 +5,7 @@ import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
 
 class ProposalDataSourceImpl implements ProposalDataSource {
   final RemoteDatabase _db;
@@ -398,4 +399,90 @@ class ProposalDataSourceImpl implements ProposalDataSource {
       return null;
     }
   }
+
+
+
+
+  // =======================================================================
+  // 【新增实现】: 聚合查询逻辑
+  // =======================================================================
+  @override
+  Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId) async {
+    // 1. 获取我所有的提交记录 (按时间倒序)
+    final submissions = await (_db.select(_db.proposalSubmissions)
+          ..where((t) => t.proposerId.equals(deviceId))
+          ..orderBy([(t) => OrderingTerm.desc(t.submissionTime)]))
+        .get();
+
+    if (submissions.isEmpty) return [];
+
+    // 2. 提取所有涉及的电话号码，准备批量查询
+    final phoneNumbers = submissions.map((s) => s.phoneNumber).toSet();
+
+    // 3. 批量查询：待同步队列 (Pending)
+    final pendingRows = await (_db.select(_db.pendingOperations)
+          ..where((t) => t.entityId.isIn(phoneNumbers))
+          ..where((t) => t.operation.equals('PROPOSE_DELETION')))
+        .get();
+    final pendingSet = pendingRows.map((r) => r.entityId).toSet();
+
+    // 4. 批量查询：活跃提议 (Active)
+    final activeRows = await (_db.select(_db.activeDeletionProposals)
+          ..where((t) => t.phoneNumber.isIn(phoneNumbers)))
+        .get();
+    // 转为 Map 方便查找详情
+    final activeMap = {for (var row in activeRows) row.phoneNumber: row};
+
+    // 5. 批量查询：远程号码表 (RemoteNumbers) - 用于判断是否被拒绝
+    final existingNumbersRows = await (_db.select(_db.remoteNumbers)
+          ..where((t) => t.phoneNumber.isIn(phoneNumbers)))
+        .get();
+    final existingNumbersSet = existingNumbersRows.map((r) => r.phoneNumber).toSet();
+
+    // 6. 组装最终结果
+    final List<MyProposalHistoryItem> historyList = [];
+
+    for (final sub in submissions) {
+      final phone = sub.phoneNumber;
+      MyProposalStatus status;
+      String? riskLevel;
+      int votes = 0;
+      int owners = 0;
+
+      // --- 状态判定逻辑 ---
+      if (pendingSet.contains(phone)) {
+        // 还在本地 Pending 队列
+        status = MyProposalStatus.waitingForSync;
+      } else if (activeMap.containsKey(phone)) {
+        // 服务器已接收，正在投票
+        status = MyProposalStatus.underReview;
+        final activeData = activeMap[phone]!;
+        riskLevel = activeData.highestRiskLevel;
+        votes = activeData.proposalCount;
+        owners = activeData.verifiedOwnerCount;
+      } else {
+        // 既不在 Pending 也不在 Active，说明流程结束
+        if (existingNumbersSet.contains(phone)) {
+          // 号码还在 -> 提议被驳回
+          status = MyProposalStatus.rejected;
+        } else {
+          // 号码没了 -> 提议通过 (删除成功)
+          status = MyProposalStatus.approved;
+        }
+      }
+
+      historyList.add(MyProposalHistoryItem(
+        phoneNumber: phone,
+        submissionTime: DateTime.parse(sub.submissionTime),
+        status: status,
+        highestRiskLevel: riskLevel,
+        currentVotes: votes,
+        verifiedOwnerCount: owners,
+      ));
+    }
+
+    return historyList;
+  }
+
+
 }

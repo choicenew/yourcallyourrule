@@ -108,26 +108,24 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Header
-              Row(
-                children: [
-                  Icon(
-                    Icons.report_problem,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    AppLocalizations.of(context)!.createProposalTitle,
-                    style: Theme.of(context).textTheme.headlineSmall,
-                    softWrap: true,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const Spacer(),
-                  IconButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    icon: const Icon(Icons.close),
-                  ),
-                ],
+// 替换掉原来的 Row
+              ListTile(
+                contentPadding: EdgeInsets.zero, // 去掉默认的内边距，这就和原来 Row 的位置一样了
+                leading: Icon(
+                  Icons.report_problem,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                title: Text(
+                  AppLocalizations.of(context)!.createProposalTitle,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                  // ListTile 会自动限制宽度，但也建议保留 maxLines 防止太长撑破高度
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                trailing: IconButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  icon: const Icon(Icons.close),
+                ),
               ),
               const SizedBox(height: 24),
               
