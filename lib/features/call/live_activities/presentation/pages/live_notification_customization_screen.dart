@@ -191,7 +191,7 @@ class _LiveNotificationCustomizationScreenState
                   ),
                   // --- Action Buttons Panel ---
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 20),
                     child: Column(
                       children: [
                         Text(
@@ -212,6 +212,8 @@ class _LiveNotificationCustomizationScreenState
                                 onPressed: _sendLiveActivity,
                                 style: ElevatedButton.styleFrom(
                                   padding: const EdgeInsets.symmetric(vertical: 12),
+                                     backgroundColor: Colors.amber,
+   foregroundColor: Colors.white,
                                 ),
                               ),
                             ),
@@ -223,14 +225,50 @@ class _LiveNotificationCustomizationScreenState
                                 onPressed: _activityId == null ? null : _endLiveActivity,
                                 style: OutlinedButton.styleFrom(
                                   padding: const EdgeInsets.symmetric(vertical: 12),
+                                  foregroundColor: Colors.red,
+                                  side: const BorderSide(color: Colors.red),
                                 ),
                               ),
                             ),
                           ],
                         ),
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                icon: const Icon(Icons.save),
+                                label: Text(AppLocalizations.of(context)!.save),
+                                onPressed: () => _handleMenuSelection('save'),
+                                style: ElevatedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(vertical: 12),
+                                  backgroundColor: Colors.green,
+                                  foregroundColor: Colors.white,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: OutlinedButton.icon(
+                                icon: const Icon(Icons.refresh),
+                                label: Text(AppLocalizations.of(context)!.reset),
+                                onPressed: () => _handleMenuSelection('reset'),
+                                style: OutlinedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(vertical: 12),
+                                  foregroundColor: Colors.orange,
+                                  side: const BorderSide(color: Colors.orange),
+                                ),
+                              ),
+                            ),
+                            
+                          ],
+                        ),
+                        
                       ],
                     ),
                   ),
+                  
                 ],
               );
             },
