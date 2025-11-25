@@ -11045,7 +11045,7 @@ abstract class AppLocalizations {
   /// The title of the local database sync section.
   ///
   /// In en, this message translates to:
-  /// **'Cloud Sync Settings'**
+  /// **'Local Database Sync'**
   String get localDatabaseSyncTitle;
 
   /// The subtitle of the local database sync section.
