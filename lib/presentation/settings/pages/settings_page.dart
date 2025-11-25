@@ -421,7 +421,7 @@ class SettingsPage extends ConsumerWidget {
     return _buildSettingsCard(
       context,
       icon: Icons.cloud_upload,
-      iconColor: Colors.blueAccent,
+      iconColor: Colors.amber,
       title: AppLocalizations.of(context)!.localDatabaseSyncTitle,
       subtitle: AppLocalizations.of(context)!.localDatabaseSyncSubtitle,
       onTap: () {
