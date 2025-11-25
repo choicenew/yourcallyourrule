@@ -122,6 +122,8 @@ class NotificationService implements NotificationServiceContract {
     if (context != null) {
       if (type == 'call_history' || type == 'fraud_alert' || type == 'blocked_call' || type == 'stir_result') {
         GoRouter.of(context).go(AppRouter.callHistory);
+      } else if (type == 'deletion_proposal') {
+        GoRouter.of(context).go(AppRouter.deletionProposal);
       }
     }
   }
