@@ -1,5 +1,6 @@
 // lib/features/call/live_activities/handlers/live_activity_handler.dart
 
+import 'package:flutter/foundation.dart';
 import 'package:live_updates/live_updates.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
@@ -113,7 +114,7 @@ class LiveActivityHandler {
         _currentActivityId = newActivityId;
       }
     } catch (e) {
-      print('Failed to show/update Live Activity: $e');
+      debugPrint('Failed to show/update Live Activity: $e');
     }
   }
 
@@ -124,7 +125,7 @@ class LiveActivityHandler {
         await LiveUpdates.cancelNotification(_currentActivityId!.hashCode);
         _currentActivityId = null;
       } catch (e) {
-        print('Failed to end Live Activity: $e');
+        debugPrint('Failed to end Live Activity: $e');
         _currentActivityId = null;
       }
     }

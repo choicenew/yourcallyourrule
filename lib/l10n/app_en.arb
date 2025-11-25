@@ -3284,6 +3284,13 @@
  "ruleType": "Rule Type",
 
    "localDatabaseSyncTitle": "Local Database Sync",
+   "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
   "localDatabaseSyncDescription": "Connect your personal Supabase database to sync data across devices.",
   "supabaseProjectUrl": "Supabase Project URL",
   "supabaseAnonKey": "Anon Key",

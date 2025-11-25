@@ -6153,6 +6153,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get localDatabaseSyncTitle => 'Cloud Sync Settings';
 
   @override
+  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+
+  @override
   String get localDatabaseSyncDescription =>
       'Connect your personal Supabase database to sync data across devices.';
 

@@ -156,6 +156,7 @@ class SettingsPage extends ConsumerWidget {
             GoRouter.of(context).push('/caller-id-customization');
           },
         ),
+        /*
         const SizedBox(height: 8),
         _buildSettingsCard(
           context,
@@ -167,6 +168,7 @@ class SettingsPage extends ConsumerWidget {
             GoRouter.of(context).push('/live-activities-test');
           },
         ),
+        */
         const SizedBox(height: 8),
         _buildSettingsCard(
           context,
@@ -294,7 +296,7 @@ class SettingsPage extends ConsumerWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                  backgroundColor: Theme.of(context).colorScheme.primary.withValues(alpha:0.1),
                   child: Icon(Icons.palette, color: Theme.of(context).colorScheme.primary),
                 ),
                 const SizedBox(width: 16),
@@ -374,7 +376,7 @@ class SettingsPage extends ConsumerWidget {
           child: Row(
             children: [
               CircleAvatar(
-                backgroundColor: iconColor.withOpacity(0.1),
+                backgroundColor: iconColor.withValues(alpha:0.1),
                 child: Icon(icon, color: iconColor),
               ),
               const SizedBox(width: 16),
@@ -420,8 +422,8 @@ class SettingsPage extends ConsumerWidget {
       context,
       icon: Icons.cloud_upload,
       iconColor: Colors.blueAccent,
-      title: "Supabase Cloud Sync",
-      subtitle: "Configure Supabase for cloud backup and sync",
+      title: AppLocalizations.of(context)!.localDatabaseSyncTitle,
+      subtitle: AppLocalizations.of(context)!.localDatabaseSyncSubtitle,
       onTap: () {
         GoRouter.of(context).push('/supabase-settings');
       },
