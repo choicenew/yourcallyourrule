@@ -6262,7 +6262,7 @@ class AppLocalizationsXh extends AppLocalizations {
   String get ruleType => 'Rule Type';
 
   @override
-  String get localDatabaseSyncTitle => 'Cloud Sync Settings';
+  String get localDatabaseSyncTitle => 'Local Database Sync';
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
