@@ -1,12 +1,13 @@
 // lib/features/call/live_activities/providers/live_notification_config_provider.dart
 
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/live_notification_config_manager.dart';
-
-
 
 part 'live_notification_config_provider.g.dart';
 
@@ -39,6 +40,35 @@ class LiveNotificationConfigNotifier extends _$LiveNotificationConfigNotifier {
     final defaultConfig = await manager.resetToDefault();
     state = AsyncValue.data(defaultConfig);
   }
+
+  // --- New methods for Save, Export, Import ---
+
+  Future<void> saveConfig() async {
+    if (state.hasValue) {
+      final manager = ref.read(liveNotificationConfigManagerProvider);
+      await manager.saveConfig(state.value!);
+    }
+  }
+
+  Future<void> exportConfig(String filePath) async {
+    if (!state.hasValue) return;
+
+    final configJson = jsonEncode(state.value!.toJson());
+    final file = File(filePath);
+    await file.writeAsString(configJson);
+  }
+
+  Future<void> importConfig(String filePath) async {
+    final file = File(filePath);
+    final jsonString = await file.readAsString();
+    final jsonMap = jsonDecode(jsonString) as Map<String, dynamic>;
+    final newConfig = LiveNotificationConfig.fromJson(jsonMap);
+    state = AsyncValue.data(newConfig);
+    // Also save the imported config as the new default
+    await saveConfig();
+  }
+
+  // --- Existing update methods ---
 
   void updateElementVisibility(String element, bool isVisible) {
     _updateState((config) {

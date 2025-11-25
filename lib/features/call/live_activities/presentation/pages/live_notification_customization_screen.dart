@@ -11,9 +11,11 @@ import 'package:yourcallyourrule/features/call/live_activities/presentation/widg
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-
-
-
+// Imports for preview functionality
+import 'package:live_updates/live_updates.dart';
+import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
+import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
 
 
 class LiveNotificationCustomizationScreen extends ConsumerStatefulWidget {
@@ -27,6 +29,93 @@ class LiveNotificationCustomizationScreen extends ConsumerStatefulWidget {
 class _LiveNotificationCustomizationScreenState
     extends ConsumerState<LiveNotificationCustomizationScreen> {
   final List<bool> _isExpanded = List.generate(5, (_) => false);
+  
+  // State for live activity testing
+  String? _activityId;
+  final _uuid = const Uuid();
+
+  // --- Live Activity Test Methods ---
+
+  Future<void> _sendLiveActivity() async {
+    final asyncConfig = ref.read(liveNotificationConfigProvider);
+    if (!asyncConfig.hasValue) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Error: Config is not loaded.")));
+      return;
+    }
+    final config = asyncConfig.value!;
+    final mockData = CallerIdMockData.mockCallerIdData();
+    final mockSimInfo = CallerIdMockData.mockSimInfoData();
+    final mockStirInfo = CallerIdMockData.mockStirInfoData();
+
+    try {
+      final payload = await LiveNotificationPayloadBuilder.build(
+        config,
+        mockData,
+        mockSimInfo,
+        mockStirInfo,
+      );
+
+      if (_activityId != null) {
+        await LiveUpdates.showLayoutNotification(
+          notificationId: _activityId!.hashCode,
+          layoutName: 'live_activity',
+          smallIconName: 'ic_notification',
+          ongoing: true,
+          viewData: payload,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully updated activity with ID: $_activityId")));
+      } else {
+        final newActivityId = _uuid.v4();
+        await LiveUpdates.showLayoutNotification(
+          notificationId: newActivityId.hashCode,
+          layoutName: 'live_activity',
+          smallIconName: 'ic_notification',
+          ongoing: true,
+          viewData: payload,
+        );
+        setState(() {
+          _activityId = newActivityId;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully created activity with ID: $newActivityId")));
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Failed to send/update activity: $e")));
+    }
+  }
+
+  Future<void> _endLiveActivity() async {
+    if (_activityId == null) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("No active activity to end.")));
+      return;
+    }
+    try {
+      await LiveUpdates.cancelNotification(_activityId!.hashCode);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully ended activity with ID: $_activityId")));
+      setState(() {
+        _activityId = null; // Clear the ID
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Failed to end activity: $e")));
+    }
+  }
+
+  void _handleMenuSelection(String value) async {
+    final notifier = ref.read(liveNotificationConfigProvider.notifier);
+    switch (value) {
+      case 'reset':
+        notifier.resetToDefaults();
+        break;
+      case 'save':
+        await notifier.saveConfig();
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(AppLocalizations.of(context)!.configSaved)),
+          );
+        }
+        break;
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +128,23 @@ class _LiveNotificationCustomizationScreenState
         ),
         actions: [
           PopupMenuButton<String>(
-            onSelected: (value) {
-              if (value == 'reset') {
-                ref.read(liveNotificationConfigProvider.notifier).resetToDefaults();
-              }
-            },
+            onSelected: _handleMenuSelection,
             itemBuilder: (context) => [
               PopupMenuItem(
                 value: 'reset',
                 child: Text(AppLocalizations.of(context)!.reset),
+              ),
+              PopupMenuItem(
+                value: 'save',
+                child: Text(AppLocalizations.of(context)!.save),
+              ),
+              PopupMenuItem(
+                value: 'export',
+                child: Text(AppLocalizations.of(context)!.exportConfig),
+              ),
+              PopupMenuItem(
+                value: 'import',
+                child: Text(AppLocalizations.of(context)!.importConfig),
               ),
             ],
           ),
@@ -89,6 +186,48 @@ class _LiveNotificationCustomizationScreenState
                           _buildElementPositions(config),
                         ),
                                  nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
+                      ],
+                    ),
+                  ),
+                  // --- Action Buttons Panel ---
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.notification_instructions,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.labelMedium,
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                icon: const Icon(Icons.send),
+                                label: Text(_activityId == null 
+                                    ? AppLocalizations.of(context)!.liveActivitiesTestSendNewActivity 
+                                    : AppLocalizations.of(context)!.liveActivitiesTestUpdateActivity),
+                                onPressed: _sendLiveActivity,
+                                style: ElevatedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(vertical: 12),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: OutlinedButton.icon(
+                                icon: const Icon(Icons.cancel),
+                                label: Text(AppLocalizations.of(context)!.liveActivitiesTestEndActivity),
+                                onPressed: _activityId == null ? null : _endLiveActivity,
+                                style: OutlinedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(vertical: 12),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),

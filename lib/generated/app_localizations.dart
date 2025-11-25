@@ -11042,11 +11042,17 @@ abstract class AppLocalizations {
   /// **'Rule Type'**
   String get ruleType;
 
-  /// No description provided for @localDatabaseSyncTitle.
+  /// The title of the local database sync section.
   ///
   /// In en, this message translates to:
   /// **'Cloud Sync Settings'**
   String get localDatabaseSyncTitle;
+
+  /// The subtitle of the local database sync section.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync data across devices'**
+  String get localDatabaseSyncSubtitle;
 
   /// No description provided for @localDatabaseSyncDescription.
   ///
