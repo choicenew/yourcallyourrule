@@ -24,12 +24,11 @@ part 'live_activity_handler.g.dart';
 Future<LiveActivityHandler> liveActivityHandler(Ref ref) async {
   final configRepository = ref.watch(configRepositoryProvider);
   final configService = LiveNotificationConfigService(configRepository);
-  
+
   final handler = LiveActivityHandler(configService: configService);
   await handler.initialize();
   return handler;
 }
-
 
 /// Live Activity 处理器
 /// 专门负责处理 Live Activity 相关的创建、更新和结束逻辑
@@ -40,14 +39,14 @@ class LiveActivityHandler {
   String? _currentActivityId;
 
   /// 构造函数
-  LiveActivityHandler({
-    required LiveNotificationConfigService configService,
-  })  : _configService = configService,
-        _uuid = const Uuid();
+  LiveActivityHandler({required LiveNotificationConfigService configService})
+    : _configService = configService,
+      _uuid = const Uuid();
 
   /// 初始化
-  Future<void> initialize() async {
-    // live_updates 无需插件实例初始化，这里保留空实现以兼容调用方。
+  Future<void> initialize({Function(String?)? onNotificationTapped}) async {
+    // 初始化 live_updates 插件，并设置回调
+    await LiveUpdates.initialize(onNotificationTapped: onNotificationTapped);
   }
 
   /// 显示或更新来电信息 Live Activity
@@ -60,8 +59,11 @@ class LiveActivityHandler {
       // 计算并设置通知标题：号码与 SIM 信息进入系统头部
       final context = AppRouter.navigatorKey.currentContext;
       final String numberDisplay = callerIdData.phoneNumber.value;
-      final String simSuffix = simInfo == null ? '' : '-SIM${simInfo.simSlotIndex! + 1}';
-      final bool isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
+      final String simSuffix =
+          simInfo == null ? '' : '-SIM${simInfo.simSlotIndex! + 1}';
+      final bool isFraudCall = FraudDetectionService.checkForFraudLabels(
+        callerIdData,
+      );
       final String finalTitle = () {
         if (context != null) {
           if (isFraudCall) {
