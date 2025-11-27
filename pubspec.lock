@@ -1549,7 +1549,7 @@ packages:
       path: "临时参考/live-update"
       relative: true
     source: path
-    version: "0.0.7"
+    version: "0.0.9"
   logger:
     dependency: "direct main"
     description:

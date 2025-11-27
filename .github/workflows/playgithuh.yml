@@ -106,16 +106,26 @@ jobs:
           echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
           echo "storeFile=key.jks" >> android/key.properties
       
-      - name: Build and Sign AAB and APKs
+      - name: Build AAB (One-time heavy compilation)
+        run: flutter build appbundle --release
+
+      - name: Setup Bundletool
         run: |
-          flutter build appbundle --release
-          flutter build apk --split-per-abi --release
+          wget https://github.com/google/bundletool/releases/download/1.15.6/bundletool-all-1.15.6.jar -O bundletool.jar
 
-      # ==========================================================
-      # 发布步骤 (已全部设置为独立运行，互不影响)
-      # ==========================================================
+      - name: Generate Universal APK from AAB
+        run: |
+          java -jar bundletool.jar build-apks \
+            --bundle=build/app/outputs/bundle/release/app-release.aab \
+            --output=app.apks \
+            --mode=universal \
+            --ks=android/app/key.jks \
+            --ks-pass=pass:${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
+            --ks-key-alias=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
+            --key-pass=pass:${{ secrets.ANDROID_KEY_PASSWORD }}
+          unzip -p app.apks universal.apk > app-release-universal.apk
+          echo "✅ APK generated successfully: app-release-universal.apk"
 
-      # --- 1. 发布到私有 GitHub Release ---
       - name: Publish to Private GitHub Release (Current Repo)
         uses: ncipollo/release-action@v1
         with:
@@ -124,11 +134,11 @@ jobs:
           name: "Internal Build ${{ steps.meta.outputs.version }}"
           body: |
             **✨ What's New:**
-            
             ${{ steps.commit_message.outputs.message }}
+            *(APK extracted from AAB via Bundletool)*
           generateReleaseNotes: true
           allowUpdates: true
           artifacts: |
             build/app/outputs/bundle/release/app-release.aab
-            build/app/outputs/flutter-apk/*.apk
+            app-release-universal.apk
 

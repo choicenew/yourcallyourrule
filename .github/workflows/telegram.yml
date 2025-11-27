@@ -38,7 +38,7 @@ jobs:
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
 
           # --- B. 下载附件 ---
-          APK_FILENAME="app-arm64-v8a-release.apk"
+          APK_FILENAME="app-release-universal.apk"
           mkdir -p release_assets
           (gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "$APK_FILENAME" --dir release_assets) || echo "Warning: Failed to download APK. Will skip sending the file."
           
