@@ -184,6 +184,9 @@ dependencies:
   supabase_flutter: ^2.10.3
   postgres: ^3.5.9
 
+dependency_overrides:
+  live_updates:
+    path: ./临时参考/live-update
 
 dev_dependencies:
   flutter_test:
@@ -207,9 +210,12 @@ dev_dependencies:
 flutter:
   assets:
     - assets/avatars/
+    - assets/icons/
     - assets/
 
- 
+
+
+
  
  
  

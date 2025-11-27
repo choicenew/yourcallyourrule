@@ -1,0 +1,221 @@
+Migrating from 2.0 to 3.0
+For the list of changes, please refer to the What's new in Riverpod 3.0 page.
+
+Riverpod 3.0 introduces a number of breaking changes that may require you to update your code. They should in general be relatively minor, but we recommend you to read this page carefully.
+
+info
+This migration is supposed to be smooth.
+If there is anything that is unclear, or if you encountered a scenario that is difficult to migrate, please open an issue.
+
+It is important to us that the migration is as smooth as possible, so we will do our best to help you, improve the migration guide, or even include helpers to make the migration easier.
+
+Automatic retry
+Riverpod 3.0 now automatically retries failing providers by default. This means that if a provider fails to compute its value, it will automatically retry until it succeeds.
+
+In general, this is a good thing as it makes your app more resilient to transient errors. However, you may want to disable/customize this behavior in some cases.
+
+To disable automatic retry globally, you can do so on ProviderContainer/ProviderScope:
+
+ProviderScope
+ProviderContainer
+void main() {
+  runApp(
+    ProviderScope(
+      // Never retry any provider
+      retry: (retryCount, error) => null,
+      child: MyApp(),
+    ),
+  );
+}
+
+Alternatively, you can disable automatic retry on a per-provider basis by using the retry parameter of the provider:
+
+riverpod
+riverpod_generator
+final todoListProvider = NotifierProvider<TodoList, List<Todo>>(
+  TodoList.new,
+  // Never retry this specific provider
+  retry: (retryCount, error) => null,
+);
+
+Out of view providers are paused
+In Riverpod 3.0, out of view providers are paused by default.
+
+There is currently no way to disable this behavior globally, but you can control the pause behavior at the consumer level by using the TickerMode widget.
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TickerMode(
+      enabled: true, // Never pause any descendant listener.
+      child: Consumer(
+        builder: (context, ref, child) {
+          // This "watch" will not follow the automatic pausing behavior
+          // until TickerMode is removed.
+          final value = ref.watch(myProvider);
+          return Text(value.toString());
+        },
+      ),
+    );
+  }
+}
+
+StateProvider, StateNotifierProvider, and ChangeNotifierProvider are moved to a new import
+In Riverpod 3.0, StateProvider, StateNotifierProvider, and ChangeNotifierProvider are considered "legacy".
+They are not removed, but are no longer part of the main API. This is to discourage their use in favor of the new Notifier API.
+
+To keep using them, you need to change your imports to one of the following:
+
+import 'package:hooks_riverpod/legacy.dart';
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:riverpod/legacy.dart';
+
+Providers now all use == to filter updates
+Before, Riverpod was inconsistent in how it filtered updates to providers. Some providers used == to filter updates, while others used identical. In Riverpod 3.0, all providers now use == to filter updates.
+
+The most likely way for you to be impacted by this change is when using StreamProvider/StreamNotifier, as now stream values will be filtered by ==. If you need to, you can override Notifier.updateShouldNotify to customize the behavior.
+
+riverpod
+riverpod_generator
+class TodoList extends StreamNotifier<Todo> {
+  @override
+  Stream<Todo> build() => Stream(...);
+
+  @override
+  bool updateShouldNotify(AsyncValue<Todo> previous, AsyncValue<Todo> next) {
+    // Custom implementation
+    return true;
+  }
+}
+
+In the scenario where you didn't use a Notifier, you can refactor your provider in its notifier equivalent (Such as converting StreamProvider to StreamNotifierProvider).
+
+ProviderObserver has its interface slightly changed
+For the sake of mutations, the ProviderObserver interface has changed slightly.
+
+Instead of two separate parameters for ProviderContainer and ProviderBase, a single ProviderObserverContext object is passed. This object contains both the container, provider, and extra information (such as the associated mutation).
+
+To migrate, you need to update all methods of your observers like so:
+
+class MyObserver extends ProviderObserver {
+  @override
+-  void didAddProvider(ProviderBase provider, Object? value, ProviderContainer container) {
++  void didAddProvider(ProviderObserverContext context, Object? value) {
+    // ...
+  }
+}
+
+Simplified Ref and removed Ref subclasses
+For the sake of simplification, Ref has lost its type parameter, and all properties/methods that were using the type parameter have been moved to Notifiers.
+
+Specifically, ProviderRef.state, Ref.listenSelf and FutureProviderRef.future should be replaced by Notifier.state, Notifier.listenSelf and AsyncNotifier.future respectively.
+
+riverpod
+riverpod_generator
+// Before:
+final valueProvider = FutureProvider<int>((ref) async {
+  ref.listen(anotherProvider, (previous, next) {
+    ref.state++;
+  });
+  
+  ref.listenSelf((previous, next) {
+    print('Log: $previous -> $next');
+  });
+  
+  ref.future.then((value) {
+    print('Future: $value');
+  });
+
+  return 0;
+});
+
+// After
+class Value extends AsyncNotifier<int> {
+  @override
+  Future<int> build() async {
+    ref.listen(anotherProvider, (previous, next) {
+      ref.state++;
+    });
+  
+    listenSelf((previous, next) {
+      print('Log: $previous -> $next');
+    });
+  
+    future.then((value) {
+      print('Future: $value');
+    });
+  
+    return 0;
+  }
+}
+final valueProvider = AsyncNotifierProvider<Value, int>(Value.new);
+
+Similarly, all Ref subclasses are removed (such as but not limited to ProviderRef, FutureProviderRef, etc).
+
+This primarily affects code-generation. Instead of MyProviderRef, you can now use Ref directly:
+
+@riverpod
+-int example(ExampleRef ref) {
++int example(Ref ref) {
+  // ...
+}
+
+AutoDispose interfaces are removed.
+The auto-dispose feature is simplified. Instead of relying on a clone of all interfaces, interfaces are unified. In short, instead of AutoDisposeProvider, AutoDisposeNotifier, etc, you now have Provider, Notifier, etc. The behavior is the same, but the API is simplified.
+
+To easily migrate, you can do a case-sensitive replace of AutoDispose to (empty string).
+
+The family variant of Notifiers is removed
+In the same vein as the previous point, the family variant of Notifiers has been removed. Now, we only use Notifier/AsyncNotifier/StreamNotifier, and FamilyNotifier/... have been removed.
+
+To migrate, you will need to replace:
+
+FamilyNotifier -> Notifier
+FamilyAsyncNotifier -> AsyncNotifier
+FamilyStreamNotifier -> StreamNotifier
+Then, you will need to:
+
+Remove the parameter from the build method
+Add a constructor on your Notifier
+An example of this migration is as follows:
+
+final provider = NotifierProvider.family<CounterNotifier, int, String>(CounterNotifier.new);
+
+-class CounterNotifier extends FamilyNotifier<int, String> {
++class CounterNotifier extends Notifier<int> {
++  CounterNotifier(this.arg);
++  final String arg;
+
+   @override
+-  int build(String arg) {
++  int build() {
+     // Use `arg` as needed
+      return 0;
+   }
+}
+
+Provider failures are now rethrown as ProviderExceptions
+In Riverpod 3.0, all provider failures are rethrown as ProviderExceptions. This means that if a provider fails to compute its value, reading it will throw a ProviderException instead of the original error.
+
+This can impact you if you were relying on the original error type to handle specific errors. To migrate, you can catch the ProviderException and extract the original error from it:
+
+try {
+  await ref.read(myProvider.future);
+-} on NotFoundException {
+-  // Handle NotFoundException
++} on ProviderException catch (e) {
++  if (e.exception is NotFoundException) {
++    // Handle NotFoundException
++  }
+}
+
+info
+This is only necessary if you were explicitly relying on try/catch to handle such error.
+
+If you are using [AsyncValue] to check for errors, you don't need to change anything:
+
+AsyncValue<int> value = ref.watch(myProvider);
+if (value.error is NotFoundException) {
+  // Handle NotFoundException
+  // This still works today
+}

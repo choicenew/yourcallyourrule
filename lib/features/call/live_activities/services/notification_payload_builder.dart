@@ -37,7 +37,13 @@ class LiveNotificationPayloadBuilder {
         final byteData = await rootBundle.load(path);
         return byteData.buffer.asUint8List();
       } catch (e) {
-        return Uint8List(0);
+        // Fallback to app logo if specific asset fails
+        try {
+           final byteData = await rootBundle.load('assets/app_logo.png');
+           return byteData.buffer.asUint8List();
+        } catch (_) {
+           return Uint8List(0);
+        }
       }
     }
 

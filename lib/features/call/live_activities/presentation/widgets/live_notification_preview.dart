@@ -51,13 +51,18 @@ class LiveNotificationPreview extends ConsumerWidget {
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
               color: _colorFromHex(config.globalSettings.backgroundColor),
-              borderRadius: BorderRadius.circular(config.globalSettings.border.radius),
-              border: config.globalSettings.border.width > 0
-                  ? Border.all(
-                      color: _colorFromHex(config.globalSettings.border.color),
-                      width: config.globalSettings.border.width,
-                    )
-                  : null,
+              borderRadius: BorderRadius.circular(
+                config.globalSettings.border.radius,
+              ),
+              border:
+                  config.globalSettings.border.width > 0
+                      ? Border.all(
+                        color: _colorFromHex(
+                          config.globalSettings.border.color,
+                        ),
+                        width: config.globalSettings.border.width,
+                      )
+                      : null,
             ),
             child: Stack(
               children: [
@@ -72,15 +77,24 @@ class LiveNotificationPreview extends ConsumerWidget {
                 Positioned.fill(
                   child: Row(
                     children: [
-                      Container(width: _kLeftDeadZone, color: Colors.black.withOpacity(0.05)),
+                      Container(
+                        width: _kLeftDeadZone,
+                        color: Colors.black.withValues(alpha: 0.05),
+                      ),
                       const Expanded(child: SizedBox()),
-                      Container(width: _kRightDeadZone, color: Colors.black.withOpacity(0.05)),
+                      Container(
+                        width: _kRightDeadZone,
+                        color: Colors.black.withValues(alpha: 0.05),
+                      ),
                     ],
                   ),
                 ),
                 // 可交互内容区域：限制拖拽范围
                 Padding(
-                  padding: const EdgeInsets.only(left: _kLeftDeadZone, right: _kRightDeadZone),
+                  padding: const EdgeInsets.only(
+                    left: _kLeftDeadZone,
+                    right: _kRightDeadZone,
+                  ),
                   child: LayoutBuilder(
                     builder: (context, constraints) {
                       return Stack(
@@ -89,15 +103,29 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.avatar.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.avatar.position.x, config.avatar.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('avatar', pos),
+                              position: Offset(
+                                config.avatar.position.x,
+                                config.avatar.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'avatar',
+                                    pos,
+                                  ),
                               child: CircleAvatar(
                                 radius: config.avatar.size / 2,
-                                backgroundColor: _colorFromHex(config.avatar.borderColor),
+                                backgroundColor: _colorFromHex(
+                                  config.avatar.borderColor,
+                                ),
                                 child: CircleAvatar(
-                                  radius: (config.avatar.size / 2) - config.avatar.borderWidth,
+                                  radius:
+                                      (config.avatar.size / 2) -
+                                      config.avatar.borderWidth,
                                   backgroundColor: Colors.blue,
-                                  child: const Icon(Icons.person, color: Colors.white),
+                                  child: const Icon(
+                                    Icons.person,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
@@ -105,8 +133,15 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.name.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.name.position.x, config.name.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('name', pos),
+                              position: Offset(
+                                config.name.position.x,
+                                config.name.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'name',
+                                    pos,
+                                  ),
                               child: Text(
                                 mockData.name ?? 'Unknown Name',
                                 style: TextStyle(
@@ -120,8 +155,15 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.number.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.number.position.x, config.number.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('number', pos),
+                              position: Offset(
+                                config.number.position.x,
+                                config.number.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'number',
+                                    pos,
+                                  ),
                               child: Text(
                                 mockData.phoneNumber.value,
                                 style: TextStyle(
@@ -134,8 +176,15 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.location.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.location.position.x, config.location.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('location', pos),
+                              position: Offset(
+                                config.location.position.x,
+                                config.location.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'location',
+                                    pos,
+                                  ),
                               child: Text(
                                 mockData.region ?? 'Unknown Location',
                                 style: TextStyle(
@@ -148,8 +197,15 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.carrier.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.carrier.position.x, config.carrier.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('carrier', pos),
+                              position: Offset(
+                                config.carrier.position.x,
+                                config.carrier.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'carrier',
+                                    pos,
+                                  ),
                               child: Text(
                                 mockData.carrier ?? 'Unknown Carrier',
                                 style: TextStyle(
@@ -162,12 +218,21 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.countryName.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.countryName.position.x, config.countryName.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('countryName', pos),
+                              position: Offset(
+                                config.countryName.position.x,
+                                config.countryName.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'countryName',
+                                    pos,
+                                  ),
                               child: Text(
                                 mockData.countryName ?? 'Unknown Country',
                                 style: TextStyle(
-                                  color: _colorFromHex(config.countryName.color),
+                                  color: _colorFromHex(
+                                    config.countryName.color,
+                                  ),
                                   fontSize: config.countryName.fontSize,
                                 ),
                               ),
@@ -176,10 +241,20 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.labels.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.labels.position.x, config.labels.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('labels', pos),
+                              position: Offset(
+                                config.labels.position.x,
+                                config.labels.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'labels',
+                                    pos,
+                                  ),
                               child: Text(
-                                mockData.labels?.map((l) => l.label).join(', ') ?? 'No Labels',
+                                mockData.labels
+                                        ?.map((l) => l.label)
+                                        .join(', ') ??
+                                    'No Labels',
                                 style: TextStyle(
                                   color: _colorFromHex(config.labels.color),
                                   fontSize: config.labels.fontSize,
@@ -190,8 +265,15 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.count.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.count.position.x, config.count.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('count', pos),
+                              position: Offset(
+                                config.count.position.x,
+                                config.count.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'count',
+                                    pos,
+                                  ),
                               child: Text(
                                 'Marked by ${mockData.count}',
                                 style: TextStyle(
@@ -204,8 +286,15 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.numberType.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.numberType.position.x, config.numberType.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('numberType', pos),
+                              position: Offset(
+                                config.numberType.position.x,
+                                config.numberType.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'numberType',
+                                    pos,
+                                  ),
                               child: Text(
                                 mockData.numberType.name,
                                 style: TextStyle(
@@ -218,8 +307,15 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.stir.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.stir.position.x, config.stir.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('stir', pos),
+                              position: Offset(
+                                config.stir.position.x,
+                                config.stir.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'stir',
+                                    pos,
+                                  ),
                               child: Text(
                                 'Verified',
                                 style: TextStyle(
@@ -232,8 +328,15 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.simCard.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.simCard.position.x, config.simCard.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('simCard', pos),
+                              position: Offset(
+                                config.simCard.position.x,
+                                config.simCard.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'simCard',
+                                    pos,
+                                  ),
                               child: Text(
                                 mockSimInfo.displayName ?? 'SIM',
                                 style: TextStyle(
@@ -246,8 +349,15 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.callType.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.callType.position.x, config.callType.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('callType', pos),
+                              position: Offset(
+                                config.callType.position.x,
+                                config.callType.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'callType',
+                                    pos,
+                                  ),
                               child: Icon(
                                 Icons.call_received,
                                 size: config.callType.size,
@@ -258,18 +368,31 @@ class LiveNotificationPreview extends ConsumerWidget {
                           if (config.securityMessage.visible)
                             _DraggableElement(
                               parentConstraints: constraints,
-                              position: Offset(config.securityMessage.position.x, config.securityMessage.position.y),
-                              onPositionChanged: (pos) => notifier.updateElementPosition('securityMessage', pos),
+                              position: Offset(
+                                config.securityMessage.position.x,
+                                config.securityMessage.position.y,
+                              ),
+                              onPositionChanged:
+                                  (pos) => notifier.updateElementPosition(
+                                    'securityMessage',
+                                    pos,
+                                  ),
                               child: Container(
                                 width: config.securityMessage.containerWidth,
                                 height: config.securityMessage.height,
-                                color: _colorFromHex(config.securityMessage.backgroundColor),
+                                color: _colorFromHex(
+                                  config.securityMessage.backgroundColor,
+                                ),
                                 alignment: Alignment.centerLeft,
-                                padding: const EdgeInsets.symmetric(horizontal: 8),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                ),
                                 child: Text(
                                   'Security Alert!',
                                   style: TextStyle(
-                                    color: _colorFromHex(config.securityMessage.color),
+                                    color: _colorFromHex(
+                                      config.securityMessage.color,
+                                    ),
                                     fontSize: config.securityMessage.fontSize,
                                   ),
                                   overflow: TextOverflow.ellipsis,
@@ -296,7 +419,10 @@ class LiveNotificationPreview extends ConsumerWidget {
         children: [
           Icon(Icons.android, color: Colors.white, size: 16),
           SizedBox(width: 8),
-          Text('Your App Name', style: TextStyle(color: Colors.white, fontSize: 12)),
+          Text(
+            'Your App Name',
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
           Spacer(),
           Text('now', style: TextStyle(color: Colors.white70, fontSize: 12)),
         ],
@@ -325,8 +451,14 @@ class _DraggableElement extends StatelessWidget {
       top: position.dy,
       child: GestureDetector(
         onPanUpdate: (details) {
-          final newDx = (position.dx + details.delta.dx).clamp(0.0, parentConstraints.maxWidth - 20);
-          final newDy = (position.dy + details.delta.dy).clamp(0.0, parentConstraints.maxHeight - 20);
+          final newDx = (position.dx + details.delta.dx).clamp(
+            0.0,
+            parentConstraints.maxWidth - 20,
+          );
+          final newDy = (position.dy + details.delta.dy).clamp(
+            0.0,
+            parentConstraints.maxHeight - 20,
+          );
           onPositionChanged(Offset(newDx, newDy));
         },
         child: child,
