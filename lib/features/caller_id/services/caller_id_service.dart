@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
@@ -38,13 +37,13 @@ class CallerIdService {
     required LocationService locationService,
     required PredefinedLabelService predefinedLabelService,
     required RemoteNumberService remoteNumberService,
-  })  : _contactService = contactService,
-        _ruleManagementService = ruleManagementService,
-        _labelService = labelService,
-        _locationService = locationService,
-        _predefinedLabelService = predefinedLabelService,
-        _pluginService = pluginService,
-        _remoteNumberService = remoteNumberService;
+  }) : _contactService = contactService,
+       _ruleManagementService = ruleManagementService,
+       _labelService = labelService,
+       _locationService = locationService,
+       _predefinedLabelService = predefinedLabelService,
+       _pluginService = pluginService,
+       _remoteNumberService = remoteNumberService;
 
   final RuleManagementService _ruleManagementService;
   final _callerIdSubject = BehaviorSubject<CallerIdData>();
@@ -57,7 +56,7 @@ class CallerIdService {
   final PluginInvokerService _pluginService;
   final PredefinedLabelService _predefinedLabelService;
   final RemoteNumberService _remoteNumberService;
-  
+
   /// 是否已触发插件同步服务
   bool _pluginSyncTriggered = false;
 
@@ -101,16 +100,25 @@ class CallerIdService {
   /// 返回包含来电显示信息的CallerIdData对象
   Future<CallerIdData> getCallerId(String phoneNumber, Locale locale) async {
     // 使用PhoneUtils进行号码解析
-    final parsed =
-        await PhoneUtils.parsePhoneNumberWithIso(phoneNumber, locale.country);
-    return getCallerIdWithParsed(phoneNumber, parsed['e164Number'] ?? '',
-        parsed['nationalNumber'] ?? '', locale);
+    final parsed = await PhoneUtils.parsePhoneNumberWithIso(
+      phoneNumber,
+      locale.country,
+    );
+    return getCallerIdWithParsed(
+      phoneNumber,
+      parsed['e164Number'] ?? '',
+      parsed['nationalNumber'] ?? '',
+      locale,
+    );
   }
 
-  Future<CallerIdData> getCallerIdWithParsed(String phoneNumber,
-      String e164Number, String nationalNumber, Locale locale) async {
-
-/*
+  Future<CallerIdData> getCallerIdWithParsed(
+    String phoneNumber,
+    String e164Number,
+    String nationalNumber,
+    Locale locale,
+  ) async {
+    /*
     final PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
     
     // 1. 解析号码，判断是否包含国际区号
@@ -164,15 +172,19 @@ class CallerIdService {
     }
 
     // 3. 查询app本身数据地联系人数据 (尝试原始号码、E164、National 格式)
-    var finalContact = await _contactService
-            .findContactByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber)) ??
+    var finalContact =
+        await _contactService.findContactByPhoneNumber(
+          vo.PhoneNumber.fromString(phoneNumber),
+        ) ??
         (e164Number.isNotEmpty
-            ? await _contactService
-                .findContactByPhoneNumber(vo.PhoneNumber.fromString(e164Number))
+            ? await _contactService.findContactByPhoneNumber(
+              vo.PhoneNumber.fromString(e164Number),
+            )
             : null) ??
         (nationalNumber.isNotEmpty
             ? await _contactService.findContactByPhoneNumber(
-                vo.PhoneNumber.fromString(nationalNumber))
+              vo.PhoneNumber.fromString(nationalNumber),
+            )
             : null);
 
     // 4. 查询规则数据 (尝试原始号码、E164、National 格式)
@@ -184,20 +196,26 @@ class CallerIdService {
 
     try {
       // 尝试查找匹配的规则（按优先级排序）
-      final matchingRules = allRules
-          .where((rule) =>
-              rule.phoneNumber == vo.PhoneNumber.fromString(phoneNumber) ||
-              (e164Number.isNotEmpty &&
-                  rule.phoneNumber == vo.PhoneNumber.fromString(e164Number)) ||
-              (nationalNumber.isNotEmpty &&
-                  rule.phoneNumber ==
-                      vo.PhoneNumber.fromString(nationalNumber)))
-          .toList();
+      final matchingRules =
+          allRules
+              .where(
+                (rule) =>
+                    rule.phoneNumber ==
+                        vo.PhoneNumber.fromString(phoneNumber) ||
+                    (e164Number.isNotEmpty &&
+                        rule.phoneNumber ==
+                            vo.PhoneNumber.fromString(e164Number)) ||
+                    (nationalNumber.isNotEmpty &&
+                        rule.phoneNumber ==
+                            vo.PhoneNumber.fromString(nationalNumber)),
+              )
+              .toList();
 
       // 按优先级排序
       if (matchingRules.isNotEmpty) {
-        matchingRules
-            .sort((a, b) => b.priority.value.compareTo(a.priority.value));
+        matchingRules.sort(
+          (a, b) => b.priority.value.compareTo(a.priority.value),
+        );
         phoneRule = matchingRules.first;
       }
     } catch (_) {
@@ -205,31 +223,40 @@ class CallerIdService {
     }
 
     // 5. 查询标签数据 (尝试原始号码、National、E164 格式)
-    var labelEntry = await _labelService
-            .getLabelByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber)) ??
+    var labelEntry =
+        await _labelService.getLabelByPhoneNumber(
+          vo.PhoneNumber.fromString(phoneNumber),
+        ) ??
         (nationalNumber.isNotEmpty
             ? await _labelService.getLabelByPhoneNumber(
-                vo.PhoneNumber.fromString(nationalNumber))
+              vo.PhoneNumber.fromString(nationalNumber),
+            )
             : null) ??
         (e164Number.isNotEmpty
-            ? await _labelService
-                .getLabelByPhoneNumber(vo.PhoneNumber.fromString(e164Number))
+            ? await _labelService.getLabelByPhoneNumber(
+              vo.PhoneNumber.fromString(e164Number),
+            )
             : null);
 
     // 6. 查询插件数据 - 使用callPluginsAll方法获取第一个有效结果并在后台获取所有数据
     debugPrint('[CallerIdService] 插件Calling plugins for number: $phoneNumber');
     final (firstResult, allResultsFuture) = await _pluginService.callPluginsAll(
-        phoneNumber, nationalNumber, e164Number);
-    
+      phoneNumber,
+      nationalNumber,
+      e164Number,
+    );
+
     debugPrint('[CallerIdService] 插件First plugin result: $firstResult');
-    
+
     // 转换为PluginData实体（仅用于构建CallerIdData，不发布到数据流）
     PluginSourceData? pluginSourceData;
     if (firstResult != null) {
       pluginSourceData = PluginSourceData.fromMap(firstResult);
-      debugPrint('[CallerIdService] 插件Converted PluginSourceData: ${pluginSourceData.toMap()}'); 
+      debugPrint(
+        '[CallerIdService] 插件Converted PluginSourceData: ${pluginSourceData.toMap()}',
+      );
     }
-    
+
     // 异步处理所有插件的完整数据（包括发布到数据流）
     unawaited(_processAllPluginData(allResultsFuture));
 
@@ -238,12 +265,15 @@ class CallerIdService {
         .getRemoteNumberByPhoneNumber(vo.PhoneNumber.fromString(e164Number));
 
     // 8. 查询位置数据
-    final locationData =
-        await _locationService.getCallerLocation(e164Number, locale);
+    final locationData = await _locationService.getCallerLocation(
+      e164Number,
+      locale,
+    );
 
     // 9. 整合数据
     // 确定名称
-    final name = localContact?.displayName ??
+    final name =
+        localContact?.displayName ??
         finalContact?.name ??
         phoneRule?.name ??
         remoteNumberEntry?.name ??
@@ -257,18 +287,20 @@ class CallerIdService {
     String labelText = 'Unknown';
 
     // 第一阶段：检查预定义标签ID
-    final labelFromId = labelId != null
-        ? await _predefinedLabelService.getLabelById(labelId)
-        : null;
+    final labelFromId =
+        labelId != null
+            ? await _predefinedLabelService.getLabelById(labelId)
+            : null;
 
     // 第二阶段：检查远程号码标签（当ID不存在时）
     final labelFromRemote =
         labelFromId == null ? remoteNumberEntry?.label : null;
 
     // 第三阶段：使用插件标签（当前面都未找到时）
-    final labelFromPlugin = (labelFromId == null && labelFromRemote == null)
-        ? pluginSourceData?.predefinedLabel
-        : null;
+    final labelFromPlugin =
+        (labelFromId == null && labelFromRemote == null)
+            ? pluginSourceData?.predefinedLabel
+            : null;
 
     labelText =
         labelFromId?.text ?? labelFromRemote ?? labelFromPlugin ?? 'Unknown';
@@ -277,30 +309,27 @@ class CallerIdService {
     String? avatar =
         finalContact?.avatar ?? phoneRule?.avatar ?? pluginSourceData?.avatar;
 
-    
     // 如果没有头像但有标签，使用标签构建头像路径
-    if (avatar == null && labelText != 'Unknown') {
-      avatar = 'assets/avatars/$labelText.png';
-    }
+    avatar ??= 'assets/avatars/$labelText.png';
 
     // 确定计数
-    final count = phoneRule?.count ??
+    final count =
+        phoneRule?.count ??
         remoteNumberEntry?.count ??
         pluginSourceData?.count ??
         0;
 
     // 9. 创建CallerIdData对象
-    final labels = labelText != 'Unknown'
-        ? [Label(label: labelText, color: null, icon: null)]
-        : null;
+    final labels = [Label(label: labelText, color: null, icon: null)];
 
     // 确定动作
-    final action = phoneRule?.action ?? 
-                  remoteNumberEntry?.action ?? 
-                  pluginSourceData?.action ?? 
-                  labelEntry?.action ?? 
-                  RuleAction.none;
-    
+    final action =
+        phoneRule?.action ??
+        remoteNumberEntry?.action ??
+        pluginSourceData?.action ??
+        labelEntry?.action ??
+        RuleAction.none;
+
     final callerIdData = CallerIdData(
       id: phoneNumber, // 使用电话号码作为ID
       phoneNumber: vo.PhoneNumber.fromString(phoneNumber),
@@ -345,35 +374,43 @@ class CallerIdService {
   /// 该方法接收一个包含所有插件结果的Future，等待其完成后处理数据
   /// 并将结果发布到数据流中，以便其他服务可以使用完整数据
   /// 同时处理标签更新逻辑
-  Future<void> _processAllPluginData(Future<List<Map<String, dynamic>>> allResultsFuture) async {
+  Future<void> _processAllPluginData(
+    Future<List<Map<String, dynamic>>> allResultsFuture,
+  ) async {
     try {
       // 等待所有结果完成
       final allResults = await allResultsFuture;
       if (allResults.isEmpty) return;
-      
+
       // 合并所有插件结果
       final mergedData = _mergePluginResults(allResults);
-      
+
       // 转换为PluginData实体并发布到数据流
       final completePluginData = PluginSourceData.fromMap(mergedData);
-      
+
       // 检查是否已经发布过相同的数据，避免重复发布
-      if (_pluginDataSubject.hasValue && 
-          _pluginDataSubject.value.phoneNumber == completePluginData.phoneNumber) {
+      if (_pluginDataSubject.hasValue &&
+          _pluginDataSubject.value.phoneNumber ==
+              completePluginData.phoneNumber) {
         // 只有当新数据包含更多信息时才更新
-        if (completePluginData.name != null && completePluginData.name!.isNotEmpty && 
+        if (completePluginData.name != null &&
+            completePluginData.name!.isNotEmpty &&
             completePluginData.name != 'Unknown') {
-          debugPrint('[CallerIdService] 数据流传递Updating plugin data for ${completePluginData.phoneNumber}: ${completePluginData.toMap()}');
+          debugPrint(
+            '[CallerIdService] 数据流传递Updating plugin data for ${completePluginData.phoneNumber}: ${completePluginData.toMap()}',
+          );
           _pluginDataSubject.add(completePluginData);
           _legacyPluginDataSubject.add(mergedData);
         }
       } else {
         // 首次发布数据
-        debugPrint('[CallerIdService] 数据流传递Publishing new plugin data for ${completePluginData.phoneNumber}: ${completePluginData.toMap()}');
+        debugPrint(
+          '[CallerIdService] 数据流传递Publishing new plugin data for ${completePluginData.phoneNumber}: ${completePluginData.toMap()}',
+        );
         _pluginDataSubject.add(completePluginData);
         _legacyPluginDataSubject.add(mergedData);
       }
-      
+
       // 使用完整数据处理标签更新逻辑
       // 检查是否有预定义标签，并且当前没有标签和规则
       if (completePluginData.predefinedLabel != null) {
@@ -381,28 +418,37 @@ class CallerIdService {
         final e164Number = completePluginData.phoneNumber ?? '';
         if (e164Number.isNotEmpty) {
           final existingLabel = await _labelService.getLabelByPhoneNumber(
-              vo.PhoneNumber.fromString(e164Number));
-          
+            vo.PhoneNumber.fromString(e164Number),
+          );
+
           // 查询是否存在规则
           final allRules = await _ruleManagementService.getAllRules();
-          final matchingRule = allRules.where((rule) =>
-              rule.phoneNumber == vo.PhoneNumber.fromString(e164Number)).firstOrNull;
-          
+          final matchingRule =
+              allRules
+                  .where(
+                    (rule) =>
+                        rule.phoneNumber ==
+                        vo.PhoneNumber.fromString(e164Number),
+                  )
+                  .firstOrNull;
+
           // 如果没有现有标签和规则，则创建新标签
           if (existingLabel == null && matchingRule?.labelId == null) {
-            final labels = await _predefinedLabelService
-                .getLabelsByText(completePluginData.predefinedLabel!);
+            final labels = await _predefinedLabelService.getLabelsByText(
+              completePluginData.predefinedLabel!,
+            );
             if (labels.isNotEmpty) {
               final entry = LabelPhoneEntry(
-                 id: const Uuid().v4(),
+                id: const Uuid().v4(),
                 phoneNumber: vo.PhoneNumber.fromString(e164Number),
                 labelId: labels.first.id,
                 name: completePluginData.name ?? 'Unknown',
                 action: completePluginData.action, // 使用插件数据中的动作
               );
               // 检查是否已经添加过相同的标签
-              if (!_labelPhoneEntrySubject.hasValue || 
-                  _labelPhoneEntrySubject.value.phoneNumber != entry.phoneNumber) {
+              if (!_labelPhoneEntrySubject.hasValue ||
+                  _labelPhoneEntrySubject.value.phoneNumber !=
+                      entry.phoneNumber) {
                 await _labelService.addLabel(entry);
                 // 发布标签电话条目到数据流
                 _labelPhoneEntrySubject.add(entry);
@@ -416,21 +462,21 @@ class CallerIdService {
       debugPrint('处理所有插件数据失败: $e');
     }
   }
-  
+
   /// 合并多个插件结果
   Map<String, dynamic> _mergePluginResults(List<Map<String, dynamic>> results) {
     if (results.isEmpty) return {};
     if (results.length == 1) return results.first;
-    
+
     // 创建合并结果
     final merged = <String, dynamic>{};
-    
+
     // 用于统计 action 类型的计数
     int allowCount = 0;
     int blockCount = 0;
     int noneCount = 0;
     String? currentAction;
-    
+
     // 合并所有字段
     for (final result in results) {
       result.forEach((key, value) {
@@ -442,7 +488,8 @@ class CallerIdService {
             if (actionStr.contains('block')) {
               blockCount++;
               // 优先级最高，立即设置
-              if (currentAction == null || !currentAction!.toLowerCase().contains('block')) {
+              if (currentAction == null ||
+                  !currentAction!.toLowerCase().contains('block')) {
                 currentAction = value;
               }
             } else if (actionStr.contains('allow')) {
@@ -453,7 +500,7 @@ class CallerIdService {
           }
           return; // 跳过常规处理，稍后根据统计结果设置 action
         }
-        
+
         // 如果是数组类型，合并数组
         if (value is List && merged[key] is List) {
           (merged[key] as List).addAll(value);
@@ -466,17 +513,20 @@ class CallerIdService {
         else if (value is String) {
           final newValue = value.toLowerCase();
           final isNewValueUnknown = newValue == 'unknown' || newValue.isEmpty;
-          
+
           if (merged[key] is String) {
             final currentValue = (merged[key] as String).toLowerCase();
-            final isCurrentValueUnknown = currentValue == 'unknown' || currentValue.isEmpty;
-            
+            final isCurrentValueUnknown =
+                currentValue == 'unknown' || currentValue.isEmpty;
+
             // 如果当前值是 unknown 而新值不是，则使用新值
             if (isCurrentValueUnknown && !isNewValueUnknown) {
               merged[key] = value;
             }
             // 如果两者都不是 unknown，保留较长的值（可能包含更多信息）
-            else if (!isCurrentValueUnknown && !isNewValueUnknown && value.length > (merged[key] as String).length) {
+            else if (!isCurrentValueUnknown &&
+                !isNewValueUnknown &&
+                value.length > (merged[key] as String).length) {
               merged[key] = value;
             }
             // 其他情况保留当前值
@@ -494,7 +544,7 @@ class CallerIdService {
         // 其他情况，优先保留已有值
       });
     }
-    
+
     // 根据统计结果和优先级规则设置最终的 action
     // 优先级顺序：block > none > allow
     // 特殊规则：如果 allow 数量大于 block 数量，则取 allow
@@ -510,7 +560,7 @@ class CallerIdService {
       // 如果有设置过 action 但不属于上述类型，保留最后设置的值
       merged['action'] = currentAction;
     }
-    
+
     return merged;
   }
 
@@ -521,5 +571,4 @@ class CallerIdService {
     _legacyPluginDataSubject.close();
     _labelPhoneEntrySubject.close();
   }
-
 }
