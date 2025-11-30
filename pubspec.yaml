@@ -184,7 +184,7 @@ dependencies:
   supabase_flutter: ^2.10.3
   postgres: ^3.5.9
 
-dependency_overrides:
+#dependency_overrides:
   #live_updates:
     #path: ./临时参考/live-update
 
