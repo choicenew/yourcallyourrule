@@ -2,8 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/presentation/verification_page.dart';
 
-class RuleVerificationCard extends StatelessWidget {
+class RuleVerificationCard extends StatefulWidget {
   const RuleVerificationCard({super.key});
+
+  @override
+  State<RuleVerificationCard> createState() => _RuleVerificationCardState();
+}
+
+class _RuleVerificationCardState extends State<RuleVerificationCard> {
+  final TextEditingController _phoneController = TextEditingController();
+
+  @override
+  void dispose() {
+    _phoneController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +38,14 @@ class RuleVerificationCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    controller: _phoneController,
                     decoration: InputDecoration(
                       hintText: AppLocalizations.of(context)!.enterPhoneNumberToVerify,
                       prefixIcon: const Icon(Icons.phone),
                       prefixIconColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                                                // 设置边框为半透明白色
+                        // 设置边框为半透明白色
                         borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.7)),
                       ),
                       // --- 修改点 6: 聚焦时边框的颜色（推荐添加）---
@@ -47,8 +61,8 @@ class RuleVerificationCard extends StatelessWidget {
                       ),
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                     ),
-                                        // 为了更好的可见性，输入文字的颜色也建议修改
-                    style: const TextStyle(color: Colors.black87), 
+                    // 为了更好的可见性，输入文字的颜色也建议修改
+                    style: const TextStyle(color: Colors.black87),
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -57,7 +71,9 @@ class RuleVerificationCard extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const VerificationPage(),
+                        builder: (context) => VerificationPage(
+                          initialPhoneNumber: _phoneController.text,
+                        ),
                       ),
                     );
                   },
