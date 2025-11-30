@@ -23,6 +23,7 @@ import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 
 // [重构]: 导入所有需要的 Provider，而不是 Service 定义。
 
+import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
 
 
@@ -32,7 +33,8 @@ import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter
 
 
 class VerificationPage extends ConsumerStatefulWidget {
-  const VerificationPage({super.key});
+  final String? initialPhoneNumber;
+  const VerificationPage({super.key, this.initialPhoneNumber});
 
   @override
   VerificationPageState createState() => VerificationPageState();
@@ -63,6 +65,27 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
     super.initState();
     // [重构]: initState 现在非常干净。不应在此处使用 ref.read。
     // [注释]: 可以在 didChangeDependencies 或 build 方法中安全地访问 ref。
+    
+    if (widget.initialPhoneNumber != null && widget.initialPhoneNumber!.isNotEmpty) {
+      _phoneNumberController.text = widget.initialPhoneNumber!;
+      _detectCountryCode(widget.initialPhoneNumber!);
+    }
+  }
+
+  Future<void> _detectCountryCode(String phoneNumber) async {
+    try {
+      final result = await PhoneUtils.parsePhoneNumber(phoneNumber);
+      final countryCode = result['countryCode'];
+      if (countryCode != null && countryCode.isNotEmpty) {
+        if (mounted) {
+          setState(() {
+            _countryCodeController.text = countryCode;
+          });
+        }
+      }
+    } catch (e) {
+      // ignore error, keep default "US"
+    }
   }
 
   @override
