@@ -90,7 +90,7 @@ final class LiveNotificationConfigNotifierProvider
 }
 
 String _$liveNotificationConfigNotifierHash() =>
-    r'39234428b741728427d435981023c7395bd31699';
+    r'cccdf5871e07ad77dec4bc4afd4a17fddce2db9f';
 
 abstract class _$LiveNotificationConfigNotifier
     extends $AsyncNotifier<LiveNotificationConfig> {

@@ -91,7 +91,9 @@ jobs:
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |
             ${{ runner.os }}-pub-
-
+              
+      - name: Clean workspace 
+        run: flutter clean
       # --- 3. 构建准备 ---
       - name: Get Flutter packages
         run: flutter pub get
