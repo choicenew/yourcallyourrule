@@ -185,8 +185,8 @@ dependencies:
   postgres: ^3.5.9
 
 dependency_overrides:
-  live_updates:
-    path: ./临时参考/live-update
+  #live_updates:
+    #path: ./临时参考/live-update
 
 dev_dependencies:
   flutter_test:
