@@ -39,7 +39,7 @@ jobs:
           haskell: true  # 清理 Haskell
           large-packages: true # 清理大文件包
           docker-images: true  # 清理 Docker 镜像
-          swap-storage: false # 建议这里改为 false，因为 Swap 太慢导致了超时，不如直接限制内存
+          swap-storage: true # 建议这里改为 false，因为 Swap 太慢导致了超时，不如直接限制内存
       # ==============================================
       
       - name: Extract metadata from pubspec.yaml
