@@ -95,11 +95,11 @@ jobs:
           echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
           # 【物理极限】GitHub Runner 只有2个核。
           # 设为 2 是最快的。设大了只会增加内存开销，不会变快。
-          echo "org.gradle.workers.max=2" >> ~/.gradle/gradle.properties
+          #echo "org.gradle.workers.max=2" >> ~/.gradle/gradle.properties
           echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
           
           # 放宽 Kotlin 限制，让它能跑快点
-          echo "kotlin.daemon.jvm.options=-Xmx1536M" >> ~/.gradle/gradle.properties          
+          #echo "kotlin.daemon.jvm.options=-Xmx1536M" >> ~/.gradle/gradle.properties          
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
