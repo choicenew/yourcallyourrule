@@ -28,23 +28,26 @@ jobs:
         with:
           fetch-depth: 0 
 
-      # ==============================================
-      # 修复核心 1: 手动创建 Swap 交换空间
-      # GitHub Runner 只有 7GB 内存，编译 Release 包容易爆内存 (Error 143)。
-      # 这里创建一个 6GB 的虚拟内存文件，防止崩溃。
-      # ==============================================
-      - name: Enable Swap Space (防止内存溢出)
+      # ▼▼▼▼▼▼▼▼ 修改了这里 ▼▼▼▼▼▼▼▼
+      - name: Configure Swap Space
         run: |
-          sudo fallocate -l 6G /swapfile
+          # 1. 停止当前正在使用的 Swap (解决 Text file busy)
+          sudo swapoff -a || true
+          
+          # 2. 创建 8GB 交换空间
+          sudo dd if=/dev/zero of=/swapfile bs=1G count=8 status=progress
+          
+          # 3. 设置安全权限并格式化
           sudo chmod 600 /swapfile
           sudo mkswap /swapfile
+          
+          # 4. 重新启用
           sudo swapon /swapfile
-          echo "Swap enabled:"
-          sudo swapon --show
+          
+          # 5. 打印状态以供检查
+          free -h
+      # ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
-      # ==============================================
-      # 修复核心 2: 修改清理策略
-      # ==============================================
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@v1.3.1
         with:
@@ -54,7 +57,7 @@ jobs:
           haskell: true  
           large-packages: true 
           docker-images: true  
-          swap-storage: false # <--- 关键！改为 false。绝对不要删除 Swap，我们需要它救命！
+          swap-storage: false # 保持 false，不要让这个插件删除了我们刚建好的 Swap
 
       - name: Extract metadata from pubspec.yaml
         id: meta
@@ -77,19 +80,13 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-      # ==============================================
-      # 修复核心 3: 优化 Gradle 内存配置
-      # ==============================================
       - name: Setup Gradle Properties
         run: |
           mkdir -p ~/.gradle/
-          # 限制 Gradle 堆内存为 3GB (留出 4GB 给系统和其他进程)
+          # 保持之前的优化：限制堆内存，禁用并行
           echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
-          # 禁用守护进程 (CI 不需要)
           echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
-          # <--- 关键修改：禁用并行编译。虽然慢一点，但能大幅降低内存峰值，防止崩溃。
           echo "org.gradle.parallel=false" >> ~/.gradle/gradle.properties
-          # 限制 Kotlin 编译器的内存使用
           echo "kotlin.daemon.jvm.options=-Xmx1024M" >> ~/.gradle/gradle.properties
           echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
 
@@ -122,7 +119,6 @@ jobs:
           echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
           echo "storeFile=key.jks" >> android/key.properties
       
-      # 开始构建 AAB
       - name: Build AAB
         run: flutter build appbundle --release
 
@@ -141,7 +137,6 @@ jobs:
             --ks-key-alias=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
             --key-pass=pass:${{ secrets.ANDROID_KEY_PASSWORD }}
           unzip -p app.apks universal.apk > app-release-universal.apk
-          echo "✅ APK generated successfully: app-release-universal.apk"
 
       - name: Publish to Private GitHub Release (Current Repo)
         uses: ncipollo/release-action@v1
