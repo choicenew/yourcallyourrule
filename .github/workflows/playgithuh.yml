@@ -86,9 +86,15 @@ jobs:
           # 保持之前的优化：限制堆内存，禁用并行
           echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
           echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
-          echo "org.gradle.parallel=false" >> ~/.gradle/gradle.properties
-          echo "kotlin.daemon.jvm.options=-Xmx1024M" >> ~/.gradle/gradle.properties
+          echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
+          # 4. 【关键限制】限制 Worker 数量为 2 (解决内存溢出)
+          # GitHub Runner 只有 2 核，开多了只会抢内存导致 OOM，设为 2 是最佳平衡点。
+          echo "org.gradle.workers.max=2" >> ~/.gradle/gradle.properties          
+
           echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
+          echo "kotlin.daemon.jvm.options=-Xmx1024M" >> ~/.gradle/gradle.properties
+
+
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
