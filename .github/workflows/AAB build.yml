@@ -72,8 +72,8 @@ jobs:
       - name: Setup Gradle Properties
         run: |
           mkdir -p ~/.gradle/
-          # 1. 为 Gradle Daemon 分配 2.5GB 内存，比之前保守
-          echo "org.gradle.jvmargs=-Xmx2560m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
+          # 1. Gradle Daemon: 2GB (down from 2.5GB)，比之前保守
+          echo "org.gradle.jvmargs=-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
           
           # 2. 开启 Daemon，让 Gradle 进程常驻，提高效率
           # 之前的 org.gradle.daemon=false 是错误的，已修正
@@ -88,9 +88,9 @@ jobs:
           
           echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
           
-          # 5. 【重要】为 Kotlin 进程分配 1GB 内存，比之前保守
-          # 总计：2.5GB(Gradle) + 1GB(Kotlin) = 3.5GB，给系统留出充足的 3.5GB 空间。
-          echo "kotlin.daemon.jvm.options=-Xmx1024M" >> ~/.gradle/gradle.properties
+          # 5. 【重要】为 Kotlin 进程分配 768MB 内存，比之前保守
+          # 总计：2GB(Gradle) + 768MB(Kotlin) = 2.8GB，给系统留出充足的 3.25GB 空间。
+          echo "kotlin.daemon.jvm.options=-Xmx768m" >> ~/.gradle/gradle.properties
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
