@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_remote_database.dart';
@@ -11,6 +12,9 @@ import 'package:yourcallyourrule/features/sms/providers/sms_subscription_service
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_provider.dart';
+import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/core/services/firebase_service.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 
 
 
@@ -25,6 +29,19 @@ const dataSyncTask = "dataSyncTask";
 void callbackDispatcher() {
   Workmanager().executeTask((task, inputData) async {
     try {
+      // 在后台 Isolate 中，我们需要手动初始化应用所需的服务
+      // 确保 Flutter 核心引擎已绑定
+      WidgetsFlutterBinding.ensureInitialized();
+      
+      // 初始化 Firebase 服务，以便能够记录潜在的错误
+      await FirebaseService().initialize();
+      
+      // 初始化日志服务
+      AppLogger.initialize();
+      
+      // 初始化数据库服务，这是同步所必需的
+      DatabaseService();
+
       // 为了在后台任务中访问 Riverpod provider，我们需要创建一个 ProviderContainer
       final container = ProviderContainer();
       
