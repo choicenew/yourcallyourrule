@@ -10,7 +10,7 @@ import 'package:yourcallyourrule/features/sms/providers/sms_subscription_service
 
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/incremental_sync_manager_provider.dart';
+import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_provider.dart';
 
 
 
