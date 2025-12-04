@@ -1,3 +1,7 @@
+# =================================================================
+# 正确的、经过您提供的案例验证的最终版本
+# 核心思想：删除所有手动内存管理，完全信任Gradle的默认动态调度能力。
+# =================================================================
 name: single AAB-Build, Sync, and Notify
 
 on:
@@ -60,23 +64,11 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-            ~/.gradle/build-cache
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      # ==============================================
-      # 3. 【Corrected Approach】Global Java Memory Capping
-      # Sets performance flags without specific memory limits, which will be controlled globally.
-      # ==============================================
-      - name: Setup Gradle Properties (Performance Flags Only)
-        run: |
-          mkdir -p ~/.gradle/
-          echo "org.gradle.daemon=true" >> ~/.gradle/gradle.properties
-          echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
-          echo "org.gradle.caching=true" >> ~/.gradle/gradle.properties
-          echo "org.gradle.workers.max=2" >> ~/.gradle/gradle.properties
-          echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
+      # 【删除】删除了所有画蛇添足的 Setup Gradle Properties 步骤
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
@@ -114,15 +106,12 @@ jobs:
           echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
           echo "storeFile=key.jks" >> android/key.properties
 
-      # --- Build AAB with Global Memory Limit ---
+      # --- 构建 AAB (使用默认并行设置，不加任何内存限制) ---
       - name: Build AAB
-        env:
-          # This forces a safe 2GB heap limit on *every* Java process (daemons and workers),
-          # preventing the total memory usage from exceeding the runner's 7GB RAM limit.
-          JAVA_TOOL_OPTIONS: "-Xmx2g"
+        # 【删除】删除了所有 env: JAVA_TOOL_OPTIONS
         run: flutter build appbundle --release
 
-      # --- Extract APK ---
+      # --- 提取 APK (后续步骤不变) ---
       - name: Setup Bundletool
         run: |
           wget https://github.com/google/bundletool/releases/download/1.15.6/bundletool-all-1.15.6.jar -O bundletool.jar
@@ -136,7 +125,7 @@ jobs:
             --ks=android/app/key.jks \
             --ks-pass=pass:${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
             --ks-key-alias=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
-            --key-pass=pass:${{ secrets.ANDROID_KEYPASSWORD }}
+            --key-pass=pass:${{ secrets.ANDROID_KEY_PASSWORD }}
           unzip -p app.apks universal.apk > app-release-universal.apk
           echo "✅ APK generated successfully"
 
@@ -155,7 +144,7 @@ jobs:
           artifacts: |
             build/app/outputs/bundle/release/app-release.aab
             app-release-universal.apk
-
+  
   # --- Job 2 & 3 保持不变 ---
   sync_to_public:
     name: 2. Sync Release to Public
