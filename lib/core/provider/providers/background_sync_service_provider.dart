@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/providers/incremental_sync_manager_provider.dart';
+import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_provider.dart';
 
 import 'package:yourcallyourrule/core/services/background_sync_service.dart';
 
