@@ -20,17 +20,8 @@ jobs:
           fetch-depth: 0
 
       # ==============================================
-      # 1. 开启 Swap (防止崩溃的安全气囊)
+      # 1. 清理磁盘空间（可选，但推荐）
       # ==============================================
-      - name: Configure Swap Space
-        run: |
-          sudo swapoff -a || true
-          sudo dd if=/dev/zero of=/swapfile bs=1G count=8 status=progress
-          sudo chmod 600 /swapfile
-          sudo mkswap /swapfile
-          sudo swapon /swapfile
-          free -h
-
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@v1.3.1
         with:
@@ -40,7 +31,6 @@ jobs:
           haskell: true
           large-packages: true
           docker-images: true
-          swap-storage: false
 
       - name: Extract metadata from pubspec.yaml
         id: meta
@@ -71,38 +61,36 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
             ~/.gradle/build-cache
-          # 更新 key，确保如果 gradle 配置变了会自动刷新
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
 
       # ==============================================
-      # 3. 内存与性能黄金配置
-      # 必须限制 Worker=2，否则会触发硬盘 Swap 导致 4 小时构建
+      # 3. 【修正后】内存与性能黄金配置
+      # 核心：严格控制内存，保证全程在 RAM 中运行，绝不触发 Swap。
       # ==============================================
       - name: Setup Gradle Properties
         run: |
           mkdir -p ~/.gradle/
-          # 1. Gradle 主进程 3GB
-          echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
-          echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
+          # 1. 为 Gradle Daemon 分配 2.5GB 内存，比之前保守
+          echo "org.gradle.jvmargs=-Xmx2560m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
           
-          # 2. 开启并行
+          # 2. 开启 Daemon，让 Gradle 进程常驻，提高效率
+          # 之前的 org.gradle.daemon=false 是错误的，已修正
+          echo "org.gradle.daemon=true" >> ~/.gradle/gradle.properties
+          
+          # 3. 开启并行编译和构建缓存
           echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
+          echo "org.gradle.caching=true" >> ~/.gradle.gradle.properties
           
-          # 3. 开启构建缓存 (配合 actions/cache 使用)
-          echo "org.gradle.caching=true" >> ~/.gradle/gradle.properties
-          
-          # 4. 【重要】限制并发数为 2。
-          # GitHub Runner 只有 2 核 CPU。开大了只会抢内存导致变慢。
+          # 4. 【重要】限制并发数为 2，匹配 GitHub Runner 的 2 核 CPU
           echo "org.gradle.workers.max=2" >> ~/.gradle/gradle.properties
           
           echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
           
-          # 5. 【重要】限制 Kotlin 进程 1.5GB
-          # 3GB(Gradle) + 1.5GB(Kotlin) < 7GB(物理内存)。
-          # 这能保证全程在 RAM 跑，不读写 Swap 硬盘。
-          echo "kotlin.daemon.jvm.options=-Xmx1536M" >> ~/.gradle/gradle.properties
+          # 5. 【重要】为 Kotlin 进程分配 1GB 内存，比之前保守
+          # 总计：2.5GB(Gradle) + 1GB(Kotlin) = 3.5GB，给系统留出充足的 3.5GB 空间。
+          echo "kotlin.daemon.jvm.options=-Xmx1024M" >> ~/.gradle/gradle.properties
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
@@ -120,8 +108,6 @@ jobs:
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |
             ${{ runner.os }}-pub-
-
-      # ❌ 删除 "flutter clean"！在 CI 里跑 clean 是自杀行为！
 
       - name: Get Flutter packages
         run: flutter pub get
@@ -146,6 +132,7 @@ jobs:
       - name: Build AAB
         run: flutter build appbundle --release
 
+      # ... 后续步骤保持不变 ...
       # --- 提取 APK ---
       - name: Setup Bundletool
         run: |
@@ -163,7 +150,7 @@ jobs:
             --key-pass=pass:${{ secrets.ANDROID_KEY_PASSWORD }}
           unzip -p app.apks universal.apk > app-release-universal.apk
           echo "✅ APK generated successfully"
-
+          
       - name: Publish to Private GitHub Release (Current Repo)
         uses: ncipollo/release-action@v1
         with:
