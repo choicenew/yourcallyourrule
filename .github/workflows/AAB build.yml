@@ -66,31 +66,17 @@ jobs:
             ${{ runner.os }}-gradle-
 
       # ==============================================
-      # 3. 【修正后】内存与性能黄金配置
-      # 核心：严格控制内存，保证全程在 RAM 中运行，绝不触发 Swap。
+      # 3. 【Corrected Approach】Global Java Memory Capping
+      # Sets performance flags without specific memory limits, which will be controlled globally.
       # ==============================================
-      - name: Setup Gradle Properties
+      - name: Setup Gradle Properties (Performance Flags Only)
         run: |
           mkdir -p ~/.gradle/
-          # 1. Gradle Daemon: 2GB (down from 2.5GB)，比之前保守
-          echo "org.gradle.jvmargs=-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
-          
-          # 2. 开启 Daemon，让 Gradle 进程常驻，提高效率
-          # 之前的 org.gradle.daemon=false 是错误的，已修正
           echo "org.gradle.daemon=true" >> ~/.gradle/gradle.properties
-          
-          # 3. 开启并行编译和构建缓存
           echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
-          echo "org.gradle.caching=true" >> ~/.gradle.gradle.properties
-          
-          # 4. 【重要】限制并发数为 2，匹配 GitHub Runner 的 2 核 CPU
+          echo "org.gradle.caching=true" >> ~/.gradle/gradle.properties
           echo "org.gradle.workers.max=2" >> ~/.gradle/gradle.properties
-          
           echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
-          
-          # 5. 【重要】为 Kotlin 进程分配 768MB 内存，比之前保守
-          # 总计：2GB(Gradle) + 768MB(Kotlin) = 2.8GB，给系统留出充足的 3.25GB 空间。
-          echo "kotlin.daemon.jvm.options=-Xmx768m" >> ~/.gradle/gradle.properties
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
@@ -128,12 +114,15 @@ jobs:
           echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
           echo "storeFile=key.jks" >> android/key.properties
 
-      # --- 构建 AAB ---
+      # --- Build AAB with Global Memory Limit ---
       - name: Build AAB
+        env:
+          # This forces a safe 2GB heap limit on *every* Java process (daemons and workers),
+          # preventing the total memory usage from exceeding the runner's 7GB RAM limit.
+          JAVA_TOOL_OPTIONS: "-Xmx2g"
         run: flutter build appbundle --release
 
-      # ... 后续步骤保持不变 ...
-      # --- 提取 APK ---
+      # --- Extract APK ---
       - name: Setup Bundletool
         run: |
           wget https://github.com/google/bundletool/releases/download/1.15.6/bundletool-all-1.15.6.jar -O bundletool.jar
@@ -147,10 +136,10 @@ jobs:
             --ks=android/app/key.jks \
             --ks-pass=pass:${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
             --ks-key-alias=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
-            --key-pass=pass:${{ secrets.ANDROID_KEY_PASSWORD }}
+            --key-pass=pass:${{ secrets.ANDROID_KEYPASSWORD }}
           unzip -p app.apks universal.apk > app-release-universal.apk
           echo "✅ APK generated successfully"
-          
+
       - name: Publish to Private GitHub Release (Current Repo)
         uses: ncipollo/release-action@v1
         with:
