@@ -321,6 +321,33 @@ class RemoteNumberDataSource
               ..where((tbl) => tbl.phoneNumber.equals(entityId)))
               .go();
             break;
+
+          // =================================================================
+          // --- ✅ 新增：处理删除提议的同步信息 ---
+          // =================================================================
+          case 'DELETION_PROPOSAL_INFO':
+            if (payload == null) continue;
+
+            // 将 payload 映射到 Drift 的 Companion 对象
+            // 注意：这里需要处理数据类型转换，确保安全
+            final companion = ActiveDeletionProposalsCompanion(
+              phoneNumber: Value(entityId),
+              proposalStartTime: Value(payload['proposalStartTime']?.toString() ?? DateTime.now().toIso8601String()),
+              status: const Value('pending'), // 从服务器拉取的活跃提议总是 pending
+              highestRiskLevel: Value(payload['highestRiskLevel']?.toString() ?? 'Unknown'),
+              proposalCount: Value((payload['proposalCount'] as num?)?.toInt() ?? 0),
+              verifiedOwnerCount: Value((payload['verifiedOwnerCount'] as num?)?.toInt() ?? 0),
+              lastUpdated: Value(DateTime.now().toIso8601String()), // 本地更新时间
+              verificationReportJson: Value(payload['verificationReportJson']?.toString()),
+            );
+
+            // 执行插入或替换
+            await _database.into(_database.activeDeletionProposals).insert(
+              companion,
+              mode: InsertMode.insertOrReplace,
+            );
+            break;
+          // =================================================================
       
       
       

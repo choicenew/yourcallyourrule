@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
@@ -39,7 +40,7 @@ class AutoUpdateService {
         results.addAll(await _phoneService.updateRulesFromSubscription(sub));
       }
     } catch (e) {
-      print('更新电话订阅失败: $e');
+      debugPrint('更新电话订阅失败: $e');
     }
 
     // 更新短信订阅
@@ -49,7 +50,7 @@ class AutoUpdateService {
         results.addAll(await _smsService.updateRulesFromSubscription(sub));
       }
     } catch (e) {
-      print('更新短信订阅失败: $e');
+      debugPrint('更新短信订阅失败: $e');
     }
 
     // 更新联系人订阅
@@ -59,14 +60,14 @@ class AutoUpdateService {
         results.addAll(await _contactService.updateRulesFromSubscription(sub));
       }
     } catch (e) {
-      print('更新联系人订阅失败: $e');
+      debugPrint('更新联系人订阅失败: $e');
     }
 
     // 更新插件
     try {
       await _pluginService.updatePlugins();
     } catch (e) {
-      print('更新插件失败: $e');
+      debugPrint('更新插件失败: $e');
     }
 
     // 更新最后更新时间
@@ -88,7 +89,7 @@ class AutoUpdateService {
             results.addAll(await _phoneService.updateRulesFromSubscription(sub));
           }
         } catch (e) {
-          print('更新电话订阅失败: $e');
+          debugPrint('更新电话订阅失败: $e');
         }
         break;
       
@@ -99,7 +100,7 @@ class AutoUpdateService {
             results.addAll(await _smsService.updateRulesFromSubscription(sub));
           }
         } catch (e) {
-          print('更新短信订阅失败: $e');
+          debugPrint('更新短信订阅失败: $e');
         }
         break;
       
@@ -110,7 +111,7 @@ class AutoUpdateService {
             results.addAll(await _contactService.updateRulesFromSubscription(sub));
           }
         } catch (e) {
-          print('更新联系人订阅失败: $e');
+          debugPrint('更新联系人订阅失败: $e');
         }
         break;
       
@@ -118,7 +119,7 @@ class AutoUpdateService {
         try {
           await _pluginService.updatePlugins();
         } catch (e) {
-          print('更新插件失败: $e');
+          debugPrint('更新插件失败: $e');
         }
         break;
       
