@@ -1,0 +1,10 @@
+name: label_generator
+description: Generator for predefined labels
+version: 1.0.0
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  build: any
+  source_gen: any
+  analyzer: any
