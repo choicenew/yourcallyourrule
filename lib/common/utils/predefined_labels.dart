@@ -1,5 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/common/utils/label_annotations.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+part 'predefined_labels.g.dart';
+
 /// 预定义标签列表
 /// 用于初始化系统中的标准标签
+@AppLabel()
 const List<Map<String, dynamic>> predefinedLabels = [
   {'text': 'Fraud Scam Likely'},
   {'text': 'Spam Likely'},
@@ -19,7 +26,7 @@ const List<Map<String, dynamic>> predefinedLabels = [
   {'text': 'Medical'},
   {'text': 'Charity'},
   {'text': 'Other'},
-  {'text': 'Debt Collection'},
+  {'text': 'Debt Collection', 'key': 'collection'},
   {'text': 'Survey'},
   {'text': 'Political'},
   {'text': 'Ecommerce'},

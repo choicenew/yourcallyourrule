@@ -69,7 +69,7 @@ final class DeletionProposalStatisticsSyncServiceProvider
 }
 
 String _$deletionProposalStatisticsSyncServiceHash() =>
-    r'209f9af52697289ba805081fadc63cabea913240';
+    r'1048cf1419253105f1ee59ce68f7c5317b582c41';
 
 /// 使用 Notifier 模式的删除提议统计同步服务。
 ///
