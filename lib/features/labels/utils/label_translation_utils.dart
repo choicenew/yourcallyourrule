@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/provider/predefined_labels_provider.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 标签翻译工具类
@@ -53,56 +52,47 @@ extension LabelTranslationExtension on String {
     
     // 将标签文本转换为小写并移除空格，以便匹配属性名
     final normalizedLabel = toLowerCase().replaceAll(' ', '');
-    
-    // 使用switch语句匹配常见标签
-    switch (normalizedLabel) {
-      case 'fraudscamlikely':
-        return appLocalizations.fraudScamLikely;
-      case 'spamlikely':
-        return appLocalizations.spamLikely;
-      case 'telemarketing':
-        return appLocalizations.telemarketing;
-      case 'robocall':
-        return appLocalizations.robocall;
-      case 'delivery':
-        return appLocalizations.delivery;
-      case 'takeaway':
-        return appLocalizations.takeaway;
-      case 'ridesharing':
-        return appLocalizations.ridesharing;
-      case 'insurance':
-        return appLocalizations.insurance;
-      case 'loan':
-        return appLocalizations.loan;
-      case 'customerservice':
-        return appLocalizations.customerService;
-      case 'unknown':
-        return appLocalizations.unknown;
-      case 'financial':
-        return appLocalizations.financial;
-      case 'bank':
-        return appLocalizations.bank;
-      case 'education':
-        return appLocalizations.education;
-      case 'medical':
-        return appLocalizations.medical;
-      case 'charity':
-        return appLocalizations.charity;
-      case 'other':
-        return appLocalizations.other;
-      case 'debtcollection':
-      case 'collection':
-        return appLocalizations.collection;
-      case 'survey':
-        return appLocalizations.survey;
-      case 'political':
-        return appLocalizations.political;
-      case 'ecommerce':
-        return appLocalizations.ecommerce;
-      case 'risk':
-        return appLocalizations.risk;
-      default:
-        return this;
-    }
+
+    final translations = {
+      'fraudscamlikely': appLocalizations.fraudScamLikely,
+      'spamlikely': appLocalizations.spamLikely,
+      'scamslikely': appLocalizations.scamsLikely,
+      'telemarketing': appLocalizations.telemarketing,
+      'robocall': appLocalizations.robocall,
+      'delivery': appLocalizations.delivery,
+      'takeaway': appLocalizations.takeaway,
+      'ridesharing': appLocalizations.ridesharing,
+      'insurance': appLocalizations.insurance,
+      'loan': appLocalizations.loan,
+      'customerservice': appLocalizations.customerService,
+      'unknown': appLocalizations.unknown,
+      'financial': appLocalizations.financial,
+      'bank': appLocalizations.bank,
+      'education': appLocalizations.education,
+      'medical': appLocalizations.medical,
+      'charity': appLocalizations.charity,
+      'other': appLocalizations.other,
+      'debtcollection': appLocalizations.collection,
+      'collection': appLocalizations.collection,
+      'survey': appLocalizations.survey,
+      'political': appLocalizations.political,
+      'ecommerce': appLocalizations.ecommerce,
+      'risk': appLocalizations.risk,
+      'agent': appLocalizations.agent,
+      'recruiter': appLocalizations.recruiter,
+      'headhunter': appLocalizations.headhunter,
+      'silentcallvoiceclone': appLocalizations.silentCallVoiceClone,
+      'internet': appLocalizations.internet,
+      'travelticketing': appLocalizations.travelTicketing,
+      'applicationsoftware': appLocalizations.applicationSoftware,
+      'entertainment': appLocalizations.entertainment,
+      'government': appLocalizations.government,
+      'localservices': appLocalizations.localServices,
+      'automotiveindustry': appLocalizations.automotiveIndustry,
+      'carrental': appLocalizations.carRental,
+      'telecommunication': appLocalizations.telecommunication,
+    };
+
+    return translations[normalizedLabel] ?? this;
   }
 }
