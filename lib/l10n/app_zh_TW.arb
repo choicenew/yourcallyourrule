@@ -550,7 +550,7 @@
     }
   },
   "deleteSuccess": "刪除成功",
-  "delivery": "傳送",
+  "delivery": "宅配",
   "deviceDeletedSuccessfully": "裝置已成功刪除",
   "deviceDeletedSuccessfullyMessage": "裝置已成功刪除",
   "deviceIdLabel": "裝置 ID",

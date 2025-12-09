@@ -103,7 +103,7 @@
   "addToRules": "添加到规则",
   "addToWhitelist": "添加到白名单",
   "adPlaceholder": "广告占位符",
-  "agent": "代理",
+  "agent": "中介",
   "all": "全部",
   "allCallsTab": "全部",
   "allDataClearedSuccessfully": "所有数据已成功清除",
@@ -550,7 +550,7 @@
     }
   },
   "deleteSuccess": "删除成功",
-  "delivery": "交付",
+  "delivery": "快递",
   "deviceDeletedSuccessfully": "设备已成功删除",
   "deviceDeletedSuccessfullyMessage": "设备已成功删除",
   "deviceIdLabel": "设备 ID",
