@@ -363,6 +363,14 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
           });
         }
       },
+      
+      
+      
+      
+      shouldOverrideUrlLoading: (controller, navigationAction) async {
+        // Allow all navigation requests.
+        return NavigationActionPolicy.ALLOW;
+      },
       shouldInterceptRequest: (controller, request) async {
         final uri = request.url;
         if (uri.scheme == PluginUrlWebViewService.PROXY_SCHEME && uri.host == PluginUrlWebViewService.PROXY_HOST) {

@@ -1277,7 +1277,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deleteSuccess => '删除成功';
 
   @override
-  String get delivery => '交付';
+  String get delivery => '快递';
 
   @override
   String get deviceDeletedSuccessfully => '设备已成功删除';
@@ -6258,7 +6258,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get adPlaceholder => '广告占位符';
 
   @override
-  String get agent => '代理';
+  String get agent => '中介';
 
   @override
   String get all => '全部';
@@ -7300,7 +7300,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get deleteSuccess => '删除成功';
 
   @override
-  String get delivery => '交付';
+  String get delivery => '快递';
 
   @override
   String get deviceDeletedSuccessfully => '设备已成功删除';
@@ -13235,7 +13235,7 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get deleteSuccess => '刪除成功';
 
   @override
-  String get delivery => '交付';
+  String get delivery => '速遞';
 
   @override
   String get deviceDeletedSuccessfully => '裝置已成功刪除';
@@ -19170,7 +19170,7 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get deleteSuccess => '刪除成功';
 
   @override
-  String get delivery => '交付';
+  String get delivery => '速遞';
 
   @override
   String get deviceDeletedSuccessfully => '裝置已成功刪除';
@@ -25106,7 +25106,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get deleteSuccess => '刪除成功';
 
   @override
-  String get delivery => '傳送';
+  String get delivery => '宅配';
 
   @override
   String get deviceDeletedSuccessfully => '裝置已成功刪除';

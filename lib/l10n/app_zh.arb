@@ -550,7 +550,7 @@
     }
   },
   "deleteSuccess": "删除成功",
-  "delivery": "交付",
+  "delivery": "快递",
   "deviceDeletedSuccessfully": "设备已成功删除",
   "deviceDeletedSuccessfullyMessage": "设备已成功删除",
   "deviceIdLabel": "设备 ID",
