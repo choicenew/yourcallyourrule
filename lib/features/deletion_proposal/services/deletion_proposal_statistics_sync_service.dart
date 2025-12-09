@@ -1,6 +1,7 @@
 // 文件路径: lib/features/deletion_proposal/services/deletion_proposal_statistics_sync_service.dart
 
 // 导入 Riverpod 和代码生成相关包
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // 导入所有必要的 Provider 和模型
@@ -40,10 +41,10 @@ class DeletionProposalStatisticsSyncService extends _$DeletionProposalStatistics
 
     // 注册清理逻辑
     ref.onDispose(() {
-      print('🗑️ [Notifier] DeletionProposalStatisticsSyncService Notifier is disposed.');
+      debugPrint('🗑️ [Notifier] DeletionProposalStatisticsSyncService Notifier is disposed.');
     });
 
-    print("✅ [Notifier] DeletionProposalStatisticsSyncService initialized and is listening for proposal changes.");
+    debugPrint("✅ [Notifier] DeletionProposalStatisticsSyncService initialized and is listening for proposal changes.");
   }
 
   /// 依赖项可以通过一个私有的 getter 来按需获取。
@@ -62,7 +63,7 @@ class DeletionProposalStatisticsSyncService extends _$DeletionProposalStatistics
 
   /// 处理单个提议的数据（目前为空，可扩展）。
   void _handleProposalData(Proposal proposal) {
-    // 例如: print("Handling data for proposal: ${proposal.phoneNumber}");
+    // 例如: debugPrint("Handling data for proposal: ${proposal.phoneNumber}");
   }
 
   /// 公共方法，用于同步单个提议的投票结果。

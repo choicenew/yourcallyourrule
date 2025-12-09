@@ -16,7 +16,6 @@ jobs:
     if: >-
       contains(github.event.head_commit.message, 'update version') &&
       github.repository == 'choicenew/yourcallyourrule'
-
     name: Build and Release Android
     runs-on: ubuntu-latest
     permissions:
@@ -27,52 +26,33 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 
-
-      # ▼▼▼▼▼▼▼▼ 修改了这里 ▼▼▼▼▼▼▼▼
-      - name: Configure Swap Space
-        run: |
-          # 1. 停止当前正在使用的 Swap (解决 Text file busy)
-          sudo swapoff -a || true
-          
-          # 2. 创建 8GB 交换空间
-          sudo dd if=/dev/zero of=/swapfile bs=1G count=8 status=progress
-          
-          # 3. 设置安全权限并格式化
-          sudo chmod 600 /swapfile
-          sudo mkswap /swapfile
-          
-          # 4. 重新启用
-          sudo swapon /swapfile
-          
-          # 5. 打印状态以供检查
-          free -h
-      # ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
-
+      # ==============================================
+      # 新增：清理磁盘空间步骤
+      # ==============================================
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@v1.3.1
         with:
           tool-cache: false
-          android: false 
-          dotnet: true   
-          haskell: true  
-          large-packages: true 
-          docker-images: true  
-          swap-storage: false # 保持 false，不要让这个插件删除了我们刚建好的 Swap
-
+          android: false # 千万不要清理 Android，我们需要它！
+          dotnet: true   # 清理 .NET
+          haskell: true  # 清理 Haskell
+          large-packages: true # 清理大文件包
+          docker-images: true  # 清理 Docker 镜像
+          swap-storage: false # 建议这里改为 false，因为 Swap 太慢导致了超时，不如直接限制内存
+      # ==============================================
+      
       - name: Extract metadata from pubspec.yaml
         id: meta
         run: |
           VERSION_STRING=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
           echo "version=v$VERSION_STRING" >> $GITHUB_OUTPUT
           echo "version_code=$(echo $VERSION_STRING | sed 's/.*+//')" >> $GITHUB_OUTPUT
-
       - name: Extract Latest Commit Message
         id: commit_message
         run: |
           echo "message<<EOF" >> $GITHUB_OUTPUT
           git log -1 --pretty=%B >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-
       - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
@@ -80,22 +60,18 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
+      # ==============================================
+      # 2. 限制 Gradle 内存 (解决 Error 143 / 编译慢)
+      # ==============================================
       - name: Setup Gradle Properties
         run: |
           mkdir -p ~/.gradle/
-          # 保持之前的优化：限制堆内存，禁用并行
+          # 限制堆内存为 3GB，防止 R8 编译器把内存撑爆
           echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
+          # 禁用守护进程，CI环境不需要
           echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
           echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
-          # 4. 【关键限制】限制 Worker 数量为 2 (解决内存溢出)
-          # GitHub Runner 只有 2 核，开多了只会抢内存导致 OOM，设为 2 是最佳平衡点。
-          echo "org.gradle.workers.max=2" >> ~/.gradle/gradle.properties          
-
           echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
-          echo "kotlin.daemon.jvm.options=-Xmx1024M" >> ~/.gradle/gradle.properties
-
-
-
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
@@ -125,25 +101,15 @@ jobs:
           echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
           echo "storeFile=key.jks" >> android/key.properties
       
-      - name: Build AAB
-        run: flutter build appbundle --release
-
-      - name: Setup Bundletool
+      - name: Build and Sign AAB and APKs
         run: |
-          wget https://github.com/google/bundletool/releases/download/1.15.6/bundletool-all-1.15.6.jar -O bundletool.jar
+          flutter build appbundle --release
+          flutter build apk --split-per-abi --release
+      # ==========================================================
+      # 发布步骤 (已全部设置为独立运行，互不影响)
+      # ==========================================================
 
-      - name: Generate Universal APK from AAB
-        run: |
-          java -jar bundletool.jar build-apks \
-            --bundle=build/app/outputs/bundle/release/app-release.aab \
-            --output=app.apks \
-            --mode=universal \
-            --ks=android/app/key.jks \
-            --ks-pass=pass:${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
-            --ks-key-alias=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
-            --key-pass=pass:${{ secrets.ANDROID_KEY_PASSWORD }}
-          unzip -p app.apks universal.apk > app-release-universal.apk
-
+      # --- 1. 发布到私有 GitHub Release ---
       - name: Publish to Private GitHub Release (Current Repo)
         uses: ncipollo/release-action@v1
         with:
@@ -152,10 +118,10 @@ jobs:
           name: "Internal Build ${{ steps.meta.outputs.version }}"
           body: |
             **✨ What's New:**
+            
             ${{ steps.commit_message.outputs.message }}
-            *(APK extracted from AAB via Bundletool)*
           generateReleaseNotes: true
           allowUpdates: true
           artifacts: |
             build/app/outputs/bundle/release/app-release.aab
-            app-release-universal.apk
+            build/app/outputs/flutter-apk/*.apk

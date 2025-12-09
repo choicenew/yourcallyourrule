@@ -24,6 +24,7 @@ import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_ini
 
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/live_activity_notification_manager.dart';
+import 'package:yourcallyourrule/core/provider/providers/foreground_sync_service_provider.dart';
 // 导入 FFI 包
 
 Future<void> main() async {
@@ -82,6 +83,10 @@ Future<void> main() async {
     // 初始化 Live Activity 通知管理器
     container.read(liveActivityNotificationManagerProvider).initialize();
     // 后台同步服务将通过Provider系统初始化
+
+    // 【新增】在应用启动时触发一次前台同步检查
+    // 这是一个可靠的备用机制，以防 Workmanager 后台任务失败
+    container.read(foregroundSyncServiceInitializerProvider);
 
     // 记录应用启动事件
     firebaseService.logAppOpen();
