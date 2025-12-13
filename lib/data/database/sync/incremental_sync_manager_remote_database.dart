@@ -87,6 +87,7 @@ class IncrementalSyncManager {
 
       if (pendingOperations.isNotEmpty) {
         // 3. Push local changes to the remote server
+        debugPrint('✅ [测试模式] Pushing ${pendingOperations.length} local changes to the remote server.');
         final bool pushSuccess = await _apiService.pushChanges(
           changes: pendingOperations,
           deviceId: deviceId,
@@ -119,6 +120,7 @@ class IncrementalSyncManager {
 
       if (remoteChanges.isNotEmpty) {
         // 8. Apply remote changes to the local database
+        debugPrint('✅ [测试模式] Applying ${remoteChanges.length} remote changes to the local database.');
         await _dataSource.applyRemoteChanges(remoteChanges);
       }
 

@@ -22,15 +22,25 @@ class GoogleAdWidget extends ConsumerStatefulWidget {
   GoogleAdWidgetState createState() => GoogleAdWidgetState();
 }
 
-class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> {
+class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKeepAliveClientMixin {
   dynamic _ad; // 存储不同类型的广告
   bool _isAdLoaded = false; // 广告是否加载完成
 
+  @override
+  bool get wantKeepAlive {
+    if (widget.adInfo.type == AdType.banner ||
+        widget.adInfo.type == AdType.nativeAdvanced) {
+      return true;
+    }
+    return false;
+  }
 
   @override
   void initState() {
     super.initState();
-    _createAd(); // 初始化时创建广告
+    if (ref.read(adStateProvider)) {
+      _createAd();
+    }
   }
 
   @override
@@ -79,9 +89,12 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> {
       request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
-          setState(() {
-            _isAdLoaded = true;
-          });
+          if (mounted) {
+            setState(() {
+              _isAdLoaded = true;
+            });
+            updateKeepAlive();
+          }
         },
         onAdFailedToLoad: (ad, error) {
           ad.dispose();
@@ -126,7 +139,6 @@ void _createRewardedInterstitialAd() {
           onAdDismissedFullScreenContent: (ad) {
             ad.dispose();
             _ad = null; // 清空广告
-            _createRewardedInterstitialAd(); // 重新加载广告
           },
           onAdClicked: (ad) {},
         );
@@ -167,9 +179,12 @@ void _createRewardedInterstitialAd() {
       request: const AdRequest(),
       listener: NativeAdListener(
         onAdLoaded: (ad) {
-          setState(() {
-            _isAdLoaded = true;
-          });
+          if (mounted) {
+            setState(() {
+              _isAdLoaded = true;
+            });
+            updateKeepAlive(); // 通知保活
+          }
         },
         onAdFailedToLoad: (ad, error) {
           ad.dispose();
@@ -207,33 +222,43 @@ void _createRewardedInterstitialAd() {
 
     if (_ad is InterstitialAd) {
       _ad.show();
-      _createInterstitialAd(); // 显示后重新加载
     } else if (_ad is RewardedInterstitialAd) {
       _ad.show(onUserEarnedReward: (ad, reward) {
         // 处理奖励
       });
-      _createRewardedInterstitialAd(); // 显示后重新加载
     } else if (_ad is RewardedAd) {
       _ad.show(onUserEarnedReward: (ad, reward) {
         // 处理奖励
       });
-      _createRewardedAd(); // 显示后重新加载
     } else if (_ad is AppOpenAd) {
       _ad.show();
-      _createAppOpenAd(); // 显示后重新加载
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final adState = ref.watch(adStateProvider);
-    
-    // 根据广告状态决定是否显示广告
-    if (adState && _isAdLoaded) {
-      return _buildAdWidget(width: widget.width, height: widget.height);
-    } else {
-      return const SizedBox(); // 不显示广告时返回一个空的 SizedBox
+
+    if (!adState) {
+      if (_isAdLoaded) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _disposeAd();
+        });
+      }
+      return const SizedBox();
     }
+
+    if (adState && !_isAdLoaded && _ad == null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _createAd());
+    }
+
+    // 根据广告状态决定是否显示广告
+    if (_isAdLoaded && _ad != null) {
+      return _buildAdWidget(width: widget.width, height: widget.height);
+    }
+
+    return const SizedBox(); // 不显示广告时返回一个空的 SizedBox
   }
 
   // 根据广告类型构建相应的广告 Widget

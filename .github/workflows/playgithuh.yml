@@ -67,7 +67,7 @@ jobs:
         run: |
           mkdir -p ~/.gradle/
           # 限制堆内存为 3GB，防止 R8 编译器把内存撑爆
-          echo "org.gradle.jvmargs=-Xmx4096m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
+          echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=768m" >> ~/.gradle/gradle.properties
           # 禁用守护进程，CI环境不需要
           echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
           echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
