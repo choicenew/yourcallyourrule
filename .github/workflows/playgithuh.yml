@@ -10,12 +10,19 @@ on:
 
 jobs:
   build_and_release:
-    # 关键在这里！添加 if 条件判断
-    # 只有当最新的 commit message 包含 'update version' 时，才执行下面的步骤
-        # 在原有条件的基础上，增加对仓库名称的判断
+    # 修改后的逻辑解释：
+    # 1. 首先检查仓库必须是 'choicenew/yourcallyourrule' (防止 Fork 的人误跑)
+    # 2. 然后是一个 AND (&&) 连接后面的括号内容
+    # 3. 括号内是 OR (||) 逻辑：
+    #    - 情况 A: 是手动触发 (workflow_dispatch) -> 直接运行，不看 commit message
+    #    - 情况 B: 是代码推送 且 commit message 包含 'update version' -> 运行
     if: >-
-      contains(github.event.head_commit.message, 'update version') &&
-      github.repository == 'choicenew/yourcallyourrule'
+      github.repository == 'choicenew/yourcallyourrule' &&
+      (
+        github.event_name == 'workflow_dispatch' ||
+        contains(github.event.head_commit.message, 'update version')
+      )
+        
     name: Build and Release Android
     runs-on: ubuntu-latest
     permissions:
