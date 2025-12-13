@@ -67,18 +67,18 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-      # ==============================================
-      # 2. 限制 Gradle 内存 (解决 Error 143 / 编译慢)
-      # ==============================================
-      - name: Setup Gradle Properties
-        run: |
-          mkdir -p ~/.gradle/
-          # 限制堆内存为 3GB，防止 R8 编译器把内存撑爆
-          echo "org.gradle.jvmargs=-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=768m" >> ~/.gradle/gradle.properties
-          # 禁用守护进程，CI环境不需要
-          echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
-          echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
-          echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
+
+
+
+
+
+
+
+
+
+
+
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
