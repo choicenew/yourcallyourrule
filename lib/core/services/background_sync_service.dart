@@ -130,7 +130,7 @@ class BackgroundSyncService {
       ),
       existingWorkPolicy: ExistingPeriodicWorkPolicy.replace,
     );
-    
+    /*
     // 注册数据同步任务
     await Workmanager().registerPeriodicTask(
       "3",
@@ -141,6 +141,7 @@ class BackgroundSyncService {
       ),
       existingWorkPolicy: ExistingPeriodicWorkPolicy.replace,
     );
+    */
   }
   
   /// 取消所有同步任务

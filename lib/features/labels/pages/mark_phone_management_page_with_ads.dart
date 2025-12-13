@@ -341,10 +341,13 @@ class _MarkPhoneManagementPageWithAdsState
                  return CircleAvatar(
                    backgroundColor: AvatarUtils.getColorFromName(entry.labelId),
                    radius: 24,
-                   child: Text(
-                     AvatarUtils.getAvatarInitial(entry.name.isNotEmpty ? entry.name : labelName),
-                     style: const TextStyle(color: Colors.white, fontSize: 18),
-                   ),
+                   backgroundImage: AvatarUtils.getAvatarImage(entry.avatar, labelName),
+                   child: AvatarUtils.getAvatarImage(entry.avatar, labelName) == null
+                       ? Text(
+                           AvatarUtils.getAvatarInitial(entry.name.isNotEmpty ? entry.name : labelName),
+                           style: const TextStyle(color: Colors.white, fontSize: 18),
+                         )
+                       : null,
                  );
                },
              ),

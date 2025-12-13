@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 
 import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_remote_database.dart';
 import 'package:yourcallyourrule/data/database/sync/sync_scheduler.dart';
@@ -32,14 +33,16 @@ class ForegroundSyncService {
   ///
   /// This method is intended to be called once during application startup.
   Future<void> syncIfNeeded() async {
+    debugPrint('ForegroundSyncService: syncIfNeeded called.');
     // Use the scheduler to determine if the time since the last sync has
     // exceeded the defined interval.
     if (await _syncScheduler.needsSync) {
       // If a sync is needed, trigger the incremental sync process.
       // We don't need to await this, as it can run in the background
       // without blocking the UI. Errors are handled within the manager.
-      _syncManager.syncIncremental();
-    }
+    await  _syncManager.syncIncremental();
+    debugPrint('✅ [测试模式] 同步执行完成 (检查上方是否有 Pushing/Applying 日志)');
+  }
 
     // Check and trigger call log sync if needed.
     final now = DateTime.now();
