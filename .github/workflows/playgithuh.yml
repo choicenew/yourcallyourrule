@@ -68,7 +68,19 @@ jobs:
           cache: 'gradle'
 
 
-
+      # ==============================================
+      # 必加：限制 Gradle 内存，防止 Exit code 143
+      # ==============================================
+      - name: Setup Gradle Properties
+        run: |
+          mkdir -p ~/.gradle/
+          # 限制堆内存为 2GB (2048m)，留出空间给系统，防止被杀
+          echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
+          # 禁用守护进程（关键！）
+          echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
+          # 开启并行编译
+          echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
+      # ==============================================
 
 
 
