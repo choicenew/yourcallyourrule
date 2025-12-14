@@ -69,20 +69,17 @@ jobs:
 
 
       # ==============================================
-      # 必加：限制 Gradle 内存，防止 Exit code 143
+      # 2. 限制 Gradle 内存 (解决 Error 143 / 编译慢)
       # ==============================================
       - name: Setup Gradle Properties
         run: |
           mkdir -p ~/.gradle/
-          # 限制堆内存为 2GB (2048m)，留出空间给系统，防止被杀
+          # 限制堆内存为 3GB，防止 R8 编译器把内存撑爆
           echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
-          # 禁用守护进程（关键！）
+          # 禁用守护进程，CI环境不需要
           echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
-          # 4. 【核心修复】强制限制 Gradle 只能用 1 个工作线程
-          # 虽然会慢一点点，但绝对稳，不会因为并发导致内存溢出
-          echo "org.gradle.workers.max=1" >> ~/.gradle/gradle.properties
-
-      # ==============================================
+          echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
+          echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
 
 
 
@@ -124,8 +121,8 @@ jobs:
       
       - name: Build and Sign AAB and APKs
         run: |
-          flutter build appbundle --release
-          flutter build apk --split-per-abi --release
+          flutter build appbundle --release --verbose
+          flutter build apk --split-per-abi --release --verbose
       # ==========================================================
       # 发布步骤 (已全部设置为独立运行，互不影响)
       # ==========================================================
