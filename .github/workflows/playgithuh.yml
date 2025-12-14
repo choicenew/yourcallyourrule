@@ -33,6 +33,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 
+
+      # ==============================================
+      # 【釜底抽薪的唯一解】启用 Swap 空间，用硬盘换内存
+      # 这是为了防止 OOM Killer 杀死 Gradle 进程 (exit code 143)
+      # ==============================================
+      - name: Enable Swap Space
+        uses: pierotofy/set-swap-space@master
+        with:
+          swap-size-gb: 10
+
       # ==============================================
       # 新增：清理磁盘空间步骤
       # ==============================================
@@ -45,7 +55,7 @@ jobs:
           haskell: true  # 清理 Haskell
           large-packages: true # 清理大文件包
           docker-images: true  # 清理 Docker 镜像
-          swap-storage: false # 建议这里改为 false，因为 Swap 太慢导致了超时，不如直接限制内存
+          swap-storage: true # 建议这里改为 false，因为 Swap 太慢导致了超时，不如直接限制内存
       # ==============================================
       
       - name: Extract metadata from pubspec.yaml
@@ -75,7 +85,7 @@ jobs:
         run: |
           mkdir -p ~/.gradle/
           # 限制堆内存为 3GB，防止 R8 编译器把内存撑爆
-          echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:MaxMetaspaceSize=512m" >> ~/.gradle/gradle.properties
+          echo "org.gradle.jvmargs=-Xmx3072m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8" >> ~/.gradle/gradle.properties
           # 禁用守护进程，CI环境不需要
           echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
           echo "org.gradle.parallel=true" >> ~/.gradle/gradle.properties
