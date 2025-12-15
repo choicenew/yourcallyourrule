@@ -7,7 +7,7 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.IBinder
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+
 
 class CallScreeningHelper(private val activity: Activity) {
 
@@ -35,7 +35,7 @@ class CallScreeningHelper(private val activity: Activity) {
         activity.bindService(
             myCallServiceIntent,
             myServiceConnection!!,
-            AppCompatActivity.BIND_AUTO_CREATE
+            Context.BIND_AUTO_CREATE
         )
     }
 
