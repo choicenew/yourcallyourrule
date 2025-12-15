@@ -70,8 +70,9 @@ android {
 */
     
     namespace = "com.yours.yourcallyourrule"
-    compileSdk 36
-    ndkVersion = '28.0.12433566 rc1'
+    // 【核心修正】改成这样！！！
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
 
     compileOptions {
         coreLibraryDesugaringEnabled true
@@ -132,7 +133,7 @@ android {
           proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '36.0.0'
+
 }
 
 flutter {
@@ -141,16 +142,14 @@ flutter {
 
 dependencies {
 
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.1.21'  // 指定 Kotlin
+   
     implementation 'androidx.core:core-ktx:1.16.0'
-    implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'androidx.activity:activity:1.10.1'
-    implementation 'androidx.activity:activity-ktx:1.10.1'
+    
+    // 必须添加：因为 compileOptions 中启用了 coreLibraryDesugaringEnabled true
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
 
-    implementation 'androidx.window:window:1.4.0'//local notification
-    implementation 'androidx.window:window-java:1.4.0'//local notification
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5' //local notification
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.android.gms:play-services-ads:24.3.0'
-    implementation 'androidx.multidex:multidex:2.0.1'
+
+
+
+
 }
