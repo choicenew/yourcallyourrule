@@ -46,7 +46,7 @@ dependencies:
   #dlibphonenumber: ^1.1.20
   dlibphonenumber:
     git:
-      url: https://github.com/haygcao/dlibphonenumber.git
+      url: https://github.com/haygcao/dlibphonenumberold.git
       ref: main
 
 
@@ -148,7 +148,7 @@ dependencies:
   google_sign_in_platform_interface: ^3.0.0
   riverpod_annotation: ^3.0.0
   riverpod_generator: ^3.0.0
-  world_countries: 3.9.4
+  world_countries: 3.8.0
   sim_card_code: ^0.1.0
   #floating_window_android: ^1.1.1
   floating_window_android:
@@ -166,9 +166,11 @@ dependencies:
   supabase_flutter: ^2.10.3
   postgres: ^3.5.9
 
-#dependency_overrides:
-  #live_updates:
-    #path: ./临时参考/live-update
+dependency_overrides:
+  live_updates:
+    path: ./临时参考/live_updates
+  floating_window_android:
+    path: ./临时参考/floating_window_android
 
 dev_dependencies:
   flutter_test:
