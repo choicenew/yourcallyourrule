@@ -24,9 +24,9 @@ class FirebaseAnalyticsService {
       // 在调试模式下可以选择禁用
       await _analytics.setAnalyticsCollectionEnabled(!kDebugMode);
       
-      print('Firebase Analytics 初始化成功');
+      debugPrint('Firebase Analytics 初始化成功');
     } catch (e) {
-      print('Firebase Analytics 初始化失败: $e');
+      debugPrint('Firebase Analytics 初始化失败: $e');
     }
   }
   
@@ -38,7 +38,7 @@ class FirebaseAnalyticsService {
     try {
       await _analytics.logEvent(name: name, parameters: parameters);
     } catch (e) {
-      print('记录事件失败: $e');
+      debugPrint('记录事件失败: $e');
     }
   }
   
@@ -47,7 +47,7 @@ class FirebaseAnalyticsService {
     try {
       await _analytics.logAppOpen();
     } catch (e) {
-      print('记录应用启动事件失败: $e');
+      debugPrint('记录应用启动事件失败: $e');
     }
   }
   
@@ -56,7 +56,7 @@ class FirebaseAnalyticsService {
     try {
       await _analytics.logLogin(loginMethod: loginMethod ?? 'unknown');
     } catch (e) {
-      print('记录登录事件失败: $e');
+      debugPrint('记录登录事件失败: $e');
     }
   }
   
@@ -65,7 +65,7 @@ class FirebaseAnalyticsService {
     try {
       await _analytics.logSignUp(signUpMethod: signUpMethod ?? 'unknown');
     } catch (e) {
-      print('记录注册事件失败: $e');
+      debugPrint('记录注册事件失败: $e');
     }
   }
   
@@ -74,7 +74,7 @@ class FirebaseAnalyticsService {
     try {
       await _analytics.logSearch(searchTerm: searchTerm);
     } catch (e) {
-      print('记录搜索事件失败: $e');
+      debugPrint('记录搜索事件失败: $e');
     }
   }
   
@@ -95,7 +95,7 @@ class FirebaseAnalyticsService {
         },
       );
     } catch (e) {
-      print('记录内容查看事件失败: $e');
+      debugPrint('记录内容查看事件失败: $e');
     }
   }
   
@@ -107,7 +107,7 @@ class FirebaseAnalyticsService {
         screenClass: screenClass,
       );
     } catch (e) {
-      print('记录屏幕浏览事件失败: $e');
+      debugPrint('记录屏幕浏览事件失败: $e');
     }
   }
   
@@ -116,7 +116,7 @@ class FirebaseAnalyticsService {
     try {
       await _analytics.setUserId(id: userId);
     } catch (e) {
-      print('设置用户ID失败: $e');
+      debugPrint('设置用户ID失败: $e');
     }
   }
   
@@ -125,7 +125,7 @@ class FirebaseAnalyticsService {
     try {
       await _analytics.setUserProperty(name: name, value: value);
     } catch (e) {
-      print('设置用户属性失败: $e');
+      debugPrint('设置用户属性失败: $e');
     }
   }
   
@@ -134,7 +134,7 @@ class FirebaseAnalyticsService {
     try {
       await _analytics.resetAnalyticsData();
     } catch (e) {
-      print('重置分析数据失败: $e');
+      debugPrint('重置分析数据失败: $e');
     }
   }
   
@@ -155,7 +155,7 @@ class FirebaseAnalyticsService {
         },
       );
     } catch (e) {
-      print('记录来电事件失败: $e');
+      debugPrint('记录来电事件失败: $e');
     }
   }
   
@@ -175,7 +175,7 @@ class FirebaseAnalyticsService {
         },
       );
     } catch (e) {
-      print('记录过滤器事件失败: $e');
+      debugPrint('记录过滤器事件失败: $e');
     }
   }
   
@@ -193,7 +193,7 @@ class FirebaseAnalyticsService {
         },
       );
     } catch (e) {
-      print('记录设置事件失败: $e');
+      debugPrint('记录设置事件失败: $e');
     }
   }
 }

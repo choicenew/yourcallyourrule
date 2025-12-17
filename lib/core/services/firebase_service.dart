@@ -37,10 +37,10 @@ class FirebaseService {
       // 初始化Firebase App Check
       await _initializeAppCheck();
       
-      print('Firebase服务初始化成功');
+      debugPrint('Firebase服务初始化成功');
     } catch (e, stackTrace) {
-      print('Firebase初始化错误: $e');
-      print('堆栈跟踪: $stackTrace');
+      debugPrint('Firebase初始化错误: $e');
+      debugPrint('堆栈跟踪: $stackTrace');
     }
   }
   
@@ -82,7 +82,7 @@ class FirebaseService {
     try {
       await analytics.logEvent(name: name, parameters: parameters);
     } catch (e) {
-      print('记录事件失败: $e');
+      debugPrint('记录事件失败: $e');
     }
   }
   
@@ -92,7 +92,7 @@ class FirebaseService {
       await analytics.setUserId(id: userId);
       await setUserIdentifier(userId ?? 'anonymous');
     } catch (e) {
-      print('设置用户ID失败: $e');
+      debugPrint('设置用户ID失败: $e');
     }
   }
   
@@ -102,7 +102,7 @@ class FirebaseService {
       // 使用logScreenView方法，但不使用screenClassOverride参数
       await analytics.logScreenView(screenName: screenName);
     } catch (e) {
-      print('设置当前屏幕失败: $e');
+      debugPrint('设置当前屏幕失败: $e');
     }
   }
   
@@ -112,7 +112,7 @@ class FirebaseService {
       try {
         await FirebaseCrashlytics.instance.recordError(exception, stack, fatal: fatal);
       } catch (e) {
-        print('记录崩溃失败: $e');
+        debugPrint('记录崩溃失败: $e');
       }
     }
   }
@@ -122,7 +122,7 @@ class FirebaseService {
     try {
       await analytics.logAppOpen();
     } catch (e) {
-      print('记录应用启动事件失败: $e');
+      debugPrint('记录应用启动事件失败: $e');
     }
   }
   
@@ -131,7 +131,7 @@ class FirebaseService {
     try {
       await analytics.logLogin(loginMethod: loginMethod);
     } catch (e) {
-      print('记录登录事件失败: $e');
+      debugPrint('记录登录事件失败: $e');
     }
   }
   
@@ -140,7 +140,7 @@ class FirebaseService {
     try {
       await analytics.logSignUp(signUpMethod: signUpMethod ?? 'unknown');
     } catch (e) {
-      print('记录注册事件失败: $e');
+      debugPrint('记录注册事件失败: $e');
     }
   }
   
@@ -149,7 +149,7 @@ class FirebaseService {
     try {
       await analytics.logSearch(searchTerm: searchTerm);
     } catch (e) {
-      print('记录搜索事件失败: $e');
+      debugPrint('记录搜索事件失败: $e');
     }
   }
   
@@ -158,7 +158,7 @@ class FirebaseService {
     try {
       await logEvent(name: 'caller_id_$eventType', parameters: parameters);
     } catch (e) {
-      print('记录来电识别事件失败: $e');
+      debugPrint('记录来电识别事件失败: $e');
     }
   }
   
@@ -167,7 +167,7 @@ class FirebaseService {
     try {
       await logEvent(name: 'filter_$eventType', parameters: parameters);
     } catch (e) {
-      print('记录过滤器事件失败: $e');
+      debugPrint('记录过滤器事件失败: $e');
     }
   }
   
@@ -176,7 +176,7 @@ class FirebaseService {
     try {
       await FirebaseCrashlytics.instance.setUserIdentifier(identifier);
     } catch (e) {
-      print('设置用户标识符失败: $e');
+      debugPrint('设置用户标识符失败: $e');
     }
   }
   
@@ -185,7 +185,7 @@ class FirebaseService {
     try {
       await FirebaseCrashlytics.instance.setCustomKey(key, value);
     } catch (e) {
-      print('设置自定义键值对失败: $e');
+      debugPrint('设置自定义键值对失败: $e');
     }
   }
   
@@ -194,7 +194,7 @@ class FirebaseService {
     try {
       await FirebaseCrashlytics.instance.log(message);
     } catch (e) {
-      print('记录日志消息失败: $e');
+      debugPrint('记录日志消息失败: $e');
     }
   }
   
@@ -209,7 +209,7 @@ class FirebaseService {
     try {
       return await FirebaseAppCheck.instance.getToken();
     } catch (e) {
-      print('获取App Check令牌失败: $e');
+      debugPrint('获取App Check令牌失败: $e');
       return null;
     }
   }
