@@ -59,9 +59,9 @@ class FirebaseCrashlyticsService {
         await _crashlytics.setCrashlyticsCollectionEnabled(false);
       }
       
-      print('Firebase Crashlytics 初始化成功');
+      debugPrint('Firebase Crashlytics 初始化成功');
     } catch (e) {
-      print('Firebase Crashlytics 初始化失败: $e');
+      debugPrint('Firebase Crashlytics 初始化失败: $e');
     }
   }
   
@@ -81,12 +81,12 @@ class FirebaseCrashlyticsService {
         );
       } else {
         // 在调试模式下打印错误信息
-        print('Crashlytics would record: $exception');
-        print('Reason: $reason');
-        print('Stack trace: $stack');
+        debugPrint('Crashlytics would record: $exception');
+        debugPrint('Reason: $reason');
+        debugPrint('Stack trace: $stack');
       }
     } catch (e) {
-      print('记录错误到Crashlytics失败: $e');
+      debugPrint('记录错误到Crashlytics失败: $e');
     }
   }
   
@@ -112,7 +112,7 @@ class FirebaseCrashlyticsService {
         reason: reason,
       );
     } catch (e) {
-      print('记录自定义错误到Crashlytics失败: $e');
+      debugPrint('记录自定义错误到Crashlytics失败: $e');
     }
   }
   
@@ -121,7 +121,7 @@ class FirebaseCrashlyticsService {
     try {
       await _crashlytics.setUserIdentifier(identifier);
     } catch (e) {
-      print('设置Crashlytics用户标识符失败: $e');
+      debugPrint('设置Crashlytics用户标识符失败: $e');
     }
   }
   
@@ -130,7 +130,7 @@ class FirebaseCrashlyticsService {
     try {
       await _crashlytics.setCustomKey(key, value);
     } catch (e) {
-      print('设置Crashlytics自定义键值对失败: $e');
+      debugPrint('设置Crashlytics自定义键值对失败: $e');
     }
   }
   
@@ -141,7 +141,7 @@ class FirebaseCrashlyticsService {
         await _crashlytics.setCustomKey(entry.key, entry.value);
       }
     } catch (e) {
-      print('设置多个Crashlytics自定义键值对失败: $e');
+      debugPrint('设置多个Crashlytics自定义键值对失败: $e');
     }
   }
   
@@ -150,7 +150,7 @@ class FirebaseCrashlyticsService {
     try {
       await _crashlytics.log(message);
     } catch (e) {
-      print('记录日志到Crashlytics失败: $e');
+      debugPrint('记录日志到Crashlytics失败: $e');
     }
   }
   
@@ -158,7 +158,7 @@ class FirebaseCrashlyticsService {
   void forceCrash() {
     if (kDebugMode) {
       // 在调试模式下，只打印消息
-      print('在调试模式下，不会触发实际崩溃');
+      debugPrint('在调试模式下，不会触发实际崩溃');
       return;
     }
     
@@ -177,7 +177,7 @@ class FirebaseCrashlyticsService {
     try {
       await _crashlytics.setCrashlyticsCollectionEnabled(enabled);
     } catch (e) {
-      print('设置Crashlytics数据收集状态失败: $e');
+      debugPrint('设置Crashlytics数据收集状态失败: $e');
     }
   }
   
@@ -186,7 +186,7 @@ class FirebaseCrashlyticsService {
     try {
       return await _crashlytics.didCrashOnPreviousExecution();
     } catch (e) {
-      print('检查上次运行崩溃状态失败: $e');
+      debugPrint('检查上次运行崩溃状态失败: $e');
       return false;
     }
   }
@@ -207,7 +207,7 @@ class FirebaseCrashlyticsService {
         recordError(error, stack);
       }
     } catch (e) {
-      print('发送未捕获错误到Crashlytics失败: $e');
+      debugPrint('发送未捕获错误到Crashlytics失败: $e');
     }
   }
 }

@@ -39,9 +39,9 @@ class FirebaseAppCheckService {
           );
         }
       }
-      print('Firebase App Check 初始化成功');
+      debugPrint('Firebase App Check 初始化成功');
     } catch (e) {
-      print('Firebase App Check 初始化失败: $e');
+      debugPrint('Firebase App Check 初始化失败: $e');
     }
   }
   
@@ -54,7 +54,7 @@ class FirebaseAppCheckService {
     try {
       return await _appCheck.getToken();
     } catch (e) {
-      print('获取App Check令牌失败: $e');
+      debugPrint('获取App Check令牌失败: $e');
       return null;
     }
   }
@@ -64,13 +64,13 @@ class FirebaseAppCheckService {
     try {
       _appCheck.onTokenChange.listen((token) {
         // 处理令牌变更
-        print('App Check令牌已更新');
+        debugPrint('App Check令牌已更新');
         if (token != null) {
           onTokenRefreshed(token);
         }
       });
     } catch (e) {
-      print('设置令牌自动刷新监听器失败: $e');
+      debugPrint('设置令牌自动刷新监听器失败: $e');
     }
   }
   
@@ -81,7 +81,7 @@ class FirebaseAppCheckService {
       // 我们先获取一个新令牌，然后丢弃结果
       await _appCheck.getToken();
     } catch (e) {
-      print('刷新App Check令牌失败: $e');
+      debugPrint('刷新App Check令牌失败: $e');
     }
   }
   
@@ -95,11 +95,11 @@ class FirebaseAppCheckService {
           'X-Firebase-AppCheck': token,
         };
       } else {
-        print('App Check令牌为空，无法获取请求头');
+        debugPrint('App Check令牌为空，无法获取请求头');
         return {};
       }
     } catch (e) {
-      print('获取App Check请求头失败: $e');
+      debugPrint('获取App Check请求头失败: $e');
       return {};
     }
   }
@@ -112,9 +112,9 @@ class FirebaseAppCheckService {
         // 获取调试令牌
         const debugToken = 'YOUR_DEBUG_TOKEN'; // 替换为您的调试令牌
         await _appCheck.setTokenAutoRefreshEnabled(true);
-        print('App Check调试模式已启用');
+        debugPrint('App Check调试模式已启用');
       } catch (e) {
-        print('设置App Check调试模式失败: $e');
+        debugPrint('设置App Check调试模式失败: $e');
       }
     }
   }
