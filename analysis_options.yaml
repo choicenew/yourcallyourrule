@@ -9,6 +9,13 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  exclude:
+    - "**/*.g.dart"        # 忽略 json_serializable 等生成的文件
+    - "**/*.freezed.dart"  # 忽略 freezed 生成的文件
+    - "lib/generated/**"   # 如果你有专门的 generated 文件夹
+    - "lib/l10n/**"        # 忽略巨大的本地化翻译文件
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
