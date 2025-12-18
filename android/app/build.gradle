@@ -113,6 +113,15 @@ android {
         excludes += 'META-INF/notice.txt'
         excludes += 'META-INF/ASL2.0'
 
+        pickFirsts += 'lib/x86/libopenh264.so'
+        pickFirsts += 'lib/x86_64/libopenh264.so'
+        pickFirsts += 'lib/armeabi-v7a/libopenh264.so'
+        pickFirsts += 'lib/arm64-v8a/libopenh264.so'
+        pickFirsts += 'lib/arm64-v8a/libc++_shared.so'
+        pickFirsts += 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirsts += 'lib/x86_64/libc++_shared.so'
+        pickFirsts += 'lib/x86/libc++_shared.so'
+
     }
 
     buildTypes {
