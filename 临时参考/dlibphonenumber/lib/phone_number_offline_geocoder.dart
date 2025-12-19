@@ -85,9 +85,16 @@ class PhoneNumberOfflineGeocoder {
   Future<String> getDescriptionForValidNumber(
       PhoneNumber number, Locale languageCode,
       [String? userRegion]) async {
+    int countryCallingCode = number.countryCode;
+    // As the NANPA data is split into multiple files covering 3-digit areas, use a
+    // phone number prefix of 4 digits for NANPA instead, e.g. 1650.
+    int phonePrefix = (countryCallingCode != 1)
+        ? countryCallingCode
+        : (1000 + (number.nationalNumber.toInt() ~/ 10000000));
+
     // Ensure data is loaded
     await _loader.ensureLoaded(
-        number.countryCode, languageCode.language, "", languageCode.country);
+        phonePrefix, languageCode.language, "", languageCode.country);
 
     if (userRegion == null) {
       String langStr = languageCode.language;
