@@ -1,0 +1,21 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.yours.live_updates">
+    <!--Permission for posting notifications-->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    
+    <!--Permission for live update eligibility-->
+    <uses-permission android:name="android.permission.POST_PROMOTED_NOTIFICATIONS" />
+    
+    <application>
+        <!-- Register the BroadcastReceiver to handle notification clicks -->
+        <receiver 
+            android:name=".NotificationClickReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="ANSWER_CALL" />
+                <action android:name="DECLINE_CALL" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
