@@ -1,0 +1,2 @@
+C:/Users/Ngokel/Desktop/en/designed/live-updates/live_updates/example/android/app/.cxx/RelWithDebInfo/294y716f/x86/CMakeFiles/edit_cache.dir
+C:/Users/Ngokel/Desktop/en/designed/live-updates/live_updates/example/android/app/.cxx/RelWithDebInfo/294y716f/x86/CMakeFiles/rebuild_cache.dir
