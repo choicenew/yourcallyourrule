@@ -1,17 +1,26 @@
 import 'dart:convert';
 import 'dart:io';
 
-const assetsDir = 'assets/geocoding/';
-const manifestPath = 'assets/geocoding/manifest.json';
+const configs = [
+  {'dir': 'assets/geocoding/'},
+  {'dir': 'assets/carrier/'},
+];
 
 void main() {
+  for (final config in configs) {
+    _generate(config['dir']!);
+  }
+}
+
+void _generate(String assetsDir) {
+  final manifestPath = '${assetsDir}manifest.json';
   final directory = Directory(assetsDir);
   if (!directory.existsSync()) {
     print('❌ Error: Assets directory not found at $assetsDir');
     return;
   }
 
-  print('🏁 Generating manifest...');
+  print('🏁 Generating manifest for $assetsDir...');
   final files = directory.listSync().whereType<File>().where(
       (f) => f.path.endsWith('.json') && !f.path.endsWith('manifest.json'));
 

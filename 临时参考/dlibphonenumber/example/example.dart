@@ -28,7 +28,7 @@ Future<void> main() async {
       .getDescriptionForNumber(phoneNumber1, Locale.english);
   final List<String> timezones =
       PhoneNumberToTimeZonesMapper.instance.getTimeZonesForNumber(phoneNumber1);
-  final String carrier = PhoneNumberToCarrierMapper.instance
+  final String carrier = await PhoneNumberToCarrierMapper.instance
       .getNameForNumber(phoneNumber1, Locale.english);
 
   /// prints: +233241234567
