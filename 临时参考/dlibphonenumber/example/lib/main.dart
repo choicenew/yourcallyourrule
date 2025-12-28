@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 
@@ -32,10 +31,14 @@ class PhoneNumberScreen extends StatefulWidget {
 }
 
 class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
-  final TextEditingController _numberController = TextEditingController(text: '15662327825');
-  final TextEditingController _countryController = TextEditingController(text: 'CN');
-  final TextEditingController _languageController = TextEditingController(text: 'zh');
-  String _result = 'Enter number, country, and language, then press "Parse and Validate".';
+  final TextEditingController _numberController =
+      TextEditingController(text: '15662327825');
+  final TextEditingController _countryController =
+      TextEditingController(text: 'CN');
+  final TextEditingController _languageController =
+      TextEditingController(text: 'zh');
+  String _result =
+      'Enter number, country, and language, then press "Parse and Validate".';
 
   @override
   void initState() {
@@ -48,7 +51,8 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
   void _parsePhoneNumber() async {
     final String phoneNumberInput = _numberController.text;
     final String countryCode = _countryController.text;
-    final String languageCode = _languageController.text.isNotEmpty ? _languageController.text : 'en';
+    final String languageCode =
+        _languageController.text.isNotEmpty ? _languageController.text : 'en';
 
     if (phoneNumberInput.isEmpty || countryCode.isEmpty) {
       setState(() {
@@ -62,26 +66,33 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
     });
 
     final PhoneNumberUtil phoneUtil = PhoneNumberUtil.instance;
-    
+
     try {
-      final PhoneNumber phoneNumber = phoneUtil.parse(phoneNumberInput, countryCode);
+      final PhoneNumber phoneNumber =
+          phoneUtil.parse(phoneNumberInput, countryCode);
       final bool isValid = phoneUtil.isValidNumber(phoneNumber);
       final String e164 = phoneUtil.format(phoneNumber, PhoneNumberFormat.e164);
-      final String international = phoneUtil.format(phoneNumber, PhoneNumberFormat.international);
-      final String national = phoneUtil.format(phoneNumber, PhoneNumberFormat.national);
+      final String international =
+          phoneUtil.format(phoneNumber, PhoneNumberFormat.international);
+      final String national =
+          phoneUtil.format(phoneNumber, PhoneNumberFormat.national);
       final PhoneNumberType type = phoneUtil.getNumberType(phoneNumber);
       final String? region = phoneUtil.getRegionCodeForNumber(phoneNumber);
-      
+
       final geocoder = PhoneNumberOfflineGeocoder.instance;
-      
+
       // CRITICAL FIX: Use the correct Locale constructor with named parameters.
       final locale = Locale(language: languageCode, country: countryCode);
-      
-      final String description = await geocoder.getDescriptionForNumber(phoneNumber, locale);
-      final String validNumberDescription = await geocoder.getDescriptionForValidNumber(phoneNumber, locale);
 
-      final List<String> timezones = PhoneNumberToTimeZonesMapper.instance.getTimeZonesForNumber(phoneNumber);
-      final String carrier = PhoneNumberToCarrierMapper.instance.getNameForNumber(phoneNumber, locale);
+      final String description =
+          await geocoder.getDescriptionForNumber(phoneNumber, locale);
+      final String validNumberDescription =
+          await geocoder.getDescriptionForValidNumber(phoneNumber, locale);
+
+      final List<String> timezones = PhoneNumberToTimeZonesMapper.instance
+          .getTimeZonesForNumber(phoneNumber);
+      final String carrier = await PhoneNumberToCarrierMapper.instance
+          .getNameForNumber(phoneNumber, locale);
 
       setState(() {
         _result = """
@@ -102,7 +113,8 @@ Region Code: $region
       });
     } catch (e) {
       setState(() {
-        _result = 'Error: ${e.toString()}\n\nThis might happen if the geocoding data for the specified language (\'$languageCode\') or country (\'$countryCode\') is not available.';
+        _result =
+            'Error: ${e.toString()}\n\nThis might happen if the geocoding data for the specified language (\'$languageCode\') or country (\'$countryCode\') is not available.';
       });
     }
   }

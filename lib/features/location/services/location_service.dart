@@ -33,8 +33,8 @@ class LocationService extends ListService<LocationEntry, String> {
     }
 
     // 直接使用传入的locale参数（与原始代码逻辑一致）
-    final region = _geocoder.getDescriptionForValidNumber(parsedNumber, locale, null);
-    final carrier = _carrierMapper.getNameForNumber(parsedNumber, locale);
+    final region = await _geocoder.getDescriptionForValidNumber(parsedNumber, locale, null);
+    final carrier = await _carrierMapper.getNameForNumber(parsedNumber, locale);
     final numberType = _phoneNumberUtil.getNumberType(parsedNumber);
 
     final entry = LocationEntry(

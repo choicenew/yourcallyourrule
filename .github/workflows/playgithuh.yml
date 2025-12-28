@@ -38,10 +38,10 @@ jobs:
       # 【釜底抽薪的唯一解】启用 Swap 空间，用硬盘换内存
       # 这是为了防止 OOM Killer 杀死 Gradle 进程 (exit code 143)
       # ==============================================
-      - name: Enable Swap Space
-        uses: pierotofy/set-swap-space@master
-        with:
-          swap-size-gb: 10
+      #- name: Enable Swap Space
+        #uses: pierotofy/set-swap-space@master
+        #with:
+          #swap-size-gb: 10
 
       # ==============================================
       # 新增：清理磁盘空间步骤
