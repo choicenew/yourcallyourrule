@@ -23,18 +23,18 @@ class LabelPhoneEntryToRemote {
   Future<void> sync(LabelPhoneEntry labelPhoneEntry) async {
     // 获取电话号码
     final phoneNumber = labelPhoneEntry.phoneNumber;
-    
+
     // 尝试将电话号码转换为E164格式
     try {
       final phoneNumberMap = await PhoneUtils.parsePhoneNumberWithoutIso(
         phoneNumber.value,
         null,
       );
-      
+
       // 获取E164格式的电话号码
       final e164Number = phoneNumberMap['e164'] ?? phoneNumber.value;
       final formattedPhoneNumber = PhoneNumber.fromString(e164Number);
-      
+
       await _syncInternal(formattedPhoneNumber, labelPhoneEntry);
     } catch (e) {
       // 如果电话号码格式化失败，使用原始号码
@@ -42,14 +42,20 @@ class LabelPhoneEntryToRemote {
     }
   }
 
-  Future<void> _syncInternal(PhoneNumber phoneNumber, LabelPhoneEntry labelPhoneEntry) async {
+  Future<void> _syncInternal(
+    PhoneNumber phoneNumber,
+    LabelPhoneEntry labelPhoneEntry,
+  ) async {
     // 获取预定义标签信息
-    final predefinedLabel = await _predefinedLabelService.getLabelById(labelPhoneEntry.labelId);
+    final predefinedLabel = await _predefinedLabelService.getLabelById(
+      labelPhoneEntry.labelId,
+    );
     final labelText = predefinedLabel?.text ?? '';
-    
+
     // 检查远程号码服务中是否已存在该号码
-    final existingEntry = await _remoteNumberService.getRemoteNumberByPhoneNumber(phoneNumber);
-    
+    final existingEntry = await _remoteNumberService
+        .getRemoteNumberByPhoneNumber(phoneNumber);
+
     if (existingEntry != null) {
       // 更新现有条目
       final updatedEntry = RemoteNumberEntry(
@@ -63,6 +69,19 @@ class LabelPhoneEntryToRemote {
         isEnabled: existingEntry.isEnabled,
       );
       await _remoteNumberService.updateRemoteNumber(updatedEntry);
+
+      // 处理国家代码
+      final phoneDetails = await PhoneUtils.parsePhoneNumberWithoutIso(
+        phoneNumber.value,
+        null,
+      );
+      final countryCode = phoneDetails['countryCode'];
+      if (countryCode != null && countryCode.isNotEmpty) {
+        await _remoteNumberService.linkNumberToCountry(
+          phoneNumber.value,
+          countryCode,
+        );
+      }
     } else {
       // 创建新条目
       final newEntry = RemoteNumberEntry(
@@ -76,11 +95,27 @@ class LabelPhoneEntryToRemote {
         isEnabled: true,
       );
       await _remoteNumberService.addRemoteNumber(newEntry);
+
+      // 处理国家代码
+      final phoneDetails = await PhoneUtils.parsePhoneNumberWithoutIso(
+        phoneNumber.value,
+        null,
+      );
+      final countryCode = phoneDetails['countryCode'];
+      if (countryCode != null && countryCode.isNotEmpty) {
+        await _remoteNumberService.linkNumberToCountry(
+          phoneNumber.value,
+          countryCode,
+        );
+      }
     }
   }
-  
+
   /// 确定名称
-  String _determineName(LabelPhoneEntry labelPhoneEntry, RemoteNumberEntry existingEntry) {
+  String _determineName(
+    LabelPhoneEntry labelPhoneEntry,
+    RemoteNumberEntry existingEntry,
+  ) {
     if (labelPhoneEntry.name.isNotEmpty) {
       return labelPhoneEntry.name;
     }

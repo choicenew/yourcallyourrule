@@ -7,12 +7,17 @@ import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_rem
 import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
 import 'package:yourcallyourrule/data/models/remote/remote_number_model.dart';
 
-class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, String> {
+class RemoteNumberRepositoryImpl
+    implements BaseRepository<RemoteNumberEntry, String> {
   final RemoteNumberDataSource _dataSource;
   final RemoteDataAccessRestriction _remoteDataAccess;
   final IncrementalSyncManager _syncManager;
 
-  RemoteNumberRepositoryImpl(this._dataSource, this._remoteDataAccess, this._syncManager);
+  RemoteNumberRepositoryImpl(
+    this._dataSource,
+    this._remoteDataAccess,
+    this._syncManager,
+  );
 
   @override
   RemoteNumberEntry fromMap(Map<String, dynamic> map) {
@@ -22,7 +27,9 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
   @override
   Future<List<RemoteNumberEntry>> getAll() async {
     final models = await _dataSource.getAll();
-    return models.map((model) => RemoteNumberEntry.fromMap(model.toMap())).toList();
+    return models
+        .map((model) => RemoteNumberEntry.fromMap(model.toMap()))
+        .toList();
   }
 
   @override
@@ -35,26 +42,35 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
   }
 
   @override
-  Future<RemoteNumberEntry> save(RemoteNumberEntry entity) async {
+  Future<RemoteNumberEntry> save(
+    RemoteNumberEntry entity, {
+    String? countryIsoCode,
+  }) async {
     final model = RemoteNumberModel.fromMap(entity.toMap());
-    await _dataSource.insert(model);
+    await _dataSource.insert(model, countryIsoCode: countryIsoCode);
     return entity;
   }
 
   @override
-  Future<List<RemoteNumberEntry>> saveAll(List<RemoteNumberEntry> entities) async {
+  Future<List<RemoteNumberEntry>> saveAll(
+    List<RemoteNumberEntry> entities,
+  ) async {
     if (entities.isEmpty) {
       return [];
     }
-    final models = entities.map((e) => RemoteNumberModel.fromMap(e.toMap())).toList();
+    final models =
+        entities.map((e) => RemoteNumberModel.fromMap(e.toMap())).toList();
     await _dataSource.insertAll(models);
     return entities;
   }
 
   @override
-  Future<RemoteNumberEntry> update(RemoteNumberEntry entity) async {
+  Future<RemoteNumberEntry> update(
+    RemoteNumberEntry entity, {
+    String? countryIsoCode,
+  }) async {
     final model = RemoteNumberModel.fromMap(entity.toMap());
-    await _dataSource.update(model);
+    await _dataSource.update(model, countryIsoCode: countryIsoCode);
     return entity;
   }
 
@@ -71,7 +87,9 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
   }
 
   Future<RemoteNumberEntry?> getByPhoneNumber(PhoneNumber phoneNumber) async {
-    final remoteNumberInfo = await _remoteDataAccess.queryRemoteNumberInfo(phoneNumber.value);
+    final remoteNumberInfo = await _remoteDataAccess.queryRemoteNumberInfo(
+      phoneNumber.value,
+    );
     if (remoteNumberInfo != null) {
       final model = await _dataSource.getByPhoneNumber(phoneNumber.value);
       if (model != null) {
@@ -81,7 +99,9 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
     return null;
   }
 
-  Future<RemoteNumberEntry?> getRemoteNumberByPhoneNumber(PhoneNumber phoneNumber) async {
+  Future<RemoteNumberEntry?> getRemoteNumberByPhoneNumber(
+    PhoneNumber phoneNumber,
+  ) async {
     return await getByPhoneNumber(phoneNumber);
   }
 
@@ -98,7 +118,10 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
     return false;
   }
 
-  Future<bool> shouldAcceptBasedOnCount(PhoneNumber phoneNumber, int threshold) async {
+  Future<bool> shouldAcceptBasedOnCount(
+    PhoneNumber phoneNumber,
+    int threshold,
+  ) async {
     final entry = await getByPhoneNumber(phoneNumber);
     if (entry != null) {
       final exceeded = entry.isCountExceeded(threshold);
@@ -135,13 +158,17 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
     return entries.length;
   }
 
-  Future<Map<String, dynamic>?> queryRemoteNumberInfo(String phoneNumberStr) async {
+  Future<Map<String, dynamic>?> queryRemoteNumberInfo(
+    String phoneNumberStr,
+  ) async {
     return await _remoteDataAccess.queryRemoteNumberInfo(phoneNumberStr);
   }
 
   Future<bool> syncRemoteNumbers() async {
     try {
-      final hasPermission = await _remoteDataAccess.checkAccessPermission('sync');
+      final hasPermission = await _remoteDataAccess.checkAccessPermission(
+        'sync',
+      );
       if (!hasPermission) {
         return false;
       }
@@ -161,7 +188,10 @@ class RemoteNumberRepositoryImpl implements BaseRepository<RemoteNumberEntry, St
     return null;
   }
 
-  Future<void> linkNumberToCountry(String phoneNumber, String countryIsoCode) async {
+  Future<void> linkNumberToCountry(
+    String phoneNumber,
+    String countryIsoCode,
+  ) async {
     await _dataSource.linkNumberToCountry(phoneNumber, countryIsoCode);
   }
 }
