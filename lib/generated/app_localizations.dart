@@ -11192,6 +11192,12 @@ abstract class AppLocalizations {
   /// **'Every {hours} hours'**
   String syncIntervalValue(int hours);
 
+  /// No description provided for @leaveEmptyToUseDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave empty to use default'**
+  String get leaveEmptyToUseDefault;
+
   /// No description provided for @vipAccessSubtitle.
   ///
   /// In en, this message translates to:

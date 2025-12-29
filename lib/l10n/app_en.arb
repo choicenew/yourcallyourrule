@@ -3304,7 +3304,7 @@
     }
   },
 
- 
+ "leaveEmptyToUseDefault": "Leave empty to use default",
  
  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",

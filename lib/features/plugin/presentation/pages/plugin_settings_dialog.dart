@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart';
+import 'package:yourcallyourrule/features/plugin/services/plugin_url_webview_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class PluginSettingsDialog extends StatefulWidget {
@@ -22,12 +23,20 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
   List<dynamic> _schema = [];
   final Map<String, dynamic> _config = {};
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _uaController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _config.addAll(widget.plugin.config);
+    _uaController.text = _config['userAgent']?.toString() ?? '';
     _loadSchema();
+  }
+
+  @override
+  void dispose() {
+    _uaController.dispose();
+    super.dispose();
   }
 
   Future<void> _loadSchema() async {
@@ -70,17 +79,44 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
         child:
             _isLoading
                 ? const Center(child: CircularProgressIndicator())
-                : _schema.isEmpty
-                ? Text(AppLocalizations.of(context).noSettingsAvailable)
                 : Form(
                   key: _formKey,
-                  child: ListView.builder(
+                  child: ListView(
                     shrinkWrap: true,
-                    itemCount: _schema.length,
-                    itemBuilder: (context, index) {
-                      final field = _schema[index];
-                      return _buildField(field);
-                    },
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: TextFormField(
+                          controller: _uaController,
+                          decoration: InputDecoration(
+                            labelText: 'User Agent',
+                            hintText:
+                                AppLocalizations.of(
+                                  context,
+                                ).leaveEmptyToUseDefault,
+                            helperText:
+                                'Default: ${PluginUrlWebViewService.defaultUserAgent}',
+                            helperMaxLines: 3,
+                            border: const OutlineInputBorder(),
+                            suffixIcon: IconButton(
+                              icon: const Icon(Icons.phonelink_setup),
+                              onPressed: () async {
+                                final ua =
+                                    await PluginUrlWebViewService()
+                                        .getDeviceDefaultUserAgent();
+                                if (context.mounted) {
+                                  setState(() {
+                                    _uaController.text = ua;
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                          onSaved: (value) => _config['userAgent'] = value,
+                        ),
+                      ),
+                      ..._schema.map((field) => _buildField(field)),
+                    ],
                   ),
                 ),
       ),

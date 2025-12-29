@@ -5,7 +5,23 @@
         id: ' PhoneNumberPlugin',
         name: ' Phone Lookup (iframe Proxy)',
         version: '1.0.8', // Version updated for template alignment
-        description: 'Queries  using a country-specific URL, fully aligned with the standard template structure.'
+        description: 'Queries  using a country-specific URL, fully aligned with the standard template structure.',
+        settings: [
+            {
+                key: 'api_key',
+                label: 'API Key',
+                type: 'text',
+                hint: 'Enter API Key from website',
+                required: true
+            },
+            {
+                key: 'username',
+                label: 'Username',
+                type: 'text',
+                hint: 'API Account Username (Optional)',
+                required: false
+            }
+        ]
     };
 
     // --- SECTION 2: Business-Specific Data (Unchanged) ---
@@ -60,7 +76,9 @@
             const targetSearchUrl = `https://slick.ly/${countryCode.toLowerCase()}/${encodeURIComponent(phoneNumber)}`;
 
             // --- The following is generic code, identical to the standard template ---
-            const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5.0.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/5.0.36' };
+            const config = window.plugin[PLUGIN_CONFIG.id].config || {};
+            const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5.0.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/5.0.36';
+            const headers = { 'User-Agent': userAgent };
             const originalOrigin = new URL(targetSearchUrl).origin;
 
             // ★★★ 2. (Optional) Define sanitization rules (MODIFY AS NEEDED) ★★★

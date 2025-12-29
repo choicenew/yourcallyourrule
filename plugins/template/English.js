@@ -335,7 +335,9 @@
             const targetSearchUrl = `https://www.example.com/search?q=${encodeURIComponent(phoneNumber)}`;
 
             // --- The following is generic code and usually does not need modification ---
-            const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' };
+            const config = window.plugin[PLUGIN_CONFIG.id].config || {};
+            const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
+            const headers = { 'User-Agent': userAgent };
             const originalOrigin = new URL(targetSearchUrl).origin;
 
             // ★★★ 2. (Optional) Define sanitization rules (MODIFY AS NEEDED) ★★★
