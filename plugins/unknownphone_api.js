@@ -74,21 +74,22 @@
             return;
         }
 
-        // Construct Form Body (x-www-form-urlencoded)
-        const bodyParams = new URLSearchParams();
-        bodyParams.append('user_type', 'free');
-        bodyParams.append('api_key', apiKey);
-        bodyParams.append('phone', queryNumber); // Critical: 'phone' parameter as per Kotlin
-        bodyParams.append('_action', '_get_info_for_phone');
-        bodyParams.append('lang', lang);
+        // Construct Form Body (Manual string construction to ensure exact order and format)
+        // Kotlin reference:
+        // .add("user_type", "free")
+        // .add("api_key", UNKNOWN_PHONE_API_KEY)
+        // .add("phone", number)
+        // .add("_action", "_get_info_for_phone")
+        // .add("lang", lang)
         
-        const bodyString = bodyParams.toString();
+        const encodedPhone = encodeURIComponent(queryNumber);
+        const bodyString = `user_type=free&api_key=${apiKey}&phone=${encodedPhone}&_action=_get_info_for_phone&lang=${lang}`;
 
         const headers = {
             "Connection": "Keep-Alive",
             "Content-Type": "application/x-www-form-urlencoded",
             "Host": "secure.unknownphone.com",
-            "User-Agent": "okhttp/3.14.9" // Matching Kotlin User-Agent
+            "User-Agent": "okhttp/3.14.9"
         };
 
         log(`Requesting Native HTTP POST: ${API_URL}`);

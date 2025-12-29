@@ -104,8 +104,8 @@
             "User-Agent": "Truecaller/9.00.3 (Android;10)", // Strictly match Kotlin Version
             "Accept": "application/json",
             "Authorization": `Bearer ${authToken}`,
-            "Host": host, // Kotlin version explicitly sets Host
-            "Connection": "Keep-Alive" // Kotlin version explicitly sets Connection
+            // "Host": host, // Let Dart/OS handle Host to avoid 451 errors from malformed/duplicate headers
+            // "Connection": "Keep-Alive" // Let Dart/OS handle Connection
         };
 
         log(`Requesting Native HTTP GET: ${targetUrl}`);

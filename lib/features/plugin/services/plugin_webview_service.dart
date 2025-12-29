@@ -254,12 +254,41 @@ class PluginWebViewService {
           final String? externalRequestId = requestData['externalRequestId'];
 
           // 关键修改：增加 10秒超时，防止网络不通时卡死
-          final response = await _sendHttpRequest(
-            method,
-            url,
-            headers,
-            body,
-          ).timeout(const Duration(seconds: 10));
+          // [修复] 根据 method 动态选择请求方式，支持 POST/PUT 等
+          final uri = Uri.parse(url);
+          http.Response response;
+
+          try {
+            // 显式检查并设置 headers，确保 Content-Type 不会被 Dart http 库默认值覆盖 (如果已有)
+            // http.post 如果 body 是 String，默认会设为 text/plain，但如果 headers 里有 Content-Type 则会优先使用 headers 里的。
+
+            switch (method.toUpperCase()) {
+              case 'POST':
+                response = await http
+                    .post(uri, headers: headers, body: body)
+                    .timeout(const Duration(seconds: 10));
+                break;
+              case 'PUT':
+                response = await http
+                    .put(uri, headers: headers, body: body)
+                    .timeout(const Duration(seconds: 10));
+                break;
+              case 'DELETE':
+                response = await http
+                    .delete(uri, headers: headers, body: body)
+                    .timeout(const Duration(seconds: 10));
+                break;
+              case 'GET':
+              default:
+                response = await http
+                    .get(uri, headers: headers)
+                    .timeout(const Duration(seconds: 10));
+                break;
+            }
+          } catch (e) {
+            AppLogger.error('Network Error during $method', e);
+            throw e;
+          }
 
           final responseData = {
             'externalRequestId': externalRequestId,
