@@ -2970,9 +2970,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get notGranted => 'Ei myönnetty';
 
   @override
-  String get notificationMode => 'Ilmoitustila';
-
-  @override
   String get notificationModeDescription =>
       'Näytä soittajan tiedot ilmoituspalkissa';
 
@@ -3165,9 +3162,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Puhelinnumero ei voi olla tyhjä';
 
   @override
-  String get phoneNumberHint => 'Syötä puhelinnumero';
-
-  @override
   String get phoneNumberHintText => 'Syötä puhelinnumero säännön lisäämiseksi';
 
   @override
@@ -3176,9 +3170,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Syötä sekä puhelinnumero että säännöllinen lauseke';
-
-  @override
-  String get phoneNumberRequired => 'Puhelinnumero vaaditaan';
 
   @override
   String get phoneNumberTypeFixedLine => 'Lankapuhelin';
@@ -5381,9 +5372,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get medium => 'Media';
 
   @override
-  String get verificationReport => 'Vahvinnusraportti';
-
-  @override
   String get finalRisk => 'Lopullinen riski';
 
   @override
@@ -5522,9 +5510,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get deletionProposal => 'Poistoesitys';
 
   @override
-  String get deletionProposals => 'Poistoesitykset';
-
-  @override
   String get createProposal => 'Luo esitys';
 
   @override
@@ -5618,6 +5603,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String createdAt(String date) {
     return 'Luotu: $date';
   }
+
+  @override
+  String get verificationReport => 'Vahvinnusraportti';
 
   @override
   String get showReport => 'Näytä raportti';
@@ -5735,6 +5723,9 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get veryLow => 'Erittäin matala';
+
+  @override
+  String get deletionProposals => 'Poistoesitykset';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5859,6 +5850,9 @@ class AppLocalizationsFi extends AppLocalizations {
       'Valitse, kuinka usein saat ilmoituksia uusista poistoehdotuksista. Voit saada ne välittömästi, erissä tai mukautetulla aikavälillä.';
 
   @override
+  String get notificationMode => 'Ilmoitustila';
+
+  @override
   String get immediateNotifications => 'Välitön';
 
   @override
@@ -5916,10 +5910,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get guidelinesLabel => 'Ohjeet';
 
   @override
-  String get reportingGuidelines =>
-      '• Raportoi vain todella ongelmallisia numeroita\n• Anna tarkat ja yksityiskohtaiset syyt\n• Valitse asianmukainen riskitaso vakavuuden perusteella\n• Vääristä raportoinnista voi seurata tilin rajoituksia';
-
-  @override
   String get riskLevelLabel => 'Riskitaso';
 
   @override
@@ -5950,6 +5940,12 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Maakoodin on oltava 2 kirjainta pitkä';
+
+  @override
+  String get phoneNumberHint => 'Syötä puhelinnumero';
+
+  @override
+  String get phoneNumberRequired => 'Puhelinnumero vaaditaan';
 
   @override
   String get phoneNumberLengthError =>
@@ -6017,16 +6013,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Tukee ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Vastustaa ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Juuri nyt';
 
   @override
@@ -6045,7 +6031,21 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Raportoi vain todella ongelmallisia numeroita\n• Anna tarkat ja yksityiskohtaiset syyt\n• Valitse asianmukainen riskitaso vakavuuden perusteella\n• Vääristä raportoinnista voi seurata tilin rajoituksia';
+
+  @override
   String get notificationFrequencyHours => 'Ilmoitustiheys (Tuntia)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Tukee ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Vastustaa ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6307,4 +6307,15 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

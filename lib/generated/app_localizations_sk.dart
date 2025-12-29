@@ -2976,9 +2976,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get notGranted => 'Neposkytnuté';
 
   @override
-  String get notificationMode => 'Režim upozornení';
-
-  @override
   String get notificationModeDescription =>
       'Zobraziť informácie o volajúcom v notifikačnej lište';
 
@@ -3172,9 +3169,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefónne číslo nemôže byť prázdne';
 
   @override
-  String get phoneNumberHint => 'Zadajte telefónne číslo';
-
-  @override
   String get phoneNumberHintText =>
       'Zadajte telefónne číslo na pridanie pravidla';
 
@@ -3184,9 +3178,6 @@ class AppLocalizationsSk extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Zadajte telefónne číslo aj regulárny výraz';
-
-  @override
-  String get phoneNumberRequired => 'Telefónne číslo je povinné';
 
   @override
   String get phoneNumberTypeFixedLine => 'Pevná linka';
@@ -5396,9 +5387,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get medium => 'Stredné';
 
   @override
-  String get verificationReport => 'Správa o overení';
-
-  @override
   String get finalRisk => 'Konečné riziko';
 
   @override
@@ -5537,9 +5525,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get deletionProposal => 'Návrh na vymazanie';
 
   @override
-  String get deletionProposals => 'Návrhy na vymazanie';
-
-  @override
   String get createProposal => 'Vytvoriť návrh';
 
   @override
@@ -5633,6 +5618,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String createdAt(String date) {
     return 'Vytvorené: $date';
   }
+
+  @override
+  String get verificationReport => 'Správa o overení';
 
   @override
   String get showReport => 'Zobraziť správu';
@@ -5750,6 +5738,9 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get veryLow => 'Veľmi nízke';
+
+  @override
+  String get deletionProposals => 'Návrhy na vymazanie';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5874,6 +5865,9 @@ class AppLocalizationsSk extends AppLocalizations {
       'Vyberte, ako často chcete dostávať oznámenia o nových návrhoch na odstránenie. Môžete ich dostávať okamžite, v dávkach alebo v vlastnom intervale.';
 
   @override
+  String get notificationMode => 'Režim upozornení';
+
+  @override
   String get immediateNotifications => 'Okamžité';
 
   @override
@@ -5931,10 +5925,6 @@ class AppLocalizationsSk extends AppLocalizations {
   String get guidelinesLabel => 'Pokyny';
 
   @override
-  String get reportingGuidelines =>
-      '• Nahlasujte iba čísla, ktoré sú skutočne problematické\n• Poskytnite presné a podrobné dôvody\n• Zvoľte vhodnú úroveň rizika na základe závažnosti\n• Falošné hlásenia môžu viesť k obmedzeniu účtu';
-
-  @override
   String get riskLevelLabel => 'Úroveň rizika';
 
   @override
@@ -5965,6 +5955,12 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Kód krajiny musí byť 2 písmená';
+
+  @override
+  String get phoneNumberHint => 'Zadajte telefónne číslo';
+
+  @override
+  String get phoneNumberRequired => 'Telefónne číslo je povinné';
 
   @override
   String get phoneNumberLengthError =>
@@ -6032,16 +6028,6 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Podpora ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Proti ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Práve teraz';
 
   @override
@@ -6060,7 +6046,21 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Nahlasujte iba čísla, ktoré sú skutočne problematické\n• Poskytnite presné a podrobné dôvody\n• Zvoľte vhodnú úroveň rizika na základe závažnosti\n• Falošné hlásenia môžu viesť k obmedzeniu účtu';
+
+  @override
   String get notificationFrequencyHours => 'Frekvencia oznámení (hodiny)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Podpora ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Proti ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6322,4 +6322,15 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

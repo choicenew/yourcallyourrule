@@ -2960,9 +2960,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get notGranted => 'Není uděleno';
 
   @override
-  String get notificationMode => 'Režim oznámení';
-
-  @override
   String get notificationModeDescription =>
       'Zobrazit informace o volajícím v notifikační liště';
 
@@ -3156,9 +3153,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefonní číslo nemůže být prázdné';
 
   @override
-  String get phoneNumberHint => 'Zadejte telefonní číslo';
-
-  @override
   String get phoneNumberHintText =>
       'Zadejte telefonní číslo pro přidání pravidla';
 
@@ -3168,9 +3162,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Zadejte prosím telefonní číslo i vzor regex';
-
-  @override
-  String get phoneNumberRequired => 'Telefonní číslo je vyžadováno';
 
   @override
   String get phoneNumberTypeFixedLine => 'Pevná linka';
@@ -5375,9 +5366,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get medium => 'Médium';
 
   @override
-  String get verificationReport => 'Zpráva o ověření';
-
-  @override
   String get finalRisk => 'Konečné riziko';
 
   @override
@@ -5516,9 +5504,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get deletionProposal => 'Návrh na smazání';
 
   @override
-  String get deletionProposals => 'Návrhy na smazání';
-
-  @override
   String get createProposal => 'Vytvořit návrh';
 
   @override
@@ -5612,6 +5597,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String createdAt(String date) {
     return 'Vytvořeno: $date';
   }
+
+  @override
+  String get verificationReport => 'Zpráva o ověření';
 
   @override
   String get showReport => 'Zobrazit zprávu';
@@ -5729,6 +5717,9 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get veryLow => 'Velmi nízká';
+
+  @override
+  String get deletionProposals => 'Návrhy na smazání';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5853,6 +5844,9 @@ class AppLocalizationsCs extends AppLocalizations {
       'Vyberte, jak často chcete dostávat oznámení o nových návrzích na smazání. Můžete je dostávat okamžitě, v dávkách nebo v intervalu na míru.';
 
   @override
+  String get notificationMode => 'Režim oznámení';
+
+  @override
   String get immediateNotifications => 'Okamžitě';
 
   @override
@@ -5910,10 +5904,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get guidelinesLabel => 'Pokyny';
 
   @override
-  String get reportingGuidelines =>
-      '• Hlasujte pouze pro čísla, která jsou skutečně problematická\n• Uvádějte přesné a podrobné důvody\n• Zvolte odpovídající úroveň rizika na základě závažnosti\n• Falešná hlášení mohou vést k omezení účtu';
-
-  @override
   String get riskLevelLabel => 'Úroveň rizika';
 
   @override
@@ -5944,6 +5934,12 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Kód země musí mít 2 písmena';
+
+  @override
+  String get phoneNumberHint => 'Zadejte telefonní číslo';
+
+  @override
+  String get phoneNumberRequired => 'Telefonní číslo je vyžadováno';
 
   @override
   String get phoneNumberLengthError =>
@@ -6010,16 +6006,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Podpora ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Proti ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Právě teď';
 
   @override
@@ -6038,7 +6024,21 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Hlasujte pouze pro čísla, která jsou skutečně problematická\n• Uvádějte přesné a podrobné důvody\n• Zvolte odpovídající úroveň rizika na základě závažnosti\n• Falešná hlášení mohou vést k omezení účtu';
+
+  @override
   String get notificationFrequencyHours => 'Frekvence oznámení (hodiny)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Podpora ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Proti ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6299,4 +6299,15 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

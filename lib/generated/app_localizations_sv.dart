@@ -2965,9 +2965,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get notGranted => 'Inte beviljat';
 
   @override
-  String get notificationMode => 'Notifieringsläge';
-
-  @override
   String get notificationModeDescription =>
       'Visa uppringarinformation i meddelandefältet';
 
@@ -3161,9 +3158,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefonnummer kan inte vara tomt';
 
   @override
-  String get phoneNumberHint => 'Ange telefonnummer';
-
-  @override
   String get phoneNumberHintText =>
       'Ange telefonnummer för att lägga till regel';
 
@@ -3173,9 +3167,6 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Ange både telefonnummer och regex-mönster';
-
-  @override
-  String get phoneNumberRequired => 'Telefonnummer krävs';
 
   @override
   String get phoneNumberTypeFixedLine => 'Fast telefon';
@@ -5381,9 +5372,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get medium => 'Medium';
 
   @override
-  String get verificationReport => 'Verifieringsrapport';
-
-  @override
   String get finalRisk => 'Slutlig risk';
 
   @override
@@ -5523,9 +5511,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get deletionProposal => 'Raderingsförslag';
 
   @override
-  String get deletionProposals => 'Raderingsförslag';
-
-  @override
   String get createProposal => 'Skapa förslag';
 
   @override
@@ -5619,6 +5604,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String createdAt(String date) {
     return 'Skapad: $date';
   }
+
+  @override
+  String get verificationReport => 'Verifieringsrapport';
 
   @override
   String get showReport => 'Visa rapport';
@@ -5736,6 +5724,9 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get veryLow => 'Mycket låg';
+
+  @override
+  String get deletionProposals => 'Raderingsförslag';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5860,6 +5851,9 @@ class AppLocalizationsSv extends AppLocalizations {
       'Välj hur ofta du får aviseringar om nya förslag till borttagning. Du kan få dem omedelbart, i batcher eller med ett anpassat intervall.';
 
   @override
+  String get notificationMode => 'Notifieringsläge';
+
+  @override
   String get immediateNotifications => 'Omedelbart';
 
   @override
@@ -5917,10 +5911,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get guidelinesLabel => 'Riktlinjer';
 
   @override
-  String get reportingGuidelines =>
-      '• Rapportera endast nummer som är genuint problematiska\n• Ange korrekta och detaljerade skäl\n• Välj lämplig risknivå baserat på allvarlighetsgrad\n• Falska rapporter kan leda till begränsningar av kontot';
-
-  @override
   String get riskLevelLabel => 'Risknivå';
 
   @override
@@ -5952,6 +5942,12 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Landskoden måste vara 2 bokstäver lång';
+
+  @override
+  String get phoneNumberHint => 'Ange telefonnummer';
+
+  @override
+  String get phoneNumberRequired => 'Telefonnummer krävs';
 
   @override
   String get phoneNumberLengthError =>
@@ -6017,16 +6013,6 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Stöd ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Motsättningar ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Nyss';
 
   @override
@@ -6045,7 +6031,21 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Rapportera endast nummer som är genuint problematiska\n• Ange korrekta och detaljerade skäl\n• Välj lämplig risknivå baserat på allvarlighetsgrad\n• Falska rapporter kan leda till begränsningar av kontot';
+
+  @override
   String get notificationFrequencyHours => 'Aviseringsfrekvens (timmar)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Stöd ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Motsättningar ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6308,4 +6308,15 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

@@ -2944,9 +2944,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get notGranted => 'Chưa được cấp';
 
   @override
-  String get notificationMode => 'Chế độ Thông báo';
-
-  @override
   String get notificationModeDescription =>
       'Hiển thị thông tin người gọi trên thanh thông báo';
 
@@ -3140,9 +3137,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Số điện thoại không được để trống';
 
   @override
-  String get phoneNumberHint => 'Nhập số điện thoại';
-
-  @override
   String get phoneNumberHintText => 'Nhập số điện thoại để thêm quy tắc';
 
   @override
@@ -3151,9 +3145,6 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Vui lòng nhập cả số điện thoại và mẫu regex';
-
-  @override
-  String get phoneNumberRequired => 'Số điện thoại là bắt buộc';
 
   @override
   String get phoneNumberTypeFixedLine => 'Đường dây cố định';
@@ -5340,9 +5331,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get medium => 'Trung bình';
 
   @override
-  String get verificationReport => 'Báo cáo Xác minh';
-
-  @override
   String get finalRisk => 'Rủi ro Cuối cùng';
 
   @override
@@ -5481,9 +5469,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get deletionProposal => 'Đề xuất xóa';
 
   @override
-  String get deletionProposals => 'Các đề xuất xóa';
-
-  @override
   String get createProposal => 'Tạo đề xuất';
 
   @override
@@ -5577,6 +5562,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String createdAt(String date) {
     return 'Được tạo: $date';
   }
+
+  @override
+  String get verificationReport => 'Báo cáo Xác minh';
 
   @override
   String get showReport => 'Hiển thị báo cáo';
@@ -5694,6 +5682,9 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get veryLow => 'Rất thấp';
+
+  @override
+  String get deletionProposals => 'Các đề xuất xóa';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5818,6 +5809,9 @@ class AppLocalizationsVi extends AppLocalizations {
       'Chọn tần suất bạn nhận thông báo về các đề xuất xóa mới. Bạn có thể nhận ngay lập tức, theo đợt, hoặc theo khoảng thời gian tùy chỉnh.';
 
   @override
+  String get notificationMode => 'Chế độ Thông báo';
+
+  @override
   String get immediateNotifications => 'Ngay lập tức';
 
   @override
@@ -5875,10 +5869,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get guidelinesLabel => 'Hướng dẫn';
 
   @override
-  String get reportingGuidelines =>
-      '• Chỉ báo cáo các số thực sự có vấn đề\n• Cung cấp lý do chính xác và chi tiết\n• Chọn mức độ rủi ro phù hợp dựa trên mức độ nghiêm trọng\n• Báo cáo sai có thể dẫn đến hạn chế tài khoản';
-
-  @override
   String get riskLevelLabel => 'Mức độ rủi ro';
 
   @override
@@ -5908,6 +5898,12 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Mã quốc gia phải có 2 chữ cái';
+
+  @override
+  String get phoneNumberHint => 'Nhập số điện thoại';
+
+  @override
+  String get phoneNumberRequired => 'Số điện thoại là bắt buộc';
 
   @override
   String get phoneNumberLengthError => 'Số điện thoại phải có ít nhất 7 chữ số';
@@ -5974,16 +5970,6 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Ủng hộ ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Phản đối ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Vừa xong';
 
   @override
@@ -6002,7 +5988,21 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Chỉ báo cáo các số thực sự có vấn đề\n• Cung cấp lý do chính xác và chi tiết\n• Chọn mức độ rủi ro phù hợp dựa trên mức độ nghiêm trọng\n• Báo cáo sai có thể dẫn đến hạn chế tài khoản';
+
+  @override
   String get notificationFrequencyHours => 'Tần suất thông báo (Giờ)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Ủng hộ ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Phản đối ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6264,4 +6264,15 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

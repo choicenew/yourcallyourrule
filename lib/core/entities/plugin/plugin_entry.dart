@@ -8,6 +8,7 @@ class PluginEntry extends BaseEntity {
   final bool isEnabled;
   final int pluginOrder;
   final bool isAutoUpdate;
+  final Map<String, dynamic> config;
 
   const PluginEntry({
     required super.id,
@@ -18,6 +19,7 @@ class PluginEntry extends BaseEntity {
     required this.isEnabled,
     required this.pluginOrder,
     this.isAutoUpdate = false,
+    this.config = const {},
   });
 
   factory PluginEntry.fromMap(Map<String, dynamic> map) {
@@ -30,6 +32,8 @@ class PluginEntry extends BaseEntity {
       isEnabled: map['isEnabled'] == 1,
       pluginOrder: map['pluginOrder'],
       isAutoUpdate: map['isAutoUpdate'] == 1,
+      config:
+          map['config'] != null ? Map<String, dynamic>.from(map['config']) : {},
     );
   }
 
@@ -44,6 +48,7 @@ class PluginEntry extends BaseEntity {
       'isEnabled': isEnabled ? 1 : 0,
       'pluginOrder': pluginOrder,
       'isAutoUpdate': isAutoUpdate ? 1 : 0,
+      'config': config,
     };
   }
 
@@ -56,6 +61,7 @@ class PluginEntry extends BaseEntity {
     bool? isEnabled,
     int? pluginOrder,
     bool? isAutoUpdate,
+    Map<String, dynamic>? config,
   }) {
     return PluginEntry(
       id: id ?? this.id,
@@ -66,6 +72,7 @@ class PluginEntry extends BaseEntity {
       isEnabled: isEnabled ?? this.isEnabled,
       pluginOrder: pluginOrder ?? this.pluginOrder,
       isAutoUpdate: isAutoUpdate ?? this.isAutoUpdate,
+      config: config ?? this.config,
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/data/models/base_model.dart';
 
-
 class PluginModel extends BaseModel<PluginEntry> {
   final String name;
   final String url;
@@ -10,6 +9,7 @@ class PluginModel extends BaseModel<PluginEntry> {
   final bool isEnabled;
   final int pluginOrder;
   final bool isAutoUpdate;
+  final Map<String, dynamic> config;
 
   const PluginModel({
     required super.id,
@@ -20,6 +20,7 @@ class PluginModel extends BaseModel<PluginEntry> {
     required this.isEnabled,
     required this.pluginOrder,
     required this.isAutoUpdate,
+    this.config = const {},
   });
 
   factory PluginModel.fromMap(Map<String, dynamic> map) {
@@ -32,6 +33,8 @@ class PluginModel extends BaseModel<PluginEntry> {
       isEnabled: (map['isEnabled'] ?? 1) == 1,
       pluginOrder: map['pluginOrder'] ?? 0,
       isAutoUpdate: (map['isAutoUpdate'] ?? 0) == 1,
+      config:
+          map['config'] != null ? Map<String, dynamic>.from(map['config']) : {},
     );
   }
 
@@ -45,6 +48,7 @@ class PluginModel extends BaseModel<PluginEntry> {
       isEnabled: entity.isEnabled,
       pluginOrder: entity.pluginOrder,
       isAutoUpdate: entity.isAutoUpdate,
+      config: entity.config,
     );
   }
 
@@ -59,6 +63,7 @@ class PluginModel extends BaseModel<PluginEntry> {
       isEnabled: isEnabled,
       pluginOrder: pluginOrder,
       isAutoUpdate: isAutoUpdate,
+      config: config,
     );
   }
 
@@ -73,6 +78,7 @@ class PluginModel extends BaseModel<PluginEntry> {
       'isEnabled': isEnabled ? 1 : 0,
       'pluginOrder': pluginOrder,
       'isAutoUpdate': isAutoUpdate ? 1 : 0,
+      'config': config,
     };
   }
 }

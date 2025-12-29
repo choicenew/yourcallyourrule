@@ -2945,9 +2945,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get notGranted => 'اعطا نشده';
 
   @override
-  String get notificationMode => 'حالت اعلان';
-
-  @override
   String get notificationModeDescription =>
       'نمایش اطلاعات تماس گیرنده در نوار اعلان';
 
@@ -3139,9 +3136,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'شماره تلفن نمی تواند خالی باشد';
 
   @override
-  String get phoneNumberHint => 'شماره تلفن را وارد کنید';
-
-  @override
   String get phoneNumberHintText =>
       'شماره تلفن را برای اضافه کردن قانون وارد کنید';
 
@@ -3151,9 +3145,6 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'لطفا هم شماره تلفن و هم الگوی regex را وارد کنید';
-
-  @override
-  String get phoneNumberRequired => 'شماره تلفن مورد نیاز است';
 
   @override
   String get phoneNumberTypeFixedLine => 'خط ثابت';
@@ -5338,9 +5329,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get medium => 'متوسط';
 
   @override
-  String get verificationReport => 'گزارش تأیید';
-
-  @override
   String get finalRisk => 'ریسک نهایی';
 
   @override
@@ -5479,9 +5467,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get deletionProposal => 'اقتراح الحذف';
 
   @override
-  String get deletionProposals => 'اقتراحات الحذف';
-
-  @override
   String get createProposal => 'إنشاء اقتراح';
 
   @override
@@ -5575,6 +5560,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String createdAt(String date) {
     return 'تم الإنشاء: $date';
   }
+
+  @override
+  String get verificationReport => 'گزارش تأیید';
 
   @override
   String get showReport => 'إظهار التقرير';
@@ -5692,6 +5680,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get veryLow => 'منخفض جداً';
+
+  @override
+  String get deletionProposals => 'اقتراحات الحذف';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5816,6 +5807,9 @@ class AppLocalizationsFa extends AppLocalizations {
       'انتخاب کنید که هر چند وقت یکبار اعلان‌هایی در مورد پیشنهادات حذف جدید دریافت کنید. می‌توانید آن‌ها را بلافاصله، در دسته‌های دسته‌بندی شده، یا در یک بازه زمانی سفارشی دریافت کنید.';
 
   @override
+  String get notificationMode => 'حالت اعلان';
+
+  @override
   String get immediateNotifications => 'فوری';
 
   @override
@@ -5873,10 +5867,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get guidelinesLabel => 'دستورالعمل‌ها';
 
   @override
-  String get reportingGuidelines =>
-      '• فقط شماره‌هایی را گزارش دهید که واقعاً مشکل‌ساز هستند\n• دلایل دقیق و جزئی ارائه دهید\n• سطح ریسک مناسب را بر اساس شدت انتخاب کنید\n• گزارش‌های نادرست ممکن است منجر به محدودیت حساب شود';
-
-  @override
   String get riskLevelLabel => 'سطح ریسک';
 
   @override
@@ -5906,6 +5896,12 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'کد کشور باید 2 حرف باشد';
+
+  @override
+  String get phoneNumberHint => 'شماره تلفن را وارد کنید';
+
+  @override
+  String get phoneNumberRequired => 'شماره تلفن مورد نیاز است';
 
   @override
   String get phoneNumberLengthError => 'شماره تلفن باید حداقل 7 رقم باشد';
@@ -5969,16 +5965,6 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'حمایت ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'مخالفت ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'همین الان';
 
   @override
@@ -5997,7 +5983,21 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• فقط شماره‌هایی را گزارش دهید که واقعاً مشکل‌ساز هستند\n• دلایل دقیق و جزئی ارائه دهید\n• سطح ریسک مناسب را بر اساس شدت انتخاب کنید\n• گزارش‌های نادرست ممکن است منجر به محدودیت حساب شود';
+
+  @override
   String get notificationFrequencyHours => 'بازه زمانی اعلان (ساعت)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'حمایت ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'مخالفت ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6257,4 +6257,15 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

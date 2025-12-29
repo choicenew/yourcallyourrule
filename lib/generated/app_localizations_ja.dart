@@ -2863,9 +2863,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get notGranted => '許可されていません';
 
   @override
-  String get notificationMode => '通知モード';
-
-  @override
   String get notificationModeDescription => '通知バーに発信者情報を表示します';
 
   @override
@@ -3051,9 +3048,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => '電話番号は空にできません';
 
   @override
-  String get phoneNumberHint => '電話番号を入力してください';
-
-  @override
   String get phoneNumberHintText => 'ルールを追加するには電話番号を入力してください';
 
   @override
@@ -3061,9 +3055,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get phoneNumberRegexRequired => '電話番号と正規表現パターンの両方を入力してください';
-
-  @override
-  String get phoneNumberRequired => '電話番号は必須です';
 
   @override
   String get phoneNumberTypeFixedLine => '固定回線';
@@ -5182,9 +5173,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get medium => '媒体';
 
   @override
-  String get verificationReport => '検証レポート';
-
-  @override
   String get finalRisk => '最終的なリスク';
 
   @override
@@ -5321,9 +5309,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get deletionProposal => '削除提案';
 
   @override
-  String get deletionProposals => '削除提案';
-
-  @override
   String get createProposal => '提案を作成';
 
   @override
@@ -5417,6 +5402,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String createdAt(String date) {
     return '作成日: $date';
   }
+
+  @override
+  String get verificationReport => '検証レポート';
 
   @override
   String get showReport => 'レポートを表示';
@@ -5536,6 +5524,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get veryLow => '非常に低い';
 
   @override
+  String get deletionProposals => '削除提案';
+
+  @override
   String get deletionProposalNotificationDescription => '削除提案の投票結果と更新に関する通知。';
 
   @override
@@ -5653,6 +5644,9 @@ class AppLocalizationsJa extends AppLocalizations {
       '新しい削除提案に関する通知を受け取る頻度を選択します。即時、バッチ、またはカスタムの間隔で受信できます。';
 
   @override
+  String get notificationMode => '通知モード';
+
+  @override
   String get immediateNotifications => '即時';
 
   @override
@@ -5707,10 +5701,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get guidelinesLabel => 'ガイドライン';
 
   @override
-  String get reportingGuidelines =>
-      '• 実際に問題のある番号のみを報告する\n• 正確で詳細な理由を提供する\n• 深刻度に応じて適切なリスクレベルを選択する\n• 虚偽の報告はアカウントの制限につながる可能性があります';
-
-  @override
   String get riskLevelLabel => 'リスクレベル';
 
   @override
@@ -5739,6 +5729,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => '国コードは2文字でなければなりません';
+
+  @override
+  String get phoneNumberHint => '電話番号を入力してください';
+
+  @override
+  String get phoneNumberRequired => '電話番号は必須です';
 
   @override
   String get phoneNumberLengthError => '電話番号は7桁以上である必要があります';
@@ -5800,16 +5796,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return '支持 ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return '反対 ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'たった今';
 
   @override
@@ -5828,7 +5814,21 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• 実際に問題のある番号のみを報告する\n• 正確で詳細な理由を提供する\n• 深刻度に応じて適切なリスクレベルを選択する\n• 虚偽の報告はアカウントの制限につながる可能性があります';
+
+  @override
   String get notificationFrequencyHours => '通知頻度（時間）';
+
+  @override
+  String supportCount(int supportCount) {
+    return '支持 ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return '反対 ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6087,4 +6087,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

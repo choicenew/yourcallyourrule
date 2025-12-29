@@ -2834,9 +2834,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get notGranted => '未授权';
 
   @override
-  String get notificationMode => '通知模式';
-
-  @override
   String get notificationModeDescription => '在通知栏中显示来电信息';
 
   @override
@@ -3016,9 +3013,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => '电话号码不能为空';
 
   @override
-  String get phoneNumberHint => '输入电话号码';
-
-  @override
   String get phoneNumberHintText => '输入要添加规则的电话号码';
 
   @override
@@ -3026,9 +3020,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get phoneNumberRegexRequired => '请输入电话号码和正则表达式';
-
-  @override
-  String get phoneNumberRequired => '电话号码是必需的';
 
   @override
   String get phoneNumberTypeFixedLine => '固定电话';
@@ -5123,9 +5114,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get medium => '媒介';
 
   @override
-  String get verificationReport => '验证报告';
-
-  @override
   String get finalRisk => '最终风险';
 
   @override
@@ -5262,9 +5250,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deletionProposal => '删除提议';
 
   @override
-  String get deletionProposals => '删除提议';
-
-  @override
   String get createProposal => '创建提议';
 
   @override
@@ -5358,6 +5343,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String createdAt(String date) {
     return '创建时间: $date';
   }
+
+  @override
+  String get verificationReport => '验证报告';
 
   @override
   String get showReport => '显示报告';
@@ -5477,6 +5465,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get veryLow => '极低';
 
   @override
+  String get deletionProposals => '删除提议';
+
+  @override
   String get deletionProposalNotificationDescription => '关于删除提议投票结果和更新的通知。';
 
   @override
@@ -5593,6 +5584,9 @@ class AppLocalizationsZh extends AppLocalizations {
       '选择您接收有关新删除建议的通知频率。您可以立即、批量或按自定义间隔接收它们。';
 
   @override
+  String get notificationMode => '通知模式';
+
+  @override
   String get immediateNotifications => '立即';
 
   @override
@@ -5647,10 +5641,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get guidelinesLabel => '指南';
 
   @override
-  String get reportingGuidelines =>
-      '• 仅报告真正有问题的号码\n• 提供准确和详细的原因\n• 根据严重程度选择适当的风险等级\n• 虚假报告可能会导致帐户受限';
-
-  @override
   String get riskLevelLabel => '风险等级';
 
   @override
@@ -5679,6 +5669,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => '国家代码必须为 2 个字母';
+
+  @override
+  String get phoneNumberHint => '输入电话号码';
+
+  @override
+  String get phoneNumberRequired => '电话号码是必需的';
 
   @override
   String get phoneNumberLengthError => '电话号码必须至少为 7 位数字';
@@ -5740,16 +5736,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return '支持（$supportCount）';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return '反对（$opposeCount）';
-  }
-
-  @override
   String get timeJustNow => '刚刚';
 
   @override
@@ -5768,7 +5754,21 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• 仅报告真正有问题的号码\n• 提供准确和详细的原因\n• 根据严重程度选择适当的风险等级\n• 虚假报告可能会导致帐户受限';
+
+  @override
   String get notificationFrequencyHours => '通知频率（小时）';
+
+  @override
+  String supportCount(int supportCount) {
+    return '支持（$supportCount）';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return '反对（$opposeCount）';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6025,6 +6025,17 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -8857,9 +8868,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get notGranted => '未授权';
 
   @override
-  String get notificationMode => '通知模式';
-
-  @override
   String get notificationModeDescription => '在通知栏中显示来电信息';
 
   @override
@@ -9039,9 +9047,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get phoneNumberCannotBeEmpty => '电话号码不能为空';
 
   @override
-  String get phoneNumberHint => '输入电话号码';
-
-  @override
   String get phoneNumberHintText => '输入要添加规则的电话号码';
 
   @override
@@ -9049,9 +9054,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get phoneNumberRegexRequired => '请输入电话号码和正则表达式';
-
-  @override
-  String get phoneNumberRequired => '电话号码是必需的';
 
   @override
   String get phoneNumberTypeFixedLine => '固定电话';
@@ -11146,9 +11148,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get medium => '媒介';
 
   @override
-  String get verificationReport => '验证报告';
-
-  @override
   String get finalRisk => '最终风险';
 
   @override
@@ -11285,9 +11284,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get deletionProposal => '删除提议';
 
   @override
-  String get deletionProposals => '删除提议';
-
-  @override
   String get createProposal => '创建提议';
 
   @override
@@ -11381,6 +11377,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String createdAt(String date) {
     return '创建时间: $date';
   }
+
+  @override
+  String get verificationReport => '验证报告';
 
   @override
   String get showReport => '显示报告';
@@ -11500,6 +11499,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get veryLow => '极低';
 
   @override
+  String get deletionProposals => '删除提议';
+
+  @override
   String get deletionProposalNotificationDescription => '关于删除提议投票结果和更新的通知。';
 
   @override
@@ -11616,6 +11618,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
       '选择您接收有关新删除建议的通知频率。您可以立即、批量或按自定义间隔接收它们。';
 
   @override
+  String get notificationMode => '通知模式';
+
+  @override
   String get immediateNotifications => '立即';
 
   @override
@@ -11670,10 +11675,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get guidelinesLabel => '指南';
 
   @override
-  String get reportingGuidelines =>
-      '• 仅报告真正有问题的号码\n• 提供准确和详细的原因\n• 根据严重程度选择适当的风险等级\n• 虚假报告可能会导致帐户受限';
-
-  @override
   String get riskLevelLabel => '风险等级';
 
   @override
@@ -11702,6 +11703,12 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get countryCodeLengthError => '国家代码必须为 2 个字母';
+
+  @override
+  String get phoneNumberHint => '输入电话号码';
+
+  @override
+  String get phoneNumberRequired => '电话号码是必需的';
 
   @override
   String get phoneNumberLengthError => '电话号码必须至少为 7 位数字';
@@ -11763,16 +11770,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return '支持（$supportCount）';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return '反对（$opposeCount）';
-  }
-
-  @override
   String get timeJustNow => '刚刚';
 
   @override
@@ -11791,7 +11788,21 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• 仅报告真正有问题的号码\n• 提供准确和详细的原因\n• 根据严重程度选择适当的风险等级\n• 虚假报告可能会导致帐户受限';
+
+  @override
   String get notificationFrequencyHours => '通知频率（小时）';
+
+  @override
+  String supportCount(int supportCount) {
+    return '支持（$supportCount）';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return '反对（$opposeCount）';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -14793,9 +14804,6 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get notGranted => '未授權';
 
   @override
-  String get notificationMode => '通知模式';
-
-  @override
   String get notificationModeDescription => '在通知欄中顯示來電者資訊';
 
   @override
@@ -14975,9 +14983,6 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get phoneNumberCannotBeEmpty => '電話號碼不能為空';
 
   @override
-  String get phoneNumberHint => '輸入電話號碼';
-
-  @override
   String get phoneNumberHintText => '輸入電話號碼以新增規則';
 
   @override
@@ -14985,9 +14990,6 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get phoneNumberRegexRequired => '請輸入電話號碼和正則表達式';
-
-  @override
-  String get phoneNumberRequired => '電話號碼是必需的';
 
   @override
   String get phoneNumberTypeFixedLine => '固定電話';
@@ -17081,9 +17083,6 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get medium => '媒介';
 
   @override
-  String get verificationReport => '驗證報告';
-
-  @override
   String get finalRisk => '最終風險';
 
   @override
@@ -17220,9 +17219,6 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get deletionProposal => '刪除建議';
 
   @override
-  String get deletionProposals => '刪除建議';
-
-  @override
   String get createProposal => '建立建議';
 
   @override
@@ -17316,6 +17312,9 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String createdAt(String date) {
     return '建立於: $date';
   }
+
+  @override
+  String get verificationReport => '驗證報告';
 
   @override
   String get showReport => '顯示報告';
@@ -17435,6 +17434,9 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get veryLow => '非常低';
 
   @override
+  String get deletionProposals => '刪除建議';
+
+  @override
   String get deletionProposalNotificationDescription => '有關刪除提案投票結果和更新的通知。';
 
   @override
@@ -17551,6 +17553,9 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
       '選擇您接收關於新刪除建議通知的頻率。您可以立即、分批或以自訂間隔接收。';
 
   @override
+  String get notificationMode => '通知模式';
+
+  @override
   String get immediateNotifications => '立即';
 
   @override
@@ -17605,10 +17610,6 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get guidelinesLabel => '指引';
 
   @override
-  String get reportingGuidelines =>
-      '• 只舉報真正有問題的號碼\n• 提供準確及詳細的原因\n• 根據嚴重程度選擇適當的風險級別\n• 虛假舉報可能會導致帳戶限制';
-
-  @override
   String get riskLevelLabel => '風險級別';
 
   @override
@@ -17637,6 +17638,12 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get countryCodeLengthError => '國家代碼必須是 2 個字母';
+
+  @override
+  String get phoneNumberHint => '輸入電話號碼';
+
+  @override
+  String get phoneNumberRequired => '電話號碼是必需的';
 
   @override
   String get phoneNumberLengthError => '電話號碼必須至少有 7 位數字';
@@ -17698,16 +17705,6 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return '支持 ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return '反對 ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => '啱啱';
 
   @override
@@ -17726,7 +17723,21 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• 只舉報真正有問題的號碼\n• 提供準確及詳細的原因\n• 根據嚴重程度選擇適當的風險級別\n• 虛假舉報可能會導致帳戶限制';
+
+  @override
   String get notificationFrequencyHours => '通知頻率 (小時)';
+
+  @override
+  String supportCount(int supportCount) {
+    return '支持 ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return '反對 ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -20728,9 +20739,6 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get notGranted => '未授權';
 
   @override
-  String get notificationMode => '通知模式';
-
-  @override
   String get notificationModeDescription => '在通知欄中顯示來電者資訊';
 
   @override
@@ -20910,9 +20918,6 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get phoneNumberCannotBeEmpty => '電話號碼不能為空';
 
   @override
-  String get phoneNumberHint => '輸入電話號碼';
-
-  @override
   String get phoneNumberHintText => '輸入電話號碼以新增規則';
 
   @override
@@ -20920,9 +20925,6 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
 
   @override
   String get phoneNumberRegexRequired => '請輸入電話號碼和正則表達式';
-
-  @override
-  String get phoneNumberRequired => '電話號碼是必需的';
 
   @override
   String get phoneNumberTypeFixedLine => '固定電話';
@@ -23016,9 +23018,6 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get medium => '媒介';
 
   @override
-  String get verificationReport => '驗證報告';
-
-  @override
   String get finalRisk => '最終風險';
 
   @override
@@ -23155,9 +23154,6 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get deletionProposal => '刪除建議';
 
   @override
-  String get deletionProposals => '刪除建議';
-
-  @override
   String get createProposal => '建立建議';
 
   @override
@@ -23251,6 +23247,9 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String createdAt(String date) {
     return '建立於: $date';
   }
+
+  @override
+  String get verificationReport => '驗證報告';
 
   @override
   String get showReport => '顯示報告';
@@ -23370,6 +23369,9 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get veryLow => '非常低';
 
   @override
+  String get deletionProposals => '刪除建議';
+
+  @override
   String get deletionProposalNotificationDescription => '有關刪除提案投票結果和更新的通知。';
 
   @override
@@ -23486,6 +23488,9 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
       '選擇您接收關於新刪除建議通知的頻率。您可以立即、分批或以自訂間隔接收。';
 
   @override
+  String get notificationMode => '通知模式';
+
+  @override
   String get immediateNotifications => '立即';
 
   @override
@@ -23540,10 +23545,6 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get guidelinesLabel => '指引';
 
   @override
-  String get reportingGuidelines =>
-      '• 只舉報真正有問題的號碼\n• 提供準確及詳細的原因\n• 根據嚴重程度選擇適當的風險級別\n• 虛假舉報可能會導致帳戶限制';
-
-  @override
   String get riskLevelLabel => '風險級別';
 
   @override
@@ -23572,6 +23573,12 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
 
   @override
   String get countryCodeLengthError => '國家代碼必須是 2 個字母';
+
+  @override
+  String get phoneNumberHint => '輸入電話號碼';
+
+  @override
+  String get phoneNumberRequired => '電話號碼是必需的';
 
   @override
   String get phoneNumberLengthError => '電話號碼必須至少有 7 位數字';
@@ -23633,16 +23640,6 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return '支持 ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return '反對 ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => '啱啱';
 
   @override
@@ -23661,7 +23658,21 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• 只舉報真正有問題的號碼\n• 提供準確及詳細的原因\n• 根據嚴重程度選擇適當的風險級別\n• 虛假舉報可能會導致帳戶限制';
+
+  @override
   String get notificationFrequencyHours => '通知頻率 (小時)';
+
+  @override
+  String supportCount(int supportCount) {
+    return '支持 ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return '反對 ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -26663,9 +26674,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get notGranted => '未授權';
 
   @override
-  String get notificationMode => '通知模式';
-
-  @override
   String get notificationModeDescription => '在通知列中顯示來電者資訊';
 
   @override
@@ -26845,9 +26853,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get phoneNumberCannotBeEmpty => '電話號碼不能為空';
 
   @override
-  String get phoneNumberHint => '輸入電話號碼';
-
-  @override
   String get phoneNumberHintText => '輸入電話號碼以新增規則';
 
   @override
@@ -26855,9 +26860,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get phoneNumberRegexRequired => '請輸入電話號碼和正則表達式模式';
-
-  @override
-  String get phoneNumberRequired => '電話號碼為必填項';
 
   @override
   String get phoneNumberTypeFixedLine => '固定電話';
@@ -28952,9 +28954,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get medium => '媒介';
 
   @override
-  String get verificationReport => '驗證報告';
-
-  @override
   String get finalRisk => '最終風險';
 
   @override
@@ -29091,9 +29090,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get deletionProposal => '刪除提案';
 
   @override
-  String get deletionProposals => '刪除提案';
-
-  @override
   String get createProposal => '建立提案';
 
   @override
@@ -29187,6 +29183,9 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String createdAt(String date) {
     return '建立於: $date';
   }
+
+  @override
+  String get verificationReport => '驗證報告';
 
   @override
   String get showReport => '顯示報告';
@@ -29306,6 +29305,9 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get veryLow => '非常低';
 
   @override
+  String get deletionProposals => '刪除提案';
+
+  @override
   String get deletionProposalNotificationDescription => '關於刪除提案投票結果和更新的通知。';
 
   @override
@@ -29422,6 +29424,9 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
       '選擇您接收關於新刪除建議的通知頻率。您可以立即、批量或自訂間隔接收它們。';
 
   @override
+  String get notificationMode => '通知模式';
+
+  @override
   String get immediateNotifications => '立即';
 
   @override
@@ -29476,10 +29481,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get guidelinesLabel => '指南';
 
   @override
-  String get reportingGuidelines =>
-      '• 僅舉報真正有問題的號碼\n• 提供準確且詳細的原因\n• 根據嚴重程度選擇適當的風險級別\n• 虛假舉報可能會導致帳戶限制';
-
-  @override
   String get riskLevelLabel => '風險級別';
 
   @override
@@ -29508,6 +29509,12 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get countryCodeLengthError => '國家代碼必須為 2 個字母';
+
+  @override
+  String get phoneNumberHint => '輸入電話號碼';
+
+  @override
+  String get phoneNumberRequired => '電話號碼為必填項';
 
   @override
   String get phoneNumberLengthError => '電話號碼必須至少包含 7 位數字';
@@ -29569,16 +29576,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return '支持（$supportCount）';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return '反對（$opposeCount）';
-  }
-
-  @override
   String get timeJustNow => '剛剛';
 
   @override
@@ -29597,7 +29594,21 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• 僅舉報真正有問題的號碼\n• 提供準確且詳細的原因\n• 根據嚴重程度選擇適當的風險級別\n• 虛假舉報可能會導致帳戶限制';
+
+  @override
   String get notificationFrequencyHours => '通知頻率（小時）';
+
+  @override
+  String supportCount(int supportCount) {
+    return '支持（$supportCount）';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return '反對（$opposeCount）';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {

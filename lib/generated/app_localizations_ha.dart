@@ -2969,9 +2969,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get notGranted => 'Ba a bayar ba';
 
   @override
-  String get notificationMode => 'Yanayin Sanarwa';
-
-  @override
   String get notificationModeDescription =>
       'Nuna bayanin mai kira a sandar sanarwa';
 
@@ -3166,9 +3163,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Ba za a iya barin lambar waya babu komai ba';
 
   @override
-  String get phoneNumberHint => 'Shigar da lambar waya';
-
-  @override
   String get phoneNumberHintText => 'Shigar da lambar waya don ƙara doka';
 
   @override
@@ -3177,9 +3171,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Da fatan za a shigar da lambar waya da tsarin regex';
-
-  @override
-  String get phoneNumberRequired => 'Ana buƙatar lambar waya';
 
   @override
   String get phoneNumberTypeFixedLine => 'Layin layi na Hannun';
@@ -5380,9 +5371,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get medium => 'Matsakaici';
 
   @override
-  String get verificationReport => 'Rahoton Tantancewa';
-
-  @override
   String get finalRisk => 'Hadari Na Ƙarshe';
 
   @override
@@ -5524,9 +5512,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get deletionProposal => 'Shawarar Goge Bayani';
 
   @override
-  String get deletionProposals => 'Shawarar Goge Bayani';
-
-  @override
   String get createProposal => 'Ƙirƙiri Shawara';
 
   @override
@@ -5620,6 +5605,9 @@ class AppLocalizationsHa extends AppLocalizations {
   String createdAt(String date) {
     return 'An Ƙirƙira: $date';
   }
+
+  @override
+  String get verificationReport => 'Rahoton Tantancewa';
 
   @override
   String get showReport => 'Nuna Rahoto';
@@ -5737,6 +5725,9 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get veryLow => 'Ƙarami Sosai';
+
+  @override
+  String get deletionProposals => 'Shawarar Goge Bayani';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5861,6 +5852,9 @@ class AppLocalizationsHa extends AppLocalizations {
       'Zaɓi yadda kake son karɓar sanarwa game da sabbin shawarwarin sharewa. Zaka iya karɓar su nan da nan, a cikin rukuni, ko a tsaka-tsakin lokaci na musamman.';
 
   @override
+  String get notificationMode => 'Yanayin Sanarwa';
+
+  @override
   String get immediateNotifications => 'Nan take';
 
   @override
@@ -5918,10 +5912,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get guidelinesLabel => 'Jagororin';
 
   @override
-  String get reportingGuidelines =>
-      '• Kawai ka bada rahoto kan lambobi da suke da matsala sosai\n• Bayar da dalilai sahihai kuma cikakku\n• Zaɓi matakin haɗari da ya dace bisa ga tsanani\n• Rahotannin ƙarya na iya haifar da ƙuntatawa ga asusu';
-
-  @override
   String get riskLevelLabel => 'Matakin Haɗari';
 
   @override
@@ -5954,6 +5944,12 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get countryCodeLengthError =>
       'Lambobin ƙasa dole ne su kasance haruffa 2';
+
+  @override
+  String get phoneNumberHint => 'Shigar da lambar waya';
+
+  @override
+  String get phoneNumberRequired => 'Ana buƙatar lambar waya';
 
   @override
   String get phoneNumberLengthError =>
@@ -6020,16 +6016,6 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Goyon baya ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Adawa ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Yanzu nan';
 
   @override
@@ -6048,7 +6034,21 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Kawai ka bada rahoto kan lambobi da suke da matsala sosai\n• Bayar da dalilai sahihai kuma cikakku\n• Zaɓi matakin haɗari da ya dace bisa ga tsanani\n• Rahotannin ƙarya na iya haifar da ƙuntatawa ga asusu';
+
+  @override
   String get notificationFrequencyHours => 'Mitar Sanarwa (Sa\'o\'i)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Goyon baya ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Adawa ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6310,4 +6310,15 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

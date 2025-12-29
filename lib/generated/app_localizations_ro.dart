@@ -2992,9 +2992,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get notGranted => 'Nu este acordat';
 
   @override
-  String get notificationMode => 'Mod notificare';
-
-  @override
   String get notificationModeDescription =>
       'Afișează informațiile apelantului în bara de notificare';
 
@@ -3187,9 +3184,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Numărul de telefon nu poate fi gol';
 
   @override
-  String get phoneNumberHint => 'Introduceți numărul de telefon';
-
-  @override
   String get phoneNumberHintText =>
       'Introduceți numărul de telefon pentru a adăuga regula';
 
@@ -3199,9 +3193,6 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Introduceți atât numărul de telefon, cât și modelul regex';
-
-  @override
-  String get phoneNumberRequired => 'Numărul de telefon este obligatoriu';
 
   @override
   String get phoneNumberTypeFixedLine => 'Linie fixă';
@@ -5411,9 +5402,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get medium => 'Mediu';
 
   @override
-  String get verificationReport => 'Raport de verificare';
-
-  @override
   String get finalRisk => 'Risc final';
 
   @override
@@ -5553,9 +5541,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get deletionProposal => 'Propunere de ștergere';
 
   @override
-  String get deletionProposals => 'Propuneri de ștergere';
-
-  @override
   String get createProposal => 'Creează propunere';
 
   @override
@@ -5649,6 +5634,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String createdAt(String date) {
     return 'Creat: $date';
   }
+
+  @override
+  String get verificationReport => 'Raport de verificare';
 
   @override
   String get showReport => 'Arată raportul';
@@ -5766,6 +5754,9 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get veryLow => 'Foarte scăzut';
+
+  @override
+  String get deletionProposals => 'Propuneri de ștergere';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5892,6 +5883,9 @@ class AppLocalizationsRo extends AppLocalizations {
       'Alegeți cât de des primiți notificări despre noile propuneri de ștergere. Le puteți primi imediat, în loturi sau la un interval personalizat.';
 
   @override
+  String get notificationMode => 'Mod notificare';
+
+  @override
   String get immediateNotifications => 'Imediat';
 
   @override
@@ -5949,10 +5943,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get guidelinesLabel => 'Orientări';
 
   @override
-  String get reportingGuidelines =>
-      '• Raportați numai numerele care sunt cu adevărat problematice\n• Furnizați motive exacte și detaliate\n• Alegeți nivelul de risc adecvat în funcție de gravitate\n• Rapoartele false pot duce la restricții de cont';
-
-  @override
   String get riskLevelLabel => 'Nivel de risc';
 
   @override
@@ -5984,6 +5974,12 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Codul țării trebuie să aibă 2 litere';
+
+  @override
+  String get phoneNumberHint => 'Introduceți numărul de telefon';
+
+  @override
+  String get phoneNumberRequired => 'Numărul de telefon este obligatoriu';
 
   @override
   String get phoneNumberLengthError =>
@@ -6051,16 +6047,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Suport ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Împotrivă ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Acum';
 
   @override
@@ -6079,7 +6065,21 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Raportați numai numerele care sunt cu adevărat problematice\n• Furnizați motive exacte și detaliate\n• Alegeți nivelul de risc adecvat în funcție de gravitate\n• Rapoartele false pot duce la restricții de cont';
+
+  @override
   String get notificationFrequencyHours => 'Frecvența notificărilor (ore)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Suport ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Împotrivă ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6341,4 +6341,15 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

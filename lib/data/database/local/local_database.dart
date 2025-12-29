@@ -160,6 +160,7 @@ class Plugins extends Table {
   IntColumn get isEnabled => integer().withDefault(const Constant(1))();
   IntColumn get pluginOrder => integer()();
   IntColumn get isAutoUpdate => integer().withDefault(const Constant(0))();
+  TextColumn get configJson => text().nullable()();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -314,42 +315,46 @@ class LocalDatabase extends _$LocalDatabase {
       await batch((batch) {
         // Insert predefined labels
         // --- 插入预定义标签 ---
-      // 1. 遍历你的 predefinedLabels 列表
-      final labelsToInsert = predefined.predefinedLabels.map((labelMap) {
-        // 2. 从 Map 中安全地获取 'text' 的值
-        final text = labelMap['text'] as String?;
+        // 1. 遍历你的 predefinedLabels 列表
+        final labelsToInsert =
+            predefined.predefinedLabels
+                .map((labelMap) {
+                  // 2. 从 Map 中安全地获取 'text' 的值
+                  final text = labelMap['text'] as String?;
 
-        // 如果 text 无效，就跳过这条数据
-        if (text == null || text.isEmpty) {
-          return null;
-        }
+                  // 如果 text 无效，就跳过这条数据
+                  if (text == null || text.isEmpty) {
+                    return null;
+                  }
 
-        // 3. ✅【核心逻辑】根据 text 的值，生成 ID
-        var id = text.toLowerCase().replaceAll(' ', '_').replaceAll(RegExp(r'[^a-z0-9_]'), '');
-        
-        // 4. 如果生成的 id 为空，则使用 Uuid 作为备用方案
-        if (id.isEmpty) {
-          id = const Uuid().v4();
-        }
-        
-        // 5. 创建用于插入的 Drift Companion 对象
-        return PredefinedLabelsCompanion.insert(
-          // 【必填字段】
-          id: id,       // 使用我们刚刚生成的 id
-          labelText: text, // 使用原始的 text
-          
-          // 【可空字段】因为源数据没有，所以显式设为 null
-          avatar: Value(null), 
-          icon: Value(null),
-        );
-      })
-      // 6. 过滤掉所有无效数据 (返回 null 的项)
-      .whereType<PredefinedLabelsCompanion>()
-      .toList();
+                  // 3. ✅【核心逻辑】根据 text 的值，生成 ID
+                  var id = text
+                      .toLowerCase()
+                      .replaceAll(' ', '_')
+                      .replaceAll(RegExp(r'[^a-z0-9_]'), '');
 
-      // 7. 批量插入所有有效数据
-      batch.insertAll(predefinedLabels, labelsToInsert);
-                                        
+                  // 4. 如果生成的 id 为空，则使用 Uuid 作为备用方案
+                  if (id.isEmpty) {
+                    id = const Uuid().v4();
+                  }
+
+                  // 5. 创建用于插入的 Drift Companion 对象
+                  return PredefinedLabelsCompanion.insert(
+                    // 【必填字段】
+                    id: id, // 使用我们刚刚生成的 id
+                    labelText: text, // 使用原始的 text
+                    // 【可空字段】因为源数据没有，所以显式设为 null
+                    avatar: Value(null),
+                    icon: Value(null),
+                  );
+                })
+                // 6. 过滤掉所有无效数据 (返回 null 的项)
+                .whereType<PredefinedLabelsCompanion>()
+                .toList();
+
+        // 7. 批量插入所有有效数据
+        batch.insertAll(predefinedLabels, labelsToInsert);
+
         // Initialize user mark count
         batch.insert(
           userMarkCount,

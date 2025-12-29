@@ -5404,12 +5404,6 @@ abstract class AppLocalizations {
   /// **'Not Granted'**
   String get notGranted;
 
-  /// Title for the mode selection part (Immediate, Batched, Custom)
-  ///
-  /// In en, this message translates to:
-  /// **'Notification Mode'**
-  String get notificationMode;
-
   /// No description provided for @notificationModeDescription.
   ///
   /// In en, this message translates to:
@@ -5758,12 +5752,6 @@ abstract class AppLocalizations {
   /// **'Phone number cannot be empty'**
   String get phoneNumberCannotBeEmpty;
 
-  /// Hint text for phone number input field
-  ///
-  /// In en, this message translates to:
-  /// **'Enter phone number'**
-  String get phoneNumberHint;
-
   /// No description provided for @phoneNumberHintText.
   ///
   /// In en, this message translates to:
@@ -5781,12 +5769,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter both phone number and regex pattern'**
   String get phoneNumberRegexRequired;
-
-  /// Validation message for required phone number
-  ///
-  /// In en, this message translates to:
-  /// **'Phone number is required'**
-  String get phoneNumberRequired;
 
   /// No description provided for @phoneNumberTypeFixedLine.
   ///
@@ -7945,7 +7927,7 @@ abstract class AppLocalizations {
   /// No description provided for @syncFailed.
   ///
   /// In en, this message translates to:
-  /// **'Sync Failed'**
+  /// **'Sync failed'**
   String get syncFailed;
 
   /// No description provided for @syncFailedMessage.
@@ -9622,12 +9604,6 @@ abstract class AppLocalizations {
   /// **'Medium'**
   String get medium;
 
-  /// Verification report label
-  ///
-  /// In en, this message translates to:
-  /// **'Verification Report'**
-  String get verificationReport;
-
   /// No description provided for @finalRisk.
   ///
   /// In en, this message translates to:
@@ -9832,12 +9808,6 @@ abstract class AppLocalizations {
   /// **'Deletion Proposal'**
   String get deletionProposal;
 
-  /// Title for deletion proposals notification channel
-  ///
-  /// In en, this message translates to:
-  /// **'Deletion Proposals'**
-  String get deletionProposals;
-
   /// Create proposal button text
   ///
   /// In en, this message translates to:
@@ -9952,13 +9922,13 @@ abstract class AppLocalizations {
   /// **'Verified'**
   String get riskLevelVerified;
 
-  /// Label for low risk level
+  /// Low risk level
   ///
   /// In en, this message translates to:
   /// **'Low'**
   String get riskLevelLow;
 
-  /// Label for high risk level
+  /// High risk level
   ///
   /// In en, this message translates to:
   /// **'High'**
@@ -10011,6 +9981,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Created: {date}'**
   String createdAt(String date);
+
+  /// Verification report label
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Report'**
+  String get verificationReport;
 
   /// Show report button text
   ///
@@ -10246,6 +10222,12 @@ abstract class AppLocalizations {
   /// **'Very Low'**
   String get veryLow;
 
+  /// Title for deletion proposals notification channel
+  ///
+  /// In en, this message translates to:
+  /// **'Deletion Proposals'**
+  String get deletionProposals;
+
   /// Description for deletion proposal notification channel
   ///
   /// In en, this message translates to:
@@ -10436,6 +10418,12 @@ abstract class AppLocalizations {
   /// **'Choose how often you receive notifications about new deletion proposals. You can receive them immediately, in batches, or at a custom interval.'**
   String get notificationFrequencyDescription;
 
+  /// Title for the mode selection part (Immediate, Batched, Custom)
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Mode'**
+  String get notificationMode;
+
   /// Label for the immediate notification mode
   ///
   /// In en, this message translates to:
@@ -10514,12 +10502,6 @@ abstract class AppLocalizations {
   /// **'Guidelines'**
   String get guidelinesLabel;
 
-  /// Guidelines for reporting a number.
-  ///
-  /// In en, this message translates to:
-  /// **'• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions'**
-  String get reportingGuidelines;
-
   /// No description provided for @riskLevelLabel.
   ///
   /// In en, this message translates to:
@@ -10579,6 +10561,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Country code must be 2 letters'**
   String get countryCodeLengthError;
+
+  /// Hint text for phone number input field
+  ///
+  /// In en, this message translates to:
+  /// **'Enter phone number'**
+  String get phoneNumberHint;
+
+  /// Validation message for required phone number
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number is required'**
+  String get phoneNumberRequired;
 
   /// Validation message for phone number length
   ///
@@ -10688,18 +10682,6 @@ abstract class AppLocalizations {
   /// **'Votes: {totalVotes} ({supportPercentage}% support)'**
   String votesStatistics(int totalVotes, int supportPercentage);
 
-  /// Shows the number of support votes.
-  ///
-  /// In en, this message translates to:
-  /// **'Support ({supportCount})'**
-  String supportCount(int supportCount);
-
-  /// Shows the number of oppose votes.
-  ///
-  /// In en, this message translates to:
-  /// **'Oppose ({opposeCount})'**
-  String opposeCount(int opposeCount);
-
   /// Time format for recent events
   ///
   /// In en, this message translates to:
@@ -10724,11 +10706,29 @@ abstract class AppLocalizations {
   /// **'{days}d ago'**
   String timeDaysAgo(int days);
 
+  /// Guidelines for reporting a number.
+  ///
+  /// In en, this message translates to:
+  /// **'• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions'**
+  String get reportingGuidelines;
+
   /// Title for the notification frequency setting.
   ///
   /// In en, this message translates to:
   /// **'Notification Frequency (Hours)'**
   String get notificationFrequencyHours;
+
+  /// Shows the number of support votes.
+  ///
+  /// In en, this message translates to:
+  /// **'Support ({supportCount})'**
+  String supportCount(int supportCount);
+
+  /// Shows the number of oppose votes.
+  ///
+  /// In en, this message translates to:
+  /// **'Oppose ({opposeCount})'**
+  String opposeCount(int opposeCount);
 
   /// Displays the total vote count and the percentage of support votes.
   ///
@@ -11197,6 +11197,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Watch ads for free or purchase VIP'**
   String get vipAccessSubtitle;
+
+  /// Error message when plugin settings schema fails to load
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load settings schema: {error}'**
+  String failedToLoadSettingsSchema(String error);
+
+  /// Message shown when a plugin has no settings
+  ///
+  /// In en, this message translates to:
+  /// **'No settings available for this plugin.'**
+  String get noSettingsAvailable;
+
+  /// Validation error message for required fields
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get fieldIsRequired;
 }
 
 class _AppLocalizationsDelegate

@@ -3003,9 +3003,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get notGranted => 'Akanikwanga';
 
   @override
-  String get notificationMode => 'Imodi Yesaziso';
-
-  @override
   String get notificationModeDescription =>
       'Bonisa ulwazi lomshayeli kubha yesaziso';
 
@@ -3199,9 +3196,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Inombolo yefoni ayikwazi ukuba yize';
 
   @override
-  String get phoneNumberHint => 'Faka inombolo yefoni';
-
-  @override
   String get phoneNumberHintText =>
       'Faka inombolo yefoni ukuze ungeze umthetho';
 
@@ -3211,9 +3205,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Sicela ufake inombolo yefoni kanye nephethini ye-regex';
-
-  @override
-  String get phoneNumberRequired => 'Inombolo yefoni iyadingeka';
 
   @override
   String get phoneNumberTypeFixedLine => 'Ulayini ogxilile';
@@ -5432,9 +5423,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get medium => 'Okumaphakathi';
 
   @override
-  String get verificationReport => 'Umbiko Wokuqinisekisa';
-
-  @override
   String get finalRisk => 'Ingozi Yokugcina';
 
   @override
@@ -5577,9 +5565,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get deletionProposal => 'Isiphakamiso Sokususwa';
 
   @override
-  String get deletionProposals => 'Iziphakamiso Zokususa';
-
-  @override
   String get createProposal => 'Dala Isiphakamiso';
 
   @override
@@ -5673,6 +5658,9 @@ class AppLocalizationsZu extends AppLocalizations {
   String createdAt(String date) {
     return 'Idalwe: $date';
   }
+
+  @override
+  String get verificationReport => 'Umbiko Wokuqinisekisa';
 
   @override
   String get showReport => 'Bonisa Umbiko';
@@ -5790,6 +5778,9 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get veryLow => 'Phansi Kakhulu';
+
+  @override
+  String get deletionProposals => 'Iziphakamiso Zokususa';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5915,6 +5906,9 @@ class AppLocalizationsZu extends AppLocalizations {
       'Khetha ukuthi uvamise kangakanani ukuthola izaziso mayelana neziphakamiso ezintsha zokususa. Ungazithola ngokushesha, ngamaqoqo, noma ngesikhathi esithile osikhethile.';
 
   @override
+  String get notificationMode => 'Imodi Yesaziso';
+
+  @override
   String get immediateNotifications => 'Ngokushesha';
 
   @override
@@ -5972,10 +5966,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get guidelinesLabel => 'Imihlahlandlela';
 
   @override
-  String get reportingGuidelines =>
-      '• Bika kuphela izinombolo ezinenkinga ngempela\n• Nikeza izizathu ezinembile neziningiliziwe\n• Khetha izinga lobungozi elifanele ngokusekelwe ebucayi\n• Imibiko yamanga ingaholela ekukhawuleleni kwe-akhawunti';
-
-  @override
   String get riskLevelLabel => 'Izinga Lobungozi';
 
   @override
@@ -6008,6 +5998,12 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get countryCodeLengthError =>
       'Ikhodi yezwe kufanele ibe izinhlamvu ezi-2';
+
+  @override
+  String get phoneNumberHint => 'Faka inombolo yefoni';
+
+  @override
+  String get phoneNumberRequired => 'Inombolo yefoni iyadingeka';
 
   @override
   String get phoneNumberLengthError =>
@@ -6077,16 +6073,6 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Sekela ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Phikisa ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Manje nje';
 
   @override
@@ -6105,7 +6091,21 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Bika kuphela izinombolo ezinenkinga ngempela\n• Nikeza izizathu ezinembile neziningiliziwe\n• Khetha izinga lobungozi elifanele ngokusekelwe ebucayi\n• Imibiko yamanga ingaholela ekukhawuleleni kwe-akhawunti';
+
+  @override
   String get notificationFrequencyHours => 'Ukuvama Kwezaziso (Amahola)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Sekela ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Phikisa ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6367,4 +6367,15 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

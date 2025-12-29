@@ -2888,9 +2888,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get notGranted => 'አልተሰጠም';
 
   @override
-  String get notificationMode => 'የማሳወቂያ ሁነታ';
-
-  @override
   String get notificationModeDescription => 'አስቸኳይ ጥሪ መረጃ በማስታወቂያ አሞሌ ውስጥ አሳይ';
 
   @override
@@ -3078,9 +3075,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'የስልክ ቁጥር ባዶ ሊሆን አይችልም';
 
   @override
-  String get phoneNumberHint => 'የስልክ ቁጥር ያስገቡ';
-
-  @override
   String get phoneNumberHintText => 'ህግ ለመጨመር የስልክ ቁጥር ያስገቡ';
 
   @override
@@ -3088,9 +3082,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get phoneNumberRegexRequired => 'እባክዎ የስልክ ቁጥር እና የሬጅክስ ንድፍ ያስገቡ';
-
-  @override
-  String get phoneNumberRequired => 'የስልክ ቁጥር ያስፈልጋል';
 
   @override
   String get phoneNumberTypeFixedLine => 'የተስተካከለ መስመር';
@@ -5237,9 +5228,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get medium => 'መካከለኛ';
 
   @override
-  String get verificationReport => 'የማረጋገጫ ሪፖርት';
-
-  @override
   String get finalRisk => 'የመጨረሻ ስጋት';
 
   @override
@@ -5377,9 +5365,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get deletionProposal => 'የመሰረዝ ጥያቄ';
 
   @override
-  String get deletionProposals => 'የመሰረዝ ጥያቄዎች';
-
-  @override
   String get createProposal => 'ጥያቄ ፍጠር';
 
   @override
@@ -5473,6 +5458,9 @@ class AppLocalizationsAm extends AppLocalizations {
   String createdAt(String date) {
     return 'የተፈጠረ: $date';
   }
+
+  @override
+  String get verificationReport => 'የማረጋገጫ ሪፖርት';
 
   @override
   String get showReport => 'ሪፖርት አሳይ';
@@ -5590,6 +5578,9 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get veryLow => 'በጣም ዝቅተኛ';
+
+  @override
+  String get deletionProposals => 'የመሰረዝ ጥያቄዎች';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5713,6 +5704,9 @@ class AppLocalizationsAm extends AppLocalizations {
       'ስለ አዲስ የሰርዝ ጥያቄዎች ምን ያህል ጊዜ ማሳወቂያ እንደሚያገኙ ይምረጡ። ወዲያውኑ፣ በቡድን፣ ወይም በተወሰነ የጊዜ ክፍተት ማሳወቂያዎችን መቀበል ይችላሉ።';
 
   @override
+  String get notificationMode => 'የማሳወቂያ ሁነታ';
+
+  @override
   String get immediateNotifications => 'ወዲያውኑ';
 
   @override
@@ -5768,10 +5762,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get guidelinesLabel => 'መመሪያዎች';
 
   @override
-  String get reportingGuidelines =>
-      '• በእርግጥ ችግር ያለባቸውን ቁጥሮች ብቻ ሪፖርት ያድርጉ\n• ትክክለኛ እና ዝርዝር ምክንያቶችን ያቅርቡ\n• እንደ አስከፊነቱ ተገቢውን የአደጋ ደረጃ ይምረጡ\n• የውሸት ሪፖርቶች የመለያ እገዳ ሊያስከትሉ ይችላሉ';
-
-  @override
   String get riskLevelLabel => 'የአደጋ ደረጃ';
 
   @override
@@ -5800,6 +5790,12 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'የሀገር ኮድ 2 ፊደሎች መሆን አለበት';
+
+  @override
+  String get phoneNumberHint => 'የስልክ ቁጥር ያስገቡ';
+
+  @override
+  String get phoneNumberRequired => 'የስልክ ቁጥር ያስፈልጋል';
 
   @override
   String get phoneNumberLengthError => 'የስልክ ቁጥር ቢያንስ 7 አሃዞች ሊኖረው ይገባል';
@@ -5862,16 +5858,6 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'ድጋፍ ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'ተቃውሞ ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'አሁን';
 
   @override
@@ -5890,7 +5876,21 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• በእርግጥ ችግር ያለባቸውን ቁጥሮች ብቻ ሪፖርት ያድርጉ\n• ትክክለኛ እና ዝርዝር ምክንያቶችን ያቅርቡ\n• እንደ አስከፊነቱ ተገቢውን የአደጋ ደረጃ ይምረጡ\n• የውሸት ሪፖርቶች የመለያ እገዳ ሊያስከትሉ ይችላሉ';
+
+  @override
   String get notificationFrequencyHours => 'የማሳወቂያ ድግግሞሽ (ሰዓቶች)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'ድጋፍ ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'ተቃውሞ ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6149,4 +6149,15 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

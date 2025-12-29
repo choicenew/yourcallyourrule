@@ -1118,7 +1118,7 @@
   },
   "noSubscriptionsYet": "No Subscriptions Yet",
   "notGranted": "Not Granted",
-  "notificationMode": "Notification",
+
   "notificationModeDescription": "Show caller information in the notification bar",
   "notificationPermission": "Notification Permission",
   "notificationPermissionDescription": "Used to display incoming call and message notifications.",
@@ -1180,11 +1180,11 @@
   "phoneCallsTab": "Phone",
   "phoneNumber": "Phone Number",
   "phoneNumberCannotBeEmpty": "Phone number cannot be empty",
-  "phoneNumberHint": "Enter phone number",
+
   "phoneNumberHintText": "Enter phone number to add rule",
   "phoneNumberLabel": "Phone Number",
   "phoneNumberRegexRequired": "Please enter both phone number and regex pattern",
-  "phoneNumberRequired": "Phone number is required",
+
   "phoneNumberTypeFixedLine": "Fixed line",
   "phoneNumberTypeFixedLineOrMobile": "Fixed line or mobile",
   "phoneNumberTypeMobile": "Mobile",
@@ -2224,7 +2224,7 @@
 
 "medium": "Medium",
 
-  "verificationReport": "Verification Report",
+
   "finalRisk": "Final Risk",
   "simState": "SIM State",
   "ipCountry": "IP Country",
@@ -2304,10 +2304,7 @@
   "@deletionProposal": {
     "description": "Deletion proposal title"
   },
-  "deletionProposals": "Deletion Proposals",
-  "@deletionProposals": {
-    "description": "Deletion proposals title"
-  },
+
   "createProposal": "Create Proposal",
   "@createProposal": {
     "description": "Create proposal button text"
@@ -2316,7 +2313,7 @@
   "@createProposalTitle": {
     "description": "Create proposal dialog title"
   },
-  "phoneNumber": "Phone Number",
+ 
   "@phoneNumber": {
     "description": "Phone number label"
   },
@@ -2519,7 +2516,7 @@
   "@refreshProposals": {
     "description": "Refresh proposals button text"
   },
-  "overview": "Overview",
+
   "@overview": {
     "description": "Overview label"
   },
@@ -2859,7 +2856,7 @@
   "pendingProposalsBody": "You have {count, plural, =0 {no pending proposals} one {1 pending proposal} other {{count} pending proposals}}.",
   
 "guidelinesLabel": "Guidelines",
-"reportingGuidelines": "• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• It might be reported again from other source or other users",
+
  "riskLevelLabel": "Risk Level",
   "riskLevelDescription": "Risk level of the number",
  
@@ -2934,20 +2931,14 @@
     "description": "Label for critical risk level"
   },
   
-  "riskLevelHigh": "High",
-  "@riskLevelHigh": {
-    "description": "Label for high risk level"
-  },
+
   
   "riskLevelMedium": "Medium",
   "@riskLevelMedium": {
     "description": "Label for medium risk level"
   },
   
-  "riskLevelLow": "Low",
-  "@riskLevelLow": {
-    "description": "Label for low risk level"
-  },
+
   
   "riskLevelVeryLow": "Very Low",
   "@riskLevelVeryLow": {
@@ -3012,25 +3003,9 @@
     }
   },
   
-  "supportCount": "Support: {count}",
-  "@supportCount": {
-    "description": "Support count text",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
+
   
-  "opposeCount": "Oppose: {count}",
-  "@opposeCount": {
-    "description": "Oppose count text",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
+ 
   
   "timeJustNow": "Just now",
   "@timeJustNow": {
@@ -3150,7 +3125,7 @@
 "phoneNumberType": "PhoneNumber Type",
 "liveActivitiesTestEndActivity": "End Activity",
 "liveActivitiesTestSendNewActivity": "Send New Activity",
-"liveActivitiesTestSendNewActivity": "Send New Activity",
+
 
 "liveActivitiesTestUpdateActivity": "Update Activity",
 
@@ -3302,7 +3277,7 @@
   "requiredField": "Required",
   "requiredInitField": "Required for initialization",
   "initDbButton": "Initialize Database",
-  "syncNowButton": "Sync Now",
+
   "dbInitSuccess": "Database Initialized Successfully!",
   "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
   "@syncSuccess": {
@@ -3312,7 +3287,7 @@
       "pulled": { "type": "int" }
     }
   },
-  "syncFailed": "Sync Failed",
+
   "errorPrefix": "Error",
   "errorLoadingSettings": "Error loading settings",
   "statusLabel": "Status",
@@ -3331,7 +3306,24 @@
 
  
  
- "vipAccessSubtitle": "Watch ads for free or purchase VIP"
+ "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+ "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noSettingsAvailable": "No settings available for this plugin.",
+  "@noSettingsAvailable": {
+    "description": "Message shown when a plugin has no settings"
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  }
  
  
  

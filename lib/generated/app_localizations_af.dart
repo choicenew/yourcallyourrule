@@ -2950,9 +2950,6 @@ class AppLocalizationsAf extends AppLocalizations {
   String get notGranted => 'Nie toegeken nie';
 
   @override
-  String get notificationMode => 'Kennisgewingmodus';
-
-  @override
   String get notificationModeDescription =>
       'Wys bellerinligting in die kennisgewingbalk';
 
@@ -3145,9 +3142,6 @@ class AppLocalizationsAf extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefoonnommer kan nie leeg wees nie';
 
   @override
-  String get phoneNumberHint => 'Voer telefoonnommer in';
-
-  @override
   String get phoneNumberHintText => 'Voer telefoonnommer in om reël by te voeg';
 
   @override
@@ -3156,9 +3150,6 @@ class AppLocalizationsAf extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Voer asseblief beide telefoonnommer en regex-patroon in';
-
-  @override
-  String get phoneNumberRequired => 'Telefoonnommer word vereis';
 
   @override
   String get phoneNumberTypeFixedLine => 'Vaste lyn';
@@ -5352,9 +5343,6 @@ class AppLocalizationsAf extends AppLocalizations {
   String get medium => 'Medium';
 
   @override
-  String get verificationReport => 'Verifikasie Verslag';
-
-  @override
   String get finalRisk => 'Finale Risiko';
 
   @override
@@ -5494,9 +5482,6 @@ class AppLocalizationsAf extends AppLocalizations {
   String get deletionProposal => 'Verwyderingsvoorstel';
 
   @override
-  String get deletionProposals => 'Verwyderingsvoorstelle';
-
-  @override
   String get createProposal => 'Skep Voorstel';
 
   @override
@@ -5590,6 +5575,9 @@ class AppLocalizationsAf extends AppLocalizations {
   String createdAt(String date) {
     return 'Geskep: $date';
   }
+
+  @override
+  String get verificationReport => 'Verifikasie Verslag';
 
   @override
   String get showReport => 'Wys Verslag';
@@ -5707,6 +5695,9 @@ class AppLocalizationsAf extends AppLocalizations {
 
   @override
   String get veryLow => 'Baie Laag';
+
+  @override
+  String get deletionProposals => 'Verwyderingsvoorstelle';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5831,6 +5822,9 @@ class AppLocalizationsAf extends AppLocalizations {
       'Kies hoe gereeld jy kennisgewings oor nuwe skrapingsvoorstelle ontvang. Jy kan dit onmiddellik, in bondels, of teen \'n pasgemaakte interval ontvang.';
 
   @override
+  String get notificationMode => 'Kennisgewingmodus';
+
+  @override
   String get immediateNotifications => 'Onmiddellik';
 
   @override
@@ -5888,10 +5882,6 @@ class AppLocalizationsAf extends AppLocalizations {
   String get guidelinesLabel => 'Riglyne';
 
   @override
-  String get reportingGuidelines =>
-      '• Rapporteer slegs nommers wat werklik problematies is\n• Verskaf akkurate en gedetailleerde redes\n• Kies die toepaslike risikovlak gebaseer op erns\n• Vals verslae kan lei tot rekeningbeperkings';
-
-  @override
   String get riskLevelLabel => 'Risikovlak';
 
   @override
@@ -5923,6 +5913,12 @@ class AppLocalizationsAf extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Landkode moet 2 letters lank wees';
+
+  @override
+  String get phoneNumberHint => 'Voer telefoonnommer in';
+
+  @override
+  String get phoneNumberRequired => 'Telefoonnommer word vereis';
 
   @override
   String get phoneNumberLengthError =>
@@ -5990,16 +5986,6 @@ class AppLocalizationsAf extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Ondersteuning ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Teenkanting ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Netnou';
 
   @override
@@ -6018,7 +6004,21 @@ class AppLocalizationsAf extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Rapporteer slegs nommers wat werklik problematies is\n• Verskaf akkurate en gedetailleerde redes\n• Kies die toepaslike risikovlak gebaseer op erns\n• Vals verslae kan lei tot rekeningbeperkings';
+
+  @override
   String get notificationFrequencyHours => 'Kennisgewingfrekwensie (Ure)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Ondersteuning ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Teenkanting ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6281,4 +6281,15 @@ class AppLocalizationsAf extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

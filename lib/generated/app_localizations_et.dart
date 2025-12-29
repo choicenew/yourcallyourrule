@@ -2956,9 +2956,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get notGranted => 'Pole antud';
 
   @override
-  String get notificationMode => 'Teavituste režiim';
-
-  @override
   String get notificationModeDescription =>
       'Näita helistaja teavet teavitusribal';
 
@@ -3150,9 +3147,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefoninumber ei saa olla tühi';
 
   @override
-  String get phoneNumberHint => 'Sisesta telefoninumber';
-
-  @override
   String get phoneNumberHintText => 'Sisesta telefoninumber reegli lisamiseks';
 
   @override
@@ -3161,9 +3155,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Palun sisesta nii telefoninumber kui ka regex-muster';
-
-  @override
-  String get phoneNumberRequired => 'Telefoninumber on nõutav';
 
   @override
   String get phoneNumberTypeFixedLine => 'Lauatelefon';
@@ -5357,9 +5348,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get medium => 'Keskmine';
 
   @override
-  String get verificationReport => 'Kontrolliaruanne';
-
-  @override
   String get finalRisk => 'Lõplik risk';
 
   @override
@@ -5499,9 +5487,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get deletionProposal => 'Kustutamisettepanek';
 
   @override
-  String get deletionProposals => 'Kustutamisettepanekud';
-
-  @override
   String get createProposal => 'Loo ettepanek';
 
   @override
@@ -5595,6 +5580,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String createdAt(String date) {
     return 'Loodud: $date';
   }
+
+  @override
+  String get verificationReport => 'Kontrolliaruanne';
 
   @override
   String get showReport => 'Näita aruannet';
@@ -5712,6 +5700,9 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get veryLow => 'Väga madal';
+
+  @override
+  String get deletionProposals => 'Kustutamisettepanekud';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5836,6 +5827,9 @@ class AppLocalizationsEt extends AppLocalizations {
       'Valige, kui tihti teile uute kustutamisettepanekute kohta teateid saadetakse. Saate neid saada kohe, partiidena või kohandatud ajavahemiku järel.';
 
   @override
+  String get notificationMode => 'Teavituste režiim';
+
+  @override
   String get immediateNotifications => 'Kohe';
 
   @override
@@ -5893,10 +5887,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get guidelinesLabel => 'Juhised';
 
   @override
-  String get reportingGuidelines =>
-      '• Raporteerige ainult numbreid, mis on tõeliselt problemaatilised\n• Esitage täpsed ja üksikasjalikud põhjendused\n• Valige sobiv riskitase sõltuvalt tõsidusest\n• Valeraportid võivad põhjustada konto piiramist';
-
-  @override
   String get riskLevelLabel => 'Riskitase';
 
   @override
@@ -5928,6 +5918,12 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Riigikood peab olema 2 tähte pikk';
+
+  @override
+  String get phoneNumberHint => 'Sisesta telefoninumber';
+
+  @override
+  String get phoneNumberRequired => 'Telefoninumber on nõutav';
 
   @override
   String get phoneNumberLengthError =>
@@ -5995,16 +5991,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Toetus ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Vastuseis ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Äsja';
 
   @override
@@ -6023,7 +6009,21 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Raporteerige ainult numbreid, mis on tõeliselt problemaatilised\n• Esitage täpsed ja üksikasjalikud põhjendused\n• Valige sobiv riskitase sõltuvalt tõsidusest\n• Valeraportid võivad põhjustada konto piiramist';
+
+  @override
   String get notificationFrequencyHours => 'Teavitussagedus (tunnid)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Toetus ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Vastuseis ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6285,4 +6285,15 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

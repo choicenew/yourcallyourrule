@@ -2949,9 +2949,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get notGranted => 'ခွင့်မပြုပါ';
 
   @override
-  String get notificationMode => 'အကြောင်းကြားချက် စနစ်';
-
-  @override
   String get notificationModeDescription =>
       'ဖုန်းခေါ်သူ၏ အချက်အလက်ကို အကြောင်းကြားချက် ဘားတွင် ပြသပါ';
 
@@ -3144,9 +3141,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Phone number cannot be empty';
 
   @override
-  String get phoneNumberHint => 'Enter phone number';
-
-  @override
   String get phoneNumberHintText => 'Enter phone number to add rule';
 
   @override
@@ -3155,9 +3149,6 @@ class AppLocalizationsMy extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Please enter both phone number and regex pattern';
-
-  @override
-  String get phoneNumberRequired => 'Phone number is required';
 
   @override
   String get phoneNumberTypeFixedLine => 'Fixed line';
@@ -5345,9 +5336,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get medium => 'Medium';
 
   @override
-  String get verificationReport => 'Verification Report';
-
-  @override
   String get finalRisk => 'Final Risk';
 
   @override
@@ -5486,9 +5474,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get deletionProposal => 'Deletion Proposal';
 
   @override
-  String get deletionProposals => 'Deletion Proposals';
-
-  @override
   String get createProposal => 'Create Proposal';
 
   @override
@@ -5582,6 +5567,9 @@ class AppLocalizationsMy extends AppLocalizations {
   String createdAt(String date) {
     return 'Created: $date';
   }
+
+  @override
+  String get verificationReport => 'Verification Report';
 
   @override
   String get showReport => 'Show Report';
@@ -5699,6 +5687,9 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get veryLow => 'Very Low';
+
+  @override
+  String get deletionProposals => 'Deletion Proposals';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5823,6 +5814,9 @@ class AppLocalizationsMy extends AppLocalizations {
       'ဖျက်သိမ်းရေးအဆိုပြုချက်အသစ်များဆိုင်ရာ အသိပေးချက်များကို မည်မျှကြာကြာ လက်ခံရမည်ကို ရွေးချယ်ပါ။ ချက်ချင်း၊ အသုတ်များဖြင့် သို့မဟုတ် စိတ်ကြိုက်ကြားကာလတွင် သင်လက်ခံရရှိနိုင်သည်။';
 
   @override
+  String get notificationMode => 'အကြောင်းကြားချက် စနစ်';
+
+  @override
   String get immediateNotifications => 'ချက်ချင်း';
 
   @override
@@ -5880,10 +5874,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get guidelinesLabel => 'လမ်းညွှန်ချက်များ';
 
   @override
-  String get reportingGuidelines =>
-      '• တကယ်ပြဿနာရှိသော နံပါတ်များကိုသာ အစီရင်ခံပါ\n• တိကျပြီး အသေးစိတ်ကျသော အကြောင်းရင်းများကို ပေးပါ\n• ပြင်းထန်မှုအပေါ် အခြေခံ၍ သင့်လျော်သော အန္တရာယ်အဆင့်ကို ရွေးချယ်ပါ\n• မှားယွင်းသော အစီရင်ခံစာများသည် အကောင့် ကန့်သတ်မှုများ ဖြစ်စေနိုင်သည်။';
-
-  @override
   String get riskLevelLabel => 'အန္တရာယ် အဆင့်';
 
   @override
@@ -5915,6 +5905,12 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'နိုင်ငံ ကုဒ်သည် ၂ လုံး ဖြစ်ရမည်';
+
+  @override
+  String get phoneNumberHint => 'Enter phone number';
+
+  @override
+  String get phoneNumberRequired => 'Phone number is required';
 
   @override
   String get phoneNumberLengthError =>
@@ -5983,16 +5979,6 @@ class AppLocalizationsMy extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'ထောက်ခံ ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'ဆန့်ကျင် ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'ယခုလေးတင်';
 
   @override
@@ -6011,7 +5997,21 @@ class AppLocalizationsMy extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• တကယ်ပြဿနာရှိသော နံပါတ်များကိုသာ အစီရင်ခံပါ\n• တိကျပြီး အသေးစိတ်ကျသော အကြောင်းရင်းများကို ပေးပါ\n• ပြင်းထန်မှုအပေါ် အခြေခံ၍ သင့်လျော်သော အန္တရာယ်အဆင့်ကို ရွေးချယ်ပါ\n• မှားယွင်းသော အစီရင်ခံစာများသည် အကောင့် ကန့်သတ်မှုများ ဖြစ်စေနိုင်သည်။';
+
+  @override
   String get notificationFrequencyHours => 'အသိပေးချက် ကြိမ်နှုန်း (နာရီ)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'ထောက်ခံ ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'ဆန့်ကျင် ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6273,4 +6273,15 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

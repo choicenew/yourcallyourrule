@@ -199,10 +199,10 @@
                     android:scheme="msauth"/>
             </intent-filter>
         </activity>
-        <activity
+        <!--<activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>-->
         <!--  ===  Flutter Activity  ===  -->
         <!-- <activity
             android:name="io.flutter.embedding.android.FlutterActivity"

@@ -2982,9 +2982,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get notGranted => 'Не предоставлено';
 
   @override
-  String get notificationMode => 'Режим уведомлений';
-
-  @override
   String get notificationModeDescription =>
       'Показывать информацию о вызывающем абоненте в строке уведомлений';
 
@@ -3179,9 +3176,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Номер телефона не может быть пустым';
 
   @override
-  String get phoneNumberHint => 'Введите номер телефона';
-
-  @override
   String get phoneNumberHintText =>
       'Введите номер телефона, чтобы добавить правило';
 
@@ -3191,9 +3185,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Пожалуйста, введите номер телефона и шаблон регулярного выражения';
-
-  @override
-  String get phoneNumberRequired => 'Номер телефона обязателен';
 
   @override
   String get phoneNumberTypeFixedLine => 'Стационарный';
@@ -5406,9 +5397,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get medium => 'Средний';
 
   @override
-  String get verificationReport => 'Отчет о проверке';
-
-  @override
   String get finalRisk => 'Конечный риск';
 
   @override
@@ -5549,9 +5537,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get deletionProposal => 'Предложение об удалении';
 
   @override
-  String get deletionProposals => 'Предложения об удалении';
-
-  @override
   String get createProposal => 'Создать предложение';
 
   @override
@@ -5645,6 +5630,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String createdAt(String date) {
     return 'Создано: $date';
   }
+
+  @override
+  String get verificationReport => 'Отчет о проверке';
 
   @override
   String get showReport => 'Показать отчет';
@@ -5763,6 +5751,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get veryLow => 'Очень низкий';
+
+  @override
+  String get deletionProposals => 'Предложения об удалении';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5889,6 +5880,9 @@ class AppLocalizationsRu extends AppLocalizations {
       'Выберите, как часто вы будете получать уведомления о новых предложениях на удаление. Вы можете получать их немедленно, пакетами или с пользовательским интервалом.';
 
   @override
+  String get notificationMode => 'Режим уведомлений';
+
+  @override
   String get immediateNotifications => 'Немедленно';
 
   @override
@@ -5946,10 +5940,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get guidelinesLabel => 'Рекомендации';
 
   @override
-  String get reportingGuidelines =>
-      '• Сообщайте только о номерах, которые действительно вызывают проблемы\n• Предоставляйте точные и подробные причины\n• Выбирайте соответствующий уровень риска в зависимости от серьезности\n• Ложные сообщения могут привести к ограничениям учетной записи';
-
-  @override
   String get riskLevelLabel => 'Уровень риска';
 
   @override
@@ -5981,6 +5971,12 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Код страны должен состоять из 2 букв';
+
+  @override
+  String get phoneNumberHint => 'Введите номер телефона';
+
+  @override
+  String get phoneNumberRequired => 'Номер телефона обязателен';
 
   @override
   String get phoneNumberLengthError =>
@@ -6050,16 +6046,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Поддержать ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Против ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Только что';
 
   @override
@@ -6078,7 +6064,21 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Сообщайте только о номерах, которые действительно вызывают проблемы\n• Предоставляйте точные и подробные причины\n• Выбирайте соответствующий уровень риска в зависимости от серьезности\n• Ложные сообщения могут привести к ограничениям учетной записи';
+
+  @override
   String get notificationFrequencyHours => 'Частота уведомлений (часы)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Поддержать ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Против ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6339,4 +6339,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }
