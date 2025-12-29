@@ -6291,6 +6291,9 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
+  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+
+  @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
 
   @override

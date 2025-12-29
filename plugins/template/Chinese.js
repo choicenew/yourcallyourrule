@@ -319,7 +319,9 @@
             const targetSearchUrl = `https://www.example.com/search?q=${encodeURIComponent(phoneNumber)}`;
 
             // --- 以下为通用代码，通常无需修改 ---
-            const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' };
+            const config = window.plugin[PLUGIN_CONFIG.id].config || {};
+            const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
+            const headers = { 'User-Agent': userAgent };
             const originalOrigin = new URL(targetSearchUrl).origin;
 
             // ★★★ 2. (可选) 定义净化规则 (按需修改) ★★★

@@ -130,6 +130,7 @@
         const config = window.plugin[PLUGIN_CONFIG.id].config || {};
         const apiKey = config.api_key;
         const username = config.username;
+        const userAgent = config.userAgent || 'okhttp/3.14.9';
 
         if (!apiKey) {
             sendPluginResult({ requestId, success: false, error: 'API Key not configured.' });
@@ -159,7 +160,7 @@
         const bodyString = `user=${encodeURIComponent(username || '')}&phone=${encodeURIComponent(phoneNumber)}&key=${apiKey}`;
         const headers = {
             "Content-Type": "application/x-www-form-urlencoded",
-            "User-Agent": "okhttp/3.14.9",
+            "User-Agent": userAgent,
         };
 
         sendNativeRequest({
