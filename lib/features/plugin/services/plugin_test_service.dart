@@ -167,11 +167,38 @@ class PluginTestService {
 
           _addLog('Making Native HTTP Request: $method $url');
 
-          final response = await http
-              .get(Uri.parse(url), headers: headers)
-              .timeout(
-                const Duration(seconds: 10),
-              ); // Simple GET for now as per truecaller needs
+          // [修复] 根据 method 动态选择请求方式，支持 POST/PUT 等
+          final uri = Uri.parse(url);
+          http.Response response;
+
+          try {
+            switch (method.toUpperCase()) {
+              case 'POST':
+                response = await http
+                    .post(uri, headers: headers, body: body)
+                    .timeout(const Duration(seconds: 10));
+                break;
+              case 'PUT':
+                response = await http
+                    .put(uri, headers: headers, body: body)
+                    .timeout(const Duration(seconds: 10));
+                break;
+              case 'DELETE':
+                response = await http
+                    .delete(uri, headers: headers, body: body)
+                    .timeout(const Duration(seconds: 10));
+                break;
+              case 'GET':
+              default:
+                response = await http
+                    .get(uri, headers: headers)
+                    .timeout(const Duration(seconds: 10));
+                break;
+            }
+          } catch (e) {
+            _addLog('Network Error during $method: $e');
+            throw e;
+          }
 
           _addLog('Native HTTP Response: ${response.statusCode}');
 
