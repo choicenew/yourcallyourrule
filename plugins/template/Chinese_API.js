@@ -1,19 +1,12 @@
-// [插件名称] - API 接口解决方案通用模板 V1.0 (API版)
+// [插件名称] - 原生 RequestChannel 解决方案通用模板 V5.2 (绝对完整一致版)
 // =======================================================================================
 // 模板说明:
-// 这是一个用于创建基于 API 的电话号码查询插件的标准化模板。
-// 与网页解析版不同，此模板直接调用第三方 API 获取数据，无需 iframe 解析。
+// 这是一个标准化的 API 插件模板。它严格对齐 Iframe 版 (Chinese.js) 的结构、变量命名和逻辑流。
 //
 // 核心特性:
-// 1. 支持用户配置 (settings): 插件可以定义需要的配置项 (如 API Key)，用户在 App 中填写。
-// 2. 直接 API 调用: 使用 fetch 或 App 提供的代理 fetch 直接获取 JSON 数据。
-//
-// 工作流程:
-// 1. Flutter 调用 `generateOutput` 函数。
-// 2. 插件从 `window.plugin[ID].config` 获取用户配置的 API Key 等信息。
-// 3. 构建 API 请求 URL。
-// 4. 发起请求并解析 JSON 响应。
-// 5. 将结果通过 `sendToFlutter` 返回给 App。
+// 1. 支持用户配置 (settings): 用户在 App 中输入 API Key 等信息。
+// 2. 原生请求: 使用 RequestChannel (Native HTTP) 绕过 WebView 限制。
+// 3. 结构一致性: 保持与 Chinese.js (Iframe版) 完全一致的代码结构和注释风格。
 // =======================================================================================
 
 (function () {
@@ -24,16 +17,16 @@
     // 这是每个插件的唯一标识。请务必为你的插件提供独特的信息。
     // ---------------------------------------------------------------------------------------
     const PLUGIN_CONFIG = {
-        id: 'yourUniqueApiPluginId', // 插件的唯一ID，使用驼峰命名法 (例如: 'someApiPlugin')
+        id: 'yourUniqueApiPluginId', // 插件的唯一ID，使用驼峰命名法
         name: 'Your API Plugin Name', // 插件的可读名称
-        version: '1.0.0', // 插件版本号
-        description: 'Query phone info via Official API.', // 插件功能描述
-        // [新增] 配置项定义
+        version: '5.2.0', // 插件版本号
+        description: 'Native RequestChannel API Plugin Template', // 插件功能描述
+        // 配置项定义
         settings: [
             {
-                key: 'api_key',       // 配置项的键名，代码中通过 config.api_key 访问
+                key: 'api_key',       // 配置项的键名
                 label: 'API Key',     // UI显示的标签
-                type: 'text',         // 输入框类型: text, password, etc.
+                type: 'text',         // 输入框类型
                 hint: '请输入从官网获取的 API Key', // 输入提示
                 required: true        // 是否必填
             },
@@ -49,7 +42,7 @@
 
     // --- 区域 2: 业务相关的数据映射与关键字 (按需修改) ---
     // ---------------------------------------------------------------------------------------
-    // 同网页版，定义标准标签映射。
+    // 这个区域定义了如何将 API 返回的原始标签（sourceLabel）映射到标准标签（predefinedLabel）。
     // ---------------------------------------------------------------------------------------
 
     /**
@@ -72,20 +65,37 @@
 
     /**
      * @constant {Object} manualMapping - 手动映射表。
-     * API 返回的类型字段值 -> 标准标签
+     * Key是 API 返回的原始值，Value是标准标签。
      */
     const manualMapping = {
         'scam': 'Fraud Scam Likely',
+        'spam': 'Spam Likely',
         'sales': 'Telemarketing',
         'delivery': 'Delivery',
-        // ... 根据 API 文档填写
     };
 
-    // --- 区域 3: 通用框架部分 (无需修改) ---
-    const PROXY_SCHEME = "https";
-    const PROXY_HOST = "flutter-webview-proxy.internal";
-    const PROXY_PATH_FETCH = "/fetch";
+    /**
+     * @constant {Array<string>} blockKeywords - 用于决定推荐操作为 "block" 的关键字列表。
+     * @description 如果解析出的 `sourceLabel` 或 `predefinedLabel` 包含此列表中的任何关键字，
+     *              结果中的 `action` 字段将被设置为 'block'。
+     */
+    const blockKeywords = [
+        '骚扰', '诈骗', '广告', '推销', '营销', '违规', '涉诈', 'Fraud', 'Spam', 'Telemarketing'
+    ];
 
+    /**
+     * @constant {Array<string>} allowKeywords - 用于决定推荐操作为 "allow" 的关键字列表。
+     * @description 如果解析出的 `sourceLabel` 或 `predefinedLabel` 包含此列表中的任何关键字，
+     *              并且它不符合 block 的条件，`action` 字段将被设置为 'allow'。
+     */
+    const allowKeywords = [
+        '快递', '外卖', '送餐', '客服', '银行', '验证码', 'Delivery', 'Support', 'Bank'
+    ];
+
+    // --- 区域 3: 通用框架部分 (无需修改) ---
+    // ---------------------------------------------------------------------------------------
+    // 这部分代码是插件框架的核心，负责与Flutter的通信。
+    // ---------------------------------------------------------------------------------------
     function log(message) { console.log(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`); }
     function logError(message, error) { console.error(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`, error); }
 
@@ -93,7 +103,7 @@
         if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
             window.flutter_inappwebview.callHandler(channel, JSON.stringify(data));
         } else {
-            logError(`Cannot send to Flutter on channel '${channel}', handler not available.`);
+            console.error(`Native channel '${channel}' not found.`);
         }
     }
 
@@ -107,102 +117,173 @@
         sendToFlutter('TestPageChannel', { type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version });
     }
 
-    // --- 区域 4: API 请求与解析 (核心逻辑) ---
+    // --- 区域 4: 原生请求发送逻辑 (核心功能) ---
     
-    async function initiateQuery(phoneNumber, requestId) {
-        log(`Starting API query for ${phoneNumber}`);
+    // 封装 RequestChannel 调用，保持代码整洁
+    function sendNativeRequest(options) {
+        const payload = {
+            method: options.method,      // 'GET', 'POST', 'PUT', 'DELETE'
+            url: options.url,            // 完整 URL
+            headers: options.headers,    // Http Headers
+            body: options.body || null,  // 请求体 (POST/PUT 用)
+            phoneRequestId: options.requestId,
+            externalRequestId: options.requestId
+        };
+
+        log(`Sending Native Request: ${payload.method} ${payload.url}`);
         
-        // 1. 获取配置
-        // config 对象由 App 在运行前注入
+        if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('RequestChannel', JSON.stringify(payload));
+        } else {
+            sendPluginResult({ requestId: options.requestId, success: false, error: 'RequestChannel unavailable.' });
+        }
+    }
+
+    // --- 区域 5: 查询启动逻辑 (按需微调) ---
+    // ---------------------------------------------------------------------------------------
+    // 这部分负责根据电话号码构建请求参数，并通过 RequestChannel 发起查询。
+    // ---------------------------------------------------------------------------------------
+    function initiateQuery(phoneNumber, requestId) {
+        log(`Initiating query for '${phoneNumber}' (requestId: ${requestId})`);
+        
+        // 1. 获取配置 (由 App 注入)
         const config = window.plugin[PLUGIN_CONFIG.id].config || {};
         const apiKey = config.api_key;
+        const username = config.username;
 
         if (!apiKey) {
             sendPluginResult({ requestId, success: false, error: 'API Key not configured.' });
             return;
         }
 
-        // 2. 构建请求
-        // 示例 API URL
-        const apiUrl = `https://api.example.com/v1/phone/${encodeURIComponent(phoneNumber)}?key=${encodeURIComponent(apiKey)}`;
+        // ★★★ 2. 构建 API 请求 (根据 API 文档修改) ★★★
         
-        // 如果需要 POST，可以调整 fetch 选项
-        const fetchOptions = {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                // 'Authorization': `Bearer ${apiKey}` // 如果是 Bearer Token 方式
-            }
+        // 示例 A: GET 请求
+        /*
+        const targetSearchUrl = `https://api.example.com/lookup?phone=${encodeURIComponent(phoneNumber)}&key=${apiKey}`;
+        const headers = { 
+            "User-Agent": "YourApp/1.0 (Android)",
+            "Accept": "application/json" 
         };
 
+        sendNativeRequest({
+            method: 'GET',
+            url: targetSearchUrl,
+            headers: headers,
+            requestId: requestId
+        });
+        */
+
+        // 示例 B: POST 请求 (Form-UrlEncoded)
+        // 很多老旧 API 需要严格的顺序和编码
+        const targetSearchUrl = "https://api.example.com/v2/search";
+        const bodyString = `user=${encodeURIComponent(username || '')}&phone=${encodeURIComponent(phoneNumber)}&key=${apiKey}`;
+        const headers = {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "User-Agent": "okhttp/3.14.9",
+        };
+
+        sendNativeRequest({
+            method: 'POST',
+            url: targetSearchUrl, // 必须传递完整 URL
+            headers: headers,
+            body: bodyString,
+            requestId: requestId
+        });
+    }
+
+    // --- 区域 6: 响应处理逻辑 (核心解析) ---
+    // ---------------------------------------------------------------------------------------
+    // 原生层请求完成后，会回调此函数。在这里解析 JSON 并返回结果。
+    // ---------------------------------------------------------------------------------------
+    function handleResponse(response) {
+        log('Received response from Native layer');
+        
+        const requestId = response.phoneRequestId;
+        const statusCode = response.status;
+        const responseText = response.responseText; // 原始文本
+
+        if (statusCode !== 200) {
+            logError(`HTTP Error: ${statusCode}`);
+            sendPluginResult({ requestId, success: false, error: `HTTP Error ${statusCode}` });
+            return;
+        }
+
         try {
-            // 3. 发起请求
-            // 使用 App 提供的内部代理来绕过 CORS 限制。
-            // 这一点与 iframe 版本 ("Chinese.js") 的工作原理类似，都是通过 flutter-webview-proxy.internal 中转。
-            const headers = fetchOptions.headers || {};
-            const originalOrigin = new URL(apiUrl).origin;
-            const proxyUrl = `${PROXY_SCHEME}://${PROXY_HOST}${PROXY_PATH_FETCH}?requestId=${encodeURIComponent(requestId)}&originalOrigin=${encodeURIComponent(originalOrigin)}&targetUrl=${encodeURIComponent(apiUrl)}&headers=${encodeURIComponent(JSON.stringify(headers))}`;
+            // 1. 解析 JSON
+            const data = JSON.parse(responseText);
             
-            log(`Fetching via proxy: ${proxyUrl}`);
-            const response = await fetch(proxyUrl);
+            // 2. 提取字段 (依据 API 返回结构)
+            const sourceLabel = data.type || ''; 
+            const sourceName = data.name || '';
+            const score = data.score || 0;
             
-            if (!response.ok) {
-                if (response.status === 401 || response.status === 403) {
-                     throw new Error(`Auth failed: ${response.status}`);
-                }
-                throw new Error(`API response error: ${response.status} ${response.statusText}`);
-            }
-
-            const data = await response.json();
-            log(`API response received.`);
-
-            // 4. 解析结果
-            // 假设 API 返回结构: { type: 'scam', location: 'Beijing' }
-            
-            let sourceLabel = data.type || '';
+            // 3. 智能 Action 判断逻辑 (与 Iframe 版一致)
             let predefinedLabel = 'Unknown';
             let action = 'none';
 
-            // 映射标签
+            // 3.1 尝试映射 predefinedLabel
             if (manualMapping[sourceLabel]) {
                 predefinedLabel = manualMapping[sourceLabel];
-            } else if (sourceLabel) {
-                 // 简单包含匹配作为后备
-                 const mappedKey = Object.keys(manualMapping).find(key => sourceLabel.includes(key));
-                 if (mappedKey) predefinedLabel = manualMapping[mappedKey];
+            } else {
+                // 模糊匹配
+                const mappedKey = Object.keys(manualMapping).find(key => sourceLabel.includes(key));
+                if (mappedKey) predefinedLabel = manualMapping[mappedKey];
             }
 
-            // 简单规则判断 action (或者复用 blockKeywords 逻辑)
-            if (predefinedLabel === 'Fraud Scam Likely' || predefinedLabel === 'Spam Likely') {
-                action = 'block';
+            // 3.2 决定 Action (Block/Allow)
+            const labelToCheck = (sourceLabel + " " + predefinedLabel).toLowerCase();
+            let determinedAction = 'none';
+
+            // 检查 Block 关键字
+            for (const keyword of blockKeywords) {
+                if (labelToCheck.includes(keyword.toLowerCase())) {
+                    determinedAction = 'block';
+                    break;
+                }
             }
 
+            // 如果不是 Block，检查 Allow 关键字
+            if (determinedAction === 'none') {
+                 for (const keyword of allowKeywords) {
+                    if (labelToCheck.includes(keyword.toLowerCase())) {
+                        determinedAction = 'allow';
+                        break;
+                    }
+                }
+            }
+            action = determinedAction;
+
+
+            // 4. 返回结果
             const result = {
                 requestId,
-                phoneNumber,
-                sourceLabel,
-                predefinedLabel,
-                action,
-                province: data.province || '',
-                city: data.city || '',
-                carrier: data.carrier || '',
-                count: data.report_count || 0,
                 success: true,
-                source: PLUGIN_CONFIG.id
+                source: PLUGIN_CONFIG.name,
+                phoneNumber: data.number || '',
+                sourceLabel: sourceLabel,
+                predefinedLabel: predefinedLabel,
+                action: action,
+                // 其他字段
+                name: sourceName,
+                count: score
             };
-
+            
             sendPluginResult(result);
 
-        } catch (error) {
-            logError('API Query failed', error);
-            sendPluginResult({ requestId, success: false, error: error.toString() });
+        } catch (e) {
+            logError('Parsing Error', e);
+            sendPluginResult({ requestId, success: false, error: 'JSON Parse Failed: ' + e.message });
         }
     }
 
-
-    // --- 区域 5: 插件公共接口 ---
+    // --- 区域 7: 插件的公共接口 (无需修改) ---
+    // ---------------------------------------------------------------------------------------
+    // 这是Flutter调用此插件的入口点。
+    // ---------------------------------------------------------------------------------------
     function generateOutput(phoneNumber, nationalNumber, e164Number, requestId) {
         log(`generateOutput called for requestId: ${requestId}`);
+        // 里面依据情况保留任何一个参数，有些网站只支持某种格式，如果不是必要不用同时保留3个。
         const numberToQuery = phoneNumber || nationalNumber || e164Number;
         
         if (numberToQuery) {
@@ -212,18 +293,14 @@
         }
     }
 
-    // --- 区域 6: 初始化 ---
+    // --- 区域 8: 初始化与注册 (无需修改) ---
     function initialize() {
-        if (window.plugin && window.plugin[PLUGIN_CONFIG.id]) {
-            return;
-        }
-        if (!window.plugin) {
-            window.plugin = {};
-        }
+        if (!window.plugin) window.plugin = {};
         window.plugin[PLUGIN_CONFIG.id] = {
-            info: PLUGIN_CONFIG, // 包含 settings 定义
+            info: PLUGIN_CONFIG,
             generateOutput: generateOutput,
-            config: {} // 初始化为空对象，App 会注入值
+            handleResponse: handleResponse, // 必须暴露给原生层
+            config: {}
         };
         log(`Plugin registered: window.plugin.${PLUGIN_CONFIG.id}`);
         sendPluginLoaded();
