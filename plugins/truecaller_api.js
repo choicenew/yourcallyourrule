@@ -1,41 +1,19 @@
-// [插件名称] - Truecaller API 解决方案 V1.0 (API版)
-// =======================================================================================
-// 模板说明:
-// 这是一个用于创建基于 API 的电话号码查询插件的标准化模板。
-// 与网页解析版不同，此模板直接调用第三方 API 获取数据，无需 iframe 解析。
-//
-// 核心特性:
-// 1. 支持用户配置 (settings): 插件可以定义需要的配置项 (如 API Key)，用户在 App 中填写。
-// 2. 直接 API 调用: 使用 fetch 或 App 提供的代理 fetch 直接获取 JSON 数据。
-//
-// 工作流程:
-// 1. Flutter 调用 `generateOutput` 函数。
-// 2. 插件从 `window.plugin[ID].config` 获取用户配置的 API Key 等信息。
-// 3. 构建 API 请求 URL。
-// 4. 发起请求并解析 JSON 响应。
-// 5. 将结果通过 `sendToFlutter` 返回给 App。
-// =======================================================================================
-
-(function () {
-    // 使用 IIFE (立即调用函数表达式) 来封装插件逻辑，避免污染全局作用域。
-
-    // --- 区域 1: 插件核心配置 (必须修改) ---
-    // ---------------------------------------------------------------------------------------
-    // 这是每个插件的唯一标识。请务必为你的插件提供独特的信息。
-    // ---------------------------------------------------------------------------------------
+// Truecaller Query Plugin - Native Request Solution (Scheme A)
+(function() {
+    // --- Plugin Configuration ---
     const PLUGIN_CONFIG = {
-        id: 'truecallerApi', // 插件的唯一ID，使用驼峰命名法
-        name: 'Truecaller (API)', // 插件的可读名称
-        version: '1.0.1', // 插件版本号
-        description: 'Query phone info via Truecaller API.', // 插件功能描述
-        // [新增] 配置项定义
+        id: 'truecallerPluginchannel', // Must match the ID expected by Dart's handleResponse fallback
+        name: 'Truecaller API Lookup',
+        version: '1.0.11',
+        description: 'Queries Truecaller API for caller ID and spam detection using native HTTP channel.',
+        author: 'Converted from Python / Scheme A',
         settings: [
             {
-                key: 'auth_token',    // 配置项的键名
-                label: 'Auth Token',  // UI显示的标签
-                type: 'text',         // 输入框类型
-                hint: '请输入 Truecaller Auth Token (Bearer)', // 输入提示
-                required: true        // 是否必填
+                key: 'auth_token',
+                label: 'Auth Token',
+                type: 'text',
+                hint: '请输入 Truecaller Auth Token (Bearer)',
+                required: true
             },
             {
                 key: 'country_code',
@@ -47,53 +25,32 @@
         ]
     };
 
-    // --- 区域 2: 业务相关的数据映射与关键字 (按需修改) ---
-    // ---------------------------------------------------------------------------------------
-    // 同网页版，定义标准标签映射。
-    // ---------------------------------------------------------------------------------------
+    // --- Constants ---
+    const defaultToken = "a1i1V--ua298eldF0hb0rL520GjDz7bzVAdt63J2nzZBnWlEKNCJUeln_7kWj4Ir"; 
 
-    /**
-     * @constant {Array<Object>} predefinedLabels - 应用内部固定的、预定义的标签列表。
-     */
-    const predefinedLabels = [
-        { 'label': 'Fraud Scam Likely' }, { 'label': 'Spam Likely' }, { 'label': 'Telemarketing' },
-        { 'label': 'Robocall' }, { 'label': 'Delivery' }, { 'label': 'Takeaway' },
-        { 'label': 'Ridesharing' }, { 'label': 'Insurance' }, { 'label': 'Loan' },
-        { 'label': 'Customer Service' }, { 'label': 'Unknown' }, { 'label': 'Financial' },
-        { 'label': 'Bank' }, { 'label': 'Education' }, { 'label': 'Medical' },
-        { 'label': 'Charity' }, { 'label': 'Other' }, { 'label': 'Debt Collection' },
-        { 'label': 'Survey' }, { 'label': 'Political' }, { 'label': 'Ecommerce' },
-        { 'label': 'Risk' }, { 'label': 'Agent' }, { 'label': 'Recruiter' },
-        { 'label': 'Headhunter' }, { 'label': 'Silent Call Voice Clone' }, { 'label': 'Internet' },
-        { 'label': 'Travel Ticketing' }, { 'label': 'Application Software' }, { 'label': 'Entertainment' },
-        { 'label': 'Government' }, { 'label': 'Local Services' }, { 'label': 'Automotive Industry' },
-        { 'label': 'Car Rental' }, { 'label': 'Telecommunication' },
-    ];
-
-    /**
-     * @constant {Object} manualMapping - 手动映射表。
-     * API 返回的类型字段值 -> 标准标签
-     */
-    const manualMapping = {
+    // 映射 Truecaller 的垃圾分类到插件的标准标签
+    const spamMapping = {
+        'sales': 'Telemarketing',
         'spam': 'Spam Likely',
         'scam': 'Fraud Scam Likely',
-        'sales': 'Telemarketing',
-        'marketing': 'Telemarketing',
-        'delivery': 'Delivery',
-        'finance': 'Financial',
-        'loan': 'Loan',
-        'insurance': 'Insurance',
+        'fraud': 'Fraud Scam Likely',
+        'nuisance': 'Spam Likely',
+        'political': 'Political',
+        'survey': 'Survey',
+        'robocall': 'Robocall',
         'agent': 'Agent',
-        // 可以根据 Truecaller 实际返回的 tag 补充
+        'collection': 'Debt Collection',
+        'finance': 'Financial',
+        'charity': 'Charity',
     };
 
-    // --- 区域 3: 通用框架部分 (无需修改) ---
-    const PROXY_SCHEME = "https";
-    const PROXY_HOST = "flutter-webview-proxy.internal";
-    const PROXY_PATH_FETCH = "/fetch";
+    function log(message) { 
+        console.log(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`); 
+    }
 
-    function log(message) { console.log(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`); }
-    function logError(message, error) { console.error(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`, error); }
+    function logError(message, error) { 
+        console.error(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`, error); 
+    }
 
     function sendToFlutter(channel, data) {
         if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
@@ -103,174 +60,199 @@
         }
     }
 
-    function sendPluginResult(result) {
-        log(`Sending final result to Flutter: ${JSON.stringify(result)}`);
-        sendToFlutter('PluginResultChannel', result);
-    }
-
     function sendPluginLoaded() {
         log('Plugin loaded, notifying Flutter.');
         sendToFlutter('TestPageChannel', { type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version });
     }
 
-    // --- 区域 4: API 请求与解析 (核心逻辑) ---
-
-    // 辅助函数: 安全获取数组第一个元素的特定属性
-    function safeFirst(array, key) {
-        if (Array.isArray(array) && array.length > 0 && array[0]) {
-            return array[0][key] || '';
-        }
-        return '';
+    function sendPluginResult(result) {
+        log(`Sending result to Flutter for req ${result.requestId}: ${JSON.stringify(result)}`);
+        sendToFlutter('PluginResultChannel', result);
     }
-    
-    async function performApiQuery(phoneNumber, requestId) {
-        log(`Starting API query for ${phoneNumber}`);
+
+    /**
+     * 入口函数：Flutter 调用此函数开始查询
+     */
+    function generateOutput(phoneNumber, nationalNumber, e164Number, requestId) {
+        log(`Initiating query for requestId: ${requestId}`);
         
-        // 1. 获取配置
+        // 获取配置
         const config = window.plugin[PLUGIN_CONFIG.id].config || {};
-        const authToken = config.auth_token;
+        const authToken = config.auth_token || defaultToken;
+        // 优先使用 countryCode 配置，没有则默认为 US (Scheme A 原文是 IN，但之前我们改成 US 了，这里用 config 决定)
         const countryCode = config.country_code || 'US'; 
+
+        // 优先使用 e164 格式 (带+号)，如果没有则使用 raw phoneNumber
+        const queryNumber = e164Number || phoneNumber;
+
+        if (!queryNumber) {
+            sendPluginResult({ requestId, success: false, error: 'No valid phone number provided.' });
+            return;
+        }
 
         if (!authToken) {
             sendPluginResult({ requestId, success: false, error: 'Auth Token not configured.' });
             return;
         }
 
-        // 2. 构建请求
-        const apiUrl = `https://search5-noneu.truecaller.com/v2/search?q=${encodeURIComponent(phoneNumber)}&countryCode=${encodeURIComponent(countryCode)}&type=4&locAddr=&placement=SEARCH_RESULTS,HISTORY,DETAILS&encoding=json`;
-        
-        const fetchOptions = {
-            method: 'GET',
-            headers: {
-                "User-Agent": "Truecaller/15.32.6 (Android;14)",
-                "Accept": "application/json",
-                // "Accept-Encoding": "gzip", // 浏览器/Webview 通常会自动处理 gzip，显式添加可能导致解码问题如果 webview 不自动解压
-                "Authorization": `Bearer ${authToken}`
-            }
+        // 构造 URL
+        // 之前版本: https://${host}/v2/search?q=...&countryCode=...&type=4&locAddr=&placement=SEARCHRESULTS,HISTORY,DETAILS&adId=&encoding=json
+        const host = "search5-noneu.truecaller.com";
+        const targetUrl = `https://${host}/v2/search?q=${encodeURIComponent(queryNumber)}&countryCode=${encodeURIComponent(countryCode)}&type=4&locAddr=&placement=SEARCHRESULTS,HISTORY,DETAILS&adId=&encoding=json`;
+
+        const headers = {
+            "User-Agent": "Truecaller/9.00.3 (Android;10)", // Strictly match Kotlin Version
+            "Accept": "application/json",
+            "Authorization": `Bearer ${authToken}`,
+            "Host": host, // Kotlin version explicitly sets Host
+            "Connection": "Keep-Alive" // Kotlin version explicitly sets Connection
         };
 
-        try {
-            // 3. 发起请求
-            const response = await fetch(apiUrl, fetchOptions);
-            
-            if (!response.ok) {
-                if (response.status === 401 || response.status === 403) {
-                     throw new Error(`Auth failed: ${response.status}`);
-                }
-                throw new Error(`API response error: ${response.status} ${response.statusText}`);
-            }
+        log(`Requesting Native HTTP GET: ${targetUrl}`);
 
-            const resData = await response.json();
-            log(`API response received.`);
+        // 使用 RequestChannel 请求 Flutter 原生层发起 HTTP 请求
+        const payload = {
+            method: 'GET',
+            url: targetUrl,
+            headers: headers,
+            body: null,
+            phoneRequestId: requestId,
+            externalRequestId: requestId // 用于回调匹配
+        };
 
-            // 4. 解析结果
-            // python: info = data.get("data", [{}])[0]
-            const dataList = resData.data || [{}];
-            const info = dataList[0] || {};
-
-            // python:
-            // "name": info.get("name"),
-            // "phone": safe_first(info.get("phones"), "e164Format"),
-            // "carrier": safe_first(info.get("phones"), "carrier"),
-            // "email": safe_first(info.get("internetAddresses"), "id"),
-            // "gender": info.get("gender"),
-            // "city": safe_first(info.get("addresses"), "city"),
-            // "country": safe_first(info.get("addresses"), "countryCode"),
-            // "image": info.get("image"),
-            // "isFraud": info.get("isFraud", False)
-
-            const name = info.name || '';
-            const phone = safeFirst(info.phones, 'e164Format');
-            const carrier = safeFirst(info.phones, 'carrier');
-            const email = safeFirst(info.internetAddresses, 'id');
-            const gender = info.gender || '';
-            const city = safeFirst(info.addresses, 'city');
-            const country = safeFirst(info.addresses, 'countryCode');
-            const image = info.image || '';
-            const isFraud = info.isFraud === true;
-            
-            // 为了兼容插件标准字段
-            let sourceLabel = 'Normal';
-            let predefinedLabel = 'Unknown';
-            let action = 'none';
-
-            // 逻辑: 如果 isFraud 为 true，则是骚扰
-            if (isFraud) {
-                sourceLabel = 'Spam/Fraud';
-                predefinedLabel = 'Fraud Scam Likely';
-                action = 'block';
-            }
-            
-            // spamScore 也可以保留作为补充
-            const spamScore = info.spamScore || 0;
-             if (spamScore > 0 && !isFraud) {
-                sourceLabel = info.spamType || 'Spam';
-                // 尝试映射
-                if (manualMapping[sourceLabel.toLowerCase()]) {
-                    predefinedLabel = manualMapping[sourceLabel.toLowerCase()];
-                }
-                if (spamScore > 50) {
-                     action = 'block'; // 或者 alert
-                     if(predefinedLabel === 'Unknown') predefinedLabel = 'Spam Likely';
-                }
-            }
-
-
-            const result = {
-                requestId,
-                phoneNumber: phone || phoneNumber,
-                sourceLabel,
-                predefinedLabel,
-                action,
-                province: country, // 映射 country 到 province 位置，或者 city
-                city: city,
-                carrier: carrier,
-                name: name,
-                image: image, // 额外字段 plugin 可以传回
-                gender: gender,
-                email: email,
-                count: spamScore, 
-                success: true,
-                source: PLUGIN_CONFIG.id
-            };
-
-            sendPluginResult(result);
-
-        } catch (error) {
-            logError('API Query failed', error);
-            sendPluginResult({ requestId, success: false, error: error.toString() });
-        }
-    }
-
-
-    // --- 区域 5: 插件公共接口 ---
-    function generateOutput(phoneNumber, nationalNumber, e164Number, requestId) {
-        log(`generateOutput called for requestId: ${requestId}`);
-        // 优先使用 e164Number 对于 API 通常更好，去掉了格式符号
-        const numberToQuery = e164Number || phoneNumber || nationalNumber;
-        
-        if (numberToQuery) {
-            // Truecaller 搜索时要把 + 去掉? 视具体 API 而定，这里假设不去掉或者由 API 处理
-            // 很多时候 e164 格式 (+123456789) 是最标准的
-            performApiQuery(numberToQuery.replace('+', ''), requestId); // 尝试去掉 + 号
+        if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('RequestChannel', JSON.stringify(payload));
         } else {
-            sendPluginResult({ requestId, success: false, error: 'No valid phone number provided.' });
+            sendPluginResult({ requestId, success: false, error: 'Flutter RequestChannel not available.' });
         }
     }
 
-    // --- 区域 6: 初始化 ---
-    function initialize() {
-        if (window.plugin && window.plugin[PLUGIN_CONFIG.id]) {
+    /**
+     * 回调函数：处理 Native HTTP 请求的响应
+     * 对应 Dart 中的 window.plugin.truecallerPluginchannel.handleResponse(...)
+     */
+    function handleResponse(response) {
+        log('Received response from Native layer');
+        
+        // 这里的 response 结构由 PluginWebViewService.dart 定义
+        const requestId = response.phoneRequestId;
+        const statusCode = response.status;
+        const responseText = response.responseText;
+
+        if (statusCode !== 200) {
+            let errorMsg = `HTTP Error ${statusCode}: ${response.statusText}`;
+            if (statusCode === 401) {
+                errorMsg = "Truecaller Token Expired (401). Please update bearer token in settings.";
+            } else if (statusCode === 0) {
+                errorMsg = "Network Error/Timeout. Check internet connection.";
+            }
+
+            logError(errorMsg);
+            sendPluginResult({ 
+                requestId, 
+                success: false, 
+                error: errorMsg
+            });
             return;
         }
+
+        try {
+            const data = JSON.parse(responseText);
+            
+            // 解析逻辑
+            const info = (data.data && data.data.length > 0) ? data.data[0] : null;
+
+            if (!info) {
+                // 没有数据
+                sendPluginResult({ 
+                    requestId, 
+                    success: false, 
+                    error: 'No data found in Truecaller response (empty list)' 
+                });
+                return;
+            }
+
+            // 提取字段
+            const phones = info.phones || [];
+            const phoneObj = phones.length > 0 ? phones[0] : {};
+            const addresses = info.addresses || [];
+            const addrObj = addresses.length > 0 ? addresses[0] : {};
+
+            const name = info.name || '';
+            const carrier = phoneObj.carrier || '';
+            const city = addrObj.city || '';
+            const province = addrObj.countryCode || ''; // countryCode often holds standard region code
+            
+            const isFraud = info.isFraud === true;
+            const spamInfo = info.spamInfo || {};
+            const spamScore = spamInfo.spamScore || 0;
+            const spamType = spamInfo.spamType || '';
+
+            let predefinedLabel = '';
+            let action = 'none';
+
+            // 智能标签判断
+            if (isFraud) {
+                predefinedLabel = 'Fraud Scam Likely';
+                action = 'block';
+            } else if (spamScore > 0) {
+                // 尝试映射 spamType
+                if (spamType && spamMapping[spamType.toLowerCase()]) {
+                    predefinedLabel = spamMapping[spamType.toLowerCase()];
+                } else {
+                    predefinedLabel = 'Spam Likely';
+                }
+                action = 'block'; 
+            } else if (name.toLowerCase().includes('courier') || name.toLowerCase().includes('delivery')) {
+                predefinedLabel = 'Delivery';
+                action = 'allow';
+            } else {
+                predefinedLabel = 'Unknown';
+            }
+
+            // 构建最终结果
+            const pluginResult = {
+                requestId: requestId,
+                success: true,
+                source: PLUGIN_CONFIG.name,
+                name: name,
+                phoneNumber: phoneObj.e164Format || '',
+                carrier: carrier,
+                city: city,
+                province: province,
+                count: spamScore, // 使用垃圾评分作为 count
+                sourceLabel: spamType || (isFraud ? 'Fraud' : 'Normal'), // 原始标签
+                predefinedLabel: predefinedLabel,
+                action: action,
+                imageUrl: info.image || '',
+                email: (info.internetAddresses && info.internetAddresses.length > 0) ? info.internetAddresses[0].id : ''
+            };
+
+            sendPluginResult(pluginResult);
+
+        } catch (e) {
+            logError('Error parsing JSON response', e);
+            sendPluginResult({ 
+                requestId, 
+                success: false, 
+                error: 'JSON parsing failed: ' + e.toString() 
+            });
+        }
+    }
+
+    // --- Initialization ---
+    function initialize() {
         if (!window.plugin) {
             window.plugin = {};
         }
+        
+        // 注册插件对象，包含 generateOutput 和 handleResponse
         window.plugin[PLUGIN_CONFIG.id] = {
             info: PLUGIN_CONFIG,
             generateOutput: generateOutput,
-            config: {} // 初始化 config
+            handleResponse: handleResponse // 必须暴露给 Dart 调用
         };
+
         log(`Plugin registered: window.plugin.${PLUGIN_CONFIG.id}`);
         sendPluginLoaded();
     }

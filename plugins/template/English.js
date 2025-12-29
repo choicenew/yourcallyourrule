@@ -35,7 +35,24 @@
         id: 'yourUniquePluginId', // A unique ID for the plugin, using camelCase (e.g., 'someWebsitePlugin')
         name: 'Your Plugin Name (iframe Proxy)', // A human-readable name for the plugin (e.g., 'SomeWebsite Lookup (iframe Proxy)')
         version: '5.5.0', // The plugin version, semantic versioning is recommended
-        description: 'A brief description of what this plugin does.' // A short explanation of the plugin's purpose
+        description: 'A brief description of what this plugin does.', // A short explanation of the plugin's purpose
+            // [新增] 配置项定义
+        settings: [
+            {
+                key: 'api_key',       // 配置项的键名，代码中通过 config.api_key 访问
+                label: 'API Key',     // UI显示的标签
+                type: 'text',         // 输入框类型: text, password, etc.
+                hint: '请输入从官网获取的 API Key', // 输入提示
+                required: true        // 是否必填
+            },
+            {
+                key: 'username',
+                label: '用户名',
+                type: 'text',
+                hint: 'API 账户用户名 (可选)',
+                required: false
+            }
+        ]
     };
 
     // --- SECTION 2: Business-Specific Data & Keywords (MODIFY AS NEEDED) ---

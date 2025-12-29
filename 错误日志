@@ -1,0 +1,313 @@
+I/flutter (11627): Attempting to load JS plugin code from: https://github.com/haygcao/test/raw/refs/heads/main/tellowts.js
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/flutter (11627): Console [LOG]: [tellowsPlugin] Plugin registered: window.plugin.tellowsPlugin
+I/chromium(11627): [INFO:CONSOLE(33)] "[tellowsPlugin] Plugin registered: window.plugin.tellowsPlugin", source:  (33)
+I/flutter (11627): Console [LOG]: [tellowsPlugin] Plugin loaded, notifying Flutter.
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "onConsoleMessage" using {messageLevel: 1, message: [tellowsPlugin] Plugin registered: window.plugin.tellowsPlugin}
+I/chromium(11627): [INFO:CONSOLE(33)] "[tellowsPlugin] Plugin loaded, notifying Flutter.", source:  (33)
+I/flutter (11627): JS->Flutter (TestPageChannel): {"type":"pluginLoaded","pluginId":"tellowsPlugin","version":"1.0.0"}
+I/flutter (11627): Plugin JS loaded with ID: tellowsPlugin
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "onConsoleMessage" using {messageLevel: 1, message: [tellowsPlugin] Plugin loaded, notifying Flutter.}
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "TestPageChannel" using [{"type":"pluginLoaded","pluginId":"tellowsPlugin","version":"1.0.0"}]
+I/flutter (11627): JS plugin code injected. Waiting for "pluginLoaded" message from JS...
+I/flutter (11627): Starting query with provided numbers...
+I/ourcallyourrule(11627): AssetManager2(0x74cff88fdb98) locale list changing from [] to [en-US]
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/flutter (11627): Console [LOG]: Calling plugin[pluginId].generateOutput with numbers...
+I/chromium(11627): [INFO:CONSOLE(6)] "Calling plugin[pluginId].generateOutput with numbers...", source:  (6)
+I/flutter (11627): Console [LOG]: [tellowsPlugin] Initiating query for requestId: req_1767003506142
+I/chromium(11627): [INFO:CONSOLE(33)] "[tellowsPlugin] Initiating query for requestId: req_1767003506142", source:  (33)
+I/flutter (11627): Console [LOG]: [tellowsPlugin] Requesting Native HTTP GET: https://www.tellows.de/basic/num/%2B34854615531?xml=1&partner=androidapp&apikey=koE5hjkOwbHnmcADqZuqqq2&overridecountryfilter=1&country=us&showcomments=50
+I/chromium(11627): [INFO:CONSOLE(33)] "[tellowsPlugin] Requesting Native HTTP GET: https://www.tellows.de/basic/num/%2B34854615531?xml=1&partner=androidapp&apikey=koE5hjkOwbHnmcADqZuqqq2&overridecountryfilter=1&country=us&showcomments=50", source:  (33)
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "onConsoleMessage" using {messageLevel: 1, message: Calling plugin[pluginId].generateOutput with numbers...}
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "onConsoleMessage" using {messageLevel: 1, message: [tellowsPlugin] Initiating query for requestId: req_1767003506142}
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "onConsoleMessage" using {messageLevel: 1, message: [tellowsPlugin] Requesting Native HTTP GET: https://www.tellows.de/basic/num/%2B34854615531?xml=1&partner=androidapp&apikey=koE5hjkOwbHnmcADqZuqqq2&overridecountryfilter=1&country=us&showcomments=50}
+I/flutter (11627): JS->Flutter (RequestChannel): {"method":"GET","url":"https://www.tellows.de/basic/num/%2B34854615531?xml=1&partner=androidapp&apikey=koE5hjkOwbHnmcADqZuqqq2&overridecountryfilter=1&country=us&showcomments=50","headers":{"Connection":"Keep-Alive","Host":"www.tellows.de","User-Agent":"Dalvik/2.1.0 (Linux; U; Android 6.0; I14 Pro Max Build/MRA58K)"},"body":null,"phoneRequestId":"req_1767003506142","externalRequestId":"req_1767003506142"}
+I/flutter (11627): Making Native HTTP Request: GET https://www.tellows.de/basic/num/%2B34854615531?xml=1&partner=androidapp&apikey=koE5hjkOwbHnmcADqZuqqq2&overridecountryfilter=1&country=us&showcomments=50
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "RequestChannel" using [{"method":"GET","url":"https://www.tellows.de/basic/num/%2B34854615531?xml=1&partner=androidapp&apikey=koE5hjkOwbHnmcADqZuqqq2&overridecountryfilter=1&country=us&showcomments=50","headers":{"Connection":"Keep-Alive","Host":"www.tellows.de","User-Agent":"Dalvik/2.1.0 (Linux; U; Android 6.0; I14 Pro Max Build/MRA58K)"},"body":null,"phoneRequestId":"req_1767003506142","externalRequestId":"req_1767003506142"}]
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/flutter (11627): Native HTTP Response: 200
+I/flutter (11627): Console [LOG]: [tellowsPlugin] Received response from Native layer
+I/chromium(11627): [INFO:CONSOLE(33)] "[tellowsPlugin] Received response from Native layer", source:  (33)
+I/flutter (11627): Console [LOG]: [tellowsPlugin] Sending result to Flutter for req req_1767003506142: {"requestId":"req_1767003506142","success":true,"source":"Tellows Test","name":"Telefonterror1","phoneNumber":"+34854615531","rating":9,"count":9,"sourceLabel":"Tellows Score: 9","predefinedLabel":"Spam Likely","action":"block","raw":"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<tellows><number>+34854615531</number><normalizedNumber>+3485..."}
+I/chromium(11627): [INFO:CONSOLE(33)] "[tellowsPlugin] Sending result to Flutter for req req_1767003506142: {"requestId":"req_1767003506142","success":true,"source":"Tellows Test","name":"Telefonterror1","phoneNumber":"+34854615531","rating":9,"count":9,"sourceLabel":"Tellows Score: 9","predefinedLabel":"Spam Likely","action":"block","raw":"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<tellows><number>+34854615531</number><normalizedNumber>+3485..."}", source:  (33)
+I/flutter (11627): JS->Flutter (PluginResultChannel): {"requestId":"req_1767003506142","success":true,"source":"Tellows Test","name":"Telefonterror1","phoneNumber":"+34854615531","rating":9,"count":9,"sourceLabel":"Tellows Score: 9","predefinedLabel":"Spam Likely","action":"block","raw":"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<tellows><number>+34854615531</number><normalizedNumber>+3485..."}
+I/flutter (11627): Session cleaned for completed requestId: req_1767003506142.
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "onConsoleMessage" using {messageLevel: 1, message: [tellowsPlugin] Received response from Native layer}
+I/flutter (11627): Query completed for requestId: req_1767003506142
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "onConsoleMessage" using {messageLevel: 1, message: [tellowsPlugin] Sending result to Flutter for req req_1767003506142: {"requestId":"req_1767003506142","success":true,"source":"Tellows Test","name":"Telefonterror1","phoneNumber":"+34854615531","rating":9,"count":9,"sourceLabel":"Tellows Score: 9","predefinedLabel":"Spam Likely","action":"block","raw":"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<tellows><number>+34854615531</number><normalizedNumber>+3485..."}}
+[AndroidInAppWebViewController] (android) WebView ID 1612221669611291255616816201899710315839252 calling "PluginResultChannel" using [{"requestId":"req_1767003506142","success":true,"source":"Tellows Test","name":"Telefonterror1","phoneNumber":"+34854615531","rating":9,"count":9,"sourceLabel":"Tellows Score: 9","predefinedLabel":"Spam Likely","action":"block","raw":"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<tellows><number>+34854615531</number><normalizedNumber>+3485..."}]
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+W/ourcallyourrule(11627): Suspending all threads took: 5.529ms
+I/ourcallyourrule(11627): Background concurrent mark compact GC freed 16MB AllocSpace bytes, 74(7804KB) LOS objects, 16% free, 124MB/148MB, paused 9.171ms,10.026ms total 170.846ms
+I/Ads     (11627): This request is sent from a test device.
+W/Ads     (11627): Not retrying to fetch app settings
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff88fdb98) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff8883d98) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88ae9f8) locale list changing from [] to [en-US]
+I/flutter (11627): Ad with id `2` is not available for onAdImpression.
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff88d8cf8) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88af678) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88fdb98) locale list changing from [] to [en-US]
+I/Ads     (11627): This request is sent from a test device.
+W/Ads     (11627): Not retrying to fetch app settings
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/flutter (11627): Ad with id `2` is not available for onAdImpression.
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/ourcallyourrule(11627): Background concurrent mark compact GC freed 13MB AllocSpace bytes, 84(9884KB) LOS objects, 16% free, 125MB/149MB, paused 2.680ms,14.814ms total 132.779ms
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff888c718) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff887ff18) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff8891b78) locale list changing from [] to [en-US]
+I/Ads     (11627): This request is sent from a test device.
+W/Ads     (11627): Not retrying to fetch app settings
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/flutter (11627): Ad with id `2` is not available for onAdImpression.
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): Background concurrent mark compact GC freed 16MB AllocSpace bytes, 71(7556KB) LOS objects, 15% free, 126MB/150MB, paused 2.197ms,7.600ms total 105.540ms
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff8883a78) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88d6138) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88ae9f8) locale list changing from [] to [en-US]
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/Ads     (11627): Not retrying to fetch app settings
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff88ff178) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88f7798) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88ae9f8) locale list changing from [] to [en-US]
+I/flutter (11627): Ad with id `2` is not available for onAdImpression.
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/ourcallyourrule(11627): Background concurrent mark compact GC freed 17MB AllocSpace bytes, 65(7032KB) LOS objects, 15% free, 127MB/151MB, paused 4.641ms,12.621ms total 130.298ms
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff886a438) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff8890bd8) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff8882ad8) locale list changing from [] to [en-US]
+I/Ads     (11627): This request is sent from a test device.
+W/Ads     (11627): Not retrying to fetch app settings
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/flutter (11627): Ad with id `2` is not available for onAdImpression.
+I/Ads     (11627): JS: type=omidSupported&time=2025-12-29T10%3A23%3A16.560Z&message=Found%20OMID%20JS%20environment&event=undefined (https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js:6)
+I/chromium(11627): [INFO:CONSOLE(6)] "type=omidSupported&time=2025-12-29T10%3A23%3A16.560Z&message=Found%20OMID%20JS%20environment&event=undefined", source: https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js (6)
+I/Ads     (11627): JS: type=omidSessionStarted&time=2025-12-29T10%3A23%3A16.058Z&message=Session%20started&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003796058%2C%22type%22%3A%22sessionStart%22%2C%22data%22%3A%7B%22context%22%3A%7B%22apiVersion%22%3A%221.0%22%2C%22accessMode%22%3A%22limited%22%2C%22environment%22%3A%22app%22%2C%22omidJsInfo%22%3A%7B%22omidImplementer%22%3A%22omsdk%22%2C%22serviceVersion%22%3A%221.5.2-google26%22%2C%22sessionClientVersion%22%3A%221.4.10-google_20240110%22%2C%22partnerName%22%3A%22Google%22%2C%22partnerVersion%22%3A%220.8%22%7D%2C%22sessionOwner%22%3A%22native%22%2C%22adSessionType%22%3A%22html%22%2C%22deviceInfo%22%3A%7B%22deviceType%22%3A%22Google%3B%20sdk_gphone64_x86_64%22%2C%22osVersion%22%3A%2236%22%2C%22os%22%3A%22Android%22%7D%2C%22deviceCategory%22%3A%22mobile%22%2C%22supports%22%3A%5B%22clid%22%2C%22vlid%22%5D%2C%22omidNativeInfo%22%3A%7B%22partnerName%22%3A%22Google%22%2C%22partnerVersion%22%3A%22254380999.250930000%22%7D%2C%22app%22%3A%7B%22libraryVersion%22%3A%221.5.2-google_20241009%22%2C%22appId%22%3A%22com.yours.yourcallyourrule%22%7D%2C%22customReferenceData%22%3A%22%22%2C%22canMeasureVisibility%22%3Atrue%7D%2C%22impressionType%22%3A%22onePixel%22%2C%22mediaType%22%3A%22display%22%2C%22creativeType%22%3A%22htmlDisplay%22%2C%22supportsLoadedEvent%22%3Atrue%2C%22pageUrl%22%3Anull%2C%22contentUrl%22%3Anull%2C%22verificationParameters%22%3A%22%22%7D%7D (https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js:6)
+I/chromium(11627): [INFO:CONSOLE(6)] "type=omidSessionStarted&time=2025-12-29T10%3A23%3A16.058Z&message=Session%20started&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003796058%2C%22type%22%3A%22sessionStart%22%2C%22data%22%3A%7B%22context%22%3A%7B%22apiVersion%22%3A%221.0%22%2C%22accessMode%22%3A%22limited%22%2C%22environment%22%3A%22app%22%2C%22omidJsInfo%22%3A%7B%22omidImplementer%22%3A%22omsdk%22%2C%22serviceVersion%22%3A%221.5.2-google26%22%2C%22sessionClientVersion%22%3A%221.4.10-google_20240110%22%2C%22partnerName%22%3A%22Google%22%2C%22partnerVersion%22%3A%220.8%22%7D%2C%22sessionOwner%22%3A%22native%22%2C%22adSessionType%22%3A%22html%22%2C%22deviceInfo%22%3A%7B%22deviceType%22%3A%22Google%3B%20sdk_gphone64_x86_64%22%2C%22osVersion%22%3A%2236%22%2C%22os%22%3A%22Android%22%7D%2C%22deviceCategory%22%3A%22mobile%22%2C%22supports%22%3A%5B%22clid%22%2C%22vlid%22%5D%2C%22omidNativeInfo%22%3A%7B%22partnerName%22%3A%22Google%22%2C%22partnerVersion%22%3A%22254380999.250930000%22%7D%2C%22app%22%3A%7B%22libraryVersion%22%3A%221.5.2-google_20241009%22%2C%22appId%22%3A%22com.yours.yourcallyourrule%22%7D%2C%22customReferenceData%22%3A%22%22%2C%22canMeasureVisibility%22%3Atrue%7D%2C%22impressionType%22%3A%22onePixel%22%2C%22mediaType%22%3A%22display%22%2C%22creativeType%22%3A%22htmlDisplay%22%2C%22supportsLoadedEvent%22%3Atrue%2C%22pageUrl%22%3Anull%2C%22contentUrl%22%3Anull%2C%22verificationParameters%22%3A%22%22%7D%7D", source: https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js (6)
+I/Ads     (11627): JS: type=omidImpression&time=2025-12-29T10%3A23%3A16.081Z&message=Impression%20event%20occurred&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003796081%2C%22type%22%3A%22impression%22%2C%22data%22%3A%7B%22impressionType%22%3A%22onePixel%22%2C%22mediaType%22%3A%22display%22%2C%22creativeType%22%3A%22htmlDisplay%22%7D%7D (https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js:6)
+I/chromium(11627): [INFO:CONSOLE(6)] "type=omidImpression&time=2025-12-29T10%3A23%3A16.081Z&message=Impression%20event%20occurred&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003796081%2C%22type%22%3A%22impression%22%2C%22data%22%3A%7B%22impressionType%22%3A%22onePixel%22%2C%22mediaType%22%3A%22display%22%2C%22creativeType%22%3A%22htmlDisplay%22%7D%7D", source: https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js (6)
+I/Ads     (11627): JS: type=omidMeasurementAbove&time=2025-12-29T10%3A23%3A16.532Z&message=Geometry%20change%20event%20occurred&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003796532%2C%22type%22%3A%22geometryChange%22%2C%22data%22%3A%7B%22viewport%22%3A%7B%22width%22%3A448%2C%22height%22%3A997.3333129882812%7D%2C%22adView%22%3A%7B%22percentageInView%22%3A100%2C%22pixelsInView%22%3A16000%2C%22reasons%22%3A%5B%5D%2C%22geometry%22%3A%7B%22width%22%3A320%2C%22height%22%3A50%2C%22x%22%3A64%2C%22y%22%3A349%2C%22pixels%22%3A16000%7D%2C%22onScreenGeometry%22%3A%7B%22width%22%3A320%2C%22height%22%3A50%2C%22x%22%3A64%2C%22y%22%3A349%2C%22pixels%22%3A16000%2C%22obstructions%22%3A%5B%5D%2C%22friendlyObstructions%22%3A%5B%5D%7D%7D%2C%22declaredFriendlyObstructions%22%3A0%7D%7D (https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js:6)
+I/chromium(11627): [INFO:CONSOLE(6)] "type=omidMeasurementAbove&time=2025-12-29T10%3A23%3A16.532Z&message=Geometry%20change%20event%20occurred&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003796532%2C%22type%22%3A%22geometryChange%22%2C%22data%22%3A%7B%22viewport%22%3A%7B%22width%22%3A448%2C%22height%22%3A997.3333129882812%7D%2C%22adView%22%3A%7B%22percentageInView%22%3A100%2C%22pixelsInView%22%3A16000%2C%22reasons%22%3A%5B%5D%2C%22geometry%22%3A%7B%22width%22%3A320%2C%22height%22%3A50%2C%22x%22%3A64%2C%22y%22%3A349%2C%22pixels%22%3A16000%7D%2C%22onScreenGeometry%22%3A%7B%22width%22%3A320%2C%22height%22%3A50%2C%22x%22%3A64%2C%22y%22%3A349%2C%22pixels%22%3A16000%2C%22obstructions%22%3A%5B%5D%2C%22friendlyObstructions%22%3A%5B%5D%7D%7D%2C%22declaredFriendlyObstructions%22%3A0%7D%7D", source: https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js (6)
+I/Ads     (11627): JS: type=omidLoaded&time=2025-12-29T10%3A23%3A16.071Z&message=Loaded%20event%20occurred&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003796071%2C%22type%22%3A%22loaded%22%2C%22data%22%3A%7B%22impressionType%22%3A%22onePixel%22%2C%22mediaType%22%3A%22display%22%2C%22creativeType%22%3A%22htmlDisplay%22%7D%7D (https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js:6)
+I/chromium(11627): [INFO:CONSOLE(6)] "type=omidLoaded&time=2025-12-29T10%3A23%3A16.071Z&message=Loaded%20event%20occurred&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003796071%2C%22type%22%3A%22loaded%22%2C%22data%22%3A%7B%22impressionType%22%3A%22onePixel%22%2C%22mediaType%22%3A%22display%22%2C%22creativeType%22%3A%22htmlDisplay%22%7D%7D", source: https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js (6)
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff88c6d78) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88bed58) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88762d8) locale list changing from [] to [en-US]
+I/Ads     (11627): This request is sent from a test device.
+W/Ads     (11627): Not retrying to fetch app settings
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): JS: type=omidSessionFinished&time=2025-12-29T10%3A24%3A17.423Z&message=Session%20finished&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003857423%2C%22type%22%3A%22sessionFinish%22%7D (https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js:6)
+I/chromium(11627): [INFO:CONSOLE(6)] "type=omidSessionFinished&time=2025-12-29T10%3A24%3A17.423Z&message=Session%20finished&event=%7B%22adSessionId%22%3A%228cf10b1b-fe64-4543-b3d2-215fb75651dd%22%2C%22timestamp%22%3A1767003857423%2C%22type%22%3A%22sessionFinish%22%7D", source: https://pagead2.googlesyndication.com/omsdk/releases/live/omid_test_verification_bin.js (6)
+I/flutter (11627): Ad with id `2` is not available for onAdImpression.
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff88a2e78) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88639f8) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff8880558) locale list changing from [] to [en-US]
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/Ads     (11627): Not retrying to fetch app settings
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/flutter (11627): Ad with id `2` is not available for onAdImpression.
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff88c2598) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff8865618) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff88d7718) locale list changing from [] to [en-US]
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/Ads     (11627): Not retrying to fetch app settings
+I/ourcallyourrule(11627): Background concurrent mark compact GC freed 16MB AllocSpace bytes, 72(8280KB) LOS objects, 15% free, 129MB/153MB, paused 1.883ms,3.844ms total 112.569ms
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff8864678) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff8891e98) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff886a438) locale list changing from [] to [en-US]
+I/flutter (11627): Ad with id `2` is not available for onAdImpression.
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/ourcallyourrule(11627): Background concurrent mark compact GC freed 17MB AllocSpace bytes, 64(6956KB) LOS objects, 15% free, 131MB/155MB, paused 1.293ms,7.510ms total 122.386ms
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule(11627): AssetManager2(0x74cff88d3898) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff886a438) locale list changing from [] to [en-US]
+I/ourcallyourrule(11627): AssetManager2(0x74cff8865618) locale list changing from [] to [en-US]
+I/Ads     (11627): This request is sent from a test device.
+W/Ads     (11627): Not retrying to fetch app settings
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/flutter (11627): Ad with id `2` is not available for onAdImpression.
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/Ads     (11627): This request is sent from a test device.
+W/ServiceBindIntentUtils(11627): Dynamic lookup for intent failed for action: com.google.android.gms.ads.service.START
+I/DynamiteModule(11627): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule(11627): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI(11627): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers

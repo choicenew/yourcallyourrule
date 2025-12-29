@@ -27,7 +27,24 @@
         id: 'yourUniquePluginId', // 插件的唯一ID，使用驼峰命名法 (例如: 'someWebsitePlugin')
         name: 'Your Plugin Name (iframe Proxy)', // 插件的可读名称 (例如: 'SomeWebsite Lookup (iframe Proxy)')
         version: '5.5.0', // 插件版本号，建议遵循语义化版本控制
-        description: 'A brief description of what this plugin does.' // 插件功能描述
+        description: 'A brief description of what this plugin does.', // 插件功能描述
+           // [新增] 配置项定义
+        settings: [
+            {
+                key: 'api_key',       // 配置项的键名，代码中通过 config.api_key 访问
+                label: 'API Key',     // UI显示的标签
+                type: 'text',         // 输入框类型: text, password, etc.
+                hint: '请输入从官网获取的 API Key', // 输入提示
+                required: true        // 是否必填
+            },
+            {
+                key: 'username',
+                label: '用户名',
+                type: 'text',
+                hint: 'API 账户用户名 (可选)',
+                required: false
+            }
+        ]
     };
 
     // --- 区域 2: 业务相关的数据映射与关键字 (按需修改) ---

@@ -109,7 +109,7 @@
 
     // --- 区域 4: API 请求与解析 (核心逻辑) ---
     
-    async function performApiQuery(phoneNumber, requestId) {
+    async function initiateQuery(phoneNumber, requestId) {
         log(`Starting API query for ${phoneNumber}`);
         
         // 1. 获取配置
@@ -137,18 +137,24 @@
 
         try {
             // 3. 发起请求
-            // 如果遇到 CORS 问题，可以使用 App 提供的代理 (同 iframe 版的 proxyUrl 构造方式)，或者 App 侧实现的 fetch 代理
-            // 这里假设直接 fetch 可用，或者 API 支持 CORS。
-            // 如果必须走代理，请参考 iframe 版的 proxyUrl 构造，然后用 fetch(proxyUrl)
+            // 使用 App 提供的内部代理来绕过 CORS 限制。
+            // 这一点与 iframe 版本 ("Chinese.js") 的工作原理类似，都是通过 flutter-webview-proxy.internal 中转。
+            const headers = fetchOptions.headers || {};
+            const originalOrigin = new URL(apiUrl).origin;
+            const proxyUrl = `${PROXY_SCHEME}://${PROXY_HOST}${PROXY_PATH_FETCH}?requestId=${encodeURIComponent(requestId)}&originalOrigin=${encodeURIComponent(originalOrigin)}&targetUrl=${encodeURIComponent(apiUrl)}&headers=${encodeURIComponent(JSON.stringify(headers))}`;
             
-            const response = await fetch(apiUrl, fetchOptions);
+            log(`Fetching via proxy: ${proxyUrl}`);
+            const response = await fetch(proxyUrl);
             
             if (!response.ok) {
+                if (response.status === 401 || response.status === 403) {
+                     throw new Error(`Auth failed: ${response.status}`);
+                }
                 throw new Error(`API response error: ${response.status} ${response.statusText}`);
             }
 
             const data = await response.json();
-            log(`API response received: ${JSON.stringify(data)}`);
+            log(`API response received.`);
 
             // 4. 解析结果
             // 假设 API 返回结构: { type: 'scam', location: 'Beijing' }
@@ -200,7 +206,7 @@
         const numberToQuery = phoneNumber || nationalNumber || e164Number;
         
         if (numberToQuery) {
-            performApiQuery(numberToQuery, requestId);
+            initiateQuery(numberToQuery, requestId);
         } else {
             sendPluginResult({ requestId, success: false, error: 'No valid phone number provided.' });
         }
