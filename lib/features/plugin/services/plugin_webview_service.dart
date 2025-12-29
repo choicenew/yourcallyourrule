@@ -232,42 +232,90 @@ class PluginWebViewService {
     controller.addJavaScriptHandler(
       handlerName: 'RequestChannel',
       callback: (args) async {
-        if (args.isNotEmpty) {
-          debugPrint('Received request from JS: ${args[0]}');
+        if (args.isEmpty) return;
+        debugPrint('Received request from JS: ${args[0]}');
+        try {
+          final requestData = jsonDecode(args[0]);
+          final String method = requestData['method'];
+          final String url = requestData['url'];
+
+          // 安全转换 Headers，并移除 gzip 压缩头，让 Dart 自动处理
+          final Map<String, String> headers = {};
+          if (requestData['headers'] != null) {
+            (requestData['headers'] as Map<String, dynamic>).forEach((k, v) {
+              if (k.toLowerCase() != 'accept-encoding') {
+                // 关键修改：移除导致乱码的头
+                headers[k] = v.toString();
+              }
+            });
+          }
+          final String? body = requestData['body'];
+          final String? phoneRequestId = requestData['phoneRequestId'];
+          final String? externalRequestId = requestData['externalRequestId'];
+
+          // 关键修改：增加 10秒超时，防止网络不通时卡死
+          final response = await _sendHttpRequest(
+            method,
+            url,
+            headers,
+            body,
+          ).timeout(const Duration(seconds: 10));
+
+          final responseData = {
+            'externalRequestId': externalRequestId,
+            'phoneRequestId': phoneRequestId,
+            'status': response.statusCode,
+            'statusText': response.reasonPhrase,
+            'responseText': response.body,
+            'headers': response.headers,
+          };
+          final String responseJson = jsonEncode(responseData);
+
+          // 关键修改：确保回调能找到插件 ID
+          // 注意：在 main service 中 _loadedPluginId 可能为空，如果它是通过 callPluginMethod 调用的
+          // 但这里我们假设是插件主动发起的请求，所以它应该知道自己的 ID
+          // 或者我们在 JS 端就处理好回调分配。
+          // 方案中的代码使用 _loadedPluginId 或者是 'truecallerPluginchannel'，
+          // 这里我们尽量从 requestData 中获取 pluginId 如果有的话，或者使用 _loadedPluginId
+
+          // 为了稳健，我们直接调用 window.plugin[ID].handleResponse
+          // JS 侧目前是写死的，我们这里需要动态一点，或者 JS 传过来 pluginId
+          // 方案中代码：window.plugin["$targetPluginId"].handleResponse
+          // 我们这里沿用 _loadedPluginId，因为它是在 loadScript 时设置的。
+
+          if (_loadedPluginId != null) {
+            await controller.evaluateJavascript(
+              source:
+                  'window.plugin["$_loadedPluginId"].handleResponse($responseJson);',
+            );
+          } else {
+            // Fallback: 尝试广播或者记录错误?
+            // 方案建议：final targetPluginId = _loadedPluginId ?? 'truecallerPluginchannel';
+            // 既然用户方案里写了 'truecallerPluginchannel' 作为 fallback，我们先保留这个逻辑
+            final targetPluginId = _loadedPluginId ?? 'truecallerPluginchannel';
+            await controller.evaluateJavascript(
+              source:
+                  'window.plugin["$targetPluginId"].handleResponse($responseJson);',
+            );
+          }
+        } catch (e) {
+          AppLogger.error('RequestChannel Error', e);
+          debugPrint('RequestChannel Error: $e');
+          // 关键修改：发生错误(如超时)也要通知 JS，防止 JS 永久等待
           try {
             final requestData = jsonDecode(args[0]);
-            final String method = requestData['method'];
-            final String url = requestData['url'];
-            final Map<String, String> headers =
-                (requestData['headers'] as Map<String, dynamic>)
-                    .cast<String, String>();
-            final String? body = requestData['body'];
-            final String externalRequestId = requestData['externalRequestId'];
-            final String phoneRequestId = requestData['phoneRequestId'];
-
-            // 使用http包发起实际的网络请求
-            final response = await _sendHttpRequest(method, url, headers, body);
-
-            // 将响应数据编码为JSON字符串
-            final responseData = {
-              'externalRequestId': externalRequestId,
-              'phoneRequestId': phoneRequestId,
-              'status': response.statusCode,
-              'statusText': response.reasonPhrase,
-              'responseText': response.body,
-              'headers': response.headers,
+            final targetPluginId = _loadedPluginId ?? 'truecallerPluginchannel';
+            final errorData = {
+              'phoneRequestId': requestData['phoneRequestId'],
+              'status': 0, // 0 表示网络错误
+              'error': e.toString(),
             };
-            final String responseJson = jsonEncode(responseData);
-
-            // 将响应数据发送回JS
             await controller.evaluateJavascript(
-              source: '''
-              window.plugin.$_loadedPluginId.handleResponse($responseJson);
-            ''',
+              source:
+                  'window.plugin["$targetPluginId"].handleResponse(${jsonEncode(errorData)});',
             );
-          } catch (e) {
-            AppLogger.error('处理JS请求时发生异常', e);
-            debugPrint('Error handling request: $e');
+          } catch (innerE) {
+            debugPrint('Error sending error response to JS: $innerE');
           }
         }
       },

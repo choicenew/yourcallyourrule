@@ -141,6 +141,75 @@ class PluginTestService {
         }
       },
     );
+
+    // [New] RequestChannel for Native HTTP Requests
+    controller.addJavaScriptHandler(
+      handlerName: 'RequestChannel',
+      callback: (args) async {
+        if (args.isEmpty) return;
+        _addLog('JS->Flutter (RequestChannel): ${args[0]}');
+        try {
+          final requestData = jsonDecode(args[0]);
+          final String method = requestData['method'];
+          final String url = requestData['url'];
+
+          final Map<String, String> headers = {};
+          if (requestData['headers'] != null) {
+            (requestData['headers'] as Map<String, dynamic>).forEach((k, v) {
+              if (k.toLowerCase() != 'accept-encoding') {
+                headers[k] = v.toString();
+              }
+            });
+          }
+          final String? body = requestData['body'];
+          final String? phoneRequestId = requestData['phoneRequestId'];
+          final String? externalRequestId = requestData['externalRequestId'];
+
+          _addLog('Making Native HTTP Request: $method $url');
+
+          final response = await http
+              .get(Uri.parse(url), headers: headers)
+              .timeout(
+                const Duration(seconds: 10),
+              ); // Simple GET for now as per truecaller needs
+
+          _addLog('Native HTTP Response: ${response.statusCode}');
+
+          final responseData = {
+            'externalRequestId': externalRequestId,
+            'phoneRequestId': phoneRequestId,
+            'status': response.statusCode,
+            'statusText': response.reasonPhrase,
+            'responseText': response.body,
+            'headers': response.headers,
+          };
+          final String responseJson = jsonEncode(responseData);
+
+          final targetPluginId = _loadedPluginId ?? 'truecallerPluginchannel';
+          await controller.evaluateJavascript(
+            source:
+                'window.plugin["$targetPluginId"].handleResponse($responseJson);',
+          );
+        } catch (e) {
+          _addLog('RequestChannel Error: $e');
+          try {
+            final requestData = jsonDecode(args[0]);
+            final targetPluginId = _loadedPluginId ?? 'truecallerPluginchannel';
+            final errorData = {
+              'phoneRequestId': requestData['phoneRequestId'],
+              'status': 0,
+              'error': e.toString(),
+            };
+            await controller.evaluateJavascript(
+              source:
+                  'window.plugin["$targetPluginId"].handleResponse(${jsonEncode(errorData)});',
+            );
+          } catch (innerE) {
+            _addLog('Error sending error response to JS: $innerE');
+          }
+        }
+      },
+    );
   }
 
   Future<void> _loadPluginJs(PluginEntry plugin) async {
@@ -222,10 +291,15 @@ class PluginTestService {
               ? "'$e164Number'"
               : 'null';
 
+      final configJson = jsonEncode(plugin.config);
+
       await _headlessWebView!.webViewController!.evaluateJavascript(
         source: '''
         (function(pluginId, requestId) {
           if (window.plugin && window.plugin[pluginId] && window.plugin[pluginId].generateOutput) {
+            // Inject Config
+            window.plugin[pluginId].config = $configJson;
+            
             console.log(`Calling plugin[pluginId].generateOutput with numbers...`);
             window.plugin[pluginId].generateOutput($phoneParam, $nationalParam, $e164Param, '$requestId');
           } else {
