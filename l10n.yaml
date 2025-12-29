@@ -26,7 +26,7 @@ output-dir: lib/generated
 # 而是把它实实在在地创建在我指定的 output-dir (lib/generated) 文件夹下。”
 # 这样，您项目中的 import 'generated/app_localizations.dart'; 就能找到它了。
 # ======================================================================
-synthetic-package: false
+#synthetic-package: false
 
 # 确保生成的 getter 不是可空的，与旧版本行为保持一致。
 nullable-getter: false

@@ -2904,9 +2904,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get notGranted => 'לא הוענק';
 
   @override
-  String get notificationMode => 'מצב התראה';
-
-  @override
   String get notificationModeDescription => 'הצג מידע על המתקשר בשורת ההתראות';
 
   @override
@@ -3095,9 +3092,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'מספר טלפון אינו יכול להיות ריק';
 
   @override
-  String get phoneNumberHint => 'הזן מספר טלפון';
-
-  @override
   String get phoneNumberHintText => 'הזן מספר טלפון להוספת כלל';
 
   @override
@@ -3105,9 +3099,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get phoneNumberRegexRequired => 'אנא הזן מספר טלפון וגם תבנית regex';
-
-  @override
-  String get phoneNumberRequired => 'מספר טלפון נדרש';
 
   @override
   String get phoneNumberTypeFixedLine => 'קו קבוע';
@@ -5261,9 +5252,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get medium => 'בינוני';
 
   @override
-  String get verificationReport => 'דוח אימות';
-
-  @override
   String get finalRisk => 'סיכון סופי';
 
   @override
@@ -5400,9 +5388,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get deletionProposal => 'הצעת מחיקה';
 
   @override
-  String get deletionProposals => 'הצעות מחיקה';
-
-  @override
   String get createProposal => 'צור הצעת מחיקה';
 
   @override
@@ -5496,6 +5481,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String createdAt(String date) {
     return 'נוצר: $date';
   }
+
+  @override
+  String get verificationReport => 'דוח אימות';
 
   @override
   String get showReport => 'הצג דוח';
@@ -5613,6 +5601,9 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get veryLow => 'נמוך מאוד';
+
+  @override
+  String get deletionProposals => 'הצעות מחיקה';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5737,6 +5728,9 @@ class AppLocalizationsHe extends AppLocalizations {
       'בחר באיזו תדירות תקבל הודעות על הצעות מחיקה חדשות. תוכל לקבל אותן באופן מיידי, באצוות, או במרווח מותאם אישית.';
 
   @override
+  String get notificationMode => 'מצב התראה';
+
+  @override
   String get immediateNotifications => 'מיידי';
 
   @override
@@ -5793,10 +5787,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get guidelinesLabel => 'הנחיות';
 
   @override
-  String get reportingGuidelines =>
-      '• דווח רק על מספרים שהם באמת בעייתיים\n• ספק סיבות מדויקות ומפורטות\n• בחר רמת סיכון מתאימה בהתאם לחומרה\n• דיווחים שקריים עלולים לגרום להגבלות על החשבון';
-
-  @override
   String get riskLevelLabel => 'רמת סיכון';
 
   @override
@@ -5825,6 +5815,12 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'קידומת מדינה חייבת להיות 2 אותיות';
+
+  @override
+  String get phoneNumberHint => 'הזן מספר טלפון';
+
+  @override
+  String get phoneNumberRequired => 'מספר טלפון נדרש';
 
   @override
   String get phoneNumberLengthError => 'מספר הטלפון חייב להיות לפחות 7 ספרות';
@@ -5886,16 +5882,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'תמיכה ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'התנגדות ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'זה עתה';
 
   @override
@@ -5914,7 +5900,21 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• דווח רק על מספרים שהם באמת בעייתיים\n• ספק סיבות מדויקות ומפורטות\n• בחר רמת סיכון מתאימה בהתאם לחומרה\n• דיווחים שקריים עלולים לגרום להגבלות על החשבון';
+
+  @override
   String get notificationFrequencyHours => 'תדירות התראות (שעות)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'תמיכה ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'התנגדות ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6174,4 +6174,15 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

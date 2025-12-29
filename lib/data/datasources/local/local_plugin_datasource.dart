@@ -24,6 +24,7 @@ class LocalPluginDataSource implements LocalDataSource<PluginModel> {
       isEnabled: data.isEnabled == 1,
       pluginOrder: data.pluginOrder,
       isAutoUpdate: data.isAutoUpdate == 1,
+      config: data.configJson != null ? jsonDecode(data.configJson!) : {},
     );
   }
 
@@ -37,18 +38,23 @@ class LocalPluginDataSource implements LocalDataSource<PluginModel> {
       isEnabled: Value(model.isEnabled ? 1 : 0),
       pluginOrder: Value(model.pluginOrder),
       isAutoUpdate: Value(model.isAutoUpdate ? 1 : 0),
+      configJson: Value(jsonEncode(model.config)),
     );
   }
 
   @override
   Future<List<PluginModel>> getAll() async {
-    final data = await (_db.select(_db.plugins)..orderBy([(t) => OrderingTerm(expression: t.pluginOrder)])).get();
+    final data =
+        await (_db.select(_db.plugins)
+          ..orderBy([(t) => OrderingTerm(expression: t.pluginOrder)])).get();
     return data.map(_fromData).toList();
   }
 
   @override
   Future<PluginModel?> getById(String id) async {
-    final data = await (_db.select(_db.plugins)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
+    final data =
+        await (_db.select(_db.plugins)
+          ..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
     return data != null ? _fromData(data) : null;
   }
 
@@ -76,7 +82,8 @@ class LocalPluginDataSource implements LocalDataSource<PluginModel> {
 
   @override
   Future<int> update(PluginModel model) async {
-    return await (_db.update(_db.plugins)..where((tbl) => tbl.id.equals(model.id))).write(_toCompanion(model));
+    return await (_db.update(_db.plugins)
+      ..where((tbl) => tbl.id.equals(model.id))).write(_toCompanion(model));
   }
 
   @override
@@ -95,13 +102,15 @@ class LocalPluginDataSource implements LocalDataSource<PluginModel> {
 
   @override
   Future<int> delete(String id) async {
-    return await (_db.delete(_db.plugins)..where((tbl) => tbl.id.equals(id))).go();
+    return await (_db.delete(_db.plugins)
+      ..where((tbl) => tbl.id.equals(id))).go();
   }
 
   @override
   Future<int> deleteAll(List<String> ids) async {
     if (ids.isEmpty) return 0;
-    return await (_db.delete(_db.plugins)..where((tbl) => tbl.id.isIn(ids))).go();
+    return await (_db.delete(_db.plugins)
+      ..where((tbl) => tbl.id.isIn(ids))).go();
   }
 
   @override
@@ -110,17 +119,23 @@ class LocalPluginDataSource implements LocalDataSource<PluginModel> {
   }
 
   Future<PluginModel?> getByUrl(String url) async {
-    final data = await (_db.select(_db.plugins)..where((tbl) => tbl.url.equals(url))).getSingleOrNull();
+    final data =
+        await (_db.select(_db.plugins)
+          ..where((tbl) => tbl.url.equals(url))).getSingleOrNull();
     return data != null ? _fromData(data) : null;
   }
 
   Future<List<PluginModel>> searchByName(String name) async {
-    final data = await (_db.select(_db.plugins)..where((tbl) => tbl.name.like('%$name%'))).get();
+    final data =
+        await (_db.select(_db.plugins)
+          ..where((tbl) => tbl.name.like('%$name%'))).get();
     return data.map(_fromData).toList();
   }
 
   Future<List<PluginModel>> getEnabled() async {
-    final data = await (_db.select(_db.plugins)..where((tbl) => tbl.isEnabled.equals(1))).get();
+    final data =
+        await (_db.select(_db.plugins)
+          ..where((tbl) => tbl.isEnabled.equals(1))).get();
     return data.map(_fromData).toList();
   }
 
@@ -134,7 +149,10 @@ class LocalPluginDataSource implements LocalDataSource<PluginModel> {
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> maps = jsonDecode(data);
-      final items = maps.map((map) => PluginModel.fromMap(map as Map<String, dynamic>)).toList();
+      final items =
+          maps
+              .map((map) => PluginModel.fromMap(map as Map<String, dynamic>))
+              .toList();
       await insertAll(items);
       return true;
     } catch (e) {

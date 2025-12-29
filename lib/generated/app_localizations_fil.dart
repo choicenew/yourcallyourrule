@@ -3018,9 +3018,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get notGranted => 'Hindi Ibinigay';
 
   @override
-  String get notificationMode => 'Mode ng Notipikasyon';
-
-  @override
   String get notificationModeDescription =>
       'Ipakita ang impormasyon ng tumatawag sa notification bar';
 
@@ -3216,9 +3213,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Hindi maaaring walang laman ang numero ng telepono';
 
   @override
-  String get phoneNumberHint => 'Ilagay ang numero ng telepono';
-
-  @override
   String get phoneNumberHintText =>
       'Ilagay ang numero ng telepono para magdagdag ng rule';
 
@@ -3228,9 +3222,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Mangyaring ilagay parehong numero ng telepono at regex pattern';
-
-  @override
-  String get phoneNumberRequired => 'Kailangan ang numero ng telepono';
 
   @override
   String get phoneNumberTypeFixedLine => 'Fixed line';
@@ -5451,9 +5442,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get medium => 'Medium';
 
   @override
-  String get verificationReport => 'Ulat sa Pag-verify';
-
-  @override
   String get finalRisk => 'Pinal na Panganib';
 
   @override
@@ -5593,9 +5581,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get deletionProposal => 'Panukala sa Pambura';
 
   @override
-  String get deletionProposals => 'Mga Panukala sa Pambura';
-
-  @override
   String get createProposal => 'Gumawa ng Panukala';
 
   @override
@@ -5689,6 +5674,9 @@ class AppLocalizationsFil extends AppLocalizations {
   String createdAt(String date) {
     return 'Ginawa: $date';
   }
+
+  @override
+  String get verificationReport => 'Ulat sa Pag-verify';
 
   @override
   String get showReport => 'Ipakita ang Ulat';
@@ -5807,6 +5795,9 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get veryLow => 'Napakababa';
+
+  @override
+  String get deletionProposals => 'Mga Panukala sa Pambura';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5932,6 +5923,9 @@ class AppLocalizationsFil extends AppLocalizations {
       'Pumili kung gaano kadalas ka tumatanggap ng mga notipikasyon tungkol sa mga bagong panukala sa pagtanggal. Maaari mong matanggap ang mga ito kaagad, sa mga batch, o sa isang custom na pagitan.';
 
   @override
+  String get notificationMode => 'Mode ng Notipikasyon';
+
+  @override
   String get immediateNotifications => 'Kaagad';
 
   @override
@@ -5989,10 +5983,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get guidelinesLabel => 'Mga Alituntunin';
 
   @override
-  String get reportingGuidelines =>
-      '• I-report lamang ang mga numero na tunay na may problema\n• Magbigay ng tumpak at detalyadong mga dahilan\n• Pumili ng naaangkop na antas ng panganib batay sa kalubhaan\n• Ang mga maling ulat ay maaaring magresulta sa mga restriksyon sa account';
-
-  @override
   String get riskLevelLabel => 'Antas ng Panganib';
 
   @override
@@ -6024,6 +6014,12 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Ang country code ay dapat 2 letra';
+
+  @override
+  String get phoneNumberHint => 'Ilagay ang numero ng telepono';
+
+  @override
+  String get phoneNumberRequired => 'Kailangan ang numero ng telepono';
 
   @override
   String get phoneNumberLengthError =>
@@ -6093,16 +6089,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Suporta ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Tutol ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Kagabi lang';
 
   @override
@@ -6121,7 +6107,21 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• I-report lamang ang mga numero na tunay na may problema\n• Magbigay ng tumpak at detalyadong mga dahilan\n• Pumili ng naaangkop na antas ng panganib batay sa kalubhaan\n• Ang mga maling ulat ay maaaring magresulta sa mga restriksyon sa account';
+
+  @override
   String get notificationFrequencyHours => 'Pagitan ng Notipikasyon (Oras)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Suporta ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Tutol ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6385,4 +6385,15 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

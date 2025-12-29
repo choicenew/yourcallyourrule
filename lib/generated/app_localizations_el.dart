@@ -2994,9 +2994,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get notGranted => 'Δεν Παραχωρήθηκε';
 
   @override
-  String get notificationMode => 'Λειτουργία Ειδοποίησης';
-
-  @override
   String get notificationModeDescription =>
       'Εμφάνιση πληροφοριών καλούντος στη γραμμή ειδοποιήσεων';
 
@@ -3192,9 +3189,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Ο αριθμός τηλεφώνου δεν μπορεί να είναι κενός';
 
   @override
-  String get phoneNumberHint => 'Εισαγάγετε αριθμό τηλεφώνου';
-
-  @override
   String get phoneNumberHintText =>
       'Εισαγάγετε αριθμό τηλεφώνου για προσθήκη κανόνα';
 
@@ -3204,9 +3198,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Παρακαλώ εισαγάγετε τόσο τον αριθμό τηλεφώνου όσο και το μοτίβο regex';
-
-  @override
-  String get phoneNumberRequired => 'Απαιτείται αριθμός τηλεφώνου';
 
   @override
   String get phoneNumberTypeFixedLine => 'Σταθερή γραμμή';
@@ -5418,9 +5409,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get medium => 'Μέσο';
 
   @override
-  String get verificationReport => 'Έκθεση Επαλήθευσης';
-
-  @override
   String get finalRisk => 'Τελικός Κίνδυνος';
 
   @override
@@ -5559,9 +5547,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get deletionProposal => 'Πρόταση Διαγραφής';
 
   @override
-  String get deletionProposals => 'Προτάσεις Διαγραφής';
-
-  @override
   String get createProposal => 'Δημιουργία Πρότασης';
 
   @override
@@ -5655,6 +5640,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String createdAt(String date) {
     return 'Δημιουργήθηκε: $date';
   }
+
+  @override
+  String get verificationReport => 'Έκθεση Επαλήθευσης';
 
   @override
   String get showReport => 'Εμφάνιση Αναφοράς';
@@ -5773,6 +5761,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get veryLow => 'Πολύ Χαμηλό';
+
+  @override
+  String get deletionProposals => 'Προτάσεις Διαγραφής';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5898,6 +5889,9 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επιλέξτε πόσο συχνά λαμβάνετε ειδοποιήσεις για νέες προτάσεις διαγραφής. Μπορείτε να τις λαμβάνετε άμεσα, σε παρτίδες ή σε προσαρμοσμένο διάστημα.';
 
   @override
+  String get notificationMode => 'Λειτουργία Ειδοποίησης';
+
+  @override
   String get immediateNotifications => 'Άμεσες';
 
   @override
@@ -5955,10 +5949,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get guidelinesLabel => 'Οδηγίες';
 
   @override
-  String get reportingGuidelines =>
-      '• Αναφέρετε μόνο αριθμούς που είναι πραγματικά προβληματικοί\n• Παρέχετε ακριβείς και λεπτομερείς λόγους\n• Επιλέξτε το κατάλληλο επίπεδο κινδύνου ανάλογα με τη σοβαρότητα\n• Ψευδείς αναφορές μπορεί να οδηγήσουν σε περιορισμούς λογαριασμού';
-
-  @override
   String get riskLevelLabel => 'Επίπεδο Κινδύνου';
 
   @override
@@ -5991,6 +5981,12 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get countryCodeLengthError =>
       'Ο κωδικός χώρας πρέπει να είναι 2 γράμματα';
+
+  @override
+  String get phoneNumberHint => 'Εισαγάγετε αριθμό τηλεφώνου';
+
+  @override
+  String get phoneNumberRequired => 'Απαιτείται αριθμός τηλεφώνου';
 
   @override
   String get phoneNumberLengthError =>
@@ -6060,16 +6056,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Υποστήριξη ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Κατά ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Τώρα';
 
   @override
@@ -6088,7 +6074,21 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Αναφέρετε μόνο αριθμούς που είναι πραγματικά προβληματικοί\n• Παρέχετε ακριβείς και λεπτομερείς λόγους\n• Επιλέξτε το κατάλληλο επίπεδο κινδύνου ανάλογα με τη σοβαρότητα\n• Ψευδείς αναφορές μπορεί να οδηγήσουν σε περιορισμούς λογαριασμού';
+
+  @override
   String get notificationFrequencyHours => 'Συχνότητα Ειδοποιήσεων (Ώρες)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Υποστήριξη ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Κατά ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6351,4 +6351,15 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

@@ -2984,9 +2984,6 @@ class AppLocalizationsSw extends AppLocalizations {
   String get notGranted => 'Haikukabidhiwa';
 
   @override
-  String get notificationMode => 'Njia ya Arifa';
-
-  @override
   String get notificationModeDescription =>
       'Onyesha taarifa za mpigaji katika upau wa arifa';
 
@@ -3180,9 +3177,6 @@ class AppLocalizationsSw extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Nambari ya simu haiwezi kuwa tupu';
 
   @override
-  String get phoneNumberHint => 'Weka nambari ya simu';
-
-  @override
   String get phoneNumberHintText => 'Weka nambari ya simu ili kuongeza sheria';
 
   @override
@@ -3191,9 +3185,6 @@ class AppLocalizationsSw extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Tafadhali weka nambari ya simu na muundo wa regex';
-
-  @override
-  String get phoneNumberRequired => 'Nambari ya simu inahitajika';
 
   @override
   String get phoneNumberTypeFixedLine => 'Njia ya simu ya mezani';
@@ -5401,9 +5392,6 @@ class AppLocalizationsSw extends AppLocalizations {
   String get medium => 'Kati';
 
   @override
-  String get verificationReport => 'Ripoti ya Uthibitisho';
-
-  @override
   String get finalRisk => 'Hatari ya Mwisho';
 
   @override
@@ -5542,9 +5530,6 @@ class AppLocalizationsSw extends AppLocalizations {
   String get deletionProposal => 'Pendekezo la kufuta';
 
   @override
-  String get deletionProposals => 'Maingizo ya kufuta';
-
-  @override
   String get createProposal => 'Unda Pendekezo';
 
   @override
@@ -5638,6 +5623,9 @@ class AppLocalizationsSw extends AppLocalizations {
   String createdAt(String date) {
     return 'Imeundwa: $date';
   }
+
+  @override
+  String get verificationReport => 'Ripoti ya Uthibitisho';
 
   @override
   String get showReport => 'Onyesha Ripoti';
@@ -5755,6 +5743,9 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get veryLow => 'Chini sana';
+
+  @override
+  String get deletionProposals => 'Maingizo ya kufuta';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5880,6 +5871,9 @@ class AppLocalizationsSw extends AppLocalizations {
       'Chagua ni mara ngapi unapokea arifa kuhusu mapendekezo mapya ya kufuta. Unaweza kuzipokea mara moja, kwa makundi, au kwa muda uliowekwa maalum.';
 
   @override
+  String get notificationMode => 'Njia ya Arifa';
+
+  @override
   String get immediateNotifications => 'Mara Moja';
 
   @override
@@ -5937,10 +5931,6 @@ class AppLocalizationsSw extends AppLocalizations {
   String get guidelinesLabel => 'Miongozo';
 
   @override
-  String get reportingGuidelines =>
-      '• Ripoti tu nambari ambazo ni tatizo kweli\n• Toa sababu sahihi na za kina\n• Chagua kiwango cha hatari kinachofaa kulingana na ukali\n• Ripoti za uwongo zinaweza kusababisha vikwazo vya akaunti';
-
-  @override
   String get riskLevelLabel => 'Kiwango cha Hatari';
 
   @override
@@ -5971,6 +5961,12 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Nambari ya nchi lazima iwe na herufi 2';
+
+  @override
+  String get phoneNumberHint => 'Weka nambari ya simu';
+
+  @override
+  String get phoneNumberRequired => 'Nambari ya simu inahitajika';
 
   @override
   String get phoneNumberLengthError =>
@@ -6038,16 +6034,6 @@ class AppLocalizationsSw extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Saidizi ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Pingamizi ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Sasa hivi';
 
   @override
@@ -6066,7 +6052,21 @@ class AppLocalizationsSw extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Ripoti tu nambari ambazo ni tatizo kweli\n• Toa sababu sahihi na za kina\n• Chagua kiwango cha hatari kinachofaa kulingana na ukali\n• Ripoti za uwongo zinaweza kusababisha vikwazo vya akaunti';
+
+  @override
   String get notificationFrequencyHours => 'Kipindi cha Arifa (Saa)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Saidizi ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Pingamizi ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6330,4 +6330,15 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

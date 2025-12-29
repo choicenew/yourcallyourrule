@@ -2972,9 +2972,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get notGranted => 'Verilmedi';
 
   @override
-  String get notificationMode => 'Bildirim Modu';
-
-  @override
   String get notificationModeDescription =>
       'Arayan bilgilerini bildirim çubuğunda göster';
 
@@ -3167,9 +3164,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefon numarası boş olamaz';
 
   @override
-  String get phoneNumberHint => 'Telefon numarasını girin';
-
-  @override
   String get phoneNumberHintText =>
       'Kural eklemek için telefon numarasını girin';
 
@@ -3179,9 +3173,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Lütfen hem telefon numarasını hem de regex desenini girin';
-
-  @override
-  String get phoneNumberRequired => 'Telefon numarası gerekli';
 
   @override
   String get phoneNumberTypeFixedLine => 'Sabit hat';
@@ -5378,9 +5369,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get medium => 'Orta';
 
   @override
-  String get verificationReport => 'Doğrulama Raporu';
-
-  @override
   String get finalRisk => 'Nihai Risk';
 
   @override
@@ -5520,9 +5508,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get deletionProposal => 'Silme Teklifi';
 
   @override
-  String get deletionProposals => 'Silme Teklifleri';
-
-  @override
   String get createProposal => 'Teklif Oluştur';
 
   @override
@@ -5616,6 +5601,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String createdAt(String date) {
     return 'Oluşturulma Tarihi: $date';
   }
+
+  @override
+  String get verificationReport => 'Doğrulama Raporu';
 
   @override
   String get showReport => 'Raporu Göster';
@@ -5733,6 +5721,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get veryLow => 'Çok Düşük';
+
+  @override
+  String get deletionProposals => 'Silme Teklifleri';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5858,6 +5849,9 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yeni silme önerileri hakkında ne sıklıkta bildirim alacağınızı seçin. Bildirimleri anında, toplu olarak veya özel bir aralıkta alabilirsiniz.';
 
   @override
+  String get notificationMode => 'Bildirim Modu';
+
+  @override
   String get immediateNotifications => 'Anında';
 
   @override
@@ -5915,10 +5909,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get guidelinesLabel => 'Yönergeler';
 
   @override
-  String get reportingGuidelines =>
-      '• Yalnızca gerçekten sorunlu numaraları bildirin\n• Doğru ve ayrıntılı nedenler belirtin\n• Ciddiyete göre uygun risk seviyesini seçin\n• Yanlış bildirimler hesap kısıtlamalarına yol açabilir';
-
-  @override
   String get riskLevelLabel => 'Risk Seviyesi';
 
   @override
@@ -5949,6 +5939,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Ülke kodu 2 harf olmalıdır';
+
+  @override
+  String get phoneNumberHint => 'Telefon numarasını girin';
+
+  @override
+  String get phoneNumberRequired => 'Telefon numarası gerekli';
 
   @override
   String get phoneNumberLengthError =>
@@ -6014,16 +6010,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Destek ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Karşı Çık ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Şimdi';
 
   @override
@@ -6042,7 +6028,21 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Yalnızca gerçekten sorunlu numaraları bildirin\n• Doğru ve ayrıntılı nedenler belirtin\n• Ciddiyete göre uygun risk seviyesini seçin\n• Yanlış bildirimler hesap kısıtlamalarına yol açabilir';
+
+  @override
   String get notificationFrequencyHours => 'Bildirim Sıklığı (Saat)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Destek ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Karşı Çık ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6304,4 +6304,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

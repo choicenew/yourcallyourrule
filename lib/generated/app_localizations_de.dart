@@ -2984,9 +2984,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get notGranted => 'Nicht gewährt';
 
   @override
-  String get notificationMode => 'Benachrichtigungsmodus';
-
-  @override
   String get notificationModeDescription =>
       'Anruferinformationen in der Benachrichtigungsleiste anzeigen';
 
@@ -3180,9 +3177,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Die Telefonnummer darf nicht leer sein';
 
   @override
-  String get phoneNumberHint => 'Telefonnummer eingeben';
-
-  @override
   String get phoneNumberHintText => 'Telefonnummer zur Regel hinzufügen';
 
   @override
@@ -3191,9 +3185,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Bitte geben Sie sowohl Telefonnummer als auch Regex-Muster ein';
-
-  @override
-  String get phoneNumberRequired => 'Telefonnummer ist erforderlich';
 
   @override
   String get phoneNumberTypeFixedLine => 'Festnetz';
@@ -5403,9 +5394,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get medium => 'Medium';
 
   @override
-  String get verificationReport => 'Verifizierungsbericht';
-
-  @override
   String get finalRisk => 'Endgültiges Risiko';
 
   @override
@@ -5545,9 +5533,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get deletionProposal => 'Löschvorschlag';
 
   @override
-  String get deletionProposals => 'Löschvorschläge';
-
-  @override
   String get createProposal => 'Vorschlag erstellen';
 
   @override
@@ -5641,6 +5626,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String createdAt(String date) {
     return 'Erstellt: $date';
   }
+
+  @override
+  String get verificationReport => 'Verifizierungsbericht';
 
   @override
   String get showReport => 'Bericht anzeigen';
@@ -5758,6 +5746,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get veryLow => 'Sehr niedrig';
+
+  @override
+  String get deletionProposals => 'Löschvorschläge';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5884,6 +5875,9 @@ class AppLocalizationsDe extends AppLocalizations {
       'Wählen Sie aus, wie oft Sie Benachrichtigungen über neue Löschvorschläge erhalten möchten. Sie können sie sofort, in Batches oder in einem benutzerdefinierten Intervall erhalten.';
 
   @override
+  String get notificationMode => 'Benachrichtigungsmodus';
+
+  @override
   String get immediateNotifications => 'Sofort';
 
   @override
@@ -5941,10 +5935,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get guidelinesLabel => 'Richtlinien';
 
   @override
-  String get reportingGuidelines =>
-      '• Melden Sie nur Nummern, die wirklich problematisch sind\n• Geben Sie genaue und detaillierte Gründe an\n• Wählen Sie das geeignete Risikoniveau basierend auf der Schwere des Problems\n• Falsche Berichte können zu Kontobeschränkungen führen';
-
-  @override
   String get riskLevelLabel => 'Risikoniveau';
 
   @override
@@ -5977,6 +5967,12 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get countryCodeLengthError =>
       'Der Ländercode muss 2 Buchstaben lang sein';
+
+  @override
+  String get phoneNumberHint => 'Telefonnummer eingeben';
+
+  @override
+  String get phoneNumberRequired => 'Telefonnummer ist erforderlich';
 
   @override
   String get phoneNumberLengthError =>
@@ -6047,16 +6043,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Unterstützung ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Ablehnung ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Gerade eben';
 
   @override
@@ -6075,8 +6061,22 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Melden Sie nur Nummern, die wirklich problematisch sind\n• Geben Sie genaue und detaillierte Gründe an\n• Wählen Sie das geeignete Risikoniveau basierend auf der Schwere des Problems\n• Falsche Berichte können zu Kontobeschränkungen führen';
+
+  @override
   String get notificationFrequencyHours =>
       'Benachrichtigungshäufigkeit (Stunden)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Unterstützung ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Ablehnung ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6339,4 +6339,15 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

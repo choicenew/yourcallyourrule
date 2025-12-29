@@ -2955,9 +2955,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get notGranted => 'Tidak Diberikan';
 
   @override
-  String get notificationMode => 'Mode Notifikasi';
-
-  @override
   String get notificationModeDescription =>
       'Tampilkan informasi penelepon di bilah notifikasi';
 
@@ -3150,9 +3147,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Nomor telepon tidak boleh kosong';
 
   @override
-  String get phoneNumberHint => 'Masukkan nomor telepon';
-
-  @override
   String get phoneNumberHintText =>
       'Masukkan nomor telepon untuk menambahkan aturan';
 
@@ -3162,9 +3156,6 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Harap masukkan nomor telepon dan pola regex';
-
-  @override
-  String get phoneNumberRequired => 'Nomor telepon wajib diisi';
 
   @override
   String get phoneNumberTypeFixedLine => 'Jalur tetap';
@@ -5363,9 +5354,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get medium => 'Media';
 
   @override
-  String get verificationReport => 'Laporan Verifikasi';
-
-  @override
   String get finalRisk => 'Risiko Akhir';
 
   @override
@@ -5505,9 +5493,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get deletionProposal => 'Proposal Penghapusan';
 
   @override
-  String get deletionProposals => 'Proposal Penghapusan';
-
-  @override
   String get createProposal => 'Buat Proposal';
 
   @override
@@ -5601,6 +5586,9 @@ class AppLocalizationsId extends AppLocalizations {
   String createdAt(String date) {
     return 'Dibuat: $date';
   }
+
+  @override
+  String get verificationReport => 'Laporan Verifikasi';
 
   @override
   String get showReport => 'Tampilkan Laporan';
@@ -5718,6 +5706,9 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get veryLow => 'Sangat Rendah';
+
+  @override
+  String get deletionProposals => 'Proposal Penghapusan';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5843,6 +5834,9 @@ class AppLocalizationsId extends AppLocalizations {
       'Pilih seberapa sering Anda menerima notifikasi tentang proposal penghapusan baru. Anda dapat menerimanya segera, dalam batch, atau pada interval kustom.';
 
   @override
+  String get notificationMode => 'Mode Notifikasi';
+
+  @override
   String get immediateNotifications => 'Segera';
 
   @override
@@ -5900,10 +5894,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get guidelinesLabel => 'Pedoman';
 
   @override
-  String get reportingGuidelines =>
-      '• Laporkan hanya nomor yang benar-benar bermasalah\n• Berikan alasan yang akurat dan terperinci\n• Pilih tingkat risiko yang sesuai berdasarkan tingkat keparahan\n• Laporan palsu dapat mengakibatkan pembatasan akun';
-
-  @override
   String get riskLevelLabel => 'Tingkat Risiko';
 
   @override
@@ -5933,6 +5923,12 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'Kode negara harus 2 huruf';
+
+  @override
+  String get phoneNumberHint => 'Masukkan nomor telepon';
+
+  @override
+  String get phoneNumberRequired => 'Nomor telepon wajib diisi';
 
   @override
   String get phoneNumberLengthError => 'Nomor telepon harus minimal 7 digit';
@@ -5999,16 +5995,6 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Dukungan ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Menentang ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Baru saja';
 
   @override
@@ -6027,7 +6013,21 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Laporkan hanya nomor yang benar-benar bermasalah\n• Berikan alasan yang akurat dan terperinci\n• Pilih tingkat risiko yang sesuai berdasarkan tingkat keparahan\n• Laporan palsu dapat mengakibatkan pembatasan akun';
+
+  @override
   String get notificationFrequencyHours => 'Frekuensi Notifikasi (Jam)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Dukungan ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Menentang ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6288,4 +6288,15 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

@@ -14,15 +14,15 @@ import 'package:yourcallyourrule/features/plugin/services/webview_request_interc
 
 // 引入我们刚刚创建的拦截器
 
-
 /// 插件WebView服务 - 负责WebView核心管理
 /// 遵循单一职责原则，只负责WebView的初始化和基本操作
 class PluginWebViewService {
   // --- [修改] Singleton Pattern ---
-  static final PluginWebViewService _instance = PluginWebViewService._internal();
+  static final PluginWebViewService _instance =
+      PluginWebViewService._internal();
   factory PluginWebViewService() => _instance;
   PluginWebViewService._internal();
-  
+
   // --- [修改结束] ---
 
   // --- [新增] Headless WebView 和初始化管理 ---
@@ -32,7 +32,7 @@ class PluginWebViewService {
 
   // WebView控制器
   InAppWebViewController? _webViewController;
-  
+
   // --- [新] 创建一个内部拦截器实例，将职责委托给它 ---
   final _requestInterceptor = WebViewRequestInterceptor();
 
@@ -88,11 +88,15 @@ class PluginWebViewService {
       },
       shouldInterceptRequest: (controller, request) async {
         // [修改] 拦截逻辑现在被完全委托给内部处理器！
-        return _requestInterceptor.handleInterceptedRequest(controller, request);
+        return _requestInterceptor.handleInterceptedRequest(
+          controller,
+          request,
+        );
       },
       onConsoleMessage: (controller, consoleMessage) {
         _addLog(
-            'JS Console [${consoleMessage.messageLevel}]: ${consoleMessage.message}');
+          'JS Console [${consoleMessage.messageLevel}]: ${consoleMessage.message}',
+        );
       },
     );
 
@@ -100,7 +104,6 @@ class PluginWebViewService {
     return _initCompleter.future;
   }
   // --- [新增结束] ---
-
 
   // [删除] 初始化WebView
   /*
@@ -112,7 +115,9 @@ class PluginWebViewService {
   */
 
   // 设置JavaScript处理程序
-  Future<void> _setupJavaScriptHandlers(InAppWebViewController controller) async {
+  Future<void> _setupJavaScriptHandlers(
+    InAppWebViewController controller,
+  ) async {
     // 插件通信通道
     controller.addJavaScriptHandler(
       handlerName: 'TestPageChannel',
@@ -142,13 +147,14 @@ class PluginWebViewService {
             } else if (jsonData['type'] == 'sessionCompleted') {
               final requestId = jsonData['requestId'];
               if (requestId != null) {
-                _addLog('Session completed for requestId [$requestId], cleaning up.');
+                _addLog(
+                  'Session completed for requestId [$requestId], cleaning up.',
+                );
                 // [修改] 委托会话清理
                 _requestInterceptor.cleanupSession(requestId);
               }
             }
           } catch (e) {
-            
             debugPrint('Received message: ${args[0]}');
           }
         }
@@ -159,7 +165,9 @@ class PluginWebViewService {
     controller.addJavaScriptHandler(
       handlerName: 'PluginResultChannel',
       callback: (args) {
-        debugPrint('[PluginResultChannel] 生数据打印Received message on PluginResultChannel: ${args[0]}');
+        debugPrint(
+          '[PluginResultChannel] 生数据打印Received message on PluginResultChannel: ${args[0]}',
+        );
         if (args.isEmpty) {
           debugPrint('[PluginResultChannel] Error: Received empty arguments.');
           return;
@@ -170,10 +178,12 @@ class PluginWebViewService {
           final String? requestId = result['requestId'];
 
           if (requestId == null) {
-            debugPrint('[PluginResultChannel] Error: "requestId" is missing in the response.');
+            debugPrint(
+              '[PluginResultChannel] Error: "requestId" is missing in the response.',
+            );
             return;
           }
-          
+
           debugPrint('[PluginResultChannel] Processing requestId: $requestId');
 
           if (_pluginQueryCompleters.containsKey(requestId)) {
@@ -182,27 +192,34 @@ class PluginWebViewService {
             final String? error = result['error']?.toString();
 
             if (success) {
-              debugPrint('[PluginResultChannel] Completing successfully for requestId: $requestId');
+              debugPrint(
+                '[PluginResultChannel] Completing successfully for requestId: $requestId',
+              );
               completer.complete(result);
-           } else {
-          // 如果 success 是 false，但 error 字段是 null 或者空字符串，
-          // 我们就认为这是 "没有找到结果" 的正常情况，而不是一个真正的错误。
-          if (error == null || error.isEmpty) {
-            debugPrint(
-                '[PluginResultChannel] Completing with NO RESULT (success:false, no error msg) for requestId: $requestId');
-            completer.complete(null); // 正常返回 null
-          } else {
-            // 只有当 success 是 false 并且 error 字段里有具体错误信息时，
-            // 才把它当作一个真正的异常来处理。
-              final errorMessage = error ?? 'Unknown plugin error';
-              debugPrint('[PluginResultChannel] Completing with error for requestId: $requestId, Error: $errorMessage');
-              completer.completeError(errorMessage);
+            } else {
+              // 如果 success 是 false，但 error 字段是 null 或者空字符串，
+              // 我们就认为这是 "没有找到结果" 的正常情况，而不是一个真正的错误。
+              if (error == null || error.isEmpty) {
+                debugPrint(
+                  '[PluginResultChannel] Completing with NO RESULT (success:false, no error msg) for requestId: $requestId',
+                );
+                completer.complete(null); // 正常返回 null
+              } else {
+                // 只有当 success 是 false 并且 error 字段里有具体错误信息时，
+                // 才把它当作一个真正的异常来处理。
+                final errorMessage = error ?? 'Unknown plugin error';
+                debugPrint(
+                  '[PluginResultChannel] Completing with error for requestId: $requestId, Error: $errorMessage',
+                );
+                completer.completeError(errorMessage);
+              }
             }
-          }
             // [修改] 委托会话清理
             _requestInterceptor.cleanupSession(requestId);
           } else {
-            debugPrint('[PluginResultChannel] Error: No completer found for requestId: $requestId');
+            debugPrint(
+              '[PluginResultChannel] Error: No completer found for requestId: $requestId',
+            );
           }
         } catch (e) {
           AppLogger.error('处理PluginResultChannel消息时发生异常', e);
@@ -243,9 +260,11 @@ class PluginWebViewService {
             final String responseJson = jsonEncode(responseData);
 
             // 将响应数据发送回JS
-            await controller.evaluateJavascript(source: '''
+            await controller.evaluateJavascript(
+              source: '''
               window.plugin.$_loadedPluginId.handleResponse($responseJson);
-            ''');
+            ''',
+            );
           } catch (e) {
             AppLogger.error('处理JS请求时发生异常', e);
             debugPrint('Error handling request: $e');
@@ -284,8 +303,12 @@ class PluginWebViewService {
   }
 
   // 发送HTTP请求
-  Future<http.Response> _sendHttpRequest(String method, String url,
-      Map<String, String> headers, String? body) async {
+  Future<http.Response> _sendHttpRequest(
+    String method,
+    String url,
+    Map<String, String> headers,
+    String? body,
+  ) async {
     debugPrint("打印Sending headers: $headers");
     switch (method) {
       case 'GET':
@@ -346,11 +369,16 @@ class PluginWebViewService {
     });
 
     // 设置超时时间，如果在指定时间内插件未就绪，则打印提示信息
-    await completer.future.timeout(const Duration(seconds: 5), onTimeout: () {
-      debugPrint('Timeout: Plugin $pluginId did not send pluginReady message.');
-      // 超时后取消订阅
-      sub?.cancel();
-    });
+    await completer.future.timeout(
+      const Duration(seconds: 5),
+      onTimeout: () {
+        debugPrint(
+          'Timeout: Plugin $pluginId did not send pluginReady message.',
+        );
+        // 超时后取消订阅
+        sub?.cancel();
+      },
+    );
   }
 
   // 调用插件方法
@@ -383,7 +411,9 @@ class PluginWebViewService {
     ''';
 
     // 执行JavaScript
-    debugPrint('[WebView] Calling plugin method: $pluginId.$methodName for requestId: $requestId');
+    debugPrint(
+      '[WebView] Calling plugin method: $pluginId.$methodName for requestId: $requestId',
+    );
     await _webViewController?.evaluateJavascript(source: jsCode);
 
     // 等待结果
@@ -394,9 +424,12 @@ class PluginWebViewService {
           _pluginQueryCompleters.remove(requestId);
           // [修改] 委托会话清理
           _requestInterceptor.cleanupSession(requestId); // Cleanup
-          debugPrint('[WebView] Timeout for plugin method: $pluginId.$methodName, requestId: $requestId');
+          debugPrint(
+            '[WebView] Timeout for plugin method: $pluginId.$methodName, requestId: $requestId',
+          );
           throw TimeoutException(
-              'Plugin method call timed out: $pluginId.$methodName');
+            'Plugin method call timed out: $pluginId.$methodName',
+          );
         },
       );
     } catch (e) {
@@ -413,11 +446,12 @@ class PluginWebViewService {
     String pluginId,
     String phoneNumber,
     String nationalNumber,
-    String e164Number,
-  ) async {
+    String e164Number, {
+    Map<String, dynamic>? config,
+  }) async {
     // --- [修改] 等待初始化完成 ---
     await _initCompleter.future;
-        // --- [修改结束] ---
+    // --- [修改结束] ---
     final requestId =
         'query_${pluginId}_${DateTime.now().millisecondsSinceEpoch}';
     if (_webViewController == null) {
@@ -427,11 +461,19 @@ class PluginWebViewService {
     final completer = Completer<Map<String, dynamic>?>();
     _pluginQueryCompleters[requestId] = completer;
 
-    debugPrint('[WebView] Generating plugin output for: $pluginId with requestId: $requestId');
-    
-    await _webViewController?.evaluateJavascript(source: '''
+    debugPrint(
+      '[WebView] Generating plugin output for: $pluginId with requestId: $requestId',
+    );
+
+    // 注入配置并在回调中执行 generateOutput
+    final configJson = jsonEncode(config ?? {});
+    await _webViewController?.evaluateJavascript(
+      source: '''
       (function(pluginId) {
         if (window.plugin && window.plugin[pluginId]) {
+          // [Inject Config]
+          window.plugin[pluginId].config = $configJson;
+          
           window.plugin[pluginId].generateOutput(
             "$phoneNumber",
             "$nationalNumber",
@@ -442,7 +484,8 @@ class PluginWebViewService {
           console.error('Plugin not found or not loaded:', pluginId);
         }
       })('$pluginId');
-    ''');
+    ''',
+    );
 
     // 等待结果
     try {
@@ -452,14 +495,19 @@ class PluginWebViewService {
           _pluginQueryCompleters.remove(requestId);
           // [修改] 委托会话清理
           _requestInterceptor.cleanupSession(requestId); // 清理会话
-          debugPrint('[WebView] Timeout generating output for plugin: $pluginId, requestId: $requestId');
+          debugPrint(
+            '[WebView] Timeout generating output for plugin: $pluginId, requestId: $requestId',
+          );
           throw TimeoutException(
-              'Plugin output generation timed out: $pluginId');
+            'Plugin output generation timed out: $pluginId',
+          );
         },
       );
     } catch (e) {
       AppLogger.error('生成插件输出失败', e);
-      debugPrint('[WebView] Error generating output for plugin: $pluginId - $e');
+      debugPrint(
+        '[WebView] Error generating output for plugin: $pluginId - $e',
+      );
       _pluginQueryCompleters.remove(requestId);
       // [修改] 委托会话清理
       _requestInterceptor.cleanupSession(requestId); // 清理会话
@@ -474,6 +522,37 @@ class PluginWebViewService {
     _headlessWebView?.dispose();
     _headlessWebView = null;
     // --- [新增结束] ---
+  }
+
+  // 获取插件配置Schema
+  Future<List<dynamic>?> getPluginSettings(String pluginId) async {
+    // --- [修改] 等待初始化完成 ---
+    await _initCompleter.future;
+    // --- [修改结束] ---
+    if (_webViewController == null) {
+      throw Exception('WebView控制器未初始化');
+    }
+
+    try {
+      final result = await _webViewController?.evaluateJavascript(
+        source: '''
+        (function(pluginId) {
+          if (window.plugin && window.plugin[pluginId] && window.plugin[pluginId].info) {
+             return JSON.stringify(window.plugin[pluginId].info.settings || []);
+          }
+          return "[]";
+        })('$pluginId');
+      ''',
+      );
+
+      if (result != null) {
+        return jsonDecode(result);
+      }
+      return [];
+    } catch (e) {
+      debugPrint('[WebView] Error getting plugin settings: $e');
+      return [];
+    }
   }
 
   // 添加状态监听扩展

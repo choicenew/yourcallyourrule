@@ -3022,9 +3022,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get notGranted => 'Berilmagan';
 
   @override
-  String get notificationMode => 'Bildirishnoma rejimi';
-
-  @override
   String get notificationModeDescription =>
       'Qo\'ng\'iroq qiluvchi ma\'lumotlarini bildirishnoma panelida ko\'rsatish';
 
@@ -3218,9 +3215,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Telefon raqami bo\'sh bo\'lishi mumkin emas';
 
   @override
-  String get phoneNumberHint => 'Telefon raqamini kiriting';
-
-  @override
   String get phoneNumberHintText =>
       'Qoida qo\'shish uchun telefon raqamini kiriting';
 
@@ -3230,9 +3224,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'Iltimos, telefon raqami va regex namunasini kiriting';
-
-  @override
-  String get phoneNumberRequired => 'Telefon raqami talab qilinadi';
 
   @override
   String get phoneNumberTypeFixedLine => 'Statsionar liniya';
@@ -5454,9 +5445,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get medium => 'O\'rta';
 
   @override
-  String get verificationReport => 'Tekshirish hisoboti';
-
-  @override
   String get finalRisk => 'Yakuniy xavf';
 
   @override
@@ -5598,9 +5586,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get deletionProposal => 'O\'chirish taklifi';
 
   @override
-  String get deletionProposals => 'O\'chirish takliflari';
-
-  @override
   String get createProposal => 'Taklif yaratish';
 
   @override
@@ -5694,6 +5679,9 @@ class AppLocalizationsUz extends AppLocalizations {
   String createdAt(String date) {
     return 'Yaratilgan: $date';
   }
+
+  @override
+  String get verificationReport => 'Tekshirish hisoboti';
 
   @override
   String get showReport => 'Hisobotni ko\'rsatish';
@@ -5811,6 +5799,9 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get veryLow => 'Juda past';
+
+  @override
+  String get deletionProposals => 'O\'chirish takliflari';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5938,6 +5929,9 @@ class AppLocalizationsUz extends AppLocalizations {
       'Yangi oʻchirish takliflari haqida bildirishnomalarni qanchalik tez-tez qabul qilishni tanlang. Siz ularni darhol, toʻplamlar orqali yoki shaxsiy intervalda qabul qilishingiz mumkin.';
 
   @override
+  String get notificationMode => 'Bildirishnoma rejimi';
+
+  @override
   String get immediateNotifications => 'Darhol';
 
   @override
@@ -5995,10 +5989,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get guidelinesLabel => 'Ko\'rsatmalar';
 
   @override
-  String get reportingGuidelines =>
-      '• Faqat haqiqatan ham muammoli bo\'lgan raqamlarni xabar qiling\n• Aniq va batafsil sabablarni taqdim eting\n• Jiddiyligiga qarab tegishli xavf darajasini tanlang\n• Yolg\'on hisobotlar hisob qaydnomasining cheklanishiga olib kelishi mumkin';
-
-  @override
   String get riskLevelLabel => 'Xavf darajasi';
 
   @override
@@ -6031,6 +6021,12 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get countryCodeLengthError =>
       'Davlat kodi 2 harfdan iborat bo\'lishi kerak';
+
+  @override
+  String get phoneNumberHint => 'Telefon raqamini kiriting';
+
+  @override
+  String get phoneNumberRequired => 'Telefon raqami talab qilinadi';
 
   @override
   String get phoneNumberLengthError =>
@@ -6099,16 +6095,6 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'Qo\'llab-quvvatlash ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'Qarshi ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'Hozirgina';
 
   @override
@@ -6127,7 +6113,21 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• Faqat haqiqatan ham muammoli bo\'lgan raqamlarni xabar qiling\n• Aniq va batafsil sabablarni taqdim eting\n• Jiddiyligiga qarab tegishli xavf darajasini tanlang\n• Yolg\'on hisobotlar hisob qaydnomasining cheklanishiga olib kelishi mumkin';
+
+  @override
   String get notificationFrequencyHours => 'Bildirishnoma chastotasi (soat)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'Qo\'llab-quvvatlash ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'Qarshi ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6389,4 +6389,15 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

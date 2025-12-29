@@ -2954,9 +2954,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get notGranted => 'មិន​បាន​ផ្តល់';
 
   @override
-  String get notificationMode => 'របៀប​ជូន​ដំណឹង';
-
-  @override
   String get notificationModeDescription =>
       'បង្ហាញ​ព័ត៌មាន​អ្នក​ហៅ​ក្នុង​របារ​ជូន​ដំណឹង';
 
@@ -3149,9 +3146,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'លេខទូរស័ព្ទមិនអាចទទេបានទេ';
 
   @override
-  String get phoneNumberHint => 'បញ្ចូលលេខទូរស័ព្ទ';
-
-  @override
   String get phoneNumberHintText => 'បញ្ចូលលេខទូរស័ព្ទដើម្បីបន្ថែមច្បាប់';
 
   @override
@@ -3160,9 +3154,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get phoneNumberRegexRequired =>
       'សូមបញ្ចូលទាំងលេខទូរស័ព្ទ និងគំរូ regex';
-
-  @override
-  String get phoneNumberRequired => 'លេខទូរស័ព្ទត្រូវបានទាមទារ';
 
   @override
   String get phoneNumberTypeFixedLine => 'ទូរស័ព្ទស្ថានីយ';
@@ -5364,9 +5355,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get medium => 'មធ្យម';
 
   @override
-  String get verificationReport => 'របាយការណ៍ផ្ទៀងផ្ទាត់';
-
-  @override
   String get finalRisk => 'ហានិភ័យចុងក្រោយ';
 
   @override
@@ -5506,9 +5494,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get deletionProposal => 'សំណើលុប';
 
   @override
-  String get deletionProposals => 'សំណើលុប';
-
-  @override
   String get createProposal => 'បង្កើតសំណើ';
 
   @override
@@ -5602,6 +5587,9 @@ class AppLocalizationsKm extends AppLocalizations {
   String createdAt(String date) {
     return 'បានបង្កើត: $date';
   }
+
+  @override
+  String get verificationReport => 'របាយការណ៍ផ្ទៀងផ្ទាត់';
 
   @override
   String get showReport => 'បង្ហាញរបាយការណ៍';
@@ -5719,6 +5707,9 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get veryLow => 'ទាបខ្លាំង';
+
+  @override
+  String get deletionProposals => 'សំណើលុប';
 
   @override
   String get deletionProposalNotificationDescription =>
@@ -5843,6 +5834,9 @@ class AppLocalizationsKm extends AppLocalizations {
       'ជ្រើសរើសភាពញឹកញាប់នៃការទទួលការជូនដំណឹងអំពីសំណើលុបថ្មី។ អ្នកអាចទទួលវាភ្លាមៗ ជាបាច់ ឬតាមចន្លោះពេលផ្ទាល់ខ្លួន។';
 
   @override
+  String get notificationMode => 'របៀប​ជូន​ដំណឹង';
+
+  @override
   String get immediateNotifications => 'ភ្លាមៗ';
 
   @override
@@ -5900,10 +5894,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get guidelinesLabel => 'គោលការណ៍ណែនាំ';
 
   @override
-  String get reportingGuidelines =>
-      '• រាយការណ៍តែលេខដែលពិតជាមានបញ្ហា\n• ផ្ដល់ហេតុផលត្រឹមត្រូវ និងលម្អិត\n• ជ្រើសរើសកម្រិតហានិភ័យសមស្របដោយផ្អែកលើភាពធ្ងន់ធ្ងរ\n• ការរាយការណ៍មិនពិតអាចបណ្ដាលឱ្យមានការរឹតបន្តឹងគណនី';
-
-  @override
   String get riskLevelLabel => 'កម្រិតហានិភ័យ';
 
   @override
@@ -5933,6 +5923,12 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get countryCodeLengthError => 'លេខកូដប្រទេសត្រូវតែមាន ២ តួអក្សរ';
+
+  @override
+  String get phoneNumberHint => 'បញ្ចូលលេខទូរស័ព្ទ';
+
+  @override
+  String get phoneNumberRequired => 'លេខទូរស័ព្ទត្រូវបានទាមទារ';
 
   @override
   String get phoneNumberLengthError =>
@@ -5999,16 +5995,6 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String supportCount(int supportCount) {
-    return 'គាំទ្រ ($supportCount)';
-  }
-
-  @override
-  String opposeCount(int opposeCount) {
-    return 'ប្រឆាំង ($opposeCount)';
-  }
-
-  @override
   String get timeJustNow => 'ទើបតែឥឡូវនេះ';
 
   @override
@@ -6027,7 +6013,21 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
+  String get reportingGuidelines =>
+      '• រាយការណ៍តែលេខដែលពិតជាមានបញ្ហា\n• ផ្ដល់ហេតុផលត្រឹមត្រូវ និងលម្អិត\n• ជ្រើសរើសកម្រិតហានិភ័យសមស្របដោយផ្អែកលើភាពធ្ងន់ធ្ងរ\n• ការរាយការណ៍មិនពិតអាចបណ្ដាលឱ្យមានការរឹតបន្តឹងគណនី';
+
+  @override
   String get notificationFrequencyHours => 'ភាពញឹកញាប់នៃការជូនដំណឹង (ម៉ោង)';
+
+  @override
+  String supportCount(int supportCount) {
+    return 'គាំទ្រ ($supportCount)';
+  }
+
+  @override
+  String opposeCount(int opposeCount) {
+    return 'ប្រឆាំង ($opposeCount)';
+  }
 
   @override
   String votesWithPercentage(int totalVotes, int supportPercentage) {
@@ -6289,4 +6289,15 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return 'Failed to load settings schema: $error';
+  }
+
+  @override
+  String get noSettingsAvailable => 'No settings available for this plugin.';
+
+  @override
+  String get fieldIsRequired => 'This field is required';
 }

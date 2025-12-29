@@ -5152,6 +5152,17 @@ class $PluginsTable extends Plugins with TableInfo<$PluginsTable, PluginData> {
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
+  static const VerificationMeta _configJsonMeta = const VerificationMeta(
+    'configJson',
+  );
+  @override
+  late final GeneratedColumn<String> configJson = GeneratedColumn<String>(
+    'config_json',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -5162,6 +5173,7 @@ class $PluginsTable extends Plugins with TableInfo<$PluginsTable, PluginData> {
     isEnabled,
     pluginOrder,
     isAutoUpdate,
+    configJson,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -5239,6 +5251,12 @@ class $PluginsTable extends Plugins with TableInfo<$PluginsTable, PluginData> {
         ),
       );
     }
+    if (data.containsKey('config_json')) {
+      context.handle(
+        _configJsonMeta,
+        configJson.isAcceptableOrUnknown(data['config_json']!, _configJsonMeta),
+      );
+    }
     return context;
   }
 
@@ -5287,6 +5305,10 @@ class $PluginsTable extends Plugins with TableInfo<$PluginsTable, PluginData> {
             DriftSqlType.int,
             data['${effectivePrefix}is_auto_update'],
           )!,
+      configJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}config_json'],
+      ),
     );
   }
 
@@ -5305,6 +5327,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
   final int isEnabled;
   final int pluginOrder;
   final int isAutoUpdate;
+  final String? configJson;
   const PluginData({
     required this.id,
     required this.name,
@@ -5314,6 +5337,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
     required this.isEnabled,
     required this.pluginOrder,
     required this.isAutoUpdate,
+    this.configJson,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -5328,6 +5352,9 @@ class PluginData extends DataClass implements Insertable<PluginData> {
     map['is_enabled'] = Variable<int>(isEnabled);
     map['plugin_order'] = Variable<int>(pluginOrder);
     map['is_auto_update'] = Variable<int>(isAutoUpdate);
+    if (!nullToAbsent || configJson != null) {
+      map['config_json'] = Variable<String>(configJson);
+    }
     return map;
   }
 
@@ -5344,6 +5371,10 @@ class PluginData extends DataClass implements Insertable<PluginData> {
       isEnabled: Value(isEnabled),
       pluginOrder: Value(pluginOrder),
       isAutoUpdate: Value(isAutoUpdate),
+      configJson:
+          configJson == null && nullToAbsent
+              ? const Value.absent()
+              : Value(configJson),
     );
   }
 
@@ -5361,6 +5392,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
       isEnabled: serializer.fromJson<int>(json['isEnabled']),
       pluginOrder: serializer.fromJson<int>(json['pluginOrder']),
       isAutoUpdate: serializer.fromJson<int>(json['isAutoUpdate']),
+      configJson: serializer.fromJson<String?>(json['configJson']),
     );
   }
   @override
@@ -5375,6 +5407,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
       'isEnabled': serializer.toJson<int>(isEnabled),
       'pluginOrder': serializer.toJson<int>(pluginOrder),
       'isAutoUpdate': serializer.toJson<int>(isAutoUpdate),
+      'configJson': serializer.toJson<String?>(configJson),
     };
   }
 
@@ -5387,6 +5420,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
     int? isEnabled,
     int? pluginOrder,
     int? isAutoUpdate,
+    Value<String?> configJson = const Value.absent(),
   }) => PluginData(
     id: id ?? this.id,
     name: name ?? this.name,
@@ -5396,6 +5430,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
     isEnabled: isEnabled ?? this.isEnabled,
     pluginOrder: pluginOrder ?? this.pluginOrder,
     isAutoUpdate: isAutoUpdate ?? this.isAutoUpdate,
+    configJson: configJson.present ? configJson.value : this.configJson,
   );
   PluginData copyWithCompanion(PluginsCompanion data) {
     return PluginData(
@@ -5412,6 +5447,8 @@ class PluginData extends DataClass implements Insertable<PluginData> {
           data.isAutoUpdate.present
               ? data.isAutoUpdate.value
               : this.isAutoUpdate,
+      configJson:
+          data.configJson.present ? data.configJson.value : this.configJson,
     );
   }
 
@@ -5425,7 +5462,8 @@ class PluginData extends DataClass implements Insertable<PluginData> {
           ..write('description: $description, ')
           ..write('isEnabled: $isEnabled, ')
           ..write('pluginOrder: $pluginOrder, ')
-          ..write('isAutoUpdate: $isAutoUpdate')
+          ..write('isAutoUpdate: $isAutoUpdate, ')
+          ..write('configJson: $configJson')
           ..write(')'))
         .toString();
   }
@@ -5440,6 +5478,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
     isEnabled,
     pluginOrder,
     isAutoUpdate,
+    configJson,
   );
   @override
   bool operator ==(Object other) =>
@@ -5452,7 +5491,8 @@ class PluginData extends DataClass implements Insertable<PluginData> {
           other.description == this.description &&
           other.isEnabled == this.isEnabled &&
           other.pluginOrder == this.pluginOrder &&
-          other.isAutoUpdate == this.isAutoUpdate);
+          other.isAutoUpdate == this.isAutoUpdate &&
+          other.configJson == this.configJson);
 }
 
 class PluginsCompanion extends UpdateCompanion<PluginData> {
@@ -5464,6 +5504,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
   final Value<int> isEnabled;
   final Value<int> pluginOrder;
   final Value<int> isAutoUpdate;
+  final Value<String?> configJson;
   final Value<int> rowid;
   const PluginsCompanion({
     this.id = const Value.absent(),
@@ -5474,6 +5515,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
     this.isEnabled = const Value.absent(),
     this.pluginOrder = const Value.absent(),
     this.isAutoUpdate = const Value.absent(),
+    this.configJson = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   PluginsCompanion.insert({
@@ -5485,6 +5527,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
     this.isEnabled = const Value.absent(),
     required int pluginOrder,
     this.isAutoUpdate = const Value.absent(),
+    this.configJson = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        name = Value(name),
@@ -5500,6 +5543,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
     Expression<int>? isEnabled,
     Expression<int>? pluginOrder,
     Expression<int>? isAutoUpdate,
+    Expression<String>? configJson,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -5511,6 +5555,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
       if (isEnabled != null) 'is_enabled': isEnabled,
       if (pluginOrder != null) 'plugin_order': pluginOrder,
       if (isAutoUpdate != null) 'is_auto_update': isAutoUpdate,
+      if (configJson != null) 'config_json': configJson,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -5524,6 +5569,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
     Value<int>? isEnabled,
     Value<int>? pluginOrder,
     Value<int>? isAutoUpdate,
+    Value<String?>? configJson,
     Value<int>? rowid,
   }) {
     return PluginsCompanion(
@@ -5535,6 +5581,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
       isEnabled: isEnabled ?? this.isEnabled,
       pluginOrder: pluginOrder ?? this.pluginOrder,
       isAutoUpdate: isAutoUpdate ?? this.isAutoUpdate,
+      configJson: configJson ?? this.configJson,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -5566,6 +5613,9 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
     if (isAutoUpdate.present) {
       map['is_auto_update'] = Variable<int>(isAutoUpdate.value);
     }
+    if (configJson.present) {
+      map['config_json'] = Variable<String>(configJson.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -5583,6 +5633,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
           ..write('isEnabled: $isEnabled, ')
           ..write('pluginOrder: $pluginOrder, ')
           ..write('isAutoUpdate: $isAutoUpdate, ')
+          ..write('configJson: $configJson, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -10738,6 +10789,7 @@ typedef $$PluginsTableCreateCompanionBuilder =
       Value<int> isEnabled,
       required int pluginOrder,
       Value<int> isAutoUpdate,
+      Value<String?> configJson,
       Value<int> rowid,
     });
 typedef $$PluginsTableUpdateCompanionBuilder =
@@ -10750,6 +10802,7 @@ typedef $$PluginsTableUpdateCompanionBuilder =
       Value<int> isEnabled,
       Value<int> pluginOrder,
       Value<int> isAutoUpdate,
+      Value<String?> configJson,
       Value<int> rowid,
     });
 
@@ -10799,6 +10852,11 @@ class $$PluginsTableFilterComposer
 
   ColumnFilters<int> get isAutoUpdate => $composableBuilder(
     column: $table.isAutoUpdate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get configJson => $composableBuilder(
+    column: $table.configJson,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -10851,6 +10909,11 @@ class $$PluginsTableOrderingComposer
     column: $table.isAutoUpdate,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<String> get configJson => $composableBuilder(
+    column: $table.configJson,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$PluginsTableAnnotationComposer
@@ -10889,6 +10952,11 @@ class $$PluginsTableAnnotationComposer
 
   GeneratedColumn<int> get isAutoUpdate => $composableBuilder(
     column: $table.isAutoUpdate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get configJson => $composableBuilder(
+    column: $table.configJson,
     builder: (column) => column,
   );
 }
@@ -10932,6 +11000,7 @@ class $$PluginsTableTableManager
                 Value<int> isEnabled = const Value.absent(),
                 Value<int> pluginOrder = const Value.absent(),
                 Value<int> isAutoUpdate = const Value.absent(),
+                Value<String?> configJson = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => PluginsCompanion(
                 id: id,
@@ -10942,6 +11011,7 @@ class $$PluginsTableTableManager
                 isEnabled: isEnabled,
                 pluginOrder: pluginOrder,
                 isAutoUpdate: isAutoUpdate,
+                configJson: configJson,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -10954,6 +11024,7 @@ class $$PluginsTableTableManager
                 Value<int> isEnabled = const Value.absent(),
                 required int pluginOrder,
                 Value<int> isAutoUpdate = const Value.absent(),
+                Value<String?> configJson = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => PluginsCompanion.insert(
                 id: id,
@@ -10964,6 +11035,7 @@ class $$PluginsTableTableManager
                 isEnabled: isEnabled,
                 pluginOrder: pluginOrder,
                 isAutoUpdate: isAutoUpdate,
+                configJson: configJson,
                 rowid: rowid,
               ),
           withReferenceMapper:
