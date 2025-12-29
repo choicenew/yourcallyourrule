@@ -1,48 +1,45 @@
-// [Plugin Name] - API Solution Universal Template V1.0 (API Version)
+// [Plugin Name] - Native RequestChannel Solution Universal Template V5.2 (Absolute Complete Version)
 // =======================================================================================
 // TEMPLATE DESCRIPTION:
-// This is a standardized template for creating API-based phone number query plugins.
-// Unlike the iframe version, this template directly calls third-party APIs to get data.
+// Standardized API plugin template. Strictly aligns with the Iframe version (English.js) structure.
 //
 // CORE FEATURES:
-// 1. User Configuration (settings): Plugins can define required settings (e.g., API Key),
-//    which users fill in the App.
-// 2. Direct API Call: Use `fetch` to get JSON data directly.
-//
-// WORKFLOW:
-// 1. Flutter calls `generateOutput`.
-// 2. Plugin retrieves API Key from `window.plugin[ID].config`.
-// 3. Builds API request URL.
-// 4. Sends request and parses JSON response.
-// 5. Sends result back to App via `sendToFlutter`.
+// 1. User Configuration (settings): Users enter API Key etc. in the App.
+// 2. Native Request: Uses RequestChannel (Native HTTP) to bypass WebView limitations.
+// 3. Structural Consistency: Separates `initiateQuery` and `generateOutput` exactly like the Iframe template.
 // =======================================================================================
 
 (function () {
-    // IIFE to encapsulate scope
+    // IIFE to isolate scope
 
-    // --- SECTION 1: Core Plugin Configuration (MUST BE MODIFIED) ---
+    // --- SECTION 1: Plugin Configuration (MUST MODIFY) ---
     const PLUGIN_CONFIG = {
-        id: 'yourUniqueApiPluginId', // Unique ID (camelCase)
-        name: 'Your API Plugin Name', // Readable name
-        version: '1.0.0', // Version
-        description: 'Query phone info via Official API.', 
-        // [NEW] Settings Definition
+        id: 'yourUniqueApiPluginId', 
+        name: 'Your API Plugin Name', 
+        version: '5.2.0', 
+        description: 'Native RequestChannel API Plugin Template',
+        // Settings Definition
         settings: [
             {
-                key: 'api_key',       // Accessed via config.api_key
-                label: 'API Key',     // UI Label
-                type: 'text',         // 'text', 'password', etc.
-                hint: 'Enter API Key from website', // Hint
-                required: true        // Is required?
+                key: 'api_key',
+                label: 'API Key',
+                type: 'text',
+                hint: 'Enter API Key from website',
+                required: true
+            },
+            {
+                key: 'username',
+                label: 'Username',
+                type: 'text',
+                hint: 'API Account Username (Optional)',
+                required: false
             }
         ]
     };
 
-    // --- SECTION 2: Data Mapping & Keywords ---
-    
-    /**
-     * @constant {Array<Object>} predefinedLabels - Standard app labels.
-     */
+    // --- SECTION 2: Data Mapping & Keywords (Modify as needed) ---
+
+    // Standard app labels
     const predefinedLabels = [
         { 'label': 'Fraud Scam Likely' }, { 'label': 'Spam Likely' }, { 'label': 'Telemarketing' },
         { 'label': 'Robocall' }, { 'label': 'Delivery' }, { 'label': 'Takeaway' },
@@ -58,16 +55,33 @@
         { 'label': 'Car Rental' }, { 'label': 'Telecommunication' },
     ];
 
-    /**
-     * @constant {Object} manualMapping - Map API values to standard labels.
-     */
+    // Manual Mapping Table
     const manualMapping = {
         'scam': 'Fraud Scam Likely',
+        'spam': 'Spam Likely',
         'sales': 'Telemarketing',
         'delivery': 'Delivery',
     };
 
-    // --- SECTION 3: Generic Framework ---
+    /**
+     * @constant {Array<string>} blockKeywords - Keywords that determine 'block' action
+     * @description If the parsed `sourceLabel` or `predefinedLabel` contains any keyword in this list,
+     *              the `action` field in the result will be set to 'block'.
+     */
+    const blockKeywords = [
+        'Scam', 'Fraud', 'Spam', 'Telemarketing', 'Robocall'
+    ];
+
+    /**
+     * @constant {Array<string>} allowKeywords - Keywords that determine 'allow' action
+     * @description If the parsed `sourceLabel` or `predefinedLabel` contains any keyword in this list,
+     *              and it does not match block criteria, the `action` field will be set to 'allow'.
+     */
+    const allowKeywords = [
+        'Delivery', 'Support', 'Bank', 'Courier', 'Service'
+    ];
+
+    // --- SECTION 3: Generic Framework (No need to modify) ---
     function log(message) { console.log(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`); }
     function logError(message, error) { console.error(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`, error); }
 
@@ -75,7 +89,7 @@
         if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
             window.flutter_inappwebview.callHandler(channel, JSON.stringify(data));
         } else {
-            logError(`Cannot send to Flutter on channel '${channel}', handler not available.`);
+            console.error(`Native channel '${channel}' not found.`);
         }
     }
 
@@ -89,99 +103,175 @@
         sendToFlutter('TestPageChannel', { type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version });
     }
 
-    // --- SECTION 4: API Query Logic (Core) ---
-    
-    async function performApiQuery(phoneNumber, requestId) {
-        log(`Starting API query for ${phoneNumber}`);
+    // --- SECTION 4: Native Request Logic ---
+    function sendNativeRequest(options) {
+        const payload = {
+            method: options.method,      // 'GET', 'POST', 'PUT', 'DELETE'
+            url: options.url,            // Full URL
+            headers: options.headers,    // Http Headers
+            body: options.body || null,  // Body (for POST/PUT)
+            phoneRequestId: options.requestId,
+            externalRequestId: options.requestId
+        };
+
+        log(`Sending Native Request: ${payload.method} ${payload.url}`);
         
-        // 1. Get Config
+        if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('RequestChannel', JSON.stringify(payload));
+        } else {
+            sendPluginResult({ requestId: options.requestId, success: false, error: 'RequestChannel unavailable.' });
+        }
+    }
+
+    // --- SECTION 5: Query Initiation Logic (Must Modify) ---
+    function initiateQuery(phoneNumber, requestId) {
+        log(`Initiating query for '${phoneNumber}' (requestId: ${requestId})`);
+        
         const config = window.plugin[PLUGIN_CONFIG.id].config || {};
         const apiKey = config.api_key;
+        const username = config.username;
 
         if (!apiKey) {
             sendPluginResult({ requestId, success: false, error: 'API Key not configured.' });
             return;
         }
 
-        // 2. Build Request
-        const apiUrl = `https://api.example.com/v1/phone/${encodeURIComponent(phoneNumber)}?key=${encodeURIComponent(apiKey)}`;
+        // ★★★ Build Target URL (Use 'targetSearchUrl' for Regex support) ★★★
         
-        const fetchOptions = {
-            method: 'GET',
-            headers: { 'Accept': 'application/json' }
+        // Example A: GET Request
+        /*
+        const targetSearchUrl = `https://api.example.com/lookup?phone=${encodeURIComponent(phoneNumber)}&key=${apiKey}`;
+        const headers = { 
+            "User-Agent": "YourApp/1.0 (Android)",
+            "Accept": "application/json" 
         };
 
+        sendNativeRequest({
+            method: 'GET',
+            url: targetSearchUrl,
+            headers: headers,
+            requestId: requestId
+        });
+        */
+
+        // Example B: POST Request
+        const targetSearchUrl = "https://api.example.com/v2/search";
+        const bodyString = `user=${encodeURIComponent(username || '')}&phone=${encodeURIComponent(phoneNumber)}&key=${apiKey}`;
+        const headers = {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "User-Agent": "okhttp/3.14.9",
+        };
+
+        sendNativeRequest({
+            method: 'POST',
+            url: targetSearchUrl, 
+            headers: headers,
+            body: bodyString,
+            requestId: requestId
+        });
+    }
+
+    // --- SECTION 6: Response Handling Logic (Core Parsing) ---
+    function handleResponse(response) {
+        log('Received response from Native layer');
+        
+        const requestId = response.phoneRequestId;
+        const statusCode = response.status;
+        const responseText = response.responseText; 
+
+        if (statusCode !== 200) {
+            logError(`HTTP Error: ${statusCode}`);
+            sendPluginResult({ requestId, success: false, error: `HTTP Error ${statusCode}` });
+            return;
+        }
+
         try {
-            // 3. Execute Fetch
-            const response = await fetch(apiUrl, fetchOptions);
+            // 1. Parse JSON
+            const data = JSON.parse(responseText);
             
-            if (!response.ok) {
-                throw new Error(`API response error: ${response.status} ${response.statusText}`);
-            }
-
-            const data = await response.json();
-            log(`API response received: ${JSON.stringify(data)}`);
-
-            // 4. Parse Result
-            let sourceLabel = data.type || '';
+            // 2. Extract Fields
+            const sourceLabel = data.type || ''; 
+            const sourceName = data.name || '';
+            const score = data.score || 0;
+            
+            // 3. Action Logic
             let predefinedLabel = 'Unknown';
             let action = 'none';
 
+            // 3.1 Map Label
             if (manualMapping[sourceLabel]) {
                 predefinedLabel = manualMapping[sourceLabel];
+            } else {
+                const mappedKey = Object.keys(manualMapping).find(key => sourceLabel.includes(key));
+                if (mappedKey) predefinedLabel = manualMapping[mappedKey];
             }
 
-            if (predefinedLabel === 'Fraud Scam Likely' || predefinedLabel === 'Spam Likely') {
-                action = 'block';
+            // 3.2 Determine Action (Block/Allow)
+            const labelToCheck = (sourceLabel + " " + predefinedLabel).toLowerCase();
+            let determinedAction = 'none';
+
+            // Check Block Keywords
+            for (const keyword of blockKeywords) {
+                if (labelToCheck.includes(keyword.toLowerCase())) {
+                    determinedAction = 'block';
+                    break;
+                }
             }
 
+            // Check Allow Keywords
+            if (determinedAction === 'none') {
+                 for (const keyword of allowKeywords) {
+                    if (labelToCheck.includes(keyword.toLowerCase())) {
+                        determinedAction = 'allow';
+                        break;
+                    }
+                }
+            }
+            action = determinedAction;
+
+
+            // 4. Return Result
             const result = {
                 requestId,
-                phoneNumber,
-                sourceLabel,
-                predefinedLabel,
-                action,
-                province: data.province || '',
-                city: data.city || '',
-                carrier: data.carrier || '',
-                count: data.report_count || 0,
                 success: true,
-                source: PLUGIN_CONFIG.id
+                source: PLUGIN_CONFIG.name,
+                phoneNumber: data.number || '',
+                sourceLabel: sourceLabel,
+                predefinedLabel: predefinedLabel,
+                action: action,
+                name: sourceName,
+                count: score
             };
-
+            
             sendPluginResult(result);
 
-        } catch (error) {
-            logError('API Query failed', error);
-            sendPluginResult({ requestId, success: false, error: error.toString() });
+        } catch (e) {
+            logError('Parsing Error', e);
+            sendPluginResult({ requestId, success: false, error: 'JSON Parse Failed: ' + e.message });
         }
     }
 
-
-    // --- SECTION 5: Public API ---
+    // --- SECTION 7: Public Interface ---
     function generateOutput(phoneNumber, nationalNumber, e164Number, requestId) {
         log(`generateOutput called for requestId: ${requestId}`);
+        // Keep any parameter as needed.
         const numberToQuery = phoneNumber || nationalNumber || e164Number;
         
         if (numberToQuery) {
-            performApiQuery(numberToQuery, requestId);
+            initiateQuery(numberToQuery, requestId);
         } else {
             sendPluginResult({ requestId, success: false, error: 'No valid phone number provided.' });
         }
     }
 
-    // --- SECTION 6: Initialization ---
+    // --- SECTION 8: Initialization ---
     function initialize() {
-        if (window.plugin && window.plugin[PLUGIN_CONFIG.id]) {
-            return;
-        }
-        if (!window.plugin) {
-            window.plugin = {};
-        }
+        if (!window.plugin) window.plugin = {};
         window.plugin[PLUGIN_CONFIG.id] = {
-            info: PLUGIN_CONFIG, 
+            info: PLUGIN_CONFIG,
             generateOutput: generateOutput,
-            config: {} // App will inject values here
+            handleResponse: handleResponse, 
+            config: {}
         };
         log(`Plugin registered: window.plugin.${PLUGIN_CONFIG.id}`);
         sendPluginLoaded();
