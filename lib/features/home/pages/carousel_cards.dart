@@ -45,8 +45,6 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   final PageController _pageController = PageController();
   Timer? _autoPlayTimer;
   // 【新增】为图表卡片管理其独立的状态。
-  // 将状态提升到这里，是因为 _buildTrendChartCardContent 将被构建为无状态的 ConsumerWidget，
-  // 我们需要在其父级(这里)或通过 Provider 来管理它的状态。
   String _selectedTimeRange = 'Week';
 
   @override
@@ -185,7 +183,6 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
                 adInfo: AdManager.adaptiveBannerAd,
               ),
             ),
-
             _buildCallerIdMockCard(),
 
             _buildPromotionCard(),
