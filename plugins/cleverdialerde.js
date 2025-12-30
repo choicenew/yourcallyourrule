@@ -402,7 +402,9 @@
       try {
           // Updated target URL for cleverdialer.de
           const targetSearchUrl = `https://www.cleverdialer.de/telefonnummer/${phoneNumber}`;
-          const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' };
+          const config = window.plugin[PLUGIN_CONFIG.id].config || {};
+          const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
+          const headers = { 'User-Agent': userAgent };
                   // ▼▼▼ 只需修改这里 ▼▼▼
         const originalOrigin = new URL(targetSearchUrl).origin;
 

@@ -103,6 +103,9 @@
         sendToFlutter('TestPageChannel', { type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version });
     }
 
+    // --- SECTION 4.1: Internal State (Request Cache) ---
+    const requestCache = {};
+
     // --- SECTION 4: Native Request Logic ---
     function sendNativeRequest(options) {
         const payload = {
@@ -127,6 +130,9 @@
     function initiateQuery(phoneNumber, requestId) {
         log(`Initiating query for '${phoneNumber}' (requestId: ${requestId})`);
         
+        // Cache the phone number for retrieval in handleResponse
+        requestCache[requestId] = phoneNumber;
+
         const config = window.plugin[PLUGIN_CONFIG.id].config || {};
         const apiKey = config.api_key;
         const username = config.username;
@@ -138,9 +144,8 @@
         }
 
         // ★★★ Build Target URL (Use 'targetSearchUrl' for Regex support) ★★★
-        
-        // Example A: GET Request
         /*
+        // Example A: GET Request
         const targetSearchUrl = `https://api.example.com/lookup?phone=${encodeURIComponent(phoneNumber)}&key=${apiKey}`;
         const headers = { 
             "User-Agent": "YourApp/1.0 (Android)",
@@ -180,6 +185,10 @@
         const statusCode = response.status;
         const responseText = response.responseText; 
 
+        // Retrieve original phone number from cache
+        const originalPhoneNumber = requestCache[requestId] || '';
+        delete requestCache[requestId]; // Clean up
+
         if (statusCode !== 200) {
             logError(`HTTP Error: ${statusCode}`);
             sendPluginResult({ requestId, success: false, error: `HTTP Error ${statusCode}` });
@@ -194,6 +203,10 @@
             const sourceLabel = data.type || ''; 
             const sourceName = data.name || '';
             const score = data.score || 0;
+            const returnedNum = data.number || '';
+            
+            // Use returnedNum if available, otherwise fallback to originalPhoneNumber
+            const finalPhoneNumber = returnedNum || originalPhoneNumber;
             
             // 3. Action Logic
             let predefinedLabel = 'Unknown';
@@ -236,7 +249,7 @@
                 requestId,
                 success: true,
                 source: PLUGIN_CONFIG.name,
-                phoneNumber: data.number || '',
+                phoneNumber: finalPhoneNumber,
                 sourceLabel: sourceLabel,
                 predefinedLabel: predefinedLabel,
                 action: action,

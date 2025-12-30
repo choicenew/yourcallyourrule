@@ -16,6 +16,7 @@ import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
 
 // 导入依赖的 Provider
@@ -23,8 +24,6 @@ import 'package:yourcallyourrule/features/caller_id/services/call_handlers/displ
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/sim_call_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/stir_call_handler.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
-
-
 
 // part 指令是代码生成所必需的，它会链接到由 build_runner 生成的文件
 part 'caller_id_handler.g.dart';
@@ -34,7 +33,6 @@ part 'caller_id_handler.g.dart';
 /// 使用 Riverpod 3.0 的 Notifier API 进行状态管理。
 @Riverpod(keepAlive: true)
 class CallHandler extends _$CallHandler {
-
   /// 用于广播每一次通话事件的 BehaviorSubject。
   final _callDataSubject = BehaviorSubject<CallData>();
 
@@ -57,9 +55,16 @@ class CallHandler extends _$CallHandler {
         setStirInfo(next);
       }
     });
-    
+
+    // --- 新增：监听 CallerIdService 的数据流以实现 UI 刷新 ---
+    final callerIdService = ref.read(callerIdServiceProvider);
+    final callerIdSubscription = callerIdService.callerIdStream.listen(
+      _onCallerIdDataUpdated,
+    );
+
     // 使用 ref.onDispose 注册一个回调，当这个 Provider 被销毁时执行。
     ref.onDispose(() {
+      callerIdSubscription.cancel();
       // 清理 BehaviorSubject
       _callDataSubject.close();
       // 清理所有可能存在的、未完成的 Completer，防止内存泄漏。
@@ -67,21 +72,21 @@ class CallHandler extends _$CallHandler {
         if (!completer.isCompleted) completer.completeError('Handler disposed');
       }
       _simInfoCompleters.clear();
-      
+
       for (var completer in _stirInfoCompleters.values) {
         if (!completer.isCompleted) completer.completeError('Handler disposed');
       }
       _stirInfoCompleters.clear();
     });
-    
+
     // 返回状态的初始值 null
     return null;
   }
-  
+
   // 公共成员变量，以匹配您的原始代码
   StirInfo? stirInfo;
   SimInfo? simInfo;
-  
+
   // 用于解决竞态条件的 Completer Map，保持不变
   final Map<String, Completer<SimInfo>> _simInfoCompleters = {};
   final Map<String, Completer<StirInfo>> _stirInfoCompleters = {};
@@ -92,7 +97,9 @@ class CallHandler extends _$CallHandler {
     final callerIdService = ref.read(callerIdServiceProvider);
     // 【修正】: DisplayModeHandler 的 build 方法是同步的，因此 provider 不是 FutureProvider。
     //  它没有 `.notifier` 属性，`await` 之后得到的就是 `DisplayModeHandler` 的实例本身。
-    final displayModeHandler = await ref.read(displayModeHandlerProvider.future);
+    final displayModeHandler = await ref.read(
+      displayModeHandlerProvider.future,
+    );
     final locale = await ref.read(localeProvider.future);
 
     // --- 1. 异步等待 SimInfo ---
@@ -103,7 +110,9 @@ class CallHandler extends _$CallHandler {
       final completer = Completer<SimInfo>();
       _simInfoCompleters[phoneNumber] = completer;
       try {
-        simInfoToUse = await completer.future.timeout(const Duration(milliseconds: 500));
+        simInfoToUse = await completer.future.timeout(
+          const Duration(milliseconds: 500),
+        );
       } on TimeoutException {
         debugPrint('Waiting for SimInfo for $phoneNumber timed out.');
       } finally {
@@ -119,7 +128,9 @@ class CallHandler extends _$CallHandler {
       final completer = Completer<StirInfo>();
       _stirInfoCompleters[phoneNumber] = completer;
       try {
-        stirInfoToUse = await completer.future.timeout(const Duration(milliseconds: 500));
+        stirInfoToUse = await completer.future.timeout(
+          const Duration(milliseconds: 500),
+        );
       } on TimeoutException {
         debugPrint('Waiting for StirInfo for $phoneNumber timed out.');
       } finally {
@@ -128,12 +139,17 @@ class CallHandler extends _$CallHandler {
     }
 
     // 恢复您的原始 debugPrint 语句
-    debugPrint('Phone Number: $phoneNumber, ${simInfo?.phoneNumber},simInfoToUse.toMap(): ${simInfo?.phoneNumber}, ${simInfoToUse?.toMap()}');
-    
+    debugPrint(
+      'Phone Number: $phoneNumber, ${simInfo?.phoneNumber},simInfoToUse.toMap(): ${simInfo?.phoneNumber}, ${simInfoToUse?.toMap()}',
+    );
+
     // --- 3. 继续执行原有的电话号码解析和信息获取逻辑 ---
     Map<String, String> parsedData;
     if (simInfoToUse != null && simInfoToUse.countryIso != null) {
-      parsedData = await PhoneUtils.parsePhoneNumberWithIso(phoneNumber, simInfoToUse.countryIso!);
+      parsedData = await PhoneUtils.parsePhoneNumberWithIso(
+        phoneNumber,
+        simInfoToUse.countryIso!,
+      );
     } else {
       parsedData = await PhoneUtils.parsePhoneNumber(phoneNumber);
     }
@@ -155,21 +171,26 @@ class CallHandler extends _$CallHandler {
           name: 'Unknown',
           avatar: '',
           count: 0,
+          action: RuleAction.none,
         ),
         e164Number: '',
         nationalNumber: '',
       );
     }
-    
+
     final languageCode = locale.languageCode;
     final dlibLocale = dlibphone.Locale(
       language: languageCode,
       country: (countryCode).toUpperCase(),
     );
-    
+
     CallerIdData callerIdData = await callerIdService.getCallerIdWithParsed(
-        phoneNumber, e164Number, nationalNumber, dlibLocale);
-    
+      phoneNumber,
+      e164Number,
+      nationalNumber,
+      dlibLocale,
+    );
+
     debugPrint('===================================================');
     debugPrint('>>> DEBUGGING in CallHandler.handleCall <<<');
     debugPrint('Phone Number: $phoneNumber');
@@ -181,7 +202,11 @@ class CallHandler extends _$CallHandler {
     debugPrint('simInfo: ${simInfoToUse?.toMap()}');
     debugPrint('===================================================');
 
-    await displayModeHandler.showCallerIdInfo(callerIdData, stirInfoToUse, simInfoToUse);
+    await displayModeHandler.showCallerIdInfo(
+      callerIdData,
+      stirInfoToUse,
+      simInfoToUse,
+    );
 
     CallData callData = CallData(
       callerIdData: callerIdData,
@@ -190,26 +215,33 @@ class CallHandler extends _$CallHandler {
       stirInfo: stirInfoToUse,
       simInfo: simInfoToUse,
     );
-    
+
     // 两者共存，同时更新 state 和广播事件
     state = callData;
     _callDataSubject.add(callData);
 
-    debugPrint('callerid handler 里面的calldata: ${callData.toMap()}, ${simInfoToUse?.toMap()}');
+    debugPrint(
+      'callerid handler 里面的calldata: ${callData.toMap()}, ${simInfoToUse?.toMap()}',
+    );
     await saveCallerIdDataToCache(phoneNumber, callData);
 
     return callData;
   }
-  
+
   /// 关闭浮窗和通知
-   Future<void> closeOverlay() async {
-      // 【核心修正】: 同样地，await .future 来获取实例，然后调用方法。
-    final displayModeHandler = await ref.read(displayModeHandlerProvider.future);
+  Future<void> closeOverlay() async {
+    // 【核心修正】: 同样地，await .future 来获取实例，然后调用方法。
+    final displayModeHandler = await ref.read(
+      displayModeHandlerProvider.future,
+    );
     await displayModeHandler.closeDisplay();
   }
-  
+
   /// 保存来电显示数据到缓存，逻辑不变
-  Future<void> saveCallerIdDataToCache(String phoneNumber, CallData callData) async {
+  Future<void> saveCallerIdDataToCache(
+    String phoneNumber,
+    CallData callData,
+  ) async {
     // 实现缓存逻辑
   }
 
@@ -228,7 +260,7 @@ class CallHandler extends _$CallHandler {
       _simInfoCompleters.remove(info.phoneNumber)!.complete(info);
     }
   }
-  
+
   // 恢复您原始代码中的废弃/转移职责的方法，并保留注释
   /*
   /// [已废弃]
@@ -250,4 +282,36 @@ class CallHandler extends _$CallHandler {
      return ref.read(displayModeHandlerProvider.notifier);
   }
   */
+
+  /// 处理来电显示更新
+  /// 当 CallerIdService 发出更完整的数据（例如插件返回后）时被调用
+  Future<void> _onCallerIdDataUpdated(CallerIdData data) async {
+    // 1. 检查 state 是否有效且号码匹配
+    // 我们只更新当前正在进行的通话的数据
+    if (state == null || state!.callerIdData.id != data.id) {
+      return;
+    }
+
+    debugPrint(
+      '>>> [CallHandler] Received UPDATED CallerIdData via stream. Refreshing UI...',
+    );
+    debugPrint('>>> [CallHandler] New data: ${data.toMap()}');
+
+    // 2. 更新内部 State
+    final newCallData = state!.copyWith(callerIdData: data);
+    state = newCallData;
+
+    // 3. 广播给其他监听者
+    _callDataSubject.add(newCallData);
+
+    // 4. 触发 UI 刷新 (Overlay, Notification, LiveActivity)
+    final displayModeHandler = await ref.read(
+      displayModeHandlerProvider.future,
+    );
+    await displayModeHandler.showCallerIdInfo(
+      data,
+      state!.stirInfo,
+      state!.simInfo,
+    );
+  }
 }

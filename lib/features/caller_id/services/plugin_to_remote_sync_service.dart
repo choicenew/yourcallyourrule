@@ -67,6 +67,10 @@ class PluginToRemoteSyncService {
       return; // 没有有效的电话号码，直接返回
     }
 
+    if (phoneNumber.value.isEmpty) {
+      return;
+    }
+
     final existingEntry = await _remoteNumberService
         .getRemoteNumberByPhoneNumber(phoneNumber);
 

@@ -117,6 +117,9 @@
         sendToFlutter('TestPageChannel', { type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version });
     }
 
+    // --- 区域 4.1: 内部状态 (请求缓存) ---
+    const requestCache = {};
+
     // --- 区域 4: 原生请求发送逻辑 (核心功能) ---
     
     // 封装 RequestChannel 调用，保持代码整洁
@@ -146,6 +149,9 @@
     function initiateQuery(phoneNumber, requestId) {
         log(`Initiating query for '${phoneNumber}' (requestId: ${requestId})`);
         
+        // 缓存电话号码，供 handleResponse 使用
+        requestCache[requestId] = phoneNumber;
+
         // 1. 获取配置 (由 App 注入)
         const config = window.plugin[PLUGIN_CONFIG.id].config || {};
         const apiKey = config.api_key;
@@ -158,9 +164,8 @@
         }
 
         // ★★★ 2. 构建 API 请求 (根据 API 文档修改) ★★★
-        
-        // 示例 A: GET 请求
         /*
+        // 示例 A: GET 请求
         const targetSearchUrl = `https://api.example.com/lookup?phone=${encodeURIComponent(phoneNumber)}&key=${apiKey}`;
         const headers = { 
             "User-Agent": "YourApp/1.0 (Android)",
@@ -176,7 +181,6 @@
         */
 
         // 示例 B: POST 请求 (Form-UrlEncoded)
-        // 很多老旧 API 需要严格的顺序和编码
         const targetSearchUrl = "https://api.example.com/v2/search";
         const bodyString = `user=${encodeURIComponent(username || '')}&phone=${encodeURIComponent(phoneNumber)}&key=${apiKey}`;
         const headers = {
@@ -204,6 +208,10 @@
         const statusCode = response.status;
         const responseText = response.responseText; // 原始文本
 
+        // 从缓存中恢复原始电话号码
+        const originalPhoneNumber = requestCache[requestId] || '';
+        delete requestCache[requestId]; // 清理缓存
+
         if (statusCode !== 200) {
             logError(`HTTP Error: ${statusCode}`);
             sendPluginResult({ requestId, success: false, error: `HTTP Error ${statusCode}` });
@@ -218,6 +226,10 @@
             const sourceLabel = data.type || ''; 
             const sourceName = data.name || '';
             const score = data.score || 0;
+            const returnedNum = data.number || '';
+            
+            // 使用返回的号码，如果没有则回退到原始请求号码
+            const finalPhoneNumber = returnedNum || originalPhoneNumber;
             
             // 3. 智能 Action 判断逻辑 (与 Iframe 版一致)
             let predefinedLabel = 'Unknown';
@@ -261,7 +273,7 @@
                 requestId,
                 success: true,
                 source: PLUGIN_CONFIG.name,
-                phoneNumber: data.number || '',
+                phoneNumber: finalPhoneNumber,
                 sourceLabel: sourceLabel,
                 predefinedLabel: predefinedLabel,
                 action: action,

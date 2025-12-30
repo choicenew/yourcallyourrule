@@ -1,34 +1,276 @@
-I/flutter (11627): Attempting to load JS plugin code from: https://github.com/haygcao/test/raw/refs/heads/main/unknowtest.js
-I/flutter (11627): Console [LOG]: [unknownPhonePlugin] Plugin registered: window.plugin.unknownPhonePlugin
-I/chromium(11627): [INFO:CONSOLE(34)] "[unknownPhonePlugin] Plugin registered: window.plugin.unknownPhonePlugin", source:  (34)
-I/flutter (11627): Console [LOG]: [unknownPhonePlugin] Plugin loaded, notifying Flutter.
-[AndroidInAppWebViewController] (android) WebView ID 17566522341217862282042501471452774167249145 calling "onConsoleMessage" using {messageLevel: 1, message: [unknownPhonePlugin] Plugin registered: window.plugin.unknownPhonePlugin}
-I/chromium(11627): [INFO:CONSOLE(34)] "[unknownPhonePlugin] Plugin loaded, notifying Flutter.", source:  (34)
-I/flutter (11627): JS->Flutter (TestPageChannel): {"type":"pluginLoaded","pluginId":"unknownPhonePlugin","version":"1.0.3"}
-I/flutter (11627): Plugin JS loaded with ID: unknownPhonePlugin
-[AndroidInAppWebViewController] (android) WebView ID 17566522341217862282042501471452774167249145 calling "onConsoleMessage" using {messageLevel: 1, message: [unknownPhonePlugin] Plugin loaded, notifying Flutter.}
-[AndroidInAppWebViewController] (android) WebView ID 17566522341217862282042501471452774167249145 calling "TestPageChannel" using [{"type":"pluginLoaded","pluginId":"unknownPhonePlugin","version":"1.0.3"}]
-I/flutter (11627): JS plugin code injected. Waiting for "pluginLoaded" message from JS...
-I/flutter (11627): Starting query with provided numbers...
-I/ourcallyourrule(11627): AssetManager2(0x74cff8884d38) locale list changing from [] to [en-US]
-I/flutter (11627): Console [LOG]: Calling plugin[pluginId].generateOutput with numbers...
-I/chromium(11627): [INFO:CONSOLE(6)] "Calling plugin[pluginId].generateOutput with numbers...", source:  (6)
-I/flutter (11627): JS->Flutter (RequestChannel): {"method":"POST","url":"https://secure.unknownphone.com/api2/","headers":{"Connection":"Keep-Alive","Content-Type":"application/x-www-form-urlencoded","Host":"secure.unknownphone.com","User-Agent":"okhttp/3.14.9"},"body":"user_type=free&api_key=d7e07fec659645b12df76c94e378d47a&phone=08007613372&_action=_get_info_for_phone&lang=en","phoneRequestId":"req_1767004695959","externalRequestId":"req_1767004695959"}
-I/flutter (11627): Making Native HTTP Request: POST https://secure.unknownphone.com/api2/
-I/flutter (11627): Console [LOG]: [unknownPhonePlugin] Initiating query for requestId: req_1767004695959
-I/chromium(11627): [INFO:CONSOLE(34)] "[unknownPhonePlugin] Initiating query for requestId: req_1767004695959", source:  (34)
-I/flutter (11627): Console [LOG]: [unknownPhonePlugin] Requesting Native HTTP POST: https://secure.unknownphone.com/api2/
-I/chromium(11627): [INFO:CONSOLE(34)] "[unknownPhonePlugin] Requesting Native HTTP POST: https://secure.unknownphone.com/api2/", source:  (34)
-[AndroidInAppWebViewController] (android) WebView ID 17566522341217862282042501471452774167249145 calling "onConsoleMessage" using {messageLevel: 1, message: Calling plugin[pluginId].generateOutput with numbers...}
-[AndroidInAppWebViewController] (android) WebView ID 17566522341217862282042501471452774167249145 calling "RequestChannel" using [{"method":"POST","url":"https://secure.unknownphone.com/api2/","headers":{"Connection":"Keep-Alive","Content-Type":"application/x-www-form-urlencoded","Host":"secure.unknownphone.com","User-Agent":"okhttp/3.14.9"},"body":"user_type=free&api_key=d7e07fec659645b12df76c94e378d47a&phone=08007613372&_action=_get_info_for_phone&lang=en","phoneRequestId":"req_1767004695959","externalRequestId":"req_1767004695959"}]
-[AndroidInAppWebViewController] (android) WebView ID 17566522341217862282042501471452774167249145 calling "onConsoleMessage" using {messageLevel: 1, message: [unknownPhonePlugin] Initiating query for requestId: req_1767004695959}
-[AndroidInAppWebViewController] (android) WebView ID 17566522341217862282042501471452774167249145 calling "onConsoleMessage" using {messageLevel: 1, message: [unknownPhonePlugin] Requesting Native HTTP POST: https://secure.unknownphone.com/api2/}
-I/flutter (11627): Native HTTP Response: 500
-I/flutter (11627): Console [LOG]: [unknownPhonePlugin] Received response from Native layer
-I/chromium(11627): [INFO:CONSOLE(34)] "[unknownPhonePlugin] Received response from Native layer", source:  (34)
-I/flutter (11627): Console [ERROR]: [unknownPhonePlugin] HTTP Error: 500 undefined
-I/chromium(11627): [INFO:CONSOLE(38)] "[unknownPhonePlugin] HTTP Error: 500 undefined", source:  (38)
-I/flutter (11627): Console [LOG]: [unknownPhonePlugin] Sending result to Flutter for req req_1767004695959: {"requestId":"req_1767004695959","success":false,"error":"HTTP Error 500: Internal Server Error"}
-I/chromium(11627): [INFO:CONSOLE(34)] "[unknownPhonePlugin] Sending result to Flutter for req req_1767004695959: {"requestId":"req_1767004695959","success":false,"error":"HTTP Error 500: Internal Server Error"}", source:  (34)
-I/flutter (11627): JS->Flutter (PluginResultChannel): {"requestId":"req_1767004695959","success":false,"error":"HTTP Error 500: Internal Server Error"}
-I/flutter (11627): Session cleaned for completed requestId: req_1767004695959.
+I/flutter ( 4635): ➡️ [EventListener] Received raw event: onIncomingCall, args: {phoneNumber: 075595512, timestamp: 1767070659656}
+I/flutter ( 4635): 📝 [EventListener] Stored incoming call event for 075595512
+I/flutter ( 4635):  [OverlayControlHandler] Received raw call event: onIncomingCall
+I/flutter ( 4635): onIncomingCall-timestamp: 1767070659656
+I/flutter ( 4635): >>> 【MONITOR】: Routing to StirCallHandler with hashCode: 461830346
+I/flutter ( 4635): Initializing FloatingWindowAndroid engine...
+I/flutter ( 4635): >>> 【MONITOR】: Routing to ShouldAcceptCallHandler with hashCode: 210764110
+I/flutter ( 4635): >>> 【MONITOR】: CallerIdMonitorService  FloatingWindowAndroid.closeOverlay.
+I/flutter ( 4635): >>> 【MONITOR】: Routing to SimCallHandler with hashCode: 59377129
+I/flutter ( 4635): Phone Number: 075595512, 075595512,simInfoToUse.toMap(): 075595512, {carrierName: T-Mobile, displayName: T-Mobile, iccId: , countryIso: us, phoneNumber: 075595512, simSlotIndex: 0, subscriptionId: 1, mccString: 310, mncString: 260, simPhoneNumber: +15551234567, callType: incoming}
+
+I/flutter ( 4635): [CallerIdService] 插件Calling plugins for number: 075595512
+I/flutter ( 4635): Executing script for plugin: baiduPhoneNumberPlugin
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Plugin registered: window.plugin.baiduPhoneNumberPlugin
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] Plugin registered: window.plugin.baiduPhoneNumberPlugin", source:  (70)
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Plugin loaded, notifying Flutter.
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] Plugin loaded, notifying Flutter.", source:  (70)
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 1, message: [baiduPhoneNumberPlugin v5.5.0] Plugin registered: window.plugin.baiduPhoneNumberPlugin}
+I/flutter ( 4635): TestPageChannel message: {"type":"pluginLoaded","pluginId":"baiduPhoneNumberPlugin","version":"5.5.0"}
+I/flutter ( 4635): Waiting for pluginReady message for plugin: baiduPhoneNumberPlugin
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 1, message: [baiduPhoneNumberPlugin v5.5.0] Plugin loaded, notifying Flutter.}
+I/flutter ( 4635): [Invoker] Calling plugin: baiduPhoneNumberPlugin
+I/flutter ( 4635): [WebView] Generating plugin output for: baiduPhoneNumberPlugin with requestId: query_baiduPhoneNumberPlugin_1767070660308
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "TestPageChannel" using [{"type":"pluginLoaded","pluginId":"baiduPhoneNumberPlugin","version":"5.5.0"}]
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] generateOutput called for requestId: query_baiduPhoneNumberPlugin_1767070660308
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] generateOutput called for requestId: query_baiduPhoneNumberPlugin_1767070660308", source:  (70)
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Initiating query for '075595512' (requestId: query_baiduPhoneNumberPlugin_1767070660308)
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] Initiating query for '075595512' (requestId: query_baiduPhoneNumberPlugin_1767070660308)", source:  (70)
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 1, message: [baiduPhoneNumberPlugin v5.5.0] generateOutput called for requestId: query_baiduPhoneNumberPlugin_1767070660308}
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Iframe proxy URL: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.baidu.com%2Fs%3Fwd%3D075595512%26ie%3Dutf-8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F141.0.0.0%20Safari%2F537.36%22%7D
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] Iframe proxy URL: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.baidu.com%2Fs%3Fwd%3D075595512%26ie%3Dutf-8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F141.0.0.0%20Safari%2F537.36%22%7D", source:  (70)
+I/flutter ( 4635): JS Console [WARNING]: An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+I/chromium( 4635): [INFO:CONSOLE:316] "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.", source:  (316)
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Iframe loaded for requestId query_baiduPhoneNumberPlugin_1767070660308. Posting parsing script directly.
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] Iframe loaded for requestId query_baiduPhoneNumberPlugin_1767070660308. Posting parsing script directly.", source:  (70)
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 1, message: [baiduPhoneNumberPlugin v5.5.0] Initiating query for '075595512' (requestId: query_baiduPhoneNumberPlugin_1767070660308)}
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Parsing script posted to iframe for requestId: query_baiduPhoneNumberPlugin_1767070660308
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] Parsing script posted to iframe for requestId: query_baiduPhoneNumberPlugin_1767070660308", source:  (70)
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 1, message: [baiduPhoneNumberPlugin v5.5.0] Iframe proxy URL: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.baidu.com%2Fs%3Fwd%3D075595512%26ie%3Dutf-8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F141.0.0.0%20Safari%2F537.36%22%7D}
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 2, message: An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.}
+I/flutter ( 4635): Executing script for plugin: sooPhoneNumberPlugin
+
+I/flutter ( 4635): Received data: {avatarBorderColor: 4294967295, textNumberColor: 4292927712, simCardPosition: {dx: 270, dy: 25}, countryNamePosition: {dx: 95, dy: 135}, textCountColor: 4289773253, avatarBorderSize: 64, textNameColor: 4294967295, configType: callerIdStyle, locationFontSize: 14, avatarSize: 60, textCountryNameColor: 4289773253, textStirColor: 4284922730, countryNameFontSize: 14, securityMessageScrollSpeed: 30, iconSize: 16, simCardFontSize: 12, backgroundColorStart: 4279903102, textSimCardColor: 4291811548, windowWidth: 380, textIconLabelColor: 4294951175, securityMessageHeight: 25, securityMessageEnabled: true, numberPosition: {dx: 95, dy: 65}, numberFontSize: 18, textIconCallTypeColor: 4294967295, carrierFontSize: 14, avatarPosition: {dx: 15, dy: 30}, carrierPosition: {dx: 95, dy: 115}, windowHeight: 235, securityMessageTextColor: 4294967295, labelsPosition: {dx: 20, dy: 155}, securityMessageBackgroundColor: 2566914048, textNumberTypeColor: 4289773253, callTypePosition: {dx: 340, dy: 25}, backgroundColorEnd:
+I/flutter ( 4635): 接收到配置更新: null
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 3, message: Uncaught SyntaxError: Unexpected identifier 'https'}
+
+I/flutter ( 4635): Received data: {carrier: null, phoneNumber: 075595512, numberType: 11, name: Unknown, count: 0, action: none, id: 075595512, countryName: null, avatar: assets/avatars/Unknown.png, configType: callerIdData, region: null, labels: [{color: null, icon: null, label: Unknown}]}
+I/flutter ( 4635): 接收到配置更新: {id: 075595512, phoneNumber: 075595512, numberType: 11, name: Unknown, countryName: null, region: null, carrier: null, labels: [{label: Unknown, color: null, icon: null}], avatar: assets/avatars/Unknown.png, count: 0, action: none}
+
+I/chromium( 4635): [INFO:CONSOLE:30] "[Iframe-Parser] Document Object: [object HTMLDocument]", source:  (30)
+I/chromium( 4635): [INFO:CONSOLE:33] "[Iframe-Parser] Body Element: [object HTMLBodyElement]", source:  (33)
+I/chromium( 4635): [INFO:CONSOLE:47] "[Iframe-Parser] countElement: null", source:  (47)
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 1, message: [Iframe-Parser] Document Object: [object HTMLDocument]}
+I/chromium( 4635): [INFO:CONSOLE:49] "[Iframe-Parser] sourceLabelElement: null", source:  (49)
+I/chromium( 4635): [INFO:CONSOLE:64] "[Iframe-Parser] countElement2: [object HTMLElement]", source:  (64)
+I/chromium( 4635): [INFO:CONSOLE:66] "[Iframe-Parser] sourceLabelElement2: [object HTMLDivElement]", source:  (66)
+I/chromium( 4635): [INFO:CONSOLE:70] "[Iframe-Parser] countText: 770", source:  (70)
+I/chromium( 4635): [INFO:CONSOLE:72] "[Iframe-Parser] result.count: 770", source:  (72)
+I/chromium( 4635): [INFO:CONSOLE:78] "[Iframe-Parser] result.sourceLabel: 保险理财", source:  (78)
+I/chromium( 4635): [INFO:CONSOLE:84] "[Iframe-Parser] detailElement: null", source:  (84)
+I/chromium( 4635): [INFO:CONSOLE:101] "[Iframe-Parser] phoneNumberElement: [object HTMLSpanElement]", source:  (101)
+I/chromium( 4635): [INFO:CONSOLE:103] "[Iframe-Parser] locationElement: [object HTMLParagraphElement]", source:  (103)
+I/chromium( 4635): [INFO:CONSOLE:107] "[Iframe-Parser] result.phoneNumber: 075595512", source:  (107)
+I/chromium( 4635): [INFO:CONSOLE:112] "[Iframe-Parser] locationText: 广东
+I/chromium( 4635): 																深圳", source:  (112)
+I/chromium( 4635): [INFO:CONSOLE:119] "[Iframe-Parser] result.province: 广东", source:  (119)
+I/chromium( 4635): [INFO:CONSOLE:120] "[Iframe-Parser] result.city: ", source:  (120)
+I/chromium( 4635): [INFO:CONSOLE:121] "[Iframe-Parser] result.carrier: ", source:  (121)
+I/chromium( 4635): [INFO:CONSOLE:154] "[Iframe-Parser] Final result: [object Object]", source:  (154)
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 1, message: [Iframe-Parser] Body Element: [object HTMLBodyElement]}
+I/chromium( 4635): [INFO:CONSOLE:11] "[Iframe-Parser] Sending result back to parent: [object Object]", source:  (11)
+I/chromium( 4635): [INFO:CONSOLE:99] "[sooPhoneNumberPlugin v5.5.0] Received result via postMessage for requestId: query_sooPhoneNumberPlugin_1767070664988", source:  (99)
+I/chromium( 4635): [INFO:CONSOLE:99] "[sooPhoneNumberPlugin v5.5.0] Sending final result to Flutter: {"requestId":"query_sooPhoneNumberPlugin_1767070664988","count":770,"sourceLabel":"保险理财","province":"广东","city":"","carrier":"","phoneNumber":"075595512","name":"unknown","action":"none","success":true,"error":"","predefinedLabel":"Financial"}", source:  (99)
+I/chromium( 4635): [INFO:CONSOLE:99] "[sooPhoneNumberPlugin v5.5.0] Cleaned up iframe for requestId: query_sooPhoneNumberPlugin_1767070664988", source:  (99)
+[I/flutter ( 4635): 当前配置:AsyncData<CallerIdConfig>(value: CallerIdConfig(backgroundColorStart: Color(alpha: 1.0000, red: 0.1020, green: 0.1373, blue: 0.4941, colorSpace: ColorSpace.sRGB), backgroundColorEnd: Color(alpha: 1.0000, red: 0.1569, green: 0.2078, blue: 0.5765, colorSpace: ColorSpace.sRGB), textNameColor: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), textNumberColor: Color(alpha: 1.0000, red: 0.8784, green: 0.8784, blue: 0.8784, colorSpace: ColorSpace.sRGB), textLocationColor: Color(alpha: 1.0000, red: 0.6902, green: 0.7451, blue: 0.7725, colorSpace: ColorSpace.sRGB), textCarrierColor: Color(alpha: 1.0000, red: 0.6902, green: 0.7451, blue: 0.7725, colorSpace: ColorSpace.sRGB), textCountryNameColor: Color(alpha: 1.0000, red: 0.6902, green: 0.7451, blue: 0.7725, colorSpace: ColorSpace.sRGB), textLabelsColor: Color(alpha: 1.0000, red: 1.0000, green: 0.7569, blue: 0.0275, colorSpace: ColorSpace.sRGB), textCountColor: Color(alpha: 1.0000, red: 0.6902, green: 0.7451, blu
+I/chromium( 4635): [INFO:CONSOLE:164] "[Iframe-Parser] Starting parse attempt...", source:  (164)
+I/chromium( 4635): [INFO:CONSOLE:16] "[Iframe-Parser] Attempting to parse content in document with title: 075595512_百度搜索", source:  (16)
+I/chromium( 4635): [INFO:CONSOLE:29] "[Iframe-Parser] Found result container. Now parsing for data...", source:  (29)
+I/chromium( 4635): [INFO:CONSOLE:42] "[Iframe-Parser] Could not parse data-tools attribute.", source:  (42)
+I/chromium( 4635): [INFO:CONSOLE:72] "[Iframe-Parser] Found single-number company/official card (e.g., Taobao).", source:  (72)
+I/chromium( 4635): [INFO:CONSOLE:11] "[Iframe-Parser] Sending result back to parent: [object Object]", source:  (11)
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] Received result via postMessage for requestId: query_baiduPhoneNumberPlugin_1767070660308", source:  (70)
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] Sending final result to Flutter: {"requestId":"query_baiduPhoneNumberPlugin_1767070660308","phoneNumber":"075595512","sourceLabel":"","count":0,"province":"","city":"","carrier":"","name":"中国平安\n                    网络收录仅供参考","predefinedLabel":"","source":"baiduPhoneNumberPlugin","numbers":[{"number":"075595512","name":"Main"}],"success":true,"error":"","action":"none"}", source:  (70)
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 1, message: [Iframe-Parser] Starting parse attempt...}
+I/flutter ( 4635): ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+I/flutter ( 4635): │ Bad state: Future already completed
+I/flutter ( 4635): ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+I/flutter ( 4635): │ #0   AppLogger.error (package:yourcallyourrule/common/error/logger.dart:51:13)
+I/flutter ( 4635): │ #1   PluginInvokerService.callPluginsAll.<anonymous closure> (package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart:233:27)
+[AndroidInAppWebViewController] (android) WebView ID 11561641431651501861521012075974154189223216195 calling "onConsoleMessage" using {messageLevel: 1, message: [Iframe-Parser] Attempting to parse content in document with title: 075595512_百度搜索}
+I/flutter ( 4635): │ #2   _FutureListener.handleError (dart:async/future_impl.dart:243:22)
+I/flutter ( 4635): │ #3   Future._propagateToListeners.handleError (dart:async/future_impl.dart:960:47)
+I/flutter ( 4635): │ #4   Future._propagateToListeners (dart:async/future_impl.dart:981:13)
+I/flutter ( 4635): ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+I/flutter ( 4635): │ ⛔ 调用插件失败: baiduPhoneNumberPlugin
+I/flutter ( 4635): └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+E/flutter ( 4635): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Bad state: Future already completed
+E/flutter ( 4635): #0      _AsyncCompleter.complete (dart:async/future_impl.dart:97:31)
+E/flutter ( 4635): #1      PluginInvokerService.callPluginsAll.<anonymous closure> (package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart:241:39)
+E/flutter ( 4635): #2      _FutureListener.handleError (dart:async/future_impl.dart:243:22)
+E/flutter ( 4635): #3      Future._propagateToListeners.handleError (dart:async/future_impl.dart:960:47)
+E/flutter ( 4635): #4      Future._propagateToListeners (dart:async/future_impl.dart:981:13)
+E/flutter ( 4635): #5      Future._completeWithValue (dart:async/future_impl.dart:720:5)
+E/flutter ( 4635): <asynchronous suspension>
+E/flutter ( 4635): 
+I/chromium( 4635): [INFO:CONSOLE:70] "[baiduPhoneNumberPlugin v5.5.0] Cleaned up iframe for requestId: query_baiduPhoneNumberPlugin_1767070660308", source:  (70)
+
+I/flutter ( 4635): Request does not belong to any active session: https://api.ssl.so.com/vqrwt/search?from=searcher&q=075595512&index=ads&src=mso&sid=1e4b125e973f925b099d0a679d825987&_=mjs4953v&cb=jsonp_1_826pex
+I/flutter ( 4635): callerid handler 里面的calldata: {callerIdData: {id: 075595512, phoneNumber: 075595512, numberType: 11, name: Unknown, countryName: null, region: null, carrier: null, labels: [{label: Unknown, color: null, icon: null}], avatar: assets/avatars/Unknown.png, count: 0, action: none}, e164Number: +1075595512, nationalNumber: 075595512, stirInfo: {isVerified: false, isNotVerified: true, isFailed: false, phoneNumber: 075595512}, simInfo: {carrierName: T-Mobile, displayName: T-Mobile, iccId: , countryIso: us, phoneNumber: 075595512, simSlotIndex: 0, subscriptionId: 1, mccString: 310, mncString: 260, simPhoneNumber: +15551234567, callType: incoming}}, {carrierName: T-Mobile, displayName: T-Mobile, iccId: , countryIso: us, phoneNumber: 075595512, simSlotIndex: 0, subscriptionId: 1, mccString: 310, mncString: 260, simPhoneNumber: +15551234567, callType: incoming}
+
+I/flutter ( 4635): [PluginResultChannel] 生数据打印Received message on PluginResultChannel: {"requestId":"query_baiduPhoneNumberPlugin_1767070664987","success":false,"error":"Could not parse content from the page."}
+I/flutter ( 4635): [PluginResultChannel] Processing requestId: query_baiduPhoneNumberPlugin_1767070664987
+I/flutter ( 4635): [PluginResultChannel] Completing with error for requestId: query_baiduPhoneNumberPlugin_1767070664987, Error: Could not parse content from the page.
+I/flutter ( 4635): 记录日志到Crashlytics失败: LateInitializationError: Field '_crashlytics@129281369' has not been initialized.
+I/flutter ( 4635): Crashlytics would record: Could not parse content from the page.
+I/flutter ( 4635): Reason: null
+I/flutter ( 4635): Stack trace: #0      AppLogger._reportCrash (package:yourcallyourrule/common/error/logger.dart:98:32)
+I/flutter ( 4635): #1      AppLogger.error (package:yourcallyourrule/common/error/logger.dart:52:5)
+I/flutter ( 4635): #2      PluginWebViewService.generatePluginOutput (package:yourcallyourrule/features/plugin/services/plugin_webview_service.dart:584:17)
+I/flutter ( 4635): <asynchronous suspension>
+I/flutter ( 4635): #3      PluginInvokerService.callPluginsAll.<anonymous closure> (package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart:208:21)
+I/flutter ( 4635): <asynchronous suspension>
+I/flutter ( 4635): 
+I/flutter ( 4635): [WebView] Error generating output for plugin: baiduPhoneNumberPlugin - Could not parse content from the page.
+I/flutter ( 4635): 记录日志到Crashlytics失败: LateInitializationError: Field '_crashlytics@129281369' has not been initialized.
+I/flutter ( 4635): Crashlytics would record: Could not parse content from the page.
+I/flutter ( 4635): Reason: null
+I/flutter ( 4635): Stack trace: #0      AppLogger._reportCrash (package:yourcallyourrule/common/error/logger.dart:98:32)
+I/flutter ( 4635): #1      AppLogger.error (package:yourcallyourrule/common/error/logger.dart:52:5)
+I/flutter ( 4635): #2      PluginInvokerService.callPluginsAll.<anonymous closure> (package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart:233:27)
+I/flutter ( 4635): #3      _FutureListener.handleError (dart:async/future_impl.dart:243:22)
+I/flutter ( 4635): #4      Future._propagateToListeners.handleError (dart:async/future_impl.dart:960:47)
+I/flutter ( 4635): #5      Future._propagateToListeners (dart:async/future_impl.dart:981:13)
+I/flutter ( 4635): #6      Future._completeErrorObject (dart:async/future_impl.dart:738:5)
+I/flutter ( 4635): #7      Future._completeError (dart:async/future_impl.dart:742:5)
+I/flutter ( 4635): <asynchronous suspension>
+I/flutter ( 4635): 
+I/flutter ( 4635): [Invoker] Error calling plugin: baiduPhoneNumberPlugin - Could not parse content from the page.
+I/flutter ( 4635): Intercepted request: https://s.qhupdate.com/so/vertical_moni.gif?asc=&asc2=&mid=&m2=&u=https%3A%2F%2Fflutter-webview-proxy.internal%2Ffetch%3FtargetUrl%3Dhttps%253A%252F%252Fwww.so.com%252Fs%253Fq%253D075595512%26headers%3D%257B%2522User-Agent%2522%253A%2522Mozilla%252F5.0%2520(Linux%253B%2520arm_64%253B%2520Android%252014%253B%2520SM-S711B)%2520AppleWebKit%252F537.36%2520(KHTML%252C%2520like%2520Gecko)%2520Chrome%252F141.0.0.0%2520YaBrowser%252F24.12.4.199.00%2520SA%252F3%2520Mobile%2520Safari%252F537.36%2522%257D&r=&mod=msda-rank2&srcg=&pid=mso-search&pro=so-biz&sid=1e4b125e973f925b099d0a679d825987&guid=&src=&abv=&q=&psid=&t=1767070672409-2&c=search%20SoBiz%20QuerySwitch%20%E8%AF%B7%E6%B1%82PV
+I/flutter ( 4635): Request does not belong to any active session: https://s.qhupdate.com/so/vertical_moni.gif?asc=&asc2=&mid=&m2=&u=https%3A%2F%2Fflutter-webview-proxy.internal%2Ffetch%3FtargetUrl%3Dhttps%253A%252F%252Fwww.so.com%252Fs%253Fq%253D075595512%26headers%3D%257B%2522User-Agent%2522%253A%2522Mozilla%252F5.0%2520(Linux%253B%2520arm_64%253B%2520Android%252014%253B%2520SM-S711B)%2520AppleWebKit%252F537.36%2520(KHTML%252C%2520like%2520Gecko)%2520Chrome%252F141.0.0.0%2520YaBrowser%252F24.12.4.199.00%2520SA%252F3%2520Mobile%2520Safari%252F537.36%2522%257D&r=&mod=msda-rank2&srcg=&pid=mso-search&pro=so-biz&sid=1e4b125e973f925b099d0a679d825987&guid=&src=&abv=&q=&psid=&t=1767070672409-2&c=search%20SoBiz%20QuerySwitch%20%E8%AF%B7%E6%B1%82PV
+I/flutter ( 4635): [PluginResultChannel] 生数据打印Received message on PluginResultChannel: {"requestId":"query_sogouPhoneNumberPlugin_1767070664988","phoneNumber":"075595512","sourceLabel":"中国平安","count":0,"province":"","city":"","carrier":"","name":"","predefinedLabel":"","source":"sogouPhoneNumberPlugin","numbers":[],"success":true,"error":"","action":"none"}
+I/flutter ( 4635): [PluginResultChannel] Processing requestId: query_sogouPhoneNumberPlugin_1767070664988
+I/flutter ( 4635): [PluginResultChannel] Completing successfully for requestId: query_sogouPhoneNumberPlugin_1767070664988
+I/flutter ( 4635): [Invoker] Got result for plugin: sogouPhoneNumberPlugin
+
+I/flutter ( 4635): JS Console [LOG]: [sooPhoneNumberPlugin v5.5.0] Iframe loaded for requestId query_sooPhoneNumberPlugin_1767070660516. Posting parsing script directly.
+I/flutter ( 4635): JS Console [LOG]: [sooPhoneNumberPlugin v5.5.0] Parsing script posted to iframe for requestId: query_sooPhoneNumberPlugin_1767070660516
+I/flutter ( 4635): JS Console [LOG]: [Injected-Receiver] Received a script to execute from parent window.
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Starting observation for DOM changes...
+I/flutter ( 4635): JS Console [LOG]: [Injected-Receiver] Script execution started.
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Document Object: [object HTMLDocument]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Body Element: [object HTMLBodyElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] countElement: null
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] sourceLabelElement: null
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] countElement2: [object HTMLElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] sourceLabelElement2: [object HTMLDivElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] countText: 770
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.count: 770
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.sourceLabel: 保险理财
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] detailElement: null
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] phoneNumberElement: [object HTMLSpanElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] locationElement: [object HTMLParagraphElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.phoneNumber: 075595512
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] locationText: 广东
+I/flutter ( 4635): 																深圳
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.province: 广东
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.city: 
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.carrier: 
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Final result: [object Object]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Sending result back to parent: [object Object]
+I/flutter ( 4635): JS Console [LOG]: [sooPhoneNumberPlugin v5.5.0] Received result via postMessage for requestId: query_sooPhoneNumberPlugin_1767070664988
+I/flutter ( 4635): JS Console [LOG]: [sooPhoneNumberPlugin v5.5.0] Sending final result to Flutter: {"requestId":"query_sooPhoneNumberPlugin_1767070664988","count":770,"sourceLabel":"保险理财","province":"广东","city":"","carrier":"","phoneNumber":"075595512","name":"unknown","action":"none","success":true,"error":"","predefinedLabel":"Financial"}
+I/flutter ( 4635): JS Console [LOG]: [sooPhoneNumberPlugin v5.5.0] Cleaned up iframe for requestId: query_sooPhoneNumberPlugin_1767070664988
+I/flutter ( 4635): Intercepted request: https://s.qhupdate.com/so/vertical_moni.gif?asc=&asc2=&mid=&m2=&u=https%3A%2F%2Fflutter-webview-proxy.internal%2Ffetch%3FtargetUrl%3Dhttps%253A%252F%252Fwww.so.com%252Fs%253Fq%253D075595512%26headers%3D%257B%2522User-Agent%2522%253A%2522Mozilla%252F5.0%2520(Linux%253B%2520arm_64%253B%2520Android%252014%253B%2520SM-S711B)%2520AppleWebKit%252F537.36%2520(KHTML%252C%2520like%2520Gecko)%2520Chrome%252F141.0.0.0%2520YaBrowser%252F24.12.4.199.00%2520SA%252F3%2520Mobile%2520Safari%252F537.36%2522%257D&r=&mod=msda-rank2&srcg=&pid=mso-search&pro=so-biz&sid=d38172b0eaff22500c146eb1fa2399c3&guid=&src=&abv=&q=&psid=&t=1767070677437-5&c=mso%20search%20SoBiz%E8%AF%B7%E6%B1%82%E5%A4%B1%E8%B4%A5
+I/flutter ( 4635): Request does not belong to any active session: https://s.qhupdate.com/so/vertical_moni.gif?asc=&asc2=&mid=&m2=&u=https%3A%2F%2Fflutter-webview-proxy.internal%2Ffetch%3FtargetUrl%3Dhttps%253A%252F%252Fwww.so.com%252Fs%253Fq%253D075595512%26headers%3D%257B%2522User-Agent%2522%253A%2522Mozilla%252F5.0%2520(Linux%253B%2520arm_64%253B%2520Android%252014%253B%2520SM-S711B)%2520AppleWebKit%252F537.36%2520(KHTML%252C%2520like%2520Gecko)%2520Chrome%252F141.0.0.0%2520YaBrowser%252F24.12.4.199.00%2520SA%252F3%2520Mobile%2520Safari%252F537.36%2522%257D&r=&mod=msda-rank2&srcg=&pid=mso-search&pro=so-biz&sid=d38172b0eaff22500c146eb1fa2399c3&guid=&src=&abv=&q=&psid=&t=1767070677437-5&c=mso%20search%20SoBiz%E8%AF%B7%E6%B1%82%E5%A4%B1%E8%B4%A5
+I/flutter ( 4635): [PluginResultChannel] 生数据打印Received message on PluginResultChannel: {"requestId":"query_sooPhoneNumberPlugin_1767070664988","count":770,"sourceLabel":"保险理财","province":"广东","city":"","carrier":"","phoneNumber":"075595512","name":"unknown","action":"none","success":true,"error":"","predefinedLabel":"Financial"}
+I/flutter ( 4635): [PluginResultChannel] Processing requestId: query_sooPhoneNumberPlugin_1767070664988
+I/flutter ( 4635): [PluginResultChannel] Completing successfully for requestId: query_sooPhoneNumberPlugin_1767070664988
+I/flutter ( 4635): [Invoker] Got result for plugin: sooPhoneNumberPlugin
+I/flutter ( 4635): [CallerIdService] Emitting UPDATED CallerIdData.
+I/flutter ( 4635): [CallerIdService] 数据流传递Publishing new plugin data for 075595512: {predefinedLabel: Financial, sourceLabel: 中国平安, avatar: null, count: 770, province: 广东, city: null, carrier: null, name: null, phoneNumber: 075595512, action: none, requestId: query_sogouPhoneNumberPlugin_1767070664988, source: sogouPhoneNumberPlugin, numbers: [], success: true}
+I/flutter ( 4635): >>> [CallHandler] Received UPDATED CallerIdData via stream. Refreshing UI...
+I/flutter ( 4635): >>> [CallHandler] New data: {id: 075595512, phoneNumber: 075595512, numberType: 11, name: Unknown, countryName: null, region: null, carrier: null, labels: [{label: Financial, color: null, icon: null}], avatar: assets/avatars/Unknown.png, count: 770, action: none}
+I/flutter ( 4635): 💡 [EventListener] Received processed CallData for 075595512
+I/flutter ( 4635): ⏳ [EventListener] Data ready for 075595512, but call is ongoing (status: "ringing").
+I/flutter ( 4635): showCallerIdInfo called. Current display mode from storage is: DisplayMode.overlay
+I/flutter ( 4635): Initializing FloatingWindowAndroid engine...
+I/flutter ( 4635): Intercepted request: https://show-g.mediav.com/s?scheme=https&type=1&of=4&newf=1&showid=baHCWO&uid=&impct=2&djsrcg=default_srcg&reqtimes=1&refurl=&guid=134259622.3040441509592456700.1767070679408.9316&queryword=075595512&_=1767070679477&jsonp=jsonp1
+I/flutter ( 4635): Request does not belong to any active session: https://show-g.mediav.com/s?scheme=https&type=1&of=4&newf=1&showid=baHCWO&uid=&impct=2&djsrcg=default_srcg&reqtimes=1&refurl=&guid=134259622.3040441509592456700.1767070679408.9316&queryword=075595512&_=1767070679477&jsonp=jsonp1
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Document Object: [object HTMLDocument]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Body Element: [object HTMLBodyElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] countElement: null
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] sourceLabelElement: null
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] countElement2: [object HTMLElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] sourceLabelElement2: [object HTMLDivElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] countText: 770
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.count: 770
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.sourceLabel: 保险理财
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] detailElement: null
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] phoneNumberElement: [object HTMLSpanElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] locationElement: [object HTMLParagraphElement]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.phoneNumber: 075595512
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] locationText: 广东
+I/flutter ( 4635): 																深圳
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.province: 广东
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.city: 
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] result.carrier: 
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Final result: [object Object]
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Sending result back to parent: [object Object]
+I/flutter ( 4635): JS Console [LOG]: [sooPhoneNumberPlugin v5.5.0] Received result via postMessage for requestId: query_sooPhoneNumberPlugin_1767070660516
+I/flutter ( 4635): JS Console [LOG]: [sooPhoneNumberPlugin v5.5.0] Sending final result to Flutter: {"requestId":"query_sooPhoneNumberPlugin_1767070660516","count":770,"sourceLabel":"保险理财","province":"广东","city":"","carrier":"","phoneNumber":"075595512","name":"unknown","action":"none","success":true,"error":"","predefinedLabel":"Financial"}
+I/ourcallyourrule( 4635): Background concurrent mark compact GC freed 8054KB AllocSpace bytes, 80(9136KB) LOS objects, 50% free, 18MB/37MB, paused 8.269ms,10.150ms total 268.743ms
+I/DynamiteModule( 4635): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule( 4635): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+I/ourcallyourrule( 4635): AssetManager2(0x7cdfa66d84f8) locale list changing from [] to [en-US]
+I/ourcallyourrule( 4635): AssetManager2(0x7cdfa6683598) locale list changing from [] to [en-US]
+I/ourcallyourrule( 4635): AssetManager2(0x7cdfa66f5cd8) locale list changing from [] to [en-US]
+I/flutter ( 4635): JS Console [LOG]: [sooPhoneNumberPlugin v5.5.0] Cleaned up iframe for requestId: query_sooPhoneNumberPlugin_1767070660516
+I/flutter ( 4635): [PluginResultChannel] 生数据打印Received message on PluginResultChannel: {"requestId":"query_sooPhoneNumberPlugin_1767070660516","count":770,"sourceLabel":"保险理财","province":"广东","city":"","carrier":"","phoneNumber":"075595512","name":"unknown","action":"none","success":true,"error":"","predefinedLabel":"Financial"}
+I/flutter ( 4635): [PluginResultChannel] Processing requestId: query_sooPhoneNumberPlugin_1767070660516
+I/flutter ( 4635): [PluginResultChannel] Completing successfully for requestId: query_sooPhoneNumberPlugin_1767070660516
+I/flutter ( 4635): [Invoker] Got result for plugin: sooPhoneNumberPlugin
+I/flutter ( 4635): [Invoker] Main 30s timer expired, completing all results.
+I/flutter ( 4635): [CallerIdService] Emitting UPDATED CallerIdData.
+I/flutter ( 4635): >>> [CallHandler] Received UPDATED CallerIdData via stream. Refreshing UI...
+I/flutter ( 4635): >>> [CallHandler] New data: {id: 075595512, phoneNumber: 075595512, numberType: 11, name: Unknown, countryName: null, region: null, carrier: null, labels: [{label: Financial, color: null, icon: null}], avatar: assets/avatars/Unknown.png, count: 770, action: none}
+I/flutter ( 4635): 💡 [EventListener] Received processed CallData for 075595512
+I/flutter ( 4635): ⏳ [EventListener] Data ready for 075595512, but call is ongoing (status: "ringing").
+I/flutter ( 4635): showCallerIdInfo called. Current display mode from storage is: DisplayMode.overlay
+I/flutter ( 4635): Initializing FloatingWindowAndroid engine...
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Iframe loaded for requestId query_baiduPhoneNumberPlugin_1767070660308. Posting parsing script directly.
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Parsing script posted to iframe for requestId: query_baiduPhoneNumberPlugin_1767070660308
+I/flutter ( 4635): JS Console [LOG]: [Injected-Receiver] Received a script to execute from parent window.
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Parsing script has started execution for phone: 075595512
+I/flutter ( 4635): JS Console [LOG]: [Injected-Receiver] Script execution started.
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Starting parse attempt...
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Attempting to parse content in document with title: 075595512_百度搜索
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Found result container. Now parsing for data...
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Could not parse data-tools attribute.
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Found single-number company/official card (e.g., Taobao).
+I/flutter ( 4635): JS Console [LOG]: [Iframe-Parser] Sending result back to parent: [object Object]
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Received result via postMessage for requestId: query_baiduPhoneNumberPlugin_1767070660308
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Sending final result to Flutter: {"requestId":"query_baiduPhoneNumberPlugin_1767070660308","phoneNumber":"075595512","sourceLabel":"","count":0,"province":"","city":"","carrier":"","name":"中国平安\n                    网络收录仅供参考","predefinedLabel":"","source":"baiduPhoneNumberPlugin","numbers":[{"number":"075595512","name":"Main"}],"success":true,"error":"","action":"none"}
+I/flutter ( 4635): [PluginResultChannel] 生数据打印Received message on PluginResultChannel: {"requestId":"query_baiduPhoneNumberPlugin_1767070660308","phoneNumber":"075595512","sourceLabel":"","count":0,"province":"","city":"","carrier":"","name":"中国平安\n                    网络收录仅供参考","predefinedLabel":"","source":"baiduPhoneNumberPlugin","numbers":[{"number":"075595512","name":"Main"}],"success":true,"error":"","action":"none"}
+I/flutter ( 4635): [PluginResultChannel] Processing requestId: query_baiduPhoneNumberPlugin_1767070660308
+I/flutter ( 4635): [PluginResultChannel] Completing successfully for requestId: query_baiduPhoneNumberPlugin_1767070660308
+I/flutter ( 4635): [Invoker] Got result for plugin: baiduPhoneNumberPlugin
+I/flutter ( 4635): 记录日志到Crashlytics失败: LateInitializationError: Field '_crashlytics@129281369' has not been initialized.
+I/flutter ( 4635): Crashlytics would record: Bad state: Future already completed
+I/flutter ( 4635): Reason: null
+I/flutter ( 4635): Stack trace: #0      AppLogger._reportCrash (package:yourcallyourrule/common/error/logger.dart:98:32)
+I/flutter ( 4635): #1      AppLogger.error (package:yourcallyourrule/common/error/logger.dart:52:5)
+I/flutter ( 4635): #2      PluginInvokerService.callPluginsAll.<anonymous closure> (package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart:233:27)
+I/flutter ( 4635): #3      _FutureListener.handleError (dart:async/future_impl.dart:243:22)
+I/flutter ( 4635): #4      Future._propagateToListeners.handleError (dart:async/future_impl.dart:960:47)
+I/flutter ( 4635): #5      Future._propagateToListeners (dart:async/future_impl.dart:981:13)
+I/flutter ( 4635): #6      Future._completeWithValue (dart:async/future_impl.dart:720:5)
+I/flutter ( 4635): <asynchronous suspension>
+I/flutter ( 4635): 
+I/flutter ( 4635): [Invoker] Error calling plugin: baiduPhoneNumberPlugin - Bad state: Future already completed
+I/flutter ( 4635): JS Console [LOG]: [baiduPhoneNumberPlugin v5.5.0] Cleaned up iframe for requestId: query_baiduPhoneNumberPlugin_1767070660308
+I/DynamiteModule( 4635): Considering local module com.google.android.gms.ads.dynamite:0 and remote module com.google.android.gms.ads.dynamite:254380203
+I/DynamiteModule( 4635): Selected remote version of com.google.android.gms.ads.dynamite, version >= 254380203
+W/ImageReader_JNI( 4635): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+W/ImageReader_JNI( 4635): Unable to acquire a buffer item, very likely client tried to acquire more than maxImages buffers
+D/CallerIdChannel( 4635): Call State: IDLE
+I/flutter ( 4635): ➡️ [EventListener] Received raw event: onCallEnded, args: {timestamp: 1767070706809}
+I/flutter ( 4635): 🏁 [EventListener] Call ended event received.
+I/flutter ( 4635): 📞 [EventListener] Call from 075595512 was missed. Attempting to log.
+I/flutter ( 4635): 🔴 [EventListener] EXECUTING record for 075595512 as TYPE: missed
+I/flutter ( 4635): recordIncomingCall: 075595512, Instance of 'CallData', false, null, null, null, 1767070664782
+I/flutter ( 4635):  [OverlayControlHandler] Received raw call event: onCallEnded
+I/flutter ( 4635): ... Raw call event matched. Closing overlay...
+I/flutter ( 4635): onCallEnded-timestamp: 1767070706809
+I/flutter ( 4635): Saving CallLog: {id: 00f07a2c-2ee4-4566-9deb-2910929cea96, labelIds: ["financial"], phoneNumber: 075595512, name: Unknown, timestamp: 1767070664782, endTime: null, duration: null, simDisplayName: T-Mobile, callType: missed, simSlotIndex: 0, carrierName: , countryIso: us, subscriptionId: 1}
+I/flutter ( 4635): ✅ [EventListener] Logged and cleaned up for 075595512.
