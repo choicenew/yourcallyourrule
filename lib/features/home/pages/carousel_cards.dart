@@ -132,8 +132,10 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
                   ),
             ),
             // 后续卡片保持不变
-            const InlineAdaptiveBannerAdWidget(
-              adInfo: AdManager.adaptiveBannerAd,
+            _buildAdCard(
+              const InlineAdaptiveBannerAdWidget(
+                adInfo: AdManager.adaptiveBannerAd,
+              ),
             ),
             // 再次调用“标准卡片”，展示其复用性。
             _buildCarouselCard(
@@ -155,8 +157,10 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
             ),
 
             // 后续卡片保持不变
-            const InlineAdaptiveBannerAdWidget(
-              adInfo: AdManager.adaptiveBannerAd,
+            _buildAdCard(
+              const InlineAdaptiveBannerAdWidget(
+                adInfo: AdManager.adaptiveBannerAd,
+              ),
             ),
 
             // 其他卡片保持不变
@@ -176,8 +180,10 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               color: const Color(0xFFFFA726),
               icon: Icons.warning_amber_rounded,
             ),
-            const InlineAdaptiveBannerAdWidget(
-              adInfo: AdManager.adaptiveBannerAd,
+            _buildAdCard(
+              const InlineAdaptiveBannerAdWidget(
+                adInfo: AdManager.adaptiveBannerAd,
+              ),
             ),
 
             _buildCallerIdMockCard(),
@@ -628,6 +634,30 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildAdCard(Widget ad) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 4,
+      clipBehavior: Clip.antiAlias, // Ensure ad respects rounded corners
+      child: Stack(
+        children: [
+          // Optional: Add a subtle background in case the ad is transparent
+          Positioned.fill(
+            child: Container(
+              color:
+                  Theme.of(context).brightness == Brightness.dark
+                      ? Colors.grey[800]
+                      : Colors.grey[50],
+            ),
+          ),
+          Center(child: ad),
+          // Optional: Add a small "Ad" label if needed, though Google Ads usually have their own.
+        ],
       ),
     );
   }
