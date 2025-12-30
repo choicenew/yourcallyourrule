@@ -4,7 +4,7 @@
     const PLUGIN_CONFIG = {
         id: 'baiduPhoneNumberPlugin',
         name: 'Baidu Phone Lookup (iframe Proxy)',
-        version: '5.5.0', // Final version with intelligent name selection
+        version: '5.5.1', // Final version with intelligent name selection
         description: 'Queries Baidu for phone number information using an iframe proxy. Intelligently selects the best name from multiple sources.'
     };
   
@@ -49,6 +49,7 @@
     const manualMapping = {
         '中介': 'Agent', '房产中介': 'Agent', '违规催收': 'Debt Collection', '快递物流': 'Delivery',
         '快递': 'Delivery', '教育培训': 'Education', '金融': 'Financial', '股票证券': 'Financial',
+        '理财': 'Financial',
         '保险理财': 'Financial', '涉诈电话': 'Fraud Scam Likely', '诈骗': 'Fraud Scam Likely',
         '招聘': 'Recruiter', '猎头': 'Headhunter', '猎头招聘': 'Headhunter', '招聘猎头': 'Headhunter',
         '保险': 'Insurance', '保险推销': 'Insurance', '贷款理财': 'Loan', '医疗卫生': 'Medical',
@@ -164,7 +165,7 @@
                                 if (numberEl && nameEl) {
                                     const numberText = numberEl.textContent.replace(/D/g, '');
                                     if (numberText === PHONE_NUMBER) {
-                                        result.name = nameEl.textContent.trim();
+                                        result.name = nameEl.textContent.replace(/[\\r\\n]+/g, '').replace(/\\s+/g, ' ').trim();
                                         result.success = true;
                                     }
                                     result.numbers.push({ number: numberEl.textContent.trim(), name: nameEl.textContent.trim() });
@@ -174,7 +175,7 @@
                              const titleEl = companyCardSingle.querySelector('.cc-title_31ypU');
                              if(titleEl) {
                                 console.log('[Iframe-Parser] Found single-number company/official card (e.g., Taobao).');
-                                result.name = titleEl.textContent.trim().split(/s+/)[0];
+                                result.name = titleEl.textContent.replace(/[\\r\\n]+/g, '').replace(/\\s+/g, ' ').trim().split(/\\s+/)[0];
                                 result.numbers.push({ number: PHONE_NUMBER, name: 'Main' });
                                 result.success = true;
                              }

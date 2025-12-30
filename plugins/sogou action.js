@@ -3,7 +3,7 @@
     const PLUGIN_CONFIG = {
         id: 'sogouPhoneNumberPlugin',
         name: 'Sogou Phone Lookup (iframe Proxy)',
-        version: '1.0.0', 
+        version: '1.0.2', 
         description: 'Queries Sogou for phone number information using an iframe proxy. Extracts source label.'
     };
   
@@ -48,6 +48,7 @@
     const manualMapping = {
         '中介': 'Agent', '房产中介': 'Agent', '违规催收': 'Debt Collection', '快递物流': 'Delivery','快递送餐': 'Delivery',
         '快递': 'Delivery', '教育培训': 'Education', '金融': 'Financial', '股票证券': 'Financial',
+        '理财': 'Financial',
         '保险理财': 'Financial', '涉诈电话': 'Fraud Scam Likely', '诈骗': 'Fraud Scam Likely',
         '招聘': 'Recruiter', '猎头': 'Headhunter', '猎头招聘': 'Headhunter', '招聘猎头': 'Headhunter',
         '保险': 'Insurance', '保险推销': 'Insurance', '贷款理财': 'Loan', '医疗卫生': 'Medical',
@@ -156,6 +157,19 @@
                                     }
                                 }
                                 result.action = action;
+
+                                // --- Final Label Mapping ---
+                                for (const key in manualMapping) {
+                                    if (result.sourceLabel.includes(key)) {
+                                        result.predefinedLabel = manualMapping[key];
+                                        break;
+                                    }
+                                }
+
+                                // --- Fallback Name Assignment ---
+                                if (result.sourceLabel && !result.predefinedLabel) {
+                                    result.name = result.sourceLabel;
+                                }
 
                                 return result; // Return after the first successful extraction
                             }

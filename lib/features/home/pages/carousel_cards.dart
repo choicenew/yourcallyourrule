@@ -31,7 +31,6 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
 import '../di/home_stats_provider.dart';
 
-
 // ------------------- Widget 定义 -------------------
 
 class CarouselCards extends ConsumerStatefulWidget {
@@ -59,7 +58,7 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   }
 
   // --- 自动播放逻辑 ---
-  
+
   // 停止自动播放计时器
   void _stopAutoPlay() {
     _autoPlayTimer?.cancel();
@@ -73,7 +72,7 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
 
     _autoPlayTimer = Timer.periodic(const Duration(seconds: 5), (timer) {
       if (!mounted) return; // 如果组件已卸载，则不执行后续操作。
-      
+
       final currentPage = _pageController.page?.round() ?? 0;
       final nextPage = (currentPage + 1) % totalPages;
       _pageController.animateToPage(
@@ -84,7 +83,6 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
     });
   }
 
-
   // --- 构建UI ---
   @override
   Widget build(BuildContext context) {
@@ -94,18 +92,16 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
 
     return Container(
       // 调整高度以适应内容更丰富的卡片
-      height: 200, 
+      height: 220,
       margin: const EdgeInsets.symmetric(vertical: 16),
-      
+
       // 4. 【结构】: 使用外层 `when` 来处理“主数据源”的状态。
       // 这个 `when` 决定了整个轮播组件是显示内容、加载动画还是错误信息。
       child: asyncHomeStats.when(
-        
         // --- 状态一: 主数据加载成功 ---
         data: (homeStats) {
           // 主数据已就绪，我们可以构建轮播卡片的列表了。
           final List<Widget> cards = [
-            
             // --- 调用方式 1: 构建“标准卡片” ---
             // 只需提供 description 和 value，`_buildCarouselCard` 内部会自动处理布局。
             _buildCarouselCard(
@@ -119,19 +115,26 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
             // --- 调用方式 2: 构建“自定义内容卡片” ---
             // 通过 `asyncCommunityStats.when` 来动态决定卡片内容。
             asyncCommunityStats.when(
-              data: (communityStats) => _buildCarouselCard(
-                title: AppLocalizations.of(context)!.proposalStatistics,
-                icon: Icons.groups,
-                color: const Color(0xFF4DB6AC),
-                onTap: () => GoRouter.of(context).push('/deletions'),
-                // 关键点: 我们不传 description/value，而是传入一个由 `_buildCommunityCardContent` 方法构建的自定义Widget。
-                customContent: _buildCommunityCardContent(communityStats),
-              ),
+              data:
+                  (communityStats) => _buildCarouselCard(
+                    title: AppLocalizations.of(context)!.proposalStatistics,
+                    icon: Icons.groups,
+                    color: const Color(0xFF4DB6AC),
+                    onTap: () => GoRouter.of(context).push('/deletions'),
+                    // 关键点: 我们不传 description/value，而是传入一个由 `_buildCommunityCardContent` 方法构建的自定义Widget。
+                    customContent: _buildCommunityCardContent(communityStats),
+                  ),
               loading: () => _buildLoadingCard(height: 200),
-              error: (_, __) => _buildErrorCard(AppLocalizations.of(context)!.proposalStatistics, height: 200),
+              error:
+                  (_, __) => _buildErrorCard(
+                    AppLocalizations.of(context)!.proposalStatistics,
+                    height: 200,
+                  ),
             ),
-   // 后续卡片保持不变
-   const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            // 后续卡片保持不变
+            const InlineAdaptiveBannerAdWidget(
+              adInfo: AdManager.adaptiveBannerAd,
+            ),
             // 再次调用“标准卡片”，展示其复用性。
             _buildCarouselCard(
               title: AppLocalizations.of(context)!.ruleManagement,
@@ -140,7 +143,7 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               description: AppLocalizations.of(context)!.createdRules,
               value: '${homeStats.totalRules}',
             ),
-            
+
             // --- 卡片 3: 【新增】拦截趋势图 (自定义内容) ---
             _buildCarouselCard(
               // 我们为图表卡片也提供一个统一的标题和图标
@@ -151,8 +154,10 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               customContent: _buildTrendChartCardContent(),
             ),
 
-           // 后续卡片保持不变
-           const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            // 后续卡片保持不变
+            const InlineAdaptiveBannerAdWidget(
+              adInfo: AdManager.adaptiveBannerAd,
+            ),
 
             // 其他卡片保持不变
             _buildCarouselCard(
@@ -163,21 +168,19 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               icon: Icons.insert_chart,
             ),
 
- 
- 
-            
             _buildCarouselCard(
               title: AppLocalizations.of(context)!.dataSourceReminder,
-              description: AppLocalizations.of(context)!.selectTrustedDataSource,
+              description:
+                  AppLocalizations.of(context)!.selectTrustedDataSource,
               value: AppLocalizations.of(context)!.important,
               color: const Color(0xFFFFA726),
               icon: Icons.warning_amber_rounded,
             ),
-   const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            const InlineAdaptiveBannerAdWidget(
+              adInfo: AdManager.adaptiveBannerAd,
+            ),
 
             _buildCallerIdMockCard(),
-
-         
 
             _buildPromotionCard(),
           ];
@@ -186,24 +189,21 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
           // `addPostFrameCallback` 确保在 Widget 渲染完成后再执行，避免状态问题。
           WidgetsBinding.instance.addPostFrameCallback((_) {
             if (mounted && _autoPlayTimer == null && cards.isNotEmpty) {
-               _startAutoPlay(cards.length);
+              _startAutoPlay(cards.length);
             }
           });
 
           // 返回最终的轮播视图
-          return PageView(
-            controller: _pageController,
-            children: cards,
-          );
+          return PageView(controller: _pageController, children: cards);
         },
-        
+
         // --- 状态二: 主数据正在加载 ---
         loading: () {
           _stopAutoPlay(); // 加载时停止轮播
           // 整个组件显示一个统一的加载动画
           return _buildLoadingCard();
         },
-        
+
         // --- 状态三: 主数据加载失败 ---
         error: (error, stack) {
           _stopAutoPlay(); // 出错时停止轮播
@@ -213,7 +213,6 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
       ),
     );
   }
-
 
   /// 【新增】: 专门构建“拦截趋势图”内容的辅助方法
   ///
@@ -233,9 +232,21 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodWeek, 'Week', notifier),
-                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodMonth, 'Month', notifier),
-                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodYear, 'Year', notifier),
+                  _buildTimeRangeButton(
+                    AppLocalizations.of(context)!.periodWeek,
+                    'Week',
+                    notifier,
+                  ),
+                  _buildTimeRangeButton(
+                    AppLocalizations.of(context)!.periodMonth,
+                    'Month',
+                    notifier,
+                  ),
+                  _buildTimeRangeButton(
+                    AppLocalizations.of(context)!.periodYear,
+                    'Year',
+                    notifier,
+                  ),
                 ],
               ),
               const SizedBox(height: 8),
@@ -248,7 +259,7 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
                       showDetailedChart: true,
                       chartData: state.chartData,
                       // 为了美观，让线条颜色和卡片主题色匹配
-                      lineColor: const Color(0xFF34CE52).withOpacity(0.5), 
+                      lineColor: const Color(0xFF34CE52).withOpacity(0.5),
                       gradientColor: const Color(0xFF7986CB).withOpacity(0.2),
                     ),
                     if (state.isLoading)
@@ -258,7 +269,11 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
                             color: Colors.black.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: const Center(child: CircularProgressIndicator(color: Colors.white)),
+                          child: const Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                   ],
@@ -272,13 +287,17 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   }
 
   /// 【新增】: 图表内容中的时间范围按钮构建方法
-  Widget _buildTimeRangeButton(String text, String range, CallStatisticsNotifier notifier) {
+  Widget _buildTimeRangeButton(
+    String text,
+    String range,
+    CallStatisticsNotifier notifier,
+  ) {
     final isSelected = _selectedTimeRange == range;
     return GestureDetector(
       onTap: () {
         if (!isSelected) {
           // 这里我们调用父级 Widget 的 setState 来更新UI
-          setState(() => _selectedTimeRange = range); 
+          setState(() => _selectedTimeRange = range);
           notifier.updateTimeRange(range);
         }
       },
@@ -286,7 +305,8 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         decoration: BoxDecoration(
           // 适配渐变背景，按钮样式微调
-          color: isSelected ? Colors.white.withOpacity(0.25) : Colors.transparent,
+          color:
+              isSelected ? Colors.white.withOpacity(0.25) : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
@@ -300,9 +320,6 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
       ),
     );
   }
-
-
-
 
   // --------------------------------------------------------------------------
   // --- UI 构建辅助方法 ---
@@ -322,9 +339,11 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
     Widget? customContent,
   }) {
     // 这个断言确保了组件被正确使用：要么提供标准内容，要么提供自定义内容，但不能同时提供或都不提供。
-    assert((description != null && value != null && customContent == null) ||
-           (customContent != null && description == null && value == null),
-           'Either provide (description and value) OR provide customContent. Not both, not neither.');
+    assert(
+      (description != null && value != null && customContent == null) ||
+          (customContent != null && description == null && value == null),
+      'Either provide (description and value) OR provide customContent. Not both, not neither.',
+    );
 
     return GestureDetector(
       onTap: onTap,
@@ -339,7 +358,10 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [color.withOpacity(0.8), color],
+              colors:
+                  Theme.of(context).brightness == Brightness.dark
+                      ? [color.withOpacity(0.3), color.withOpacity(0.1)]
+                      : [color.withOpacity(0.8), color],
             ),
           ),
           child: Column(
@@ -349,25 +371,43 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(title, style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   Icon(icon, color: Colors.white),
                 ],
               ),
-              
+
               // --- 2. 动态内容区 (核心逻辑) ---
               Expanded(
                 // 如果 `customContent` 不为空，就渲染它。
-                child: customContent ?? 
-                // 否则，渲染由 `description` 和 `value` 构成的标准布局。
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Spacer(),
-                    Text(description!, style: const TextStyle(color: Colors.white70)),
-                    const SizedBox(height: 8),
-                    Text(value!, style: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold)),
-                  ],
-                ),
+                child:
+                    customContent ??
+                    // 否则，渲染由 `description` 和 `value` 构成的标准布局。
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Spacer(),
+                        Text(
+                          description!,
+                          style: const TextStyle(color: Colors.white70),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          value!,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
               ),
             ],
           ),
@@ -386,12 +426,13 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
     final mediumRisk = stats['mediumRisk'] ?? 0;
     final lowRisk = stats['lowRisk'] ?? 0;
     final totalPending = stats['totalPending'] ?? 0;
-    
+
     // 使用白色或半透明白色作为文本颜色，以确保在渐变背景上清晰可见。
     const textColor = Colors.white;
     final subTextColor = Colors.white.withOpacity(0.8);
 
-    return SingleChildScrollView( // 使用 SingleChildScrollView 防止内容在小屏幕上溢出
+    return SingleChildScrollView(
+      // 使用 SingleChildScrollView 防止内容在小屏幕上溢出
       child: Padding(
         padding: const EdgeInsets.only(top: 12.0), // 与标题留出间距
         child: Column(
@@ -407,7 +448,11 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
                 const Spacer(),
                 Text(
                   '$totalPending',
-                  style: const TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    color: textColor,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
@@ -418,9 +463,21 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildRiskColumn(label: AppLocalizations.of(context)!.highRisk, value: '$highRisk', color: const Color(0xFFFFCDD2)), // 浅红色
-                _buildRiskColumn(label: AppLocalizations.of(context)!.mediumRisk, value: '$mediumRisk', color: const Color(0xFFFFE0B2)), // 浅橙色
-                _buildRiskColumn(label: AppLocalizations.of(context)!.lowRisk, value: '$lowRisk', color: const Color(0xFFC8E6C9)), // 浅绿色
+                _buildRiskColumn(
+                  label: AppLocalizations.of(context)!.highRisk,
+                  value: '$highRisk',
+                  color: const Color(0xFFFFCDD2),
+                ), // 浅红色
+                _buildRiskColumn(
+                  label: AppLocalizations.of(context)!.mediumRisk,
+                  value: '$mediumRisk',
+                  color: const Color(0xFFFFE0B2),
+                ), // 浅橙色
+                _buildRiskColumn(
+                  label: AppLocalizations.of(context)!.lowRisk,
+                  value: '$lowRisk',
+                  color: const Color(0xFFC8E6C9),
+                ), // 浅绿色
               ],
             ),
           ],
@@ -430,18 +487,36 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   }
 
   // 构建风险分布列的辅助方法
-  Widget _buildRiskColumn({required String label, required String value, required Color color}) {
+  Widget _buildRiskColumn({
+    required String label,
+    required String value,
+    required Color color,
+  }) {
     return Column(
       children: [
-        Text(value, style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+        Text(
+          value,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         const SizedBox(height: 4),
-        Text(label, style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w500)),
+        Text(
+          label,
+          style: TextStyle(
+            color: color,
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ],
     );
   }
 
   // --- 其他辅助方法 (完整无省略) ---
-  
+
   Widget _buildLoadingCard({double? height}) {
     return SizedBox(
       height: height,
@@ -459,12 +534,14 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
               colors: [Colors.grey.shade300, Colors.grey.shade400],
             ),
           ),
-          child: const Center(child: CircularProgressIndicator(color: Colors.white)),
+          child: const Center(
+            child: CircularProgressIndicator(color: Colors.white),
+          ),
         ),
       ),
     );
   }
-  
+
   Widget _buildErrorCard(String title, {double? height}) {
     return SizedBox(
       height: height,
@@ -487,9 +564,20 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
             children: [
               const Icon(Icons.error_outline, color: Colors.white, size: 32),
               const SizedBox(height: 8),
-              Text(title, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(height: 4),
-              Text(AppLocalizations.of(context)!.loadDataFailed, style: const TextStyle(color: Colors.white70), textAlign: TextAlign.center),
+              Text(
+                AppLocalizations.of(context)!.loadDataFailed,
+                style: const TextStyle(color: Colors.white70),
+                textAlign: TextAlign.center,
+              ),
             ],
           ),
         ),
@@ -586,8 +674,10 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
                     height: 60,
                     width: 60,
                     color: Colors.white24,
-                    child: const Icon(Icons.image_not_supported,
-                        color: Colors.white),
+                    child: const Icon(
+                      Icons.image_not_supported,
+                      color: Colors.white,
+                    ),
                   );
                 },
               ),

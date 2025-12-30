@@ -11,10 +11,7 @@ import 'package:yourcallyourrule/features/home/pages/rule_verification_card.dart
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/home/widgets/vip_promotion_card.dart';
 
-
 import 'package:yourcallyourrule/features/home/widgets/filter_management_widget.dart';
-
-
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -26,7 +23,7 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage> {
   int _currentIndex = 0; // 当前选中的底部导航项
 
-/*
+  /*
  // 【修改】initState 方法被完全移除。
   @override
   void initState() {
@@ -37,12 +34,11 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAF9),
       body: SafeArea(
         child: Column(
           children: [
             const HomeAppBar(),
-          //  const SearchWidget(),
+            //  const SearchWidget(),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -50,16 +46,15 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const CarouselCards(),
                     GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const RuleVerificationCard(),
-                                     //   GoogleAdWidget(adInfo: AdManager.bannerAd),
+                    //   GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const FilterManagementWidget(),
-                                        GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+                    // GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
                     const FeatureCenter(),
-                  GoogleAdWidget(adInfo: AdManager.bannerAd),
-                 //插入显示购买页
+                    GoogleAdWidget(adInfo: AdManager.bannerAd),
+                    //插入显示购买页
                     const VipPromotionCard(),
-                    
 
-                     nativeAdWidgetMedium(adWidth: 400, adHeight: 320),
+                    nativeAdWidgetMedium(adWidth: 400, adHeight: 320),
                   ],
                 ),
               ),

@@ -225,7 +225,8 @@ class PluginInvokerService {
                 completedCount++;
 
                 // 当所有插件都完成时，完成Future
-                if (completedCount >= totalCount) {
+                if (completedCount >= totalCount &&
+                    !allResultsCompleter.isCompleted) {
                   allResultsCompleter.complete(results);
                 }
               })
@@ -237,7 +238,8 @@ class PluginInvokerService {
                 completedCount++;
 
                 // 当所有插件都完成时，完成Future
-                if (completedCount >= totalCount) {
+                if (completedCount >= totalCount &&
+                    !allResultsCompleter.isCompleted) {
                   allResultsCompleter.complete(results);
                 }
               });
@@ -246,7 +248,8 @@ class PluginInvokerService {
           completedCount++;
 
           // 当所有插件都完成时，完成Future
-          if (completedCount >= totalCount) {
+          if (completedCount >= totalCount &&
+              !allResultsCompleter.isCompleted) {
             allResultsCompleter.complete(results);
           }
         }
