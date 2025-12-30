@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/common/error/logger.dart';
+
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_webview_service.dart';
@@ -59,7 +59,6 @@ class PluginInvokerService {
 
       return true;
     } catch (e) {
-      AppLogger.error('加载插件失败', e);
       debugPrint('加载插件失败: $e');
       return false;
     }
@@ -102,7 +101,6 @@ class PluginInvokerService {
         config: plugin.config,
       );
     } catch (e) {
-      AppLogger.error('调用插件失败', e);
       debugPrint('调用插件失败: $e');
       return null;
     }
@@ -151,14 +149,12 @@ class PluginInvokerService {
             return result;
           }
         } catch (e) {
-          AppLogger.error('插件执行错误', e);
           debugPrint('插件执行错误: $e');
         }
       }
 
       return null;
     } catch (e) {
-      AppLogger.error('调用插件失败', e);
       debugPrint('调用插件失败: $e');
       return null;
     }
@@ -231,7 +227,6 @@ class PluginInvokerService {
                 }
               })
               .catchError((e) {
-                AppLogger.error('调用插件失败: ${plugin.id}', e);
                 debugPrint('[Invoker] Error calling plugin: ${plugin.id} - $e');
 
                 // 增加完成计数，即使出错也算作完成
@@ -290,7 +285,6 @@ class PluginInvokerService {
       // 返回第一个有效结果和所有结果的Future
       return (firstValidResult, allResultsCompleter.future);
     } catch (e) {
-      AppLogger.error('调用所有插件失败', e);
       debugPrint('调用所有插件失败: $e');
 
       if (!firstResultCompleter.isCompleted) {
@@ -341,7 +335,6 @@ class PluginInvokerService {
 
       return plugin;
     } catch (e) {
-      AppLogger.error('安装插件失败', e);
       debugPrint('安装插件失败: $e');
       return null;
     }
@@ -365,7 +358,6 @@ class PluginInvokerService {
 
       return true;
     } catch (e) {
-      AppLogger.error('卸载插件失败', e);
       debugPrint('卸载插件失败: $e');
       return false;
     }
@@ -389,7 +381,6 @@ class PluginInvokerService {
 
       return true;
     } catch (e) {
-      AppLogger.error('启用插件失败', e);
       debugPrint('启用插件失败: $e');
       return false;
     }
@@ -413,7 +404,6 @@ class PluginInvokerService {
 
       return true;
     } catch (e) {
-      AppLogger.error('禁用插件失败', e);
       debugPrint('禁用插件失败: $e');
       return false;
     }
@@ -442,7 +432,6 @@ class PluginInvokerService {
 
       return updated;
     } catch (e) {
-      AppLogger.error('更新插件失败', e);
       debugPrint('更新插件失败: $e');
       return false;
     }
@@ -507,7 +496,6 @@ class PluginInvokerService {
 
       return await _webViewService.getPluginSettings(pluginId);
     } catch (e) {
-      AppLogger.error('获取插件配置失败', e);
       return [];
     }
   }
