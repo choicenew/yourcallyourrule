@@ -73,12 +73,14 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
       nationalNumber = _nationalNumberController.text.trim();
       e164Number = _e164NumberController.text.trim();
 
-      if (phoneNumber.isEmpty &&
-          nationalNumber.isEmpty &&
-          e164Number.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      if (phoneNumber.isEmpty && nationalNumber.isEmpty && e164Number.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
             content: Text(
-                AppLocalizations.of(context)!.pleaseEnterAtLeastOneNumber)));
+              AppLocalizations.of(context)!.pleaseEnterAtLeastOneNumber,
+            ),
+          ),
+        );
         return;
       }
     } else {
@@ -86,7 +88,10 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
       final singleNumber = _simplePhoneController.text.trim();
       if (singleNumber.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.enterPhoneNumber)));
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.enterPhoneNumber),
+          ),
+        );
         return;
       }
       // 根据选择的格式，将 singleNumber 赋值给对应的变量
@@ -135,7 +140,8 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            '${AppLocalizations.of(context)!.testPlugin}: ${widget.plugin.name}'),
+          '${AppLocalizations.of(context)!.testPlugin}: ${widget.plugin.name}',
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.public),
@@ -144,9 +150,8 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PluginUrlWebViewPage(
-                    plugin: widget.plugin,
-                  ),
+                  builder:
+                      (context) => PluginUrlWebViewPage(plugin: widget.plugin),
                 ),
               );
             },
@@ -164,12 +169,13 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
               const SizedBox(height: 16),
               _buildTestRunner(),
               const SizedBox(height: 16),
-              if (_isLoading)
-                const Center(child: CircularProgressIndicator()),
+              if (_isLoading) const Center(child: CircularProgressIndicator()),
               if (_queryResult != null) _buildResultView(),
               const SizedBox(height: 16),
-              Text('${AppLocalizations.of(context)!.log}:',
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
+              Text(
+                '${AppLocalizations.of(context)!.log}:',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 8), // 添加一点间距
               _buildLogsView(),
             ],
@@ -187,13 +193,18 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-                '${AppLocalizations.of(context)!.pluginLabel}: ${widget.plugin.name}',
-                style: const TextStyle(fontWeight: FontWeight.bold)),
-            Text('${AppLocalizations.of(context)!.pluginID}: ${widget.plugin.id}'),
+              '${AppLocalizations.of(context)!.pluginLabel}: ${widget.plugin.name}',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
             Text(
-                '${AppLocalizations.of(context)!.pluginDescription}: ${widget.plugin.description}'),
+              '${AppLocalizations.of(context)!.pluginID}: ${widget.plugin.id}',
+            ),
             Text(
-                '${AppLocalizations.of(context)!.pluginURL}: ${widget.plugin.url}'),
+              '${AppLocalizations.of(context)!.pluginDescription}: ${widget.plugin.description}',
+            ),
+            Text(
+              '${AppLocalizations.of(context)!.pluginURL}: ${widget.plugin.url}',
+            ),
           ],
         ),
       ),
@@ -264,14 +275,17 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
             ),
             items: [
               DropdownMenuItem(
-                  value: 'phoneNumber',
-                  child: Text(AppLocalizations.of(context)!.phoneNumber)),
+                value: 'phoneNumber',
+                child: Text(AppLocalizations.of(context)!.phoneNumber),
+              ),
               DropdownMenuItem(
-                  value: 'nationalNumber',
-                  child: Text(AppLocalizations.of(context)!.nationalNumber)),
+                value: 'nationalNumber',
+                child: Text(AppLocalizations.of(context)!.nationalNumber),
+              ),
               DropdownMenuItem(
-                  value: 'e164Number',
-                  child: Text(AppLocalizations.of(context)!.e164Number)),
+                value: 'e164Number',
+                child: Text(AppLocalizations.of(context)!.e164Number),
+              ),
             ],
             onChanged: (value) {
               if (value != null) {
@@ -299,16 +313,19 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(AppLocalizations.of(context)!.result,
-            style: const TextStyle(fontWeight: FontWeight.bold)),
+        Text(
+          AppLocalizations.of(context)!.result,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         const SizedBox(height: 8),
         Container(
           width: double.infinity, // 让容器撑满宽度
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.grey[400]!)),
+            color: Colors.grey.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: Colors.grey.withOpacity(0.3)),
+          ),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal, // 允许水平滚动以防 JSON 太宽
             child: Text(
@@ -334,8 +351,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
         itemBuilder: (context, index) {
           // --- 改动 2: 使用 SelectableText 使日志可以被复制 ---
           return Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
             child: SelectableText(_logs[index]),
           );
         },

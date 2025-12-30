@@ -125,7 +125,7 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
           onPressed: () => Navigator.of(context).pop(),
           child: Text(AppLocalizations.of(context).cancel),
         ),
-        if (!_isLoading && _schema.isNotEmpty)
+        if (!_isLoading)
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {

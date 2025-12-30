@@ -22,10 +22,12 @@ class BottomNavigation extends StatelessWidget {
       currentIndex: currentIndex,
       onTap: onTap,
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
       selectedItemColor: const Color(0xFFFF9800),
-      unselectedItemColor: Colors.grey,
-      items:  [
+      unselectedItemColor:
+          Theme.of(context).brightness == Brightness.dark
+              ? Colors.grey[400]
+              : Colors.grey,
+      items: [
         BottomNavigationBarItem(
           icon: const Icon(Icons.home),
           label: AppLocalizations.of(context)!.homeTab,
@@ -52,7 +54,8 @@ class BottomNavigation extends StatelessWidget {
 }
 
 // START: 修改这里
-class BottomNavigationHandler { // <-- 从 AppRouter 重命名为 BottomNavigationHandler
+class BottomNavigationHandler {
+  // <-- 从 AppRouter 重命名为 BottomNavigationHandler
   static void handleNavigation(BuildContext context, int index) {
     switch (index) {
       case 0:
