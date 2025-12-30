@@ -32,15 +32,33 @@ class InlineAdaptiveBannerAdWidget extends ConsumerStatefulWidget {
 
 class _InlineAdaptiveBannerAdWidgetState
     extends ConsumerState<InlineAdaptiveBannerAdWidget> {
-  
+  // 【新增】: 内部持有一个“实例级”的 AdInfo 副本。
+  // 由于 AdInfo 默认使用引用相等性 (没有重写 ==)，每次 new AdInfo() 都会产生一个唯一的 key。
+  // 这回迫使 Riverpod 为每个 Widget 实例创建一个独立的 Provider 状态，
+  // 从而使得每个卡片位置都拥有自己独立的 BannerAd 对象，彻底解决 "Already in Widget tree" 冲突。
+  late final AdInfo _scopedAdInfo;
+
   @override
   void initState() {
     super.initState();
+
+    // 1. 克隆配置，生成唯一 Key
+    _scopedAdInfo = AdInfo(
+      adUnitId: widget.adInfo.adUnitId,
+      type: widget.adInfo.type,
+      size: widget.adInfo.size,
+    );
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
-        // 【核心修正】: 调用 loadAd 时，将 widget.width 传递过去。
-        ref.read(adCacheProvider(widget.adInfo).notifier)
-           .loadAd(context, AdaptiveBannerType.inline, explicitWidth: widget.width);
+        // 2. 使用唯一的 _scopedAdInfo 加载广告
+        ref
+            .read(adCacheProvider(_scopedAdInfo).notifier)
+            .loadAd(
+              context,
+              AdaptiveBannerType.inline,
+              explicitWidth: widget.width,
+            );
       }
     });
   }
@@ -52,9 +70,12 @@ class _InlineAdaptiveBannerAdWidgetState
       return const SizedBox.shrink();
     }
 
-    final adState = ref.watch(adCacheProvider(widget.adInfo));
+    // 3. 使用唯一的 _scopedAdInfo 监听状态
+    final adState = ref.watch(adCacheProvider(_scopedAdInfo));
 
-    if (adState.isLoaded && adState.bannerAd != null && adState.adSize != null) {
+    if (adState.isLoaded &&
+        adState.bannerAd != null &&
+        adState.adSize != null) {
       return Container(
         // 最终的容器尺寸由广告平台返回的真实尺寸决定，这是正确的做法。
         width: adState.adSize!.width.toDouble(),
