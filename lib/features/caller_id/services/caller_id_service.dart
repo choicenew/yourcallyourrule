@@ -257,9 +257,6 @@ class CallerIdService {
       );
     }
 
-    // 异步处理所有插件的完整数据（包括发布到数据流）
-    unawaited(_processAllPluginData(allResultsFuture));
-
     // 7. 查询远程号码数据
     final remoteNumberEntry = await _remoteNumberService
         .getRemoteNumberByPhoneNumber(vo.PhoneNumber.fromString(e164Number));
@@ -345,11 +342,32 @@ class CallerIdService {
     );
 
     // 10. 发布初始数据到数据流
-    // 注意：插件数据会在 _processAllPluginData 方法中处理和发布
     _callerIdSubject.add(callerIdData);
 
-    // 注意：标签更新逻辑已移至 _processAllPluginData 方法中
-    // 在那里会使用完整的插件数据进行处理，避免重复处理
+    // 计算优先级标志
+    final bool hasHighPriorityName =
+        localContact != null ||
+        finalContact != null ||
+        phoneRule?.name != null ||
+        remoteNumberEntry?.name != null;
+
+    final bool hasHighPriorityAction =
+        phoneRule?.action != null || remoteNumberEntry?.action != null;
+
+    final bool hasHighPriorityAvatar =
+        finalContact?.avatar != null || phoneRule?.avatar != null;
+
+    // 异步处理所有插件的完整数据（包括发布到数据流）
+    unawaited(
+      _processAllPluginData(
+        allResultsFuture,
+        callerIdData,
+        hasHighPriorityName: hasHighPriorityName,
+        hasHighPriorityAction: hasHighPriorityAction,
+        hasHighPriorityAvatar: hasHighPriorityAvatar,
+      ),
+    );
+
     // 原有逻辑：
     // if (labelEntry == null && phoneRule?.labelId == null) {
     //   if (pluginSourceData?.predefinedLabel != null) {
@@ -376,7 +394,11 @@ class CallerIdService {
   /// 同时处理标签更新逻辑
   Future<void> _processAllPluginData(
     Future<List<Map<String, dynamic>>> allResultsFuture,
-  ) async {
+    CallerIdData initialData, {
+    bool hasHighPriorityName = false,
+    bool hasHighPriorityAction = false,
+    bool hasHighPriorityAvatar = false,
+  }) async {
     try {
       // 等待所有结果完成
       final allResults = await allResultsFuture;
@@ -387,6 +409,65 @@ class CallerIdService {
 
       // 转换为PluginData实体并发布到数据流
       final completePluginData = PluginSourceData.fromMap(mergedData);
+
+      // --- 新增：更新 CallerIdData 并再次发射 ---
+      // 根据优先级逻辑，决定是否覆盖字段
+      final String? newName =
+          hasHighPriorityName
+              ? initialData.name
+              : (completePluginData.name ?? initialData.name);
+
+      final RuleAction newAction =
+          hasHighPriorityAction
+              ? initialData.action
+              : (completePluginData.action ?? initialData.action);
+
+      final String? newAvatar =
+          hasHighPriorityAvatar
+              ? initialData.avatar
+              : (completePluginData.avatar ?? initialData.avatar);
+
+      final int newCount = completePluginData.count ?? 0;
+
+      // 如果数据有变化，则发射更新
+      if (newName != initialData.name ||
+          newAction != initialData.action ||
+          newAvatar != initialData.avatar ||
+          newCount != initialData.count) {
+        // 尝试获取新的标签文本
+        String labelText = 'Unknown';
+        if (initialData.labels?.isNotEmpty == true) {
+          labelText = initialData.labels!.first.label;
+        }
+
+        // 如果初始标签为 Unknown，且插件有预定义标签，则尝试使用插件标签
+        if ((labelText == 'Unknown' || labelText.isEmpty) &&
+            completePluginData.predefinedLabel != null) {
+          labelText = completePluginData.predefinedLabel!;
+        }
+
+        final List<Label> newLabels = [
+          Label(label: labelText, color: null, icon: null),
+        ];
+
+        final updatedCallerIdData = CallerIdData(
+          id: initialData.id,
+          phoneNumber: initialData.phoneNumber,
+          numberType: initialData.numberType,
+          name: newName,
+          countryName: initialData.countryName,
+          region: initialData.region,
+          carrier: initialData.carrier,
+          labels: newLabels,
+          avatar: newAvatar,
+          count: newCount,
+          action: newAction,
+        );
+
+        debugPrint('[CallerIdService] Emitting UPDATED CallerIdData.');
+        _callerIdSubject.add(updatedCallerIdData);
+      }
+      // ----------------------------------------
 
       // 检查是否已经发布过相同的数据，避免重复发布
       if (_pluginDataSubject.hasValue &&
@@ -466,6 +547,8 @@ class CallerIdService {
   /// 合并多个插件结果
   Map<String, dynamic> _mergePluginResults(List<Map<String, dynamic>> results) {
     if (results.isEmpty) return {};
+    debugPrint('[CallerIdService] Merging results: $results'); // DEBUG LOG
+
     if (results.length == 1) return results.first;
 
     // 创建合并结果

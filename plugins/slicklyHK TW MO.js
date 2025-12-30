@@ -401,7 +401,9 @@
              // Construct Slick.ly search URL based on country code
              const baseUrl = `https://slick.ly/${countryCode.toLowerCase()}/`;
              const targetSearchUrl = `${baseUrl}${encodeURIComponent(phoneNumber)}`;
-             const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' }; // Using a common user agent
+             const config = window.plugin[PLUGIN_CONFIG.id].config || {};
+             const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
+             const headers = { 'User-Agent': userAgent }; // Using configurable user agent
              const proxyUrl = `${PROXY_SCHEME}://${PROXY_HOST}${PROXY_PATH_FETCH}?targetUrl=${encodeURIComponent(targetSearchUrl)}&headers=${encodeURIComponent(JSON.stringify(headers))}`;
              log(`Iframe proxy URL: ${proxyUrl}`);
 

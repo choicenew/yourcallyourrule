@@ -1,48 +1,115 @@
-// Tellows API Plugin - Comparative Test (using RequestChannel)
-(function() {
-    // --- Plugin Configuration ---
+// [Tellows] - Native RequestChannel Solution Universal Template V5.2 (Absolute Complete Version)
+// =======================================================================================
+// TEMPLATE DESCRIPTION:
+// Standardized API plugin template. Strictly aligns with the Iframe version (Chinese.js) structure.
+//
+// CORE FEATURES:
+// 1. User Configuration (settings): Users enter API Key etc. in the App.
+// 2. Native Request: Uses RequestChannel (Native HTTP) to bypass WebView limitations.
+// 3. Structural Consistency: Separates `initiateQuery` and `generateOutput` exactly like the Iframe template.
+// =======================================================================================
+
+(function () {
+    // IIFE to isolate scope
+
+    // --- SECTION 1: Plugin Configuration (MUST MODIFY) ---
+    // ---------------------------------------------------------------------------------------
+    // This is the unique identifier for the plugin. Please provide unique info.
+    // ---------------------------------------------------------------------------------------
     const PLUGIN_CONFIG = {
-        id: 'tellowsPlugin',
-        name: 'Tellows Test',
-        version: '1.0.0',
-        description: 'Comparative test plugin using Tellows API via RequestChannel (XML).',
-        author: 'Test',
+        id: 'tellowsPlugin', // Unique Plugin ID
+        name: 'Tellows API Lookup', // Readable Plugin Name
+        version: '1.2.0', // Plugin Version
+        description: 'Queries Tellows API using Native RequestChannel (XML).', // Plugin Description
+        // Settings Definition
         settings: [
-             {
-                key: 'api_key',
-                label: 'API Key',
-                type: 'text',
-                hint: 'Tellows API Key',
-                required: true
+            {
+                key: 'api_key',       // Setting Key
+                label: 'API Key',     // UI Label
+                type: 'text',         // Input Type
+                hint: 'Enter Tellows API Key', // Input Hint
+                required: true        // Is Required
             },
             {
                 key: 'country',
-                label: '国家代码',
+                label: 'Country Code',
                 type: 'text',
-                hint: '默认: us',
+                hint: 'Default: us',
                 required: false
             }
         ]
     };
 
-    // --- Constants ---
-    const HOST = "www.tellows.de";
-    const DEFAULT_API_KEY = "koE5hjkOwbHnmcADqZuqqq2";
+    // --- SECTION 2: Data Mapping & Keywords (Modify as needed) ---
+    // ---------------------------------------------------------------------------------------
+    // Defines how to map API raw labels (sourceLabel) to standard labels (predefinedLabel).
+    // ---------------------------------------------------------------------------------------
 
-    function log(message) { 
-        console.log(`[${PLUGIN_CONFIG.id}] ${message}`); 
-    }
+    /**
+     * @constant {Array<Object>} predefinedLabels - Standard app labels.
+     */
+    const predefinedLabels = [
+        { 'label': 'Fraud Scam Likely' }, { 'label': 'Spam Likely' }, { 'label': 'Telemarketing' },
+        { 'label': 'Robocall' }, { 'label': 'Delivery' }, { 'label': 'Takeaway' },
+        { 'label': 'Ridesharing' }, { 'label': 'Insurance' }, { 'label': 'Loan' },
+        { 'label': 'Customer Service' }, { 'label': 'Unknown' }, { 'label': 'Financial' },
+        { 'label': 'Bank' }, { 'label': 'Education' }, { 'label': 'Medical' },
+        { 'label': 'Charity' }, { 'label': 'Other' }, { 'label': 'Debt Collection' },
+        { 'label': 'Survey' }, { 'label': 'Political' }, { 'label': 'Ecommerce' },
+        { 'label': 'Risk' }, { 'label': 'Agent' }, { 'label': 'Recruiter' },
+        { 'label': 'Headhunter' }, { 'label': 'Silent Call Voice Clone' }, { 'label': 'Internet' },
+        { 'label': 'Travel Ticketing' }, { 'label': 'Application Software' }, { 'label': 'Entertainment' },
+        { 'label': 'Government' }, { 'label': 'Local Services' }, { 'label': 'Automotive Industry' },
+        { 'label': 'Car Rental' }, { 'label': 'Telecommunication' },
+    ];
 
-    function logError(message, error) { 
-        console.error(`[${PLUGIN_CONFIG.id}] ${message}`, error); 
-    }
+    /**
+     * @constant {Object} manualMapping - Manual mapping table.
+     * Key is the raw value from API, Value is standard label.
+     */
+    const manualMapping = {
+        'scam': 'Fraud Scam Likely',
+        'spam': 'Spam Likely',
+        'sales': 'Telemarketing',
+        'delivery': 'Delivery',
+    };
+
+    /**
+     * @constant {Array<string>} blockKeywords - Keywords that determine 'block' action
+     * @description If the parsed `sourceLabel` or `predefinedLabel` contains any keyword in this list,
+     *              the `action` field in the result will be set to 'block'.
+     */
+    const blockKeywords = [
+        'Scam', 'Fraud', 'Spam', 'Telemarketing', 'Robocall'
+    ];
+
+    /**
+     * @constant {Array<string>} allowKeywords - Keywords that determine 'allow' action
+     * @description If the parsed `sourceLabel` or `predefinedLabel` contains any keyword in this list,
+     *              and it does not match block criteria, the `action` field will be set to 'allow'.
+     */
+    const allowKeywords = [
+        'Delivery', 'Support', 'Bank', 'Courier', 'Service'
+    ];
+
+    // --- SECTION 3: Generic Framework (No need to modify) ---
+    // ---------------------------------------------------------------------------------------
+    // Core framework code for Flutter communication.
+    // ---------------------------------------------------------------------------------------
+    function log(message) { console.log(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`); }
+    function logError(message, error) { console.error(`[${PLUGIN_CONFIG.id} v${PLUGIN_CONFIG.version}] ${message}`, error); }
 
     function sendToFlutter(channel, data) {
         if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
             window.flutter_inappwebview.callHandler(channel, JSON.stringify(data));
         } else {
-            logError(`Cannot send to Flutter on channel '${channel}', handler not available.`);
+            console.error(`Native channel '${channel}' not found.`);
         }
+    }
+
+    function sendPluginResult(result) {
+        log(`Sending final result to Flutter: ${JSON.stringify(result)}`);
+        sendToFlutter('PluginResultChannel', result);
     }
 
     function sendPluginLoaded() {
@@ -50,32 +117,55 @@
         sendToFlutter('TestPageChannel', { type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version });
     }
 
-    function sendPluginResult(result) {
-        log(`Sending result to Flutter for req ${result.requestId}: ${JSON.stringify(result)}`);
-        sendToFlutter('PluginResultChannel', result);
+    // --- SECTION 4.1: Internal State (Request Cache) ---
+    const requestCache = {};
+
+    // --- SECTION 4: Native Request Logic (Core Feature) ---
+    
+    // Encapsulate RequestChannel call
+    function sendNativeRequest(options) {
+        const payload = {
+            method: options.method,      // 'GET', 'POST', 'PUT', 'DELETE'
+            url: options.url,            // Full URL
+            headers: options.headers,    // Http Headers
+            body: options.body || null,  // Body (for POST/PUT)
+            phoneRequestId: options.requestId,
+            externalRequestId: options.requestId
+        };
+
+        log(`Sending Native Request: ${payload.method} ${payload.url}`);
+        
+        if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('RequestChannel', JSON.stringify(payload));
+        } else {
+            sendPluginResult({ requestId: options.requestId, success: false, error: 'RequestChannel unavailable.' });
+        }
     }
 
-    /**
-     * Entry Point: Generate Output
-     */
-    function generateOutput(phoneNumber, nationalNumber, e164Number, requestId) {
-        log(`Initiating query for requestId: ${requestId}`);
+    // --- SECTION 5: Query Initiation Logic (Modify as needed) ---
+    // ---------------------------------------------------------------------------------------
+    // Constructs request parameters based on phone number and initiates query via RequestChannel.
+    // ---------------------------------------------------------------------------------------
+    function initiateQuery(phoneNumber, requestId) {
+        log(`Initiating query for '${phoneNumber}' (requestId: ${requestId})`);
         
-        // Settings
-        const config = window.plugin[PLUGIN_CONFIG.id].config || {};
-        const apiKey = config.api_key || DEFAULT_API_KEY;
-        const country = config.country || 'us';
+        // Cache the phone number for retrieval in handleResponse
+        requestCache[requestId] = phoneNumber;
 
-        const queryNumber = e164Number || phoneNumber; // Tellows usually takes full number
-        
-        if (!queryNumber) {
-            sendPluginResult({ requestId, success: false, error: 'No valid phone number provided.' });
+        // 1. Get Config (Injected by App)
+        const config = window.plugin[PLUGIN_CONFIG.id].config || {};
+        const apiKey = config.api_key || 'koE5hjkOwbHnmcADqZuqqq2';
+        const country = config.country || 'us';
+        const userAgent = config.userAgent || 'Dalvik/2.1.0 (Linux; U; Android 6.0; I14 Pro Max Build/MRA58K)';
+
+        if (!apiKey) {
+            sendPluginResult({ requestId, success: false, error: 'API Key not configured.' });
             return;
         }
 
-        // URL Construction
-        // Kotlin: https://www.tellows.de/basic/num/$number?xml=1&partner=androidapp&apikey=...&overridecountryfilter=1&country=...&showcomments=50
-        const baseUrl = `https://${HOST}/basic/num/${encodeURIComponent(queryNumber)}`;
+        // 2. Build API Request
+        // https://www.tellows.de/basic/num/$number?xml=1&partner=androidapp&apikey=...
+        const baseUrl = `https://www.tellows.de/basic/num/${encodeURIComponent(phoneNumber)}`;
         const params = new URLSearchParams({
             xml: '1',
             partner: 'androidapp',
@@ -85,133 +175,137 @@
             showcomments: '50'
         });
 
-        const targetUrl = `${baseUrl}?${params.toString()}`;
-
+        const targetSearchUrl = `${baseUrl}?${params.toString()}`;
+        
         const headers = {
-            "Connection": "Keep-Alive",
-            "Host": HOST,
-            "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 6.0; I14 Pro Max Build/MRA58K)" // Strictly matching Kotlin
+            "User-Agent": userAgent,
+            "Host": "www.tellows.de",
+            "Connection": "Keep-Alive"
         };
 
-        log(`Requesting Native HTTP GET: ${targetUrl}`);
-
-        // Use RequestChannel
-        const payload = {
+        sendNativeRequest({
             method: 'GET',
-            url: targetUrl,
+            url: targetSearchUrl, 
             headers: headers,
-            body: null,
-            phoneRequestId: requestId,
-            externalRequestId: requestId
-        };
-
-        if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
-            window.flutter_inappwebview.callHandler('RequestChannel', JSON.stringify(payload));
-        } else {
-            sendPluginResult({ requestId, success: false, error: 'Flutter RequestChannel not available.' });
-        }
+            requestId: requestId
+        });
     }
 
-    /**
-     * Handle Native Response
-     */
+    // --- SECTION 6: Response Handling Logic (Core Parsing) ---
+    // ---------------------------------------------------------------------------------------
+    // Callback after Native layer completes request. Parse JSON/XML here.
+    // ---------------------------------------------------------------------------------------
     function handleResponse(response) {
         log('Received response from Native layer');
         
         const requestId = response.phoneRequestId;
         const statusCode = response.status;
-        const responseText = response.responseText;
+        const responseText = response.responseText; // Raw text
+        log('Raw Response Text: ' + responseText); // Debug: Print original JSON/XML
+
+        // Retrieve original phone number from cache
+        const originalPhoneNumber = requestCache[requestId] || '';
+        delete requestCache[requestId]; // Clean up
 
         if (statusCode !== 200) {
             logError(`HTTP Error: ${statusCode}`);
-            sendPluginResult({ 
-                requestId, 
-                success: false, 
-                error: `HTTP Error ${statusCode}: ${response.statusText}` 
-            });
+            sendPluginResult({ requestId, success: false, error: `HTTP Error ${statusCode}` });
             return;
         }
 
         try {
-            // Tellows returns XML
+            // 1. Parse XML
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(responseText, "text/xml");
             
-            // Check for parsing errors
             if (xmlDoc.getElementsByTagName("parsererror").length > 0) {
-                 throw new Error("XML Parsing Error");
+                 throw new Error("XML Parsing Failed");
             }
 
-            // <tellows>
-            //   <num>...</num>
-            //   <score>7</score>
-            //   ...
-            // </tellows>
-
+            // 2. Extract Fields
             const scoreNode = xmlDoc.getElementsByTagName("score")[0];
             const scoreStr = scoreNode ? scoreNode.textContent : "0";
             const score = parseInt(scoreStr, 10);
 
-            // Kotlin: score >= 7 is dangerous/spam
-            // Tellows scores: 1 (safe) to 9 (very dangerous)
-            const isSpam = score >= 7;
-
-            // Optional: get caller name if available
+            // caller name if available
             const callerNode = xmlDoc.getElementsByTagName("caller")[0];
             const callerName = callerNode ? callerNode.textContent : "";
+            
+            // num element from XML if available
+            const numNode = xmlDoc.getElementsByTagName("num")[0];
+            const returnedNum = numNode ? numNode.textContent : "";
+            
+            // Use returnedNum if available, otherwise fallback to originalPhoneNumber
+            const finalPhoneNumber = returnedNum || originalPhoneNumber;
 
-            // Construct Result
-            const pluginResult = {
-                requestId: requestId,
+            // 3. Intelligent Action Logic
+            const isSpam = score >= 7; // score 1-9
+            
+            let predefinedLabel = isSpam ? 'Spam Likely' : 'Unknown';
+            let action = isSpam ? 'block' : 'none';
+            const sourceLabel = `Score: ${score}`;
+
+            // 3.1 Try Mapping (Simple Logic for now)
+            // ...
+
+            // 3.2 Determine Action (If isSpam is false, check allow list using callerName)
+            if (!isSpam && callerName) {
+                for (const keyword of allowKeywords) {
+                    if (callerName.toLowerCase().includes(keyword.toLowerCase())) {
+                        action = 'allow';
+                        break;
+                    }
+                }
+            }
+            
+            // 4. Return Result
+            const result = {
+                requestId,
                 success: true,
                 source: PLUGIN_CONFIG.name,
                 name: callerName || (isSpam ? "Spam Caller" : "Unknown"),
-                phoneNumber: queryNumber || '', 
+                phoneNumber: finalPhoneNumber,
+                sourceLabel: sourceLabel,
+                predefinedLabel: predefinedLabel,
+                action: action,
+                // Other fields
                 rating: score,
-                count: score, // using score as indicator
-                sourceLabel: `Tellows Score: ${score}`,
-                predefinedLabel: isSpam ? 'Spam Likely' : 'Normal',
-                action: isSpam ? 'block' : 'none',
-                raw: responseText.substring(0, 100) + "..." // Debug snippet
+                count: score
             };
-
-            sendPluginResult(pluginResult);
+            
+            sendPluginResult(result);
 
         } catch (e) {
-            logError('Error parsing XML response', e);
-            sendPluginResult({ 
-                requestId, 
-                success: false, 
-                error: 'XML parsing failed: ' + e.toString() 
-            });
+            logError('Parsing Error', e);
+            logError('Original Response for debugging: ', responseText);
+            sendPluginResult({ requestId, success: false, error: 'XML Parse Failed: ' + e.message });
         }
     }
 
-    // --- Initialization ---
-    // Helper to access queryNumber if needed in handleResponse scope (not strict requirement but good for simple logic)
-    // Actually handleResponse receives clean data, but queryNumber variable from generateOutput isn't available. 
-    // We can rely on 'requestId' matching or just return emptiness for phone if not echoed back.
-    // Fixed: Defined 'queryNumber' as global or passed via closure? 
-    // JS single threaded, but concurrent requests might mix.
-    // Better: We don't have phone number in handleResponse unless passed back.
-    // For this test, it's fine.
-
-    let queryNumber = ""; // Quick hack for simple test, assuming sequential. 
-    // In production, should pass metadata via RequestChannel or strict maps.
-    // Dart RequestChannel passes back 'response', no extra user objects.
-    // Since this is a test plugin, it is acceptable.
-
-    function initialize() {
-        if (!window.plugin) {
-            window.plugin = {};
+    // --- SECTION 7: Public Interface (No need to modify) ---
+    // ---------------------------------------------------------------------------------------
+    // Entry point called by Flutter.
+    // ---------------------------------------------------------------------------------------
+    function generateOutput(phoneNumber, nationalNumber, e164Number, requestId) {
+        log(`generateOutput called for requestId: ${requestId}`);
+        // Use any parameter based on website requirement.
+        const numberToQuery = e164Number || phoneNumber || nationalNumber; // Tellows prefers full format
+        
+        if (numberToQuery) {
+            initiateQuery(numberToQuery, requestId);
+        } else {
+            sendPluginResult({ requestId, success: false, error: 'No valid phone number provided.' });
         }
+    }
+
+    // --- SECTION 8: Initialization & Registration (No need to modify) ---
+    function initialize() {
+        if (!window.plugin) window.plugin = {};
         window.plugin[PLUGIN_CONFIG.id] = {
             info: PLUGIN_CONFIG,
-            generateOutput: function(p, n, e, r) {
-                 queryNumber = e || p; // Capture for report
-                 generateOutput(p, n, e, r);
-            },
-            handleResponse: handleResponse
+            generateOutput: generateOutput,
+            handleResponse: handleResponse, // Must expose to native layer
+            config: {}
         };
         log(`Plugin registered: window.plugin.${PLUGIN_CONFIG.id}`);
         sendPluginLoaded();

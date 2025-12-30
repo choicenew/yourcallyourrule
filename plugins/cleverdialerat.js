@@ -416,7 +416,9 @@
       try {
           // Updated target URL for cleverdialer.at
           const targetSearchUrl = `https://www.cleverdialer.at/telefonnummer/${phoneNumber}`;
-          const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' };
+          const config = window.plugin[PLUGIN_CONFIG.id].config || {};
+          const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
+          const headers = { 'User-Agent': userAgent };
           const proxyUrl = `${PROXY_SCHEME}://${PROXY_HOST}${PROXY_PATH_FETCH}?targetUrl=${encodeURIComponent(targetSearchUrl)}&headers=${encodeURIComponent(JSON.stringify(headers))}`;
           log(`Iframe proxy URL: ${proxyUrl}`);
 

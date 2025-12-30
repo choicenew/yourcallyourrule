@@ -147,7 +147,9 @@
          try {
              // usphonebook.com search URL structure
              const targetSearchUrl = `https://www.usphonebook.com/${encodeURIComponent(phoneNumber)}`;
-             const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' }; // Using a common user agent
+             const config = window.plugin[PLUGIN_CONFIG.id].config || {};
+             const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
+             const headers = { 'User-Agent': userAgent };
              const proxyUrl = `${PROXY_SCHEME}://${PROXY_HOST}${PROXY_PATH_FETCH}?targetUrl=${encodeURIComponent(targetSearchUrl)}&headers=${encodeURIComponent(JSON.stringify(headers))}`;
              log(`Iframe proxy URL: ${proxyUrl}`);
 
