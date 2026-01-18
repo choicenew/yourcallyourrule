@@ -49,4 +49,16 @@ final List<Map<String, dynamic>> languages = [
     {'name': 'isiZulu', 'code': const Locale('zu', 'ZA')},      // 祖鲁语: 南非第一大母语 (约24%人口). [1, 2] 在夸祖鲁-纳塔尔省和豪登省（经济中心）有绝对优势.
   {'name': 'isiXhosa', 'code': const Locale('xh', 'ZA')},     // 科萨语: 第二大母语 (约16%人口). [1, 2] 在东开普省和西开普省有大量使用者.
   {'name': 'Afrikaans', 'code': const Locale('af', 'ZA')},    // 南非荷兰语: 第三大母语 (约11%人口). [1, 2] 在西开普省和北开普省占主导，跨种族使用，购买力强.
+
+  // -- 新增：根据 .arb 文件补充 --
+  {'name': 'አማርኛ', 'code': const Locale('am')},            // 阿姆哈拉语 (对应 app_am.arb)
+  {'name': 'Eesti', 'code': const Locale('et')},             // 爱沙尼亚语 (对应 app_et.arb)
+  {'name': 'ខ្មែរ', 'code': const Locale('km', 'KH')},        // 高棉语 (对应 app_km.arb)
+  {'name': 'Slovenčina', 'code': const Locale('sk', 'SK')},   // 斯洛伐克语 (对应 app_sk.arb)
+  {'name': 'Oʻzbekcha', 'code': const Locale('uz')},   
+  // --- 第二优先级：深入关键区域市场 ---
+  {'name': 'Basa Jawa', 'code': const Locale('jv', 'ID')},     // 爪哇语: 印度尼西亚最大的民族语言，母语使用者超过8000万，比印尼语还多。能让你更贴近印尼本地用户。
+  {'name': 'Yorùbá', 'code': const Locale('yo', 'NG')},         // 约鲁巴语: 尼日利亚（非洲人口第一大国）三大主要语言之一，使用者超过5000万。
+  {'name': 'Magyar', 'code': const Locale('hu', 'HU')},         // 匈牙利语: 匈牙利的官方语言，是欧盟内一个重要的、拥有独特文化的市场。     // 乌兹别克语
+
 ];
