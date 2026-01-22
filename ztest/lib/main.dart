@@ -1,8 +1,9 @@
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+
 import 'core/js_execution_service.dart';
 import 'core/native_request_channel.dart';
-import 'package:dio/dio.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,7 @@ class _TestPageState extends State<TestPage> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _urlController = TextEditingController(
     text:
-        "https://github.com/haygcao/test/raw/refs/heads/main/slicklyHK%20TW%20MO%20html.js",
+        "https://raw.githubusercontent.com/haygcao/test/main/slicklyHK%20TW%20MO%20html.js",
   );
 
   @override

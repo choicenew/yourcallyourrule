@@ -1,64 +1,227 @@
-rforming hot restart...
+Performing hot reload...
 Syncing files to device sdk gphone64 x86 64...
-Restarted application in 6,845ms.
+Reloaded 1 of 1454 libraries in 1,389ms (compile: 30 ms, reload: 928 ms, reassemble: 166 ms).
 I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Plugin registered. Using Legacy Architecture V3 (Fire-and-Forget).
 I/flutter (20750): [Native] Injected config for slicklyTwHkPhoneNumberPlugin
-I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] generateOutput called for requestId: req_1769096225671
-I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Initiating Scout query for '0970569095' [tw] (requestId: req_1769096225671)
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] generateOutput called for requestId: req_1769098205100
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Initiating Scout query for '0970569095' [tw] (requestId: req_1769098205100)
 I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Fetching HTML from: https://slick.ly/tw/0970569095
 I/flutter (20750): 📡 NativeRequestChannel: Processing request for https://slick.ly/tw/0970569095 (Plugin: slicklyTwHkPhoneNumberPlugin)
 I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Legacy Request sent. Waiting for handleResponse...
 I/flutter (20750): 📡 NativeRequestChannel: Sending Request to https://slick.ly/tw/0970569095
-I/flutter (20750):    🔑 UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+I/flutter (20750):    🔑 UA: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36
 I/flutter (20750): ! NativeRequestChannel: Challenge Detected (DioExceptionType.badResponse/403). Retrying...
 I/flutter (20750): 🛡️ ShieldBypassService: Starting bypass for https://slick.ly/tw/0970569095
-I/flutter (20750): 🛡️ ShieldBypassService: Using UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+I/flutter (20750): 🛡️ ShieldBypassService: Using UA: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36
 D/InAppWebView(20750): Using InAppWebViewClientCompat implementation
 W/cr_WebSettings(20750): setForceDark() is a no-op in an app with targetSdkVersion>=T
 W/cr_SupportWebSettings(20750): setForceDarkBehavior() is a no-op in an app with targetSdkVersion>=T
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 10}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-arch: "", sec-ch-ua-mobile: ?1, sec-ch-ua-full-version-list: , Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7, Upgrade-Insecure-Requests: 1, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: true, url: https://slick.ly/tw/0970569095}, errorResponse: {headers: {date: Thu, 22 Jan 2026 15:37:08 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c202180ef367164-HKG, vary: Accept-Encoding, ori...
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 10}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-arch: "", sec-ch-ua-mobile: ?1, sec-ch-ua-full-version-list: , Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7, Upgrade-Insecure-Requests: 1, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: true, url: https://slick.ly/tw/0970569095}, errorResponse: {headers: {date: Thu, 22 Jan 2026 16:10:08 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c2051dd18286ceb-HKG, vary: Accept-Encoding, orig...
 I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
 I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
 I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
 I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
 I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onLoadStart" using {url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 20}
 I/flutter (20750): 🛡️ ShieldBypassService: Title changed: Just a moment...
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onLoadStart" using {url: https://slick.ly/tw/0970569095}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 20}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onTitleChanged" using {title: Just a moment...}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onPageCommitVisible" using {url: https://slick.ly/tw/0970569095}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 20}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 20}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095?__cf_chl_rt_tk=9MSToOPrKEtICbHHzAIGQh7MZnt8lR.Ksig9KlEcRR0-1769096228-1.0.1.1-XqKbBNHYzNEYF4Mo_o_fHe4NmTs85iftmuUdyBV1pKs}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onReceivedError" using {request: {headers: {Origin: https://slick.ly, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36, sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015}, error: {description: net::ERR_CONNECTION_REFUSED, type: -6}}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 80}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-arch: "", sec-ch-ua-full-version-list: , sec-ch-ua-mobile: ?1, Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36, Referer: https://slick.ly/tw/0970569095, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://slick.ly/favicon.ico}, errorResponse: {headers: {date: Thu, 22 Jan 2026 15:37:21 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c2021d36d117164-HKG, vary: Accept-Encoding, origin-agent-cluster: ?1, x-frame-options: SAMEORIGIN, content-e...
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 100}
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onTitleChanged" using {title: Just a moment...}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 21}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095?__cf_chl_rt_tk=vkkaUcKzwFArFrlWJjTIk9zrsWTMpWjw_HCPLhAXhkQ-1769098208-1.0.1.1-CQwcMMyM97uXKTqOTJRMevMLwGTuqMltgYsbII_Hd7Y}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onReceivedError" using {request: {headers: {Origin: https://slick.ly, User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015}, error: {description: net::ERR_CONNECTION_REFUSED, type: -6}}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onPageCommitVisible" using {url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 80}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-arch: "", sec-ch-ua-full-version-list: , sec-ch-ua-mobile: ?1, Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, Referer: https://slick.ly/tw/0970569095, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://slick.ly/favicon.ico}, errorResponse: {headers: {date: Thu, 22 Jan 2026 16:10:11 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c2051ed7a7e6ceb-HKG, vary: Accept-Encoding, origin-agent-cluster: ?1, x-frame-options: SAMEORIGIN, content-en...
+I/ample.ztest_poc(20750): Background concurrent mark compact GC freed 3036KB AllocSpace bytes, 63(1480KB) LOS objects, 49% free, 4557KB/9114KB, paused 1.350ms,8.640ms total 205.737ms
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onLoadStop" using {url: https://slick.ly/tw/0970569095}
 I/flutter (20750): 🛡️ ShieldBypassService: Page loaded: https://slick.ly/tw/0970569095
-[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onLoadStop" using {url: https://slick.ly/tw/0970569095}
-I/flutter (20750): 🛡️ ShieldBypassService: Cookies: 5, Clearance: true
 W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
 W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/flutter (20750): 🛡️ ShieldBypassService: Success. Got Content.
+I/flutter (20750): 🛡️ Bypass Check #0: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-arch: "", sec-ch-ua-full-version-list: , sec-ch-ua-mobile: ?1, Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, Referer: https://slick.ly/tw/0970569095, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://slick.ly/favicon.ico}, errorResponse: {headers: {date: Thu, 22 Jan 2026 16:10:11 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c2051ef8f8a6ceb-HKG, vary: Accept-Encoding, origin-agent-cluster: ?1, x-frame-options: SAMEORIGIN, content-en...
 W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
 W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/flutter (20750): 🛡️ Returning Proxy Content to JS (Len: 22181)
-I/flutter (20750): 🛡️ Native Content Preview: <html lang="en-US" dir="ltr"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica ...
+I/flutter (20750): 🛡️ Bypass Check #1: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #2: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #3: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #4: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #5: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+I/chromium(20750): [INFO:CONSOLE:1] "Failed to create WebGPU Context Provider", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: Failed to create WebGPU Context Provider}
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #6: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+I/chromium(20750): [INFO:CONSOLE:1] " Note that 'script-src' was not explicitly set, so 'default-src' is used as a fallback.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 3, message:  Note that 'script-src' was not explicitly set, so 'default-src' is used as a fallback.}
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/chromium(20750): [INFO:CONSOLE:1] "Request for the Private Access Token challenge.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "The next request for the Private Access Token challenge may return a 401 and show a warning in console.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: Request for the Private Access Token challenge.}
+I/flutter (20750): 🛡️ Bypass Check #7: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: The next request for the Private Access Token challenge may return a 401 and show a warning in console.}
+I/chromium(20750): [INFO:CONSOLE:1] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onReceivedHttpError" using {request: {headers: {User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, Referer: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto, sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/9c2051fbae10446c/1769098215796/fbde616ba79b613ce4f9882a0c7c43ae689fd4bf28b1f1c7e530b5e5f3db3ed5/j59errcRfJjq6BS}, errorResponse: {headers: {date: Thu, 22 Jan 2026 16:10:19 GMT, content-length: 1, server: cloudflare, cf-ray: 9c20521d1d81446c-LAX, www-authenticate: PrivateToken challenge="AAIAGXBhdC1...
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: console.groupEnd}
+I/chromium(20750): [INFO:CONSOLE:1] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 0, message: Error}
+I/chromium(20750): [INFO:CONSOLE:1] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: HpOG}
+I/chromium(20750): [INFO:CONSOLE:1] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: HpOG}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: zldW}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: zldW}
+I/chromium(20750): [INFO:CONSOLE:1] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "
+I/chromium(20750): [INFO:CONSOLE:1] "
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: [object HTMLAnchorElement]}
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: [object HTMLAnchorElement]}
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 0, message:  : 1}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 0, message:  : 1}
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+I/chromium(20750): [INFO:CONSOLE:1] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/obhks/0x4AAAAAAADnOjc0PNeA8qVm/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 0, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 0, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message:  rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message:  rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 3, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 3, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 2, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onConsoleMessage" using {messageLevel: 1, message: console.groupEnd}
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #8: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #9: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #10: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 10}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095?__cf_chl_tk=vkkaUcKzwFArFrlWJjTIk9zrsWTMpWjw_HCPLhAXhkQ-1769098208-1.0.1.1-CQwcMMyM97uXKTqOTJRMevMLwGTuqMltgYsbII_Hd7Y}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 10}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 10}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 10}
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #11: Challenge=true (SuccessMsg=true), Target=false, Title='Just a moment...'
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onLoadStart" using {url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 20}
+I/flutter (20750): 🛡️ ShieldBypassService: Title changed: 0970569095 / 0970-569-095 | Slickly - 台灣 (+886)
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onTitleChanged" using {title: 0970569095 / 0970-569-095 | Slickly - 台灣 (+886)}
+[AndroidInAppWebViewController] (android) WebView ID 12306171917950198789313513613424823011779 calling "onProgressChanged" using {progress: 21}
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Bypass Check #12: Challenge=false (SuccessMsg=false), Target=false, Title='0970569095 / 0970-569-095 | Slickly - 台灣 (+886)'
+I/flutter (20750): 🛡️ ShieldBypassService: Success. Challenge cleared.
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Returning Proxy Content to JS (Len: 17883)
+I/flutter (20750): 🛡️ Native Content Preview: <html lang="zh-TW"><head>
+I/flutter (20750):     		<!-- Slickly Page Level -->
+I/flutter (20750): <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+I/flutter (20750): <script>
+I/flutter (20750): (adsbygoogle = window.adsbygoogle || []).push({
+I/flutter (20750):   google_ad_client: "ca-pub-1048159442139674",
+I/flutter (20750):   enable_page_level_ads: false
+I/flutter (20750): });
+I/flutter (20750): </script>
+I/flutter (20750):     <title>0970569095 / 0970-569-095 | Slickly - 台灣 (+886)</title>
+I/flutter (20750): 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+I/flutter (20750): <script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam...
 I/flutter (20750): 📄 [NATIVE HTML DUMP START] --------------------------------
-I/flutter (20750): <html lang="en-US" dir="ltr"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3d
+I/flutter (20750): <html lang="zh-TW"><head>
+I/flutter (20750):     		<!-- Slickly Page Level -->
+I/flutter (20750): <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+I/flutter (20750): <script>
+I/flutter (20750): (adsbygoogle = window.adsbygoogle || []).push({
+I/flutter (20750):   google_ad_client: "ca-pub-1048159442139674",
+I/flutter (20750):   enable_page_level_ads: false
+I/flutter (20750): });
+I/flutter (20750): </script>
+I/flutter (20750):     <title>0970569095 / 0970-569-095 | Slickly - 台灣 (+886)</title>
+I/flutter (20750): 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+I/flutter (20750): <script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"f20a22d7dc","applicationID":"520954883","transactionName":"c19dQBRdCVkEFBpBX19eVkdJQQ1aFg==","queueTime":1,"applicationTime":134,"agent":""}</script>
+I/flutter (20750): <script>(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]},feature_flags:["soft_nav"]};(window.NREUM||(NREUM={})).loader_config={licenseKey:"f20a22d7dc",applicationID:"520954883",browserID:"594570006"};;/*! For license information please see nr-loader-rum-1.308.0.min.js.LICENSE.txt */
+I/flutter (20750): (()=>{var e,t,r={163:(e,t,r)=>{"use strict";r.d(t,{j:()=>E});var n=r(384),i=r(1741);var a=r(2555);r(860).K7.genericEvents;const s="experimental.resources",o="register",c=e=>{if(!e||"string"!=typeof e)return!1;try{document.createDocumentFragment().querySelector(e)}catch{return!1}return!0};var d=r(2614),u=r(944),l=r(8122);const f="[data-nr-mask]",g=e=>(0,l.a)(e,(()=>{const e={feature_flags:[],experimental:{allow_registered_children:!1,resources:!1},mask_selector:"*",block_selector:"[data-nr-block]",mask_input_options:{color:!1,date:!1,"datetime-local":!1,email:!1,month:!1,number:!1,range:!1,search:!1,tel:!1,text:!1,time:!1,url:!1,week:!1,textarea:!1,select:!1,password:!0}};return{ajax:{deny_list:void 0,block_internal:!0,enabled:!0,autoStart:!0},api:{get allow_registered_children(){return e.feature_flags.includes(o)||e.experimental.allow_registered_children},set allow_registered_children(t){e.experimental.allow_registered_children=t},duplicate_registered_data:!1},browser_consent_mode:{enabled:!1},distributed_tr
 I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] handleResponse called.
 I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] handleResponse: Received Direct Object.
 I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Parsed: Summary=[], Keywords=[], Count=[0]
-I/flutter (20750): <div class="footer" role="contentinfo"><div class="footer-inner"><div class="clearfix diagnostic-wrapper"><div class="ray-id">Ray ID: <code>9c202180ef367164</code></div></div><div class="text-center" id="footer-text">Performance &amp; security by <a rel="noopener noreferrer" href="https://www.cloudflare.com?utm_source=challenge&amp;utm_campaign=j" target="_blank">Cloudflare</a></div></div></div></body></html>
+W/cr_AwContents(20750): Application attempted to call on a destroyed WebView
+W/cr_AwContents(20750): java.lang.Throwable
+W/cr_AwContents(20750): 	at org.chromium.android_webview.AwContents.q(chromium-SystemWebViewGoogle6432.aab-stable-749911608:10)
+W/cr_AwContents(20750): 	at WV.pm.loadingStateChanged(chromium-SystemWebViewGoogle6432.aab-stable-749911608:6)
+W/cr_AwContents(20750): 	at android.os.MessageQueue.nativePollOnce(Native Method)
+W/cr_AwContents(20750): 	at android.os.MessageQueue.nextLegacy(MessageQueue.java:913)
+W/cr_AwContents(20750): 	at android.os.MessageQueue.next(MessageQueue.java:1025)
+W/cr_AwContents(20750): 	at android.os.Looper.loopOnce(Looper.java:196)
+W/cr_AwContents(20750): 	at android.os.Looper.loop(Looper.java:338)
+W/cr_AwContents(20750): 	at android.app.ActivityThread.main(ActivityThread.java:9067)
+W/cr_AwContents(20750): 	at java.lang.reflect.Method.invoke(Native Method)
+W/cr_AwContents(20750): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:593)
+W/cr_AwContents(20750): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:932)
 I/flutter (20750): 📄 [NATIVE HTML DUMP END] ----------------------------------
-I/flutter (20750): 📦 Sending Native Response to JS (Len: 22506) via Direct Injection...
-I/flutter (20750): Sending Native Response to JS: window.plugin['slicklyTwHkPhoneNumberPlugin'].handleResponse({"success":true,"status":200,"responseText":"<html lang=\"en-US\" dir=\"ltr\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weigh
+I/flutter (20750): 📦 Sending Native Response to JS (Len: 18422) via Direct Injection...
+I/flutter (20750): Sending Native Response to JS: window.plugin['slicklyTwHkPhoneNumberPlugin'].handleResponse({"success":true,"status":200,"responseText":"<html lang=\"zh-TW\"><head>\n    \t\t<!-- Slickly Page Level -->\n<script async=\"\" src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>\n<script>\n(adsbygoogle = window.adsbygoogle || []).push({\n  google_ad_client: \"ca-pub-1048159442139674\",\n  enable_page_level_ads: false\n});\n</script>\n    <title>0970569095 / 0970-569-095 | Slickly - 台灣 (+886)</title>\n\t\t<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">\n<script>window.NREUM||(NREUM={});NREUM.info={\"beacon\":\"bam.nr-data.net\",\"errorBeacon\":\"bam.nr-data.net\",\"licenseKey\":\"f20a22d7dc\",\"applicationID\":\"520954883\",\"transactionName\":\"c19dQBRdCVkEFBpBX19eVkdJQQ1aFg==\",\"queueTime\":1,\"applicationTime\":134,\"agent\":\"\"}</script>\n<script>(window.NREUM||(NREUM={})).init={ajax:{deny_list:[\"bam.nr-data.net\"]},feature_flags:[\"soft_nav\"]};(windo

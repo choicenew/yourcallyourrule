@@ -55,36 +55,71 @@ class ShieldBypassService {
   ) async {
     if (url == null) return;
 
-    final cookieManager = CookieManager.instance();
-    final cookies = await cookieManager.getCookies(url: url);
-    final hasClearance = cookies.any((c) => c.name == 'cf_clearance');
+    // Polling Loop (Max 20 seconds)
+    // We wait for the interstitial to clear and the real content to load.
+    int attempts = 0;
+    const maxAttempts = 20;
 
-    debugPrint(
-      "🛡️ ShieldBypassService: Cookies: ${cookies.length}, Clearance: $hasClearance",
-    );
+    while (attempts < maxAttempts) {
+      if (_resultCompleter.isCompleted) return;
 
-    // If we have clearance or at least some validation that we are IN
-    // For now, any load that isn't a 403 error page (which WebView handles internally often)
-    // We can also check title != "Just a moment..."
-
-    if (cookies.isNotEmpty) {
-      final cookieString = cookies
-          .map((c) => "${c.name}=${c.value}")
-          .join("; ");
       final html = await controller.getHtml();
+      final title = await controller.getTitle();
 
-      // Basic check: if HTML contains "Challenge Validation" maybe we wait?
-      // But assuming onLoadStop happens after redirect...
-
-      if (!_resultCompleter.isCompleted) {
-        debugPrint("🛡️ ShieldBypassService: Success. Got Content.");
-        _resultCompleter.complete({
-          'cookies': cookieString,
-          'content': html,
-          'userAgent': await controller.getSettings().then((s) => s?.userAgent),
-        });
-        _cleanup();
+      if (html == null) {
+        await Future.delayed(const Duration(seconds: 1));
+        attempts++;
+        continue;
       }
+
+      // 1. Detection: Are we still in the Cloudflare Interstitial?
+      bool isChallenge =
+          html.contains('id="challenge-error-text"') ||
+          html.contains('challenge-platform') ||
+          (title != null && title.contains('Just a moment'));
+
+      // [Optimization] If we see "Verification successful", we are winning!
+      // Cloudflare should redirect soon. We assume it is still a challenge until redirect.
+      bool isSuccessMsg = html.contains('Verification successful');
+
+      // 2. Detection: Did we load the target content?
+      // "summary-result" is the class used by slick.ly for the result tag.
+      bool isTargetLoaded =
+          html.contains('summary-result') ||
+          html.contains('slick.ly') && !isChallenge;
+
+      debugPrint(
+        "🛡️ Bypass Check #$attempts: Challenge=$isChallenge (SuccessMsg=$isSuccessMsg), Target=$isTargetLoaded, Title='$title'",
+      );
+
+      if (isTargetLoaded || !isChallenge) {
+        if (!isChallenge) {
+          final cookieManager = CookieManager.instance();
+          final cookies = await cookieManager.getCookies(url: url);
+
+          // Only return success if cookies are present (or content is clearly good)
+          if (cookies.isNotEmpty && !_resultCompleter.isCompleted) {
+            final cookieString = cookies
+                .map((c) => "${c.name}=${c.value}")
+                .join("; ");
+
+            debugPrint("🛡️ ShieldBypassService: Success. Challenge cleared.");
+            _resultCompleter.complete({
+              'cookies': cookieString,
+              'content': html,
+              'userAgent': await controller.getSettings().then(
+                (s) => s?.userAgent,
+              ),
+            });
+            _cleanup();
+            return;
+          }
+        }
+      }
+
+      // Wait and Retry
+      await Future.delayed(const Duration(seconds: 1));
+      attempts++;
     }
   }
 
