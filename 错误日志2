@@ -1,0 +1,64 @@
+rforming hot restart...
+Syncing files to device sdk gphone64 x86 64...
+Restarted application in 6,845ms.
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Plugin registered. Using Legacy Architecture V3 (Fire-and-Forget).
+I/flutter (20750): [Native] Injected config for slicklyTwHkPhoneNumberPlugin
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] generateOutput called for requestId: req_1769096225671
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Initiating Scout query for '0970569095' [tw] (requestId: req_1769096225671)
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Fetching HTML from: https://slick.ly/tw/0970569095
+I/flutter (20750): 📡 NativeRequestChannel: Processing request for https://slick.ly/tw/0970569095 (Plugin: slicklyTwHkPhoneNumberPlugin)
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Legacy Request sent. Waiting for handleResponse...
+I/flutter (20750): 📡 NativeRequestChannel: Sending Request to https://slick.ly/tw/0970569095
+I/flutter (20750):    🔑 UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+I/flutter (20750): ! NativeRequestChannel: Challenge Detected (DioExceptionType.badResponse/403). Retrying...
+I/flutter (20750): 🛡️ ShieldBypassService: Starting bypass for https://slick.ly/tw/0970569095
+I/flutter (20750): 🛡️ ShieldBypassService: Using UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+D/InAppWebView(20750): Using InAppWebViewClientCompat implementation
+W/cr_WebSettings(20750): setForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): setForceDarkBehavior() is a no-op in an app with targetSdkVersion>=T
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 10}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-arch: "", sec-ch-ua-mobile: ?1, sec-ch-ua-full-version-list: , Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7, Upgrade-Insecure-Requests: 1, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: true, url: https://slick.ly/tw/0970569095}, errorResponse: {headers: {date: Thu, 22 Jan 2026 15:37:08 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c202180ef367164-HKG, vary: Accept-Encoding, ori...
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
+I/chromium(20750): [INFO:CONSOLE:0] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
+I/flutter (20750): 🛡️ ShieldBypassService: Title changed: Just a moment...
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onLoadStart" using {url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 20}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onTitleChanged" using {title: Just a moment...}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onPageCommitVisible" using {url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 20}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 20}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095?__cf_chl_rt_tk=9MSToOPrKEtICbHHzAIGQh7MZnt8lR.Ksig9KlEcRR0-1769096228-1.0.1.1-XqKbBNHYzNEYF4Mo_o_fHe4NmTs85iftmuUdyBV1pKs}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onReceivedError" using {request: {headers: {Origin: https://slick.ly, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36, sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015}, error: {description: net::ERR_CONNECTION_REFUSED, type: -6}}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 80}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/tw/0970569095}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-arch: "", sec-ch-ua-full-version-list: , sec-ch-ua-mobile: ?1, Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36, Referer: https://slick.ly/tw/0970569095, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://slick.ly/favicon.ico}, errorResponse: {headers: {date: Thu, 22 Jan 2026 15:37:21 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c2021d36d117164-HKG, vary: Accept-Encoding, origin-agent-cluster: ?1, x-frame-options: SAMEORIGIN, content-e...
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onProgressChanged" using {progress: 100}
+I/flutter (20750): 🛡️ ShieldBypassService: Page loaded: https://slick.ly/tw/0970569095
+[AndroidInAppWebViewController] (android) WebView ID 131232329012866186314813511483182184235229 calling "onLoadStop" using {url: https://slick.ly/tw/0970569095}
+I/flutter (20750): 🛡️ ShieldBypassService: Cookies: 5, Clearance: true
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ ShieldBypassService: Success. Got Content.
+W/cr_WebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(20750): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/flutter (20750): 🛡️ Returning Proxy Content to JS (Len: 22181)
+I/flutter (20750): 🛡️ Native Content Preview: <html lang="en-US" dir="ltr"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica ...
+I/flutter (20750): 📄 [NATIVE HTML DUMP START] --------------------------------
+I/flutter (20750): <html lang="en-US" dir="ltr"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3d
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] handleResponse called.
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] handleResponse: Received Direct Object.
+I/flutter (20750): [slicklyTwHkPhoneNumberPlugin] Parsed: Summary=[], Keywords=[], Count=[0]
+I/flutter (20750): <div class="footer" role="contentinfo"><div class="footer-inner"><div class="clearfix diagnostic-wrapper"><div class="ray-id">Ray ID: <code>9c202180ef367164</code></div></div><div class="text-center" id="footer-text">Performance &amp; security by <a rel="noopener noreferrer" href="https://www.cloudflare.com?utm_source=challenge&amp;utm_campaign=j" target="_blank">Cloudflare</a></div></div></div></body></html>
+I/flutter (20750): 📄 [NATIVE HTML DUMP END] ----------------------------------
+I/flutter (20750): 📦 Sending Native Response to JS (Len: 22506) via Direct Injection...
+I/flutter (20750): Sending Native Response to JS: window.plugin['slicklyTwHkPhoneNumberPlugin'].handleResponse({"success":true,"status":200,"responseText":"<html lang=\"en-US\" dir=\"ltr\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weigh
