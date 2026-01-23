@@ -12,7 +12,7 @@
     const PLUGIN_CONFIG = {
         id: 'slicklyTwHkPhoneNumberPlugin', // 保持 ID 一致以兼容现有配置
         name: 'Slick.ly TW/HK/MO Lookup (Scout Regex)',
-        version: '3.0.0', // V3: Legacy Architecture (Fire-and-Forget) 
+        version: '4.1.0', // V3: Legacy Architecture (Fire-and-Forget) 
         description: 'Modern Scout-based plugin for Slick.ly. Supports automatic shield handling and fast regex parsing.',
         config: {
             // [Generic Shield Logic] Tell Native what to wait for.
@@ -40,17 +40,21 @@
     const manualMapping = {
         '危險': 'Risk', '安全': 'Other', '詐騙': 'Fraud Scam Likely', '騙局': 'Fraud Scam Likely',
         '垃圾郵件': 'Spam Likely', '騷扰': 'Spam Likely', '騷擾': 'Spam Likely', '電話行銷': 'Telemarketing',
-        '自動拨號': 'Robocall', '自动拨号': 'Robocall', '送貨': 'Delivery', '外卖': 'Takeaway',
+        '自动拨号': 'Robocall', '送貨': 'Delivery', '外卖': 'Takeaway',
         '外賣': 'Takeaway', '保險': 'Insurance', '貸款': 'Loan', '金融': 'Financial',
-        '銀行': 'Bank', '補習': 'Education', '滋擾': 'Spam Likely'
+        '銀行': 'Bank', '補習': 'Education', '滋擾': 'Spam Likely', '補習班': 'Education',
+        '假扮': 'Fraud Scam Likely', '掛斷': 'Other', '無聲': 'Silent Call Voice Clone',
+        '理財': 'Financial', '融資': 'Loan', '賣飞骗子': 'Fraud Scam Likely', '騙錢勿上當': 'Fraud Scam Likely',
+        '上當': 'Fraud Scam Likely', '活性': 'Other', '待用': 'Other', '可疑': 'Spam Likely'
     };
 
     const blockKeywords = [
-        '推銷', '廣告', '違规', '詐騙', '騙子', '滋擾', '騷擾', '危險', '风险', 'Risk', 'Scam'
+        '推銷', '廣告', '違规', '詐騙', '騙子', '滋擾', '騷擾', '危險', '风险', 'Risk', 'Scam', 
+        '假扮', '賣飞', '上當', '騙钱', '贷款', '融資'
     ];
 
     const allowKeywords = [
-        '外賣', '送貨', '快遞', '叫車', '安全', 'Safe'
+        '外賣', '送貨', '快遞', '叫車', '安全', 'Safe', '快件'
     ];
 
     // --- 区域 3: 辅助工具函数 ---
@@ -60,6 +64,8 @@
     function sendPluginResult(result) {
         if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
             window.flutter_inappwebview.callHandler('PluginResultChannel', JSON.stringify(result));
+        } else if (typeof sendMessage === 'function') {
+            sendMessage('PluginResultChannel', JSON.stringify(result));
         }
     }
 
@@ -74,6 +80,11 @@
         log(`Initiating Scout query for '${phoneNumber}' [${countryCode}] (requestId: ${requestId})`);
 
         const formattedNumber = phoneNumber.replace(/[^0-9]/g, '');
+        
+        // [Fix] Store number in a global map to keep it in scope for processResponse
+        if (!globalThis._active_phone_numbers) globalThis._active_phone_numbers = {};
+        globalThis._active_phone_numbers[requestId] = formattedNumber;
+        
         const targetSearchUrl = `https://slick.ly/${countryCode}/${formattedNumber}`;
         
         const config = window.plugin[PLUGIN_CONFIG.id].config || {};
@@ -157,28 +168,31 @@
     }
 
     // [New] Independent Parsing Function
-    // Extracts data using robust Regex to simulate DOM selection
+    // Ported from Legacy logic with Regex improvements
     function parseHTML(html) {
         const result = {
             summaryLabel: '',
             keywordsText: '',
             count: 0,
-            commentsText: ''
+            commentsText: '',
+            negVotes: 0,
+            posVotes: 0
         };
 
         if (!html) return result;
 
-        // 1. Extract Summary
-        // Matches <span class="summary-result ...">Text</span>
-        // Handles multiple classes like "summary-result suspicious"
+        // 1. Extract Summary (Multiple class variants)
         const summaryRegex = /<span class=["']summary-result[^"']*["']>([^<]+)<\/span>/i;
         const summaryMatch = html.match(summaryRegex);
         if (summaryMatch) {
             result.summaryLabel = summaryMatch[1].trim();
+        } else {
+            const fallbackSummaryRegex = /摘要:\s*\s*<span[^>]*>([^<]+)<\/span>/i;
+            const fallbackMatch = html.match(fallbackSummaryRegex);
+            if (fallbackMatch) result.summaryLabel = fallbackMatch[1].trim();
         }
 
         // 2. Extract Keywords
-        // Matches <div class="keywords">...<span>Text</span>...</div>
         const keywordsRegex = /<div class=["']keywords["']>[\s\S]*?<span>([^<]+)<\/span>/i;
         const keywordsMatch = html.match(keywordsRegex);
         if (keywordsMatch) {
@@ -186,15 +200,21 @@
         }
 
         // 3. Extract Count
-        // Matches "註釋 (123)"
         const countRegex = /註釋\s*\((\d+)\)/i;
         const countMatch = html.match(countRegex);
         if (countMatch) {
             result.count = parseInt(countMatch[1], 10);
         }
 
-        // 4. Extract Comments (Crucial for context)
-        // Matches <div class="content"><p>...</p></div> patterns
+        // 4. Extract Votes (Legacy logic)
+        const negRegex = /<span class=["']negative-count["']>\s*(\d+)\s*<\/span>/i;
+        const posRegex = /<span class=["']positive-count["']>\s*(\d+)\s*<\/span>/i;
+        const negMatch = html.match(negRegex);
+        const posMatch = html.match(posRegex);
+        if (negMatch) result.negVotes = parseInt(negMatch[1], 10);
+        if (posMatch) result.posVotes = parseInt(posMatch[1], 10);
+
+        // 5. Extract Comments (Crucial for context)
         const commentContentRegex = /<div class=["']content["']>\s*<p>([\s\S]*?)<\/p>/gi;
         let commentMatch;
         let commentsList = [];
@@ -209,7 +229,6 @@
     }
 
     function processResponse(requestId, response) {
-            // NativeRequestChannel returns { success: bool, status: int, responseText: string, ... }
             if (!response || response.status !== 200) {
                 var err = response ? response.error || response.status : 'Unknown Native Error';
                 logError(`HTTP Error: ${err}`);
@@ -222,27 +241,25 @@
             // --- Call Independent Parser ---
             const parsed = parseHTML(html);
 
-            log(`Parsed: Summary=[${parsed.summaryLabel}], Keywords=[${parsed.keywordsText}], Count=[${parsed.count}], CommentsFound=[${parsed.commentsText.length > 0}]`);
+            log(`Parsed: Summary=[${parsed.summaryLabel}], Keywords=[${parsed.keywordsText}], Count=[${parsed.count}], Votes=[-:${parsed.negVotes}, +:${parsed.posVotes}]`);
 
-            // --- 智能分类决策 ---
+            // --- 智能分类决策 (Ported Priority from Legacy) ---
             let sourceLabel = parsed.keywordsText || parsed.summaryLabel || '';
             let predefinedLabel = 'Unknown';
             let action = 'none';
 
-            // 映射逻辑 - Expanded to include comments text for better accuracy
-            // Prioritize: Keywords > Summary > Comments
+            // 1. Mapping Priority: Legacy Matcher Logic
             const mappingSourceString = `${parsed.keywordsText} ${parsed.summaryLabel} ${parsed.commentsText}`;
-            const mappingSource = mappingSourceString.split(/[,，\s]+/).filter(x => x);
-
-            for (let part of mappingSource) {
-                if (manualMapping[part]) {
-                    predefinedLabel = manualMapping[part];
+            
+            // Ported legacy matching logic: check each key in manualMapping against the text
+            for (let key in manualMapping) {
+                if (mappingSourceString.includes(key)) {
+                    predefinedLabel = manualMapping[key];
                     break;
                 }
             }
 
-            // 行为判断
-            // Check against all extracted text
+            // 2. Action Priority: Keywords in Label > Summary Text > Votes
             const checkStr = (sourceLabel + " " + predefinedLabel + " " + mappingSourceString).toLowerCase();
             
             if (blockKeywords.some(k => checkStr.includes(k.toLowerCase()))) {
@@ -251,12 +268,34 @@
                 action = 'allow';
             }
 
+            // 3. Falling back to Summary Label Specifics
+            if (action === 'none') {
+                 if (['危險', '可疑'].includes(parsed.summaryLabel)) {
+                     action = 'block';
+                 } else if (parsed.summaryLabel === '安全') {
+                     action = 'allow';
+                 }
+            }
+
+            // 4. Final Fallback: Votes
+            if (action === 'none' && (parsed.negVotes > 0 || parsed.posVotes > 0)) {
+                if (parsed.negVotes > parsed.posVotes) {
+                    action = 'block';
+                } else if (parsed.posVotes > parsed.negVotes) {
+                    action = 'allow';
+                }
+            }
+
+            // Retrieve phone number from global map
+            const phoneNumber = globalThis._active_phone_numbers ? globalThis._active_phone_numbers[requestId] : 'unknown';
+            if (globalThis._active_phone_numbers) delete globalThis._active_phone_numbers[requestId];
+
             // 返回最终结果
             const resultPayload = {
                 requestId,
-                success: (parsed.summaryLabel || parsed.keywordsText || parsed.count > 0 || parsed.commentsText.length > 0),
+                success: !!(parsed.summaryLabel || parsed.keywordsText || parsed.count > 0 || parsed.commentsText.length > 0 || parsed.negVotes > 0 || parsed.posVotes > 0),
                 source: PLUGIN_CONFIG.name,
-                phoneNumber: formattedNumber,
+                phoneNumber: phoneNumber,
                 sourceLabel: sourceLabel || 'No specific label found',
                 predefinedLabel: predefinedLabel,
                 action: action,
@@ -269,6 +308,7 @@
 
             sendPluginResult(resultPayload);
     }
+
 
     // --- 区域 6: 插件入口 ---
     function generateOutput(phoneNumber, nationalNumber, e164Number, requestId) {
