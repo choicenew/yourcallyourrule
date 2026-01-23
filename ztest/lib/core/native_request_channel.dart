@@ -169,9 +169,19 @@ class NativeRequestChannel {
 
         // Invoke Shield Bypass (Proxy Mode)
         final bypassService = ShieldBypassService();
+        final successMarker =
+            originalRequest['successMarker']; // Extract Marker
+
+        if (successMarker != null) {
+          debugPrint(
+            "🛡️ Using Plugin-Defined Success Marker: '$successMarker'",
+          );
+        }
+
         final bypassResult = await bypassService.bypass(
           url,
           userAgent: userAgent,
+          successMarker: successMarker, // Pass to Service
         );
 
         if (bypassResult != null && bypassResult['content'] != null) {
