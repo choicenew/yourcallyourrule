@@ -100,7 +100,7 @@ class ShieldBypassService {
           html.contains('challenge-platform') ||
           (title != null && title.contains('Just a moment')) ||
           html.contains('cf-turnstile') ||
-          html.contains('Verifying you are human'); // New indicator
+          html.contains('Verifying you are human');
 
       // [Plugin Success Strategy]
       bool isPluginSuccess = false;
@@ -166,21 +166,9 @@ class ShieldBypassService {
       await controller.evaluateJavascript(
         source: """
         (function() {
-            // [Inspection] DUMP IFRAME INFO
-            var iframes = document.getElementsByTagName('iframe');
-            console.log("🛡️ JS INSPECT: Found " + iframes.length + " iframes.");
-            for(var i=0; i<iframes.length; i++) {
-               // Try to log src if possible (CORS might block)
-               try { console.log("🛡️ JS INSPECT: Frame["+i+"] src=" + iframes[i].src); } catch(e) {}
-            }
-
             function clickElement(el, reason) {
                 if (!el) return;
-                // Visibility check (Reference: MangaSourceAntiCrawler)
-                if (el.offsetParent === null) {
-                   console.log("🛡️ JS: Skipped Hidden Element: " + reason);
-                   return;
-                }
+                if (el.offsetParent === null) return;
                 
                 console.log("🛡️ JS ACTION: Clicking " + reason);
                 el.click();
@@ -205,22 +193,12 @@ class ShieldBypassService {
             }
 
             // Strategy 3: Center Click (The "Dumb but Effective" Fallback)
-            // Reference: MangaSourceAntiCrawler.ets
-            // Often the challenge is a modal in the center of the screen
             var centerX = window.innerWidth / 2;
             var centerY = window.innerHeight / 2;
             var centerEl = document.elementFromPoint(centerX, centerY);
             
-            if (centerEl) {
-                // Ensure it's not just the body/html
-                if (centerEl.tagName !== 'BODY' && centerEl.tagName !== 'HTML') {
-                    // console.log("🛡️ JS ACTION: Center Click on " + centerEl.tagName + "." + centerEl.className);
-                    // centerEl.click(); 
-                    // Note: enabling center click can be risky if ads are present, 
-                    // but for Cloudflare pages it's usually safe. 
-                    // Uncommenting to enable "Nuclear Option":
-                    clickElement(centerEl, "Center Screen Element");
-                }
+            if (centerEl && centerEl.tagName !== 'BODY' && centerEl.tagName !== 'HTML') {
+                clickElement(centerEl, "Center Screen Element");
             }
 
         })();

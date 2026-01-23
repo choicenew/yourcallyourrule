@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -33,6 +34,7 @@ class _TestPageState extends State<TestPage> {
   // JsExecutionService will be re-initialized in initState to accept callback
   late JsExecutionService _jsService;
   NativeRequestChannel? _requestChannel;
+  Map<String, dynamic>? _result; // Store the latest result
 
   final List<String> _logs = [];
   final ScrollController _scrollController = ScrollController();
@@ -67,6 +69,10 @@ class _TestPageState extends State<TestPage> {
     _log("Initializing JS Service...");
     await _jsService.init();
 
+    // REGISTER PLUGIN RESULT LISTENER
+    // This listens for 'PluginResultChannel' calls from JS
+    // (Note: registerHandler is now used below)
+
     String userAgent = await InAppWebViewController.getDefaultUserAgent();
     _log("System User Agent: $userAgent");
 
@@ -76,6 +82,50 @@ class _TestPageState extends State<TestPage> {
       onLog: _log, // Pass log callback
     );
     _requestChannel?.register();
+
+    // Register Result Channel on the JS Service (which hopefully handles the webview registration)
+    // If JsExecutionService doesn't have `registerHandler`, I'll need to add it.
+    _jsService.registerHandler('PluginResultChannel', (args) {
+      _log("🎯 Received Result: $args");
+      if (args.isNotEmpty) {
+        try {
+          // quick and dirty parsing for POC if header import is missing
+          // but `dart:convert` is core. I'll add the import in the next step.
+          // For now just storing to state to trigger rebuild
+          setState(() {
+            // Assuming args[0] is the JSON string
+            // We will parse it in the next step when we add imports.
+            // For now, let's just create a dummy map to prove UI works if string matches
+            final str = args[0].toString();
+            try {
+              // Try JSON decode first if valid JSON string
+              final parsed = jsonDecode(str);
+              _result = parsed;
+            } catch (_) {
+              // Fallback to manual string check if decode fails (though new plugin sends pure JSON)
+              if (str.contains('block')) {
+                _result = {
+                  'action': 'block',
+                  'predefinedLabel': 'Fraud',
+                  'sourceLabel': 'Test Fallback',
+                  'count': 1,
+                };
+              } else {
+                _result = {
+                  'action': 'allow',
+                  'predefinedLabel': 'Safe',
+                  'sourceLabel': 'Test Fallback',
+                  'count': 0,
+                };
+              }
+            }
+          });
+        } catch (e) {
+          _log("Error: $e");
+        }
+      }
+      return {"status": "ok"};
+    });
 
     _log("Services Ready.");
   }
@@ -149,7 +199,7 @@ class _TestPageState extends State<TestPage> {
     // We assume the plugin is now registered in 'window.plugin'
     try {
       await _jsService.injectConfig(pluginId, {
-        // 'userAgent': _requestChannel!.defaultUserAgent, // REMOVED: Respect Plugin's internal default (Windows)
+        // 'userAgent': _requestChannel!.defaultUserAgent,
       });
       _log("Injected Config for $pluginId");
 
@@ -190,6 +240,72 @@ class _TestPageState extends State<TestPage> {
                 ),
               ),
             ),
+
+            // Result Display Area
+            // Result Display Area
+            if (_result != null)
+              Builder(
+                builder: (context) {
+                  final bool isSuccess = _result!['success'] == true;
+                  final bool isBlock = _result!['action'] == 'block';
+                  final String errorMsg = _result!['error'] ?? 'Unknown Error';
+
+                  if (!isSuccess) {
+                    // ERROR CARD
+                    return Container(
+                      margin: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(12.0),
+                      decoration: BoxDecoration(
+                        color: Colors.orange[100],
+                        border: Border.all(color: Colors.orange),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Column(
+                        children: [
+                          const Text(
+                            "⚠️ EXECUTION FAILED",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.deepOrange,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text("Error: $errorMsg", textAlign: TextAlign.center),
+                        ],
+                      ),
+                    );
+                  }
+
+                  // SUCCESS CARD
+                  return Container(
+                    margin: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(12.0),
+                    decoration: BoxDecoration(
+                      color: isBlock ? Colors.red[100] : Colors.green[100],
+                      border: Border.all(
+                        color: isBlock ? Colors.red : Colors.green,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Action: ${_result!['action']?.toUpperCase()}",
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text("Label: ${_result!['predefinedLabel'] ?? 'N/A'}"),
+                        Text("Source: ${_result!['sourceLabel'] ?? 'N/A'}"),
+                        Text("Count: ${_result!['count'] ?? 0}"),
+                      ],
+                    ),
+                  );
+                },
+              ),
 
             // Console Output
             Expanded(
