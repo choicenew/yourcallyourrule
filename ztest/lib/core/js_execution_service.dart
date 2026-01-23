@@ -44,6 +44,11 @@ class JsExecutionService {
       final msg = "⚡ JS PluginResult: $args";
       debugPrint(msg);
       onLog?.call(msg);
+
+      // Dispatch to external handler if registered
+      if (_handlers.containsKey('PluginResultChannel')) {
+        _handlers['PluginResultChannel']?.call(args);
+      }
     });
 
     _runtime.onMessage('TestPageChannel', (dynamic args) {
@@ -68,6 +73,14 @@ class JsExecutionService {
   Future<void> sendNativeResponse(String script) async {
     debugPrint("Sending Native Response to JS: $script");
     await _runtime.evaluate(script);
+  }
+
+  // DYNAMIC HANDLERS MAP
+  final Map<String, Function(dynamic)> _handlers = {};
+
+  /// Registers a handler for a specific channel
+  void registerHandler(String channelName, Function(dynamic) handler) {
+    _handlers[channelName] = handler;
   }
 
   /// Injects configuration into the plugin (e.g. User-Agent)
