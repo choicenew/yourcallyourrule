@@ -13,7 +13,12 @@
         id: 'slicklyTwHkPhoneNumberPlugin', // 保持 ID 一致以兼容现有配置
         name: 'Slick.ly TW/HK/MO Lookup (Scout Regex)',
         version: '3.0.0', // V3: Legacy Architecture (Fire-and-Forget) 
-        description: 'Modern Scout-based plugin for Slick.ly. Supports automatic shield handling and fast regex parsing.'
+        description: 'Modern Scout-based plugin for Slick.ly. Supports automatic shield handling and fast regex parsing.',
+        config: {
+            // [Generic Shield Logic] Tell Native what to wait for.
+            // If this string appears in HTML, the page is considered "Bypassed & Loaded".
+            successMarker: "summary-result", 
+        }
     };
 
     // --- 区域 2: 标签映射与关键字 (完全迁移自旧版) ---
@@ -76,6 +81,9 @@
         // This solves the "Windows vs Android" fingerprint mismatch.
         const userAgent = config.userAgent || 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36';
         const headers = { 'User-Agent': userAgent };
+        
+        // [Generic Shield Logic] Extract marker from config
+        const successMarker = config.successMarker || PLUGIN_CONFIG.config.successMarker;
 
         try {
             log(`Fetching HTML from: ${targetSearchUrl}`);
@@ -87,7 +95,8 @@
                 method: 'GET',
                 headers: headers,
                 pluginId: PLUGIN_CONFIG.id,
-                phoneRequestId: requestId
+                phoneRequestId: requestId,
+                successMarker: successMarker // <--- PASS TO NATIVE
             }));
             
             log("Legacy Request sent. Waiting for handleResponse...");
