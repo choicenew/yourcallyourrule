@@ -76,10 +76,6 @@ class ShieldBypassService {
       final html = await controller.getHtml();
       final title = await controller.getTitle();
 
-      // [Validation Strategy] Check Cookies for 'cf_clearance' (Reference: CloudflareKiller.kt)
-      final cookies = await CookieManager.instance().getCookies(url: url);
-      bool hasClearance = cookies.any((c) => c.name == 'cf_clearance');
-
       if (html == null) {
         await Future.delayed(const Duration(seconds: 1));
         attempts++;
@@ -93,6 +89,10 @@ class ShieldBypassService {
           "🛡️ [HTML DUMP - Attempt $attempts]\n$html\n🛡️ [END DUMP]",
         );
       }
+
+      // [Validation Strategy] Check Cookies for 'cf_clearance' (Reference: CloudflareKiller.kt)
+      final cookies = await CookieManager.instance().getCookies(url: url);
+      bool hasClearance = cookies.any((c) => c.name == 'cf_clearance');
 
       // [Detection Strategy]
       bool isChallengePage =
@@ -130,7 +130,7 @@ class ShieldBypassService {
 
         String statusMsg = hasClearance
             ? "Shield Cleared. Waiting for Content..."
-            : "No Shield Detected. Waiting...";
+            : "No Shield Detected. Waiting for Content...";
 
         if (successMarker != null) {
           // Mode A: Waiting for specific marker
