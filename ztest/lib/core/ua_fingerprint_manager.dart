@@ -1,3 +1,12 @@
+/// [DEPRECATED] UAFingerprintManager
+///
+/// 此文件已废弃。原因：
+/// 1. NativeAdapter 已经确保底层 TLS 指纹的一致性
+/// 2. 手动硬编码的 Client Hints 在插件动态 UA 场景下会产生版本不匹配
+/// 3. Cloudflare 主要依赖 TLS 指纹和行为特征，不应手动添加可能矛盾的 Client Hints
+///
+/// 保留此文件仅供未来参考。
+///
 /// [UAFingerprintManager]
 ///
 /// Responsible for generating Client Hints based on User-Agent.
