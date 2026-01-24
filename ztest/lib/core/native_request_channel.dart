@@ -4,13 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:native_dio_adapter/native_dio_adapter.dart';
 import 'js_execution_service.dart';
 import 'shield_bypass_service.dart';
-import 'ua_fingerprint_manager.dart';
 
 class NativeRequestChannel {
   final JsExecutionService jsService;
   final Dio dio = Dio();
 
-  final String defaultUserAgent;
+  String defaultUserAgent;
 
   // Hard limit for retries to avoid recursion
   static const int MAX_RETRIES = 1;
@@ -113,8 +112,8 @@ class NativeRequestChannel {
         requestHeaders['User-Agent'] = userAgent;
       }
 
-      final clientHints = UAFingerprintManager().generateClientHints(userAgent);
-      requestHeaders.addAll(clientHints);
+      // NativeAdapter handles TLS fingerprint natively - no need for manual Client Hints
+      // Manual Client Hints with hardcoded values can cause version mismatch with dynamic UA
 
       final options = Options(
         headers: requestHeaders,

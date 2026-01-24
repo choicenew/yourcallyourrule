@@ -41,8 +41,13 @@ class _TestPageState extends State<TestPage> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _urlController = TextEditingController(
     text:
-        "https://raw.githubusercontent.com/haygcao/test/main/slicklyHK%20TW%20MO%20html.js",
+        "https://github.com/haygcao/test/raw/refs/heads/main/listaspam_html.js",
+    //"https://github.com/haygcao/test/raw/refs/heads/main/slicklyHK%20TW%20MO%20html.js",
   );
+  final TextEditingController _phoneController = TextEditingController(
+    text: "98888216",
+  );
+  final TextEditingController _uaController = TextEditingController();
 
   @override
   void initState() {
@@ -76,6 +81,9 @@ class _TestPageState extends State<TestPage> {
 
     String userAgent = await InAppWebViewController.getDefaultUserAgent();
     _log("System User Agent: $userAgent");
+    setState(() {
+      _uaController.text = userAgent;
+    });
 
     _requestChannel = NativeRequestChannel(
       _jsService,
@@ -153,6 +161,8 @@ class _TestPageState extends State<TestPage> {
     await _jsService.evaluate(script);
   }
 
+  String? _currentPluginId;
+
   Future<void> _loadRealPluginFromUrl() async {
     final url = _urlController.text.trim();
     if (url.isEmpty) {
@@ -162,9 +172,6 @@ class _TestPageState extends State<TestPage> {
 
     try {
       _log("Downloading plugin from: $url");
-      // Use the existing dio instance from NativeRequestChannel or create a new one.
-      // Since NativeRequestChannel owns Dio, we can create a simple temporary one or access it if we made it public.
-      // Let's create a temporary one for simplicity.
       final dio = Dio();
       final response = await dio.get(
         url,
@@ -176,9 +183,22 @@ class _TestPageState extends State<TestPage> {
         _log(
           "Plugin Downloaded (${scriptContent.length} bytes). Evaluating...",
         );
+
+        // --- 动态识别 ID 逻辑 ---
+        // 扫描脚本内容，寻找类似 id: 'xxx' 的模式
+        final idMatch =
+            RegExp(r"id:\s*[']([^']+)[']").firstMatch(scriptContent) ??
+            RegExp(r'id:\s*["]([^"]+)["]').firstMatch(scriptContent);
+
+        if (idMatch != null) {
+          _currentPluginId = idMatch.group(1);
+          _log("🔍 Detected Plugin ID: $_currentPluginId");
+        } else {
+          _log("⚠️ Could not detect Plugin ID from script. Falling back...");
+        }
+
         final result = await _jsService.evaluate(scriptContent);
         _log("Evaluated. Result: $result");
-        // Note: flutter_js evaluate returns string result of last expression
         _log("✅ Plugin Loaded Successfully!");
       } else {
         _log("❌ Failed to download plugin. Status: ${response.statusCode}");
@@ -194,15 +214,18 @@ class _TestPageState extends State<TestPage> {
     // 1. Always load the latest script from URL before running
     await _loadRealPluginFromUrl();
 
-    const pluginId = 'slicklyTwHkPhoneNumberPlugin';
+    final pluginId = _currentPluginId ?? 'slicklyTwHkPhoneNumberPlugin';
 
-    // 2. Inject Configuration (System UA)
+    // Update UA in NativeRequestChannel before running
+    _requestChannel?.defaultUserAgent = _uaController.text.trim();
+
+    // 2. Inject Configuration (Current UI UA)
     // We assume the plugin is now registered in 'window.plugin'
     try {
       await _jsService.injectConfig(pluginId, {
-        // 'userAgent': _requestChannel!.defaultUserAgent,
+        'userAgent': _uaController.text.trim(),
       });
-      _log("Injected Config for $pluginId");
+      _log("Injected Config (UA) for $pluginId");
 
       _log("Executing Plugin Task...");
       // 3. Call generateOutput
@@ -218,7 +241,9 @@ class _TestPageState extends State<TestPage> {
   @override
   void dispose() {
     _jsService.dispose();
-    _urlController.dispose(); // Dispose the controller
+    _urlController.dispose();
+    _phoneController.dispose();
+    _uaController.dispose();
     super.dispose();
   }
 
@@ -239,6 +264,48 @@ class _TestPageState extends State<TestPage> {
                   border: OutlineInputBorder(),
                   hintText: 'https://raw.githubusercontent.com/...',
                 ),
+              ),
+            ),
+
+            // Phone Input Area
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: _phoneController,
+                decoration: const InputDecoration(
+                  labelText: 'Phone Number',
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter phone number',
+                ),
+              ),
+            ),
+
+            // User-Agent Input Area
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _uaController,
+                      decoration: const InputDecoration(
+                        labelText: 'User-Agent Override',
+                        border: OutlineInputBorder(),
+                      ),
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.refresh),
+                    tooltip: 'Reset to native UA',
+                    onPressed: () async {
+                      String ua =
+                          await InAppWebViewController.getDefaultUserAgent();
+                      _uaController.text = ua;
+                      _log("🔄 UA reset to native: $ua");
+                    },
+                  ),
+                ],
               ),
             ),
 
@@ -336,9 +403,8 @@ class _TestPageState extends State<TestPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ElevatedButton(
-                        onPressed: () =>
-                            _runTest("98888216"), // Dummy Phone Number
-                        child: const Text('Test Phone (98888216)'),
+                        onPressed: () => _runTest(_phoneController.text.trim()),
+                        child: const Text('Test Phone'),
                       ),
                       ElevatedButton(
                         onPressed: () {
@@ -351,7 +417,7 @@ class _TestPageState extends State<TestPage> {
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    "Note: 'Test Phone' downloads the JS from the URL above and runs it against '66666666'.",
+                    "Note: 'Test Phone' downloads the JS from the URL above and dynamically identifies the plugin ID.",
                   ),
                 ],
               ),

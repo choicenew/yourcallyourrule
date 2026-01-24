@@ -1,58 +1,85 @@
 import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
+/// ShieldBypassService - Cloudflare Shield Bypass via HeadlessWebView
+///
+/// 重构策略：
+/// 1. 静默观察模式 (waitForNaturalBypass) - 纯粹轮询，不触碰DOM
+/// 2. 交互辅助模式 (attemptInteraction) - 仅在必要时尝试点击
+/// 3. 分离关注点，避免混合逻辑导致的触发红线
 class ShieldBypassService {
   HeadlessInAppWebView? _headlessWebView;
-
-  // 核心修正：不再是 final，确保每次 bypass 调用都有全新的 Completer
   Completer<Map<String, dynamic>?>? _resultCompleter;
 
-  /// Attempts to bypass Cloudflare shield for the given URL
+  /// 主入口：绕过 Cloudflare 盾
+  ///
+  /// [mode] - 绕过模式：
+  ///   - 'silent': 仅静默观察，完全不碰DOM
+  ///   - 'interactive': 尝试交互点击
+  ///   - 'auto': 先静默，失败后尝试交互（默认）
   Future<Map<String, dynamic>?> bypass(
     String url, {
     String? userAgent,
-    String? successMarker, // Plugin-Defined Success Marker
+    String? successMarker,
+    String mode = 'interactive', // 默认仅静默模式
   }) async {
-    debugPrint(
-      "🛡️ ShieldBypassService: [BACK-TO-BASICS] Starting Success-Proven Mode for $url",
-    );
+    debugPrint("🛡️ ShieldBypassService: Starting in [$mode] mode for $url");
 
-    // 0. 准备当前会话的 Completer
     _resultCompleter = Completer<Map<String, dynamic>?>();
 
-    // 1. Prepare UserAgent
     String finalUA =
         userAgent ?? await InAppWebViewController.getDefaultUserAgent();
-    debugPrint("🛡️ ShieldBypassService: Using UA: $finalUA");
 
-    // 2. Create Headless WebView (还原之前的极简配置)
     _headlessWebView = HeadlessInAppWebView(
       initialUrlRequest: URLRequest(url: WebUri(url)),
       initialSettings: InAppWebViewSettings(
-        useShouldInterceptRequest: false,
         userAgent: finalUA,
         javaScriptEnabled: true,
         domStorageEnabled: true,
+        databaseEnabled: true,
+        useHybridComposition: true,
       ),
       onLoadStop: (controller, url) async {
-        debugPrint("🛡️ ShieldBypassService: Page loaded: $url");
-        _checkChallengeStatus(controller, url, successMarker);
+        debugPrint("🛡️ Page loaded: $url");
+        if (successMarker != null) {
+          // 根据模式选择策略
+          switch (mode) {
+            case 'silent':
+              await _waitForNaturalBypass(controller, url, successMarker);
+              break;
+            case 'interactive':
+              await _attemptInteraction(controller, url, successMarker);
+              break;
+            case 'auto':
+              // 先尝试静默，超时后再尝试交互
+              final silentSuccess = await _waitForNaturalBypass(
+                controller,
+                url,
+                successMarker,
+                maxWaitSeconds: 15,
+              );
+              if (!silentSuccess) {
+                debugPrint("🛡️ Silent mode failed, attempting interaction...");
+                await _attemptInteraction(controller, url, successMarker);
+              }
+              break;
+          }
+        }
       },
       onConsoleMessage: (controller, consoleMessage) {
         if (consoleMessage.message.contains("🛡️")) {
-          debugPrint("${consoleMessage.message}");
+          debugPrint("[JS] ${consoleMessage.message}");
         }
       },
     );
 
-    // 3. Run WebView
     await _headlessWebView?.run();
 
-    // 4. Set a global timeout (保持之前的 60s)
-    Timer(const Duration(seconds: 60), () {
+    Timer(const Duration(seconds: 120), () {
       if (_resultCompleter != null && !_resultCompleter!.isCompleted) {
-        debugPrint("🛡️ ShieldBypassService: Global Timeout.");
+        debugPrint("🛡️ Timeout.");
         _cleanup();
         _resultCompleter!.complete(null);
       }
@@ -61,84 +88,69 @@ class ShieldBypassService {
     return _resultCompleter?.future;
   }
 
-  Future<void> _checkChallengeStatus(
+  /// 静默观察模式：纯粹轮询，完全不碰DOM
+  ///
+  /// 这种模式依赖：
+  /// 1. 底层 TLS 指纹（NativeAdapter）足够好
+  /// 2. Cloudflare 自动通过验证
+  /// 3. 只负责检测结果（通过 successMarker）
+  Future<bool> _waitForNaturalBypass(
     InAppWebViewController controller,
     WebUri? url,
-    String? successMarker,
-  ) async {
-    if (url == null) return;
+    String successMarker, {
+    int maxWaitSeconds = 60,
+  }) async {
+    debugPrint("🛡️ [SILENT MODE] Waiting for natural bypass...");
 
     int attempts = 0;
-    const maxAttempts = 50;
+    final maxAttempts = maxWaitSeconds;
 
-    int stableCount = 0;
-    const int requiredStabilityCyles = 3;
+    while (attempts < maxAttempts) {
+      if (_resultCompleter == null || _resultCompleter!.isCompleted)
+        return false;
+
+      final html = await controller.getHtml();
+      if (html != null && html.contains(successMarker)) {
+        await _returnSuccess(controller, url, html, "Natural Bypass");
+        return true;
+      }
+
+      // 每3秒检查一次，完全不触碰页面
+      await Future.delayed(const Duration(seconds: 3));
+      attempts++;
+    }
+
+    debugPrint("🛡️ [SILENT MODE] Timeout - no natural bypass occurred.");
+    return false;
+  }
+
+  /// 交互辅助模式：仅在必要时尝试点击
+  ///
+  /// 注意：这种模式风险较高，可能触发 Cloudflare 的行为检测
+  Future<void> _attemptInteraction(
+    InAppWebViewController controller,
+    WebUri? url,
+    String successMarker,
+  ) async {
+    debugPrint(
+      "🛡️ [INTERACTIVE MODE] Attempting to interact with challenge...",
+    );
+
+    int attempts = 0;
+    const maxAttempts = 30;
 
     while (attempts < maxAttempts) {
       if (_resultCompleter == null || _resultCompleter!.isCompleted) return;
 
       final html = await controller.getHtml();
-      final title = await controller.getTitle();
-
-      if (html == null) {
-        await Future.delayed(const Duration(seconds: 1));
-        attempts++;
-        continue;
-      }
-
-      // [Validation Strategy] 判定 Clearance
-      final cookies = await CookieManager.instance().getCookies(url: url);
-      bool hasClearance = cookies.any((c) => c.name == 'cf_clearance');
-
-      // [Detection Strategy]
-      bool isChallengePage =
-          html.contains('id="challenge-error-text"') ||
-          html.contains('challenge-platform') ||
-          (title != null && title.contains('Just a moment')) ||
-          html.contains('cf-turnstile') ||
-          html.contains('Verifying you are human');
-
-      // [Plugin Success Strategy]
-      bool isPluginSuccess = false;
-      if (successMarker != null) {
-        isPluginSuccess = html.contains(successMarker);
-      }
-
-      // 核心业务逻辑流程 (还原自 0bb77de)
-      if (isPluginSuccess) {
-        await _returnSuccess(controller, url, html, "Plugin Marker Found");
+      if (html != null && html.contains(successMarker)) {
+        await _returnSuccess(controller, url, html, "Interactive Success");
         return;
       }
 
-      if (isChallengePage && !hasClearance) {
-        stableCount = 0;
-        debugPrint("🛡️ Status: Challenge Detected. Action: Polling Click...");
-        // 彻底还原每一秒都点击的逻辑
-        await _attemptAutoClick(controller);
-      } else {
-        // 等待数据加载
-        String statusMsg = hasClearance
-            ? "Shield Cleared. Waiting for Content..."
-            : "No Shield Detected. Waiting for Content...";
-
-        if (successMarker != null) {
-          debugPrint("🛡️ $statusMsg (Target: '$successMarker')");
-        } else {
-          stableCount++;
-          debugPrint(
-            "🛡️ $statusMsg (Generic Stability $stableCount/$requiredStabilityCyles)",
-          );
-
-          if (stableCount >= requiredStabilityCyles) {
-            await _returnSuccess(
-              controller,
-              url,
-              html,
-              "Generic Stability Reached",
-            );
-            return;
-          }
-        }
+      // 每5秒尝试一次交互
+      if (attempts % 5 == 0) {
+        await _tryInteract(controller);
       }
 
       await Future.delayed(const Duration(seconds: 1));
@@ -146,42 +158,31 @@ class ShieldBypassService {
     }
   }
 
-  /// 还原自 commit 0bb77de 的原始点击逻辑 (每一秒调用一次)
-  Future<void> _attemptAutoClick(InAppWebViewController controller) async {
+  /// 尝试与页面交互（简化版，避免复杂逻辑）
+  Future<void> _tryInteract(InAppWebViewController controller) async {
     try {
-      await controller.evaluateJavascript(
-        source: """
-        (function() {
-            function clickElement(el, reason) {
-                if (!el) return;
-                if (el.offsetParent === null) return;
-                console.log("🛡️ JS ACTION: Clicking " + reason);
-                el.click();
-                var evt = new MouseEvent('click', {bubbles: true, cancelable: true, view: window});
-                el.dispatchEvent(evt);
+      await controller.callAsyncJavaScript(
+        functionBody: """
+        try {
+            // 极简策略：查找所有 iframe 并尝试点击
+            const iframes = document.querySelectorAll('iframe');
+            for (let iframe of iframes) {
+                const rect = iframe.getBoundingClientRect();
+                if (rect.width > 20 && rect.height > 20) {
+                    console.log("🛡️ [INTERACT] Clicking iframe center");
+                    const x = rect.left + rect.width / 2;
+                    const y = rect.top + rect.height / 2;
+                    const el = document.elementFromPoint(x, y) || iframe;
+                    el.dispatchEvent(new MouseEvent('click', {
+                        bubbles: true, cancelable: true, view: window,
+                        clientX: x, clientY: y
+                    }));
+                    break; // 只点击第一个
+                }
             }
-
-            var stage = document.querySelector('#challenge-stage');
-            if (stage) clickElement(stage, "#challenge-stage");
-
-            var wrapper = document.querySelector('#turnstile-wrapper');
-            if (wrapper) clickElement(wrapper, "#turnstile-wrapper");
-            
-            var all = document.querySelectorAll('*');
-            for (var i=0; i<all.length; i++) {
-               if (all[i].shadowRoot) {
-                  var cb = all[i].shadowRoot.querySelector('input[type="checkbox"]');
-                  if (cb) clickElement(cb, "ShadowRoot Checkbox");
-               }
-            }
-
-            var centerX = window.innerWidth / 2;
-            var centerY = window.innerHeight / 2;
-            var centerEl = document.elementFromPoint(centerX, centerY);
-            if (centerEl && centerEl.tagName !== 'BODY' && centerEl.tagName !== 'HTML') {
-                clickElement(centerEl, "Center Screen Element");
-            }
-        })();
+        } catch(e) {
+            console.log("🛡️ [ERROR] " + e.message);
+        }
       """,
       );
     } catch (_) {}
@@ -189,16 +190,17 @@ class ShieldBypassService {
 
   Future<void> _returnSuccess(
     InAppWebViewController controller,
-    WebUri url,
+    WebUri? url,
     String html,
     String reason,
   ) async {
+    if (url == null) return;
     final cookies = await CookieManager.instance().getCookies(url: url);
     if (_resultCompleter != null && !_resultCompleter!.isCompleted) {
       final cookieString = cookies
           .map((c) => "${c.name}=${c.value}")
           .join("; ");
-      debugPrint("🛡️ ShieldBypassService: Success ($reason).");
+      debugPrint("🛡️ Success ($reason).");
       _resultCompleter!.complete({
         'cookies': cookieString,
         'content': html,
