@@ -111,7 +111,11 @@ class CloudflareLegacyInterceptor {
     // --- 分支 4: 递归代理 - 强制拦截 Cloudflare 核心资源 ---
     if (_isCloudflareResource(uri)) {
       print('🛡️ [Recursive-Proxy] Forcing proxy for CF resource: $urlStr');
-      return _performProxy(controller, request, uri, 'cf_recursive');
+      // ⭐ 修復：使用活躍的 requestId 而不是 cf_recursive
+      final requestId = _sessionOrigins.keys.isNotEmpty
+          ? _sessionOrigins.keys.first
+          : 'cf_fallback';
+      return _performProxy(controller, request, uri, requestId);
     }
 
     // --- 默认：放行 (自然加载) ---
@@ -121,9 +125,28 @@ class CloudflareLegacyInterceptor {
   bool _isCloudflareResource(Uri uri) {
     final host = uri.host.toLowerCase();
     final path = uri.path.toLowerCase();
-    return host.contains('cloudflare.com') ||
+
+    // ⭐ 核心修復:檢查代理 URL 的 targetUrl 參數
+    if (host == PROXY_HOST.toLowerCase()) {
+      final targetUrl = uri.queryParameters['targetUrl'];
+      if (targetUrl != null &&
+          targetUrl.toLowerCase().contains('cloudflare.com')) {
+        return true;
+      }
+    }
+
+    // ⭐ 通用邏輯：不再硬編碼目標域名。
+    // 如果是 Cloudflare 挑戰域，或者該域名已經在活躍會話中註冊，則進行攔截。
+    final bool isCFHost =
+        host.contains('cloudflare.com') ||
         path.contains('/cdn-cgi/') ||
         path.contains('orchestrate');
+
+    final bool isRegisteredOrigin = _sessionOrigins.values.any(
+      (origin) => uri.origin.toLowerCase() == origin.toLowerCase(),
+    );
+
+    return isCFHost || isRegisteredOrigin;
   }
 
   Future<WebResourceResponse?> _performProxy(
@@ -189,7 +212,8 @@ class CloudflareLegacyInterceptor {
           headers: requestHeaders,
           responseType: ResponseType.bytes,
           validateStatus: (status) => true,
-          followRedirects: false,
+          followRedirects: true, // ⭐ 允許自動跟隨重定向到 Cloudflare 挑戰頁面
+          maxRedirects: 5,
         ),
       );
 
@@ -224,78 +248,77 @@ class CloudflareLegacyInterceptor {
           response.headers.value('content-type')?.toLowerCase() ?? 'text/html';
 
       Uint8List finalData = data;
-      if (contentType.contains('text/html')) {
-        String html = utf8.decode(data, allowMalformed: true);
+      final bool isHtml = contentType.contains('text/html');
+      final bool isJs = contentType.contains('javascript');
 
-        // ⭐ 强力静态替换：在 JS 介入前，先把所有挑战域名转换掉
-        // 这样可以绕过 JS Hook 加载太晚的问题
-        final String proxyPrefix =
-            'https://$PROXY_HOST$PROXY_PATH_FETCH?requestId=$requestId&targetUrl=';
-        // ⭐ 终极修复：使用正则匹配所有协议变体 (https://, http://, //)
-        final cfRegex = RegExp(
-          r'(https?:)?//challenges\.cloudflare\.com',
-          caseSensitive: false,
-        );
-        html = html.replaceAll(
-          cfRegex,
-          proxyPrefix + 'https://challenges.cloudflare.com',
-        );
+      if (isHtml || isJs) {
+        String content = utf8.decode(data, allowMalformed: true);
 
-        html = _purgeHarmfulContent(html, targetUrl);
-        html = _preprocessHtml(html, targetUrl, requestId, finalSuccessMarker);
+        if (isHtml) {
+          content = _purgeHarmfulContent(content, targetUrl);
 
-        // 核心注入：拦截器、阻止器、点击器、监控器
-        const String boundaryMarker = "<!-- END_OF_TINY_LEGACY_INJECTION -->";
-        // ⭐ 核心优化：先执行劫持，再执行拦截，确保万无一失
-        final scList = [
-          CloudflareScripts.shadowHijackJs,
-          CloudflareScripts.domainBlockerJs,
-          CloudflareScripts.networkInterceptorJs,
-          CloudflareScripts.clickerJs,
-          CloudflareScripts.resultMonitorJs,
-          CloudflareScripts.receiverJs,
-        ];
+          // ⭐ 核心修復：對於 Cloudflare 挑戰頁面,使用選擇性重寫
+          final isChallengePage =
+              targetUrl.path.contains('/cdn-cgi/challenge-platform/') ||
+              targetUrl.path.contains('orchestrate/chl_page');
 
-        final scripts =
-            scList.map((s) => '<script>$s</script>').join('\n') +
-            "\n$boundaryMarker\n";
+          if (!isChallengePage) {
+            content = _preprocessHtml(
+              content,
+              targetUrl,
+              requestId,
+              finalSuccessMarker,
+            );
+          } else {
+            // 挑戰頁面：只重寫 Turnstile API URL
+            debugPrint(
+              '🛡️ [Selective-Rewrite] Challenge page detected, rewriting Turnstile API only',
+            );
+            final String proxyPrefix =
+                'https://$PROXY_HOST$PROXY_PATH_FETCH?requestId=$requestId&targetUrl=';
+            final turnstileRegex = RegExp(
+              r'(https?:)?//challenges\.cloudflare\.com/turnstile',
+              caseSensitive: false,
+            );
+            content = content.replaceAll(
+              turnstileRegex,
+              proxyPrefix + 'https://challenges.cloudflare.com/turnstile',
+            );
+          }
 
-        final lowerHtml = html.toLowerCase();
-        if (lowerHtml.contains('<head>')) {
-          final int headIndex = lowerHtml.indexOf('<head>');
-          html =
-              html.substring(0, headIndex + 6) +
-              scripts +
-              html.substring(headIndex + 6);
-        } else if (lowerHtml.contains('<html>')) {
-          final int htmlTagIndex = lowerHtml.indexOf('<html>');
-          html =
-              html.substring(0, htmlTagIndex + 6) +
-              '<head>$scripts</head>' +
-              html.substring(htmlTagIndex + 6);
-        } else {
-          html = scripts + html;
+          // 核心注入：攔截器、阻止器、點擊器、監控器
+          const String boundaryMarker = "<!-- END_OF_TINY_LEGACY_INJECTION -->";
+          final scList = [
+            CloudflareScripts.shadowHijackJs,
+            CloudflareScripts.domainBlockerJs,
+            CloudflareScripts.networkInterceptorJs,
+            CloudflareScripts.clickerJs,
+            CloudflareScripts.resultMonitorJs,
+            CloudflareScripts.receiverJs,
+          ];
+
+          final scripts =
+              scList.map((s) => '<script>$s</script>').join('\n') +
+              "\n$boundaryMarker\n";
+
+          final lowerHtml = content.toLowerCase();
+          if (lowerHtml.contains('<head>')) {
+            final int headIndex = lowerHtml.indexOf('<head>');
+            content =
+                content.substring(0, headIndex + 6) +
+                "\n$scripts\n" +
+                content.substring(headIndex + 6);
+          } else {
+            content = scripts + content;
+          }
         }
-        finalData = Uint8List.fromList(utf8.encode(html));
 
-        // ⭐ 调试辅助：打印真正的网页内容 (跳过注入脚本)
-        int injectionEndInfo = html.indexOf(boundaryMarker);
-        if (injectionEndInfo != -1) {
-          injectionEndInfo += boundaryMarker.length;
-        } else {
-          injectionEndInfo = 0; // Fallback if marker not found
+        finalData = Uint8List.fromList(utf8.encode(content));
+
+        // ⭐ 调试辅助：打印网页内容
+        if (isHtml) {
+          debugPrint('📄 [HTML-DUMP] Total Len: ${content.length}');
         }
-
-        // 截取真实内容预览 (最大 1000 字符)
-        // 确保不会越界
-        final int previewStart = injectionEndInfo;
-        final int previewEnd = (previewStart + 1000).clamp(0, html.length);
-
-        final String contentPreview = html.substring(previewStart, previewEnd);
-
-        debugPrint(
-          '📄 [HTML-DUMP-START] (Total Len: ${html.length}, Content Start: $injectionEndInfo)\n$contentPreview\n📄 [HTML-DUMP-END]',
-        );
       }
 
       final Map<String, String> resHeaders = {};
@@ -314,6 +337,11 @@ class CloudflareLegacyInterceptor {
           resHeaders[k] = v.first;
         }
       });
+
+      // ⭐ 核心修復：添加 CORS 頭以允許跨域腳本加載
+      resHeaders['Access-Control-Allow-Origin'] = '*';
+      resHeaders['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS';
+      resHeaders['Access-Control-Allow-Headers'] = '*';
 
       final reqOrigin =
           request.headers?['Origin'] ?? request.headers?['origin'];
