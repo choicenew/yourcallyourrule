@@ -1,36 +1,28 @@
 class CloudflareScripts {
-  /// 终极脚本：修复了变量初始化逻辑，防止覆盖 Manual 设置
   static String get bypassUniversal => '''
     (function() {
-      // 0. 防止脚本重复运行
       if (window._cf_bypass_active) return;
       window._cf_bypass_active = true;
 
-      console.log("[Bypass] 🛡️ Shadow Hijacker Active");
+      console.log("[Bypass] 🛡️ Mobile Touch Simulation Active");
 
-      // 1. 初始化变量 (关键修正：使用 || 运算符，保留外部注入的值)
       window._capturedShadowRoots = []; 
       window._capturedIframes = [];     
-      
-      // ⭐ 核心修复：如果外部(main.dart)注入了 true，这里不要覆盖为 false
       window._cf_manual_mode = window._cf_manual_mode || false;
-      
       window._hasClickedGlobal = false; 
+      
+      // 初始化手指位置
+      window._lastTouchX = Math.random() * window.innerWidth;
+      window._lastTouchY = Math.random() * window.innerHeight;
 
-      console.log("[Bypass] Mode Configured: " + (window._cf_manual_mode ? "MANUAL (No Click)" : "AUTO (Will Click)"));
-
-      // 2. 劫持 attachShadow
+      // --- 1. 劫持逻辑 (保持一致，确保 Manual/Auto 环境相同) ---
       const originalAttachShadow = Element.prototype.attachShadow;
       Element.prototype.attachShadow = function(init) {
         const root = originalAttachShadow.call(this, init);
         window._capturedShadowRoots.push(root);
-        if (window.flutter_inappwebview) {
-          window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 🥷 Stole ShadowRoot mode=" + init.mode);
-        }
         return root;
       };
 
-      // 3. 劫持 iframe 创建
       const originalCreateElement = document.createElement;
       document.createElement = function(tagName) {
         const element = originalCreateElement.call(document, tagName);
@@ -40,113 +32,177 @@ class CloudflareScripts {
         return element;
       };
 
-      // 4. 反指纹
+      // 隐藏 webdriver，确保 Manual 模式也有这个特征
       try { Object.defineProperty(navigator, 'webdriver', { get: () => false }); } catch (e) {}
 
-      // 5. 模拟轨迹
-      function simulatedMousePath(startElement, endElement) {
-          if (window._cf_manual_mode) return; // 手动模式不画轨迹
+      // --- 2. 核心：手指触摸模拟引擎 ---
 
-          const startRect = startElement.getBoundingClientRect();
-          const endRect = endElement.getBoundingClientRect();
-          let currentX = startRect.left;
-          let currentY = startRect.top;
-          const targetX = endRect.left + endRect.width / 2;
-          const targetY = endRect.top + endRect.height / 2;
-          const steps = 10;
+      function createTouch(target, identifier, x, y) {
+          return new Touch({
+              identifier: identifier,
+              target: target,
+              clientX: x,
+              clientY: y,
+              screenX: x, // 简化处理
+              screenY: y,
+              pageX: x,
+              pageY: y,
+              radiusX: 10 + Math.random() * 5, // 模拟手指接触面积
+              radiusY: 10 + Math.random() * 5,
+              rotationAngle: Math.random() * 10,
+              force: 0.5 + Math.random() * 0.5, // 模拟压力
+          });
+      }
+
+      function sendTouchEvent(type, element, touchList) {
+          const event = new TouchEvent(type, {
+              cancelable: true,
+              bubbles: true,
+              touches: touchList,
+              targetTouches: touchList,
+              changedTouches: touchList,
+              view: window,
+              isTrusted: true 
+          });
+          element.dispatchEvent(event);
+      }
+
+      // 贝塞尔曲线 (保持不变)
+      function cubicBezier(t, p0, p1, p2, p3) {
+        const cX = 3 * (p1.x - p0.x), bX = 3 * (p2.x - p1.x) - cX, aX = p3.x - p0.x - cX - bX;
+        const cY = 3 * (p1.y - p0.y), bY = 3 * (p2.y - p1.y) - cY, aY = p3.y - p0.y - cY - bY;
+        return { 
+            x: (aX * Math.pow(t, 3)) + (bX * Math.pow(t, 2)) + (cX * t) + p0.x,
+            y: (aY * Math.pow(t, 3)) + (bY * Math.pow(t, 2)) + (cY * t) + p0.y
+        };
+      }
+
+      // 模拟手指滑动 (Touch Move)
+      async function humanTouchMove(targetX, targetY, duration) {
+          if (window._cf_manual_mode) return;
+
+          const startX = window._lastTouchX;
+          const startY = window._lastTouchY;
           
-          if (window.flutter_inappwebview) {
-             window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 🐭 Moving mouse...");
-          }
+          // 随机控制点
+          const cp1 = { x: startX + (targetX - startX) * 0.5 + (Math.random()-0.5)*50, y: startY + (targetY - startY) * 0.1 };
+          const cp2 = { x: startX + (targetX - startX) * 0.5, y: startY + (targetY - startY) * 0.9 + (Math.random()-0.5)*50 };
 
-          for (let i = 1; i <= steps; i++) {
-              const ratio = i / steps;
-              const nextX = currentX + (targetX - currentX) * ratio + (Math.random() - 0.5) * 2;
-              const nextY = currentY + (targetY - currentY) * ratio + (Math.random() - 0.5) * 2;
-              document.dispatchEvent(new MouseEvent('mousemove', {
-                  bubbles: true, cancelable: true, view: window, isTrusted: true, clientX: nextX, clientY: nextY
-              }));
+          const steps = 20;
+          const stepTime = duration / steps;
+          const touchId = Math.floor(Math.random() * 1000);
+
+          for (let i = 0; i <= steps; i++) {
+              let t = i / steps;
+              let easeT = t * (2 - t); 
+              
+              const pos = cubicBezier(easeT, {x:startX, y:startY}, cp1, cp2, {x: targetX, y: targetY});
+              
+              // 模拟手指抖动
+              pos.x += (Math.random() - 0.5) * 3;
+              pos.y += (Math.random() - 0.5) * 3;
+
+              // 构造 Touch 对象列表
+              // 注意：TouchMove 依然需要 target 元素，这里简化为 document.body 或当前目标
+              const touch = createTouch(document.body, touchId, pos.x, pos.y);
+              sendTouchEvent('touchmove', document.body, [touch]);
+              
+              window._lastTouchX = pos.x;
+              window._lastTouchY = pos.y;
+              await new Promise(r => setTimeout(r, stepTime));
           }
       }
 
-      // 6. 执行点击
-      function simulatedClick(element) {
-        // ⭐ 手动模式双重保险
-        if (window._cf_manual_mode) {
-            console.log("[Bypass] Blocked click due to Manual Mode");
-            return false;
-        }
-        if (window._hasClickedGlobal) return false;
-
-        if (!element) return false;
-        
+      // 执行手指点击 (Touch Sequence)
+      async function performHumanTap(element) {
+        if (window._cf_manual_mode || window._hasClickedGlobal || !element) return;
         window._hasClickedGlobal = true;
 
-        if (window.flutter_inappwebview) {
-          window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 🎯 CLICKING " + element.tagName);
-        }
-
         const rect = element.getBoundingClientRect();
-        const x = rect.left + rect.width / 2;
-        const y = rect.top + rect.height / 2;
-        const opts = { bubbles: true, cancelable: true, view: window, isTrusted: true, clientX: x, clientY: y };
+        // 目标偏离中心点
+        const targetX = rect.left + rect.width / 2 + (Math.random() - 0.5) * 10;
+        const targetY = rect.top + rect.height / 2 + (Math.random() - 0.5) * 10;
+
+        if (window.flutter_inappwebview) window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 👆 Finger moving to target...");
+
+        // 1. 手指移动过去 (悬浮状态，虽然手机没有hover，但模拟手指接近屏幕的过程)
+        await humanTouchMove(targetX, targetY, 500 + Math.random() * 300);
+
+        // 2. 准备点击数据
+        const touchId = Math.floor(Math.random() * 9999);
+        const touchObj = createTouch(element, touchId, targetX, targetY);
+        const touchList = [touchObj];
+
+        // 3. 触发 TouchStart
+        sendTouchEvent('touchstart', element, touchList);
+        await new Promise(r => setTimeout(r, 50 + Math.random() * 50));
+
+        // 4. 触发 TouchEnd
+        sendTouchEvent('touchend', element, touchList);
         
-        element.dispatchEvent(new MouseEvent('pointerover', opts));
-        element.dispatchEvent(new MouseEvent('mousedown', opts));
+        // 5. 触发兼容性 Mouse Events (手机浏览器通常会产生这些)
+        // 顺序：touchstart -> touchend -> mousemove -> mousedown -> mouseup -> click
+        const mouseOpts = { 
+            bubbles: true, cancelable: true, view: window, isTrusted: true, 
+            clientX: targetX, clientY: targetY, 
+            screenX: targetX, screenY: targetY
+        };
+        
+        element.dispatchEvent(new MouseEvent('mousemove', mouseOpts));
+        element.dispatchEvent(new MouseEvent('mousedown', mouseOpts));
         element.focus();
-        element.dispatchEvent(new MouseEvent('mouseup', opts));
-        element.dispatchEvent(new MouseEvent('click', opts));
-        return true;
+        await new Promise(r => setTimeout(r, 10 + Math.random() * 20));
+        element.dispatchEvent(new MouseEvent('mouseup', mouseOpts));
+        element.dispatchEvent(new MouseEvent('click', mouseOpts));
+        
+        if (window.flutter_inappwebview) window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 👆 TAP executed!");
       }
 
-      // 7. 扫描循环
-      function scan() {
+      // --- 3. 扫描逻辑 ---
+      async function scan() {
         const currentUrl = window.location.href;
         const marker = new URLSearchParams(currentUrl).get('successMarker');
         
-        // 成功检测
+        // 成功判定 (ListSpam 特征：标题变化或内容包含)
         if (marker && document.body.innerHTML.includes(marker)) {
              if (window.flutter_inappwebview && !window._cf_manual_mode) {
-                window.flutter_inappwebview.callHandler('BypassSuccess', {
-                  success: true, cookies: document.cookie, url: currentUrl
-                });
+                window.flutter_inappwebview.callHandler('BypassSuccess', { success: true, cookies: document.cookie, url: currentUrl });
              }
              return;
         }
 
-        // ⭐ 手动模式：在这里就返回，不进入下面的查找逻辑
-        if (window._cf_manual_mode === true) {
-            // console.log("[Bypass] Manual Mode: Scanning paused.");
-            return;
-        }
+        if (window._cf_manual_mode || window._hasClickedGlobal) return;
 
-        if (window._hasClickedGlobal) return;
-
-        // 扫描 Shadow DOM
+        let target = null;
+        
+        // 1. Shadow DOM
         for (let i = 0; i < window._capturedShadowRoots.length; i++) {
           try {
-            const root = window._capturedShadowRoots[i];
-            const cb = root.querySelector('input[type="checkbox"]');
-            if (cb && !cb.checked) {
-              if (window.flutter_inappwebview) window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] ✅ Found checkbox in shadow");
-              simulatedMousePath(document.body, cb);
-              if (simulatedClick(cb)) return; 
-            }
+            const cb = window._capturedShadowRoots[i].querySelector('input[type="checkbox"]');
+            if (cb && !cb.checked) { target = cb; break; }
           } catch (e) {}
         }
         
-        // 扫描 Iframe
-        for (let i = 0; i < window._capturedIframes.length; i++) {
-           try {
-              const iframe = window._capturedIframes[i];
-              if (iframe.contentDocument) {
-                 const cb = iframe.contentDocument.querySelector('input[type="checkbox"]');
-                 if (cb && !cb.checked) {
-                      simulatedMousePath(document.body, cb);
-                      if (simulatedClick(cb)) return;
-                 }
-              }
-           } catch(e) {}
+        // 2. Iframe
+        if (!target) {
+            for (let i = 0; i < window._capturedIframes.length; i++) {
+               try {
+                  const cb = window._capturedIframes[i].contentDocument.querySelector('input[type="checkbox"]');
+                  if (cb && !cb.checked) { target = cb; break; }
+               } catch(e) {}
+            }
+        }
+
+        if (target) {
+            if (window.flutter_inappwebview) window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 👀 Target acquired. Waiting human reaction time...");
+            
+            const reactionTime = 800 + Math.random() * 800; // 反应慢一点，像玩手机
+            window._hasClickedGlobal = true; 
+            
+            setTimeout(async () => {
+                window._hasClickedGlobal = false;
+                await performHumanTap(target);
+            }, reactionTime);
         }
       }
 
