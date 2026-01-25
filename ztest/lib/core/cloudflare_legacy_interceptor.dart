@@ -24,17 +24,22 @@ class CloudflareLegacyInterceptor {
   // 跟踪会话中的原始域名，用于“泄露回收”
   final Map<String, String> _sessionOrigins = {};
 
+  String? _userAgent; // ⭐ 保存同步过来的 UA
+
   CloudflareLegacyInterceptor._internal() {
     _dio.options.responseType = ResponseType.bytes;
     _dio.options.validateStatus = (status) => true;
     _dio.httpClientAdapter = NativeAdapter(); // ⭐ 核心：使用 Native TLS 指纹
   }
 
+  void setUserAgent(String? ua) {
+    _userAgent = ua;
+    print('🛡️ [Legacy-Interceptor] UA synchronized: $ua');
+  }
+
   void registerSession(String requestId, String origin) {
     _sessionOrigins[requestId] = origin;
-    debugPrint(
-      '🛡️ [Legacy-Interceptor] Session registered: $requestId -> $origin',
-    );
+    print('🛡️ [Legacy-Interceptor] Session registered: $requestId -> $origin');
   }
 
   Future<WebResourceResponse?> handleRequest(
@@ -43,6 +48,7 @@ class CloudflareLegacyInterceptor {
   ) async {
     final uri = request.url;
     final urlStr = uri.toString();
+    print('🌐 [Interceptor-Audit] WebView Request: $urlStr');
 
     // --- 分支 1: 处理显式代理入口 (fetch?targetUrl=...) ---
     if (uri.scheme == PROXY_SCHEME &&
@@ -53,9 +59,17 @@ class CloudflareLegacyInterceptor {
       if (targetUrlStr == null || requestId == null) return null;
 
       final Uri targetUrl = Uri.parse(targetUrlStr);
-      final String? successMarker = targetUrl.queryParameters['successMarker'];
+
+      // ⭐ 核心修复：从 targetUrl 中尝试提取嵌套的 successMarker
+      // 之前的代码只从顶层 queryParameters 拿，导致嵌套在 targetUrl 里的丢失了。
+      final String? successMarker =
+          uri.queryParameters['successMarker'] ??
+          targetUrl.queryParameters['successMarker'];
+
       _sessionOrigins[requestId] = targetUrl.origin;
-      debugPrint('🛡️ [Proxy-Entry] Fetching target: $targetUrl');
+      print(
+        '🛡️ [Proxy-Entry] Fetching target: $targetUrl (Marker: $successMarker)',
+      );
       return _performProxy(
         controller,
         request,
@@ -74,7 +88,7 @@ class CloudflareLegacyInterceptor {
         if (requestId != null) {
           final expectedOrigin = _sessionOrigins[requestId];
           if (expectedOrigin != null && uri.origin == expectedOrigin) {
-            debugPrint('🎯 [Leak-Recovery] Recovered by Referer: $urlStr');
+            print('🎯 [Leak-Recovery] Recovered by Referer: $urlStr');
             return _performProxy(controller, request, uri, requestId);
           }
         }
@@ -83,7 +97,7 @@ class CloudflareLegacyInterceptor {
 
     // --- 分支 3: 泄露回收 - 基于活跃 Origin 保险层 ---
     if (_sessionOrigins.values.contains(uri.origin)) {
-      debugPrint('🔥 [Leak-Recovery] Recovered by Origin Match: $urlStr');
+      print('🔥 [Leak-Recovery] Recovered by Origin Match: $urlStr');
       // 找出一个匹配的 requestId，如果没找到则用默认
       final requestId = _sessionOrigins.entries
           .firstWhere(
@@ -96,9 +110,7 @@ class CloudflareLegacyInterceptor {
 
     // --- 分支 4: 递归代理 - 强制拦截 Cloudflare 核心资源 ---
     if (_isCloudflareResource(uri)) {
-      debugPrint(
-        '🛡️ [Recursive-Proxy] Forcing proxy for CF resource: $urlStr',
-      );
+      print('🛡️ [Recursive-Proxy] Forcing proxy for CF resource: $urlStr');
       return _performProxy(controller, request, uri, 'cf_recursive');
     }
 
@@ -122,84 +134,170 @@ class CloudflareLegacyInterceptor {
     String? successMarker,
   ]) async {
     try {
-      // 这里的逻辑只处理 GET，POST 让 WebView 自然发球以带上 Body
       if (request.method == 'POST') {
-        debugPrint('🛡️ [Proxy-Pass] Passing POST to WebView: $targetUrl');
+        print('🛡️ [Proxy-Pass] Passing POST to WebView: $targetUrl');
         return null;
       }
 
-      Map<String, String> requestHeaders = {};
-      request.headers?.forEach((k, v) => requestHeaders[k] = v);
-
-      // 添加 Cookie
-      final cookies = await CookieManager.instance().getCookies(
-        url: WebUri.uri(targetUrl),
-      );
-      if (cookies.isNotEmpty) {
-        final cookieStr = cookies.map((c) => '${c.name}=${c.value}').join('; ');
-        requestHeaders['Cookie'] = (requestHeaders['Cookie'] != null)
-            ? "${requestHeaders['Cookie']}; $cookieStr"
-            : cookieStr;
+      final String? rawReferer =
+          request.headers?['Referer'] ?? request.headers?['referer'];
+      String? forgedReferer;
+      if (rawReferer != null && rawReferer.contains(PROXY_HOST)) {
+        try {
+          final refUri = Uri.parse(rawReferer);
+          forgedReferer = refUri.queryParameters['targetUrl'];
+        } catch (_) {}
       }
+
       final String? successMarkerFromUrl =
           targetUrl.queryParameters['successMarker'];
       final String? finalSuccessMarker = successMarker ?? successMarkerFromUrl;
 
-      debugPrint(
+      print(
         '🛡️ [Proxy-Entry] Fetching: $targetUrl (ID: $requestId, Marker: $finalSuccessMarker)',
       );
+
+      // --- 关键增强：向前转发 WebView 的 Cookie ---
+      String? webviewCookies;
+      try {
+        final cookies = await CookieManager.instance().getCookies(
+          url: WebUri.uri(targetUrl),
+        );
+        if (cookies.isNotEmpty) {
+          webviewCookies = cookies
+              .map((c) => '${c.name}=${c.value}')
+              .join('; ');
+          print(
+            '🔑 [Proxy-Auth] Forwarding Cookies: ${webviewCookies.substring(0, (webviewCookies.length > 50 ? 50 : webviewCookies.length))}...',
+          );
+        }
+      } catch (e) {}
+
+      final requestHeaders = {
+        'User-Agent': _userAgent ?? '',
+        if (request.headers?['Accept'] != null)
+          'Accept': request.headers!['Accept'],
+        if (request.headers?['Accept-Language'] != null)
+          'Accept-Language': request.headers!['Accept-Language'],
+        if (webviewCookies != null) 'Cookie': webviewCookies,
+        'Referer': forgedReferer ?? (rawReferer ?? targetUrl.origin),
+      };
 
       final response = await _dio.getUri(
         targetUrl,
         options: Options(
           headers: requestHeaders,
           responseType: ResponseType.bytes,
+          validateStatus: (status) => true,
+          followRedirects: false,
         ),
       );
 
-      debugPrint(
+      print(
         '🛡️ [Proxy-Response] Status: ${response.statusCode} | Length: ${response.data.length}',
       );
+
+      final setCookies = response.headers['set-cookie'];
+      if (setCookies != null) {
+        for (var sc in setCookies) {
+          try {
+            final parts = sc.split(';')[0].split('=');
+            if (parts.length >= 2) {
+              final name = parts[0].trim();
+              final value = parts.sublist(1).join('=').trim();
+              await CookieManager.instance().setCookie(
+                url: WebUri.uri(targetUrl),
+                name: name,
+                value: value,
+                domain: targetUrl.host,
+                path: "/",
+              );
+            }
+          } catch (e) {
+            debugPrint('⚠️ [Proxy-Cookie-Sync] Failed to sync cookie: $sc');
+          }
+        }
+      }
 
       final data = response.data as Uint8List;
       String contentType =
           response.headers.value('content-type')?.toLowerCase() ?? 'text/html';
 
-      // 1. 预处理 HTML (从 Legacy 移植)
       Uint8List finalData = data;
       if (contentType.contains('text/html')) {
         String html = utf8.decode(data, allowMalformed: true);
 
-        // 剥离恶意内容 (Meta CSP 等)
-        html = _purgeHarmfulContent(html, targetUrl);
+        // ⭐ 强力静态替换：在 JS 介入前，先把所有挑战域名转换掉
+        // 这样可以绕过 JS Hook 加载太晚的问题
+        final String proxyPrefix =
+            'https://$PROXY_HOST$PROXY_PATH_FETCH?requestId=$requestId&targetUrl=';
+        // ⭐ 终极修复：使用正则匹配所有协议变体 (https://, http://, //)
+        final cfRegex = RegExp(
+          r'(https?:)?//challenges\.cloudflare\.com',
+          caseSensitive: false,
+        );
+        html = html.replaceAll(
+          cfRegex,
+          proxyPrefix + 'https://challenges.cloudflare.com',
+        );
 
-        // 重写路径（包括绝对路径的 CF 资源）
+        html = _purgeHarmfulContent(html, targetUrl);
         html = _preprocessHtml(html, targetUrl, requestId, finalSuccessMarker);
 
-        // 核心注入：Scripts (完全同步 Legacy 结构)
-        final scripts = [
+        // 核心注入：拦截器、阻止器、点击器、监控器
+        const String boundaryMarker = "<!-- END_OF_TINY_LEGACY_INJECTION -->";
+        // ⭐ 核心优化：先执行劫持，再执行拦截，确保万无一失
+        final scList = [
+          CloudflareScripts.shadowHijackJs,
           CloudflareScripts.domainBlockerJs,
           CloudflareScripts.networkInterceptorJs,
-          CloudflareScripts.shadowHijackJs,
           CloudflareScripts.clickerJs,
           CloudflareScripts.resultMonitorJs,
-          CloudflareScripts.receiverJs, // ⭐ 补全 Receiver
-        ].map((s) => '<script>$s</script>').join('\n');
+          CloudflareScripts.receiverJs,
+        ];
 
-        if (html.contains('<head>')) {
-          html = html.replaceFirst('<head>', '<head>$scripts');
-        } else if (html.contains('<html>')) {
-          html = html.replaceFirst('<html>', '<html><head>$scripts</head>');
+        final scripts =
+            scList.map((s) => '<script>$s</script>').join('\n') +
+            "\n$boundaryMarker\n";
+
+        final lowerHtml = html.toLowerCase();
+        if (lowerHtml.contains('<head>')) {
+          final int headIndex = lowerHtml.indexOf('<head>');
+          html =
+              html.substring(0, headIndex + 6) +
+              scripts +
+              html.substring(headIndex + 6);
+        } else if (lowerHtml.contains('<html>')) {
+          final int htmlTagIndex = lowerHtml.indexOf('<html>');
+          html =
+              html.substring(0, htmlTagIndex + 6) +
+              '<head>$scripts</head>' +
+              html.substring(htmlTagIndex + 6);
         } else {
           html = scripts + html;
         }
-        debugPrint(
-          '🛡️ [Proxy-Injection] Injected scripts into HTML (ID: $requestId)',
-        );
         finalData = Uint8List.fromList(utf8.encode(html));
+
+        // ⭐ 调试辅助：打印真正的网页内容 (跳过注入脚本)
+        int injectionEndInfo = html.indexOf(boundaryMarker);
+        if (injectionEndInfo != -1) {
+          injectionEndInfo += boundaryMarker.length;
+        } else {
+          injectionEndInfo = 0; // Fallback if marker not found
+        }
+
+        // 截取真实内容预览 (最大 1000 字符)
+        // 确保不会越界
+        final int previewStart = injectionEndInfo;
+        final int previewEnd = (previewStart + 1000).clamp(0, html.length);
+
+        final String contentPreview = html.substring(previewStart, previewEnd);
+
+        debugPrint(
+          '📄 [HTML-DUMP-START] (Total Len: ${html.length}, Content Start: $injectionEndInfo)\n$contentPreview\n📄 [HTML-DUMP-END]',
+        );
       }
 
-      // 2. 构建响应头，剥离安全保护
       final Map<String, String> resHeaders = {};
       final blockedHeaders = [
         'x-frame-options',
@@ -208,7 +306,7 @@ class CloudflareLegacyInterceptor {
         'feature-policy',
         'cross-origin-embedder-policy',
         'cross-origin-opener-policy',
-        'content-encoding', // ⭐ 必须剥离，因为 Dio 已经解压了
+        'content-encoding',
       ];
 
       response.headers.forEach((k, v) {
@@ -217,7 +315,6 @@ class CloudflareLegacyInterceptor {
         }
       });
 
-      // 3. 动态修复 CORS (Fix for credentials mode)
       final reqOrigin =
           request.headers?['Origin'] ?? request.headers?['origin'];
       if (reqOrigin != null) {
@@ -234,7 +331,7 @@ class CloudflareLegacyInterceptor {
         contentType: contentType.contains('text/html')
             ? 'text/html'
             : contentType,
-        contentEncoding: 'utf-8', // ⭐ 强制指定为 utf-8
+        contentEncoding: 'utf-8',
         data: finalData,
         statusCode: response.statusCode,
         headers: resHeaders,

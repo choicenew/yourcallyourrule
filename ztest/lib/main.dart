@@ -251,7 +251,10 @@ class _TestPageState extends State<TestPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('ZTest Architecture POC')),
+        appBar: AppBar(
+          title: const Text('ZTest POC v1.3 [DEEP-AUDIT]'),
+          backgroundColor: Colors.red,
+        ),
         body: Column(
           children: [
             // URL Input Area
