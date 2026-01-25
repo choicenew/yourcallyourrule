@@ -15,38 +15,41 @@ class CloudflareLegacyService {
   factory CloudflareLegacyService() => _instance;
 
   HeadlessInAppWebView? _headlessWebView;
-  final _interceptor = CloudflareLegacyInterceptor();
+  CloudflareLegacyInterceptor? _interceptor;
 
   Completer<Map<String, dynamic>?>? _currentBypassCompleter;
+  String? _activeRequestId;
 
   CloudflareLegacyService._internal();
 
   /// 初始化并启动过盾引擎
-  Future<void> _ensureInitialized() async {
-    if (_headlessWebView != null && _headlessWebView!.isRunning()) return;
+  Future<void> _ensureInitialized({String? userAgent}) async {
+    if (_headlessWebView != null && _headlessWebView!.isRunning()) {
+      // 如果 UA 发生变化，可能需要更新（虽然 Headless 不支持运行时更变 UA，但可以至少打印警告）
+      return;
+    }
 
-    debugPrint('🛡️ [Legacy-Service] Initializing Tiny Legacy Engine...');
+    print('🛡️ [Legacy-Service] Initializing Tiny Legacy Engine...');
 
     _headlessWebView = HeadlessInAppWebView(
-      initialUrlRequest: URLRequest(url: WebUri('about:blank')),
+      initialUrlRequest: URLRequest(url: WebUri('https://www.listaspam.com')),
       initialSettings: InAppWebViewSettings(
         javaScriptEnabled: true,
         domStorageEnabled: true,
         databaseEnabled: true,
-        useHybridComposition: true, // Legacy 必备
+        useHybridComposition: true,
         useShouldInterceptRequest: true,
-        userAgent:
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36',
+        userAgent: userAgent,
       ),
       onWebViewCreated: (controller) async {
-        debugPrint('🛡️ [Legacy-Service] WebView Created.');
+        print('🛡️ [Legacy-Service] WebView Created.');
 
         // 1. 设置 TestPageChannel (日志记录)
         controller.addJavaScriptHandler(
           handlerName: 'TestPageChannel',
           callback: (args) {
             if (args.isNotEmpty) {
-              debugPrint('🛡️ [JS-Bridge-Log] ${args[0]}');
+              print('🛡️ [JS-Bridge-Log] ${args[0]}');
             }
           },
         );
@@ -65,38 +68,61 @@ class CloudflareLegacyService {
         await controller.evaluateJavascript(
           source: CloudflareScripts.bridgeTemplateJs,
         );
-        debugPrint(
-          '🛡️ [Legacy-Service] Bridge Template injected into about:blank.',
+        print(
+          '🛡️ [Legacy-Service] Bridge Template injected into: ' +
+              (await controller.getUrl()).toString(),
         );
       },
-      shouldInterceptRequest: (controller, request) {
-        return _interceptor.handleRequest(controller, request);
+      onReceivedError: (controller, request, error) {
+        print('❌ [WebView-Error] ${error.description} (URL: ${request.url})');
+      },
+      onReceivedHttpError: (controller, request, errorResponse) {
+        print(
+          '❌ [HTTP-Error] ${errorResponse.statusCode} (URL: ${request.url})',
+        );
+      },
+      shouldInterceptRequest: (controller, request) async {
+        return await _interceptor?.handleRequest(controller, request);
       },
       onConsoleMessage: (controller, consoleMessage) {
-        debugPrint(
+        print(
           '🛡️ [JS-Console] ${consoleMessage.messageLevel}: ${consoleMessage.message}',
         );
       },
     );
 
     await _headlessWebView?.run();
-    debugPrint('🛡️ [Legacy-Service] Engine is running.');
+    print('🛡️ [Legacy-Service] Engine is running.');
   }
 
   /// 执行绕过任务
   Future<Map<String, dynamic>?> executeBypass(
     String targetUrl, {
+    String? userAgent,
     String? requestId,
     String? successMarker,
   }) async {
-    await _ensureInitialized();
+    // ⭐ 核心修复：强制重启引擎，确保所有改动的 JS 脚本都能重新注入。
+    // 否则 Hot Restart 之后，Singleton 里的 WebView 还在运行旧脚本。
+    if (_headlessWebView != null) {
+      print(
+        '🛡️ [Legacy-Service] Webview exists, disposing for fresh start...',
+      );
+      await _headlessWebView?.dispose();
+      _headlessWebView = null;
+    }
+
+    _interceptor = CloudflareLegacyInterceptor(); // ⭐ 强制使用全新拦截器实例
+    await _ensureInitialized(userAgent: userAgent);
+    _interceptor?.setUserAgent(userAgent);
 
     final id = requestId ?? 'bypass_${DateTime.now().millisecondsSinceEpoch}';
+    _activeRequestId = id; // ⭐ 设置为当前活跃 ID
 
-    // 如果已有未完成的任务，先取消它 (或者抛错，取决于策略)
+    // 如果已有未完成的任务，先取消它
     if (_currentBypassCompleter != null &&
         !_currentBypassCompleter!.isCompleted) {
-      debugPrint(
+      print(
         '⚠️ [Legacy-Service] Cancelling previous bypass task for new request.',
       );
       _currentBypassCompleter!.complete(null);
@@ -114,7 +140,7 @@ class CloudflareLegacyService {
         '&requestId=' +
         id;
 
-    debugPrint('🛡️ [Legacy-Service] Executing: $targetUrl (ID: $id)');
+    print('🛡️ [Legacy-Service] Executing: $targetUrl (ID: $id)');
 
     // 调用 Bridge 开启 Iframe 代理
     await _headlessWebView?.webViewController?.evaluateJavascript(
@@ -122,18 +148,19 @@ class CloudflareLegacyService {
     );
 
     try {
-      // 这里的超时时间可以设长一点，因为过盾可能需要点时间
       return await _currentBypassCompleter!.future.timeout(
         const Duration(seconds: 45),
         onTimeout: () {
-          debugPrint('🛡️ [Legacy-Service] Timeout for ID: $id');
-          _interceptor.cleanupSession(id);
+          print('🛡️ [Legacy-Service] Timeout for ID: $id');
+          if (_activeRequestId == id) _activeRequestId = null;
+          _interceptor?.cleanupSession(id);
           return null;
         },
       );
     } catch (e) {
-      debugPrint('🛡️ [Legacy-Service] Error in $id: $e');
-      _interceptor.cleanupSession(id);
+      print('🛡️ [Legacy-Service] Error in $id: $e');
+      if (_activeRequestId == id) _activeRequestId = null;
+      _interceptor?.cleanupSession(id);
       return null;
     }
   }
@@ -141,9 +168,6 @@ class CloudflareLegacyService {
   void _onResultReceived(dynamic result) {
     if (_currentBypassCompleter != null &&
         !_currentBypassCompleter!.isCompleted) {
-      debugPrint(
-        '🛡️ [Legacy-Service] Result Received! Propagating to caller...',
-      );
       try {
         Map<String, dynamic> finalResult;
         if (result is String) {
@@ -158,11 +182,27 @@ class CloudflareLegacyService {
           finalResult = {'data': result};
         }
 
+        // ⭐ 核心校验：检查 requestId 是否匹配当前活跃请求
+        final incomingId = finalResult['requestId'];
+        if (incomingId != null &&
+            _activeRequestId != null &&
+            incomingId != _activeRequestId) {
+          print(
+            '🛡️ [Legacy-Service] ⏩ Ignoring delayed/zombie result from ID: $incomingId (Current: $_activeRequestId)',
+          );
+          return; // 忽略不匹配的结果
+        }
+
+        print(
+          '🛡️ [Legacy-Service] Result Received! (Matched ID: $incomingId). Propagating to caller...',
+        );
+
         // 如果内部数据包还包含 data 字段（Bridge 转发），拆出来
         if (finalResult.containsKey('data') && finalResult['data'] is Map) {
           finalResult = Map<String, dynamic>.from(finalResult['data']);
         }
 
+        _activeRequestId = null; // 成功匹配后清理
         _currentBypassCompleter!.complete(finalResult);
       } catch (e) {
         debugPrint('🛡️ [Legacy-Service] Result parsing error: $e');

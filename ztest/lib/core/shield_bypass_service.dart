@@ -20,6 +20,7 @@ class ShieldBypassService {
     // 直接委托给浓缩版的 Tiny Legacy 引擎
     return await _legacyService.executeBypass(
       url,
+      userAgent: userAgent,
       successMarker: successMarker,
     );
   }

@@ -21,15 +21,22 @@ class CloudflareScripts {
       window.startLegacyBypass = function(targetUrl, requestId) {
         log('Starting bypass for: ' + targetUrl);
         
-        // 创建 Iframe
-        const iframe = document.createElement('iframe');
+        var oldIframes = document.querySelectorAll('iframe[id^="proxy_iframe_"]');
+        for (var i = 0; i < oldIframes.length; i++) {
+          var f = oldIframes[i];
+          log('Removing zombie iframe: ' + f.id);
+          f.src = 'about:blank';
+          if (f.parentNode) f.parentNode.removeChild(f);
+        }
+
+        var iframe = document.createElement('iframe');
         iframe.id = 'proxy_iframe_' + requestId;
         iframe.style.width = '100%';
         iframe.style.height = '100%';
         iframe.style.border = 'none';
+        iframe.style.visibility = 'visible';
         
-        // 构造代理入口 URL
-        const proxyUrl = 'https://flutter-webview-proxy.internal/fetch?targetUrl=' + 
+        var proxyUrl = 'https://flutter-webview-proxy.internal/fetch?targetUrl=' + 
                         encodeURIComponent(targetUrl) + 
                         '&requestId=' + requestId;
         
@@ -45,13 +52,14 @@ class CloudflareScripts {
 
         document.body.appendChild(iframe);
 
-        // 转发来自 Iframe 的结果
-        window.addEventListener('message', function(event) {
+        window.removeEventListener('message', window._messageHandler);
+        window._messageHandler = function(event) {
           if (event.data && event.data.type === 'phoneQueryResult') {
-            log('Result received from Iframe, relaying to Flutter.');
+            log('Result received from Iframe [' + event.data.data.requestId + '], relaying to Flutter.');
             window.flutter_inappwebview.callHandler('PluginResultChannel', JSON.stringify(event.data.data));
           }
-        }, false);
+        };
+        window.addEventListener('message', window._messageHandler, false);
       };
     })();
   ''';
@@ -66,23 +74,24 @@ class CloudflareScripts {
       
       console.log('🛡️ [Shadow-Hijack] Activating...');
 
-      const originalAttachShadow = Element.prototype.attachShadow;
+      var originalAttachShadow = Element.prototype.attachShadow;
       Element.prototype.attachShadow = function(init) {
-        const shadowRoot = originalAttachShadow.call(this, { ...init, mode: 'open' });
+        console.log('🛡️ [Shadow-Hijack] 🌑 New ShadowRoot attached to <' + this.tagName + '>');
+        var shadowRoot = originalAttachShadow.call(this, { mode: 'open' });
         window._discoveredShadowRoots.push(shadowRoot);
         return shadowRoot;
       };
       
       function findExistingShadowRoots(root) {
-        const walkers = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
+        var walkers = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
         while(walkers.nextNode()) {
-          const el = walkers.currentNode;
+          var el = walkers.currentNode;
           if (el.shadowRoot) {
              window._discoveredShadowRoots.push(el.shadowRoot);
           }
         }
       }
-      setTimeout(() => findExistingShadowRoots(document.body), 1000);
+      setTimeout(function() { findExistingShadowRoots(document.body); }, 1000);
     })();
   ''';
 
@@ -91,15 +100,80 @@ class CloudflareScripts {
     (function() {
       if (window._domainBlockerInjected) return;
       window._domainBlockerInjected = true;
+      console.log('🛡️ [System-Pulse] Domain-Blocker Injected.');
       
-      const PROXY_HOST = "flutter-webview-proxy.internal";
+      var PROXY_HOST = "flutter-webview-proxy.internal";
       console.log('🛡️ [Domain-Blocker] Active.');
 
-      window.addEventListener('beforeunload', (e) => {
-        console.log('🛡️ [Domain-Blocker] Prevented navigation/unload.');
-        e.preventDefault();
-        e.returnValue = '';
-      });
+      function wrapUrl(url) {
+        try {
+          if (!url) return url;
+          var u = new URL(url, document.baseURI);
+          
+          if (u.host === PROXY_HOST) return url;
+
+          if (u.pathname.indexOf('/fetch') !== -1 || (typeof url === 'string' && url.indexOf('/fetch') !== -1)) {
+             var corrected = "https://" + PROXY_HOST + "/fetch" + u.search + u.hash;
+             console.log('🛡️ [History-Interception] Correction (Matches /fetch): ' + corrected);
+             return corrected;
+          }
+
+          var currentParams = new URL(window.location.href).searchParams;
+          var reqId = currentParams.get('requestId');
+          var marker = currentParams.get('successMarker');
+          
+          var proxyBase = "https://" + PROXY_HOST + "/fetch";
+          var newUrl = proxyBase + "?targetUrl=" + encodeURIComponent(u.href);
+          if (reqId) newUrl += "&requestId=" + reqId;
+          if (marker) newUrl += "&successMarker=" + marker;
+          
+          console.log('🛡️ [History-Interception] Rewrote ' + url + ' to ' + newUrl);
+          return newUrl; 
+        } catch (e) {
+          console.error('[Debug-Wrap] Error: ', e);
+          return url;
+        }
+      }
+
+      var originalReplaceState = history.replaceState;
+      var originalPushState = history.pushState;
+
+      history.replaceState = function(state, title, url) {
+        try {
+          if (url) {
+            var u = new URL(url, document.baseURI);
+            if (u.host && u.host !== PROXY_HOST && u.host !== location.host) {
+               url = wrapUrl(url);
+            }
+          }
+          return originalReplaceState.call(history, state, title, url);
+        } catch(e) { 
+          console.error('🛡️ [History-Interception] replaceState failed: ', e);
+          try { return originalReplaceState.call(history, state, title); } catch(_) {}
+        }
+      };
+
+      history.pushState = function(state, title, url) {
+        try {
+          if (url) {
+            var u = new URL(url, document.baseURI);
+            if (u.host && u.host !== PROXY_HOST && u.host !== location.host) {
+               url = wrapUrl(url);
+            }
+          }
+          return originalPushState.call(history, state, title, url);
+        } catch(e) {
+          try { return originalPushState.call(history, state, title); } catch(_) {}
+        }
+      };
+
+      try {
+        if (Object.defineProperty) {
+          Object.defineProperty(navigator, 'webdriver', { get: function() { return false; } });
+          Object.defineProperty(navigator, 'platform', { get: function() { return 'Win32'; } });
+          Object.defineProperty(navigator, 'languages', { get: function() { return ['en-US', 'en']; } });
+        }
+      } catch(e) {}
     })();
   ''';
 
@@ -110,78 +184,157 @@ class CloudflareScripts {
       if (window.universalNetworkInterceptorInjected) return;
       window.universalNetworkInterceptorInjected = true;
       
-      console.log('[Universal-Network-Interceptor] Activating...');
+      var PROXY_HOST = "flutter-webview-proxy.internal";  
+      var PROXY_URL = "https://" + PROXY_HOST + "/fetch?targetUrl=";
       
-      const PROXY_SCHEME = "https";
-      const PROXY_HOST = "flutter-webview-proxy.internal";  
-      const PROXY_PATH_FETCH = "/fetch";
-      const PROXY_TEMPLATE = PROXY_SCHEME + "://" + PROXY_HOST + PROXY_PATH_FETCH + "?targetUrl=";
-      
-      let originalDomain = '';
+      var _resolver = document.createElement('a');
+      function toAbs(url) {
+        _resolver.href = url;
+        return _resolver.href;
+      }
+
+      var currentRequestId = "";
+      var currentMarker = "";
       try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const targetUrl = decodeURIComponent(urlParams.get('targetUrl') || '');
-        if (targetUrl) {
-          originalDomain = new URL(targetUrl).origin;
+        var params = window.location.search.substring(1).split('&');
+        for (var i = 0; i < params.length; i++) {
+          var pair = params[i].split('=');
+          if (pair[0] === 'requestId') currentRequestId = pair[1];
+          if (pair[0] === 'successMarker') currentMarker = pair[1];
         }
+      } catch(e) {}
+
+      function isCF(url) {
+        if (!url || typeof url !== 'string') return false;
+        if (url.indexOf(PROXY_HOST) !== -1) return false;
+        var lower = url.toLowerCase();
+        return lower.indexOf('cloudflare') !== -1 || lower.indexOf('listaspam.com') !== -1;
+      }
+
+      // ⭐ 深度伪装：让 CF 脚本以为自己在正确的域名下运行
+      try {
+        var originHost = "www.listaspam.com";
+        var cfHost = "challenges.cloudflare.com";
+        var fakeHost = window.location.href.indexOf('challenges.cloudflare.com') !== -1 ? cfHost : originHost;
         
-        if (!originalDomain && document.referrer) {
-           const refMatch = document.referrer.match(/targetUrl=([^&]+)/);
-           if (refMatch) originalDomain = new URL(decodeURIComponent(refMatch[1])).origin;
-        }
-        console.log('[Universal-Network-Interceptor] Original Domain:', originalDomain);
-      } catch (e) {}
+        var _loc = {
+          protocol: 'https:',
+          host: fakeHost,
+          hostname: fakeHost,
+          port: '',
+          pathname: window.location.pathname,
+          search: window.location.search,
+          hash: window.location.hash,
+          href: window.location.href.replace(PROXY_HOST, fakeHost),
+          origin: 'https://' + fakeHost,
+          toString: function() { return this.href; }
+        };
 
-      if (originalDomain && !document.querySelector('base[href]')) {
-        const base = document.createElement('base');
-        base.href = originalDomain + '/';
-        document.head ? document.head.insertBefore(base, document.head.firstChild) : null;
-      }
-
-      function shouldProxyUrl(url) {
+        // 尝试 Hook location (注意：location 很难直接 redefine，我们先尝试 defineProperty)
         try {
-          const u = new URL(url, originalDomain || window.location.href);
-          return (originalDomain && u.origin === originalDomain) || u.hostname.includes('cloudflare.com');
-        } catch(e) { return false; }
+          Object.defineProperty(window, '_cf_location', { get: function() { return _loc; } });
+          // 许多脚本使用 document.domain
+          Object.defineProperty(document, 'domain', { get: function() { return fakeHost; } });
+        } catch(e) {}
+      } catch(e) {}
+
+      function wrap(url) {
+        if (!isCF(url)) return url;
+        var abs = toAbs(url);
+        var res = PROXY_URL + encodeURIComponent(abs);
+        if (currentRequestId) res += "&requestId=" + currentRequestId;
+        if (currentMarker) res += "&successMarker=" + currentMarker;
+        console.log('🛡️ [Network-Audit] Proxying: ' + abs);
+        return res;
       }
 
-      function toProxy(url) {
-        try {
-          const abs = new URL(url, originalDomain || window.location.href).href;
-          const urlParams = new URLSearchParams(window.location.search);
-          let pUrl = PROXY_TEMPLATE + encodeURIComponent(abs);
-          // 继承 requestId 和 successMarker
-          if (urlParams.has('requestId')) pUrl += '&requestId=' + urlParams.get('requestId');
-          if (urlParams.has('successMarker')) pUrl += '&successMarker=' + urlParams.get('successMarker');
-          return pUrl;
-        } catch(e) { return url; }
+      // Hook Fetch
+      if (window.fetch) {
+        var _fetch = window.fetch;
+        window.fetch = function(input, init) {
+          var url = (typeof input === 'string') ? input : (input && input.url);
+          if (isCF(url)) {
+            var newUrl = wrap(url);
+            if (typeof input === 'object' && input.url) {
+               // Roughly clone request if needed, but keeping it simple
+               return _fetch.call(this, newUrl, init);
+            }
+            return _fetch.call(this, newUrl, init);
+          }
+          return _fetch.apply(this, arguments);
+        };
       }
 
-      // XHR
-      const XHR = window.XMLHttpRequest;
+      // Hook XHR
+      var _XHR = window.XMLHttpRequest;
       window.XMLHttpRequest = function() {
-        const xhr = new XHR();
-        const open = xhr.open;
-        xhr.open = function(m, u, ...args) {
-          if (shouldProxyUrl(u)) u = toProxy(u);
-          return open.call(this, m, u, ...args);
+        var xhr = new _XHR();
+        var _open = xhr.open;
+        xhr.open = function(method, url) {
+          if (isCF(url)) url = wrap(url);
+          return _open.apply(this, arguments);
         };
         return xhr;
       };
-      Object.setPrototypeOf(window.XMLHttpRequest, XHR);
-      Object.defineProperties(window.XMLHttpRequest, Object.getOwnPropertyDescriptors(XHR));
 
-      // Fetch
-      const _fetch = window.fetch;
-      window.fetch = function(res, opt = {}) {
-        let u = res instanceof Request ? res.url : res;
-        if (shouldProxyUrl(u)) {
-          const pu = toProxy(u);
-          if (res instanceof Request) return _fetch.call(this, new Request(pu, res), opt);
-          return _fetch.call(this, pu, { mode: 'cors', ...opt });
-        }
-        return _fetch.apply(this, arguments);
+      // Hook Props
+      function hookProp(proto, prop, type) {
+        try {
+          var desc = Object.getOwnPropertyDescriptor(proto, prop);
+          if (!desc) return;
+          Object.defineProperty(proto, prop, {
+            get: function() { return desc.get.call(this); },
+            set: function(val) {
+              if (isCF(val)) val = wrap(val);
+              desc.set.call(this, val);
+            }
+          });
+        } catch(e) {}
+      }
+      hookProp(HTMLScriptElement.prototype, 'src', 'src');
+      hookProp(HTMLIFrameElement.prototype, 'src', 'src');
+      hookProp(HTMLLinkElement.prototype, 'href', 'href');
+
+      // Hook setAttribute
+      var _setAttr = Element.prototype.setAttribute;
+      Element.prototype.setAttribute = function(n, v) {
+        if ((n === 'src' || n === 'href') && isCF(v)) v = wrap(v);
+        return _setAttr.call(this, n, v);
       };
+
+      // ⭐ 核心增强：Hook createElement，拦截所有动态脚本
+      var _create = document.createElement;
+      document.createElement = function(tag) {
+        var el = _create.call(document, tag);
+        if (tag.toLowerCase() === 'script' || tag.toLowerCase() === 'iframe') {
+          var _s = "";
+          Object.defineProperty(el, 'src', {
+            get: function() { return _s; },
+            set: function(v) {
+              if (isCF(v)) v = wrap(v);
+              _s = v;
+              el.setAttribute('src', v);
+            }
+          });
+        }
+        return el;
+      };
+
+      // ⭐ 核心增强：Hook document.write
+      var _write = document.write;
+      var _writeln = document.writeln;
+      function patchHTML(h) {
+        if (typeof h !== 'string') return h;
+        if (h.indexOf('challenges.cloudflare.com') !== -1) {
+           console.log('🛡️ [Write-Hook] Intercepting write-content.');
+           return h.replace(/https:\/\/challenges\.cloudflare\.com/g, function(m) { return wrap(m); });
+        }
+        return h;
+      }
+      document.write = function(h) { return _write.call(document, patchHTML(h)); };
+      document.writeln = function(h) { return _writeln.call(document, patchHTML(h)); };
+
+      console.log('🛡️ [Network-Audit] Hardened Interceptor Active.');
     })();
   ''';
 
@@ -190,51 +343,104 @@ class CloudflareScripts {
     (function() {
         if (window._clickerInjected) return;
         window._clickerInjected = true;
+        console.log('🛡️ [System-Pulse] Clicker Injected.');
         
         console.log("🛡️ [Clicker] Active. Scanning for Turnstile...");
+        
+        var SEARCH_TARGETS = ['input[type="checkbox"]', '.ctp-checkbox-label', '.cb-i', '#challenge-stage', 'button', 'a[href*="verify"]', 'iframe', '.cf-turnstile', '.cf-challenge'];
+        var _scanCount = 0;
 
-        const SEARCH_TARGETS = ['input[type="checkbox"]', '.ctp-checkbox-label', '.cb-i', '#challenge-stage'];
+        function performClick(found) {
+            console.log("🛡️ [Clicker] 🎯 Target found, executing click: ", found);
+            var rect = found.getBoundingClientRect();
+            var x = rect.left + rect.width / 2;
+            var y = rect.top + rect.height / 2;
+            
+            var options = { bubbles: true, cancelable: true, view: window, clientX: x, clientY: y };
+            try {
+              found.dispatchEvent(new PointerEvent('pointerover', options));
+              found.dispatchEvent(new PointerEvent('pointerdown', { bubbles: options.bubbles, cancelable: options.cancelable, view: options.view, clientX: options.clientX, clientY: options.clientY, button: 0 }));
+              found.dispatchEvent(new PointerEvent('pointerup', { bubbles: options.bubbles, cancelable: options.cancelable, view: options.view, clientX: options.clientX, clientY: options.clientY, button: 0 }));
+            } catch(e) {}
+            found.dispatchEvent(new MouseEvent('click', { bubbles: options.bubbles, cancelable: options.cancelable, view: options.view, clientX: options.clientX, clientY: options.clientY, detail: 1 }));
+            return true;
+        }
 
         function attemptClick() {
-            let found = null;
-            const contexts = [document, ...(window._discoveredShadowRoots || [])];
+            var found = null;
             
-            for (let ctx of contexts) {
-                for (let selector of SEARCH_TARGETS) {
-                    const el = ctx.querySelector(selector);
-                    if (el) {
-                        const rect = el.getBoundingClientRect();
-                        if (rect.width > 0 && rect.height > 0) {
-                            found = el;
-                            break;
+            function scanContext(ctx, name) {
+                if (!ctx) return null;
+                try {
+                  for (var i = 0; i < SEARCH_TARGETS.length; i++) {
+                      var selector = SEARCH_TARGETS[i];
+                      var els = ctx.querySelectorAll(selector);
+                      if (els && els.length > 0) {
+                        for (var j = 0; j < els.length; j++) {
+                          var el = els[j];
+                          var rect = el.getBoundingClientRect();
+                          if (rect.width > 0 && rect.height > 0) {
+                             console.log("🛡️ [Clicker] Found target in " + name + " via " + selector);
+                             return el;
+                          }
                         }
-                    }
-                }
-                if (found) break;
+                      }
+                  }
+                } catch(e) {}
+                return null;
             }
 
-            if (found) {
-                console.log("🛡️ [Clicker] 🎯 Target found: ", found);
-                const rect = found.getBoundingClientRect();
-                const x = rect.left + rect.width / 2;
-                const y = rect.top + rect.height / 2;
-                
-                const options = { bubbles: true, cancelable: true, view: window, clientX: x, clientY: y };
-                found.dispatchEvent(new PointerEvent('pointerover', options));
-                found.dispatchEvent(new PointerEvent('pointerdown', { ...options, button: 0 }));
-                found.dispatchEvent(new PointerEvent('pointerup', { ...options, button: 0 }));
-                found.dispatchEvent(new MouseEvent('click', { ...options, detail: 1 }));
-                return true;
+            _scanCount++;
+            if (_scanCount % 5 === 0) {
+               var bodyText = document.body ? document.body.innerText.substring(0, 50).replace(/\\n/g, ' ') : 'N/A';
+               console.log("🛡️ [Clicker] Pulse (" + _scanCount + ") | Frames: " + window.frames.length + " | Shadows: " + (window._discoveredShadowRoots ? window._discoveredShadowRoots.length : 0) + " | Content: [" + bodyText + "...]");
             }
+
+            // 1. 主文档扫描
+            found = scanContext(document, "Main Document");
+            if (found) {
+                if (found.tagName === 'IFRAME') {
+                   console.log("🛡️ [Clicker] Found an iframe: " + found.src);
+                } else {
+                   return performClick(found);
+                }
+            }
+
+            // 2. 已发现的 Shadow DOM 扫描
+            var shadows = window._discoveredShadowRoots || [];
+            for (var k = 0; k < shadows.length; k++) {
+                found = scanContext(shadows[k], "ShadowRoot-" + k);
+                if (found) return performClick(found);
+            }
+
+            // 3. 递归扫描 Iframe
+            try {
+                for (var fidx = 0; fidx < window.frames.length; fidx++) {
+                    var f = window.frames[fidx];
+                    try {
+                        var frameDoc = f.document;
+                        found = scanContext(frameDoc, "Iframe-" + fidx);
+                        if (found) return performClick(found);
+                        
+                        if (f._discoveredShadowRoots) {
+                           for (var sidx = 0; sidx < f._discoveredShadowRoots.length; sidx++) {
+                               found = scanContext(f._discoveredShadowRoots[sidx], "Iframe-" + fidx + "-Shadow-" + sidx);
+                               if (found) return performClick(found);
+                           }
+                        }
+                    } catch(e) { }
+                }
+            } catch(e) {}
+
             return false;
         }
 
-        let interval = setInterval(() => {
+        var interval = setInterval(function() {
             if (attemptClick()) {
                 console.log("🛡️ [Clicker] Click successful, stopping poll.");
                 clearInterval(interval);
             }
-        }, 2000);
+        }, 1000);
     })();
   ''';
 
@@ -248,26 +454,62 @@ class CloudflareScripts {
 
         function checkSuccess() {
             const params = new URLSearchParams(window.location.search);
-            const marker = params.get('successMarker') || 'number_data_box';
+        const marker = params.get('successMarker');
+        if (!marker) return false;
 
-            if (document.body && document.body.innerHTML.includes(marker)) {
-                console.log("🛡️ [Result-Monitor] ✅ Success Marker Found: " + marker);
-                
-                window.parent.postMessage({
-                    type: 'phoneQueryResult',
-                    data: {
-                        success: true,
-                        content: document.documentElement.outerHTML,
-                        cookies: document.cookie,
-                        requestId: params.get('requestId')
-                    }
-                }, '*');
-                return true;
-            }
-            return false;
+        function findInContext(ctx) {
+            if (!ctx) return null;
+            try {
+                const found = ctx.getElementById(marker) || 
+                              (ctx.getElementsByClassName && ctx.getElementsByClassName(marker).length > 0) ||
+                              (ctx.querySelector && ctx.querySelector(marker));
+                if (found) {
+                    const rect = found.getBoundingClientRect();
+                    if (rect.width > 0 && rect.height > 0) return found;
+                    if (found.innerText && found.innerText.trim().length > 0) return found;
+                }
+            } catch(e) {}
+            return null;
         }
 
-        setInterval(checkSuccess, 3000);
+        // 1. 扫描当前文档
+        let target = findInContext(document);
+        
+        // 2. 扫描子 Iframe
+        if (!target) {
+            try {
+                for (let i = 0; i < window.frames.length; i++) {
+                    try {
+                        target = findInContext(window.frames[i].document);
+                        if (target) break;
+                    } catch(e) {}
+                }
+            } catch(e) {}
+        }
+
+        if (target) {
+            console.log("🛡️ [Result-Monitor] ✅ Success Marker Found: " + marker);
+            
+            window.parent.postMessage({
+                type: 'phoneQueryResult',
+                data: {
+                    success: true,
+                    content: target.ownerDocument.documentElement.outerHTML, // 返回包含目标的那个文档
+                    cookies: document.cookie,
+                    requestId: params.get('requestId')
+                }
+            }, '*');
+            return true;
+        }
+        return false;
+    }
+
+    let resultInterval = setInterval(() => {
+        if (checkSuccess()) {
+            console.log("🛡️ [Result-Monitor] Result delivered, stopping monitor.");
+            clearInterval(resultInterval);
+        }
+    }, 3000);
     })();
   ''';
 
