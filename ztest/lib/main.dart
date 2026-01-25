@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'core/cloudflare_legacy_service.dart';
 
 import 'core/js_execution_service.dart';
 import 'core/native_request_channel.dart';
@@ -36,6 +37,7 @@ class _TestPageState extends State<TestPage> {
   late JsExecutionService _jsService;
   NativeRequestChannel? _requestChannel;
   Map<String, dynamic>? _result; // Store the latest result
+  bool _showMonitor = true; // ⭐ 默認開啟監控視窗
 
   final List<String> _logs = [];
   final ScrollController _scrollController = ScrollController();
@@ -397,6 +399,17 @@ class _TestPageState extends State<TestPage> {
               ),
             ),
 
+            // ⭐ 核心增強：繞過監控視窗 (Visual Bypass Monitor)
+            if (_showMonitor)
+              Container(
+                height: 300,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.red, width: 2),
+                ),
+                child: CloudflareLegacyService().getWebViewWidget(),
+              ),
+
             // Control Buttons
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -408,6 +421,16 @@ class _TestPageState extends State<TestPage> {
                       ElevatedButton(
                         onPressed: () => _runTest(_phoneController.text.trim()),
                         child: const Text('Test Phone'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _showMonitor = !_showMonitor;
+                          });
+                        },
+                        child: Text(
+                          _showMonitor ? 'Hide Monitor' : 'Show Monitor',
+                        ),
                       ),
                       ElevatedButton(
                         onPressed: () {
