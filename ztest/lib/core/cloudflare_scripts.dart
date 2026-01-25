@@ -1,25 +1,31 @@
 class CloudflareScripts {
-  /// 影子劫持 + 自动点击的原子脚本
-  /// 必须在 AT_DOCUMENT_START 注入
+  /// 终极脚本：修复了变量初始化逻辑，防止覆盖 Manual 设置
   static String get bypassUniversal => '''
     (function() {
+      // 0. 防止脚本重复运行
       if (window._cf_bypass_active) return;
       window._cf_bypass_active = true;
 
       console.log("[Bypass] 🛡️ Shadow Hijacker Active");
 
-      // 1. 准备赃物存放点和状态锁
-      window._capturedShadowRoots = [];
-      window._capturedIframes = [];
-      window._clickLockoutTime = 0; 
+      // 1. 初始化变量 (关键修正：使用 || 运算符，保留外部注入的值)
+      window._capturedShadowRoots = []; 
+      window._capturedIframes = [];     
       
-      // 2. 【核心魔法】劫持 attachShadow
+      // ⭐ 核心修复：如果外部(main.dart)注入了 true，这里不要覆盖为 false
+      window._cf_manual_mode = window._cf_manual_mode || false;
+      
+      window._hasClickedGlobal = false; 
+
+      console.log("[Bypass] Mode Configured: " + (window._cf_manual_mode ? "MANUAL (No Click)" : "AUTO (Will Click)"));
+
+      // 2. 劫持 attachShadow
       const originalAttachShadow = Element.prototype.attachShadow;
       Element.prototype.attachShadow = function(init) {
         const root = originalAttachShadow.call(this, init);
         window._capturedShadowRoots.push(root);
         if (window.flutter_inappwebview) {
-          window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 🥷 Stole ShadowRoot from <" + this.tagName + "> mode=" + init.mode);
+          window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 🥷 Stole ShadowRoot mode=" + init.mode);
         }
         return root;
       };
@@ -30,204 +36,121 @@ class CloudflareScripts {
         const element = originalCreateElement.call(document, tagName);
         if (tagName.toLowerCase() === 'iframe') {
           window._capturedIframes.push(element);
-          if (window.flutter_inappwebview) {
-            window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 📦 Captured iframe");
-          }
         }
         return element;
       };
 
-      // 4. 【反指纹】干扰检测 API
-      try {
-          // 伪造 Webdriver 属性
-          Object.defineProperty(navigator, 'webdriver', { get: () => false });
-          // 伪造语言
-          Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
-          // 伪造插件列表
-          const pluginData = [
-              { name: 'Chrome PDF Plugin', description: 'Portable Document Format' },
-              { name: 'Chrome PDF Viewer', description: 'Portable Document Format' },
-          ];
-          const mockPlugins = {
-              length: pluginData.length,
-              item: (index) => pluginData[index] || null,
-              namedItem: (name) => pluginData.find(p => p.name === name) || null,
-          };
-          Object.defineProperty(navigator, 'plugins', { get: () => mockPlugins });
-          
-          if (window.flutter_inappwebview) {
-             window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 👻 Anti-Fingerprint Evasion Loaded.");
-          }
-      } catch (e) { /* Evasion failed */ }
-      
-      // 5. 【核心增强】模拟鼠标移动轨迹
+      // 4. 反指纹
+      try { Object.defineProperty(navigator, 'webdriver', { get: () => false }); } catch (e) {}
+
+      // 5. 模拟轨迹
       function simulatedMousePath(startElement, endElement) {
-          const startRect = startElement ? startElement.getBoundingClientRect() : { left: 100, top: 100, width: 0, height: 0 };
+          if (window._cf_manual_mode) return; // 手动模式不画轨迹
+
+          const startRect = startElement.getBoundingClientRect();
           const endRect = endElement.getBoundingClientRect();
-          
-          let currentX = startRect.left + startRect.width / 2;
-          let currentY = startRect.top + startRect.height / 2;
-          
+          let currentX = startRect.left;
+          let currentY = startRect.top;
           const targetX = endRect.left + endRect.width / 2;
           const targetY = endRect.top + endRect.height / 2;
-          
-          const steps = 10 + Math.floor(Math.random() * 10); // 10-19 个步骤
+          const steps = 10;
           
           if (window.flutter_inappwebview) {
-             // ⭐ 最终修正：使用 JS 字符串拼接，避免 Dart/JS 模板字符串冲突
-             window.flutter_inappwebview.callHandler(
-                'TestPageChannel', 
-                "[Bypass] 🐭 Generating " + steps + " steps mouse path from (" + startRect.left + "," + startRect.top + ") to (" + targetX + "," + targetY + ")"
-             );
+             window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 🐭 Moving mouse...");
           }
+
           for (let i = 1; i <= steps; i++) {
               const ratio = i / steps;
-              const nextX = currentX + (targetX - currentX) * ratio;
-              const nextY = currentY + (targetY - currentY) * ratio;
-
-              const jitterX = (Math.random() - 0.5) * 5; // 1-5 像素的随机抖动
-              const jitterY = (Math.random() - 0.5) * 5;
-              
-              currentX = nextX + jitterX;
-              currentY = nextY + jitterY;
-
-              const event = new MouseEvent('mousemove', {
-                  bubbles: true, cancelable: true, view: window, isTrusted: true,
-                  clientX: currentX, 
-                  clientY: currentY
-              });
-              document.dispatchEvent(event);
-              
-              const delay = 20 + Math.random() * 30; // 20ms - 50ms 延迟
-              
-              // 模拟人眼的感知速度（同步延迟）
-              const start = Date.now();
-              while (Date.now() < start + delay);
+              const nextX = currentX + (targetX - currentX) * ratio + (Math.random() - 0.5) * 2;
+              const nextY = currentY + (targetY - currentY) * ratio + (Math.random() - 0.5) * 2;
+              document.dispatchEvent(new MouseEvent('mousemove', {
+                  bubbles: true, cancelable: true, view: window, isTrusted: true, clientX: nextX, clientY: nextY
+              }));
           }
       }
 
-      // 6. 模拟真实点击 (加入点击锁)
+      // 6. 执行点击
       function simulatedClick(element) {
-        // 检查点击锁：如果在锁定时间内，则跳过
-        if (Date.now() < window._clickLockoutTime) {
+        // ⭐ 手动模式双重保险
+        if (window._cf_manual_mode) {
+            console.log("[Bypass] Blocked click due to Manual Mode");
             return false;
         }
+        if (window._hasClickedGlobal) return false;
 
-        // 设置点击锁：锁定 15 秒，等待 Cloudflare 验证结果
-        window._clickLockoutTime = Date.now() + 15000; 
-
-        if (!element || element.getAttribute('data-bypass-clicked') === 'true') return false;
-        element.setAttribute('data-bypass-clicked', 'true');
+        if (!element) return false;
         
+        window._hasClickedGlobal = true;
+
         if (window.flutter_inappwebview) {
-          window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 🎯 Clicking element: " + element.tagName + (element.id ? ('#' + element.id) : ''));
+          window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 🎯 CLICKING " + element.tagName);
         }
 
-        // 模拟点击的中心点
         const rect = element.getBoundingClientRect();
-        const randX = rect.left + rect.width * (0.45 + Math.random() * 0.1); 
-        const randY = rect.top + rect.height * (0.45 + Math.random() * 0.1);
-        const baseOptions = { bubbles: true, cancelable: true, view: window, isTrusted: true, clientX: randX, clientY: randY };
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        const opts = { bubbles: true, cancelable: true, view: window, isTrusted: true, clientX: x, clientY: y };
         
-        const events = [
-          { name: 'pointerover', delay: 0 },
-          { name: 'pointerenter', delay: 50 },
-          { name: 'pointerdown', delay: 100 + Math.random() * 50 },
-          { name: 'mousedown', delay: 150 + Math.random() * 50 },
-          { name: 'mouseup', delay: 200 + Math.random() * 50 },
-          { name: 'pointerup', delay: 250 + Math.random() * 50 },
-          { name: 'click', delay: 350 + Math.random() * 100 },
-        ];
-
-        events.forEach(event => {
-          setTimeout(() => {
-            element.dispatchEvent(new MouseEvent(event.name, baseOptions));
-          }, event.delay);
-        });
-        
+        element.dispatchEvent(new MouseEvent('pointerover', opts));
+        element.dispatchEvent(new MouseEvent('mousedown', opts));
+        element.focus();
+        element.dispatchEvent(new MouseEvent('mouseup', opts));
+        element.dispatchEvent(new MouseEvent('click', opts));
         return true;
       }
 
-      // 7. 扫描器
+      // 7. 扫描循环
       function scan() {
-        // A. 最终成功检测（放在最前面，一成功就退出）
         const currentUrl = window.location.href;
-        const successMarker = new URLSearchParams(currentUrl).get('successMarker');
+        const marker = new URLSearchParams(currentUrl).get('successMarker');
         
-        const isChallengePage = document.title.includes('Just a moment') || 
-                                 document.title.includes('Checking your Browser') || 
-                                 document.title.includes('ListaSpam security'); 
-                                 
-        const hasChallengeContent = document.body.innerHTML.includes('Verifying') ||
-                                    document.body.innerHTML.includes('captcha');
-                                    
-        // 判定成功的标准：页面标题和内容都不是 Challenge 页面特征，且 URL 包含我们的标记
-        const isSuccess = !isChallengePage && !hasChallengeContent && currentUrl.includes(successMarker);
-
-        if (isSuccess) {
-          if (window.flutter_inappwebview) {
-            setTimeout(() => {
-              window.flutter_inappwebview.callHandler('BypassSuccess', {
-                success: true,
-                cookies: document.cookie,
-                url: currentUrl
-              });
-            }, 500); 
-            // 成功后，不再执行后续代码
-            return; 
-          }
+        // 成功检测
+        if (marker && document.body.innerHTML.includes(marker)) {
+             if (window.flutter_inappwebview && !window._cf_manual_mode) {
+                window.flutter_inappwebview.callHandler('BypassSuccess', {
+                  success: true, cookies: document.cookie, url: currentUrl
+                });
+             }
+             return;
         }
-        
-        // --- 如果未成功，则执行点击逻辑 ---
-        if (Date.now() < window._clickLockoutTime) return;
 
-        let clickedThisRun = false;
+        // ⭐ 手动模式：在这里就返回，不进入下面的查找逻辑
+        if (window._cf_manual_mode === true) {
+            // console.log("[Bypass] Manual Mode: Scanning paused.");
+            return;
+        }
 
-        // B. 扫描所有偷来的 Shadow Root (Turnstile)
-        window._capturedShadowRoots.forEach((root, index) => {
-          if (clickedThisRun) return; 
+        if (window._hasClickedGlobal) return;
+
+        // 扫描 Shadow DOM
+        for (let i = 0; i < window._capturedShadowRoots.length; i++) {
           try {
+            const root = window._capturedShadowRoots[i];
             const cb = root.querySelector('input[type="checkbox"]');
             if (cb && !cb.checked) {
-              if (window.flutter_inappwebview) {
-                 window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] ✅ Found fresh checkbox in shadow #" + index);
-              }
-              // 重置点击标记
-              cb.removeAttribute('data-bypass-clicked');
-              
-              // ⭐ 关键：在点击前模拟鼠标轨迹
-              simulatedMousePath(document.body, cb); 
-              
-              clickedThisRun = simulatedClick(cb);
+              if (window.flutter_inappwebview) window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] ✅ Found checkbox in shadow");
+              simulatedMousePath(document.body, cb);
+              if (simulatedClick(cb)) return; 
             }
-          } catch (e) { /* Ignore */ }
-        });
+          } catch (e) {}
+        }
         
-        // C. 兜底逻辑：扫描 iframe 内部
-        window._capturedIframes.forEach((iframe) => {
-           if (clickedThisRun) return;
+        // 扫描 Iframe
+        for (let i = 0; i < window._capturedIframes.length; i++) {
            try {
+              const iframe = window._capturedIframes[i];
               if (iframe.contentDocument) {
                  const cb = iframe.contentDocument.querySelector('input[type="checkbox"]');
                  if (cb && !cb.checked) {
-                      if (window.flutter_inappwebview) {
-                          window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] ✅ Found fresh checkbox in iframe (Fallback)");
-                      }
-                      cb.removeAttribute('data-bypass-clicked');
                       simulatedMousePath(document.body, cb);
-                      clickedThisRun = simulatedClick(cb);
+                      if (simulatedClick(cb)) return;
                  }
               }
-           } catch(e) { /* Cross-origin iframe */ }
-        });
+           } catch(e) {}
+        }
       }
 
-      // 8. 启动循环
-      setInterval(scan, 2000); 
-      
-      if (window.flutter_inappwebview) {
-        window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 🛡️ Injection Complete. Hunting for targets...");
-      }
+      setInterval(scan, 1000);
     })();
   ''';
 }
