@@ -1,534 +1,257 @@
-I/flutter (17034): Fetching script from https://raw.githubusercontent.com/haygcao/test/main/listaspam_html.js...
-I/chromium(17034): [INFO:CONSOLE(1)] "Request for the Private Access Token challenge.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "The next request for the Private Access Token challenge may return a 401 and show a warning in console.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/flutter (17034): [listaspamHtmlPlugin] ListaSpam HTML Plugin (Full Mapping) registered.
-I/flutter (17034): Script injected.
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-I/flutter (17034): Warning: pluginLoaded message not received. Attempting to run anyway (assuming explicit ID listaspamHtmlPlugin)...
-I/flutter (17034): Running generateOutput...
-I/flutter (17034): [Native] Injected config for listaspamHtmlPlugin
-I/flutter (17034): [listaspamHtmlPlugin] generateOutput (ListaSpam HTML) for: test_1769519931329
-I/flutter (17034): [listaspamHtmlPlugin] Initiating Scout query for '919597638' (requestId: test_1769519931329)
-I/flutter (17034): [listaspamHtmlPlugin] Fetching HTML from: https://www.listaspam.com/busca.php?Telefono=919597638
-I/flutter (17034): 📡 NativeRequestChannel: Processing request for https://www.listaspam.com/busca.php?Telefono=919597638 (Plugin: listaspamHtmlPlugin)
-I/flutter (17034): [NET] 📡 Native: Fetching https://www.listaspam.com/busca.php?Telefono=919597638 (via listaspamHtmlPlugin)
-I/flutter (17034): [listaspamHtmlPlugin] ListaSpam Request sent. Waiting for handleResponse...
-I/flutter (17034): 📡 NativeRequestChannel: Sending Request to https://www.listaspam.com/busca.php?Telefono=919597638
-I/flutter (17034):    🔑 UA: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36
-I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/Choreographer(17034): Skipped 30 frames!  The application may be doing too much work on its main thread.
-I/flutter (17034): ! NativeRequestChannel: Challenge Detected (DioExceptionType.badResponse/403). Retrying...
-I/flutter (17034): [NET] ! Challenge 403! Attempting bypass...
-I/flutter (17034): 🛡️ Using Plugin-Defined Success Marker: 'data_extra'
-I/flutter (17034): 🛡️ PluginAccessBypassService: Delegated bypass for https://www.listaspam.com/busca.php?Telefono=919597638 to Helper (Mode: auto)
-I/flutter (17034): 🛡️ [BypassHelper] Starting Headless WebView...
-D/InAppWebView(17034): Using InAppWebViewClientCompat implementation
-W/cr_WebSettings(17034): setForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): setForceDarkBehavior() is a no-op in an app with targetSdkVersion>=T
-I/flutter (17034): 🛡️ [BypassHelper] Headless WebView Created
-I/Choreographer(17034): Skipped 38 frames!  The application may be doing too much work on its main thread.
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 10}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onLoadStart" using {url: about:blank}
-I/flutter (17034): 🛡️ [BypassHelper] Page Loaded: about:blank
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onUpdateVisitedHistory" using {isReload: false, url: about:blank}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 80}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 100}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 100}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onTitleChanged" using {title: about:blank}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onLoadStop" using {url: about:blank}
-I/flutter (17034): 🛡️ [BypassHelper] Navigating to: https://www.listaspam.com/busca.php?Telefono=919597638 (Marker Injected via JS)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 10}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-arch: "", sec-ch-ua-mobile: ?1, sec-ch-ua-full-version-list: , Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7, Upgrade-Insecure-Requests: 1, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: true, url: https://www.listaspam.com/busca.php?Telefono=919597638}, errorResponse: {headers: {date: Tue, 27 Jan 2026 13:18:55 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c4889ecd8d02f7a-LAX, ...
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'payment'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onLoadStart" using {url: https://www.listaspam.com/busca.php?Telefono=919597638}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onUpdateVisitedHistory" using {isReload: false, url: https://www.listaspam.com/busca.php?Telefono=919597638}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 23}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 28}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 30}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 40}
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onTitleChanged" using {title: ListaSpam security}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 70}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onUpdateVisitedHistory" using {isReload: false, url: https://www.listaspam.com/busca.php?Telefono=919597638&__cf_chl_rt_tk=MNw3gCDDuWoHZhruZPs1vX7RlFdE06XkD9EdzvrAx.8-1769519935-1.0.1.1-qVrxaMkxBZp9qm_2qWigqy_58QIbMgyLy4s9xFKvIT0}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onPageCommitVisible" using {url: about:blank}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onPageCommitVisible" using {url: https://www.listaspam.com/busca.php?Telefono=919597638}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 80}
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(1)] "Failed to create WebGPU Context Provider", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/mple.plugindemo(17034): Background concurrent mark compact GC freed 4705KB AllocSpace bytes, 5(2876KB) LOS objects, 49% free, 4941KB/9882KB, paused 2.733ms,4.462ms total 129.029ms
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onUpdateVisitedHistory" using {isReload: false, url: https://www.listaspam.com/busca.php?Telefono=919597638}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 80}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onReceivedError" using {request: {headers: {User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://www.googletagmanager.com/gtag/js?id=G-LJX6DS09Z5&cx=c&_slc=1}, error: {description: net::ERR_CONNECTION_REFUSED, type: -6}}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onReceivedError" using {request: {headers: {User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://www.googletagmanager.com/gtag/js?id=G-LJX6DS09Z5&l=dataLayer&cx=c}, error: {description: net::ERR_CONNECTION_REFUSED, type: -6}}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onTitleChanged" using {title: Just a moment...}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 100}
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 100}
-I/flutter (17034): 🛡️ [BypassHelper] Page Loaded: https://www.listaspam.com/busca.php?Telefono=919597638
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onLoadStop" using {url: https://www.listaspam.com/busca.php?Telefono=919597638}
-I/chromium(17034): [INFO:CONSOLE(0)] "The resource https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/cmg/1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'payment'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-arch: "", sec-ch-ua-full-version-list: , sec-ch-ua-mobile: ?1, Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, Referer: https://www.listaspam.com/busca.php?Telefono=919597638, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://www.listaspam.com/favicon.ico}, errorResponse: {headers: {date: Tue, 27 Jan 2026 13:19:04 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c488a2459e92f7a-LAX, vary: Accept-Encoding, origin-agent-cluster: ?1, x-f...
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(0)] "The resource https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/cmg/1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/mqhpk/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (0)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(0)] "The resource https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/cmg/1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (0)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: The resource https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/cmg/1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.}
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
-I/chromium(17034): [INFO:CONSOLE(1)] "Request for the Private Access Token challenge.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "The next request for the Private Access Token challenge may return a 401 and show a warning in console.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: Request for the Private Access Token challenge.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: The next request for the Private Access Token challenge may return a 401 and show a warning in console.}
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onReceivedHttpError" using {request: {headers: {User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, Referer: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/9c488a188989f7c5/1769519947538/b58d8d4e50b094326361eaf749c623a90a1de29f7107a91f24ab07d0ed8613ab/btplThrxm56f3SY}, errorResponse: {headers: {date: Tue, 27 Jan 2026 13:19:18 GMT, content-length: 1, server: cloudflare, cf-ray: 9c488a7ac90af7c5-LAX, www-authenticate: PrivateToken challenge="AAIAGXBh...
-I/mple.plugindemo(17034): Background concurrent mark compact GC freed 402KB AllocSpace bytes, 10(5344KB) LOS objects, 49% free, 6559KB/12MB, paused 22.945ms,21.183ms total 93.605ms
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: console.groupEnd}
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/flutter (17034): Timeout waiting for result.
-I/mple.plugindemo(17034): AssetManager2(0x7a028899f9b8) locale list changing from [] to [en-US]
-I/chromium(17034): [INFO:CONSOLE(1)] "Failed to create WebGPU Context Provider", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Failed to create WebGPU Context Provider}
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message: Error}
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: HpOG}
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: HpOG}
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: zldW}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: zldW}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: [object HTMLAnchorElement]}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: [object HTMLAnchorElement]}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message:  : 1}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message:  : 1}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message:  rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message:  rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 3, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 3, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: console.groupEnd}
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/flutter (17034): 🛡️ [JS-Log] [Bypass] 👀 Visual confirmed. Waiting reaction time...
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "TestPageChannel" using [[Bypass] 👀 Visual confirmed. Waiting reaction time...]
-I/chromium(17034): [INFO:CONSOLE(1)] "Failed to create WebGPU Context Provider", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "Request for the Private Access Token challenge.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "The next request for the Private Access Token challenge may return a 401 and show a warning in console.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/flutter (17034): 🛡️ [JS-Log] [Bypass] 👆 Finger approaching...
-I/flutter (17034): 🛡️ [JS-Log] [Bypass] 📜 Human Scroll: -61px
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "TestPageChannel" using [[Bypass] 👆 Finger approaching...]
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "TestPageChannel" using [[Bypass] 📜 Human Scroll: -61px]
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(0)] "The resource https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/cmg/1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (0)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: The resource https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/cmg/1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.}
-I/flutter (17034): 🛡️ [JS-Log] [Bypass] 👆 Finger lifted.
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "TestPageChannel" using [[Bypass] 👆 Finger lifted.]
-I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/tnat3/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message: Error}
-I/flutter (17034): 🛡️ [JS-Log] [Bypass] 🎯 TAP Completed.
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "TestPageChannel" using [[Bypass] 🎯 TAP Completed.]
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/u6fcw/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/mple.plugindemo(17034): Background concurrent mark compact GC freed 266KB AllocSpace bytes, 9(4524KB) LOS objects, 49% free, 6559KB/12MB, paused 909us,5.323ms total 28.543ms
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 10}
-I/chromium(17034): [INFO:CONSOLE(1)] "Request for the Private Access Token challenge.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "The next request for the Private Access Token challenge may return a 401 and show a warning in console.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua-arch: "", Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7, User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, Referer: https://www.listaspam.com/busca.php?Telefono=919597638, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, sec-ch-ua-full-version-list: , Upgrade-Insecure-Requests: 1, sec-ch-ua-platform: "Android", sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: true, url: https://www.listaspam.com/busca.php?Telefono=919597638}, errorResponse: {headers: {date: Tue, 27 Jan 2026 13:19:49 GMT, server: cloudflare, expir...
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'payment'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onLoadStart" using {url: https://www.listaspam.com/busca.php?Telefono=919597638}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onUpdateVisitedHistory" using {isReload: false, url: https://www.listaspam.com/busca.php?Telefono=919597638}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 25}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 29}
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onTitleChanged" using {title: ListaSpam security}
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 35}
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 38}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onUpdateVisitedHistory" using {isReload: false, url: https://www.listaspam.com/busca.php?Telefono=919597638&__cf_chl_rt_tk=MUv5Dv08wqJuzlRTwNtDHrXfmSB6QpuvltzjW6.9RIs-1769519989-1.0.1.1-kX5W0KkF3kL2W9rlDqrOrDvgK6oCQUoTIMsPBPjJjWM}
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onPageCommitVisible" using {url: https://www.listaspam.com/busca.php?Telefono=919597638}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 80}
-I/chromium(17034): [INFO:CONSOLE(1)] "Failed to create WebGPU Context Provider", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onUpdateVisitedHistory" using {isReload: false, url: https://www.listaspam.com/busca.php?Telefono=919597638}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 80}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onTitleChanged" using {title: Just a moment...}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onReceivedError" using {request: {headers: {User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://www.googletagmanager.com/gtag/js?id=G-LJX6DS09Z5&l=dataLayer&cx=c}, error: {description: net::ERR_CONNECTION_REFUSED, type: -6}}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onReceivedError" using {request: {headers: {User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://www.googletagmanager.com/gtag/js?id=G-LJX6DS09Z5&cx=c&_slc=1}, error: {description: net::ERR_CONNECTION_REFUSED, type: -6}}
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 100}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onProgressChanged" using {progress: 100}
-I/flutter (17034): 🛡️ [BypassHelper] Page Loaded: https://www.listaspam.com/busca.php?Telefono=919597638
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onLoadStop" using {url: https://www.listaspam.com/busca.php?Telefono=919597638}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-arch: "", sec-ch-ua-full-version-list: , sec-ch-ua-mobile: ?1, Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, Referer: https://www.listaspam.com/busca.php?Telefono=919597638, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://www.listaspam.com/favicon.ico}, errorResponse: {headers: {date: Tue, 27 Jan 2026 13:19:51 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c488b4d9e242f7a-LAX, vary: Accept-Encoding, origin-agent-cluster: ?1, x-f...
-I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'payment'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-I/chromium(17034): [INFO:CONSOLE(1)] "Request for the Private Access Token challenge.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "The next request for the Private Access Token challenge may return a 401 and show a warning in console.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "Failed to create WebGPU Context Provider", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/flutter (17034): [NET] ❌ Bypass Failed. No content/cookies retrieved.
-I/flutter (17034): 📦 Sending Native Response to JS (Plugin: listaspamHtmlPlugin)
-I/flutter (17034): Sending Native Response to JS: if(window.plugin && window.plugin['listaspamHtmlPlugin']) { window.plugin['listaspamHtmlPlugin'].handleResponse({"success":false,"error":"Bypass Failed","status":503,"requestId":"test_1769519931329","phoneRequestId":"test_1769519931329"}); } else { console.warn('Plugin listaspamHtmlPlugin not found for response'); }
-I/flutter (17034): [listaspamHtmlPlugin] handleResponse called for ListaSpam.
-I/flutter (17034): ⚡ JS PluginResult: {requestId: test_1769519931329, success: false, error: HTTP Error: Bypass Failed}
-I/flutter (17034): ⚡ JS PluginResult: {requestId: test_1769519931329, success: false, error: HTTP Error: Bypass Failed}
-I/flutter (17034): PluginResult: {requestId: test_1769519931329, success: false, error: HTTP Error: Bypass Failed}
-I/mple.plugindemo(17034): AssetManager2(0x7a028896bd98) locale list changing from [] to [en-US]
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/lwmgc/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-I/chromium(17034): [INFO:CONSOLE(0)] "The resource https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/cmg/1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/xkn8y/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (0)
-I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message: Error}
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: HpOG}
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: HpOG}
-I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: zldW}
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: zldW}
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: [object HTMLAnchorElement]}
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: [object HTMLAnchorElement]}
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message:  : 1}
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message:  : 1}
-I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/679qr/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 0, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message:  rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message:  rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 3, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 3, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 2, message: %c%d font-size:0;color:transparent NaN}
-[AndroidInAppWebViewController] (android) WebView ID 12012211052432481561581634822593673516123850 calling "onConsoleMessage" using {messageLevel: 1, message: console.groupEnd}
-I/chromium(17034): [INFO:CONSOLE(1)] "Failed to create WebGPU Context Provider", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/rg4ql/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto (1)
-W/cr_WebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings(17034): getForceDark() is a no-op in an app with targetSdkVersion>=T
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 85.0.0 (93.0.0 available)
+  analyzer 7.7.1 (10.0.1 available)
+  build 3.1.0 (4.0.4 available)
+  build_resolvers 3.0.3 (3.0.4 available)
+  build_runner 2.7.1 (2.10.5 available)
+  build_runner_core 9.3.1 (9.3.2 available)
+  characters 1.4.0 (1.4.1 available)
+  cronet_http 1.6.0 (1.7.0 available)
+  dart_style 3.1.1 (3.1.4 available)
+  dio 5.9.0 (5.9.1 available)
+  drift 2.29.0 (2.30.1 available)
+  drift_dev 2.29.0 (2.30.1 available)
+  file_picker 10.3.8 (10.3.9 available)
+  jni 0.14.2 (0.15.2 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.16.0 (1.18.0 available)
+  objective_c 9.1.0 (9.2.4 available)
+  path_provider_foundation 2.5.1 (2.6.0 available)
+  shared_preferences_android 2.4.18 (2.4.20 available)
+  source_gen 4.0.0 (4.2.0 available)
+  sqlite3 2.9.4 (3.1.4 available)
+  sqlparser 0.42.1 (0.43.0 available)
+  test 1.26.2 (1.29.0 available)
+  test_api 0.7.6 (0.7.9 available)
+  test_core 0.6.11 (0.6.15 available)
+Got dependencies!
+26 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+"af": 31 untranslated message(s).
+"am": 32 untranslated message(s).
+"ar": 31 untranslated message(s).
+"bn": 31 untranslated message(s).
+"cs": 31 untranslated message(s).
+"da": 31 untranslated message(s).
+"de": 31 untranslated message(s).
+"el": 31 untranslated message(s).
+"es": 31 untranslated message(s).
+"et": 32 untranslated message(s).
+"fa": 31 untranslated message(s).
+"fi": 31 untranslated message(s).
+"fil": 31 untranslated message(s).
+"fr": 31 untranslated message(s).
+"ha": 31 untranslated message(s).
+"he": 32 untranslated message(s).
+"hi": 31 untranslated message(s).
+"id": 31 untranslated message(s).
+"it": 31 untranslated message(s).
+"ja": 31 untranslated message(s).
+"km": 35 untranslated message(s).
+"ko": 31 untranslated message(s).
+"ms": 31 untranslated message(s).
+"my": 31 untranslated message(s).
+"nl": 31 untranslated message(s).
+"no": 31 untranslated message(s).
+"pl": 31 untranslated message(s).
+"pt": 31 untranslated message(s).
+"ro": 32 untranslated message(s).
+"ru": 31 untranslated message(s).
+"sk": 31 untranslated message(s).
+"sv": 31 untranslated message(s).
+"sw": 31 untranslated message(s).
+"th": 31 untranslated message(s).
+"tr": 31 untranslated message(s).
+"uk": 31 untranslated message(s).
+"ur": 31 untranslated message(s).
+"uz": 31 untranslated message(s).
+"vi": 31 untranslated message(s).
+"xh": 31 untranslated message(s).
+"zh": 31 untranslated message(s).
+"zh_CN": 31 untranslated message(s).
+"zh_HK": 31 untranslated message(s).
+"zh_MO": 31 untranslated message(s).
+"zh_TW": 31 untranslated message(s).
+"zu": 31 untranslated message(s).
+To see a detailed report, use the untranslated-messages-file 
+option in the l10n.yaml file:
+untranslated-messages-file: desiredFileName.txt
+<other option>: <other selection> 
+
+
+This will generate a JSON format file containing all messages that 
+need to be translated.
+Launching lib\main.dart on sdk gphone64 x86 64 in debug mode...
+Running Gradle task 'assembleDebug'...
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...
+D/FlutterJNI(14328): Beginning load of flutter...
+D/FlutterJNI(14328): flutter (null) was loaded normally!
+I/flutter (14328): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+Debug service listening on ws://127.0.0.1:50393/_aXU37weD7A=/ws
+Syncing files to device sdk gphone64 x86 64...
+D/nativeloader(14328): Load /data/app/~~zqxW8u4zSFrypCpy4v2mTA==/com.example.plugindemo-22Y-4xlAuOD1fgfwOalLXQ==/base.apk!/lib/x86_64/libdartjni.so using class loader ns clns-9 (caller=/data/app/~~zqxW8u4zSFrypCpy4v2mTA==/com.example.plugindemo-22Y-4xlAuOD1fgfwOalLXQ==/base.apk!classes9.dex): ok
+I/mple.plugindemo(14328): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityNodeInfo;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported,test-api) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+I/mple.plugindemo(14328): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+I/mple.plugindemo(14328): hiddenapi: Accessing hidden field Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray; (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+I/mple.plugindemo(14328): hiddenapi: Accessing hidden method Landroid/util/LongArray;->get(I)J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+D/CompatChangeReporter(14328): Compat change id reported: 377864165; UID 10215; state: ENABLED
+W/HWUI    (14328): Unknown dataspace 0
+D/ProfileInstaller(14328): Installing profile for com.example.plugindemo
+I/WindowExtensionsImpl(14328): Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+I/mple.plugindemo(14328): Compiler allocated 5042KB to compile void android.view.ViewRootImpl.performTraversals()
+I/Choreographer(14328): Skipped 58 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl(14328): Register WindowLayoutInfoListener on Context=com.example.plugindemo.MainActivity@a120222, of which baseContext=android.app.ContextImpl@ea5b37a
+I/flutter (14328): [PluginExecutionService] Initializing Core Services...
+I/Choreographer(14328): Skipped 374 frames!  The application may be doing too much work on its main thread.
+I/mple.plugindemo(14328): AssetManager2(0x7a02888fc858) locale list changing from [] to [en-US]
+I/WebViewFactory(14328): Loading com.google.android.webview version 133.0.6943.137 (code 694313738)
+I/mple.plugindemo(14328): AssetManager2(0x7a02888f8078) locale list changing from [] to [en-US]
+I/mple.plugindemo(14328): AssetManager2(0x7a02888fc218) locale list changing from [] to [en-US]
+I/mple.plugindemo(14328): AssetManager2(0x7a02888fa5f8) locale list changing from [] to [en-US]
+V/ResourcesManager(14328): The following library key has been added: ResourcesKey{ mHash=f002f439 mResDir=null mSplitDirs=[] mOverlayDirs=[] mLibDirs=[/data/app/~~wVE9TPoc0yA6qRW4B4fO3A==/com.google.android.webview-fbp_iBXa-06LAxT7UpZ1Wg==/WebViewGoogle.apk,/data/app/~~tYuZA8u6pojl8jDWBVeFzw==/com.google.android.trichromelibrary_694313738-f_EMo5gEZYZ0eQqurUCfSw==/TrichromeLibrary.apk] mDisplayId=0 mOverrideConfig=v36 mCompatInfo={480dpi always-compat} mLoaders=[]}
+W/mple.plugindemo(14328): Failed to find entry 'classes.dex': Entry not found
+D/nativeloader(14328): Configuring clns-10 for other apk /data/app/~~tYuZA8u6pojl8jDWBVeFzw==/com.google.android.trichromelibrary_694313738-f_EMo5gEZYZ0eQqurUCfSw==/TrichromeLibrary.apk. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~wVE9TPoc0yA6qRW4B4fO3A==/com.google.android.webview-fbp_iBXa-06LAxT7UpZ1Wg==/lib/x86_64:/data/app/~~wVE9TPoc0yA6qRW4B4fO3A==/com.google.android.webview-fbp_iBXa-06LAxT7UpZ1Wg==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~tYuZA8u6pojl8jDWBVeFzw==/com.google.android.trichromelibrary_694313738-f_EMo5gEZYZ0eQqurUCfSw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+D/ApplicationLoaders(14328): Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+D/nativeloader(14328): Configuring clns-11 for other apk /data/app/~~wVE9TPoc0yA6qRW4B4fO3A==/com.google.android.webview-fbp_iBXa-06LAxT7UpZ1Wg==/WebViewGoogle.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~wVE9TPoc0yA6qRW4B4fO3A==/com.google.android.webview-fbp_iBXa-06LAxT7UpZ1Wg==/lib/x86_64:/data/app/~~wVE9TPoc0yA6qRW4B4fO3A==/com.google.android.webview-fbp_iBXa-06LAxT7UpZ1Wg==/WebViewGoogle.apk!/lib/x86_64:/data/app/~~tYuZA8u6pojl8jDWBVeFzw==/com.google.android.trichromelibrary_694313738-f_EMo5gEZYZ0eQqurUCfSw==/TrichromeLibrary.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+I/cr_WVCFactoryProvider(14328): version=133.0.6943.137 (694313738) minSdkVersion=29 isBundle=false multiprocess=true packageId=2
+D/nativeloader(14328): Load /data/app/~~tYuZA8u6pojl8jDWBVeFzw==/com.google.android.trichromelibrary_694313738-f_EMo5gEZYZ0eQqurUCfSw==/TrichromeLibrary.apk!/lib/x86_64/libmonochrome_64.so using class loader ns clns-11 (caller=/data/app/~~wVE9TPoc0yA6qRW4B4fO3A==/com.google.android.webview-fbp_iBXa-06LAxT7UpZ1Wg==/WebViewGoogle.apk): ok
+D/nativeloader(14328): Load /system/lib64/libwebviewchromium_plat_support.so using class loader ns clns-11 (caller=/data/app/~~wVE9TPoc0yA6qRW4B4fO3A==/com.google.android.webview-fbp_iBXa-06LAxT7UpZ1Wg==/WebViewGoogle.apk): ok
+E/chromium(14328): [0127/222238.000653:ERROR:variations_seed_loader.cc(39)] Seed missing signature.
+I/chromium(14328): [0127/222238.004518:INFO:variations_seed_loader.cc(67)] Failed to open file for reading.: No such file or directory (2)
+I/cr_LibraryLoader(14328): Successfully loaded native library
+I/cr_CachingUmaRecorder(14328): Flushed 6 samples from 6 histograms, 0 samples were dropped.
+I/cr_CombinedPProvider(14328): #registerProvider() provider:WV.C8@2eb48c9 isPolicyCacheEnabled:false policyProvidersSize:0
+I/cr_PolicyProvider(14328): #setManagerAndSource() 0
+I/mple.plugindemo(14328): NativeAlloc concurrent mark compact GC freed 2575KB AllocSpace bytes, 9(272KB) LOS objects, 49% free, 3233KB/6466KB, paused 3.936ms,8.225ms total 169.025ms
+I/cr_CombinedPProvider(14328): #linkNativeInternal() 1
+I/cr_AppResProvider(14328): #getApplicationRestrictionsFromUserManager() Bundle[EMPTY_PARCEL]
+I/cr_PolicyProvider(14328): #notifySettingsAvailable() 0
+I/cr_CombinedPProvider(14328): #onSettingsAvailable() 0
+I/cr_CombinedPProvider(14328): #flushPolicies()
+I/mple.plugindemo(14328): AssetManager2(0x7a02888fe478) locale list changing from [] to [en-US]
+I/mple.plugindemo(14328): AssetManager2(0x7a02888fb8b8) locale list changing from [] to [en-US]
+E/chromium(14328): [ERROR:simple_version_upgrade.cc(151)] Failed to write a new fake index.
+I/Choreographer(14328): Skipped 123 frames!  The application may be doing too much work on its main thread.
+I/CameraManagerGlobal(14328): Connecting to camera service
+I/flutter (14328): [PluginExecutionService] Initialization Complete. UA: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/133.0.6943.137 Mobile Safari/537.36
+I/Choreographer(14328): Skipped 198 frames!  The application may be doing too much work on its main thread.
+I/Choreographer(14328): Skipped 93 frames!  The application may be doing too much work on its main thread.
+I/HWUI    (14328): Davey! duration=1782ms; Flags=1, FrameTimelineVsyncId=4920298, IntendedVsync=14883137025908, Vsync=14884687025846, InputEventId=0, HandleInputStart=14884698871400, AnimationStart=14884698895500, PerformTraversalsStart=14884698924300, DrawStart=14884715160300, FrameDeadline=14883153692574, FrameStartTime=14884698338900, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=14884729671500, SyncStart=14884733891600, IssueDrawCommandsStart=14884737199800, SwapBuffers=14884788389200, FrameCompleted=14884923985100, DequeueBufferDuration=6380600, QueueBufferDuration=4106600, GpuCompleted=14884917251000, SwapBuffersCompleted=14884923985100, DisplayPresentTime=0, CommandSubmissionCompleted=14884788389200, 
+I/mple.plugindemo(14328): AssetManager2(0x7a0288914278) locale list changing from [] to [en-US]
+D/InsetsController(14328): hide(ime(), fromIme=false)
+I/ImeTracker(14328): com.example.plugindemo:d564ca8d: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+I/flutter (14328): Initializing PluginTestService (JS Engine)...
+I/flutter (14328): Test Service Ready.
+I/ImeTracker(14328): com.example.plugindemo:9df9ac9f: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController(14328): show(ime(), fromIme=false)
+D/InsetsController(14328): Setting requestedVisibleTypes to -1 (was -9)
+D/InputConnectionAdaptor(14328): The input method toggled cursor monitoring on
+I/AssistStructure(14328): Flattened final assist data: 424 bytes, containing 1 windows, 3 views
+W/InteractionJankMonitor(14328): Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.example.plugindemo
+I/ImeTracker(14328): com.example.plugindemo:9df9ac9f: onShown
+I/flutter (14328): Fetching script from https://raw.githubusercontent.com/haygcao/test/main/listaspam_html.js...
+I/flutter (14328): [listaspamHtmlPlugin] ListaSpam HTML Plugin (Full Mapping) registered.
+I/flutter (14328): Script injected.
+I/flutter (14328): Warning: pluginLoaded message not received. Attempting to run anyway (assuming explicit ID listaspamHtmlPlugin)...
+I/flutter (14328): Running generateOutput...
+I/flutter (14328): [Native] Injected config for listaspamHtmlPlugin
+I/flutter (14328): [listaspamHtmlPlugin] generateOutput (ListaSpam HTML) for: test_1769523798861
+I/flutter (14328): [listaspamHtmlPlugin] Initiating Scout query for '919597638' (requestId: test_1769523798861)
+I/flutter (14328): [listaspamHtmlPlugin] Fetching HTML from: https://www.listaspam.com/busca.php?Telefono=919597638
+I/flutter (14328): 📡 NativeRequestChannel: Processing request for https://www.listaspam.com/busca.php?Telefono=919597638 (Plugin: listaspamHtmlPlugin)
+I/flutter (14328): [NET] 📡 Native: Fetching https://www.listaspam.com/busca.php?Telefono=919597638 (via listaspamHtmlPlugin)
+I/flutter (14328): [listaspamHtmlPlugin] ListaSpam Request sent. Waiting for handleResponse...
+I/flutter (14328): 📡 NativeRequestChannel: Sending Request to https://www.listaspam.com/busca.php?Telefono=919597638
+I/flutter (14328):    🔑 UA: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36
+I/DynamiteModule(14328): Considering local module com.google.android.gms.cronet_dynamite:0 and remote module com.google.android.gms.cronet_dynamite:3411
+I/DynamiteModule(14328): Selected remote version of com.google.android.gms.cronet_dynamite, version >= 3411
+V/DynamiteModule(14328): Dynamite loader version >= 2, using loadModule2NoCrashUtils
+I/mple.plugindemo(14328): AssetManager2(0x7a02889248f8) locale list changing from [] to [en-US]
+I/mple.plugindemo(14328): AssetManager2(0x7a028892cf58) locale list changing from [] to [en-US]
+I/mple.plugindemo(14328): AssetManager2(0x7a02889006d8) locale list changing from [] to [en-US]
+D/nativeloader(14328): Configuring clns-12 for other apk . target_sdk_version=36, uses_libraries=ALL, library_path=/data/user_de/0/com.google.android.gms/app_chimera/m/00000001/CronetDynamite.apk!/lib/x86_64:/data/user_de/0/com.google.android.gms/app_chimera/m/00000001/CronetDynamite.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand
+D/nativeloader(14328): Load /data/user_de/0/com.google.android.gms/app_chimera/m/00000001/CronetDynamite.apk!/lib/x86_64/libcronet.133.0.6876.3.so using isolated ns clns-12 (caller=/data/user_de/0/com.google.android.gms/app_chimera/m/00000001/CronetDynamite.apk): ok
+I/cn_CronetLibraryLoader(14328): Cronet version: 133.0.6876.3, arch: x86_64
+I/flutter (14328): ! NativeRequestChannel: Challenge Detected (DioExceptionType.badResponse/403). Retrying...
+I/flutter (14328): [NET] ! Challenge 403! Attempting bypass...
+I/flutter (14328): 🛡️ Using Plugin-Defined Success Marker: 'data_extra'
+I/flutter (14328): 🛡️ PluginAccessBypassService: Delegated bypass for https://www.listaspam.com/busca.php?Telefono=919597638 to Helper (Mode: auto)
+I/flutter (14328): 🛡️ [Session-1769523801645] Creating Headless WebView...
+W/HWUI    (14328): Image decoding logging dropped!
+W/HWUI    (14328): Image decoding logging dropped!
+D/InAppWebView(14328): Using InAppWebViewClientCompat implementation
+W/cr_WebSettings(14328): setForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(14328): setForceDarkBehavior() is a no-op in an app with targetSdkVersion>=T
+W/cr_media(14328): BLUETOOTH_CONNECT permission is missing.
+W/cr_media(14328): getBluetoothAdapter() requires BLUETOOTH permission
+W/cr_media(14328): registerBluetoothIntentsIfNeeded: Requires BLUETOOTH permission
+W/libc    (14328): Access denied finding property "vendor.mesa.log"
+W/libc    (14328): Access denied finding property "vendor.mesa.log.file"
+E/MESA    (14328): Failed to open rendernode: No such file or directory
+D/vulkan  (14328): searching for layers in '/data/app/~~zqxW8u4zSFrypCpy4v2mTA==/com.example.plugindemo-22Y-4xlAuOD1fgfwOalLXQ==/lib/x86_64'
+D/vulkan  (14328): searching for layers in '/data/app/~~zqxW8u4zSFrypCpy4v2mTA==/com.example.plugindemo-22Y-4xlAuOD1fgfwOalLXQ==/base.apk!/lib/x86_64'
+W/libc    (14328): Access denied finding property "vendor.mesa.vk.trace.per.submit"
+W/libc    (14328): Access denied finding property "vendor.mesa.gallium.print.optio"
+W/libc    (14328): Access denied finding property "vendor.mesa.vk.trace.frame"
+W/libc    (14328): Access denied finding property "vendor.mesa.vk.wsi.headless.swa"
+W/chromium(14328): [WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onProgressChanged" using {progress: 10}
+I/mple.plugindemo(14328): AssetManager2(0x7a0288935f18) locale list changing from [] to [en-US]
+I/flutter (14328): 🛡️ [Session-1769523801645] Navigating to target...
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onProgressChanged" using {progress: 10}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onLoadStart" using {url: about:blank}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onUpdateVisitedHistory" using {isReload: false, url: about:blank}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onProgressChanged" using {progress: 10}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onProgressChanged" using {progress: 10}
+W/VideoCapabilities(14328): Unsupported mime video/apv
+W/VideoCapabilities(14328): Unsupported mime video/apv
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onZoomScaleChanged" using {oldScale: 3.0, newScale: 3.306122303009033}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onPageCommitVisible" using {url: about:blank}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-arch: "", sec-ch-ua-mobile: ?1, sec-ch-ua-full-version-list: , Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7, Upgrade-Insecure-Requests: 1, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36, sec-ch-ua-bitness: "", sec-ch-ua-model: "", sec-ch-ua-platform-version: "", sec-ch-ua-full-version: ""}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: true, url: https://www.listaspam.com/busca.php?Telefono=919597638}, errorResponse: {headers: {date: Tue, 27 Jan 2026 14:23:24 GMT, server: cloudflare, expires: Thu, 01 Jan 1970 00:00:01 GMT, cf-ray: 9c48e8643db2c044-LAX, var...
+W/cr_WebSettings(14328): getForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(14328): getForceDark() is a no-op in an app with targetSdkVersion>=T
+I/chromium(14328): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
+I/chromium(14328): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
+I/chromium(14328): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
+I/chromium(14328): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
+I/chromium(14328): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
+I/chromium(14328): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'payment'.}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onLoadStart" using {url: https://www.listaspam.com/busca.php?Telefono=919597638}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onUpdateVisitedHistory" using {isReload: false, url: https://www.listaspam.com/busca.php?Telefono=919597638}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onProgressChanged" using {progress: 26}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onProgressChanged" using {progress: 33}
+I/chromium(14328): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onTitleChanged" using {title: ListaSpam security}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onProgressChanged" using {progress: 37}
+[AndroidInAppWebViewController] (android) WebView ID 12375220285225224825492228472161981881705 calling "onProgressChanged" using {progress: 39}
+I/flutter (14328): 🛡️ [Session-1769523801645] Success!
+I/flutter (14328): 🛡️ [Session-1769523801645] Disposed (Headless View Destroyed)
+I/flutter (14328): 🛡️ Returning Proxy Content to JS (Len: 279816)
+I/flutter (14328): [NET] 🛡️ Bypass OK. Proxy Content Retrieved.
+I/flutter (14328): 🛡️ Native Content Preview: <html xmlns="http://www.w3.org/1999/xhtml" lang="es" prefix="og: http://ogp.me/ns#"><head><title>ListaSpam security</title><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="">!function(){var e,d={resource:{version:"1",macros:[{function:"__e"},{function:"__cid"}],tags:[{function:"__rep",once_per_event:!0,vtp_containerId:["macro",1],tag_id:1}],predicates:[{function:"_eq",arg0:["macro",0],arg1:"gtm.js"}],rules:[[["if",0],["add",0]]]}...
+I/flutter (14328): 📄 [NATIVE HTML DUMP START] --------------------------------
+I/flutter (14328): <html xmlns="http://www.w3.org/1999/xhtml" lang="es" prefix="og: http://ogp.me/ns#"><head><title>ListaSpam security</title><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="">!function(){var e,d={resource:{version:"1",macros:[{function:"__e"},{function:"__cid"}],tags:[{function:"__rep",once_per_event:!0,vtp_containerId:["macro",1],tag_id:1}],predicates:[{function:"_eq",arg0:["macro",0],arg1:"gtm.js"}],rules:[[["if",0],["add",0]]]},runtime:[]},i="function"==typeof Object.create?Object.create:function(e){function t(){}return t.prototype=e,new t};if("function"==typeof Object.setPrototypeOf)e=Object.setPrototypeOf;else{var t;e:{var n={};try{n.__proto__={a:!0},t=n.a;break e}catch(e){}t=!1}e=t?function(e,t){if(e.__proto__=t,e.__proto__!==t)throw new TypeError(e+" is not extensible");return e}:null}function r(e){return e}function o(){}function a(e){return"number"==typeof e&&!isNaN(e)}function c(e,t){return a(e)&&a(t)&&!(t<e)||(e=0,t=2147483647),Math.
+I/flutter (14328): [listaspamHtmlPlugin] handleResponse called for ListaSpam.
+I/flutter (14328): [listaspamHtmlPlugin] Parsed ListaSpam: Label=[], Count=[0], City=[]
+I/Choreographer(14328): Skipped 49 frames!  The application may be doing too much work on its main thread.
+E/chromium(14328): [ERROR:aw_browser_terminator.cc(165)] Renderer process (14458) crash detected (code -1).
+I/flutter (14328): 
+I/flutter (14328): 
+I/flutter (14328): <style>a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}:root{--main-color:#00cfc9;--secondary-color:#004948;--terciary-color:#221f49;--alt-color:#e9f1fb;--corners-rounded:25px 25px 0 0;--main-font:Open Sans,Arial,Verdana,Sans-Serif}body,html{font-family:var(--main-font);font-size:15px;font-weight:
+I/flutter (14328): 📄 [NATIVE HTML DUMP END] ----------------------------------
+I/flutter (14328): 📦 Sending Native Response to JS (Plugin: listaspamHtmlPlugin)
+I/flutter (14328): Sending Native Response to JS: if(window.plugin && window.plugin['listaspamHtmlPlugin']) { window.plugin['listaspamHtmlPlugin'].handleResponse({"success":true,"status":200,"responseText":"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"es\" prefix=\"og: http://ogp.me/ns#\"><head><title>ListaSpam security</title><script type=\"text/javascript\" async=\"\" src=\"https://www.google-analytics.com/analytics.js\"></script><script async=\"\">!function(){var e,d={resource:{version:\"1\",macros:[{function:\"__e\"},{function:\"__cid\"}],tags:[{function:\"__rep\",once_per_event:!0,vtp_containerId:[\"macro\",1],tag_id:1}],predicates:[{function:\"_eq\",arg0:[\"macro\",0],arg1:\"gtm.js\"}],rules:[[[\"if\",0],[\"add\",0]]]},runtime:[]},i=\"function\"==typeof Object.create?Object.create:function(e){function t(){}return t.prototype=e,new t};if(\"function\"==typeof Object.setPrototypeOf)e=Object.setPrototypeOf;else{var t;e:{var n={};try{n.__proto__={a:!0},t=n.a;break e}catch(e){}t=!1}e=t?function(e,t){if(e.__proto__=t,e._
+I/flutter (14328): ⚡ JS PluginResult: {requestId: test_1769523798861, success: false, source: ListaSpam ES Lookup (Scout Regex), phoneNumber: 919597638, sourceLabel: Untracked Info, predefinedLabel: Unknown, action: none, name: , count: 0, city: }
+I/flutter (14328): ⚡ JS PluginResult: {requestId: test_1769523798861, success: false, source: ListaSpam ES Lookup (Scout Regex), phoneNumber: 919597638, sourceLabel: Untracked Info, predefinedLabel: Unknown, action: none, name: , count: 0, city: }
+I/flutter (14328): PluginResult: {requestId: test_1769523798861, success: false, source: ListaSpam ES Lookup (Scout Regex), phoneNumber: 919597638, sourceLabel: Untracked Info, predefinedLabel: Unknown, action: none, name: , count: 0, city: }
+I/flutter (14328): Cleaning up channel resources...

@@ -322,4 +322,9 @@ class NativeRequestChannel {
       onLog?.call("❌ Failed to send response: $e");
     }
   }
+
+  /// Force stop any active bypass operations (cleanup)
+  Future<void> cleanup() async {
+    await PluginAccessBypassService().stop();
+  }
 }

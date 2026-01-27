@@ -26,6 +26,10 @@ class PluginAccessBypassService {
     );
   }
 
+  Future<void> stop() async {
+    await _bypassHelper.stop();
+  }
+
   void dispose() {
     _bypassHelper.dispose();
   }

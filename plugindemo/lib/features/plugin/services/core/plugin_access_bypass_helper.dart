@@ -2,42 +2,36 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:collection';
 import 'package:flutter/foundation.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'bypass_scripts.dart';
 
-class PluginAccessBypassHelper {
-  static final PluginAccessBypassHelper _instance =
-      PluginAccessBypassHelper._internal();
-  factory PluginAccessBypassHelper() => _instance;
+// [REFACTOR] Ephemeral Session Class
+class _BypassSession {
+  final String id;
+  final String targetUrl;
+  final String? userAgent;
+  final String marker;
+  final Completer<Map<String, dynamic>?> _completer = Completer();
 
   HeadlessInAppWebView? _headlessWebView;
   InAppWebViewController? _controller;
-  Completer<Map<String, dynamic>?>? _currentBypassCompleter;
-  bool _isHeadlessRunning = false;
-  Completer<void>? _initCompleter;
+  bool _isPolling = false;
 
-  PluginAccessBypassHelper._internal();
+  _BypassSession({
+    required this.id,
+    required this.targetUrl,
+    required this.userAgent,
+    required this.marker,
+  });
 
-  // Initialize the Headless WebView on demand, persisting it as a Singleton.
-  Future<void> _ensureInitialized() async {
-    if (_headlessWebView != null && _isHeadlessRunning && _controller != null) {
-      return;
-    }
-
-    if (_initCompleter != null && !_initCompleter!.isCompleted) {
-      await _initCompleter!.future;
-      return;
-    }
-
-    _initCompleter = Completer<void>();
-
+  Future<Map<String, dynamic>?> run() async {
     try {
       _headlessWebView = HeadlessInAppWebView(
         initialSize: const Size(1080, 1920),
         initialUrlRequest: URLRequest(url: WebUri('about:blank')),
         initialSettings: InAppWebViewSettings(
+          userAgent: userAgent ?? '',
           javaScriptEnabled: true,
           domStorageEnabled: true,
           databaseEnabled: true,
@@ -46,117 +40,65 @@ class PluginAccessBypassHelper {
           allowFileAccessFromFileURLs: true,
           allowUniversalAccessFromFileURLs: true,
         ),
-        // [HYBRID] Restore Complex Script for Anti-Fingerprinting & Interaction
-        // [REFACTOR] Scripts are now injected dynamically in executeBypass
-        initialUserScripts: UnmodifiableListView<UserScript>([]),
         onWebViewCreated: (controller) {
           _controller = controller;
-          debugPrint('🛡️ [BypassHelper] Headless WebView Created');
-
-          // [CALLBACK] Script-based success signaling
-          controller.addJavaScriptHandler(
-            handlerName: 'BypassSuccess',
-            callback: (args) {
-              if (args.isNotEmpty) _onBypassSuccess(args[0]);
-            },
-          );
-
-          controller.addJavaScriptHandler(
-            handlerName: 'BypassFailed',
-            callback: (args) {
-              if (args.isNotEmpty) _onBypassFailed(args[0]);
-            },
-          );
-
-          controller.addJavaScriptHandler(
-            handlerName: 'TestPageChannel',
-            callback: (args) {
-              if (args.isNotEmpty) debugPrint('🛡️ [JS-Log] ${args[0]}');
-            },
-          );
+          _setupCallbacks(controller);
         },
         onLoadStop: (controller, url) async {
-          debugPrint('🛡️ [BypassHelper] Page Loaded: $url');
-        },
-        onConsoleMessage: (controller, consoleMessage) {
-          // Optional: Forward console messages
+          // debugPrint('🛡️ [Session-$id] Page Loaded: $url');
         },
       );
 
-      debugPrint('🛡️ [BypassHelper] Starting Headless WebView...');
+      debugPrint('🛡️ [Session-$id] Creating Headless WebView...');
       await _headlessWebView?.run();
-      _isHeadlessRunning = true;
 
-      // Wait for controller assignment
+      // Wait for Controller
       int attempts = 0;
       while (_controller == null && attempts < 20) {
         await Future.delayed(const Duration(milliseconds: 100));
         attempts++;
       }
 
-      if (_controller == null) {
-        debugPrint('⚠️ [BypassHelper] Controller not assigned after run()');
-      }
+      if (_controller == null)
+        throw Exception('WebViewController failed to initialize');
 
-      _initCompleter!.complete();
-    } catch (e) {
-      debugPrint('❌ [BypassHelper] Initialization failed: $e');
-      _initCompleter!.completeError(e);
-      _headlessWebView = null;
-      _isHeadlessRunning = false;
-    } finally {
-      if (_headlessWebView == null) _initCompleter = null;
-    }
-  }
+      // Start Logic
+      await _injectScriptsAndLoad();
 
-  Future<void> enableManualMode() async {
-    await _controller?.evaluateJavascript(
-      source: "window._cf_manual_mode = true;",
-    );
-  }
+      // Polling
+      _isPolling = true;
+      _startNativePolling();
 
-  Future<void> disableManualMode() async {
-    await _controller?.evaluateJavascript(
-      source:
-          "window._cf_manual_mode = false; window._hasClickedGlobal = false;",
-    );
-  }
-
-  /// Execute Bypass with Hybrid Strategy (Script + Polling)
-  Future<Map<String, dynamic>?> executeBypass(
-    String targetUrl, {
-    String? userAgent,
-    String? successMarker,
-    String mode = 'auto',
-  }) async {
-    // 1. Ensure Persistent Headless Service is Ready
-    await _ensureInitialized();
-
-    if (_controller == null) {
-      return {'success': false, 'error': 'Headless WebView failed to start'};
-    }
-
-    if (userAgent != null) {
-      await _controller?.setSettings(
-        settings: InAppWebViewSettings(userAgent: userAgent),
+      // Wait for result
+      return await _completer.future.timeout(
+        const Duration(seconds: 60),
+        onTimeout: () => {'success': false, 'error': 'Timeout'},
       );
+    } catch (e) {
+      debugPrint('❌ [Session-$id] Error: $e');
+      return {'success': false, 'error': e.toString()};
+    } finally {
+      dispose();
     }
+  }
 
-    if (_currentBypassCompleter != null &&
-        !_currentBypassCompleter!.isCompleted) {
-      _currentBypassCompleter!.complete(null);
-    }
-    _currentBypassCompleter = Completer<Map<String, dynamic>?>();
+  void _setupCallbacks(InAppWebViewController controller) {
+    controller.addJavaScriptHandler(
+      handlerName: 'BypassSuccess',
+      callback: (args) {
+        if (args.isNotEmpty) _onSuccess(args[0]);
+      },
+    );
+    controller.addJavaScriptHandler(
+      handlerName: 'BypassFailed',
+      callback: (args) {
+        if (args.isNotEmpty) _onFailed(args[0]);
+      },
+    );
+  }
 
-    // [REFACTOR] Clean URL + JS Injection Strategy
-    // 1. Do NOT append marker to URL (avoids reflection/false positives)
-    final marker = successMarker ?? 'number_data_box';
-
-    // 2. Prepare Scripts
-    // Clear previous scripts to avoid accumulation
+  Future<void> _injectScriptsAndLoad() async {
     await _controller?.removeAllUserScripts();
-
-    // Inject Marker as Global Variable
     await _controller?.addUserScript(
       userScript: UserScript(
         source: "window._cf_success_marker = '$marker';",
@@ -164,8 +106,6 @@ class PluginAccessBypassHelper {
         forMainFrameOnly: false,
       ),
     );
-
-    // Inject Main Bypass Script
     await _controller?.addUserScript(
       userScript: UserScript(
         source: BypassScripts.bypassUniversal,
@@ -174,134 +114,148 @@ class PluginAccessBypassHelper {
       ),
     );
 
-    debugPrint(
-      '🛡️ [BypassHelper] Navigating to: $targetUrl (Marker Injected via JS)',
-    );
-    // [FIX] Reset interaction counter for new session
-    await _controller?.evaluateJavascript(
-      source: "sessionStorage.removeItem('_cf_tap_count');",
-    );
+    debugPrint('🛡️ [Session-$id] Navigating to target...');
     await _controller?.loadUrl(urlRequest: URLRequest(url: WebUri(targetUrl)));
+  }
 
-    // [HYBRID] Start Native Polling Loop as Backup for "Automatic Termination"
-    // This ensures that if the script fails to call back, we still catch the success.
-    _startNativePolling(marker);
-
-    try {
-      return await _currentBypassCompleter!.future.timeout(
-        const Duration(seconds: 60),
-        onTimeout: () => {'success': false, 'error': 'Timeout'},
-      );
-    } catch (e) {
-      return {'success': false, 'error': e.toString()};
+  void _onSuccess(dynamic result) {
+    if (!_completer.isCompleted) {
+      Map<String, dynamic> finalResult;
+      if (result is String) {
+        try {
+          finalResult = Map<String, dynamic>.from(jsonDecode(result));
+        } catch (_) {
+          finalResult = {'data': result};
+        }
+      } else if (result is Map) {
+        finalResult = Map<String, dynamic>.from(result);
+      } else {
+        finalResult = {'data': result};
+      }
+      debugPrint('🛡️ [Session-$id] Success!');
+      _completer.complete(finalResult);
     }
   }
 
-  void _startNativePolling(String marker) async {
-    int attempts = 0;
-    // Check every 2 seconds for up to 60 seconds
-    while (attempts < 30) {
-      if (_currentBypassCompleter == null ||
-          _currentBypassCompleter!.isCompleted) {
-        return;
-      }
+  void _onFailed(dynamic reason) {
+    if (!_completer.isCompleted) {
+      debugPrint('🛑 [Session-$id] Failed: $reason');
+      _completer.complete({'success': false, 'error': reason.toString()});
+    }
+  }
 
+  void _startNativePolling() async {
+    int attempts = 0;
+    while (attempts < 30 && _isPolling && !_completer.isCompleted) {
       await Future.delayed(const Duration(seconds: 2));
       attempts++;
-
       try {
-        // [AUTO-TERMINATE] Check if content is already loaded in WebView
-        final title = await _controller?.getTitle();
         final html = await _controller?.getHtml();
+        final title = await _controller?.getTitle();
 
-        // 🛡️ CRITICAL FIX: Ensure we are NOT on the Cloudflare Challenge Page.
-        // The 'successMarker' is often present in the URL, which appears in the HTML source (e.g. scripts, canonical tags).
-        // If we simply check html.contains(marker), we get a False Positive immediately.
-        // We now check HTML content for Cloudflare fingerprints as well.
-        bool isCloudflarePage =
+        bool isCloudflare =
             (title != null &&
                 (title.contains("Just a moment") ||
-                    title.contains("Attention Required") ||
                     title.contains("Cloudflare"))) ||
             (html != null &&
                 (html.contains("challenge-platform") ||
-                    html.contains("cf-turnstile") ||
-                    html.contains("verifying-text")));
+                    html.contains("cf-turnstile")));
 
-        if (!isCloudflarePage && html != null && html.contains(marker)) {
-          debugPrint(
-            '🛡️ [BypassHelper] Native Polling found marker: "$marker" (Title: $title)',
-          );
-          debugPrint(
-            '📄 [BypassHelper HTML DUMP START] --------------------------------',
-          );
-          debugPrint(html);
-          debugPrint(
-            '📄 [BypassHelper HTML DUMP END] ----------------------------------',
-          );
-
+        if (!isCloudflare && html != null && html.contains(marker)) {
           final url = await _controller?.getUrl();
           if (url != null) {
             final cookies = await CookieManager.instance().getCookies(url: url);
             final cookieString = cookies
                 .map((c) => "${c.name}=${c.value}")
                 .join("; ");
-
-            _onBypassSuccess({
+            _onSuccess({
               'success': true,
               'cookies': cookieString,
-              'content': html, // Optional, depending on if we need full content
+              'content': html,
               'url': url.toString(),
             });
+            return;
           }
-          return;
         }
-      } catch (e) {
-        // Ignore polling errors
-      }
-    }
-  }
-
-  void _onBypassSuccess(dynamic result) {
-    if (_currentBypassCompleter != null &&
-        !_currentBypassCompleter!.isCompleted) {
-      try {
-        Map<String, dynamic> finalResult;
-        if (result is String) {
-          finalResult = Map<String, dynamic>.from(jsonDecode(result));
-        } else if (result is Map) {
-          finalResult = Map<String, dynamic>.from(result);
-        } else {
-          finalResult = {'data': result};
-        }
-        debugPrint('🛡️ [BypassHelper] ✅ Bypass Success! (Terminating)');
-        _currentBypassCompleter!.complete(finalResult);
-      } catch (e) {
-        _currentBypassCompleter!.complete({
-          'success': false,
-          'error': e.toString(),
-        });
-      }
-    }
-  }
-
-  void _onBypassFailed(dynamic reason) {
-    if (_currentBypassCompleter != null &&
-        !_currentBypassCompleter!.isCompleted) {
-      debugPrint('🛑 [BypassHelper] Bypass Failed: $reason (Terminating)');
-      _currentBypassCompleter!.complete({
-        'success': false,
-        'error': reason.toString(),
-      });
+      } catch (_) {}
     }
   }
 
   void dispose() {
-    // Only dispose on app termination
+    _isPolling = false;
+    // Destroy the WebView strictly
     _headlessWebView?.dispose();
     _headlessWebView = null;
     _controller = null;
-    _isHeadlessRunning = false;
-    _initCompleter = null;
+    debugPrint('🛡️ [Session-$id] Disposed (Headless View Destroyed)');
   }
+}
+
+class PluginAccessBypassHelper {
+  static final PluginAccessBypassHelper _instance =
+      PluginAccessBypassHelper._internal();
+  factory PluginAccessBypassHelper() => _instance;
+  PluginAccessBypassHelper._internal();
+
+  // Semaphore / Queue
+  static const int MAX_CONCURRENT_SESSIONS = 3;
+  int _activeSessions = 0;
+  final Queue<Completer<void>> _waitQueue = Queue();
+
+  Future<void> _acquireSlot() async {
+    if (_activeSessions < MAX_CONCURRENT_SESSIONS) {
+      _activeSessions++;
+      return;
+    }
+    final completer = Completer<void>();
+    _waitQueue.add(completer);
+    debugPrint(
+      '🛡️ [BypassHelper] Limit reached ($MAX_CONCURRENT_SESSIONS), Queued. (Queue Size: ${_waitQueue.length})',
+    );
+    await completer.future;
+  }
+
+  void _releaseSlot() {
+    if (_waitQueue.isNotEmpty) {
+      final completer = _waitQueue.removeFirst();
+      completer.complete();
+    } else {
+      _activeSessions--;
+    }
+  }
+
+  /// Execute Bypass: Creates an Ephemeral Session, Runs it, then Destroys it.
+  Future<Map<String, dynamic>?> executeBypass(
+    String targetUrl, {
+    String? userAgent,
+    String? successMarker,
+    String mode = 'auto',
+  }) async {
+    await _acquireSlot();
+    final String sessionId = DateTime.now().millisecondsSinceEpoch.toString();
+
+    try {
+      final session = _BypassSession(
+        id: sessionId,
+        targetUrl: targetUrl,
+        userAgent: userAgent,
+        marker: successMarker ?? 'number_data_box',
+      );
+
+      return await session.run();
+    } finally {
+      _releaseSlot();
+    }
+  }
+
+  // Legacy Stop method - deprecated but kept for API compatibility,
+  // can't easily kill specific sessions without tracking references,
+  // but since sessions are auto-disposed in finally, this might be less critical.
+  // We could implement a _trackSession list if "Force Stop All" is needed.
+  Future<void> stop() async {
+    // For now, no-op or we could track active sessions to kill them.
+    // Given "Destroy after use" paradigm, explicit stop is mostly for cancelling mid-flight.
+  }
+
+  void dispose() {}
 }
