@@ -1,18 +1,27 @@
-// [cleverdialer.js] - Cleverdialer Plugin (Pure FlutterJS Regex V6.0)
+// [cleverdialer.js] - Cleverdialer Plugin (Pure FlutterJS Regex V6.1)
 // =======================================================================================
 // Architecture: Native Channel (httpFetch) + Regex Parsing
 // No DOM/Iframe dependencies.
 // =======================================================================================
 
-(function() {
+(function () {
     // --- Plugin Configuration ---
     const PLUGIN_CONFIG = {
         id: 'cleverdialerPlugin',
         name: 'Cleverdialer (Regex)',
-        version: '6.0.0', 
+        version: '6.1.0',
         description: 'Queries cleverdialer.com for phone number information using Regex.',
+        config: {
+            successMarker: "cleverdialer",
+        },
         settings: [
-             { key: 'successMarker', label: 'Success Marker', type: 'text', hint: 'Bypass Marker', required: false }
+            {
+                key: 'successMarker',
+                label: 'Success Marker',
+                type: 'text',
+                hint: 'Bypass Marker',
+                required: false
+            }
         ]
     };
 
@@ -39,36 +48,55 @@
     const allowKeywords = ['Delivery', 'Takeaway', 'Insurance', 'Customer', 'Bank', 'Medical', 'Charity'];
 
     // --- Helpers ---
-    function log(message) { sendMessage('Log', `[${PLUGIN_CONFIG.id}] ${message}`); }
-    function logError(message) { sendMessage('Log', `[${PLUGIN_CONFIG.id}] [ERROR] ${message}`); }
-    function sendPluginResult(result) { sendMessage('PluginResultChannel', JSON.stringify(result)); }
-    function sendPluginLoaded() { sendMessage('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version })); }
+    function log(message) { console.log(`[${PLUGIN_CONFIG.id}] ${message}`); }
+    function logError(message, error) { console.error(`[${PLUGIN_CONFIG.id}] ${message}`, error); }
+
+    function sendPluginResult(result) {
+        if (typeof sendMessage === 'function') {
+            sendMessage('PluginResultChannel', JSON.stringify(result));
+        } else if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('PluginResultChannel', JSON.stringify(result));
+        }
+    }
+
+    function sendPluginLoaded() {
+        if (typeof sendMessage === 'function') {
+            sendMessage('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version }));
+        } else if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version }));
+        }
+    }
 
     // --- Core Logic ---
     function initiateQuery(phoneNumber, requestId) {
         log(`Initiating Query: ${phoneNumber}`);
+        
         const config = (window.plugin && window.plugin[PLUGIN_CONFIG.id].config) || {};
-        const successMarker = config.successMarker || "cleverdialer"; 
+        const successMarker = config.successMarker || "cleverdialer";
+        const userAgent = config.userAgent || 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36';
 
         const targetUrl = `https://www.cleverdialer.com/phonenumber/${phoneNumber}`;
-        const headers = { 
-            'User-Agent': config.userAgent || 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36'
-        };
+        const headers = { 'User-Agent': userAgent };
 
-        sendMessage('httpFetch', JSON.stringify({
-            url: targetUrl,
-            method: 'GET',
-            headers: headers,
-            pluginId: PLUGIN_CONFIG.id,
-            phoneRequestId: requestId,
-            successMarker: successMarker
-        }));
+        try {
+            sendMessage('httpFetch', JSON.stringify({
+                url: targetUrl,
+                method: 'GET',
+                headers: headers,
+                pluginId: PLUGIN_CONFIG.id,
+                phoneRequestId: requestId,
+                successMarker: successMarker
+            }));
+        } catch (e) {
+            logError('Query Setup Failed', e);
+            sendPluginResult({ requestId, success: false, error: 'Setup Failed: ' + e.toString() });
+        }
     }
 
     function parseHTML(html) {
         const result = {
             sourceLabel: '', count: 0, province: '', city: '', carrier: '',
-            name: '', predefinedLabel: '', source: PLUGIN_CONFIG.id, numbers: [], success: false, error: '', action: 'none'
+            name: '', predefinedLabel: '', source: PLUGIN_CONFIG.name, numbers: [], success: false, error: '', action: 'none'
         };
 
         if (!html) return result;
@@ -99,8 +127,6 @@
 
             // 3. Count Extraction
             // "5 Bewertungen" or "five ratings"
-            // We use a simplified regex here as we don't have the extensive number word map in simple regex
-            // <span class="nowrap">... 5 ratings ...</span>
             const countRegex = /<span\s+class=["']nowrap["'][^>]*>[\s\S]*?(\d+)[\s\S]*?(Bewertungen|ratings|valoraciones)[\s\S]*?<\/span>/i;
             const countMatch = html.match(countRegex);
             if (countMatch) {
@@ -113,8 +139,6 @@
             }
 
             // 4. City Extraction
-            // <div class="list-element list-element-action"> ... <h4>City</h4>
-            // This is hard to regex robustly without DOM, we look for approximate structure
             const cityRegex = /class=["']list-text["']>[\s\S]*?<h4>([\s\S]*?)<\/h4>/i;
             const cityMatch = html.match(cityRegex);
             if (cityMatch) result.city = cityMatch[1].trim();
@@ -125,7 +149,7 @@
 
             return result;
         } catch (e) {
-            logError("Regex Parse Error: " + e.message);
+            logError("Regex Parse Error", e);
             result.error = e.message;
             return result;
         }
@@ -135,6 +159,10 @@
         let final = response;
         if (typeof response === 'string') {
             try { final = JSON.parse(response); } catch(e) {}
+        }
+        
+        if (response === "BUFFER") {
+            // Placeholder logic
         }
 
         const requestId = final.requestId || final.phoneRequestId;
@@ -171,6 +199,7 @@
     function initialize() {
         if (!window.plugin) window.plugin = {};
         window.plugin[PLUGIN_CONFIG.id] = { info: PLUGIN_CONFIG, generateOutput: generateOutput, handleResponse: handleResponse, config: {} };
+        log(`Plugin registered. Version ${PLUGIN_CONFIG.version}`);
         sendPluginLoaded();
     }
 

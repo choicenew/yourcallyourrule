@@ -1,18 +1,27 @@
-// [bd action copy.js] - Baidu Phone Query Plugin (Pure FlutterJS Regex V6.0)
+// [bd action copy.js] - Baidu Phone Query Plugin (Pure FlutterJS Regex V6.1)
 // =======================================================================================
 // Architecture: Native Channel (httpFetch) + Regex Parsing
 // No DOM/Iframe dependencies.
 // =======================================================================================
 
-(function() {
+(function () {
     // --- Plugin Configuration ---
     const PLUGIN_CONFIG = {
         id: 'baiduPhoneNumberPlugin',
         name: 'Baidu Phone Lookup (Regex)',
-        version: '6.0.0', // Updated to 6.0.0
+        version: '6.1.1',
         description: 'Queries Baidu for phone number information using Regex parsing. Intelligently selects the best name.',
+        config: {
+            successMarker: "百度安全号码认证平台",
+        },
         settings: [
-             { key: 'successMarker', label: 'Success Marker', type: 'text', hint: 'Bypass Marker', required: false }
+            {
+                key: 'successMarker',
+                label: 'Success Marker',
+                type: 'text',
+                hint: '过盾标识',
+                required: false
+            }
         ]
     };
 
@@ -50,86 +59,153 @@
     const allowKeywords = ['快递', '外卖', '送餐', '客服', '银行', '验证码', '出租', '滴滴', '优步'];
 
     // --- Helpers ---
-    function log(message) { sendMessage('Log', `[${PLUGIN_CONFIG.id}] ${message}`); }
-    function logError(message) { sendMessage('Log', `[${PLUGIN_CONFIG.id}] [ERROR] ${message}`); }
-    function sendPluginResult(result) { sendMessage('PluginResultChannel', JSON.stringify(result)); }
-    function sendPluginLoaded() { sendMessage('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version })); }
+    function log(message) { console.log(`[${PLUGIN_CONFIG.id}] ${message}`); }
+    function logError(message, error) { console.error(`[${PLUGIN_CONFIG.id}] ${message}`, error); }
+
+    function sendPluginResult(result) {
+        // Support both WebView and FlutterJS modes automatically
+        if (typeof sendMessage === 'function') {
+            sendMessage('PluginResultChannel', JSON.stringify(result));
+        } else if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('PluginResultChannel', JSON.stringify(result));
+        }
+    }
+
+    function sendPluginLoaded() {
+        if (typeof sendMessage === 'function') {
+            sendMessage('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version }));
+        } else if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version }));
+        }
+    }
 
     // --- Core Logic ---
     function initiateQuery(phoneNumber, requestId) {
-        log(`Initiating Query: ${phoneNumber}`);
+        log(`Initiating Scout query for '${phoneNumber}'`);
+
         const config = (window.plugin && window.plugin[PLUGIN_CONFIG.id].config) || {};
-        const successMarker = config.successMarker || "result-op"; 
+        const successMarker = config.successMarker || "result-op";
+        const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
 
         const targetUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(phoneNumber)}&ie=utf-8`;
-        const headers = { 
-            'User-Agent': config.userAgent || 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36'
-        };
+        const headers = { 'User-Agent': userAgent };
 
-        sendMessage('httpFetch', JSON.stringify({
-            url: targetUrl,
-            method: 'GET',
-            headers: headers,
-            pluginId: PLUGIN_CONFIG.id,
-            phoneRequestId: requestId,
-            successMarker: successMarker
-        }));
+        try {
+            log(`Fetching HTML from: ${targetUrl}`);
+
+            // Fire and Forget - Native will handle bypass and callback
+            sendMessage('httpFetch', JSON.stringify({
+                url: targetUrl,
+                method: 'GET',
+                headers: headers,
+                pluginId: PLUGIN_CONFIG.id,
+                phoneRequestId: requestId,
+                successMarker: successMarker
+            }));
+
+            log("Request sent. Waiting for handleResponse...");
+
+        } catch (e) {
+            logError('Query Setup Failed', e);
+            sendPluginResult({ requestId, success: false, error: 'Setup Failed: ' + e.toString() });
+        }
     }
 
     function parseHTML(html, phoneNumber) {
         const result = {
             phoneNumber: phoneNumber, sourceLabel: '', count: 0, province: '', city: '', carrier: '',
-            name: '', predefinedLabel: '', source: PLUGIN_CONFIG.id, numbers: [], success: false, error: '', action: 'none'
+            name: '', predefinedLabel: '', source: PLUGIN_CONFIG.name, numbers: [], success: false, error: '', action: 'none'
         };
 
         if (!html) return result;
 
         try {
             // 1. data-tools Extraction (JSON)
-            // Pattern: data-tools='{"title":"..."}'
             let dataToolsName = "";
             const dataToolsRegex = /data-tools=['"](\{.*?\})['"]/i;
             const dataToolsMatch = html.match(dataToolsRegex);
             if (dataToolsMatch && dataToolsMatch[1]) {
                 try {
-                    // HTML entity decode might be needed if &quot; is used, but usually it's plain json in attribs
-                    const jsonStr = dataToolsMatch[1].replace(/&quot;/g, '"');
+                    const jsonStr = dataToolsMatch[1].replace(/&quot;/g, '"').replace(/&#39;/g, '"');
                     const toolsObj = JSON.parse(jsonStr);
                     if (toolsObj && toolsObj.title) {
                         dataToolsName = toolsObj.title.split(',')[0].trim();
                         log(`Found data-tools name: ${dataToolsName}`);
                     }
-                } catch(e) {}
+                } catch (e) { 
+                    logError("data-tools parse error", e);
+                }
             }
 
-            // 2. Official Card Title
-            // <h3 class="c-title ..."> ... <a>Title</a>
+            // 2. s-data Extraction (Comment JSON) - Precise field matching
+            const sDataRegex = /<!--s-data:([\s\S]*?)-->/g;
+            let match;
+            while ((match = sDataRegex.exec(html)) !== null) {
+                try {
+                    const sDataJson = match[1];
+                    const sDataObj = JSON.parse(sDataJson);
+                    
+                    // Extraction from JSON fields
+                    if (sDataObj.marker) result.sourceLabel = sDataObj.marker;
+                    if (sDataObj.prov) result.province = sDataObj.prov;
+                    if (sDataObj.city) result.city = sDataObj.city;
+                    if (sDataObj.phoneno && !result.phoneNumber) result.phoneNumber = sDataObj.phoneno;
+
+                    if (sDataObj.wise_text && sDataObj.wise_text.includes(PLUGIN_CONFIG.config.successMarker)) {
+                        result.success = true;
+                        if (!result.name) result.name = sDataObj.wise_text;
+                    }
+                    
+                    if (sDataObj.title && (sDataObj.phoneno || sDataObj.title.includes(phoneNumber))) {
+                         if (!result.name) result.name = sDataObj.title.replace(/<[^>]+>/g, '').trim();
+                         result.success = true;
+                    }
+
+                } catch (e) {}
+            }
+
+            // 3. New-PMD HTML Structure (cc-title, cc-row)
+            const pmdTitleRegex = /class=["'][^"']*cc-title_[^"']*["'][^>]*>([\s\S]*?)</i;
+            const pmdRowRegex = /class=["'][^"']*cc-row_[^"']*["'][^>]*>([\s\S]*?)</i;
+
+            const pmdTitleMatch = html.match(pmdTitleRegex);
+            if (pmdTitleMatch) {
+                const title = pmdTitleMatch[1].trim();
+                if (title) {
+                    result.name = title;
+                    result.sourceLabel = title;
+                    result.success = true;
+                }
+            }
+            const pmdRowMatch = html.match(pmdRowRegex);
+            if (pmdRowMatch) {
+                const row = pmdRowMatch[1].trim().split(/\s+/);
+                if (row[0]) result.province = row[0];
+                if (row[1]) result.city = row[1];
+            }
+
+            // 4. Legacy DOM Extractions
             const officialTitleRegex = /<h3[^>]*class=["'].*?c-title.*?["'][^>]*>[\s\S]*?<a[^>]*>([\s\S]*?)<\/a>/i;
             const officialMatch = html.match(officialTitleRegex);
-            
-            // 3. Marked Card Label
-            // class="op_mobilephone_label">Label</div>
+
             const markedLabelRegex = /class=["']op_mobilephone_label[^"']*["']>([\s\S]*?)<\/div>/i;
             const markedMatch = html.match(markedLabelRegex);
 
-            // 4. Location
-            // 归属地：Province City Carrier
             const locationRegex = /归属地：(.*?)</i;
             const locationMatch = html.match(locationRegex);
 
             if (officialMatch) {
-                // Official result
                 const rawName = officialMatch[1].replace(/<[^>]+>/g, '').trim();
                 result.name = rawName;
                 result.success = true;
                 result.numbers.push({ number: phoneNumber, name: rawName });
             } else if (markedMatch) {
-                // Marked result
                 let label = markedMatch[1].replace(/<[^>]+>/g, '').trim();
                 label = label.replace(/标记：|标记为：|网络收录仅供参考/g, '').trim().split(/\s+/)[0];
                 result.sourceLabel = label;
-                result.count = 1; // Implicit count for logic
+                result.count = 1;
                 result.success = true;
+                result.numbers.push({ number: phoneNumber, name: label });
 
                 if (locationMatch) {
                     const locParts = locationMatch[1].trim().split(/\s+/);
@@ -139,8 +215,8 @@
                 }
             }
 
-            // Decide Name (Logic from original: longer name wins if dataTools exists)
-            if (result.success && dataToolsName && dataToolsName.length > result.name.length) {
+            // Decide Name priority
+            if (result.success && dataToolsName && (!result.name || dataToolsName.length > result.name.length)) {
                 result.name = dataToolsName;
             }
 
@@ -160,28 +236,36 @@
 
             return result;
         } catch (e) {
-            logError("Regex Parse Error: " + e.message);
+            logError("Regex Parse Error", e);
             result.error = e.message;
             return result;
         }
     }
 
     function handleResponse(response) {
+        log("handleResponse called.");
+
         let final = response;
         if (typeof response === 'string') {
-            try { final = JSON.parse(response); } catch(e) {}
+            try { final = JSON.parse(response); } catch (e) { }
+        }
+
+        // Handle BUFFER signal (Legacy)
+        if (response === "BUFFER") {
+            // ... (Buffer logic if needed, skipped for simplicity as we use NativeRequestChannel direct)
         }
 
         const requestId = final.requestId || final.phoneRequestId;
         if (!final.success) {
+            logError(`HTTP Error: ${final.error}`);
             sendPluginResult({ requestId, success: false, error: final.error || "HTTP Error" });
             return;
         }
 
         const html = final.responseText || "";
-        const parsed = parseHTML(html, ""); // Phone number handled by logic context usually, but here we parse.
+        // Note: phoneNumber is not part of response usually, we rely on context or pass empty for parsing
+        const parsed = parseHTML(html, "");
 
-        // Action Logic
         if (parsed.success) {
             const checkStr = (parsed.sourceLabel + " " + parsed.name).toLowerCase();
             let action = 'none';
@@ -191,10 +275,12 @@
         }
 
         parsed.requestId = requestId;
+        log(`Logic: Success=${parsed.success}, Label=${parsed.predefinedLabel}`);
         sendPluginResult(parsed);
     }
 
     function generateOutput(phone, national, e164, reqId) {
+        log(`generateOutput called for requestId: ${reqId}`);
         if (phone) initiateQuery(phone, reqId);
         else sendPluginResult({ requestId: reqId, success: false, error: "No Number" });
     }
@@ -202,6 +288,7 @@
     function initialize() {
         if (!window.plugin) window.plugin = {};
         window.plugin[PLUGIN_CONFIG.id] = { info: PLUGIN_CONFIG, generateOutput: generateOutput, handleResponse: handleResponse, config: {} };
+        log(`Plugin registered. Version ${PLUGIN_CONFIG.version}`);
         sendPluginLoaded();
     }
 

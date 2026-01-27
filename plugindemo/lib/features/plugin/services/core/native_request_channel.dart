@@ -157,17 +157,42 @@ class NativeRequestChannel {
         }
       }
 
-      // 3. Success
       final logMsg =
           "✅ NATIVE: ${response.statusCode} (Len: ${response.data.toString().length})";
       debugPrint(logMsg);
       onLog?.call(logMsg);
 
+      // [VALIDATION] Check if response contains expected marker (for JS-rendered pages)
+      bool contentValid = true;
+      final successMarker = originalRequest['successMarker'];
+      final bodyStr = response.data.toString();
+
+      if (successMarker != null &&
+          successMarker.isNotEmpty &&
+          !bodyStr.contains(successMarker)) {
+        contentValid = false;
+        debugPrint(
+          "⚠️ NativeRequestChannel: Validation Failed! Marker '$successMarker' missing in 200 OK response.",
+        );
+      }
+
+      if (!contentValid) {
+        // Validation Failed -> Fallback to Bypass (WebView)
+        await _attemptBypass(
+          url,
+          originalRequest,
+          userAgent,
+          retryCount,
+          "Missing Marker '$successMarker'",
+        );
+        return; // Bypass handled it (rehcursively or sent response)
+      }
+
       // [ADAPTATION] Map fields to plugindemo structure
       responseMap = {
         'success': true,
         'status': response.statusCode,
-        'responseText': response.data.toString(),
+        'responseText': bodyStr,
         'headers': response.headers.map,
         'requestId': originalRequest['phoneRequestId'], // [ADAPTATION]
         'phoneRequestId':
@@ -183,74 +208,14 @@ class NativeRequestChannel {
               e.response?.statusCode == 403 ||
               e.response?.statusCode == 503) &&
           retryCount < MAX_RETRIES) {
-        debugPrint(
-          "⚠️ NativeRequestChannel: Challenge Detected (${e.type}/${e.response?.statusCode}). Retrying...",
-        );
-        onLog?.call(
-          "⚠️ Challenge ${e.response?.statusCode ?? 'Timeout'}! Attempting bypass...",
-        );
-
-        // Invoke Shield Bypass (Proxy Mode)
-        final bypassService = PluginAccessBypassService();
-        final successMarker =
-            originalRequest['successMarker']; // Extract Marker
-
-        if (successMarker != null) {
-          debugPrint(
-            "🛡️ Using Plugin-Defined Success Marker: '$successMarker'",
-          );
-        }
-
-        final bypassResult = await bypassService.bypass(
+        await _attemptBypass(
           url,
-          userAgent: userAgent,
-          successMarker: successMarker, // Pass to Service
+          originalRequest,
+          userAgent,
+          retryCount,
+          "Challenge ${e.response?.statusCode ?? e.type}",
         );
-
-        if (bypassResult != null && bypassResult['content'] != null) {
-          final content = bypassResult['content'];
-          debugPrint(
-            "🛡️ Returning Proxy Content to JS (Len: ${content.length})",
-          );
-          onLog?.call("🛡️ Bypass OK. Proxy Content Retrieved.");
-
-          responseMap = {
-            'success': true,
-            'status': 200,
-            'responseText': content,
-            'headers': {'content-type': 'text/html; charset=utf-8'},
-            'requestId': originalRequest['phoneRequestId'], // [ADAPTATION]
-            'phoneRequestId': originalRequest['phoneRequestId'], // [ADAPTATION]
-            'externalRequestId':
-                originalRequest['externalRequestId'], // [ADAPTATION]
-            'proxy': true,
-          };
-
-          debugPrint(
-            "🛡️ Native Content Preview: ${content.substring(0, content.length > 500 ? 500 : content.length)}...",
-          );
-        } else if (bypassResult != null && bypassResult['cookies'] != null) {
-          onLog?.call("🛡️ Bypass OK. Got Cookies.");
-          // Retry with cookies
-          if (originalRequest['headers'] == null) {
-            originalRequest['headers'] = {};
-          }
-          originalRequest['headers']['Cookie'] = bypassResult['cookies'];
-          originalRequest['headers']['User-Agent'] = userAgent;
-
-          // Recursive retry
-          await _performRequest(url, originalRequest, retryCount + 1);
-          return;
-        } else {
-          onLog?.call("❌ Bypass Failed. No content/cookies retrieved.");
-          responseMap = {
-            'success': false,
-            'error': "Bypass Failed",
-            'status': 503,
-            'requestId': originalRequest['phoneRequestId'], // [ADAPTATION]
-            'phoneRequestId': originalRequest['phoneRequestId'], // [ADAPTATION]
-          };
-        }
+        return;
       } else {
         String errorMsg = "Dio Error: ${e.message}";
         if (e.message == null) {
@@ -283,6 +248,71 @@ class NativeRequestChannel {
 
     // 5. Send Result Back to JS (Legacy Callback)
     await _sendResponseToJs(responseMap, originalRequest['pluginId']);
+  }
+
+  /// [HELPER] Unified Bypass / Retry Logic
+  /// Handles both 403/503 challenges and "Missing Marker" (JS-rendered) cases.
+  Future<void> _attemptBypass(
+    String url,
+    Map<String, dynamic> originalRequest,
+    String userAgent,
+    int retryCount,
+    String reason,
+  ) async {
+    debugPrint("⚠️ NativeRequestChannel: Triggering Bypass. Reason: $reason");
+    onLog?.call("⚠️ $reason -> Attempting WebView Bypass...");
+
+    // Invoke Shield Bypass (Proxy Mode)
+    final bypassService = PluginAccessBypassService();
+    final successMarker = originalRequest['successMarker'];
+
+    final bypassResult = await bypassService.bypass(
+      url,
+      userAgent: userAgent,
+      successMarker: successMarker,
+    );
+
+    if (bypassResult != null && bypassResult['content'] != null) {
+      final content = bypassResult['content'];
+      debugPrint(
+        "🛡️ Bypass Success! Returning Proxy Content (Len: ${content.length})",
+      );
+      onLog?.call("🛡️ Bypass OK. Content Retrieved.");
+
+      final responseMap = {
+        'success': true,
+        'status': 200,
+        'responseText': content,
+        'headers': {'content-type': 'text/html; charset=utf-8'},
+        'requestId': originalRequest['phoneRequestId'],
+        'phoneRequestId': originalRequest['phoneRequestId'],
+        'externalRequestId': originalRequest['externalRequestId'],
+        'proxy': true,
+      };
+
+      await _sendResponseToJs(responseMap, originalRequest['pluginId']);
+    } else if (bypassResult != null && bypassResult['cookies'] != null) {
+      onLog?.call("🛡️ Bypass OK. Got Cookies. Retrying Request...");
+      // Retry with cookies
+      if (originalRequest['headers'] == null) {
+        originalRequest['headers'] = {};
+      }
+      originalRequest['headers']['Cookie'] = bypassResult['cookies'];
+      originalRequest['headers']['User-Agent'] = userAgent;
+
+      // Recursive retry
+      await _performRequest(url, originalRequest, retryCount + 1);
+    } else {
+      onLog?.call("❌ Bypass Failed. No content/cookies.");
+      final responseMap = {
+        'success': false,
+        'error': "Bypass/Fetch Failed after retry",
+        'status': 503,
+        'requestId': originalRequest['phoneRequestId'],
+        'phoneRequestId': originalRequest['phoneRequestId'],
+      };
+      await _sendResponseToJs(responseMap, originalRequest['pluginId']);
+    }
   }
 
   Future<void> _sendResponseToJs(

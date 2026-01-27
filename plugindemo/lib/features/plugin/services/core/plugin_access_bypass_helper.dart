@@ -95,6 +95,13 @@ class _BypassSession {
         if (args.isNotEmpty) _onFailed(args[0]);
       },
     );
+    // [RESTORE] Restore interaction logging channel
+    controller.addJavaScriptHandler(
+      handlerName: 'TestPageChannel',
+      callback: (args) {
+        if (args.isNotEmpty) debugPrint('🛡️ [JS-Log] ${args[0]}');
+      },
+    );
   }
 
   Future<void> _injectScriptsAndLoad() async {

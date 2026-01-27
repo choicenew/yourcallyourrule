@@ -55,6 +55,10 @@ class JsExecutionService {
       final msg = "⚡ JS TestPage: $args";
       debugPrint(msg);
       onLog?.call(msg);
+
+      if (_handlers.containsKey('TestPageChannel')) {
+        _handlers['TestPageChannel']?.call(args);
+      }
     });
 
     _runtime.onMessage('Log', (dynamic args) {
