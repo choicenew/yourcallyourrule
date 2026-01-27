@@ -58,6 +58,12 @@ class PluginUrlExecutionService {
         // 简单修复 headers 字符串格式以符合 JSON 标准
         headersString = headersString.replaceAll("'", '"');
         headersString = headersString.replaceAll(RegExp(r',\s*}'), '}');
+        // Handle 'userAgent' variable which breaks static JSON parsing
+        // We replace it with the hardcoded default UA just for this static extraction
+        headersString = headersString.replaceAll(
+          RegExp(r':\s*userAgent\b'),
+          ': "$defaultUserAgent"',
+        );
         headersString = headersString.replaceAllMapped(
           RegExp(r'([{,])\s*([a-zA-Z0-9_-]+)\s*:'),
           (match) => '${match.group(1)!}"${match.group(2)!}":',

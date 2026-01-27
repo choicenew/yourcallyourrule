@@ -186,10 +186,32 @@ class PluginAccessBypassHelper {
 
       try {
         // [AUTO-TERMINATE] Check if content is already loaded in WebView
+        final title = await _controller?.getTitle();
         final html = await _controller?.getHtml();
-        if (html != null && html.contains(marker)) {
+
+        // 🛡️ CRITICAL FIX: Ensure we are NOT on the Cloudflare Challenge Page.
+        // The 'successMarker' is often present in the URL, which appears in the HTML source (e.g. scripts, canonical tags).
+        // If we simply check html.contains(marker), we get a False Positive immediately.
+        bool isCloudflarePage =
+            (title != null &&
+                (title.contains("Just a moment") ||
+                    title.contains("Attention Required") ||
+                    title.contains("Cloudflare"))) ||
+            (html != null &&
+                html.contains(
+                  "files.pythonhosted.org",
+                )); // Common CF false positive
+
+        if (!isCloudflarePage && html != null && html.contains(marker)) {
           debugPrint(
-            '🛡️ [BypassHelper] Native Polling found marker: "$marker"',
+            '🛡️ [BypassHelper] Native Polling found marker: "$marker" (Title: $title)',
+          );
+          debugPrint(
+            '📄 [BypassHelper HTML DUMP START] --------------------------------',
+          );
+          debugPrint(html);
+          debugPrint(
+            '📄 [BypassHelper HTML DUMP END] ----------------------------------',
           );
 
           final url = await _controller?.getUrl();
