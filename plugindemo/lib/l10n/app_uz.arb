@@ -1,0 +1,3092 @@
+{
+  "@@locale": "uz",
+  "aboutContactSubscription": "Kontakt obunasi haqida",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "Yorliqlar haqida",
+  "aboutPhoneSubscriptionRules": "Telefon obunasi qoidalari haqida",
+  "aboutPhoneSubscriptions": "Telefon obunalari haqida",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "Telefon qoidalari ro'yxatiga URL orqali obuna bo'ling, qoidalar avtomatik yangilanadi. JSON, CSV formatidagi qoidalar fayllarini qo'llab-quvvatlaydi.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "SMS filtrlash haqida",
+  "aboutSmsSubscriptionRules": "SMS obunasi qoidalari haqida",
+  "aboutSubtitle": "Ilova versiyasi va yuridik ma'lumotlar",
+  "aboutTitle": "Haqida",
+  "action": "Harakat",
+  "actionAll": "Hammasi",
+  "actionAllow": "Ruxsat berish",
+  "actionBlock": "Bloklash",
+  "actionFilterAll": "Hamma filtrlar",
+  "actionFilterTitle": "Harakat turiga ko'ra filtrlash",
+  "actionFilterTooltip": "Harakat filtri",
+  "actionNone": "Harakat yo'q",
+  "actionSilence": "Ovozsiz",
+  "actionTag": "Harakat: {actionType}",
+  "actionType": "Harakat turi",
+  "actionUnknown": "Noma'lum",
+  "add": "Qo'shish",
+  "addAllowedBlockedRule": "Ruxsat etish/Bloklash qoidasini qo'shish",
+  "addAllowSubscription": "Ruxsat etish obunasini qo'shish",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Bloklash obunasini qo'shish",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Kontakt qo'shish",
+  "addContactFailed": "Kontaktni qo'shishda xatolik: {error}",
+  "addedToAllowedRules": "Ruxsat etilgan qoidalarga qo'shildi",
+  "addedToBlacklist": "Qora ro'yxatga qo'shildi",
+  "addedToBlockedRules": "Bloklangan qoidalarga qo'shildi",
+  "addedToFavoriteContacts": "Sevimli kontaktlarga qo'shildi",
+  "addedToFavorites": "Sevimli kontaktlarga qo'shildi",
+  "addedToWhitelist": "Oq ro'yxatga qo'shildi",
+  "addFavorite": "Sevimli qo'shish",
+  "addFilter": "Filtr qo'shish",
+  "addLabel": "Yorliq qo'shish",
+  "addLabelButton": "Yorliq qo'shish",
+  "addLabelFailed": "Yorliqni qo'shishda xatolik: {error}",
+  "addLabelToCall": "Qo'ng'iroq yozuviga yorliq qo'shish",
+  "addName": "Ism qo'shish",
+  "addNoneSubscription": "Obuna qo'shmaslik",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "Kontakt ma'lumotlarini qo'shish yoki tahrirlash uchun ishlatiladi",
+  "addPhoneMark": "Telefon belgisini qo'shish",
+  "addPhoneNumberRule": "Telefon raqami qoidasini qo'shish",
+  "addPlugin": "Plugin qo'shish",
+  "addPluginFailed": "Pluginni qo'shishda xatolik",
+  "addPluginFailedWithError": "Pluginni qo'shishda xatolik: {error}",
+  "addPluginFromLocalFile": "Mahalliy fayldan plugin qo'shish",
+  "addPluginFromUrl": "URL manzilidan plugin qo'shish",
+  "addRegexRule": "Regex qoidasini qo'shish",
+  "addRule": "Qoida qo'shish",
+  "addRuleButton": "Qoida qo'shish",
+  "addRuleFailed": "Qoidani qo'shishda xatolik: {error}",
+  "addRuleTooltip": "Qoida qo'shish",
+  "addSilenceSubscription": "Ovozsiz obunani qo'shish",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "SIM qoidasini qo'shish",
+  "addSmsFilterRule": "SMS filtrlash qoidasini qo'shish",
+  "addSmsRule": "SMS qoidasini qo'shish",
+  "addSmsSubscription": "SMS obunasini qo'shish",
+  "addSubscription": "Obuna qo'shish",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Obuna qo'shish",
+  "addSubscriptionFailed": "Obunani qo'shishda xatolik: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Obuna qo'shish",
+  "addToAllowedRules": "Ruxsat etilgan qoidalarga qo'shish",
+  "addToBlacklist": "Qora ro'yxatga qo'shish",
+  "addToBlockedRules": "Bloklangan qoidalarga qo'shish",
+  "addToFavoriteContacts": "Sevimli kontaktlarga qo'shish",
+  "addToFavorites": "Sevimli kontaktlarga qo'shish",
+  "addToRules": "Qoidalarga qo'shish",
+  "addToWhitelist": "Oq ro'yxatga qo'shish",
+  "adPlaceholder": "Reklama joyi",
+  "agent": "Agent",
+  "all": "Hammasi",
+  "allCallsTab": "Hammasi",
+  "allDataClearedSuccessfully": "Barcha ma'lumotlar muvaffaqiyatli tozalandi",
+  "allow": "Ruxsat berish",
+  "allowAllAllowRules": "Barcha ruxsat qoidalariga ruxsat berish",
+  "allowAllAllowRulesDesc": "Ruxsat qoidalaridan qo'ng'iroqlarga ruxsat berish",
+  "allowAllBlacklistedNumbers": "Barcha qora ro'yxatdagi raqamlarga ruxsat berish",
+  "allowAllBlacklistedNumbersDesc": "Blok ro'yxatidan qo'ng'iroqlarga ruxsat berish",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "Barcha bloklash qoidalariga ruxsat berish",
+  "allowAllBlockRulesDesc": "Blok qoidalaridan qo'ng'iroqlarga ruxsat berish",
+  "allowAllowedNumbers": "Ruxsat etilgan raqamlarga ruxsat berish",
+  "allowAllowedNumbersDesc": "Ruxsat etilgan ro'yxatdan qo'ng'iroqlarga ruxsat berish",
+  "allowBlock": "Ruxsat etish/Bloklash",
+  "allowBlockedNumbers": "Bloklangan raqamlarga ruxsat berish",
+  "allowBlockedNumbersDesc": "Blok ro'yxatidan qo'ng'iroqlarga ruxsat berish",
+  "allowedBlockedRule": "Ruxsat etish/Bloklash qoidasi",
+  "allowedBlockedRuleEditDialogTitle": "Ruxsat etish/Bloklash qoidasini tahrirlash",
+  "allowedBlockedRuleManagement": "Ruxsat etish/Bloklash qoidalarini boshqarish",
+  "allowNonExceededNumbers": "Oshib ketmagan raqamlarga ruxsat berish",
+  "allowNonExceededNumbersDescription": "Oshib ketish chegarasidan oshmagan raqamlarga avtomatik ravishda ruxsat berish",
+  "allowRegexAllowRules": "Regex ruxsat qoidalariga ruxsat berish",
+  "allowRegexAllowRulesDesc": "Ruxsat qoidalari uchun regex naqshiga moslikni yoqish",
+  "allowRegexAllowRulesDescription": "Regex asosidagi ruxsat qoidalarini yoqish",
+  "allowRegexBlockRules": "Regex bloklash qoidalariga ruxsat berish",
+  "allowRegexBlockRulesDesc": "Blok qoidalari uchun regex naqshiga moslikni yoqish",
+  "allowRegexBlockRulesDescription": "Regex asosidagi bloklash qoidalarini yoqish",
+  "allowRule": "Ruxsat etish qoidasi",
+  "allowRules": "Ruxsat etish qoidalari",
+  "allowWhitelistedNumbers": "Ruxsat etilgan ro'yxatdagi raqamlarga ruxsat berish",
+  "allowWhitelistedNumbersDescription": "Ruxsat etilgan ro'yxatdagi barcha raqamlarga ruxsat berish",
+  "allPermissionsGranted": "Barcha ruxsatlar berildi",
+  "allSettingsCompleted": "Barcha sozlamalar yakunlandi.",
+  "allUpdateSuccess": "Barcha yangilanishlar yakunlandi ({count} qoidalar)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "Javob berish va keyin qo'yib yuborish",
+  "appLegalese": "© 2023 Your Call Your Rule. Barcha huquqlar himoyalangan.",
+  "applicationSoftware": "Dasturiy ta'minot",
+  "apply": "Qo'llash",
+  "appName": "Your Call Your Rule",
+  "authorizationFailedCheckCredentialsMessage": "Avtorizatsiya muvaffaqiyatsiz tugadi: Iltimos, mijoz ID va kalitni tekshiring",
+  "authorizationFailedMessage": "Avtorizatsiya muvaffaqiyatsiz tugadi",
+  "authorizationSuccessMessage": "Avtorizatsiya muvaffaqiyatli",
+  "authorizeLoginButton": "Kirishga ruxsat berish",
+  "automotiveIndustry": "Avtomobil sanoati",
+  "autoSyncLabel": "Avtomatik sinxronlash",
+  "autoUpdate": "Avtomatik yangilash",
+  "autoUpdateDescription": "Obunalar uchun avtomatik yangilanish oralig'ini belgilash yoki qo'lda yangilash",
+  "autoUpdateSettings": "Avtomatik yangilash sozlamalari",
+  "autoUpdateSettingsSubtitle": "Qoidalar va plaginlar uchun avtomatik yangilanishlarni boshqarish",
+  "autoUpdateSettingsTitle": "Avtomatik yangilash sozlamalari",
+  "autoUpdateSubtitle": "Qoidalar va plaginlar uchun avtomatik yangilanishlarni boshqarish",
+  "autoUpdateTitle": "Avtomatik yangilash",
+  "avatarBorderColor": "Avatar chegara rangi",
+  "avatarBorderSize": "Avatar chegara hajmi",
+  "avatarIconSizesSetting": "Avatar va belgi o'lchamlari",
+  "avatarPosition": "Avatar joylashuvi",
+  "avatarSize": "Avatar hajmi",
+  "axisPosition": "{axis} Joylashuvi",
+  "backgroundGradientSetting": "Fon gradiyenti",
+  "backup": "Zaxira nusxasi",
+  "backupAndRestore": "Zaxira nusxalash va tiklash",
+  "backupAndRestoreSubtitle": "Ilova ma'lumotlarini zaxiralash yoki tiklash",
+  "backupAndRestoreTitle": "Zaxira nusxalash va tiklash",
+  "backupFailed": "Zaxira nusxa yaratish muvaffaqiyatsiz tugadi",
+  "backupFailedMessage": "Zaxira nusxa yaratish muvaffaqiyatsiz tugadi",
+  "backupFailedWithError": "Zaxira nusxa yaratish muvaffaqiyatsiz tugadi: {error}",
+  "backupRestoreSubtitle": "Ilova ma'lumotlarini zaxiralash yoki tiklash",
+  "backupRestoreTitle": "Zaxira nusxalash va tiklash",
+  "backupSectionTitle": "Zaxira nusxasi",
+  "backupSettings": "Zaxira nusxalash sozlamalari",
+  "backupSettingsDialogTitle": "Zaxira nusxalash sozlamalari",
+  "backupSettingsTitle": "Zaxira nusxalash sozlamalari",
+  "backupSuccessMessage": "Bulutga muvaffaqiyatli zaxira nusxa yaratildi",
+  "backupSuccessToLocal": "Muvaffaqiyatli zaxira nusxasi yaratildi: {path}",
+  "backupToCloud": "Bulutga zaxira nusxalash",
+  "backupToCloudDescription": "Sozlamalar va qoidalarni bulut xotirasiga zaxiralash",
+  "backupToCloudFailed": "Bulutga zaxira nusxalash muvaffaqiyatsiz tugadi: {error}",
+  "backupToCloudLabel": "Bulutga zaxira nusxalash",
+  "backupToCloudSuccess": "Bulutga muvaffaqiyatli zaxira nusxa yaratildi",
+  "backupToCloudTitle": "Bulutga zaxira nusxalash",
+  "backupToLocalLabel": "Mahalliy zaxira nusxalash",
+  "bank": "Bank",
+  "basicInfo": "Asosiy ma'lumotlar",
+  "basicRuleFilter": "Asosiy qoida filtri",
+  "basicRuleFiltering": "Asosiy qoida filtrlash",
+  "basicRuleFilteringExplanation": "• Asosiy qoida filtrlash: Qoidalarni qora ro'yxat, oq ro'yxat va muntazam ifodalar asosida filtrlash",
+  "basicRuleFilterSettings": "Asosiy qoida filtri sozlamalari",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "Qora/oq ro'yxat va muntazam ifodalar yordamida qo'ng'iroqlarni filtrlash",
+  "batchDeleteContacts": "Kontaktlarni ommaviy o'chirish",
+  "batchDeleteContactsConfirm": "Haqiqatan ham {count} ta tanlangan kontaktni o'chirmoqchimisiz?",
+  "batchDeleteFailed": "Ommaviy o'chirish muvaffaqiyatsiz tugadi",
+  "batchDeleteLabelsConfirm": "Haqiqatan ham {count} ta yorliqni o'chirmoqchimisiz?",
+  "blacklist": "Qora ro'yxat",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "Qora ro'yxatga kiritish va oq ro'yxatga kiritish",
+  "blacklistLabel": "Qora ro'yxat",
+  "blackWhiteList": "Qora/Oq ro'yxat",
+  "block": "Bloklash",
+  "blockCalls": "Qo'ng'iroqlarni bloklash",
+  "blocked": "Bloklangan",
+  "blockedCallAction": "Bloklangan qo'ng'iroq harakati",
+  "blockedCalls": "Bloklangan qo'ng'iroqlar",
+  "blockedCallsTitle": "Bloklangan qo'ng'iroqlar",
+  "blockedCommunications": "Bloklangan aloqalar",
+  "blockedPhoneLabel": "Bloklangan qo'ng'iroqlar",
+  "blockedSpamCalls": "Bloklangan spam qo'ng'iroqlari",
+  "blockingTrend": "Bloklash tendensiyasi",
+  "blockInternationalCalls": "raqamlari + yoki 00 bilan boshlanmaydigan raqamlarga mos keladi",
+  "blockInternationalCallsTitle": "Xalqaro qo'ng'iroqlarni bloklash",
+  "blockLandlineNumbersTitle": "Shahar raqamlarini bloklash",
+  "blockMobileNumbers": "raqamlari 13-19 bilan boshlanmaydigan raqamlarga mos keladi",
+  "blockMobileNumbersTitle": "Mobil raqamlarni bloklash",
+  "blockPremiumRateNumbers": "raqamlari 118 yoki 120-190 bilan boshlanmaydigan raqamlarga mos keladi",
+  "blockPremiumRateNumbersTitle": "Premium stavkali raqamlarni bloklash",
+  "blockRule": "Bloklash qoidasi",
+  "blockRules": "Bloklash qoidalari",
+  "blockSpecificAreaCodes": "0 + 2-3 raqam bilan boshlanadigan raqamlarga mos keladi",
+  "blockSpecificAreaCodesTitle": "Muayyan hudud kodlarini bloklash:",
+  "blockTypeAnalysisTitle": "Bloklash turini tahlil qilish",
+  "both": "Ikkalasi",
+  "bulkDelete": "Kontaktlarni ommaviy o'chirish",
+  "bulkDeleteContacts": "Kontaktlarni ommaviy o'chirish",
+  "bulkDeleteLabels": "Yorliqlarni ommaviy o'chirish",
+  "call": "Qo'ng'iroq",
+  "callback": "Qayta qo'ng'iroq qilish",
+  "callbackTo": "{number} raqamiga qayta qo'ng'iroq qilish",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "Qo'ng'iroqlarni bloklash",
+  "callerIdApp": "Qo'ng'iroq qiluvchi ID ilovasi",
+  "callerIdCustomizationTitle": "Qo'ng'iroq qiluvchi ID ni sozlash",
+  "callerIdDialogTitle": "Qo'ng'iroq qiluvchi ID ma'lumotlari",
+  "callerIdDisplayMode": "Qo'ng'iroq qiluvchi identifikatorini ko'rsatish rejimi",
+  "callerIdMarkedByCount": "{count} tomonidan belgilangan",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "Qo'ng'iroq qiluvchi identifikatorini oldindan ko'rish",
+  "callFilter": "Qo'ng'iroq filtri",
+  "callFilterDescription": "Yoqilganda, kiruvchi qo'ng'iroqlar quyidagi qoidalar ro'yxatiga muvofiq tekshiriladi. Qo'ng'iroqlarni filtrlash qoidalari qurilmalar o'rtasida sukut bo'yicha sinxronlanmaydi.",
+  "callFilterRules": "Qo'ng'iroq filtri qoidalari",
+  "callFilterRulesDescription": "Qo'ng'iroqlarni filtrlash uchun asosiy qoidalarni o'rnating",
+  "callFilterSettings": "Qo'ng'iroq filtri sozlamalari",
+  "callFrequencyInterceptionSubtitle": "Qo'ng'iroq chastotasi chegaralari va bloklash qoidalarini o'rnating",
+  "callFrequencyInterceptionTitle": "Qo'ng'iroq chastotasini ushlab qolish",
+  "callHistory": "Qo'ng'iroqlar tarixi",
+  "callHistoryInfoDesc": "Bu yerda sizning kiruvchi, chiquvchi va o'tkazib yuborilgan qo'ng'iroqlaringizni o'z ichiga olgan qo'ng'iroqlar tarixi ko'rsatilgan.",
+  "callHistoryInfoTitle": "Qo'ng'iroqlar tarixi",
+  "callHistoryInitFailed": "Qo'ng'iroqlar tarixini ishga tushirib bo'lmadi: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "Qo'ng'iroqlar tarixini yangilab bo'lmadi: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "Qo'ng'iroqlar tarixi",
+  "callHistoryTimelineEarlier": "Oldinroq",
+  "callHistoryTimelineToday": "Bugun",
+  "callHistoryTimelineYesterday": "Kecha",
+  "callScreeningPermission": "Qo'ng'iroqlarni tekshirish ruxsati",
+  "callScreeningPermissionDescription": "Spam qo'ng'iroqlarni tekshirish va bloklash uchun ishlatiladi.",
+  "callScreeningPermissionNotGranted": "Qo'ng'iroqlarni tekshirish ruxsati berilmagan, ilova funksionalligiga ta'sir qilishi mumkin.",
+  "callSettingsSubtitle": "Qo'ng'iroq qiluvchi identifikatori, filtrlash va bloklash sozlamalari",
+  "callSettingsTitle": "Qo'ng'iroq sozlamalari",
+  "callStatistics": "Qo'ng'iroq statistikasi",
+  "callTypeAnswered": "Javob berilgan",
+  "callTypeBlocked": "Bloklangan",
+  "callTypeIconColor": "Qo'ng'iroq turi belgisi rangi",
+  "callTypeMissed": "O'tkazib yuborilgan qo'ng'iroq",
+  "callTypeOutgoing": "Chiquvchi",
+  "callTypePosition": "Qo'ng'iroq turi joylashuvi",
+  "callTypeUnknown": "Noma'lum",
+  "cancelButton": "Bekor qilish",
+  "carRental": "Avtomobil ijarasi",
+  "carrier": "Operator",
+  "carrierColor": "Operator rangi",
+  "carrierFontSize": "Operator shrift o'lchami",
+  "carrierPosition": "Operator joylashuvi",
+  "changeLabel": "Yorliqni o'zgartirish",
+  "changePluginStatusFailed": "Plagin holatini o'zgartirib bo'lmadi: {error}",
+  "changeSubscriptionStatusFailed": "Obuna holatini o'zgartirib bo'lmadi: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "Tegni o'zgartirish",
+  "charity": "Xayriya",
+  "chartMonthFormat": "Oy {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "1 kun oldin",
+  "chartOneMonthAgo": "1 oy oldin",
+  "chartOneWeekAgo": "1 hafta oldin",
+  "chartTenDaysAgo": "10 kun oldin",
+  "chartThreeDaysAgo": "3 kun oldin",
+  "chartToday": "Bugun",
+  "checkFileFormat": "Iltimos, fayl formatini yoki ruxsatnomalarni tekshiring",
+  "checkPermissionFailed": "Ruxsatnomalarni tekshirib bo'lmadi: {error}",
+  "chooseDefaultInterceptAction": "Standart ushlab qolish harakatini tanlang",
+  "clearAllData": "Barcha ma'lumotlarni tozalash",
+  "clearAllDataConfirmation": "Haqiqatan ham barcha ilova ma'lumotlarini tozalashni xohlaysizmi? Bu amalni bekor qilib bo'lmaydi.",
+  "clearAllDataDescription": "Barcha ilova ma'lumotlarini tozalash",
+  "clearAllDataLabel": "Barcha ma'lumotlarni tozalash",
+  "clearFilter": "Filtrni tozalash",
+  "clearLabelFilter": "Yorliq filtrini tozalash",
+  "clearLabelFilterButton": "Yorliq filtrini tozalash",
+  "closeButton": "Yopish",
+  "cloudSync": "Bulutli sinxronizatsiya",
+  "cloudSyncAndBackupTitle": "Bulutli sinxronizatsiya va zaxiralash",
+  "cloudSyncSettingsSubtitle": "WebDAV, OneDrive va Google Drive'ni sozlash",
+  "cloudSyncSettingsTitle": "Bulutli sinxronizatsiya sozlamalari",
+  "cloudSyncTitle": "Bulutli sinxronizatsiya",
+  "collapseLabelSelector": "Yorliq tanlagichini yig'ish",
+  "collection": "Qarz yig'ish",
+  "colorPickerTitle": "Rangni tanlash",
+  "configManagement": "Konfiguratsiyani boshqarish",
+  "configUpdated": "Konfiguratsiya yangilandi",
+  "configurationAdvice": "To'g'ri konfiguratsiya yordamida ish va shaxsiy SIM-kartalar uchun turli filtrlash strategiyalarini o'rnatishingiz mumkin.",
+  "configureBackupOptions": "Zaxira nusxalash parametrlarini sozlash",
+  "configureBackupOptionsSubtitle": "Zaxira nusxalash parametrlarini sozlash",
+  "configureCloudSyncService": "Bulutli sinxronizatsiya xizmatini sozlash",
+  "configureCloudSyncServiceHint": "Bir nechta qurilmani sinxronlashni yoqish uchun bulutli sinxronizatsiya xizmatini sozlang.",
+  "configureCloudSyncServiceMessage": "Bir nechta qurilmani sinxronlashni yoqish uchun bulutli sinxronizatsiya xizmatini sozlang.",
+  "configureSimCardFilterRules": "SIM karta filtri qoidalarini sozlash",
+  "configureSyncServiceHint": "Avval bulutli sinxronizatsiya sozlamalarida sinxronizatsiya xizmatini sozlang",
+  "confirm": "Tasdiqlash",
+  "confirmBatchDeleteContacts": "Tanlanganlarni o'chirishni xohlaysizmi?",
+  "confirmButton": "Tasdiqlash",
+  "confirmDelete": "O'chirishni tasdiqlash",
+  "confirmDeleteContact": "O'chirishni xohlaysizmi?",
+  "confirmDeleteContactName": "O'chirishni tasdiqlaysizmi?",
+  "confirmDeleteFilter": "Haqiqatan ham ushbu filtrni o'chirishni xohlaysizmi?",
+  "confirmDeleteLabel": "Haqiqatan ham \"{name}\" yorlig'ini o'chirishni xohlaysizmi?",
+  "confirmDeletePlugin": "Haqiqatan ham \"{name}\" plaginini o'chirishni xohlaysizmi?",
+  "confirmDeletePlugins": "Haqiqatan ham {count} ta plaginni o'chirishni xohlaysizmi?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "Haqiqatan ham ushbu qoidani o'chirishni xohlaysizmi? Bu amalni bekor qilib bo'lmaydi.",
+  "confirmDeleteSelectedContacts": "Tanlangan kontaktlarni o'chirishga ishonchingiz komilmi?",
+  "confirmDeleteSmsFilterRule": "Haqiqatan ham ushbu SMS filtr qoidasini o'chirishni xohlaysizmi?",
+  "confirmDeleteSmsRule": "Haqiqatan ham ushbu SMS qoidasini o'chirishni xohlaysizmi?",
+  "confirmDeleteSubscription": "Haqiqatan ham ushbu obunani o'chirishni xohlaysizmi?",
+  "confirmDeleteSubscriptions": "Haqiqatan ham {name} ni o'chirishni xohlaysizmi?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "Parolni tasdiqlash",
+  "confirmPasswordLabel": "Parolni tasdiqlash",
+  "connectedStatus": "Ulangan",
+  "connectionFailedCheckCredentialsMessage": "Ulanish muvaffaqiyatsiz tugadi: Iltimos, server manzilini, foydalanuvchi nomini va parolni tekshiring",
+  "connectionFailedMessage": "Ulanish muvaffaqiyatsiz tugadi",
+  "connectionStatusLabel": "Ulanish holati",
+  "connectionSuccessMessage": "Ulanish muvaffaqiyatli",
+  "contactAddSuccess": "Kontakt muvaffaqiyatli qo'shildi",
+  "contactDeleted": "Kontakt o'chirildi",
+  "contactEditDialog": "Kontaktni tahrirlash dialogi",
+  "contactNameHint": "Kontakt nomini kiriting (ixtiyoriy)",
+  "contactNameLabel": "Ism",
+  "contactNameOptional": "Kontakt nomi (ixtiyoriy)",
+  "contactNotFound": "Kontakt topilmadi",
+  "contacts": "kontaktlar",
+  "contactsDeleted": "{count} ta kontakt o'chirildi",
+  "contactSettingsSubtitle": "Kontaktni boshqarish va yorliq sozlamalari",
+  "contactSettingsTitle": "Kontakt sozlamalari",
+  "contactsLoadingFailed": "Kontaktlarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "contactsManagement": "Kontaktlarni boshqarish",
+  "contactsManagementPageTitle": "Kontaktlarni boshqarish sahifasi",
+  "contactsPageTitle": "Kontaktlarni boshqarish",
+  "contactsPermission": "Kontaktlarga ruxsat",
+  "contactsPermissionDescription": "Kontakt qo'ng'iroqlarini aniqlash uchun ishlatiladi.",
+  "contactsTab": "Kontaktlar",
+  "contactSubscriptionDescription": "URL orqali kontaktlar ro'yxatiga obuna bo'ling, kontakt ma'lumotlari va yorliqlarni avtomatik yangilang. JSON formatidagi ma'lumotlarni qo'llab-quvvatlaydi.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "Kontakt obunalarini yuklash muvaffaqiyatsiz tugadi: {error}",
+  "contactSubscriptionPageTitle": "Kontakt obunalari",
+  "contactUpdateSuccess": "Kontakt muvaffaqiyatli yangilandi",
+  "contactUs": "Biz bilan bog'laning",
+  "content": "Tarkib",
+  "contentRegex": "Tarkib Regex",
+  "countColor": "Sanoq rangi",
+  "countFontSize": "Sanoq shrifti o'lchami",
+  "countPosition": "Sanoq pozitsiyasi",
+  "country": "Mamlakat",
+  "countryNameColor": "Mamlakat nomi rangi",
+  "countryNameFontSize": "Mamlakat nomi shrifti o'lchami",
+  "countryRegionNamePosition": "Mamlakat/Mintaqa nomi pozitsiyasi",
+  "countrySelectionDialog": "Mamlakatni tanlash dialogi",
+  "countrySelectionDialogDescription": "Qo'ng'iroq qiluvchi ID ma'lumotlarini so'rash uchun mamlakatni tanlash uchun ishlatiladi",
+  "countThresholdDescription": "Filtrlash harakatlarini ishga tushirish uchun zarur bo'lgan minimal sanoq chegarasini o'rnating",
+  "countThresholdLabel": "Sanoq chegarasi",
+  "countThresholdSettings": "Sanoq chegarasi sozlamalari",
+  "countThresholdValue": "Sanoq chegarasi: {count}",
+  "createdRules": "Yaratilgan qoidalar",
+  "csvFormat": "CSV formati",
+  "currentDeviceChip": "Joriy",
+  "currentDeviceLabel": "Joriy qurilma yorlig'i",
+  "currentDeviceTitle": "Joriy qurilma",
+  "currentLabels": "Joriy yorliqlar:",
+  "currentLanguage": "Joriy til",
+  "currentPasswordLabel": "Joriy parol",
+  "customerService": "Mijozlarga xizmat ko'rsatish",
+  "customRange": "Maxsus diapazon",
+  "dailyStatistics": "Kunlik statistika",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "Bloklangan qo'ng'iroqlar va xabarlar haqida kunlik statistikani oling",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "Boshqaruv paneli",
+  "dataAnalysis": "Ma'lumotlar tahlili",
+  "dataAnalysisDashboardPage": "Ma'lumotlar tahlili boshqaruv paneli sahifasi",
+  "dataExport": "Ma'lumotlarni eksport qilish",
+  "dataLoadFailure": "Ma'lumotlarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "Ma'lumotlarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "dataMigration": "Ma'lumotlarni ko'chirish",
+  "dataMigrationDescription": "Bu funksiya barcha ma'lumotlaringizni qurilmalar o'rtasida o'tkazish imkonini beradi. Hozirda siz ma'lumotlaringizni qo'lda ko'chirish uchun zaxiralash va tiklash funksiyalaridan foydalanishingiz mumkin.",
+  "dataMigrationDialogContent": "Bu funksiya barcha ma'lumotlaringizni qurilmalar o'rtasida o'tkazish imkonini beradi. Hozirda siz ma'lumotlaringizni qo'lda ko'chirish uchun zaxiralash va tiklash funksiyalaridan foydalanishingiz mumkin.",
+  "dataMigrationDialogTitle": "Ma'lumotlarni ko'chirish",
+  "dataMigrationSectionTitle": "Ma'lumotlarni ko'chirish bo'limi",
+  "dataSourceReminder": "Ma'lumot manbai eslatmasi",
+  "days": "{count, plural, =1{1 kun} other{{count} kun}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} kun VIP",
+  "debtCollection": "Qarz yig'ish",
+  "defaultPeriod": "Hafta",
+  "delete": "O'chirish",
+  "deleteButton": "O'chirish",
+  "deleteContact": "Kontaktni o'chirish",
+  "deleteContactConfirm": "{name}ni o'chirmoqchimisiz?",
+  "deleteContactConfirmation": "Kontaktni o'chirmoqchi ekanligingizga ishonchingiz komilmi",
+  "deleteDeviceConfirmation": "{deviceName}ni o'chirmoqchimisiz?",
+  "deleteDeviceDialogTitle": "Qurilmani o'chirish",
+  "deleteFailed": "O'chirish muvaffaqiyatsiz tugadi: {error}",
+  "deleteFilter": "Filtrni o'chirish",
+  "deleteLabel": "Yorliqni o'chirish",
+  "deleteLabelFailed": "Yorliqni o'chirish muvaffaqiyatsiz tugadi: {error}",
+  "deletePlugin": "Pluginni o'chirish",
+  "deletePluginFailed": "Pluginni o'chirish muvaffaqiyatsiz tugadi: {error}",
+  "deletePlugins": "Pluginlarni o'chirish",
+  "deletePluginsFailed": "Pluginlarni o'chirish muvaffaqiyatsiz tugadi: {error}",
+  "deleteRule": "Qoidani o'chirish",
+  "deleteRuleFailed": "O'chirish muvaffaqiyatsiz tugadi: {error}",
+  "deleteSelected": "Tanlanganlarni o'chirish",
+  "deleteSmsRule": "SMS qoidasini o'chirish",
+  "deleteSubscription": "Obunani o'chirish",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "\"{name}\" obunasini o'chirmoqchi ekanligingizga ishonchingiz komilmi?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "Obunani o'chirish muvaffaqiyatsiz tugadi: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "Muvaffaqiyatli o'chirildi",
+  "delivery": "Yetkazib berish",
+  "deviceDeletedSuccessfully": "Qurilma muvaffaqiyatli o'chirildi",
+  "deviceDeletedSuccessfullyMessage": "Qurilma muvaffaqiyatli o'chirildi",
+  "deviceIdLabel": "Qurilma IDsi",
+  "deviceIDLabel": "Qurilma IDsi",
+  "deviceManagementSubtitle": "Ko'p qurilmali sinxronizatsiyani boshqarish",
+  "deviceManagementTitle": "Qurilmalarni boshqarish",
+  "deviceModelLabel": "Qurilma modeli",
+  "deviceName": "Qurilma nomi",
+  "deviceNameCannotBeEmpty": "Qurilma nomi boʻsh boʻlishi mumkin emas",
+  "deviceNameHint": "Iltimos, qurilma nomini kiriting",
+  "deviceNameLabel": "Qurilma nomi",
+  "deviceRenamedSuccessfully": "Qurilma nomi muvaffaqiyatli o'zgartirildi",
+  "deviceRenamedSuccessfullyMessage": "Qurilma nomi muvaffaqiyatli o'zgartirildi",
+  "devicesSyncedSuccessfully": "Qurilmalar muvaffaqiyatli sinxronlandi",
+  "devicesSyncedSuccessfullyMessage": "Qurilmalar muvaffaqiyatli sinxronlandi",
+  "devicesSynchronizedSuccessfullyMessage": "Qurilmalar muvaffaqiyatli sinxronlandi",
+  "deviceUnregisteredSuccessfullyMessage": "Qurilmaning roʻyxatdan oʻtkazilishi muvaffaqiyatli bekor qilindi",
+  "dialogTitle": "Regex namunasi tushuntirishlari",
+  "differentFromLocalCounter": "Bu funksiya mahalliy hisoblagich filtri bilan farq qiladi, chunki u uzoq muddatli belgilash hisobiga emas, balki qisqa vaqt ichida takroriy qo'ng'iroq namunalariga e'tibor qaratadi.",
+  "disabled": "O'chirilgan",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "O'chirilgan holat",
+  "disableGlobalPlugins": "Global plaginlarni o'chirish",
+  "disableSubscriptionSuccessfully": "Obunani muvaffaqiyatli o'chirish",
+  "disconnectButton": "Uzish",
+  "disconnectedMessage": "Uzulgan",
+  "disconnectedStatus": "Uzulgan holat",
+  "disconnectFailedMessage": "Ulanishni uzish muvaffaqiyatsiz tugadi",
+  "done": "Tayyor",
+  "dualSimAdvice": "Bu funksiya ikki SIM-kartali telefonlar uchun ish va shaxsiy SIM-kartalar uchun turli filtrlash strategiyalarini belgilashda ayniqsa foydalidir.",
+  "earlier": "Avvalroq",
+  "ecommerce": "Elektron tijorat",
+  "edit": "Tahrirlash",
+  "editContact": "Kontaktni tahrirlash",
+  "editFilter": "Filtrni tahrirlash",
+  "editLabel": "Yorliqni tahrirlash",
+  "editPhoneRule": "Telefon qoidasini tahrirlash",
+  "editPhoneRules": "Telefon qoidalarini tahrirlash uchun ishlatiladi",
+  "editPhoneRuleTitle": "Telefon qoidasini tahrirlash",
+  "editRule": "Qoidani tahrirlash",
+  "editSmsRule": "SMS qoidasini tahrirlash",
+  "education": "Ta'lim",
+  "elementPositionsSetting": "Element joylashuvlari",
+  "email": "Elektron pochta",
+  "emailOptional": "Elektron pochta (Ixtiyoriy)",
+  "enableCallFilter": "Qo'ng'iroq filtrini yoqish",
+  "enableCallFilterDescription": "Yoqilganda, kiruvchi qo'ng'iroqlar quyidagi qoidalar ro'yxati bo'yicha tekshiriladi. Qo'ng'iroqlarni filtrlash qoidalari odatda qurilmalar o'rtasida sinxronlanmaydi.",
+  "enabled": "Yoqilgan",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "Yoqilgan holat",
+  "enableEncryption": "Shifrlashni yoqish",
+  "enableEncryptionDescription": "Zaxira nusxalash fayllarini shifrlash",
+  "enableEncryptionLabel": "Shifrlashni yoqish",
+  "enableEncryptionSubtitle": "Zaxira nusxalash fayllari shifrlanadi",
+  "enableEncryptionTitle": "Shifrlashni yoqish",
+  "enableGlobalPlugins": "Global plaginlarni yoqish",
+  "enableLocalCountFilter": "Mahalliy hisoblagich filtrini yoqish",
+  "enableLocalCountFilterDescription": "Qo'ng'iroqlarni belgilash soniga qarab spam qo'ng'iroqlarni avtomatik filtrlash",
+  "enableLocalNotification": "Mahalliy bildirishnomadan foydalanish",
+  "enableLocalNotificationDescription": "Yoqilganda, filtrlangan xabarlar uchun bildirishnomalar qurilmada ko'rsatiladi",
+  "enableLocationSummary": "Manzil",
+  "enableMuteRules": "Ovozsiz qoidalarini yoqish",
+  "enableMuteRulesDesc": "Ovozsiz ushlash qoidalari konfiguratsiyasini qo'llash",
+  "enableNoneActionRules": "Harakatlanmaydigan qoidalarni yoqish",
+  "enableNoneActionRulesDesc": "Hech qanday ushlash harakatlari bo'lmagan qoida konfiguratsiyalariga ruxsat berish",
+  "enableNotifications": "Bildirishnomalarni yoqish",
+  "enableRemoteNumberFilter": "Masofaviy raqam filtrini yoqish",
+  "enableRemoteNumberFilterDescription": "Raqamlarni filtrlash uchun masofaviy ma'lumotlar bazasidan foydalanish",
+  "enableRule": "Qoidani yoqish",
+  "enableSmsFilter": "SMS filtrlashni yoqish",
+  "enableSmsFilterDescription": "Yoqilganda, xabarlar qoidalarga muvofiq avtomatik filtrladi",
+  "enableStatisticsNotifications": "Statistika bildirishnomalarini yoqish",
+  "enableSubscriptionSuccessfully": "Obunani muvaffaqiyatli yoqish",
+  "enableTimeInterception": "Vaqt bo'yicha ushlashni yoqish",
+  "enableTimeInterceptionDescription": "Qisqa vaqt ichida takroriy qo'ng'iroqlarni ushlash",
+  "enableTimeInterceptor": "Vaqt bo'yicha to'siqni yoqish",
+  "endCallImmediately": "Qo'ng'iroqni darhol tugatish",
+  "endColor": "Yakuniy rang",
+  "endDate": "Yakuniy sana",
+  "enhancedFilterInstructionsTitle": "Kengaytirilgan filtr tizimi",
+  "enhancedFilterSettings": "Kengaytirilgan filtr sozlamalari",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "Kengaytirilgan filtr sozlamalari",
+  "enhancedFilterSystemDescription": "Kengaytirilgan filtr tizimi ham global qoidalarni, ham har bir SIM-karta uchun filtrlash konfiguratsiyalarini qo'llab-quvvatlaydi.",
+  "enterBothPhoneNumberAndRegexPattern": "Iltimos, telefon raqami va regex namunasini kiriting",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Iltimos, telefon raqami va regex namunasini kiriting.",
+  "enterContactName": "Iltimos, kontakt nomini kiriting",
+  "enterCurrentPasswordHint": "Iltimos, joriy parolni kiriting",
+  "enterDeviceName": "Qurilma nomini kiriting",
+  "enterDeviceNameHint": "Iltimos, qurilma nomini kiriting",
+  "enterEmail": "Iltimos, elektron pochtani kiriting",
+  "enterEmailOptional": "Iltimos, elektron pochtani kiriting (ixtiyoriy)",
+  "enterEncryptionPasswordHint": "Shifrlash parolini kiriting",
+  "enterEncryptionPasswordTitle": "Shifrlash parolini kiriting",
+  "enterFilterName": "Iltimos, filtr nomini kiriting",
+  "enterFilterPattern": "Iltimos, filtr namunasini kiriting",
+  "enterIconCode": "Ikona kodini kiriting",
+  "enterName": "Kontakt nomini kiriting",
+  "enterNewDeviceNameHint": "Bu qurilma uchun yangi nom kiriting",
+  "enterNewPasswordHint": "Iltimos, yangi parolni kiriting",
+  "enterPasswordAgain": "Parolni qayta kiriting",
+  "enterPasswordHint": "Iltimos, parolni kiriting",
+  "enterPhoneNumber": "Telefon raqamini kiriting",
+  "enterPhoneNumberHint": "Sinash uchun telefon raqamini kiriting",
+  "enterPhoneNumberMultiple": "Iltimos, telefon raqamini kiriting, bir nechta raqam vergul bilan ajratiladi",
+  "enterPhoneNumberToStartSearch": "Qidiruvni boshlash uchun telefon raqamini kiriting",
+  "enterPhoneNumberToVerify": "Tasdiqlash uchun telefon raqamini kiriting",
+  "enterPluginName": "Plagin nomini kiriting",
+  "enterPluginUrl": "Plagin URL manzilini kiriting",
+  "enterRegexHint": "Regex namunasini kiriting",
+  "enterRuleNameAndPattern": "Iltimos, qoida nomi va namunasini kiriting",
+  "enterRuleNameAndPatternMessage": "Iltimos, qoida nomi va regex shablonini kiriting.",
+  "enterRuleNameHint": "Qoida nomini kiriting",
+  "enterSearchContent": "Iltimos, qidiruv mazmunini kiriting",
+  "enterSubscriptionName": "Obuna nomini kiriting",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "Obuna URL manzilini kiriting",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "Iltimos, sinxronizatsiya papkasi nomini kiriting (standart: NotificationManager)",
+  "entertainment": "Ko'ngilochar",
+  "enterValidNameAndUrl": "Iltimos, haqiqiy nom va URL manzilini kiriting",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "Iltimos, haqiqiy URL manzilini kiriting",
+  "enterVersion": "Versiyani kiriting",
+  "enterWebDAVPasswordHint": "Iltimos, WebDAV parolini kiriting",
+  "enterWebDAVServerAddressHint": "Iltimos, WebDAV server manzilini kiriting",
+  "enterWebDAVUsernameHint": "Iltimos, WebDAV foydalanuvchi nomini kiriting",
+  "errorDeletingDeviceMessage": "Qurilmani oʻchirishda xatolik: {error}",
+  "errorLoadingPlugin": "Plaginni yuklashda xatolik",
+  "errorOccurredMessage": "Xatolik yuz berdi: {error}",
+  "errorRenamingDeviceMessage": "Qurilma nomini oʻzgartirishda xatolik: {error}",
+  "errorSynchronizingDevicesMessage": "Qurilmalarni sinxronizatsiya qilishda xatolik: {error}",
+  "errorSyncingDevicesMessage": "Qurilmalarni sinxronizatsiya qilishda xatolik: {error}",
+  "errorText": "Xato",
+  "errorUnregisteringDeviceMessage": "Qurilmani roʻyxatdan oʻchirishda xatolik: {error}",
+  "exampleBlock400Prefix": "masalan. 400 prefiks raqamlarini bloklash",
+  "exampleBlockMarketingSms": "masalan. Marketing SMSlarini bloklash",
+  "exampleContentRegex": "masalan., .*taklif.*",
+  "exampleContentRegexHint": "Kontent regex namunasi",
+  "exampleCouponPromotionDiscount": "masalan. .*(kupon|aksiya|chegirma).*",
+  "exampleFamilyFriends": "masalan. Oila, Doʻstlar va h.k.",
+  "examplePhoneNumber": "masalan. 10086, 12345 va h.k.",
+  "exampleRegex400Prefix": "400 prefiksi uchun regex namunasi",
+  "exampleRegexFormat": "Namuna: ^10086$ formati",
+  "exampleSenderRegexHint": "Namuna",
+  "exchange": "Almashish",
+  "exchangeNow": "Hozir almashish",
+  "exchangeVip": "VIP almashish",
+  "expandLabelSelector": "Yorliq tanlagichini kengaytirish",
+  "expiryTime": "Amal qilish muddati: {time}",
+  "export": "Eksport",
+  "exportAllApplicationSettings": "Barcha dastur sozlamalarini eksport qilish",
+  "exportAllApplicationSettingsSubtitle": "Barcha dastur sozlamalarini eksport qilish",
+  "exportAllRuleConfigurations": "Barcha qoida konfiguratsiyalarini eksport qilish",
+  "exportAllRuleConfigurationsSubtitle": "Barcha qoida konfiguratsiyalarini eksport qilish",
+  "exportComplete": "Eksport yakunlandi",
+  "exportConfig": "Konfiguratsiyani eksport qilish",
+  "exportContacts": "Kontaktlarni eksport qilish",
+  "exportData": "Maʼlumotlarni eksport qilish",
+  "exportError": "Eksport xatosi",
+  "exportFailed": "Eksport muvaffaqiyatsiz tugadi",
+  "exportFailure": "Konfiguratsiyani eksport qilish muvaffaqiyatsiz tugadi",
+  "exportFeatureComingSoon": "Eksport funksiyasi tez orada",
+  "exporting": "Eksport qilinmoqda...",
+  "exportLabels": "Yorliqlarni eksport qilish",
+  "exportLabelsFailed": "Yorliqlarni eksport qilish muvaffaqiyatsiz tugadi: {error}",
+  "exportPluginList": "Plaginlar roʻyxatini eksport qilish",
+  "exportPluginListFailed": "Plaginlar roʻyxatini eksport qilish muvaffaqiyatsiz tugadi: {error}",
+  "exportRules": "Qoidalarni eksport qilish",
+  "exportRulesDialogTitle": "Qoidalarni eksport qilish",
+  "exportRulesTitle": "Qoidalarni eksport qilish",
+  "exportSmsRules": "SMS qoidalarini eksport qilish",
+  "exportStatisticsData": "Statistika maʼlumotlarini eksport qilish",
+  "exportSuccess": "Eksport muvaffaqiyatli",
+  "exportSuccesslly": "Konfiguratsiya muvaffaqiyatli eksport qilindi",
+  "failedToAddContact": "Kontakt qoʻshish muvaffaqiyatsiz tugadi",
+  "failedToAddRule": "Qoida qoʻshish muvaffaqiyatsiz tugadi: {error}",
+  "failedToAddSmsRule": "SMS qoidasini qoʻshish muvaffaqiyatsiz tugadi: {error}",
+  "failedToAddSmsSubscription": "SMS obunasi qoʻshish muvaffaqiyatsiz tugadi: {error}",
+  "failedToBackupSettings": "Sozlamalarni zaxiralash muvaffaqiyatsiz tugadi: {error}",
+  "failedToDecryptBackupFile": "Zaxira faylini shifrini ochish muvaffaqiyatsiz tugadi",
+  "failedToDeleteDevice": "Qurilmani oʻchirish muvaffaqiyatsiz tugadi",
+  "failedToDeleteSmsRule": "SMS qoidasini oʻchirish muvaffaqiyatsiz tugadi: {error}",
+  "failedToExportRules": "Qoidalarni eksport qilish muvaffaqiyatsiz tugadi: {error}",
+  "failedToExportSmsRules": "SMS qoidalarini eksport qilish muvaffaqiyatsiz tugadi: {error}",
+  "failedToGetCallerIdInfo": "Qoʻngʻiroq qiluvchi ID maʼlumotlarini olish muvaffaqiyatsiz tugadi: {error}",
+  "failedToImportRules": "Qoidalarni import qilish muvaffaqiyatsiz tugadi: {error}",
+  "failedToImportSmsRules": "SMS qoidalarini import qilish muvaffaqiyatsiz tugadi: {error}",
+  "failedToLoadContacts": "Kontaktlarni yuklash muvaffaqiyatsiz tugadi",
+  "failedToLoadPlugin": "Plaginni yuklash muvaffaqiyatsiz tugadi",
+  "failedToRenameDevice": "Qurilma nomini oʻzgartirish muvaffaqiyatsiz tugadi",
+  "failedToRestoreSettings": "Sozlamalarni tiklash muvaffaqiyatsiz tugadi",
+  "failedToRestoreSettingsWithError": "Sozlamalarni tiklash muvaffaqiyatsiz tugadi: {error}",
+  "failedToSetPassword": "Parolni oʻrnatish muvaffaqiyatsiz tugadi: {error}",
+  "failedToSyncDevices": "Qurilmalarni sinxronizatsiya qilish muvaffaqiyatsiz tugadi",
+  "failedToToggleRuleStatus": "Qoida holatini oʻzgartirish muvaffaqiyatsiz tugadi: {error}",
+  "failedToToggleSubscriptionStatus": "Obuna holatini oʻzgartirish muvaffaqiyatsiz tugadi",
+  "failedToUpdateContact": "Kontaktni yangilash muvaffaqiyatsiz tugadi",
+  "failedToUpdateSmsRule": "SMS qoidasini yangilash muvaffaqiyatsiz tugadi: {error}",
+  "failure": "Muvaffaqiyatsizlik",
+  "favoriteContacts": "Tanlangan kontaktlar",
+  "featureAddRules": "• Telefon raqamiga xos qoidalar qoʻshish",
+  "featureCenter": "Xususiyatlar markazi",
+  "featureEnableDisable": "• Har bir SIM karta uchun turli filtrlarni yoqish/oʻchirish",
+  "featureListTitle": "Xususiyatlar:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• Har bir SIM karta uchun qoidalar roʻyxatlarini boshqarish",
+  "features": "Xususiyatlar",
+  "fetchingCallerIdInfo": "Qoʻngʻiroq qiluvchi ID maʼlumotlari olinmoqda...",
+  "fileSavedTo": "Fayl quyidagi manzilga saqlandi: {path}",
+  "filter": "Filtr",
+  "filterByLabel": "Yorliq boʻyicha filtrlash",
+  "filterClear": "Filtrni tozalash",
+  "filterControlPanelTitle": "Filtr boshqaruv paneli",
+  "filterControlSubtitle": "Barcha filtrlarning yoqish/oʻchirish holatini boshqarish",
+  "filterControlTitle": "Filtr boshqaruvi",
+  "filterDeleteFailed": "Filtrni o'chirish muvaffaqiyatsiz tugadi",
+  "filterDeleteSuccess": "Filtr muvaffaqiyatli o'chirildi",
+  "filterDetails": "Filtr tafsilotlari",
+  "filtered": "Filtrlangan",
+  "filteredSms": "Filtrlangan SMS",
+  "filteredSmsLabel": "Filtrlangan SMS",
+  "filterExplanation": "Filtr tushuntirishi",
+  "filterManagement": "Filtrni boshqarish",
+  "filterName": "Filtr nomi",
+  "filterPattern": "Filtr namunasi",
+  "filterPriorityNote": "Eslatma: Filtrlar o'rtasida ustuvorlik munosabatlari mavjud, tafsilotlar uchun yordam hujjatlariga qarang",
+  "filterSaveFailed": "Filtrni saqlash muvaffaqiyatsiz tugadi",
+  "filterSaveSuccess": "Filtr muvaffaqiyatli saqlandi",
+  "filterSettings": "Filtr sozlamalari",
+  "filterSettingsTitle": "Filtr sozlamalari",
+  "filterSMS": "SMS filtri",
+  "filterToggleInstructions": "Ushbu SIM uyasi uchun filtrlarni yoqish yoki o'chirish:",
+  "filterToggleStatus": "{status} filtri: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "Filtr turi",
+  "financial": "Moliyaviy",
+  "flexibleCombinationFeature": "• Moslashuvchan kombinatsiyalar: Har bir SIM uyasi uchun filtrlarni yoqish/o'chirish",
+  "fontSizesSetting": "Shrift o'lchamlari",
+  "foundRules": "{count} ta qoida topildi",
+  "foundRulesDoYouWantToImport": "{count} ta qoida topildi. Ularni import qilishni xohlaysizmi?",
+  "foundRulesToImport": "{count} ta qoida topildi. Ularni import qilishni xohlaysizmi?",
+  "fraudAlert": "FIRIBGARLIK OGOHLANTIRISHI - Qo'ng'iroqni tugating",
+  "fraudScamLikely": "Firibgarlik ehtimoli yuqori",
+  "free": "Bepul",
+  "functionSettingsTitle": "Funksiya sozlamalari",
+  "generalUpdateFailure": "Yangilash muvaffaqiyatsiz tugadi: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Bepul oling",
+  "github": "GitHub",
+  "globalFilterDescription": "Barcha SIM kartalar uchun global filtrlarni sozlang:",
+  "globalFilterFeature": "• Global filtrlar: Barcha kiruvchi qo'ng'iroqlar uchun asosiy qoidalar",
+  "globalFilterSettings": "Global filtr sozlamalari",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "Barcha SIM uyalariga taalluqli bo'lgan global filtr sozlamalarini sozlang:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Kontaktlarni, yorliqlarni, qora ro'yxatlarni, oq ro'yxatlarni va hokazolarni qidirish.",
+  "globalSearchTitle": "Global qidiruv",
+  "globalSettings": "Global sozlamalar",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Google reklamasi ko'rsatish pozitsiyasi",
+  "googleAdMobIntegrationText": "Google AdMob reklamalari bu yerda integratsiya qilinishi mumkin",
+  "googleDriveAuthDescription": "Tizim tomonidan sozlangan Google Drive mijoz IDsi va kaliti yordamida avtorizatsiya qiling",
+  "googleDriveAuthorizationHint": "Tizim tomonidan sozlangan Google Drive mijoz IDsi va kaliti yordamida avtorizatsiya qiling",
+  "googleDriveConfigTitle": "Google Drive konfiguratsiyasi",
+  "googleDriveConfigurationTitle": "Google Drive konfiguratsiyasi",
+  "government": "Davlat",
+  "granted": "Berilgan",
+  "grantNecessaryPermissions": "Kerakli ruxsatlarni berish",
+  "grantPermissions": "Ruxsatlarni berish",
+  "headhunter": "Xedxanter",
+  "height": "Balandlik",
+  "homePageTitle": "Bosh sahifa",
+  "homeTab": "Bosh sahifa",
+  "howItWorksPoint1": "• Tizim belgilangan vaqt oralig'ida bir xil raqamdan bo'lgan qo'ng'iroqlarga avtomatik ruxsat beradi",
+  "howItWorksPoint2": "• Qisqaroq vaqt oralig'i qattiqroq ushlab qolishga olib keladi; uzoqroq vaqt oralig'i yumshoqroq ushlab qolishga olib keladi",
+  "howItWorksPoint3": "• Tizim takroriy qo'ng'iroq ekanligini aniqlash uchun qo'ng'iroqlar tarixini tekshiradi",
+  "howItWorksTitle": "Qanday ishlaydi:",
+  "iconCodeOptional": "Belgilar kodi (ixtiyoriy)",
+  "iconSize": "Belgilar o'lchami",
+  "import": "Import qilish",
+  "important": "Muhim",
+  "importButton": "Import qilish",
+  "importConfig": "Konfiguratsiyani import qilish",
+  "importContacts": "Kontaktlarni import qilish",
+  "importExportContacts": "Kontaktlarni import/eksport qilish",
+  "importExportContactsTooltip": "Kontaktlarni import/eksport qilish",
+  "importExportRules": "Qoidalarni import/eksport qilish",
+  "importFailed": "Import muvaffaqiyatsiz tugadi: {error}",
+  "importFailure": "Konfiguratsiyani import qilish muvaffaqiyatsiz tugadi",
+  "importFeatureComingSoon": "Import funksiyasi tez orada",
+  "importLabels": "Yorliqlarni import qilish",
+  "importLabelsFailed": "Yorliqlarni import qilish muvaffaqiyatsiz tugadi: {error}",
+  "importPluginList": "Plaginlar ro'yxatini import qilish",
+  "importPluginListFailed": "Plaginlar ro'yxatini import qilish muvaffaqiyatsiz tugadi: {error}",
+  "importPluginSuccess": "{count} ta plagin muvaffaqiyatli import qilindi",
+  "importRuleConfigurationsFromFile": "Fayldan qoida konfiguratsiyalarini import qilish",
+  "importRuleConfigurationsFromFileSubtitle": "Fayldan qoida konfiguratsiyalarini import qilish",
+  "importRules": "Qoidalarni import qilish",
+  "importRulesButton": "Qoidalarni import qilish",
+  "importRulesDialogTitle": "Qoidalarni import qilish oynasi",
+  "importRulesError": "Qoidalarni import qilish muvaffaqiyatsiz tugadi: {error}",
+  "importRulesInstructions": "CSV faylidan qoidalarni import qilish",
+  "importRulesSuccess": "Qoidalar muvaffaqiyatli import qilindi",
+  "importRulesTitle": "Qoidalarni import qilish",
+  "importSuccess": "Import muvaffaqiyatli yakunlandi",
+  "incomingCallInterceptAction": "Kiruvchi qo'ng'iroqlarni ushlab qolish harakati",
+  "incomingCallNotification": "Kiruvchi qo'ng'iroq bildirishnomasi",
+  "incorrectPassword": "Noto'g'ri parol",
+  "initializing": "Boshlanmoqda",
+  "installed": "O'rnatilgan",
+  "insufficientMarks": "Yetarli bo'lmagan belgilar",
+  "insurance": "Sug'urta",
+  "interceptAction": "Ushlab qolish harakati",
+  "interceptionActionSettingsSubtitle": "Bloklangan qo'ng'iroqlar qanday ishlashini sozlash",
+  "interceptionActionSettingsTitle": "Ushlab qolish harakati sozlamalari",
+  "interceptionTimeInterval": "Ushlab qolish vaqti oralig'i",
+  "internet": "Internet",
+  "intervalSetSuccess": "{service} yangilash oralig'i {days} kunga o'rnatildi",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Noto'g'ri tarkib regexi",
+  "invalidLabel": "Yaroqsiz yorliq",
+  "invalidRegexPattern": "Yaroqsiz regex namunasi",
+  "invalidSenderRegex": "Yaroqsiz yuboruvchi regexi",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Qo'shimcha ma'lumot olish uchun Telegram kanal va guruhiga qo'shiling",
+  "jsLogsTitle": "JS Loglari",
+  "jsonFormat": "JSON Formati",
+  "keepAllVersions": "Barcha versiyalarni saqlash",
+  "keepAllVersionsDescription": "Har bir zaxira nusxasining barcha tarixiy versiyalarini saqlab qolish",
+  "keepAllVersionsLabel": "Barcha versiyalarni saqlash",
+  "keepAllVersionsSubtitle": "Har bir zaxira nusxasining tarixiy versiyalarini saqlash",
+  "keepAllVersionsTitle": "Barcha versiyalarni saqlash",
+  "label": "Yorliq",
+  "labelAddedSuccessfully": "Yorliq \"{name}\" muvaffaqiyatli qo'shildi",
+  "labelCategories": "Yorliq toifalari",
+  "labelDeleted": "Yorliq o'chirildi",
+  "labelDescription": "Yorliqlar kontaktlarni yaxshiroq boshqarishga yordam beradi, qo'ng'iroqlar va xabarlarni osongina aniqlash uchun telefon raqamlariga shaxsiy yorliqlar qo'shing.",
+  "labelFilter": "Yorliq filtri",
+  "labelFilterTooltip": "Yorliq filtri",
+  "labelIconColor": "Yorliq belgisining rangi",
+  "labelManagement": "Yorliqlarni boshqarish",
+  "labelNotFound": "Yorliq topilmadi",
+  "labelRemoved": "Yorliq olib tashlandi",
+  "labelRemoveFailed": "Yorliqni olib tashlash muvaffaqiyatsiz tugadi: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "Yorliqlar",
+  "labelsColor": "Yorliqlar rangi",
+  "labelsDeleted": "{count} ta yorliq o'chirildi",
+  "labelsExportedSuccessfully": "Yorliqlar muvaffaqiyatli eksport qilindi",
+  "labelsFontSize": "Yorliqlar shrift o'lchami",
+  "labelsImportedSuccessfully": "{count} ta yorliq muvaffaqiyatli import qilindi",
+  "labelsPosition": "Yorliqlar joylashuvi",
+  "labelTag": "Yorliq: {labelId}",
+  "labelUpdated": "Yorliq yangilandi",
+  "labelUpdateFailed": "Yorliqni yangilash muvaffaqiyatsiz tugadi: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "Yorliq \"$labelText\" muvaffaqiyatli yangilandi",
+  "languageSettings": "Til sozlamalari",
+  "languageSettingsSubtitle": "Ilova ko'rsatish tilini o'zgartirish",
+  "languageSettingsTitle": "Til sozlamalari",
+  "last30Days": "Oxirgi 30 kun",
+  "last7Days": "Oxirgi 7 kun",
+  "lastSyncLabel": "Oxirgi sinxronizatsiya",
+  "lastUpdated": "Oxirgi yangilanish: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "Umrboqiy a'zolik",
+  "lifetimeMembershipDescription": "Bir martalik xarid, barcha premium funksiyalarni va kelajakdagi yangilanishlarni doimiy ravishda qulfdan chiqarish",
+  "loadContactsFailed": "Kontaktlarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "loadDataFailed": "Ma'lumotlarni yuklash muvaffaqiyatsiz tugadi",
+  "loadFailed": "Yuklash muvaffaqiyatsiz tugadi",
+  "loading": "Yuklanmoqda...",
+  "loadingData": "Ma'lumotlar yuklanmoqda...",
+  "loadingTags": "Teglar yuklanmoqda...",
+  "loadLabelFailed": "Yorliqlarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "loadLabelsFailed": "Yorliqlarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "loadMarkCountFailed": "Belgilangan telefon raqamlarini yuklash muvaffaqiyatsiz tugadi: {error}",
+  "loadMarkedPhonesFailed": "Belgilangan telefonlarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "loadMore": "Ko'proq yuklash",
+  "loadPluginButton": "Plaginni yuklash",
+  "loadPluginsFailed": "Plaginlarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "loadSettingsFailed": "Sozlamalarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "loadSmsRulesFailed": "SMS qoidalarini yuklash muvaffaqiyatsiz tugadi: {error}",
+  "loadStatusFailedMessage": "Holatni yuklash muvaffaqiyatsiz tugadi",
+  "loadSubscriptionsFailed": "Obunalarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "Kredit",
+  "localBackupTitle": "Mahalliy zaxira nusxasi",
+  "localCounterFilter": "Mahalliy hisoblagich filtri",
+  "localCounterFilterSubtitle": "Qo'ng'iroq chastotasiga qarab spam qo'ng'iroqlarni avtomatik filtrlash",
+  "localCountFilter": "Mahalliy hisob filtri",
+  "localCountFilterDescription": "Mahalliy raqam hisoblariga asoslanib tez-tez takrorlanadigan qo'ng'iroqlarni ushlab qolish",
+  "localCountFilterExplanationContent": "Mahalliy hisob filtri qo'ng'iroqlar tarixi yozuvlarini tahlil qiladi va tez-tez takrorlanadigan spam qo'ng'iroqlarni avtomatik aniqlaydi va bloklaydi.",
+  "localCountFilterExplanationTitle": "Mahalliy hisob filtri tushuntirishi",
+  "localCountFilterHowItWorksPoint1": "• Raqamning hisob qiymatiga qarab bloklashni aniqlash",
+  "localCountFilterHowItWorksPoint2": "• Raqamning hisobi belgilangan chegaradan oshib ketganda, uni avtomatik bloklashni tanlashingiz mumkin",
+  "localCountFilterHowItWorksPoint3": "• Chegaradan oshmaydigan raqamlarni tanlab ruxsat berishingiz mumkin",
+  "localCountFilterHowItWorksPoint4": "• Barcha so'rov loglarini yozishni tanlashingiz mumkin",
+  "localCountFiltering": "Mahalliy hisobni filtrlash",
+  "localCountFilteringExplanation": "• Mahalliy hisobni filtrlash: Mahalliy belgilash hisobiga asoslangan filtrlash qoidalari",
+  "localCountFilterSettings": "Mahalliy hisob filtri sozlamalari",
+  "localCountFilterUseCases": "Bu filtr, ayniqsa, avtomatik terilgan spam qo'ng'iroqlari va marketing qo'ng'iroqlarini aniqlash uchun mos keladi.",
+  "localFilterSettings": "Mahalliy filtr sozlamalari",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "Mahalliy bildirishnoma o'chirilgan",
+  "localNotificationEnabled": "Mahalliy bildirishnoma yoqilgan",
+  "localServices": "Mahalliy xizmatlar",
+  "locationColor": "Manzil rangi",
+  "locationFontSize": "Manzil shrift o'lchami",
+  "locationIconColor": "Manzil belgisining rangi",
+  "locationPosition": "Manzil joylashuvi",
+  "logAllLocalQueries": "Barcha mahalliy so'rovlarni loglash",
+  "logAllLocalQueriesDescription": "Barcha mahalliy raqam so'rovlari uchun loglarni yozib olish",
+  "logAllRemoteQueries": "Barcha masofaviy so'rovlarni loglash",
+  "logAllRemoteQueriesDescription": "Barcha masofaviy raqam so'rov operatsiyalarini yozib olish",
+  "manage": "Kontaktlarni boshqarish",
+  "manageContacts": "Boshqarish",
+  "manageFavoriteContacts": "Sevimlilar ro'yxatidagi kontaktlarni boshqarish",
+  "manageFilterRules": "Filtrlash qoidalarini boshqarish",
+  "manageFilterRulesDescription": "SMS filtrlash qoidalarini qo'shish, tahrirlash yoki o'chirish",
+  "manageFrequentContacts": "Tez-tez aloqa qiladigan kontaktlarni boshqarish",
+  "markCounts": "Belgilash hisoblari",
+  "markCount": "Belgilash hisobi",
+  "markedByCount": "{count} tomonidan belgilangan",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "Belgilangan telefon raqamlari",
+  "markExchange": "Belgilash almashinuvi",
+  "markPhone": "Telefon raqamini belgilash",
+  "markPhoneFailed": "Telefon raqamini belgilashda xatolik yuz berdi: {error}",
+  "markPhoneManagementSubtitle": "Telefon raqamlarini belgilash uchun",
+  "markPhoneManagementTitle": "Telefon raqamlarini belgilashni boshqarish",
+  "markPhoneSuccess": "Telefon raqami muvaffaqiyatli belgilandi",
+  "matchFailed": "Moslik topilmadi!",
+  "matchFailedMessage": "Moslik topilmadi.",
+  "matchNumbersWithSpecialCharacters": "maxsus raqam formatiga mos keladi",
+  "matchNumbersWithSpecialCharactersTitle": "Maxsus belgili raqamlarga moslik:",
+  "matchSpecificDigitPatterns": "XXX-XXXX-XXXX formatiga mos keladi",
+  "matchSpecificDigitPatternsTitle": "Maxsus raqam naqshlariga moslik:",
+  "matchSuccessful": "Moslik muvaffaqiyatli topildi!",
+  "matchSuccessfulMessage": "Moslik muvaffaqiyatli topildi!",
+  "medical": "Tibbiy",
+  "membershipPrivileges": "A'zolik imtiyozlari",
+  "migrationTool": "Migratsiya vositasi",
+  "migrationToolTitle": "Migratsiya vositasi",
+  "minutes": "daqiqa",
+  "month": "Oy",
+  "monthly": "Oylik",
+  "monthlyCallCount": "Oylik qo'ng'iroqlar",
+  "monthlyChartTitle": "Oylik bloklangan qo'ng'iroqlar",
+  "monthlyMembership": "Oylik a'zolik",
+  "monthlyMembershipDescription": "Barcha premium xususiyatlarni oching, har oy avtomatik yangilanadi",
+  "monthlyTotal": "Oylik jami",
+  "monthlyTotalLabel": "Oylik jami",
+  "moreOptions": "Ko'proq imkoniyatlar",
+  "mute": "Ovozni o'chirish",
+  "name": "Ism",
+  "nameAndPhoneNumberCannotBeEmpty": "Ism va telefon raqami bo'sh bo'lishi mumkin emas",
+  "nameAndPhoneNumberRequired": "Ism va telefon raqami bo'sh bo'lishi mumkin emas",
+  "nameColor": "Ism rangi",
+  "nameFontSize": "Ism shrift hajmi",
+  "nameLabel": "Ism: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "Ism joylashuvi",
+  "nameUnknown": "Ism: Noma'lum",
+  "nameWithValue": "Ism: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "Yangi parol",
+  "nextStep": "Keyingi",
+  "noAction": "Harakat yo'q",
+  "noActionRules": "Harakat qoidalari yo'q",
+  "noActiveCloudSyncServiceMessage": "Faol bulutli sinxronizatsiya xizmati yo'q",
+  "noCallLogs": "Qo'ng'iroqlar jurnali yo'q",
+  "noCallRecords": "Qo'ng'iroq yozuvlari yo'q",
+  "noContacts": "Hali kontaktlar yo'q",
+  "noContactsYet": "Hali kontaktlar yo'q",
+  "noData": "Ma'lumotlar yo'q",
+  "noDevicesRegisteredMessage": "Ro'yxatdan o'tgan qurilmalar yo'q",
+  "noDevicesRegisteredYet": "Hali ro'yxatdan o'tgan qurilmalar yo'q.",
+  "noFilters": "Hali filtrlar yo'q",
+  "noLabels": "Hali yorliqlar yo'q",
+  "noMarkedPhones": "Belgilangan telefon raqamlari yo'q",
+  "noMatchingContacts": "Mos keladigan kontaktlar yo'q",
+  "noMatchingContactsFound": "Mos keladigan kontaktlar topilmadi",
+  "noMatchingNumbersFound": "Mos keladigan raqamlar topilmadi",
+  "noMatchingRecords": "Mos keladigan qo'ng'iroq yozuvlari yo'q",
+  "noMatchingRules": "Mos keladigan {ruleType} yo'q",
+  "none": "Hech qaysi",
+  "noneServiceType": "Hech qaysi",
+  "noPlugins": "Hali plaginlar yo'q",
+  "noRecords": "Qo'ng'iroq yozuvlari yo'q",
+  "noResultReturned": "Natija qaytarilmadi",
+  "noResultReturnedLog": "Plagindan natija qaytarilmadi",
+  "noRules": "Hali {ruleType} yo'q",
+  "noRulesPrompt": "Qoidalar topilmadi, iltimos, qoidalar qo'shing",
+  "noRulesToExport": "Eksport qilish uchun qoidalar yo'q",
+  "noSmsFilterRulesYet": "Hali SMS filtr qoidalari yo'q",
+  "noSmsRulesYet": "Hali SMS qoidalari yo'q",
+  "noSubscriptions": "Obunalar yo'q",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "Hali obunalar yo'q",
+  "notGranted": "Berilmagan",
+  "notificationMode": "Bildirishnoma rejimi",
+  "notificationModeDescription": "Qo'ng'iroq qiluvchi ma'lumotlarini bildirishnoma panelida ko'rsatish",
+  "notificationPermission": "Bildirishnoma ruxsati",
+  "notificationPermissionDescription": "Kiruvchi qo'ng'iroq va xabarlar bildirishnomalarini ko'rsatish uchun ishlatiladi.",
+  "notifications": "Bildirishnomalar",
+  "notificationSettings": "Bildirishnoma sozlamalari",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "Bildirishnoma sozlamalari muvaffaqiyatli saqlandi",
+  "notSet": "O'rnatilmagan",
+  "notVerifiedText": "Tasdiqlanmagan",
+  "noValidSmsRulesFoundInFile": "Faylda haqiqiy SMS qoidalari topilmadi",
+  "number": "Raqam",
+  "numberColor": "Raqam rangi",
+  "numberFontSize": "Raqam shrift hajmi",
+  "numberPosition": "Raqam joylashuvi",
+  "numberSearch": "Raqam qidiruvi",
+  "numberTypeColor": "Raqam turi rangi",
+  "numberTypeFontSize": "Raqam turi shrift hajmi",
+  "numberTypePosition": "Raqam turi joylashuvi",
+  "ok": "OK",
+  "okButton": "OK",
+  "onboardingCompleteDescription": "Sizning qo'ng'iroq xavfsizligi menejeringiz tayyor, xavfsiz qo'ng'iroq tajribasidan bahramand bo'lishni boshlang!",
+  "onboardingLanguageDescription": "Eng yaxshi tajriba uchun afzal ko'rgan tilingizni tanlang.",
+  "onboardingPermissionsDescription": "To'liq xizmat ko'rsatish uchun bizga quyidagi ruxsatnomalar kerak:",
+  "onboardingPowerfulSpamBlockingDescription": "Spam qo'ng'iroqlari va xabarlarini bir marta bosish bilan bloklash, bloklash qoidalarini sozlash va sizga tinch muhitni ta'minlash.",
+  "onboardingSmartCallerIdDescription": "Noma'lum qo'ng'iroqlarni avtomatik aniqlash, shubhali raqamlarni belgilash va qo'ng'iroq xavfsizligingizni himoya qilish.",
+  "onboardingWelcomeDescription": "Sizning qo'ng'iroqlarni boshqarish bo'yicha mutaxassisingiz, keng qamrovli qo'ng'iroqlarni aniqlash va bloklash xizmatlarini taqdim etadi.",
+  "oneDriveAuthDescription": "Tizimda sozlatilgan OneDrive mijoz IDsi va kaliti yordamida avtorizatsiya qiling",
+  "oneDriveAuthorizationHint": "Tizimda sozlatilgan OneDrive mijoz IDsi va kaliti yordamida avtorizatsiya qiling",
+  "oneDriveConfigTitle": "OneDrive konfiguratsiyasi",
+  "oneDriveConfigurationTitle": "OneDrive konfiguratsiyasi",
+  "onlineCallerIdSubscription": "Onlayn Qo'ng'iroqchi ID Obunasi",
+  "openAppSettings": "Ilova sozlamalarini ochish",
+  "openAppSettingsFailed": "Ilova sozlamalarini ochish muvaffaqiyatsiz tugadi: {error}",
+  "operationFailed": "Amal muvaffaqiyatsiz tugadi: {error}",
+  "operationFailure": "Amal muvaffaqiyatsiz tugadi",
+  "operationSuccess": "Amal muvaffaqiyatli yakunlandi",
+  "other": "Boshqa",
+  "ourOtherApps": "Boshqa ilovalarimiz",
+  "overlayMode": "Qalqib chiquvchi oyna",
+  "overlayModeDescription": "Qo'ng'iroq qiluvchi ma'lumotlarini qalqib chiquvchi oynada ko'rsatish",
+  "overlayPermission": "Qalqib chiquvchi oyna ruxsati",
+  "overlayPermissionDescription": "Kiruvchi qo'ng'iroq qalqib chiqishini ko'rsatish uchun ishlatiladi.",
+  "overview": "Umumiy ko'rinish",
+  "password": "Parol",
+  "passwordCannotBeEmpty": "Parol bo'sh bo'lishi mumkin emas",
+  "passwordLabel": "Parol",
+  "passwordsDoNotMatch": "Parollar mos kelmaydi",
+  "passwordSetSuccessfully": "Parol muvaffaqiyatli o'rnatildi",
+  "pattern": "Namuna",
+  "pendingSync": "Kutilayotgan sinxronizatsiya",
+  "periodMonth": "Oy",
+  "periodWeek": "Hafta",
+  "periodYear": "Yil",
+  "permissionDenied": "Ruxsat so'rovi rad etildi",
+  "permissionGranted": "Ruxsat berildi",
+  "permissionManagement": "Ruxsatlarni boshqarish",
+  "phoneCallsTab": "Telefon",
+  "phoneNumber": "Telefon raqami",
+  "phoneNumberCannotBeEmpty": "Telefon raqami bo'sh bo'lishi mumkin emas",
+  "phoneNumberHint": "Telefon raqamini kiriting",
+  "phoneNumberHintText": "Qoida qo'shish uchun telefon raqamini kiriting",
+  "phoneNumberLabel": "Telefon raqami",
+  "phoneNumberRegexRequired": "Iltimos, telefon raqami va regex namunasini kiriting",
+  "phoneNumberRequired": "Telefon raqami talab qilinadi",
+  "phoneNumberTypeFixedLine": "Statsionar liniya",
+  "phoneNumberTypeFixedLineOrMobile": "Statsionar yoki mobil",
+  "phoneNumberTypeMobile": "Mobil",
+  "phoneNumberTypePager": "Peyjer",
+  "phoneNumberTypePersonalNumber": "Shaxsiy raqam",
+  "phoneNumberTypePremiumRate": "Premium tarif",
+  "phoneNumberTypeSharedCost": "Umumiy xarajat",
+  "phoneNumberTypeTollFree": "Bepul",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "Noma'lum",
+  "phoneNumberTypeVoicemail": "Ovozli pochta",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "Telefon ruxsati",
+  "phonePermissionDescription": "Kiruvchi qo'ng'iroqlarni aniqlash va bloklash uchun ishlatiladi.",
+  "phoneRule": "Telefon qoidasi",
+  "phoneRuleEditDialog": "Telefon qoidasini tahrirlash dialogi",
+  "phoneRuleManagement": "Telefon qoidalarini boshqarish",
+  "phoneRuleSubscription": "Telefon qoidasi obunasi",
+  "phoneSubscription": "Telefon obunasi",
+  "phoneSubscriptionRulesDescription": "Avtomatik ravishda oq ro'yxat va qora ro'yxat qoidalarini yangilash uchun URL orqali telefon qoidalari ro'yxatlariga obuna bo'ling. JSON formatidagi qoida fayllarini qo'llab-quvvatlaydi.",
+  "phoneSubscriptionTitle": "Telefon qoidasi obunalari",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "Iltimos, yorliqni tanlang va to'g'ri telefon raqamini kiriting",
+  "pluginAddedSuccess": "Plagin \"{name}\" muvaffaqiyatli qo'shildi",
+  "pluginDeleted": "Plagin o'chirildi",
+  "pluginLatestVersion": "Plagin allaqachon so'nggi versiyada",
+  "pluginListExportSuccess": "Plagin ro'yxati muvaffaqiyatli eksport qilindi",
+  "pluginLoadedSuccessfully": "Plagin muvaffaqiyatli yuklandi",
+  "pluginManagement": "Plaginlarni boshqarish",
+  "pluginManagementSubtitle": "Uchinchi tomon plaginlarini boshqarish va sozlash",
+  "pluginManagementTitle": "Plaginlarni boshqarish",
+  "pluginName": "Plagin nomi",
+  "pluginNotLoaded": "Plagin hali yuklanmagan. Iltimos, avval plaginni yuklang.",
+  "pluginsDeleted": "{count} ta plagin muvaffaqiyatli o'chirildi.",
+  "pluginService": "Plagin xizmati",
+  "pluginTestPageTitle": "Plagin testi",
+  "pluginUpdateSuccess": "Plagin muvaffaqiyatli yangilandi",
+  "pluginUrl": "Plagin URL'i",
+  "pluginUrlCannotBeEmpty": "Plagin URL'i bo'sh bo'lishi mumkin emas",
+  "pluginUrlHint": "Plagin URL'ini kiriting",
+  "pluginUrlLabel": "Plagin URL'i",
+  "pluginVersion": "Plagin versiyasi",
+  "political": "Siyosiy",
+  "powerfulSpamBlocking": "Kuchli spam bloklash",
+  "previousStep": "Oldingi qadam",
+  "prioritizeRemoteAction": "Masofaviy harakat sozlamalariga ustunlik berish",
+  "prioritizeRemoteActionDescription": "Masofaviy ma'lumotlar bazasidan harakat sozlamalariga ustunlik berish",
+  "processing": "Qayta ishlanmoqda...",
+  "processingOperation": "Qayta ishlanmoqda...",
+  "purchase": "Xarid qilish",
+  "quarterlyMembership": "Chorak yillik a'zolik",
+  "quarterlyMembershipDescription": "Barcha premium funksiyalarni ochish, chorak yillik avtomatik yangilash",
+  "queryButton": "So'rov",
+  "queryFailed": "So'rov muvaffaqiyatsiz tugadi",
+  "queryFailedLog": "So'rov muvaffaqiyatsiz tugadi",
+  "querying": "So'rov yuborilmoqda...",
+  "queryingPhoneNumber": "Telefon raqami so'ralmoqda",
+  "queryResultTitle": "So'rov natijasi",
+  "ready": "Tayyor!",
+  "receiveWeeklyStatistics": "Haftalik statistikalarni olish",
+  "recruiter": "Ishga yollashchi",
+  "reEnterPasswordHint": "Iltimos, parolni qayta kiriting",
+  "refresh": "Yangilash",
+  "refreshPermissionStatus": "Ruxsat holatini yangilash",
+  "refreshTooltip": "Yangilash",
+  "regexError": "Regex xatosi: {error}",
+  "regexErrorMessage": "Regex xatosi: {error}",
+  "regexPattern": "Regex naqshi",
+  "regexPatternExplanation": "Regex naqshini tushuntirish",
+  "regexPatternExplanationButton": "Regex naqshini tushuntirish",
+  "regexPatternLabel": "Regex naqshi",
+  "regexPatternsExamples": "Naqshlarni aniqlash uchun standart regex sintaksisidan foydalaning. Misollar:",
+  "regexPatternsForPhoneNumberMatching": "Telefon raqamini moslashtirish uchun Regex naqshlari",
+  "regexRule": "Regex qoidasi",
+  "regexRuleAddFailed": "Regex qoidasini qo'shish muvaffaqiyatsiz tugadi: {error}",
+  "regexRuleAddSuccess": "Regex qoidasi muvaffaqiyatli qo'shildi",
+  "regexRuleManagement": "Regex qoidalarini boshqarish",
+  "regexRuleNamePatternRequired": "Qoida nomi va regex naqshi bo'sh bo'lishi mumkin emas",
+  "regexRules": "Regex qoidalari",
+  "regexTesterTitle": "Regex tekshirgich",
+  "regexValidationFailed": "Regex tekshiruvi muvaffaqiyatsiz tugadi: {error}",
+  "regexValidationSuccess": "Regex tekshiruvi muvaffaqiyatli o'tdi",
+  "region": "Hudud",
+  "registeredDevicesTitle": "Ro'yxatdan o'tgan qurilmalar",
+  "rejectAllCalls": "Barcha qo'ng'iroqlarni rad etish",
+  "rejectAllCallsDescription": "Yoqilganda, barcha qo'ng'iroqlar eng yuqori ustuvorlik bilan rad etiladi",
+  "rejectAllNumbers": "Barcha raqamlarni rad etish",
+  "rejectAllNumbersDesc": "Yoqilganda barcha kiruvchi qo'ng'iroqlarni rad etish",
+  "rejectExceededNumbers": "Ortiqcha raqamlarni rad etish",
+  "rejectExceededNumbersDescription": "Hisoblash chegarasidan oshgan raqamlarni avtomatik ravishda rad etish",
+  "remoteFilterSettings": "Masofaviy filtr sozlamalari",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "Masofaviy raqam filtri sozlamalari",
+  "remoteNumberFilter": "Masofaviy raqam filtri",
+  "remoteNumberFilterDatabaseInfo": "Bu filtr so'nggi raqam ma'lumotlarini olish uchun mustaqil masofaviy ma'lumotlar bazasidan foydalanadi.",
+  "remoteNumberFilterDescription": "Masofaviy ma'lumotlar bazasidagi ma'lumotlarga asoslanib bezovta qiluvchi qo'ng'iroqlarni to'xtatish",
+  "remoteNumberFilterExplanationContent": "Masofaviy raqam filtri raqamlar soniga asoslangan masofaviy ma'lumotlar bazasiga so'rov yuborish orqali spam qo'ng'iroqlarni aniqlaydi va bloklaydi.",
+  "remoteNumberFilterExplanationTitle": "Masofaviy raqam filtri tushuntirishi",
+  "remoteNumberFilterFeatureCountThreshold": "• Hisoblash chegarasi: Raqam paydo bo'lish chastotasiga qarab aniqlash",
+  "remoteNumberFilterFeatureFilterAction": "• Filtrlash harakatlari: Chegaradan oshgan raqamlar bilan qanday ishlashni sozlash",
+  "remoteNumberFilterFeaturePriority": "• Ustuvorlik sozlamalari: Masofaviy harakatlar uchun ustuvorlikni belgilash",
+  "remoteNumberFilterFeatures": "Xususiyatlari:",
+  "remoteNumberFiltering": "Masofaviy raqam filtrlash",
+  "remoteNumberFilteringExplanation": "• Masofaviy raqam filtrlash: Masofaviy ma'lumotlar bazasi ma'lumotlariga asoslangan filtrlash qoidalari",
+  "remoteNumberFilterSubtitle": "Bulutli ma'lumotlar bazasi va jamiyat hisobotlaridan foydalanib spam qo'ng'iroqlarni aniqlash",
+  "removeAdsDescription": "Ilovadagi barcha reklamalarni butunlay olib tashlab, yanada silliq tajribani ta'minlash",
+  "removeAdsTitle": "Reklamalarni olib tashlash",
+  "removedFromFavoriteContacts": "Sevimli kontaktlardan olib tashlandi",
+  "removedFromFavorites": "Sevimli kontaktlardan olib tashlandi",
+  "removeFavorite": "Sevimli kontaktlardan olib tashlash",
+  "removeFromFavorites": "Sevimlilardan olib tashlash",
+  "renameButton": "Qayta nomlash",
+  "renameDeviceDialogTitle": "Qurilmani qayta nomlash",
+  "renameDeviceTitle": "Qurilmani qayta nomlash",
+  "replaceCurrentSettingsConfirmation": "Bu sizning joriy sozlamalaringizni butunlay almashtiradi. Davom etishni xohlaysizmi?",
+  "requestAllPermissions": "Barcha ruxsatnomalarni so'rash",
+  "requestPermission": "Ruxsat so'rash",
+  "requestPermissionFailed": "Ruxsat so'rash muvaffaqiyatsiz tugadi: {error}",
+  "requiredMarks": "{count} belgi",
+  "reset": "Qayta o'rnatish",
+  "restore": "Tiklash",
+  "restoreApplicationSettingsFromBackup": "Ilova sozlamalarini zaxiradan tiklash",
+  "restoreApplicationSettingsFromBackupSubtitle": "Ilova sozlamalarini zaxiradan tiklash",
+  "restoreButton": "Tiklash",
+  "restoreFailedWithError": "Bulutdan tiklash muvaffaqiyatsiz tugadi: {error}",
+  "restoreFromCloud": "Bulutdan tiklash",
+  "restoreFromCloudDescription": "Sozlamalar va qoidalarni bulutli saqlash joyidan tiklash",
+  "restoreFromCloudFailed": "Bulutdan tiklash muvaffaqiyatsiz tugadi: {error}",
+  "restoreFromCloudLabel": "Bulutdan tiklash",
+  "restoreFromCloudSuccess": "Bulutdan muvaffaqiyatli tiklandi",
+  "restoreFromCloudTitle": "Bulutdan tiklash",
+  "restoreFromLocal": "Mahalliy joydan tiklash",
+  "restorePurchases": "Xaridlarni tiklash",
+  "restoreSectionTitle": "Tiklash",
+  "restoreSettings": "Sozlamalarni tiklash",
+  "restoreSettingsConfirmation": "Bu sizning joriy sozlamalaringizni butunlay almashtiradi. Davom etishni xohlaysizmi?",
+  "restoreSettingsDialogTitle": "Sozlamalarni tiklash",
+  "restoreSettingsTitle": "Sozlamalarni tiklash",
+  "restoreSuccessFromLocal": "Mahalliy joydan muvaffaqiyatli tiklandi",
+  "restoreSuccessMessage": "Bulutdan muvaffaqiyatli tiklandi",
+  "retry": "Qayta urinish",
+  "ridesharing": "Yo'lovchi tashish",
+  "risk": "Xavf",
+  "robocall": "Roboqo'ng'iroq",
+  "ruleAction": "Qoida harakati",
+  "ruleAddButton": "Qoida qo'shish",
+  "ruleAddedSuccess": "Qoida muvaffaqiyatli qo'shildi",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "Qoida qo'shish muvaffaqiyatsiz tugadi: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "Qoida muvaffaqiyatli qo'shildi",
+  "ruleDeleteConfirmContent": "Siz haqiqatan ham ushbu {ruleType}ni o'chirmoqchimisiz?",
+  "ruleDeleteConfirmTitle": "Qoidani o'chirish",
+  "ruleDeletedSuccess": "Qoida muvaffaqiyatli o'chirildi",
+  "ruleDeletedSuccessfully": "Qoida muvaffaqiyatli o'chirildi",
+  "ruleDeleteFailed": "Qoidani o'chirish muvaffaqiyatsiz tugadi: {error}",
+  "ruleDeleteFailure": "Qoidani o'chirish muvaffaqiyatsiz tugadi: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "Qoida muvaffaqiyatli o'chirildi",
+  "ruleDisabledSuccessfully": "Qoida muvaffaqiyatli o'chirildi",
+  "ruleEnabledSuccessfully": "Qoida muvaffaqiyatli yoqildi",
+  "ruleLoadFailed": "Qoidalarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "ruleManagement": "Qoidalarni boshqarish",
+  "ruleManagementTitle": "Qoidalarni boshqarish",
+  "ruleName": "Qoida nomi",
+  "ruleNameAndContentRegexCannotBeEmpty": "Qoida nomi va kontent regexi bo'sh bo'lishi mumkin emas",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "Qoida nomi va telefon raqami bo'sh bo'lishi mumkin emas",
+  "ruleNameHint": "masalan, Oila, Do'stlar va h.k.",
+  "ruleNameLabel": "Qoida nomi",
+  "ruleNamePatternRequired": "Iltimos, qoida nomi va naqshini kiriting",
+  "ruleNameRequired": "Qoida nomi va telefon raqami bo'sh bo'lishi mumkin emas",
+  "ruleNotExist": "Qoida mavjud emas yoki o'chirilgan",
+  "ruleNotFound": "Qoida topilmadi: {error}",
+  "ruleSavedSuccessfully": "Qoida muvaffaqiyatli saqlandi!",
+  "ruleSavedSuccessMessage": "Qoida muvaffaqiyatli saqlandi!",
+  "ruleSaveFailed": "Saqlash muvaffaqiyatsiz tugadi: {error}",
+  "ruleSaveFailedMessage": "Saqlash muvaffaqiyatsiz tugadi: {error}",
+  "ruleSaveSuccess": "Qoida muvaffaqiyatli saqlandi!",
+  "rulesExportedSuccessfully": "Qoidalar muvaffaqiyatli eksport qilindi",
+  "rulesExportedTo": "Qoidalar eksport qilindi: {path}",
+  "rulesImported": "Qoidalar muvaffaqiyatli import qilindi",
+  "rulesImportedSuccessfully": "{count} ta qoida muvaffaqiyatli import qilindi",
+  "rulesImportFailed": "Qoidalarni import qilish muvaffaqiyatsiz tugadi: {error}",
+  "ruleStatistics": "Qoida statistikasi",
+  "ruleStatusChanged": "Qoida {status} muvaffaqiyatli o'zgartirildi",
+  "ruleToggleFailed": "Operatsiya muvaffaqiyatsiz tugadi: {error}",
+  "ruleToggleSuccess": "Qoida {status} muvaffaqiyatli o'zgartirildi",
+  "ruleUpdateFailed": "Qoidani yangilash muvaffaqiyatsiz tugadi: {error}",
+  "ruleUpdateSuccess": "Qoida muvaffaqiyatli yangilandi",
+  "ruleVerification": "Qoidani tekshirish",
+  "save": "Saqlash",
+  "saveButton": "Saqlash",
+  "saveButtonLabel": "SAQLASH",
+  "saveButtonText": "Saqlash",
+  "saveFailed": "Saqlash muvaffaqiyatsiz tugadi: {error}",
+  "saveFilter": "Filtrni saqlash",
+  "saveSettings": "Sozlamalarni saqlash",
+  "saveSettingsFailed": "Sozlamalarni saqlash muvaffaqiyatsiz tugadi: {error}",
+  "scamsLikely": "Firibgarlik ehtimoli bor",
+  "search": "Qidirish",
+  "searchContacts": "Kontaktlarni qidirish",
+  "searchError": "Qidiruv xatosi: {error}",
+  "searchFilters": "Qidiruv filtrlari",
+  "searchForContacts": "Kontaktlarni qidirish",
+  "searchHint": "Qidirish...",
+  "searchSettingsSubtitle": "Kontaktlarni, yorliqlarni, qora ro'yxatlarni, oq ro'yxatlarni va hokazolarni qidirish",
+  "searchSettingsTitle": "Qidiruv sozlamalari",
+  "securityMessage": "Hech qanday telefon qo'ng'irog'iga ishonmang. Har doim mijozlarga xizmat ko'rsatish raqamlarini mustaqil ravishda tekshiring. Hech qachon parollarni, tasdiqlash kodlarini, karta raqamlarini yoki shaxsiy ma'lumotlarni baham ko'rmang.",
+  "selectActionToPerform": "Qoida mos kelganda bajariladigan amalni tanlang",
+  "selectActionWhenBlockingCalls": "Qo'ng'iroqlarni bloklashda amalni tanlang",
+  "selectActionWhenRuleMatches": "Qoida mos kelganda amalni tanlang",
+  "selectAll": "Hammasini tanlash",
+  "selectCountry": "Mamlakatni tanlash",
+  "selectDateRange": "Sana oralig'ini tanlash",
+  "selectedDateRange": "Tanlangan sana oralig'i",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} ta narsa tanlandi",
+  "selectedLabel": "Tanlangan:",
+  "selectExportFormat": "Eksport formatini tanlash",
+  "selectLabel": "Yorliqni tanlash",
+  "selectLabelAndEnterPhoneNumber": "Iltimos, yorliqni tanlang va to'g'ri telefon raqamini kiriting",
+  "selectLanguage": "Tilni tanlash",
+  "selectMultiple": "Bir nechtasini tanlash",
+  "selectPeriod": "Davrni tanlash",
+  "selectSimCard": "SIM kartani tanlash",
+  "selectSimSlot": "SIM slotini tanlash",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "Qo'ng'iroqlarni bloklashda bajariladigan aniq amalni tanlang",
+  "selectTag": "Tegni tanlash",
+  "selectTags": "Teglarni tanlash",
+  "selectTrustedDataSource": "Iltimos, ishonchli ma'lumot manbalarini tanlang",
+  "selectYourLanguage": "Tilingizni tanlang",
+  "sender": "Yuboruvchi",
+  "senderRegexOptional": "Yuboruvchi regex (ixtiyoriy)",
+  "serverAddressLabel": "Server manzili",
+  "serviceTypeContact": "Kontakt obunasi",
+  "serviceTypeLabel": "Xizmat turi",
+  "serviceTypePhone": "Telefon obunasi",
+  "serviceTypePlugin": "Plugin yangilanishi",
+  "serviceTypeSms": "SMS obunasi",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "O'rnatish",
+  "setEncryptionPassword": "Shifrlash parolini o'rnatish",
+  "setEncryptionPasswordDescription": "Zaxira nusxalash va tiklash uchun shifrlash parolini o'rnating",
+  "setEncryptionPasswordLabel": "Shifrlash parolini o'rnatish",
+  "setEncryptionPasswordTitle": "Shifrlash parolini o'rnatish",
+  "setPasswordButton": "O'rnatish",
+  "settings": "Sozlamalar",
+  "settingsBackedUpTo": "Sozlamalar zaxira nusxasi olindi: {path}",
+  "settingsLoaded": "Sozlamalar yuklandi",
+  "settingsLoadFailed": "Sozlamalarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "settingsRestoredSuccessfully": "Sozlamalar muvaffaqiyatli tiklandi. O'zgarishlar kuchga kirishi uchun ilovani qayta ishga tushiring.",
+  "settingsSaved": "Sozlamalar saqlandi",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "Sozlamalarni saqlash muvaffaqiyatsiz tugadi: {error}",
+  "settingsTab": "Sozlamalar",
+  "settingsTitle": "Sozlamalar",
+  "setup": "Sozlash",
+  "showContactEditDialogStaticMethod": "Kontaktni tahrirlash dialogini ko'rsatish uchun statik metod",
+  "showExplanation": "Tushuntirishni ko'rsatish",
+  "silence": "Ovozsizlantirish",
+  "silenceAndNoAnswer": "Ovozsizlantirish va javob bermaslik",
+  "silenceNoAnswer": "Ovozsizlantirish, javob yo'q",
+  "silentCallVoiceClone": "Ovozsiz qo'ng'iroq ovoz kloni",
+  "silentRules": "Ovozsiz qoidalar",
+  "simCard": "SIM karta {simNumber}",
+  "simCardColor": "SIM karta rangi",
+  "simCardConfigurationExplanation": "• SIM karta konfiguratsiyasi: Har bir SIM karta uchun alohida filtrlash qoidalarini o'rnating",
+  "simCardFilterRules": "SIM karta filtrlash qoidalari",
+  "simCardFilterRulesDescription": "SIM karta slotlariga asoslanib turli filtrlash qoidalarini o'rnating",
+  "simCardFontSize": "SIM karta shrift hajmi",
+  "simCardPosition": "SIM karta joylashuvi",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "SIM karta ma'lumotlarini yuklash muvaffaqiyatsiz tugadi: {error}",
+  "simRuleInstructions": "SIM slot qoidalari har bir SIM slot uchun mustaqil filtrlash qoidalarini sozlash imkonini beradi.",
+  "simRuleInstructionsTitle": "SIM Slot Qoidalari",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "SIM Slot Qoidalarini Boshqarish",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "SIM ma'lumotlarini yuklash muvaffaqiyatsiz tugadi: {error}",
+  "simSlotFilterConfiguration": "SIM Slot Filtrlash Sozlamasi",
+  "simSlotFilterConfigurationDescription": "SIM slot bo'yicha filtrlash qoidalarini o'rnatish imkonini beradi",
+  "simSlotFilterDescription": "Har bir SIM karta uchun mustaqil filtrlash qoidalarini sozlang:",
+  "simSlotFilterSettingsTitle": "SIM Slot {slotNumber} Filtrlash Sozlamalari",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "SIM slotlarini yuklash muvaffaqiyatsiz tugadi: {error}",
+  "simSlotManagement": "SIM Slotlarni Boshqarish",
+  "simSlotOperationFailed": "SIM slot bilan operatsiya muvaffaqiyatsiz tugadi: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "SIM Slot Joylashuvi {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• SIM Slot Qoidalari: Har bir SIM uchun mustaqil filtrlash strategiyalari",
+  "simSlotRuleListTitle": "SIM Slot Qoidalari Ro'yxati",
+  "simSlotRuleManagement": "SIM Slot Qoidalari",
+  "simSlotRuleManagementTitle": "Qoidalarni Boshqarish",
+  "simSlotSettings": "SIM Slot Sozlamalari",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "SIM Slot {slotNumber}",
+  "skip": "O'tkazish",
+  "smartCallerId": "Aqlli Qo'ng'iroqni Aniqlash",
+  "sms": "SMS",
+  "smsFilterDescription": "SMS filtrlash spam xabarlarni avtomatik filtrlashga va xabarlar ro'yxatingizni toza saqlashga yordam beradi. Siz filtrlash qoidalari va bildirish usullarini o'rnatishingiz mumkin.",
+  "smsFilterDisabled": "SMS filtrlash o'chirilgan",
+  "smsFilterEnabled": "SMS filtrlash yoqilgan",
+  "smsFilterRuleAddedSuccessfully": "SMS filtrlash qoidasi muvaffaqiyatli qo'shildi",
+  "smsFilterRules": "SMS Filtrlash Qoidalari",
+  "smsFilterSettings": "SMS Filtrlash Sozlamalari",
+  "smsHistory": "SMS Tarixi",
+  "smsManagement": "SMS Boshqaruvi",
+  "smsPermission": "SMS Ruxsati",
+  "smsPermissionDescription": "Spam xabarlarni filtrlash uchun ishlatiladi.",
+  "smsRuleAddedSuccessfully": "SMS qoidasi muvaffaqiyatli qo'shildi",
+  "smsRuleDeletedSuccessfully": "SMS qoidasi muvaffaqiyatli o'chirildi",
+  "smsRuleLoadFailed": "SMS qoidalarini yuklash muvaffaqiyatsiz tugadi: {error}",
+  "smsRuleManagement": "SMS Qoidalarini Boshqarish",
+  "smsRulesExportedSuccessfully": "SMS qoidalari {filePath} joyiga muvaffaqiyatli eksport qilindi",
+  "smsRulesImportedSuccessfully": "SMS qoidalari muvaffaqiyatli import qilindi",
+  "smsRuleSubscription": "SMS Qoidasiga Obuna",
+  "smsRuleUpdatedSuccessfully": "SMS qoidasi muvaffaqiyatli yangilandi",
+  "smsSettingsSubtitle": "SMS filtrlash va kalit so'zlarni bloklash",
+  "smsSettingsTitle": "SMS Sozlamalari",
+  "smsSubscription": "SMS Obunasi",
+  "smsSubscriptionAddedSuccessfully": "SMS obunasi muvaffaqiyatli qo'shildi",
+  "smsSubscriptionRulesDescription": "URL orqali SMS qoidalar ro'yxatiga obuna bo'ling, muntazam ifodalarni moslashtirishni qo'llab-quvvatlaydi. Bloklash yoki ruxsat berish harakatlarini o'rnatishingiz mumkin.",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "Ba'zi ruxsat so'rovlari rad etildi",
+  "spamLikely": "Spam bo'lishi ehtimoli bor",
+  "startColor": "Boshlang'ich rang",
+  "startDate": "Boshlang'ich sana",
+  "startUsing": "Boshlash",
+  "statAnswered": "Javob berilgan",
+  "statBlocked": "Bloklangan",
+  "staticMethodShowCallerIdDialog": "Qo'ng'iroq qiluvchi ID ma'lumotlari dialogini ko'rsatish uchun statik usul",
+  "staticMethodToDisplayCountrySelectionDialog": "Mamlakat tanlash dialogini ko'rsatish uchun statik usul",
+  "staticMethodToDisplayDialog": "Dialog oynasini ko'rsatish uchun statik usul",
+  "statistics": "Statistika",
+  "statisticsExportFeatureComingSoon": "Statistikani eksport qilish funksiyasi tez orada",
+  "statisticsGrid": "Statistika Jadvallari",
+  "statisticsPageTitle": "Ma'lumotlar Tahlili",
+  "stirColor": "STIR Rangi",
+  "stirFontSize": "STIR Shrift Hajmi",
+  "stirPosition": "STIR Joylashuvi",
+  "storagePermission": "Xotiraga Ruxsat",
+  "storagePermissionDescription": "Sozlamalar va qoidalarni saqlash uchun ishlatiladi.",
+  "subscribe": "Obuna bo'lish",
+  "subscriptionAddSuccess": "Obuna \"{name}\" muvaffaqiyatli qo'shildi",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "Haqiqatan ham ushbu obunani o'chirmoqchimisiz?",
+  "subscriptionDeleteConfirmTitle": "Obunani o'chirish",
+  "subscriptionDeleted": "Obuna o'chirildi",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "Obuna muvaffaqiyatli o'chirildi",
+  "subscriptionDeleteFailed": "Obunani o'chirish muvaffaqiyatsiz tugadi: {error}",
+  "subscriptionDeleteSuccess": "Obuna o'chirildi",
+  "subscriptionEmptyState": "Obunalar mavjud emas",
+  "subscriptionEmptyText": "Hali obunalar yo'q",
+  "subscriptionLoadFailed": "Obunalarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "subscriptionLoadingFailed": "Obunalarni yuklash muvaffaqiyatsiz tugadi: {error}",
+  "subscriptionManagementTitle": "Obunalarni Boshqarish",
+  "subscriptionName": "Obuna nomi",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "Obuna nomi va URL bo'sh bo'lishi mumkin emas",
+  "subscriptionNameHint": "Obuna nomini kiriting",
+  "subscriptionPageTitle": "Obunalarni Boshqarish",
+  "subscriptionStatusChangeFailed": "Obuna holatini o'zgartirish muvaffaqiyatsiz tugadi: {error}",
+  "subscriptionToggleFailed": "Obuna holatini yoqish/o'chirish muvaffaqiyatsiz tugadi: {error}",
+  "subscriptionUpdateFailed": "Obunani yangilash muvaffaqiyatsiz tugadi: {error}",
+  "subscriptionUpdateSuccess": "Obuna muvaffaqiyatli yangilandi",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "Obuna URL",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "Obuna URL manzilini kiriting",
+  "successfullyImportedRules": "{count} ta qoida muvaffaqiyatli import qilindi",
+  "supportSync": "Sinxronizatsiyani qo'llab-quvvatlash",
+  "survey": "So'rovnoma",
+  "syncDevicesButton": "Qurilmalarni sinxronlash",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "Sinxronizatsiya muvaffaqiyatsiz tugadi",
+  "syncFailedMessage": "Sinxronizatsiya muvaffaqiyatsiz tugadi",
+  "syncFolderNameHint": "Iltimos, sinxronizatsiya jild nomini kiriting (standart: NotificationManager)",
+  "syncFolderNameLabel": "Sinxronizatsiya jildi nomi",
+  "synchronized": "Sinxronlangan",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "Sinxronlanmoqda...",
+  "syncNow": "Hozir sinxronlash",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "Hozir sinxronlash",
+  "syncStatusTitle": "Sinxronlash holati",
+  "syncStatusUpdatedMessage": "Sinxronlash holati yangilandi",
+  "syncSuccessful": "Sinxronlash muvaffaqiyatli",
+  "syncSuccessMessage": "Sinxronlash muvaffaqiyatli",
+  "syncWithCloudStorage": "Bulutli xotira bilan sinxronlash",
+  "syncWithCloudStorageSubtitle": "Bulutli xotira bilan sinxronlash",
+  "systemFeatures": "Tizim funksiyalari:",
+  "systemSettingsTitle": "Tizim sozlamalari",
+  "tabAll": "Barchasi",
+  "tabAnswered": "Javob berilgan",
+  "tabBlocked": "Bloklangan",
+  "tabMissed": "O'tkazib yuborilgan",
+  "tabOutgoing": "Chiqish",
+  "tagLabel": "Teg: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "Teglar yangilandi",
+  "takeaway": "Olib ketish",
+  "telecommunication": "Telekommunikatsiya",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "testButtonLabel": "TEST",
+  "testConnectionButton": "Ulanishni sinash",
+  "textColorsSetting": "Matn va yorliq ranglari",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "Bu ilova keraksiz qo‘ng‘iroqlarni aniqlash va bloklash imkonini beruvchi kuchli raqamni aniqlash vositasidir.",
+  "thisWeek": "Bu hafta",
+  "timeInterceptor": "Vaqt bo'yicha to'siq",
+  "timeInterceptorDescription": "Qo'ng'iroq chastotasiga qarab potentsial qo'ng'iroqlarni avtomatik to'xtatish/ruxsat berish",
+  "timeInterceptorExplanation": "• Vaqt bo'yicha to'siq: Qisqa vaqt ichida takroriy qo'ng'iroqlarni to'xtatish/ruxsat berish",
+  "timeInterceptorExplanationContent": "Qo'ng'iroq chastotasini to'xtatish funksiyasi tez-tez takrorlanadigan spam qo'ng'iroqlarni avtomatik aniqlash va to'xtatish/ruxsat berish uchun qo'ng'iroq chastotasini tahlil qiladi.",
+  "timeInterceptorExplanationTitle": "Qo'ng'iroq chastotasini to'xtatish tushuntirishi",
+  "timeInterceptorSettingsTitle": "Qo'ng'iroq chastotasini to'xtatish sozlamalari",
+  "timeInterceptorSubtitle": "Qo'ng'iroq chastotasiga qarab potentsial spam qo'ng'iroqlarni avtomatik to'xtatish",
+  "timeInterceptorTitle": "Qo'ng'iroq chastotasini to'xtatishni yoqish",
+  "timeWindowDescription": "Takroriy qo'ng'iroqlarga ruxsat berish uchun vaqt oralig'i hajmini belgilang. Shu vaqt oralig'idagi bir xil raqamdan qilingan qo'ng'iroqlarga ruxsat beriladi",
+  "timeWindowLabel": "To'xtatish vaqt oralig'i (daqiqalar): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "Takroriy qo'ng'iroqlarga ruxsat berish uchun vaqt oralig'i hajmini belgilang. Shu vaqt oralig'idagi bir xil raqamdan qilingan qo'ng'iroqlarga ruxsat beriladi",
+  "today": "Bugun",
+  "total": "Jami",
+  "totalBlocked": "Jami bloklangan",
+  "totalFiltered": "Jami filtrlangan",
+  "transferDataBetweenDevicesOrPlatforms": "Qurilmalar yoki platformalar orasida ma'lumotlarni uzatish",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "Qurilmalar yoki platformalar orasida ma'lumotlarni uzatish",
+  "travelTicketing": "Sayohat chiptalari",
+  "trend": "Trend",
+  "trendChart": "Trend jadvali",
+  "tutorial": "Qo'llanma",
+  "type": "Turi",
+  "unassignedSIMCard": "Tayinlanmagan SIM karta",
+  "unknown": "Noma'lum",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "Noma'lum yorliq",
+  "unknownTag": "Teg: Noma'lum",
+  "unregisterButton": "Ro'yxatdan o'chirish",
+  "unregisterDeviceConfirmationMessage": "Haqiqatan ham {deviceName} ro'yxatdan o'chirmoqchimisiz?",
+  "unregisterDeviceTitle": "Qurilmani ro'yxatdan o'chirish",
+  "unsupportedFileFormat": "Qo'llab-quvvatlanmaydigan fayl formati",
+  "update": "Yangilash",
+  "updateAllNow": "Hozir barchasini yangilash",
+  "updateCallFilterConfig": "Qo'ng'iroq filtrini sozlashni yangilash",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "Kontaktni yangilash muvaffaqiyatsiz tugadi: {error}",
+  "updateFavoriteStatus": "Sevimlilar holatini yangilash",
+  "updateFavoriteStatusFailed": "Sevimlilar holatini yangilash muvaffaqiyatsiz tugadi: {error}",
+  "updateInterval": "Yangilash oralig'i",
+  "updateLabelFailed": "Yorliqni yangilash muvaffaqiyatsiz tugadi",
+  "updateNow": "Hozir yangilash",
+  "updatePlugin": "Plaginni yangilash",
+  "updatePluginFailed": "Plaginni yangilash muvaffaqiyatsiz tugadi: {error}",
+  "updateRuleFailed": "Qoidani yangilash muvaffaqiyatsiz tugadi: {error}",
+  "updateSubscriptionFailed": "Obunani yangilash muvaffaqiyatsiz tugadi: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} muvaffaqiyatli yangilandi ({count} qoida)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "Teglarni yangilash",
+  "useCasesPoint1": "• Avtomatik qayta terish spam qo'ng'iroqlarini aniqlash",
+  "useCasesPoint2": "• Qisqa vaqt ichida bir necha marta qo'ng'iroq qiladigan marketing qo'ng'iroqlarini to'xtatish",
+  "useCasesPoint3": "• Telefon bombardimoni va ta'qib qilishning oldini olish",
+  "useCasesTitle": "Foydalanish holatlari:",
+  "useGlobalSettings": "Global sozlamalardan foydalanish",
+  "userEmail": "user@example.com",
+  "usernameLabel": "Foydalanuvchi nomi",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "Namunalarni aniqlash uchun standart regex sintaksisidan foydalaning. Misollar:",
+  "validateRegex": "Regexni tasdiqlash",
+  "verificationFailedText": "Muvaffaqiyatsiz",
+  "verifiedText": "Tasdiqlangan",
+  "verify": "Tasdiqlash",
+  "version": "Versiya: {version}",
+  "vipExchangeDescription": "Telefon raqamini belgilash soni bilan VIP a'zoligini almashtirish",
+  "vipExchangeTitle": "Belgi almashinuvi VIP",
+  "watchAd": "Reklama ko'rish",
+  "watchAdForTemp": "Vaqtinchalik imtiyozlar uchun reklama ko'rish",
+  "watchAdForTempDescription": "Ba'zi premium funksiyalarni vaqtincha ochish uchun qisqa reklama ko'ring",
+  "webDAVConfigTitle": "WebDAV konfiguratsiyasi",
+  "webdavConfigurationTitle": "WebDAV konfiguratsiyasi",
+  "webdavPasswordHint": "Iltimos, WebDAV parolini kiriting",
+  "webdavServerAddressHint": "Iltimos, WebDAV server manzilini kiriting",
+  "webdavUsernameHint": "Iltimos, WebDAV foydalanuvchi nomini kiriting",
+  "week": "Hafta",
+  "weekly": "Haftalik",
+  "weeklyBlockedCallsSummary": "Haftalik bloklangan qo'ng'iroqlar xulosasi",
+  "weeklyChartTitle": "Haftalik bloklangan qo'ng'iroqlar",
+  "weeklyReport": "Haftalik hisobot",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "Qo'ng'iroqlarni bloklash faoliyati bo'yicha haftalik xulosa hisobotini olish",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "Xush kelibsiz",
+  "whitelist": "Ruxsat berilganlar ro'yxati",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "Ruxsat berilganlar ro'yxati",
+  "width": "Kenglik",
+  "wildcardMatchingDescription": "Har qanday belgiga mos kelishi uchun '.' dan foydalaning (masalan, '123.456' 123-456 ga mos keladi)",
+  "wildcardMatchingTitle": "Universal belgi moslashuvi:",
+  "wildcardSupportForFlexibleFiltering": "Moslashuvchan filtrlash uchun universal belgilarni qo'llab-quvvatlash",
+  "windowSizeSetting": "Oyna hajmi",
+  "year": "Yil",
+  "yearly": "Yillik",
+  "yearlyChartTitle": "Yillik bloklangan qo'ng'iroqlar",
+  "noSimCardsDetected": "SIM kartalar topilmadi",
+  "filterManagementDescription": "Qo'ng'iroq filtrlarini sozlash",
+  "callerIdCustomizationSubtitle": "Qo'ng'iroq qiluvchi ID tartibini sozlash",
+  "fraudAlerSettingTitle": "Firibgarlik haqida ogohlantirish sozlamasi",
+  "fraudAlerSettingSubtitle": "Firibgarlik haqida ogohlantirishni sozlash uchun",
+  "enableFraudAlert": "Firibgarlik haqida ogohlantirishni yoqish",
+  "enableFraudAlertDescription": "Shubhali firibgarlik qo'ng'iroqlari haqida ogohlantirish",
+  "enableVibration": "Tebranishni yoqish",
+  "enableVibrationDescription": "Qo'ng'iroq firibgarlik deb gumon qilinganda tebranish",
+  "notificationSettingsTitle": "Bildirishnoma sozlamalari",
+  "useLocalNotification": "Mahalliy bildirishnomalardan foydalanish",
+  "useLocalNotificationDescription": "Kiruvchi qo'ng'iroqlar uchun mahalliy bildirishnomalarni yoqish",
+  "cancelLocalNotification": "Mahalliy bildirishnomalarni yopish",
+  "useStirNotification": "STIR'dan bildirishnomadan foydalanish",
+  "useStirNotificationDescription": "Kiruvchi qo'ng'iroqlar uchun STIR bildirishnomalarini yoqish",
+  "cancelLocalNotificationDescription": "Mahalliy bildirishnomalarni avtomatik yopish",
+  "callerIdSettingsTitle": "Qo'ng'iroq qiluvchi ID sozlamalari",
+  "callerIdSettingsSubtitle": "Kiruvchi qo'ng'iroq bildirishnomasi va ko'rsatish rejimini sozlash uchun",
+  "purchaseTitle": "Sotib olish",
+  "purchaseSubtitle": "Xizmatni sotib olish uchun",
+  "callerIdNotificationTitle": "Kiruvchi qo'ng'iroq ma'lumoti",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Raqam: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "Bloklangan qo'ng'iroq",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "{phoneNumber} raqamidan bloklangan qo'ng'iroq",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Tasdiqlangan",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Tasdiqlanmagan",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Tasdiqlash muvaffaqiyatsiz tugadi",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Noma'lum tasdiqlash holati",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "STIR/SHAKEN Tasdiqlash",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{phoneNumber} raqami uchun {stirResultMessage}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "Aylanuvchi xavfsizlik xabari sozlamalari",
+  "messageColor": "Xabar rangi",
+  "messageFontSize": "Xabar shrifti hajmi",
+  "messagePosition": "Xabar joylashuvi",
+  "containerWidth": "Konteyner kengligi",
+  "scrollSpeed": "Aylanish tezligi",
+  "enableSecurityMessage": "Xavfsizlik xabarini yoqish",
+  "fraudAlertTitle": "Firibgarlik haqida ogohlantirish",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "{phoneNumber} raqamidan potentsial firibgarlik qo'ng'irog'i",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "Qoidalar yuklanmadi: {error}",
+  "loadCallLogFailed": "Qo'ng'iroqlar jurnalini yuklash muvaffaqiyatsiz tugadi: {error}",
+  "noBlockedTypeData": "Bloklangan turdagi ma'lumotlar mavjud emas",
+  "importEntity": "{entityTypeName}ni import qilish",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} muvaffaqiyatli import qilindi, jami {count} yozuv import qilindi",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "{entityTypeName} import qilinmadi: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "{entityTypeName}ni eksport qilish",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} muvaffaqiyatli eksport qilindi",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "{entityTypeName} eksport qilinmadi: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "Bulutli sinxronizatsiya xizmati",
+  "membershipCenter": "A'zolik markazi",
+  "redeemVipWithMarks": "Belgilar bilan VIPni sotib olish",
+  "currentMarkCount": "Joriy belgi soni",
+  "markMoreNumbersForMore": "Ko'proq belgilar uchun ko'proq raqamlarni belgilang",
+  "noAds": "Reklamasiz",
+  "cloudBackup": "Bulutli zaxira nusxasi",
+  "callerIdEnhancement": "Qo'ng'iroq qiluvchi IDni takomillashtirish",
+  "voiceRecognition": "Ovozni aniqlash",
+  "feature": "Xususiyat",
+  "normalUser": "Oddiy foydalanuvchi",
+  "vipUser": "VIP foydalanuvchi",
+  "temporaryVip": "Vaqtinchalik VIP",
+  "removeAds": "Reklamalarni olib tashlash",
+  "unknownAction": "Noma'lum harakat",
+  "settingsBackup": "Sozlamalar zaxira nusxasi",
+  "allServicesStatusTitle": "Joriy xizmat holati",
+  "allServicesStatusSubtitle": "Har bir bulutli xizmatning joriy holati",
+  "redirect": "Yo'naltirish",
+  "notify": "Xabar berish",
+  "log": "Jurnal",
+  "custom": "Maxsus",
+  "allowActionDescription": "Raqam bloklash ro'yxatida bo'lsa ham, qo'ng'iroqlarga ruxsat beriladi.",
+  "blockActionDescription": "Qo'ng'iroqlar bloklanadi va qo'ng'iroqlar jurnalida ko'rsatiladi.",
+  "silenceActionDescription": "Qo'ng'iroqlar ovozsiz qilinadi, ammo qo'ng'iroqlar jurnalida ko'rsatiladi.",
+  "noneActionDescription": "Qo'ng'iroq uchun hech qanday maxsus harakat qilinmaydi.",
+  "redirectActionDescription": "Qo'ng'iroqni belgilangan raqamga yo'naltirish.",
+  "labelActionDescription": "Oson aniqlash uchun qo'ng'iroqqa yorliq qo'shish.",
+  "notifyActionDescription": "Qo'ng'iroq qabul qilinganda bildirishnoma yuborish.",
+  "logActionDescription": "Boshqa harakat qilmasdan qo'ng'iroq ma'lumotlarini jurnalga kiritish.",
+  "customActionDescription": "Maxsus harakatni bajarish.",
+  "synced": "Sinxronlashtirilgan",
+  "needVipAccess": "Bu xususiyatdan foydalanish uchun sizga VIP kirish kerak",
+  "importExportDescription": "{entityTypeName} ma'lumotlarini import yoki eksport qilish",
+  "importExportTitle": "Import/Eksport",
+  "noPhoneRules": "Telefon qoidalari topilmadi",
+  "noRegexRules": "Regex qoidalari topilmadi",
+  "noAllowedBlockedRules": "Ruxsat berilgan/bloklangan qoidalar topilmadi",
+  "importExport": "Import/Eksport",
+  "filterByAction": "Harakat bo'yicha filtrlash",
+  "upgradeToVip": "VIPga yangilash",
+  "batteryOptimizationPermission": "Batareya optimallashtirilishi",
+  "batteryOptimizationPermissionDescription": "Qo'ng'iroq qiluvchi identifikatori kabi xizmatlarni taqdim etish uchun ilovaga fonda ishlashga ruxsat bering.",
+  "permissionTitle": "Maxsus ruxsatlar",
+  "permissionSubtitle": "Qoplama va batareya optimallashtirish ruxsatlarini boshqarish",
+  "themeSettingsTitle": "Mavzu sozlamalari",
+  "themeSettingsSubtitle": "Sevimli mavzuingizni tanlang",
+  "databaseSyncTitle": "Ma'lumotlar bazasini sinxronlash",
+  "countrySyncSettingsTitle": "Mamlakatga asoslangan ma'lumotlar bazasini sinxronlash sozlamalari",
+  "countrySyncSettingsSubtitle": "Ma'lumotlarni sinxronlash uchun mamlakatlarni tanlang",
+  "countryDataDisclaimer": "Eslatma: Ma'lumotlar bazasi barcha aniq mamlakatlar yoki mintaqalar uchun ma'lumotlarni o'z ichiga olmasligi mumkin.",
+  "editSubscription": "Obunani tahrirlash",
+  "searchByNameOrPhoneNumber": "Ism yoki telefon raqami bo'yicha qidirish",
+  "allowedBlockedRulesInfo": "Ruxsat etilgan/bloklangan qoidalar qo'ng'iroqlarni aniq telefon raqamlariga moslashtirish uchun ishlatiladi, ular eng yuqori ustuvorlikka ega.",
+  "searchPhoneRulesHint": "Telefon qoidalarini qidirish",
+  "phoneRulesInfo": "Telefon qoidalari qo'ng'iroqlarni aniq telefon raqamlariga moslashtirish uchun ishlatiladi, ular pastroq ustuvorlikka ega. Ba'zilari phoneRule obunalaridan keladi",
+  "searchSubscriptionsHint": "Obunalarni qidirish",
+  "searchPluginsHint": "Plaginlarni qidirish",
+  "searchLabelsHint": "Yorliqlarni qidirish",
+  "pluginDescription": "Plagin tavsifi",
+  "enterPluginDescription": "Plagin tavsifini kiriting",
+  "searchRegexRulesHint": "Regex qoidalarini qidirish",
+  "regexRulesInfo": "Regex qoidalari Regex naqshlariga asoslangan qo'ng'iroqlarni filtrlash uchun ishlatiladi.",
+  "searchMarkedPhonesHint": "Belgilangan telefonlarni qidirish",
+  "searchContactSubscriptionsHint": "Kontakt obunalarini qidirish",
+  "showAllContacts": "Barcha kontaktlarni ko'rsatish",
+  "showFavorites": "Sevimlilarni ko'rsatish",
+  "manualEntry": "Qo'lda kiritish ma'lumotlari",
+  "scriptSaved": "Skript saqlandi",
+  "editScriptFor": "{pluginName} uchun skriptni tahrirlash",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "Skriptni saqlash",
+  "testPlugin": "Plaginni sinash",
+  "description": "Tavsif",
+  "accessTargetUrl": "Maqsadli URLga kirish",
+  "result": "Natija",
+  "editScript": "Skriptni tahrirlash",
+  "numberFormat": "Raqam formati",
+  "nationalNumber": "Milliy raqam",
+  "e164Number": "E164 raqami",
+  "pluginRulesInfo": "Xavfsizlik uchun faqat ishonchli manbalardan plaginlardan foydalaning. O'zingizning shaxsiy plaginlaringizni yaratish uchun shablonlarimizdan foydalaning!",
+  "advancedMode": "Kengaytirilgan rejim",
+  "pleaseEnterAtLeastOneNumber": "Iltimos, kamida bitta raqam kiriting.",
+  "openInWebView": "WebViewda ochish",
+  "pluginLabel": "Plagin yorlig'i",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "Xabar fon rangi",
+  "clearAllCallLogs": "Barcha qo'ng'iroqlar jurnalini tozalash",
+  "clearAllCallLogsConfirmation": "Barcha qo'ng'iroqlar jurnalini tozalashni tasdiqlang",
+  "allCallLogsCleared": "Barcha qo'ng'iroqlar jurnali tozalandi",
+  "unblocked": "Blokdan chiqarildi",
+  "blockNumber": "Raqamni bloklash",
+  "blockNumberSuccess": "Raqamni bloklash muvaffaqiyatli amalga oshirildi",
+  "blockNumberFailed": "Raqamni bloklash muvaffaqiyatsiz tugadi",
+  "unblockNumberConfirmation": "{phoneNumber} ni blokdan chiqarishni xohlaysizmi?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "{phoneNumber} ga qo'ng'iroq qilinmoqda...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "Tafsilotlarni ko'rish",
+  "unblock": "Blokdan chiqarish",
+  "unblockNumber": "Raqamni blokdan chiqarish",
+  "unblockNumberSuccess": "Raqam muvaffaqiyatli blokdan chiqarildi",
+  "unblockNumberFailed": "Raqamni blokdan chiqarish muvaffaqiyatsiz tugadi",
+  "serviceNotAvailable": "Xizmat mavjud emas",
+  "callingNumberFailed": "Raqamga qo'ng'iroq qilish muvaffaqiyatsiz tugadi",
+  "listView": "Ro'yxat ko'rinishi",
+  "timelineView": "Vaqt jadvali ko'rinishi",
+  "nameCannotBeEmpty": "Ism bo'sh bo'lishi mumkin emas",
+  "selectAction": "Harakatni tanlang",
+  "selectTargetService": "Maqsadli xizmatni tanlang",
+  "callDetails": "Qo'ng'iroq tafsilotlari",
+  "callType": "Qo'ng'iroq turi",
+  "callTime": "Qo'ng'iroq vaqti",
+  "numberInvalidFormat": "Raqam formati noto'g'ri",
+  "membershipFeature": "A'zolik funksiyasi",
+  "medium": "O'rta",
+  "verificationReport": "Tekshirish hisoboti",
+  "finalRisk": "Yakuniy xavf",
+  "simState": "SIM holati",
+  "ipCountry": "IP mamlakati",
+  "simCountry": "SIM mamlakati",
+  "isRoaming": "Rouming",
+  "isNumberMatch": "Raqam mosligi",
+  "support": "Qo'llab-quvvatlash",
+  "rewardedAdService": "Mukofotli reklama xizmati",
+  "hasVipPrivilegeExceptAds": "Sizda allaqachon VIP imtiyozlari mavjud (reklamalardan tashqari)",
+  "hasTempPrivilegeWithExpiry": "Sizda allaqachon vaqtinchalik imtiyozlar mavjud, amal qilish muddati: {expiryDate}",
+  "watchMoreAdsForTempVip": "Vaqtinchalik VIP imtiyozlarga ega bo'lish uchun siz {count} ta qo'shimcha reklama ko'rishingiz kerak",
+  "grantedTempPurchaseWithExpiry": "Sizga {days} kunlik vaqtinchalik xarid qilish imtiyozlari berildi. Amal qilish muddati: {expiryDate}",
+  "tempPurchaseExpired": "Vaqtinchalik xarid qilish imtiyozi muddati tugadi",
+  "loadingAd": "Reklama yuklanmoqda...",
+  "earnedTempVip": "Vaqtinchalik VIP olindi",
+  "vipExchangeService": "VIP almashtirish xizmati",
+  "marksInsufficient": "Almashtirish uchun etarli belgilar yo'q",
+  "invalidExchangeRule": "Noto'g'ri almashtirish qoidasi",
+  "exchangeSuccess": "{description} ga muvaffaqiyatli almashtirildi, amal qilish muddati: {expiryDate}",
+  "exchangeFailed": "Almashtirish muvaffaqiyatsiz tugadi: {error}",
+  "vip3DaysWithAds": "3 kunlik reklamali VIP (faqat sinxronlash)",
+  "vip5DaysNoAds": "5 kunlik to'liq xususiyatlarga ega reklamasiz VIP",
+  "vip7DaysNoAds": "7 kunlik to'liq xususiyatlarga ega reklamasiz VIP",
+  "noNotifications": "Bildirishnomalar yo'q",
+  "clearAllNotifications": "Barcha bildirishnomalarni tozalash",
+  "clearAllNotificationsConfirmation": "Barcha bildirishnomalarni tozalashni tasdiqlang",
+  "allNotificationsCleared": "Barcha bildirishnomalar tozalandi",
+  "clearButton": "Tozalash",
+  "justNow": "Hozirgina",
+  "minutesAgo": "{count,plural, =1{1 daqiqa oldin} other{{count} daqiqa oldin}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1 soat oldin} other{{count} soat oldin}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1 kun oldin} other{{count} kun oldin}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "Kecha",
+  "deletionProposal": "O'chirish taklifi",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "O'chirish takliflari",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "Taklif yaratish",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "O'chirish taklifini yaratish",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "Sabab",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "Eskirgan raqam",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Maxfiylik muammosi",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Xizmatda emas",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Noto'g'ri aniqlangan",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Noto'g'ri ma'lumot",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "Noto'g'ri belgilangan",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "Boshqa",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "Yuborish",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "Bekor qilish",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "Holat",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "Kutilmoqda",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "Faol",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "Yakunlangan",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "Muddati o'tgan",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "Xavf darajasi",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "Tasdiqlangan",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "Past",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "Yuqori",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "Noma'lum",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "Ovoz berish jarayoni",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "Rozilar: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "Qarshilar: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "Jami: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "Roziman",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "Qarshiman",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "Yaratilgan: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "Hisobotni ko'rsatish",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "Hisobotni yashirish",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "Takliflar statistikasi",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "Jami takliflar",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "Faol takliflar",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "Yakunlangan takliflar",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "Mening ovozlarim",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "Taklif muvaffaqiyatli yaratildi",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "Taklif yaratish muvaffaqiyatsiz tugadi",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "Ovoz muvaffaqiyatli yuborildi",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "Ovoz yuborish muvaffaqiyatsiz tugadi",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "Takliflar topilmadi",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "Takliflar yuklanmoqda...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "Takliflarni yangilash",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "Jami kutilayotgan takliflar",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "Yuqori xavf",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "O'rta xavf",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "Past xavf",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "Jamiyat ta'siri",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "Jiddiy muammolar",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "Jamiyat ishtiroki",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "Faoliyat yo'q",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "Past",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "O'rtacha",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "Yuqori",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "Juda yuqori",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "Ovoz berilgan",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "Jamiyat ovozlari",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "Jamiyatning ko'proq ovozlari kutilmoqda",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "Bu taklif ko'rib chiqildi",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "QO'LLAB-QUVVATLANDI",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "QARSHI CHIQILDI",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "TASDIQLANDI",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "RAD ETILDI",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "YAKUNLANDI",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "KUTILMOQDA",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "Jiddiy",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "Qarshi chiqish",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "Juda past",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "O'chirish taklifi bo'yicha ovoz berish natijalari va yangilanishlari haqida bildirishnomalar.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "O'chirish taklifi yaratildi",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "{phoneNumber} uchun o'chirish taklifingiz jamiyat tomonidan ko'rib chiqishga yuborildi.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "Taklif tasdiqlandi ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "{phoneNumber} uchun o'chirish taklifi jamiyat tomonidan tasdiqlandi ({supportPercentage}% qo'llab-quvvatlash, {totalVotes} ovoz).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "Taklif rad etildi ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "{phoneNumber} uchun o'chirish taklifi jamiyat tomonidan rad etildi ({supportPercentage}% qo'llab-quvvatlash, {totalVotes} ovoz).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "Jamiyat ovoz berishni boshladi",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "{phoneNumber} uchun yangi o'chirish taklifi jamiyat ovoz berishi uchun ochiq.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "Ovoz berish yakunlandi",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "{phoneNumber} uchun jamiyat ovoz berishi yakunlandi. Natija: {result} ({supportPercentage}% qo'llab-quvvatlash).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "Yangi ovoz qabul qilindi",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "Kimdir {phoneNumber}ni o'chirishga {voteType} ovoz berdi. Joriy ovozlar: {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "Ovozlar sonini yuklash muvaffaqiyatsiz tugadi",
+  "voteCount": "Ovozlar soni",
+  "deletionProposalInfo": "O'chirish taklifi ma'lumotlari",
+  "deletionProposalDescription": "Jamiyat qoidalarini buzadigan raqamlarni o'chirish uchun taklif qiling. Sizning ishtirokingiz platformani xavfsiz saqlashga yordam beradi.",
+  "voteToEarnVip": "VIP imtiyozlarni qo'lga kiritish uchun takliflarga ovoz bering!",
+  "voteFailed": "Ovoz berish muvaffaqiyatsiz tugadi",
+  "searchProposals": "Takliflarni qidirish",
+  "defaultNotifications": "Standart bildirishnomalar",
+  "defaultNotificationsDescription": "Ilova uchun standart bildirishnoma kanali.",
+  "blockedCallNotifications": "Bloklangan qo'ng'iroq bildirishnomalari",
+  "blockedCallNotificationsDescription": "Bloklangan qo'ng'iroqlar haqida ma'lumot ko'rsatadi.",
+  "stirVerification": "STIR/SHAKEN tekshiruvi",
+  "stirVerificationDescription": "Raqamlar uchun STIR/SHAKEN tekshiruvi natijalarini ko'rsatadi.",
+  "fraudAlerts": "Firibgarlik ogohlantirishlari",
+  "fraudAlertsDescription": "Potentsial firibgarlik qo'ng'iroqlari haqida ogohlantirishlarni ko'rsatadi.",
+  "notificationFrequencyDescription": "Yangi oʻchirish takliflari haqida bildirishnomalarni qanchalik tez-tez qabul qilishni tanlang. Siz ularni darhol, toʻplamlar orqali yoki shaxsiy intervalda qabul qilishingiz mumkin.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "Darhol",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "Taklif yaratilishi bilanoq bildirishnoma oling.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "Toʻplamda",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "Bildirishnomalar xulosasini davriy ravishda oling.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "Shaxsiy",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "Bildirishnomalarni qabul qilish uchun oʻzingizning intervalingizni belgilang.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "Shaxsiy chastota",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} daqiqa",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} soat",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} soat {minutes} daqiqa",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "Kutilayotgan takliflar",
+  "pendingProposalsBody": "Sizda {count, plural, =0 {kutilayotgan takliflar yo'q} one {1 ta kutilayotgan taklif} other {{count} ta kutilayotgan taklif}} mavjud.",
+  "guidelinesLabel": "Ko'rsatmalar",
+  "reportingGuidelines": "• Faqat haqiqatan ham muammoli bo'lgan raqamlarni xabar qiling\n• Aniq va batafsil sabablarni taqdim eting\n• Jiddiyligiga qarab tegishli xavf darajasini tanlang\n• Yolg'on hisobotlar hisob qaydnomasining cheklanishiga olib kelishi mumkin",
+  "riskLevelLabel": "Xavf darajasi",
+  "riskLevelDescription": "Raqamning xavf darajasi",
+  "phoneNumberMinDigits": "Telefon raqami kamida 7 raqamdan iborat bo'lishi kerak",
+  "provideDetailedExplanation": "Batafsil tushuntirish bering (kamida 10 belgi)",
+  "reasonMinCharacters": "Sabab kamida 10 belgidan iborat bo'lishi kerak",
+  "countryCodeTwoLetters": "Davlat kodi (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Davlat kodi (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "Masalan, US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "Davlat kodi talab qilinadi",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "Davlat kodi 2 harfdan iborat bo'lishi kerak",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "Telefon raqami kamida 7 raqamdan iborat bo'lishi kerak",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "Batafsil tushuntirish bering (kamida 10 belgi)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "Sabab talab qilinadi",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "Sabab kamida 10 belgidan iborat bo'lishi kerak",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "Ko'rsatmalar",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• Faqat haqiqatan ham muammoli bo'lgan raqamlarni xabar qiling\n• Aniq va batafsil sabablarni taqdim eting\n• Jiddiyligiga qarab tegishli xavf darajasini tanlang\n• Yolg'on hisobotlar hisob qaydnomasining cheklanishiga olib kelishi mumkin",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "Muhim",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "O'rtacha",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "Juda past",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "Juda past - Kichik bezovtalik, kamdan-kam qo'ng'iroqlar",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "Past - Vaqti-vaqti bilan keladigan istalmagan qo'ng'iroqlar",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "O'rtacha - Doimiy spam yoki telemarketing",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "Yuqori - Doimiy ta'qib yoki firibgarlik urinishlari",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "Muhim - Xavfli firibgarliklar yoki tahdidlar",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "Bildirishnoma chastotasi",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "Bildirishnoma chastotasi (soat)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "Xato: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "Ovozlar: {totalVotes} ({supportPercentage}% qo'llab-quvvatlash)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "Qo'llab-quvvatlash ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "Qarshi ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "Hozirgina",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes} daqiqa oldin",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours} soat oldin",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days} kun oldin",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "Bildirishnoma chastotasi (soat)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} ovoz ({supportPercentage}% qo'llab-quvvatlash)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 soat} =1{1 soat} other{{count} soat}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "Muhim eslatma",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "Raqamlar internet va foydalanuvchilarning hisobotlaridan olingan. Biz raqam o'chirilgandan keyin boshqa foydalanuvchilar yoki manbalar tomonidan qayta yuborilmasligiga kafolat bera olmaymiz. Iltimos, ma'lumotlarni faol ravishda qidirib tekshiring.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Joylashuv",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIM karta",
+  "liveActivitiesSettingsTitle": "Jonli faoliyat sozlamalari",
+  "elementsSettingsTitle": "Elementlar sozlamalari",
+  "liveActivityMode": "Jonli faoliyat",
+  "liveActivityModeDescription": "Qo'ng'iroq ma'lumotlarini qulflangan ekranda va Dynamic Island'da (iOS) doimiy bildirishnoma sifatida ko'rsatadi.",
+  "phoneNumberType": "Telefon raqami turi",
+  "liveActivitiesTestEndActivity": "Faoliyatni yakunlash",
+  "liveActivitiesTestSendNewActivity": "Yangi faoliyat yuborish",
+  "liveActivitiesTestUpdateActivity": "Faoliyatni yangilash",
+  "liveActivityControlsTitle": "Jonli faoliyat boshqaruvi",
+  "liveActivitiesTestTitle": "Jonli faoliyatni sinash",
+  "liveActivitiesTestSubtitle": "Jonli faoliyat bildirishnomasini sinab ko'rish.",
+  "liveNotificationCustomizationTitle": "Jonli bildirishnomani sozlash",
+  "liveNotificationCustomizationSubtitle": "Jonli bildirishnomalarning ko'rinishini sozlash.",
+  "notification_instructions": "Ko'rsatmalar:\n1. Bildirishnoma yaratish yoki yangilash uchun \"YUBORISH\" tugmasini bosing.\n2. Natijani ko'rish uchun bosh ekranga o'ting yoki bildirishnomalar panelini pastga torting.\n3. Bildirishnomani yopish uchun \"YAKUNLASH\" tugmasini bosing.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "Avtomatik bildirishnomani bekor qilish",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "Agar belgilansa, foydalanuvchi unga tegsa, bildirishnoma avtomatik ravishda yopiladi.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "Kechikish vaqtini belgilash",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Taklif tafsilotlari",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "Holat bo'yicha filtrlash",
+  "proposalNotFound": "Taklif topilmadi",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "Qayta ishlangan",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Hammasini ko'rsatish",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "Filtrlash va saralash",
+  "filterVerifiedOwner": "Tasdiqlangan egasini filtrlash",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "Bo'yicha filtrlash",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "Eng eskisi bo'yicha saralash",
+  "sortNewest": "Eng yangisi bo'yicha saralash",
+  "sortMostPopular": "Eng mashhuri bo'yicha saralash",
+  "sortLeastPopular": "Eng kam mashhuri bo'yicha saralash",
+  "sortBy": "Bo'yicha saralash",
+  "simRulesNotFound": "SIM qoidalari topilmadi",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "SIM uyasi qoidalari",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "SIM karta topilmadi",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "Noto'g'ri SIM ma'lumotlari",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "SIM karta ma'lumotlari",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "SIM uyasi",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "Filtrlashni yoqish",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "Batafsil sozlamalar",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "Kirish Nuqtasi Ko'rinishi",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "Rad etilgan",
+  "callTypeSilenced": "Jim qilingan",
+  "callTypeVoicemail": "Ovozli xabar",
+  "callTypeUnknownIntercept": "Noma'lum tutib olish",
+  "andMoreItems": "va {count} ta qo'shimcha element",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

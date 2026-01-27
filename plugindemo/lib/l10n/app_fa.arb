@@ -1,0 +1,3092 @@
+{
+  "@@locale": "fa",
+  "aboutContactSubscription": "درباره اشتراک مخاطبین",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "درباره برچسب‌ها",
+  "aboutPhoneSubscriptionRules": "درباره قوانین اشتراک تلفن",
+  "aboutPhoneSubscriptions": "درباره اشتراک‌های تلفن",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "قوانین لیست تلفن را از طریق URL مشترک شوید، قوانین را به طور خودکار به‌روز کنید. از فایل‌های قانون در فرمت JSON، CSV پشتیبانی می‌کند.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "درباره فیلتر پیامک",
+  "aboutSmsSubscriptionRules": "درباره قوانین اشتراک پیامک",
+  "aboutSubtitle": "اطلاعات نسخه برنامه و حقوقی",
+  "aboutTitle": "درباره",
+  "action": "اقدام",
+  "actionAll": "همه",
+  "actionAllow": "مجاز",
+  "actionBlock": "مسدود",
+  "actionFilterAll": "همه فیلترها",
+  "actionFilterTitle": "فیلتر بر اساس نوع اقدام",
+  "actionFilterTooltip": "فیلتر اقدام",
+  "actionNone": "بدون اقدام",
+  "actionSilence": "بی‌صدا",
+  "actionTag": "اقدام: {actionType}",
+  "actionType": "نوع اقدام",
+  "actionUnknown": "ناشناخته",
+  "add": "افزودن",
+  "addAllowedBlockedRule": "افزودن قانون مجاز/مسدود",
+  "addAllowSubscription": "افزودن اشتراک مجاز",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "افزودن اشتراک مسدود",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "افزودن مخاطب",
+  "addContactFailed": "افزودن مخاطب ناموفق بود: {error}",
+  "addedToAllowedRules": "به قوانین مجاز اضافه شد",
+  "addedToBlacklist": "به لیست سیاه اضافه شد",
+  "addedToBlockedRules": "به قوانین مسدود اضافه شد",
+  "addedToFavoriteContacts": "به مخاطبین مورد علاقه اضافه شد",
+  "addedToFavorites": "به مورد علاقه اضافه شد",
+  "addedToWhitelist": "به لیست سفید اضافه شد",
+  "addFavorite": "افزودن مورد علاقه",
+  "addFilter": "افزودن فیلتر",
+  "addLabel": "افزودن برچسب",
+  "addLabelButton": "افزودن برچسب",
+  "addLabelFailed": "افزودن برچسب ناموفق بود: {error}",
+  "addLabelToCall": "افزودن برچسب به رکورد تماس",
+  "addName": "افزودن نام",
+  "addNoneSubscription": "افزودن اشتراک هیچ",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "برای افزودن یا ویرایش اطلاعات مخاطب استفاده می‌شود",
+  "addPhoneMark": "افزودن نشانگر تلفن",
+  "addPhoneNumberRule": "افزودن قانون شماره تلفن",
+  "addPlugin": "افزودن افزونه",
+  "addPluginFailed": "افزودن افزونه ناموفق بود",
+  "addPluginFailedWithError": "افزودن افزونه ناموفق بود: {error}",
+  "addPluginFromLocalFile": "افزودن افزونه از فایل محلی",
+  "addPluginFromUrl": "افزودن افزونه از URL",
+  "addRegexRule": "افزودن قانون Regex",
+  "addRule": "افزودن قانون",
+  "addRuleButton": "افزودن قانون",
+  "addRuleFailed": "افزودن قانون ناموفق بود: {error}",
+  "addRuleTooltip": "افزودن قانون",
+  "addSilenceSubscription": "افزودن اشتراک بی‌صدا",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "افزودن قانون سیم",
+  "addSmsFilterRule": "افزودن قانون فیلتر پیامک",
+  "addSmsRule": "افزودن قانون پیامک",
+  "addSmsSubscription": "افزودن اشتراک پیامک",
+  "addSubscription": "افزودن اشتراک",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "افزودن اشتراک",
+  "addSubscriptionFailed": "افزودن اشتراک ناموفق بود: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "افزودن اشتراک",
+  "addToAllowedRules": "افزودن به قوانین مجاز",
+  "addToBlacklist": "افزودن به لیست سیاه",
+  "addToBlockedRules": "افزودن به قوانین مسدود",
+  "addToFavoriteContacts": "افزودن به مخاطبین مورد علاقه",
+  "addToFavorites": "افزودن به مورد علاقه",
+  "addToRules": "افزودن به قوانین",
+  "addToWhitelist": "افزودن به لیست سفید",
+  "adPlaceholder": "جای خالی تبلیغ",
+  "agent": "نماینده",
+  "all": "همه",
+  "allCallsTab": "همه",
+  "allDataClearedSuccessfully": "تمام داده‌ها با موفقیت پاک شد",
+  "allow": "مجاز",
+  "allowAllAllowRules": "همه قوانین مجاز",
+  "allowAllAllowRulesDesc": "تماس‌های قوانین مجاز را مجاز کن",
+  "allowAllBlacklistedNumbers": "همه شماره‌های لیست سیاه",
+  "allowAllBlacklistedNumbersDesc": "تماس‌های لیست مسدود را مجاز کن",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "همه قوانین مسدود",
+  "allowAllBlockRulesDesc": "تماس‌های قوانین مسدود را مجاز کن",
+  "allowAllowedNumbers": "شماره‌های مجاز",
+  "allowAllowedNumbersDesc": "تماس‌های لیست مجاز را مجاز کن",
+  "allowBlock": "مجاز/مسدود",
+  "allowBlockedNumbers": "شماره‌های مسدود",
+  "allowBlockedNumbersDesc": "تماس‌های لیست مسدود را مجاز کن",
+  "allowedBlockedRule": "قانون مجاز/مسدود",
+  "allowedBlockedRuleEditDialogTitle": "ویرایش قانون مجاز/مسدود",
+  "allowedBlockedRuleManagement": "مدیریت قوانین مجاز/مسدود",
+  "allowNonExceededNumbers": "اجازه شماره‌های بیشتر از حد مجاز",
+  "allowNonExceededNumbersDescription": "به طور خودکار شماره‌هایی که از حد شمارش عبور نمی‌کنند را مجاز کن",
+  "allowRegexAllowRules": "قوانین مجاز Regex",
+  "allowRegexAllowRulesDesc": "تطابق الگوی Regex برای قوانین مجاز را فعال کن",
+  "allowRegexAllowRulesDescription": "قوانین مجاز مبتنی بر Regex را فعال کن",
+  "allowRegexBlockRules": "قوانین مسدود Regex",
+  "allowRegexBlockRulesDesc": "تطابق الگوی Regex برای قوانین مسدود را فعال کن",
+  "allowRegexBlockRulesDescription": "قوانین مسدود مبتنی بر Regex را فعال کن",
+  "allowRule": "قانون مجاز",
+  "allowRules": "قوانین مجاز",
+  "allowWhitelistedNumbers": "اجازه دادن به شماره‌های موجود در لیست مجاز",
+  "allowWhitelistedNumbersDescription": "اجازه دادن به تمام شماره‌های موجود در لیست مجاز",
+  "allPermissionsGranted": "تمام مجوزها اعطا شد",
+  "allSettingsCompleted": "تمام تنظیمات کامل شد.",
+  "allUpdateSuccess": "تمام به‌روزرسانی‌ها کامل شد ({count} قانون)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "پاسخ و سپس قطع تماس",
+  "appLegalese": "© 2023 Your Call Your Rule. تمامی حقوق محفوظ است.",
+  "applicationSoftware": "نرم‌افزار برنامه",
+  "apply": "اعمال",
+  "appName": "Your Call Your Rule",
+  "authorizationFailedCheckCredentialsMessage": "مجوز ناموفق بود: لطفاً شناسه مشتری و کلید را بررسی کنید",
+  "authorizationFailedMessage": "مجوز ناموفق بود",
+  "authorizationSuccessMessage": "مجوز موفقیت‌آمیز بود",
+  "authorizeLoginButton": "مجوز ورود",
+  "automotiveIndustry": "صنعت خودرو",
+  "autoSyncLabel": "همگام‌سازی خودکار",
+  "autoUpdate": "به‌روزرسانی خودکار",
+  "autoUpdateDescription": "فاصله‌های زمانی به‌روزرسانی خودکار برای اشتراک‌ها را تنظیم کنید یا به صورت دستی به‌روزرسانی کنید",
+  "autoUpdateSettings": "تنظیمات به‌روزرسانی خودکار",
+  "autoUpdateSettingsSubtitle": "مدیریت به‌روزرسانی‌های خودکار برای قوانین و افزونه‌ها",
+  "autoUpdateSettingsTitle": "تنظیمات به‌روزرسانی خودکار",
+  "autoUpdateSubtitle": "مدیریت به‌روزرسانی‌های خودکار برای قوانین و افزونه‌ها",
+  "autoUpdateTitle": "به‌روزرسانی خودکار",
+  "avatarBorderColor": "رنگ حاشیه آواتار",
+  "avatarBorderSize": "اندازه حاشیه آواتار",
+  "avatarIconSizesSetting": "تنظیم اندازه آواتار و آیکون",
+  "avatarPosition": "موقعیت آواتار",
+  "avatarSize": "اندازه آواتار",
+  "axisPosition": "موقعیت {axis}",
+  "backgroundGradientSetting": "گرادیان پس‌زمینه",
+  "backup": "پشتیبان‌گیری",
+  "backupAndRestore": "پشتیبان‌گیری و بازیابی",
+  "backupAndRestoreSubtitle": "پشتیبان‌گیری یا بازیابی داده‌های برنامه",
+  "backupAndRestoreTitle": "پشتیبان‌گیری و بازیابی",
+  "backupFailed": "پشتیبان‌گیری ناموفق بود",
+  "backupFailedMessage": "پشتیبان‌گیری ناموفق بود",
+  "backupFailedWithError": "پشتیبان‌گیری ناموفق بود: {error}",
+  "backupRestoreSubtitle": "پشتیبان‌گیری یا بازیابی داده‌های برنامه",
+  "backupRestoreTitle": "پشتیبان‌گیری و بازیابی",
+  "backupSectionTitle": "پشتیبان‌گیری",
+  "backupSettings": "تنظیمات پشتیبان‌گیری",
+  "backupSettingsDialogTitle": "تنظیمات پشتیبان‌گیری",
+  "backupSettingsTitle": "تنظیمات پشتیبان‌گیری",
+  "backupSuccessMessage": "با موفقیت در فضای ابری پشتیبان‌گیری شد",
+  "backupSuccessToLocal": "پشتیبان‌گیری با موفقیت در: {path}",
+  "backupToCloud": "پشتیبان‌گیری در فضای ابری",
+  "backupToCloudDescription": "پشتیبان‌گیری از تنظیمات و قوانین در فضای ذخیره‌سازی ابری",
+  "backupToCloudFailed": "پشتیبان‌گیری در فضای ابری ناموفق بود: {error}",
+  "backupToCloudLabel": "پشتیبان‌گیری در فضای ابری",
+  "backupToCloudSuccess": "با موفقیت در فضای ابری پشتیبان‌گیری شد",
+  "backupToCloudTitle": "پشتیبان‌گیری در فضای ابری",
+  "backupToLocalLabel": "پشتیبان‌گیری در دستگاه محلی",
+  "bank": "بانک",
+  "basicInfo": "اطلاعات پایه",
+  "basicRuleFilter": "فیلتر قانون پایه",
+  "basicRuleFiltering": "فیلتر قانون پایه",
+  "basicRuleFilteringExplanation": "• فیلتر قانون پایه: فیلتر کردن قوانین بر اساس لیست سیاه، لیست مجاز و regex",
+  "basicRuleFilterSettings": "تنظیمات فیلتر قانون پایه",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "فیلتر کردن تماس‌ها با استفاده از لیست سیاه/مجاز و عبارات منظم",
+  "batchDeleteContacts": "حذف دسته‌ای مخاطبین",
+  "batchDeleteContactsConfirm": "آیا مطمئن هستید که می‌خواهید {count} مخاطب انتخاب شده را حذف کنید؟",
+  "batchDeleteFailed": "حذف دسته‌ای ناموفق بود",
+  "batchDeleteLabelsConfirm": "آیا مطمئن هستید که می‌خواهید {count} برچسب را حذف کنید؟",
+  "blacklist": "لیست سیاه",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "لیست سیاه و لیست مجاز",
+  "blacklistLabel": "لیست سیاه",
+  "blackWhiteList": "لیست سیاه/مجاز",
+  "block": "مسدود کردن",
+  "blockCalls": "مسدود کردن تماس‌ها",
+  "blocked": "مسدود شده",
+  "blockedCallAction": "عملکرد تماس مسدود شده",
+  "blockedCalls": "تماس‌های مسدود شده",
+  "blockedCallsTitle": "تماس‌های مسدود شده",
+  "blockedCommunications": "ارتباطات مسدود شده",
+  "blockedPhoneLabel": "تماس‌های مسدود شده",
+  "blockedSpamCalls": "تماس‌های اسپم مسدود شده",
+  "blockingTrend": "روند مسدودسازی",
+  "blockInternationalCalls": "شماره‌هایی را که با + یا 00 شروع نمی‌شوند، مطابقت می‌دهد",
+  "blockInternationalCallsTitle": "مسدود کردن تماس‌های بین‌المللی",
+  "blockLandlineNumbersTitle": "مسدود کردن شماره‌های تلفن ثابت",
+  "blockMobileNumbers": "شماره‌هایی را که با 13-19 شروع نمی‌شوند، مطابقت می‌دهد",
+  "blockMobileNumbersTitle": "مسدود کردن شماره‌های تلفن همراه",
+  "blockPremiumRateNumbers": "شماره‌هایی را که با 118 یا 120-190 شروع نمی‌شوند، مطابقت می‌دهد",
+  "blockPremiumRateNumbersTitle": "مسدود کردن شماره‌های با تعرفه بالا",
+  "blockRule": "قانون مسدودسازی",
+  "blockRules": "قوانین مسدودسازی",
+  "blockSpecificAreaCodes": "شماره‌هایی را که با 0 + 2-3 رقم شروع می‌شوند، مطابقت می‌دهد",
+  "blockSpecificAreaCodesTitle": "مسدود کردن کدهای منطقه خاص:",
+  "blockTypeAnalysisTitle": "تحلیل نوع مسدودسازی",
+  "both": "هر دو",
+  "bulkDelete": "حذف دسته‌ای مخاطبین",
+  "bulkDeleteContacts": "حذف دسته‌ای مخاطبین",
+  "bulkDeleteLabels": "حذف دسته‌ای برچسب‌ها",
+  "call": "تماس",
+  "callback": "تماس مجدد",
+  "callbackTo": "تماس مجدد به {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "مسدود کردن تماس",
+  "callerIdApp": "برنامه شناسه تماس‌گیرنده",
+  "callerIdCustomizationTitle": "سفارشی‌سازی شناسه تماس‌گیرنده",
+  "callerIdDialogTitle": "اطلاعات شناسه تماس‌گیرنده",
+  "callerIdDisplayMode": "حالت نمایش شناسه تماس گیرنده",
+  "callerIdMarkedByCount": "علامت‌گذاری شده توسط {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "پیش‌نمایش شناسه تماس گیرنده",
+  "callFilter": "فیلتر تماس",
+  "callFilterDescription": "هنگامی که فعال باشد، تماس‌های ورودی با لیست قوانین زیر بررسی می‌شوند. قوانین فیلترینگ تماس به طور پیش‌فرض بین دستگاه‌ها همگام‌سازی نمی‌شوند.",
+  "callFilterRules": "قوانین فیلتر تماس",
+  "callFilterRulesDescription": "قوانین اساسی برای فیلترینگ تماس تنظیم کنید",
+  "callFilterSettings": "تنظیمات فیلتر تماس",
+  "callFrequencyInterceptionSubtitle": "محدودیت‌های فرکانس تماس و قوانین مسدودسازی را تنظیم کنید",
+  "callFrequencyInterceptionTitle": "رهگیری فرکانس تماس",
+  "callHistory": "تاریخچه تماس",
+  "callHistoryInfoDesc": "تاریخچه تماس شما در اینجا نمایش داده می‌شود، از جمله تماس‌های ورودی، خروجی و از دست رفته.",
+  "callHistoryInfoTitle": "تاریخچه تماس",
+  "callHistoryInitFailed": "مقداردهی اولیه تاریخچه تماس ناموفق بود: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "به‌روزرسانی تاریخچه تماس ناموفق بود: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "تاریخچه تماس",
+  "callHistoryTimelineEarlier": "قدیمی‌تر",
+  "callHistoryTimelineToday": "امروز",
+  "callHistoryTimelineYesterday": "دیروز",
+  "callScreeningPermission": "مجوز غربالگری تماس",
+  "callScreeningPermissionDescription": "برای غربالگری و مسدود کردن تماس‌های اسپم استفاده می‌شود.",
+  "callScreeningPermissionNotGranted": "مجوز غربالگری تماس اعطا نشده است، ممکن است بر عملکرد برنامه تأثیر بگذارد.",
+  "callSettingsSubtitle": "تنظیمات شناسه تماس گیرنده، فیلترینگ و مسدودسازی",
+  "callSettingsTitle": "تنظیمات تماس",
+  "callStatistics": "آمار تماس",
+  "callTypeAnswered": "پاسخ داده شده",
+  "callTypeBlocked": "مسدود شده",
+  "callTypeIconColor": "رنگ آیکون نوع تماس",
+  "callTypeMissed": "تماس از دست رفته",
+  "callTypeOutgoing": "خروجی",
+  "callTypePosition": "موقعیت نوع تماس",
+  "callTypeUnknown": "ناشناخته",
+  "cancelButton": "لغو",
+  "carRental": "اجاره اتومبیل",
+  "carrier": "اپراتور",
+  "carrierColor": "رنگ اپراتور",
+  "carrierFontSize": "اندازه فونت اپراتور",
+  "carrierPosition": "موقعیت اپراتور",
+  "changeLabel": "تغییر برچسب",
+  "changePluginStatusFailed": "تغییر وضعیت پلاگین ناموفق بود: {error}",
+  "changeSubscriptionStatusFailed": "تغییر وضعیت اشتراک ناموفق بود: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "تغییر برچسب",
+  "charity": "خیریه",
+  "chartMonthFormat": "ماه {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "۱ روز پیش",
+  "chartOneMonthAgo": "۱ ماه پیش",
+  "chartOneWeekAgo": "۱ هفته پیش",
+  "chartTenDaysAgo": "۱۰ روز پیش",
+  "chartThreeDaysAgo": "۳ روز پیش",
+  "chartToday": "امروز",
+  "checkFileFormat": "لطفاً فرمت فایل یا مجوزها را بررسی کنید",
+  "checkPermissionFailed": "بررسی مجوزها ناموفق بود: {error}",
+  "chooseDefaultInterceptAction": "اقدام پیش‌فرض رهگیری را انتخاب کنید",
+  "clearAllData": "حذف همه داده‌ها",
+  "clearAllDataConfirmation": "آیا مطمئن هستید که می‌خواهید تمام داده‌های برنامه را حذف کنید؟ این عمل قابل برگشت نیست.",
+  "clearAllDataDescription": "حذف تمام داده‌های برنامه",
+  "clearAllDataLabel": "حذف همه داده‌ها",
+  "clearFilter": "پاک کردن فیلتر",
+  "clearLabelFilter": "پاک کردن فیلتر برچسب",
+  "clearLabelFilterButton": "پاک کردن فیلتر برچسب",
+  "closeButton": "بستن",
+  "cloudSync": "همگام‌سازی ابری",
+  "cloudSyncAndBackupTitle": "همگام‌سازی و پشتیبان‌گیری ابری",
+  "cloudSyncSettingsSubtitle": "تنظیمات WebDAV، OneDrive و Google Drive",
+  "cloudSyncSettingsTitle": "تنظیمات همگام‌سازی ابری",
+  "cloudSyncTitle": "همگام‌سازی ابری",
+  "collapseLabelSelector": "بستن انتخابگر برچسب",
+  "collection": "وصول بدهی",
+  "colorPickerTitle": "انتخاب رنگ",
+  "configManagement": "مدیریت پیکربندی",
+  "configUpdated": "پیکربندی به‌روز شد",
+  "configurationAdvice": "از طریق پیکربندی مناسب، می‌توانید استراتژی‌های فیلتر متفاوتی را برای سیم‌کارت‌های کاری و شخصی تنظیم کنید.",
+  "configureBackupOptions": "تنظیم گزینه‌های پشتیبان‌گیری",
+  "configureBackupOptionsSubtitle": "تنظیم گزینه‌های پشتیبان‌گیری",
+  "configureCloudSyncService": "پیکربندی سرویس همگام‌سازی ابری",
+  "configureCloudSyncServiceHint": "لطفاً برای فعال کردن همگام‌سازی بین دستگاه‌ها، سرویس همگام‌سازی ابری را پیکربندی کنید.",
+  "configureCloudSyncServiceMessage": "لطفاً برای فعال کردن همگام‌سازی بین دستگاه‌ها، سرویس همگام‌سازی ابری را پیکربندی کنید.",
+  "configureSimCardFilterRules": "پیکربندی قوانین فیلتر سیم‌کارت",
+  "configureSyncServiceHint": "لطفاً ابتدا سرویس همگام‌سازی را در تنظیمات همگام‌سازی ابری پیکربندی کنید",
+  "confirm": "تأیید",
+  "confirmBatchDeleteContacts": "آیا مطمئن هستید که می‌خواهید مخاطبین انتخاب شده را حذف کنید؟",
+  "confirmButton": "تأیید",
+  "confirmDelete": "تأیید حذف",
+  "confirmDeleteContact": "آیا مطمئن هستید که می‌خواهید حذف کنید",
+  "confirmDeleteContactName": "حذف تأیید شود؟",
+  "confirmDeleteFilter": "آیا مطمئن هستید که می‌خواهید این فیلتر را حذف کنید؟",
+  "confirmDeleteLabel": "آیا مطمئن هستید که می‌خواهید برچسب \"{name}\" را حذف کنید؟",
+  "confirmDeletePlugin": "آیا مطمئن هستید که می‌خواهید پلاگین \"{name}\" را حذف کنید؟",
+  "confirmDeletePlugins": "آیا مطمئن هستید که می‌خواهید {count} پلاگین را حذف کنید؟",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "آیا مطمئن هستید که می‌خواهید این قانون را حذف کنید؟ این عمل قابل برگشت نیست.",
+  "confirmDeleteSelectedContacts": "آیا مطمئن هستید که مخاطبین انتخاب شده را حذف می‌کنید؟",
+  "confirmDeleteSmsFilterRule": "آیا مطمئن هستید که می‌خواهید این قانون فیلتر پیامک را حذف کنید؟",
+  "confirmDeleteSmsRule": "آیا مطمئن هستید که می‌خواهید این قانون پیامک را حذف کنید؟",
+  "confirmDeleteSubscription": "آیا مطمئن هستید که می‌خواهید این اشتراک را حذف کنید؟",
+  "confirmDeleteSubscriptions": "آیا مطمئن هستید که می‌خواهید {name} را حذف کنید؟",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "تأیید رمز عبور",
+  "confirmPasswordLabel": "تأیید رمز عبور",
+  "connectedStatus": "متصل",
+  "connectionFailedCheckCredentialsMessage": "اتصال ناموفق بود: لطفاً آدرس سرور، نام کاربری و رمز عبور را بررسی کنید",
+  "connectionFailedMessage": "اتصال ناموفق بود",
+  "connectionStatusLabel": "وضعیت اتصال",
+  "connectionSuccessMessage": "اتصال با موفقیت انجام شد",
+  "contactAddSuccess": "مخاطب با موفقیت اضافه شد",
+  "contactDeleted": "مخاطب حذف شد",
+  "contactEditDialog": "گفتگوی ویرایش مخاطب",
+  "contactNameHint": "نام مخاطب را وارد کنید (اختیاری)",
+  "contactNameLabel": "نام",
+  "contactNameOptional": "نام مخاطب (اختیاری)",
+  "contactNotFound": "مخاطب یافت نشد",
+  "contacts": "مخاطبین",
+  "contactsDeleted": "{count} مخاطب حذف شد",
+  "contactSettingsSubtitle": "مدیریت مخاطبین و تنظیمات برچسب",
+  "contactSettingsTitle": "تنظیمات مخاطبین",
+  "contactsLoadingFailed": "بارگیری مخاطبین با شکست مواجه شد: {error}",
+  "contactsManagement": "مدیریت مخاطبین",
+  "contactsManagementPageTitle": "صفحه مدیریت مخاطبین",
+  "contactsPageTitle": "مدیریت مخاطبین",
+  "contactsPermission": "مجوز مخاطبین",
+  "contactsPermissionDescription": "برای شناسایی تماس‌های مخاطبین استفاده می‌شود.",
+  "contactsTab": "مخاطبین",
+  "contactSubscriptionDescription": "لیست مخاطبین را از طریق URL مشترک کنید، اطلاعات و برچسب‌های مخاطب را به طور خودکار به‌روز کنید. از داده‌های فرمت JSON پشتیبانی می‌کند.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "بارگیری اشتراک‌های مخاطب با شکست مواجه شد: {error}",
+  "contactSubscriptionPageTitle": "اشتراک‌های مخاطب",
+  "contactUpdateSuccess": "مخاطب با موفقیت به‌روزرسانی شد",
+  "contactUs": "با ما تماس بگیرید",
+  "content": "محتوا",
+  "contentRegex": "عبارت منظم محتوا",
+  "countColor": "رنگ تعداد",
+  "countFontSize": "اندازه فونت تعداد",
+  "countPosition": "موقعیت تعداد",
+  "country": "کشور",
+  "countryNameColor": "رنگ نام کشور",
+  "countryNameFontSize": "اندازه فونت نام کشور",
+  "countryRegionNamePosition": "موقعیت نام کشور/منطقه",
+  "countrySelectionDialog": "گفتگوی انتخاب کشور",
+  "countrySelectionDialogDescription": "برای انتخاب کشوری برای پرس و جو اطلاعات شناسه تماس گیرنده استفاده می شود",
+  "countThresholdDescription": "حداقل حد آستانه تعداد مورد نیاز برای فعال کردن اقدامات فیلترینگ را تنظیم کنید",
+  "countThresholdLabel": "آستانه تعداد",
+  "countThresholdSettings": "تنظیمات آستانه تعداد",
+  "countThresholdValue": "آستانه تعداد: {count}",
+  "createdRules": "قوانین ایجاد شده",
+  "csvFormat": "فرمت CSV",
+  "currentDeviceChip": "فعلی",
+  "currentDeviceLabel": "برچسب دستگاه فعلی",
+  "currentDeviceTitle": "دستگاه فعلی",
+  "currentLabels": "برچسب‌های فعلی:",
+  "currentLanguage": "زبان فعلی",
+  "currentPasswordLabel": "رمز عبور فعلی",
+  "customerService": "خدمات مشتری",
+  "customRange": "محدوده سفارشی",
+  "dailyStatistics": "آمار روزانه",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "دریافت آمار روزانه در مورد تماس‌ها و پیام‌های مسدود شده",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "داشبورد",
+  "dataAnalysis": "تحلیل داده",
+  "dataAnalysisDashboardPage": "صفحه داشبورد تحلیل داده",
+  "dataExport": "صادرات داده",
+  "dataLoadFailure": "بارگیری داده با شکست مواجه شد: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "بارگیری داده با شکست مواجه شد: {error}",
+  "dataMigration": "مهاجرت داده",
+  "dataMigrationDescription": "این ویژگی به شما امکان می دهد تمام داده های خود را بین دستگاه ها منتقل کنید. در حال حاضر، می توانید از ویژگی های پشتیبان گیری و بازیابی برای انتقال دستی داده های خود استفاده کنید.",
+  "dataMigrationDialogContent": "این ویژگی به شما امکان می دهد تمام داده های خود را بین دستگاه ها منتقل کنید. در حال حاضر، می توانید از ویژگی های پشتیبان گیری و بازیابی برای انتقال دستی داده های خود استفاده کنید.",
+  "dataMigrationDialogTitle": "مهاجرت داده",
+  "dataMigrationSectionTitle": "مهاجرت داده",
+  "dataSourceReminder": "یادآوری منبع داده",
+  "days": "{count, plural, =1{1 روز} other{{count} روز}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} روز VIP",
+  "debtCollection": "وصول بدهی",
+  "defaultPeriod": "هفته",
+  "delete": "حذف",
+  "deleteButton": "حذف",
+  "deleteContact": "حذف مخاطب",
+  "deleteContactConfirm": "آیا مطمئن هستید که می خواهید {name} را حذف کنید؟",
+  "deleteContactConfirmation": "آیا مطمئن هستید که می خواهید مخاطب را حذف کنید؟",
+  "deleteDeviceConfirmation": "آیا مطمئن هستید که می خواهید {deviceName} را حذف کنید؟",
+  "deleteDeviceDialogTitle": "حذف دستگاه",
+  "deleteFailed": "حذف با شکست مواجه شد: {error}",
+  "deleteFilter": "حذف فیلتر",
+  "deleteLabel": "حذف برچسب",
+  "deleteLabelFailed": "حذف برچسب با شکست مواجه شد: {error}",
+  "deletePlugin": "حذف پلاگین",
+  "deletePluginFailed": "حذف پلاگین با شکست مواجه شد: {error}",
+  "deletePlugins": "حذف پلاگین‌ها",
+  "deletePluginsFailed": "حذف پلاگین‌ها با شکست مواجه شد: {error}",
+  "deleteRule": "حذف قانون",
+  "deleteRuleFailed": "حذف با شکست مواجه شد: {error}",
+  "deleteSelected": "حذف موارد انتخاب شده",
+  "deleteSmsRule": "حذف قانون پیامک",
+  "deleteSubscription": "حذف اشتراک",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "آیا مطمئن هستید که می خواهید اشتراک \"{name}\" را حذف کنید؟",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "حذف اشتراک با شکست مواجه شد: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "حذف با موفقیت انجام شد",
+  "delivery": "تحویل",
+  "deviceDeletedSuccessfully": "دستگاه با موفقیت حذف شد",
+  "deviceDeletedSuccessfullyMessage": "دستگاه با موفقیت حذف شد",
+  "deviceIdLabel": "شناسه دستگاه",
+  "deviceIDLabel": "شناسه دستگاه",
+  "deviceManagementSubtitle": "همگام سازی چندین دستگاه را مدیریت کنید",
+  "deviceManagementTitle": "مدیریت دستگاه",
+  "deviceModelLabel": "مدل دستگاه",
+  "deviceName": "نام دستگاه",
+  "deviceNameCannotBeEmpty": "نام دستگاه نمی‌تواند خالی باشد",
+  "deviceNameHint": "لطفا نام دستگاه را وارد کنید",
+  "deviceNameLabel": "نام دستگاه",
+  "deviceRenamedSuccessfully": "دستگاه با موفقیت تغییر نام یافت",
+  "deviceRenamedSuccessfullyMessage": "دستگاه با موفقیت تغییر نام یافت",
+  "devicesSyncedSuccessfully": "دستگاه‌ها با موفقیت همگام‌سازی شدند",
+  "devicesSyncedSuccessfullyMessage": "دستگاه‌ها با موفقیت همگام‌سازی شدند",
+  "devicesSynchronizedSuccessfullyMessage": "دستگاه‌ها با موفقیت همگام‌سازی شدند",
+  "deviceUnregisteredSuccessfullyMessage": "دستگاه با موفقیت لغو ثبت شد",
+  "dialogTitle": "توضیح الگوی Regex",
+  "differentFromLocalCounter": "این ویژگی با فیلتر شمارنده محلی متفاوت است، زیرا به جای شمارش علامت‌گذاری طولانی مدت، بر الگوهای تماس تکراری در مدت زمان کوتاه تمرکز دارد.",
+  "disabled": "غیرفعال",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "غیرفعال",
+  "disableGlobalPlugins": "غیرفعال کردن افزونه‌های جهانی",
+  "disableSubscriptionSuccessfully": "غیرفعال کردن اشتراک با موفقیت انجام شد",
+  "disconnectButton": "قطع اتصال",
+  "disconnectedMessage": "قطع شد",
+  "disconnectedStatus": "قطع شد",
+  "disconnectFailedMessage": "قطع اتصال ناموفق بود",
+  "done": "انجام شد",
+  "dualSimAdvice": "این ویژگی به خصوص برای گوشی‌های دو سیم کارت مفید است تا استراتژی‌های فیلترینگ متفاوتی برای سیم کارت‌های کاری و شخصی تنظیم شود.",
+  "earlier": "قبلی",
+  "ecommerce": "تجارت الکترونیک",
+  "edit": "ویرایش",
+  "editContact": "ویرایش مخاطب",
+  "editFilter": "ویرایش فیلتر",
+  "editLabel": "ویرایش برچسب",
+  "editPhoneRule": "ویرایش قانون تلفن",
+  "editPhoneRules": "برای ویرایش قوانین تلفن استفاده می‌شود",
+  "editPhoneRuleTitle": "ویرایش قانون تلفن",
+  "editRule": "ویرایش قانون",
+  "editSmsRule": "ویرایش قانون پیامک",
+  "education": "تحصیلات",
+  "elementPositionsSetting": "موقعیت عناصر",
+  "email": "ایمیل",
+  "emailOptional": "ایمیل (اختیاری)",
+  "enableCallFilter": "فعال کردن فیلتر تماس",
+  "enableCallFilterDescription": "هنگامی که فعال باشد، تماس‌های ورودی با لیست قوانین زیر بررسی می‌شوند. قوانین فیلترینگ تماس به طور پیش‌فرض بین دستگاه‌ها همگام‌سازی نمی‌شوند.",
+  "enabled": "فعال",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "فعال",
+  "enableEncryption": "فعال کردن رمزگذاری",
+  "enableEncryptionDescription": "فایل‌های پشتیبان را رمزگذاری کنید",
+  "enableEncryptionLabel": "فعال کردن رمزگذاری",
+  "enableEncryptionSubtitle": "فایل‌های پشتیبان رمزگذاری خواهند شد",
+  "enableEncryptionTitle": "فعال کردن رمزگذاری",
+  "enableGlobalPlugins": "فعال کردن افزونه‌های جهانی",
+  "enableLocalCountFilter": "فعال کردن فیلتر شمارش محلی",
+  "enableLocalCountFilterDescription": "به طور خودکار تماس‌های اسپم را بر اساس شمارش علامت‌گذاری تماس فیلتر کنید",
+  "enableLocalNotification": "استفاده از اعلان محلی",
+  "enableLocalNotificationDescription": "هنگامی که فعال باشد، اعلان‌هایی برای پیام‌های فیلتر شده در دستگاه نمایش داده می‌شود",
+  "enableLocationSummary": "مکان",
+  "enableMuteRules": "فعال کردن قوانین سکوت",
+  "enableMuteRulesDesc": "اعمال پیکربندی قوانین مسدودسازی سکوت",
+  "enableNoneActionRules": "فعال کردن قوانین بدون اقدام",
+  "enableNoneActionRulesDesc": "اجازه پیکربندی قوانین بدون اقدامات مسدودسازی",
+  "enableNotifications": "فعال کردن اعلان‌ها",
+  "enableRemoteNumberFilter": "فعال کردن فیلتر شماره از راه دور",
+  "enableRemoteNumberFilterDescription": "استفاده از پایگاه داده از راه دور برای فیلتر کردن شماره‌ها",
+  "enableRule": "فعال کردن قانون",
+  "enableSmsFilter": "فعال کردن فیلترینگ پیامک",
+  "enableSmsFilterDescription": "هنگامی که فعال باشد، پیام‌ها به طور خودکار مطابق با قوانین فیلتر می‌شوند",
+  "enableStatisticsNotifications": "فعال کردن اعلان‌های آماری",
+  "enableSubscriptionSuccessfully": "فعال کردن اشتراک با موفقیت انجام شد",
+  "enableTimeInterception": "فعال کردن مسدودسازی زمان",
+  "enableTimeInterceptionDescription": "مسدود کردن تماس‌های تکراری در مدت زمان کوتاه",
+  "enableTimeInterceptor": "فعال کردن مسدود کننده زمان",
+  "endCallImmediately": "قطع فوری تماس",
+  "endColor": "رنگ پایانی",
+  "endDate": "تاریخ پایان",
+  "enhancedFilterInstructionsTitle": "سیستم فیلتر پیشرفته",
+  "enhancedFilterSettings": "تنظیمات فیلتر پیشرفته",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "تنظیمات فیلتر پیشرفته",
+  "enhancedFilterSystemDescription": "سیستم فیلتر پیشرفته از قوانین جهانی و پیکربندی فیلترینگ برای هر سیم کارت پشتیبانی می‌کند.",
+  "enterBothPhoneNumberAndRegexPattern": "لطفاً هم شماره تلفن و هم الگوی regex را وارد کنید",
+  "enterBothPhoneNumberAndRegexPatternMessage": "لطفاً هم شماره تلفن و هم الگوی regex را وارد کنید.",
+  "enterContactName": "لطفاً نام مخاطب را وارد کنید",
+  "enterCurrentPasswordHint": "لطفاً رمز عبور فعلی را وارد کنید",
+  "enterDeviceName": "نام دستگاه را وارد کنید",
+  "enterDeviceNameHint": "لطفاً نام دستگاه را وارد کنید",
+  "enterEmail": "لطفاً ایمیل را وارد کنید",
+  "enterEmailOptional": "لطفاً ایمیل (اختیاری) را وارد کنید",
+  "enterEncryptionPasswordHint": "رمز عبور رمزگذاری را وارد کنید",
+  "enterEncryptionPasswordTitle": "رمز عبور رمزگذاری را وارد کنید",
+  "enterFilterName": "لطفاً نام فیلتر را وارد کنید",
+  "enterFilterPattern": "لطفاً الگوی فیلتر را وارد کنید",
+  "enterIconCode": "کد آیکون را وارد کنید",
+  "enterName": "نام مخاطب را وارد کنید",
+  "enterNewDeviceNameHint": "یک نام جدید برای این دستگاه وارد کنید",
+  "enterNewPasswordHint": "لطفاً رمز عبور جدید را وارد کنید",
+  "enterPasswordAgain": "رمز عبور را دوباره وارد کنید",
+  "enterPasswordHint": "لطفاً رمز عبور را وارد کنید",
+  "enterPhoneNumber": "شماره تلفن را وارد کنید",
+  "enterPhoneNumberHint": "شماره تلفن برای تست را وارد کنید",
+  "enterPhoneNumberMultiple": "لطفاً شماره تلفن را وارد کنید، شماره‌های متعدد با کاما جدا شده‌اند",
+  "enterPhoneNumberToStartSearch": "شماره تلفن را برای شروع جستجو وارد کنید",
+  "enterPhoneNumberToVerify": "شماره تلفن را برای تأیید وارد کنید",
+  "enterPluginName": "نام افزونه را وارد کنید",
+  "enterPluginUrl": "آدرس URL افزونه را وارد کنید",
+  "enterRegexHint": "الگوی regex را وارد کنید",
+  "enterRuleNameAndPattern": "لطفاً نام و الگوی قانون را وارد کنید",
+  "enterRuleNameAndPatternMessage": "لطفا نام قانون و الگوی regex را وارد کنید.",
+  "enterRuleNameHint": "نام قانون را وارد کنید",
+  "enterSearchContent": "لطفاً محتوای جستجو را وارد کنید",
+  "enterSubscriptionName": "نام اشتراک را وارد کنید",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "آدرس اشتراک را وارد کنید",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "لطفاً نام پوشه همگام سازی را وارد کنید (پیش فرض: NotificationManager)",
+  "entertainment": "سرگرمی",
+  "enterValidNameAndUrl": "لطفاً نام و آدرس معتبر را وارد کنید",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "لطفاً یک آدرس معتبر وارد کنید",
+  "enterVersion": "نسخه را وارد کنید",
+  "enterWebDAVPasswordHint": "لطفاً رمز عبور WebDAV را وارد کنید",
+  "enterWebDAVServerAddressHint": "لطفاً آدرس سرور WebDAV را وارد کنید",
+  "enterWebDAVUsernameHint": "لطفاً نام کاربری WebDAV را وارد کنید",
+  "errorDeletingDeviceMessage": "خطا در حذف دستگاه: {error}",
+  "errorLoadingPlugin": "خطا در بارگذاری افزونه",
+  "errorOccurredMessage": "خطایی رخ داد: {error}",
+  "errorRenamingDeviceMessage": "خطا در تغییر نام دستگاه: {error}",
+  "errorSynchronizingDevicesMessage": "خطا در همگام سازی دستگاه ها: {error}",
+  "errorSyncingDevicesMessage": "خطا در همگام سازی دستگاه ها: {error}",
+  "errorText": "خطا",
+  "errorUnregisteringDeviceMessage": "خطا در لغو ثبت دستگاه: {error}",
+  "exampleBlock400Prefix": "به عنوان مثال، مسدود کردن اعداد پیشوند 400",
+  "exampleBlockMarketingSms": "به عنوان مثال، مسدود کردن پیامک های تبلیغاتی",
+  "exampleContentRegex": "به عنوان مثال، .*offer.*",
+  "exampleContentRegexHint": "الگوی محتوای نمونه",
+  "exampleCouponPromotionDiscount": "به عنوان مثال، .*(coupon|promotion|discount).*",
+  "exampleFamilyFriends": "به عنوان مثال، خانواده، دوستان، و غیره.",
+  "examplePhoneNumber": "به عنوان مثال، 10086، 12345، و غیره.",
+  "exampleRegex400Prefix": "الگوی نمونه برای پیشوند 400",
+  "exampleRegexFormat": "مثال: قالب ^10086$",
+  "exampleSenderRegexHint": "مثال",
+  "exchange": "تبادل",
+  "exchangeNow": "اکنون تبادل کنید",
+  "exchangeVip": "تبادل VIP",
+  "expandLabelSelector": "انتخابگر برچسب را باز کنید",
+  "expiryTime": "زمان انقضا: {time}",
+  "export": "خروجی",
+  "exportAllApplicationSettings": "خروجی تمام تنظیمات برنامه",
+  "exportAllApplicationSettingsSubtitle": "خروجی تمام تنظیمات برنامه",
+  "exportAllRuleConfigurations": "خروجی تمام تنظیمات قوانین",
+  "exportAllRuleConfigurationsSubtitle": "خروجی تمام تنظیمات قوانین",
+  "exportComplete": "خروجی کامل شد",
+  "exportConfig": "خروجی تنظیمات",
+  "exportContacts": "خروجی مخاطبین",
+  "exportData": "خروجی داده",
+  "exportError": "خطای خروجی",
+  "exportFailed": "خروجی ناموفق بود",
+  "exportFailure": "خطا در خروجی تنظیمات",
+  "exportFeatureComingSoon": "ویژگی خروجی به زودی ارائه می شود",
+  "exporting": "در حال خروجی گرفتن...",
+  "exportLabels": "خروجی برچسب ها",
+  "exportLabelsFailed": "خطا در خروجی برچسب ها: {error}",
+  "exportPluginList": "خروجی لیست افزونه ها",
+  "exportPluginListFailed": "خطا در خروجی لیست افزونه ها: {error}",
+  "exportRules": "خروجی قوانین",
+  "exportRulesDialogTitle": "خروجی قوانین",
+  "exportRulesTitle": "خروجی قوانین",
+  "exportSmsRules": "خروجی قوانین پیامک",
+  "exportStatisticsData": "خروجی داده های آماری",
+  "exportSuccess": "خروجی موفقیت آمیز بود",
+  "exportSuccesslly": "تنظیمات با موفقیت خروجی گرفته شد",
+  "failedToAddContact": "خطا در افزودن مخاطب",
+  "failedToAddRule": "خطا در افزودن قانون: {error}",
+  "failedToAddSmsRule": "خطا در افزودن قانون پیامک: {error}",
+  "failedToAddSmsSubscription": "خطا در افزودن اشتراک پیامک: {error}",
+  "failedToBackupSettings": "خطا در پشتیبان گیری از تنظیمات: {error}",
+  "failedToDecryptBackupFile": "خطا در رمزگشایی فایل پشتیبان",
+  "failedToDeleteDevice": "خطا در حذف دستگاه",
+  "failedToDeleteSmsRule": "خطا در حذف قانون پیامک: {error}",
+  "failedToExportRules": "خطا در خروجی قوانین: {error}",
+  "failedToExportSmsRules": "خطا در خروجی قوانین پیامک: {error}",
+  "failedToGetCallerIdInfo": "خطا در دریافت اطلاعات شناسه تماس گیرنده: {error}",
+  "failedToImportRules": "خطا در وارد کردن قوانین: {error}",
+  "failedToImportSmsRules": "خطا در وارد کردن قوانین پیامک: {error}",
+  "failedToLoadContacts": "خطا در بارگذاری مخاطبین",
+  "failedToLoadPlugin": "خطا در بارگذاری افزونه",
+  "failedToRenameDevice": "خطا در تغییر نام دستگاه",
+  "failedToRestoreSettings": "خطا در بازیابی تنظیمات",
+  "failedToRestoreSettingsWithError": "خطا در بازیابی تنظیمات: {error}",
+  "failedToSetPassword": "خطا در تنظیم رمز عبور: {error}",
+  "failedToSyncDevices": "خطا در همگام سازی دستگاه ها",
+  "failedToToggleRuleStatus": "خطا در تغییر وضعیت قانون: {error}",
+  "failedToToggleSubscriptionStatus": "خطا در تغییر وضعیت اشتراک",
+  "failedToUpdateContact": "خطا در به روز رسانی مخاطب",
+  "failedToUpdateSmsRule": "خطا در به روز رسانی قانون پیامک: {error}",
+  "failure": "خطا",
+  "favoriteContacts": "مخاطبین مورد علاقه",
+  "featureAddRules": "• اضافه کردن قوانین خاص شماره تلفن",
+  "featureCenter": "مرکز ویژگی ها",
+  "featureEnableDisable": "• فعال/غیرفعال کردن فیلترهای مختلف برای هر سیم کارت",
+  "featureListTitle": "ویژگی ها:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• مدیریت لیست قوانین برای هر سیم کارت",
+  "features": "ویژگی ها",
+  "fetchingCallerIdInfo": "در حال دریافت اطلاعات شناسه تماس گیرنده...",
+  "fileSavedTo": "فایل در این مسیر ذخیره شد: {path}",
+  "filter": "فیلتر",
+  "filterByLabel": "فیلتر بر اساس برچسب",
+  "filterClear": "حذف فیلتر",
+  "filterControlPanelTitle": "پنل کنترل فیلتر",
+  "filterControlSubtitle": "وضعیت روشن/خاموش همه فیلترها را مدیریت کنید",
+  "filterControlTitle": "کنترل فیلتر",
+  "filterDeleteFailed": "حذف فیلتر ناموفق بود",
+  "filterDeleteSuccess": "فیلتر با موفقیت حذف شد",
+  "filterDetails": "جزئیات فیلتر",
+  "filtered": "فیلتر شده",
+  "filteredSms": "پیامک های فیلتر شده",
+  "filteredSmsLabel": "پیامک های فیلتر شده",
+  "filterExplanation": "توضیح فیلتر",
+  "filterManagement": "مدیریت فیلتر",
+  "filterName": "نام فیلتر",
+  "filterPattern": "الگوی فیلتر",
+  "filterPriorityNote": "توجه: بین فیلترها روابط اولویت وجود دارد، لطفاً برای جزئیات به مستندات راهنما مراجعه کنید.",
+  "filterSaveFailed": "ذخیره فیلتر ناموفق بود",
+  "filterSaveSuccess": "فیلتر با موفقیت ذخیره شد",
+  "filterSettings": "تنظیمات فیلتر",
+  "filterSettingsTitle": "تنظیمات فیلتر",
+  "filterSMS": "فیلتر SMS",
+  "filterToggleInstructions": "فعال یا غیرفعال کردن فیلترها برای این اسلات سیم کارت:",
+  "filterToggleStatus": "فیلتر {status}: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "نوع فیلتر",
+  "financial": "مالی",
+  "flexibleCombinationFeature": "• ترکیبات انعطاف پذیر: فعال/غیرفعال کردن فیلترها بر اساس اسلات سیم کارت",
+  "fontSizesSetting": "اندازه فونت ها",
+  "foundRules": "{count} قانون پیدا شد",
+  "foundRulesDoYouWantToImport": "{count} قانون پیدا شد. آیا می خواهید آنها را وارد کنید؟",
+  "foundRulesToImport": "{count} قانون پیدا شد. آیا می خواهید آنها را وارد کنید؟",
+  "fraudAlert": "هشدار کلاهبرداری - تماس را قطع کنید",
+  "fraudScamLikely": "کلاهبرداری احتمالی",
+  "free": "رایگان",
+  "functionSettingsTitle": "تنظیمات عملکرد",
+  "generalUpdateFailure": "به روز رسانی ناموفق بود: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "دریافت رایگان",
+  "github": "گیت هاب",
+  "globalFilterDescription": "فیلترهای سراسری را برای همه سیم کارت ها پیکربندی کنید:",
+  "globalFilterFeature": "• فیلترهای سراسری: قوانین اساسی برای همه تماس های ورودی",
+  "globalFilterSettings": "تنظیمات فیلتر سراسری",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "تنظیمات فیلتر سراسری را که برای همه اسلات های سیم کارت اعمال می شود، پیکربندی کنید:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "جستجوی مخاطبین، برچسب ها، لیست سیاه، لیست سفید و غیره.",
+  "globalSearchTitle": "جستجوی سراسری",
+  "globalSettings": "تنظیمات سراسری",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "موقعیت نمایش تبلیغ گوگل",
+  "googleAdMobIntegrationText": "تبلیغات Google AdMob را می توان در اینجا ادغام کرد",
+  "googleDriveAuthDescription": "با استفاده از شناسه مشتری و کلید Google Drive پیکربندی شده توسط سیستم، مجوز دهید",
+  "googleDriveAuthorizationHint": "با استفاده از شناسه مشتری و کلید Google Drive پیکربندی شده توسط سیستم، مجوز دهید",
+  "googleDriveConfigTitle": "پیکربندی Google Drive",
+  "googleDriveConfigurationTitle": "پیکربندی Google Drive",
+  "government": "دولتی",
+  "granted": "اعطا شده",
+  "grantNecessaryPermissions": "مجوزهای لازم را اعطا کنید",
+  "grantPermissions": "اعطای مجوزها",
+  "headhunter": "شکارچی سر",
+  "height": "ارتفاع",
+  "homePageTitle": "صفحه اصلی",
+  "homeTab": "خانه",
+  "howItWorksPoint1": "• سیستم به طور خودکار تماس های یکسان را در بازه زمانی تنظیم شده مجاز می کند",
+  "howItWorksPoint2": "• پنجره های زمانی کوتاهتر باعث رهگیری دقیق تر می شوند؛ پنجره های زمانی طولانی تر باعث رهگیری شل تر می شوند",
+  "howItWorksPoint3": "• سیستم گزارش تماس ها را برای تعیین اینکه آیا یک تماس تکراری است بررسی می کند",
+  "howItWorksTitle": "نحوه کار:",
+  "iconCodeOptional": "کد آیکون (اختیاری)",
+  "iconSize": "اندازه آیکون",
+  "import": "وارد کردن",
+  "important": "مهم",
+  "importButton": "وارد کردن",
+  "importConfig": "وارد کردن پیکربندی",
+  "importContacts": "وارد کردن مخاطبین",
+  "importExportContacts": "وارد کردن/خروجی مخاطبین",
+  "importExportContactsTooltip": "وارد کردن/خروجی مخاطبین",
+  "importExportRules": "وارد کردن/خروجی قوانین",
+  "importFailed": "وارد کردن ناموفق بود: {error}",
+  "importFailure": "وارد کردن پیکربندی انجام نشد",
+  "importFeatureComingSoon": "قابلیت وارد کردن به زودی ارائه می شود",
+  "importLabels": "وارد کردن برچسب ها",
+  "importLabelsFailed": "وارد کردن برچسب ها ناموفق بود: {error}",
+  "importPluginList": "وارد کردن لیست پلاگین",
+  "importPluginListFailed": "وارد کردن لیست پلاگین ناموفق بود: {error}",
+  "importPluginSuccess": "با موفقیت {count} پلاگین وارد شد",
+  "importRuleConfigurationsFromFile": "وارد کردن پیکربندی قوانین از فایل",
+  "importRuleConfigurationsFromFileSubtitle": "وارد کردن پیکربندی قوانین از فایل",
+  "importRules": "وارد کردن قوانین",
+  "importRulesButton": "وارد کردن قوانین",
+  "importRulesDialogTitle": "وارد کردن قوانین",
+  "importRulesError": "وارد کردن قوانین ناموفق بود: {error}",
+  "importRulesInstructions": "قوانین را از فایل CSV وارد کنید",
+  "importRulesSuccess": "قوانین با موفقیت وارد شدند",
+  "importRulesTitle": "وارد کردن قوانین",
+  "importSuccess": "وارد کردن موفقیت آمیز بود",
+  "incomingCallInterceptAction": "اقدام رهگیری تماس ورودی",
+  "incomingCallNotification": "اعلان تماس ورودی",
+  "incorrectPassword": "رمز عبور اشتباه است",
+  "initializing": "درحال مقداردهی اولیه",
+  "installed": "نصب شده",
+  "insufficientMarks": "نمرات ناکافی",
+  "insurance": "بیمه",
+  "interceptAction": "اقدام رهگیری",
+  "interceptionActionSettingsSubtitle": "نحوه مدیریت تماس های مسدود شده را تنظیم کنید",
+  "interceptionActionSettingsTitle": "تنظیمات اقدام رهگیری",
+  "interceptionTimeInterval": "بازه زمانی رهگیری",
+  "internet": "اینترنت",
+  "intervalSetSuccess": "بازه زمانی به روز رسانی {service} روی {days} روز تنظیم شد",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "عبارت منظم محتوا نامعتبر است",
+  "invalidLabel": "برچسب نامعتبر",
+  "invalidRegexPattern": "الگوی regex نامعتبر",
+  "invalidSenderRegex": "الگوی regex فرستنده نامعتبر",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "برای اطلاعات بیشتر به کانال و گروه تلگرام بپیوندید",
+  "jsLogsTitle": "گزارشات JS",
+  "jsonFormat": "قالب JSON",
+  "keepAllVersions": "نگه داشتن همه نسخه‌ها",
+  "keepAllVersionsDescription": "تمام نسخه‌های تاریخی هر پشتیبان را نگه دارید",
+  "keepAllVersionsLabel": "نگه داشتن همه نسخه‌ها",
+  "keepAllVersionsSubtitle": "نسخه‌های تاریخی هر پشتیبان را نگه دارید",
+  "keepAllVersionsTitle": "نگه داشتن همه نسخه‌ها",
+  "label": "برچسب",
+  "labelAddedSuccessfully": "برچسب \"{name}\" با موفقیت اضافه شد",
+  "labelCategories": "دسته بندی برچسب‌ها",
+  "labelDeleted": "برچسب حذف شد",
+  "labelDescription": "برچسب‌ها به شما کمک می‌کنند تا مخاطبین را بهتر مدیریت کنید، برچسب‌های سفارشی را به شماره تلفن‌ها اضافه کنید تا تماس‌ها و پیام‌ها به راحتی شناسایی شوند.",
+  "labelFilter": "فیلتر برچسب",
+  "labelFilterTooltip": "فیلتر برچسب",
+  "labelIconColor": "رنگ آیکون برچسب",
+  "labelManagement": "مدیریت برچسب",
+  "labelNotFound": "برچسب یافت نشد",
+  "labelRemoved": "برچسب حذف شد",
+  "labelRemoveFailed": "حذف برچسب ناموفق بود: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "برچسب‌ها",
+  "labelsColor": "رنگ برچسب‌ها",
+  "labelsDeleted": "{count} برچسب حذف شد",
+  "labelsExportedSuccessfully": "برچسب‌ها با موفقیت صادر شدند",
+  "labelsFontSize": "اندازه فونت برچسب‌ها",
+  "labelsImportedSuccessfully": "{count} برچسب با موفقیت وارد شد",
+  "labelsPosition": "موقعیت برچسب‌ها",
+  "labelTag": "برچسب: {labelId}",
+  "labelUpdated": "برچسب به روز شد",
+  "labelUpdateFailed": "به روز رسانی برچسب ناموفق بود: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "برچسب \"$labelText\" با موفقیت به روز شد",
+  "languageSettings": "تنظیمات زبان",
+  "languageSettingsSubtitle": "تغییر زبان نمایش برنامه",
+  "languageSettingsTitle": "تنظیمات زبان",
+  "last30Days": "30 روز گذشته",
+  "last7Days": "7 روز گذشته",
+  "lastSyncLabel": "آخرین همگام سازی",
+  "lastUpdated": "آخرین به روز رسانی: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "عضویت مادام العمر",
+  "lifetimeMembershipDescription": "خرید یک بار، تمام ویژگی‌های ممتاز و به‌روزرسانی‌های آینده را به طور دائم باز کنید",
+  "loadContactsFailed": "بارگذاری مخاطبین ناموفق بود: {error}",
+  "loadDataFailed": "بارگذاری داده ناموفق بود",
+  "loadFailed": "بارگذاری ناموفق",
+  "loading": "در حال بارگذاری...",
+  "loadingData": "در حال بارگذاری داده‌ها...",
+  "loadingTags": "در حال بارگذاری تگ‌ها...",
+  "loadLabelFailed": "بارگذاری برچسب‌ها ناموفق بود: {error}",
+  "loadLabelsFailed": "بارگذاری برچسب‌ها ناموفق بود: {error}",
+  "loadMarkCountFailed": "بارگذاری شماره تلفن‌های علامت‌گذاری شده ناموفق بود: {error}",
+  "loadMarkedPhonesFailed": "بارگذاری تلفن‌های علامت‌گذاری شده ناموفق بود: {error}",
+  "loadMore": "بیشتر بارگیری کنید",
+  "loadPluginButton": "بارگیری پلاگین",
+  "loadPluginsFailed": "بارگذاری پلاگین‌ها ناموفق بود: {error}",
+  "loadSettingsFailed": "بارگذاری تنظیمات ناموفق بود: {error}",
+  "loadSmsRulesFailed": "بارگذاری قوانین پیامک ناموفق بود: {error}",
+  "loadStatusFailedMessage": "بارگذاری وضعیت ناموفق بود",
+  "loadSubscriptionsFailed": "بارگذاری اشتراک‌ها ناموفق بود: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "قرض",
+  "localBackupTitle": "پشتیبان گیری محلی",
+  "localCounterFilter": "فیلتر شمارنده محلی",
+  "localCounterFilterSubtitle": "به طور خودکار تماس‌های اسپم را بر اساس فرکانس تماس فیلتر کنید",
+  "localCountFilter": "فیلتر تعداد محلی",
+  "localCountFilterDescription": "اعتراض به تماس‌های مکرر بر اساس تعداد اعداد محلی",
+  "localCountFilterExplanationContent": "فیلتر تعداد محلی، سوابق تاریخچه تماس را تجزیه و تحلیل می‌کند تا به طور خودکار تماس‌های اسپم مکرر را شناسایی و مسدود کند.",
+  "localCountFilterExplanationTitle": "توضیح فیلتر تعداد محلی",
+  "localCountFilterHowItWorksPoint1": "• تعیین اینکه آیا بر اساس مقدار تعداد شماره مسدود شود",
+  "localCountFilterHowItWorksPoint2": "• هنگامی که تعداد یک شماره از حد تعیین شده فراتر رفت، می‌توانید آن را به طور خودکار مسدود کنید",
+  "localCountFilterHowItWorksPoint3": "• می‌توانید اعداد را که از حد فراتر نمی‌روند به طور انتخابی مجاز کنید",
+  "localCountFilterHowItWorksPoint4": "• می‌توانید انتخاب کنید که آیا تمام گزارش‌های پرس و جو را ثبت کنید",
+  "localCountFiltering": "فیلتر تعداد محلی",
+  "localCountFilteringExplanation": "• فیلتر تعداد محلی: قوانین فیلتر بر اساس تعداد علامت‌گذاری محلی",
+  "localCountFilterSettings": "تنظیمات فیلتر تعداد محلی",
+  "localCountFilterUseCases": "این فیلتر به ویژه برای شناسایی تماس‌های اسپم خودکار و تماس‌های بازاریابی مناسب است.",
+  "localFilterSettings": "تنظیمات فیلتر محلی",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "اعلان محلی غیرفعال شد",
+  "localNotificationEnabled": "اعلان محلی فعال شد",
+  "localServices": "خدمات محلی",
+  "locationColor": "رنگ مکان",
+  "locationFontSize": "اندازه فونت مکان",
+  "locationIconColor": "رنگ آیکون مکان",
+  "locationPosition": "موقعیت مکان",
+  "logAllLocalQueries": "ثبت تمام پرس و جوهای محلی",
+  "logAllLocalQueriesDescription": "ثبت ورود برای تمام پرس و جوهای شماره محلی",
+  "logAllRemoteQueries": "ثبت تمام پرس و جوهای راه دور",
+  "logAllRemoteQueriesDescription": "تمام عملیات پرس و جوی شماره راه دور را ثبت کنید",
+  "manage": "مدیریت مخاطبین",
+  "manageContacts": "مدیریت",
+  "manageFavoriteContacts": "مدیریت مخاطبین مورد علاقه",
+  "manageFilterRules": "مدیریت قوانین فیلتر",
+  "manageFilterRulesDescription": "اضافه کردن، ویرایش یا حذف قوانین فیلتر پیامک",
+  "manageFrequentContacts": "مدیریت مخاطبین پرتکرار",
+  "markCounts": "شمارش علامت‌گذاری",
+  "markCount": "شمارش علامت‌گذاری",
+  "markedByCount": "علامت‌گذاری شده توسط {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "لیست شماره تلفن‌های علامت‌گذاری شده",
+  "markExchange": "تبادل علامت‌گذاری",
+  "markPhone": "علامت‌گذاری شماره تلفن",
+  "markPhoneFailed": "شماره تلفن با شکست علامت گذاری شد: {error}",
+  "markPhoneManagementSubtitle": "برای علامت گذاری شماره تلفن ها",
+  "markPhoneManagementTitle": "مدیریت شماره های علامت گذاری شده",
+  "markPhoneSuccess": "شماره تلفن با موفقیت علامت گذاری شد",
+  "matchFailed": "تطابق ناموفق بود!",
+  "matchFailedMessage": "تطابق ناموفق بود.",
+  "matchNumbersWithSpecialCharacters": "با فرمت خاص شماره مطابقت دارد",
+  "matchNumbersWithSpecialCharactersTitle": "تطابق اعداد با کاراکترهای ویژه:",
+  "matchSpecificDigitPatterns": "با فرمت XXX-XXXX-XXXX مطابقت دارد",
+  "matchSpecificDigitPatternsTitle": "تطابق الگوهای رقم خاص:",
+  "matchSuccessful": "تطابق موفقیت آمیز بود!",
+  "matchSuccessfulMessage": "تطابق موفقیت آمیز بود!",
+  "medical": "پزشکی",
+  "membershipPrivileges": "مزایای عضویت",
+  "migrationTool": "ابزار مهاجرت",
+  "migrationToolTitle": "ابزار مهاجرت",
+  "minutes": "دقیقه",
+  "month": "ماه",
+  "monthly": "ماهانه",
+  "monthlyCallCount": "تعداد تماس های ماهانه",
+  "monthlyChartTitle": "تماس های مسدود شده ماهانه",
+  "monthlyMembership": "عضویت ماهانه",
+  "monthlyMembershipDescription": "باز کردن تمام ویژگی های ممتاز، تمدید خودکار ماهانه",
+  "monthlyTotal": "مجموع ماهانه",
+  "monthlyTotalLabel": "مجموع ماهانه",
+  "moreOptions": "گزینه های بیشتر",
+  "mute": "بی صدا کردن",
+  "name": "نام",
+  "nameAndPhoneNumberCannotBeEmpty": "نام و شماره تلفن نمی توانند خالی باشند",
+  "nameAndPhoneNumberRequired": "نام و شماره تلفن نمی توانند خالی باشند",
+  "nameColor": "رنگ نام",
+  "nameFontSize": "اندازه فونت نام",
+  "nameLabel": "نام: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "موقعیت نام",
+  "nameUnknown": "نام: ناشناس",
+  "nameWithValue": "نام: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "رمز عبور جدید",
+  "nextStep": "بعدی",
+  "noAction": "هیچ اقدامی",
+  "noActionRules": "قوانین عدم اقدام",
+  "noActiveCloudSyncServiceMessage": "هی هیچ سرویس همگام سازی ابری فعال نیست",
+  "noCallLogs": "هیچ سابقه تماسی وجود ندارد",
+  "noCallRecords": "هیچ سابقه تماسی وجود ندارد",
+  "noContacts": "هنوز هیچ مخاطبی وجود ندارد",
+  "noContactsYet": "هنوز هیچ مخاطبی وجود ندارد",
+  "noData": "داده ای وجود ندارد",
+  "noDevicesRegisteredMessage": "هیچ دستگاهی ثبت نشده است",
+  "noDevicesRegisteredYet": "هنوز هیچ دستگاهی ثبت نشده است.",
+  "noFilters": "هنوز هیچ فیلتری وجود ندارد",
+  "noLabels": "هنوز هیچ برچسبی وجود ندارد",
+  "noMarkedPhones": "هیچ شماره تلفن علامت گذاری شده ای وجود ندارد",
+  "noMatchingContacts": "هیچ مخاطب مطابقی وجود ندارد",
+  "noMatchingContactsFound": "هیچ مخاطب مطابقی یافت نشد",
+  "noMatchingNumbersFound": "هیچ شماره مطابقی یافت نشد",
+  "noMatchingRecords": "هیچ سابقه تماس مطابقی وجود ندارد",
+  "noMatchingRules": "هیچ {ruleType} مطابقی وجود ندارد",
+  "none": "هیچ کدام",
+  "noneServiceType": "هیچ کدام",
+  "noPlugins": "هنوز هیچ افزونه ای وجود ندارد",
+  "noRecords": "هیچ سابقه تماسی وجود ندارد",
+  "noResultReturned": "نتیجه ای بازگردانده نشد",
+  "noResultReturnedLog": "نتیجه ای از افزونه بازگردانده نشد",
+  "noRules": "هنوز هیچ {ruleType} وجود ندارد",
+  "noRulesPrompt": "هیچ قانونی یافت نشد، لطفا قوانین را اضافه کنید",
+  "noRulesToExport": "هیچ قانونی برای صادرات وجود ندارد",
+  "noSmsFilterRulesYet": "هنوز هیچ قانون فیلتر پیامکی وجود ندارد",
+  "noSmsRulesYet": "هنوز هیچ قانون پیامکی وجود ندارد",
+  "noSubscriptions": "هیچ اشتراکاتی وجود ندارد",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "هنوز هیچ اشتراکاتی وجود ندارد",
+  "notGranted": "اعطا نشده",
+  "notificationMode": "حالت اعلان",
+  "notificationModeDescription": "نمایش اطلاعات تماس گیرنده در نوار اعلان",
+  "notificationPermission": "مجوز اعلان",
+  "notificationPermissionDescription": "برای نمایش اعلان های تماس و پیام ورودی استفاده می شود.",
+  "notifications": "اعلان ها",
+  "notificationSettings": "تنظیمات اعلان",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "تنظیمات اعلان با موفقیت ذخیره شد",
+  "notSet": "تنظیم نشده",
+  "notVerifiedText": "تایید نشده",
+  "noValidSmsRulesFoundInFile": "هیچ قانون پیامکی معتبری در فایل یافت نشد",
+  "number": "شماره",
+  "numberColor": "رنگ شماره",
+  "numberFontSize": "اندازه فونت شماره",
+  "numberPosition": "موقعیت شماره",
+  "numberSearch": "جستجوی شماره",
+  "numberTypeColor": "رنگ نوع شماره",
+  "numberTypeFontSize": "اندازه فونت نوع شماره",
+  "numberTypePosition": "موقعیت نوع شماره",
+  "ok": "باشه",
+  "okButton": "باشه",
+  "onboardingCompleteDescription": "مدیر امنیتی تماس شما آماده است، از تجربه تماس امن لذت ببرید!",
+  "onboardingLanguageDescription": "زبان مورد نظر خود را برای بهترین تجربه انتخاب کنید.",
+  "onboardingPermissionsDescription": "برای ارائه خدمات کامل، به مجوزهای زیر نیاز داریم:",
+  "onboardingPowerfulSpamBlockingDescription": "مسدود کردن یک کلیکی تماس ها و پیام های اسپم، سفارشی سازی قوانین مسدودسازی، و ارائه یک محیط آرام به شما.",
+  "onboardingSmartCallerIdDescription": "شناسایی خودکار تماس های ناشناس، علامت گذاری شماره های مشکوک، و محافظت از امنیت تماس شما.",
+  "onboardingWelcomeDescription": "متخصص مدیریت تماس شما، ارائه خدمات جامع شناسایی و مسدودسازی تماس.",
+  "oneDriveAuthDescription": "با شناسه و کلید کلاینت OneDrive که در سیستم پیکربندی شده است، مجوز دریافت کنید",
+  "oneDriveAuthorizationHint": "با شناسه و کلید کلاینت OneDrive که در سیستم پیکربندی شده است، مجوز دریافت کنید",
+  "oneDriveConfigTitle": "پیکربندی OneDrive",
+  "oneDriveConfigurationTitle": "پیکربندی OneDrive",
+  "onlineCallerIdSubscription": "اشتراک شناسه تماس گیرنده آنلاین",
+  "openAppSettings": "باز کردن تنظیمات برنامه",
+  "openAppSettingsFailed": "خطا در باز کردن تنظیمات برنامه: {error}",
+  "operationFailed": "عملیات ناموفق بود: {error}",
+  "operationFailure": "عملیات ناموفق بود",
+  "operationSuccess": "عملیات موفقیت آمیز بود",
+  "other": "سایر",
+  "ourOtherApps": "برنامه‌های دیگر ما",
+  "overlayMode": "پنجره شناور",
+  "overlayModeDescription": "نمایش اطلاعات تماس گیرنده در یک پنجره شناور",
+  "overlayPermission": "مجوز پنجره شناور",
+  "overlayPermissionDescription": "برای نمایش پنجره شناور تماس ورودی استفاده می شود.",
+  "overview": "مرور کلی",
+  "password": "رمز عبور",
+  "passwordCannotBeEmpty": "رمز عبور نمی تواند خالی باشد",
+  "passwordLabel": "رمز عبور",
+  "passwordsDoNotMatch": "رمزهای عبور مطابقت ندارند",
+  "passwordSetSuccessfully": "رمز عبور با موفقیت تنظیم شد",
+  "pattern": "الگو",
+  "pendingSync": "همگام سازی در انتظار",
+  "periodMonth": "ماه",
+  "periodWeek": "هفته",
+  "periodYear": "سال",
+  "permissionDenied": "درخواست مجوز رد شد",
+  "permissionGranted": "مجوز اعطا شد",
+  "permissionManagement": "مدیریت مجوز",
+  "phoneCallsTab": "تلفن",
+  "phoneNumber": "شماره تلفن",
+  "phoneNumberCannotBeEmpty": "شماره تلفن نمی تواند خالی باشد",
+  "phoneNumberHint": "شماره تلفن را وارد کنید",
+  "phoneNumberHintText": "شماره تلفن را برای اضافه کردن قانون وارد کنید",
+  "phoneNumberLabel": "شماره تلفن",
+  "phoneNumberRegexRequired": "لطفا هم شماره تلفن و هم الگوی regex را وارد کنید",
+  "phoneNumberRequired": "شماره تلفن مورد نیاز است",
+  "phoneNumberTypeFixedLine": "خط ثابت",
+  "phoneNumberTypeFixedLineOrMobile": "خط ثابت یا موبایل",
+  "phoneNumberTypeMobile": "موبایل",
+  "phoneNumberTypePager": "پیجر",
+  "phoneNumberTypePersonalNumber": "شماره شخصی",
+  "phoneNumberTypePremiumRate": "نرخ ویژه",
+  "phoneNumberTypeSharedCost": "هزینه اشتراکی",
+  "phoneNumberTypeTollFree": "بدون هزینه",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "ناشناخته",
+  "phoneNumberTypeVoicemail": "صندوق صوتی",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "مجوز تلفن",
+  "phonePermissionDescription": "برای شناسایی و مسدود کردن تماس های ورودی استفاده می شود.",
+  "phoneRule": "قانون تلفن",
+  "phoneRuleEditDialog": "کادر گفتگو ویرایش قانون تلفن",
+  "phoneRuleManagement": "مدیریت قوانین تلفن",
+  "phoneRuleSubscription": "اشتراک قانون تلفن",
+  "phoneSubscription": "اشتراک تلفن",
+  "phoneSubscriptionRulesDescription": "برای به روز رسانی خودکار قوانین لیست سفید و سیاه، لیست های قوانین تلفن را از طریق URL مشترک شوید. از فایل های قانون با فرمت JSON پشتیبانی می کند.",
+  "phoneSubscriptionTitle": "اشتراک های قوانین تلفن",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "لطفا یک برچسب انتخاب کرده و یک شماره تلفن معتبر وارد کنید",
+  "pluginAddedSuccess": "افزودن پلاگین \"{name}\" با موفقیت انجام شد",
+  "pluginDeleted": "پلاگین حذف شد",
+  "pluginLatestVersion": "پلاگین در حال حاضر آخرین نسخه است",
+  "pluginListExportSuccess": "لیست پلاگین ها با موفقیت صادر شد",
+  "pluginLoadedSuccessfully": "پلاگین با موفقیت بارگذاری شد",
+  "pluginManagement": "مدیریت پلاگین",
+  "pluginManagementSubtitle": "مدیریت و پیکربندی پلاگین های شخص ثالث",
+  "pluginManagementTitle": "مدیریت پلاگین",
+  "pluginName": "نام پلاگین",
+  "pluginNotLoaded": "پلاگین هنوز بارگذاری نشده است. لطفا ابتدا پلاگین را بارگذاری کنید.",
+  "pluginsDeleted": "{count} پلاگین با موفقیت حذف شد.",
+  "pluginService": "سرویس پلاگین",
+  "pluginTestPageTitle": "تست پلاگین",
+  "pluginUpdateSuccess": "پلاگین با موفقیت به روز شد",
+  "pluginUrl": "آدرس پلاگین",
+  "pluginUrlCannotBeEmpty": "آدرس پلاگین نمی تواند خالی باشد",
+  "pluginUrlHint": "آدرس پلاگین را وارد کنید",
+  "pluginUrlLabel": "آدرس پلاگین",
+  "pluginVersion": "نسخه پلاگین",
+  "political": "سیاسی",
+  "powerfulSpamBlocking": "مسدود کننده قدرتمند هرزنامه",
+  "previousStep": "قبلی",
+  "prioritizeRemoteAction": "اولویت تنظیمات عمل از راه دور",
+  "prioritizeRemoteActionDescription": "اولویت تنظیمات عمل از پایگاه داده از راه دور",
+  "processing": "در حال پردازش...",
+  "processingOperation": "در حال پردازش...",
+  "purchase": "خرید",
+  "quarterlyMembership": "عضویت سه ماهه",
+  "quarterlyMembershipDescription": "دسترسی به تمام ویژگی های پرمیوم، تمدید خودکار سه ماهه",
+  "queryButton": "پرس و جو",
+  "queryFailed": "پرس و جو ناموفق بود",
+  "queryFailedLog": "پرس و جو ناموفق بود",
+  "querying": "در حال پرس و جو...",
+  "queryingPhoneNumber": "در حال پرس و جو شماره تلفن",
+  "queryResultTitle": "نتیجه پرس و جو",
+  "ready": "آماده!",
+  "receiveWeeklyStatistics": "دریافت آمار هفتگی",
+  "recruiter": "استخدام کننده",
+  "reEnterPasswordHint": "لطفا رمز عبور را مجددا وارد کنید",
+  "refresh": "بازنشانی",
+  "refreshPermissionStatus": "بازنشانی وضعیت مجوز",
+  "refreshTooltip": "بازنشانی",
+  "regexError": "خطای Regex: {error}",
+  "regexErrorMessage": "خطای Regex: {error}",
+  "regexPattern": "الگوی Regex",
+  "regexPatternExplanation": "توضیح الگوی Regex",
+  "regexPatternExplanationButton": "توضیح الگوی Regex",
+  "regexPatternLabel": "الگوی Regex",
+  "regexPatternsExamples": "از سینتکس استاندارد regex برای تعریف الگوها استفاده کنید. مثال ها:",
+  "regexPatternsForPhoneNumberMatching": "الگوهای Regex برای تطابق شماره تلفن",
+  "regexRule": "قانون Regex",
+  "regexRuleAddFailed": "افزودن قانون regex ناموفق بود: {error}",
+  "regexRuleAddSuccess": "قانون regex با موفقیت اضافه شد",
+  "regexRuleManagement": "مدیریت قوانین Regex",
+  "regexRuleNamePatternRequired": "نام قانون و الگوی regex نباید خالی باشد",
+  "regexRules": "قوانین Regex",
+  "regexTesterTitle": "تستر Regex",
+  "regexValidationFailed": "اعتبارسنجی Regex ناموفق بود: {error}",
+  "regexValidationSuccess": "اعتبارسنجی Regex موفقیت آمیز بود",
+  "region": "منطقه",
+  "registeredDevicesTitle": "دستگاه های ثبت شده",
+  "rejectAllCalls": "رد همه تماس ها",
+  "rejectAllCallsDescription": "در صورت فعال بودن، همه تماس ها با بالاترین اولویت رد خواهند شد",
+  "rejectAllNumbers": "رد همه شماره ها",
+  "rejectAllNumbersDesc": "در صورت فعال بودن، همه تماس های ورودی را رد کنید",
+  "rejectExceededNumbers": "رد شماره های از حد گذشته",
+  "rejectExceededNumbersDescription": "رد خودکار شماره هایی که از آستانه شمارش فراتر می روند",
+  "remoteFilterSettings": "تنظیمات فیلتر از راه دور",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "تنظیمات فیلتر شماره از راه دور",
+  "remoteNumberFilter": "فیلتر شماره از راه دور",
+  "remoteNumberFilterDatabaseInfo": "این فیلتر از یک پایگاه داده از راه دور مستقل برای دریافت آخرین اطلاعات شماره استفاده می کند.",
+  "remoteNumberFilterDescription": "تماس های مزاحم را بر اساس اطلاعات پایگاه داده از راه دور رهگیری کنید",
+  "remoteNumberFilterExplanationContent": "فیلتر شماره از راه دور با پرس و جو از یک پایگاه داده از راه دور بر اساس تعداد شماره، تماس های اسپم را شناسایی و مسدود می کند.",
+  "remoteNumberFilterExplanationTitle": "توضیح فیلتر شماره از راه دور",
+  "remoteNumberFilterFeatureCountThreshold": "• آستانه شمارش: بر اساس فراوانی وقوع شماره تعیین کنید",
+  "remoteNumberFilterFeatureFilterAction": "• اقدامات فیلتر: نحوه برخورد با شماره هایی که از آستانه فراتر می روند را پیکربندی کنید",
+  "remoteNumberFilterFeaturePriority": "• تنظیمات اولویت: اولویت اقدامات از راه دور را تنظیم کنید",
+  "remoteNumberFilterFeatures": "ویژگی ها:",
+  "remoteNumberFiltering": "فیلترینگ شماره از راه دور",
+  "remoteNumberFilteringExplanation": "• فیلتر شماره از راه دور: قوانین فیلترینگ بر اساس اطلاعات پایگاه داده از راه دور",
+  "remoteNumberFilterSubtitle": "شناسایی تماس های اسپم با استفاده از پایگاه داده ابری و گزارش های جامعه",
+  "removeAdsDescription": "برای تجربه روان تر، تمام تبلیغات را در برنامه به طور دائم حذف کنید",
+  "removeAdsTitle": "حذف تبلیغات",
+  "removedFromFavoriteContacts": "از مخاطبین مورد علاقه حذف شد",
+  "removedFromFavorites": "از موارد دلخواه حذف شد",
+  "removeFavorite": "حذف مورد دلخواه",
+  "removeFromFavorites": "حذف از موارد دلخواه",
+  "renameButton": "تغییر نام",
+  "renameDeviceDialogTitle": "تغییر نام دستگاه",
+  "renameDeviceTitle": "تغییر نام دستگاه",
+  "replaceCurrentSettingsConfirmation": "این کار تمام تنظیمات فعلی شما را جایگزین می کند. آیا مطمئن هستید که می خواهید ادامه دهید؟",
+  "requestAllPermissions": "درخواست همه مجوزها",
+  "requestPermission": "درخواست مجوز",
+  "requestPermissionFailed": "درخواست مجوز ناموفق بود: {error}",
+  "requiredMarks": "{count} علامت",
+  "reset": "بازنشانی",
+  "restore": "بازیابی",
+  "restoreApplicationSettingsFromBackup": "بازیابی تنظیمات برنامه از پشتیبان",
+  "restoreApplicationSettingsFromBackupSubtitle": "تنظیمات برنامه را از پشتیبان بازیابی کنید",
+  "restoreButton": "بازیابی",
+  "restoreFailedWithError": "بازیابی از ابر ناموفق بود: {error}",
+  "restoreFromCloud": "بازیابی از ابر",
+  "restoreFromCloudDescription": "تنظیمات و قوانین را از فضای ذخیره سازی ابری بازیابی کنید",
+  "restoreFromCloudFailed": "بازیابی از ابر ناموفق بود: {error}",
+  "restoreFromCloudLabel": "بازیابی از ابر",
+  "restoreFromCloudSuccess": "با موفقیت از ابر بازیابی شد",
+  "restoreFromCloudTitle": "بازیابی از ابر",
+  "restoreFromLocal": "بازیابی از محلی",
+  "restorePurchases": "بازیابی خریدها",
+  "restoreSectionTitle": "بازیابی",
+  "restoreSettings": "بازیابی تنظیمات",
+  "restoreSettingsConfirmation": "این کار تمام تنظیمات فعلی شما را جایگزین می کند. آیا مطمئن هستید که می خواهید ادامه دهید؟",
+  "restoreSettingsDialogTitle": "بازیابی تنظیمات",
+  "restoreSettingsTitle": "بازیابی تنظیمات",
+  "restoreSuccessFromLocal": "با موفقیت از محلی بازیابی شد",
+  "restoreSuccessMessage": "با موفقیت از ابر بازیابی شد",
+  "retry": "تلاش مجدد",
+  "ridesharing": "اشتراک گذاری سفر",
+  "risk": "خطر",
+  "robocall": "تماس ربات",
+  "ruleAction": "اقدام قانون",
+  "ruleAddButton": "افزودن قانون",
+  "ruleAddedSuccess": "قانون با موفقیت اضافه شد",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "افزودن قانون ناموفق بود: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "قانون با موفقیت اضافه شد",
+  "ruleDeleteConfirmContent": "آیا مطمئن هستید که می خواهید این {ruleType} را حذف کنید؟",
+  "ruleDeleteConfirmTitle": "حذف قانون",
+  "ruleDeletedSuccess": "قانون با موفقیت حذف شد",
+  "ruleDeletedSuccessfully": "قانون با موفقیت حذف شد",
+  "ruleDeleteFailed": "حذف قانون ناموفق بود: {error}",
+  "ruleDeleteFailure": "حذف قانون ناموفق بود: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "قانون با موفقیت حذف شد",
+  "ruleDisabledSuccessfully": "قانون با موفقیت غیرفعال شد",
+  "ruleEnabledSuccessfully": "قانون با موفقیت فعال شد",
+  "ruleLoadFailed": "بارگیری قوانین ناموفق بود: {error}",
+  "ruleManagement": "مدیریت قوانین",
+  "ruleManagementTitle": "مدیریت قوانین",
+  "ruleName": "نام قانون",
+  "ruleNameAndContentRegexCannotBeEmpty": "نام قانون و regex محتوا نباید خالی باشد",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "نام قانون و شماره تلفن نباید خالی باشد",
+  "ruleNameHint": "مانند: خانواده، دوستان و غیره",
+  "ruleNameLabel": "نام قانون",
+  "ruleNamePatternRequired": "لطفا نام و الگوی قانون را وارد کنید",
+  "ruleNameRequired": "نام قانون و شماره تلفن نباید خالی باشد",
+  "ruleNotExist": "قانون وجود ندارد یا حذف شده است",
+  "ruleNotFound": "قانون یافت نشد: {error}",
+  "ruleSavedSuccessfully": "قانون با موفقیت ذخیره شد!",
+  "ruleSavedSuccessMessage": "قانون با موفقیت ذخیره شد!",
+  "ruleSaveFailed": "ذخیره ناموفق بود: {error}",
+  "ruleSaveFailedMessage": "ذخیره ناموفق بود: {error}",
+  "ruleSaveSuccess": "قانون با موفقیت ذخیره شد!",
+  "rulesExportedSuccessfully": "قوانین با موفقیت صادر شدند",
+  "rulesExportedTo": "قوانین به: {path} صادر شدند",
+  "rulesImported": "قوانین با موفقیت وارد شدند",
+  "rulesImportedSuccessfully": "{count} قانون با موفقیت وارد شد",
+  "rulesImportFailed": "ورود قوانین ناموفق بود: {error}",
+  "ruleStatistics": "آمار قانون",
+  "ruleStatusChanged": "قانون با موفقیت {status} شد",
+  "ruleToggleFailed": "عملیات ناموفق بود: {error}",
+  "ruleToggleSuccess": "قانون با موفقیت {status} شد",
+  "ruleUpdateFailed": "به‌روزرسانی قانون ناموفق بود: {error}",
+  "ruleUpdateSuccess": "قانون با موفقیت به‌روزرسانی شد",
+  "ruleVerification": "تأیید قانون",
+  "save": "ذخیره",
+  "saveButton": "ذخیره",
+  "saveButtonLabel": "ذخیره",
+  "saveButtonText": "ذخیره",
+  "saveFailed": "ذخیره ناموفق بود: {error}",
+  "saveFilter": "ذخیره فیلتر",
+  "saveSettings": "ذخیره تنظیمات",
+  "saveSettingsFailed": "ذخیره تنظیمات ناموفق بود: {error}",
+  "scamsLikely": "احتمال کلاهبرداری",
+  "search": "جستجو",
+  "searchContacts": "جستجوی مخاطبین",
+  "searchError": "خطای جستجو: {error}",
+  "searchFilters": "فیلترهای جستجو",
+  "searchForContacts": "جستجو برای مخاطبین",
+  "searchHint": "جستجو...",
+  "searchSettingsSubtitle": "جستجوی مخاطبین، برچسب‌ها، لیست سیاه، لیست سفید و غیره.",
+  "searchSettingsTitle": "تنظیمات جستجو",
+  "securityMessage": "به هیچ تماس تلفنی اعتماد نکنید. همیشه شماره‌های خدمات مشتری را به طور مستقل تأیید کنید. هرگز رمزهای عبور، کدهای تأیید، شماره کارت یا اطلاعات شخصی را به اشتراک نگذارید.",
+  "selectActionToPerform": "اقدام مورد نظر هنگام تطابق قانون را انتخاب کنید",
+  "selectActionWhenBlockingCalls": "اقدام هنگام مسدود کردن تماس‌ها را انتخاب کنید",
+  "selectActionWhenRuleMatches": "اقدام هنگام تطابق قانون را انتخاب کنید",
+  "selectAll": "انتخاب همه",
+  "selectCountry": "انتخاب کشور",
+  "selectDateRange": "انتخاب محدوده تاریخ",
+  "selectedDateRange": "محدوده تاریخ انتخاب شده",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} مورد انتخاب شده",
+  "selectedLabel": "انتخاب شده:",
+  "selectExportFormat": "انتخاب فرمت خروجی",
+  "selectLabel": "انتخاب برچسب",
+  "selectLabelAndEnterPhoneNumber": "لطفاً یک برچسب انتخاب کرده و یک شماره تلفن معتبر وارد کنید",
+  "selectLanguage": "انتخاب زبان",
+  "selectMultiple": "انتخاب چندگانه",
+  "selectPeriod": "انتخاب دوره",
+  "selectSimCard": "انتخاب سیم کارت",
+  "selectSimSlot": "انتخاب اسلات سیم کارت",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "اقدام خاص مورد نظر هنگام مسدود کردن تماس‌ها را انتخاب کنید",
+  "selectTag": "انتخاب تگ",
+  "selectTags": "انتخاب تگ‌ها",
+  "selectTrustedDataSource": "لطفاً منابع داده معتبر را انتخاب کنید",
+  "selectYourLanguage": "انتخاب زبان شما",
+  "sender": "فرستنده",
+  "senderRegexOptional": "عبارت منظم فرستنده (اختیاری)",
+  "serverAddressLabel": "آدرس سرور",
+  "serviceTypeContact": "اشتراک تماس",
+  "serviceTypeLabel": "نوع سرویس",
+  "serviceTypePhone": "اشتراک تلفن",
+  "serviceTypePlugin": "به‌روزرسانی افزونه",
+  "serviceTypeSms": "اشتراک پیامک",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "تنظیم",
+  "setEncryptionPassword": "تنظیم رمز عبور رمزگذاری",
+  "setEncryptionPasswordDescription": "رمز عبور رمزگذاری را برای پشتیبان‌گیری و بازیابی تنظیم کنید",
+  "setEncryptionPasswordLabel": "تنظیم رمز عبور رمزگذاری",
+  "setEncryptionPasswordTitle": "تنظیم رمز عبور رمزگذاری",
+  "setPasswordButton": "تنظیم",
+  "settings": "تنظیمات",
+  "settingsBackedUpTo": "تنظیمات در: {path} پشتیبان‌گیری شد",
+  "settingsLoaded": "تنظیمات بارگذاری شد",
+  "settingsLoadFailed": "بارگذاری تنظیمات ناموفق بود: {error}",
+  "settingsRestoredSuccessfully": "تنظیمات با موفقیت بازیابی شد. لطفاً برنامه را مجدداً راه‌اندازی کنید تا تغییرات اعمال شوند.",
+  "settingsSaved": "تنظیمات ذخیره شد",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "ذخیره تنظیمات ناموفق بود: {error}",
+  "settingsTab": "تنظیمات",
+  "settingsTitle": "تنظیمات",
+  "setup": "تنظیم",
+  "showContactEditDialogStaticMethod": "متد استاتیک برای نمایش پنجره ویرایش مخاطب",
+  "showExplanation": "نمایش توضیح",
+  "silence": "بی‌صدا کردن",
+  "silenceAndNoAnswer": "بی‌صدا کردن و عدم پاسخ",
+  "silenceNoAnswer": "بی‌صدا کردن عدم پاسخ",
+  "silentCallVoiceClone": "کلون صدای تماس بی‌صدا",
+  "silentRules": "قوانین بی‌صدا",
+  "simCard": "سیم کارت {simNumber}",
+  "simCardColor": "رنگ سیم کارت",
+  "simCardConfigurationExplanation": "• تنظیمات سیم کارت: قوانین فیلتر مستقل برای هر سیم کارت تنظیم کنید",
+  "simCardFilterRules": "قوانین فیلتر سیم کارت",
+  "simCardFilterRulesDescription": "قوانین فیلتر متفاوتی را بر اساس اسلات سیم کارت تنظیم کنید",
+  "simCardFontSize": "اندازه فونت سیم کارت",
+  "simCardPosition": "موقعیت سیم کارت",
+  "simInfo": "سیم {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "بارگذاری اطلاعات سیم کارت ناموفق بود: {error}",
+  "simRuleInstructions": "قوانین اسلات سیم کارت به شما امکان می دهد قوانین فیلترینگ مستقلی را برای هر اسلات سیم کارت پیکربندی کنید.",
+  "simRuleInstructionsTitle": "قوانین اسلات سیم کارت",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "مدیریت قوانین اسلات سیم کارت",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "سیم کارت ۱،-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "سیم کارت ۲،-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "خطا در بارگذاری داده های سیم کارت: {error}",
+  "simSlotFilterConfiguration": "پیکربندی فیلتر اسلات سیم کارت",
+  "simSlotFilterConfigurationDescription": "امکان تنظیم قوانین فیلتر بر اساس اسلات سیم کارت",
+  "simSlotFilterDescription": "قوانین فیلترینگ مستقل را برای هر سیم کارت پیکربندی کنید:",
+  "simSlotFilterSettingsTitle": "تنظیمات فیلتر اسلات سیم کارت {slotNumber}",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "خطا در بارگذاری اسلات های سیم کارت: {error}",
+  "simSlotManagement": "مدیریت اسلات سیم کارت",
+  "simSlotOperationFailed": "عملیات اسلات سیم کارت ناموفق بود: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "موقعیت اسلات سیم کارت {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• قوانین اسلات سیم کارت: استراتژی های فیلترینگ مستقل برای هر سیم کارت",
+  "simSlotRuleListTitle": "لیست قوانین اسلات سیم کارت",
+  "simSlotRuleManagement": "قوانین اسلات سیم کارت",
+  "simSlotRuleManagementTitle": "مدیریت قوانین",
+  "simSlotSettings": "تنظیمات اسلات سیم کارت",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "اسلات سیم کارت {slotNumber}",
+  "skip": "رد شدن",
+  "smartCallerId": "شناسایی هوشمند تماس گیرنده",
+  "sms": "پیامک",
+  "smsFilterDescription": "فیلتر کردن پیامک به شما کمک می کند تا پیام های اسپم را به طور خودکار فیلتر کرده و لیست پیام های خود را تمیز نگه دارید. می توانید قوانین فیلتر و روش های اعلان را تنظیم کنید.",
+  "smsFilterDisabled": "فیلتر کردن پیامک غیرفعال است",
+  "smsFilterEnabled": "فیلتر کردن پیامک فعال است",
+  "smsFilterRuleAddedSuccessfully": "قانون فیلتر پیامک با موفقیت اضافه شد",
+  "smsFilterRules": "قوانین فیلتر پیامک",
+  "smsFilterSettings": "تنظیمات فیلتر پیامک",
+  "smsHistory": "تاریخچه پیامک",
+  "smsManagement": "مدیریت پیامک",
+  "smsPermission": "مجوز پیامک",
+  "smsPermissionDescription": "برای فیلتر کردن پیام های اسپم استفاده می شود.",
+  "smsRuleAddedSuccessfully": "قانون پیامک با موفقیت اضافه شد",
+  "smsRuleDeletedSuccessfully": "قانون پیامک با موفقیت حذف شد",
+  "smsRuleLoadFailed": "خطا در بارگذاری قوانین پیامک: {error}",
+  "smsRuleManagement": "مدیریت قوانین پیامک",
+  "smsRulesExportedSuccessfully": "قوانین پیامک با موفقیت به {filePath} صادر شد",
+  "smsRulesImportedSuccessfully": "قوانین پیامک با موفقیت وارد شد",
+  "smsRuleSubscription": "اشتراک قوانین پیامک",
+  "smsRuleUpdatedSuccessfully": "قانون پیامک با موفقیت به روز شد",
+  "smsSettingsSubtitle": "فیلتر کردن پیامک و مسدود کردن کلمات کلیدی",
+  "smsSettingsTitle": "تنظیمات پیامک",
+  "smsSubscription": "اشتراک پیامک",
+  "smsSubscriptionAddedSuccessfully": "اشتراک پیامک با موفقیت اضافه شد",
+  "smsSubscriptionRulesDescription": "اشتراک در لیست قوانین پیامک از طریق URL، پشتیبانی از تطبیق عبارت منظم. می توانید اقدامات مسدود کردن یا مجاز کردن را تنظیم کنید.",
+  "smsTab": "پیامک",
+  "somePermissionsDenied": "درخواست برخی مجوزها رد شد",
+  "spamLikely": "احتمال اسپم",
+  "startColor": "رنگ شروع",
+  "startDate": "تاریخ شروع",
+  "startUsing": "شروع به استفاده",
+  "statAnswered": "پاسخ داده شده",
+  "statBlocked": "مسدود شده",
+  "staticMethodShowCallerIdDialog": "روش استاتیک برای نمایش دیالوگ اطلاعات تماس گیرنده",
+  "staticMethodToDisplayCountrySelectionDialog": "روش استاتیک برای نمایش دیالوگ انتخاب کشور",
+  "staticMethodToDisplayDialog": "روش استاتیک برای نمایش دیالوگ",
+  "statistics": "آمار",
+  "statisticsExportFeatureComingSoon": "قابلیت صادرات آمار به زودی ارائه می شود",
+  "statisticsGrid": "شبکه آمار",
+  "statisticsPageTitle": "تحلیل داده ها",
+  "stirColor": "رنگ STIR",
+  "stirFontSize": "اندازه فونت STIR",
+  "stirPosition": "موقعیت STIR",
+  "storagePermission": "مجوز ذخیره سازی",
+  "storagePermissionDescription": "برای ذخیره تنظیمات و قوانین استفاده می شود.",
+  "subscribe": "اشتراک",
+  "subscriptionAddSuccess": "اشتراک \"{name}\" با موفقیت اضافه شد",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "آیا مطمئن هستید که می خواهید این اشتراک را حذف کنید؟",
+  "subscriptionDeleteConfirmTitle": "حذف اشتراک",
+  "subscriptionDeleted": "اشتراک حذف شد",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "اشتراک با موفقیت حذف شد",
+  "subscriptionDeleteFailed": "خطا در حذف اشتراک: {error}",
+  "subscriptionDeleteSuccess": "اشتراک حذف شد",
+  "subscriptionEmptyState": "هیچ اشتراکی موجود نیست",
+  "subscriptionEmptyText": "هنوز هیچ اشتراکی وجود ندارد",
+  "subscriptionLoadFailed": "خطا در بارگذاری اشتراک ها: {error}",
+  "subscriptionLoadingFailed": "خطا در بارگذاری اشتراک ها: {error}",
+  "subscriptionManagementTitle": "مدیریت اشتراک",
+  "subscriptionName": "نام اشتراک",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "نام و URL اشتراک نمی توانند خالی باشند",
+  "subscriptionNameHint": "نام اشتراک را وارد کنید",
+  "subscriptionPageTitle": "مدیریت اشتراک",
+  "subscriptionStatusChangeFailed": "خطا در تغییر وضعیت اشتراک: {error}",
+  "subscriptionToggleFailed": "خطا در تغییر وضعیت اشتراک: {error}",
+  "subscriptionUpdateFailed": "خطا در به روز رسانی اشتراک: {error}",
+  "subscriptionUpdateSuccess": "اشتراک با موفقیت به روز شد",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "URL اشتراک",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "URL اشتراک را وارد کنید",
+  "successfullyImportedRules": "{count} قانون با موفقیت وارد شد",
+  "supportSync": "پشتیبانی از همگام سازی",
+  "survey": "نظرسنجی",
+  "syncDevicesButton": "همگام سازی دستگاه ها",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "همگام سازی ناموفق بود",
+  "syncFailedMessage": "همگام سازی ناموفق بود",
+  "syncFolderNameHint": "لطفا نام پوشه همگام سازی را وارد کنید (پیش فرض: NotificationManager)",
+  "syncFolderNameLabel": "نام پوشه همگام سازی",
+  "synchronized": "همگام سازی شده",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "در حال همگام سازی...",
+  "syncNow": "اکنون همگام سازی کنید",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "همگام سازی هم اکنون",
+  "syncStatusTitle": "وضعیت همگام سازی",
+  "syncStatusUpdatedMessage": "وضعیت همگام سازی به روز شد",
+  "syncSuccessful": "همگام سازی موفقیت آمیز بود",
+  "syncSuccessMessage": "همگام سازی موفقیت آمیز بود",
+  "syncWithCloudStorage": "همگام سازی با فضای ذخیره سازی ابری",
+  "syncWithCloudStorageSubtitle": "همگام سازی با فضای ذخیره سازی ابری",
+  "systemFeatures": "ویژگی های سیستم:",
+  "systemSettingsTitle": "تنظیمات سیستم",
+  "tabAll": "همه",
+  "tabAnswered": "پاسخ داده شده",
+  "tabBlocked": "مسدود شده",
+  "tabMissed": "از دست رفته",
+  "tabOutgoing": "خروجی",
+  "tagLabel": "برچسب: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "برچسب ها به روز شدند",
+  "takeaway": "برداشت",
+  "telecommunication": "مخابرات",
+  "telegram": "تلگرام",
+  "telemarketing": "بازاریابی تلفنی",
+  "testButton": "تست",
+  "testButtonLabel": "تست",
+  "testConnectionButton": "تست اتصال",
+  "textColorsSetting": "رنگ متن و برچسب",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "این برنامه یک ابزار قدرتمند شناسه تماس گیرنده است که به شما امکان می دهد تماس های ناخواسته را شناسایی و مسدود کنید.",
+  "thisWeek": "این هفته",
+  "timeInterceptor": "رهگیر زمان",
+  "timeInterceptorDescription": "رهگیری/اجازه دادن خودکار تماس های بالقوه بر اساس فراوانی تماس",
+  "timeInterceptorExplanation": "• رهگیر زمان: رهگیری/اجازه دادن تماس های تکراری در مدت زمان کوتاه",
+  "timeInterceptorExplanationContent": "ویژگی رهگیری فراوانی تماس، فراوانی تماس را تجزیه و تحلیل می کند تا تماس های هرزنامه مکرر را به طور خودکار شناسایی و رهگیری/اجازه دهد.",
+  "timeInterceptorExplanationTitle": "توضیحات رهگیری فراوانی تماس",
+  "timeInterceptorSettingsTitle": "تنظیمات رهگیری فراوانی تماس",
+  "timeInterceptorSubtitle": "رهگیری خودکار تماس های هرزنامه بالقوه بر اساس فراوانی تماس",
+  "timeInterceptorTitle": "فعال کردن رهگیری فراوانی تماس",
+  "timeWindowDescription": "اندازه پنجره زمانی را برای اجازه دادن به تماس های تکراری تنظیم کنید. تماس های یک شماره در این پنجره مجاز خواهند بود",
+  "timeWindowLabel": "پنجره زمانی رهگیری (دقیقه): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "اندازه پنجره زمانی را برای اجازه دادن به تماس های تکراری تنظیم کنید. تماس های یک شماره در این پنجره مجاز خواهند بود",
+  "today": "امروز",
+  "total": "کل",
+  "totalBlocked": "کل مسدود شده",
+  "totalFiltered": "کل فیلتر شده",
+  "transferDataBetweenDevicesOrPlatforms": "انتقال داده بین دستگاه ها یا پلتفرم ها",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "انتقال داده بین دستگاه ها یا پلتفرم ها",
+  "travelTicketing": "بلیط سفر",
+  "trend": "روند",
+  "trendChart": "نمودار روند",
+  "tutorial": "آموزش",
+  "type": "نوع",
+  "unassignedSIMCard": "کارت سیم اختصاص داده نشده",
+  "unknown": "ناشناخته",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "برچسب ناشناخته",
+  "unknownTag": "برچسب: ناشناخته",
+  "unregisterButton": "لغو ثبت نام",
+  "unregisterDeviceConfirmationMessage": "آیا مطمئن هستید که می خواهید دستگاه {deviceName} را لغو ثبت نام کنید؟",
+  "unregisterDeviceTitle": "لغو ثبت نام دستگاه",
+  "unsupportedFileFormat": "فرمت فایل پشتیبانی نشده",
+  "update": "به روز رسانی",
+  "updateAllNow": "همه را هم اکنون به روز کن",
+  "updateCallFilterConfig": "به روز رسانی پیکربندی فیلتر تماس",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "به روز رسانی مخاطب ناموفق بود: {error}",
+  "updateFavoriteStatus": "به روز رسانی وضعیت مورد علاقه",
+  "updateFavoriteStatusFailed": "به روز رسانی وضعیت مورد علاقه ناموفق بود: {error}",
+  "updateInterval": "بازه به روز رسانی",
+  "updateLabelFailed": "به روز رسانی برچسب ناموفق بود",
+  "updateNow": "هم اکنون به روز کن",
+  "updatePlugin": "به روز رسانی افزونه",
+  "updatePluginFailed": "به روز رسانی افزونه ناموفق بود: {error}",
+  "updateRuleFailed": "به روز رسانی قانون ناموفق بود: {error}",
+  "updateSubscriptionFailed": "به روز رسانی اشتراک ناموفق بود: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} با موفقیت به روز شد ({count} قوانین)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "به روز رسانی برچسب ها",
+  "useCasesPoint1": "• شناسایی تماس های هرزنامه با شماره گیری مجدد خودکار",
+  "useCasesPoint2": "• رهگیری تماس های بازاریابی که چندین بار در مدت زمان کوتاه تماس می گیرند",
+  "useCasesPoint3": "• جلوگیری از بمباران تلفنی و آزار و اذیت",
+  "useCasesTitle": "موارد استفاده:",
+  "useGlobalSettings": "استفاده از تنظیمات جهانی",
+  "userEmail": "user@example.com",
+  "usernameLabel": "نام کاربری",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "از نحو استاندارد regex برای تعریف الگوها استفاده کنید. مثال ها:",
+  "validateRegex": "اعتبار سنجی Regex",
+  "verificationFailedText": "ناموفق",
+  "verifiedText": "تایید شده",
+  "verify": "تایید",
+  "version": "نسخه: {version}",
+  "vipExchangeDescription": "تبادل عضویت VIP با تعداد علامت گذاری شماره تلفن",
+  "vipExchangeTitle": "تبادل VIP علامت گذاری",
+  "watchAd": "تماشای تبلیغ",
+  "watchAdForTemp": "تماشای تبلیغ برای امتیازات موقت",
+  "watchAdForTempDescription": "یک تبلیغ کوتاه تماشا کنید تا برخی از ویژگی های ممتاز را به طور موقت باز کنید",
+  "webDAVConfigTitle": "پیکربندی WebDAV",
+  "webdavConfigurationTitle": "پیکربندی WebDAV",
+  "webdavPasswordHint": "لطفا رمز عبور WebDAV را وارد کنید",
+  "webdavServerAddressHint": "لطفا آدرس سرور WebDAV را وارد کنید",
+  "webdavUsernameHint": "لطفا نام کاربری WebDAV را وارد کنید",
+  "week": "هفته",
+  "weekly": "هفتگی",
+  "weeklyBlockedCallsSummary": "خلاصه تماس های مسدود شده هفتگی",
+  "weeklyChartTitle": "تماس های مسدود شده هفتگی",
+  "weeklyReport": "گزارش هفتگی",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "گزارش خلاصه هفتگی فعالیت مسدود کردن تماس را دریافت کنید",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "به",
+  "whitelist": "لیست مجاز",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "لیست مجاز",
+  "width": "عرض",
+  "wildcardMatchingDescription": "از '.' برای تطابق با هر کاراکتری استفاده کنید (مثلاً '123.456' با 123-456 مطابقت دارد)",
+  "wildcardMatchingTitle": "تطابق کاراکتر عام:",
+  "wildcardSupportForFlexibleFiltering": "پشتیبانی از کاراکتر عام برای فیلترینگ انعطاف پذیر",
+  "windowSizeSetting": "اندازه پنجره",
+  "year": "سال",
+  "yearly": "سالانه",
+  "yearlyChartTitle": "تماس‌های مسدود شده سالانه",
+  "noSimCardsDetected": "هیچ سیم کارتی شناسایی نشد",
+  "filterManagementDescription": "تنظیم فیلترهای تماس",
+  "callerIdCustomizationSubtitle": "سفارشی سازی طرح بندی شناسه تماس گیرنده",
+  "fraudAlerSettingTitle": "تنظیم هشدار تقلب",
+  "fraudAlerSettingSubtitle": "برای تنظیم هشدار تقلب",
+  "enableFraudAlert": "فعال کردن هشدار تقلب",
+  "enableFraudAlertDescription": "هشدار برای تماس های مشکوک به کلاهبرداری",
+  "enableVibration": "فعال کردن لرزش",
+  "enableVibrationDescription": "هنگام تماس مشکوک به کلاهبرداری، لرزش را فعال کنید",
+  "notificationSettingsTitle": "تنظیمات اعلان",
+  "useLocalNotification": "استفاده از اعلان های محلی",
+  "useLocalNotificationDescription": "فعال کردن اعلان های محلی برای تماس های ورودی",
+  "cancelLocalNotification": "بستن اعلان های محلی",
+  "useStirNotification": "استفاده از اعلان STIR",
+  "useStirNotificationDescription": "فعال کردن اعلان های STIR برای تماس های ورودی",
+  "cancelLocalNotificationDescription": "بستن خودکار اعلان های محلی",
+  "callerIdSettingsTitle": "تنظیمات شناسه تماس گیرنده",
+  "callerIdSettingsSubtitle": "برای تنظیم اعلان و حالت نمایش تماس ورودی",
+  "purchaseTitle": "خرید",
+  "purchaseSubtitle": "برای خرید سرویس",
+  "callerIdNotificationTitle": "اطلاعات تماس ورودی",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "شماره: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "تماس مسدود شده",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "تماس مسدود شده از {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "تایید شده",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "تایید نشده",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "تایید ناموفق بود",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "وضعیت تایید نامشخص",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "تایید STIR/SHAKEN",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} برای شماره {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "تنظیمات پیام امنیتی پیمایشی",
+  "messageColor": "رنگ پیام",
+  "messageFontSize": "اندازه فونت پیام",
+  "messagePosition": "موقعیت پیام",
+  "containerWidth": "عرض کانتینر",
+  "scrollSpeed": "سرعت پیمایش",
+  "enableSecurityMessage": "فعال کردن پیام امنیتی",
+  "fraudAlertTitle": "هشدار تقلب",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "تماس مشکوک به تقلب از {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "بارگذاری قوانین ناموفق بود: {error}",
+  "loadCallLogFailed": "بارگذاری گزارش تماس ناموفق بود: {error}",
+  "noBlockedTypeData": "هیچ داده ای از نوع مسدود شده در دسترس نیست",
+  "importEntity": "وارد کردن {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} با موفقیت وارد شد، در مجموع {count} رکورد وارد شد",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "وارد کردن {entityTypeName} ناموفق بود: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "صادر کردن {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} با موفقیت صادر شد",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "صادر کردن {entityTypeName} ناموفق بود: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "سرویس همگام سازی ابری",
+  "membershipCenter": "مرکز عضویت",
+  "redeemVipWithMarks": "بازخرید VIP با مارک",
+  "currentMarkCount": "تعداد مارک فعلی",
+  "markMoreNumbersForMore": "برای دریافت مارک بیشتر، شماره های بیشتری را مارک کنید",
+  "noAds": "بدون تبلیغات",
+  "cloudBackup": "پشتیبان گیری ابری",
+  "callerIdEnhancement": "بهبود شناسه تماس گیرنده",
+  "voiceRecognition": "تشخیص صدا",
+  "feature": "ویژگی",
+  "normalUser": "کاربر عادی",
+  "vipUser": "کاربر VIP",
+  "temporaryVip": "VIP موقت",
+  "removeAds": "حذف تبلیغات",
+  "unknownAction": "اقدام نامشخص",
+  "settingsBackup": "پشتیبان گیری تنظیمات ",
+  "allServicesStatusTitle": "وضعیت فعلی سرویس",
+  "allServicesStatusSubtitle": "وضعیت فعلی هر سرویس ابری",
+  "redirect": "هدایت",
+  "notify": "اطلاع دادن",
+  "log": "ثبت",
+  "custom": "سفارشی",
+  "allowActionDescription": "تماس ها اجازه داده می شوند، حتی اگر شماره در لیست مسدود شده باشد.",
+  "blockActionDescription": "تماس ها مسدود شده و در گزارش تماس نمایش داده می شوند.",
+  "silenceActionDescription": "تماس ها بی صدا می شوند اما در گزارش تماس نمایش داده می شوند.",
+  "noneActionDescription": "هیچ اقدام ویژه ای برای تماس انجام نخواهد شد.",
+  "redirectActionDescription": "تماس را به یک شماره مشخص هدایت کنید.",
+  "labelActionDescription": "برای شناسایی آسان، یک برچسب به تماس اضافه کنید.",
+  "notifyActionDescription": "هنگام دریافت تماس، اعلان ارسال کنید.",
+  "logActionDescription": "اطلاعات تماس را بدون انجام هیچ اقدام دیگری ثبت کنید.",
+  "customActionDescription": "یک اقدام سفارشی انجام دهید.",
+  "synced": "همگام سازی شده",
+  "needVipAccess": "برای استفاده از این ویژگی به دسترسی VIP نیاز دارید",
+  "importExportDescription": "وارد کردن یا صادر کردن داده های {entityTypeName}",
+  "importExportTitle": "واردات/صادرات",
+  "noPhoneRules": "هیچ قانون تلفنی یافت نشد",
+  "noRegexRules": "هیچ قانون regex یافت نشد",
+  "noAllowedBlockedRules": "هیچ قانون مجاز/مسدود شده ای یافت نشد",
+  "importExport": "واردات/صادرات",
+  "filterByAction": "فیلتر بر اساس اقدام",
+  "upgradeToVip": "ارتقا به VIP",
+  "batteryOptimizationPermission": "بهینه سازی باتری",
+  "batteryOptimizationPermissionDescription": "به برنامه اجازه دهید تا در پس زمینه برای ارائه خدماتی مانند شناسه تماس گیرنده اجرا شود.",
+  "permissionTitle": "مجوزهای ویژه",
+  "permissionSubtitle": "مدیریت مجوزهای همپوشانی و بهینه سازی باتری",
+  "themeSettingsTitle": "تنظیمات پوسته",
+  "themeSettingsSubtitle": "پوسته مورد علاقه خود را انتخاب کنید",
+  "databaseSyncTitle": "همگام سازی پایگاه داده",
+  "countrySyncSettingsTitle": "تنظیمات همگام سازی پایگاه داده مبتنی بر کشور",
+  "countrySyncSettingsSubtitle": "کشورها را برای همگام سازی داده ها انتخاب کنید",
+  "countryDataDisclaimer": "لطفاً توجه داشته باشید: ممکن است پایگاه داده شامل داده هایی برای همه کشورها یا مناطق خاص نباشد.",
+  "editSubscription": "ویرایش اشتراک",
+  "searchByNameOrPhoneNumber": "جستجو بر اساس نام یا شماره تلفن",
+  "allowedBlockedRulesInfo": "قوانین مجاز/مسدود شده برای تطبیق تماس ها با شماره تلفن های خاص استفاده می شوند که بالاترین اولویت را دارند.",
+  "searchPhoneRulesHint": "جستجو قوانین تلفن",
+  "phoneRulesInfo": "قوانین تلفن برای تطبیق تماس ها با شماره تلفن های خاص استفاده می شوند که اولویت کمتری دارند. برخی از آنها از اشتراک های phoneRule می آیند.",
+  "searchSubscriptionsHint": "جستجو اشتراک ها",
+  "searchPluginsHint": "جستجو افزونه ها",
+  "searchLabelsHint": "جستجو برچسب ها",
+  "pluginDescription": "توضیحات افزونه",
+  "enterPluginDescription": "توضیحات افزونه را وارد کنید",
+  "searchRegexRulesHint": "جستجو قوانین Regex",
+  "regexRulesInfo": "قوانین Regex برای فیلتر کردن تماس ها بر اساس الگوهای Regex استفاده می شوند.",
+  "searchMarkedPhonesHint": "جستجو شماره های علامت گذاری شده",
+  "searchContactSubscriptionsHint": "جستجو اشتراک های تماس",
+  "showAllContacts": "نمایش همه مخاطبین",
+  "showFavorites": "نمایش موارد دلخواه",
+  "manualEntry": "اطلاعات ورود دستی",
+  "scriptSaved": "اسکریپت ذخیره شد",
+  "editScriptFor": "ویرایش اسکریپت برای {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "ذخیره اسکریپت",
+  "testPlugin": "آزمایش افزونه",
+  "description": "توضیحات",
+  "accessTargetUrl": "دسترسی به URL هدف",
+  "result": "نتیجه",
+  "editScript": "ویرایش اسکریپت",
+  "numberFormat": "فرمت شماره",
+  "nationalNumber": "شماره ملی",
+  "e164Number": "شماره E164",
+  "pluginRulesInfo": "برای امنیت، لطفاً فقط از افزونه های منابع معتبر استفاده کنید. در استفاده از قالب های ما برای ایجاد افزونه های سفارشی خود آزاد باشید!",
+  "advancedMode": "حالت پیشرفته",
+  "pleaseEnterAtLeastOneNumber": "لطفاً حداقل یک شماره وارد کنید.",
+  "openInWebView": "باز کردن در WebView",
+  "pluginLabel": "برچسب افزونه",
+  "pluginID": "شناسه",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "رنگ پس زمینه پیام",
+  "clearAllCallLogs": "پاک کردن همه گزارش های تماس",
+  "clearAllCallLogsConfirmation": "تایید برای پاک کردن همه گزارش های تماس",
+  "allCallLogsCleared": "همه گزارش های تماس پاک شدند",
+  "unblocked": "مسدود نشده",
+  "blockNumber": "مسدود کردن شماره",
+  "blockNumberSuccess": "مسدود کردن شماره موفقیت آمیز بود",
+  "blockNumberFailed": "مسدود کردن شماره ناموفق بود",
+  "unblockNumberConfirmation": "آیا مطمئن هستید که می خواهید {phoneNumber} را از مسدودیت خارج کنید؟",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "در حال تماس با {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "مشاهده جزئیات",
+  "unblock": "رفع مسدودیت",
+  "unblockNumber": "رفع مسدودیت شماره",
+  "unblockNumberSuccess": "شماره با موفقیت از مسدودیت خارج شد",
+  "unblockNumberFailed": "رفع مسدودیت شماره ناموفق بود",
+  "serviceNotAvailable": "سرویس در دسترس نیست",
+  "callingNumberFailed": "تماس با شماره ناموفق بود",
+  "listView": "نمای لیست",
+  "timelineView": "نمای خط زمانی",
+  "nameCannotBeEmpty": "نام نمی تواند خالی باشد",
+  "selectAction": "اقدام را انتخاب کنید",
+  "selectTargetService": "سرویس هدف را انتخاب کنید",
+  "callDetails": "جزئیات تماس",
+  "callType": "نوع تماس",
+  "callTime": "زمان تماس",
+  "numberInvalidFormat": "فرمت شماره نامعتبر است",
+  "membershipFeature": "ویژگی عضویت",
+  "medium": "متوسط",
+  "verificationReport": "گزارش تأیید",
+  "finalRisk": "ریسک نهایی",
+  "simState": "وضعیت سیم کارت",
+  "ipCountry": "کشور IP",
+  "simCountry": "کشور سیم کارت",
+  "isRoaming": "در حال رومینگ",
+  "isNumberMatch": "تطابق شماره",
+  "support": "پشتیبانی",
+  "rewardedAdService": "سرویس تبلیغات پاداش",
+  "hasVipPrivilegeExceptAds": "شما از قبل دارای امتیازات VIP (به جز تبلیغات) هستید",
+  "hasTempPrivilegeWithExpiry": "شما از قبل دارای امتیازات موقت هستید، تاریخ انقضا: {expiryDate}",
+  "watchMoreAdsForTempVip": "برای دریافت امتیازات VIP موقت باید {count} تبلیغ دیگر تماشا کنید",
+  "grantedTempPurchaseWithExpiry": "شما {days} روز امتیاز خرید موقت دریافت کرده اید. تاریخ انقضا: {expiryDate}",
+  "tempPurchaseExpired": "امتیاز خرید موقت منقضی شده است",
+  "loadingAd": "در حال بارگذاری تبلیغ...",
+  "earnedTempVip": "VIP موقت دریافت شد",
+  "vipExchangeService": "سرویس تبادل VIP",
+  "marksInsufficient": "نشان کافی برای تبادل وجود ندارد",
+  "invalidExchangeRule": "قانون تبادل نامعتبر",
+  "exchangeSuccess": "با موفقیت برای {description} تبادل شد، تاریخ انقضا: {expiryDate}",
+  "exchangeFailed": "تبادل ناموفق: {error}",
+  "vip3DaysWithAds": "VIP 3 روزه با تبلیغات (فقط همگام سازی)",
+  "vip5DaysNoAds": "VIP 5 روزه کامل بدون تبلیغات",
+  "vip7DaysNoAds": "VIP 7 روزه کامل بدون تبلیغات",
+  "noNotifications": "بدون اعلان",
+  "clearAllNotifications": "پاک کردن همه اعلان ها",
+  "clearAllNotificationsConfirmation": "تایید برای پاک کردن همه اعلان ها",
+  "allNotificationsCleared": "تم مسح جميع الإشعارات",
+  "clearButton": "مسح",
+  "justNow": "مباشرة الآن",
+  "minutesAgo": "{count,plural, =1{دقيقة واحدة مضت} other{{count} دقائق مضت}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{ساعة واحدة مضت} other{{count} ساعات مضت}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{يوم واحد مضى} other{{count} أيام مضت}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "الأمس",
+  "deletionProposal": "اقتراح الحذف",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "اقتراحات الحذف",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "إنشاء اقتراح",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "إنشاء اقتراح حذف",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "السبب",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "الرقم قديم",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "قضية خصوصية",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "ليس قيد الخدمة",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "تم التعرف عليه بشكل خاطئ",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "معلومات غير دقيقة",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "تم وضع علامة خاطئة",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "أخرى",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "إرسال",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "إلغاء",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "الحالة",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "قيد الانتظار",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "نشط",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "مكتمل",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "منتهي الصلاحية",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "مستوى المخاطرة",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "تم التحقق منه",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "منخفض",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "مرتفع",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "غير معروف",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "تقدم التصويت",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "الموافقة: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "المعارضة: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "الإجمالي: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "موافقة",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "معارضة",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "تم الإنشاء: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "إظهار التقرير",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "إخفاء التقرير",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "إحصائيات الاقتراح",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "إجمالي الاقتراحات",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "الاقتراحات النشطة",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "الاقتراحات المكتملة",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "أصواتي",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "تم إنشاء الاقتراح بنجاح",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "فشل إنشاء الاقتراح",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "تم تقديم التصويت بنجاح",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "فشل تقديم التصويت",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "لم يتم العثور على اقتراحات",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "جاري تحميل الاقتراحات...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "تحديث الاقتراحات",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "إجمالي الاقتراحات قيد الانتظار",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "مخاطرة عالية",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "مخاطرة متوسطة",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "مخاطرة منخفضة",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "تأثير المجتمع",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "مشاكل حرجة",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "مشاركة المجتمع",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "لا يوجد نشاط",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "منخفض",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "متوسط",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "مرتفع",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "مرتفع جداً",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "تم التصويت",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "أصوات المجتمع",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "في انتظار المزيد من أصوات المجتمع",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "تم معالجة هذا الاقتراح",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "مدعوم",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "معارض",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "موافق عليه",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "مرفوض",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "مكتمل",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "قيد الانتظار",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "حرج",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "معارضة",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "منخفض جداً",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "إشعارات حول نتائج وتحديثات تصويت اقتراحات الحذف.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "تم إنشاء اقتراح حذف",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "تم تقديم اقتراح الحذف الخاص بك للرقم {phoneNumber} لمراجعة المجتمع.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "تمت الموافقة على الاقتراح ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "تمت الموافقة على اقتراح الحذف للرقم {phoneNumber} من قبل المجتمع ({supportPercentage}% دعم، {totalVotes} صوت).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "تم رفض الاقتراح ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "تم رفض اقتراح الحذف للرقم {phoneNumber} من قبل المجتمع ({supportPercentage}% دعم، {totalVotes} صوت).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "بدأ تصويت المجتمع",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "اقتراح حذف جديد للرقم {phoneNumber} مفتوح الآن لتصويت المجتمع.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "اكتمل التصويت",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "انتهى تصويت المجتمع للرقم {phoneNumber}. النتيجة: {result} ({supportPercentage}% دعم).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "تم استلام تصويت جديد",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "صوت شخص ما لـ {voteType} حذف الرقم {phoneNumber}. الأصوات الحالية: {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "فشل تحميل عدد الأصوات",
+  "voteCount": "عدد الأصوات",
+  "deletionProposalInfo": "معلومات اقتراح الحذف",
+  "deletionProposalDescription": "اقترح أرقامًا للحذف تنتهك إرشادات المجتمع. مشاركتك تساعد في الحفاظ على أمان المنصة.",
+  "voteToEarnVip": "صوّت على الاقتراحات لكسب امتيازات VIP!",
+  "voteFailed": "فشل التصويت",
+  "searchProposals": "بحث عن الاقتراحات",
+  "defaultNotifications": "الإشعارات الافتراضية",
+  "defaultNotificationsDescription": "قناة الإشعارات الافتراضية للتطبيق.",
+  "blockedCallNotifications": "إشعارات المكالمات المحظورة",
+  "blockedCallNotificationsDescription": "اطلاعات مربوط به تماس‌های مسدود شده را نمایش می‌دهد.",
+  "stirVerification": "تأیید STIR/SHAKEN",
+  "stirVerificationDescription": "نتایج تأیید STIR/SHAKEN را برای شماره‌ها نمایش می‌دهد.",
+  "fraudAlerts": "هشدار تقلب",
+  "fraudAlertsDescription": "هشدارها را برای تماس‌های بالقوه تقلبی نمایش می‌دهد.",
+  "notificationFrequencyDescription": "انتخاب کنید که هر چند وقت یکبار اعلان‌هایی در مورد پیشنهادات حذف جدید دریافت کنید. می‌توانید آن‌ها را بلافاصله، در دسته‌های دسته‌بندی شده، یا در یک بازه زمانی سفارشی دریافت کنید.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "فوری",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "به محض ایجاد یک پیشنهاد، اعلان دریافت کنید.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "دسته‌ای",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "خلاصه‌ای از اعلان‌ها را به صورت دوره‌ای دریافت کنید.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "سفارشی",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "بازه زمانی دلخواه خود را برای دریافت اعلان‌ها تعریف کنید.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "بازه زمانی سفارشی",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} دقیقه",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} ساعت",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} ساعت {minutes} دقیقه",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "پیشنهادات در انتظار",
+  "pendingProposalsBody": "شما {count, plural, =0 {پیشنهاد در انتظاری ندارید} one {1 پیشنهاد در انتظار} other {{count} پیشنهاد در انتظار}} دارید.",
+  "guidelinesLabel": "دستورالعمل‌ها",
+  "reportingGuidelines": "• فقط شماره‌هایی را گزارش دهید که واقعاً مشکل‌ساز هستند\n• دلایل دقیق و جزئی ارائه دهید\n• سطح ریسک مناسب را بر اساس شدت انتخاب کنید\n• گزارش‌های نادرست ممکن است منجر به محدودیت حساب شود",
+  "riskLevelLabel": "سطح ریسک",
+  "riskLevelDescription": "سطح ریسک شماره",
+  "phoneNumberMinDigits": "شماره تلفن باید حداقل 7 رقم باشد",
+  "provideDetailedExplanation": "یک توضیح دقیق ارائه دهید (حداقل 10 کاراکتر)",
+  "reasonMinCharacters": "دلیل باید حداقل 10 کاراکتر باشد",
+  "countryCodeTwoLetters": "کد کشور (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "کد کشور (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "مثال: US، CN، GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "کد کشور الزامی است",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "کد کشور باید 2 حرف باشد",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "شماره تلفن باید حداقل 7 رقم باشد",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "توضیح دقیق ارائه دهید (حداقل 10 کاراکتر)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "دلیل الزامی است",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "دلیل باید حداقل 10 کاراکتر باشد",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "دستورالعمل‌ها",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• فقط شماره‌هایی را گزارش دهید که واقعاً مشکل‌ساز هستند\n• دلایل دقیق و جزئی ارائه دهید\n• سطح ریسک مناسب را بر اساس شدت انتخاب کنید\n• گزارش‌های نادرست ممکن است منجر به محدودیت حساب شود",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "بحرانی",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "متوسط",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "بسیار کم",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "بسیار کم - آزار جزئی، تماس‌های نامنظم",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "کم - تماس‌های ناخواسته گاه به گاه",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "متوسط - اسپم یا تلفن مارکتینگ منظم",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "زیاد - مزاحمت مداوم یا تلاش برای کلاهبرداری",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "بحرانی - کلاهبرداری‌های خطرناک یا تهدید",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "بازه زمانی اعلان",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "بازه زمانی اعلان (ساعت)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "خطا: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "آراء: {totalVotes} ({supportPercentage}% حمایت)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "حمایت ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "مخالفت ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "همین الان",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes} دقیقه پیش",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours} ساعت پیش",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days} روز پیش",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "بازه زمانی اعلان (ساعت)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} رای ({supportPercentage}% حمایت)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 ساعت} =1{1 ساعت} other{{count} ساعت}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "اطلاعیه مهم",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "شماره‌ها از اینترنت و ارسالی‌های کاربر جمع‌آوری شده‌اند. ما نمی‌توانیم تضمین کنیم که یک شماره پس از حذف مجدداً توسط سایر کاربران یا منابع ارسال نشود. لطفاً فعالانه اطلاعات را جستجو و تأیید کنید.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "آواتار",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "مکان",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "سیم کارت",
+  "liveActivitiesSettingsTitle": "تنظیمات فعالیت‌های زنده",
+  "elementsSettingsTitle": "تنظیمات عناصر",
+  "liveActivityMode": "فعالیت زنده",
+  "liveActivityModeDescription": "اطلاعات تماس را به صورت اعلان دائمی در صفحه قفل و جزیره پویا (iOS) نمایش می‌دهد.",
+  "phoneNumberType": "نوع شماره تلفن",
+  "liveActivitiesTestEndActivity": "پایان فعالیت",
+  "liveActivitiesTestSendNewActivity": "ارسال فعالیت جدید",
+  "liveActivitiesTestUpdateActivity": "به‌روزرسانی فعالیت",
+  "liveActivityControlsTitle": "کنترل‌های فعالیت زنده",
+  "liveActivitiesTestTitle": "تست فعالیت‌های زنده",
+  "liveActivitiesTestSubtitle": "اعلان فعالیت زنده را تست کنید.",
+  "liveNotificationCustomizationTitle": "سفارشی‌سازی اعلان زنده",
+  "liveNotificationCustomizationSubtitle": "ظاهر اعلان‌های زنده را سفارشی کنید.",
+  "notification_instructions": "دستورالعمل‌ها:\n1. روی \"ارسال\" ضربه بزنید تا اعلان ایجاد یا به‌روزرسانی شود.\n2. به صفحه اصلی بروید یا سینی اعلان را به سمت پایین بکشید تا نتیجه را ببینید.\n3. برای رد کردن اعلان، روی \"پایان\" ضربه بزنید.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "لغو خودکار اعلان",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "اگر علامت زده شود، اعلان به طور خودکار هنگام ضربه زدن کاربر لغو می‌شود.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "تنظیم زمان تأخیر",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "جزئیات پیشنهاد",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "فیلتر بر اساس وضعیت",
+  "proposalNotFound": "پیشنهاد یافت نشد",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "پردازش شده",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "نمایش همه",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "فیلتر و مرتب‌سازی",
+  "filterVerifiedOwner": "فیلتر مالک تأیید شده",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "فیلتر بر اساس",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "قدیمی‌ترین",
+  "sortNewest": "جدیدترین",
+  "sortMostPopular": "محبوب‌ترین",
+  "sortLeastPopular": "کمترین محبوبیت",
+  "sortBy": "مرتب‌سازی بر اساس",
+  "simRulesNotFound": "قوانین سیم کارت یافت نشد",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "قوانین اسلات سیم کارت",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "سیم کارت شناسایی نشد",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "داده‌های سیم کارت نامعتبر",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "داده‌های سیم کارت",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "اسلات سیم کارت",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "فعال کردن فیلتر",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "تنظیمات دقیق",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "نمای نقطه ورود",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "رد شده",
+  "callTypeSilenced": "بی‌صدا شده",
+  "callTypeVoicemail": "پیام صوتی",
+  "callTypeUnknownIntercept": "رهگیری ناشناخته",
+  "andMoreItems": "و {count} مورد دیگر",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

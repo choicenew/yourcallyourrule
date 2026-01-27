@@ -1,0 +1,3091 @@
+{
+  "@@locale": "ro",
+  "aboutContactSubscription": "Despre Abonarea Contactelor",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "Despre Etichete",
+  "aboutPhoneSubscriptionRules": "Despre Reguli de Abonare la Telefon",
+  "aboutPhoneSubscriptions": "Despre Abonamente Telefonice",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "Abonați-vă la liste de reguli telefonice prin URL, actualizați automat regulile. Suportă fișiere de reguli în format JSON, CSV.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "Despre Filtrarea SMS",
+  "aboutSmsSubscriptionRules": "Despre Reguli de Abonare la SMS",
+  "aboutSubtitle": "Versiunea aplicației și informații legale",
+  "aboutTitle": "Despre",
+  "action": "Acțiune",
+  "actionAll": "Toate",
+  "actionAllow": "Permite",
+  "actionBlock": "Blochează",
+  "actionFilterAll": "Toate Filtrele",
+  "actionFilterTitle": "Filtrare după Tipul de Acțiune",
+  "actionFilterTooltip": "Filtru Acțiune",
+  "actionNone": "Nicio Acțiune",
+  "actionSilence": "Reduce Volumul",
+  "actionTag": "Acțiune: {actionType}",
+  "actionType": "Tipul de Acțiune",
+  "actionUnknown": "Necunoscut",
+  "add": "Adaugă",
+  "addAllowedBlockedRule": "Adaugă Regulă Permite/Blochează",
+  "addAllowSubscription": "Adaugă Abonament Permite",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Adaugă Abonament Blochează",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Adaugă Contact",
+  "addContactFailed": "Nu s-a reușit adăugarea contactului: {error}",
+  "addedToAllowedRules": "Adăugat la Reguli Permise",
+  "addedToBlacklist": "Adăugat la Lista Neagră",
+  "addedToBlockedRules": "Adăugat la Reguli Blocate",
+  "addedToFavoriteContacts": "Adăugat la contactele favorite",
+  "addedToFavorites": "Adăugat la contactele favorite",
+  "addedToWhitelist": "Adăugat la Lista Albă",
+  "addFavorite": "Adaugă Favorit",
+  "addFilter": "Adaugă Filtru",
+  "addLabel": "Adaugă Etichetă",
+  "addLabelButton": "Adaugă Etichetă",
+  "addLabelFailed": "Nu s-a reușit adăugarea etichetei: {error}",
+  "addName": "Adaugă Nume",
+  "addNoneSubscription": "Adaugă Abonament Niciuna",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "Folosit pentru a adăuga sau edita informațiile de contact",
+  "addPhoneMark": "Adaugă Marcaj Telefon",
+  "addPhoneNumberRule": "Adaugă Regulă Număr de Telefon",
+  "addPlugin": "Adaugă Plugin",
+  "addPluginFailed": "Nu s-a reușit adăugarea pluginului",
+  "addPluginFailedWithError": "Nu s-a reușit adăugarea pluginului: {error}",
+  "addPluginFromLocalFile": "Adaugă Plugin din Fișier Local",
+  "addPluginFromUrl": "Adaugă Plugin din URL",
+  "addRegexRule": "Adaugă Regulă Regex",
+  "addRule": "Adaugă regulă",
+  "addRuleButton": "Adaugă regulă",
+  "addRuleFailed": "Nu s-a reușit adăugarea regulii: {error}",
+  "addRuleTooltip": "Adaugă regulă",
+  "addSilenceSubscription": "Adaugă abonament Silențios",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "Adaugă regulă SIM",
+  "addSmsFilterRule": "Adaugă regulă de filtrare SMS",
+  "addSmsRule": "Adaugă regulă SMS",
+  "addSmsSubscription": "Adaugă abonament SMS",
+  "addSubscription": "Adaugă abonament",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Adaugă abonament",
+  "addSubscriptionFailed": "Nu s-a reușit adăugarea abonamentului: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Adaugă abonament",
+  "addToAllowedRules": "Adaugă la regulile permise",
+  "addToBlacklist": "Adaugă în lista neagră",
+  "addToBlockedRules": "Adaugă la regulile blocate",
+  "addToFavoriteContacts": "Adaugă la contactele favorite",
+  "addToFavorites": "Adaugă la favorite",
+  "addToRules": "Adaugă la reguli",
+  "addToWhitelist": "Adaugă în lista albă",
+  "adPlaceholder": "Spațiu rezervat pentru anunț",
+  "agent": "Agent",
+  "all": "Toate",
+  "allCallsTab": "Toate",
+  "allDataClearedSuccessfully": "Toate datele au fost șterse cu succes",
+  "allow": "Permite",
+  "allowAllAllowRules": "Permite toate regulile de permisiune",
+  "allowAllAllowRulesDesc": "Permite apeluri de la regulile de permisiune",
+  "allowAllBlacklistedNumbers": "Permite toate numerele din lista neagră",
+  "allowAllBlacklistedNumbersDesc": "Permite apeluri din lista neagră",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "Permite toate regulile de blocare",
+  "allowAllBlockRulesDesc": "Permite apeluri din regulile de blocare",
+  "allowAllowedNumbers": "Permite numerele permise",
+  "allowAllowedNumbersDesc": "Permite apeluri din lista albă",
+  "allowBlock": "Permite/Blochează",
+  "allowBlockedNumbers": "Permite numerele blocate",
+  "allowBlockedNumbersDesc": "Permite apeluri din lista neagră",
+  "allowedBlockedRule": "Regulă de Permitere/Blocare",
+  "allowedBlockedRuleEditDialogTitle": "Editează regula de Permitere/Blocare",
+  "allowedBlockedRuleManagement": "Gestionare reguli de Permitere/Blocare",
+  "allowNonExceededNumbers": "Permite numerele care nu au depășit limita",
+  "allowNonExceededNumbersDescription": "Permite automat numerele care nu depășesc pragul de număr",
+  "allowRegexAllowRules": "Permite regulile Regex de permisiune",
+  "allowRegexAllowRulesDesc": "Activează potrivirea tiparului regex pentru regulile de permisiune",
+  "allowRegexAllowRulesDescription": "Activează regulile de permisiune bazate pe regex",
+  "allowRegexBlockRules": "Permite regulile Regex de blocare",
+  "allowRegexBlockRulesDesc": "Activează potrivirea tiparului regex pentru regulile de blocare",
+  "allowRegexBlockRulesDescription": "Activează regulile de blocare bazate pe regex",
+  "allowRule": "Regulă de permisiune",
+  "allowRules": "Reguli de permisiune",
+  "allowWhitelistedNumbers": "Permite numerele din lista albă",
+  "allowWhitelistedNumbersDescription": "Permite toate numerele din lista albă",
+  "allPermissionsGranted": "Toate permisiunile acordate",
+  "allSettingsCompleted": "Toate setările au fost finalizate.",
+  "allUpdateSuccess": "Toate actualizările au fost finalizate ({count} reguli)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "Răspunde apoi închide",
+  "appLegalese": "© 2023 Your Call Your Rule. Toate drepturile rezervate.",
+  "applicationSoftware": "Software aplicație",
+  "apply": "Aplică",
+  "appName": "Your Call Your Rule",
+  "authorizationFailedCheckCredentialsMessage": "Autorizare eșuată: Verificați ID-ul și cheia clientului",
+  "authorizationFailedMessage": "Autorizare eșuată",
+  "authorizationSuccessMessage": "Autorizare reușită",
+  "authorizeLoginButton": "Autorizează autentificarea",
+  "automotiveIndustry": "Industria auto",
+  "autoSyncLabel": "Sincronizare automată",
+  "autoUpdate": "Actualizare automată",
+  "autoUpdateDescription": "Setați intervalele de actualizare automată pentru abonamente sau actualizați manual",
+  "autoUpdateSettings": "Setări de actualizare automată",
+  "autoUpdateSettingsSubtitle": "Gestionați actualizările automate pentru reguli și pluginuri",
+  "autoUpdateSettingsTitle": "Setări de actualizare automată",
+  "autoUpdateSubtitle": "Gestionați actualizările automate pentru reguli și pluginuri",
+  "autoUpdateTitle": "Actualizare automată",
+  "avatarBorderColor": "Culoare margine avatar",
+  "avatarBorderSize": "Dimensiune margine avatar",
+  "avatarIconSizesSetting": "Dimensiuni avatar și icoane",
+  "avatarPosition": "Poziția avatarului",
+  "avatarSize": "Dimensiune avatar",
+  "axisPosition": "Poziție {axis}",
+  "backgroundGradientSetting": "Gradient de fundal",
+  "backup": "Copiere de rezervă",
+  "backupAndRestore": "Copiere de rezervă și restaurare",
+  "backupAndRestoreSubtitle": "Copiați de rezervă sau restaurați datele aplicației",
+  "backupAndRestoreTitle": "Copiere de rezervă și restaurare",
+  "backupFailed": "Copiere de rezervă eșuată",
+  "backupFailedMessage": "Copiere de rezervă eșuată",
+  "backupFailedWithError": "Copiere de rezervă eșuată: {error}",
+  "backupRestoreSubtitle": "Copiați de rezervă sau restaurați datele aplicației",
+  "backupRestoreTitle": "Copiere de rezervă și restaurare",
+  "backupSectionTitle": "Copiere de rezervă",
+  "backupSettings": "Setări de copiere de rezervă",
+  "backupSettingsDialogTitle": "Setări de copiere de rezervă",
+  "backupSettingsTitle": "Setări de copiere de rezervă",
+  "backupSuccessMessage": "Copierea de rezervă în cloud a reușit",
+  "backupSuccessToLocal": "Copierea de rezervă a reușit în: {path}",
+  "backupToCloud": "Copiază de rezervă în cloud",
+  "backupToCloudDescription": "Copiați de rezervă setările și regulile în stocarea în cloud",
+  "backupToCloudFailed": "Copierea de rezervă în cloud a eșuat: {error}",
+  "backupToCloudLabel": "Copiază de rezervă în cloud",
+  "backupToCloudSuccess": "Copierea de rezervă în cloud a reușit",
+  "backupToCloudTitle": "Backup în Cloud",
+  "backupToLocalLabel": "Backup Local",
+  "bank": "Bancă",
+  "basicInfo": "Informații de bază",
+  "basicRuleFilter": "Filtru de reguli de bază",
+  "basicRuleFiltering": "Filtrare reguli de bază",
+  "basicRuleFilteringExplanation": "• Filtrare reguli de bază: Reguli de filtrare bazate pe blacklist, whitelist și regex",
+  "basicRuleFilterSettings": "Setări filtru reguli de bază",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "Filtrează apelurile folosind blacklist/whitelist și expresii regulate",
+  "batchDeleteContacts": "Ștergere în masă contacte",
+  "batchDeleteContactsConfirm": "Sigur doriți să ștergeți cele {count} contacte selectate?",
+  "batchDeleteFailed": "Ștergerea în masă a eșuat",
+  "batchDeleteLabelsConfirm": "Sigur doriți să ștergeți {count} etichete?",
+  "blacklist": "Listă neagră",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "Blacklisting și Whitelisting",
+  "blacklistLabel": "Listă neagră",
+  "blackWhiteList": "Listă neagră/Listă albă",
+  "block": "Blocare",
+  "blockCalls": "Blocare apeluri",
+  "blocked": "Blocat",
+  "blockedCallAction": "Acțiune apel blocat",
+  "blockedCalls": "Apeluri blocate",
+  "blockedCallsTitle": "Apeluri blocate",
+  "blockedCommunications": "Comunicații blocate",
+  "blockedPhoneLabel": "Apeluri blocate",
+  "blockedSpamCalls": "Apeluri spam blocate",
+  "blockingTrend": "Tendința de blocare",
+  "blockInternationalCalls": "potrivește numerele care nu încep cu + sau 00",
+  "blockInternationalCallsTitle": "Blocare apeluri internaționale",
+  "blockLandlineNumbersTitle": "Blocare numere de telefon fix",
+  "blockMobileNumbers": "potrivește numerele care nu încep cu 13-19",
+  "blockMobileNumbersTitle": "Blocare numere de telefon mobil",
+  "blockPremiumRateNumbers": "potrivește numerele care nu încep cu 118 sau 120-190",
+  "blockPremiumRateNumbersTitle": "Blocare numere cu tarif premium",
+  "blockRule": "Regulă de blocare",
+  "blockRules": "Reguli de blocare",
+  "blockSpecificAreaCodes": "potrivește numerele care încep cu 0 + 2-3 cifre",
+  "blockSpecificAreaCodesTitle": "Blocare prefixe specifice:",
+  "blockTypeAnalysisTitle": "Analiza tipului de blocare",
+  "both": "Ambele",
+  "bulkDelete": "Ștergere în masă contacte",
+  "bulkDeleteContacts": "Ștergere în masă contacte",
+  "bulkDeleteLabels": "Ștergere în masă etichete",
+  "call": "Apelare",
+  "callback": "Sună înapoi",
+  "callbackTo": "Sună înapoi la {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "Blocare apeluri",
+  "callerIdApp": "Aplicație ID apelant",
+  "callerIdCustomizationTitle": "Personalizare ID apelant",
+  "callerIdDialogTitle": "Informații ID apelant",
+  "callerIdDisplayMode": "Mod de afișare a ID-ului apelantului",
+  "callerIdMarkedByCount": "Marcat de {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "Previzualizare ID apelant",
+  "callFilter": "Filtru de apeluri",
+  "callFilterDescription": "Când este activat, apelurile primite sunt verificate în raport cu lista de reguli de mai jos. Regulile de filtrare a apelurilor nu sunt sincronizate între dispozitive în mod implicit.",
+  "callFilterRules": "Reguli de filtrare a apelurilor",
+  "callFilterRulesDescription": "Setați reguli de bază pentru filtrarea apelurilor",
+  "callFilterSettings": "Setări filtru apeluri",
+  "callFrequencyInterceptionSubtitle": "Setați limitele de frecvență a apelurilor și regulile de blocare",
+  "callFrequencyInterceptionTitle": "Intercepție frecvență apeluri",
+  "callHistory": "Istoric apeluri",
+  "callHistoryInfoDesc": "Aici este afișat istoricul apelurilor dvs., inclusiv apeluri primite, efectuate și ratate.",
+  "callHistoryInfoTitle": "Istoric apeluri",
+  "callHistoryInitFailed": "Nu s-a reușit inițializarea istoricului apelurilor: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "Nu s-a reușit reîmprospătarea istoricului apelurilor: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "Istoric apeluri",
+  "callHistoryTimelineEarlier": "Mai devreme",
+  "callHistoryTimelineToday": "Astăzi",
+  "callHistoryTimelineYesterday": "Ieri",
+  "callScreeningPermission": "Permisiune de filtrare a apelurilor",
+  "callScreeningPermissionDescription": "Utilizat pentru a filtra și bloca apelurile spam.",
+  "callScreeningPermissionNotGranted": "Permisiunea de filtrare a apelurilor nu a fost acordată, poate afecta funcționalitatea aplicației.",
+  "callSettingsSubtitle": "ID apelant, setări de filtrare și blocare",
+  "callSettingsTitle": "Setări apel",
+  "callStatistics": "Statistici apeluri",
+  "callTypeAnswered": "Răspuns",
+  "callTypeBlocked": "Blocat",
+  "callTypeIconColor": "Culoare pictogramă tip apel",
+  "callTypeMissed": "Apel ratat",
+  "callTypeOutgoing": "Efectuat",
+  "callTypePosition": "Poziția tipului de apel",
+  "callTypeUnknown": "Necunoscut",
+  "cancelButton": "Anulare",
+  "carRental": "Închirieri auto",
+  "carrier": "Operator",
+  "carrierColor": "Culoare operator",
+  "carrierFontSize": "Dimensiunea fontului operatorului",
+  "carrierPosition": "Poziția operatorului",
+  "changeLabel": "Schimbă eticheta",
+  "changePluginStatusFailed": "Nu s-a reușit modificarea stării pluginului: {error}",
+  "changeSubscriptionStatusFailed": "Nu s-a reușit modificarea stării abonamentului: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "Schimbă eticheta",
+  "charity": "Caritate",
+  "chartMonthFormat": "Luna {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "Cu 1 zi în urmă",
+  "chartOneMonthAgo": "Cu 1 lună în urmă",
+  "chartOneWeekAgo": "Cu 1 săptămână în urmă",
+  "chartTenDaysAgo": "Cu 10 zile în urmă",
+  "chartThreeDaysAgo": "Cu 3 zile în urmă",
+  "chartToday": "Astăzi",
+  "checkFileFormat": "Verificați formatul fișierului sau permisiunile",
+  "checkPermissionFailed": "Nu s-a reușit verificarea permisiunilor: {error}",
+  "chooseDefaultInterceptAction": "Alegeți acțiunea implicită de interceptare",
+  "clearAllData": "Ștergeți toate datele",
+  "clearAllDataConfirmation": "Sigur doriți să ștergeți toate datele aplicației? Această acțiune nu poate fi anulată.",
+  "clearAllDataDescription": "Ștergeți toate datele aplicației",
+  "clearAllDataLabel": "Ștergeți toate datele",
+  "clearFilter": "Ștergeți filtrul",
+  "clearLabelFilter": "Ștergeți filtrul de etichete",
+  "clearLabelFilterButton": "Ștergeți filtrul de etichete",
+  "closeButton": "Închideți",
+  "cloudSync": "Sincronizare în cloud",
+  "cloudSyncAndBackupTitle": "Sincronizare în cloud și backup",
+  "cloudSyncSettingsSubtitle": "Configurați WebDAV, OneDrive și Google Drive",
+  "cloudSyncSettingsTitle": "Setări de sincronizare în cloud",
+  "cloudSyncTitle": "Sincronizare în cloud",
+  "collapseLabelSelector": "Restrângeți selectorul de etichete",
+  "collection": "Colectare de datorii",
+  "colorPickerTitle": "Alegeți culoarea",
+  "configManagement": "Managementul configurației",
+  "configUpdated": "Configurația a fost actualizată",
+  "configurationAdvice": "Prin configurarea corectă, puteți seta diferite strategii de filtrare pentru cartelele SIM de lucru și personale.",
+  "configureBackupOptions": "Configurați opțiunile de backup",
+  "configureBackupOptionsSubtitle": "Configurați opțiunile de backup",
+  "configureCloudSyncService": "Configurați serviciul de sincronizare în cloud",
+  "configureCloudSyncServiceHint": "Configurați un serviciu de sincronizare în cloud pentru a activa sincronizarea pe mai multe dispozitive.",
+  "configureCloudSyncServiceMessage": "Configurați un serviciu de sincronizare în cloud pentru a activa sincronizarea pe mai multe dispozitive.",
+  "configureSimCardFilterRules": "Configurați regulile de filtrare a cartelelor SIM",
+  "configureSyncServiceHint": "Configurați mai întâi serviciul de sincronizare în setările de sincronizare în cloud",
+  "confirm": "Confirmați",
+  "confirmBatchDeleteContacts": "Sigur doriți să ștergeți contactele selectate",
+  "confirmButton": "Confirmați",
+  "confirmDelete": "Confirmați ștergerea",
+  "confirmDeleteContact": "Sigur doriți să ștergeți",
+  "confirmDeleteContactName": "Confirmați ștergerea?",
+  "confirmDeleteFilter": "Sigur doriți să ștergeți acest filtru?",
+  "confirmDeleteLabel": "Sigur doriți să ștergeți eticheta \"{name}\"",
+  "confirmDeletePlugin": "Sigur doriți să ștergeți pluginul \"{name}\"?",
+  "confirmDeletePlugins": "Sigur doriți să ștergeți {count} pluginuri?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "Sigur doriți să ștergeți această regulă? Această acțiune nu poate fi anulată.",
+  "confirmDeleteSelectedContacts": "Sigur doriți să ștergeți contactele selectate?",
+  "confirmDeleteSmsFilterRule": "Sigur doriți să ștergeți această regulă de filtrare SMS?",
+  "confirmDeleteSmsRule": "Sigur doriți să ștergeți această regulă SMS?",
+  "confirmDeleteSubscription": "Sigur doriți să ștergeți această abonare?",
+  "confirmDeleteSubscriptions": "Sigur doriți să ștergeți {name}?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "Confirmați parola",
+  "confirmPasswordLabel": "Confirmați parola",
+  "connectedStatus": "Conectat",
+  "connectionFailedCheckCredentialsMessage": "Conexiune eșuată: Verificați adresa serverului, numele de utilizator și parola",
+  "connectionFailedMessage": "Conexiune eșuată",
+  "connectionStatusLabel": "Stare conexiune",
+  "connectionSuccessMessage": "Conexiune reușită",
+  "contactAddSuccess": "Contact adăugat cu succes",
+  "contactDeleted": "Contact șters",
+  "contactEditDialog": "Dialog de editare contact",
+  "contactNameHint": "Introduceți numele de contact (opțional)",
+  "contactNameLabel": "Nume",
+  "contactNameOptional": "Numele contactului (opțional)",
+  "contactNotFound": "Contactul nu a fost găsit",
+  "contacts": "Contacte",
+  "contactsDeleted": "Șterse {count} contacte",
+  "contactSettingsSubtitle": "Gestionarea contactelor și setările etichetelor",
+  "contactSettingsTitle": "Setări contacte",
+  "contactsLoadingFailed": "Nu s-a reușit încărcarea contactelor: {error}",
+  "contactsManagement": "Gestionare contacte",
+  "contactsManagementPageTitle": "Pagina de gestionare a contactelor",
+  "contactsPageTitle": "Contacte",
+  "contactsPermission": "Permisiunea pentru contacte",
+  "contactsPermissionDescription": "Utilizat pentru identificarea apelurilor de contact.",
+  "contactsTab": "Contacte",
+  "contactSubscriptionDescription": "Abonați-vă la liste de contacte prin URL, actualizați automat informațiile de contact și etichetele. Suportă date în format JSON.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "Nu s-a reușit încărcarea abonamentelor la contacte: {error}",
+  "contactSubscriptionPageTitle": "Abonamente la contacte",
+  "contactUpdateSuccess": "Contactul a fost actualizat cu succes",
+  "contactUs": "Contactați-ne",
+  "content": "Conținut",
+  "contentRegex": "Regex conținut",
+  "countColor": "Culoarea numărului",
+  "countFontSize": "Dimensiunea fontului pentru număr",
+  "countPosition": "Poziția numărului",
+  "country": "Țară",
+  "countryNameColor": "Culoarea numelui țării",
+  "countryNameFontSize": "Dimensiunea fontului pentru numele țării",
+  "countryRegionNamePosition": "Poziția țară/regiune",
+  "countrySelectionDialog": "Dialog de selecție a țării",
+  "countrySelectionDialogDescription": "Folosit pentru a selecta o țară pentru a interoga informațiile ID-ului apelantului",
+  "countThresholdDescription": "Setați pragul minim de număr necesar pentru a declanșa acțiunile de filtrare",
+  "countThresholdLabel": "Pragul numărului",
+  "countThresholdSettings": "Setări prag număr",
+  "countThresholdValue": "Prag număr: {count}",
+  "createdRules": "Reguli create",
+  "csvFormat": "Format CSV",
+  "currentDeviceChip": "Curent",
+  "currentDeviceLabel": "Eticheta dispozitivului curent",
+  "currentDeviceTitle": "Dispozitivul curent",
+  "currentLabels": "Etichete actuale:",
+  "currentLanguage": "Limba curentă",
+  "currentPasswordLabel": "Parola curentă",
+  "customerService": "Serviciul clienți",
+  "customRange": "Interval personalizat",
+  "dailyStatistics": "Statistici zilnice",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "Primiți statistici zilnice despre apelurile și mesajele blocate",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "Panou de control",
+  "dataAnalysis": "Analiza datelor",
+  "dataAnalysisDashboardPage": "Pagina de control a analizei datelor",
+  "dataExport": "Export de date",
+  "dataLoadFailure": "Încărcarea datelor a eșuat: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "Eșec la încărcarea datelor: {error}",
+  "dataMigration": "Migrarea datelor",
+  "dataMigrationDescription": "Această funcție vă permite să transferați toate datele între dispozitive. În prezent, puteți utiliza funcțiile de backup și restaurare pentru a migra manual datele.",
+  "dataMigrationDialogContent": "Această funcție vă permite să transferați toate datele între dispozitive. În prezent, puteți utiliza funcțiile de backup și restaurare pentru a migra manual datele.",
+  "dataMigrationDialogTitle": "Migrarea datelor",
+  "dataMigrationSectionTitle": "Migrarea datelor",
+  "dataSourceReminder": "Memento sursă de date",
+  "days": "{count, plural, =1{1 zi} other{{count} zile}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} Zile VIP",
+  "debtCollection": "Colectare datorii",
+  "defaultPeriod": "Săptămână",
+  "delete": "Șterge",
+  "deleteButton": "Șterge",
+  "deleteContact": "Șterge contactul",
+  "deleteContactConfirm": "Sigur doriți să ștergeți {name}?",
+  "deleteContactConfirmation": "Sigur doriți să ștergeți contactul",
+  "deleteDeviceConfirmation": "Sigur doriți să ștergeți {deviceName}?",
+  "deleteDeviceDialogTitle": "Ștergeți dispozitivul",
+  "deleteFailed": "Ștergerea a eșuat: {error}",
+  "deleteFilter": "Ștergeți filtrul",
+  "deleteLabel": "Ștergeți eticheta",
+  "deleteLabelFailed": "Eșec la ștergerea etichetei: {error}",
+  "deletePlugin": "Ștergeți pluginul",
+  "deletePluginFailed": "Eșec la ștergerea pluginului: {error}",
+  "deletePlugins": "Ștergeți plugin-urile",
+  "deletePluginsFailed": "Eșec la ștergerea plugin-urilor: {error}",
+  "deleteRule": "Ștergeți regula",
+  "deleteRuleFailed": "Ștergerea a eșuat: {error}",
+  "deleteSelected": "Ștergeți selecția",
+  "deleteSmsRule": "Ștergeți regula SMS",
+  "deleteSubscription": "Ștergeți abonamentul",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "Sigur doriți să ștergeți abonamentul \"{name}\"?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "Eșec la ștergerea abonamentului: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "Ștergere reușită",
+  "delivery": "Livrare",
+  "deviceDeletedSuccessfully": "Dispozitivul a fost șters cu succes",
+  "deviceDeletedSuccessfullyMessage": "Dispozitivul a fost șters cu succes",
+  "deviceIdLabel": "ID dispozitiv",
+  "deviceIDLabel": "ID dispozitiv",
+  "deviceManagementSubtitle": "Gestionați sincronizarea pe mai multe dispozitive",
+  "deviceManagementTitle": "Managementul dispozitivelor",
+  "deviceModelLabel": "Model dispozitiv",
+  "deviceName": "Nume dispozitiv",
+  "deviceNameCannotBeEmpty": "Numele dispozitivului nu poate fi gol",
+  "deviceNameHint": "Vă rugăm să introduceți numele dispozitivului",
+  "deviceNameLabel": "Numele dispozitivului",
+  "deviceRenamedSuccessfully": "Dispozitiv redenumit cu succes",
+  "deviceRenamedSuccessfullyMessage": "Dispozitiv redenumit cu succes",
+  "devicesSyncedSuccessfully": "Dispozitivele s-au sincronizat cu succes",
+  "devicesSyncedSuccessfullyMessage": "Dispozitivele s-au sincronizat cu succes",
+  "devicesSynchronizedSuccessfullyMessage": "Dispozitivele s-au sincronizat cu succes",
+  "deviceUnregisteredSuccessfullyMessage": "Dispozitiv dezînregistrat cu succes",
+  "dialogTitle": "Explicația modelului Regex",
+  "differentFromLocalCounter": "Această funcție este diferită de filtrul de contor local, deoarece se concentrează pe tiparele de apeluri repetate într-un timp scurt, mai degrabă decât pe marcarea pe termen lung.",
+  "disabled": "Dezactivat",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "Dezactivat",
+  "disableGlobalPlugins": "Dezactivează pluginurile globale",
+  "disableSubscriptionSuccessfully": "Dezactivare abonament cu succes",
+  "disconnectButton": "Deconectare",
+  "disconnectedMessage": "Deconectat",
+  "disconnectedStatus": "Deconectat",
+  "disconnectFailedMessage": "Deconectarea a eșuat",
+  "done": "Gata",
+  "dualSimAdvice": "Această funcție este deosebit de utilă pentru telefoanele dual-SIM pentru a seta strategii de filtrare diferite pentru cartelele SIM de lucru și personale.",
+  "earlier": "Anterior",
+  "ecommerce": "Comerț electronic",
+  "edit": "Editează",
+  "editContact": "Editează contactul",
+  "editFilter": "Editează filtru",
+  "editLabel": "Editează etichetă",
+  "editPhoneRule": "Editează regula telefonului",
+  "editPhoneRules": "Folosit pentru a edita regulile telefonice",
+  "editPhoneRuleTitle": "Editează regula telefonului",
+  "editRule": "Editează regula",
+  "editSmsRule": "Editează regula SMS",
+  "education": "Educație",
+  "elementPositionsSetting": "Poziții elemente",
+  "email": "Email",
+  "emailOptional": "Email (Opțional)",
+  "enableCallFilter": "Activează filtrul de apeluri",
+  "enableCallFilterDescription": "Când este activat, apelurile primite sunt verificate în raport cu lista de reguli de mai jos. Regulile de filtrare a apelurilor nu sunt sincronizate între dispozitive în mod implicit.",
+  "enabled": "Activat",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "Activat",
+  "enableEncryption": "Activează criptarea",
+  "enableEncryptionDescription": "Criptați fișierele de rezervă",
+  "enableEncryptionLabel": "Activează criptarea",
+  "enableEncryptionSubtitle": "Fișierele de rezervă vor fi criptate",
+  "enableEncryptionTitle": "Activează criptarea",
+  "enableGlobalPlugins": "Activează pluginurile globale",
+  "enableLocalCountFilter": "Activează filtrul de contor local",
+  "enableLocalCountFilterDescription": "Filtrează automat apelurile spam pe baza numărului de marcaje ale apelurilor",
+  "enableLocalNotification": "Utilizați notificare locală",
+  "enableLocalNotificationDescription": "Când este activat, notificările pentru mesajele filtrate vor fi afișate pe dispozitiv",
+  "enableLocationSummary": "Locație",
+  "enableMuteRules": "Activează regulile de mutare",
+  "enableMuteRulesDesc": "Aplică configurarea regulilor de interceptare a mutării",
+  "enableNoneActionRules": "Activează regulile fără acțiune",
+  "enableNoneActionRulesDesc": "Permite configurări de reguli fără acțiuni de interceptare",
+  "enableNotifications": "Activează notificările",
+  "enableRemoteNumberFilter": "Activează filtru de numere la distanță",
+  "enableRemoteNumberFilterDescription": "Utilizați o bază de date la distanță pentru a filtra numerele",
+  "enableRule": "Activează regula",
+  "enableSmsFilter": "Activează filtrarea SMS",
+  "enableSmsFilterDescription": "Când este activat, mesajele vor fi filtrate automat conform regulilor",
+  "enableStatisticsNotifications": "Activează notificările de statistică",
+  "enableSubscriptionSuccessfully": "Activează abonarea cu succes",
+  "enableTimeInterception": "Activează interceptarea temporală",
+  "enableTimeInterceptionDescription": "Interceptează apelurile repetate într-un interval scurt de timp",
+  "enableTimeInterceptor": "Activează interceptorul de timp",
+  "endCallImmediately": "Încheie apelul imediat",
+  "endColor": "Culoare finală",
+  "endDate": "Data finală",
+  "enhancedFilterInstructionsTitle": "Sistem de filtrare îmbunătățit",
+  "enhancedFilterSettings": "Setări filtru îmbunătățite",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "Setări filtru îmbunătățite",
+  "enhancedFilterSystemDescription": "Sistemul de filtrare îmbunătățit suportă atât reguli globale, cât și configurații de filtrare per cartelă SIM.",
+  "enterBothPhoneNumberAndRegexPattern": "Vă rugăm să introduceți atât numărul de telefon, cât și modelul regex",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Vă rugăm să introduceți atât numărul de telefon, cât și modelul regex.",
+  "enterContactName": "Vă rugăm să introduceți numele de contact",
+  "enterCurrentPasswordHint": "Vă rugăm să introduceți parola curentă",
+  "enterDeviceName": "Introduceți numele dispozitivului",
+  "enterDeviceNameHint": "Vă rugăm să introduceți numele dispozitivului",
+  "enterEmail": "Introduceți e-mail",
+  "enterEmailOptional": "Introduceți e-mail (opțional)",
+  "enterEncryptionPasswordHint": "Introduceți parola de criptare",
+  "enterEncryptionPasswordTitle": "Introduceți parola de criptare",
+  "enterFilterName": "Vă rugăm să introduceți numele filtrului",
+  "enterFilterPattern": "Introduceți modelul de filtrare",
+  "enterIconCode": "Introduceți codul iconiței",
+  "enterName": "Introduceți numele de contact",
+  "enterNewDeviceNameHint": "Introduceți un nume nou pentru acest dispozitiv",
+  "enterNewPasswordHint": "Introduceți o parolă nouă",
+  "enterPasswordAgain": "Introduceți din nou parola",
+  "enterPasswordHint": "Introduceți parola",
+  "enterPhoneNumber": "Introduceți numărul de telefon",
+  "enterPhoneNumberHint": "Introduceți numărul de telefon pentru a testa",
+  "enterPhoneNumberMultiple": "Vă rugăm să introduceți numărul de telefon, mai multe numere separate prin virgulă",
+  "enterPhoneNumberToStartSearch": "Introduceți numărul de telefon pentru a începe căutarea",
+  "enterPhoneNumberToVerify": "Introduceți numărul de telefon pentru a verifica",
+  "enterPluginName": "Introduceți numele pluginului",
+  "enterPluginUrl": "Introduceți adresa URL a pluginului",
+  "enterRegexHint": "Introduceți modelul regex",
+  "enterRuleNameAndPattern": "Vă rugăm să introduceți numele și modelul regulii",
+  "enterRuleNameAndPatternMessage": "Introduceți atât numele regulii, cât și modelul regex.",
+  "enterRuleNameHint": "Introduceți numele regulii",
+  "enterSearchContent": "Introduceți conținutul căutării",
+  "enterSubscriptionName": "Introduceți numele abonamentului",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "Introduceți URL-ul abonamentului",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "Introduceți numele folderului de sincronizare (implicit: NotificationManager)",
+  "entertainment": "Divertisment",
+  "enterValidNameAndUrl": "Introduceți un nume și un URL valide",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "Introduceți un URL valid",
+  "enterVersion": "Introduceți versiunea",
+  "enterWebDAVPasswordHint": "Introduceți parola WebDAV",
+  "enterWebDAVServerAddressHint": "Introduceți adresa serverului WebDAV",
+  "enterWebDAVUsernameHint": "Introduceți numele de utilizator WebDAV",
+  "errorDeletingDeviceMessage": "Eroare la ștergerea dispozitivului: {error}",
+  "errorLoadingPlugin": "Eroare la încărcarea plugin-ului",
+  "errorOccurredMessage": "A apărut o eroare: {error}",
+  "errorRenamingDeviceMessage": "Eroare la redenumirea dispozitivului: {error}",
+  "errorSynchronizingDevicesMessage": "Eroare la sincronizarea dispozitivelor: {error}",
+  "errorSyncingDevicesMessage": "Eroare la sincronizarea dispozitivelor: {error}",
+  "errorText": "Eroare",
+  "errorUnregisteringDeviceMessage": "Eroare la dezînregistrarea dispozitivului: {error}",
+  "exampleBlock400Prefix": "De exemplu, blocați numerele cu prefixul 400",
+  "exampleBlockMarketingSms": "De exemplu, blocați SMS-urile de marketing",
+  "exampleContentRegex": "De exemplu, .*oferta.*",
+  "exampleContentRegexHint": "Exemplu Regex conținut",
+  "exampleCouponPromotionDiscount": "De exemplu, .*(cupon|promotie|reducere).*",
+  "exampleFamilyFriends": "De exemplu, Familie, Prieteni etc.",
+  "examplePhoneNumber": "De exemplu, 10086, 12345 etc.",
+  "exampleRegex400Prefix": "Exemplu regex pentru prefixul 400",
+  "exampleRegexFormat": "Exemplu: format ^10086$",
+  "exampleSenderRegexHint": "Exemplu",
+  "exchange": "Schimb",
+  "exchangeNow": "Schimbă acum",
+  "exchangeVip": "Schimbă VIP",
+  "expandLabelSelector": "Extindeți selectorul de etichete",
+  "expiryTime": "Timp de expirare: {time}",
+  "export": "Exportă",
+  "exportAllApplicationSettings": "Exportă toate setările aplicației",
+  "exportAllApplicationSettingsSubtitle": "Exportă toate setările aplicației",
+  "exportAllRuleConfigurations": "Exportă toate configurările regulilor",
+  "exportAllRuleConfigurationsSubtitle": "Exportă toate configurările regulilor",
+  "exportComplete": "Export complet",
+  "exportConfig": "Exportă configurația",
+  "exportContacts": "Exportă contacte",
+  "exportData": "Exportă date",
+  "exportError": "Eroare la export",
+  "exportFailed": "Export eșuat",
+  "exportFailure": "Nu s-a reușit exportul configurației",
+  "exportFeatureComingSoon": "Funcția de export va fi disponibilă în curând",
+  "exporting": "Export...",
+  "exportLabels": "Exportă etichete",
+  "exportLabelsFailed": "Nu s-a reușit exportul etichetelor: {error}",
+  "exportPluginList": "Exportă lista de pluginuri",
+  "exportPluginListFailed": "Nu s-a reușit exportul listei de pluginuri: {error}",
+  "exportRules": "Exportă reguli",
+  "exportRulesDialogTitle": "Exportă reguli",
+  "exportRulesTitle": "Exportă reguli",
+  "exportSmsRules": "Exportă reguli SMS",
+  "exportStatisticsData": "Exportă datele statistice",
+  "exportSuccess": "Export reușit",
+  "exportSuccesslly": "Configurația a fost exportată cu succes",
+  "failedToAddContact": "Nu s-a reușit adăugarea contactului",
+  "failedToAddRule": "Nu s-a reușit adăugarea regulii: {error}",
+  "failedToAddSmsRule": "Nu s-a reușit adăugarea regulii SMS: {error}",
+  "failedToAddSmsSubscription": "Nu s-a reușit adăugarea abonamentului SMS: {error}",
+  "failedToBackupSettings": "Nu s-a reușit salvarea setărilor: {error}",
+  "failedToDecryptBackupFile": "Nu s-a reușit decriptarea fișierului de rezervă",
+  "failedToDeleteDevice": "Nu s-a reușit ștergerea dispozitivului",
+  "failedToDeleteSmsRule": "Nu s-a reușit ștergerea regulii SMS: {error}",
+  "failedToExportRules": "Nu s-a reușit exportul regulilor: {error}",
+  "failedToExportSmsRules": "Nu s-a reușit exportul regulilor SMS: {error}",
+  "failedToGetCallerIdInfo": "Nu s-au putut obține informații despre ID-ul apelantului: {error}",
+  "failedToImportRules": "Nu s-a reușit importul regulilor: {error}",
+  "failedToImportSmsRules": "Nu s-a reușit importul regulilor SMS: {error}",
+  "failedToLoadContacts": "Nu s-a reușit încărcarea contactelor",
+  "failedToLoadPlugin": "Nu s-a reușit încărcarea pluginului",
+  "failedToRenameDevice": "Nu s-a reușit redenumirea dispozitivului",
+  "failedToRestoreSettings": "Nu s-a reușit restaurarea setărilor",
+  "failedToRestoreSettingsWithError": "Nu s-a reușit restaurarea setărilor: {error}",
+  "failedToSetPassword": "Nu s-a reușit setarea parolei: {error}",
+  "failedToSyncDevices": "Nu s-a reușit sincronizarea dispozitivelor",
+  "failedToToggleRuleStatus": "Nu s-a reușit comutarea stării regulii: {error}",
+  "failedToToggleSubscriptionStatus": "Nu s-a reușit comutarea stării abonamentului",
+  "failedToUpdateContact": "Nu s-a reușit actualizarea contactului",
+  "failedToUpdateSmsRule": "Nu s-a reușit actualizarea regulii SMS: {error}",
+  "failure": "Eșec",
+  "favoriteContacts": "Contacte favorite",
+  "featureAddRules": "• Adăugați reguli specifice numărului de telefon",
+  "featureCenter": "Centrul de funcții",
+  "featureEnableDisable": "• Activare/dezactivare diferite filtre per SIM",
+  "featureListTitle": "Funcții:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• Gestionați liste de reguli per SIM",
+  "features": "Funcții",
+  "fetchingCallerIdInfo": "Se obțin informații despre ID-ul apelantului...",
+  "fileSavedTo": "Fișier salvat în: {path}",
+  "filter": "Filtru",
+  "filterByLabel": "Filtrare după etichetă",
+  "filterClear": "Șterge filtru",
+  "filterControlPanelTitle": "Panou de control filtru",
+  "filterControlSubtitle": "Gestionați starea pornit/oprit a tuturor filtrelor",
+  "filterControlTitle": "Control filtru",
+  "filterDeleteFailed": "Ștergerea filtrului a eșuat",
+  "filterDeleteSuccess": "Filtru șters cu succes",
+  "filterDetails": "Detalii filtru",
+  "filtered": "Filtrat",
+  "filteredSms": "SMS filtrate",
+  "filteredSmsLabel": "SMS filtrate",
+  "filterExplanation": "Explicație filtru",
+  "filterManagement": "Gestionare filtre",
+  "filterName": "Nume filtru",
+  "filterPattern": "Model filtru",
+  "filterPriorityNote": "Notă: Există relații de prioritate între filtre, vă rugăm să consultați documentația de ajutor pentru detalii",
+  "filterSaveFailed": "Salvarea filtrului a eșuat",
+  "filterSaveSuccess": "Filtru salvat cu succes",
+  "filterSettings": "Setări filtru",
+  "filterSettingsTitle": "Setări filtru",
+  "filterSMS": "SMS filtru",
+  "filterToggleInstructions": "Activați sau dezactivați filtrele pentru acest slot SIM:",
+  "filterToggleStatus": "Filtru {status}: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "Tip filtru",
+  "financial": "Financiar",
+  "flexibleCombinationFeature": "• Combinații flexibile: Activați/dezactivați filtrele per slot SIM",
+  "fontSizesSetting": "Dimensiuni font",
+  "foundRules": "S-au găsit {count} reguli",
+  "foundRulesDoYouWantToImport": "S-au găsit {count} reguli. Doriți să le importați?",
+  "foundRulesToImport": "S-au găsit {count} reguli. Doriți să le importați?",
+  "fraudAlert": "ALERTĂ DE FRAUDĂ - Închideți apelul",
+  "fraudScamLikely": "Fraudă, probabil înșelătorie",
+  "free": "Gratuit",
+  "functionSettingsTitle": "Setări funcții",
+  "generalUpdateFailure": "Actualizare eșuată: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Obține gratuit",
+  "github": "GitHub",
+  "globalFilterDescription": "Configurați filtre globale pentru toate cartelele SIM:",
+  "globalFilterFeature": "• Filtre globale: Reguli de bază pentru toate apelurile primite",
+  "globalFilterSettings": "Setări filtru global",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "Configurați setările filtrului global care se aplică tuturor sloturilor SIM:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Căutați contacte, etichete, liste negre, liste albe etc.",
+  "globalSearchTitle": "Căutare globală",
+  "globalSettings": "Setări globale",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Poziția afișării anunțurilor Google",
+  "googleAdMobIntegrationText": "Anunțurile Google AdMob pot fi integrate aici",
+  "googleDriveAuthDescription": "Autorizați utilizând ID-ul și cheia clientului Google Drive configurate de sistem",
+  "googleDriveAuthorizationHint": "Autorizați utilizând ID-ul și cheia clientului Google Drive configurate de sistem",
+  "googleDriveConfigTitle": "Configurație Google Drive",
+  "googleDriveConfigurationTitle": "Configurație Google Drive",
+  "government": "Guvern",
+  "granted": "Acordat",
+  "grantNecessaryPermissions": "Acordați permisiunile necesare",
+  "grantPermissions": "Acordați permisiuni",
+  "headhunter": "Vânător de capete",
+  "height": "Înălțime",
+  "homePageTitle": "Pagina principală",
+  "homeTab": "Acasă",
+  "howItWorksPoint1": "• Sistemul va permite automat apeluri de la același număr în fereastra de timp setată",
+  "howItWorksPoint2": "• Ferestrele de timp mai scurte duc la interceptare mai strictă; ferestrele de timp mai lungi duc la interceptare mai lejeră",
+  "howItWorksPoint3": "• Sistemul verifică jurnalele de apeluri pentru a determina dacă este un apel repetat",
+  "howItWorksTitle": "Cum funcționează:",
+  "iconCodeOptional": "Cod pictogramă (opțional)",
+  "iconSize": "Dimensiune pictogramă",
+  "import": "Importă",
+  "important": "Important",
+  "importButton": "Importă",
+  "importConfig": "Importă configurația",
+  "importContacts": "Importă contacte",
+  "importExportContacts": "Importă/Exportă contacte",
+  "importExportContactsTooltip": "Importă/Exportă contacte",
+  "importExportRules": "Importă/Exportă reguli",
+  "importFailed": "Importarea a eșuat: {error}",
+  "importFailure": "Nu a reușit importul configurației",
+  "importFeatureComingSoon": "Funcția de importare va fi disponibilă în curând",
+  "importLabels": "Importă etichete",
+  "importLabelsFailed": "Nu a reușit importul etichetelor: {error}",
+  "importPluginList": "Importă lista de plugin-uri",
+  "importPluginListFailed": "Nu a reușit importarea listei de plugin-uri: {error}",
+  "importPluginSuccess": "Pluginuri importate cu succes {count}",
+  "importRuleConfigurationsFromFile": "Importă configurații de reguli din fișier",
+  "importRuleConfigurationsFromFileSubtitle": "Importă configurații de reguli din fișier",
+  "importRules": "Importă reguli",
+  "importRulesButton": "Importă reguli",
+  "importRulesDialogTitle": "Importă reguli",
+  "importRulesError": "Nu a reușit importarea regulilor: {error}",
+  "importRulesInstructions": "Importă reguli dintr-un fișier CSV",
+  "importRulesSuccess": "Reguli importate cu succes",
+  "importRulesTitle": "Importă reguli",
+  "importSuccess": "Importare reușită",
+  "incomingCallInterceptAction": "Acțiune de interceptare a apelurilor primite",
+  "incomingCallNotification": "Notificare apel primit",
+  "incorrectPassword": "Parolă incorectă",
+  "initializing": "Inițializare",
+  "installed": "Instalat",
+  "insufficientMarks": "Semne insuficiente",
+  "insurance": "Asigurare",
+  "interceptAction": "Acțiune de interceptare",
+  "interceptionActionSettingsSubtitle": "Setați modul în care sunt gestionate apelurile blocate",
+  "interceptionActionSettingsTitle": "Setări acțiune de interceptare",
+  "interceptionTimeInterval": "Interval de timp de interceptare",
+  "internet": "Internet",
+  "intervalSetSuccess": "Intervalul de actualizare {service} setat la {days} zile",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Regex de conținut nevalid",
+  "invalidLabel": "Etichetă invalidă",
+  "invalidRegexPattern": "Model regex invalid",
+  "invalidSenderRegex": "Regex expeditor invalid",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Alăturați-vă canalului și grupului Telegram pentru mai multe informații",
+  "jsLogsTitle": "Jurnale JS",
+  "jsonFormat": "Format JSON",
+  "keepAllVersions": "Păstrați toate versiunile",
+  "keepAllVersionsDescription": "Păstrați toate versiunile istorice ale fiecărei copii de rezervă",
+  "keepAllVersionsLabel": "Păstrați toate versiunile",
+  "keepAllVersionsSubtitle": "Păstrați versiunile istorice ale fiecărei copii de rezervă",
+  "keepAllVersionsTitle": "Păstrați toate versiunile",
+  "label": "Etichetă",
+  "labelAddedSuccessfully": "Eticheta \"{name}\" adăugată cu succes",
+  "labelCategories": "Categorii de etichete",
+  "labelDeleted": "Etichetă ștearsă",
+  "labelDescription": "Etichetele vă ajută să gestionați mai bine contactele, să adăugați etichete personalizate la numerele de telefon pentru identificarea ușoară a apelurilor și mesajelor.",
+  "labelFilter": "Filtru etichete",
+  "labelFilterTooltip": "Filtru etichete",
+  "labelIconColor": "Culoarea icoanei etichetei",
+  "labelManagement": "Gestionarea etichetelor",
+  "labelNotFound": "Eticheta nu a fost găsită",
+  "labelRemoved": "Etichetă eliminată",
+  "labelRemoveFailed": "Nu s-a reușit eliminarea etichetei: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "Etichete",
+  "labelsColor": "Culoarea etichetelor",
+  "labelsDeleted": "{count} etichete șterse",
+  "labelsExportedSuccessfully": "Etichete exportate cu succes",
+  "labelsFontSize": "Dimensiunea fontului etichetelor",
+  "labelsImportedSuccessfully": "Au fost importate cu succes {count} etichete",
+  "labelsPosition": "Poziția etichetelor",
+  "labelTag": "Etichetă: {labelId}",
+  "labelUpdated": "Eticheta actualizată",
+  "labelUpdateFailed": "Nu s-a reușit actualizarea etichetei: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "Eticheta \"$labelText\" a fost actualizată cu succes",
+  "languageSettings": "Setări limbă",
+  "languageSettingsSubtitle": "Schimbați limba de afișare a aplicației",
+  "languageSettingsTitle": "Setări limbă",
+  "last30Days": "Ultimele 30 de zile",
+  "last7Days": "Ultimele 7 zile",
+  "lastSyncLabel": "Ultima sincronizare",
+  "lastUpdated": "Ultima actualizare: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "Abonament pe viață",
+  "lifetimeMembershipDescription": "Achiziție unică, deblochează permanent toate funcțiile premium și actualizările viitoare",
+  "loadContactsFailed": "Nu s-a reușit încărcarea contactelor: {error}",
+  "loadDataFailed": "Nu s-a reușit încărcarea datelor",
+  "loadFailed": "Încărcare eșuată",
+  "loading": "Se încarcă...",
+  "loadingData": "Se încarcă datele...",
+  "loadingTags": "Se încarcă etichetele...",
+  "loadLabelFailed": "Nu s-a reușit încărcarea etichetelor: {error}",
+  "loadLabelsFailed": "Nu s-a reușit încărcarea etichetelor: {error}",
+  "loadMarkCountFailed": "Nu s-a reușit încărcarea numerelor de telefon marcate: {error}",
+  "loadMarkedPhonesFailed": "Nu s-a reușit încărcarea telefoanelor marcate: {error}",
+  "loadMore": "Încarcă mai mult",
+  "loadPluginButton": "Încarcă pluginul",
+  "loadPluginsFailed": "Nu s-a reușit încărcarea pluginurilor: {error}",
+  "loadSettingsFailed": "Nu s-a reușit încărcarea setărilor: {error}",
+  "loadSmsRulesFailed": "Nu s-a reușit încărcarea regulilor SMS: {error}",
+  "loadStatusFailedMessage": "Nu s-a reușit încărcarea stării",
+  "loadSubscriptionsFailed": "Nu s-a reușit încărcarea abonamentelor: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "Împrumut",
+  "localBackupTitle": "Backup local",
+  "localCounterFilter": "Filtru contra locală",
+  "localCounterFilterSubtitle": "Filtrați automat apelurile spam pe baza frecvenței apelurilor",
+  "localCountFilter": "Filtru de număr local",
+  "localCountFilterDescription": "Interceptați apelurile frecvente pe baza numărului de numere locale",
+  "localCountFilterExplanationContent": "Filtrul de număr local analizează înregistrările istoricului apelurilor pentru a identifica și bloca automat apelurile spam frecvente.",
+  "localCountFilterExplanationTitle": "Explicația filtrului de număr local",
+  "localCountFilterHowItWorksPoint1": "• Determinați dacă se blochează pe baza valorii numărului",
+  "localCountFilterHowItWorksPoint2": "• Când numărul depășește pragul setat, puteți alege să-l blocați automat",
+  "localCountFilterHowItWorksPoint3": "• Puteți permite selectiv numerele care nu depășesc pragul",
+  "localCountFilterHowItWorksPoint4": "• Puteți alege dacă să înregistrați toate jurnalele de interogare",
+  "localCountFiltering": "Filtrare număr local",
+  "localCountFilteringExplanation": "• Filtrare număr local: Reguli de filtrare bazate pe numărul de marcaje locale",
+  "localCountFilterSettings": "Setări filtru număr local",
+  "localCountFilterUseCases": "Acest filtru este deosebit de potrivit pentru identificarea apelurilor spam auto-dial și a apelurilor de marketing.",
+  "localFilterSettings": "Setări filtru local",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "Notificare locală dezactivată",
+  "localNotificationEnabled": "Notificare locală activată",
+  "localServices": "Servicii locale",
+  "locationColor": "Culoarea locației",
+  "locationFontSize": "Dimensiunea fontului locației",
+  "locationIconColor": "Culoare iconiță locație",
+  "locationPosition": "Poziția locației",
+  "logAllLocalQueries": "Înregistrați toate interogările locale",
+  "logAllLocalQueriesDescription": "Înregistrați jurnalele pentru toate interogările numerelor locale",
+  "logAllRemoteQueries": "Înregistrați toate interogările de la distanță",
+  "logAllRemoteQueriesDescription": "Înregistrați toate operațiunile de interogare a numerelor de la distanță",
+  "manage": "Gestionați Contacte",
+  "manageContacts": "Gestionați",
+  "manageFavoriteContacts": "Gestionați contactele preferate",
+  "manageFilterRules": "Gestionați regulile de filtrare",
+  "manageFilterRulesDescription": "Adăugați, editați sau ștergeți reguli de filtrare SMS",
+  "manageFrequentContacts": "Gestionați contactele frecvente",
+  "markCounts": "Numărul de marcaje",
+  "markCount": "Numărul de marcaje",
+  "markedByCount": "Marcat de {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "Numere de telefon marcate",
+  "markExchange": "Schimb de marcaje",
+  "markPhone": "Marcați numărul de telefon",
+  "markPhoneFailed": "Nu s-a reușit marcarea numărului de telefon: {error}",
+  "markPhoneManagementSubtitle": "Pentru a marca numerele de telefon",
+  "markPhoneManagementTitle": "Gestionare marcare telefon",
+  "markPhoneSuccess": "Numărul de telefon marcat cu succes",
+  "matchFailed": "Potrivire eșuată!",
+  "matchFailedMessage": "Potrivire eșuată.",
+  "matchNumbersWithSpecialCharacters": "se potrivește cu formatul specific al numărului",
+  "matchNumbersWithSpecialCharactersTitle": "Potriviți numerele cu caractere speciale:",
+  "matchSpecificDigitPatterns": "se potrivește cu formatul XXX-XXXX-XXXX",
+  "matchSpecificDigitPatternsTitle": "Potriviți tiparele specifice de cifre:",
+  "matchSuccessful": "Potrivire reușită!",
+  "matchSuccessfulMessage": "Potrivire reușită!",
+  "medical": "Medical",
+  "membershipPrivileges": "Privilegii de membru",
+  "migrationTool": "Instrument de migrare",
+  "migrationToolTitle": "Instrument de migrare",
+  "minutes": "minute",
+  "month": "Luna",
+  "monthly": "Lunar",
+  "monthlyCallCount": "Apeluri lunare",
+  "monthlyChartTitle": "Apeluri blocate lunar",
+  "monthlyMembership": "Abonament lunar",
+  "monthlyMembershipDescription": "Deblocați toate funcțiile premium, reînnoire automată lunar",
+  "monthlyTotal": "Total lunar",
+  "monthlyTotalLabel": "Total lunar",
+  "moreOptions": "Mai multe opțiuni",
+  "mute": "Fără sunet",
+  "name": "Nume",
+  "nameAndPhoneNumberCannotBeEmpty": "Numele și numărul de telefon nu pot fi goale",
+  "nameAndPhoneNumberRequired": "Numele și numărul de telefon sunt obligatorii",
+  "nameColor": "Culoarea numelui",
+  "nameFontSize": "Dimensiunea fontului numelui",
+  "nameLabel": "Nume: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "Poziția numelui",
+  "nameUnknown": "Nume: Necunoscut",
+  "nameWithValue": "Nume: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "Noua parolă",
+  "nextStep": "Următorul",
+  "noAction": "Nicio acțiune",
+  "noActionRules": "Nicio regulă de acțiune",
+  "noActiveCloudSyncServiceMessage": "Niciun serviciu de sincronizare cloud activ",
+  "noCallLogs": "Nu există istoric de apeluri",
+  "noCallRecords": "Nu există înregistrări de apeluri",
+  "noContacts": "Încă nu aveți contacte",
+  "noContactsYet": "Încă nu aveți contacte",
+  "noData": "Fără date",
+  "noDevicesRegisteredMessage": "Niciun dispozitiv înregistrat",
+  "noDevicesRegisteredYet": "Încă nu aveți dispozitive înregistrate.",
+  "noFilters": "Încă nu aveți filtre",
+  "noLabels": "Încă nu aveți etichete",
+  "noMarkedPhones": "Nu sunt numere de telefon marcate",
+  "noMatchingContacts": "Niciun contact corespunzător",
+  "noMatchingContactsFound": "Nu au fost găsite contacte corespunzătoare",
+  "noMatchingNumbersFound": "Nu au fost găsite numere corespunzătoare",
+  "noMatchingRecords": "Niciun înregistrare de apel corespunzătoare",
+  "noMatchingRules": "Niciun {ruleType} corespunzător",
+  "none": "Niciunul",
+  "noneServiceType": "Niciunul",
+  "noPlugins": "Încă nu sunt pluginuri",
+  "noRecords": "Niciun registru de apeluri",
+  "noResultReturned": "Nu a fost returnat niciun rezultat",
+  "noResultReturnedLog": "Niciun rezultat returnat de la plugin",
+  "noRules": "Încă nu există {ruleType}",
+  "noRulesPrompt": "Nu au fost găsite reguli, vă rugăm să adăugați reguli",
+  "noRulesToExport": "Nu există reguli de exportat",
+  "noSmsFilterRulesYet": "Încă nu există reguli de filtrare SMS",
+  "noSmsRulesYet": "Încă nu există reguli SMS",
+  "noSubscriptions": "Nicio subscripție",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "Încă nu există subscripții",
+  "notGranted": "Nu este acordat",
+  "notificationMode": "Mod notificare",
+  "notificationModeDescription": "Afișează informațiile apelantului în bara de notificare",
+  "notificationPermission": "Permisiune de notificare",
+  "notificationPermissionDescription": "Folosit pentru a afișa notificări de apeluri și mesaje primite.",
+  "notifications": "Notificări",
+  "notificationSettings": "Setări de notificare",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "Setările de notificare au fost salvate cu succes",
+  "notSet": "Nu este setat",
+  "notVerifiedText": "Neverificat",
+  "noValidSmsRulesFoundInFile": "Nu au fost găsite reguli SMS valide în fișier",
+  "number": "Număr",
+  "numberColor": "Culoarea numărului",
+  "numberFontSize": "Dimensiunea fontului numărului",
+  "numberPosition": "Poziția numărului",
+  "numberSearch": "Căutare număr",
+  "numberTypeColor": "Culoarea tipului de număr",
+  "numberTypeFontSize": "Dimensiunea fontului tipului de număr",
+  "numberTypePosition": "Poziția tipului de număr",
+  "ok": "OK",
+  "okButton": "OK",
+  "onboardingCompleteDescription": "Managerul dvs. de securitate a apelurilor este gata, începeți să vă bucurați de o experiență de apelare sigură!",
+  "onboardingLanguageDescription": "Alegeți limba preferată pentru cea mai bună experiență.",
+  "onboardingPermissionsDescription": "Pentru a oferi servicii complete, avem nevoie de următoarele permisiuni:",
+  "onboardingPowerfulSpamBlockingDescription": "Blocarea cu un singur clic a apelurilor și mesajelor spam, personalizați regulile de blocare și oferiți-vă un mediu liniștit.",
+  "onboardingSmartCallerIdDescription": "Identificați automat apelurile necunoscute, marcați numerele suspecte și protejați siguranța apelurilor.",
+  "onboardingWelcomeDescription": "Expertul dvs. în gestionarea apelurilor, oferind servicii complete de identificare și blocare a apelurilor.",
+  "oneDriveAuthDescription": "Autorizați folosind ID-ul și cheia clientului OneDrive configurate de sistem",
+  "oneDriveAuthorizationHint": "Autorizați folosind ID-ul și cheia clientului OneDrive configurate de sistem",
+  "oneDriveConfigTitle": "Configurare OneDrive",
+  "oneDriveConfigurationTitle": "Configurare OneDrive",
+  "onlineCallerIdSubscription": "Abonament Online Caller ID",
+  "openAppSettings": "Deschide setările aplicației",
+  "openAppSettingsFailed": "Nu s-a reușit deschiderea setărilor aplicației: {error}",
+  "operationFailed": "Operațiune eșuată: {error}",
+  "operationFailure": "Operațiune eșuată",
+  "operationSuccess": "Operațiune reușită",
+  "other": "Altele",
+  "ourOtherApps": "Celelalte aplicații ale noastre",
+  "overlayMode": "Fereastră flotantă",
+  "overlayModeDescription": "Afișează informațiile apelantului într-o fereastră flotantă",
+  "overlayPermission": "Permisiunea de suprapunere",
+  "overlayPermissionDescription": "Utilizat pentru a afișa suprapunerea apelurilor primite.",
+  "overview": "Prezentare generală",
+  "password": "Parolă",
+  "passwordCannotBeEmpty": "Parola nu poate fi goală",
+  "passwordLabel": "Parolă",
+  "passwordsDoNotMatch": "Parolele nu se potrivesc",
+  "passwordSetSuccessfully": "Parola setată cu succes",
+  "pattern": "Model",
+  "pendingSync": "Sincronizare în așteptare",
+  "periodMonth": "Lună",
+  "periodWeek": "Săptămână",
+  "periodYear": "An",
+  "permissionDenied": "Permisiune refuzată",
+  "permissionGranted": "Permisiune acordată",
+  "permissionManagement": "Gestionarea permisiunilor",
+  "phoneCallsTab": "Telefon",
+  "phoneNumber": "Număr de telefon",
+  "phoneNumberCannotBeEmpty": "Numărul de telefon nu poate fi gol",
+  "phoneNumberHint": "Introduceți numărul de telefon",
+  "phoneNumberHintText": "Introduceți numărul de telefon pentru a adăuga regula",
+  "phoneNumberLabel": "Număr de telefon",
+  "phoneNumberRegexRequired": "Introduceți atât numărul de telefon, cât și modelul regex",
+  "phoneNumberRequired": "Numărul de telefon este obligatoriu",
+  "phoneNumberTypeFixedLine": "Linie fixă",
+  "phoneNumberTypeFixedLineOrMobile": "Linie fixă sau mobil",
+  "phoneNumberTypeMobile": "Mobil",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypePersonalNumber": "Număr personal",
+  "phoneNumberTypePremiumRate": "Tarif premium",
+  "phoneNumberTypeSharedCost": "Cost partajat",
+  "phoneNumberTypeTollFree": "Gratuit",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "Necunoscut",
+  "phoneNumberTypeVoicemail": "Mesagerie vocală",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "Permisiune telefon",
+  "phonePermissionDescription": "Utilizat pentru identificarea și blocarea apelurilor primite.",
+  "phoneRule": "Regulă telefon",
+  "phoneRuleEditDialog": "Dialog de editare a regulii telefon",
+  "phoneRuleManagement": "Gestionarea regulilor telefonice",
+  "phoneRuleSubscription": "Abonament la reguli telefonice",
+  "phoneSubscription": "Abonament telefonic",
+  "phoneSubscriptionRulesDescription": "Abonați-vă la liste de reguli telefonice prin URL pentru a actualiza automat regulile de listă albă și neagră. Acceptă fișiere de reguli în format JSON.",
+  "phoneSubscriptionTitle": "Abonamente la regulile telefonice",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "Vă rugăm să selectați o etichetă și să introduceți un număr de telefon valid",
+  "pluginAddedSuccess": "Pluginul \"{name}\" a fost adăugat cu succes",
+  "pluginDeleted": "Plugin șters",
+  "pluginLatestVersion": "Pluginul este deja cea mai recentă versiune",
+  "pluginListExportSuccess": "Lista de pluginuri a fost exportată cu succes",
+  "pluginLoadedSuccessfully": "Pluginul a fost încărcat cu succes",
+  "pluginManagement": "Gestionarea pluginurilor",
+  "pluginManagementSubtitle": "Gestionați și configurați pluginuri terțe",
+  "pluginManagementTitle": "Gestionarea pluginurilor",
+  "pluginName": "Nume plugin",
+  "pluginNotLoaded": "Pluginul nu este încărcat. Vă rugăm să încărcați mai întâi pluginul.",
+  "pluginsDeleted": "{count} pluginuri șterse cu succes.",
+  "pluginService": "Serviciu plugin",
+  "pluginTestPageTitle": "Test plugin",
+  "pluginUpdateSuccess": "Plugin actualizat cu succes",
+  "pluginUrl": "URL plugin",
+  "pluginUrlCannotBeEmpty": "URL plugin nu poate fi gol",
+  "pluginUrlHint": "Introduceți URL-ul pluginului",
+  "pluginUrlLabel": "URL plugin",
+  "pluginVersion": "Versiune plugin",
+  "political": "Politic",
+  "powerfulSpamBlocking": "Blocare puternică a spamului",
+  "previousStep": "Pasul anterior",
+  "prioritizeRemoteAction": "Prioritizați setările de acțiune la distanță",
+  "prioritizeRemoteActionDescription": "Prioritizează setările de acțiune din baza de date la distanță",
+  "processing": "Prelucrare...",
+  "processingOperation": "Prelucrare...",
+  "purchase": "Cumpărare",
+  "quarterlyMembership": "Abonament trimestrial",
+  "quarterlyMembershipDescription": "Deblocați toate funcțiile premium, reînnoire automată trimestrială",
+  "queryButton": "Interogare",
+  "queryFailed": "Interogarea a eșuat",
+  "queryFailedLog": "Interogarea a eșuat",
+  "querying": "Interogare...",
+  "queryingPhoneNumber": "Interogare număr de telefon",
+  "queryResultTitle": "Rezultatul interogării",
+  "ready": "Gata!",
+  "receiveWeeklyStatistics": "Primiți statistici săptămânale",
+  "recruiter": "Recrutor",
+  "reEnterPasswordHint": "Vă rugăm să reintroduceți parola",
+  "refresh": "Reîmprospătare",
+  "refreshPermissionStatus": "Reîmprospătați starea permisiunilor",
+  "refreshTooltip": "Reîmprospătare",
+  "regexError": "Eroare Regex: {error}",
+  "regexErrorMessage": "Eroare Regex: {error}",
+  "regexPattern": "Model Regex",
+  "regexPatternExplanation": "Explicație model Regex",
+  "regexPatternExplanationButton": "Explicație model Regex",
+  "regexPatternLabel": "Model Regex",
+  "regexPatternsExamples": "Utilizați sintaxa regex standard pentru a defini modele. Exemple:",
+  "regexPatternsForPhoneNumberMatching": "Modele Regex pentru potrivirea numerelor de telefon",
+  "regexRule": "Regula Regex",
+  "regexRuleAddFailed": "Nu s-a reușit adăugarea regulii regex: {error}",
+  "regexRuleAddSuccess": "Regula Regex adăugată cu succes",
+  "regexRuleManagement": "Gestionarea regulilor Regex",
+  "regexRuleNamePatternRequired": "Numele regulii și modelul regex nu pot fi goale",
+  "regexRules": "Reguli Regex",
+  "regexTesterTitle": "Tester Regex",
+  "regexValidationFailed": "Validarea Regex a eșuat: {error}",
+  "regexValidationSuccess": "Validarea Regex a reușit",
+  "region": "Regiune",
+  "registeredDevicesTitle": "Dispozitive înregistrate",
+  "rejectAllCalls": "Respinge toate apelurile",
+  "rejectAllCallsDescription": "Când este activat, toate apelurile vor fi respinse cu cea mai mare prioritate",
+  "rejectAllNumbers": "Respinge toate numerele",
+  "rejectAllNumbersDesc": "Respinge toate apelurile primite atunci când este activat",
+  "rejectExceededNumbers": "Respinge numerele depășite",
+  "rejectExceededNumbersDescription": "Respinge automat numerele care depășesc pragul de numărare",
+  "remoteFilterSettings": "Setări filtrului de la distanță",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "Setări filtru numere de la distanță",
+  "remoteNumberFilter": "Filtru numere de la distanță",
+  "remoteNumberFilterDatabaseInfo": "Acest filtru utilizează o bază de date de la distanță independentă pentru a obține cele mai recente informații despre numere.",
+  "remoteNumberFilterDescription": "Interceptați apelurile de hărțuire pe baza informațiilor din baza de date de la distanță",
+  "remoteNumberFilterExplanationContent": "Filtrul de numere de la distanță identifică și blochează apelurile spam prin interogarea unei baze de date de la distanță pe baza numărului de apariții.",
+  "remoteNumberFilterExplanationTitle": "Explicație filtru numere de la distanță",
+  "remoteNumberFilterFeatureCountThreshold": "• Prag de numărare: Determinați pe baza frecvenței de apariție a numărului",
+  "remoteNumberFilterFeatureFilterAction": "• Acțiuni de filtrare: Configurați modul de gestionare a numerelor care depășesc pragul",
+  "remoteNumberFilterFeaturePriority": "• Setări de prioritate: Setați prioritatea pentru acțiunile de la distanță",
+  "remoteNumberFilterFeatures": "Caracteristici:",
+  "remoteNumberFiltering": "Filtrarea numerelor de la distanță",
+  "remoteNumberFilteringExplanation": "• Filtrarea numerelor de la distanță: Reguli de filtrare bazate pe informații din baza de date de la distanță",
+  "remoteNumberFilterSubtitle": "Identificați apelurile spam utilizând baza de date cloud și rapoartele comunității",
+  "removeAdsDescription": "Eliminați definitiv toate reclamele din aplicație pentru o experiență mai fluidă",
+  "removeAdsTitle": "Eliminați reclamele",
+  "removedFromFavoriteContacts": "Eliminat din contactele favorite",
+  "removedFromFavorites": "Eliminat din favorite",
+  "removeFavorite": "Elimină favorit",
+  "removeFromFavorites": "Elimină din favorite",
+  "renameButton": "Redenumește",
+  "renameDeviceDialogTitle": "Redenumire dispozitiv",
+  "renameDeviceTitle": "Redenumire dispozitiv",
+  "replaceCurrentSettingsConfirmation": "Acest lucru va înlocui toate setările curente. Sigur doriți să continuați?",
+  "requestAllPermissions": "Solicitați toate permisiunile",
+  "requestPermission": "Solicitați permisiune",
+  "requestPermissionFailed": "Nu s-a reușit solicitarea permisiunii: {error}",
+  "requiredMarks": "{count} Puncte",
+  "reset": "Resetează",
+  "restore": "Restaurare",
+  "restoreApplicationSettingsFromBackup": "Restaurare Setări Aplicație din Backup",
+  "restoreApplicationSettingsFromBackupSubtitle": "Restaurare setări aplicație din backup",
+  "restoreButton": "Restaurare",
+  "restoreFailedWithError": "Restaurare din cloud eșuată: {error}",
+  "restoreFromCloud": "Restaurare din Cloud",
+  "restoreFromCloudDescription": "Restaurare setări și reguli din stocarea cloud",
+  "restoreFromCloudFailed": "Eșec la restaurarea din cloud: {error}",
+  "restoreFromCloudLabel": "Restaurare din Cloud",
+  "restoreFromCloudSuccess": "Restaurare din cloud reușită",
+  "restoreFromCloudTitle": "Restaurare din Cloud",
+  "restoreFromLocal": "Restaurare din Local",
+  "restorePurchases": "Restaurare Achiziții",
+  "restoreSectionTitle": "Restaurare",
+  "restoreSettings": "Restaurare Setări",
+  "restoreSettingsConfirmation": "Aceasta va înlocui toate setările curente. Sigur doriți să continuați?",
+  "restoreSettingsDialogTitle": "Restaurare Setări",
+  "restoreSettingsTitle": "Restaurare Setări",
+  "restoreSuccessFromLocal": "Restaurare din local reușită",
+  "restoreSuccessMessage": "Restaurare din cloud reușită",
+  "retry": "Reîncercare",
+  "ridesharing": "Partajare Călătorii",
+  "risk": "Risc",
+  "robocall": "Apel Robo",
+  "ruleAction": "Acțiune Regulă",
+  "ruleAddButton": "Adăugare Regulă",
+  "ruleAddedSuccess": "Regula adăugată cu succes",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "Eșec la adăugarea regulii: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "Regula adăugată cu succes",
+  "ruleDeleteConfirmContent": "Sigur doriți să ștergeți acest {ruleType}?",
+  "ruleDeleteConfirmTitle": "Ștergere Regulă",
+  "ruleDeletedSuccess": "Regula ștearsă cu succes",
+  "ruleDeletedSuccessfully": "Regula ștearsă cu succes",
+  "ruleDeleteFailed": "Eșec la ștergerea regulii: {error}",
+  "ruleDeleteFailure": "Eșec la ștergerea regulii: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "Regula ștearsă cu succes",
+  "ruleDisabledSuccessfully": "Regula dezactivată cu succes",
+  "ruleEnabledSuccessfully": "Regula activată cu succes",
+  "ruleLoadFailed": "Eșec la încărcarea regulilor: {error}",
+  "ruleManagement": "Gestionare Reguli",
+  "ruleManagementTitle": "Gestionare Reguli",
+  "ruleName": "Nume Regulă",
+  "ruleNameAndContentRegexCannotBeEmpty": "Numele regulii și regex-ul de conținut nu pot fi goale",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "Numele regulii și numărul de telefon nu pot fi goale",
+  "ruleNameHint": "ex: Familie, Prieteni, etc.",
+  "ruleNameLabel": "Nume Regulă",
+  "ruleNamePatternRequired": "Vă rugăm să introduceți numele și modelul regulii",
+  "ruleNameRequired": "Numele regulii și numărul de telefon nu pot fi goale",
+  "ruleNotExist": "Regula nu există sau a fost ștearsă",
+  "ruleNotFound": "Regula nu a fost găsită: {error}",
+  "ruleSavedSuccessfully": "Regula salvată cu succes!",
+  "ruleSavedSuccessMessage": "Regula salvată cu succes!",
+  "ruleSaveFailed": "Salvare eșuată: {error}",
+  "ruleSaveFailedMessage": "Salvare eșuată: {error}",
+  "ruleSaveSuccess": "Regula salvată cu succes!",
+  "rulesExportedSuccessfully": "Reguli exportate cu succes",
+  "rulesExportedTo": "Reguli exportate în: {path}",
+  "rulesImported": "Reguli importate cu succes",
+  "rulesImportedSuccessfully": "{count} reguli importate cu succes",
+  "rulesImportFailed": "Importul regulilor a eșuat: {error}",
+  "ruleStatistics": "Statistici reguli",
+  "ruleStatusChanged": "Regula {status} cu succes",
+  "ruleToggleFailed": "Operațiune eșuată: {error}",
+  "ruleToggleSuccess": "Regula {status} cu succes",
+  "ruleUpdateFailed": "Actualizarea regulii a eșuat: {error}",
+  "ruleUpdateSuccess": "Regula actualizată cu succes",
+  "ruleVerification": "Verificarea regulii",
+  "save": "Salvează",
+  "saveButton": "Salvează",
+  "saveButtonLabel": "SALVEAZĂ",
+  "saveButtonText": "Salvează",
+  "saveFailed": "Salvare eșuată: {error}",
+  "saveFilter": "Salvează filtru",
+  "saveSettings": "Salvează setările",
+  "saveSettingsFailed": "Salvarea setărilor a eșuat: {error}",
+  "scamsLikely": "Posibilă înșelătorie",
+  "search": "Caută",
+  "searchContacts": "Caută contacte",
+  "searchError": "Eroare la căutare: {error}",
+  "searchFilters": "Filtre de căutare",
+  "searchForContacts": "Caută contacte",
+  "searchHint": "Caută...",
+  "searchSettingsSubtitle": "Căutați contacte, etichete, liste negre, liste albe etc.",
+  "searchSettingsTitle": "Setări căutare",
+  "securityMessage": "Nu aveți încredere în apeluri telefonice. Verificați întotdeauna numerele de servicii clienți în mod independent. Nu partajați niciodată parole, coduri de verificare, numere de card sau informații personale.",
+  "selectActionToPerform": "Selectați acțiunea de efectuat când regula se potrivește",
+  "selectActionWhenBlockingCalls": "Selectați acțiunea la blocarea apelurilor",
+  "selectActionWhenRuleMatches": "Selectați acțiunea când regula se potrivește",
+  "selectAll": "Selectează tot",
+  "selectCountry": "Selectați țara",
+  "selectDateRange": "Selectați intervalul de date",
+  "selectedDateRange": "Interval de date selectat",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} elemente selectate",
+  "selectedLabel": "Selectat:",
+  "selectExportFormat": "Selectați formatul de export",
+  "selectLabel": "Selectați eticheta",
+  "selectLabelAndEnterPhoneNumber": "Vă rugăm să selectați o etichetă și să introduceți un număr de telefon valid",
+  "selectLanguage": "Selectați limba",
+  "selectMultiple": "Selectare Multiple",
+  "selectPeriod": "Selectare Perioadă",
+  "selectSimCard": "Selectare SIM Card",
+  "selectSimSlot": "Selectare Slot SIM",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "Selectați acțiunea specifică de efectuat la blocarea apelurilor",
+  "selectTag": "Selectare Etichetă",
+  "selectTags": "Selectare Etichete",
+  "selectTrustedDataSource": "Vă rugăm să selectați sursele de date de încredere",
+  "selectYourLanguage": "Selectați Limba",
+  "sender": "Expeditor",
+  "senderRegexOptional": "Expeditor Regex (Opțional)",
+  "serverAddressLabel": "Adresa Serverului",
+  "serviceTypeContact": "Abonament Contact",
+  "serviceTypeLabel": "Tip Serviciu",
+  "serviceTypePhone": "Abonament Telefon",
+  "serviceTypePlugin": "Actualizare Plugin",
+  "serviceTypeSms": "Abonament SMS",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "Setare",
+  "setEncryptionPassword": "Setați Parola de Criptare",
+  "setEncryptionPasswordDescription": "Setați parola de criptare pentru backup și restaurare",
+  "setEncryptionPasswordLabel": "Setați Parola de Criptare",
+  "setEncryptionPasswordTitle": "Setați Parola de Criptare",
+  "setPasswordButton": "Setare",
+  "settings": "Setări",
+  "settingsBackedUpTo": "Setări salvate în: {path}",
+  "settingsLoaded": "Setări încărcate",
+  "settingsLoadFailed": "Nu s-a reușit încărcarea setărilor: {error}",
+  "settingsRestoredSuccessfully": "Setările au fost restaurate cu succes. Vă rugăm să reporniți aplicația pentru ca modificările să aibă efect.",
+  "settingsSaved": "Setări salvate",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "Nu s-a reușit salvarea setărilor: {error}",
+  "settingsTab": "Setări",
+  "settingsTitle": "Setări",
+  "setup": "Configurare",
+  "showContactEditDialogStaticMethod": "Metodă statică pentru afișarea dialogului de editare contact",
+  "showExplanation": "Arată Explicația",
+  "silence": "Reduceți la tăcere",
+  "silenceAndNoAnswer": "Reduceți la tăcere și fără răspuns",
+  "silenceNoAnswer": "Reduceți la tăcere fără răspuns",
+  "silentCallVoiceClone": "Clonare Vocală Apel Silențios",
+  "silentRules": "Reguli Silențioase",
+  "simCard": "SIM Card {simNumber}",
+  "simCardColor": "Culoare SIM Card",
+  "simCardConfigurationExplanation": "• Configurare SIM Card: Setați reguli de filtrare independente pentru fiecare SIM card",
+  "simCardFilterRules": "Reguli de Filtrare SIM Card",
+  "simCardFilterRulesDescription": "Setați reguli de filtrare diferite în funcție de sloturile SIM card",
+  "simCardFontSize": "Dimensiune Font SIM Card",
+  "simCardPosition": "Poziție SIM Card",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "Nu s-a reușit încărcarea informațiilor SIM card: {error}",
+  "simRuleInstructions": "Regulile pentru sloturile SIM vă permit să configurați reguli de filtrare independente pentru fiecare slot SIM.",
+  "simRuleInstructionsTitle": "Reguli pentru slotul SIM",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "Gestionarea regulilor pentru slotul SIM",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "Eșec la încărcarea datelor SIM: {error}",
+  "simSlotFilterConfiguration": "Configurare filtru slot SIM",
+  "simSlotFilterConfigurationDescription": "Permite setarea regulilor de filtrare pe slot SIM",
+  "simSlotFilterDescription": "Configurați reguli de filtrare independente pentru fiecare cartelă SIM:",
+  "simSlotFilterSettingsTitle": "Setări filtru slot SIM {slotNumber}",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "Eșec la încărcarea sloturilor SIM: {error}",
+  "simSlotManagement": "Gestionarea sloturilor SIM",
+  "simSlotOperationFailed": "Operațiunea pentru slotul SIM a eșuat: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "Poziția slotului SIM {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• Reguli pentru sloturi SIM: Strategii de filtrare independente per SIM",
+  "simSlotRuleListTitle": "Lista de reguli pentru slotul SIM",
+  "simSlotRuleManagement": "Reguli pentru slotul SIM",
+  "simSlotRuleManagementTitle": "Gestionarea regulilor",
+  "simSlotSettings": "Setări slot SIM",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "Slot SIM {slotNumber}",
+  "skip": "Omite",
+  "smartCallerId": "Identificare inteligentă apeluri",
+  "sms": "SMS",
+  "smsFilterDescription": "Filtrarea SMS vă ajută să filtrați automat mesajele spam și să vă mențineți lista de mesaje curată. Puteți seta reguli de filtrare și metode de notificare.",
+  "smsFilterDisabled": "Filtrarea SMS dezactivată",
+  "smsFilterEnabled": "Filtrarea SMS activată",
+  "smsFilterRuleAddedSuccessfully": "Regula de filtrare SMS a fost adăugată cu succes",
+  "smsFilterRules": "Reguli de filtrare SMS",
+  "smsFilterSettings": "Setări filtru SMS",
+  "smsHistory": "Istoric SMS",
+  "smsManagement": "Gestionare SMS",
+  "smsPermission": "Permisiune SMS",
+  "smsPermissionDescription": "Utilizat pentru filtrarea mesajelor spam.",
+  "smsRuleAddedSuccessfully": "Regula SMS a fost adăugată cu succes",
+  "smsRuleDeletedSuccessfully": "Regula SMS a fost ștearsă cu succes",
+  "smsRuleLoadFailed": "Eșec la încărcarea regulilor SMS: {error}",
+  "smsRuleManagement": "Gestionare reguli SMS",
+  "smsRulesExportedSuccessfully": "Regulile SMS au fost exportate cu succes în {filePath}",
+  "smsRulesImportedSuccessfully": "Regulile SMS au fost importate cu succes",
+  "smsRuleSubscription": "Abonament reguli SMS",
+  "smsRuleUpdatedSuccessfully": "Regula SMS a fost actualizată cu succes",
+  "smsSettingsSubtitle": "Filtrare SMS și blocare cuvinte cheie",
+  "smsSettingsTitle": "Setări SMS",
+  "smsSubscription": "Abonament SMS",
+  "smsSubscriptionAddedSuccessfully": "Abonamentul SMS a fost adăugat cu succes",
+  "smsSubscriptionRulesDescription": "Abonați-vă la liste de reguli SMS prin URL, acceptând potrivirea expresiilor regulate. Puteți seta acțiuni de blocare sau permitere.",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "Unele solicitări de permisiuni au fost refuzate",
+  "spamLikely": "Spam probabil",
+  "startColor": "Culoare de început",
+  "startDate": "Data de începere",
+  "startUsing": "Începeți",
+  "statAnswered": "Răspunsuri",
+  "statBlocked": "Blocat",
+  "staticMethodShowCallerIdDialog": "Metodă statică pentru a afișa dialogul de informații despre ID-ul apelantului",
+  "staticMethodToDisplayCountrySelectionDialog": "Metodă statică pentru a afișa dialogul de selecție a țării",
+  "staticMethodToDisplayDialog": "Metodă statică pentru a afișa dialogul",
+  "statistics": "Statistici",
+  "statisticsExportFeatureComingSoon": "Funcția de export a statisticilor în curând",
+  "statisticsGrid": "Grila de statistici",
+  "statisticsPageTitle": "Analiza datelor",
+  "stirColor": "Culoare STIR",
+  "stirFontSize": "Dimensiunea fontului STIR",
+  "stirPosition": "Poziția STIR",
+  "storagePermission": "Permisiunea de stocare",
+  "storagePermissionDescription": "Folosită pentru a salva setările și regulile.",
+  "subscribe": "Abonare",
+  "subscriptionAddSuccess": "Abonamentul \"{name}\" a fost adăugat cu succes",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "Sigur doriți să ștergeți acest abonament?",
+  "subscriptionDeleteConfirmTitle": "Ștergeți abonamentul",
+  "subscriptionDeleted": "Abonament șters",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "Abonament șters cu succes",
+  "subscriptionDeleteFailed": "Nu s-a reușit ștergerea abonamentului: {error}",
+  "subscriptionDeleteSuccess": "Abonament șters",
+  "subscriptionEmptyState": "Nu sunt abonamente disponibile",
+  "subscriptionEmptyText": "Încă nu sunt abonamente",
+  "subscriptionLoadFailed": "Nu s-a reușit încărcarea abonamentelor: {error}",
+  "subscriptionLoadingFailed": "Nu s-a reușit încărcarea abonamentelor: {error}",
+  "subscriptionManagementTitle": "Gestionarea abonamentelor",
+  "subscriptionName": "Numele abonamentului",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "Numele abonamentului și URL-ul nu pot fi goale",
+  "subscriptionNameHint": "Introduceți numele abonamentului",
+  "subscriptionPageTitle": "Gestionarea abonamentelor",
+  "subscriptionStatusChangeFailed": "Nu s-a reușit modificarea stării abonamentului: {error}",
+  "subscriptionToggleFailed": "Nu s-a reușit comutarea stării abonamentului: {error}",
+  "subscriptionUpdateFailed": "Nu s-a reușit actualizarea abonamentului: {error}",
+  "subscriptionUpdateSuccess": "Abonament actualizat cu succes",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "URL abonament",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "Introduceți URL-ul abonamentului",
+  "successfullyImportedRules": "Reguli importate cu succes {count}",
+  "supportSync": "Suport pentru sincronizare",
+  "survey": "Sondaj",
+  "syncDevicesButton": "Sincronizați dispozitivele",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "Sincronizare eșuată",
+  "syncFailedMessage": "Sincronizare eșuată",
+  "syncFolderNameHint": "Introduceți numele folderului de sincronizare (implicit: NotificationManager)",
+  "syncFolderNameLabel": "Numele folderului de sincronizare",
+  "synchronized": "Sincronizat",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "Se sincronizează...",
+  "syncNow": "Sincronizează acum",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "Sincronizează acum",
+  "syncStatusTitle": "Stare sincronizare",
+  "syncStatusUpdatedMessage": "Stare sincronizare actualizată",
+  "syncSuccessful": "Sincronizare reușită",
+  "syncSuccessMessage": "Sincronizare reușită",
+  "syncWithCloudStorage": "Sincronizare cu Stocare Cloud",
+  "syncWithCloudStorageSubtitle": "Sincronizare cu stocare cloud",
+  "systemFeatures": "Funcții de sistem:",
+  "systemSettingsTitle": "Setări de sistem",
+  "tabAll": "Toate",
+  "tabAnswered": "Răspuns",
+  "tabBlocked": "Blocat",
+  "tabMissed": "Pierdut",
+  "tabOutgoing": "Ieșire",
+  "tagLabel": "Etichetă: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "Etichete actualizate",
+  "takeaway": "Rezumat",
+  "telecommunication": "Telecomunicații",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "testButtonLabel": "TEST",
+  "testConnectionButton": "Testează conexiunea",
+  "textColorsSetting": "Culori text și etichete",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "Această aplicație este un instrument puternic de identificare a apelurilor care vă permite să identificați și să blocați apelurile nedorite.",
+  "thisWeek": "Săptămâna aceasta",
+  "timeInterceptor": "Intercepție timp",
+  "timeInterceptorDescription": "Interceptează/permite automat apelurile potențiale pe baza frecvenței apelurilor",
+  "timeInterceptorExplanation": "• Intercepție timp: Interceptează/permite apeluri repetate într-un interval scurt de timp",
+  "timeInterceptorExplanationContent": "Funcția de interceptare a frecvenței apelurilor analizează frecvența apelurilor pentru a identifica și intercepta/permite automat apelurile spam frecvente.",
+  "timeInterceptorExplanationTitle": "Explicația interceptării frecvenței apelurilor",
+  "timeInterceptorSettingsTitle": "Setări de interceptare timp",
+  "timeInterceptorSubtitle": "Interceptează automat apelurile spam potențiale pe baza frecvenței apelurilor",
+  "timeInterceptorTitle": "Activează intercepția frecvenței apelurilor",
+  "timeWindowDescription": "Setați dimensiunea ferestrei de timp pentru a permite apelurile repetate. Apelurile de la același număr din această fereastră vor fi permise",
+  "timeWindowLabel": "Fereastra de interceptare (minute): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "Setați dimensiunea ferestrei de timp pentru a permite apelurile repetate. Apelurile de la același număr din această fereastră vor fi permise",
+  "today": "Astăzi",
+  "total": "Total",
+  "totalBlocked": "Total blocat",
+  "totalFiltered": "Total filtrat",
+  "transferDataBetweenDevicesOrPlatforms": "Transferă date între dispozitive sau platforme",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "Transferă date între dispozitive sau platforme",
+  "travelTicketing": "Bilete de călătorie",
+  "trend": "Tendință",
+  "trendChart": "Grafic de tendințe",
+  "tutorial": "Tutorial",
+  "type": "Tip",
+  "unassignedSIMCard": "Card SIM nealocat",
+  "unknown": "Necunoscut",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "Etichetă necunoscută",
+  "unknownTag": "Etichetă: Necunoscută",
+  "unregisterButton": "Dezînregistrare",
+  "unregisterDeviceConfirmationMessage": "Sigur doriți să dezînregistrați {deviceName}?",
+  "unregisterDeviceTitle": "Dezînregistrare dispozitiv",
+  "unsupportedFileFormat": "Format de fișier neacceptat",
+  "update": "Actualizare",
+  "updateAllNow": "Actualizează tot acum",
+  "updateCallFilterConfig": "Actualizare Configurație Filtru Apeluri",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "Nu s-a reușit actualizarea contactului: {error}",
+  "updateFavoriteStatus": "Actualizare Stare Favorite",
+  "updateFavoriteStatusFailed": "Nu s-a reușit actualizarea stării favorite: {error}",
+  "updateInterval": "Interval actualizare",
+  "updateLabelFailed": "Nu s-a reușit actualizarea etichetei",
+  "updateNow": "Actualizează acum",
+  "updatePlugin": "Actualizare Plugin",
+  "updatePluginFailed": "Nu s-a reușit actualizarea pluginului: {error}",
+  "updateRuleFailed": "Nu s-a reușit actualizarea regulii: {error}",
+  "updateSubscriptionFailed": "Nu s-a reușit actualizarea abonamentului: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} actualizat cu succes ({count} reguli)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "Actualizare Etichete",
+  "useCasesPoint1": "• Identifică apelurile spam cu reapelare automată",
+  "useCasesPoint2": "• Interceptează apelurile de marketing care apelează de mai multe ori într-o perioadă scurtă de timp",
+  "useCasesPoint3": "• Previne bombardarea cu apeluri telefonice și hărțuirea",
+  "useCasesTitle": "Cazuri de utilizare:",
+  "useGlobalSettings": "Utilizare Setări Globale",
+  "userEmail": "user@example.com",
+  "usernameLabel": "Nume utilizator",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "Utilizați sintaxa regex standard pentru a defini modele. Exemple:",
+  "validateRegex": "Validează Regex",
+  "verificationFailedText": "Eșuat",
+  "verifiedText": "Verificat",
+  "verify": "Verifică",
+  "version": "Versiune: {version}",
+  "vipExchangeDescription": "Schimbați calitatea de membru VIP cu numărul de telefon, marcând numărul",
+  "vipExchangeTitle": "Schimbă VIP",
+  "watchAd": "Urmăriți Reclama",
+  "watchAdForTemp": "Urmăriți Reclama pentru Privilegii Temporare",
+  "watchAdForTempDescription": "Urmăriți o reclamă scurtă pentru a debloca temporar unele funcții premium",
+  "webDAVConfigTitle": "Configurare WebDAV",
+  "webdavConfigurationTitle": "Configurare WebDAV",
+  "webdavPasswordHint": "Vă rugăm să introduceți parola WebDAV",
+  "webdavServerAddressHint": "Vă rugăm să introduceți adresa serverului WebDAV",
+  "webdavUsernameHint": "Vă rugăm să introduceți numele de utilizator WebDAV",
+  "week": "Săptămână",
+  "weekly": "Săptămânal",
+  "weeklyBlockedCallsSummary": "Rezumat apeluri blocate săptămânal",
+  "weeklyChartTitle": "Apeluri blocate săptămânal",
+  "weeklyReport": "Raport săptămânal",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "Primiți un raport sumar săptămânal al activității de blocare a apelurilor",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "Bun venit",
+  "whitelist": "Listă albă",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "Listă albă",
+  "width": "Lățime",
+  "wildcardMatchingDescription": "Folosiți '.' pentru a potrivi orice caracter (ex. '123.456' se potrivește cu 123-456)",
+  "wildcardMatchingTitle": "Potrivire wildcard:",
+  "wildcardSupportForFlexibleFiltering": "Suport wildcard pentru filtrare flexibilă",
+  "windowSizeSetting": "Dimensiunea ferestrei",
+  "year": "An",
+  "yearly": "Anual",
+  "yearlyChartTitle": "Apeluri blocate anual",
+  "noSimCardsDetected": "Nu s-au detectat cartele SIM",
+  "filterManagementDescription": "Setați filtrele de apeluri",
+  "callerIdCustomizationSubtitle": "Personalizați aspectul ID-ului apelantului",
+  "fraudAlerSettingTitle": "Setare alertă fraudă",
+  "fraudAlerSettingSubtitle": "Pentru a seta alerta de fraudă",
+  "enableFraudAlert": "Activați alerta de fraudă",
+  "enableFraudAlertDescription": "Alertă pentru apeluri suspectate de fraudă",
+  "enableVibration": "Activați vibrația",
+  "enableVibrationDescription": "Vibrați când apelul este suspect de fraudă",
+  "notificationSettingsTitle": "Setări notificări",
+  "useLocalNotification": "Utilizați notificări locale",
+  "useLocalNotificationDescription": "Activați notificările locale pentru apelurile primite",
+  "cancelLocalNotification": "Închideți notificările locale",
+  "useStirNotification": "Utilizați notificare de la STIR",
+  "useStirNotificationDescription": "Activați notificări STIR pentru apelurile primite",
+  "cancelLocalNotificationDescription": "Închideți notificările locale automat",
+  "callerIdSettingsTitle": "Setări ID apelant",
+  "callerIdSettingsSubtitle": "Pentru a configura notificarea și modul de afișare pentru apelurile primite",
+  "purchaseTitle": "Cumpărare",
+  "purchaseSubtitle": "Pentru a achiziționa serviciul",
+  "callerIdNotificationTitle": "Informații apel primit",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Număr: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "Apel blocat",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "Apel blocat de la {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Verificat",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Nevificat",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Verificare eșuată",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Statut de verificare necunoscut",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "Verificare STIR/SHAKEN",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} pentru numărul {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "Setări mesaj de securitate defilant",
+  "messageColor": "Culoarea mesajului",
+  "messageFontSize": "Dimensiunea fontului mesajului",
+  "messagePosition": "Poziția mesajului",
+  "containerWidth": "Lățimea containerului",
+  "scrollSpeed": "Viteză de derulare",
+  "enableSecurityMessage": "Activați mesajul de securitate",
+  "fraudAlertTitle": "Alertă fraudă",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "Apel potențial fraudulos de la {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "Nu s-a reușit încărcarea regulilor: {error}",
+  "loadCallLogFailed": "Nu s-a reușit încărcarea jurnalului de apeluri: {error}",
+  "noBlockedTypeData": "Nu sunt disponibile date despre tipul blocat",
+  "importEntity": "Importă {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} a fost importat cu succes, total {count} înregistrări importate",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "Nu s-a reușit importarea {entityTypeName}: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Exportă {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} a fost exportat cu succes",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "Nu s-a reușit exportarea {entityTypeName}: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "Serviciu de Sincronizare Cloud",
+  "membershipCenter": "Centrul de Membri",
+  "redeemVipWithMarks": "Valorifică VIP cu puncte",
+  "currentMarkCount": "Numărul curent de puncte",
+  "markMoreNumbersForMore": "Marchează mai multe numere pentru mai multe puncte",
+  "noAds": "Fără reclame",
+  "cloudBackup": "Backup Cloud",
+  "callerIdEnhancement": "Îmbunătățirea ID-ului apelantului",
+  "voiceRecognition": "Recunoaștere vocală",
+  "feature": "Funcție",
+  "normalUser": "Utilizator obișnuit",
+  "vipUser": "Utilizator VIP",
+  "temporaryVip": "VIP temporar",
+  "removeAds": "Elimină reclamele",
+  "unknownAction": "Acțiune necunoscută",
+  "settingsBackup": "Backup setări",
+  "allServicesStatusTitle": "Starea curentă a serviciului",
+  "allServicesStatusSubtitle": "Starea curentă a fiecărui serviciu cloud",
+  "redirect": "Redirecționează",
+  "notify": "Notifică",
+  "log": "Jurnal",
+  "custom": "Personalizat",
+  "allowActionDescription": "Apelurile vor fi permise, chiar dacă numărul este pe lista de blocare.",
+  "blockActionDescription": "Apelurile vor fi blocate și afișate în jurnalul de apeluri.",
+  "silenceActionDescription": "Apelurile vor fi silențioase, dar afișate în jurnalul de apeluri.",
+  "noneActionDescription": "Nu se va lua nicio acțiune specială pentru apel.",
+  "redirectActionDescription": "Redirecționează apelul către un număr specificat.",
+  "labelActionDescription": "Adaugă o etichetă apelului pentru o identificare ușoară.",
+  "notifyActionDescription": "Trimite o notificare la primirea unui apel.",
+  "logActionDescription": "Înregistrează informațiile despre apel fără a lua nicio altă acțiune.",
+  "customActionDescription": "Efectuează o acțiune personalizată.",
+  "synced": "Sincronizat",
+  "needVipAccess": "Aveți nevoie de acces VIP pentru a utiliza această funcție",
+  "importExportDescription": "Importă sau exportă datele {entityTypeName}",
+  "importExportTitle": "Import/Export",
+  "noPhoneRules": "Nu s-au găsit reguli pentru numere de telefon",
+  "noRegexRules": "Nu s-au găsit reguli regex",
+  "noAllowedBlockedRules": "Nu s-au găsit reguli permise/blocate",
+  "importExport": "Import/Export",
+  "filterByAction": "Filtrează după acțiune",
+  "upgradeToVip": "Treceți la VIP",
+  "batteryOptimizationPermission": "Optimizare baterie",
+  "batteryOptimizationPermissionDescription": "Permite aplicației să ruleze în fundal pentru a oferi servicii precum identificarea apelurilor.",
+  "permissionTitle": "Permisiuni speciale",
+  "permissionSubtitle": "Gestionați permisiunile de suprapunere și optimizare a bateriei",
+  "themeSettingsTitle": "Setări temă",
+  "themeSettingsSubtitle": "Alegeți tema preferată",
+  "databaseSyncTitle": "Sincronizare bază de date",
+  "countrySyncSettingsTitle": "Setări sincronizare bază de date pe țară",
+  "countrySyncSettingsSubtitle": "Selectați țările pentru sincronizarea datelor",
+  "countryDataDisclaimer": "Vă rugăm să rețineți: Baza de date poate să nu includă date pentru toate țările sau regiunile specifice.",
+  "editSubscription": "Editează abonament",
+  "searchByNameOrPhoneNumber": "Căutați după nume sau număr de telefon",
+  "allowedBlockedRulesInfo": "Regulile de acceptare/blocare sunt utilizate pentru a potrivi apelurile cu anumite numere de telefon, care au cea mai mare prioritate.",
+  "searchPhoneRulesHint": "Căutați reguli de telefon",
+  "phoneRulesInfo": "Regulile de telefon sunt utilizate pentru a potrivi apelurile cu anumite numere de telefon, care au o prioritate mai mică. Unele provin din abonamentele phoneRule",
+  "searchSubscriptionsHint": "Căutați abonamente",
+  "searchPluginsHint": "Căutați pluginuri",
+  "searchLabelsHint": "Căutați etichete",
+  "pluginDescription": "Descrierea pluginului",
+  "enterPluginDescription": "Introduceți descrierea pluginului",
+  "searchRegexRulesHint": "Căutați reguli regex",
+  "regexRulesInfo": "Regulile Regex sunt utilizate pentru a filtra apelurile pe baza modelelor Regex.",
+  "searchMarkedPhonesHint": "Căutați telefoane marcate",
+  "searchContactSubscriptionsHint": "Căutați abonamente de contact",
+  "showAllContacts": "Arată toate contactele",
+  "showFavorites": "Arată favoritele",
+  "manualEntry": "Informații de introducere manuală",
+  "scriptSaved": "Script salvat",
+  "editScriptFor": "Editați scriptul pentru {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "Salvați scriptul",
+  "testPlugin": "Testați pluginul",
+  "description": "Descriere",
+  "accessTargetUrl": "Accesați URL-ul țintă",
+  "result": "Rezultat",
+  "editScript": "Editați scriptul",
+  "numberFormat": "Format număr",
+  "nationalNumber": "Număr național",
+  "e164Number": "Număr E164",
+  "pluginRulesInfo": "Pentru securitate, vă rugăm să utilizați pluginuri numai din surse de încredere. Simțiți-vă liber să utilizați șabloanele noastre pentru a vă crea propriile pluginuri personalizate!",
+  "advancedMode": "Mod avansat",
+  "pleaseEnterAtLeastOneNumber": "Vă rugăm să introduceți cel puțin un număr.",
+  "openInWebView": "Deschideți în WebView",
+  "pluginLabel": "Eticheta pluginului",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "Culoarea de fundal a mesajului",
+  "clearAllCallLogs": "Ștergeți toate jurnalele de apeluri",
+  "clearAllCallLogsConfirmation": "Confirmați ștergerea tuturor jurnalelor de apeluri",
+  "allCallLogsCleared": "Toate jurnalele de apeluri au fost șterse",
+  "unblocked": "Deblocat",
+  "blockNumber": "Număr blocat",
+  "blockNumberSuccess": "Număr blocat cu succes",
+  "blockNumberFailed": "Blocarea numărului a eșuat",
+  "unblockNumberConfirmation": "Sigur doriți să deblocați {phoneNumber}?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "Apelare {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "Vezi detalii",
+  "unblock": "Deblocare",
+  "unblockNumber": "Deblochează numărul",
+  "unblockNumberSuccess": "Numărul a fost deblocat cu succes",
+  "unblockNumberFailed": "Deblocarea numărului a eșuat",
+  "serviceNotAvailable": "Serviciul nu este disponibil",
+  "callingNumberFailed": "Apelarea numărului a eșuat",
+  "listView": "Vizualizare listă",
+  "timelineView": "Vizualizare cronologie",
+  "nameCannotBeEmpty": "Numele nu poate fi gol",
+  "selectAction": "Selectați acțiunea",
+  "selectTargetService": "Selectați serviciul țintă",
+  "callDetails": "Detalii apel",
+  "callType": "Tip apel",
+  "callTime": "Durata apelului",
+  "numberInvalidFormat": "Format număr invalid",
+  "membershipFeature": "Funcție de membru",
+  "medium": "Mediu",
+  "verificationReport": "Raport de verificare",
+  "finalRisk": "Risc final",
+  "simState": "Stare SIM",
+  "ipCountry": "Țara IP",
+  "simCountry": "Țara SIM",
+  "isRoaming": "Roaming",
+  "isNumberMatch": "Potrivire număr",
+  "support": "Suport",
+  "rewardedAdService": "Serviciu de reclame recompensate",
+  "hasVipPrivilegeExceptAds": "Aveți deja privilegii VIP (cu excepția reclamelor)",
+  "hasTempPrivilegeWithExpiry": "Aveți deja privilegii temporare, data expirării: {expiryDate}",
+  "watchMoreAdsForTempVip": "Trebuie să vizionați încă {count} reclame pentru a obține privilegii VIP temporare",
+  "grantedTempPurchaseWithExpiry": "Vi s-au acordat {days} zile de privilegii de cumpărare temporară. Data expirării: {expiryDate}",
+  "tempPurchaseExpired": "Privilegiul de cumpărare temporară a expirat",
+  "loadingAd": "Se încarcă reclama...",
+  "earnedTempVip": "VIP temporar câștigat",
+  "vipExchangeService": "Serviciu de schimb VIP",
+  "marksInsufficient": "Semne insuficiente pentru schimb",
+  "invalidExchangeRule": "Regulă de schimb invalidă",
+  "exchangeSuccess": "Schimbat cu succes pentru {description}, data expirării: {expiryDate}",
+  "exchangeFailed": "Schimb eșuat: {error}",
+  "vip3DaysWithAds": "VIP de 3 zile cu reclame (numai sincronizare)",
+  "vip5DaysNoAds": "VIP complet fără reclame de 5 zile",
+  "vip7DaysNoAds": "VIP complet fără reclame de 7 zile",
+  "noNotifications": "Nicio notificare",
+  "clearAllNotifications": "Ștergeți toate notificările",
+  "clearAllNotificationsConfirmation": "Confirmați ștergerea tuturor notificărilor",
+  "allNotificationsCleared": "Toate notificările au fost șterse",
+  "clearButton": "Șterge",
+  "justNow": "Chiar acum",
+  "minutesAgo": "{count,plural, =1{acum 1 minut} other{acum {count} minute}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{acum 1 oră} other{acum {count} ore}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{acum 1 zi} other{acum {count} zile}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "Ieri",
+  "deletionProposal": "Propunere de ștergere",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "Propuneri de ștergere",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "Creează propunere",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "Creează propunere de ștergere",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "Motiv",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "Număr depășit",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Problemă de confidențialitate",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Nu este în funcțiune",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Identificat greșit",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Informații inexacte",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "Marcat greșit",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "Altele",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "Trimite",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "Anulează",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "Stare",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "În așteptare",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "Activ",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "Finalizat",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "Expirat",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "Nivel de risc",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "Verificat",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "Scăzut",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "Ridicat",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "Necunoscut",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "Progres votare",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "De acord: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "Nu sunt de acord: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "Total: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "De acord",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "Nu sunt de acord",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "Creat: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "Arată raportul",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "Ascunde raportul",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "Statistici propunere",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "Total propuneri",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "Propuneri active",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "Propuneri finalizate",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "Voturile mele",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "Propunerea a fost creată cu succes",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "Nu s-a reușit crearea propunerii",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "Votul a fost trimis cu succes",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "Nu s-a reușit trimiterea votului",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "Nu s-au găsit propuneri",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "Se încarcă propunerile...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "Reîmprospătează propunerile",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "Total propuneri în așteptare",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "Risc ridicat",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "Risc mediu",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "Risc scăzut",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "Impact asupra comunității",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "Probleme critice",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "Participarea comunității",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "Fără activitate",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "Scăzut",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "Moderat",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "Ridicat",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "Foarte ridicat",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "Votat",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "Voturi din comunitate",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "Așteaptă mai multe voturi din comunitate",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "Această propunere a fost procesată",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "SUSȚINUT",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "OPUS",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "APROBAT",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "RESPINS",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "FINALIZAT",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "ÎN AȘTEPTARE",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "Critic",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "Respinge",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "Foarte scăzut",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "Notificări despre rezultatele votului și actualizările propunerilor de ștergere.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "Propunere de ștergere creată",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "Propunerea dvs. de ștergere pentru {phoneNumber} a fost trimisă spre revizuire de către comunitate.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "Propunere aprobată ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "Propunerea de ștergere pentru {phoneNumber} a fost aprobată de comunitate (susținere de {supportPercentage}%, {totalVotes} voturi).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "Propunere respinsă ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "Propunerea de ștergere pentru {phoneNumber} a fost respinsă de comunitate (susținere de {supportPercentage}%, {totalVotes} voturi).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "Votarea în comunitate a început",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "O nouă propunere de ștergere pentru {phoneNumber} este acum deschisă pentru votul comunității.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "Votarea s-a încheiat",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "Votarea în comunitate pentru {phoneNumber} s-a încheiat. Rezultat: {result} (susținere de {supportPercentage}%).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "Vot nou primit",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "Cineva a votat pentru a {voteType} ștergerea numărului {phoneNumber}. Voturi curente: {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "Nu s-a reușit încărcarea numărului de voturi",
+  "voteCount": "Numărul de voturi",
+  "deletionProposalInfo": "Informații despre propunerea de ștergere",
+  "deletionProposalDescription": "Propuneți numere pentru ștergere care încalcă regulile comunității. Participarea dvs. ajută la menținerea siguranței platformei.",
+  "voteToEarnVip": "Votează propuneri pentru a câștiga privilegii VIP!",
+  "voteFailed": "Vot eșuat",
+  "searchProposals": "Caută propuneri",
+  "defaultNotifications": "Notificări implicite",
+  "defaultNotificationsDescription": "Canalul de notificare implicit pentru aplicație.",
+  "blockedCallNotifications": "Notificări apeluri blocate",
+  "blockedCallNotificationsDescription": "Afișează informații despre apelurile blocate.",
+  "stirVerification": "Verificare STIR/SHAKEN",
+  "stirVerificationDescription": "Afișează rezultatele verificării STIR/SHAKEN pentru numere.",
+  "fraudAlerts": "Alerte de fraudă",
+  "fraudAlertsDescription": "Afișează avertismente pentru potențiale apeluri frauduloase.",
+  "notificationFrequencyDescription": "Alegeți cât de des primiți notificări despre noile propuneri de ștergere. Le puteți primi imediat, în loturi sau la un interval personalizat.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "Imediat",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "Primiți o notificare imediat ce este creată o propunere.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "În loturi",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "Primiți un rezumat al notificărilor periodic.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "Personalizat",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "Definiți propriul interval pentru primirea notificărilor.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "Frecvență personalizată",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} min",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} h",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "Propuneri în așteptare",
+  "pendingProposalsBody": "Aveți {count, plural, =0 {nicio propunere în așteptare} one {1 propunere în așteptare} other {{count} propuneri în așteptare}}.",
+  "guidelinesLabel": "Orientări",
+  "reportingGuidelines": "• Raportați numai numerele care sunt cu adevărat problematice\n• Furnizați motive exacte și detaliate\n• Alegeți nivelul de risc adecvat în funcție de gravitate\n• Rapoartele false pot duce la restricții de cont",
+  "riskLevelLabel": "Nivel de risc",
+  "riskLevelDescription": "Nivelul de risc al numărului",
+  "phoneNumberMinDigits": "Numărul de telefon trebuie să aibă cel puțin 7 cifre",
+  "provideDetailedExplanation": "Furnizați o explicație detaliată (minimum 10 caractere)",
+  "reasonMinCharacters": "Motivul trebuie să aibă cel puțin 10 caractere",
+  "countryCodeTwoLetters": "Codul țării (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Codul țării (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "de exemplu, US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "Codul țării este obligatoriu",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "Codul țării trebuie să aibă 2 litere",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "Numărul de telefon trebuie să aibă cel puțin 7 cifre",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "Furnizați o explicație detaliată (minimum 10 caractere)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "Motivul este obligatoriu",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "Motivul trebuie să aibă cel puțin 10 caractere",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "Orientări",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• Raportați numai numerele care sunt cu adevărat problematice\n• Furnizați motive exacte și detaliate\n• Alegeți nivelul de risc adecvat în funcție de gravitate\n• Rapoartele false pot duce la restricții de cont",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "Critic",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "Mediu",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "Foarte scăzut",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "Foarte scăzut - Deranj minor, apeluri rare",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "Scăzut - Apeluri nedorite ocazionale",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "Mediu - Spam regulat sau telemarketing",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "Ridicat - Hărțuire persistentă sau tentative de fraudă",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "Critic - Înșelătorii periculoase sau amenințări",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "Frecvența notificărilor",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "Frecvența notificărilor (ore)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "Eroare: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "Voturi: {totalVotes} ({supportPercentage}% suport)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "Suport ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "Împotrivă ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "Acum",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "Acum {minutes}m",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "Acum {hours}h",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "Acum {days}z",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "Frecvența notificărilor (ore)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} voturi ({supportPercentage}% sprijin)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 ore} =1{1 oră} other{{count} ore}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "Notificare importantă",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "Numerele sunt preluate de pe internet și din contribuțiile utilizatorilor. Nu putem garanta că un număr, odată șters, nu va fi retrimis de alți utilizatori sau surse. Vă rugăm să căutați și să verificați activ informațiile.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Locație",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "Cartelă SIM",
+  "liveActivitiesSettingsTitle": "Setări activități live",
+  "elementsSettingsTitle": "Setări elemente",
+  "liveActivityMode": "Activitate live",
+  "liveActivityModeDescription": "Afișează informațiile apelului ca o notificare persistentă pe ecranul de blocare și în Dynamic Island (iOS).",
+  "phoneNumberType": "Tip de număr de telefon",
+  "liveActivitiesTestEndActivity": "Încheie activitatea",
+  "liveActivitiesTestSendNewActivity": "Trimite activitatea nouă",
+  "liveActivitiesTestUpdateActivity": "Actualizează activitatea",
+  "liveActivityControlsTitle": "Controale activitate live",
+  "liveActivitiesTestTitle": "Test activități live",
+  "liveActivitiesTestSubtitle": "Testați notificarea de activitate live.",
+  "liveNotificationCustomizationTitle": "Personalizare notificare live",
+  "liveNotificationCustomizationSubtitle": "Personalizați aspectul notificărilor live.",
+  "notification_instructions": "Instrucțiuni:\n1. Apăsați \"TRIMITE\" pentru a crea sau actualiza o notificare.\n2. Accesați ecranul de pornire sau trageți în jos bara de notificări pentru a vedea rezultatul.\n3. Apăsați \"ÎNCHEIE\" pentru a respinge notificarea.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "Anulare automată notificare",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "Dacă este bifat, notificarea va fi respinsă automat când utilizatorul o atinge.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "Setare timp de întârziere",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Detalii propunere",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "Filtrează după stare",
+  "proposalNotFound": "Propunerea nu a fost găsită",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "Procesat",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Arată tot",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "Filtrare și sortare",
+  "filterVerifiedOwner": "Filtrează Proprietar Verificat",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "Filtrează după",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "Sortează după cele mai vechi",
+  "sortNewest": "Sortează după cele mai noi",
+  "sortMostPopular": "Sortează după cele mai populare",
+  "sortLeastPopular": "Sortează după cele mai puțin populare",
+  "sortBy": "Sortează după",
+  "simRulesNotFound": "Reguli SIM negăsite",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "Reguli slot SIM",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "Nu a fost detectată nicio cartelă SIM",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "Date SIM nevalide",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "Date cartelă SIM",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "Slot SIM",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "Activează filtrarea",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "Setări detaliate",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "Punct de intrare",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "Respins",
+  "callTypeSilenced": "Amurit",
+  "callTypeVoicemail": "Mesaj vocal",
+  "callTypeUnknownIntercept": "Interceptare necunoscută",
+  "andMoreItems": "și încă {count} elemente",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}
