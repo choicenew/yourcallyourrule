@@ -47,13 +47,8 @@ class PluginAccessBypassHelper {
           allowUniversalAccessFromFileURLs: true,
         ),
         // [HYBRID] Restore Complex Script for Anti-Fingerprinting & Interaction
-        initialUserScripts: UnmodifiableListView<UserScript>([
-          UserScript(
-            source: BypassScripts.bypassUniversal,
-            injectionTime: UserScriptInjectionTime.AT_DOCUMENT_START,
-            forMainFrameOnly: false,
-          ),
-        ]),
+        // [REFACTOR] Scripts are now injected dynamically in executeBypass
+        initialUserScripts: UnmodifiableListView<UserScript>([]),
         onWebViewCreated: (controller) {
           _controller = controller;
           debugPrint('🛡️ [BypassHelper] Headless WebView Created');
@@ -63,6 +58,13 @@ class PluginAccessBypassHelper {
             handlerName: 'BypassSuccess',
             callback: (args) {
               if (args.isNotEmpty) _onBypassSuccess(args[0]);
+            },
+          );
+
+          controller.addJavaScriptHandler(
+            handlerName: 'BypassFailed',
+            callback: (args) {
+              if (args.isNotEmpty) _onBypassFailed(args[0]);
             },
           );
 
@@ -146,17 +148,40 @@ class PluginAccessBypassHelper {
     }
     _currentBypassCompleter = Completer<Map<String, dynamic>?>();
 
+    // [REFACTOR] Clean URL + JS Injection Strategy
+    // 1. Do NOT append marker to URL (avoids reflection/false positives)
     final marker = successMarker ?? 'number_data_box';
-    String finalUrl = targetUrl;
-    if (!targetUrl.startsWith("about:")) {
-      finalUrl =
-          targetUrl +
-          (targetUrl.contains('?') ? '&' : '?') +
-          'successMarker=$marker';
-    }
 
-    debugPrint('🛡️ [BypassHelper] Navigating to: $finalUrl');
-    await _controller?.loadUrl(urlRequest: URLRequest(url: WebUri(finalUrl)));
+    // 2. Prepare Scripts
+    // Clear previous scripts to avoid accumulation
+    await _controller?.removeAllUserScripts();
+
+    // Inject Marker as Global Variable
+    await _controller?.addUserScript(
+      userScript: UserScript(
+        source: "window._cf_success_marker = '$marker';",
+        injectionTime: UserScriptInjectionTime.AT_DOCUMENT_START,
+        forMainFrameOnly: false,
+      ),
+    );
+
+    // Inject Main Bypass Script
+    await _controller?.addUserScript(
+      userScript: UserScript(
+        source: BypassScripts.bypassUniversal,
+        injectionTime: UserScriptInjectionTime.AT_DOCUMENT_START,
+        forMainFrameOnly: false,
+      ),
+    );
+
+    debugPrint(
+      '🛡️ [BypassHelper] Navigating to: $targetUrl (Marker Injected via JS)',
+    );
+    // [FIX] Reset interaction counter for new session
+    await _controller?.evaluateJavascript(
+      source: "sessionStorage.removeItem('_cf_tap_count');",
+    );
+    await _controller?.loadUrl(urlRequest: URLRequest(url: WebUri(targetUrl)));
 
     // [HYBRID] Start Native Polling Loop as Backup for "Automatic Termination"
     // This ensures that if the script fails to call back, we still catch the success.
@@ -192,15 +217,16 @@ class PluginAccessBypassHelper {
         // 🛡️ CRITICAL FIX: Ensure we are NOT on the Cloudflare Challenge Page.
         // The 'successMarker' is often present in the URL, which appears in the HTML source (e.g. scripts, canonical tags).
         // If we simply check html.contains(marker), we get a False Positive immediately.
+        // We now check HTML content for Cloudflare fingerprints as well.
         bool isCloudflarePage =
             (title != null &&
                 (title.contains("Just a moment") ||
                     title.contains("Attention Required") ||
                     title.contains("Cloudflare"))) ||
             (html != null &&
-                html.contains(
-                  "files.pythonhosted.org",
-                )); // Common CF false positive
+                (html.contains("challenge-platform") ||
+                    html.contains("cf-turnstile") ||
+                    html.contains("verifying-text")));
 
         if (!isCloudflarePage && html != null && html.contains(marker)) {
           debugPrint(
@@ -256,6 +282,17 @@ class PluginAccessBypassHelper {
           'error': e.toString(),
         });
       }
+    }
+  }
+
+  void _onBypassFailed(dynamic reason) {
+    if (_currentBypassCompleter != null &&
+        !_currentBypassCompleter!.isCompleted) {
+      debugPrint('🛑 [BypassHelper] Bypass Failed: $reason (Terminating)');
+      _currentBypassCompleter!.complete({
+        'success': false,
+        'error': reason.toString(),
+      });
     }
   }
 

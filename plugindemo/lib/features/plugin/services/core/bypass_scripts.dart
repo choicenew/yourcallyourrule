@@ -91,9 +91,13 @@ class BypassScripts {
 
       // C. 执行移动端点击 (Touch Sequence)
       async function performMobileTap(element) {
-        // 检查锁
-        if (window._cf_manual_mode || window._hasClickedGlobal || !element) return;
-        window._hasClickedGlobal = true; // 上锁
+        // 检查锁 [FIX] Removed window._hasClickedGlobal check to avoid deadlock with scan()
+        if (window._cf_manual_mode || !element) return;
+        // window._hasClickedGlobal = true; // Already set by scan()
+        
+        // [FIX] Increment global tap counter
+        let count = parseInt(sessionStorage.getItem('_cf_tap_count') || '0');
+        sessionStorage.setItem('_cf_tap_count', count + 1);
 
         if (window.flutter_inappwebview) window.flutter_inappwebview.callHandler('TestPageChannel', "[Bypass] 👆 Finger approaching...");
 
@@ -165,11 +169,25 @@ class BypassScripts {
 
       // --- 扫描循环 ---
       async function scan() {
+        if (window._cf_bypass_success_reported) return; // [FIX] Stop if already succeeded
+
         const currentUrl = window.location.href;
-        const marker = new URLSearchParams(currentUrl).get('successMarker');
+        // [FIX] Prioritize injected global marker, fall back to URL param
+        const marker = window._cf_success_marker || new URLSearchParams(currentUrl).get('successMarker');
         
-        // 成功判定
-        if (marker && document.body.innerHTML.includes(marker)) {
+        // 成功判定 (Enhanced Cloudflare Detection)
+        const title = document.title;
+        const html = document.body.innerHTML;
+        // Check Title AND Content for Cloudflare signatures
+        const isCloudflare = title.includes("Just a moment") || 
+                             title.includes("Attention Required") || 
+                             title.includes("Cloudflare") ||
+                             html.includes("challenge-platform") ||
+                             html.includes("cf-turnstile") ||
+                             html.includes("verifying-text"); // Common CF markers
+        
+        if (!isCloudflare && marker && html.includes(marker)) {
+             window._cf_bypass_success_reported = true; // [FIX] Set flag
              if (window.flutter_inappwebview && !window._cf_manual_mode) {
                 window.flutter_inappwebview.callHandler('BypassSuccess', { success: true, cookies: document.cookie, url: currentUrl });
              }
@@ -178,6 +196,17 @@ class BypassScripts {
 
         // 手动模式或已点击则跳过
         if (window._cf_manual_mode || window._hasClickedGlobal) return;
+
+        // [FIX] Check for loop (Reloaded Page + High Tap Count)
+        let count = parseInt(sessionStorage.getItem('_cf_tap_count') || '0');
+        if (count > 0) {
+             console.log("[Bypass] Loop Detected. Already tapped " + count + " times.");
+             if (window.flutter_inappwebview) {
+                 window.flutter_inappwebview.callHandler('BypassFailed', 'Loop Detected (Tap Count: ' + count + ')');
+             }
+             window._cf_bypass_success_reported = true; // Stop scanning
+             return;
+        }
 
         let target = null;
         
