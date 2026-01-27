@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:plugindemo/core/router/app_router_provider.dart';
 import 'package:plugindemo/data/database/database_service.dart';
-import 'package:plugindemo/features/plugin/providers/plugin_webview_service_provider.dart';
+import 'package:plugindemo/features/plugin/providers/plugin_execution_service_provider.dart';
+import 'package:plugindemo/generated/app_localizations.dart';
 
 Future<void> main() async {
   // 确保 Flutter 绑定初始化
@@ -42,6 +43,8 @@ class MyApp extends ConsumerWidget {
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
       routerConfig: appRouter.router,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

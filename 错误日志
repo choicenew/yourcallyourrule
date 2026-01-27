@@ -1,95 +1,211 @@
 Performing hot restart...
 Syncing files to device sdk gphone64 x86 64...
-Restarted application in 2,847ms.
-I/Choreographer( 3748): Skipped 109 frames!  The application may be doing too much work on its main thread.
-I/ample.ztest_poc( 3748): AssetManager2(0x76867dda1218) locale list changing from [] to [en-US]
-I/flutter ( 3748): [listaspamHtmlPlugin] ListaSpam HTML Plugin (Full Mapping) registered.
-I/flutter ( 3748): [Native] Injected config for listaspamHtmlPlugin
-I/flutter ( 3748): [listaspamHtmlPlugin] generateOutput (ListaSpam HTML) for: req_1769309791503
-I/flutter ( 3748): [listaspamHtmlPlugin] Initiating Scout query for '98888216' (requestId: req_1769309791503)
-I/flutter ( 3748): [listaspamHtmlPlugin] Fetching HTML from: https://www.listaspam.com/busca.php?Telefono=98888216
-I/flutter ( 3748): 📡 NativeRequestChannel: Processing request for https://www.listaspam.com/busca.php?Telefono=98888216 (Plugin: listaspamHtmlPlugin)
-I/flutter ( 3748): [listaspamHtmlPlugin] ListaSpam Request sent. Waiting for handleResponse...
-I/flutter ( 3748): 📡 NativeRequestChannel: Sending Request to https://www.listaspam.com/busca.php?Telefono=98888216
-I/flutter ( 3748):    🔑 UA: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.116 Mobile Safari/537.36
-I/flutter ( 3748): ! NativeRequestChannel: Challenge Detected (DioExceptionType.badResponse/403). Retrying...
-I/flutter ( 3748): 🛡️ Using Plugin-Defined Success Marker: 'number_data_box'
-I/flutter ( 3748): 🛡️ ShieldBypassService: Delegated bypass for https://www.listaspam.com/busca.php?Telefono=98888216 to Legacy Engine
-I/flutter ( 3748): 🛡️ [Legacy-Service] Initializing Tiny Legacy Engine...
-D/InAppWebView( 3748): Using InAppWebViewClientCompat implementation
-W/cr_WebSettings( 3748): setForceDark() is a no-op in an app with targetSdkVersion>=T
-W/cr_SupportWebSettings( 3748): setForceDarkBehavior() is a no-op in an app with targetSdkVersion>=T
-I/flutter ( 3748): 🛡️ [Legacy-Service] WebView Created.
-I/flutter ( 3748): 🛡️ [Legacy-Service] Engine is running.
-I/flutter ( 3748): 🛡️ [Legacy-Interceptor] UA synchronized: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.116 Mobile Safari/537.36
-I/flutter ( 3748): 🛡️ [Legacy-Service] Executing: https://www.listaspam.com/busca.php?Telefono=98888216 (ID: bypass_1769309792720)
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onProgressChanged" using {progress: 10}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onLoadStart" using {url: about:blank}
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: [Tiny-Legacy-Bridge] Active in about:blank
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onUpdateVisitedHistory" using {isReload: false, url: about:blank}
-I/chromium( 3748): [INFO:CONSOLE:6] "[Tiny-Legacy-Bridge] Active in about:blank", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: [Tiny-Legacy-Bridge] Active in about:blank}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onProgressChanged" using {progress: 100}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onProgressChanged" using {progress: 100}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onTitleChanged" using {title: about:blank}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onLoadStop" using {url: about:blank}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onPageCommitVisible" using {url: about:blank}
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: [Tiny-Legacy-Bridge] Starting bypass for: https://www.listaspam.com/busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720
-I/chromium( 3748): [INFO:CONSOLE:6] "[Tiny-Legacy-Bridge] Starting bypass for: https://www.listaspam.com/busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720", source:  (6)
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onZoomScaleChanged" using {oldScale: 3.0, newScale: 1.3714286088943481}
-I/flutter ( 3748): 🛡️ [JS-Bridge-Log] [Bridge] Active in about:blank
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: [Tiny-Legacy-Bridge] Starting bypass for: https://www.listaspam.com/busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "TestPageChannel" using [[Bridge] Active in about:blank]
-I/flutter ( 3748): 🛡️ [Legacy-Service] Bridge Template injected into about:blank.
-I/flutter ( 3748): 🛡️ [JS-Bridge-Log] [Bridge] Starting bypass for: https://www.listaspam.com/busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "TestPageChannel" using [[Bridge] Starting bypass for: https://www.listaspam.com/busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720]
-I/flutter ( 3748): 🛡️ [Proxy-Entry] Fetching target: https://www.listaspam.com/busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720 (Marker: number_data_box)
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "shouldInterceptRequest" using {headers: {User-Agent: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.116 Mobile Safari/537.36, sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-mobile: ?1, Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7, Upgrade-Insecure-Requests: 1, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720}
-I/flutter ( 3748): 🛡️ [Proxy-Entry] Fetching: https://www.listaspam.com/busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720 (ID: bypass_1769309792720, Marker: number_data_box)
-I/flutter ( 3748): 🛡️ [Proxy-Response] Status: 403 | Length: 417370
-I/flutter ( 3748): 🛡️ [Path-Rewrite] https://www.listaspam.com -> [PROXY]
-I/flutter ( 3748): 🛡️ [Path-Rewrite] /cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=9c347f886c4c0432 -> [PROXY]
-I/flutter ( 3748): 📄 [HTML-DUMP-START] (Total Len: 435696, Content Start: 18154)
-I/flutter ( 3748): 
-I/flutter ( 3748): <title>ListaSpam security</title><script async="">!function(){var e,d={resource:{version:"1",macros:[{function:"__e"},{function:"__cid"}],tags:[{function:"__rep",once_per_event:!0,vtp_containerId:["macro",1],tag_id:1}],predicates:[{function:"_eq",arg0:["macro",0],arg1:"gtm.js"}],rules:[[["if",0],["add",0]]]},runtime:[]},i="function"==typeof Object.create?Object.create:function(e){function t(){}return t.prototype=e,new t};if("function"==typeof Object.setPrototypeOf)e=Object.setPrototypeOf;else{var t;e:{var n={};try{n.__proto__={a:!0},t=n.a;break e}catch(e){}t=!1}e=t?function(e,t){if(e.__proto__=t,e.__proto__!==t)throw new TypeError(e+" is not extensible");return e}:null}function r(e){return e}function o(){}function a(e){return"number"==typeof e&&!isNaN(e)}function c(e,t){return a(e)&&a(t)&&!(t<e)||(e=0,t=2147483647),Math.floor(Math.random()*(t-e+1)+e)}function m(e,t){for(var n=new v,r=0;r<e.length;r++)n.set(e[r],!0);for(var i=0;i<t.length;i++)if(n.get(t[i]))return!0;return!1}function S
-I/flutter ( 3748): 📄 [HTML-DUMP-END]
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: 🛡️ [Domain-Blocker] Active.
-I/chromium( 3748): [INFO:CONSOLE:6] "🛡️ [Domain-Blocker] Active.", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (6)
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: [Universal-Network-Interceptor] Activating...
-I/chromium( 3748): [INFO:CONSOLE:113] "[Universal-Network-Interceptor] Activating...", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (113)
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: [Universal-Network-Interceptor] Meta: {"originalDomain":"https://www.listaspam.com","currentRequestId":"bypass_1769309792720","currentSuccessMarker":"number_data_box"}
-I/chromium( 3748): [INFO:CONSOLE:147] "[Universal-Network-Interceptor] Meta: {"originalDomain":"https://www.listaspam.com","currentRequestId":"bypass_1769309792720","currentSuccessMarker":"number_data_box"}", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (147)
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: 🛡️ [Shadow-Hijack] Activating...
-I/chromium( 3748): [INFO:CONSOLE:268] "🛡️ [Shadow-Hijack] Activating...", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (268)
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: 🛡️ [Clicker] Active. Scanning for Turnstile...
-I/chromium( 3748): [INFO:CONSOLE:293] "🛡️ [Clicker] Active. Scanning for Turnstile...", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (293)
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: 🛡️ [Domain-Blocker] Active.}
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: 🛡️ [Result-Monitor] Active.
-I/chromium( 3748): [INFO:CONSOLE:375] "🛡️ [Result-Monitor] Active.", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (375)
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: [Injected-Receiver] Active.
-I/chromium( 3748): [INFO:CONSOLE:438] "[Injected-Receiver] Active.", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (438)
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: [Universal-Network-Interceptor] Activating...}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: [Universal-Network-Interceptor] Meta: {"originalDomain":"https://www.listaspam.com","currentRequestId":"bypass_1769309792720","currentSuccessMarker":"number_data_box"}}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: 🛡️ [Shadow-Hijack] Activating...}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: 🛡️ [Clicker] Active. Scanning for Turnstile...}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: 🛡️ [Result-Monitor] Active.}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: [Injected-Receiver] Active.}
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: [Debug-Wrap] Input: /busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720&__cf_chl_rt_tk=nYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk | Base: https://www.listaspam.com/ | Host: www.listaspam.com | Path: /busca.php
-I/chromium( 3748): [INFO:CONSOLE:14] "[Debug-Wrap] Input: /busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720&__cf_chl_rt_tk=nYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk | Base: https://www.listaspam.com/ | Host: www.listaspam.com | Path: /busca.php", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (14)
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: 🛡️ [History-Interception] Rewrote /busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720&__cf_chl_rt_tk=nYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk to https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720%26__cf_chl_rt_tk%3DnYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk&requestId=bypass_1769309792720
-I/chromium( 3748): [INFO:CONSOLE:39] "🛡️ [History-Interception] Rewrote /busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720&__cf_chl_rt_tk=nYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk to https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720%26__cf_chl_rt_tk%3DnYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk&requestId=bypass_1769309792720", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (39)
-I/flutter ( 3748): 🛡️ [Proxy-Entry] Fetching target: https://www.listaspam.com/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=9c347f886c4c0432 (Marker: number_data_box)
-I/flutter ( 3748): 🛡️ [Proxy-Entry] Fetching: https://www.listaspam.com/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=9c347f886c4c0432 (ID: bypass_1769309792720, Marker: number_data_box)
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: [Debug-Wrap] Input: /busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720&__cf_chl_rt_tk=nYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk | Base: https://www.listaspam.com/ | Host: www.listaspam.com | Path: /busca.php}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: 🛡️ [History-Interception] Rewrote /busca.php?Telefono=98888216&successMarker=number_data_box&requestId=bypass_1769309792720&__cf_chl_rt_tk=nYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk to https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720%26__cf_chl_rt_tk%3DnYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk&requestId=bypass_1769309792720}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "shouldInterceptRequest" using {headers: {User-Agent: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.116 Mobile Safari/537.36, Referer: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720%26__cf_chl_rt_tk%3DnYZXUWW9Z5vAvYtfBcpryVo3E_OaRUDLW3igJGI0_kA-1769309794-1.0.1.1-fHKEywjnvBWhfbLR67L.AHEvCKLh1U6CBBgEf0nTfxk&requestId=bypass_1769309792720, sec-ch-ua: "Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://flutter-webview-proxy.internal/fetch?requestId=bypass_1769309792720&targetUrl=https%3A%2F%2Fwww.listaspam.com%...
-I/flutter ( 3748): 🛡️ [Proxy-Response] Status: 200 | Length: 121464
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: [Debug-Wrap] Input: /fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 | Base: https://www.listaspam.com/ | Host: www.listaspam.com | Path: /fetch
-I/chromium( 3748): [INFO:CONSOLE:14] "[Debug-Wrap] Input: /fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 | Base: https://www.listaspam.com/ | Host: www.listaspam.com | Path: /fetch", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (14)
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: 🛡️ [History-Interception] Correction (Matches /fetch): https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720
-I/chromium( 3748): [INFO:CONSOLE:25] "🛡️ [History-Interception] Correction (Matches /fetch): https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720", source: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 (25)
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: [Debug-Wrap] Input: /fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720 | Base: https://www.listaspam.com/ | Host: www.listaspam.com | Path: /fetch}
-I/flutter ( 3748): 🛡️ [JS-Console] LOG: [Tiny-Legacy-Bridge] Iframe loaded: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720
-I/chromium( 3748): [INFO:CONSOLE:6] "[Tiny-Legacy-Bridge] Iframe loaded: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720", source:  (6)
-[AndroidInAppWebViewController] I/flutter ( 3748):android) WebView ID 1] [B1idg0] 0f9ame 1843991495 ht5tp8s110138784297 calling "oxy.innsoleMessage" using {mesaa/eeecvhl: t, messaget: 🛡️ %HF%2Fwww.listaspception] Correction (Matches /fetch): httpT:/lefontter-webview-proxu.cnstsrnal/fe3ch?targetUrl=https%3A%2F%2x%Fwww.listaspam.bopam%2Fbusca.php%3FTelef769309792720&16%26successMarker%3Dnumber_data_box%26request[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "onConsoleMessage" using {messageLevel: 1, message: [Tiny-Legacy-Bridge] Iframe loaded: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720}
-[AndroidInAppWebViewController] (android) WebView ID 12071901808921418439914955238110138784297 calling "TestPageChannel" using [[Bridge] Iframe loaded: https://flutter-webview-proxy.internal/fetch?targetUrl=https%3A%2F%2Fwww.listaspam.com%2Fbusca.php%3FTelefono%3D98888216%26successMarker%3Dnumber_data_box%26requestId%3Dbypass_1769309792720&requestId=bypass_1769309792720]
+I/Choreographer(17034): Skipped 117 frames!  The application may be doing too much work on its main thread.
+Restarted application in 9,431ms.
+I/flutter (17034): [PluginExecutionService] Initializing Core Services...
+I/Choreographer(17034): Skipped 171 frames!  The application may be doing too much work on its main thread.
+I/flutter (17034): [PluginExecutionService] Initialization Complete. UA: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/133.0.6943.137 Mobile Safari/537.36
+I/Choreographer(17034): Skipped 151 frames!  The application may be doing too much work on its main thread.
+I/Choreographer(17034): Skipped 54 frames!  The application may be doing too much work on its main thread.
+I/flutter (17034): Initializing PluginTestService (JS Engine)...
+I/flutter (17034): Test Service Ready.
+I/ImeTracker(17034): com.example.plugindemo:b820417c: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController(17034): show(ime(), fromIme=false)
+I/ImeTracker(17034): com.example.plugindemo:b820417c: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+I/mple.plugindemo(17034): Waiting for a blocking GC ProfileSaver
+I/mple.plugindemo(17034): NativeAlloc concurrent mark compact GC freed 3827KB AllocSpace bytes, 3(60KB) LOS objects, 49% free, 4547KB/9094KB, paused 1.908ms,7.594ms total 102.589ms
+I/mple.plugindemo(17034): WaitForGcToComplete blocked ProfileSaver on NativeAlloc for 12.528ms
+I/BpBinder(17034): onLastStrongRef automatically unlinking death recipients: 
+I/AssistStructure(17034): Flattened final assist data: 424 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(17034): The input method toggled cursor monitoring on
+I/flutter (17034): Fetching script from https://github.com/haygcao/test/raw/refs/heads/main/slicklyHK%20TW%20MO%20html.js...
+I/flutter (17034): [slicklyTwHkPhoneNumberPlugin] Plugin registered. Using Legacy Architecture V3 (Fire-and-Forget).
+I/flutter (17034): Script injected.
+I/mple.plugindemo(17034): AssetManager2(0x7a0288933cb8) locale list changing from [] to [en-US]
+I/flutter (17034): Warning: pluginLoaded message not received. Attempting to run anyway (assuming explicit ID slicklyTwHkPhoneNumberPlugin)...
+I/flutter (17034): Running generateOutput...
+I/flutter (17034): [Native] Injected config for slicklyTwHkPhoneNumberPlugin
+I/flutter (17034): [slicklyTwHkPhoneNumberPlugin] generateOutput called for requestId: test_1769513718843
+I/flutter (17034): [slicklyTwHkPhoneNumberPlugin] Initiating Scout query for '98888216' [hk] (requestId: test_1769513718843)
+I/flutter (17034): [slicklyTwHkPhoneNumberPlugin] Fetching HTML from: https://slick.ly/hk/98888216
+I/flutter (17034): 📡 NativeRequestChannel: Processing request for https://slick.ly/hk/98888216 (Plugin: slicklyTwHkPhoneNumberPlugin)
+I/flutter (17034): [NET] 📡 Native: Fetching https://slick.ly/hk/98888216 (via slicklyTwHkPhoneNumberPlugin)
+I/flutter (17034): [slicklyTwHkPhoneNumberPlugin] Legacy Request sent. Waiting for handleResponse...
+I/flutter (17034): 📡 NativeRequestChannel: Sending Request to https://slick.ly/hk/98888216
+I/flutter (17034):    🔑 UA: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/133.0.6943.137 Mobile Safari/537.36
+I/flutter (17034): ! NativeRequestChannel: Challenge Detected (DioExceptionType.badResponse/403). Retrying...
+I/flutter (17034): [NET] ! Challenge 403! Attempting bypass...
+I/flutter (17034): 🛡️ Using Plugin-Defined Success Marker: 'summary-result'
+I/flutter (17034): 🛡️ PluginAccessBypassService: Delegated bypass for https://slick.ly/hk/98888216 to Helper
+I/flutter (17034): 🛡️ [BypassHelper] Starting Headless WebView...
+D/InAppWebView(17034): Using InAppWebViewClientCompat implementation
+W/cr_WebSettings(17034): setForceDark() is a no-op in an app with targetSdkVersion>=T
+W/cr_SupportWebSettings(17034): setForceDarkBehavior() is a no-op in an app with targetSdkVersion>=T
+I/flutter (17034): 🛡️ [BypassHelper] Headless WebView Created
+I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 10}
+I/flutter (17034): 🛡️ [BypassHelper] Navigating to: https://slick.ly/hk/98888216?successMarker=summary-result
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onLoadStart" using {url: about:blank}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onUpdateVisitedHistory" using {isReload: false, url: about:blank}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 80}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onTitleChanged" using {title: about:blank}
+I/flutter (17034): 🛡️ [BypassHelper] Page Loaded: about:blank
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onLoadStop" using {url: about:blank}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onPageCommitVisible" using {url: about:blank}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onZoomScaleChanged" using {oldScale: 3.0, newScale: 3.306122303009033}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 10}
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-arch: "", sec-ch-ua-mobile: ?1, sec-ch-ua-full-version-list: "Not(A:Brand";v="99.0.0.0", "Android WebView";v="133.0.6943.137", "Chromium";v="133.0.6943.137", Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7, Upgrade-Insecure-Requests: 1, sec-ch-ua-platform: "Android", User-Agent: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/133.0.6943.137 Mobile Safari/537.36, sec-ch-ua-bitness: "", sec-ch-ua-model: "sdk_gphone64_x86_64", sec-ch-ua-platform-version: "16.0.0", sec-ch-ua-full-version: "133.0.6943.137"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: true, url: https://slick...
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'payment'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
+I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onLoadStart" using {url: https://slick.ly/hk/98888216?successMarker=summary-result}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/hk/98888216?successMarker=summary-result}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 21}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onTitleChanged" using {title: Just a moment...}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/hk/98888216?successMarker=summary-result&__cf_chl_rt_tk=WhVAW40J8sIeoC4It12ghhtyBkpqb.HO3Os3KZvhtqo-1769513722-1.0.1.1-Yp5QvcJ.UuC39bVHiw.tIW9ppPaY2pg_GGfVuv1kTIo}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 70}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onReceivedError" using {request: {headers: {Origin: https://slick.ly, User-Agent: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/133.0.6943.137 Mobile Safari/537.36, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015}, error: {description: net::ERR_CONNECTION_REFUSED, type: -6}}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 80}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onPageCommitVisible" using {url: https://slick.ly/hk/98888216?successMarker=summary-result}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onZoomScaleChanged" using {oldScale: 3.306122303009033, newScale: 3.0}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/hk/98888216?successMarker=summary-result}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 100}
+I/flutter (17034): 🛡️ [BypassHelper] Page Loaded: https://slick.ly/hk/98888216?successMarker=summary-result
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onLoadStop" using {url: https://slick.ly/hk/98888216?successMarker=summary-result}
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'payment'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
+I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
+I/chromium(17034): [INFO:CONSOLE(1)] "Failed to create WebGPU Context Provider", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Failed to create WebGPU Context Provider}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: Request for the Private Access Token challenge.}
+I/chromium(17034): [INFO:CONSOLE(1)] "Request for the Private Access Token challenge.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "The next request for the Private Access Token challenge may return a 401 and show a warning in console.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: The next request for the Private Access Token challenge may return a 401 and show a warning in console.}
+I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: console.groupEnd}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onReceivedHttpError" using {request: {headers: {User-Agent: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/133.0.6943.137 Mobile Safari/537.36, Referer: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/9c47f257ec31c277/1769513729665/23bc3d220579f9d1d642204f93b7276f2d042403bc2232705cb80876f7ce96ea/Qvs3pLNtxrDhEex}, errorResponse: {headers: {date: Tue, 27 Jan 2026 11:35:32 GMT, content-length: 1, server: cloudflare, cf-ray: 9c47f27c2...
+I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
+I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 0, message: Error}
+I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "HpOG", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "zldW", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "
+I/chromium(17034): [INFO:CONSOLE(1)] "
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] " rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: HpOG}
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent rjke: Rjps", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+I/chromium(17034): [INFO:CONSOLE(1)] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: HpOG}
+I/chromium(17034): [INFO:CONSOLE(1)] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: zldW}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: zldW}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: [object HTMLAnchorElement]}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: [object HTMLAnchorElement]}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 0, message:  : 1}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 0, message:  : 1}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 0, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 0, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message:  rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message:  rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 3, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 3, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent rjke: Rjps}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: %c%d font-size:0;color:transparent NaN}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: console.groupEnd}
+I/flutter (17034): 🛡️ [JS-Log] [Bypass] 👀 Visual confirmed. Waiting reaction time...
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "TestPageChannel" using [[Bypass] 👀 Visual confirmed. Waiting reaction time...]
+I/flutter (17034): 🛡️ [JS-Log] [Bypass] 👆 Finger approaching...
+I/flutter (17034): 🛡️ [JS-Log] [Bypass] 📜 Human Scroll: -23px
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "TestPageChannel" using [[Bypass] 👆 Finger approaching...]
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "TestPageChannel" using [[Bypass] 📜 Human Scroll: -23px]
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "TestPageChannel" using [[Bypass] 👆 Finger lifted.]
+I/flutter (17034): 🛡️ [JS-Log] [Bypass] 👆 Finger lifted.
+I/chromium(17034): [INFO:CONSOLE(1)] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/1myht/0x4AAAAAAAAjq6WYeRDKmebM/light/fbE/new/normal?lang=auto (1)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 0, message: Error}
+I/flutter (17034): 🛡️ [JS-Log] [Bypass] 🎯 TAP Completed.
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "TestPageChannel" using [[Bypass] 🎯 TAP Completed.]
+I/flutter (17034): Timeout waiting for result.
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 10}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onReceivedHttpError" using {request: {headers: {sec-ch-ua-arch: "", Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7, User-Agent: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/133.0.6943.137 Mobile Safari/537.36, Referer: https://slick.ly/hk/98888216?successMarker=summary-result, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, sec-ch-ua-full-version-list: "Not(A:Brand";v="99.0.0.0", "Android WebView";v="133.0.6943.137", "Chromium";v="133.0.6943.137", Upgrade-Insecure-Requests: 1, sec-ch-ua-platform: "Android", sec-ch-ua-bitness: "", sec-ch-ua-model: "sdk_gphone64_x86_64", sec-ch-ua-platform-version: "16.0.0", sec-ch-ua-full-version: "133.0.6943.137"}, isRedirect: false, meth...
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'hid'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'payment'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'serial'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb'.", source:  (0)
+I/chromium(17034): [INFO:CONSOLE(6)] "[Bypass] 🛡️ Mobile Interaction Engine V3 Active", source:  (6)
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'hid'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'payment'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'serial'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 2, message: Error with Permissions-Policy header: Unrecognized feature: 'usb'.}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onLoadStart" using {url: https://slick.ly/hk/98888216?successMarker=summary-result}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onConsoleMessage" using {messageLevel: 1, message: [Bypass] 🛡️ Mobile Interaction Engine V3 Active}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/hk/98888216?successMarker=summary-result}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 20}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/hk/98888216?successMarker=summary-result&__cf_chl_rt_tk=eOf.uzC5AFsRl71QtkVJAJ1cpvq3K8qWn5klDYue52A-1769513756-1.0.1.1-5ed3Vg1JjrdJal.qbl5rZcn_74wYG9dFpufeDz_l.5o}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onReceivedError" using {request: {headers: {Origin: https://slick.ly, User-Agent: Mozilla/5.0 (Linux; Android 16; sdk_gphone64_x86_64 Build/BP22.250325.006; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/133.0.6943.137 Mobile Safari/537.36, sec-ch-ua: "Not(A:Brand";v="99", "Android WebView";v="133", "Chromium";v="133", sec-ch-ua-mobile: ?1, Accept: */*, sec-ch-ua-platform: "Android"}, isRedirect: false, method: GET, hasGesture: false, isForMainFrame: false, url: https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015}, error: {description: net::ERR_CONNECTION_REFUSED, type: -6}}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 80}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onUpdateVisitedHistory" using {isReload: false, url: https://slick.ly/hk/98888216?successMarker=summary-result}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 100}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onProgressChanged" using {progress: 100}
+I/flutter (17034): 🛡️ [BypassHelper] Page Loaded: https://slick.ly/hk/98888216?successMarker=summary-result
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onLoadStop" using {url: https://slick.ly/hk/98888216?successMarker=summary-result}
+[AndroidInAppWebViewController] (android) WebView ID 1135131141196183229591191771727619922415296209 calling "onPageCommitVisible" using {url: https://slick.ly/hk/98888216?successMarker=summary-result}
