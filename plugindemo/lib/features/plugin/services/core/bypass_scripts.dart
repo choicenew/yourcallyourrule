@@ -214,7 +214,7 @@ class BypassScripts {
             window._hasClickedGlobal = true; // 占位
             
             setTimeout(async () => {
-                window._hasClickedGlobal = false; // 解锁
+                // window._hasClickedGlobal = false; // [FIX] Do NOT unlock. Try once only.
                 await performMobileTap(target);
             }, reactionTime);
         }
