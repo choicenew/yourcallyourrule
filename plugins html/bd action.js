@@ -1,18 +1,27 @@
-// [bd action.js] - Baidu Phone Query Plugin (Pure FlutterJS Regex V6.0)
+// [bd action.js] - Baidu Phone Query Plugin (Pure FlutterJS Regex V6.1)
 // =======================================================================================
 // Architecture: Native Channel (httpFetch) + Regex Parsing
 // No DOM/Iframe dependencies.
 // =======================================================================================
 
-(function() {
+(function () {
     // --- Plugin Configuration ---
     const PLUGIN_CONFIG = {
         id: 'baiduPhoneNumberPlugin',
         name: 'Baidu Phone Lookup (Regex)',
-        version: '6.0.0', // Updated to 6.0.0
+        version: '6.1.1',
         description: 'Queries Baidu for phone number information using Regex parsing. Intelligently selects the best name.',
+        config: {
+            successMarker: "百度安全号码认证平台",
+        },
         settings: [
-             { key: 'successMarker', label: 'Success Marker', type: 'text', hint: 'Bypass Marker', required: false }
+            {
+                key: 'successMarker',
+                label: 'Success Marker',
+                type: 'text',
+                hint: '过盾标识',
+                required: false
+            }
         ]
     };
 
@@ -50,70 +59,84 @@
     const allowKeywords = ['快递', '外卖', '送餐', '客服', '银行', '验证码', '出租', '滴滴', '优步'];
 
     // --- Helpers ---
-    function log(message) { sendMessage('Log', `[${PLUGIN_CONFIG.id}] ${message}`); }
-    function logError(message) { sendMessage('Log', `[${PLUGIN_CONFIG.id}] [ERROR] ${message}`); }
-    function sendPluginResult(result) { sendMessage('PluginResultChannel', JSON.stringify(result)); }
-    function sendPluginLoaded() { sendMessage('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version })); }
+    function log(message) { console.log(`[${PLUGIN_CONFIG.id}] ${message}`); }
+    function logError(message, error) { console.error(`[${PLUGIN_CONFIG.id}] ${message}`, error); }
+
+    function sendPluginResult(result) {
+        if (typeof sendMessage === 'function') {
+            sendMessage('PluginResultChannel', JSON.stringify(result));
+        } else if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('PluginResultChannel', JSON.stringify(result));
+        }
+    }
+
+    function sendPluginLoaded() {
+        if (typeof sendMessage === 'function') {
+            sendMessage('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version }));
+        } else if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version }));
+        }
+    }
 
     // --- Core Logic ---
     function initiateQuery(phoneNumber, requestId) {
-        log(`Initiating Query: ${phoneNumber}`);
+        log(`Initiating Scout query for '${phoneNumber}'`);
+
         const config = (window.plugin && window.plugin[PLUGIN_CONFIG.id].config) || {};
-        const successMarker = config.successMarker || "result-op"; 
+        const successMarker = config.successMarker || "new-pmd";
+        const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
 
         const targetUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(phoneNumber)}&ie=utf-8`;
-        const headers = { 
-            'User-Agent': config.userAgent || 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36'
-        };
+        const headers = { 'User-Agent': userAgent };
 
-        sendMessage('httpFetch', JSON.stringify({
-            url: targetUrl,
-            method: 'GET',
-            headers: headers,
-            pluginId: PLUGIN_CONFIG.id,
-            phoneRequestId: requestId,
-            successMarker: successMarker
-        }));
+        try {
+            sendMessage('httpFetch', JSON.stringify({
+                url: targetUrl,
+                method: 'GET',
+                headers: headers,
+                pluginId: PLUGIN_CONFIG.id,
+                phoneRequestId: requestId,
+                successMarker: successMarker
+            }));
+        } catch (e) {
+            logError('Query Setup Failed', e);
+            sendPluginResult({ requestId, success: false, error: 'Setup Failed: ' + e.toString() });
+        }
     }
 
     function parseHTML(html, phoneNumber) {
         const result = {
             phoneNumber: phoneNumber, sourceLabel: '', count: 0, province: '', city: '', carrier: '',
-            name: '', predefinedLabel: '', source: PLUGIN_CONFIG.id, numbers: [], success: false, error: '', action: 'none'
+            name: '', predefinedLabel: '', source: PLUGIN_CONFIG.name, numbers: [], success: false, error: '', action: 'none'
         };
 
         if (!html) return result;
 
         try {
             // 1. data-tools Extraction (JSON)
-            // Pattern: data-tools='{"title":"..."}'
             let dataToolsName = "";
             const dataToolsRegex = /data-tools=['"](\{.*?\})['"]/i;
             const dataToolsMatch = html.match(dataToolsRegex);
             if (dataToolsMatch && dataToolsMatch[1]) {
                 try {
-                    // HTML entity decode might be needed if &quot; is used, but usually it's plain json in attribs
                     const jsonStr = dataToolsMatch[1].replace(/&quot;/g, '"');
                     const toolsObj = JSON.parse(jsonStr);
                     if (toolsObj && toolsObj.title) {
                         dataToolsName = toolsObj.title.split(',')[0].trim();
                         log(`Found data-tools name: ${dataToolsName}`);
                     }
-                } catch(e) {}
+                } catch (e) { }
             }
 
             // 2. Official Card Title
-            // <h3 class="c-title ..."> ... <a>Title</a>
             const officialTitleRegex = /<h3[^>]*class=["'].*?c-title.*?["'][^>]*>[\s\S]*?<a[^>]*>([\s\S]*?)<\/a>/i;
             const officialMatch = html.match(officialTitleRegex);
-            
+
             // 3. Marked Card Label
-            // class="op_mobilephone_label">Label</div>
             const markedLabelRegex = /class=["']op_mobilephone_label[^"']*["']>([\s\S]*?)<\/div>/i;
             const markedMatch = html.match(markedLabelRegex);
 
             // 4. Location
-            // 归属地：Province City Carrier
             const locationRegex = /归属地：(.*?)</i;
             const locationMatch = html.match(locationRegex);
 
@@ -128,7 +151,7 @@
                 let label = markedMatch[1].replace(/<[^>]+>/g, '').trim();
                 label = label.replace(/标记：|标记为：|网络收录仅供参考/g, '').trim().split(/\s+/)[0];
                 result.sourceLabel = label;
-                result.count = 1; // Implicit count for logic
+                result.count = 1;
                 result.success = true;
 
                 if (locationMatch) {
@@ -139,7 +162,7 @@
                 }
             }
 
-            // Decide Name (Logic from original: longer name wins if dataTools exists)
+            // Decide Name
             if (result.success && dataToolsName && dataToolsName.length > result.name.length) {
                 result.name = dataToolsName;
             }
@@ -160,16 +183,22 @@
 
             return result;
         } catch (e) {
-            logError("Regex Parse Error: " + e.message);
+            logError("Regex Parse Error", e);
             result.error = e.message;
             return result;
         }
     }
 
     function handleResponse(response) {
+        log("handleResponse called.");
+
         let final = response;
         if (typeof response === 'string') {
-            try { final = JSON.parse(response); } catch(e) {}
+            try { final = JSON.parse(response); } catch (e) { }
+        }
+
+        if (response === "BUFFER") {
+            // Placeholder
         }
 
         const requestId = final.requestId || final.phoneRequestId;
@@ -179,9 +208,8 @@
         }
 
         const html = final.responseText || "";
-        const parsed = parseHTML(html, ""); // Phone number handled by logic context usually, but here we parse.
+        const parsed = parseHTML(html, "");
 
-        // Action Logic
         if (parsed.success) {
             const checkStr = (parsed.sourceLabel + " " + parsed.name).toLowerCase();
             let action = 'none';
@@ -202,6 +230,7 @@
     function initialize() {
         if (!window.plugin) window.plugin = {};
         window.plugin[PLUGIN_CONFIG.id] = { info: PLUGIN_CONFIG, generateOutput: generateOutput, handleResponse: handleResponse, config: {} };
+        log(`Plugin registered. Version ${PLUGIN_CONFIG.version}`);
         sendPluginLoaded();
     }
 

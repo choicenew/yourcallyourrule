@@ -1,18 +1,27 @@
-// [cleverdialeruk.js] - Cleverdialer UK Plugin (Pure FlutterJS Regex V6.0)
+// [cleverdialeruk.js] - Cleverdialer UK Plugin (Pure FlutterJS Regex V6.1)
 // =======================================================================================
 // Architecture: Native Channel (httpFetch) + Regex Parsing
 // No DOM/Iframe dependencies.
 // =======================================================================================
 
-(function() {
+(function () {
     // --- Plugin Configuration ---
     const PLUGIN_CONFIG = {
         id: 'cleverdialerukPlugin',
         name: 'Cleverdialer UK (Regex)',
-        version: '6.0.0', 
+        version: '6.1.0',
         description: 'Queries cleverdialer.co.uk for phone number information using Regex.',
+        config: {
+            successMarker: "cleverdialer",
+        },
         settings: [
-             { key: 'successMarker', label: 'Success Marker', type: 'text', hint: 'Bypass Marker', required: false }
+            {
+                key: 'successMarker',
+                label: 'Success Marker',
+                type: 'text',
+                hint: '过盾标识',
+                required: false
+            }
         ]
     };
 
@@ -29,54 +38,73 @@
     ];
 
     const manualMapping = {
-      'Spam': 'Spam Likely', 'Scam': 'Fraud Scam Likely', 'Fraud': 'Fraud Scam Likely', 'Nuisance': 'Spam Likely',
-      'Telemarketing': 'Telemarketing', 'Debt Collection': 'Debt Collection', 'Survey': 'Survey', 'Commercial': 'Telemarketing',
-      'Harassment': 'Spam Likely', 'Prank Call': 'Spam Likely', 'Robocall': 'Robocall', 'Unknown': 'Unknown',
-      'Neutral': 'Unknown', 'Positive': 'Other', 'Trusted': 'Other', 'Customer Service': 'Customer Service',
-      'Delivery': 'Delivery', 'Confirmation': 'Other', 'Other': 'Other',
-      'Estafa': 'Fraud Scam Likely', 'Fraude': 'Fraud Scam Likely', 'Molesto': 'Spam Likely', 'Publicidad': 'Telemarketing',
-      'Cobranza': 'Debt Collection', 'Encuesta': 'Survey', 'Comercial': 'Telemarketing', 'Acoso': 'Spam Likely',
-      'Llamada de broma': 'Spam Likely', 'Llamada automática': 'Robocall', 'Desconocido': 'Unknown', 'Fiable': 'Other',
-      'Servicio al cliente': 'Customer Service', 'Entrega': 'Delivery', 'Confirmación': 'Other', 'Otro': 'Other',
-      'Spam Anruf': 'Spam Likely', 'Telefonterror': 'Spam Likely', 'Gewinnspiel': 'Spam Likely',
-      'Meinungsforschung': 'Survey', 'Inkasso': 'Debt Collection', 'Unbekannt': 'Unknown',
-      'Seriös': 'Other', 'Vertrauenswürdig': 'Other'
+        'Spam': 'Spam Likely', 'Scam': 'Fraud Scam Likely', 'Fraud': 'Fraud Scam Likely', 'Nuisance': 'Spam Likely',
+        'Telemarketing': 'Telemarketing', 'Debt Collection': 'Debt Collection', 'Survey': 'Survey', 'Commercial': 'Telemarketing',
+        'Harassment': 'Spam Likely', 'Prank Call': 'Spam Likely', 'Robocall': 'Robocall', 'Unknown': 'Unknown',
+        'Neutral': 'Unknown', 'Positive': 'Other', 'Trusted': 'Other', 'Customer Service': 'Customer Service',
+        'Delivery': 'Delivery', 'Confirmation': 'Other', 'Other': 'Other',
+        'Estafa': 'Fraud Scam Likely', 'Fraude': 'Fraud Scam Likely', 'Molesto': 'Spam Likely', 'Publicidad': 'Telemarketing',
+        'Cobranza': 'Debt Collection', 'Encuesta': 'Survey', 'Comercial': 'Telemarketing', 'Acoso': 'Spam Likely',
+        'Llamada de broma': 'Spam Likely', 'Llamada automática': 'Robocall', 'Desconocido': 'Unknown', 'Fiable': 'Other',
+        'Servicio al cliente': 'Customer Service', 'Entrega': 'Delivery', 'Confirmación': 'Other', 'Otro': 'Other',
+        'Spam Anruf': 'Spam Likely', 'Telefonterror': 'Spam Likely', 'Gewinnspiel': 'Spam Likely',
+        'Meinungsforschung': 'Survey', 'Inkasso': 'Debt Collection', 'Unbekannt': 'Unknown',
+        'Seriös': 'Other', 'Vertrauenswürdig': 'Other'
     };
 
     const blockKeywords = ['Spam', 'Scam', 'Fraud', 'Nuisance', 'Telemarketing', 'Debt', 'Harassment', 'Prank', 'Robocall'];
     const allowKeywords = ['Delivery', 'Trusted', 'Customer', 'Confirmation', 'Safe'];
 
     // --- Helpers ---
-    function log(message) { sendMessage('Log', `[${PLUGIN_CONFIG.id}] ${message}`); }
-    function logError(message) { sendMessage('Log', `[${PLUGIN_CONFIG.id}] [ERROR] ${message}`); }
-    function sendPluginResult(result) { sendMessage('PluginResultChannel', JSON.stringify(result)); }
-    function sendPluginLoaded() { sendMessage('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version })); }
+    function log(message) { console.log(`[${PLUGIN_CONFIG.id}] ${message}`); }
+    function logError(message, error) { console.error(`[${PLUGIN_CONFIG.id}] ${message}`, error); }
+
+    function sendPluginResult(result) {
+        if (typeof sendMessage === 'function') {
+            sendMessage('PluginResultChannel', JSON.stringify(result));
+        } else if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('PluginResultChannel', JSON.stringify(result));
+        }
+    }
+
+    function sendPluginLoaded() {
+        if (typeof sendMessage === 'function') {
+            sendMessage('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version }));
+        } else if (window.flutter_inappwebview && window.flutter_inappwebview.callHandler) {
+            window.flutter_inappwebview.callHandler('TestPageChannel', JSON.stringify({ type: 'pluginLoaded', pluginId: PLUGIN_CONFIG.id, version: PLUGIN_CONFIG.version }));
+        }
+    }
 
     // --- Core Logic ---
     function initiateQuery(phoneNumber, requestId) {
         log(`Initiating Query: ${phoneNumber}`);
+
         const config = (window.plugin && window.plugin[PLUGIN_CONFIG.id].config) || {};
-        const successMarker = config.successMarker || "cleverdialer"; 
+        const successMarker = config.successMarker || "cleverdialer";
+        const userAgent = config.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
         const targetUrl = `https://www.cleverdialer.co.uk/phonenumber/${phoneNumber}`;
-        const headers = { 
-            'User-Agent': config.userAgent || 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36'
-        };
+        const headers = { 'User-Agent': userAgent };
 
-        sendMessage('httpFetch', JSON.stringify({
-            url: targetUrl,
-            method: 'GET',
-            headers: headers,
-            pluginId: PLUGIN_CONFIG.id,
-            phoneRequestId: requestId,
-            successMarker: successMarker
-        }));
+        try {
+            sendMessage('httpFetch', JSON.stringify({
+                url: targetUrl,
+                method: 'GET',
+                headers: headers,
+                pluginId: PLUGIN_CONFIG.id,
+                phoneRequestId: requestId,
+                successMarker: successMarker
+            }));
+        } catch (e) {
+            logError('Query Setup Failed', e);
+            sendPluginResult({ requestId, success: false, error: 'Setup Failed: ' + e.toString() });
+        }
     }
 
     function parseHTML(html) {
         const result = {
             sourceLabel: '', count: 0, province: '', city: '', carrier: '',
-            name: '', predefinedLabel: '', source: PLUGIN_CONFIG.id, numbers: [], success: false, error: '', action: 'none'
+            name: '', predefinedLabel: '', source: PLUGIN_CONFIG.name, numbers: [], success: false, error: '', action: 'none'
         };
 
         if (!html) return result;
@@ -92,19 +120,18 @@
 
             // 2. Star Rating Extraction
             if (!result.sourceLabel) {
-                 const starRegex = /class=["'][^"']*front-stars\s+stars-(\d)[^"']*["']/i;
-                 const starMatch = html.match(starRegex);
-                 if (starMatch) {
-                     const score = parseInt(starMatch[1], 10);
-                     result.sourceLabel = `stars-${score}`;
-                     if (score <= 2) result.predefinedLabel = 'Spam Likely';
-                     else if (score >= 4) result.predefinedLabel = 'Other';
-                     else result.predefinedLabel = 'Unknown';
-                 }
+                const starRegex = /class=["'][^"']*front-stars\s+stars-(\d)[^"']*["']/i;
+                const starMatch = html.match(starRegex);
+                if (starMatch) {
+                    const score = parseInt(starMatch[1], 10);
+                    result.sourceLabel = `stars-${score}`;
+                    if (score <= 2) result.predefinedLabel = 'Spam Likely';
+                    else if (score >= 4) result.predefinedLabel = 'Other';
+                    else result.predefinedLabel = 'Unknown';
+                }
             }
 
             // 3. Count Extraction
-            // Covers "Bewertungen", "ratings", "valoraciones"
             const countRegex = /<span\s+class=["']nowrap["'][^>]*>[\s\S]*?(\d+)[\s\S]*?(Bewertungen|ratings|valoraciones|valoración)[\s\S]*?<\/span>/i;
             const countMatch = html.match(countRegex);
             if (countMatch) {
@@ -126,16 +153,22 @@
 
             return result;
         } catch (e) {
-            logError("Regex Parse Error: " + e.message);
+            logError("Regex Parse Error", e);
             result.error = e.message;
             return result;
         }
     }
 
     function handleResponse(response) {
+        log("handleResponse called.");
+
         let final = response;
         if (typeof response === 'string') {
-            try { final = JSON.parse(response); } catch(e) {}
+            try { final = JSON.parse(response); } catch (e) { }
+        }
+
+        if (response === "BUFFER") {
+            // Buffer legacy
         }
 
         const requestId = final.requestId || final.phoneRequestId;
@@ -148,15 +181,15 @@
         const parsed = parseHTML(html);
 
         if (parsed.success) {
-             const label = parsed.predefinedLabel || parsed.sourceLabel;
-             if (label) {
-                 let determinedAction = 'none';
-                 for (const k of blockKeywords) { if (label.toLowerCase().includes(k.toLowerCase())) { determinedAction = 'block'; break; } }
-                 if (determinedAction === 'none') {
-                     for (const k of allowKeywords) { if (label.toLowerCase().includes(k.toLowerCase())) { determinedAction = 'allow'; break; } }
-                 }
-                 parsed.action = determinedAction;
-             }
+            const label = parsed.predefinedLabel || parsed.sourceLabel;
+            if (label) {
+                let determinedAction = 'none';
+                for (const k of blockKeywords) { if (label.toLowerCase().includes(k.toLowerCase())) { determinedAction = 'block'; break; } }
+                if (determinedAction === 'none') {
+                    for (const k of allowKeywords) { if (label.toLowerCase().includes(k.toLowerCase())) { determinedAction = 'allow'; break; } }
+                }
+                parsed.action = determinedAction;
+            }
         }
 
         parsed.requestId = requestId;
@@ -171,6 +204,7 @@
     function initialize() {
         if (!window.plugin) window.plugin = {};
         window.plugin[PLUGIN_CONFIG.id] = { info: PLUGIN_CONFIG, generateOutput: generateOutput, handleResponse: handleResponse, config: {} };
+        log(`Plugin registered. Version ${PLUGIN_CONFIG.version}`);
         sendPluginLoaded();
     }
 
