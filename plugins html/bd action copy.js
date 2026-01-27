@@ -112,12 +112,12 @@
     }
 
     function parseHTML(html, phoneNumber) {
-        const result = {
+        const pluginResults = {
             phoneNumber: phoneNumber, sourceLabel: '', count: 0, province: '', city: '', carrier: '',
             name: '', predefinedLabel: '', source: PLUGIN_CONFIG.name, numbers: [], success: false, error: '', action: 'none'
         };
 
-        if (!html) return result;
+        if (!html) return pluginResults;
 
         try {
             // 1. data-tools Extraction (JSON)
@@ -146,19 +146,19 @@
                     const sDataObj = JSON.parse(sDataJson);
                     
                     // Extraction from JSON fields
-                    if (sDataObj.marker) result.sourceLabel = sDataObj.marker;
-                    if (sDataObj.prov) result.province = sDataObj.prov;
-                    if (sDataObj.city) result.city = sDataObj.city;
-                    if (sDataObj.phoneno && !result.phoneNumber) result.phoneNumber = sDataObj.phoneno;
+                    if (sDataObj.marker) pluginResults.sourceLabel = sDataObj.marker;
+                    if (sDataObj.prov) pluginResults.province = sDataObj.prov;
+                    if (sDataObj.city) pluginResults.city = sDataObj.city;
+                    if (sDataObj.phoneno && !pluginResults.phoneNumber) pluginResults.phoneNumber = sDataObj.phoneno;
 
                     if (sDataObj.wise_text && sDataObj.wise_text.includes(PLUGIN_CONFIG.config.successMarker)) {
-                        result.success = true;
-                        if (!result.name) result.name = sDataObj.wise_text;
+                        pluginResults.success = true;
+                        if (!pluginResults.name) pluginResults.name = sDataObj.wise_text;
                     }
                     
                     if (sDataObj.title && (sDataObj.phoneno || sDataObj.title.includes(phoneNumber))) {
-                         if (!result.name) result.name = sDataObj.title.replace(/<[^>]+>/g, '').trim();
-                         result.success = true;
+                         if (!pluginResults.name) pluginResults.name = sDataObj.title.replace(/<[^>]+>/g, '').trim();
+                         pluginResults.success = true;
                     }
 
                 } catch (e) {}
@@ -172,16 +172,16 @@
             if (pmdTitleMatch) {
                 const title = pmdTitleMatch[1].trim();
                 if (title) {
-                    result.name = title;
-                    result.sourceLabel = title;
-                    result.success = true;
+                    pluginResults.name = title;
+                    pluginResults.sourceLabel = title;
+                    pluginResults.success = true;
                 }
             }
             const pmdRowMatch = html.match(pmdRowRegex);
             if (pmdRowMatch) {
                 const row = pmdRowMatch[1].trim().split(/\s+/);
-                if (row[0]) result.province = row[0];
-                if (row[1]) result.city = row[1];
+                if (row[0]) pluginResults.province = row[0];
+                if (row[1]) pluginResults.city = row[1];
             }
 
             // 4. Legacy DOM Extractions
@@ -196,49 +196,49 @@
 
             if (officialMatch) {
                 const rawName = officialMatch[1].replace(/<[^>]+>/g, '').trim();
-                result.name = rawName;
-                result.success = true;
-                result.numbers.push({ number: phoneNumber, name: rawName });
+                pluginResults.name = rawName;
+                pluginResults.success = true;
+                pluginResults.numbers.push({ number: phoneNumber, name: rawName });
             } else if (markedMatch) {
                 let label = markedMatch[1].replace(/<[^>]+>/g, '').trim();
                 label = label.replace(/标记：|标记为：|网络收录仅供参考/g, '').trim().split(/\s+/)[0];
-                result.sourceLabel = label;
-                result.count = 1;
-                result.success = true;
-                result.numbers.push({ number: phoneNumber, name: label });
+                pluginResults.sourceLabel = label;
+                pluginResults.count = 1;
+                pluginResults.success = true;
+                pluginResults.numbers.push({ number: phoneNumber, name: label });
 
                 if (locationMatch) {
                     const locParts = locationMatch[1].trim().split(/\s+/);
-                    result.province = locParts[0] || '';
-                    result.city = locParts[1] || '';
-                    result.carrier = locParts[2] || '';
+                    pluginResults.province = locParts[0] || '';
+                    pluginResults.city = locParts[1] || '';
+                    pluginResults.carrier = locParts[2] || '';
                 }
             }
 
             // Decide Name priority
-            if (result.success && dataToolsName && (!result.name || dataToolsName.length > result.name.length)) {
-                result.name = dataToolsName;
+            if (pluginResults.success && dataToolsName && (!pluginResults.name || dataToolsName.length > pluginResults.name.length)) {
+                pluginResults.name = dataToolsName;
             }
 
             // Predefined Label Logic
-            if (result.success) {
-                if (result.name.includes('客服') || (result.sourceLabel && result.sourceLabel.includes('客服'))) {
-                    result.predefinedLabel = 'Customer Service';
-                } else if (result.sourceLabel) {
+            if (pluginResults.success) {
+                if (pluginResults.name.includes('客服') || (pluginResults.sourceLabel && pluginResults.sourceLabel.includes('客服'))) {
+                    pluginResults.predefinedLabel = 'Customer Service';
+                } else if (pluginResults.sourceLabel) {
                     for (const key in manualMapping) {
-                        if (result.sourceLabel.includes(key)) {
-                            result.predefinedLabel = manualMapping[key];
+                        if (pluginResults.sourceLabel.includes(key)) {
+                            pluginResults.predefinedLabel = manualMapping[key];
                             break;
                         }
                     }
                 }
             }
 
-            return result;
+            return pluginResults;
         } catch (e) {
             logError("Regex Parse Error", e);
-            result.error = e.message;
-            return result;
+            pluginResults.error = e.message;
+            return pluginResults;
         }
     }
 
