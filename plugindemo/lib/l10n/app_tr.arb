@@ -1,0 +1,3092 @@
+{
+  "@@locale": "tr",
+  "aboutContactSubscription": "İletişim Aboneliği Hakkında",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "Etiketler Hakkında",
+  "aboutPhoneSubscriptionRules": "Telefon Abonelik Kuralları Hakkında",
+  "aboutPhoneSubscriptions": "Telefon Abonelikleri Hakkında",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "URL aracılığıyla telefon kural listelerine abone olun, kuralları otomatik olarak güncelleyin. JSON, CSV formatında kural dosyalarını destekler.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "SMS Filtreleme Hakkında",
+  "aboutSmsSubscriptionRules": "SMS Abonelik Kuralları Hakkında",
+  "aboutSubtitle": "Uygulama sürümü ve yasal bilgiler",
+  "aboutTitle": "Hakkında",
+  "action": "Eylem",
+  "actionAll": "Tümü",
+  "actionAllow": "İzin Ver",
+  "actionBlock": "Engelle",
+  "actionFilterAll": "Tüm Filtre",
+  "actionFilterTitle": "Eylem Türüne Göre Filtrele",
+  "actionFilterTooltip": "Eylem Filtresi",
+  "actionNone": "Eylem Yok",
+  "actionSilence": "Sessize Al",
+  "actionTag": "Eylem: {actionType}",
+  "actionType": "Eylem Türü",
+  "actionUnknown": "Bilinmiyor",
+  "add": "Ekle",
+  "addAllowedBlockedRule": "İzin Ver/Engelle Kuralı Ekle",
+  "addAllowSubscription": "İzin Ver Aboneliği Ekle",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Engelle Aboneliği Ekle",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Kişi Ekle",
+  "addContactFailed": "Kişi eklenemedi: {error}",
+  "addedToAllowedRules": "İzin Verilen Kurallara Eklendi",
+  "addedToBlacklist": "Engellenenler Listesine Eklendi",
+  "addedToBlockedRules": "Engellenen Kurallara Eklendi",
+  "addedToFavoriteContacts": "Favori kişilere eklendi",
+  "addedToFavorites": "Favorilere eklendi",
+  "addedToWhitelist": "Beyaz Listeye Eklendi",
+  "addFavorite": "Favori Ekle",
+  "addFilter": "Filtre Ekle",
+  "addLabel": "Etiket Ekle",
+  "addLabelButton": "Etiket Ekle",
+  "addLabelFailed": "Etiket eklenemedi: {error}",
+  "addLabelToCall": "Çağrı Kaydına Etiket Ekle",
+  "addName": "Ad Ekle",
+  "addNoneSubscription": "Yok Aboneliği Ekle",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "Kişi bilgilerini eklemek veya düzenlemek için kullanılır",
+  "addPhoneMark": "Telefon İşareti Ekle",
+  "addPhoneNumberRule": "Telefon Numarası Kuralı Ekle",
+  "addPlugin": "Eklenti Ekle",
+  "addPluginFailed": "Eklenti eklenemedi",
+  "addPluginFailedWithError": "Eklenti eklenemedi: {error}",
+  "addPluginFromLocalFile": "Yerel Dosyadan Eklenti Ekle",
+  "addPluginFromUrl": "URL'den Eklenti Ekle",
+  "addRegexRule": "Regex Kuralı Ekle",
+  "addRule": "Kural Ekle",
+  "addRuleButton": "Kural Ekle",
+  "addRuleFailed": "Kural eklenemedi: {error}",
+  "addRuleTooltip": "Kural Ekle",
+  "addSilenceSubscription": "Sessize Alma Aboneliği Ekle",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "SIM Kuralı Ekle",
+  "addSmsFilterRule": "SMS Filtre Kuralı Ekle",
+  "addSmsRule": "SMS Kuralı Ekle",
+  "addSmsSubscription": "SMS Aboneliği Ekle",
+  "addSubscription": "Abonelik Ekle",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Abonelik Ekle",
+  "addSubscriptionFailed": "Abonelik eklenemedi: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Abonelik Ekle",
+  "addToAllowedRules": "İzin Verilen Kurallara Ekle",
+  "addToBlacklist": "Engellenenler Listesine Ekle",
+  "addToBlockedRules": "Engellenen Kurallara Ekle",
+  "addToFavoriteContacts": "Favori Kişilere Ekle",
+  "addToFavorites": "Favorilere Ekle",
+  "addToRules": "Kurallara Ekle",
+  "addToWhitelist": "Beyaz Listeye Ekle",
+  "adPlaceholder": "Reklam Yer Tutucusu",
+  "agent": "Aracı",
+  "all": "Tümü",
+  "allCallsTab": "Tümü",
+  "allDataClearedSuccessfully": "Tüm veriler başarıyla temizlendi",
+  "allow": "İzin Ver",
+  "allowAllAllowRules": "Tüm İzin Kurallarını İzin Ver",
+  "allowAllAllowRulesDesc": "İzin kurallarından gelen çağrılara izin ver",
+  "allowAllBlacklistedNumbers": "Tüm Engellenen Numaralara İzin Ver",
+  "allowAllBlacklistedNumbersDesc": "Engellenenler listesinden gelen çağrılara izin ver",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "Tüm Engelleme Kurallarını İzin Ver",
+  "allowAllBlockRulesDesc": "Engelleme kurallarından gelen çağrılara izin ver",
+  "allowAllowedNumbers": "İzin Verilen Numaralara İzin Ver",
+  "allowAllowedNumbersDesc": "Beyaz listeden gelen çağrılara izin ver",
+  "allowBlock": "İzin Ver/Engelle",
+  "allowBlockedNumbers": "Engellenen Numaralara İzin Ver",
+  "allowBlockedNumbersDesc": "Engellenenler listesinden gelen çağrılara izin ver",
+  "allowedBlockedRule": "İzin Ver/Engelle Kuralı",
+  "allowedBlockedRuleEditDialogTitle": "İzin Ver/Engelle Kuralını Düzenle",
+  "allowedBlockedRuleManagement": "İzin Ver/Engelle Kuralı Yönetimi",
+  "allowNonExceededNumbers": "Aşılan Sayıların Dışındakilere İzin Ver",
+  "allowNonExceededNumbersDescription": "Sayı eşiğini aşmayan numaralara otomatik olarak izin ver",
+  "allowRegexAllowRules": "Regex İzin Kurallarına İzin Ver",
+  "allowRegexAllowRulesDesc": "İzin kuralları için regex deseni eşleştirmeyi etkinleştir",
+  "allowRegexAllowRulesDescription": "Regex tabanlı izin kurallarını etkinleştir",
+  "allowRegexBlockRules": "Regex Engelleme Kurallarına İzin Ver",
+  "allowRegexBlockRulesDesc": "Engelleme kuralları için regex deseni eşleştirmeyi etkinleştir",
+  "allowRegexBlockRulesDescription": "Regex tabanlı engelleme kurallarını etkinleştir",
+  "allowRule": "İzin Ver Kuralı",
+  "allowRules": "İzin Ver Kuralları",
+  "allowWhitelistedNumbers": "İzin Verilen Numaralara İzin Ver",
+  "allowWhitelistedNumbersDescription": "İzin verilen listedeki tüm numaralara izin ver",
+  "allPermissionsGranted": "Tüm izinler verildi",
+  "allSettingsCompleted": "Tüm ayarlar tamamlandı.",
+  "allUpdateSuccess": "Tüm güncellemeler tamamlandı ({count} kural)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "Yanıtla sonra kapat",
+  "appLegalese": "© 2023 Senin Çağrın Senin Kuralın. Tüm hakları saklıdır.",
+  "applicationSoftware": "Uygulama Yazılımı",
+  "apply": "Uygula",
+  "appName": "Senin Çağrın Senin Kuralın",
+  "authorizationFailedCheckCredentialsMessage": "Yetkilendirme başarısız: Lütfen istemci kimliğini ve anahtarını kontrol edin",
+  "authorizationFailedMessage": "Yetkilendirme başarısız",
+  "authorizationSuccessMessage": "Yetkilendirme başarılı",
+  "authorizeLoginButton": "Girişi Yetkilendir",
+  "automotiveIndustry": "Otomotiv Sektörü",
+  "autoSyncLabel": "Otomatik Eşitleme",
+  "autoUpdate": "Otomatik Güncelleme",
+  "autoUpdateDescription": "Abonelikler için otomatik güncelleme aralıkları ayarlayın veya manuel olarak güncelleyin",
+  "autoUpdateSettings": "Otomatik Güncelleme Ayarları",
+  "autoUpdateSettingsSubtitle": "Kuralların ve eklentilerin otomatik güncellemelerini yönetin",
+  "autoUpdateSettingsTitle": "Otomatik Güncelleme Ayarları",
+  "autoUpdateSubtitle": "Kuralların ve eklentilerin otomatik güncellemelerini yönetin",
+  "autoUpdateTitle": "Otomatik Güncelleme",
+  "avatarBorderColor": "Avatar Kenarlık Rengi",
+  "avatarBorderSize": "Avatar Kenarlık Boyutu",
+  "avatarIconSizesSetting": "Avatar ve Simge Boyutları",
+  "avatarPosition": "Avatar Konumu",
+  "avatarSize": "Avatar Boyutu",
+  "axisPosition": "{axis} Konumu",
+  "backgroundGradientSetting": "Arka Plan Gradyan Ayarı",
+  "backup": "Yedekle",
+  "backupAndRestore": "Yedekle ve Geri Yükle",
+  "backupAndRestoreSubtitle": "Uygulama verilerini yedekle veya geri yükle",
+  "backupAndRestoreTitle": "Yedekle ve Geri Yükle",
+  "backupFailed": "Yedekleme başarısız",
+  "backupFailedMessage": "Yedekleme başarısız",
+  "backupFailedWithError": "Yedekleme başarısız: {error}",
+  "backupRestoreSubtitle": "Uygulama verilerini yedekle veya geri yükle",
+  "backupRestoreTitle": "Yedekle ve Geri Yükle",
+  "backupSectionTitle": "Yedekle",
+  "backupSettings": "Yedekleme Ayarları",
+  "backupSettingsDialogTitle": "Yedekleme Ayarları",
+  "backupSettingsTitle": "Yedekleme Ayarları",
+  "backupSuccessMessage": "Buluta başarıyla yedeklendi",
+  "backupSuccessToLocal": "Yerel olarak başarıyla yedeklendi: {path}",
+  "backupToCloud": "Buluta Yedekle",
+  "backupToCloudDescription": "Ayarları ve kuralları bulut depolama alanına yedekleyin",
+  "backupToCloudFailed": "Buluta yedekleme başarısız: {error}",
+  "backupToCloudLabel": "Buluta Yedekle",
+  "backupToCloudSuccess": "Buluta başarıyla yedeklendi",
+  "backupToCloudTitle": "Buluta Yedekle",
+  "backupToLocalLabel": "Yerel Olarak Yedekle",
+  "bank": "Banka",
+  "basicInfo": "Temel Bilgiler",
+  "basicRuleFilter": "Temel Kural Filtresi",
+  "basicRuleFiltering": "Temel Kural Filtreleme",
+  "basicRuleFilteringExplanation": "• Temel Kural Filtreleme: Kara liste, izin verilenler listesi ve regex'e göre kuralları filtreleme",
+  "basicRuleFilterSettings": "Temel Kural Filtre Ayarları",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "Kara listeyi/izin verilenleri ve düzenli ifadeleri kullanarak çağrıları filtreleyin",
+  "batchDeleteContacts": "Toplu İletişim Sil",
+  "batchDeleteContactsConfirm": "Seçilen {count} kişiyi silmek istediğinizden emin misiniz?",
+  "batchDeleteFailed": "Toplu silme başarısız",
+  "batchDeleteLabelsConfirm": "Seçilen {count} etiketi silmek istediğinizden emin misiniz?",
+  "blacklist": "Kara Liste",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "Kara Listeye Alma ve İzin Verilenlere Ekleme",
+  "blacklistLabel": "Kara Liste",
+  "blackWhiteList": "Kara/İzin Listesi",
+  "block": "Engelle",
+  "blockCalls": "Çağrıları Engelle",
+  "blocked": "Engellendi",
+  "blockedCallAction": "Engellenen Çağrı Eylemi",
+  "blockedCalls": "Engellenen Çağrılar",
+  "blockedCallsTitle": "Engellenen Çağrılar",
+  "blockedCommunications": "Engellenen İletişimler",
+  "blockedPhoneLabel": "Engellenen Çağrılar",
+  "blockedSpamCalls": "Engellenen Spam Çağrıları",
+  "blockingTrend": "Engelleme Eğilimi",
+  "blockInternationalCalls": "+ veya 00 ile başlamayan numaralarla eşleşir",
+  "blockInternationalCallsTitle": "Uluslararası Çağrıları Engelle",
+  "blockLandlineNumbersTitle": "Sabit Hat Numaralarını Engelle",
+  "blockMobileNumbers": "13-19 ile başlamayan numaralarla eşleşir",
+  "blockMobileNumbersTitle": "Mobil Numaraları Engelle",
+  "blockPremiumRateNumbers": "118 veya 120-190 ile başlamayan numaralarla eşleşir",
+  "blockPremiumRateNumbersTitle": "Premium Ücretli Numaraları Engelle",
+  "blockRule": "Engelleme Kuralı",
+  "blockRules": "Engelleme Kuralları",
+  "blockSpecificAreaCodes": "0 + 2-3 haneli ile başlayan numaralarla eşleşir",
+  "blockSpecificAreaCodesTitle": "Belirli alan kodlarını engelle:",
+  "blockTypeAnalysisTitle": "Engelleme Türü Analizi",
+  "both": "Her ikisi de",
+  "bulkDelete": "Toplu İletişim Sil",
+  "bulkDeleteContacts": "Toplu İletişim Sil",
+  "bulkDeleteLabels": "Toplu Etiket Sil",
+  "call": "Çağrı",
+  "callback": "Geri Çağır",
+  "callbackTo": "{number} numarasına geri çağır",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "Çağrı Engelleme",
+  "callerIdApp": "Arayan Kimliği Uygulaması",
+  "callerIdCustomizationTitle": "Arayan Kimliğini Özelleştir",
+  "callerIdDialogTitle": "Arayan Kimliği Bilgisi",
+  "callerIdDisplayMode": "Arayan Kimliği Görüntüleme Modu",
+  "callerIdMarkedByCount": "{count} Tarafından İşaretlendi",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "Arayan Kimliği Önizlemesi",
+  "callFilter": "Çağrı Filtresi",
+  "callFilterDescription": "Etkinleştirildiğinde, gelen aramalar aşağıdaki kural listesine karşı kontrol edilir. Çağrı filtreleme kuralları varsayılan olarak cihazlar arasında eşitlenmez.",
+  "callFilterRules": "Çağrı Filtresi Kuralları",
+  "callFilterRulesDescription": "Çağrı filtreleme için temel kurallar belirleyin",
+  "callFilterSettings": "Çağrı Filtresi Ayarları",
+  "callFrequencyInterceptionSubtitle": "Çağrı frekansı sınırlarını ve engelleme kurallarını ayarlayın",
+  "callFrequencyInterceptionTitle": "Çağrı Frekansı Engellemesi",
+  "callHistory": "Çağrı Geçmişi",
+  "callHistoryInfoDesc": "Gelen, giden ve cevapsız çağrıları içeren çağrı geçmişiniz burada gösterilir.",
+  "callHistoryInfoTitle": "Çağrı Geçmişi",
+  "callHistoryInitFailed": "Çağrı geçmişi başlatılamadı: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "Çağrı geçmişi yenilenemedi: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "Çağrı Geçmişi",
+  "callHistoryTimelineEarlier": "Daha Önce",
+  "callHistoryTimelineToday": "Bugün",
+  "callHistoryTimelineYesterday": "Dün",
+  "callScreeningPermission": "Çağrı Tarama İzni",
+  "callScreeningPermissionDescription": "İstenmeyen aramaları taramak ve engellemek için kullanılır.",
+  "callScreeningPermissionNotGranted": "Çağrı tarama izni verilmedi, uygulama işlevselliğini etkileyebilir.",
+  "callSettingsSubtitle": "Arayan Kimliği, filtreleme ve engelleme ayarları",
+  "callSettingsTitle": "Çağrı Ayarları",
+  "callStatistics": "Çağrı İstatistikleri",
+  "callTypeAnswered": "Cevaplandı",
+  "callTypeBlocked": "Engellendi",
+  "callTypeIconColor": "Çağrı Tipi Simge Rengi",
+  "callTypeMissed": "Cevapsız Çağrı",
+  "callTypeOutgoing": "Giden",
+  "callTypePosition": "Çağrı Tipi Konumu",
+  "callTypeUnknown": "Bilinmeyen",
+  "cancelButton": "İptal",
+  "carRental": "Araba Kiralama",
+  "carrier": "Operatör",
+  "carrierColor": "Operatör Rengi",
+  "carrierFontSize": "Operatör Yazı Tipi Boyutu",
+  "carrierPosition": "Operatör Konumu",
+  "changeLabel": "Etiketi Değiştir",
+  "changePluginStatusFailed": "Eklenti durumu değiştirilemedi: {error}",
+  "changeSubscriptionStatusFailed": "Abonelik durumu değiştirilemedi: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "Etiketi Değiştir",
+  "charity": "Bağış",
+  "chartMonthFormat": "Ay {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "1 gün önce",
+  "chartOneMonthAgo": "1 ay önce",
+  "chartOneWeekAgo": "1 hafta önce",
+  "chartTenDaysAgo": "10 gün önce",
+  "chartThreeDaysAgo": "3 gün önce",
+  "chartToday": "Bugün",
+  "checkFileFormat": "Lütfen dosya biçimini veya izinleri kontrol edin",
+  "checkPermissionFailed": "İzinler kontrol edilemedi: {error}",
+  "chooseDefaultInterceptAction": "Varsayılan engelleme eylemini seçin",
+  "clearAllData": "Tüm Verileri Temizle",
+  "clearAllDataConfirmation": "Tüm uygulama verilerini temizlemek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+  "clearAllDataDescription": "Tüm uygulama verilerini temizle",
+  "clearAllDataLabel": "Tüm Verileri Temizle",
+  "clearFilter": "Filtreyi Temizle",
+  "clearLabelFilter": "Etiket Filtresini Temizle",
+  "clearLabelFilterButton": "Etiket Filtresini Temizle",
+  "closeButton": "Kapat",
+  "cloudSync": "Bulut Senkronizasyonu",
+  "cloudSyncAndBackupTitle": "Bulut Senkronizasyonu ve Yedekleme",
+  "cloudSyncSettingsSubtitle": "WebDAV, OneDrive ve Google Drive'ı yapılandırın",
+  "cloudSyncSettingsTitle": "Bulut Senkronizasyonu Ayarları",
+  "cloudSyncTitle": "Bulut Senkronizasyonu",
+  "collapseLabelSelector": "Etiket Seçiciyi Daralt",
+  "collection": "Borç Tahsilatı",
+  "colorPickerTitle": "Renk Seçin",
+  "configManagement": "Yapılandırma Yönetimi",
+  "configUpdated": "Yapılandırma güncellendi",
+  "configurationAdvice": "Doğru yapılandırma ile iş ve kişisel SIM kartlar için farklı filtreleme stratejileri belirleyebilirsiniz.",
+  "configureBackupOptions": "Yedekleme Seçeneklerini Yapılandır",
+  "configureBackupOptionsSubtitle": "Yedekleme seçeneklerini yapılandırın",
+  "configureCloudSyncService": "Bulut Senkronizasyon Hizmetini Yapılandır",
+  "configureCloudSyncServiceHint": "Çoklu cihaz senkronizasyonunu etkinleştirmek için lütfen bir bulut senkronizasyon hizmeti yapılandırın.",
+  "configureCloudSyncServiceMessage": "Çoklu cihaz senkronizasyonunu etkinleştirmek için lütfen bir bulut senkronizasyon hizmeti yapılandırın.",
+  "configureSimCardFilterRules": "SIM Kart Filtre Kurallarını Yapılandırın",
+  "configureSyncServiceHint": "Lütfen önce bulut senkronizasyonu ayarlarında senkronizasyon hizmetini yapılandırın",
+  "confirm": "Onayla",
+  "confirmBatchDeleteContacts": "Seçilenleri silmek istediğinizden emin misiniz",
+  "confirmButton": "Onayla",
+  "confirmDelete": "Silmeyi Onayla",
+  "confirmDeleteContact": "Silmek istediğinizden emin misiniz",
+  "confirmDeleteContactName": "Silmeyi onayla?",
+  "confirmDeleteFilter": "Bu filtreyi silmek istediğinizden emin misiniz?",
+  "confirmDeleteLabel": "\"{name}\" etiketini silmek istediğinizden emin misiniz",
+  "confirmDeletePlugin": "\"{name}\" eklentisini silmek istediğinizden emin misiniz?",
+  "confirmDeletePlugins": "{count} eklentiyi silmek istediğinizden emin misiniz?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "Bu kuralı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+  "confirmDeleteSelectedContacts": "Seçilen kişileri silmek istediğinizden emin misiniz?",
+  "confirmDeleteSmsFilterRule": "Bu SMS filtre kuralını silmek istediğinizden emin misiniz?",
+  "confirmDeleteSmsRule": "Bu SMS kuralını silmek istediğinizden emin misiniz?",
+  "confirmDeleteSubscription": "Bu aboneliği silmek istediğinizden emin misiniz?",
+  "confirmDeleteSubscriptions": "\"{name}\" silmek istediğinizden emin misiniz?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "Şifreyi Onayla",
+  "confirmPasswordLabel": "Şifreyi Onayla",
+  "connectedStatus": "Bağlandı",
+  "connectionFailedCheckCredentialsMessage": "Bağlantı başarısız: Lütfen sunucu adresini, kullanıcı adını ve şifreyi kontrol edin",
+  "connectionFailedMessage": "Bağlantı başarısız",
+  "connectionStatusLabel": "Bağlantı Durumu",
+  "connectionSuccessMessage": "Bağlantı başarılı",
+  "contactAddSuccess": "Kişi başarıyla eklendi",
+  "contactDeleted": "Kişi silindi",
+  "contactEditDialog": "Kişi Düzenleme Diyaloğu",
+  "contactNameHint": "Kişi adı girin (isteğe bağlı)",
+  "contactNameLabel": "Ad",
+  "contactNameOptional": "Kişi adı (isteğe bağlı)",
+  "contactNotFound": "Kişi bulunamadı",
+  "contacts": "Kişiler",
+  "contactsDeleted": "{count} kişi silindi",
+  "contactSettingsSubtitle": "Kişi yönetimi ve etiket ayarları",
+  "contactSettingsTitle": "Kişi Ayarları",
+  "contactsLoadingFailed": "Kişiler yüklenemedi: {error}",
+  "contactsManagement": "Kişiler Yönetimi",
+  "contactsManagementPageTitle": "Kişiler Yönetimi Sayfası",
+  "contactsPageTitle": "Kişiler Yönetimi",
+  "contactsPermission": "Kişi İzni",
+  "contactsPermissionDescription": "Arayan kişileri tanımlamak için kullanılır.",
+  "contactsTab": "Kişiler",
+  "contactSubscriptionDescription": "URL aracılığıyla kişi listelerine abone olun, kişi bilgilerini ve etiketlerini otomatik olarak güncelleyin. JSON formatındaki verileri destekler.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "Kişi abonelikleri yüklenemedi: {error}",
+  "contactSubscriptionPageTitle": "Kişi Abonelikleri",
+  "contactUpdateSuccess": "Kişi başarıyla güncellendi",
+  "contactUs": "Bize Ulaşın",
+  "content": "İçerik",
+  "contentRegex": "İçerik Regex'i",
+  "countColor": "Sayım Rengi",
+  "countFontSize": "Sayım Yazı Tipi Boyutu",
+  "countPosition": "Sayım Konumu",
+  "country": "Ülke",
+  "countryNameColor": "Ülke Adı Rengi",
+  "countryNameFontSize": "Ülke Adı Yazı Tipi Boyutu",
+  "countryRegionNamePosition": "Ülke/Bölge Adı Konumu",
+  "countrySelectionDialog": "Ülke Seçim Diyaloğu",
+  "countrySelectionDialogDescription": "Arayan kimliği bilgilerini sorgulamak için bir ülke seçmek için kullanılır",
+  "countThresholdDescription": "Filtreleme eylemlerini tetiklemek için gereken minimum sayım eşiğini ayarlayın",
+  "countThresholdLabel": "Sayım Eşiği",
+  "countThresholdSettings": "Sayım Eşiği Ayarları",
+  "countThresholdValue": "Sayım Eşiği: {count}",
+  "createdRules": "Oluşturulan Kurallar",
+  "csvFormat": "CSV Formatı",
+  "currentDeviceChip": "Mevcut",
+  "currentDeviceLabel": "Mevcut Cihaz Etiketi",
+  "currentDeviceTitle": "Mevcut Cihaz",
+  "currentLabels": "Mevcut Etiketler:",
+  "currentLanguage": "Mevcut Dil",
+  "currentPasswordLabel": "Mevcut Parola",
+  "customerService": "Müşteri Hizmetleri",
+  "customRange": "Özel Aralık",
+  "dailyStatistics": "Günlük İstatistikler",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "Engellenen aramalar ve mesajlar hakkında günlük istatistikler alın",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "Kontrol Paneli",
+  "dataAnalysis": "Veri Analizi",
+  "dataAnalysisDashboardPage": "Veri Analizi Kontrol Paneli Sayfası",
+  "dataExport": "Veri Dışa Aktarma",
+  "dataLoadFailure": "Veri yükleme başarısız oldu: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "Veri yüklenemedi: {error}",
+  "dataMigration": "Veri Taşıma",
+  "dataMigrationDescription": "Bu özellik, tüm verilerinizi cihazlar arasında aktarmanıza olanak tanır. Şu anda, verilerinizi manuel olarak taşımak için yedekleme ve geri yükleme özelliklerini kullanabilirsiniz.",
+  "dataMigrationDialogContent": "Bu özellik, tüm verilerinizi cihazlar arasında aktarmanıza olanak tanır. Şu anda, verilerinizi manuel olarak taşımak için yedekleme ve geri yükleme özelliklerini kullanabilirsiniz.",
+  "dataMigrationDialogTitle": "Veri Taşıma",
+  "dataMigrationSectionTitle": "Veri Taşıma",
+  "dataSourceReminder": "Veri Kaynağı Hatırlatıcısı",
+  "days": "{count, plural, one{1 gün} other{{count} gün}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} Gün VIP",
+  "debtCollection": "Borç Tahsilatı",
+  "defaultPeriod": "Hafta",
+  "delete": "Sil",
+  "deleteButton": "Sil",
+  "deleteContact": "Kişiyi Sil",
+  "deleteContactConfirm": "{name} kişisini silmek istediğinizden emin misiniz?",
+  "deleteContactConfirmation": "Kişiyi silmek istediğinizden emin misiniz",
+  "deleteDeviceConfirmation": "{deviceName} cihazını silmek istediğinizden emin misiniz?",
+  "deleteDeviceDialogTitle": "Cihazı Sil",
+  "deleteFailed": "Silme başarısız oldu: {error}",
+  "deleteFilter": "Filtreyi Sil",
+  "deleteLabel": "Etiketi Sil",
+  "deleteLabelFailed": "Etiket silme başarısız oldu: {error}",
+  "deletePlugin": "Eklentiyi Sil",
+  "deletePluginFailed": "Eklenti silme başarısız oldu: {error}",
+  "deletePlugins": "Eklentileri Sil",
+  "deletePluginsFailed": "Eklentiler silme başarısız oldu: {error}",
+  "deleteRule": "Kuralı Sil",
+  "deleteRuleFailed": "Silme başarısız oldu: {error}",
+  "deleteSelected": "Seçilenleri Sil",
+  "deleteSmsRule": "SMS Kuralını Sil",
+  "deleteSubscription": "Aboneliği Sil",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "\"{name}\" aboneliğini silmek istediğinizden emin misiniz?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "Abonelik silme başarısız oldu: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "Silme başarılı",
+  "delivery": "Teslimat",
+  "deviceDeletedSuccessfully": "Cihaz başarıyla silindi",
+  "deviceDeletedSuccessfullyMessage": "Cihaz başarıyla silindi",
+  "deviceIdLabel": "Cihaz Kimliği",
+  "deviceIDLabel": "Cihaz Kimliği",
+  "deviceManagementSubtitle": "Çoklu cihaz senkronizasyonunu yönetin",
+  "deviceManagementTitle": "Cihaz Yönetimi",
+  "deviceModelLabel": "Cihaz Modeli",
+  "deviceName": "Cihaz Adı",
+  "deviceNameCannotBeEmpty": "Cihaz adı boş olamaz",
+  "deviceNameHint": "Lütfen cihaz adını girin",
+  "deviceNameLabel": "Cihaz Adı",
+  "deviceRenamedSuccessfully": "Cihaz başarıyla yeniden adlandırıldı",
+  "deviceRenamedSuccessfullyMessage": "Cihaz başarıyla yeniden adlandırıldı",
+  "devicesSyncedSuccessfully": "Cihazlar başarıyla senkronize edildi",
+  "devicesSyncedSuccessfullyMessage": "Cihazlar başarıyla senkronize edildi",
+  "devicesSynchronizedSuccessfullyMessage": "Cihazlar başarıyla senkronize edildi",
+  "deviceUnregisteredSuccessfullyMessage": "Cihaz başarıyla kayıttan çıkarıldı",
+  "dialogTitle": "Regex Deseni Açıklaması",
+  "differentFromLocalCounter": "Bu özellik, uzun vadeli işaretleme sayımları yerine kısa sürede tekrarlanan arama kalıplarına odaklandığı için yerel sayaç filtresinden farklıdır.",
+  "disabled": "Devre Dışı",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "Devre Dışı",
+  "disableGlobalPlugins": "Genel eklentileri devre dışı bırak",
+  "disableSubscriptionSuccessfully": "Abonelik başarıyla devre dışı bırakıldı",
+  "disconnectButton": "Bağlantıyı Kes",
+  "disconnectedMessage": "Bağlantı Kesildi",
+  "disconnectedStatus": "Bağlantı Kesildi",
+  "disconnectFailedMessage": "Bağlantı kesme başarısız oldu",
+  "done": "Bitti",
+  "dualSimAdvice": "Bu özellik, çift SIM'li telefonlar için iş ve kişisel SIM kartlar için farklı filtreleme stratejileri belirlemek üzere özellikle kullanışlıdır.",
+  "earlier": "Daha Önce",
+  "ecommerce": "E-ticaret",
+  "edit": "Düzenle",
+  "editContact": "Kişiyi Düzenle",
+  "editFilter": "Filtreyi Düzenle",
+  "editLabel": "Etiketi Düzenle",
+  "editPhoneRule": "Telefon Kuralını Düzenle",
+  "editPhoneRules": "Telefon kurallarını düzenlemek için kullanılır",
+  "editPhoneRuleTitle": "Telefon Kuralını Düzenle",
+  "editRule": "Kuralı Düzenle",
+  "editSmsRule": "SMS Kuralını Düzenle",
+  "education": "Eğitim",
+  "elementPositionsSetting": "Öğe Konumları",
+  "email": "E-posta",
+  "emailOptional": "E-posta (İsteğe Bağlı)",
+  "enableCallFilter": "Arama Filtresini Etkinleştir",
+  "enableCallFilterDescription": "Etkinleştirildiğinde, gelen aramalar aşağıdaki kural listesine göre kontrol edilir. Arama filtreleme kuralları varsayılan olarak cihazlar arasında eşitlenmez.",
+  "enabled": "Etkin",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "Etkin",
+  "enableEncryption": "Şifrelemeyi Etkinleştir",
+  "enableEncryptionDescription": "Yedekleme dosyalarını şifrele",
+  "enableEncryptionLabel": "Şifrelemeyi Etkinleştir",
+  "enableEncryptionSubtitle": "Yedekleme dosyaları şifrelenecektir",
+  "enableEncryptionTitle": "Şifrelemeyi Etkinleştir",
+  "enableGlobalPlugins": "Genel eklentileri etkinleştir",
+  "enableLocalCountFilter": "Yerel Sayım Filtresini Etkinleştir",
+  "enableLocalCountFilterDescription": "Arama işaretleme sayısına göre spam aramaları otomatik olarak filtrele",
+  "enableLocalNotification": "Yerel Bildirim Kullan",
+  "enableLocalNotificationDescription": "Etkinleştirildiğinde, filtrelenmiş mesajlar için bildirimler cihazda görüntülenecektir",
+  "enableLocationSummary": "Konum",
+  "enableMuteRules": "Sessiz Kuralları Etkinleştir",
+  "enableMuteRulesDesc": "Sessiz engelleme kuralları yapılandırmasını uygula",
+  "enableNoneActionRules": "Hiçbir Eylem Kuralı Yok Etkinleştir",
+  "enableNoneActionRulesDesc": "Hiçbir engelleme eylemi olmayan kural yapılandırmalarına izin ver",
+  "enableNotifications": "Bildirimleri Etkinleştir",
+  "enableRemoteNumberFilter": "Uzak Numara Filtresini Etkinleştir",
+  "enableRemoteNumberFilterDescription": "Numaraları filtrelemek için uzak veritabanını kullan",
+  "enableRule": "Kuralı Etkinleştir",
+  "enableSmsFilter": "SMS Filtrelemeyi Etkinleştir",
+  "enableSmsFilterDescription": "Etkinleştirildiğinde, mesajlar kurallara göre otomatik olarak filtrelenecektir",
+  "enableStatisticsNotifications": "İstatistik Bildirimlerini Etkinleştir",
+  "enableSubscriptionSuccessfully": "Abonelik başarıyla etkinleştirildi",
+  "enableTimeInterception": "Zaman Engellemeyi Etkinleştir",
+  "enableTimeInterceptionDescription": "Kısa bir süre içinde tekrarlanan aramaları engelle",
+  "enableTimeInterceptor": "Zaman Engelleyiciyi Etkinleştir",
+  "endCallImmediately": "Çağrıyı Hemen Sonlandır",
+  "endColor": "Bitiş Rengi",
+  "endDate": "Bitiş Tarihi",
+  "enhancedFilterInstructionsTitle": "Gelişmiş Filtre Sistemi Talimatları",
+  "enhancedFilterSettings": "Gelişmiş Filtre Ayarları",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "Gelişmiş Filtre Ayarları",
+  "enhancedFilterSystemDescription": "Gelişmiş filtre sistemi, hem genel kuralları hem de SIM kart başına filtreleme yapılandırmalarını destekler.",
+  "enterBothPhoneNumberAndRegexPattern": "Lütfen hem telefon numarasını hem de regex desenini girin",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Lütfen hem telefon numarasını hem de regex desenini girin.",
+  "enterContactName": "Lütfen kişi adını girin",
+  "enterCurrentPasswordHint": "Lütfen mevcut şifreyi girin",
+  "enterDeviceName": "Cihaz Adını Girin",
+  "enterDeviceNameHint": "Lütfen cihaz adını girin",
+  "enterEmail": "Lütfen e-postayı girin",
+  "enterEmailOptional": "Lütfen e-postayı girin (isteğe bağlı)",
+  "enterEncryptionPasswordHint": "Şifreleme şifresini girin",
+  "enterEncryptionPasswordTitle": "Şifreleme Şifresini Girin",
+  "enterFilterName": "Lütfen filtre adını girin",
+  "enterFilterPattern": "Lütfen filtre desenini girin",
+  "enterIconCode": "Simge kodunu girin",
+  "enterName": "Lütfen kişi adını girin",
+  "enterNewDeviceNameHint": "Bu cihaza yeni bir ad girin",
+  "enterNewPasswordHint": "Lütfen yeni şifreyi girin",
+  "enterPasswordAgain": "Şifreyi Tekrar Girin",
+  "enterPasswordHint": "Lütfen şifreyi girin",
+  "enterPhoneNumber": "Telefon Numarasını Girin",
+  "enterPhoneNumberHint": "Test etmek için telefon numarasını girin",
+  "enterPhoneNumberMultiple": "Lütfen telefon numarasını girin, birden fazla numara virgülle ayrılır",
+  "enterPhoneNumberToStartSearch": "Aramayı başlatmak için telefon numarasını girin",
+  "enterPhoneNumberToVerify": "Doğrulamak için telefon numarasını girin",
+  "enterPluginName": "Eklenti Adını Girin",
+  "enterPluginUrl": "Eklenti URL adresini girin",
+  "enterRegexHint": "Regex desenini girin",
+  "enterRuleNameAndPattern": "Lütfen kural adını ve desenini girin",
+  "enterRuleNameAndPatternMessage": "Lütfen hem kural adı hem de regex deseni girin.",
+  "enterRuleNameHint": "Kural adı girin",
+  "enterSearchContent": "Lütfen arama içeriğini girin",
+  "enterSubscriptionName": "Abonelik adı girin",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "Abonelik URL'sini girin",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "Lütfen senkronizasyon klasörü adını girin (varsayılan: NotificationManager)",
+  "entertainment": "Eğlence",
+  "enterValidNameAndUrl": "Lütfen geçerli bir ad ve URL girin",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "Lütfen geçerli bir URL girin",
+  "enterVersion": "Sürümü girin",
+  "enterWebDAVPasswordHint": "Lütfen WebDAV parolasını girin",
+  "enterWebDAVServerAddressHint": "Lütfen WebDAV sunucu adresini girin",
+  "enterWebDAVUsernameHint": "Lütfen WebDAV kullanıcı adını girin",
+  "errorDeletingDeviceMessage": "Cihaz silinirken hata oluştu: {error}",
+  "errorLoadingPlugin": "Eklenti yüklenirken hata oluştu",
+  "errorOccurredMessage": "Bir hata oluştu: {error}",
+  "errorRenamingDeviceMessage": "Cihaz yeniden adlandırılırken hata oluştu: {error}",
+  "errorSynchronizingDevicesMessage": "Cihazların senkronizasyonunda hata oluştu: {error}",
+  "errorSyncingDevicesMessage": "Cihazların senkronizasyonunda hata oluştu: {error}",
+  "errorText": "Hata",
+  "errorUnregisteringDeviceMessage": "Cihaz kaydı kaldırılırken hata oluştu: {error}",
+  "exampleBlock400Prefix": "Örn. 400 önek numaralarını engelle",
+  "exampleBlockMarketingSms": "Örn. Pazarlama SMS'lerini engelle",
+  "exampleContentRegex": "Örn., .*teklif.*",
+  "exampleContentRegexHint": "Örnek İçerik Regex",
+  "exampleCouponPromotionDiscount": "Örn. .*(kupon|promosyon|indirim).*",
+  "exampleFamilyFriends": "Örn. Aile, Arkadaşlar vb.",
+  "examplePhoneNumber": "Örn. 10086, 12345 vb.",
+  "exampleRegex400Prefix": "400 öneki için örnek regex",
+  "exampleRegexFormat": "Örnek: ^10086$ formatı",
+  "exampleSenderRegexHint": "Örnek",
+  "exchange": "Takas",
+  "exchangeNow": "Şimdi Takas Et",
+  "exchangeVip": "VIP Takas",
+  "expandLabelSelector": "Etiket Seçiciyi Genişlet",
+  "expiryTime": "Süre sonu zamanı: {time}",
+  "export": "Dışa Aktar",
+  "exportAllApplicationSettings": "Tüm uygulama ayarlarını dışa aktar",
+  "exportAllApplicationSettingsSubtitle": "Tüm uygulama ayarlarını dışa aktar",
+  "exportAllRuleConfigurations": "Tüm kural yapılandırmalarını dışa aktar",
+  "exportAllRuleConfigurationsSubtitle": "Tüm kural yapılandırmalarını dışa aktar",
+  "exportComplete": "Dışa Aktarma Tamamlandı",
+  "exportConfig": "Yapılandırmayı Dışa Aktar",
+  "exportContacts": "Kişileri Dışa Aktar",
+  "exportData": "Verileri Dışa Aktar",
+  "exportError": "Dışa Aktarma Hatası",
+  "exportFailed": "Dışa Aktarma Başarısız",
+  "exportFailure": "Yapılandırma dışa aktarılamadı",
+  "exportFeatureComingSoon": "Dışa aktarma özelliği yakında gelecek",
+  "exporting": "Dışa Aktarılıyor...",
+  "exportLabels": "Etiketleri Dışa Aktar",
+  "exportLabelsFailed": "Etiketler dışa aktarılamadı: {error}",
+  "exportPluginList": "Eklenti Listesini Dışa Aktar",
+  "exportPluginListFailed": "Eklenti listesi dışa aktarılamadı: {error}",
+  "exportRules": "Kuralları Dışa Aktar",
+  "exportRulesDialogTitle": "Kuralları Dışa Aktar",
+  "exportRulesTitle": "Kuralları Dışa Aktar",
+  "exportSmsRules": "SMS Kurallarını Dışa Aktar",
+  "exportStatisticsData": "İstatistik Verilerini Dışa Aktar",
+  "exportSuccess": "Dışa Aktarma Başarılı",
+  "exportSuccesslly": "Yapılandırma başarıyla dışa aktarıldı",
+  "failedToAddContact": "Kişi eklenemedi",
+  "failedToAddRule": "Kural eklenemedi: {error}",
+  "failedToAddSmsRule": "SMS kuralı eklenemedi: {error}",
+  "failedToAddSmsSubscription": "SMS aboneliği eklenemedi: {error}",
+  "failedToBackupSettings": "Ayarlar yedeklenemedi: {error}",
+  "failedToDecryptBackupFile": "Yedekleme dosyası şifresi çözülemedi",
+  "failedToDeleteDevice": "Cihaz silinemedi",
+  "failedToDeleteSmsRule": "SMS kuralı silinemedi: {error}",
+  "failedToExportRules": "Kurallar dışa aktarılamadı: {error}",
+  "failedToExportSmsRules": "SMS kuralları dışa aktarılamadı: {error}",
+  "failedToGetCallerIdInfo": "Arayan kimliği bilgileri alınamadı: {error}",
+  "failedToImportRules": "Kurallar içe aktarılamadı: {error}",
+  "failedToImportSmsRules": "SMS kuralları içe aktarılamadı: {error}",
+  "failedToLoadContacts": "Kişiler yüklenemedi",
+  "failedToLoadPlugin": "Eklenti yüklenemedi",
+  "failedToRenameDevice": "Cihaz yeniden adlandırılamadı",
+  "failedToRestoreSettings": "Ayarlar geri yüklenemedi",
+  "failedToRestoreSettingsWithError": "Ayarlar geri yüklenemedi: {error}",
+  "failedToSetPassword": "Parola ayarlanamadı: {error}",
+  "failedToSyncDevices": "Cihazlar senkronize edilemedi",
+  "failedToToggleRuleStatus": "Kural durumu değiştirilemedi: {error}",
+  "failedToToggleSubscriptionStatus": "Abonelik durumu değiştirilemedi",
+  "failedToUpdateContact": "Kişi güncellenemedi",
+  "failedToUpdateSmsRule": "SMS kuralı güncellenemedi: {error}",
+  "failure": "Başarısızlık",
+  "favoriteContacts": "Favori Kişiler",
+  "featureAddRules": "• Numaraya özel kurallar ekleme",
+  "featureCenter": "Özellik Merkezi",
+  "featureEnableDisable": "• SIM başına farklı filtreleri etkinleştirme/devre dışı bırakma",
+  "featureListTitle": "Özellikler:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• SIM başına kural listelerini yönetme",
+  "features": "Özellikler",
+  "fetchingCallerIdInfo": "Arayan kimliği bilgileri alınıyor...",
+  "fileSavedTo": "Dosya şuraya kaydedildi: {path}",
+  "filter": "Filtrele",
+  "filterByLabel": "Etikete Göre Filtrele",
+  "filterClear": "Filtreyi Temizle",
+  "filterControlPanelTitle": "Filtre Kontrol Paneli",
+  "filterControlSubtitle": "Tüm filtrelerin açık/kapalı durumunu yönetin",
+  "filterControlTitle": "Filtre Kontrolü",
+  "filterDeleteFailed": "Filtre silme başarısız",
+  "filterDeleteSuccess": "Filtre başarıyla silindi",
+  "filterDetails": "Filtre Detayları",
+  "filtered": "Filtrelenmiş",
+  "filteredSms": "Filtrelenmiş SMS",
+  "filteredSmsLabel": "Filtrelenmiş SMS",
+  "filterExplanation": "Filtre Açıklaması",
+  "filterManagement": "Filtre Yönetimi",
+  "filterName": "Filtre Adı",
+  "filterPattern": "Filtre Deseni",
+  "filterPriorityNote": "Not: Filtreler arasında öncelik ilişkileri vardır, detaylar için yardım belgelerine bakınız.",
+  "filterSaveFailed": "Filtre kaydetme başarısız",
+  "filterSaveSuccess": "Filtre başarıyla kaydedildi",
+  "filterSettings": "Filtre Ayarları",
+  "filterSettingsTitle": "Filtre Ayarları",
+  "filterSMS": "SMS Filtrele",
+  "filterToggleInstructions": "Bu SIM yuvası için filtreleri etkinleştirin veya devre dışı bırakın:",
+  "filterToggleStatus": "{status} filtre: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "Filtre Türü",
+  "financial": "Finansal",
+  "flexibleCombinationFeature": "• Esnek Kombinasyonlar: SIM yuvası başına filtreleri etkinleştir/devre dışı bırak",
+  "fontSizesSetting": "Yazı Tipi Boyutları",
+  "foundRules": "{count} kural bulundu",
+  "foundRulesDoYouWantToImport": "{count} kural bulundu. İçe aktarmak ister misiniz?",
+  "foundRulesToImport": "{count} kural bulundu. İçe aktarmak ister misiniz?",
+  "fraudAlert": "DOLANDIRICILIK UYARISI - Aramayı kapatın",
+  "fraudScamLikely": "Dolandırıcılık Olasılığı Yüksek",
+  "free": "Ücretsiz",
+  "functionSettingsTitle": "Fonksiyon Ayarları",
+  "generalUpdateFailure": "Güncelleme başarısız: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Ücretsiz Al",
+  "github": "GitHub",
+  "globalFilterDescription": "Tüm SIM kartlar için global filtreleri yapılandırın:",
+  "globalFilterFeature": "• Global Filtreler: Tüm gelen aramalar için temel kurallar",
+  "globalFilterSettings": "Global Filtre Ayarları",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "Tüm SIM yuvalarına uygulanan global filtre ayarlarını yapılandırın:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Kişileri, etiketleri, kara listeleri, beyaz listeleri vb. arayın.",
+  "globalSearchTitle": "Global Arama",
+  "globalSettings": "Global Ayarlar",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Google Reklam Görüntülenme Konumu",
+  "googleAdMobIntegrationText": "Google AdMob reklamları buraya entegre edilebilir",
+  "googleDriveAuthDescription": "Sistemde yapılandırılmış Google Drive istemci kimliği ve anahtarı kullanarak yetkilendirin",
+  "googleDriveAuthorizationHint": "Sistemde yapılandırılmış Google Drive istemci kimliği ve anahtarı kullanarak yetkilendirin",
+  "googleDriveConfigTitle": "Google Drive Yapılandırması",
+  "googleDriveConfigurationTitle": "Google Drive Yapılandırması",
+  "government": "Devlet",
+  "granted": "Verildi",
+  "grantNecessaryPermissions": "Gerekli İzinleri Verin",
+  "grantPermissions": "İzin Ver",
+  "headhunter": "Avcı",
+  "height": "Yükseklik",
+  "homePageTitle": "Ana Sayfa",
+  "homeTab": "Ana Sayfa",
+  "howItWorksPoint1": "• Sistem, belirlenen zaman penceresi içinde aynı numaradan gelen çağrıları otomatik olarak kabul edecektir.",
+  "howItWorksPoint2": "• Daha kısa zaman pencereleri daha sıkı engelleme, daha uzun zaman pencereleri daha gevşek engelleme ile sonuçlanır.",
+  "howItWorksPoint3": "• Sistem, tekrar eden bir çağrı olup olmadığını belirlemek için çağrı günlüklerini kontrol eder.",
+  "howItWorksTitle": "Nasıl Çalışır:",
+  "iconCodeOptional": "Simge Kodu (İsteğe Bağlı)",
+  "iconSize": "Simge Boyutu",
+  "import": "İçe Aktar",
+  "important": "Önemli",
+  "importButton": "İçe Aktar",
+  "importConfig": "Yapılandırmayı İçe Aktar",
+  "importContacts": "Kişileri İçe Aktar",
+  "importExportContacts": "Kişileri İçe/Dışa Aktar",
+  "importExportContactsTooltip": "Kişileri İçe/Dışa Aktar",
+  "importExportRules": "Kuralları İçe/Dışa Aktar",
+  "importFailed": "İçe aktarma başarısız: {error}",
+  "importFailure": "Yapılandırma içe aktarılamadı",
+  "importFeatureComingSoon": "İçe aktarma özelliği yakında geliyor",
+  "importLabels": "Etiketleri İçe Aktar",
+  "importLabelsFailed": "Etiketleri içe aktarma başarısız: {error}",
+  "importPluginList": "Eklenti Listesini İçe Aktar",
+  "importPluginListFailed": "Eklenti listesini içe aktarma başarısız: {error}",
+  "importPluginSuccess": "{count} eklenti başarıyla içe aktarıldı",
+  "importRuleConfigurationsFromFile": "Kural Yapılandırmalarını Dosyadan İçe Aktar",
+  "importRuleConfigurationsFromFileSubtitle": "Kural yapılandırmalarını dosyadan içe aktarın",
+  "importRules": "Kuralları İçe Aktar",
+  "importRulesButton": "Kuralları İçe Aktar",
+  "importRulesDialogTitle": "Kuralları İçe Aktar",
+  "importRulesError": "Kuralları içe aktarma başarısız: {error}",
+  "importRulesInstructions": "Kuralları bir CSV dosyasından içe aktarın",
+  "importRulesSuccess": "Kurallar başarıyla içe aktarıldı",
+  "importRulesTitle": "Kuralları İçe Aktar",
+  "importSuccess": "İçe aktarma başarılı",
+  "incomingCallInterceptAction": "Gelen Çağrı Engelleme Eylemi",
+  "incomingCallNotification": "Gelen Çağrı Bildirimi",
+  "incorrectPassword": "Yanlış şifre",
+  "initializing": "Başlatılıyor",
+  "installed": "Yüklü",
+  "insufficientMarks": "Yetersiz İşaret",
+  "insurance": "Sigorta",
+  "interceptAction": "Engelleme Eylemi",
+  "interceptionActionSettingsSubtitle": "Engellenen çağrıların nasıl ele alınacağını ayarlayın",
+  "interceptionActionSettingsTitle": "Engelleme Eylemi Ayarları",
+  "interceptionTimeInterval": "Engelleme Zaman Aralığı",
+  "internet": "İnternet",
+  "intervalSetSuccess": "{service} güncelleme aralığı {days} güne ayarlandı",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Geçersiz içerik regex",
+  "invalidLabel": "Geçersiz etiket",
+  "invalidRegexPattern": "Geçersiz regex deseni",
+  "invalidSenderRegex": "Geçersiz gönderen regexi",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Daha Fazla Bilgi İçin Telegram Kanalı ve Grubuna Katılın",
+  "jsLogsTitle": "JS Kayıtları",
+  "jsonFormat": "JSON Biçimi",
+  "keepAllVersions": "Tüm Sürümleri Sakla",
+  "keepAllVersionsDescription": "Her yedeğin tüm geçmiş sürümlerini saklayın",
+  "keepAllVersionsLabel": "Tüm Sürümleri Sakla",
+  "keepAllVersionsSubtitle": "Her yedeğin geçmiş sürümlerini saklayın",
+  "keepAllVersionsTitle": "Tüm Sürümleri Sakla",
+  "label": "Etiket",
+  "labelAddedSuccessfully": "Etiket \"{name}\" başarıyla eklendi",
+  "labelCategories": "Etiket Kategorileri",
+  "labelDeleted": "Etiket silindi",
+  "labelDescription": "Etiketler, kişileri daha iyi yönetmenize yardımcı olur, aramaları ve mesajları kolayca tanımlamak için telefon numaralarına özel etiketler ekleyin.",
+  "labelFilter": "Etiket Filtresi",
+  "labelFilterTooltip": "Etiket Filtresi",
+  "labelIconColor": "Etiket Simge Rengi",
+  "labelManagement": "Etiket Yönetimi",
+  "labelNotFound": "Etiket bulunamadı",
+  "labelRemoved": "Etiket kaldırıldı",
+  "labelRemoveFailed": "Etiket kaldırılamadı: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "Etiketler",
+  "labelsColor": "Etiket Rengi",
+  "labelsDeleted": "{count} etiket silindi",
+  "labelsExportedSuccessfully": "Etiketler başarıyla dışa aktarıldı",
+  "labelsFontSize": "Etiketler Yazı Tipi Boyutu",
+  "labelsImportedSuccessfully": "{count} etiket başarıyla içe aktarıldı",
+  "labelsPosition": "Etiket Konumu",
+  "labelTag": "Etiket: {labelId}",
+  "labelUpdated": "Etiket güncellendi",
+  "labelUpdateFailed": "Etiket güncellenemedi: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "Etiket \"$labelText\" başarıyla güncellendi",
+  "languageSettings": "Dil Ayarları",
+  "languageSettingsSubtitle": "Uygulama görüntüleme dilini değiştirin",
+  "languageSettingsTitle": "Dil Ayarları",
+  "last30Days": "Son 30 Gün",
+  "last7Days": "Son 7 Gün",
+  "lastSyncLabel": "Son Senkronizasyon",
+  "lastUpdated": "Son güncelleme: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "Ömür Boyu Üyelik",
+  "lifetimeMembershipDescription": "Tek seferlik satın alma, tüm premium özellikleri ve gelecekteki güncellemeleri kalıcı olarak açın",
+  "loadContactsFailed": "Kişiler yüklenemedi: {error}",
+  "loadDataFailed": "Veri yüklenemedi",
+  "loadFailed": "Yükleme Başarısız",
+  "loading": "Yükleniyor...",
+  "loadingData": "Veriler Yükleniyor...",
+  "loadingTags": "Etiketler yükleniyor...",
+  "loadLabelFailed": "Etiketler yüklenemedi: {error}",
+  "loadLabelsFailed": "Etiketler yüklenemedi: {error}",
+  "loadMarkCountFailed": "İşaretli telefon numaraları yüklenemedi: {error}",
+  "loadMarkedPhonesFailed": "İşaretli telefonlar yüklenemedi: {error}",
+  "loadMore": "Daha Fazla Yükle",
+  "loadPluginButton": "Eklentiyi Yükle",
+  "loadPluginsFailed": "Eklentiler yüklenemedi: {error}",
+  "loadSettingsFailed": "Ayarlar yüklenemedi: {error}",
+  "loadSmsRulesFailed": "SMS kuralları yüklenemedi: {error}",
+  "loadStatusFailedMessage": "Durum yüklenemedi",
+  "loadSubscriptionsFailed": "Abonelikler yüklenemedi: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "Kredi",
+  "localBackupTitle": "Yerel Yedekleme",
+  "localCounterFilter": "Yerel Sayaç Filtresi",
+  "localCounterFilterSubtitle": "Arama sıklığına göre spam aramaları otomatik olarak filtreleyin",
+  "localCountFilter": "Yerel Sayım Filtresi",
+  "localCountFilterDescription": "Yerel numara sayımlarına göre sık gelen aramaları engelle",
+  "localCountFilterExplanationContent": "Yerel sayım filtresi, sık gelen spam aramaları otomatik olarak tanımlamak ve engellemek için arama geçmişi kayıtlarını analiz eder.",
+  "localCountFilterExplanationTitle": "Yerel Sayım Filtresi Açıklaması",
+  "localCountFilterHowItWorksPoint1": "• Numaranın sayım değerine göre engellenip engellenmeyeceğine karar verin",
+  "localCountFilterHowItWorksPoint2": "• Bir numaranın sayımı belirlenen eşiği aştığında, otomatik olarak engellemeyi seçebilirsiniz",
+  "localCountFilterHowItWorksPoint3": "• Eşiği aşmayan numaralara seçici olarak izin verebilirsiniz",
+  "localCountFilterHowItWorksPoint4": "• Tüm sorgu günlüklerinin kaydedilip kaydedilmeyeceğini seçebilirsiniz",
+  "localCountFiltering": "Yerel Sayım Filtrelemesi",
+  "localCountFilteringExplanation": "• Yerel Sayım Filtrelemesi: Yerel işaretleme sayımına dayalı filtreleme kuralları",
+  "localCountFilterSettings": "Yerel Sayım Filtresi Ayarları",
+  "localCountFilterUseCases": "Bu filtre, otomatik aranan spam aramaları ve pazarlama aramalarını tanımlamak için özellikle uygundur.",
+  "localFilterSettings": "Yerel Filtre Ayarları",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "Yerel bildirim devre dışı bırakıldı",
+  "localNotificationEnabled": "Yerel bildirim etkinleştirildi",
+  "localServices": "Yerel Hizmetler",
+  "locationColor": "Konum Rengi",
+  "locationFontSize": "Konum Yazı Tipi Boyutu",
+  "locationIconColor": "Konum Simge Rengi",
+  "locationPosition": "Konum Konumu",
+  "logAllLocalQueries": "Tüm Yerel Sorguları Kaydet",
+  "logAllLocalQueriesDescription": "Tüm yerel numara sorguları için günlükleri kaydet",
+  "logAllRemoteQueries": "Tüm Uzak Sorguları Kaydet",
+  "logAllRemoteQueriesDescription": "Tüm uzak numara sorgulama işlemlerini kaydet",
+  "manage": "Kişileri Yönet",
+  "manageContacts": "Yönet",
+  "manageFavoriteContacts": "Favori Kişileri Yönet",
+  "manageFilterRules": "Filtre Kurallarını Yönet",
+  "manageFilterRulesDescription": "SMS filtre kurallarını ekle, düzenle veya sil",
+  "manageFrequentContacts": "Sık Kişileri Yönet",
+  "markCounts": "İşaret Sayımları",
+  "markCount": "İşaret Sayısı",
+  "markedByCount": "{count} kişi tarafından işaretlendi",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "İşaretli Telefon Numaraları",
+  "markExchange": "İşaret Değişimi",
+  "markPhone": "Telefon Numarasını İşaretle",
+  "markPhoneFailed": "Telefon numarası işaretlenemedi: {error}",
+  "markPhoneManagementSubtitle": "Telefon Numaralarını İşaretlemek İçin",
+  "markPhoneManagementTitle": "Telefon İşaretleme Yönetimi",
+  "markPhoneSuccess": "Telefon numarası başarıyla işaretlendi",
+  "matchFailed": "Eşleşme başarısız oldu!",
+  "matchFailedMessage": "Eşleşme başarısız oldu.",
+  "matchNumbersWithSpecialCharacters": "belirli sayı formatıyla eşleşir",
+  "matchNumbersWithSpecialCharactersTitle": "Özel karakterli numaraları eşleştir:",
+  "matchSpecificDigitPatterns": "XXX-XXXX-XXXX formatıyla eşleşir",
+  "matchSpecificDigitPatternsTitle": "Belirli basamak kalıplarını eşleştir:",
+  "matchSuccessful": "Eşleşme başarılı!",
+  "matchSuccessfulMessage": "Eşleşme başarılı!",
+  "medical": "Tıbbi",
+  "membershipPrivileges": "Üyelik Ayrıcalıkları",
+  "migrationTool": "Geçiş Aracı",
+  "migrationToolTitle": "Geçiş Aracı",
+  "minutes": "dakika",
+  "month": "Ay",
+  "monthly": "Aylık",
+  "monthlyCallCount": "Aylık Aramalar",
+  "monthlyChartTitle": "Aylık Engellenen Aramalar",
+  "monthlyMembership": "Aylık Üyelik",
+  "monthlyMembershipDescription": "Tüm premium özelliklerin kilidini açın, aylık otomatik yenilenir",
+  "monthlyTotal": "Aylık Toplam",
+  "monthlyTotalLabel": "Aylık Toplam",
+  "moreOptions": "Daha Fazla Seçenek",
+  "mute": "Sessize Al",
+  "name": "Ad",
+  "nameAndPhoneNumberCannotBeEmpty": "Ad ve telefon numarası boş bırakılamaz",
+  "nameAndPhoneNumberRequired": "Ad ve telefon numarası boş bırakılamaz",
+  "nameColor": "Ad Rengi",
+  "nameFontSize": "Ad Yazı Boyutu",
+  "nameLabel": "Ad: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "Ad Konumu",
+  "nameUnknown": "Ad: Bilinmiyor",
+  "nameWithValue": "Ad: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "Yeni Şifre",
+  "nextStep": "İleri",
+  "noAction": "Eylem Yok",
+  "noActionRules": "Eylem Yok Kuralları",
+  "noActiveCloudSyncServiceMessage": "Aktif bulut senkronizasyon servisi yok",
+  "noCallLogs": "Arama Kaydı Yok",
+  "noCallRecords": "Arama kaydı yok",
+  "noContacts": "Henüz kişi yok",
+  "noContactsYet": "Henüz kişi yok",
+  "noData": "Veri Yok",
+  "noDevicesRegisteredMessage": "Kayıtlı cihaz yok",
+  "noDevicesRegisteredYet": "Henüz kayıtlı cihaz yok.",
+  "noFilters": "Henüz filtre yok",
+  "noLabels": "Henüz etiket yok",
+  "noMarkedPhones": "İşaretli telefon numarası yok",
+  "noMatchingContacts": "Eşleşen kişi yok",
+  "noMatchingContactsFound": "Eşleşen kişi bulunamadı",
+  "noMatchingNumbersFound": "Eşleşen numara bulunamadı",
+  "noMatchingRecords": "Eşleşen arama kaydı yok",
+  "noMatchingRules": "Eşleşen {ruleType} yok",
+  "none": "Yok",
+  "noneServiceType": "Yok",
+  "noPlugins": "Henüz eklenti yok",
+  "noRecords": "Arama kaydı yok",
+  "noResultReturned": "Sonuç döndürülmedi",
+  "noResultReturnedLog": "Eklentiden sonuç döndürülmedi",
+  "noRules": "Henüz {ruleType} yok",
+  "noRulesPrompt": "Kural bulunamadı, lütfen kural ekleyin",
+  "noRulesToExport": "Dışa aktarılacak kural yok",
+  "noSmsFilterRulesYet": "Henüz SMS filtreleme kuralı yok",
+  "noSmsRulesYet": "Henüz SMS kuralı yok",
+  "noSubscriptions": "Abonelik yok",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "Henüz Abonelik Yok",
+  "notGranted": "Verilmedi",
+  "notificationMode": "Bildirim Modu",
+  "notificationModeDescription": "Arayan bilgilerini bildirim çubuğunda göster",
+  "notificationPermission": "Bildirim İzni",
+  "notificationPermissionDescription": "Gelen arama ve mesaj bildirimlerini görüntülemek için kullanılır.",
+  "notifications": "Bildirimler",
+  "notificationSettings": "Bildirim Ayarları",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "Bildirim ayarları başarıyla kaydedildi",
+  "notSet": "Ayarlanmadı",
+  "notVerifiedText": "Doğrulanmadı",
+  "noValidSmsRulesFoundInFile": "Dosyada geçerli SMS kuralı bulunamadı",
+  "number": "Numara",
+  "numberColor": "Numara Rengi",
+  "numberFontSize": "Numara Yazı Boyutu",
+  "numberPosition": "Numara Konumu",
+  "numberSearch": "Numara Arama",
+  "numberTypeColor": "Numara Türü Rengi",
+  "numberTypeFontSize": "Numara Türü Yazı Boyutu",
+  "numberTypePosition": "Numara Türü Konumu",
+  "ok": "Tamam",
+  "okButton": "Tamam",
+  "onboardingCompleteDescription": "Arama güvenlik yöneticiniz hazır, güvenli bir arama deneyiminin keyfini çıkarmaya başlayın!",
+  "onboardingLanguageDescription": "En iyi deneyim için tercih ettiğiniz dili seçin.",
+  "onboardingPermissionsDescription": "Tam hizmet sunmak için aşağıdaki izinlere ihtiyacımız var:",
+  "onboardingPowerfulSpamBlockingDescription": "İstenmeyen arama ve mesajları tek tıkla engelleme, engelleme kurallarını özelleştirme ve size sessiz bir ortam sunma.",
+  "onboardingSmartCallerIdDescription": "Bilinmeyen aramaları otomatik olarak tanımlama, şüpheli numaraları işaretleme ve arama güvenliğinizi koruma.",
+  "onboardingWelcomeDescription": "Kapsamlı arama tanımlama ve engelleme hizmetleri sunan arama yönetimi uzmanınız.",
+  "oneDriveAuthDescription": "Sistem tarafından yapılandırılmış OneDrive istemci kimliği ve anahtarı kullanarak yetkilendirin",
+  "oneDriveAuthorizationHint": "Sistem tarafından yapılandırılmış OneDrive istemci kimliği ve anahtarı kullanarak yetkilendirin",
+  "oneDriveConfigTitle": "OneDrive Yapılandırması",
+  "oneDriveConfigurationTitle": "OneDrive Yapılandırması",
+  "onlineCallerIdSubscription": "Çevrimiçi Arayan Kimliği Aboneliği",
+  "openAppSettings": "Uygulama ayarlarını aç",
+  "openAppSettingsFailed": "Uygulama ayarları açılamadı: {error}",
+  "operationFailed": "İşlem başarısız oldu: {error}",
+  "operationFailure": "İşlem başarısız oldu",
+  "operationSuccess": "İşlem başarılı oldu",
+  "other": "Diğer",
+  "ourOtherApps": "Diğer Uygulamalarımız",
+  "overlayMode": "Kayan Pencere",
+  "overlayModeDescription": "Arayan bilgilerini kayan bir pencerede göster",
+  "overlayPermission": "Kayan Pencere İzni",
+  "overlayPermissionDescription": "Gelen çağrı kayan penceresini göstermek için kullanılır.",
+  "overview": "Genel Bakış",
+  "password": "Şifre",
+  "passwordCannotBeEmpty": "Şifre boş olamaz",
+  "passwordLabel": "Şifre",
+  "passwordsDoNotMatch": "Şifreler eşleşmiyor",
+  "passwordSetSuccessfully": "Şifre başarıyla ayarlandı",
+  "pattern": "Desen",
+  "pendingSync": "Bekleyen Senkronizasyon",
+  "periodMonth": "Ay",
+  "periodWeek": "Hafta",
+  "periodYear": "Yıl",
+  "permissionDenied": "İzin isteği reddedildi",
+  "permissionGranted": "İzin verildi",
+  "permissionManagement": "İzin Yönetimi",
+  "phoneCallsTab": "Telefon",
+  "phoneNumber": "Telefon Numarası",
+  "phoneNumberCannotBeEmpty": "Telefon numarası boş olamaz",
+  "phoneNumberHint": "Telefon numarasını girin",
+  "phoneNumberHintText": "Kural eklemek için telefon numarasını girin",
+  "phoneNumberLabel": "Telefon Numarası",
+  "phoneNumberRegexRequired": "Lütfen hem telefon numarasını hem de regex desenini girin",
+  "phoneNumberRequired": "Telefon numarası gerekli",
+  "phoneNumberTypeFixedLine": "Sabit hat",
+  "phoneNumberTypeFixedLineOrMobile": "Sabit hat veya mobil",
+  "phoneNumberTypeMobile": "Mobil",
+  "phoneNumberTypePager": "Çağrı cihazı",
+  "phoneNumberTypePersonalNumber": "Kişisel numara",
+  "phoneNumberTypePremiumRate": "Premium ücretli",
+  "phoneNumberTypeSharedCost": "Paylaşılan maliyet",
+  "phoneNumberTypeTollFree": "Ücretsiz",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "Bilinmeyen",
+  "phoneNumberTypeVoicemail": "Sesli posta",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "Telefon İzni",
+  "phonePermissionDescription": "Gelen çağrıları tanımlamak ve engellemek için kullanılır.",
+  "phoneRule": "Telefon Kuralı",
+  "phoneRuleEditDialog": "Telefon Kuralı Düzenleme Penceresi",
+  "phoneRuleManagement": "Telefon Kuralı Yönetimi",
+  "phoneRuleSubscription": "Telefon Kuralı Aboneliği",
+  "phoneSubscription": "Telefon Aboneliği",
+  "phoneSubscriptionRulesDescription": "Beyaz liste ve kara liste kurallarını otomatik olarak güncellemek için URL üzerinden telefon kuralı listelerine abone olun. JSON formatındaki kural dosyalarını destekler.",
+  "phoneSubscriptionTitle": "Telefon Kuralı Abonelikleri",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "Lütfen bir etiket seçin ve geçerli bir telefon numarası girin",
+  "pluginAddedSuccess": "Eklenti \"{name}\" başarıyla eklendi",
+  "pluginDeleted": "Eklenti silindi",
+  "pluginLatestVersion": "Eklenti zaten en son sürümde",
+  "pluginListExportSuccess": "Eklenti listesi başarıyla dışa aktarıldı",
+  "pluginLoadedSuccessfully": "Eklenti başarıyla yüklendi",
+  "pluginManagement": "Eklenti Yönetimi",
+  "pluginManagementSubtitle": "Üçüncü taraf eklentileri yönetin ve yapılandırın",
+  "pluginManagementTitle": "Eklenti Yönetimi",
+  "pluginName": "Eklenti Adı",
+  "pluginNotLoaded": "Eklenti henüz yüklenmedi. Lütfen önce eklentiyi yükleyin.",
+  "pluginsDeleted": "{count} eklenti başarıyla silindi.",
+  "pluginService": "Eklenti Hizmeti",
+  "pluginTestPageTitle": "Eklenti Testi",
+  "pluginUpdateSuccess": "Eklenti başarıyla güncellendi",
+  "pluginUrl": "Eklenti URL'si",
+  "pluginUrlCannotBeEmpty": "Eklenti URL'si boş olamaz",
+  "pluginUrlHint": "Eklenti URL'sini girin",
+  "pluginUrlLabel": "Eklenti URL'si",
+  "pluginVersion": "Eklenti Sürümü",
+  "political": "Siyasi",
+  "powerfulSpamBlocking": "Güçlü İstenmeyen Çağrı Engelleme",
+  "previousStep": "Geri",
+  "prioritizeRemoteAction": "Uzak Eylem Ayarlarını Önceliklendir",
+  "prioritizeRemoteActionDescription": "Uzak veritabanındaki eylem ayarlarını önceliklendir",
+  "processing": "İşleniyor...",
+  "processingOperation": "İşleniyor...",
+  "purchase": "Satın Al",
+  "quarterlyMembership": "Üç Aylık Üyelik",
+  "quarterlyMembershipDescription": "Tüm premium özellikleri açın, üç ayda bir otomatik yenilenir",
+  "queryButton": "Sorgula",
+  "queryFailed": "Sorgu başarısız oldu",
+  "queryFailedLog": "Sorgu başarısız oldu",
+  "querying": "Sorgulanıyor...",
+  "queryingPhoneNumber": "Telefon numarası sorgulanıyor",
+  "queryResultTitle": "Sorgu Sonucu",
+  "ready": "Hazır!",
+  "receiveWeeklyStatistics": "Haftalık istatistik al",
+  "recruiter": "İşe Alımcı",
+  "reEnterPasswordHint": "Lütfen şifreyi tekrar girin",
+  "refresh": "Yenile",
+  "refreshPermissionStatus": "İzin durumunu yenile",
+  "refreshTooltip": "Yenile",
+  "regexError": "Regex hatası: {error}",
+  "regexErrorMessage": "Regex hatası: {error}",
+  "regexPattern": "Regex Kalıbı",
+  "regexPatternExplanation": "Regex Kalıbı Açıklaması",
+  "regexPatternExplanationButton": "Regex Kalıbı Açıklaması",
+  "regexPatternLabel": "Regex Kalıbı",
+  "regexPatternsExamples": "Kalıpları tanımlamak için standart regex sözdizimini kullanın. Örnekler:",
+  "regexPatternsForPhoneNumberMatching": "Telefon Numarası Eşleştirmesi için Regex Kalıpları",
+  "regexRule": "Regex Kuralı",
+  "regexRuleAddFailed": "Regex kuralı eklenemedi: {error}",
+  "regexRuleAddSuccess": "Regex kuralı başarıyla eklendi",
+  "regexRuleManagement": "Regex Kuralı Yönetimi",
+  "regexRuleNamePatternRequired": "Kural adı ve regex kalıbı boş olamaz",
+  "regexRules": "Regex Kuralları",
+  "regexTesterTitle": "Regex Test Cihazı",
+  "regexValidationFailed": "Regex doğrulama başarısız oldu: {error}",
+  "regexValidationSuccess": "Regex doğrulama başarılı",
+  "region": "Bölge",
+  "registeredDevicesTitle": "Kayıtlı Cihazlar",
+  "rejectAllCalls": "Tüm Çağrıları Reddet",
+  "rejectAllCallsDescription": "Etkinleştirildiğinde, tüm çağrılar en yüksek öncelikle reddedilecektir",
+  "rejectAllNumbers": "Tüm Numaraları Reddet",
+  "rejectAllNumbersDesc": "Etkinleştirildiğinde gelen tüm çağrıları reddet",
+  "rejectExceededNumbers": "Aşan Numaraları Reddet",
+  "rejectExceededNumbersDescription": "Sayı eşiğini aşan numaraları otomatik olarak reddet",
+  "remoteFilterSettings": "Uzak Filtre Ayarları",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "Uzak Numara Filtresi Ayarları",
+  "remoteNumberFilter": "Uzak Numara Filtresi",
+  "remoteNumberFilterDatabaseInfo": "Bu filtre, en güncel numara bilgisini almak için bağımsız bir uzak veritabanı kullanır.",
+  "remoteNumberFilterDescription": "Uzak veritabanı bilgilerine dayanarak rahatsız edici çağrıları engelle",
+  "remoteNumberFilterExplanationContent": "Uzak numara filtresi, numara sayısına dayalı olarak uzak bir veritabanını sorgulayarak spam çağrılarını tanımlar ve engeller.",
+  "remoteNumberFilterExplanationTitle": "Uzak Numara Filtresi Açıklaması",
+  "remoteNumberFilterFeatureCountThreshold": "• Sayı Eşiği: Numara oluş sıklığına göre belirleme",
+  "remoteNumberFilterFeatureFilterAction": "• Filtre Eylemleri: Eşiği aşan numaraların nasıl ele alınacağını yapılandırma",
+  "remoteNumberFilterFeaturePriority": "• Öncelik Ayarları: Uzak eylemler için öncelik belirleme",
+  "remoteNumberFilterFeatures": "Özellikler:",
+  "remoteNumberFiltering": "Uzak Numara Filtreleme",
+  "remoteNumberFilteringExplanation": "• Uzak Numara Filtreleme: Uzak veritabanı bilgilerine dayalı filtreleme kuralları",
+  "remoteNumberFilterSubtitle": "Bulut veritabanı ve topluluk raporlarını kullanarak spam çağrılarını belirle",
+  "removeAdsDescription": "Daha akıcı bir deneyim için uygulamadaki tüm reklamları kalıcı olarak kaldırın",
+  "removeAdsTitle": "Reklamları Kaldır",
+  "removedFromFavoriteContacts": "Favori kişilerden kaldırıldı",
+  "removedFromFavorites": "Favori kişilerden kaldırıldı",
+  "removeFavorite": "Favorilerden Kaldır",
+  "removeFromFavorites": "Favorilerden Kaldır",
+  "renameButton": "Yeniden Adlandır",
+  "renameDeviceDialogTitle": "Cihazı Yeniden Adlandır",
+  "renameDeviceTitle": "Cihazı Yeniden Adlandır",
+  "replaceCurrentSettingsConfirmation": "Bu, mevcut tüm ayarlarınızın yerine geçecektir. Devam etmek istediğinizden emin misiniz?",
+  "requestAllPermissions": "Tüm İzinleri İste",
+  "requestPermission": "İzin İste",
+  "requestPermissionFailed": "İzin isteme başarısız oldu: {error}",
+  "requiredMarks": "{count} İşaret",
+  "reset": "Sıfırla",
+  "restore": "Geri Yükle",
+  "restoreApplicationSettingsFromBackup": "Uygulama Ayarlarını Yedekten Geri Yükle",
+  "restoreApplicationSettingsFromBackupSubtitle": "Uygulama ayarlarını yedekten geri yükle",
+  "restoreButton": "Geri Yükle",
+  "restoreFailedWithError": "Buluttan geri yükleme başarısız oldu: {error}",
+  "restoreFromCloud": "Buluttan Geri Yükle",
+  "restoreFromCloudDescription": "Ayarları ve kuralları bulut depolamadan geri yükle",
+  "restoreFromCloudFailed": "Buluttan geri yükleme başarısız oldu: {error}",
+  "restoreFromCloudLabel": "Buluttan Geri Yükle",
+  "restoreFromCloudSuccess": "Buluttan başarıyla geri yüklendi",
+  "restoreFromCloudTitle": "Buluttan Geri Yükle",
+  "restoreFromLocal": "Yerelden Geri Yükle",
+  "restorePurchases": "Satın Almaları Geri Yükle",
+  "restoreSectionTitle": "Geri Yükleme",
+  "restoreSettings": "Ayarları Geri Yükle",
+  "restoreSettingsConfirmation": "Bu, mevcut tüm ayarlarınızın yerine geçecektir. Devam etmek istediğinizden emin misiniz?",
+  "restoreSettingsDialogTitle": "Ayarları Geri Yükle",
+  "restoreSettingsTitle": "Ayarları Geri Yükle",
+  "restoreSuccessFromLocal": "Yerelden başarıyla geri yüklendi",
+  "restoreSuccessMessage": "Buluttan başarıyla geri yüklendi",
+  "retry": "Tekrar Dene",
+  "ridesharing": "Araç Paylaşımı",
+  "risk": "Risk",
+  "robocall": "Robot Çağrı",
+  "ruleAction": "Kural Eylemi",
+  "ruleAddButton": "Kural Ekle",
+  "ruleAddedSuccess": "Kural başarıyla eklendi",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "Kural eklenemedi: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "Kural başarıyla eklendi",
+  "ruleDeleteConfirmContent": "Bu {ruleType} silmek istediğinizden emin misiniz?",
+  "ruleDeleteConfirmTitle": "Kuralı Sil",
+  "ruleDeletedSuccess": "Kural başarıyla silindi",
+  "ruleDeletedSuccessfully": "Kural başarıyla silindi",
+  "ruleDeleteFailed": "Kural silinemedi: {error}",
+  "ruleDeleteFailure": "Kural silinemedi: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "Kural başarıyla silindi",
+  "ruleDisabledSuccessfully": "Kural başarıyla devre dışı bırakıldı",
+  "ruleEnabledSuccessfully": "Kural başarıyla etkinleştirildi",
+  "ruleLoadFailed": "Kurallar yüklenemedi: {error}",
+  "ruleManagement": "Kural Yönetimi",
+  "ruleManagementTitle": "Kural Yönetimi",
+  "ruleName": "Kural Adı",
+  "ruleNameAndContentRegexCannotBeEmpty": "Kural adı ve içerik regex'i boş olamaz",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "Kural adı ve telefon numarası boş olamaz",
+  "ruleNameHint": "örn., Aile, Arkadaşlar, vb.",
+  "ruleNameLabel": "Kural Adı",
+  "ruleNamePatternRequired": "Lütfen kural adı ve kalıbı girin",
+  "ruleNameRequired": "Kural adı ve telefon numarası boş olamaz",
+  "ruleNotExist": "Kural mevcut değil veya silinmiş",
+  "ruleNotFound": "Kural bulunamadı: {error}",
+  "ruleSavedSuccessfully": "Kural başarıyla kaydedildi!",
+  "ruleSavedSuccessMessage": "Kural başarıyla kaydedildi!",
+  "ruleSaveFailed": "Kaydetme başarısız oldu: {error}",
+  "ruleSaveFailedMessage": "Kaydetme başarısız oldu: {error}",
+  "ruleSaveSuccess": "Kural başarıyla kaydedildi!",
+  "rulesExportedSuccessfully": "Kurallar başarıyla dışa aktarıldı",
+  "rulesExportedTo": "Kurallar şuraya dışa aktarıldı: {path}",
+  "rulesImported": "Kurallar başarıyla içe aktarıldı",
+  "rulesImportedSuccessfully": "{count} kural başarıyla içe aktarıldı",
+  "rulesImportFailed": "Kurallar içe aktarılamadı: {error}",
+  "ruleStatistics": "Kural İstatistikleri",
+  "ruleStatusChanged": "Kural başarıyla {status} oldu",
+  "ruleToggleFailed": "İşlem başarısız oldu: {error}",
+  "ruleToggleSuccess": "Kural başarıyla {status} oldu",
+  "ruleUpdateFailed": "Kural güncellenemedi: {error}",
+  "ruleUpdateSuccess": "Kural başarıyla güncellendi",
+  "ruleVerification": "Kural Doğrulaması",
+  "save": "Kaydet",
+  "saveButton": "Kaydet",
+  "saveButtonLabel": "KAYDET",
+  "saveButtonText": "Kaydet",
+  "saveFailed": "Kaydetme başarısız oldu: {error}",
+  "saveFilter": "Filtreyi Kaydet",
+  "saveSettings": "Ayarları Kaydet",
+  "saveSettingsFailed": "Ayarlar kaydedilemedi: {error}",
+  "scamsLikely": "Dolandırıcılık Olası",
+  "search": "Ara",
+  "searchContacts": "Kişileri Ara",
+  "searchError": "Arama hatası: {error}",
+  "searchFilters": "Arama Filtreleri",
+  "searchForContacts": "Kişi Ara",
+  "searchHint": "Ara...",
+  "searchSettingsSubtitle": "Kişileri, etiketleri, kara listeleri, beyaz listeleri vb. ara.",
+  "searchSettingsTitle": "Arama Ayarları",
+  "securityMessage": "Hiçbir telefon görüşmesine güvenmeyin. Müşteri hizmetleri numaralarını her zaman bağımsız olarak doğrulayın. Asla şifreleri, doğrulama kodlarını, kart numaralarını veya kişisel bilgileri paylaşmayın.",
+  "selectActionToPerform": "Kural eşleştiğinde gerçekleştirilecek eylemi seçin",
+  "selectActionWhenBlockingCalls": "Çağrıları engellerken eylem seçin",
+  "selectActionWhenRuleMatches": "Kural eşleştiğinde eylem seçin",
+  "selectAll": "Hepsini Seç",
+  "selectCountry": "Ülke Seç",
+  "selectDateRange": "Tarih Aralığı Seç",
+  "selectedDateRange": "Seçilen tarih aralığı",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} öğe seçildi",
+  "selectedLabel": "Seçilen:",
+  "selectExportFormat": "Dışa Aktarma Biçimini Seçin",
+  "selectLabel": "Etiket Seç",
+  "selectLabelAndEnterPhoneNumber": "Lütfen bir etiket seçin ve geçerli bir telefon numarası girin",
+  "selectLanguage": "Dil Seç",
+  "selectMultiple": "Birden Fazla Seç",
+  "selectPeriod": "Dönem Seç",
+  "selectSimCard": "SIM Kart Seç",
+  "selectSimSlot": "SIM Yuvası Seç",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "Çağrıları engellerken gerçekleştirilecek belirli eylemi seçin",
+  "selectTag": "Etiket Seç",
+  "selectTags": "Etiketleri Seç",
+  "selectTrustedDataSource": "Lütfen güvenilir veri kaynaklarını seçin",
+  "selectYourLanguage": "Dilinizi Seçin",
+  "sender": "Gönderen",
+  "senderRegexOptional": "Gönderen Regex (Opsiyonel)",
+  "serverAddressLabel": "Sunucu Adresi",
+  "serviceTypeContact": "Kişi Aboneliği",
+  "serviceTypeLabel": "Hizmet Türü",
+  "serviceTypePhone": "Telefon Aboneliği",
+  "serviceTypePlugin": "Eklenti Güncellemesi",
+  "serviceTypeSms": "SMS Aboneliği",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "Ayarla",
+  "setEncryptionPassword": "Şifreleme Parolası Belirle",
+  "setEncryptionPasswordDescription": "Yedekleme ve geri yükleme için şifreleme parolası belirleyin",
+  "setEncryptionPasswordLabel": "Şifreleme Parolası Belirle",
+  "setEncryptionPasswordTitle": "Şifreleme Parolası Belirle",
+  "setPasswordButton": "Ayarla",
+  "settings": "Ayarlar",
+  "settingsBackedUpTo": "Ayarlar şuraya yedeklendi: {path}",
+  "settingsLoaded": "Ayarlar yüklendi",
+  "settingsLoadFailed": "Ayarlar yüklenemedi: {error}",
+  "settingsRestoredSuccessfully": "Ayarlar başarıyla geri yüklendi. Değişikliklerin etkili olması için lütfen uygulamayı yeniden başlatın.",
+  "settingsSaved": "Ayarlar kaydedildi",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "Ayarlar kaydedilemedi: {error}",
+  "settingsTab": "Ayarlar",
+  "settingsTitle": "Ayarlar",
+  "setup": "Kurulum",
+  "showContactEditDialogStaticMethod": "Kişi düzenleme iletişim kutusunu görüntülemek için statik yöntem",
+  "showExplanation": "Açıklamayı Göster",
+  "silence": "Sessize Al",
+  "silenceAndNoAnswer": "Sessize Al ve Cevaplama",
+  "silenceNoAnswer": "Sessize Al Cevaplama",
+  "silentCallVoiceClone": "Sessiz Çağrı Ses Klonu",
+  "silentRules": "Sessiz Kurallar",
+  "simCard": "SIM Kart {simNumber}",
+  "simCardColor": "SIM Kart Rengi",
+  "simCardConfigurationExplanation": "• SIM Kart Yapılandırması: Her SIM kart için bağımsız filtreleme kuralları ayarlayın",
+  "simCardFilterRules": "SIM Kart Filtre Kuralları",
+  "simCardFilterRulesDescription": "SIM kart yuvalarına göre farklı filtreleme kuralları ayarlayın",
+  "simCardFontSize": "SIM Kart Yazı Tipi Boyutu",
+  "simCardPosition": "SIM Kart Konumu",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "SIM kart bilgileri yüklenemedi: {error}",
+  "simRuleInstructions": "SIM yuvası kuralları, her bir SIM yuvası için bağımsız filtreleme kuralları yapılandırmanıza olanak tanır.",
+  "simRuleInstructionsTitle": "SIM Yuvası Kuralları",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "SIM Yuvası Kural Yönetimi",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "SIM verileri yüklenemedi: {error}",
+  "simSlotFilterConfiguration": "SIM Yuvası Filtre Yapılandırması",
+  "simSlotFilterConfigurationDescription": "SIM yuvasına göre filtre kuralları ayarlamaya izin verir",
+  "simSlotFilterDescription": "Her bir SIM kart için bağımsız filtreleme kuralları yapılandırın:",
+  "simSlotFilterSettingsTitle": "SIM Yuvası {slotNumber} Filtre Ayarları",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "SIM yuvaları yüklenemedi: {error}",
+  "simSlotManagement": "SIM Yuvası Yönetimi",
+  "simSlotOperationFailed": "SIM yuvası işlemi başarısız oldu: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "SIM Yuvası Konumu {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• SIM Yuvası Kuralları: SIM başına bağımsız filtreleme stratejileri",
+  "simSlotRuleListTitle": "SIM Yuvası Kuralları Listesi",
+  "simSlotRuleManagement": "SIM Yuvası Kuralları",
+  "simSlotRuleManagementTitle": "Kural Yönetimi",
+  "simSlotSettings": "SIM Yuvası Ayarları",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "SIM Yuvası {slotNumber}",
+  "skip": "Atla",
+  "smartCallerId": "Akıllı Arama Tanımlama",
+  "sms": "SMS",
+  "smsFilterDescription": "SMS filtreleme, spam mesajlarını otomatik olarak filtrelemenize ve mesaj listenizi temiz tutmanıza yardımcı olur. Filtre kurallarını ve bildirim yöntemlerini ayarlayabilirsiniz.",
+  "smsFilterDisabled": "SMS filtreleme devre dışı",
+  "smsFilterEnabled": "SMS filtreleme etkin",
+  "smsFilterRuleAddedSuccessfully": "SMS filtre kuralı başarıyla eklendi",
+  "smsFilterRules": "SMS Filtre Kuralları",
+  "smsFilterSettings": "SMS Filtre Ayarları",
+  "smsHistory": "SMS Geçmişi",
+  "smsManagement": "SMS Yönetimi",
+  "smsPermission": "SMS İzni",
+  "smsPermissionDescription": "Spam mesajlarını filtrelemek için kullanılır.",
+  "smsRuleAddedSuccessfully": "SMS kuralı başarıyla eklendi",
+  "smsRuleDeletedSuccessfully": "SMS kuralı başarıyla silindi",
+  "smsRuleLoadFailed": "SMS kuralları yüklenemedi: {error}",
+  "smsRuleManagement": "SMS Kural Yönetimi",
+  "smsRulesExportedSuccessfully": "SMS kuralları başarıyla {filePath} konumuna dışa aktarıldı",
+  "smsRulesImportedSuccessfully": "SMS kuralları başarıyla içe aktarıldı",
+  "smsRuleSubscription": "SMS Kuralı Aboneliği",
+  "smsRuleUpdatedSuccessfully": "SMS kuralı başarıyla güncellendi",
+  "smsSettingsSubtitle": "SMS filtreleme ve anahtar kelime engelleme",
+  "smsSettingsTitle": "SMS Ayarları",
+  "smsSubscription": "SMS Aboneliği",
+  "smsSubscriptionAddedSuccessfully": "SMS aboneliği başarıyla eklendi",
+  "smsSubscriptionRulesDescription": "URL üzerinden SMS kural listelerine abone olun, normal ifade eşleştirmesini destekler. Engelleme veya izin verme eylemleri ayarlayabilirsiniz.",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "Bazı izin istekleri reddedildi",
+  "spamLikely": "Spam Olasılığı Yüksek",
+  "startColor": "Başlangıç Rengi",
+  "startDate": "Başlangıç Tarihi",
+  "startUsing": "Başlayın",
+  "statAnswered": "Cevaplandı",
+  "statBlocked": "Engellendi",
+  "staticMethodShowCallerIdDialog": "Arayan Kimliği Bilgi İletişim Kutusunu göstermek için statik yöntem",
+  "staticMethodToDisplayCountrySelectionDialog": "Ülke seçimi iletişim kutusunu göstermek için statik yöntem",
+  "staticMethodToDisplayDialog": "İletişim kutusunu göstermek için statik yöntem",
+  "statistics": "İstatistikler",
+  "statisticsExportFeatureComingSoon": "İstatistik dışa aktarma özelliği yakında geliyor",
+  "statisticsGrid": "İstatistikler Tablosu",
+  "statisticsPageTitle": "Veri Analizi",
+  "stirColor": "STIR Rengi",
+  "stirFontSize": "STIR Yazı Tipi Boyutu",
+  "stirPosition": "STIR Konumu",
+  "storagePermission": "Depolama İzni",
+  "storagePermissionDescription": "Ayarları ve kuralları kaydetmek için kullanılır.",
+  "subscribe": "Abone Ol",
+  "subscriptionAddSuccess": "\"{name}\" aboneliği başarıyla eklendi",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "Bu aboneliği silmek istediğinizden emin misiniz?",
+  "subscriptionDeleteConfirmTitle": "Aboneliği Sil",
+  "subscriptionDeleted": "Abonelik silindi",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "Abonelik başarıyla silindi",
+  "subscriptionDeleteFailed": "Abonelik silinemedi: {error}",
+  "subscriptionDeleteSuccess": "Abonelik silindi",
+  "subscriptionEmptyState": "Abonelik mevcut değil",
+  "subscriptionEmptyText": "Henüz abonelik yok",
+  "subscriptionLoadFailed": "Abonelikler yüklenemedi: {error}",
+  "subscriptionLoadingFailed": "Abonelikler yüklenemedi: {error}",
+  "subscriptionManagementTitle": "Abonelik Yönetimi",
+  "subscriptionName": "Abonelik Adı",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "Abonelik adı ve URL boş olamaz",
+  "subscriptionNameHint": "Abonelik adı girin",
+  "subscriptionPageTitle": "Abonelik Yönetimi",
+  "subscriptionStatusChangeFailed": "Abonelik durumu değiştirilemedi: {error}",
+  "subscriptionToggleFailed": "Abonelik durumu değiştirilemedi: {error}",
+  "subscriptionUpdateFailed": "Abonelik güncellenemedi: {error}",
+  "subscriptionUpdateSuccess": "Abonelik başarıyla güncellendi",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "Abonelik URL'si",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "Abonelik URL'si girin",
+  "successfullyImportedRules": "{count} kural başarıyla içe aktarıldı",
+  "supportSync": "Senkronizasyonu Destekle",
+  "survey": "Anket",
+  "syncDevicesButton": "Cihazları Senkronize Et",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "Senkronizasyon başarısız oldu",
+  "syncFailedMessage": "Senkronizasyon başarısız oldu",
+  "syncFolderNameHint": "Lütfen senkronizasyon klasör adını girin (varsayılan: NotificationManager)",
+  "syncFolderNameLabel": "Senkronizasyon Klasör Adı",
+  "synchronized": "Senkronize Edildi",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "Senkronize ediliyor...",
+  "syncNow": "Şimdi Senkronize Et",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "Şimdi Senkronize Et",
+  "syncStatusTitle": "Senkronizasyon Durumu",
+  "syncStatusUpdatedMessage": "Senkronizasyon durumu güncellendi",
+  "syncSuccessful": "Senkronizasyon başarılı",
+  "syncSuccessMessage": "Senkronizasyon başarılı",
+  "syncWithCloudStorage": "Bulut Depolama ile Senkronize Et",
+  "syncWithCloudStorageSubtitle": "Bulut depolama ile senkronize et",
+  "systemFeatures": "Sistem Özellikleri:",
+  "systemSettingsTitle": "Sistem Ayarları",
+  "tabAll": "Tümü",
+  "tabAnswered": "Cevaplanan",
+  "tabBlocked": "Engellenen",
+  "tabMissed": "Cevapsız",
+  "tabOutgoing": "Giden",
+  "tagLabel": "Etiket: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "Etiketler güncellendi",
+  "takeaway": "Çıkarım",
+  "telecommunication": "Telekomünikasyon",
+  "telegram": "Telegram",
+  "telemarketing": "Telepazarlama",
+  "testButton": "TEST",
+  "testButtonLabel": "TEST",
+  "testConnectionButton": "Bağlantıyı Test Et",
+  "textColorsSetting": "Metin ve Etiket Renkleri",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "Bu uygulama, istenmeyen aramaları tanımlamanıza ve engellemenize olanak tanıyan güçlü bir arayan kimliği aracıdır.",
+  "thisWeek": "Bu Hafta",
+  "timeInterceptor": "Zaman Engelleyici",
+  "timeInterceptorDescription": "Arama sıklığına göre potansiyel aramaları otomatik olarak engelle/izin ver",
+  "timeInterceptorExplanation": "• Zaman Engelleyici: Kısa sürede tekrarlanan aramaları engelle/izin ver",
+  "timeInterceptorExplanationContent": "Arama sıklığı engelleme özelliği, sık aranan spam aramaları otomatik olarak tanımlamak ve engellemek/izin vermek için arama sıklığını analiz eder.",
+  "timeInterceptorExplanationTitle": "Arama Sıklığı Engelleme Açıklaması",
+  "timeInterceptorSettingsTitle": "Arama Sıklığı Engelleme Ayarları",
+  "timeInterceptorSubtitle": "Arama sıklığına göre potansiyel spam aramaları otomatik olarak engelle",
+  "timeInterceptorTitle": "Arama Sıklığı Engellemeyi Etkinleştir",
+  "timeWindowDescription": "Tekrarlanan aramalara izin vermek için zaman penceresi boyutunu ayarlayın. Bu pencere içindeki aynı numaradan gelen aramalara izin verilecektir",
+  "timeWindowLabel": "Engelleme Zaman Penceresi (dakika): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "Tekrarlanan aramalara izin vermek için zaman penceresi boyutunu ayarlayın. Bu pencere içindeki aynı numaradan gelen aramalara izin verilecektir",
+  "today": "Bugün",
+  "total": "Toplam",
+  "totalBlocked": "Toplam Engellenen",
+  "totalFiltered": "Toplam Filtrelenen",
+  "transferDataBetweenDevicesOrPlatforms": "Verileri cihazlar veya platformlar arasında aktar",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "Verileri cihazlar veya platformlar arasında aktar",
+  "travelTicketing": "Seyahat Biletleme",
+  "trend": "Trend",
+  "trendChart": "Trend Grafiği",
+  "tutorial": "Eğitim",
+  "type": "Tür",
+  "unassignedSIMCard": "Atanmamış SIM Kart",
+  "unknown": "Bilinmeyen",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "Bilinmeyen Etiket",
+  "unknownTag": "Etiket: Bilinmeyen",
+  "unregisterButton": "Kaydı Sil",
+  "unregisterDeviceConfirmationMessage": "{deviceName} kaydını silmek istediğinizden emin misiniz?",
+  "unregisterDeviceTitle": "Cihaz Kaydını Sil",
+  "unsupportedFileFormat": "Desteklenmeyen dosya formatı",
+  "update": "Güncelle",
+  "updateAllNow": "Hepsini Şimdi Güncelle",
+  "updateCallFilterConfig": "Arama Filtresi Yapılandırmasını Güncelle",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "Kişi güncellenemedi: {error}",
+  "updateFavoriteStatus": "Favori Durumunu Güncelle",
+  "updateFavoriteStatusFailed": "Favori durumu güncellenemedi: {error}",
+  "updateInterval": "Güncelleme Aralığı",
+  "updateLabelFailed": "Etiket güncellenemedi",
+  "updateNow": "Şimdi Güncelle",
+  "updatePlugin": "Eklentiyi Güncelle",
+  "updatePluginFailed": "Eklenti güncellenemedi: {error}",
+  "updateRuleFailed": "Kural güncellenemedi: {error}",
+  "updateSubscriptionFailed": "Abonelik güncellenemedi: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} başarıyla güncellendi ({count} kural)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "Etiketleri Güncelle",
+  "useCasesPoint1": "• Otomatik yeniden arama spam aramalarını belirle",
+  "useCasesPoint2": "• Kısa sürede birden çok kez arayan pazarlama aramalarını engelle",
+  "useCasesPoint3": "• Telefon bombardımanını ve tacizi önle",
+  "useCasesTitle": "Kullanım Durumları:",
+  "useGlobalSettings": "Genel Ayarları Kullan",
+  "userEmail": "user@example.com",
+  "usernameLabel": "Kullanıcı Adı",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "Desenleri tanımlamak için standart regex sözdizimini kullanın. Örnekler:",
+  "validateRegex": "Regex Doğrula",
+  "verificationFailedText": "Başarısız",
+  "verifiedText": "Doğrulandı",
+  "verify": "Doğrula",
+  "version": "Sürüm: {version}",
+  "vipExchangeDescription": "Telefon numarası işaretleme sayılarıyla VIP üyeliğini değiştir",
+  "vipExchangeTitle": "İşaret Takası VIP",
+  "watchAd": "Reklam İzle",
+  "watchAdForTemp": "Geçici Ayrıcalıklar için Reklam İzle",
+  "watchAdForTempDescription": "Bazı premium özellikleri geçici olarak açmak için kısa bir reklam izleyin",
+  "webDAVConfigTitle": "WebDAV Yapılandırması",
+  "webdavConfigurationTitle": "WebDAV Yapılandırması",
+  "webdavPasswordHint": "Lütfen WebDAV şifresini girin",
+  "webdavServerAddressHint": "Lütfen WebDAV sunucu adresini girin",
+  "webdavUsernameHint": "Lütfen WebDAV kullanıcı adını girin",
+  "week": "Hafta",
+  "weekly": "Haftalık",
+  "weeklyBlockedCallsSummary": "Haftalık Engellenen Aramalar Özeti",
+  "weeklyChartTitle": "Haftalık Engellenen Aramalar",
+  "weeklyReport": "Haftalık Rapor",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "Arama engelleme etkinliğinin haftalık özet raporunu al",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "Hoş Geldiniz",
+  "whitelist": "Beyaz Liste",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "Beyaz Liste",
+  "width": "Genişlik",
+  "wildcardMatchingDescription": "Herhangi bir karakterle eşleştirmek için '.' kullanın (örneğin '123.456', 123-456 ile eşleşir)",
+  "wildcardMatchingTitle": "Joker karakter eşleştirme:",
+  "wildcardSupportForFlexibleFiltering": "Esnek Filtreleme için Joker Karakter Desteği",
+  "windowSizeSetting": "Pencere Boyutu",
+  "year": "Yıl",
+  "yearly": "Yıllık",
+  "yearlyChartTitle": "Yıllık Engellenen Aramalar",
+  "noSimCardsDetected": "SIM kart algılanmadı",
+  "filterManagementDescription": "Arama Filtrelerini Ayarlayın",
+  "callerIdCustomizationSubtitle": "Arayan Kimliği Düzenini Özelleştirme",
+  "fraudAlerSettingTitle": "Dolandırıcılık Uyarısı Ayarı",
+  "fraudAlerSettingSubtitle": "Dolandırıcılık Uyarısını Ayarlamak İçin",
+  "enableFraudAlert": "Dolandırıcılık Uyarısını Etkinleştir",
+  "enableFraudAlertDescription": "Şüpheli dolandırıcılık aramaları için uyarı",
+  "enableVibration": "Titreşimi Etkinleştir",
+  "enableVibrationDescription": "Arama şüpheli dolandırıcılık olduğunda titre",
+  "notificationSettingsTitle": "Bildirim Ayarları",
+  "useLocalNotification": "Yerel Bildirimleri Kullan",
+  "useLocalNotificationDescription": "Gelen aramalar için yerel bildirimleri etkinleştir",
+  "cancelLocalNotification": "Yerel Bildirimleri Kapat",
+  "useStirNotification": "STIR Bildirimini Kullan",
+  "useStirNotificationDescription": "Gelen aramalar için STIR bildirimlerini etkinleştir",
+  "cancelLocalNotificationDescription": "Yerel Bildirimleri Otomatik Kapat",
+  "callerIdSettingsTitle": "Arayan Kimliği Ayarları",
+  "callerIdSettingsSubtitle": "Gelen Arama Bildirimi ve Görüntüleme Modunu Ayarlamak İçin",
+  "purchaseTitle": "Satın Al",
+  "purchaseSubtitle": "Hizmeti Satın Almak İçin",
+  "callerIdNotificationTitle": "Gelen Arama Bilgisi",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Numara: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "Engellenen Arama",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "{phoneNumber} numarasından engellenen arama",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Doğrulandı",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Doğrulanmadı",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Doğrulama Başarısız",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Bilinmeyen Doğrulama Durumu",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "STIR/SHAKEN Doğrulaması",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{phoneNumber} numarası için {stirResultMessage}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "Kaydırma Güvenlik Mesajı Ayarları",
+  "messageColor": "Mesaj Rengi",
+  "messageFontSize": "Mesaj Yazı Tipi Boyutu",
+  "messagePosition": "Mesaj Konumu",
+  "containerWidth": "Kapsayıcı Genişliği",
+  "scrollSpeed": "Kaydırma Hızı",
+  "enableSecurityMessage": "Güvenlik Mesajını Etkinleştir",
+  "fraudAlertTitle": "Dolandırıcılık Uyarısı",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "{phoneNumber} numarasından potansiyel dolandırıcılık araması",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "Kurallar yüklenemedi: {error}",
+  "loadCallLogFailed": "Arama kaydı yüklenemedi: {error}",
+  "noBlockedTypeData": "Engellenen tür verisi mevcut değil",
+  "importEntity": "{entityTypeName} İçe Aktar",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} başarıyla içe aktarıldı, toplam {count} kayıt içe aktarıldı",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "{entityTypeName} içe aktarılamadı: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "{entityTypeName} Dışa Aktar",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} başarıyla dışa aktarıldı",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "{entityTypeName} dışa aktarılamadı: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "Bulut Senkronizasyon Hizmeti",
+  "membershipCenter": "Üyelik Merkezi",
+  "redeemVipWithMarks": "İşaretlerle VIP Kullan",
+  "currentMarkCount": "Mevcut İşaret Sayısı",
+  "markMoreNumbersForMore": "Daha fazla işaret için daha fazla numara işaretle",
+  "noAds": "Reklamsız",
+  "cloudBackup": "Bulut Yedekleme",
+  "callerIdEnhancement": "Arayan Kimliği İyileştirmesi",
+  "voiceRecognition": "Ses Tanıma",
+  "feature": "Özellik",
+  "normalUser": "Normal Kullanıcı",
+  "vipUser": "VIP Kullanıcı",
+  "temporaryVip": "Geçici VIP",
+  "removeAds": "Reklamları Kaldır",
+  "unknownAction": "Bilinmeyen Eylem",
+  "settingsBackup": "Ayarlar Yedekleme",
+  "allServicesStatusTitle": "Mevcut Hizmet Durumu",
+  "allServicesStatusSubtitle": "Her Bulut Hizmetinin Mevcut Durumu",
+  "redirect": "Yönlendir",
+  "notify": "Bildir",
+  "log": "Kaydet",
+  "custom": "Özel",
+  "allowActionDescription": "Numara engellenenler listesinde olsa bile aramalar izin verilecektir.",
+  "blockActionDescription": "Aramalar engellenecek ve arama kaydında gösterilecektir.",
+  "silenceActionDescription": "Aramalar sessize alınacak ancak arama kaydında gösterilecektir.",
+  "noneActionDescription": "Arama için özel bir işlem yapılmayacaktır.",
+  "redirectActionDescription": "Aramayı belirli bir numaraya yönlendir.",
+  "labelActionDescription": "Kolay tanımlama için aramaya bir etiket ekle.",
+  "notifyActionDescription": "Bir arama alındığında bildirim gönder.",
+  "logActionDescription": "Başka bir işlem yapmadan arama bilgilerini kaydet.",
+  "customActionDescription": "Özel bir eylem gerçekleştir.",
+  "synced": "Senkronize Edildi",
+  "needVipAccess": "Bu özelliği kullanmak için VIP erişimine ihtiyacınız var",
+  "importExportDescription": "{entityTypeName} verilerini içe veya dışa aktar",
+  "importExportTitle": "İçe/Dışa Aktar",
+  "noPhoneRules": "Telefon kuralı bulunamadı",
+  "noRegexRules": "Regex kuralı bulunamadı",
+  "noAllowedBlockedRules": "İzin verilen/engellenen kuralı bulunamadı",
+  "importExport": "İçe/Dışa Aktar",
+  "filterByAction": "Eyleme Göre Filtrele",
+  "upgradeToVip": "VIP'e Yükselt",
+  "batteryOptimizationPermission": "Pil Optimizasyonu",
+  "batteryOptimizationPermissionDescription": "Arayan kimliği gibi hizmetleri sağlamak için uygulamanın arka planda çalışmasına izin verin.",
+  "permissionTitle": "Özel İzinler",
+  "permissionSubtitle": "Yer paylaşımı ve pil optimizasyonu izinlerini yönetin",
+  "themeSettingsTitle": "Tema Ayarları",
+  "themeSettingsSubtitle": "Favori temanızı seçin",
+  "databaseSyncTitle": "Veritabanı Senkronizasyonu",
+  "countrySyncSettingsTitle": "Ülke Bazlı Veritabanı Senkronizasyon Ayarları",
+  "countrySyncSettingsSubtitle": "Veri senkronizasyonu için ülkeleri seçin",
+  "countryDataDisclaimer": "Lütfen dikkat: Veritabanı tüm belirli ülkeler veya bölgeler için veri içermeyebilir.",
+  "editSubscription": "Aboneliği Düzenle",
+  "searchByNameOrPhoneNumber": "İsim veya Telefon Numarasına Göre Ara",
+  "allowedBlockedRulesInfo": "İzin verilen/engellenen kurallar, en yüksek önceliğe sahip belirli telefon numaralarıyla çağrıları eşleştirmek için kullanılır.",
+  "searchPhoneRulesHint": "Telefon kurallarını ara",
+  "phoneRulesInfo": "Telefon kuralları, daha düşük önceliğe sahip belirli telefon numaralarıyla çağrıları eşleştirmek için kullanılır. Bazıları phoneRule aboneliklerinden gelir",
+  "searchSubscriptionsHint": "Abonelikleri ara",
+  "searchPluginsHint": "Eklentileri ara",
+  "searchLabelsHint": "Etiketleri ara",
+  "pluginDescription": "Eklenti açıklaması",
+  "enterPluginDescription": "Eklenti açıklamasını girin",
+  "searchRegexRulesHint": "Regex kurallarını ara",
+  "regexRulesInfo": "Regex kuralları, çağrıları Regex Desenlerine göre filtrelemek için kullanılır.",
+  "searchMarkedPhonesHint": "İşaretlenmiş telefonları ara",
+  "searchContactSubscriptionsHint": "Kişi aboneliklerini ara",
+  "showAllContacts": "Tüm Kişileri Göster",
+  "showFavorites": "Favorileri Göster",
+  "manualEntry": "Manuel Giriş Bilgisi",
+  "scriptSaved": "Betik kaydedildi",
+  "editScriptFor": "{pluginName} için betiği düzenle",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "Betiği Kaydet",
+  "testPlugin": "Eklentiyi Test Et",
+  "description": "Açıklama",
+  "accessTargetUrl": "Hedef URL'ye Eriş",
+  "result": "Sonuç",
+  "editScript": "Betiği Düzenle",
+  "numberFormat": "Numara Biçimi",
+  "nationalNumber": "Ulusal Numara",
+  "e164Number": "E164 Numara",
+  "pluginRulesInfo": "Güvenlik için lütfen yalnızca güvenilir kaynaklardan eklentileri kullanın. Kendi özel eklentilerinizi oluşturmak için şablonlarımızı kullanmaktan çekinmeyin!",
+  "advancedMode": "Gelişmiş Mod",
+  "pleaseEnterAtLeastOneNumber": "Lütfen en az bir numara girin.",
+  "openInWebView": "WebView'da Aç",
+  "pluginLabel": "Eklenti Etiketi",
+  "pluginID": "Kimlik",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "Mesaj Arka Plan Rengi",
+  "clearAllCallLogs": "Tüm Çağrı Kayıtlarını Temizle",
+  "clearAllCallLogsConfirmation": "Tüm çağrı kayıtlarını temizlemeyi onayla",
+  "allCallLogsCleared": "Tüm çağrı kayıtları temizlendi",
+  "unblocked": "Engeli kaldırıldı",
+  "blockNumber": "Numarayı Engelle",
+  "blockNumberSuccess": "Numara engelleme başarılı",
+  "blockNumberFailed": "Numara engelleme başarısız",
+  "unblockNumberConfirmation": "{phoneNumber} engelini kaldırmak istediğinizden emin misiniz?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "{phoneNumber} aranıyor...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "Detayları Görüntüle",
+  "unblock": "Engeli Kaldır",
+  "unblockNumber": "Numaranın Engelini Kaldır",
+  "unblockNumberSuccess": "Numaranın engeli başarıyla kaldırıldı",
+  "unblockNumberFailed": "Numaranın engeli kaldırılamadı",
+  "serviceNotAvailable": "Hizmet mevcut değil",
+  "callingNumberFailed": "Numara arama başarısız oldu",
+  "listView": "Liste Görünümü",
+  "timelineView": "Zaman Çizelgesi Görünümü",
+  "nameCannotBeEmpty": "İsim boş olamaz",
+  "selectAction": "Eylemi seçin",
+  "selectTargetService": "Hedef hizmeti seçin",
+  "callDetails": "Çağrı Detayları",
+  "callType": "Çağrı Türü",
+  "callTime": "Çağrı Saati",
+  "numberInvalidFormat": "Numara geçersiz biçimde",
+  "membershipFeature": "Üyelik Özelliği",
+  "medium": "Orta",
+  "verificationReport": "Doğrulama Raporu",
+  "finalRisk": "Nihai Risk",
+  "simState": "SIM Durumu",
+  "ipCountry": "IP Ülkesi",
+  "simCountry": "SIM Ülkesi",
+  "isRoaming": "Dolaşım",
+  "isNumberMatch": "Numara Eşleşmesi",
+  "support": "Destek",
+  "rewardedAdService": "Ödüllü Reklam Hizmeti",
+  "hasVipPrivilegeExceptAds": "Zaten VIP ayrıcalıklarına sahipsiniz (reklamlar hariç)",
+  "hasTempPrivilegeWithExpiry": "Zaten geçici ayrıcalıklara sahipsiniz, son kullanma tarihi: {expiryDate}",
+  "watchMoreAdsForTempVip": "Geçici VIP ayrıcalıklarını almak için {count} reklam daha izlemeniz gerekiyor",
+  "grantedTempPurchaseWithExpiry": "{days} günlük geçici satın alma ayrıcalıkları verildi. Son kullanma tarihi: {expiryDate}",
+  "tempPurchaseExpired": "Geçici satın alma ayrıcalığı sona erdi",
+  "loadingAd": "Reklam Yükleniyor...",
+  "earnedTempVip": "Geçici VIP kazanıldı",
+  "vipExchangeService": "VIP Takas Hizmeti",
+  "marksInsufficient": "Takas için yetersiz işaret",
+  "invalidExchangeRule": "Geçersiz takas kuralı",
+  "exchangeSuccess": "{description} ile başarıyla takas edildi, son kullanma tarihi: {expiryDate}",
+  "exchangeFailed": "Takas başarısız: {error}",
+  "vip3DaysWithAds": "Reklamlı 3 günlük VIP (yalnızca senkronizasyon)",
+  "vip5DaysNoAds": "5 günlük tam özellikli reklamsız VIP",
+  "vip7DaysNoAds": "7 günlük tam özellikli reklamsız VIP",
+  "noNotifications": "Bildirim yok",
+  "clearAllNotifications": "Tüm Bildirimleri Temizle",
+  "clearAllNotificationsConfirmation": "Tüm bildirimleri temizlemeyi onayla",
+  "allNotificationsCleared": "Tüm bildirimler temizlendi",
+  "clearButton": "Temizle",
+  "justNow": "Şimdi",
+  "minutesAgo": "{count,plural, =1{1 dakika önce} other{{count} dakika önce}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1 saat önce} other{{count} saat önce}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1 gün önce} other{{count} gün önce}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "Dün",
+  "deletionProposal": "Silme Teklifi",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "Silme Teklifleri",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "Teklif Oluştur",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "Silme Teklifi Oluştur",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "Sebep",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "Eski Numara",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Gizlilik Endişesi",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Kullanımda Değil",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Yanlış Tanımlanmış",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Hatalı Bilgi",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "Yanlış İşaretlenmiş",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "Diğer",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "Gönder",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "İptal",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "Durum",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "Beklemede",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "Aktif",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "Tamamlandı",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "Süresi Dolmuş",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "Risk Seviyesi",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "Doğrulanmış",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "Düşük",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "Yüksek",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "Bilinmiyor",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "Oylama İlerlemesi",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "Katılıyor: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "Katılmıyor: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "Toplam: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "Katılıyorum",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "Katılmıyorum",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "Oluşturulma Tarihi: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "Raporu Göster",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "Raporu Gizle",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "Teklif İstatistikleri",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "Toplam Teklifler",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "Aktif Teklifler",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "Tamamlanmış Teklifler",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "Oylarım",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "Teklif başarıyla oluşturuldu",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "Teklif oluşturulamadı",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "Oy başarıyla gönderildi",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "Oy gönderme başarısız oldu",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "Teklif bulunamadı",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "Teklifler yükleniyor...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "Teklifleri Yenile",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "Toplam Bekleyen Teklifler",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "Yüksek Risk",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "Orta Risk",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "Düşük Risk",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "Topluluk Etkisi",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "Kritik Sorunlar",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "Topluluk Katılımı",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "Etkinlik Yok",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "Düşük",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "Orta",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "Yüksek",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "Çok Yüksek",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "Oy Verildi",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "Topluluk oyları",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "Daha fazla topluluk oyu bekleniyor",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "Bu teklif işlendi",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "DESTEKLENİYOR",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "KARŞI ÇIKILDI",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "ONAYLANDI",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "REDDEDİLDİ",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "TAMAMLANDI",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "BEKLEMEDE",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "Kritik",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "Karşı Çık",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "Çok Düşük",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "Silme teklifi oylama sonuçları ve güncellemeleri hakkında bildirimler.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "Silme Teklifi Oluşturuldu",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "{phoneNumber} numarası için silme teklifiniz topluluk incelemesine sunulmuştur.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "Teklif Onaylandı ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "{phoneNumber} numarası için silme teklifi topluluk tarafından onaylandı (%{supportPercentage} destek, {totalVotes} oy).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "Teklif Reddedildi ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "{phoneNumber} numarası için silme teklifi topluluk tarafından reddedildi (%{supportPercentage} destek, {totalVotes} oy).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "Topluluk Oylaması Başladı",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "{phoneNumber} numarası için yeni bir silme teklifi topluluk oylamasına açıldı.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "Oylama Tamamlandı",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "{phoneNumber} için topluluk oylaması sona erdi. Sonuç: {result} (%{supportPercentage} destek).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "Yeni Oy Alındı",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "Biri {phoneNumber} silinmesi teklifine {voteType} oy kullandı. Mevcut oylar: {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "Oy sayısı yüklenemedi",
+  "voteCount": "Oy Sayısı",
+  "deletionProposalInfo": "Silme Teklifi Bilgileri",
+  "deletionProposalDescription": "Topluluk kurallarını ihlal eden numaralar için silme teklifi oluşturun. Katılımınız platformun güvenli kalmasına yardımcı olur.",
+  "voteToEarnVip": "VIP ayrıcalıkları kazanmak için teklifleri oylayın!",
+  "voteFailed": "Oy verme başarısız oldu",
+  "searchProposals": "Teklif Ara",
+  "defaultNotifications": "Varsayılan Bildirimler",
+  "defaultNotificationsDescription": "Uygulama için varsayılan bildirim kanalı.",
+  "blockedCallNotifications": "Engellenen Çağrı Bildirimleri",
+  "blockedCallNotificationsDescription": "Engellenen aramalar hakkında bilgi görüntüler.",
+  "stirVerification": "STIR/SHAKEN Doğrulaması",
+  "stirVerificationDescription": "Numaralar için STIR/SHAKEN doğrulama sonuçlarını görüntüler.",
+  "fraudAlerts": "Dolandırıcılık Uyarıları",
+  "fraudAlertsDescription": "Olası dolandırıcılık aramaları için uyarıları görüntüler.",
+  "notificationFrequencyDescription": "Yeni silme önerileri hakkında ne sıklıkta bildirim alacağınızı seçin. Bildirimleri anında, toplu olarak veya özel bir aralıkta alabilirsiniz.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "Anında",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "Bir öneri oluşturulur oluşturulmaz bildirim alın.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "Toplu",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "Bildirimlerin özetini periyodik olarak alın.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "Özel",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "Bildirim almak için kendi aralığınızı tanımlayın.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "Özel Sıklık",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} dk",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} s",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} s {minutes} dk",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "Bekleyen Öneriler",
+  "pendingProposalsBody": "Bekleyen {count, plural, =0 {öneriniz yok} one {1 öneri} other {{count} öneri}} var.",
+  "guidelinesLabel": "Yönergeler",
+  "reportingGuidelines": "• Yalnızca gerçekten sorunlu numaraları bildirin\n• Doğru ve ayrıntılı nedenler belirtin\n• Ciddiyete göre uygun risk seviyesini seçin\n• Yanlış bildirimler hesap kısıtlamalarına yol açabilir",
+  "riskLevelLabel": "Risk Seviyesi",
+  "riskLevelDescription": "Numaranın risk seviyesi",
+  "phoneNumberMinDigits": "Telefon numarası en az 7 haneli olmalıdır",
+  "provideDetailedExplanation": "Ayrıntılı açıklama sağlayın (minimum 10 karakter)",
+  "reasonMinCharacters": "Neden en az 10 karakter olmalıdır",
+  "countryCodeTwoLetters": "Ülke Kodu (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Ülke Kodu (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "örn., US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "Ülke kodu zorunludur",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "Ülke kodu 2 harf olmalıdır",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "Telefon numarası en az 7 haneli olmalıdır",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "Ayrıntılı açıklama sağlayın (minimum 10 karakter)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "Neden zorunludur",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "Neden en az 10 karakter olmalıdır",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "Yönergeler",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• Yalnızca gerçekten sorunlu numaraları bildirin\n• Doğru ve ayrıntılı nedenler belirtin\n• Ciddiyete göre uygun risk seviyesini seçin\n• Yanlış bildirimler hesap kısıtlamalarına yol açabilir",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "Kritik",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "Orta",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "Çok Düşük",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "Çok Düşük - Hafif rahatsızlık, seyrek aramalar",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "Düşük - Ara sıra istenmeyen aramalar",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "Orta - Düzenli spam veya tele pazarlama",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "Yüksek - Sürekli taciz veya dolandırıcılık girişimleri",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "Kritik - Tehlikeli dolandırıcılık veya tehditler",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "Bildirim Sıklığı",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "Bildirim Sıklığı (saat)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "Hata: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "Oylar: {totalVotes} (%{supportPercentage} destek)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "Destek ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "Karşı Çık ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "Şimdi",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes} dakika önce",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours} saat önce",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days} gün önce",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "Bildirim Sıklığı (Saat)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} oy (%{supportPercentage} destek)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 saat} =1{1 saat} other{{count} saat}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "Önemli Uyarı",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "Numaralar internetten ve kullanıcı gönderimlerinden alınmıştır. Bir numaranın silindikten sonra diğer kullanıcılar veya kaynaklar tarafından yeniden gönderilmeyeceğini garanti edemeyiz. Lütfen bilgileri aktif olarak arayın ve doğrulayın.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Konum",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIM Kart",
+  "liveActivitiesSettingsTitle": "Canlı Etkinlikler Ayarları",
+  "elementsSettingsTitle": "Öğe Ayarları",
+  "liveActivityMode": "Canlı Etkinlik",
+  "liveActivityModeDescription": "Arama bilgilerini kilit ekranında ve Dinamik Ada'da (iOS) kalıcı bir bildirim olarak görüntüler.",
+  "phoneNumberType": "Telefon Numarası Türü",
+  "liveActivitiesTestEndActivity": "Etkinliği Sonlandır",
+  "liveActivitiesTestSendNewActivity": "Yeni Etkinlik Gönder",
+  "liveActivitiesTestUpdateActivity": "Etkinliği Güncelle",
+  "liveActivityControlsTitle": "Canlı Etkinlik Kontrolleri",
+  "liveActivitiesTestTitle": "Canlı Etkinlikler Testi",
+  "liveActivitiesTestSubtitle": "Canlı etkinlik bildirimini test edin.",
+  "liveNotificationCustomizationTitle": "Canlı Bildirim Özelleştirmesi",
+  "liveNotificationCustomizationSubtitle": "Canlı bildirimlerin görünümünü özelleştirin.",
+  "notification_instructions": "Talimatlar:\n1. Bildirim oluşturmak veya güncellemek için \"GÖNDER\"e dokunun.\n2. Sonucu görmek için ana ekranınıza gidin veya bildirim çekmecesini aşağı kaydırın.\n3. Bildirimi kapatmak için \"SONLANDIR\"a dokunun.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "Otomatik İptal Bildirimi",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "İşaretlenirse, kullanıcı dokunduğunda bildirim otomatik olarak kapatılır.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "Gecikme Süresini Ayarla",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Öneri Detayları",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "Duruma Göre Filtrele",
+  "proposalNotFound": "Öneri bulunamadı",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "İşlendi",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Tümünü Göster",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "Filtrele ve Sırala",
+  "filterVerifiedOwner": "Doğrulanmış Sahibi Filtrele",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "Filtrele",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "En Eskiye Göre Sırala",
+  "sortNewest": "En Yeniye Göre Sırala",
+  "sortMostPopular": "En Popülere Göre Sırala",
+  "sortLeastPopular": "En Az Popülere Göre Sırala",
+  "sortBy": "Sırala",
+  "simRulesNotFound": "SIM Kuralları bulunamadı",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "SIM Yuvası Kuralları",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "SIM kart algılanmadı",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "Geçersiz SIM verisi",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "SIM Kart Verileri",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "SIM Yuvası",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "Filtrelemeyi Etkinleştir",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "Ayrıntılı Ayarlar",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "Giriş Noktası Görünümü",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "Reddedildi",
+  "callTypeSilenced": "Sessize Alındı",
+  "callTypeVoicemail": "Sesli Mesaj",
+  "callTypeUnknownIntercept": "Bilinmeyen Kesme",
+  "andMoreItems": "ve {count} öğe daha",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

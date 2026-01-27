@@ -1,0 +1,3091 @@
+{
+  "@@locale": "et",
+  "aboutContactSubscription": "Teave kontaktide tellimuse kohta",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "Teave siltide kohta",
+  "aboutPhoneSubscriptionRules": "Teave telefoni tellimuse reeglite kohta",
+  "aboutPhoneSubscriptions": "Teave telefoni tellimuste kohta",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "Telli URL-i kaudu telefonireeglite loendeid, värskenda reegleid automaatselt. Toetab JSON, CSV vormingus reeglifaile.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "Teave SMS-i filtreerimise kohta",
+  "aboutSmsSubscriptionRules": "Teave SMS-i tellimuse reeglite kohta",
+  "aboutSubtitle": "Rakenduse versioon ja juriidiline teave",
+  "aboutTitle": "Teave",
+  "action": "Toiming",
+  "actionAll": "Kõik",
+  "actionAllow": "Luba",
+  "actionBlock": "Blokeeri",
+  "actionFilterAll": "Kõik filtrid",
+  "actionFilterTitle": "Filtreeri toimingu tüübi järgi",
+  "actionFilterTooltip": "Toimingu filter",
+  "actionNone": "Märkus",
+  "actionSilence": "Vaigista",
+  "actionTag": "Toiming: {actionType}",
+  "actionType": "Toimingu tüüp",
+  "actionUnknown": "Tundmatu",
+  "add": "Lisa",
+  "addAllowedBlockedRule": "Lisa lubamis-/blokeerimisreegel",
+  "addAllowSubscription": "Lisa lubamisrežiimi tellimus",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Lisa blokeerimisrežiimi tellimus",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Lisa kontakt",
+  "addContactFailed": "Kontakti lisamine ebaõnnestus: {error}",
+  "addedToAllowedRules": "Lisatud lubatud reeglitesse",
+  "addedToBlacklist": "Lisatud musta nimekirja",
+  "addedToBlockedRules": "Lisatud blokeeritud reeglitesse",
+  "addedToFavoriteContacts": "Lisatud lemmikkontaktidesse",
+  "addedToFavorites": "Lisatud lemmikutesse",
+  "addedToWhitelist": "Lisatud valgesse nimekirja",
+  "addFavorite": "Lisa lemmik",
+  "addFilter": "Lisa filter",
+  "addLabel": "Lisa silt",
+  "addLabelButton": "Lisa silt",
+  "addLabelFailed": "Sildi lisamine ebaõnnestus: {error}",
+  "addLabelToCall": "Lisa silt kõnekirjeldusse",
+  "addName": "Lisa nimi",
+  "addNoneSubscription": "Lisa ükski tellimus",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "Kasutatakse kontaktteabe lisamiseks või muutmiseks",
+  "addPhoneMark": "Lisa telefoni märge",
+  "addPhoneNumberRule": "Lisa telefoninumbri reegel",
+  "addPlugin": "Lisa pistikprogramm",
+  "addPluginFailed": "Pistikprogrammi lisamine ebaõnnestus",
+  "addPluginFailedWithError": "Pistikprogrammi lisamine ebaõnnestus: {error}",
+  "addPluginFromLocalFile": "Lisa pistikprogramm kohalikust failist",
+  "addPluginFromUrl": "Lisa pistikprogramm URL-ist",
+  "addRegexRule": "Lisa regulaaravaldisreegel",
+  "addRule": "Lisa reegel",
+  "addRuleButton": "Lisa reegel",
+  "addRuleFailed": "Reegli lisamine ebaõnnestus: {error}",
+  "addRuleTooltip": "Lisa reegel",
+  "addSilenceSubscription": "Lisa vaikimisi tellimus",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "Lisa SIM-reegel",
+  "addSmsFilterRule": "Lisa SMS-i filterreegel",
+  "addSmsRule": "Lisa SMS-reegel",
+  "addSmsSubscription": "Lisa SMS-tellimus",
+  "addSubscription": "Lisa tellimus",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Lisa tellimus",
+  "addSubscriptionFailed": "Tellimuse lisamine ebaõnnestus: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Lisa tellimus",
+  "addToAllowedRules": "Lisa lubatud reeglitesse",
+  "addToBlacklist": "Lisa musta nimekirja",
+  "addToBlockedRules": "Lisa blokeeritud reeglitesse",
+  "addToFavoriteContacts": "Lisa lemmikkontaktidesse",
+  "addToFavorites": "Lisa lemmikutesse",
+  "addToRules": "Lisa reeglitesse",
+  "addToWhitelist": "Lisa valgesse nimekirja",
+  "adPlaceholder": "Reklaami koht",
+  "agent": "Agent",
+  "all": "Kõik",
+  "allCallsTab": "Kõik",
+  "allDataClearedSuccessfully": "Kõik andmed kustutati edukalt",
+  "allow": "Luba",
+  "allowAllAllowRules": "Luba kõik lubamisreeglid",
+  "allowAllAllowRulesDesc": "Luba kõnesid lubamisreeglitest",
+  "allowAllBlacklistedNumbers": "Luba kõik blokeeritud numbrid",
+  "allowAllBlacklistedNumbersDesc": "Luba kõnesid mustast nimekirjast",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "Luba kõik blokeerimisreeglid",
+  "allowAllBlockRulesDesc": "Luba kõnesid blokeerimisreeglitest",
+  "allowAllowedNumbers": "Luba lubatud numbrid",
+  "allowAllowedNumbersDesc": "Luba kõnesid valgest nimekirjast",
+  "allowBlock": "Luba/Blokeeri",
+  "allowBlockedNumbers": "Luba blokeeritud numbrid",
+  "allowBlockedNumbersDesc": "Luba kõnesid mustast nimekirjast",
+  "allowedBlockedRule": "Lubamis-/blokeerimisreegel",
+  "allowedBlockedRuleEditDialogTitle": "Muuda lubamis-/blokeerimisreeglit",
+  "allowedBlockedRuleManagement": "Lubamis-/blokeerimisreeglite haldamine",
+  "allowNonExceededNumbers": "Luba ületamata numbrid",
+  "allowNonExceededNumbersDescription": "Luba automaatselt numbrid, mis ei ületa loenduse piirmäära",
+  "allowRegexAllowRules": "Luba regulaaravaldislubamise reeglid",
+  "allowRegexAllowRulesDesc": "Luba regulaaravaldiseregistrite töötlemine lubamisreeglitele",
+  "allowRegexAllowRulesDescription": "Luba regulaaravaldisepõhised lubamisreeglid",
+  "allowRegexBlockRules": "Luba regulaaravaldiseblokeerimise reeglid",
+  "allowRegexBlockRulesDesc": "Luba regulaaravaldiseregistrite töötlemine blokeerimisreeglitele",
+  "allowRegexBlockRulesDescription": "Luba regulaaravaldisepõhised blokeerimisreeglid",
+  "allowRule": "Lubamisreegel",
+  "allowRules": "Lubamisreeglid",
+  "allowWhitelistedNumbers": "Luba valitud numbrid",
+  "allowWhitelistedNumbersDescription": "Luba kõik valitud numbrid",
+  "allPermissionsGranted": "Kõik load on antud",
+  "allSettingsCompleted": "Kõik seaded on täidetud.",
+  "allUpdateSuccess": "Kõik värskendused lõpetatud ({count} reeglit)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "Vasta ja siis riputa",
+  "appLegalese": "© 2023 Sinu kõne Sinu reegel. Kõik õigused kaitstud.",
+  "applicationSoftware": "Rakenduse tarkvara",
+  "apply": "Rakenda",
+  "appName": "Sinu kõne Sinu reegel",
+  "authorizationFailedCheckCredentialsMessage": "Volitus nurjus: Palun kontrollige kliendi ID-d ja võtit",
+  "authorizationFailedMessage": "Volitus nurjus",
+  "authorizationSuccessMessage": "Volitus õnnestus",
+  "authorizeLoginButton": "Volita sisselogimine",
+  "automotiveIndustry": "Autotööstus",
+  "autoSyncLabel": "Automaatne sünkronimine",
+  "autoUpdate": "Automaatne värskendus",
+  "autoUpdateDescription": "Määrake tellimuste automaatse värskendamise intervallid või värskendage käsitsi",
+  "autoUpdateSettings": "Automaatse värskenduse seaded",
+  "autoUpdateSettingsSubtitle": "Hallake reeglite ja pistikprogrammide automaatseid värskendusi",
+  "autoUpdateSettingsTitle": "Automaatse värskenduse seaded",
+  "autoUpdateSubtitle": "Hallake reeglite ja pistikprogrammide automaatseid värskendusi",
+  "autoUpdateTitle": "Automaatne värskendus",
+  "avatarBorderColor": "Avatari piirjooni värv",
+  "avatarBorderSize": "Avatari piirjooni suurus",
+  "avatarIconSizesSetting": "Avatari ja ikooni suurused",
+  "avatarPosition": "Avatari asukoht",
+  "avatarSize": "Avatari suurus",
+  "axisPosition": "{axis} asukoht",
+  "backgroundGradientSetting": "Tausta gradient",
+  "backup": "Varundus",
+  "backupAndRestore": "Varundus ja taastamine",
+  "backupAndRestoreSubtitle": "Varundage või taastage rakenduse andmed",
+  "backupAndRestoreTitle": "Varundus ja taastamine",
+  "backupFailed": "Varundus nurjus",
+  "backupFailedMessage": "Varundus nurjus",
+  "backupFailedWithError": "Varundus nurjus: {error}",
+  "backupRestoreSubtitle": "Varundage või taastage rakenduse andmed",
+  "backupRestoreTitle": "Varundus ja taastamine",
+  "backupSectionTitle": "Varundus",
+  "backupSettings": "Varundusseaded",
+  "backupSettingsDialogTitle": "Varundusseaded",
+  "backupSettingsTitle": "Varundusseaded",
+  "backupSuccessMessage": "Edualt varundatud pilve",
+  "backupSuccessToLocal": "Varundus õnnestus: {path}",
+  "backupToCloud": "Varundus pilve",
+  "backupToCloudDescription": "Varundage seaded ja reeglid pilvesalvestusse",
+  "backupToCloudFailed": "Varundamine pilve nurjus: {error}",
+  "backupToCloudLabel": "Varundus pilve",
+  "backupToCloudSuccess": "Edualt varundatud pilve",
+  "backupToCloudTitle": "Varundus pilve",
+  "backupToLocalLabel": "Varundus kohalikku",
+  "bank": "Pank",
+  "basicInfo": "Põhiteave",
+  "basicRuleFilter": "Põhiline reeglifilter",
+  "basicRuleFiltering": "Põhiline reeglifiltratsioon",
+  "basicRuleFilteringExplanation": "• Põhiline reeglifiltratsioon: Filtreerib reegleid musta nimekirja, valge nimekirja ja regexi põhjal",
+  "basicRuleFilterSettings": "Põhilise reeglifiltri seaded",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "Filtreerige kõnesid musta/valge nimekirja ja regulaaravaldiste abil",
+  "batchDeleteContacts": "Massiline kontaktide kustutamine",
+  "batchDeleteContactsConfirm": "Kas olete kindel, et soovite kustutada {count} valitud kontakti?",
+  "batchDeleteFailed": "Massiline kustutamine nurjus",
+  "batchDeleteLabelsConfirm": "Kas olete kindel, et soovite kustutada {count} silti?",
+  "blacklist": "Must nimekiri",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "Musta ja valge nimekirja koostamine",
+  "blacklistLabel": "Must nimekiri",
+  "blackWhiteList": "Must/valge nimekiri",
+  "block": "Blokeeri",
+  "blockCalls": "Blokeeri kõned",
+  "blocked": "Blokeeritud",
+  "blockedCallAction": "Blokeeritud kõne tegevus",
+  "blockedCalls": "Blokeeritud kõned",
+  "blockedCallsTitle": "Blokeeritud kõned",
+  "blockedCommunications": "Blokeeritud sides",
+  "blockedPhoneLabel": "Blokeeritud kõned",
+  "blockedSpamCalls": "Blokeeritud rämpskõned",
+  "blockingTrend": "Blokeerimise trend",
+  "blockInternationalCalls": "vastab numbritele, mis ei alga + või 00-ga",
+  "blockInternationalCallsTitle": "Blokeeri rahvusvahelised kõned",
+  "blockLandlineNumbersTitle": "Blokeeri lauatelefoni numbrid",
+  "blockMobileNumbers": "vastab numbritele, mis ei alga 13-19-ga",
+  "blockMobileNumbersTitle": "Blokeeri mobiiltelefoninumbrid",
+  "blockPremiumRateNumbers": "vastab numbritele, mis ei alga 118 või 120-190-ga",
+  "blockPremiumRateNumbersTitle": "Blokeeri tasulised numbrid",
+  "blockRule": "Blokeerimisreegel",
+  "blockRules": "Blokeerimisreeglid",
+  "blockSpecificAreaCodes": "vastab numbritele, mis algavad 0-ga + 2-3 numbrit",
+  "blockSpecificAreaCodesTitle": "Blokeeri kindlad piirkonna koodid:",
+  "blockTypeAnalysisTitle": "Blokeerimise tüübi analüüs",
+  "both": "Mõlemad",
+  "bulkDelete": "Massiline kontaktide kustutamine",
+  "bulkDeleteContacts": "Massiline kontaktide kustutamine",
+  "bulkDeleteLabels": "Massiline siltide kustutamine",
+  "call": "Kõne",
+  "callback": "Tagasihelistamine",
+  "callbackTo": "Tagasihelistamine {number}-le",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "Kõnede blokeerimine",
+  "callerIdApp": "Helistaja ID rakendus",
+  "callerIdCustomizationTitle": "Helistaja ID kohandamine",
+  "callerIdDialogTitle": "Helistaja ID teave",
+  "callerIdDisplayMode": "Kõneaja näidikurežiim",
+  "callerIdMarkedByCount": "Märkinud {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "Kõneaja eelvaade",
+  "callFilter": "Kõnefilter",
+  "callFilterDescription": "Kui see on lubatud, kontrollitakse sissetulevaid kõnesid allpool olevate reeglite loendi alusel. Kõne filtreerimise reeglid ei sünkroonita vaikimisi seadmete vahel.",
+  "callFilterRules": "Kõnefiltri reeglid",
+  "callFilterRulesDescription": "Määrake kõne filtreerimise põhireeglid",
+  "callFilterSettings": "Kõnefiltri sätted",
+  "callFrequencyInterceptionSubtitle": "Määrake kõnesageduse piirangud ja blokeerimisreeglid",
+  "callFrequencyInterceptionTitle": "Kõnesageduse pealtkuulamine",
+  "callHistory": "Kõneajalugu",
+  "callHistoryInfoDesc": "Siin kuvatakse teie kõneajalugu, sealhulgas vastuvõetud, väljahelistatud ja vastamata kõned.",
+  "callHistoryInfoTitle": "Kõneajalugu",
+  "callHistoryInitFailed": "Kõneajaloo lähtestamine ebaõnnestus: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "Kõneajaloo värskendamine ebaõnnestus: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "Kõneajalugu",
+  "callHistoryTimelineEarlier": "Varasemad",
+  "callHistoryTimelineToday": "Täna",
+  "callHistoryTimelineYesterday": "Eile",
+  "callScreeningPermission": "Kõne läbivaatuse luba",
+  "callScreeningPermissionDescription": "Kasutatakse rämpskõnede läbivaatamiseks ja blokeerimiseks.",
+  "callScreeningPermissionNotGranted": "Kõne läbivaatuse luba pole antud, võib mõjutada rakenduse funktsionaalsust.",
+  "callSettingsSubtitle": "Kõneaja näidik, filtreerimine ja blokeerimise sätted",
+  "callSettingsTitle": "Kõne sätted",
+  "callStatistics": "Kõne statistika",
+  "callTypeAnswered": "Vastatud",
+  "callTypeBlocked": "Blokeeritud",
+  "callTypeIconColor": "Kõne tüübi ikooni värv",
+  "callTypeMissed": "Vastamata kõne",
+  "callTypeOutgoing": "Väljahelistatud",
+  "callTypePosition": "Kõne tüübi asukoht",
+  "callTypeUnknown": "Teadmata",
+  "cancelButton": "Tühista",
+  "carRental": "Autorent",
+  "carrier": "Operaator",
+  "carrierColor": "Operaatori värv",
+  "carrierFontSize": "Operaatori kirjasuurus",
+  "carrierPosition": "Operaatori asukoht",
+  "changeLabel": "Muuda silti",
+  "changePluginStatusFailed": "Pistikprogrammi oleku muutmine ebaõnnestus: {error}",
+  "changeSubscriptionStatusFailed": "Tellimuse oleku muutmine ebaõnnestus: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "Muuda märgendit",
+  "charity": "Heategevus",
+  "chartMonthFormat": "Kuu {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "1 päev tagasi",
+  "chartOneMonthAgo": "1 kuu tagasi",
+  "chartOneWeekAgo": "1 nädal tagasi",
+  "chartTenDaysAgo": "10 päeva tagasi",
+  "chartThreeDaysAgo": "3 päeva tagasi",
+  "chartToday": "Täna",
+  "checkFileFormat": "Palun kontrollige failivormingut või õigusi",
+  "checkPermissionFailed": "Lubade kontrollimine ebaõnnestus: {error}",
+  "chooseDefaultInterceptAction": "Valige vaikimisi pealtkuulamise toiming",
+  "clearAllData": "Kustuta kõik andmed",
+  "clearAllDataConfirmation": "Kas olete kindel, et soovite kustutada kõik rakenduse andmed? Seda toimingut ei saa tühistada.",
+  "clearAllDataDescription": "Kustuta kõik rakenduse andmed",
+  "clearAllDataLabel": "Kustuta kõik andmed",
+  "clearFilter": "Tühjenda filter",
+  "clearLabelFilter": "Tühjenda sildifilter",
+  "clearLabelFilterButton": "Tühjenda sildifilter",
+  "closeButton": "Sulge",
+  "cloudSync": "Pilvsünkroniseerimine",
+  "cloudSyncAndBackupTitle": "Pilvsünkroniseerimine ja varundus",
+  "cloudSyncSettingsSubtitle": "Konfigureerige WebDAV, OneDrive ja Google Drive",
+  "cloudSyncSettingsTitle": "Pilvsünkroniseerimise sätted",
+  "cloudSyncTitle": "Pilvsünkroniseerimine",
+  "collapseLabelSelector": "Sildivalija kokkuklapimine",
+  "collection": "Võlanõue",
+  "colorPickerTitle": "Vali värv",
+  "configManagement": "Konfiguratsiooni haldamine",
+  "configUpdated": "Konfiguratsioon on värskendatud",
+  "configurationAdvice": "Nõuetekohase konfiguratsiooni abil saate määrata erinevad filtreerimisstrateegiad töö- ja isiklike SIM-kaartide jaoks.",
+  "configureBackupOptions": "Konfigureerige varuvõimalused",
+  "configureBackupOptionsSubtitle": "Konfigureerige varuvõimalused",
+  "configureCloudSyncService": "Konfigureerige pilvsünkroniseerimise teenus",
+  "configureCloudSyncServiceHint": "Palun konfigureerige pilvsünkroniseerimise teenus mitme seadme sünkroonimise lubamiseks.",
+  "configureCloudSyncServiceMessage": "Palun konfigureerige pilvsünkroniseerimise teenus mitme seadme sünkroonimise lubamiseks.",
+  "configureSimCardFilterRules": "Konfigureerige SIM-kaardi filtri reeglid",
+  "configureSyncServiceHint": "Palun konfigureerige sünkroonimisteenus pilvsünkroniseerimise sätetes esmalt",
+  "confirm": "Kinnita",
+  "confirmBatchDeleteContacts": "Kas olete kindel, et soovite kustutada valitud",
+  "confirmButton": "Kinnita",
+  "confirmDelete": "Kinnita kustutamine",
+  "confirmDeleteContact": "Kas olete kindel, et soovite kustutada",
+  "confirmDeleteContactName": "Kustutamise kinnitus?",
+  "confirmDeleteFilter": "Kas olete kindel, et soovite selle filtri kustutada?",
+  "confirmDeleteLabel": "Kas olete kindel, et soovite kustutada sildi \"{name}\"",
+  "confirmDeletePlugin": "Kas olete kindel, et soovite kustutada pistikprogrammi \"{name}\"?",
+  "confirmDeletePlugins": "Kas olete kindel, et soovite kustutada {count} pistikprogrammi?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "Kas olete kindel, et soovite selle reegli kustutada? Seda toimingut ei saa tühistada.",
+  "confirmDeleteSelectedContacts": "Kas olete kindel, et soovite kustutada valitud kontaktid?",
+  "confirmDeleteSmsFilterRule": "Kas olete kindel, et soovite selle SMS-filtri reegli kustutada?",
+  "confirmDeleteSmsRule": "Kas olete kindel, et soovite selle SMS-reegli kustutada?",
+  "confirmDeleteSubscription": "Kas olete kindel, et soovite selle tellimuse kustutada?",
+  "confirmDeleteSubscriptions": "Kas olete kindel, et soovite kustutada {name}?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "Kinnitage salasõna",
+  "confirmPasswordLabel": "Kinnitage salasõna",
+  "connectedStatus": "Ühendatud",
+  "connectionFailedCheckCredentialsMessage": "Ühendus nurjus: Palun kontrollige serveri aadressi, kasutajanime ja parooli",
+  "connectionFailedMessage": "Ühendus nurjus",
+  "connectionStatusLabel": "Ühenduse olek",
+  "connectionSuccessMessage": "Ühendus õnnestus",
+  "contactAddSuccess": "Kontakt lisati edukalt",
+  "contactDeleted": "Kontakt kustutatud",
+  "contactEditDialog": "Kontakti redigeerimise dialoog",
+  "contactNameHint": "Sisesta kontakti nimi (valikuline)",
+  "contactNameLabel": "Nimi",
+  "contactNameOptional": "Kontakti nimi (valikuline)",
+  "contactNotFound": "Kontakti ei leitud",
+  "contacts": "kontaktid",
+  "contactsDeleted": "Kustutati {count} kontakti",
+  "contactSettingsSubtitle": "Kontakti haldamine ja siltide seaded",
+  "contactSettingsTitle": "Kontakti sätted",
+  "contactsLoadingFailed": "Kontaktide laadimine ebaõnnestus: {error}",
+  "contactsManagement": "Kontaktide haldus",
+  "contactsManagementPageTitle": "Kontaktide halduse leht",
+  "contactsPageTitle": "Kontaktide haldus",
+  "contactsPermission": "Kontaktide luba",
+  "contactsPermissionDescription": "Kasutatakse kontaktkõnede tuvastamiseks.",
+  "contactsTab": "Kontaktid",
+  "contactSubscriptionDescription": "Telli kontaktiloendeid URL-i kaudu, uuendage automaatselt kontaktteavet ja silte. Toetab JSON-vormingus andmeid.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "Kontaktitellimuste laadimine ebaõnnestus: {error}",
+  "contactSubscriptionPageTitle": "Kontaktitellimused",
+  "contactUpdateSuccess": "Kontakt värskendati edukalt",
+  "contactUs": "Võta meiega ühendust",
+  "content": "Sisu",
+  "contentRegex": "Sisu regex",
+  "countColor": "Loendamise värv",
+  "countFontSize": "Loendamise fondi suurus",
+  "countPosition": "Loendamise asukoht",
+  "country": "Riik",
+  "countryNameColor": "Riigi nime värv",
+  "countryNameFontSize": "Riigi nime fondi suurus",
+  "countryRegionNamePosition": "Riigi/regiooni nime asukoht",
+  "countrySelectionDialog": "Riigi valimise dialoog",
+  "countrySelectionDialogDescription": "Kasutatakse riigi valimiseks helistaja ID teabe päringuks",
+  "countThresholdDescription": "Määrake filtreerimis toimingute käivitamiseks vajalik minimaalne loendamise lävend",
+  "countThresholdLabel": "Loendamise lävend",
+  "countThresholdSettings": "Loendamise läve seaded",
+  "countThresholdValue": "Loendamise lävend: {count}",
+  "createdRules": "Loodud reeglid",
+  "csvFormat": "CSV-vorming",
+  "currentDeviceChip": "Praegune",
+  "currentDeviceLabel": "Praegase seadme silt",
+  "currentDeviceTitle": "Praegune seade",
+  "currentLabels": "Praegused sildid:",
+  "currentLanguage": "Praegune keel",
+  "currentPasswordLabel": "Praegune parool",
+  "customerService": "Klienditeenindus",
+  "customRange": "Kohandatud vahemik",
+  "dailyStatistics": "Päevastatistika",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "Saate igapäevast statistikat blokeeritud kõnede ja sõnumite kohta",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "Armatuurlaud",
+  "dataAnalysis": "Andmeanalüüs",
+  "dataAnalysisDashboardPage": "Andmeanalüüsi armatuurlaua leht",
+  "dataExport": "Andmete eksport",
+  "dataLoadFailure": "Andmete laadimine ebaõnnestus: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "Andmete laadimine ebaõnnestus: {error}",
+  "dataMigration": "Andmete migreerimine",
+  "dataMigrationDescription": "See funktsioon võimaldab teil edastada kogu oma andmeid seadmete vahel. Praegu saate oma andmete käsitsi migreerimiseks kasutada varundamis- ja taastamisfunktsioone.",
+  "dataMigrationDialogContent": "See funktsioon võimaldab teil edastada kogu oma andmeid seadmete vahel. Praegu saate oma andmete käsitsi migreerimiseks kasutada varundamis- ja taastamisfunktsioone.",
+  "dataMigrationDialogTitle": "Andmete migreerimine",
+  "dataMigrationSectionTitle": "Andmete migreerimine",
+  "dataSourceReminder": "Andmeallika meeldetuletus",
+  "days": "{count, plural, =1{1 päev} other{{count} päeva}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} päeva VIP",
+  "debtCollection": "Võlgade sissenõudmine",
+  "defaultPeriod": "Nädal",
+  "delete": "Kustuta",
+  "deleteButton": "Kustuta",
+  "deleteContact": "Kustuta kontakt",
+  "deleteContactConfirm": "Kas olete kindel, et soovite kustutada {name}?",
+  "deleteContactConfirmation": "Kas olete kindel, et soovite kontakti kustutada",
+  "deleteDeviceConfirmation": "Kas olete kindel, et soovite seadet {deviceName} kustutada?",
+  "deleteDeviceDialogTitle": "Seadme kustutamine",
+  "deleteFailed": "Kustutamine ebaõnnestus: {error}",
+  "deleteFilter": "Kustuta filter",
+  "deleteLabel": "Kustuta silt",
+  "deleteLabelFailed": "Sildi kustutamine ebaõnnestus: {error}",
+  "deletePlugin": "Kustuta pistikprogramm",
+  "deletePluginFailed": "Pistikprogrammi kustutamine ebaõnnestus: {error}",
+  "deletePlugins": "Kustuta pistikprogrammid",
+  "deletePluginsFailed": "Pistikprogrammide kustutamine ebaõnnestus: {error}",
+  "deleteRule": "Kustuta reegel",
+  "deleteRuleFailed": "Kustutamine ebaõnnestus: {error}",
+  "deleteSelected": "Kustuta valitud",
+  "deleteSmsRule": "Kustuta SMS reegel",
+  "deleteSubscription": "Kustuta tellimus",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "Kas olete kindel, et soovite tellimuse \"{name}\" kustutada?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "Tellimuse kustutamine ebaõnnestus: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "Kustutamine õnnestus",
+  "delivery": "Kohaletoimetamine",
+  "deviceDeletedSuccessfully": "Seade kustutati edukalt",
+  "deviceDeletedSuccessfullyMessage": "Seade kustutati edukalt",
+  "deviceIdLabel": "Seadme ID",
+  "deviceIDLabel": "Seadme ID",
+  "deviceManagementSubtitle": "Hallake mitme seadme sünkroonimist",
+  "deviceManagementTitle": "Seadmete haldus",
+  "deviceModelLabel": "Seadme mudel",
+  "deviceName": "Seadme nimi",
+  "deviceNameCannotBeEmpty": "Seadme nimi ei saa olla tühi",
+  "deviceNameHint": "Sisestage seadme nimi",
+  "deviceNameLabel": "Seadme nimi",
+  "deviceRenamedSuccessfully": "Seade edukalt ümber nimetatud",
+  "deviceRenamedSuccessfullyMessage": "Seade edukalt ümber nimetatud",
+  "devicesSyncedSuccessfully": "Seadmed edukalt sünkroonitud",
+  "devicesSyncedSuccessfullyMessage": "Seadmed edukalt sünkroonitud",
+  "devicesSynchronizedSuccessfullyMessage": "Seadmed edukalt sünkroonitud",
+  "deviceUnregisteredSuccessfullyMessage": "Seade edukalt de registreeritud",
+  "dialogTitle": "Regulaaravaldise selgitus",
+  "differentFromLocalCounter": "See funktsioon erineb kohalikust loenduri filtrist, kuna see keskendub lühikese aja jooksul korduvatele kõnemustritele, mitte pikaajalisele märgistamise arvule.",
+  "disabled": "Keelatud",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "Keelatud",
+  "disableGlobalPlugins": "Globaalsete pistikprogrammide keelamine",
+  "disableSubscriptionSuccessfully": "Tellimus edukalt keelatud",
+  "disconnectButton": "Katkesta ühendus",
+  "disconnectedMessage": "Ühendus katkestatud",
+  "disconnectedStatus": "Katkenud",
+  "disconnectFailedMessage": "Ühenduse katkestamine nurjus",
+  "done": "Valmis",
+  "dualSimAdvice": "See funktsioon on eriti kasulik kahe SIM-kaardiga telefonide puhul, et määrata töö- ja isiklike SIM-kaartide jaoks erinevad filtreerimisstrateegiad.",
+  "earlier": "Varasem",
+  "ecommerce": "E-kaubandus",
+  "edit": "Muuda",
+  "editContact": "Muuda kontakti",
+  "editFilter": "Muuda filtrit",
+  "editLabel": "Muuda silti",
+  "editPhoneRule": "Muuda kõne reeglit",
+  "editPhoneRules": "Kasutatakse kõnede reeglite muutmiseks",
+  "editPhoneRuleTitle": "Muuda kõne reeglit",
+  "editRule": "Muuda reeglit",
+  "editSmsRule": "Muuda SMS-i reeglit",
+  "education": "Haridus",
+  "elementPositionsSetting": "Elementide asukohad",
+  "email": "E-post",
+  "emailOptional": "E-post (valikuline)",
+  "enableCallFilter": "Luba kõne filter",
+  "enableCallFilterDescription": "Kui see on lubatud, kontrollitakse sissetulevaid kõnesid alloleva reeglite loendi alusel. Kõne filtreerimise reeglid ei sünkroonita vaikimisi seadmete vahel.",
+  "enabled": "Lubatud",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "Lubatud",
+  "enableEncryption": "Luba krüptimine",
+  "enableEncryptionDescription": "Krüpti varukoopia failid",
+  "enableEncryptionLabel": "Luba krüptimine",
+  "enableEncryptionSubtitle": "Varukoopia failid krüpteeritakse",
+  "enableEncryptionTitle": "Luba krüptimine",
+  "enableGlobalPlugins": "Globaalsete pistikprogrammide lubamine",
+  "enableLocalCountFilter": "Luba kohalik loenduri filter",
+  "enableLocalCountFilterDescription": "Spämmi kõnede automaatne filtreerimine kõne märkimise arvu alusel",
+  "enableLocalNotification": "Kasuta kohalikku teatist",
+  "enableLocalNotificationDescription": "Kui see on lubatud, kuvatakse seadmes filtreeritud sõnumite kohta teateid",
+  "enableLocationSummary": "Asukoht",
+  "enableMuteRules": "Luba vaigistamisreeglid",
+  "enableMuteRulesDesc": "Rakenda vaigistamise pealtkuulamise reeglite konfiguratsioon",
+  "enableNoneActionRules": "Luba mingeid tegevusreegleid",
+  "enableNoneActionRulesDesc": "Luba reeglite konfiguratsioonid ilma pealtkuulamise toiminguteta",
+  "enableNotifications": "Luba teated",
+  "enableRemoteNumberFilter": "Luba kaug numbri filter",
+  "enableRemoteNumberFilterDescription": "Kasuta numbrite filtreerimiseks kaug andmebaasi",
+  "enableRule": "Luba reegel",
+  "enableSmsFilter": "Luba SMS filtreerimine",
+  "enableSmsFilterDescription": "Kui see on lubatud, filtreeritakse sõnumid automaatselt reeglite järgi",
+  "enableStatisticsNotifications": "Luba statistika teated",
+  "enableSubscriptionSuccessfully": "Tellimus edukalt lubatud",
+  "enableTimeInterception": "Luba aja pealtkuulamine",
+  "enableTimeInterceptionDescription": "Pealtkuula korduvaid kõnesid lühikese aja jooksul",
+  "enableTimeInterceptor": "Luba aja pealtkuulaja",
+  "endCallImmediately": "Lõpeta kõne kohe",
+  "endColor": "Lõppvärv",
+  "endDate": "Lõppkuupäev",
+  "enhancedFilterInstructionsTitle": "Täiustatud filtrisüsteemi juhised",
+  "enhancedFilterSettings": "Täiustatud filtrisüsteemi sätted",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "Täiustatud filtrisüsteemi sätted",
+  "enhancedFilterSystemDescription": "Täiustatud filtrisüsteem toetab nii globaalseid reegleid kui ka SIM-kaardi kohta käivaid filtreerimiskonfiguratsioone.",
+  "enterBothPhoneNumberAndRegexPattern": "Palun sisestage nii telefoninumber kui ka regulaaravaldise muster",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Palun sisestage nii telefoninumber kui ka regulaaravaldise muster.",
+  "enterContactName": "Palun sisestage kontakti nimi",
+  "enterCurrentPasswordHint": "Palun sisestage praegune parool",
+  "enterDeviceName": "Sisesta seadme nimi",
+  "enterDeviceNameHint": "Sisestage seadme nimi",
+  "enterEmail": "Sisesta e-post",
+  "enterEmailOptional": "Sisesta e-post (valikuline)",
+  "enterEncryptionPasswordHint": "Sisesta krüpteerimisparool",
+  "enterEncryptionPasswordTitle": "Sisesta krüpteerimisparool",
+  "enterFilterName": "Palun sisestage filtri nimi",
+  "enterFilterPattern": "Palun sisestage filtri muster",
+  "enterIconCode": "Sisesta ikooni kood",
+  "enterName": "Sisesta kontakti nimi",
+  "enterNewDeviceNameHint": "Sisestage sellele seadmele uus nimi",
+  "enterNewPasswordHint": "Palun sisestage uus parool",
+  "enterPasswordAgain": "Sisesta parool uuesti",
+  "enterPasswordHint": "Palun sisestage parool",
+  "enterPhoneNumber": "Sisesta telefoninumber",
+  "enterPhoneNumberHint": "Sisesta telefoninumber testimiseks",
+  "enterPhoneNumberMultiple": "Palun sisestage telefoninumber, mitu numbrit eraldatud komadega",
+  "enterPhoneNumberToStartSearch": "Sisestage telefoninumber otsingu alustamiseks",
+  "enterPhoneNumberToVerify": "Sisesta telefoninumber kontrollimiseks",
+  "enterPluginName": "Sisesta pistikprogrammi nimi",
+  "enterPluginUrl": "Sisesta pistikprogrammi URL-i aadress",
+  "enterRegexHint": "Sisesta regulaaravaldise muster",
+  "enterRuleNameAndPattern": "Palun sisestage reegli nimi ja muster",
+  "enterRuleNameAndPatternMessage": "Palun sisestage reegli nimi ja regex muster.",
+  "enterRuleNameHint": "Sisesta reegli nimi",
+  "enterSearchContent": "Palun sisesta otsingusisu",
+  "enterSubscriptionName": "Sisesta tellimuse nimi",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "Sisesta tellimuse URL",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "Palun sisesta sünkroonimiskausta nimi (vaikimisi: NotificationManager)",
+  "entertainment": "Meelelahutus",
+  "enterValidNameAndUrl": "Palun sisesta kehtiv nimi ja URL",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "Palun sisesta kehtiv URL",
+  "enterVersion": "Sisesta versioon",
+  "enterWebDAVPasswordHint": "Palun sisesta WebDAV parool",
+  "enterWebDAVServerAddressHint": "Palun sisesta WebDAV serveri aadress",
+  "enterWebDAVUsernameHint": "Palun sisesta WebDAV kasutajanimi",
+  "errorDeletingDeviceMessage": "Seadme kustutamisel tekkis viga: {error}",
+  "errorLoadingPlugin": "Plugina laadimisel tekkis viga",
+  "errorOccurredMessage": "Tekkis viga: {error}",
+  "errorRenamingDeviceMessage": "Seadme ümbernimetamisel tekkis viga: {error}",
+  "errorSynchronizingDevicesMessage": "Seadmete sünkroonimisel tekkis viga: {error}",
+  "errorSyncingDevicesMessage": "Seadmete sünkroniseerimisel tekkis viga: {error}",
+  "errorText": "Viga",
+  "errorUnregisteringDeviceMessage": "Seadme tühistamisel tekkis viga: {error}",
+  "exampleBlock400Prefix": "nt. Blokeeri 400 prefiksiga numbrid",
+  "exampleBlockMarketingSms": "nt. Blokeeri turundus-SMSid",
+  "exampleContentRegex": "nt., .*pakkumine.*",
+  "exampleContentRegexHint": "Näide sisu regex",
+  "exampleCouponPromotionDiscount": "nt. .*(kupong|pakkumine|soodustus).*",
+  "exampleFamilyFriends": "nt. Pere, Sõbrad jne.",
+  "examplePhoneNumber": "nt. 10086, 12345 jne.",
+  "exampleRegex400Prefix": "Näide regex 400 prefiksile",
+  "exampleRegexFormat": "Näide: ^10086$ formaat",
+  "exchange": "Vahetus",
+  "exchangeNow": "Vaheta kohe",
+  "exchangeVip": "Vaheta VIP",
+  "expandLabelSelector": "Laienda sildivalikut",
+  "expiryTime": "Aegub: {time}",
+  "export": "Ekspordi",
+  "exportAllApplicationSettings": "Ekspordi kõik rakenduse sätted",
+  "exportAllApplicationSettingsSubtitle": "Ekspordi kõik rakenduse sätted",
+  "exportAllRuleConfigurations": "Ekspordi kõik reeglite konfiguratsioonid",
+  "exportAllRuleConfigurationsSubtitle": "Ekspordi kõik reeglite konfiguratsioonid",
+  "exportComplete": "Eksportimine lõpetatud",
+  "exportConfig": "Ekspordi konfiguratsioon",
+  "exportContacts": "Ekspordi kontaktid",
+  "exportData": "Ekspordi andmed",
+  "exportError": "Ekspordi viga",
+  "exportFailed": "Eksport ebaõnnestus",
+  "exportFailure": "Konfiguratsiooni eksportimine ebaõnnestus",
+  "exportFeatureComingSoon": "Eksportimise funktsioon peagi saadaval",
+  "exporting": "Ekspordin...",
+  "exportLabels": "Ekspordi sildid",
+  "exportLabelsFailed": "Siltide eksportimine ebaõnnestus: {error}",
+  "exportPluginList": "Ekspordi pluginate loend",
+  "exportPluginListFailed": "Pluginate loendi eksportimine ebaõnnestus: {error}",
+  "exportRules": "Ekspordi reeglid",
+  "exportRulesDialogTitle": "Ekspordi reeglid",
+  "exportRulesTitle": "Ekspordi reeglid",
+  "exportSmsRules": "Ekspordi SMS-reeglid",
+  "exportStatisticsData": "Ekspordi statistikaandmed",
+  "exportSuccess": "Eksporditud edukalt",
+  "exportSuccesslly": "Konfiguratsioon eksporditud edukalt",
+  "failedToAddContact": "Kontakti lisamine ebaõnnestus",
+  "failedToAddRule": "Reegli lisamine ebaõnnestus: {error}",
+  "failedToAddSmsRule": "SMS-reegli lisamine ebaõnnestus: {error}",
+  "failedToAddSmsSubscription": "SMS-tellimuse lisamine ebaõnnestus: {error}",
+  "failedToBackupSettings": "Sätete varundamine ebaõnnestus: {error}",
+  "failedToDecryptBackupFile": "Varukoopiafaili dekrüpteerimine ebaõnnestus",
+  "failedToDeleteDevice": "Seadme kustutamine ebaõnnestus",
+  "failedToDeleteSmsRule": "SMS-reegli kustutamine ebaõnnestus: {error}",
+  "failedToExportRules": "Reeglite eksportimine ebaõnnestus: {error}",
+  "failedToExportSmsRules": "SMS-reeglite eksportimine ebaõnnestus: {error}",
+  "failedToGetCallerIdInfo": "Helistaja ID teabe hankimine ebaõnnestus: {error}",
+  "failedToImportRules": "Reeglite importimine ebaõnnestus: {error}",
+  "failedToImportSmsRules": "SMS-reeglite importimine ebaõnnestus: {error}",
+  "failedToLoadContacts": "Kontaktide laadimine ebaõnnestus",
+  "failedToLoadPlugin": "Plugina laadimine ebaõnnestus",
+  "failedToRenameDevice": "Seadme ümbernimetamine ebaõnnestus",
+  "failedToRestoreSettings": "Sätete taastamine ebaõnnestus",
+  "failedToRestoreSettingsWithError": "Sätete taastamine ebaõnnestus: {error}",
+  "failedToSetPassword": "Parooli määramine ebaõnnestus: {error}",
+  "failedToSyncDevices": "Seadmete sünkroonimine ebaõnnestus",
+  "failedToToggleRuleStatus": "Reegli oleku lülitamine ebaõnnestus: {error}",
+  "failedToToggleSubscriptionStatus": "Tellimuse oleku lülitamine ebaõnnestus",
+  "failedToUpdateContact": "Kontakti värskendamine ebaõnnestus",
+  "failedToUpdateSmsRule": "SMS-reegli värskendamine ebaõnnestus: {error}",
+  "failure": "Ebaõnnestumine",
+  "favoriteContacts": "Lemmik kontaktid",
+  "featureAddRules": "• Lisa numbripõhised reeglid",
+  "featureCenter": "Funktsioonide keskus",
+  "featureEnableDisable": "• Lülita erinevaid filtreid SIM-kaardi kohta sisse/välja",
+  "featureListTitle": "Funktsioonid:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• Hallake reeglite loendeid SIM-kaardi kohta",
+  "features": "Funktsioonid",
+  "fetchingCallerIdInfo": "Helistaja ID teabe hankimine...",
+  "fileSavedTo": "Fail salvestatud asukohta: {path}",
+  "filter": "Filter",
+  "filterByLabel": "Filtreeri sildi järgi",
+  "filterClear": "Tühista filter",
+  "filterControlPanelTitle": "Filtri juhtpaneel",
+  "filterControlSubtitle": "Hallake kõigi filtrite sisse/välja olekut",
+  "filterControlTitle": "Filtri juhtimine",
+  "filterDeleteFailed": "Filtri kustutamine ebaõnnestus",
+  "filterDeleteSuccess": "Filter kustutati edukalt",
+  "filterDetails": "Filtri üksikasjad",
+  "filtered": "Filtreeritud",
+  "filteredSms": "Filtreeritud SMS",
+  "filteredSmsLabel": "Filtreeritud SMS",
+  "filterExplanation": "Filtri selgitus",
+  "filterManagement": "Filtri haldus",
+  "filterName": "Filtri nimi",
+  "filterPattern": "Filtri muster",
+  "filterPriorityNote": "Märkus: Filtrite vahel on prioriteedisuhted, üksikasjade saamiseks tutvuge abidokumentatsiooniga",
+  "filterSaveFailed": "Filtri salvestamine ebaõnnestus",
+  "filterSaveSuccess": "Filter salvestati edukalt",
+  "filterSettings": "Filtri sätted",
+  "filterSettingsTitle": "Filtri sätted",
+  "filterSMS": "Filtreeri SMS",
+  "filterToggleInstructions": "Luba või keela filtrid selle SIM-pesa jaoks:",
+  "filterToggleStatus": "Lülita {status} filter: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "Filtri tüüp",
+  "financial": "Finants",
+  "flexibleCombinationFeature": "• Paindlikud kombinatsioonid: lubage/keelake filtrid SIM-pesa kohta",
+  "fontSizesSetting": "Fondi suurused",
+  "foundRules": "Leiti {count} reeglit",
+  "foundRulesDoYouWantToImport": "Leiti {count} reeglit. Kas soovite need importida?",
+  "foundRulesToImport": "Leiti {count} reeglit. Kas soovite need importida?",
+  "fraudAlert": "PETISHOIATUS - Lõpetage kõne",
+  "fraudScamLikely": "Petuskeemi tõenäosus",
+  "free": "Tasuta",
+  "functionSettingsTitle": "Funktsioonide sätted",
+  "generalUpdateFailure": "Värskendus ebaõnnestus: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Saada tasuta",
+  "github": "GitHub",
+  "globalFilterDescription": "Konfigureerige globaalseid filtreid kõigile SIM-kaartidele:",
+  "globalFilterFeature": "• Globaalsed filtrid: põhireeglid kõigile sissetulevatele kõnedele",
+  "globalFilterSettings": "Globaalsed filtri sätted",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "Konfigureerige globaalsed filtri sätted, mis kehtivad kõigile SIM-pesadele:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Otsige kontakte, silte, mustnimekirju, valgenimekirju jne.",
+  "globalSearchTitle": "Globaalne otsing",
+  "globalSettings": "Globaalsed sätted",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Google Ad Display Position",
+  "googleAdMobIntegrationText": "Siia saab integreerida Google AdMob reklaame",
+  "googleDriveAuthDescription": "Volitage, kasutades süsteemis konfigureeritud Google Drive'i kliendi ID-d ja võtit",
+  "googleDriveAuthorizationHint": "Volitage, kasutades süsteemis konfigureeritud Google Drive'i kliendi ID-d ja võtit",
+  "googleDriveConfigTitle": "Google Drive'i konfiguratsioon",
+  "googleDriveConfigurationTitle": "Google Drive'i konfiguratsioon",
+  "government": "Valitsus",
+  "granted": "Antud",
+  "grantNecessaryPermissions": "Andke vajalikud load",
+  "grantPermissions": "Andke load",
+  "headhunter": "Värbaja",
+  "height": "Kõrgus",
+  "homePageTitle": "Avakuva",
+  "homeTab": "Avaleht",
+  "howItWorksPoint1": "• Süsteem lubab automaatselt kõnesid samalt numbrilt määratud aja jooksul",
+  "howItWorksPoint2": "• Lühemad ajad tähendavad rangemat tõkestamist; pikemad ajad tähendavad leebemat tõkestamist",
+  "howItWorksPoint3": "• Süsteem kontrollib kõnelogisid, et tuvastada korduv kõne",
+  "howItWorksTitle": "Kuidas see töötab:",
+  "iconCodeOptional": "Ikooni kood (valikuline)",
+  "iconSize": "Ikooni suurus",
+  "import": "Import",
+  "important": "Tähtis",
+  "importButton": "Import",
+  "importConfig": "Impordi konfiguratsioon",
+  "importContacts": "Impordi kontaktid",
+  "importExportContacts": "Impordi/Ekspordi kontaktid",
+  "importExportContactsTooltip": "Impordi/Ekspordi kontaktid",
+  "importExportRules": "Impordi/Ekspordi reeglid",
+  "importFailed": "Importimine ebaõnnestus: {error}",
+  "importFailure": "Konfiguratsiooni importimine ebaõnnestus",
+  "importFeatureComingSoon": "Importimisfunktsioon peagi saadaval",
+  "importLabels": "Impordi sildid",
+  "importLabelsFailed": "Siltide importimine ebaõnnestus: {error}",
+  "importPluginList": "Impordi pistikprogrammi loend",
+  "importPluginListFailed": "Pistikprogrammi loendi importimine ebaõnnestus: {error}",
+  "importPluginSuccess": "Edukalt imporditud {count} pistikprogrammi",
+  "importRuleConfigurationsFromFile": "Impordi reeglite konfiguratsioonid failist",
+  "importRuleConfigurationsFromFileSubtitle": "Impordi reeglite konfiguratsioonid failist",
+  "importRules": "Impordi reeglid",
+  "importRulesButton": "Impordi reeglid",
+  "importRulesDialogTitle": "Impordi reeglid",
+  "importRulesError": "Reeglite importimine ebaõnnestus: {error}",
+  "importRulesInstructions": "Impordi reeglid CSV-failist",
+  "importRulesSuccess": "Reeglid imporditi edukalt",
+  "importRulesTitle": "Impordi reeglid",
+  "importSuccess": "Importimine õnnestus",
+  "incomingCallInterceptAction": "Sissetuleva kõne tõkestamise toiming",
+  "incomingCallNotification": "Sissetuleva kõne teavitus",
+  "incorrectPassword": "Vale parool",
+  "initializing": "Initialiseerimine",
+  "installed": "Installitud",
+  "insufficientMarks": "Ebapiisavad märgid",
+  "insurance": "Kindlustus",
+  "interceptAction": "Tõkestamise toiming",
+  "interceptionActionSettingsSubtitle": "Määrake, kuidas blokeeritud kõnedega toimida",
+  "interceptionActionSettingsTitle": "Tõkestamise toimingute sätted",
+  "interceptionTimeInterval": "Tõkestamise ajaintervall",
+  "internet": "Internet",
+  "intervalSetSuccess": "{service} värskendusintervalliks määratud {days} päeva",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Kehtetu sisukood Regex",
+  "invalidLabel": "Kehtetu silt",
+  "invalidRegexPattern": "Kehtetu regulaaravaldise muster",
+  "invalidSenderRegex": "Kehtetu saatja regulaaravaldise muster",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Liituge Telegrami kanaliga ja grupiga lisateabe saamiseks",
+  "jsLogsTitle": "JS logid",
+  "jsonFormat": "JSON-vorming",
+  "keepAllVersions": "Säilita kõik versioonid",
+  "keepAllVersionsDescription": "Säilita iga varukoopia ajaloolised versioonid",
+  "keepAllVersionsLabel": "Säilita kõik versioonid",
+  "keepAllVersionsSubtitle": "Säilita iga varukoopia ajaloolised versioonid",
+  "keepAllVersionsTitle": "Säilita kõik versioonid",
+  "label": "Silt",
+  "labelAddedSuccessfully": "Silt \"{name}\" lisati edukalt",
+  "labelCategories": "Siltide kategooriad",
+  "labelDeleted": "Silt kustutati",
+  "labelDescription": "Sildid aitavad teil paremini hallata kontakte, lisada telefoninumbritele kohandatud silte kõnede ja sõnumite hõlpsaks tuvastamiseks.",
+  "labelFilter": "Siltide filter",
+  "labelFilterTooltip": "Siltide filter",
+  "labelIconColor": "Sildi ikooni värv",
+  "labelManagement": "Siltide haldamine",
+  "labelNotFound": "Silt ei leidnud",
+  "labelRemoved": "Silt eemaldati",
+  "labelRemoveFailed": "Sildi eemaldamine ebaõnnestus: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "Sildid",
+  "labelsColor": "Siltide värv",
+  "labelsDeleted": "{count} silti kustutati",
+  "labelsExportedSuccessfully": "Sildid eksporditi edukalt",
+  "labelsFontSize": "Siltide fondi suurus",
+  "labelsImportedSuccessfully": "Imporditi edukalt {count} silti",
+  "labelsPosition": "Siltide asukoht",
+  "labelTag": "Silt: {labelId}",
+  "labelUpdated": "Silti värskendati",
+  "labelUpdateFailed": "Sildi värskendamine ebaõnnestus: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "Silt \"$labelText\" värskendati edukalt",
+  "languageSettings": "Keele sätted",
+  "languageSettingsSubtitle": "Muutke rakenduse kuvakeelt",
+  "languageSettingsTitle": "Keele sätted",
+  "last30Days": "Viimased 30 päeva",
+  "last7Days": "Viimased 7 päeva",
+  "lastSyncLabel": "Viimane sünkroniseerimine",
+  "lastUpdated": "Viimati värskendatud: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "Eluaegne liikmelisus",
+  "lifetimeMembershipDescription": "Ühekordne ost, avab püsivalt kõik premium-funktsioonid ja tulevased värskendused",
+  "loadContactsFailed": "Kontaktide laadimine ebaõnnestus: {error}",
+  "loadDataFailed": "Andmete laadimine ebaõnnestus",
+  "loadFailed": "Laadimine ebaõnnestus",
+  "loading": "Laadin...",
+  "loadingData": "Laadin andmeid...",
+  "loadingTags": "Laadin silte...",
+  "loadLabelFailed": "Siltide laadimine ebaõnnestus: {error}",
+  "loadLabelsFailed": "Siltide laadimine ebaõnnestus: {error}",
+  "loadMarkCountFailed": "Märgitud telefoninumbrite laadimine ebaõnnestus: {error}",
+  "loadMarkedPhonesFailed": "Märgitud telefonide laadimine ebaõnnestus: {error}",
+  "loadMore": "Laadi rohkem",
+  "loadPluginButton": "Laadi pistikprogramm",
+  "loadPluginsFailed": "Pistikprogrammide laadimine ebaõnnestus: {error}",
+  "loadSettingsFailed": "Sätete laadimine ebaõnnestus: {error}",
+  "loadSmsRulesFailed": "SMS-reeglite laadimine ebaõnnestus: {error}",
+  "loadStatusFailedMessage": "Olekulaadimine ebaõnnestus",
+  "loadSubscriptionsFailed": "Tellimuste laadimine ebaõnnestus: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "Laen",
+  "localBackupTitle": "Kohalik varundus",
+  "localCounterFilter": "Kohaliku loenduri filter",
+  "localCounterFilterSubtitle": "Filtreerige automaatselt rämpskõnesid kõnesageduse põhjal",
+  "localCountFilter": "Kohaliku loenduri filter",
+  "localCountFilterDescription": "Hoidke sagedasi kõnesid kinni kohalike numbrite loendurite põhjal",
+  "localCountFilterExplanationContent": "Kohaliku loenduri filter analüüsib kõneajaloo kirjeid, et automaatselt tuvastada ja blokeerida sagedased rämpskõned.",
+  "localCountFilterExplanationTitle": "Kohaliku loenduri filtri selgitus",
+  "localCountFilterHowItWorksPoint1": "• Otsustage, kas blokeerida numbri loenduri väärtuse põhjal",
+  "localCountFilterHowItWorksPoint2": "• Kui numbri loendur ületab määratud künnise, saate selle automaatselt blokeerida",
+  "localCountFilterHowItWorksPoint3": "• Saate valida numbrid, mis ei ületa künnist",
+  "localCountFilterHowItWorksPoint4": "• Saate valida, kas salvestada kõik päringute logid",
+  "localCountFiltering": "Kohaliku loenduri filtreerimine",
+  "localCountFilteringExplanation": "• Kohaliku loenduri filtreerimine: filtreerimisreeglid kohaliku märgistamise loenduri põhjal",
+  "localCountFilterSettings": "Kohaliku loenduri filtri sätted",
+  "localCountFilterUseCases": "See filter sobib eriti hästi automaatkõnede ja turunduskõnede tuvastamiseks.",
+  "localFilterSettings": "Kohaliku filtri sätted",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "Kohalik teatamine keelatud",
+  "localNotificationEnabled": "Kohalik teatamine lubatud",
+  "localServices": "Kohalikud teenused",
+  "locationColor": "Asukoha värv",
+  "locationFontSize": "Asukoha fondi suurus",
+  "locationIconColor": "Asukoha ikooni värv",
+  "locationPosition": "Asukoha asukoht",
+  "logAllLocalQueries": "Logi kõik kohalikud päringud",
+  "logAllLocalQueriesDescription": "Salvestage logid kõikide kohalike numbrite päringute kohta",
+  "logAllRemoteQueries": "Logi kõik kaugpäringud",
+  "logAllRemoteQueriesDescription": "Salvestage kõik kaugnumbrite päringu toimingud",
+  "manage": "Hallake kontakte",
+  "manageContacts": "Halda",
+  "manageFavoriteContacts": "Hallake lemmikkontakte",
+  "manageFilterRules": "Halda filtreerimisreegleid",
+  "manageFilterRulesDescription": "Lisage, muutke või kustutage SMS-filtri reegleid",
+  "manageFrequentContacts": "Hallake sagedasi kontakte",
+  "markCounts": "Märgistamise loendurid",
+  "markCount": "Märgistamise loendur",
+  "markedByCount": "Märkinud {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "Märgitud telefoninumbrid",
+  "markExchange": "Märgistuse vahetus",
+  "markPhone": "Märgista telefoninumber",
+  "markPhoneFailed": "Telefoni numbri märkimine ebaõnnestus: {error}",
+  "markPhoneManagementSubtitle": "Telefoninumbrite märkimiseks",
+  "markPhoneManagementTitle": "Telefoni numbri märkimise haldus",
+  "markPhoneSuccess": "Telefoni number märgiti edukalt",
+  "matchFailed": "Sobitus ebaõnnestus!",
+  "matchFailedMessage": "Sobitus ebaõnnestus.",
+  "matchNumbersWithSpecialCharacters": "sobib numbri erimärkidega vormingusse",
+  "matchNumbersWithSpecialCharactersTitle": "Sobita numbrid erimärkidega:",
+  "matchSpecificDigitPatterns": "sobib XXX-XXXX-XXXX vormingusse",
+  "matchSpecificDigitPatternsTitle": "Sobita kindlad numbrimustrid:",
+  "matchSuccessful": "Sobitus õnnestus!",
+  "matchSuccessfulMessage": "Sobitus õnnestus!",
+  "medical": "Meditsiiniline",
+  "membershipPrivileges": "Liikmelisuse eelised",
+  "migrationTool": "Migratsioonitööriist",
+  "migrationToolTitle": "Migratsioonitööriist",
+  "minutes": "minutit",
+  "month": "Kuu",
+  "monthly": "Kuu",
+  "monthlyCallCount": "Kuuväljakutsed",
+  "monthlyChartTitle": "Kuuväljakutsed blokeeritud",
+  "monthlyMembership": "Kuuliikmelisus",
+  "monthlyMembershipDescription": "Avage kõik premium-funktsioonid, uuendatakse automaatselt kord kuus",
+  "monthlyTotal": "Kuukokku",
+  "monthlyTotalLabel": "Kuukokku",
+  "moreOptions": "Rohkem valikuid",
+  "mute": "Vaikne",
+  "name": "Nimi",
+  "nameAndPhoneNumberCannotBeEmpty": "Nimi ja telefoninumber ei saa olla tühjad",
+  "nameAndPhoneNumberRequired": "Nimi ja telefoninumber peavad olema täidetud",
+  "nameColor": "Nime värv",
+  "nameFontSize": "Nime fondisuurus",
+  "nameLabel": "Nimi: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "Nime asukoht",
+  "nameUnknown": "Nimi: Tundmatu",
+  "nameWithValue": "Nimi: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "Uus parool",
+  "nextStep": "Järgmine",
+  "noAction": "Ei mingit tegevust",
+  "noActionRules": "Ei mingit tegevust reegleid",
+  "noActiveCloudSyncServiceMessage": "Ühtegi aktiivset pilvesünkroniseerimisteenust pole",
+  "noCallLogs": "Kõnelogisid pole",
+  "noCallRecords": "Kõnekirjeid pole",
+  "noContacts": "Kontaktid puuduvad veel",
+  "noContactsYet": "Kontakte pole veel",
+  "noData": "Andmeid pole",
+  "noDevicesRegisteredMessage": "Seadmeid pole registreeritud",
+  "noDevicesRegisteredYet": "Registreeritud seadmeid pole veel",
+  "noFilters": "Filtreid pole veel",
+  "noLabels": "Silte pole veel",
+  "noMarkedPhones": "Märgitud telefone pole",
+  "noMatchingContacts": "Sobivaid kontakte pole",
+  "noMatchingContactsFound": "Sobivaid kontakte ei leitud",
+  "noMatchingNumbersFound": "Sobivaid numbreid ei leitud",
+  "noMatchingRecords": "Sobivaid kõnekirjeid pole",
+  "noMatchingRules": "Sobivaid {ruleType} pole",
+  "none": "Puudub",
+  "noneServiceType": "Puudub",
+  "noPlugins": "Pistikprogramme pole veel",
+  "noRecords": "Kõnekirjeid pole",
+  "noResultReturned": "Tulemust ei tagastatud",
+  "noResultReturnedLog": "Pistikprogrammist tulemust ei tagastatud",
+  "noRules": "{ruleType} pole veel",
+  "noRulesPrompt": "Reegleid pole leitud, lisage reeglid",
+  "noRulesToExport": "Reegleid pole eksportimiseks",
+  "noSmsFilterRulesYet": "SMS-i filtreerimisreegleid pole veel",
+  "noSmsRulesYet": "SMS-reegleid pole veel",
+  "noSubscriptions": "Tellimusi pole",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "Tellimusi pole veel",
+  "notGranted": "Pole antud",
+  "notificationMode": "Teavituste režiim",
+  "notificationModeDescription": "Näita helistaja teavet teavitusribal",
+  "notificationPermission": "Teavituste luba",
+  "notificationPermissionDescription": "Kasutatakse sissetulevate kõne- ja sõnumiteatiste kuvamiseks.",
+  "notifications": "Teavitused",
+  "notificationSettings": "Teavituste seaded",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "Teavituste seaded salvestati edukalt",
+  "notSet": "Pole määratud",
+  "notVerifiedText": "Pole kinnitatud",
+  "noValidSmsRulesFoundInFile": "Failist ei leitud ühtegi kehtivat SMS-reeglit",
+  "number": "Number",
+  "numberColor": "Numbri värv",
+  "numberFontSize": "Numbri fondisuurus",
+  "numberPosition": "Numbri asukoht",
+  "numberSearch": "Numbriotsing",
+  "numberTypeColor": "Numbritüübi värv",
+  "numberTypeFontSize": "Numbritüübi fondisuurus",
+  "numberTypePosition": "Numbritüübi asukoht",
+  "ok": "OK",
+  "okButton": "OK",
+  "onboardingCompleteDescription": "Teie kõneturbehaldur on valmis, alustage turvalise kõnekogemusega!",
+  "onboardingLanguageDescription": "Valige oma eelistatud keel parima kogemuse saamiseks.",
+  "onboardingPermissionsDescription": "Täieliku teenuse osutamiseks vajame järgmisi lubasid:",
+  "onboardingPowerfulSpamBlockingDescription": "Ühe klõpsuga rämpskõnede ja sõnumite blokeerimine, blokeerimisreeglite kohandamine ja teile vaikse keskkonna loomine.",
+  "onboardingSmartCallerIdDescription": "Tundmatute kõnede automaatne tuvastamine, kahtlaste numbrite märkimine ja teie kõneturvalisuse tagamine.",
+  "onboardingWelcomeDescription": "Teie kõnehalduse ekspert, pakkudes kõikehõlmavaid kõnetuvastus- ja blokeerimisteenuseid.",
+  "oneDriveAuthDescription": "Volitage süsteemi konfigureeritud OneDrive'i kliendi ID ja võtme abil",
+  "oneDriveAuthorizationHint": "Volitage süsteemi konfigureeritud OneDrive'i kliendi ID ja võtme abil",
+  "oneDriveConfigTitle": "OneDrive konfiguratsioon",
+  "oneDriveConfigurationTitle": "OneDrive konfiguratsioon",
+  "onlineCallerIdSubscription": "Online helistaja ID tellimus",
+  "openAppSettings": "Ava rakenduse sätted",
+  "openAppSettingsFailed": "Rakenduse sätete avamine nurjus: {error}",
+  "operationFailed": "Toiming nurjus: {error}",
+  "operationFailure": "Toiming nurjus",
+  "operationSuccess": "Toiming õnnestus",
+  "other": "Muu",
+  "ourOtherApps": "Meie teised rakendused",
+  "overlayMode": "Ujuvaken",
+  "overlayModeDescription": "Näita helistaja teavet ujuvas aknas",
+  "overlayPermission": "Ujuva akna luba",
+  "overlayPermissionDescription": "Kasutatakse sissetuleva kõne ujuva akna kuvamiseks.",
+  "overview": "Ülevaade",
+  "password": "Parool",
+  "passwordCannotBeEmpty": "Parool ei saa olla tühi",
+  "passwordLabel": "Parool",
+  "passwordsDoNotMatch": "Paroolid ei vasta",
+  "passwordSetSuccessfully": "Parool on edukalt seatud",
+  "pattern": "Muster",
+  "pendingSync": "Ootel sünkroonimine",
+  "periodMonth": "Kuu",
+  "periodWeek": "Nädal",
+  "periodYear": "Aasta",
+  "permissionDenied": "Loa taotlus on keelatud",
+  "permissionGranted": "Luba on antud",
+  "permissionManagement": "Lubade haldus",
+  "phoneCallsTab": "Telefon",
+  "phoneNumber": "Telefoninumber",
+  "phoneNumberCannotBeEmpty": "Telefoninumber ei saa olla tühi",
+  "phoneNumberHint": "Sisesta telefoninumber",
+  "phoneNumberHintText": "Sisesta telefoninumber reegli lisamiseks",
+  "phoneNumberLabel": "Telefoninumber",
+  "phoneNumberRegexRequired": "Palun sisesta nii telefoninumber kui ka regex-muster",
+  "phoneNumberRequired": "Telefoninumber on nõutav",
+  "phoneNumberTypeFixedLine": "Lauatelefon",
+  "phoneNumberTypeFixedLineOrMobile": "Lauatelefon või mobiil",
+  "phoneNumberTypeMobile": "Mobiil",
+  "phoneNumberTypePager": "Paging-seade",
+  "phoneNumberTypePersonalNumber": "Isiklik number",
+  "phoneNumberTypePremiumRate": "Eritariifiga number",
+  "phoneNumberTypeSharedCost": "Jagatud maksumusega number",
+  "phoneNumberTypeTollFree": "Tasuta number",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "Teadmata",
+  "phoneNumberTypeVoicemail": "Kõnepost",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "Telefoni luba",
+  "phonePermissionDescription": "Kasutatakse sissetulevate kõnede tuvastamiseks ja blokeerimiseks.",
+  "phoneRule": "Telefonireegel",
+  "phoneRuleEditDialog": "Telefonireegli redigeerimise dialoog",
+  "phoneRuleManagement": "Telefonireeglite haldus",
+  "phoneRuleSubscription": "Telefonireegli tellimus",
+  "phoneSubscription": "Telefoni tellimus",
+  "phoneSubscriptionRulesDescription": "Telli telefonireeglite loendeid URL-i kaudu, et automaatselt värskendada valge ja musta nimekirja reegleid. Toetab JSON-vormingus reeglifaile.",
+  "phoneSubscriptionTitle": "Telefonireeglite tellimused",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "Palun vali silt ja sisesta kehtiv telefoninumber",
+  "pluginAddedSuccess": "Pistikprogramm \"{name}\" lisati edukalt",
+  "pluginDeleted": "Pistikprogramm kustutati",
+  "pluginLatestVersion": "Pistikprogramm on juba uusim versioon",
+  "pluginListExportSuccess": "Pistikprogrammide loend eksporditi edukalt",
+  "pluginLoadedSuccessfully": "Pistikprogramm laaditi edukalt",
+  "pluginManagement": "Pistikprogrammide haldus",
+  "pluginManagementSubtitle": "Hallake ja konfigureerige kolmanda osapoole pistikprogramme",
+  "pluginManagementTitle": "Pistikprogrammide haldus",
+  "pluginName": "Pistikprogrammi nimi",
+  "pluginNotLoaded": "Pistikprogrammi pole veel laaditud. Palun laadi pistikprogramm kõigepealt.",
+  "pluginsDeleted": "{count} pistikprogrammi kustutati edukalt.",
+  "pluginService": "Pistikprogrammiteenus",
+  "pluginTestPageTitle": "Pistikprogrammide testimine",
+  "pluginUpdateSuccess": "Pistikprogramm värskendati edukalt",
+  "pluginUrl": "Pistikprogrammi URL",
+  "pluginUrlCannotBeEmpty": "Pistikprogrammi URL ei saa olla tühi",
+  "pluginUrlHint": "Sisesta pistikprogrammi URL",
+  "pluginUrlLabel": "Pistikprogrammi URL",
+  "pluginVersion": "Pistikprogrammi versioon",
+  "political": "Poliitiline",
+  "powerfulSpamBlocking": "Tugev rämbrata tõkestus",
+  "previousStep": "Eelmine",
+  "prioritizeRemoteAction": "Prioriteedi kaugtoimingute sätted",
+  "prioritizeRemoteActionDescription": "Prioriteedi toimingute sätted kaugandmebaasist",
+  "processing": "Töötlemine...",
+  "processingOperation": "Töötlemine...",
+  "purchase": "Osta",
+  "quarterlyMembership": "Kvartali liikmelisus",
+  "quarterlyMembershipDescription": "Ava kõik esmaklassilised funktsioonid, automaatne uuendamine kvartaalselt",
+  "queryButton": "Päring",
+  "queryFailed": "Päring nurjus",
+  "queryFailedLog": "Päring nurjus",
+  "querying": "Päring...",
+  "queryingPhoneNumber": "Telefoninumbri päring",
+  "queryResultTitle": "Päringu tulemus",
+  "ready": "Valmis!",
+  "receiveWeeklyStatistics": "Vastuvõtmiseks iganädalased statistika",
+  "recruiter": "Värbaja",
+  "reEnterPasswordHint": "Palun sisesta parool uuesti",
+  "refresh": "Värskenda",
+  "refreshPermissionStatus": "Värskenda loa olekut",
+  "refreshTooltip": "Värskenda",
+  "regexError": "Regex viga: {error}",
+  "regexErrorMessage": "Regex viga: {error}",
+  "regexPattern": "RegEx-muster",
+  "regexPatternExplanation": "RegEx-mustri selgitus",
+  "regexPatternExplanationButton": "RegEx-mustri selgitus",
+  "regexPatternLabel": "RegEx-muster",
+  "regexPatternsExamples": "Kasutage mustrite määramiseks standardset RegEx-süntaksit. Näited:",
+  "regexPatternsForPhoneNumberMatching": "RegEx-mustrid telefoninumbrite sobitamiseks",
+  "regexRule": "RegEx-reegel",
+  "regexRuleAddFailed": "RegEx-reegli lisamine ebaõnnestus: {error}",
+  "regexRuleAddSuccess": "RegEx-reegel lisati edukalt",
+  "regexRuleManagement": "RegEx-reegli haldus",
+  "regexRuleNamePatternRequired": "Reegli nimi ja RegEx-muster ei saa olla tühjad",
+  "regexRules": "RegEx-reeglid",
+  "regexTesterTitle": "RegEx-testija",
+  "regexValidationFailed": "RegEx-i valideerimine ebaõnnestus: {error}",
+  "regexValidationSuccess": "RegEx-i valideerimine õnnestus",
+  "region": "Regioon",
+  "registeredDevicesTitle": "Registreeritud seadmed",
+  "rejectAllCalls": "Keeldu kõigist kõnedest",
+  "rejectAllCallsDescription": "Kui see on lubatud, keelduvad kõik kõned kõrgeima prioriteediga",
+  "rejectAllNumbers": "Keeldu kõigist numbritest",
+  "rejectAllNumbersDesc": "Keeldu kõigist sissetulevatest kõnedest, kui see on lubatud",
+  "rejectExceededNumbers": "Keeldu ületanud numbritest",
+  "rejectExceededNumbersDescription": "Keeldu automaatselt numbritest, mis ületavad loenduse lävepiiri",
+  "remoteFilterSettings": "Eemaldatavad filtrisätted",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "Eemaldatavad numbrifiltri sätted",
+  "remoteNumberFilter": "Eemaldatav numbrifilter",
+  "remoteNumberFilterDatabaseInfo": "See filter kasutab sõltumatut eemaldatavat andmebaasi, et saada uusimat numbriinformatsiooni.",
+  "remoteNumberFilterDescription": "Häirivate kõnede pealtkuulamine eemaldatava andmebaasi info põhjal",
+  "remoteNumberFilterExplanationContent": "Eemaldatav numbrifilter tuvastab ja blokeerib rämpskõned, päringutega eemaldatava andmebaasi poole numbri loenduse põhjal.",
+  "remoteNumberFilterExplanationTitle": "Eemaldatava numbrifiltri selgitus",
+  "remoteNumberFilterFeatureCountThreshold": "• Loenduse lävepiir: Määrake numbri esinemissageduse põhjal",
+  "remoteNumberFilterFeatureFilterAction": "• Filtri toimingud: Konfigureerige, kuidas ületanud numbreid käsitleda",
+  "remoteNumberFilterFeaturePriority": "• Prioriteedi sätted: Määrake eemaldatavate toimingute prioriteet",
+  "remoteNumberFilterFeatures": "Funktsioonid:",
+  "remoteNumberFiltering": "Eemaldatav numbri filtreerimine",
+  "remoteNumberFilteringExplanation": "• Eemaldatav numbri filtreerimine: Filtreerimisreeglid eemaldatava andmebaasi info põhjal",
+  "remoteNumberFilterSubtitle": "Tuvastage rämpskõned pilvandmebaasi ja kogukonnaaruannete abil",
+  "removeAdsDescription": "Eemaldage kõik reklaamid rakendusest püsivalt, et kogemus oleks sujuvam",
+  "removeAdsTitle": "Eemalda reklaamid",
+  "removedFromFavoriteContacts": "Eemaldatud lemmikkontaktidest",
+  "removedFromFavorites": "Eemaldatud lemmikutest",
+  "removeFavorite": "Eemalda lemmik",
+  "removeFromFavorites": "Eemalda lemmikutest",
+  "renameButton": "Nimeta ümber",
+  "renameDeviceDialogTitle": "Nimeta seade ümber",
+  "renameDeviceTitle": "Nimeta seade ümber",
+  "replaceCurrentSettingsConfirmation": "See asendab kõik teie praegused sätted. Kas olete kindel, et soovite jätkata?",
+  "requestAllPermissions": "Taotlege kõiki õigusi",
+  "requestPermission": "Taotlege luba",
+  "requestPermissionFailed": "Loa taotlemine ebaõnnestus: {error}",
+  "requiredMarks": "{count} märk(i)",
+  "reset": "Lähtesta",
+  "restore": "Taasta",
+  "restoreApplicationSettingsFromBackup": "Taasta rakenduse sätted varukoopiast",
+  "restoreApplicationSettingsFromBackupSubtitle": "Taasta rakenduse sätted varukoopiast",
+  "restoreButton": "Taasta",
+  "restoreFailedWithError": "Taastamine pilvest ebaõnnestus: {error}",
+  "restoreFromCloud": "Taasta pilvest",
+  "restoreFromCloudDescription": "Taasta sätted ja reeglid pilvesalvestusest",
+  "restoreFromCloudFailed": "Taastamine pilvest ebaõnnestus: {error}",
+  "restoreFromCloudLabel": "Taasta pilvest",
+  "restoreFromCloudSuccess": "Taastati edukalt pilvest",
+  "restoreFromCloudTitle": "Taasta pilvest",
+  "restoreFromLocal": "Taasta lokaalselt",
+  "restorePurchases": "Taasta ostud",
+  "restoreSectionTitle": "Taasta",
+  "restoreSettings": "Taasta sätted",
+  "restoreSettingsConfirmation": "See asendab kõik teie praegused sätted. Kas olete kindel, et soovite jätkata?",
+  "restoreSettingsDialogTitle": "Taasta sätted",
+  "restoreSettingsTitle": "Taasta sätted",
+  "restoreSuccessFromLocal": "Taastati edukalt lokaalselt",
+  "restoreSuccessMessage": "Taastati edukalt pilvest",
+  "retry": "Proovi uuesti",
+  "ridesharing": "Sõidujagamine",
+  "risk": "Risk",
+  "robocall": "Robokõne",
+  "ruleAction": "Reegli toiming",
+  "ruleAddButton": "Lisa reegel",
+  "ruleAddedSuccess": "Reegel lisati edukalt",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "Reegli lisamine ebaõnnestus: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "Reegel lisati edukalt",
+  "ruleDeleteConfirmContent": "Kas olete kindel, et soovite selle {ruleType} kustutada?",
+  "ruleDeleteConfirmTitle": "Kustuta reegel",
+  "ruleDeletedSuccess": "Reegel kustutati edukalt",
+  "ruleDeletedSuccessfully": "Reegel kustutati edukalt",
+  "ruleDeleteFailed": "Reegli kustutamine ebaõnnestus: {error}",
+  "ruleDeleteFailure": "Reegli kustutamine ebaõnnestus: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "Reegel kustutati edukalt",
+  "ruleDisabledSuccessfully": "Reegel keelati edukalt",
+  "ruleEnabledSuccessfully": "Reegel lubati edukalt",
+  "ruleLoadFailed": "Reeglite laadimine ebaõnnestus: {error}",
+  "ruleManagement": "Reeglite haldus",
+  "ruleManagementTitle": "Reeglite haldus",
+  "ruleName": "Reegli nimi",
+  "ruleNameAndContentRegexCannotBeEmpty": "Reegli nimi ja sisumuster ei saa olla tühjad",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "Reegli nimi ja telefoninumber ei saa olla tühjad",
+  "ruleNameHint": "nt Family, Friends jne.",
+  "ruleNameLabel": "Reegli nimi",
+  "ruleNamePatternRequired": "Palun sisestage reegli nimi ja muster",
+  "ruleNameRequired": "Reegli nimi ja telefoninumber ei saa olla tühjad",
+  "ruleNotExist": "Reegel ei eksisteeri või on kustutatud",
+  "ruleNotFound": "Reeglit ei leitud: {error}",
+  "ruleSavedSuccessfully": "Reegel salvestatud edukalt!",
+  "ruleSavedSuccessMessage": "Reegel salvestatud edukalt!",
+  "ruleSaveFailed": "Salvestamine ebaõnnestus: {error}",
+  "ruleSaveFailedMessage": "Salvestamine ebaõnnestus: {error}",
+  "ruleSaveSuccess": "Reegel salvestatud edukalt!",
+  "rulesExportedSuccessfully": "Reeglid eksporditud edukalt",
+  "rulesExportedTo": "Reeglid eksporditud: {path}",
+  "rulesImported": "Reeglid imporditud edukalt",
+  "rulesImportedSuccessfully": "{count} reeglit imporditud edukalt",
+  "rulesImportFailed": "Reeglite importimine ebaõnnestus: {error}",
+  "ruleStatistics": "Reeglite statistika",
+  "ruleStatusChanged": "Reegel {status} edukalt",
+  "ruleToggleFailed": "Toiming ebaõnnestus: {error}",
+  "ruleToggleSuccess": "Reegel {status} edukalt",
+  "ruleUpdateFailed": "Reegli värskendamine ebaõnnestus: {error}",
+  "ruleUpdateSuccess": "Reegel värskendatud edukalt",
+  "ruleVerification": "Reegli kontroll",
+  "save": "Salvesta",
+  "saveButton": "Salvesta",
+  "saveButtonLabel": "SALVESTA",
+  "saveButtonText": "Salvesta",
+  "saveFailed": "Salvestamine ebaõnnestus: {error}",
+  "saveFilter": "Salvesta filter",
+  "saveSettings": "Salvesta seaded",
+  "saveSettingsFailed": "Seadete salvestamine ebaõnnestus: {error}",
+  "scamsLikely": "Tõenäoliselt pettus",
+  "search": "Otsi",
+  "searchContacts": "Otsi kontakte",
+  "searchError": "Otsingu viga: {error}",
+  "searchFilters": "Otsingufiltrid",
+  "searchForContacts": "Otsi kontakte",
+  "searchHint": "Otsi...",
+  "searchSettingsSubtitle": "Otsi kontakte, silte, musti nimekirju, valgeid nimekirju jne.",
+  "searchSettingsTitle": "Otsinguseaded",
+  "securityMessage": "Ära usalda ühtegi telefonikõnet. Kontrolli klienditeeninduse numbreid alati iseseisvalt. Ära kunagi jaga paroole, kinnituskoodi, kaardi numbreid ega isiklikku teavet.",
+  "selectActionToPerform": "Valige toiming, mida teha reegli sobimisel",
+  "selectActionWhenBlockingCalls": "Valige toiming kõnede blokeerimisel",
+  "selectActionWhenRuleMatches": "Valige toiming, kui reegel sobib",
+  "selectAll": "Vali kõik",
+  "selectCountry": "Vali riik",
+  "selectDateRange": "Vali kuupäeva vahemik",
+  "selectedDateRange": "Valitud kuupäeva vahemik",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} elementi valitud",
+  "selectedLabel": "Valitud:",
+  "selectExportFormat": "Vali ekspordi vorming",
+  "selectLabel": "Vali silt",
+  "selectLabelAndEnterPhoneNumber": "Palun valige silt ja sisestage kehtiv telefoninumber",
+  "selectLanguage": "Vali keel",
+  "selectMultiple": "Vali mitu",
+  "selectPeriod": "Vali periood",
+  "selectSimCard": "Vali SIM-kaart",
+  "selectSimSlot": "Vali SIM-pesa",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "Valige konkreetne toiming blokeeritud kõnede korral",
+  "selectTag": "Vali silt",
+  "selectTags": "Vali sildid",
+  "selectTrustedDataSource": "Palun valige usaldusväärsed andmeallikad",
+  "selectYourLanguage": "Vali oma keel",
+  "sender": "Saatja",
+  "senderRegexOptional": "Saatja Regex (valikuline)",
+  "serverAddressLabel": "Serveri aadress",
+  "serviceTypeContact": "Kontakti tellimus",
+  "serviceTypeLabel": "Teenusetüüp",
+  "serviceTypePhone": "Telefoni tellimus",
+  "serviceTypePlugin": "Pistikprogrammi värskendus",
+  "serviceTypeSms": "SMS-tellimus",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "Määra",
+  "setEncryptionPassword": "Määra krüptimisparool",
+  "setEncryptionPasswordDescription": "Määrake krüptimisparool varundamiseks ja taastamiseks",
+  "setEncryptionPasswordLabel": "Määra krüptimisparool",
+  "setEncryptionPasswordTitle": "Määra krüptimisparool",
+  "setPasswordButton": "Määra",
+  "settings": "Seaded",
+  "settingsBackedUpTo": "Seaded varundatud: {path}",
+  "settingsLoaded": "Seaded laaditud",
+  "settingsLoadFailed": "Seadete laadimine ebaõnnestus: {error}",
+  "settingsRestoredSuccessfully": "Seaded taastati edukalt. Muudatuste jõustumiseks taaskäivitage rakendus.",
+  "settingsSaved": "Seaded salvestatud",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "Seadete salvestamine ebaõnnestus: {error}",
+  "settingsTab": "Seaded",
+  "settingsTitle": "Seaded",
+  "setup": "Seadistamine",
+  "showContactEditDialogStaticMethod": "Staatiline meetod kontakti redigeerimise dialoogi kuvamiseks",
+  "showExplanation": "Näita selgitust",
+  "silence": "Vaikus",
+  "silenceAndNoAnswer": "Vaikus ja vastuseta",
+  "silenceNoAnswer": "Vaikus vastuseta",
+  "silentCallVoiceClone": "Hääleklooniga vaikne kõne",
+  "silentRules": "Vaiksed reeglid",
+  "simCard": "SIM-kaart {simNumber}",
+  "simCardColor": "SIM-kaardi värv",
+  "simCardConfigurationExplanation": "• SIM-kaardi konfiguratsioon: määrake igale SIM-kaardile sõltumatud filtreerimisreeglid",
+  "simCardFilterRules": "SIM-kaardi filtreerimisreeglid",
+  "simCardFilterRulesDescription": "Määrake erinevad filtreerimisreeglid SIM-kaardi pesade alusel",
+  "simCardFontSize": "SIM-kaardi fondi suurus",
+  "simCardPosition": "SIM-kaardi asukoht",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "SIM-kaardi teabe laadimine ebaõnnestus: {error}",
+  "simRuleInstructions": "SIM-kaardi reeglid võimaldavad teil konfigureerida sõltumatud filtreerimisreeglid iga SIM-kaardi pesa kohta.",
+  "simRuleInstructionsTitle": "SIM-kaardi pesa reeglid",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "SIM-kaardi pesa reeglite haldus",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "SIM-andmete laadimine ebaõnnestus: {error}",
+  "simSlotFilterConfiguration": "SIM-kaardi pesa filtri konfiguratsioon",
+  "simSlotFilterConfigurationDescription": "Võimaldab seadistada filtreerimisreegleid SIM-kaardi pesa järgi",
+  "simSlotFilterDescription": "Konfigureerige sõltumatud filtreerimisreeglid iga SIM-kaardi jaoks:",
+  "simSlotFilterSettingsTitle": "SIM-kaardi pesa {slotNumber} filtri sätted",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "SIM-kaartide laadimine ebaõnnestus: {error}",
+  "simSlotManagement": "SIM-kaardi pesa haldus",
+  "simSlotOperationFailed": "SIM-kaardi pesa toiming ebaõnnestus: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "SIM-kaardi pesa {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• SIM-kaardi pesa reeglid: sõltumatud filtreerimisstrateegiad SIM-kaardi kohta",
+  "simSlotRuleListTitle": "SIM-kaardi pesa reeglite loend",
+  "simSlotRuleManagement": "SIM-kaardi pesa reeglid",
+  "simSlotRuleManagementTitle": "Reeglite haldus",
+  "simSlotSettings": "SIM-kaardi pesa sätted",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "SIM-kaardi pesa {slotNumber}",
+  "skip": "Jäta vahele",
+  "smartCallerId": "Nutikas helistaja ID tuvastus",
+  "sms": "SMS",
+  "smsFilterDescription": "SMS-filtratsioon aitab teil automaatselt rämpspostisõnumeid filtreerida ja hoida oma sõnumiloend puhtana. Saate seadistada filtreerimisreegleid ja teatise meetodeid.",
+  "smsFilterDisabled": "SMS-filtratsioon keelatud",
+  "smsFilterEnabled": "SMS-filtratsioon lubatud",
+  "smsFilterRuleAddedSuccessfully": "SMS-filtri reegel lisati edukalt",
+  "smsFilterRules": "SMS-filtri reeglid",
+  "smsFilterSettings": "SMS-filtri sätted",
+  "smsHistory": "SMS-i ajalugu",
+  "smsManagement": "SMS-halduse",
+  "smsPermission": "SMS-luba",
+  "smsPermissionDescription": "Kasutatakse rämpspostisõnumite filtreerimiseks.",
+  "smsRuleAddedSuccessfully": "SMS-reegel lisati edukalt",
+  "smsRuleDeletedSuccessfully": "SMS-reegel kustutati edukalt",
+  "smsRuleLoadFailed": "SMS-reeglite laadimine ebaõnnestus: {error}",
+  "smsRuleManagement": "SMS-reeglite haldus",
+  "smsRulesExportedSuccessfully": "SMS-reeglid eksporditi edukalt faili {filePath}",
+  "smsRulesImportedSuccessfully": "SMS-reeglid imporditi edukalt",
+  "smsRuleSubscription": "SMS-reegli tellimus",
+  "smsRuleUpdatedSuccessfully": "SMS-reegel värskendati edukalt",
+  "smsSettingsSubtitle": "SMS-filtratsioon ja märksõnade blokeerimine",
+  "smsSettingsTitle": "SMS-i sätted",
+  "smsSubscription": "SMS-i tellimus",
+  "smsSubscriptionAddedSuccessfully": "SMS-tellimus lisati edukalt",
+  "smsSubscriptionRulesDescription": "Telli SMS-reeglite loendeid URL-i kaudu, toetades tavaliste avaldiste sobitamist. Saate seadistada blokeerimise või lubamise toimingud.",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "Mõned õigustaotlused keelatud",
+  "spamLikely": "Tõenäoline rämpspost",
+  "startColor": "Algusvärv",
+  "startDate": "Alguskuupäev",
+  "startUsing": "Alusta kasutamist",
+  "statAnswered": "Vastatud",
+  "statBlocked": "Blokeeritud",
+  "staticMethodShowCallerIdDialog": "Staatiline meetod helistaja ID teabedialoogi kuvamiseks",
+  "staticMethodToDisplayCountrySelectionDialog": "Staatiline meetod riigi valiku dialoogi kuvamiseks",
+  "staticMethodToDisplayDialog": "Staatiline meetod dialoogi kuvamiseks",
+  "statistics": "Statistika",
+  "statisticsExportFeatureComingSoon": "Statistika eksportimine peatselt saadaval",
+  "statisticsGrid": "Statistikavõrk",
+  "statisticsPageTitle": "Andmeanalüüs",
+  "stirColor": "STIR värv",
+  "stirFontSize": "STIR fondi suurus",
+  "stirPosition": "STIR positsioon",
+  "storagePermission": "Salvestusruumi luba",
+  "storagePermissionDescription": "Kasutatakse sätete ja reeglite salvestamiseks.",
+  "subscribe": "Telli",
+  "subscriptionAddSuccess": "Tellimus \"{name}\" lisati edukalt",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "Kas olete kindel, et soovite selle tellimuse kustutada?",
+  "subscriptionDeleteConfirmTitle": "Kustuta tellimus",
+  "subscriptionDeleted": "Tellimus kustutatud",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "Tellimus kustutati edukalt",
+  "subscriptionDeleteFailed": "Tellimuse kustutamine ebaõnnestus: {error}",
+  "subscriptionDeleteSuccess": "Tellimus kustutatud",
+  "subscriptionEmptyState": "Tellimusi pole saadaval",
+  "subscriptionEmptyText": "Tellimusi veel pole",
+  "subscriptionLoadFailed": "Tellimuste laadimine ebaõnnestus: {error}",
+  "subscriptionLoadingFailed": "Tellimuste laadimine ebaõnnestus: {error}",
+  "subscriptionManagementTitle": "Tellimuste haldus",
+  "subscriptionName": "Tellimuse nimi",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "Tellimuse nimi ja URL ei saa tühjad olla",
+  "subscriptionNameHint": "Sisestage tellimuse nimi",
+  "subscriptionPageTitle": "Tellimuste haldus",
+  "subscriptionStatusChangeFailed": "Tellimuse oleku muutmine ebaõnnestus: {error}",
+  "subscriptionToggleFailed": "Tellimuse oleku lülitamine ebaõnnestus: {error}",
+  "subscriptionUpdateFailed": "Tellimuse värskendamine ebaõnnestus: {error}",
+  "subscriptionUpdateSuccess": "Tellimus värskendati edukalt",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "Tellimuse URL",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "Sisestage tellimuse URL",
+  "successfullyImportedRules": "Edukalt imporditud {count} reeglit",
+  "supportSync": "Toetage sünkroonimist",
+  "survey": "Küsitlus",
+  "syncDevicesButton": "Sünkroniseeri seadmed",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "Sünkroonimine ebaõnnestus",
+  "syncFailedMessage": "Sünkroonimine ebaõnnestus",
+  "syncFolderNameHint": "Sisestage sünkroonimiskausta nimi (vaikimisi: NotificationManager)",
+  "syncFolderNameLabel": "Sünkroonimiskausta nimi",
+  "synchronized": "Sünkroniseeritud",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "Sünkroniseerimine...",
+  "syncNow": "Sünkroniseeri kohe",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "Sünkroniseeri kohe",
+  "syncStatusTitle": "Sünkroonimise olek",
+  "syncStatusUpdatedMessage": "Sünkroonimise olek värskendatud",
+  "syncSuccessful": "Sünkroonimine õnnestus",
+  "syncSuccessMessage": "Sünkroonimine õnnestus",
+  "syncWithCloudStorage": "Sünkroniseeri pilveserveriga",
+  "syncWithCloudStorageSubtitle": "Sünkroniseeri pilveserveriga",
+  "systemFeatures": "Süsteemi funktsioonid:",
+  "systemSettingsTitle": "Süsteemi seaded",
+  "tabAll": "Kõik",
+  "tabAnswered": "Vastatud",
+  "tabBlocked": "Blokeeritud",
+  "tabMissed": "Vastamata",
+  "tabOutgoing": "Väljuvad",
+  "tagLabel": "Silt: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "Sildid värskendatud",
+  "takeaway": "Kaasavõetav",
+  "telecommunication": "Telekommunikatsioon",
+  "telegram": "Telegramm",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "testButtonLabel": "TEST",
+  "testConnectionButton": "Testi ühendust",
+  "textColorsSetting": "Teksti ja märgiste värvid",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "See rakendus on võimas helistaja tuvastamise tööriist, mis võimaldab teil tuvastada ja blokeerida soovimatuid kõnesid.",
+  "thisWeek": "Sel nädalal",
+  "timeInterceptor": "Aja intervalliga blokeerija",
+  "timeInterceptorDescription": "Hoiatage/lubage kõnesid automaatselt kõnesageduse põhjal",
+  "timeInterceptorExplanation": "• Aja intervalliga blokeerija: Hoiatage/lubage korduvaid kõnesid lühikese aja jooksul",
+  "timeInterceptorExplanationContent": "Kõnesageduse blokeerimise funktsioon analüüsib kõnesagedust, et automaatselt tuvastada ja blokeerida/lubada korduvaid rämpskõnesid.",
+  "timeInterceptorExplanationTitle": "Kõnesageduse blokeerimise selgitus",
+  "timeInterceptorSettingsTitle": "Kõnesageduse blokeerimise seaded",
+  "timeInterceptorSubtitle": "Hoiatage rämpskõnesid automaatselt kõnesageduse põhjal",
+  "timeInterceptorTitle": "Luba kõnesageduse blokeerimine",
+  "timeWindowDescription": "Määrake korduvate kõnede lubamise ajavahemik. Kõned samalt numbrilt selle akna jooksul lubatakse.",
+  "timeWindowLabel": "Blokeerimise ajavahemik (minutites): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "Määrake korduvate kõnede lubamise ajavahemik. Kõned samalt numbrilt selle akna jooksul lubatakse.",
+  "today": "Täna",
+  "total": "Kokku",
+  "totalBlocked": "Kokku blokeeritud",
+  "totalFiltered": "Kokku filtreeritud",
+  "transferDataBetweenDevicesOrPlatforms": "Edastage andmeid seadmete või platvormide vahel",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "Edastage andmeid seadmete või platvormide vahel",
+  "travelTicketing": "Reisipiletid",
+  "trend": "Trend",
+  "trendChart": "Trendigraafik",
+  "tutorial": "Õpetus",
+  "type": "Tüüp",
+  "unassignedSIMCard": "Määramata SIM-kaart",
+  "unknown": "Tundmatu",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "Tundmatu silt",
+  "unknownTag": "Silt: Tundmatu",
+  "unregisterButton": "De-registreeri",
+  "unregisterDeviceConfirmationMessage": "Kas olete kindel, et soovite seadme {deviceName} de-registreerida?",
+  "unregisterDeviceTitle": "Seadme de-registreerimine",
+  "unsupportedFileFormat": "Toetamata failivorming",
+  "update": "Värskenda",
+  "updateAllNow": "Värskenda kõike kohe",
+  "updateCallFilterConfig": "Värskenda kõnefiltri konfiguratsiooni",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "Kontakti värskendamine ebaõnnestus: {error}",
+  "updateFavoriteStatus": "Värskenda lemmikstaatust",
+  "updateFavoriteStatusFailed": "Lemmikstaatuse värskendamine ebaõnnestus: {error}",
+  "updateInterval": "Värskendusintervall",
+  "updateLabelFailed": "Sildi värskendamine ebaõnnestus",
+  "updateNow": "Värskenda kohe",
+  "updatePlugin": "Värskenda pistikprogrammi",
+  "updatePluginFailed": "Pistikprogrammi värskendamine ebaõnnestus: {error}",
+  "updateRuleFailed": "Reegli värskendamine ebaõnnestus: {error}",
+  "updateSubscriptionFailed": "Tellimuse värskendamine ebaõnnestus: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} värskendatud edukalt ({count} reeglit)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "Värskenda silte",
+  "useCasesPoint1": "• Tuvastage automaatselt uuesti valivad rämpskõned",
+  "useCasesPoint2": "• Hoiatage turunduskõnesid, mis helistavad lühikese aja jooksul mitu korda",
+  "useCasesPoint3": "• Vältige telefoniga pommitamist ja ahistamist",
+  "useCasesTitle": "Kasutusalad:",
+  "useGlobalSettings": "Kasuta globaalseid sätteid",
+  "userEmail": "user@example.com",
+  "usernameLabel": "Kasutajanimi",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "Kasutage mustrite määratlemiseks standardset regex-süntaksit. Näited:",
+  "validateRegex": "Valideeri Regex",
+  "verificationFailedText": "Ebaõnnestunud",
+  "verifiedText": "Kinnitatud",
+  "verify": "Kinnita",
+  "version": "Versioon: {version}",
+  "vipExchangeDescription": "Vahetage VIP-liikmelisust telefoninumbri märgistamise arvude vastu",
+  "vipExchangeTitle": "Vaheta VIP-i märgis",
+  "watchAd": "Vaata reklaami",
+  "watchAdForTemp": "Vaata reklaami ajutiste privileegide saamiseks",
+  "watchAdForTempDescription": "Vaadake lühike reklaam, et ajutiselt mõned premium-funktsioonid avada",
+  "webDAVConfigTitle": "WebDAVi konfiguratsioon",
+  "webdavConfigurationTitle": "WebDAVi konfiguratsioon",
+  "webdavPasswordHint": "Palun sisestage WebDAVi parool",
+  "webdavServerAddressHint": "Palun sisestage WebDAVi serveri aadress",
+  "webdavUsernameHint": "Palun sisestage WebDAVi kasutajanimi",
+  "week": "Nädal",
+  "weekly": "Iganädalane",
+  "weeklyBlockedCallsSummary": "Iganädalane blokeeritud kõnede kokkuvõte",
+  "weeklyChartTitle": "Iganädalased blokeeritud kõned",
+  "weeklyReport": "Iganädalane aruanne",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "Saate iganädalase kokkuvõtliku aruande kõnede blokeerimise tegevusest",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "Tere tulemast",
+  "whitelist": "Valge nimekiri",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "Valge nimekiri",
+  "width": "Laius",
+  "wildcardMatchingDescription": "Kasutage '.' mis tahes märgi sobitamiseks (nt '123.456' sobib 123-456-ga)",
+  "wildcardMatchingTitle": "Jokkerimärkide sobitamine:",
+  "wildcardSupportForFlexibleFiltering": "Jokkerimärkide tugi paindlikuks filtreerimiseks",
+  "windowSizeSetting": "Aken suurus",
+  "year": "Aasta",
+  "yearly": "Aastane",
+  "yearlyChartTitle": "Aastased blokeeritud kõned",
+  "noSimCardsDetected": "SIM-kaarte ei leitud",
+  "filterManagementDescription": "Seadistage kõnefiltrid",
+  "callerIdCustomizationSubtitle": "Kohandage helistaja numbri kuvamispaigutust",
+  "fraudAlerSettingTitle": "Pettusehoiatuse seadistus",
+  "fraudAlerSettingSubtitle": "Pettusehoiatuse seadistamiseks",
+  "enableFraudAlert": "Luba pettusehojatus",
+  "enableFraudAlertDescription": "Hoiatus kahtlaste pettuskõnede kohta",
+  "enableVibration": "Luba vibratsioon",
+  "enableVibrationDescription": "Vibreerib kahtlaste pettuskõnede korral",
+  "notificationSettingsTitle": "Teavitussätted",
+  "useLocalNotification": "Kasutage kohalikke teavitusi",
+  "useLocalNotificationDescription": "Luba kohalikke teavitusi sissetulevate kõnede jaoks",
+  "cancelLocalNotification": "Sulge kohalikud teavitused",
+  "useStirNotification": "Kasutage STIRilt teavitust",
+  "useStirNotificationDescription": "Luba STIR-teavitusi sissetulevate kõnede jaoks",
+  "cancelLocalNotificationDescription": "Sulge kohalikud teavitused automaatselt",
+  "callerIdSettingsTitle": "Helistaja numbri sätted",
+  "callerIdSettingsSubtitle": "Sissetuleva kõne teavituse ja kuvamisrežiimi seadistamiseks",
+  "purchaseTitle": "Ost",
+  "purchaseSubtitle": "Teenuse ostmiseks",
+  "callerIdNotificationTitle": "Sissetuleva kõne teave",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Number: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "Blokeeritud kõne",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "Blokeeritud kõne {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Kinnitatud",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Pole kinnitatud",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Kinnitamine ebaõnnestus",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Teadmata kinnitusolek",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "STIR/SHAKENi kinnitus",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} numbrile {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "Keriva turvasõnumi sätted",
+  "messageColor": "Sõnumi värv",
+  "messageFontSize": "Sõnumi fondisuurus",
+  "messagePosition": "Sõnumi asukoht",
+  "containerWidth": "Konteineri laius",
+  "scrollSpeed": "Kerimiskiirus",
+  "enableSecurityMessage": "Luba turvasõnum",
+  "fraudAlertTitle": "Pettusehojatus",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "Potentsiaalne pettusekõne {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "Reeglite laadimine ebaõnnestus: {error}",
+  "loadCallLogFailed": "Kõnelogi laadimine ebaõnnestus: {error}",
+  "noBlockedTypeData": "Blokeeritud tüüpi andmed pole saadaval",
+  "importEntity": "Importige {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} imporditud edukalt, imporditud kokku {count} kirjet",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "{entityTypeName} import ebaõnnestus: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Ekspordige {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} eksporditud edukalt",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "{entityTypeName} eksport ebaõnnestus: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "Pilvesünkroonimise teenus",
+  "membershipCenter": "Liikmesuse keskus",
+  "redeemVipWithMarks": "Lunastage VIP märkidega",
+  "currentMarkCount": "Praegune märkide arv",
+  "markMoreNumbersForMore": "Märkige rohkem numbreid rohkemaks märkideks",
+  "noAds": "Pole reklaame",
+  "cloudBackup": "Pilvevarundus",
+  "callerIdEnhancement": "Helistaja numbri täiustamine",
+  "voiceRecognition": "Häältuvastus",
+  "feature": "Funktsioon",
+  "normalUser": "Tavakasutaja",
+  "vipUser": "VIP-kasutaja",
+  "temporaryVip": "Ajutine VIP",
+  "removeAds": "Eemalda reklaamid",
+  "unknownAction": "Tundmatu toiming",
+  "settingsBackup": "Sätete varundus ",
+  "allServicesStatusTitle": "Praegune teenuse olek",
+  "allServicesStatusSubtitle": "Iga pilveteenuse praegune olek",
+  "redirect": "Edasi suunama",
+  "notify": "Teavitama",
+  "log": "Logi",
+  "custom": "Kohandatud",
+  "allowActionDescription": "Kõned lubatakse, isegi kui number on blokeeritud nimekirjas.",
+  "blockActionDescription": "Kõned blokeeritakse ja kuvatakse kõnelogis.",
+  "silenceActionDescription": "Kõned vaigistatakse, kuid kuvatakse kõnelogis.",
+  "noneActionDescription": "Kõne jaoks eritoimingut ei tehta.",
+  "redirectActionDescription": "Suunake kõne määratud numbrile.",
+  "labelActionDescription": "Lisage kõnele silt lihtsamaks tuvastamiseks.",
+  "notifyActionDescription": "Saate kõne saabumisel teate.",
+  "logActionDescription": "Logige kõne teave ilma muid toiminguid tegemata.",
+  "customActionDescription": "Tehke kohandatud toiming.",
+  "synced": "Sünkroniseeritud",
+  "needVipAccess": "Selle funktsiooni kasutamiseks vajate VIP-juurdepääsu",
+  "importExportDescription": "Importige või eksportige {entityTypeName} andmeid",
+  "importExportTitle": "Import/eksport",
+  "noPhoneRules": "Telefoni reeglid puuduvad",
+  "noRegexRules": "Regulereeglid puuduvad",
+  "noAllowedBlockedRules": "Lubatud/blokeeritud reeglid puuduvad",
+  "importExport": "Import/eksport",
+  "filterByAction": "Filtreerige tegevuse järgi",
+  "upgradeToVip": "Uuenda VIP-ks",
+  "batteryOptimizationPermission": "Aku aku aku",
+  "batteryOptimizationPermissionDescription": "Luba rakendusel töötada taustal, et pakkuda teenuseid nagu helistaja ID.",
+  "permissionTitle": "Eriload",
+  "permissionSubtitle": "Halda ülekatte- ja aku optimeerimise lube",
+  "themeSettingsTitle": "Teemaseaded",
+  "themeSettingsSubtitle": "Valige oma lemmikteema",
+  "databaseSyncTitle": "Andmebaasi sünkroonimine",
+  "countrySyncSettingsTitle": "Riigipõhised andmebaasi sünkroonimise sätted",
+  "countrySyncSettingsSubtitle": "Valige andmete sünkroonimiseks riigid",
+  "countryDataDisclaimer": "Pange tähele: Andmebaas ei pruugi sisaldada andmeid kõigi konkreetsete riikide või piirkondade kohta.",
+  "editSubscription": "Muuda tellimust",
+  "searchByNameOrPhoneNumber": "Otsi nime või telefoninumbri järgi",
+  "allowedBlockedRulesInfo": "Lubatud/blokeeritud reegleid kasutatakse kõnede sobitamiseks konkreetsete telefoninumbritega, millel on kõrgeim prioriteet.",
+  "searchPhoneRulesHint": "Otsi telefonireegleid",
+  "phoneRulesInfo": "Telefonireegleid kasutatakse kõnede sobitamiseks konkreetsete telefoninumbritega, millel on madalam prioriteet. Mõned pärinevad telefonireegli tellimustest",
+  "searchSubscriptionsHint": "Otsi tellimusi",
+  "searchPluginsHint": "Otsi pistikprogramme",
+  "searchLabelsHint": "Otsi silte",
+  "pluginDescription": "Pistikprogrammi kirjeldus",
+  "enterPluginDescription": "Sisestage pistikprogrammi kirjeldus",
+  "searchRegexRulesHint": "Otsi regex reegleid",
+  "regexRulesInfo": "Regex reegleid kasutatakse kõnede filtreerimiseks Regex mustrite põhjal.",
+  "searchMarkedPhonesHint": "Otsi märgitud telefone",
+  "searchContactSubscriptionsHint": "Otsi kontaktide tellimusi",
+  "showAllContacts": "Näita kõiki kontakte",
+  "showFavorites": "Näita lemmikuid",
+  "manualEntry": "Käsitsi sisestamise teave",
+  "scriptSaved": "Skript salvestatud",
+  "editScriptFor": "Muuda skripti {pluginName} jaoks",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "Salvesta skript",
+  "testPlugin": "Testi pistikprogrammi",
+  "description": "Kirjeldus",
+  "accessTargetUrl": "Juurdepääs sihtaadressile",
+  "result": "Tulemus",
+  "editScript": "Muuda skripti",
+  "numberFormat": "Numbrivorming",
+  "nationalNumber": "Rahvuslik number",
+  "e164Number": "E164 number",
+  "pluginRulesInfo": "Turvalisuse tagamiseks kasutage ainult usaldusväärsetest allikatest pärit pistikprogramme. Looge julgelt oma kohandatud pistikprogramme meie mallide abil!",
+  "advancedMode": "Täpsem režiim",
+  "pleaseEnterAtLeastOneNumber": "Palun sisestage vähemalt üks number.",
+  "openInWebView": "Ava WebView's",
+  "pluginLabel": "Pistikprogrammi silt",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "Sõnumi taustavärv",
+  "clearAllCallLogs": "Tühjenda kõik kõnelogid",
+  "clearAllCallLogsConfirmation": "Kinnita kõigi kõnelogide tühjendamine",
+  "allCallLogsCleared": "Kõik kõnelogid tühjendatud",
+  "unblocked": "Blokeering tühistatud",
+  "blockNumber": "Blokeeri number",
+  "blockNumberSuccess": "Numbri blokeerimine õnnestus",
+  "blockNumberFailed": "Numbri blokeerimine ebaõnnestus",
+  "unblockNumberConfirmation": "Kas olete kindel, et soovite tühistada {phoneNumber} blokeeringu?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "Helistatakse {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "Vaata üksikasju",
+  "unblock": "Tühista blokeering",
+  "unblockNumber": "Tühista numbri blokeering",
+  "unblockNumberSuccess": "Number edukalt blokeeritud",
+  "unblockNumberFailed": "Numbri blokeeringu tühistamine ebaõnnestus",
+  "serviceNotAvailable": "Teenus pole saadaval",
+  "callingNumberFailed": "Helistatava numbri tõrge",
+  "listView": "Loendi vaade",
+  "timelineView": "Ajajoon vaade",
+  "nameCannotBeEmpty": "Nimi ei saa olla tühi",
+  "selectAction": "Valige toiming",
+  "selectTargetService": "Valige sihtteenus",
+  "callDetails": "Kõne üksikasjad",
+  "callType": "Kõne tüüp",
+  "callTime": "Kõne aeg",
+  "numberInvalidFormat": "Number vales vormingus",
+  "membershipFeature": "Liikmelisuse funktsioon",
+  "medium": "Keskmine",
+  "verificationReport": "Kontrolliaruanne",
+  "finalRisk": "Lõplik risk",
+  "simState": "SIM olek",
+  "ipCountry": "IP riik",
+  "simCountry": "SIM riik",
+  "isRoaming": "Rändlus",
+  "isNumberMatch": "Numbri vaste",
+  "support": "Tugi",
+  "rewardedAdService": "Autasustatud reklaamide teenus",
+  "hasVipPrivilegeExceptAds": "Teil on juba VIP-õigused (v.a reklaamid)",
+  "hasTempPrivilegeWithExpiry": "Teil on juba ajutised õigused, aegumiskuupäev: {expiryDate}",
+  "watchMoreAdsForTempVip": "Peate vaatama veel {count} reklaami, et saada ajutised VIP-õigused",
+  "grantedTempPurchaseWithExpiry": "Teile on antud {days} päeva ajutised ostuõigused. Aegumiskuupäev: {expiryDate}",
+  "tempPurchaseExpired": "Ajutised ostuõigused on aegunud",
+  "loadingAd": "Laeb reklaami...",
+  "earnedTempVip": "Teenitud ajutine VIP",
+  "vipExchangeService": "VIP vahetusteenus",
+  "marksInsufficient": "Vahetuseks pole piisavalt märke",
+  "invalidExchangeRule": "Kehtetu vahetuse reegel",
+  "exchangeSuccess": "Vahetati edukalt {description}, aegumiskuupäev: {expiryDate}",
+  "exchangeFailed": "Vahetus ebaõnnestus: {error}",
+  "vip3DaysWithAds": "3-päevane VIP koos reklaamidega (ainult sünkroonimine)",
+  "vip5DaysNoAds": "5-päevane täisfunktsionaalne reklaamivaba VIP",
+  "vip7DaysNoAds": "7-päevane täisfunktsionaalne reklaamivaba VIP",
+  "noNotifications": "Teateid pole",
+  "clearAllNotifications": "Tühjenda kõik teated",
+  "clearAllNotificationsConfirmation": "Kinnita kõigi teadete tühjendamine",
+  "allNotificationsCleared": "Kõik teatised on tühjendatud",
+  "clearButton": "Tühjenda",
+  "justNow": "Just praegu",
+  "minutesAgo": "{count,plural, =1{1 minut tagasi} other{{count} minutit tagasi}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1 tund tagasi} other{{count} tundi tagasi}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1 päev tagasi} other{{count} päeva tagasi}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "Eile",
+  "deletionProposal": "Kustutamisettepanek",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "Kustutamisettepanekud",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "Loo ettepanek",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "Loo kustutamisettepanek",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "Põhjus",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "Vanu andmeid",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Privaatsusmure",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Ei ole teenuses",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Valesti tuvastatud",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Ebatäpne teave",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "Valesti märgitud",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "Muu",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "Esita",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "Tühista",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "Olek",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "Ootel",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "Aktiivne",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "Lõpetatud",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "Aegunud",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "Riskitase",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "Tuvastatud",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "Madal",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "Kõrge",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "Teadmata",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "Hääletuse käik",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "Poolt: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "Vastu: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "Kokku: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "Poolt",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "Vastu",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "Loodud: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "Näita aruannet",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "Peida aruanne",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "Ettepanekute statistika",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "Ettepanekuid kokku",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "Aktiivsed ettepanekud",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "Lõpetatud ettepanekud",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "Minu hääled",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "Ettepanek loodi edukalt",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "Ettepaneku loomine nurjus",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "Hääl esitati edukalt",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "Hääle esitamine nurjus",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "Ettepanekuid ei leitud",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "Ettepanekuid laetakse...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "Värskenda ettepanekud",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "Ootel ettepanekuid kokku",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "Kõrge risk",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "Keskmine risk",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "Madal risk",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "Kogukonna mõju",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "Kriitilised probleemid",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "Kogukonna osalus",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "Puudub tegevus",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "Madal",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "Mõõdukas",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "Kõrge",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "Väga kõrge",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "Hääletatud",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "Kogukonna hääled",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "Oodatakse rohkem kogukonna hääli",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "See ettepanek on töödeldud",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "TOETATUD",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "VASTATUD",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "HEAKS KIIDETUD",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "TAGASI LÜKATUD",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "LÕPETATUD",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "OTSELINE",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "Kriitiline",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "Vastu",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "Väga madal",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "Teated kustutamisettepanekute hääletustulemuste ja uuenduste kohta.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "Kustutamisettepanek loodud",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "Teie kustutamisettepanek numbrile {phoneNumber} on esitatud kogukonna ülevaatamiseks.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "Ettepanek heaks kiidetud ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "Kogukond kiitis numbri {phoneNumber} kustutamisettepaneku heaks ({supportPercentage}% toetus, {totalVotes} häält).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "Ettepanek tagasi lükatud ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "Kogukond lükkas numbri {phoneNumber} kustutamisettepaneku tagasi ({supportPercentage}% toetus, {totalVotes} häält).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "Kogukonna hääletus alanud",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "Uus kustutamisettepanek numbrile {phoneNumber} on avatud kogukonna hääletuseks.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "Hääletus lõppenud",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "Numbri {phoneNumber} kogukonna hääletus on lõppenud. Tulemus: {result} ({supportPercentage}% toetus).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "Uus hääl saadud",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "Keegi hääletas numbri {phoneNumber} kustutamise poolt {voteType}. Praegused hääled: {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "Häälte arvu laadimine nurjus",
+  "voteCount": "Häälte arv",
+  "deletionProposalInfo": "Kustutamisettepaneku teave",
+  "deletionProposalDescription": "Esitage kustutamiseks numbrid, mis rikuvad kogukonna juhiseid. Teie osalus aitab platvormi turvalisena hoida.",
+  "voteToEarnVip": "Hääletage ettepanekute poolt, et teenida VIP-õigusi!",
+  "voteFailed": "Hääletamine nurjus",
+  "searchProposals": "Otsi ettepanekuid",
+  "defaultNotifications": "Vaiketeated",
+  "defaultNotificationsDescription": "Rakenduse vaiketeatekanal.",
+  "blockedCallNotifications": "Blokeeritud kõneteated",
+  "blockedCallNotificationsDescription": "Kuvab teavet blokeeritud kõnede kohta.",
+  "stirVerification": "STIR/SHAKENi verifitseerimine",
+  "stirVerificationDescription": "Kuvab STIR/SHAKENi verifitseerimistulemused numbrite jaoks.",
+  "fraudAlerts": "Pettusehoiatused",
+  "fraudAlertsDescription": "Kuvab hoiatusi potentsiaalsete pettuslike kõnede kohta.",
+  "notificationFrequencyDescription": "Valige, kui tihti teile uute kustutamisettepanekute kohta teateid saadetakse. Saate neid saada kohe, partiidena või kohandatud ajavahemiku järel.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "Kohe",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "Saate teate niipea, kui ettepanek luuakse.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "Partiina",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "Saate perioodiliselt teadete kokkuvõtte.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "Kohandatud",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "Määrake oma ajavahemik teadete saamiseks.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "Kohandatud sagedus",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} min",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} t",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} t {minutes} min",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "Ootel ettepanekud",
+  "pendingProposalsBody": "Teil on {count, plural, =0 {ootel ettepanekuid ei ole} one {1 ootel ettepanek} other {{count} ootel ettepanekut}}.",
+  "guidelinesLabel": "Juhised",
+  "reportingGuidelines": "• Raporteerige ainult numbreid, mis on tõeliselt problemaatilised\n• Esitage täpsed ja üksikasjalikud põhjendused\n• Valige sobiv riskitase sõltuvalt tõsidusest\n• Valeraportid võivad põhjustada konto piiramist",
+  "riskLevelLabel": "Riskitase",
+  "riskLevelDescription": "Numbrite riskitase",
+  "phoneNumberMinDigits": "Telefoninumber peab olema vähemalt 7 numbrit pikk",
+  "provideDetailedExplanation": "Esitage üksikasjalik selgitus (miinimunm 10 tähemärki)",
+  "reasonMinCharacters": "Põhjendus peab olema vähemalt 10 tähemärki pikk",
+  "countryCodeTwoLetters": "Riigikood (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Riigikood (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "nt. US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "Riigikood on kohustuslik",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "Riigikood peab olema 2 tähte pikk",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "Telefoninumber peab olema vähemalt 7 numbrit pikk",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "Esitage üksikasjalik selgitus (miinimunm 10 tähemärki)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "Põhjendus on kohustuslik",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "Põhjendus peab olema vähemalt 10 tähemärki pikk",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "Juhised",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• Raporteerige ainult numbreid, mis on tõeliselt problemaatilised\n• Esitage täpsed ja üksikasjalikud põhjendused\n• Valige sobiv riskitase sõltuvalt tõsidusest\n• Valeraportid võivad põhjustada konto piiramist",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "Kriitiline",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "Keskmine",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "Väga madal",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "Väga madal - väike tüli, harvad kõned",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "Madal - aeg-ajalt soovimatud kõned",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "Keskmine - tavaline rämpspost või telemarketing",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "Kõrge - pidev ahistamine või pettusekatsed",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "Kriitiline - ohtlikud pettused või ähvardused",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "Teavitussagedus",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "Teavitussagedus (tunnid)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "Viga: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "Hääled: {totalVotes} ({supportPercentage}%) toetust",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "Toetus ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "Vastuseis ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "Äsja",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes}m tagasi",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours}t tagasi",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days}p tagasi",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "Teavitussagedus (tunnid)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} häält ({supportPercentage}% toetust)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 tundi} =1{1 tund} other{{count} tundi}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "Tähtis teadaanne",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "Numbrid pärinevad internetist ja kasutajate esitatud andmetest. Me ei saa garanteerida, et number pärast kustutamist ei esitata uuesti teiste kasutajate või allikate poolt. Palun otsige ja kontrollige teavet aktiivselt.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "Avatari",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Asukoht",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIM-kaart",
+  "liveActivitiesSettingsTitle": "Reaalajas tegevuste seaded",
+  "elementsSettingsTitle": "Elementide seaded",
+  "liveActivityMode": "Reaalajas tegevus",
+  "liveActivityModeDescription": "Kuvab kõneinfot lukustusekraanil ja dünaamilisel saarel (iOS) püsiva teatisena.",
+  "phoneNumberType": "Telefoninumbri tüüp",
+  "liveActivitiesTestEndActivity": "Lõpeta tegevus",
+  "liveActivitiesTestSendNewActivity": "Saada uus tegevus",
+  "liveActivitiesTestUpdateActivity": "Värskenda tegevust",
+  "liveActivityControlsTitle": "Reaalajas tegevuse juhtnupud",
+  "liveActivitiesTestTitle": "Reaalajas tegevuste test",
+  "liveActivitiesTestSubtitle": "Testige reaalajas tegevuse teatist.",
+  "liveNotificationCustomizationTitle": "Reaalajas teate kohandamine",
+  "liveNotificationCustomizationSubtitle": "Kohandage reaalajas teadete välimust.",
+  "notification_instructions": "Juhised:\n1. Puudutage \"SAADA\", et luua või värskendada teatist.\n2. Minge oma avaekraanile või tõmmake teavitusriba alla, et näha tulemust.\n3. Puudutage \"LÕPETA\", et teatis sulgeda.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "Automaatne tühistamine",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "Kui on märgitud, tühistatakse teatis automaatselt, kui kasutaja sellele puudutab.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "Määra viivitusaeg",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Ettepaneku üksikasjad",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "Filtreeri oleku järgi",
+  "proposalNotFound": "Ettepanekut ei leitud",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "Töödeldud",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Näita kõiki",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "Filtreeri ja sorteeri",
+  "filterVerifiedOwner": "Filtreeri kinnitatud omaniku järgi",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "Filtreeri",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "Sorteeri vanemate järgi",
+  "sortNewest": "Sorteeri uuemate järgi",
+  "sortMostPopular": "Sorteeri kõige populaarsemate järgi",
+  "sortLeastPopular": "Sorteeri kõige vähem populaarsete järgi",
+  "sortBy": "Sorteeri",
+  "simRulesNotFound": "SIM-reegleid ei leitud",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "SIM-pesa reeglid",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "SIM-kaarti ei tuvastatud",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "Kehtetud SIM-andmed",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "SIM-kaardi andmed",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "SIM-pesa",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "Luba filtreerimine",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "Üksikasjalikud seaded",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "Sisenemispunkti vaade",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "Tagasi lükatud",
+  "callTypeSilenced": "Vaigistatud",
+  "callTypeVoicemail": "Kõnepost",
+  "callTypeUnknownIntercept": "Tundmatu vahelesekkumine",
+  "andMoreItems": "ja veel {count} üksust",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

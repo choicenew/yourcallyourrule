@@ -1,0 +1,3092 @@
+{
+  "@@locale": "sw",
+  "aboutContactSubscription": "Kuhusu Usajili wa Anwani",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "Kuhusu Lebo",
+  "aboutPhoneSubscriptionRules": "Kuhusu Sheria za Usajili wa Simu",
+  "aboutPhoneSubscriptions": "Kuhusu Usajili wa Simu",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "Jiandikishe kwenye orodha za sheria za simu kupitia URL, sasisha sheria kiotomatiki. Inaauni faili za sheria za umbizo la JSON, CSV.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "Kuhusu Kuchuja SMS",
+  "aboutSmsSubscriptionRules": "Kuhusu Sheria za Usajili wa SMS",
+  "aboutSubtitle": "Maelezo ya toleo la programu na kisheria",
+  "aboutTitle": "Kuhusu",
+  "action": "Tendo",
+  "actionAll": "Zote",
+  "actionAllow": "Ruhusu",
+  "actionBlock": "zuia",
+  "actionFilterAll": "Chujio zote",
+  "actionFilterTitle": "Chuja kwa Aina ya Tendo",
+  "actionFilterTooltip": "Chujio cha Tendo",
+  "actionNone": "Hakuna Tendo",
+  "actionSilence": "Nyamazisha",
+  "actionTag": "Tendo: {actionType}",
+  "actionType": "Aina ya Tendo",
+  "actionUnknown": "Haijulikani",
+  "add": "Ongeza",
+  "addAllowedBlockedRule": "Ongeza Sheria ya Ruhusu/Zuia",
+  "addAllowSubscription": "Ongeza Usajili wa Ruhusu",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Ongeza Usajili wa Zuia",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Ongeza Anwani",
+  "addContactFailed": "Imeshindwa kuongeza anwani: {error}",
+  "addedToAllowedRules": "Imeongezwa kwenye Sheria za Ruhusu",
+  "addedToBlacklist": "Imeongezwa kwenye Orodha Nyeusi",
+  "addedToBlockedRules": "Imeongezwa kwenye Sheria za Zuia",
+  "addedToFavoriteContacts": "Imeongezwa kwenye anwani unazopendelea",
+  "addedToFavorites": "Imeongezwa kwenye vipendwa",
+  "addedToWhitelist": "Imeongezwa kwenye Orodha Nyeupe",
+  "addFavorite": "Ongeza Kipendwa",
+  "addFilter": "Ongeza Kichujio",
+  "addLabel": "Ongeza Lebo",
+  "addLabelButton": "Ongeza Lebo",
+  "addLabelFailed": "Imeshindwa kuongeza lebo: {error}",
+  "addLabelToCall": "Ongeza Lebo kwenye Rekodi ya Simu",
+  "addName": "Ongeza Jina",
+  "addNoneSubscription": "Ongeza Usajili wa Hakuna",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "Inatumiwa kuongeza au kuhariri maelezo ya anwani",
+  "addPhoneMark": "Ongeza Alama ya Simu",
+  "addPhoneNumberRule": "Ongeza Sheria ya Nambari ya Simu",
+  "addPlugin": "Ongeza Programu jalizi",
+  "addPluginFailed": "Imeshindwa kuongeza programu jalizi",
+  "addPluginFailedWithError": "Imeshindwa kuongeza programu jalizi: {error}",
+  "addPluginFromLocalFile": "Ongeza Programu jalizi kutoka Faili ya Ndani",
+  "addPluginFromUrl": "Ongeza Programu jalizi kutoka URL",
+  "addRegexRule": "Ongeza Sheria ya Regex",
+  "addRule": "Ongeza Sheria",
+  "addRuleButton": "Ongeza Sheria",
+  "addRuleFailed": "Imeshindwa kuongeza sheria: {error}",
+  "addRuleTooltip": "Ongeza Sheria",
+  "addSilenceSubscription": "Ongeza Usajili wa Nyamazisha",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "Ongeza Sheria ya SIM",
+  "addSmsFilterRule": "Ongeza Sheria ya Kuchuja SMS",
+  "addSmsRule": "Ongeza Sheria ya SMS",
+  "addSmsSubscription": "Ongeza Usajili wa SMS",
+  "addSubscription": "Ongeza Usajili",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Ongeza Usajili",
+  "addSubscriptionFailed": "Imeshindwa kuongeza usajili: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Ongeza Usajili",
+  "addToAllowedRules": "Ongeza kwenye Sheria za Ruhusu",
+  "addToBlacklist": "Ongeza kwenye Orodha Nyeusi",
+  "addToBlockedRules": "Ongeza kwenye Sheria za Zuia",
+  "addToFavoriteContacts": "Ongeza kwenye Anwani Unazopendelea",
+  "addToFavorites": "Ongeza kwenye Vipendwa",
+  "addToRules": "Ongeza kwenye Sheria",
+  "addToWhitelist": "Ongeza kwenye Orodha Nyeupe",
+  "adPlaceholder": "Mahali pa Tangazo",
+  "agent": "Wakala",
+  "all": "Zote",
+  "allCallsTab": "Zote",
+  "allDataClearedSuccessfully": "Data zote zimefutwa kwa mafanikio",
+  "allow": "Ruhusu",
+  "allowAllAllowRules": "Ruhusu Sheria Zote za Ruhusu",
+  "allowAllAllowRulesDesc": "Ruhusu simu kutoka kwa sheria za ruhusu",
+  "allowAllBlacklistedNumbers": "Ruhusu Nambari Zote Zilizoorodheshwa Nyeusi",
+  "allowAllBlacklistedNumbersDesc": "Ruhusu simu kutoka orodha ya zuio",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "Ruhusu Sheria Zote za Zuia",
+  "allowAllBlockRulesDesc": "Ruhusu simu kutoka sheria za zuio",
+  "allowAllowedNumbers": "Ruhusu Nambari Zilizoruhusiwa",
+  "allowAllowedNumbersDesc": "Ruhusu simu kutoka orodha ya ruhusu",
+  "allowBlock": "Ruhusu/Zuia",
+  "allowBlockedNumbers": "Ruhusu Nambari Zilizozuiwa",
+  "allowBlockedNumbersDesc": "Ruhusu simu kutoka orodha ya zuio",
+  "allowedBlockedRule": "Sheria ya Ruhusu/Zuia",
+  "allowedBlockedRuleEditDialogTitle": "Hariri Sheria ya Ruhusu/Zuia",
+  "allowedBlockedRuleManagement": "Usimamizi wa Sheria ya Ruhusu/Zuia",
+  "allowNonExceededNumbers": "Ruhusu Nambari Ambazo Hazijazidi",
+  "allowNonExceededNumbersDescription": "Ruhusu kiotomatiki nambari ambazo hazizidi kiwango cha hesabu",
+  "allowRegexAllowRules": "Ruhusu Sheria za Regex za Ruhusu",
+  "allowRegexAllowRulesDesc": "Washa ruwaza za ruwaza za sheria za ruhusu",
+  "allowRegexAllowRulesDescription": "Washa sheria za msingi wa regex za ruhusu",
+  "allowRegexBlockRules": "Ruhusu Sheria za Regex za Zuia",
+  "allowRegexBlockRulesDesc": "Washa ruwaza za ruwaza za sheria za zuia",
+  "allowRegexBlockRulesDescription": "Washa sheria za msingi wa regex za zuia",
+  "allowRule": "Sheria ya Ruhusu",
+  "allowRules": "Sheria za Ruhusu",
+  "allowWhitelistedNumbers": "Ruhusu Nambari za Kwenye Orodha Nyeupe",
+  "allowWhitelistedNumbersDescription": "Ruhusu nambari zote kwenye orodha nyeupe",
+  "allPermissionsGranted": "Ruhusa zote zimetolewa",
+  "allSettingsCompleted": "Mipangilio yote imekamilika.",
+  "allUpdateSuccess": "Majesho yote yamekamilika ({count} sheria)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "Jibu kisha kata simu",
+  "appLegalese": "© 2023 Simu Yako Sheria Yako. Haki zote zimehifadhiwa.",
+  "applicationSoftware": "Programu ya Maombi",
+  "apply": "Tumia",
+  "appName": "Simu Yako Sheria Yako",
+  "authorizationFailedCheckCredentialsMessage": "Ruhusa imeshindikana: Tafadhali angalia kitambulisho cha mteja na ufunguo",
+  "authorizationFailedMessage": "Ruhusa imeshindikana",
+  "authorizationSuccessMessage": "Ruhusa imefanikiwa",
+  "authorizeLoginButton": "Ruhusu Ingia",
+  "automotiveIndustry": "Sekta ya Magari",
+  "autoSyncLabel": "Usawazishaji Otomatiki",
+  "autoUpdate": "Sasisho Otomatiki",
+  "autoUpdateDescription": "Weka vipindi vya sasisho otomatiki vya usajili au sasisha mwenyewe",
+  "autoUpdateSettings": "Mazingira ya Sasisho Otomatiki",
+  "autoUpdateSettingsSubtitle": "Dhibiti masasisho ya kiotomatiki kwa sheria na programu jalizi",
+  "autoUpdateSettingsTitle": "Mazingira ya Sasisho Otomatiki",
+  "autoUpdateSubtitle": "Dhibiti masasisho ya kiotomatiki kwa sheria na programu jalizi",
+  "autoUpdateTitle": "Sasisho Otomatiki",
+  "avatarBorderColor": "Rangi ya Mwonekano wa Avatar",
+  "avatarBorderSize": "Ukubwa wa Mwonekano wa Avatar",
+  "avatarIconSizesSetting": "Ukubwa wa Avatar na Ikoni",
+  "avatarPosition": "Nafasi ya Avatar",
+  "avatarSize": "Ukubwa wa Avatar",
+  "axisPosition": "Nafasi ya {axis}",
+  "backgroundGradientSetting": "Kivuli cha Mandharinyuma",
+  "backup": "Hifadhi Nakala",
+  "backupAndRestore": "Hifadhi Nakala na Rejesha",
+  "backupAndRestoreSubtitle": "Hifadhi nakala au rudisha data ya programu",
+  "backupAndRestoreTitle": "Hifadhi Nakala & Rejesha",
+  "backupFailed": "Hifadhi nakala imeshindikana",
+  "backupFailedMessage": "Hifadhi nakala imeshindikana",
+  "backupFailedWithError": "Hifadhi nakala imeshindikana: {error}",
+  "backupRestoreSubtitle": "Hifadhi nakala au rudisha data ya programu",
+  "backupRestoreTitle": "Hifadhi Nakala & Rejesha",
+  "backupSectionTitle": "Hifadhi Nakala",
+  "backupSettings": "Mazingira ya Hifadhi Nakala",
+  "backupSettingsDialogTitle": "Mazingira ya Hifadhi Nakala",
+  "backupSettingsTitle": "Mazingira ya Hifadhi Nakala",
+  "backupSuccessMessage": "Imefanikiwa kuhifadhiwa kwenye wingu",
+  "backupSuccessToLocal": "Hifadhi nakala imefanikiwa kwa: {path}",
+  "backupToCloud": "Hifadhi Nakala kwenye Wingu",
+  "backupToCloudDescription": "Hifadhi nakala mipangilio na sheria kwenye hifadhi ya wingu",
+  "backupToCloudFailed": "Imeshindwa kuhifadhi nakala kwenye wingu: {error}",
+  "backupToCloudLabel": "Hifadhi Nakala kwenye Wingu",
+  "backupToCloudSuccess": "Imefanikiwa kuhifadhiwa kwenye wingu",
+  "backupToCloudTitle": "Hifadhi Nakala kwenye Wingu",
+  "backupToLocalLabel": "Hifadhi Nakala Kwenye Hifadhi ya Ndani",
+  "bank": "Benki",
+  "basicInfo": "Taarifa za Msingi",
+  "basicRuleFilter": "Kichujio cha Sheria za Msingi",
+  "basicRuleFiltering": "Uchujaji wa Sheria za Msingi",
+  "basicRuleFilteringExplanation": "• Uchujaji wa Sheria za Msingi: Kuchuja sheria kulingana na orodha nyeusi, orodha nyeupe, na regex",
+  "basicRuleFilterSettings": "Mazingira ya Kichujio cha Sheria za Msingi",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "Chuja simu kwa kutumia orodha nyeusi/nyeupe na misemo ya kawaida",
+  "batchDeleteContacts": "Futa Wasifu kwa Wingi",
+  "batchDeleteContactsConfirm": "Je, una uhakika unataka kufuta wasifu {count} uliochaguliwa?",
+  "batchDeleteFailed": "Ufutaji kwa wingi umeshindikana",
+  "batchDeleteLabelsConfirm": "Je, una uhakika unataka kufuta lebo {count} ulizochagua?",
+  "blacklist": "Orodha Nyeusi",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "Kuweka kwenye Orodha Nyeusi na Nyeupe",
+  "blacklistLabel": "Orodha Nyeusi",
+  "blackWhiteList": "Orodha Nyeusi/Nyeupe",
+  "block": "Zuia",
+  "blockCalls": "Zuia Simu",
+  "blocked": "Imesitishwa",
+  "blockedCallAction": "Kitendo cha Simu Zilizosikizwa",
+  "blockedCalls": "Simu Zilizosikizwa",
+  "blockedCallsTitle": "Simu Zilizosikizwa",
+  "blockedCommunications": "Mawasiliano Yaliyosikizwa",
+  "blockedPhoneLabel": "Simu Zilizosikizwa",
+  "blockedSpamCalls": "Simu za Barua taka Zilizosikizwa",
+  "blockingTrend": "Mwelekeo wa Kuzuia",
+  "blockInternationalCalls": "inafanana na nambari ambazo hazianzi na + au 00",
+  "blockInternationalCallsTitle": "Zuia Simu za Kimataifa",
+  "blockLandlineNumbersTitle": "Zuia Nambari za Simu za Kifiksi",
+  "blockMobileNumbers": "inafanana na nambari ambazo hazianzi na 13-19",
+  "blockMobileNumbersTitle": "Zuia Nambari za Simu za Mkononi",
+  "blockPremiumRateNumbers": "inafanana na nambari ambazo hazianzi na 118 au 120-190",
+  "blockPremiumRateNumbersTitle": "Zuia Nambari za Viwango vya Juu",
+  "blockRule": "Sheria ya Kuzuia",
+  "blockRules": "Sheria za Kuzuia",
+  "blockSpecificAreaCodes": "inafanana na nambari zinazoanza na 0 + tarakimu 2-3",
+  "blockSpecificAreaCodesTitle": "Zuia nambari za maeneo maalum:",
+  "blockTypeAnalysisTitle": "Uchambuzi wa Aina ya Kuzuia",
+  "both": "Wote wawili",
+  "bulkDelete": "Futa kwa Wingi Wasifu",
+  "bulkDeleteContacts": "Futa Wasifu kwa Wingi",
+  "bulkDeleteLabels": "Futa Lebo kwa Wingi",
+  "call": "Simu",
+  "callback": "Piga Simu ya Kurudi",
+  "callbackTo": "Piga simu ya kurudi kwa {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "Kuzuia Simu",
+  "callerIdApp": "Programu ya Kitambulisho cha Mpigaji",
+  "callerIdCustomizationTitle": "Customize Kitambulisho cha Mpigaji",
+  "callerIdDialogTitle": "Taarifa za Kitambulisho cha Mpigaji",
+  "callerIdDisplayMode": "Njia ya Kuonyesha Kitambulisho cha Mpigaji",
+  "callerIdMarkedByCount": "Imewekwa alama na {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "Muhtasari wa Kitambulisho cha Mpigaji",
+  "callFilter": "Kichujio cha Simu",
+  "callFilterDescription": "Zikiwa zimewashwa, simu zinazoingia huangaliwa dhidi ya orodha ya sheria hapa chini. Sheria za kuchuja simu hazisawazishwi kati ya vifaa kwa chaguo-msingi.",
+  "callFilterRules": "Sheria za Kichujio cha Simu",
+  "callFilterRulesDescription": "Weka sheria za kimsingi za kuchuja simu",
+  "callFilterSettings": "Mipangilio ya Kichujio cha Simu",
+  "callFrequencyInterceptionSubtitle": "Weka mipaka ya mzunguko wa simu na sheria za kuzuia",
+  "callFrequencyInterceptionTitle": "Uzuiaji wa Mzunguko wa Simu",
+  "callHistory": "Historia ya Simu",
+  "callHistoryInfoDesc": "Hapa tunaonyesha historia yako ya simu, ikijumuisha simu zinazoingia, zinazotoka na zilizokosa.",
+  "callHistoryInfoTitle": "Historia ya Simu",
+  "callHistoryInitFailed": "Imeshindwa kuanzisha historia ya simu: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "Imeshindwa kusasisha historia ya simu: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "Historia ya Simu",
+  "callHistoryTimelineEarlier": "Mapema",
+  "callHistoryTimelineToday": "Leo",
+  "callHistoryTimelineYesterday": "Jana",
+  "callScreeningPermission": "Ruhusa ya Kuchunguza Simu",
+  "callScreeningPermissionDescription": "Inatumiwa kuchunguza na kuzuia simu za ulaghai.",
+  "callScreeningPermissionNotGranted": "Ruhusa ya kuchunguza simu haijapewa, inaweza kuathiri utendaji wa programu.",
+  "callSettingsSubtitle": "Kitambulisho cha mpigaji, mipangilio ya kuchuja na kuzuia",
+  "callSettingsTitle": "Mipangilio ya Simu",
+  "callStatistics": "Takwimu za Simu",
+  "callTypeAnswered": "Imejibiwa",
+  "callTypeBlocked": "Imesitishwa",
+  "callTypeIconColor": "Rangi ya Aikoni ya Aina ya Simu",
+  "callTypeMissed": "Simu Iliyokosa",
+  "callTypeOutgoing": "Inayotoka",
+  "callTypePosition": "Nafasi ya Aina ya Simu",
+  "callTypeUnknown": "Haijulikani",
+  "cancelButton": "Ghairi",
+  "carRental": "Kukodisha Gari",
+  "carrier": "Mtoa Huduma",
+  "carrierColor": "Rangi ya Mtoa Huduma",
+  "carrierFontSize": "Saizi ya Fomati ya Mtoa Huduma",
+  "carrierPosition": "Nafasi ya Mtoa Huduma",
+  "changeLabel": "Badilisha Lebo",
+  "changePluginStatusFailed": "Imeshindwa kubadilisha hali ya programu-jalizi: {error}",
+  "changeSubscriptionStatusFailed": "Imeshindwa kubadilisha hali ya usajili: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "Badilisha Tagi",
+  "charity": "Ufadhili",
+  "chartMonthFormat": "Mwezi {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "Siku 1 iliyopita",
+  "chartOneMonthAgo": "Mwezi 1 uliopita",
+  "chartOneWeekAgo": "Wiki 1 iliyopita",
+  "chartTenDaysAgo": "Siku 10 zilizopita",
+  "chartThreeDaysAgo": "Siku 3 zilizopita",
+  "chartToday": "Leo",
+  "checkFileFormat": "Tafadhali angalia umbizo la faili au ruhusa",
+  "checkPermissionFailed": "Imeshindwa kuangalia ruhusa: {error}",
+  "chooseDefaultInterceptAction": "Chagua hatua ya msingi ya kukatiza",
+  "clearAllData": "Futa Data Zote",
+  "clearAllDataConfirmation": "Je, una uhakika unataka kufuta data zote za programu? Hatua hii haiwezi kutenduliwa.",
+  "clearAllDataDescription": "Futa data zote za programu",
+  "clearAllDataLabel": "Futa Data Zote",
+  "clearFilter": "Futa Kichujio",
+  "clearLabelFilter": "Futa Kichujio cha Lebo",
+  "clearLabelFilterButton": "Futa Kichujio cha Lebo",
+  "closeButton": "Funga",
+  "cloudSync": "Usawazishaji wa Wingu",
+  "cloudSyncAndBackupTitle": "Usawazishaji wa Wingu & Hifadhi Nakala",
+  "cloudSyncSettingsSubtitle": "Sanidi WebDAV, OneDrive na Hifadhi ya Google",
+  "cloudSyncSettingsTitle": "Mipangilio ya Usawazishaji wa Wingu",
+  "cloudSyncTitle": "Usawazishaji wa Wingu",
+  "collapseLabelSelector": "Ondoa Kidude cha Kiteuzi cha Lebo",
+  "collection": "Ukusanyaji wa Madeni",
+  "colorPickerTitle": "Chagua Rangi",
+  "configManagement": "Usimamizi wa Usanidi",
+  "configUpdated": "Usanidi umesasishwa",
+  "configurationAdvice": "Kupitia usanidi sahihi, unaweza kuweka mikakati tofauti ya kuchuja kwa kadi za SIM za kazi na za kibinafsi.",
+  "configureBackupOptions": "Sanidi Chaguo za Hifadhi Nakala",
+  "configureBackupOptionsSubtitle": "Sanidi chaguo za hifadhi nakala",
+  "configureCloudSyncService": "Sanidi Huduma ya Usawazishaji wa Wingu",
+  "configureCloudSyncServiceHint": "Tafadhali sanidi huduma ya usawazishaji wa wingu ili kuwezesha usawazishaji wa vifaa vingi.",
+  "configureCloudSyncServiceMessage": "Tafadhali sanidi huduma ya usawazishaji wa wingu ili kuwezesha usawazishaji wa vifaa vingi.",
+  "configureSimCardFilterRules": "Sanidi Sheria za Kichujio cha Kadi ya SIM",
+  "configureSyncServiceHint": "Tafadhali sanidi huduma ya usawazishaji katika mipangilio ya usawazishaji wa wingu kwanza",
+  "confirm": "Thibitisha",
+  "confirmBatchDeleteContacts": "Je, una uhakika unataka kufuta uliochaguliwa",
+  "confirmButton": "Thibitisha",
+  "confirmDelete": "Thibitisha Kufuta",
+  "confirmDeleteContact": "Je, una uhakika unataka kufuta",
+  "confirmDeleteContactName": "Thibitisha kufuta?",
+  "confirmDeleteFilter": "Je, una uhakika unataka kufuta kichujio hiki?",
+  "confirmDeleteLabel": "Je, una uhakika unataka kufuta lebo \"{name}\"",
+  "confirmDeletePlugin": "Je, una uhakika unataka kufuta programu-jalizi \"{name}\"?",
+  "confirmDeletePlugins": "Je, una uhakika unataka kufuta programu-jalizi {count}?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "Je, una uhakika unataka kufuta sheria hii? Hatua hii haiwezi kutenduliwa.",
+  "confirmDeleteSelectedContacts": "Je, una uhakika wa kufuta anwani zilizochaguliwa?",
+  "confirmDeleteSmsFilterRule": "Je, una uhakika unataka kufuta sheria hii ya kichujio cha SMS?",
+  "confirmDeleteSmsRule": "Je, una uhakika unataka kufuta sheria hii ya SMS?",
+  "confirmDeleteSubscription": "Je, una uhakika unataka kufuta usajili huu?",
+  "confirmDeleteSubscriptions": "Je, una uhakika unataka kufuta {name}?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "Thibitisha Nenosiri",
+  "confirmPasswordLabel": "Thibitisha Nenosiri",
+  "connectedStatus": "Imeunganishwa",
+  "connectionFailedCheckCredentialsMessage": "Muunganisho umeshindwa: Tafadhali angalia anwani ya seva, jina la mtumiaji, na nenosiri",
+  "connectionFailedMessage": "Muunganisho umeshindwa",
+  "connectionStatusLabel": "Hali ya Muunganisho",
+  "connectionSuccessMessage": "Muunganisho umefanikiwa",
+  "contactAddSuccess": "Mwasiliani ameongezwa kwa ufanisi",
+  "contactDeleted": "Mwasiliani amefutwa",
+  "contactEditDialog": "Dialogi ya kuhariri Mwasiliani",
+  "contactNameHint": "Weka jina la mwasiliani (hiari)",
+  "contactNameLabel": "Jina",
+  "contactNameOptional": "Jina la mwasiliani (hiari)",
+  "contactNotFound": "Mwasiliani hajapatikana",
+  "contacts": "Mawasiliano",
+  "contactsDeleted": "Mawasiliano {count} yamefutwa",
+  "contactSettingsSubtitle": "Usimamizi wa mawasiliano na mipangilio ya lebo",
+  "contactSettingsTitle": "Mipangilio ya Mawasiliano",
+  "contactsLoadingFailed": "Imeshindwa kupakia mawasiliano: {error}",
+  "contactsManagement": "Usimamizi wa Mawasiliano",
+  "contactsManagementPageTitle": "Ukurasa wa Usimamizi wa Mawasiliano",
+  "contactsPageTitle": "Usimamizi wa Mawasiliano",
+  "contactsPermission": "Ruhusa ya Mawasiliano",
+  "contactsPermissionDescription": "Inatumiwa kutambua simu za mawasiliano.",
+  "contactsTab": "Mawasiliano",
+  "contactSubscriptionDescription": "Jijumuishe kwenye orodha za mawasiliano kupitia URL, sasisha kiotomatiki taarifa za mawasiliano na lebo. Inaauni data ya umbizo la JSON.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "Imeshindwa kupakia usajili wa mawasiliano: {error}",
+  "contactSubscriptionPageTitle": "Usajili wa Mawasiliano",
+  "contactUpdateSuccess": "Mwasiliani amesasishwa kwa ufanisi",
+  "contactUs": "Wasiliana Nasi",
+  "content": "Maudhui",
+  "contentRegex": "Regex ya Maudhui",
+  "countColor": "Rangi ya Hesabu",
+  "countFontSize": "Saizi ya herufi ya Hesabu",
+  "countPosition": "Nafasi ya Hesabu",
+  "country": "Nchi",
+  "countryNameColor": "Rangi ya jina la Nchi",
+  "countryNameFontSize": "Saizi ya herufi ya jina la Nchi",
+  "countryRegionNamePosition": "Nafasi ya jina la Nchi/Mkoa",
+  "countrySelectionDialog": "Dialogi ya Kuchagua Nchi",
+  "countrySelectionDialogDescription": "Inatumiwa kuchagua nchi kwa ajili ya kuuliza taarifa za kitambulisho cha mpigaji.",
+  "countThresholdDescription": "Weka kiwango cha chini zaidi kinachohitajika ili kuamsha vitendo vya kuchuja",
+  "countThresholdLabel": "Kiwango cha Hesabu",
+  "countThresholdSettings": "Mipangilio ya Kiwango cha Hesabu",
+  "countThresholdValue": "Kiwango cha Hesabu: {count}",
+  "createdRules": "Sheria Zilizoundwa",
+  "csvFormat": "Umbizo la CSV",
+  "currentDeviceChip": "Kipuri",
+  "currentDeviceLabel": "Lebo ya Kifaa cha Sasa",
+  "currentDeviceTitle": "Kifaa cha Sasa",
+  "currentLabels": "Lebo za Sasa:",
+  "currentLanguage": "Lugha ya Sasa",
+  "currentPasswordLabel": "Nenosiri la Sasa",
+  "customerService": "Huduma kwa Wateja",
+  "customRange": "Kiwango Maalum",
+  "dailyStatistics": "Takwimu za Kila Siku",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "Pokea takwimu za kila siku kuhusu simu na ujumbe uliozuiliwa",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "Dashibodi",
+  "dataAnalysis": "Uchambuzi wa Data",
+  "dataAnalysisDashboardPage": "Ukurasa wa Dashibodi ya Uchambuzi wa Data",
+  "dataExport": "Usafirishaji wa Data",
+  "dataLoadFailure": "Data imeshindwa kupakia: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "Imeshindwa kupakia data: {error}",
+  "dataMigration": "Uhamishaji wa Data",
+  "dataMigrationDescription": "Kipengele hiki hukuruhusu kuhamisha data zako zote kati ya vifaa. Kwa sasa, unaweza kutumia vipengele vya chelezo na urejeshaji kuhamisha data zako mwenyewe.",
+  "dataMigrationDialogContent": "Kipengele hiki hukuruhusu kuhamisha data zako zote kati ya vifaa. Kwa sasa, unaweza kutumia vipengele vya chelezo na urejeshaji kuhamisha data zako mwenyewe.",
+  "dataMigrationDialogTitle": "Uhamishaji wa Data",
+  "dataMigrationSectionTitle": "Uhamishaji wa Data",
+  "dataSourceReminder": "Kikumbusho cha Chanzo cha Data",
+  "days": "{count, plural, =1{siku 1} other{{count} siku}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "Siku {days} VIP",
+  "debtCollection": "Ukusanyaji wa Madeni",
+  "defaultPeriod": "Wiki",
+  "delete": "Futa",
+  "deleteButton": "Futa",
+  "deleteContact": "Futa Mwasiliani",
+  "deleteContactConfirm": "Je, una uhakika unataka kufuta {name}?",
+  "deleteContactConfirmation": "Je, una uhakika unataka kufuta mwasiliani",
+  "deleteDeviceConfirmation": "Je, una uhakika unataka kufuta {deviceName}?",
+  "deleteDeviceDialogTitle": "Futa Kifaa",
+  "deleteFailed": "Imeshindwa kufuta: {error}",
+  "deleteFilter": "Futa Kichujio",
+  "deleteLabel": "Futa Lebo",
+  "deleteLabelFailed": "Imeshindwa kufuta lebo: {error}",
+  "deletePlugin": "Futa Plugin",
+  "deletePluginFailed": "Imeshindwa kufuta plugin: {error}",
+  "deletePlugins": "Futa Plugins",
+  "deletePluginsFailed": "Imeshindwa kufuta plugins: {error}",
+  "deleteRule": "Futa Sheria",
+  "deleteRuleFailed": "Imeshindwa kufuta: {error}",
+  "deleteSelected": "Futa Zilizochaguliwa",
+  "deleteSmsRule": "Futa Sheria ya SMS",
+  "deleteSubscription": "Futa Usajili",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "Je, una uhakika unataka kufuta usajili \"{name}\"?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "Imeshindwa kufuta usajili: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "Umeshindwa kufuta",
+  "delivery": "Utoaji",
+  "deviceDeletedSuccessfully": "Kifaa kimefutwa kwa ufanisi",
+  "deviceDeletedSuccessfullyMessage": "Kifaa kimefutwa kwa ufanisi",
+  "deviceIdLabel": "Kitambulisho cha Kifaa",
+  "deviceIDLabel": "Kitambulisho cha Kifaa",
+  "deviceManagementSubtitle": "Dhibiti usawazishaji wa vifaa vingi",
+  "deviceManagementTitle": "Usimamizi wa Kifaa",
+  "deviceModelLabel": "Kielelezo cha Kifaa",
+  "deviceName": "Jina la Kifaa",
+  "deviceNameCannotBeEmpty": "Jina la kifaa haliwezi kuwa tupu",
+  "deviceNameHint": "Tafadhali weka jina la kifaa",
+  "deviceNameLabel": "Jina la Kifaa",
+  "deviceRenamedSuccessfully": "Kifaa kimebadilishwa jina kwa mafanikio",
+  "deviceRenamedSuccessfullyMessage": "Kifaa kimebadilishwa jina kwa mafanikio",
+  "devicesSyncedSuccessfully": "Vifaa vimesawazishwa kwa mafanikio",
+  "devicesSyncedSuccessfullyMessage": "Vifaa vimesawazishwa kwa mafanikio",
+  "devicesSynchronizedSuccessfullyMessage": "Vifaa vimesawazishwa kwa mafanikio",
+  "deviceUnregisteredSuccessfullyMessage": "Kifaa kimefutwa usajili kwa mafanikio",
+  "dialogTitle": "Ufafanuzi wa Muundo wa Regex",
+  "differentFromLocalCounter": "Kipengele hiki kinatofautiana na kichujio cha kaunta cha ndani, kwani kinazingatia ruwaza za simu zinazorudiwa kwa muda mfupi badala ya kuhesabu kwa muda mrefu.",
+  "disabled": "Imewekwa Zima",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "Imewekwa Zima",
+  "disableGlobalPlugins": "Zima programu jalizi za kimataifa",
+  "disableSubscriptionSuccessfully": "Zima usajili kwa mafanikio",
+  "disconnectButton": "Kata Muunganisho",
+  "disconnectedMessage": "Haikuwa na Muunganisho",
+  "disconnectedStatus": "Haikuwa na Muunganisho",
+  "disconnectFailedMessage": "Kukata muunganisho kumefeli",
+  "done": "Imekamilika",
+  "dualSimAdvice": "Kipengele hiki ni muhimu sana kwa simu za dual-SIM kuweka mikakati tofauti ya kuchuja kwa kadi za SIM za kazini na za kibinafsi.",
+  "earlier": "Mapema",
+  "ecommerce": "E-commerce",
+  "edit": "Hariri",
+  "editContact": "Hariri Anwani",
+  "editFilter": "Hariri Kichujio",
+  "editLabel": "Hariri lebo",
+  "editPhoneRule": "Hariri Kanuni ya Simu",
+  "editPhoneRules": "Inatumiwa kuhariri kanuni za simu",
+  "editPhoneRuleTitle": "Hariri Kanuni ya Simu",
+  "editRule": "Hariri Kanuni",
+  "editSmsRule": "Hariri Kanuni ya SMS",
+  "education": "Elimu",
+  "elementPositionsSetting": "Nafasi za Vipengele",
+  "email": "Barua pepe",
+  "emailOptional": "Barua pepe (Opsheni)",
+  "enableCallFilter": "Washa Kichujio cha Simu",
+  "enableCallFilterDescription": "Inapowashwa, simu zinazoingia huangaliwa dhidi ya orodha ya kanuni zilizo hapa chini. Kanuni za kuchuja simu hazisawazishwi kati ya vifaa kwa chaguo-msingi.",
+  "enabled": "Washa",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "Washa",
+  "enableEncryption": "Washa Usimbaji fiche",
+  "enableEncryptionDescription": "Simbua faili za chelezo",
+  "enableEncryptionLabel": "Washa Usimbaji fiche",
+  "enableEncryptionSubtitle": "Faili za chelezo zitakuwa zimesimbwa kwa njia fiche",
+  "enableEncryptionTitle": "Washa Usimbaji fiche",
+  "enableGlobalPlugins": "Washa programu jalizi za kimataifa",
+  "enableLocalCountFilter": "Washa Kichujio cha Kaunta ya Ndani",
+  "enableLocalCountFilterDescription": "Chuja kiotomatiki simu za barua taka kulingana na hesabu ya kuashiria simu",
+  "enableLocalNotification": "Tumia Arifa za Ndani",
+  "enableLocalNotificationDescription": "Inapowashwa, arifa za ujumbe uliochujwa zitaonyeshwa kwenye kifaa",
+  "enableLocationSummary": "Mahali",
+  "enableMuteRules": "Washa Kanuni za Nyamazisha",
+  "enableMuteRulesDesc": "Tumia usanidi wa kanuni za kukatiza kimya",
+  "enableNoneActionRules": "Washa Kanuni za Hatua Hakuna",
+  "enableNoneActionRulesDesc": "Ruhusu usanidi wa kanuni bila vitendo vya kukatiza",
+  "enableNotifications": "Washa Arifa",
+  "enableRemoteNumberFilter": "Washa Kichujio cha Nambari za Mbali",
+  "enableRemoteNumberFilterDescription": "Tumia hifadhidata ya mbali kuchuja nambari",
+  "enableRule": "Washa Kanuni",
+  "enableSmsFilter": "Washa Kuchuja kwa SMS",
+  "enableSmsFilterDescription": "Inapowashwa, ujumbe utachujwa kiotomatiki kulingana na kanuni",
+  "enableStatisticsNotifications": "Washa Arifa za Takwimu",
+  "enableSubscriptionSuccessfully": "Washa usajili kwa mafanikio",
+  "enableTimeInterception": "Washa Kukatiza Wakati",
+  "enableTimeInterceptionDescription": "Kukata simu zinazorudiwa kwa muda mfupi",
+  "enableTimeInterceptor": "Washa Kipatanishi cha Wakati",
+  "endCallImmediately": "Komesha simu mara moja",
+  "endColor": "Rangi ya Mwisho",
+  "endDate": "Tarehe ya Mwisho",
+  "enhancedFilterInstructionsTitle": "Maagizo ya Mfumo wa Kichujio Kilichoimarishwa",
+  "enhancedFilterSettings": "Mazingira ya Kichujio Kilichoimarishwa",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "Mazingira ya Kichujio Kilichoimarishwa",
+  "enhancedFilterSystemDescription": "Mfumo wa kichujio ulioimarishwa unasaidia kanuni za kimataifa na usanidi wa kuchuja kwa kila kadi ya SIM.",
+  "enterBothPhoneNumberAndRegexPattern": "Tafadhali weka nambari ya simu na muundo wa regex",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Tafadhali weka nambari ya simu na muundo wa regex.",
+  "enterContactName": "Tafadhali weka jina la anwani",
+  "enterCurrentPasswordHint": "Tafadhali weka nenosiri la sasa",
+  "enterDeviceName": "Weka jina la kifaa",
+  "enterDeviceNameHint": "Tafadhali weka jina la kifaa",
+  "enterEmail": "Tafadhali weka barua pepe",
+  "enterEmailOptional": "Tafadhali weka barua pepe (hiari)",
+  "enterEncryptionPasswordHint": "Weka nenosiri la usimbaji fiche",
+  "enterEncryptionPasswordTitle": "Weka Nenosiri la Usimbaji fiche",
+  "enterFilterName": "Tafadhali weka jina la kichujio",
+  "enterFilterPattern": "Tafadhali weka muundo wa kichujio",
+  "enterIconCode": "Weka msimbo wa aikoni",
+  "enterName": "Weka jina la anwani",
+  "enterNewDeviceNameHint": "Weka jina jipya kwa kifaa hiki",
+  "enterNewPasswordHint": "Tafadhali weka nenosiri jipya",
+  "enterPasswordAgain": "Weka Nenosiri Tena",
+  "enterPasswordHint": "Tafadhali weka nenosiri",
+  "enterPhoneNumber": "Weka nambari ya simu",
+  "enterPhoneNumberHint": "Weka nambari ya simu ili kujaribu",
+  "enterPhoneNumberMultiple": "Tafadhali weka nambari ya simu, nambari nyingi zimetenganishwa na koma",
+  "enterPhoneNumberToStartSearch": "Weka nambari ya simu ili kuanza utafutaji",
+  "enterPhoneNumberToVerify": "Weka nambari ya simu ili kuthibitisha",
+  "enterPluginName": "Weka Jina la Programu jalizi",
+  "enterPluginUrl": "Weka anwani ya URL ya programu jalizi",
+  "enterRegexHint": "Weka muundo wa regex",
+  "enterRuleNameAndPattern": "Tafadhali weka jina la kanuni na muundo",
+  "enterRuleNameAndPatternMessage": "Tafadhali ingiza jina la sheria na muundo wa regex.",
+  "enterRuleNameHint": "Weka jina la sheria",
+  "enterSearchContent": "Tafadhali weka yaliyomo ya utaftaji",
+  "enterSubscriptionName": "Weka jina la usajili",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "Weka URL ya usajili",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "Tafadhali weka jina la folda ya kusawazisha (chaguo-msingi: NotificationManager)",
+  "entertainment": "Burudani",
+  "enterValidNameAndUrl": "Tafadhali weka jina na URL sahihi",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "Tafadhali weka URL sahihi",
+  "enterVersion": "Weka Toleo",
+  "enterWebDAVPasswordHint": "Tafadhali weka nenosiri la WebDAV",
+  "enterWebDAVServerAddressHint": "Tafadhali weka anwani ya seva ya WebDAV",
+  "enterWebDAVUsernameHint": "Tafadhali weka jina la mtumiaji la WebDAV",
+  "errorDeletingDeviceMessage": "Hitilafu wakati wa kufuta kifaa: {error}",
+  "errorLoadingPlugin": "Hitilafu wakati wa kupakia programu jalizi",
+  "errorOccurredMessage": "Hitilafu imetokea: {error}",
+  "errorRenamingDeviceMessage": "Hitilafu wakati wa kubadilisha jina la kifaa: {error}",
+  "errorSynchronizingDevicesMessage": "Hitilafu wakati wa kusawazisha vifaa: {error}",
+  "errorSyncingDevicesMessage": "Hitilafu wakati wa kusawazisha vifaa: {error}",
+  "errorText": "Hitilafu",
+  "errorUnregisteringDeviceMessage": "Hitilafu wakati wa kuondoa usajili wa kifaa: {error}",
+  "exampleBlock400Prefix": "k.m. Zuia nambari za mwanzo 400",
+  "exampleBlockMarketingSms": "k.m. Zuia SMS za masoko",
+  "exampleContentRegex": "k.m., .*offer.*",
+  "exampleContentRegexHint": "Mfano wa Regex ya Yaliyomo",
+  "exampleCouponPromotionDiscount": "k.m. .*(kuponi|promosheni|punguzo).*",
+  "exampleFamilyFriends": "k.m. Familia, Marafiki, n.k.",
+  "examplePhoneNumber": "k.m. 10086, 12345, n.k.",
+  "exampleRegex400Prefix": "Mfano wa regex kwa mwanzo 400",
+  "exampleRegexFormat": "Mfano: umbizo la ^10086$",
+  "exampleSenderRegexHint": "Mfano",
+  "exchange": "Badilisha",
+  "exchangeNow": "Badilisha Sasa",
+  "exchangeVip": "Badilisha VIP",
+  "expandLabelSelector": "Panua Kipengeuzi cha Lebo",
+  "expiryTime": "Wakati wa kuisha: {time}",
+  "export": "Hamisha",
+  "exportAllApplicationSettings": "Hamisha mipangilio yote ya programu",
+  "exportAllApplicationSettingsSubtitle": "Hamisha mipangilio yote ya programu",
+  "exportAllRuleConfigurations": "Hamisha Michezo Yote ya Kanuni",
+  "exportAllRuleConfigurationsSubtitle": "Hamisha michakato yote ya kanuni",
+  "exportComplete": "Hamisha Imekamilika",
+  "exportConfig": "Hamisha Mipangilio",
+  "exportContacts": "Hamisha Anwani",
+  "exportData": "Hamisha Data",
+  "exportError": "Hitilafu ya Hamisho",
+  "exportFailed": "Hamisha Imeshindwa",
+  "exportFailure": "Imeshindwa kuhifadhi mipangilio",
+  "exportFeatureComingSoon": "Kipengele cha kuhamisha kinakuja hivi karibuni",
+  "exporting": "Inahamisha...",
+  "exportLabels": "Hamisha Lebo",
+  "exportLabelsFailed": "Imeshindwa kuhamisha lebo: {error}",
+  "exportPluginList": "Hamisha Orodha ya Programu Jalizi",
+  "exportPluginListFailed": "Imeshindwa kuhamisha orodha ya programu jalizi: {error}",
+  "exportRules": "Hamisha Kanuni",
+  "exportRulesDialogTitle": "Hamisha Kanuni",
+  "exportRulesTitle": "Hamisha Kanuni",
+  "exportSmsRules": "Hamisha Kanuni za SMS",
+  "exportStatisticsData": "Hamisha Data ya Takwimu",
+  "exportSuccess": "Hamisha Imefanikiwa",
+  "exportSuccesslly": "Mipangilio imehifadhiwa kwa mafanikio",
+  "failedToAddContact": "Imeshindwa kuongeza anwani",
+  "failedToAddRule": "Imeshindwa kuongeza kanuni: {error}",
+  "failedToAddSmsRule": "Imeshindwa kuongeza kanuni ya SMS: {error}",
+  "failedToAddSmsSubscription": "Imeshindwa kuongeza usajili wa SMS: {error}",
+  "failedToBackupSettings": "Imeshindwa kuhifadhi nakala za mipangilio: {error}",
+  "failedToDecryptBackupFile": "Imeshindwa kufungua faili ya nakala ya akiba",
+  "failedToDeleteDevice": "Imeshindwa kufuta kifaa",
+  "failedToDeleteSmsRule": "Imeshindwa kufuta kanuni ya SMS: {error}",
+  "failedToExportRules": "Imeshindwa kuhamisha kanuni: {error}",
+  "failedToExportSmsRules": "Imeshindwa kuhamisha kanuni za SMS: {error}",
+  "failedToGetCallerIdInfo": "Imeshindwa kupata taarifa za kitambulisho cha mpigaji: {error}",
+  "failedToImportRules": "Imeshindwa kuingiza kanuni: {error}",
+  "failedToImportSmsRules": "Imeshindwa kuingiza kanuni za SMS: {error}",
+  "failedToLoadContacts": "Imeshindwa kupakia anwani",
+  "failedToLoadPlugin": "Imeshindwa kupakia programu jalizi",
+  "failedToRenameDevice": "Imeshindwa kubadilisha jina la kifaa",
+  "failedToRestoreSettings": "Imeshindwa kurejesha mipangilio",
+  "failedToRestoreSettingsWithError": "Imeshindwa kurejesha mipangilio: {error}",
+  "failedToSetPassword": "Imeshindwa kuweka nenosiri: {error}",
+  "failedToSyncDevices": "Imeshindwa kusawazisha vifaa",
+  "failedToToggleRuleStatus": "Imeshindwa kubadilisha hali ya kanuni: {error}",
+  "failedToToggleSubscriptionStatus": "Imeshindwa kubadilisha hali ya usajili",
+  "failedToUpdateContact": "Imeshindwa kusasisha anwani",
+  "failedToUpdateSmsRule": "Imeshindwa kusasisha kanuni ya SMS: {error}",
+  "failure": "Kushindwa",
+  "favoriteContacts": "Anwani Unazozipenda",
+  "featureAddRules": "• Ongeza kanuni maalum za nambari za simu",
+  "featureCenter": "Kituo cha Vipengele",
+  "featureEnableDisable": "• Washa/lemaza vichujio tofauti kwa kila SIM",
+  "featureListTitle": "Vipengele:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• Dhibiti orodha za kanuni kwa kila SIM",
+  "features": "Vipengele",
+  "fetchingCallerIdInfo": "Inapakia taarifa za kitambulisho cha mpigaji...",
+  "fileSavedTo": "Faili imehifadhiwa katika: {path}",
+  "filter": "Chuja",
+  "filterByLabel": "Chuja kwa Lebo",
+  "filterClear": "Futa Kichujio",
+  "filterControlPanelTitle": "Jopo la Udhibiti wa Kichujio",
+  "filterControlSubtitle": "Dhibiti hali ya kuwasha/kuzima ya vichujio vyote",
+  "filterControlTitle": "Udhibiti wa Kichujio",
+  "filterDeleteFailed": "Kufuta kichujio kumefeli",
+  "filterDeleteSuccess": "Kichujio kimefutwa kwa mafanikio",
+  "filterDetails": "Maelezo ya Kichujio",
+  "filtered": "Kichujio kimetumika",
+  "filteredSms": "SMS Zilizochujwa",
+  "filteredSmsLabel": "SMS Zilizochujwa",
+  "filterExplanation": "Maelezo ya Kichujio",
+  "filterManagement": "Usimamizi wa Vichujio",
+  "filterName": "Jina la Kichujio",
+  "filterPattern": "Kielelezo cha Kichujio",
+  "filterPriorityNote": "Kumbuka: Kuna mahusiano ya kipaumbele kati ya vichujio, tafadhali rejelea hati za usaidizi kwa maelezo zaidi",
+  "filterSaveFailed": "Kuhifadhi kichujio kumefeli",
+  "filterSaveSuccess": "Kichujio kimehifadhiwa kwa mafanikio",
+  "filterSettings": "Mipangilio ya Kichujio",
+  "filterSettingsTitle": "Mipangilio ya Kichujio",
+  "filterSMS": "Kichujio cha SMS",
+  "filterToggleInstructions": "Wezesha au zima vichujio kwa sehemu hii ya SIM:",
+  "filterToggleStatus": "Kichujio cha {status}: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "Aina ya Kichujio",
+  "financial": "Fedha",
+  "flexibleCombinationFeature": "• Mchanganyiko Mwororo: Wezesha/zima vichujio kwa kila sehemu ya SIM",
+  "fontSizesSetting": "Ukubwa wa Fonti",
+  "foundRules": "Imepata sheria {count}",
+  "foundRulesDoYouWantToImport": "Imepata sheria {count}. Je, unataka kuziagiza?",
+  "foundRulesToImport": "Imepata sheria {count}. Je, unataka kuziagiza?",
+  "fraudAlert": "TAHADHARI YA UZUSHI - Kata simu",
+  "fraudScamLikely": "Ulaghai wa Udanganyifu",
+  "free": "Bure",
+  "functionSettingsTitle": "Mipangilio ya Kazi",
+  "generalUpdateFailure": "Sasisho kumefeli: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Pata Bure",
+  "github": "GitHub",
+  "globalFilterDescription": "Sanidi vichujio vya jumla kwa kadi zote za SIM:",
+  "globalFilterFeature": "• Vichujio vya Jumla: Sheria za msingi kwa simu zote zinazoingia",
+  "globalFilterSettings": "Mipangilio ya Vichujio vya Jumla",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "Sanidi mipangilio ya kichujio cha jumla ambayo hutumika kwa sehemu zote za SIM:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Tafuta mwasiliani, lebo, orodha nyeusi, orodha nyeupe, n.k.",
+  "globalSearchTitle": "Tafuta Jumla",
+  "globalSettings": "Mipangilio ya Jumla",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Nafasi ya Kuonyesha Tangazo la Google",
+  "googleAdMobIntegrationText": "Matangazo ya Google AdMob yanaweza kuunganishwa hapa",
+  "googleDriveAuthDescription": "Ruhusu kwa kutumia kitambulisho na ufunguo wa mteja wa Hifadhi ya Google uliosanidiwa na mfumo",
+  "googleDriveAuthorizationHint": "Ruhusu kwa kutumia kitambulisho na ufunguo wa mteja wa Hifadhi ya Google uliosanidiwa na mfumo",
+  "googleDriveConfigTitle": "Sanidi Hifadhi ya Google",
+  "googleDriveConfigurationTitle": "Sanidi Hifadhi ya Google",
+  "government": "Serikali",
+  "granted": "Imeruhusiwa",
+  "grantNecessaryPermissions": "Ruhusu Ruhusa Muhimu",
+  "grantPermissions": "Ruhusu Ruhusa",
+  "headhunter": "Mwindaji wa Watu",
+  "height": "Urefu",
+  "homePageTitle": "Ukurasa wa Nyumbani",
+  "homeTab": "Nyumbani",
+  "howItWorksPoint1": "• Mfumo utaruhusu kiotomatiki simu kutoka kwa nambari sawa ndani ya dirisha la muda lililowekwa",
+  "howItWorksPoint2": "• Madirisha mafupi ya muda husababisha kukatizwa kwa ukali zaidi; madirisha marefu ya muda husababisha kukatizwa kwa huria zaidi",
+  "howItWorksPoint3": "• Mfumo huangalia magogo ya simu ili kubaini kama ni simu inayojirudia",
+  "howItWorksTitle": "Jinsi Inavyofanya Kazi:",
+  "iconCodeOptional": "Nambari ya Aikoni (Si lazima)",
+  "iconSize": "Ukubwa wa Aikoni",
+  "import": "Agiza",
+  "important": "Muhimu",
+  "importButton": "Agiza",
+  "importConfig": "Agiza Sanidi",
+  "importContacts": "Agiza Wwasiliani",
+  "importExportContacts": "Agiza/Hamisha Wwasiliani",
+  "importExportContactsTooltip": "Agiza/Hamisha Wwasiliani",
+  "importExportRules": "Agiza/Hamisha Sheria",
+  "importFailed": "Uagizaji umefeli: {error}",
+  "importFailure": "Imeshindwa kuagiza sanidi",
+  "importFeatureComingSoon": "Kipengele cha kuagiza kinakuja hivi karibuni",
+  "importLabels": "Agiza Lebo",
+  "importLabelsFailed": "Imeshindwa kuagiza lebo: {error}",
+  "importPluginList": "Agiza Orodha ya Plug-ins",
+  "importPluginListFailed": "Imeshindwa kuagiza orodha ya plug-ins: {error}",
+  "importPluginSuccess": "Umeagiza plug-ins {count} kwa mafanikio",
+  "importRuleConfigurationsFromFile": "Agiza Sanidi za Sheria kutoka faili",
+  "importRuleConfigurationsFromFileSubtitle": "Agiza sanidi za sheria kutoka faili",
+  "importRules": "Agiza Sheria",
+  "importRulesButton": "Agiza Sheria",
+  "importRulesDialogTitle": "Agiza Sheria",
+  "importRulesError": "Imeshindwa kuagiza sheria: {error}",
+  "importRulesInstructions": "Agiza sheria kutoka faili ya CSV",
+  "importRulesSuccess": "Sheria zimeagizwa kwa mafanikio",
+  "importRulesTitle": "Agiza Sheria",
+  "importSuccess": "Uagizaji umefanikiwa",
+  "incomingCallInterceptAction": "Kitendo cha Kukatiza Simu Zinazoingia",
+  "incomingCallNotification": "Arifa ya Simu Inayoingia",
+  "incorrectPassword": "Nenosiri lisilo sahihi",
+  "initializing": "Inaanza",
+  "installed": "Imesakinishwa",
+  "insufficientMarks": "Alama Haizitoshi",
+  "insurance": "Bima",
+  "interceptAction": "Kitendo cha Kukatiza",
+  "interceptionActionSettingsSubtitle": "Weka jinsi simu zilizozuiwa zinavyoshughulikiwa",
+  "interceptionActionSettingsTitle": "Mipangilio ya Kitendo cha Kukatiza",
+  "interceptionTimeInterval": "Muda wa Kukatiza",
+  "internet": "Intaneti",
+  "intervalSetSuccess": "Muda wa kusasisha wa {service} umewekwa kwa siku {days}",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Regex ya maudhui si sahihi",
+  "invalidLabel": "Lebo lisilo sahihi",
+  "invalidRegexPattern": "Mfumo wa kawaida wa kueleza hauwezekani",
+  "invalidSenderRegex": "Mfumo wa kawaida wa kueleza mtumaji hauwezekani",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Jiunge na Kituo na Kundi la Telegram kwa Taarifa Zaidi",
+  "jsLogsTitle": "Magogo ya JS",
+  "jsonFormat": "Muundo wa JSON",
+  "keepAllVersions": "Hifadhi Matoleo Yote",
+  "keepAllVersionsDescription": "Hifadhi matoleo yote ya zamani ya kila nakala rudufu",
+  "keepAllVersionsLabel": "Hifadhi Matoleo Yote",
+  "keepAllVersionsSubtitle": "Hifadhi matoleo ya zamani ya kila nakala rudufu",
+  "keepAllVersionsTitle": "Hifadhi Matoleo Yote",
+  "label": "Lebo",
+  "labelAddedSuccessfully": "Lebo \"{name}\" imeongezwa kwa mafanikio",
+  "labelCategories": "Kategoría za Lebo",
+  "labelDeleted": "Lebo imefutwa",
+  "labelDescription": "Lebo hukusaidia kudhibiti anwani vizuri zaidi, ongeza lebo maalum kwa nambari za simu kwa utambulisho rahisi wa simu na ujumbe.",
+  "labelFilter": "Kichujio cha Lebo",
+  "labelFilterTooltip": "Kichujio cha Lebo",
+  "labelIconColor": "Rangi ya Aikoni ya Lebo",
+  "labelManagement": "Usimamizi wa Lebo",
+  "labelNotFound": "Lebo haikupatikana",
+  "labelRemoved": "Lebo imeondolewa",
+  "labelRemoveFailed": "Imeshindwa kuondoa lebo: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "Lebo",
+  "labelsColor": "Rangi ya Lebo",
+  "labelsDeleted": "Lebo {count} zimefutwa",
+  "labelsExportedSuccessfully": "Lebo zimesafirishwa kwa mafanikio",
+  "labelsFontSize": "Ukubwa wa herufi wa Lebo",
+  "labelsImportedSuccessfully": "Imefanikiwa kuagiza lebo {count}",
+  "labelsPosition": "Nafasi ya Lebo",
+  "labelTag": "Lebo: {labelId}",
+  "labelUpdated": "Lebo imesasishwa",
+  "labelUpdateFailed": "Imeshindwa kusasisha lebo: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "Lebo \"$labelText\" imesasishwa kwa mafanikio",
+  "languageSettings": "Mazingira ya Lugha",
+  "languageSettingsSubtitle": "Badilisha lugha ya kuonyesha programu",
+  "languageSettingsTitle": "Mazingira ya Lugha",
+  "last30Days": "Siku 30 Zilizopita",
+  "last7Days": "Siku 7 Zilizopita",
+  "lastSyncLabel": "Usawazishaji wa Mwisho",
+  "lastUpdated": "Iliyo na sasisho la mwisho: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "Uanachama wa Maisha",
+  "lifetimeMembershipDescription": "Ununuzi wa mara moja, fungua kabisa vipengele vyote vya malipo na masasisho ya baadaye",
+  "loadContactsFailed": "Imeshindwa kupakia anwani: {error}",
+  "loadDataFailed": "Imeshindwa kupakia data",
+  "loadFailed": "Imeshindwa kupakia",
+  "loading": "Inapakia...",
+  "loadingData": "Inapakia Data...",
+  "loadingTags": "Inapakia vitambulisho...",
+  "loadLabelFailed": "Imeshindwa kupakia lebo: {error}",
+  "loadLabelsFailed": "Imeshindwa kupakia lebo: {error}",
+  "loadMarkCountFailed": "Imeshindwa kupakia nambari za simu zilizowekwa alama: {error}",
+  "loadMarkedPhonesFailed": "Imeshindwa kupakia nambari za simu zilizowekwa alama: {error}",
+  "loadMore": "Pakia Zaidi",
+  "loadPluginButton": "Pakia Nyongeza",
+  "loadPluginsFailed": "Imeshindwa kupakia nyongeza: {error}",
+  "loadSettingsFailed": "Imeshindwa kupakia mazingira: {error}",
+  "loadSmsRulesFailed": "Imeshindwa kupakia sheria za SMS: {error}",
+  "loadStatusFailedMessage": "Imeshindwa kupakia hali",
+  "loadSubscriptionsFailed": "Imeshindwa kupakia usajili: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "Mkopo",
+  "localBackupTitle": "Nakala Rudufu ya Ndani",
+  "localCounterFilter": "Kichujio cha Hesabu cha Ndani",
+  "localCounterFilterSubtitle": "Chuja kiotomatiki simu za barua taka kulingana na mzunguko wa simu",
+  "localCountFilter": "Kichujio cha Hesabu cha Ndani",
+  "localCountFilterDescription": "Zuia simu za mara kwa mara kulingana na hesabu za nambari za ndani",
+  "localCountFilterExplanationContent": "Kichujio cha hesabu cha ndani huchanganua rekodi za historia ya simu ili kutambua kiotomatiki na kuzuia simu za mara kwa mara za barua taka.",
+  "localCountFilterExplanationTitle": "Maelezo ya Kichujio cha Hesabu cha Ndani",
+  "localCountFilterHowItWorksPoint1": "• Tambua ikiwa utazuia kulingana na thamani ya hesabu ya nambari",
+  "localCountFilterHowItWorksPoint2": "• Wakati hesabu ya nambari inazidi kiwango kilichowekwa, unaweza kuchagua kuizuia kiotomatiki",
+  "localCountFilterHowItWorksPoint3": "• Unaweza kuchagua nambari ambazo hazizidi kiwango",
+  "localCountFilterHowItWorksPoint4": "• Unaweza kuchagua ikiwa utarekodi magogo yote ya maswali",
+  "localCountFiltering": "Uchujaji wa Hesabu za Ndani",
+  "localCountFilteringExplanation": "• Uchujaji wa Hesabu za Ndani: Sheria za uchujaji kulingana na hesabu za uwekaji alama za ndani",
+  "localCountFilterSettings": "Mazingira ya Kichujio cha Hesabu cha Ndani",
+  "localCountFilterUseCases": "Kichujio hiki kinafaa sana kwa kutambua simu za barua taka za kiotomatiki na simu za uuzaji.",
+  "localFilterSettings": "Mazingira ya Kichujio cha Ndani",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "Arifa za ndani zimezimwa",
+  "localNotificationEnabled": "Arifa za ndani zimewashwa",
+  "localServices": "Huduma za Ndani",
+  "locationColor": "Rangi ya Mahali",
+  "locationFontSize": "Ukubwa wa herufi wa Mahali",
+  "locationIconColor": "Rangi ya Aikoni ya Mahali",
+  "locationPosition": "Nafasi ya Mahali",
+  "logAllLocalQueries": "Rekodi Maswali Yote ya Ndani",
+  "logAllLocalQueriesDescription": "Rekodi magogo kwa maswali yote ya nambari za ndani",
+  "logAllRemoteQueries": "Rekodi Maswali Yote ya Mbali",
+  "logAllRemoteQueriesDescription": "Rekodi shughuli zote za maswali ya nambari za mbali",
+  "manage": "Dhibiti Anwani",
+  "manageContacts": "Dhibiti",
+  "manageFavoriteContacts": "Dhibiti Anwani Uzipendazo",
+  "manageFilterRules": "Dhibiti Sheria za Kichujio",
+  "manageFilterRulesDescription": "Ongeza, hariri, au futa sheria za kichujio cha SMS",
+  "manageFrequentContacts": "Dhibiti Anwani za Mara kwa Mara",
+  "markCounts": "Hesabu za Alama",
+  "markCount": "Hesabu ya Alama",
+  "markedByCount": "Imewekwa alama na {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "Orodha ya Nambari za Simu Zilizowekwa Alama",
+  "markExchange": "Kubadilishana Alama",
+  "markPhone": "Weka Alama Nambari ya Simu",
+  "markPhoneFailed": "Imeshindwa kutia alama nambari ya simu: {error}",
+  "markPhoneManagementSubtitle": "Kuweka Alama Nambari za Simu",
+  "markPhoneManagementTitle": "Usimamizi wa Kuweka Alama Nambari za Simu",
+  "markPhoneSuccess": "Nambari ya simu imewekwa alama kwa mafanikio",
+  "matchFailed": "Ulinganishaji umeshindwa!",
+  "matchFailedMessage": "Ulinganishaji umeshindwa.",
+  "matchNumbersWithSpecialCharacters": "unalinza muundo maalum wa nambari",
+  "matchNumbersWithSpecialCharactersTitle": "Linganisha nambari zenye herufi maalum:",
+  "matchSpecificDigitPatterns": "unalinza muundo wa XXX-XXXX-XXXX",
+  "matchSpecificDigitPatternsTitle": "Linganisha ruwaza maalum za nambari:",
+  "matchSuccessful": "Ulinganishaji umefanikiwa!",
+  "matchSuccessfulMessage": "Ulinganishaji umefanikiwa!",
+  "medical": "Matibabu",
+  "membershipPrivileges": "Haki za Uanachama",
+  "migrationTool": "Chombo cha Uhamishaji",
+  "migrationToolTitle": "Chombo cha Uhamishaji",
+  "minutes": "dakika",
+  "month": "Mwezi",
+  "monthly": "Kila mwezi",
+  "monthlyCallCount": "Simu za Kila Mwezi",
+  "monthlyChartTitle": "Simu za Kila Mwezi Zilizozuiwa",
+  "monthlyMembership": "Uanachama wa Kila Mwezi",
+  "monthlyMembershipDescription": "Fungua vipengele vyote vya malipo, vinavyosasishwa kiotomatiki kila mwezi",
+  "monthlyTotal": "Jumla ya Kila Mwezi",
+  "monthlyTotalLabel": "Jumla ya Kila Mwezi",
+  "moreOptions": "Chaguo Zaidi",
+  "mute": "Nyamazisha",
+  "name": "Jina",
+  "nameAndPhoneNumberCannotBeEmpty": "Jina na nambari ya simu haiwezi kuwa tupu",
+  "nameAndPhoneNumberRequired": "Jina na nambari ya simu haiwezi kuwa tupu",
+  "nameColor": "Rangi ya Jina",
+  "nameFontSize": "Ukubwa wa Fonti ya Jina",
+  "nameLabel": "Jina: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "Nafasi ya Jina",
+  "nameUnknown": "Jina: Haijulikani",
+  "nameWithValue": "Jina: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "Nenosiri Jipya",
+  "nextStep": "Inayofuata",
+  "noAction": "Hakuna Kitendo",
+  "noActionRules": "Hakuna Kanuni za Kitendo",
+  "noActiveCloudSyncServiceMessage": "Hakuna huduma ya kusawazisha wingu inayotumika",
+  "noCallLogs": "Hakuna Magogo ya Simu",
+  "noCallRecords": "Hakuna rekodi za simu",
+  "noContacts": "Hakuna anwani bado",
+  "noContactsYet": "Hakuna anwani bado",
+  "noData": "Hakuna Data",
+  "noDevicesRegisteredMessage": "Hakuna vifaa vilivyosajiliwa",
+  "noDevicesRegisteredYet": "Hakuna vifaa vilivyosajiliwa bado.",
+  "noFilters": "Hakuna vichungi bado",
+  "noLabels": "Hakuna lebo bado",
+  "noMarkedPhones": "Hakuna nambari za simu zilizowekwa alama",
+  "noMatchingContacts": "Hakuna anwani zinazolingana",
+  "noMatchingContactsFound": "Hakuna anwani zinazolingana zilizopatikana",
+  "noMatchingNumbersFound": "Hakuna nambari zinazolingana zilizopatikana",
+  "noMatchingRecords": "Hakuna rekodi za simu zinazolingana",
+  "noMatchingRules": "Hakuna {ruleType} zinazolingana",
+  "none": "Hakuna",
+  "noneServiceType": "Hakuna",
+  "noPlugins": "Hakuna programu jalizi bado",
+  "noRecords": "Hakuna rekodi za simu",
+  "noResultReturned": "Hakuna matokeo yaliyorejeshwa",
+  "noResultReturnedLog": "Hakuna matokeo yaliyorejeshwa kutoka kwa programu jalizi",
+  "noRules": "Hakuna {ruleType} bado",
+  "noRulesPrompt": "Hakuna sheria zilizopatikana, tafadhali ongeza sheria",
+  "noRulesToExport": "Hakuna sheria za kuuza nje",
+  "noSmsFilterRulesYet": "Hakuna sheria za vichungi vya SMS bado",
+  "noSmsRulesYet": "Hakuna sheria za SMS bado",
+  "noSubscriptions": "Hakuna usajili",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "Hakuna Usajili Bado",
+  "notGranted": "Haikukabidhiwa",
+  "notificationMode": "Njia ya Arifa",
+  "notificationModeDescription": "Onyesha taarifa za mpigaji katika upau wa arifa",
+  "notificationPermission": "Ruhusa ya Arifa",
+  "notificationPermissionDescription": "Inatumika kuonyesha arifa za simu zinazoingia na ujumbe.",
+  "notifications": "Arifa",
+  "notificationSettings": "Mipangilio ya Arifa",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "Mipangilio ya arifa imehifadhiwa kwa mafanikio",
+  "notSet": "Haijawekwa",
+  "notVerifiedText": "Haijachunguzwa",
+  "noValidSmsRulesFoundInFile": "Hakuna sheria halali za SMS zilizopatikana kwenye faili",
+  "number": "Nambari",
+  "numberColor": "Rangi ya Nambari",
+  "numberFontSize": "Ukubwa wa Fonti ya Nambari",
+  "numberPosition": "Nafasi ya Nambari",
+  "numberSearch": "Tafuta Nambari",
+  "numberTypeColor": "Rangi ya Aina ya Nambari",
+  "numberTypeFontSize": "Ukubwa wa Fonti ya Aina ya Nambari",
+  "numberTypePosition": "Nafasi ya Aina ya Nambari",
+  "ok": "Sawa",
+  "okButton": "Sawa",
+  "onboardingCompleteDescription": "Kidhibiti chako cha usalama wa simu kiko tayari, anza kufurahia uzoefu salama wa simu!",
+  "onboardingLanguageDescription": "Chagua lugha unayopendelea kwa uzoefu bora.",
+  "onboardingPermissionsDescription": "Ili kutoa huduma kamili, tunahitaji ruhusa zifuatazo:",
+  "onboardingPowerfulSpamBlockingDescription": "Zuia simu na ujumbe wa barua taka kwa mbofyo mmoja, rekebisha sheria za kuzuia, na kukupa mazingira tulivu.",
+  "onboardingSmartCallerIdDescription": "Tambua kiotomatiki simu zisizojulikana, tia alama nambari za kutatanisha, na linda usalama wa simu yako.",
+  "onboardingWelcomeDescription": "Mtaalamu wako wa usimamizi wa simu, unayetoa huduma kamili za utambuzi na uzuiaji wa simu.",
+  "oneDriveAuthDescription": "Idhinisha kwa kutumia kitambulisho na ufunguo wa mteja wa OneDrive uliosanidiwa na mfumo",
+  "oneDriveAuthorizationHint": "Idhinisha kwa kutumia kitambulisho na ufunguo wa mteja wa OneDrive uliosanidiwa na mfumo",
+  "oneDriveConfigTitle": "Usanidi wa OneDrive",
+  "oneDriveConfigurationTitle": "Usanidi wa OneDrive",
+  "onlineCallerIdSubscription": "Usajili wa Kitambulisho cha Mpigaji Mtandaoni",
+  "openAppSettings": "Fungua mipangilio ya programu",
+  "openAppSettingsFailed": "Imeshindwa kufungua mipangilio ya programu: {error}",
+  "operationFailed": "Operesheni imeshindikana: {error}",
+  "operationFailure": "Operesheni imeshindikana",
+  "operationSuccess": "Operesheni imefanikiwa",
+  "other": "Nyingine",
+  "ourOtherApps": "Programu Zingine Zetu",
+  "overlayMode": "Dirisha la kuelea",
+  "overlayModeDescription": "Onyesha habari za mpigaji katika dirisha la kuelea",
+  "overlayPermission": "Ruhusa ya Kuelea",
+  "overlayPermissionDescription": "Inatumiwa kuonyesha dirisha la simu zinazoingia.",
+  "overview": "Muhtasari",
+  "password": "Nenosiri",
+  "passwordCannotBeEmpty": "Nenosiri haliwezi kuwa tupu",
+  "passwordLabel": "Nenosiri",
+  "passwordsDoNotMatch": "Manenosiri hayafanani",
+  "passwordSetSuccessfully": "Nenosiri limewekwa kwa mafanikio",
+  "pattern": "Kielelezo",
+  "pendingSync": "Kungoja kusawazisha",
+  "periodMonth": "Mwezi",
+  "periodWeek": "Wiki",
+  "periodYear": "Mwaka",
+  "permissionDenied": "Ombi la ruhusa limekataliwa",
+  "permissionGranted": "Ruhusa imetolewa",
+  "permissionManagement": "Usimamizi wa Ruhusa",
+  "phoneCallsTab": "Simu",
+  "phoneNumber": "Nambari ya Simu",
+  "phoneNumberCannotBeEmpty": "Nambari ya simu haiwezi kuwa tupu",
+  "phoneNumberHint": "Weka nambari ya simu",
+  "phoneNumberHintText": "Weka nambari ya simu ili kuongeza sheria",
+  "phoneNumberLabel": "Nambari ya Simu",
+  "phoneNumberRegexRequired": "Tafadhali weka nambari ya simu na muundo wa regex",
+  "phoneNumberRequired": "Nambari ya simu inahitajika",
+  "phoneNumberTypeFixedLine": "Njia ya simu ya mezani",
+  "phoneNumberTypeFixedLineOrMobile": "Njia ya simu ya mezani au simu ya mkononi",
+  "phoneNumberTypeMobile": "Simu ya mkononi",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypePersonalNumber": "Nambari ya binafsi",
+  "phoneNumberTypePremiumRate": "Kiwango cha juu",
+  "phoneNumberTypeSharedCost": " Gharama ya pamoja",
+  "phoneNumberTypeTollFree": "Bila malipo",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "Haijulikani",
+  "phoneNumberTypeVoicemail": "Ujumbe wa sauti",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "Ruhusa ya Simu",
+  "phonePermissionDescription": "Inatumiwa kutambua na kuzuia simu zinazoingia.",
+  "phoneRule": "Sheria ya Simu",
+  "phoneRuleEditDialog": "Dialogi ya Kuhariri Sheria ya Simu",
+  "phoneRuleManagement": "Usimamizi wa Sheria za Simu",
+  "phoneRuleSubscription": "Usajili wa Sheria za Simu",
+  "phoneSubscription": "Usajili wa Simu",
+  "phoneSubscriptionRulesDescription": "Jiandikishe kwenye orodha za sheria za simu kupitia URL ili kusasisha kiotomatiki orodha nyeupe na orodha nyeusi. Inasaidia faili za sheria za umbizo la JSON.",
+  "phoneSubscriptionTitle": "Usajili wa Sheria za Simu",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "Tafadhali chagua lebo na uweke nambari halali ya simu",
+  "pluginAddedSuccess": "Nyongeza \"{name}\" imeongezwa kwa mafanikio",
+  "pluginDeleted": "Nyongeza imefutwa",
+  "pluginLatestVersion": "Nyongeza tayari ni toleo la hivi karibuni",
+  "pluginListExportSuccess": "Orodha ya nyongeza imesafirishwa kwa mafanikio",
+  "pluginLoadedSuccessfully": "Nyongeza imepakiwa kwa mafanikio",
+  "pluginManagement": "Usimamizi wa Nyongeza",
+  "pluginManagementSubtitle": "Dhibiti na uweke usanidi wa nyongeza za wahusika wengine",
+  "pluginManagementTitle": "Usimamizi wa Nyongeza",
+  "pluginName": "Jina la Nyongeza",
+  "pluginNotLoaded": "Nyongeza haijapakiwa bado. Tafadhali pakia nyongeza kwanza.",
+  "pluginsDeleted": "{count} nyongeza zimefutwa kwa mafanikio.",
+  "pluginService": "Huduma ya Nyongeza",
+  "pluginTestPageTitle": "Jaribio la Nyongeza",
+  "pluginUpdateSuccess": "Nyongeza imesasishwa kwa mafanikio",
+  "pluginUrl": "URL ya Nyongeza",
+  "pluginUrlCannotBeEmpty": "URL ya nyongeza haiwezi kuwa tupu",
+  "pluginUrlHint": "Weka URL ya nyongeza",
+  "pluginUrlLabel": "URL ya Nyongeza",
+  "pluginVersion": "Toleo la Nyongeza",
+  "political": "Kisiasa",
+  "powerfulSpamBlocking": "Kuzuia Spam kwa Nguvu",
+  "previousStep": "Kabla",
+  "prioritizeRemoteAction": "Pendelea Mipangilio ya Vitendo vya Mbali",
+  "prioritizeRemoteActionDescription": "Pendelea mipangilio ya vitendo kutoka hifadhidata ya mbali",
+  "processing": "Inachakata...",
+  "processingOperation": "Inachakata...",
+  "purchase": "Nunua",
+  "quarterlyMembership": "Uanachama wa Robo Mwaka",
+  "quarterlyMembershipDescription": "Fungua vipengele vyote vya premium, jasiri kusasishwa kila robo mwaka",
+  "queryButton": "Uliza",
+  "queryFailed": "Uliza imeshindikana",
+  "queryFailedLog": "Uliza imeshindikana",
+  "querying": "Inauliza...",
+  "queryingPhoneNumber": "Inauliza nambari ya simu",
+  "queryResultTitle": "Matokeo ya Uliza",
+  "ready": "Tayari!",
+  "receiveWeeklyStatistics": "Pokea takwimu za kila wiki",
+  "recruiter": "Mchaguzi",
+  "reEnterPasswordHint": "Tafadhali weka tena nenosiri",
+  "refresh": "Safi",
+  "refreshPermissionStatus": "Safi hali ya ruhusa",
+  "refreshTooltip": "Safi",
+  "regexError": "Hitilafu ya Regex: {error}",
+  "regexErrorMessage": "Hitilafu ya Regex: {error}",
+  "regexPattern": "Mchoro wa Regex",
+  "regexPatternExplanation": "Maelezo ya Mchoro wa Regex",
+  "regexPatternExplanationButton": "Maelezo ya Mchoro wa Regex",
+  "regexPatternLabel": "Mchoro wa Regex",
+  "regexPatternsExamples": "Tumia syntax ya kawaida ya regex kufafanua michoro. Mifano:",
+  "regexPatternsForPhoneNumberMatching": "Michoro ya Regex kwa Kulinganisha Nambari za Simu",
+  "regexRule": "Sheria ya Regex",
+  "regexRuleAddFailed": "Imeshindwa kuongeza sheria ya regex: {error}",
+  "regexRuleAddSuccess": "Sheria ya regex imeongezwa kwa mafanikio",
+  "regexRuleManagement": "Usimamizi wa Sheria ya Regex",
+  "regexRuleNamePatternRequired": "Jina la sheria na mchoro wa regex haviwezi kuwa vitupu",
+  "regexRules": "Sheria za Regex",
+  "regexTesterTitle": "Kijaribu cha Regex",
+  "regexValidationFailed": "Uthibitishaji wa Regex umeshindwa: {error}",
+  "regexValidationSuccess": "Uthibitishaji wa Regex umefanikiwa",
+  "region": "Mkoa",
+  "registeredDevicesTitle": "Vifaa Vilivyosajiliwa",
+  "rejectAllCalls": "Kataa Simu Zote",
+  "rejectAllCallsDescription": "Inapowashwa, simu zote zitakataliwa kwa kipaumbele cha juu zaidi",
+  "rejectAllNumbers": "Kataa Namba Zote",
+  "rejectAllNumbersDesc": "Kataa simu zote zinazoingia zinapowashwa",
+  "rejectExceededNumbers": "Kataa Namba Zilizozidi",
+  "rejectExceededNumbersDescription": "Kukataa kiotomatiki namba zinazozidi kiwango cha idadi",
+  "remoteFilterSettings": "Mipangilio ya Kichujio cha Mbali",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "Mipangilio ya Kichujio cha Namba za Mbali",
+  "remoteNumberFilter": "Kichujio cha Namba za Mbali",
+  "remoteNumberFilterDatabaseInfo": "Kichujio hiki hutumia hifadhidata huru ya mbali kupata taarifa za hivi karibuni za namba.",
+  "remoteNumberFilterDescription": "Zuia simu za unyanyasaji kulingana na taarifa za hifadhidata ya mbali",
+  "remoteNumberFilterExplanationContent": "Kichujio cha namba za mbali hutambua na kuzuia simu za taka kwa kuuliza hifadhidata ya mbali kulingana na idadi ya namba.",
+  "remoteNumberFilterExplanationTitle": "Maelezo ya Kichujio cha Namba za Mbali",
+  "remoteNumberFilterFeatureCountThreshold": "• Kiwango cha Idadi: Tambua kulingana na mzunguko wa kutokea kwa namba",
+  "remoteNumberFilterFeatureFilterAction": "• Vitendo vya Kichujio: Sanidi jinsi ya kushughulikia namba zinazozidi kiwango",
+  "remoteNumberFilterFeaturePriority": "• Mipangilio ya Kipaumbele: Weka kipaumbele kwa vitendo vya mbali",
+  "remoteNumberFilterFeatures": "Sifa:",
+  "remoteNumberFiltering": "Kupiga Chujio Namba za Mbali",
+  "remoteNumberFilteringExplanation": "• Kupiga Chujio Namba za Mbali: Sheria za kuchuja kulingana na taarifa za hifadhidata ya mbali",
+  "remoteNumberFilterSubtitle": "Tambua simu za taka kwa kutumia hifadhidata ya wingu na ripoti za jumuiya",
+  "removeAdsDescription": "Ondoa kabisa matangazo yote katika programu kwa uzoefu wa laini zaidi",
+  "removeAdsTitle": "Ondoa Matangazo",
+  "removedFromFavoriteContacts": "Imetolewa kutoka kwa wawasiliani unaowapenda",
+  "removedFromFavorites": "Imetolewa kutoka kwa wapendwa",
+  "removeFavorite": "Ondoa Kipendwa",
+  "removeFromFavorites": "Ondoa kutoka kwa Wapendwa",
+  "renameButton": "Badili Jina",
+  "renameDeviceDialogTitle": "Badili Jina la Kifaa",
+  "renameDeviceTitle": "Badili Jina la Kifaa",
+  "replaceCurrentSettingsConfirmation": "Hii itachukua nafasi ya mipangilio yako yote ya sasa. Je, una uhakika unataka kuendelea?",
+  "requestAllPermissions": "Omba Ruhusa Zote",
+  "requestPermission": "Omba Ruhusa",
+  "requestPermissionFailed": "Imeshindwa kuomba ruhusa: {error}",
+  "requiredMarks": "{count} Alama",
+  "reset": "Rudisha",
+  "restore": "Rudisha",
+  "restoreApplicationSettingsFromBackup": "Rudisha Mipangilio ya Programu kutoka kwa Chelezo",
+  "restoreApplicationSettingsFromBackupSubtitle": "Rudisha mipangilio ya programu kutoka kwa chelezo",
+  "restoreButton": "Rudisha",
+  "restoreFailedWithError": "Rudisha kutoka kwa wingu kumeshindwa: {error}",
+  "restoreFromCloud": "Rudisha kutoka kwa Wingu",
+  "restoreFromCloudDescription": "Rudisha mipangilio na sheria kutoka kwa hifadhi ya wingu",
+  "restoreFromCloudFailed": "Imeshindwa kurudisha kutoka kwa wingu: {error}",
+  "restoreFromCloudLabel": "Rudisha kutoka kwa Wingu",
+  "restoreFromCloudSuccess": "Imerejeshwa kwa mafanikio kutoka kwa wingu",
+  "restoreFromCloudTitle": "Rudisha kutoka kwa Wingu",
+  "restoreFromLocal": "Rudisha kutoka kwa Mitaa",
+  "restorePurchases": "Rudisha Ununuzi",
+  "restoreSectionTitle": "Rudisha",
+  "restoreSettings": "Rudisha Mipangilio",
+  "restoreSettingsConfirmation": "Hii itachukua nafasi ya mipangilio yako yote ya sasa. Je, una uhakika unataka kuendelea?",
+  "restoreSettingsDialogTitle": "Rudisha Mipangilio",
+  "restoreSettingsTitle": "Rudisha Mipangilio",
+  "restoreSuccessFromLocal": "Imerejeshwa kwa mafanikio kutoka kwa mitaa",
+  "restoreSuccessMessage": "Imerejeshwa kwa mafanikio kutoka kwa wingu",
+  "retry": "Jaribu Tena",
+  "ridesharing": "Usafiri wa Pamoja",
+  "risk": "Hatari",
+  "robocall": "Simu ya Robocall",
+  "ruleAction": "Tendo la Sheria",
+  "ruleAddButton": "Ongeza Sheria",
+  "ruleAddedSuccess": "Sheria imeongezwa kwa mafanikio",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "Imeshindwa kuongeza sheria: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "Sheria imeongezwa kwa mafanikio",
+  "ruleDeleteConfirmContent": "Je, una uhakika unataka kufuta {ruleType} hii?",
+  "ruleDeleteConfirmTitle": "Futa Sheria",
+  "ruleDeletedSuccess": "Sheria imefutwa kwa mafanikio",
+  "ruleDeletedSuccessfully": "Sheria imefutwa kwa mafanikio",
+  "ruleDeleteFailed": "Imeshindwa kufuta sheria: {error}",
+  "ruleDeleteFailure": "Imeshindwa kufuta sheria: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "Sheria imefutwa kwa mafanikio",
+  "ruleDisabledSuccessfully": "Sheria imezimwa kwa mafanikio",
+  "ruleEnabledSuccessfully": "Sheria imewashwa kwa mafanikio",
+  "ruleLoadFailed": "Imeshindwa kupakia sheria: {error}",
+  "ruleManagement": "Usimamizi wa Sheria",
+  "ruleManagementTitle": "Usimamizi wa Sheria",
+  "ruleName": "Jina la Sheria",
+  "ruleNameAndContentRegexCannotBeEmpty": "Jina la sheria na mchoro wa yaliyomo haviwezi kuwa vitupu",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "Jina la sheria na nambari ya simu haviwezi kuwa vitupu",
+  "ruleNameHint": "k.w.a. Familia, Marafiki, n.k.",
+  "ruleNameLabel": "Jina la Sheria",
+  "ruleNamePatternRequired": "Tafadhali weka jina la sheria na mchoro",
+  "ruleNameRequired": "Jina la sheria na nambari ya simu haviwezi kuwa vitupu",
+  "ruleNotExist": "Sheria haipo au imeondolewa",
+  "ruleNotFound": "Sheria haikupatikana: {error}",
+  "ruleSavedSuccessfully": "Sheria imehifadhiwa kwa mafanikio!",
+  "ruleSavedSuccessMessage": "Sheria imehifadhiwa kwa mafanikio!",
+  "ruleSaveFailed": "Umehifadhi umeshindwa: {error}",
+  "ruleSaveFailedMessage": "Umehifadhi umeshindwa: {error}",
+  "ruleSaveSuccess": "Sheria imehifadhiwa kwa mafanikio!",
+  "rulesExportedSuccessfully": "Sheria zimesafirishwa kwa mafanikio",
+  "rulesExportedTo": "Sheria zimesafirishwa kwenda: {path}",
+  "rulesImported": "Sheria zimeingizwa kwa mafanikio",
+  "rulesImportedSuccessfully": "Sheria {count} zimeingizwa kwa mafanikio",
+  "rulesImportFailed": "Imeshindwa kuingiza sheria: {error}",
+  "ruleStatistics": "Takwimu za Sheria",
+  "ruleStatusChanged": "Sheria {status} kwa mafanikio",
+  "ruleToggleFailed": "Operesheni imeshindwa: {error}",
+  "ruleToggleSuccess": "Sheria {status} kwa mafanikio",
+  "ruleUpdateFailed": "Imeshindwa kusasisha sheria: {error}",
+  "ruleUpdateSuccess": "Sheria imesasishwa kwa mafanikio",
+  "ruleVerification": "Uthibitisho wa Sheria",
+  "save": "Hifadhi",
+  "saveButton": "Hifadhi",
+  "saveButtonLabel": "HIFADHI",
+  "saveButtonText": "Hifadhi",
+  "saveFailed": "Hifadhi imeshindwa: {error}",
+  "saveFilter": "Hifadhi Kichujio",
+  "saveSettings": "Hifadhi Mipangilio",
+  "saveSettingsFailed": "Imeshindwa kuhifadhi mipangilio: {error}",
+  "scamsLikely": "Ulaghai Unatarajiwa",
+  "search": "Tafuta",
+  "searchContacts": "Tafuta Mawasiliano",
+  "searchError": "Makosa ya utafutaji: {error}",
+  "searchFilters": "Vichujio vya Utafutaji",
+  "searchForContacts": "Tafuta mawasiliano",
+  "searchHint": "Tafuta...",
+  "searchSettingsSubtitle": "Tafuta mawasiliano, lebo, orodha nyeusi, orodha nyeupe, n.k.",
+  "searchSettingsTitle": "Mipangilio ya Utafutaji",
+  "securityMessage": "Usiwaamini simu zozote. Daima thibitisha namba za huduma kwa wateja kwa kujitegemea. Usiwahi kushiriki nywila, misimbo ya uthibitisho, namba za kadi, au taarifa za kibinafsi.",
+  "selectActionToPerform": "Chagua hatua ya kutekeleza sheria inapokutana",
+  "selectActionWhenBlockingCalls": "Chagua hatua wakati wa kuzuia simu",
+  "selectActionWhenRuleMatches": "Chagua hatua sheria inapokutana",
+  "selectAll": "Chagua Zote",
+  "selectCountry": "Chagua Nchi",
+  "selectDateRange": "Chagua Tarehe ya Mwisho",
+  "selectedDateRange": "Muda wa tarehe uliochaguliwa",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "Vitu {count} vilivyochaguliwa",
+  "selectedLabel": "Imechaguliwa:",
+  "selectExportFormat": "Chagua Umbizo la Usafirishaji",
+  "selectLabel": "Chagua Lebo",
+  "selectLabelAndEnterPhoneNumber": "Tafadhali chagua lebo na weka nambari halali ya simu",
+  "selectLanguage": "Chagua Lugha",
+  "selectMultiple": "Chagua Nyingi",
+  "selectPeriod": "Chagua Kipindi",
+  "selectSimCard": "Chagua SIM Kadi",
+  "selectSimSlot": "Chagua Nafasi ya SIM",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "Chagua hatua maalum wakati wa kuzuia simu",
+  "selectTag": "Chagua Lebo",
+  "selectTags": "Chagua Lebo",
+  "selectTrustedDataSource": "Tafadhali chagua vyanzo vya data vinavyoaminika",
+  "selectYourLanguage": "Chagua Lugha Yako",
+  "sender": "Mtumaji",
+  "senderRegexOptional": "Mtumaji Regex (Si lazima)",
+  "serverAddressLabel": "Anwani ya Seva",
+  "serviceTypeContact": "Usajili wa Mawasiliano",
+  "serviceTypeLabel": "Aina ya Huduma",
+  "serviceTypePhone": "Usajili wa Simu",
+  "serviceTypePlugin": "Sasisho la Plugin",
+  "serviceTypeSms": "Usajili wa SMS",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "Weka",
+  "setEncryptionPassword": "Weka Nenosiri la Usimbaji",
+  "setEncryptionPasswordDescription": "Weka nenosiri la usimbaji kwa chelezo na urejeshaji",
+  "setEncryptionPasswordLabel": "Weka Nenosiri la Usimbaji",
+  "setEncryptionPasswordTitle": "Weka Nenosiri la Usimbaji",
+  "setPasswordButton": "Weka",
+  "settings": "Mipangilio",
+  "settingsBackedUpTo": "Mipangilio imehifadhiwa kwa: {path}",
+  "settingsLoaded": "Mipangilio imepakiwa",
+  "settingsLoadFailed": "Imeshindwa kupakia mipangilio: {error}",
+  "settingsRestoredSuccessfully": "Mipangilio imerejeshwa kwa mafanikio. Tafadhali anzisha upya programu ili mabadiliko yaanze kutumika.",
+  "settingsSaved": "Mipangilio imehifadhiwa",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "Imeshindwa kuhifadhi mipangilio: {error}",
+  "settingsTab": "Mipangilio",
+  "settingsTitle": "Mipangilio",
+  "setup": "Kuweka",
+  "showContactEditDialogStaticMethod": "Njia ya tuli kuonyesha kidirisha cha kuhariri anwani",
+  "showExplanation": "Onyesha Maelezo",
+  "silence": "Nyamazisha",
+  "silenceAndNoAnswer": "Nyamazisha na Hakuna Jibu",
+  "silenceNoAnswer": "Nyamazisha Hakuna Jibu",
+  "silentCallVoiceClone": "Kupiga Kimya kwa Klonii ya Sauti",
+  "silentRules": "Sheria za Kimya",
+  "simCard": "SIM Kadi {simNumber}",
+  "simCardColor": "Rangi ya SIM Kadi",
+  "simCardConfigurationExplanation": "• Usanidi wa Kadi ya SIM: Weka sheria tofauti za kuchuja kwa kila kadi ya SIM",
+  "simCardFilterRules": "Sheria za Kuchuja za SIM Kadi",
+  "simCardFilterRulesDescription": "Weka sheria tofauti za kuchuja kulingana na nafasi za kadi za SIM",
+  "simCardFontSize": "Kati ya herufi ya SIM Kadi",
+  "simCardPosition": "Nafasi ya SIM Kadi",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "Imeshindwa kupakia taarifa za kadi ya SIM: {error}",
+  "simRuleInstructions": "Kanuni za nafasi ya SIM hukuruhusu kusanidi sheria huru za kuchuja kwa kila nafasi ya SIM.",
+  "simRuleInstructionsTitle": "Kanuni za Nafasi ya SIM",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "Usimamizi wa Kanuni za Nafasi ya SIM",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "Imeshindwa kupakia data ya SIM: {error}",
+  "simSlotFilterConfiguration": "Usanidi wa Kichujio cha Nafasi ya SIM",
+  "simSlotFilterConfigurationDescription": "Inaruhusu kuweka sheria za kichujio kwa nafasi ya SIM",
+  "simSlotFilterDescription": "Sanidi sheria huru za kuchuja kwa kila kadi ya SIM:",
+  "simSlotFilterSettingsTitle": "Mipangilio ya Kichujio cha Nafasi ya SIM {slotNumber}",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "Imeshindwa kupakia nafasi za SIM: {error}",
+  "simSlotManagement": "Usimamizi wa Nafasi ya SIM",
+  "simSlotOperationFailed": "Operesheni ya nafasi ya SIM imeshindwa: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "Nafasi ya SIM {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• Kanuni za Nafasi ya SIM: Mikakati huru ya kuchuja kwa kila SIM",
+  "simSlotRuleListTitle": "Orodha ya Kanuni za Nafasi ya SIM",
+  "simSlotRuleManagement": "Kanuni za Nafasi ya SIM",
+  "simSlotRuleManagementTitle": "Usimamizi wa Kanuni",
+  "simSlotSettings": "Mipangilio ya Nafasi ya SIM",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "Nafasi ya SIM {slotNumber}",
+  "skip": "Ruka",
+  "smartCallerId": "Utambulisho Mahiri wa Mpigaji",
+  "sms": "SMS",
+  "smsFilterDescription": "Kichujio cha SMS hukusaidia kuchuja ujumbe wa taka kiotomatiki na kuweka orodha yako ya ujumbe ikiwa safi. Unaweza kuweka sheria za kichujio na mbinu za arifa.",
+  "smsFilterDisabled": "Kichujio cha SMS kimezimwa",
+  "smsFilterEnabled": "Kichujio cha SMS kimewashwa",
+  "smsFilterRuleAddedSuccessfully": "Kanuni ya kichujio cha SMS imeongezwa kwa mafanikio",
+  "smsFilterRules": "Kanuni za Kichujio cha SMS",
+  "smsFilterSettings": "Mipangilio ya Kichujio cha SMS",
+  "smsHistory": "Historia ya SMS",
+  "smsManagement": "Usimamizi wa SMS",
+  "smsPermission": "Ruhusa ya SMS",
+  "smsPermissionDescription": "Inatumiwa kuchuja ujumbe wa taka.",
+  "smsRuleAddedSuccessfully": "Kanuni ya SMS imeongezwa kwa mafanikio",
+  "smsRuleDeletedSuccessfully": "Kanuni ya SMS imeondolewa kwa mafanikio",
+  "smsRuleLoadFailed": "Imeshindwa kupakia kanuni za SMS: {error}",
+  "smsRuleManagement": "Usimamizi wa Kanuni za SMS",
+  "smsRulesExportedSuccessfully": "Kanuni za SMS zimesafirishwa kwa mafanikio hadi {filePath}",
+  "smsRulesImportedSuccessfully": "Kanuni za SMS zimeingizwa kwa mafanikio",
+  "smsRuleSubscription": "Usajili wa Kanuni za SMS",
+  "smsRuleUpdatedSuccessfully": "Kanuni ya SMS imesasishwa kwa mafanikio",
+  "smsSettingsSubtitle": "Kichujio cha SMS na kuzuia maneno muhimu",
+  "smsSettingsTitle": "Mipangilio ya SMS",
+  "smsSubscription": "Usajili wa SMS",
+  "smsSubscriptionAddedSuccessfully": "Usajili wa SMS umeongezwa kwa mafanikio",
+  "smsSubscriptionRulesDescription": "Jiandikishe kwa orodha za kanuni za SMS kupitia URL, ukisaidia utambuzi wa maneno ya kawaida. Unaweza kuweka vitendo vya kuzuia au kuruhusu.",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "Baadhi ya maombi ya ruhusa yamekataliwa",
+  "spamLikely": "Tukio la Taka",
+  "startColor": "Rangi ya Kuanzia",
+  "startDate": "Tarehe ya Kuanzia",
+  "startUsing": "Anza Kutumia",
+  "statAnswered": "Ilijibiwa",
+  "statBlocked": "Imesababishwa",
+  "staticMethodShowCallerIdDialog": "Njia tuli ya kuonyesha Dialogi ya Taarifa ya Mpiga Simu",
+  "staticMethodToDisplayCountrySelectionDialog": "Njia tuli ya kuonyesha dialogi ya kuchagua nchi",
+  "staticMethodToDisplayDialog": "Njia tuli ya kuonyesha dialogi",
+  "statistics": "Takwimu",
+  "statisticsExportFeatureComingSoon": "Kipengele cha kusafirisha takwimu kinakuja hivi karibuni",
+  "statisticsGrid": "Gridi ya Takwimu",
+  "statisticsPageTitle": "Uchambuzi wa Data",
+  "stirColor": "Rangi ya STIR",
+  "stirFontSize": "Ukubwa wa Fonti ya STIR",
+  "stirPosition": "Nafasi ya STIR",
+  "storagePermission": "Ruhusa ya Hifadhi",
+  "storagePermissionDescription": "Inatumiwa kuhifadhi mipangilio na kanuni.",
+  "subscribe": "Jiandikishe",
+  "subscriptionAddSuccess": "Usajili \"{name}\" umeongezwa kwa mafanikio",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "Je, una uhakika unataka kufuta usajili huu?",
+  "subscriptionDeleteConfirmTitle": "Futa Usajili",
+  "subscriptionDeleted": "Usajili umefutwa",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "Usajili umefutwa kwa mafanikio",
+  "subscriptionDeleteFailed": "Imeshindwa kufuta usajili: {error}",
+  "subscriptionDeleteSuccess": "Usajili umefutwa",
+  "subscriptionEmptyState": "Hakuna usajili unaopatikana",
+  "subscriptionEmptyText": "Hakuna usajili bado",
+  "subscriptionLoadFailed": "Imeshindwa kupakia usajili: {error}",
+  "subscriptionLoadingFailed": "Imeshindwa kupakia usajili: {error}",
+  "subscriptionManagementTitle": "Usimamizi wa Usajili",
+  "subscriptionName": "Jina la Usajili",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "Jina la usajili na URL haziwezi kuwa tupu",
+  "subscriptionNameHint": "Ingiza jina la usajili",
+  "subscriptionPageTitle": "Usimamizi wa Usajili",
+  "subscriptionStatusChangeFailed": "Imeshindwa kubadilisha hali ya usajili: {error}",
+  "subscriptionToggleFailed": "Imeshindwa kuwasha/kuzima hali ya usajili: {error}",
+  "subscriptionUpdateFailed": "Imeshindwa kusasisha usajili: {error}",
+  "subscriptionUpdateSuccess": "Usajili umesasishwa kwa mafanikio",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "URL ya Usajili",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "Ingiza URL ya usajili",
+  "successfullyImportedRules": "Imefaulu kuingiza sheria {count}",
+  "supportSync": "Dhamira ya Kuunganisha",
+  "survey": "Utafiti",
+  "syncDevicesButton": "Unganisha Vifaa",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "Muunganisho umeshindwa",
+  "syncFailedMessage": "Muunganisho umeshindwa",
+  "syncFolderNameHint": "Tafadhali ingiza jina la folda ya muunganisho (chaguo-msingi: NotificationManager)",
+  "syncFolderNameLabel": "Jina la Folda ya Muunganisho",
+  "synchronized": "Imeunganishwa",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "Inaunganishwa...",
+  "syncNow": "Unganisha Sasa",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "Sawazisha Sasa",
+  "syncStatusTitle": "Hali ya Sawazishi",
+  "syncStatusUpdatedMessage": "Hali ya sawazishi imesasishwa",
+  "syncSuccessful": "Sawazishi imekamilika",
+  "syncSuccessMessage": "Sawazishi imekamilika",
+  "syncWithCloudStorage": "Sawazisha na Hifadhi ya Wingu",
+  "syncWithCloudStorageSubtitle": "Sawazisha na hifadhi ya wingu",
+  "systemFeatures": "Vipengele vya Mfumo:",
+  "systemSettingsTitle": "Mipangilio ya Mfumo",
+  "tabAll": "Wote",
+  "tabAnswered": "Iliyoitikiwa",
+  "tabBlocked": "Iliyozuiwa",
+  "tabMissed": "Iliyoachwa",
+  "tabOutgoing": "Inayotoka",
+  "tagLabel": "Lebo: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "Lebo zimeosasishwa",
+  "takeaway": "Chukua",
+  "telecommunication": "Mawasiliano ya simu",
+  "telegram": "Telegramu",
+  "telemarketing": "Uuzaji kwa simu",
+  "testButton": "JARIBU",
+  "testButtonLabel": "JARIBU",
+  "testConnectionButton": "Jaribu Muunganisho",
+  "textColorsSetting": "Rangi za Maandishi na Lebo",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "Programu hii ni zana yenye nguvu ya kitambulisho cha mpigaji ambayo hukuruhusu kutambua na kuzuia simu zisizohitajika.",
+  "thisWeek": "Jumamosi Hii",
+  "timeInterceptor": "Kizuia Saa",
+  "timeInterceptorDescription": "Zui/ruhusu kiotomatiki simu zinazoweza kutokea kulingana na mzunguko wa simu",
+  "timeInterceptorExplanation": "• Kizuia Saa: Zui/ruhusu simu zinazorudiwa ndani ya muda mfupi",
+  "timeInterceptorExplanationContent": "Kipengele cha kukatiza mzunguko wa simu huchanganua mzunguko wa simu ili kutambua kiotomatiki na kuzuia/kuruhusu simu za barua taka zinazotokea mara kwa mara.",
+  "timeInterceptorExplanationTitle": "Ufafanuzi wa Kukatiza Mzunguko wa Simu",
+  "timeInterceptorSettingsTitle": "Mipangilio ya Kukatiza Mzunguko wa Simu",
+  "timeInterceptorSubtitle": "Zui kiotomatiki simu zinazoweza kuwa barua taka kulingana na mzunguko wa simu",
+  "timeInterceptorTitle": "Wezesha Kukatiza Mzunguko wa Simu",
+  "timeWindowDescription": "Weka ukubwa wa dirisha la saa kwa kuruhusu simu zinazorudiwa. Simu kutoka kwa nambari sawa ndani ya dirisha hili zitahuhusu",
+  "timeWindowLabel": "Dirisha la Wakati wa Kukatiza (dakika): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "Weka ukubwa wa dirisha la saa kwa kuruhusu simu zinazorudiwa. Simu kutoka kwa nambari sawa ndani ya dirisha hili zitahuhusu",
+  "today": "Leo",
+  "total": "Jumla",
+  "totalBlocked": "Jumla ya Zilizozuiwa",
+  "totalFiltered": "Jumla ya Zilizochujwa",
+  "transferDataBetweenDevicesOrPlatforms": "Hamisha data kati ya vifaa au majukwaa",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "Hamisha data kati ya vifaa au majukwaa",
+  "travelTicketing": "Tiketi za Usafiri",
+  "trend": "Mwelekeo",
+  "trendChart": "Chati ya Mwelekeo",
+  "tutorial": "Mafunzo",
+  "type": "Aina",
+  "unassignedSIMCard": "Kadi ya SIM Isiyopewa",
+  "unknown": "Haijulikani",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "Lebo Haijulikani",
+  "unknownTag": "Lebo: Haijulikani",
+  "unregisterButton": "Ondoa Usajili",
+  "unregisterDeviceConfirmationMessage": "Je, una uhakika unataka kuondoa usajili wa {deviceName}?",
+  "unregisterDeviceTitle": "Ondoa Usajili wa Kifaa",
+  "unsupportedFileFormat": "Umbizo la faili lisiloungwa mkono",
+  "update": "Sasisha",
+  "updateAllNow": "Sasisha Zote Sasa",
+  "updateCallFilterConfig": "Sasisha Usanidi wa Kichujio cha Simu",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "Imeshindwa kusasisha mawasiliano: {error}",
+  "updateFavoriteStatus": "Sasisha Hali ya Vipendwa",
+  "updateFavoriteStatusFailed": "Imeshindwa kusasisha hali ya vipendwa: {error}",
+  "updateInterval": "Kipindi cha Sasisho",
+  "updateLabelFailed": "Imeshindwa kusasisha lebo",
+  "updateNow": "Sasisha Sasa",
+  "updatePlugin": "Sasisha Programu-jalizi",
+  "updatePluginFailed": "Imeshindwa kusasisha programu-jalizi: {error}",
+  "updateRuleFailed": "Imeshindwa kusasisha sheria: {error}",
+  "updateSubscriptionFailed": "Imeshindwa kusasisha usajili: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} imesasishwa kwa mafanikio ({count} sheria)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "Sasisha Lebo",
+  "useCasesPoint1": "• Tambua simu za barua taka zinazopiga tena kiotomatiki",
+  "useCasesPoint2": "• Zuia simu za uuzaji zinazopiga mara nyingi kwa muda mfupi",
+  "useCasesPoint3": "• Zuia ulipuaji wa simu na unyanyasaji",
+  "useCasesTitle": "Matumizi:",
+  "useGlobalSettings": "Tumia Mipangilio ya Ulimwengu",
+  "userEmail": "user@example.com",
+  "usernameLabel": "Jina la Mtumiaji",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "Tumia sintaksia ya kawaida ya regex kufafanua ruwaza. Mifano:",
+  "validateRegex": "Thibitisha Regex",
+  "verificationFailedText": "Imeshindwa",
+  "verifiedText": "Imehakikishwa",
+  "verify": "Thibitisha",
+  "version": "Toleo: {version}",
+  "vipExchangeDescription": "Badilishana uanachama wa VIP na idadi ya alama za kuweka alama nambari ya simu",
+  "vipExchangeTitle": "Ubadilishaji wa VIP wa Alama",
+  "watchAd": "Tazama Tangazo",
+  "watchAdForTemp": "Tazama Tangazo kwa Marupurupu ya Muda",
+  "watchAdForTempDescription": "Tazama tangazo fupi ili kufungua vipengele vya malipo kwa muda",
+  "webDAVConfigTitle": "Usanidi wa WebDAV",
+  "webdavConfigurationTitle": "Usanidi wa WebDAV",
+  "webdavPasswordHint": "Tafadhali weka nenosiri la WebDAV",
+  "webdavServerAddressHint": "Tafadhali weka anwani ya seva ya WebDAV",
+  "webdavUsernameHint": "Tafadhali weka jina la mtumiaji la WebDAV",
+  "week": "Juma",
+  "weekly": "Kila Juma",
+  "weeklyBlockedCallsSummary": "Muhtasari wa Simu Zilizozuiwa kwa Juma",
+  "weeklyChartTitle": "Simu Zilizozuiwa kwa Juma",
+  "weeklyReport": "Ripoti ya Kila Juma",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "Pokea ripoti ya muhtasari wa kila wiki ya shughuli za kuzuia simu",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "Karibu",
+  "whitelist": "Orodha Nyeupe",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "Orodha Nyeupe",
+  "width": "Upana",
+  "wildcardMatchingDescription": "Tumia '.' kulinganisha herufi yoyote (kwa mfano '123.456' inalinganisha 123-456)",
+  "wildcardMatchingTitle": "Kulinganisha kwa Wildcard:",
+  "wildcardSupportForFlexibleFiltering": "Usaidizi wa Wildcard kwa Kuchuja Rahisi",
+  "windowSizeSetting": "Ukubwa wa Dirisha",
+  "year": "Mwaka",
+  "yearly": "Kila Mwaka",
+  "yearlyChartTitle": "Simu za Kila Mwaka Zilizozuiwa",
+  "noSimCardsDetected": "Hakuna kadi za SIM zilizogunduliwa",
+  "filterManagementDescription": "Weka Vichujio vya Simu",
+  "callerIdCustomizationSubtitle": "Customize Mpangilio wa Kitambulisho cha Mpigaji",
+  "fraudAlerSettingTitle": "Mpangilio wa Tahadhari ya Ulaghai",
+  "fraudAlerSettingSubtitle": "Kuweka Tahadhari ya Ulaghai",
+  "enableFraudAlert": "Washa Tahadhari ya Ulaghai",
+  "enableFraudAlertDescription": "Tahadhari kwa simu zinazoshukiwa kuwa ulaghai",
+  "enableVibration": "Washa Mtetemo",
+  "enableVibrationDescription": "Tetema wakati simu inashukiwa kuwa ulaghai",
+  "notificationSettingsTitle": "Mipangilio ya Arifa",
+  "useLocalNotification": "Tumia Arifa za Ndani",
+  "useLocalNotificationDescription": "Washa arifa za ndani kwa simu zinazoingia",
+  "cancelLocalNotification": "Funga Arifa za Ndani",
+  "useStirNotification": "Tumia Arifa kutoka kwa STIR",
+  "useStirNotificationDescription": "Washa arifa za STIR kwa simu zinazoingia",
+  "cancelLocalNotificationDescription": "Funga Arifa za Ndani Kiotomatiki",
+  "callerIdSettingsTitle": "Mipangilio ya Kitambulisho cha Mpigaji",
+  "callerIdSettingsSubtitle": "Kuweka Arifa na Njia ya Onyesho ya Simu Zinazoingia",
+  "purchaseTitle": "Nunua",
+  "purchaseSubtitle": "Kunua Huduma",
+  "callerIdNotificationTitle": "Taarifa ya Simu Zinazoingia",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Nambari: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "Simu Iliyozuiwa",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "Simu iliyozuiwa kutoka {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Imethibitishwa",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Haijathibitishwa",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Uthibitishaji Umefeli",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Hali ya Uthibitishaji Haijulikani",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "Uthibitishaji wa STIR/SHAKEN",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} kwa nambari {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "Mipangilio ya Ujumbe wa Usalama unaosogeza",
+  "messageColor": "Rangi ya Ujumbe",
+  "messageFontSize": "Ukubwa wa Fomati ya Ujumbe",
+  "messagePosition": "Nafasi ya Ujumbe",
+  "containerWidth": "Upana wa Kontena",
+  "scrollSpeed": "Kasi ya Kusogeza",
+  "enableSecurityMessage": "Washa Ujumbe wa Usalama",
+  "fraudAlertTitle": "Tahadhari ya Ulaghai",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "Simu ya uwezekano wa ulaghai kutoka {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "Imeshindwa kupakia sheria: {error}",
+  "loadCallLogFailed": "Imeshindwa kupakia historia ya simu: {error}",
+  "noBlockedTypeData": "Hakuna data ya aina ya iliyozuiwa inapatikana",
+  "importEntity": "Leta {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} imeletwa kwa mafanikio, jumla ya rekodi {count} zimeletwa",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "Imeshindwa kuleta {entityTypeName}: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Hamisha {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} imesafirishwa kwa mafanikio",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "Imeshindwa kusafirisha {entityTypeName}: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "Huduma ya Usawazishaji wa Wingu",
+  "membershipCenter": "Kituo cha Uanachama",
+  "redeemVipWithMarks": "Komboa VIP kwa Alama",
+  "currentMarkCount": "Idadi ya Alama za Sasa",
+  "markMoreNumbersForMore": "Weka alama kwenye nambari zaidi kwa alama zaidi",
+  "noAds": "Hakuna Matangazo",
+  "cloudBackup": "Hifadhi Nakala ya Wingu",
+  "callerIdEnhancement": "Boreshaji wa Kitambulisho cha Mpigaji",
+  "voiceRecognition": "Utambuzi wa Sauti",
+  "feature": "Kipengele",
+  "normalUser": "Mtumiaji Kawaida",
+  "vipUser": "Mtumiaji wa VIP",
+  "temporaryVip": "VIP ya Muda",
+  "removeAds": "Ondoa Matangazo",
+  "unknownAction": "Tendo Lisilojulikana",
+  "settingsBackup": "Hifadhi Nakala ya Mipangilio ",
+  "allServicesStatusTitle": "Hali ya Sasa ya Huduma Zote",
+  "allServicesStatusSubtitle": "Hali ya Sasa ya Kila Huduma ya Wingu",
+  "redirect": "Rejesha",
+  "notify": "Arifu",
+  "log": "Logi",
+  "custom": "Maalum",
+  "allowActionDescription": "Simu zitakubaliwa, hata kama nambari iko kwenye orodha ya vizuizi.",
+  "blockActionDescription": "Simu zitazuiwa na kuonyeshwa kwenye logi ya simu.",
+  "silenceActionDescription": "Simu zitanyamazishwa lakini zitaonyeshwa kwenye logi ya simu.",
+  "noneActionDescription": "Hakuna kitendo maalum kitakachofanywa kwa simu.",
+  "redirectActionDescription": "Rejesha simu kwa nambari maalum.",
+  "labelActionDescription": "Ongeza lebo kwenye simu kwa urahisi wa kutambua.",
+  "notifyActionDescription": "Tuma arifa wakati simu inapopokelewa.",
+  "logActionDescription": "Ingia taarifa ya simu bila kuchukua hatua nyingine yoyote.",
+  "customActionDescription": "Tekeleza tendo maalum.",
+  "synced": "Imesawazishwa",
+  "needVipAccess": "Unahitaji ufikiaji wa VIP kutumia kipengele hiki",
+  "importExportDescription": "Leta au hamisha data ya {entityTypeName}",
+  "importExportTitle": "Leta/Hamisha",
+  "noPhoneRules": "Hakuna sheria za simu zilizopatikana",
+  "noRegexRules": "Hakuna sheria za regex zilizopatikana",
+  "noAllowedBlockedRules": "Hakuna sheria za kuruhusiwa/kuzuiwa zilizopatikana",
+  "importExport": "Leta/Hamisha",
+  "filterByAction": "Chuja kwa Tendo",
+  "upgradeToVip": "Boresha hadi VIP",
+  "batteryOptimizationPermission": "Battery Optimization",
+  "batteryOptimizationPermissionDescription": "Ruhusu programu ifanye kazi chinichini ili kutoa huduma kama vile kitambulisho cha mpigaji.",
+  "permissionTitle": "Ruhusa Maalum",
+  "permissionSubtitle": "Dhibiti ruhusa za kuingiliana na uboreshaji wa betri",
+  "themeSettingsTitle": "Mipangilio ya Mandhari",
+  "themeSettingsSubtitle": "Chagua mandhari unayopenda",
+  "databaseSyncTitle": "Usawazishaji wa Hifadhidata",
+  "countrySyncSettingsTitle": "Mipangilio ya Usawazishaji wa Hifadhidata Kulingana na Nchi",
+  "countrySyncSettingsSubtitle": "Chagua nchi kwa ajili ya kusawazisha data",
+  "countryDataDisclaimer": "Tafadhali kumbuka: Hifadhidata inaweza isiwe na data kwa nchi au mikoa yote mahususi.",
+  "editSubscription": "Hariri Usajili",
+  "searchByNameOrPhoneNumber": "Tafuta kwa Jina au Namba ya Simu",
+  "allowedBlockedRulesInfo": "Sheria zilizoruhusiwa/zilizozuiliwa hutumiwa kulinganisha simu na namba maalum za simu, ambazo zina kipaumbele cha juu zaidi.",
+  "searchPhoneRulesHint": "Tafuta sheria za simu",
+  "phoneRulesInfo": "Sheria za simu hutumiwa kulinganisha simu na namba maalum za simu, ambazo zina kipaumbele cha chini zaidi. Baadhi zinatoka kwa usajili wa phoneRule",
+  "searchSubscriptionsHint": "Tafuta usajili",
+  "searchPluginsHint": "Tafuta programu-jalizi",
+  "searchLabelsHint": "Tafuta lebo",
+  "pluginDescription": "Maelezo ya programu-jalizi",
+  "enterPluginDescription": "Weka maelezo ya programu-jalizi",
+  "searchRegexRulesHint": "Tafuta sheria za regex",
+  "regexRulesInfo": "Sheria za Regex hutumiwa kuchuja simu kulingana na Miundo ya Regex.",
+  "searchMarkedPhonesHint": "Tafuta namba za simu zilizowekwa alama",
+  "searchContactSubscriptionsHint": "Tafuta usajili wa anwani",
+  "showAllContacts": "Onyesha Anwani Zote",
+  "showFavorites": "Onyesha Vipendwa",
+  "manualEntry": "Maelezo ya Kuingiza Mwongozo",
+  "scriptSaved": "Nukta iliyohifadhiwa",
+  "editScriptFor": "Hariri nukta kwa {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "Hifadhi Nukta",
+  "testPlugin": "Jaribu Programu-jalizi",
+  "description": "Maelezo",
+  "accessTargetUrl": "Fikia URL Lengwa",
+  "result": "Matokeo",
+  "editScript": "Hariri Nukta",
+  "numberFormat": "Muundo wa Namba",
+  "nationalNumber": "Namba ya Kitaifa",
+  "e164Number": "Namba ya E164",
+  "pluginRulesInfo": "Kwa usalama, tafadhali tumia programu-jalizi kutoka vyanzo vinavyoaminika tu. Jisikie huru kutumia templeti zetu kuunda programu-jalizi zako maalum!",
+  "advancedMode": "Hali ya Juu",
+  "pleaseEnterAtLeastOneNumber": "Tafadhali weka angalau namba moja.",
+  "openInWebView": "Fungua katika WebView",
+  "pluginLabel": "Lebo ya Programu-jalizi",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "Rangi ya Mandharinyuma ya Ujumbe",
+  "clearAllCallLogs": "Futa Magogo Yote ya Simu",
+  "clearAllCallLogsConfirmation": "Thibitisha kufuta magogo yote ya simu",
+  "allCallLogsCleared": "Magogo yote ya simu yamefutwa",
+  "unblocked": "Haijazuiwa",
+  "blockNumber": "Zuia Namba",
+  "blockNumberSuccess": "Namba imefanikiwa kuzuiliwa",
+  "blockNumberFailed": "Namba imefeli kuzuiliwa",
+  "unblockNumberConfirmation": "Je, una uhakika unataka kumfungulia {phoneNumber}?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "Inapiga {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "Tazama Maelezo",
+  "unblock": "Fungua",
+  "unblockNumber": "Fungulia Namba",
+  "unblockNumberSuccess": "Namba imefunguliwa kwa mafanikio",
+  "unblockNumberFailed": "Namba imefeli kufunguliwa",
+  "serviceNotAvailable": "Huduma haipatikani",
+  "callingNumberFailed": "Simu ya namba imefeli",
+  "listView": "Mwonekano wa Orodha",
+  "timelineView": "Mwonekano wa Kalenda",
+  "nameCannotBeEmpty": "Jina haliwezi kuwa tupu",
+  "selectAction": "Chagua hatua",
+  "selectTargetService": "Chagua huduma lengwa",
+  "callDetails": "Maelezo ya Simu",
+  "callType": "Aina ya Simu",
+  "callTime": "Wakati wa Simu",
+  "numberInvalidFormat": "Muundo wa namba si sahihi",
+  "membershipFeature": "Kipengele cha Uanachama",
+  "medium": "Kati",
+  "verificationReport": "Ripoti ya Uthibitisho",
+  "finalRisk": "Hatari ya Mwisho",
+  "simState": "Hali ya SIM",
+  "ipCountry": "Nchi ya IP",
+  "simCountry": "Nchi ya SIM",
+  "isRoaming": "Inaendelea",
+  "isNumberMatch": "Namba Inalingana",
+  "support": "Usaidizi",
+  "rewardedAdService": "Huduma ya Matangazo Yanayolipwa",
+  "hasVipPrivilegeExceptAds": "Tayari una haki za VIP (isipokuwa matangazo)",
+  "hasTempPrivilegeWithExpiry": "Tayari una haki za muda, tarehe ya kuisha: {expiryDate}",
+  "watchMoreAdsForTempVip": "Unahitaji kutazama matangazo zaidi {count} ili kupata haki za muda za VIP",
+  "grantedTempPurchaseWithExpiry": "Umepewa siku {days} za haki za ununuzi wa muda. Tarehe ya kuisha: {expiryDate}",
+  "tempPurchaseExpired": "Haki ya ununuzi wa muda imeisha muda wake",
+  "loadingAd": "Inapakia Tangazo...",
+  "earnedTempVip": "Ulipata VIP ya muda",
+  "vipExchangeService": "Huduma ya Kubadilishana VIP",
+  "marksInsufficient": "Alama hazitoshi kubadilishana",
+  "invalidExchangeRule": "Sheria ya kubadilishana si sahihi",
+  "exchangeSuccess": "Imefanikiwa kubadilishwa kwa {description}, tarehe ya kuisha: {expiryDate}",
+  "exchangeFailed": "Ubadilishaji umefeli: {error}",
+  "vip3DaysWithAds": "Siku 3 za VIP na matangazo (usawazishaji tu)",
+  "vip5DaysNoAds": "Siku 5 za VIP kamili bila matangazo",
+  "vip7DaysNoAds": "Siku 7 za VIP kamili bila matangazo",
+  "noNotifications": "Hakuna arifa",
+  "clearAllNotifications": "Futa Arifa Zote",
+  "clearAllNotificationsConfirmation": "Thibitisha kufuta arifa zote",
+  "allNotificationsCleared": "Arifa zote zimefutwa",
+  "clearButton": "Futa",
+  "justNow": "Sasa hivi",
+  "minutesAgo": "{count,plural, =1{dakika 1 iliyopita} other{dakika {count} zilizopita}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{saa 1 iliyopita} other{masaa {count} yaliyopita}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{siku 1 iliyopita} other{siku {count} zilizopita}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "Jana",
+  "deletionProposal": "Pendekezo la kufuta",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "Maingizo ya kufuta",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "Unda Pendekezo",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "Unda Pendekezo la Kufuta",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "Sababu",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "Nambari ya zamani",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Wasiwasi wa faragha",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Haijatumika",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Imetambuliwa vibaya",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Taarifa zisizo sahihi",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "Imetiwa alama vibaya",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "Nyingine",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "Wasilisha",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "Ghailisha",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "Hali",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "Inasubiri",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "Inafanya kazi",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "Imekamilika",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "Imeisha muda wake",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "Kiwango cha hatari",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "Imethibitishwa",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "Chini",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "Juu",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "Haijulikani",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "Maendeleo ya Upigaji Kura",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "Kubali: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "Kukataa: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "Jumla: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "Kubali",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "Kukataa",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "Imeundwa: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "Onyesha Ripoti",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "Ficha Ripoti",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "Takwimu za Pendekezo",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "Maingizo Yote",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "Maingizo Yanayotumika",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "Maingizo Yaliyokamilika",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "Kura Zangu",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "Pendekezo limeundwa kwa mafanikio",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "Imeshindwa kuunda pendekezo",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "Kura imewasilishwa kwa mafanikio",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "Imeshindwa kuwasilisha kura",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "Hakuna maingizo yaliyopatikana",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "Inapakia maingizo...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "Onyesha upya maingizo",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "Jumla ya Maingizo Yanayosubiri",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "Hatari kubwa",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "Hatari ya kati",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "Hatari ndogo",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "Athari kwa Jamii",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "Masuala Muhimu",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "Ushiriki wa Jamii",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "Hakuna Shughuli",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "Chini",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "Wastani",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "Juu",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "Juu sana",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "Imepigiwa kura",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "Kura za jamii",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "Inasubiri kura zaidi za jamii",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "Pendekezo hili limeshughulikiwa",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "INAUNGWA MKONO",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "INAKATALIWA",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "IMEIDHIHIRISHA",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "IMEKATALIWA",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "IMEKamilika",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "INASUBIRI",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "Muhimu",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "Kataa",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "Chini sana",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "Arifa kuhusu matokeo ya upigaji kura wa mapendekezo ya kufuta na masasisho.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "Pendekezo la Kufuta Limeundwa",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "Pendekezo lako la kufuta nambari {phoneNumber} limepokelewa kwa ajili ya ukaguzi wa jamii.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "Pendekezo Limeidhinishwa ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "Pendekezo la kufuta nambari {phoneNumber} limeidhinishwa na jamii ({supportPercentage}% kuungwa mkono, kura {totalVotes}).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "Pendekezo Limekataliwa ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "Pendekezo la kufuta nambari {phoneNumber} limekataliwa na jamii ({supportPercentage}% kuungwa mkono, kura {totalVotes}).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "Upigaji Kura wa Jamii Umeanza",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "Pendekezo jipya la kufuta nambari {phoneNumber} sasa limefunguliwa kwa ajili ya upigaji kura wa jamii.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "Upigaji Kura Umekamilika",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "Upigaji kura wa jamii kwa ajili ya {phoneNumber} umeisha. Matokeo: {result} ({supportPercentage}% kuungwa mkono).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "Kura Mpya Ime pokelewa",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "Mtu fulani amepiga kura kukataa kufuta nambari {phoneNumber}. Kura za sasa: {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "Imeshindwa kupakia idadi ya kura",
+  "voteCount": "Idadi ya Kura",
+  "deletionProposalInfo": "Taarifa za Pendekezo la Kufuta",
+  "deletionProposalDescription": "Pendekeza nambari za kufuta ambazo zinakiuka miongozo ya jamii. Ushiriki wako husaidia kuweka jukwaa likiwa salama.",
+  "voteToEarnVip": "Piga kura kwenye mapendekezo ili upate haki za VIP!",
+  "voteFailed": "Kura imeshindwa",
+  "searchProposals": "Tafuta Maingizo",
+  "defaultNotifications": "Arifa za Kawaida",
+  "defaultNotificationsDescription": "Njia ya arifa ya kawaida kwa programu.",
+  "blockedCallNotifications": "Arifa za Simu Zilizozuiwa",
+  "blockedCallNotificationsDescription": "Huonyesha taarifa kuhusu simu zilizozuiliwa.",
+  "stirVerification": "STIR/SHAKEN Uthibitisho",
+  "stirVerificationDescription": "Huonyesha matokeo ya uthibitisho wa STIR/SHAKEN kwa nambari.",
+  "fraudAlerts": "Tahadhari za Udanganyifu",
+  "fraudAlertsDescription": "Huonyesha maonyo kwa simu zinazoweza kuwa za udanganyifu.",
+  "notificationFrequencyDescription": "Chagua ni mara ngapi unapokea arifa kuhusu mapendekezo mapya ya kufuta. Unaweza kuzipokea mara moja, kwa makundi, au kwa muda uliowekwa maalum.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "Mara Moja",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "Pokea arifa mara tu pendekezo linapoundwa.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "Kwa Makundi",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "Pokea muhtasari wa arifa mara kwa mara.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "Maalum",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "Weka kipindi chako mwenyewe cha kupokea arifa.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "Kipindi Maalum",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} dk",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} saa",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} saa {minutes} dk",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "Mapendekezo Yanayosubiri",
+  "pendingProposalsBody": "Una {count, plural, =0 {hakuna mapendekezo yanayosubiri} one {1 pendekezo linalosubiri} other {{count} mapendekezo yanayosubiri}}.",
+  "guidelinesLabel": "Miongozo",
+  "reportingGuidelines": "• Ripoti tu nambari ambazo ni tatizo kweli\n• Toa sababu sahihi na za kina\n• Chagua kiwango cha hatari kinachofaa kulingana na ukali\n• Ripoti za uwongo zinaweza kusababisha vikwazo vya akaunti",
+  "riskLevelLabel": "Kiwango cha Hatari",
+  "riskLevelDescription": "Kiwango cha hatari cha nambari",
+  "phoneNumberMinDigits": "Nambari ya simu lazima iwe na angalau tarakimu 7",
+  "provideDetailedExplanation": "Toa maelezo ya kina (angalau herufi 10)",
+  "reasonMinCharacters": "Sababu lazima iwe na angalau herufi 10",
+  "countryCodeTwoLetters": "Nambari ya Nchi (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Nambari ya Nchi (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "k.m., US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "Nambari ya nchi inahitajika",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "Nambari ya nchi lazima iwe na herufi 2",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "Nambari ya simu lazima iwe na angalau tarakimu 7",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "Toa maelezo ya kina (angalau herufi 10)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "Sababu inahitajika",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "Sababu lazima iwe na angalau herufi 10",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "Miongozo",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• Ripoti tu nambari ambazo ni tatizo kweli\n• Toa sababu sahihi na za kina\n• Chagua kiwango cha hatari kinachofaa kulingana na ukali\n• Ripoti za uwongo zinaweza kusababisha vikwazo vya akaunti",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "Muhimu Sana",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "Wastani",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "Chini Sana",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "Chini Sana - Usumbufu mdogo, simu za mara chache",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "Chini - Simu za mara kwa mara zisizohitajika",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "Wastani - Barua taka za mara kwa mara au utangatangi",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "Juu - Unyanyasaji au majaribio ya ulaghai yanayoendelea",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "Muhimu Sana - Ulaghai hatari au vitisho",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "Kipindi cha Arifa",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "Kipindi cha Arifa (saa)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "Hitilafu: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "Kura: {totalVotes} ({supportPercentage}%saidizi)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "Saidizi ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "Pingamizi ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "Sasa hivi",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes}m zilizopita",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours}h zilizopita",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days}d zilizopita",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "Kipindi cha Arifa (Saa)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} kura ({supportPercentage}% saidizi)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 saa} =1{1 saa} other{{count} saa}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "Taarifa Muhimu",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "Nambari zinatoka kwenye mtandao na maingizo ya watumiaji. Hatunaweza kuhakikisha kwamba nambari, mara tu ikifutwa, haitarudishwa tena na watumiaji wengine au vyanzo. Tafadhali tafuta na uthibitishe taarifa kwa bidii.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Mahali",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIM Kadi",
+  "liveActivitiesSettingsTitle": "Mipangilio ya Shughuli Zinazoendelea",
+  "elementsSettingsTitle": "Mipangilio ya vipengele",
+  "liveActivityMode": "Shughuli Inayoendelea",
+  "liveActivityModeDescription": "Huonyesha taarifa za simu kama arifa inayoendelea kwenye skrini iliyofungwa na katika Kilele cha Dynamic (iOS).",
+  "phoneNumberType": "Aina ya Nambari ya Simu",
+  "liveActivitiesTestEndActivity": "Maliza Shughuli",
+  "liveActivitiesTestSendNewActivity": "Tuma Shughuli Mpya",
+  "liveActivitiesTestUpdateActivity": "Sasisha Shughuli",
+  "liveActivityControlsTitle": "Vidhibiti vya Shughuli Zinazoendelea",
+  "liveActivitiesTestTitle": "Jaribio la Shughuli Zinazoendelea",
+  "liveActivitiesTestSubtitle": "Jaribu arifa ya shughuli inayoendelea.",
+  "liveNotificationCustomizationTitle": "Ugeuzaji wa Arifa Zinazoendelea",
+  "liveNotificationCustomizationSubtitle": "Geuza mwonekano wa arifa zinazoendelea.",
+  "notification_instructions": "Maagizo:\n1. Gusa \"TUMA\" ili kuunda au kusasisha arifa.\n2. Nenda kwenye skrini yako ya nyumbani au vuta chini trei ya arifa ili uone matokeo.\n3. Gusa \"MALIZA\" ili kufuta arifa.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "Futa Arifa Moja kwa Moja",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "Ikiwa imechaguliwa, arifa itafutwa kiotomatiki mtumiaji atakapogusa.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "Weka Muda wa Kucheleweshwa",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Maelezo ya Pendekezo",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "Chu\u0002\u0003\u0007\u0006a kwa Hali",
+  "proposalNotFound": "Pendekezo halikupatikana",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "Imeshachakatwa",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Onyesha Zote",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "Chu\u0002\u0003\u0007\u0006a na Panga",
+  "filterVerifiedOwner": "Chu\u0002\u0003\u0007\u0006a Mmiliki Aliye\u0002\u0003\u0007\u0006afutwa",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "Chu\u0002\u0003\u0007\u0006a Kwa",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "Panga za Kale",
+  "sortNewest": "Panga Mpya",
+  "sortMostPopular": "Panga Zinazopendwa Zaidi",
+  "sortLeastPopular": "Panga Zinazopendwa Kidogo",
+  "sortBy": "Panga Kwa",
+  "simRulesNotFound": "Sheria za SIM hazikupatikana",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "Sheria za Nafasi ya SIM",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "Hakuna SIM kadi iliyogunduliwa",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "Data batili ya SIM",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "Data ya SIM Kadi",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "Nafasi ya SIM",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "Washa Kuchuja",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "Mipangilio ya Kina",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "Mtazamo wa Mahali pa Kuingilia",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "Iliakataliwa",
+  "callTypeSilenced": "Ilinyamazishwa",
+  "callTypeVoicemail": "Ujumbe wa Sauti",
+  "callTypeUnknownIntercept": "Haidhaniwi Kuzuiwa",
+  "andMoreItems": "na vitu vingine {count}",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

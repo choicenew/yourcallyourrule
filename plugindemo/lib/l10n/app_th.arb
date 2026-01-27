@@ -1,0 +1,3092 @@
+{
+  "@@locale": "th",
+  "aboutContactSubscription": "เกี่ยวกับ การสมัครรับข้อมูลผู้ติดต่อ",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "เกี่ยวกับ ป้ายกำกับ",
+  "aboutPhoneSubscriptionRules": "เกี่ยวกับ กฎการสมัครรับข้อมูลโทรศัพท์",
+  "aboutPhoneSubscriptions": "เกี่ยวกับ การสมัครรับข้อมูลโทรศัพท์",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "สมัครรับรายการกฎโทรศัพท์ผ่าน URL อัปเดตกฎโดยอัตโนมัติ รองรับไฟล์กฎรูปแบบ JSON, CSV",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "เกี่ยวกับ การกรอง SMS",
+  "aboutSmsSubscriptionRules": "เกี่ยวกับ กฎการสมัครรับข้อมูล SMS",
+  "aboutSubtitle": "ข้อมูลเวอร์ชันแอปพลิเคชันและข้อมูลทางกฎหมาย",
+  "aboutTitle": "เกี่ยวกับ",
+  "action": "การดำเนินการ",
+  "actionAll": "ทั้งหมด",
+  "actionAllow": "อนุญาต",
+  "actionBlock": "บล็อก",
+  "actionFilterAll": "ตัวกรองทั้งหมด",
+  "actionFilterTitle": "กรองตามประเภทการดำเนินการ",
+  "actionFilterTooltip": "ตัวกรองการดำเนินการ",
+  "actionNone": "ไม่มีการดำเนินการ",
+  "actionSilence": "ปิดเสียง",
+  "actionTag": "การดำเนินการ: {actionType}",
+  "actionType": "ประเภทการดำเนินการ",
+  "actionUnknown": "ไม่รู้จัก",
+  "add": "เพิ่ม",
+  "addAllowedBlockedRule": "เพิ่มกฎอนุญาต/บล็อก",
+  "addAllowSubscription": "เพิ่มการสมัครรับข้อมูลอนุญาต",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "เพิ่มการสมัครรับข้อมูลบล็อก",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "เพิ่มผู้ติดต่อ",
+  "addContactFailed": "เพิ่มผู้ติดต่อไม่สำเร็จ: {error}",
+  "addedToAllowedRules": "เพิ่มในกฎที่อนุญาตแล้ว",
+  "addedToBlacklist": "เพิ่มในรายการบล็อกแล้ว",
+  "addedToBlockedRules": "เพิ่มในกฎที่บล็อกแล้ว",
+  "addedToFavoriteContacts": "เพิ่มในผู้ติดต่อที่ชื่นชอบแล้ว",
+  "addedToFavorites": "เพิ่มในรายการโปรดแล้ว",
+  "addedToWhitelist": "เพิ่มในรายการที่อนุญาตแล้ว",
+  "addFavorite": "เพิ่มรายการโปรด",
+  "addFilter": "เพิ่มตัวกรอง",
+  "addLabel": "เพิ่มป้ายกำกับ",
+  "addLabelButton": "เพิ่มป้ายกำกับ",
+  "addLabelFailed": "เพิ่มป้ายกำกับไม่สำเร็จ: {error}",
+  "addLabelToCall": "เพิ่มป้ายกำกับไปยังบันทึกการโทร",
+  "addName": "เพิ่มชื่อ",
+  "addNoneSubscription": "เพิ่มการสมัครรับข้อมูลไม่มี",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "ใช้เพื่อเพิ่มหรือแก้ไขข้อมูลผู้ติดต่อ",
+  "addPhoneMark": "เพิ่มเครื่องหมายโทรศัพท์",
+  "addPhoneNumberRule": "เพิ่มกฎหมายเลขโทรศัพท์",
+  "addPlugin": "เพิ่มปลั๊กอิน",
+  "addPluginFailed": "เพิ่มปลั๊กอินไม่สำเร็จ",
+  "addPluginFailedWithError": "เพิ่มปลั๊กอินไม่สำเร็จ: {error}",
+  "addPluginFromLocalFile": "เพิ่มปลั๊กอินจากไฟล์ในเครื่อง",
+  "addPluginFromUrl": "เพิ่มปลั๊กอินจาก URL",
+  "addRegexRule": "เพิ่มกฎ Regex",
+  "addRule": "เพิ่มกฎ",
+  "addRuleButton": "เพิ่มกฎ",
+  "addRuleFailed": "เพิ่มกฎไม่สำเร็จ: {error}",
+  "addRuleTooltip": "เพิ่มกฎ",
+  "addSilenceSubscription": "เพิ่มการสมัครรับข้อมูลปิดเสียง",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "เพิ่มกฎ SIM",
+  "addSmsFilterRule": "เพิ่มกฎตัวกรอง SMS",
+  "addSmsRule": "เพิ่มกฎ SMS",
+  "addSmsSubscription": "เพิ่มการสมัครรับข้อมูล SMS",
+  "addSubscription": "เพิ่มการสมัครรับข้อมูล",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "เพิ่มการสมัครรับข้อมูล",
+  "addSubscriptionFailed": "เพิ่มการสมัครรับข้อมูลไม่สำเร็จ: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "เพิ่มการสมัครรับข้อมูล",
+  "addToAllowedRules": "เพิ่มในกฎที่อนุญาต",
+  "addToBlacklist": "เพิ่มในรายการบล็อก",
+  "addToBlockedRules": "เพิ่มในกฎที่บล็อก",
+  "addToFavoriteContacts": "เพิ่มในผู้ติดต่อที่ชื่นชอบ",
+  "addToFavorites": "เพิ่มในรายการโปรด",
+  "addToRules": "เพิ่มในกฎ",
+  "addToWhitelist": "เพิ่มในรายการที่อนุญาต",
+  "adPlaceholder": "ช่องโฆษณา",
+  "agent": "ตัวแทน",
+  "all": "ทั้งหมด",
+  "allCallsTab": "ทั้งหมด",
+  "allDataClearedSuccessfully": "ล้างข้อมูลทั้งหมดสำเร็จแล้ว",
+  "allow": "อนุญาต",
+  "allowAllAllowRules": "อนุญาตกฎอนุญาตทั้งหมด",
+  "allowAllAllowRulesDesc": "อนุญาตการโทรจากกฎอนุญาต",
+  "allowAllBlacklistedNumbers": "อนุญาตหมายเลขที่อยู่ในรายการบล็อกทั้งหมด",
+  "allowAllBlacklistedNumbersDesc": "อนุญาตการโทรจากรายการบล็อก",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "อนุญาตกฎบล็อกทั้งหมด",
+  "allowAllBlockRulesDesc": "อนุญาตการโทรจากกฎบล็อก",
+  "allowAllowedNumbers": "อนุญาตหมายเลขที่อนุญาต",
+  "allowAllowedNumbersDesc": "อนุญาตการโทรจากรายการที่อนุญาต",
+  "allowBlock": "อนุญาต/บล็อก",
+  "allowBlockedNumbers": "อนุญาตหมายเลขที่บล็อก",
+  "allowBlockedNumbersDesc": "อนุญาตการโทรจากรายการบล็อก",
+  "allowedBlockedRule": "กฎอนุญาต/บล็อก",
+  "allowedBlockedRuleEditDialogTitle": "แก้ไขกฎอนุญาต/บล็อก",
+  "allowedBlockedRuleManagement": "การจัดการกฎอนุญาต/บล็อก",
+  "allowNonExceededNumbers": "อนุญาตหมายเลขที่ไม่เกิน",
+  "allowNonExceededNumbersDescription": "อนุญาตหมายเลขโดยอัตโนมัติที่ไม่เกินเกณฑ์จำนวน",
+  "allowRegexAllowRules": "อนุญาตกฎ Regex",
+  "allowRegexAllowRulesDesc": "เปิดใช้งานการจับคู่รูปแบบ regex สำหรับกฎอนุญาต",
+  "allowRegexAllowRulesDescription": "เปิดใช้งานกฎตามรูปแบบ Regex สำหรับการอนุญาต",
+  "allowRegexBlockRules": "อนุญาตกฎ Regex",
+  "allowRegexBlockRulesDesc": "เปิดใช้งานการจับคู่รูปแบบ regex สำหรับกฎบล็อก",
+  "allowRegexBlockRulesDescription": "เปิดใช้งานกฎตามรูปแบบ Regex สำหรับการบล็อก",
+  "allowRule": "กฎอนุญาต",
+  "allowRules": "กฎอนุญาต",
+  "allowWhitelistedNumbers": "อนุญาตหมายเลขในรายการที่อนุญาต",
+  "allowWhitelistedNumbersDescription": "อนุญาตหมายเลขทั้งหมดในรายการที่อนุญาต",
+  "allPermissionsGranted": "ได้รับสิทธิ์ทั้งหมดแล้ว",
+  "allSettingsCompleted": "ตั้งค่าทั้งหมดเสร็จสมบูรณ์แล้ว",
+  "allUpdateSuccess": "อัปเดตทั้งหมดเสร็จสมบูรณ์แล้ว ({count} กฎ)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "รับสายแล้ววางสาย",
+  "appLegalese": "© 2023 Your Call Your Rule. สงวนลิขสิทธิ์.",
+  "applicationSoftware": "ซอฟต์แวร์แอปพลิเคชัน",
+  "apply": "ใช้",
+  "appName": "Your Call Your Rule",
+  "authorizationFailedCheckCredentialsMessage": "การยืนยันตัวตนล้มเหลว: โปรดตรวจสอบรหัสไคลเอ็นต์และคีย์",
+  "authorizationFailedMessage": "การยืนยันตัวตนล้มเหลว",
+  "authorizationSuccessMessage": "การยืนยันตัวตนสำเร็จ",
+  "authorizeLoginButton": "อนุญาตการเข้าสู่ระบบ",
+  "automotiveIndustry": "อุตสาหกรรมยานยนต์",
+  "autoSyncLabel": "ซิงค์อัตโนมัติ",
+  "autoUpdate": "อัปเดตอัตโนมัติ",
+  "autoUpdateDescription": "ตั้งค่าช่วงเวลาอัปเดตอัตโนมัติสำหรับการสมัครสมาชิกหรืออัปเดตด้วยตนเอง",
+  "autoUpdateSettings": "การตั้งค่าอัปเดตอัตโนมัติ",
+  "autoUpdateSettingsSubtitle": "จัดการการอัปเดตอัตโนมัติสำหรับกฎและปลั๊กอิน",
+  "autoUpdateSettingsTitle": "การตั้งค่าอัปเดตอัตโนมัติ",
+  "autoUpdateSubtitle": "จัดการการอัปเดตอัตโนมัติสำหรับกฎและปลั๊กอิน",
+  "autoUpdateTitle": "อัปเดตอัตโนมัติ",
+  "avatarBorderColor": "สีขอบอวาตาร์",
+  "avatarBorderSize": "ขนาดขอบอวาตาร์",
+  "avatarIconSizesSetting": "ขนาดอวาตาร์และไอคอน",
+  "avatarPosition": "ตำแหน่งอวาตาร์",
+  "avatarSize": "ขนาดอวาตาร์",
+  "axisPosition": "ตำแหน่ง {axis}",
+  "backgroundGradientSetting": "การไล่ระดับสีพื้นหลัง",
+  "backup": "สำรองข้อมูล",
+  "backupAndRestore": "สำรองและกู้คืน",
+  "backupAndRestoreSubtitle": "สำรองหรือกู้คืนข้อมูลแอปพลิเคชัน",
+  "backupAndRestoreTitle": "สำรองและกู้คืน",
+  "backupFailed": "การสำรองข้อมูลล้มเหลว",
+  "backupFailedMessage": "การสำรองข้อมูลล้มเหลว",
+  "backupFailedWithError": "การสำรองข้อมูลล้มเหลว: {error}",
+  "backupRestoreSubtitle": "สำรองหรือกู้คืนข้อมูลแอปพลิเคชัน",
+  "backupRestoreTitle": "สำรองและกู้คืน",
+  "backupSectionTitle": "สำรองข้อมูล",
+  "backupSettings": "การตั้งค่าสำรองข้อมูล",
+  "backupSettingsDialogTitle": "การตั้งค่าสำรองข้อมูล",
+  "backupSettingsTitle": "การตั้งค่าสำรองข้อมูล",
+  "backupSuccessMessage": "สำรองข้อมูลไปยังคลาวด์สำเร็จแล้ว",
+  "backupSuccessToLocal": "การสำรองข้อมูลสำเร็จไปยัง: {path}",
+  "backupToCloud": "สำรองข้อมูลไปยังคลาวด์",
+  "backupToCloudDescription": "สำรองการตั้งค่าและกฎไปยังที่จัดเก็บข้อมูลบนคลาวด์",
+  "backupToCloudFailed": "ไม่สามารถสำรองข้อมูลไปยังคลาวด์ได้: {error}",
+  "backupToCloudLabel": "สำรองข้อมูลไปยังคลาวด์",
+  "backupToCloudSuccess": "สำรองข้อมูลไปยังคลาวด์สำเร็จแล้ว",
+  "backupToCloudTitle": "สำรองข้อมูลไปยังคลาวด์",
+  "backupToLocalLabel": "สำรองข้อมูลไปยังเครื่อง",
+  "bank": "ธนาคาร",
+  "basicInfo": "ข้อมูลพื้นฐาน",
+  "basicRuleFilter": "ตัวกรองกฎพื้นฐาน",
+  "basicRuleFiltering": "การกรองกฎพื้นฐาน",
+  "basicRuleFilteringExplanation": "• การกรองกฎพื้นฐาน: กรองกฎตามรายการที่ถูกบล็อก รายการที่อนุญาต และนิพจน์ทั่วไป",
+  "basicRuleFilterSettings": "การตั้งค่าตัวกรองกฎพื้นฐาน",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "กรองการโทรโดยใช้รายการที่ถูกบล็อก/รายการที่อนุญาต และนิพจน์ทั่วไป",
+  "batchDeleteContacts": "ลบผู้ติดต่อจำนวนมาก",
+  "batchDeleteContactsConfirm": "คุณแน่ใจหรือไม่ว่าต้องการลบผู้ติดต่อที่เลือก {count} รายการ",
+  "batchDeleteFailed": "การลบจำนวนมากไม่สำเร็จ",
+  "batchDeleteLabelsConfirm": "คุณแน่ใจหรือไม่ว่าต้องการลบป้ายกำกับ {count} รายการ",
+  "blacklist": "รายการที่ถูกบล็อก",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "การบล็อกและการอนุญาต",
+  "blacklistLabel": "รายการที่ถูกบล็อก",
+  "blackWhiteList": "รายการที่ถูกบล็อก/รายการที่อนุญาต",
+  "block": "บล็อก",
+  "blockCalls": "บล็อกการโทร",
+  "blocked": "ถูกบล็อก",
+  "blockedCallAction": "การดำเนินการเมื่อมีสายที่ถูกบล็อก",
+  "blockedCalls": "สายที่ถูกบล็อก",
+  "blockedCallsTitle": "สายที่ถูกบล็อก",
+  "blockedCommunications": "การสื่อสารที่ถูกบล็อก",
+  "blockedPhoneLabel": "สายที่ถูกบล็อก",
+  "blockedSpamCalls": "สายสแปมที่ถูกบล็อก",
+  "blockingTrend": "แนวโน้มการบล็อก",
+  "blockInternationalCalls": "ตรงกับหมายเลขที่ไม่ขึ้นต้นด้วย + หรือ 00",
+  "blockInternationalCallsTitle": "บล็อกสายต่างประเทศ",
+  "blockLandlineNumbersTitle": "บล็อกหมายเลขโทรศัพท์บ้าน",
+  "blockMobileNumbers": "ตรงกับหมายเลขที่ไม่ขึ้นต้นด้วย 13-19",
+  "blockMobileNumbersTitle": "บล็อกหมายเลขโทรศัพท์มือถือ",
+  "blockPremiumRateNumbers": "ตรงกับหมายเลขที่ไม่ขึ้นต้นด้วย 118 หรือ 120-190",
+  "blockPremiumRateNumbersTitle": "บล็อกหมายเลขโทรศัพท์อัตราพรีเมียม",
+  "blockRule": "กฎการบล็อก",
+  "blockRules": "กฎการบล็อก",
+  "blockSpecificAreaCodes": "ตรงกับหมายเลขที่ขึ้นต้นด้วย 0 + 2-3 หลัก",
+  "blockSpecificAreaCodesTitle": "บล็อกรหัสพื้นที่เฉพาะ:",
+  "blockTypeAnalysisTitle": "การวิเคราะห์ประเภทการบล็อก",
+  "both": "ทั้งสอง",
+  "bulkDelete": "ลบจำนวนมาก",
+  "bulkDeleteContacts": "ลบผู้ติดต่อจำนวนมาก",
+  "bulkDeleteLabels": "ลบป้ายกำกับจำนวนมาก",
+  "call": "โทร",
+  "callback": "โทรกลับ",
+  "callbackTo": "โทรกลับไปที่ {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "การบล็อกสาย",
+  "callerIdApp": "แอป ID ผู้โทร",
+  "callerIdCustomizationTitle": "ปรับแต่ง ID ผู้โทร",
+  "callerIdDialogTitle": "ข้อมูล ID ผู้โทร",
+  "callerIdDisplayMode": "รูปแบบการแสดงหมายเลขผู้โทร",
+  "callerIdMarkedByCount": "ถูกทำเครื่องหมายโดย {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "แสดงตัวอย่างหมายเลขผู้โทร",
+  "callFilter": "การกรองสาย",
+  "callFilterDescription": "เมื่อเปิดใช้งาน สายเรียกเข้าจะถูกตรวจสอบกับรายการกฎด้านล่าง โดยปกติแล้ว กฎการกรองสายจะไม่ถูกซิงโครไนซ์ระหว่างอุปกรณ์",
+  "callFilterRules": "กฎการกรองสาย",
+  "callFilterRulesDescription": "ตั้งค่ากฎพื้นฐานสำหรับการกรองสาย",
+  "callFilterSettings": "การตั้งค่าการกรองสาย",
+  "callFrequencyInterceptionSubtitle": "ตั้งค่าขีดจำกัดความถี่การโทรและกฎการบล็อก",
+  "callFrequencyInterceptionTitle": "การดักจับความถี่การโทร",
+  "callHistory": "ประวัติการโทร",
+  "callHistoryInfoDesc": "แสดงประวัติการโทรของคุณที่นี่ รวมถึงสายเรียกเข้า สายโทรออก และสายที่ไม่ได้รับ",
+  "callHistoryInfoTitle": "ประวัติการโทร",
+  "callHistoryInitFailed": "ไม่สามารถเริ่มต้นประวัติการโทร: {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "ไม่สามารถรีเฟรชประวัติการโทร: {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "ประวัติการโทร",
+  "callHistoryTimelineEarlier": "ก่อนหน้านี้",
+  "callHistoryTimelineToday": "วันนี้",
+  "callHistoryTimelineYesterday": "เมื่อวาน",
+  "callScreeningPermission": "สิทธิ์การคัดกรองสาย",
+  "callScreeningPermissionDescription": "ใช้เพื่อคัดกรองและบล็อกสายสแปม",
+  "callScreeningPermissionNotGranted": "ไม่ได้รับสิทธิ์การคัดกรองสาย อาจส่งผลต่อการทำงานของแอป",
+  "callSettingsSubtitle": "การตั้งค่าหมายเลขผู้โทร การกรอง และการบล็อก",
+  "callSettingsTitle": "การตั้งค่าการโทร",
+  "callStatistics": "สถิติการโทร",
+  "callTypeAnswered": "รับสาย",
+  "callTypeBlocked": "บล็อก",
+  "callTypeIconColor": "สีไอคอนประเภทการโทร",
+  "callTypeMissed": "สายที่ไม่ได้รับ",
+  "callTypeOutgoing": "สายโทรออก",
+  "callTypePosition": "ตำแหน่งประเภทการโทร",
+  "callTypeUnknown": "ไม่ทราบ",
+  "cancelButton": "ยกเลิก",
+  "carRental": "เช่ารถ",
+  "carrier": "ผู้ให้บริการ",
+  "carrierColor": "สีของผู้ให้บริการ",
+  "carrierFontSize": "ขนาดตัวอักษรของผู้ให้บริการ",
+  "carrierPosition": "ตำแหน่งของผู้ให้บริการ",
+  "changeLabel": "เปลี่ยนป้ายกำกับ",
+  "changePluginStatusFailed": "ไม่สามารถเปลี่ยนสถานะปลั๊กอิน: {error}",
+  "changeSubscriptionStatusFailed": "ไม่สามารถเปลี่ยนสถานะการสมัครสมาชิก: {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "เปลี่ยนแท็ก",
+  "charity": "การกุศล",
+  "chartMonthFormat": "เดือน {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "1 วันที่แล้ว",
+  "chartOneMonthAgo": "1 เดือนที่แล้ว",
+  "chartOneWeekAgo": "1 สัปดาห์ที่แล้ว",
+  "chartTenDaysAgo": "10 วันที่แล้ว",
+  "chartThreeDaysAgo": "3 วันที่แล้ว",
+  "chartToday": "วันนี้",
+  "checkFileFormat": "โปรดตรวจสอบรูปแบบไฟล์หรือสิทธิ์",
+  "checkPermissionFailed": "ไม่สามารถตรวจสอบสิทธิ์: {error}",
+  "chooseDefaultInterceptAction": "เลือกการดำเนินการสกัดกั้นเริ่มต้น",
+  "clearAllData": "ล้างข้อมูลทั้งหมด",
+  "clearAllDataConfirmation": "คุณแน่ใจหรือไม่ว่าต้องการล้างข้อมูลแอปพลิเคชันทั้งหมด? การดำเนินการนี้ไม่สามารถยกเลิกได้",
+  "clearAllDataDescription": "ล้างข้อมูลแอปพลิเคชันทั้งหมด",
+  "clearAllDataLabel": "ล้างข้อมูลทั้งหมด",
+  "clearFilter": "ล้างตัวกรอง",
+  "clearLabelFilter": "ล้างตัวกรองป้ายกำกับ",
+  "clearLabelFilterButton": "ล้างตัวกรองป้ายกำกับ",
+  "closeButton": "ปิด",
+  "cloudSync": "การซิงโครไนซ์คลาวด์",
+  "cloudSyncAndBackupTitle": "การซิงโครไนซ์คลาวด์และการสำรองข้อมูล",
+  "cloudSyncSettingsSubtitle": "กำหนดค่า WebDAV, OneDrive และ Google Drive",
+  "cloudSyncSettingsTitle": "การตั้งค่าการซิงโครไนซ์คลาวด์",
+  "cloudSyncTitle": "การซิงโครไนซ์คลาวด์",
+  "collapseLabelSelector": "ยุบตัวเลือกป้ายกำกับ",
+  "collection": "การทวงหนี้",
+  "colorPickerTitle": "เลือกสี",
+  "configManagement": "การจัดการการกำหนดค่า",
+  "configUpdated": "การกำหนดค่าอัปเดตแล้ว",
+  "configurationAdvice": "ด้วยการกำหนดค่าที่เหมาะสม คุณสามารถตั้งค่ากลยุทธ์การกรองที่แตกต่างกันสำหรับซิมการ์ดทำงานและซิมการ์ดส่วนตัว",
+  "configureBackupOptions": "กำหนดค่าตัวเลือกการสำรองข้อมูล",
+  "configureBackupOptionsSubtitle": "กำหนดค่าตัวเลือกการสำรองข้อมูล",
+  "configureCloudSyncService": "กำหนดค่าบริการซิงโครไนซ์คลาวด์",
+  "configureCloudSyncServiceHint": "โปรดกำหนดค่าบริการซิงโครไนซ์คลาวด์เพื่อเปิดใช้งานการซิงโครไนซ์หลายอุปกรณ์",
+  "configureCloudSyncServiceMessage": "โปรดกำหนดค่าบริการซิงโครไนซ์คลาวด์เพื่อเปิดใช้งานการซิงโครไนซ์หลายอุปกรณ์",
+  "configureSimCardFilterRules": "กำหนดค่ากฎการกรองซิมการ์ด",
+  "configureSyncServiceHint": "โปรดกำหนดค่าบริการซิงโครไนซ์ในการตั้งค่าการซิงโครไนซ์คลาวด์ก่อน",
+  "confirm": "ยืนยัน",
+  "confirmBatchDeleteContacts": "คุณแน่ใจหรือไม่ว่าต้องการลบที่เลือก",
+  "confirmButton": "ยืนยัน",
+  "confirmDelete": "ยืนยันการลบ",
+  "confirmDeleteContact": "คุณแน่ใจหรือไม่ว่าต้องการลบ",
+  "confirmDeleteContactName": "ยืนยันการลบ?",
+  "confirmDeleteFilter": "คุณแน่ใจหรือไม่ว่าต้องการลบตัวกรองนี้?",
+  "confirmDeleteLabel": "คุณแน่ใจหรือไม่ว่าต้องการลบป้ายกำกับ \"{name}\"",
+  "confirmDeletePlugin": "คุณแน่ใจหรือไม่ว่าต้องการลบปลั๊กอิน \"{name}\"?",
+  "confirmDeletePlugins": "คุณแน่ใจหรือไม่ว่าต้องการลบ {count} ปลั๊กอิน?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "คุณแน่ใจหรือไม่ว่าต้องการลบกฎนี้? การดำเนินการนี้ไม่สามารถยกเลิกได้",
+  "confirmDeleteSelectedContacts": "คุณแน่ใจหรือไม่ว่าจะลบรายชื่อติดต่อที่เลือก?",
+  "confirmDeleteSmsFilterRule": "คุณแน่ใจหรือไม่ว่าต้องการลบกฎตัวกรอง SMS นี้?",
+  "confirmDeleteSmsRule": "คุณแน่ใจหรือไม่ว่าต้องการลบกฎ SMS นี้?",
+  "confirmDeleteSubscription": "คุณแน่ใจหรือไม่ว่าต้องการลบการสมัครสมาชิกนี้?",
+  "confirmDeleteSubscriptions": "คุณแน่ใจหรือไม่ว่าต้องการลบ {name}?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "ยืนยันรหัสผ่าน",
+  "confirmPasswordLabel": "ยืนยันรหัสผ่าน",
+  "connectedStatus": "เชื่อมต่อแล้ว",
+  "connectionFailedCheckCredentialsMessage": "การเชื่อมต่อล้มเหลว: โปรดตรวจสอบที่อยู่เซิร์ฟเวอร์ ชื่อผู้ใช้ และรหัสผ่าน",
+  "connectionFailedMessage": "การเชื่อมต่อล้มเหลว",
+  "connectionStatusLabel": "สถานะการเชื่อมต่อ",
+  "connectionSuccessMessage": "เชื่อมต่อสำเร็จ",
+  "contactAddSuccess": "เพิ่มผู้ติดต่อสำเร็จ",
+  "contactDeleted": "ลบผู้ติดต่อแล้ว",
+  "contactEditDialog": "กล่องโต้ตอบแก้ไขผู้ติดต่อ",
+  "contactNameHint": "ใส่ชื่อผู้ติดต่อ (ไม่บังคับ)",
+  "contactNameLabel": "ชื่อ",
+  "contactNameOptional": "ชื่อผู้ติดต่อ (ไม่บังคับ)",
+  "contactNotFound": "ไม่พบผู้ติดต่อ",
+  "contacts": "ผู้ติดต่อ",
+  "contactsDeleted": "ลบผู้ติดต่อแล้ว {count} รายการ",
+  "contactSettingsSubtitle": "การจัดการผู้ติดต่อและการตั้งค่าป้ายกำกับ",
+  "contactSettingsTitle": "การตั้งค่าผู้ติดต่อ",
+  "contactsLoadingFailed": "ไม่สามารถโหลดรายชื่อผู้ติดต่อได้: {error}",
+  "contactsManagement": "การจัดการผู้ติดต่อ",
+  "contactsManagementPageTitle": "หน้าจัดการผู้ติดต่อ",
+  "contactsPageTitle": "การจัดการผู้ติดต่อ",
+  "contactsPermission": "สิทธิ์การเข้าถึงรายชื่อผู้ติดต่อ",
+  "contactsPermissionDescription": "ใช้เพื่อระบุสายเรียกเข้าจากผู้ติดต่อ",
+  "contactsTab": "ผู้ติดต่อ",
+  "contactSubscriptionDescription": "สมัครรับรายชื่อผู้ติดต่อผ่าน URL อัปเดตข้อมูลผู้ติดต่อและป้ายกำกับโดยอัตโนมัติ รองรับข้อมูลรูปแบบ JSON",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "ไม่สามารถโหลดการสมัครรับรายชื่อผู้ติดต่อได้: {error}",
+  "contactSubscriptionPageTitle": "การสมัครรับรายชื่อผู้ติดต่อ",
+  "contactUpdateSuccess": "อัปเดตผู้ติดต่อสำเร็จ",
+  "contactUs": "ติดต่อเรา",
+  "content": "เนื้อหา",
+  "contentRegex": "นิพจน์ทั่วไปของเนื้อหา",
+  "countColor": "สีของจำนวน",
+  "countFontSize": "ขนาดตัวอักษรของจำนวน",
+  "countPosition": "ตำแหน่งของจำนวน",
+  "country": "ประเทศ",
+  "countryNameColor": "สีชื่อประเทศ",
+  "countryNameFontSize": "ขนาดตัวอักษรชื่อประเทศ",
+  "countryRegionNamePosition": "ตำแหน่งชื่อประเทศ/ภูมิภาค",
+  "countrySelectionDialog": "กล่องโต้ตอบเลือกประเทศ",
+  "countrySelectionDialogDescription": "ใช้เพื่อเลือกประเทศเพื่อสอบถามข้อมูลหมายเลขโทรเข้า",
+  "countThresholdDescription": "ตั้งค่าเกณฑ์จำนวนขั้นต่ำที่ต้องการเพื่อเรียกใช้การดำเนินการกรอง",
+  "countThresholdLabel": "เกณฑ์จำนวน",
+  "countThresholdSettings": "การตั้งค่าเกณฑ์จำนวน",
+  "countThresholdValue": "เกณฑ์จำนวน: {count}",
+  "createdRules": "กฎที่สร้างขึ้น",
+  "csvFormat": "รูปแบบ CSV",
+  "currentDeviceChip": "ปัจจุบัน",
+  "currentDeviceLabel": "ป้ายกำกับอุปกรณ์ปัจจุบัน",
+  "currentDeviceTitle": "อุปกรณ์ปัจจุบัน",
+  "currentLabels": "ป้ายกำกับปัจจุบัน:",
+  "currentLanguage": "ภาษาปัจจุบัน",
+  "currentPasswordLabel": "รหัสผ่านปัจจุบัน",
+  "customerService": "ฝ่ายบริการลูกค้า",
+  "customRange": "ช่วงที่กำหนดเอง",
+  "dailyStatistics": "สถิติรายวัน",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "รับสถิติรายวันเกี่ยวกับสายเรียกเข้าและข้อความที่ถูกบล็อก",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "แดชบอร์ด",
+  "dataAnalysis": "การวิเคราะห์ข้อมูล",
+  "dataAnalysisDashboardPage": "หน้าแดชบอร์ดการวิเคราะห์ข้อมูล",
+  "dataExport": "การส่งออกข้อมูล",
+  "dataLoadFailure": "ไม่สามารถโหลดข้อมูลได้: {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "ไม่สามารถโหลดข้อมูลได้: {error}",
+  "dataMigration": "การย้ายข้อมูล",
+  "dataMigrationDescription": "ฟีเจอร์นี้ช่วยให้คุณถ่ายโอนข้อมูลทั้งหมดระหว่างอุปกรณ์ได้ ขณะนี้คุณสามารถใช้ฟีเจอร์สำรองและกู้คืนเพื่อย้ายข้อมูลของคุณด้วยตนเองได้",
+  "dataMigrationDialogContent": "ฟีเจอร์นี้ช่วยให้คุณถ่ายโอนข้อมูลทั้งหมดระหว่างอุปกรณ์ได้ ขณะนี้คุณสามารถใช้ฟีเจอร์สำรองและกู้คืนเพื่อย้ายข้อมูลของคุณด้วยตนเองได้",
+  "dataMigrationDialogTitle": "การย้ายข้อมูล",
+  "dataMigrationSectionTitle": "การย้ายข้อมูล",
+  "dataSourceReminder": "คำเตือนแหล่งข้อมูล",
+  "days": "{count, plural, =1{1 วัน} other{{count} วัน}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} วัน VIP",
+  "debtCollection": "การทวงหนี้",
+  "defaultPeriod": "สัปดาห์",
+  "delete": "ลบ",
+  "deleteButton": "ลบ",
+  "deleteContact": "ลบผู้ติดต่อ",
+  "deleteContactConfirm": "คุณแน่ใจหรือไม่ว่าต้องการลบ {name}",
+  "deleteContactConfirmation": "คุณแน่ใจหรือไม่ว่าต้องการลบผู้ติดต่อ",
+  "deleteDeviceConfirmation": "คุณแน่ใจหรือไม่ว่าต้องการลบ {deviceName}",
+  "deleteDeviceDialogTitle": "ลบอุปกรณ์",
+  "deleteFailed": "การล้มเหลวในการลบ: {error}",
+  "deleteFilter": "ลบตัวกรอง",
+  "deleteLabel": "ลบป้ายกำกับ",
+  "deleteLabelFailed": "ไม่สามารถลบป้ายกำกับได้: {error}",
+  "deletePlugin": "ลบปลั๊กอิน",
+  "deletePluginFailed": "ไม่สามารถลบปลั๊กอินได้: {error}",
+  "deletePlugins": "ลบปลั๊กอิน",
+  "deletePluginsFailed": "ไม่สามารถลบปลั๊กอินได้: {error}",
+  "deleteRule": "ลบกฎ",
+  "deleteRuleFailed": "การล้มเหลวในการลบ: {error}",
+  "deleteSelected": "ลบรายการที่เลือก",
+  "deleteSmsRule": "ลบกฎ SMS",
+  "deleteSubscription": "ลบการสมัครรับ",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "คุณแน่ใจหรือไม่ว่าต้องการลบการสมัครรับ \"{name}\"",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "ไม่สามารถลบการสมัครรับได้: {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "ลบสำเร็จ",
+  "delivery": "การจัดส่ง",
+  "deviceDeletedSuccessfully": "ลบอุปกรณ์สำเร็จแล้ว",
+  "deviceDeletedSuccessfullyMessage": "ลบอุปกรณ์สำเร็จแล้ว",
+  "deviceIdLabel": "รหัสอุปกรณ์",
+  "deviceIDLabel": "รหัสอุปกรณ์",
+  "deviceManagementSubtitle": "จัดการการซิงโครไนซ์หลายอุปกรณ์",
+  "deviceManagementTitle": "การจัดการอุปกรณ์",
+  "deviceModelLabel": "รุ่นอุปกรณ์",
+  "deviceName": "ชื่ออุปกรณ์",
+  "deviceNameCannotBeEmpty": "ชื่ออุปกรณ์ไม่สามารถว่างเปล่าได้",
+  "deviceNameHint": "โปรดป้อนชื่ออุปกรณ์",
+  "deviceNameLabel": "ชื่ออุปกรณ์",
+  "deviceRenamedSuccessfully": "เปลี่ยนชื่ออุปกรณ์สำเร็จแล้ว",
+  "deviceRenamedSuccessfullyMessage": "เปลี่ยนชื่ออุปกรณ์สำเร็จแล้ว",
+  "devicesSyncedSuccessfully": "ซิงค์อุปกรณ์สำเร็จแล้ว",
+  "devicesSyncedSuccessfullyMessage": "ซิงค์อุปกรณ์สำเร็จแล้ว",
+  "devicesSynchronizedSuccessfullyMessage": "ซิงโครไนซ์อุปกรณ์สำเร็จแล้ว",
+  "deviceUnregisteredSuccessfullyMessage": "ยกเลิกการลงทะเบียนอุปกรณ์สำเร็จแล้ว",
+  "dialogTitle": "คำอธิบายรูปแบบ Regex",
+  "differentFromLocalCounter": "ฟีเจอร์นี้แตกต่างจากตัวกรองตัวนับภายในเครื่อง เนื่องจากมุ่งเน้นไปที่รูปแบบการโทรซ้ำๆ ในช่วงเวลาสั้นๆ แทนที่จะเป็นการนับเครื่องหมายในระยะยาว",
+  "disabled": "ปิดใช้งาน",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "ปิดใช้งาน",
+  "disableGlobalPlugins": "ปิดใช้งานปลั๊กอินทั่วโลก",
+  "disableSubscriptionSuccessfully": "ปิดการใช้งานการสมัครสมาชิกสำเร็จแล้ว",
+  "disconnectButton": "ตัดการเชื่อมต่อ",
+  "disconnectedMessage": "ตัดการเชื่อมต่อแล้ว",
+  "disconnectedStatus": "ตัดการเชื่อมต่อแล้ว",
+  "disconnectFailedMessage": "การตัดการเชื่อมต่อล้มเหลว",
+  "done": "เสร็จสิ้น",
+  "dualSimAdvice": "ฟีเจอร์นี้มีประโยชน์อย่างยิ่งสำหรับโทรศัพท์ Dual-SIM ในการตั้งค่ากลยุทธ์การกรองที่แตกต่างกันสำหรับซิมการ์ดที่ทำงานและส่วนตัว",
+  "earlier": "ก่อนหน้านี้",
+  "ecommerce": "อีคอมเมิร์ซ",
+  "edit": "แก้ไข",
+  "editContact": "แก้ไขผู้ติดต่อ",
+  "editFilter": "แก้ไขตัวกรอง",
+  "editLabel": "แก้ไขป้ายกำกับ",
+  "editPhoneRule": "แก้ไขกฎโทรศัพท์",
+  "editPhoneRules": "ใช้เพื่อแก้ไขกฎโทรศัพท์",
+  "editPhoneRuleTitle": "แก้ไขกฎโทรศัพท์",
+  "editRule": "แก้ไขกฎ",
+  "editSmsRule": "แก้ไขกฎ SMS",
+  "education": "การศึกษา",
+  "elementPositionsSetting": "ตำแหน่งองค์ประกอบ",
+  "email": "อีเมล",
+  "emailOptional": "อีเมล (ไม่บังคับ)",
+  "enableCallFilter": "เปิดใช้งานการกรองการโทร",
+  "enableCallFilterDescription": "เมื่อเปิดใช้งาน การโทรเข้าจะถูกตรวจสอบกับรายการกฎด้านล่าง โดยค่าเริ่มต้น กฎการกรองการโทรจะไม่ถูกซิงโครไนซ์ระหว่างอุปกรณ์",
+  "enabled": "เปิดใช้งาน",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "เปิดใช้งาน",
+  "enableEncryption": "เปิดใช้งานการเข้ารหัส",
+  "enableEncryptionDescription": "เข้ารหัสไฟล์สำรอง",
+  "enableEncryptionLabel": "เปิดใช้งานการเข้ารหัส",
+  "enableEncryptionSubtitle": "ไฟล์สำรองจะถูกเข้ารหัส",
+  "enableEncryptionTitle": "เปิดใช้งานการเข้ารหัส",
+  "enableGlobalPlugins": "เปิดใช้งานปลั๊กอินทั่วโลก",
+  "enableLocalCountFilter": "เปิดใช้งานตัวกรองตัวนับภายในเครื่อง",
+  "enableLocalCountFilterDescription": "กรองสายสแปมโดยอัตโนมัติตามจำนวนการตั้งค่าการโทร",
+  "enableLocalNotification": "ใช้การแจ้งเตือนภายในเครื่อง",
+  "enableLocalNotificationDescription": "เมื่อเปิดใช้งาน การแจ้งเตือนสำหรับข้อความที่กรองจะแสดงบนอุปกรณ์",
+  "enableLocationSummary": "ตำแหน่ง",
+  "enableMuteRules": "เปิดใช้งานกฎปิดเสียง",
+  "enableMuteRulesDesc": "ใช้การกำหนดค่ากฎการดักจับแบบปิดเสียง",
+  "enableNoneActionRules": "เปิดใช้งานกฎไม่มีการดำเนินการ",
+  "enableNoneActionRulesDesc": "อนุญาตให้กำหนดค่ากฎที่ไม่มีการดำเนินการดักจับ",
+  "enableNotifications": "เปิดใช้งานการแจ้งเตือน",
+  "enableRemoteNumberFilter": "เปิดใช้งานตัวกรองหมายเลขระยะไกล",
+  "enableRemoteNumberFilterDescription": "ใช้ฐานข้อมูลระยะไกลเพื่อกรองหมายเลข",
+  "enableRule": "เปิดใช้งานกฎ",
+  "enableSmsFilter": "เปิดใช้งานการกรอง SMS",
+  "enableSmsFilterDescription": "เมื่อเปิดใช้งาน ข้อความจะถูกกรองโดยอัตโนมัติตามกฎ",
+  "enableStatisticsNotifications": "เปิดใช้งานการแจ้งเตือนสถิติ",
+  "enableSubscriptionSuccessfully": "เปิดการใช้งานการสมัครสมาชิกสำเร็จแล้ว",
+  "enableTimeInterception": "เปิดใช้งานการดักจับเวลา",
+  "enableTimeInterceptionDescription": "ดักจับการโทรซ้ำๆ ภายในช่วงเวลาสั้นๆ",
+  "enableTimeInterceptor": "เปิดใช้งานตัวดักจับเวลา",
+  "endCallImmediately": "วางสายทันที",
+  "endColor": "สีสิ้นสุด",
+  "endDate": "วันที่สิ้นสุด",
+  "enhancedFilterInstructionsTitle": "คำแนะนำระบบตัวกรองขั้นสูง",
+  "enhancedFilterSettings": "การตั้งค่าตัวกรองขั้นสูง",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "การตั้งค่าตัวกรองขั้นสูง",
+  "enhancedFilterSystemDescription": "ระบบตัวกรองขั้นสูงรองรับทั้งกฎทั่วโลกและการกำหนดค่าการกรองต่อซิมการ์ด",
+  "enterBothPhoneNumberAndRegexPattern": "โปรดป้อนทั้งหมายเลขโทรศัพท์และรูปแบบ Regex",
+  "enterBothPhoneNumberAndRegexPatternMessage": "โปรดป้อนทั้งหมายเลขโทรศัพท์และรูปแบบ Regex",
+  "enterContactName": "โปรดป้อนชื่อผู้ติดต่อ",
+  "enterCurrentPasswordHint": "โปรดป้อนรหัสผ่านปัจจุบัน",
+  "enterDeviceName": "ป้อนชื่ออุปกรณ์",
+  "enterDeviceNameHint": "โปรดป้อนชื่ออุปกรณ์",
+  "enterEmail": "โปรดป้อนอีเมล",
+  "enterEmailOptional": "โปรดป้อนอีเมล (ไม่บังคับ)",
+  "enterEncryptionPasswordHint": "ป้อนรหัสผ่านการเข้ารหัส",
+  "enterEncryptionPasswordTitle": "ป้อนรหัสผ่านการเข้ารหัส",
+  "enterFilterName": "โปรดป้อนชื่อตัวกรอง",
+  "enterFilterPattern": "โปรดป้อนรูปแบบตัวกรอง",
+  "enterIconCode": "ป้อนรหัสไอคอน",
+  "enterName": "ป้อนชื่อผู้ติดต่อ",
+  "enterNewDeviceNameHint": "ป้อนชื่อใหม่สำหรับอุปกรณ์นี้",
+  "enterNewPasswordHint": "โปรดป้อนรหัสผ่านใหม่",
+  "enterPasswordAgain": "ป้อนรหัสผ่านอีกครั้ง",
+  "enterPasswordHint": "โปรดป้อนรหัสผ่าน",
+  "enterPhoneNumber": "ป้อนหมายเลขโทรศัพท์",
+  "enterPhoneNumberHint": "ป้อนหมายเลขโทรศัพท์เพื่อทดสอบ",
+  "enterPhoneNumberMultiple": "โปรดป้อนหมายเลขโทรศัพท์ หลายหมายเลขคั่นด้วยเครื่องหมายจุลภาค",
+  "enterPhoneNumberToStartSearch": "ป้อนหมายเลขโทรศัพท์เพื่อเริ่มการค้นหา",
+  "enterPhoneNumberToVerify": "ป้อนหมายเลขโทรศัพท์เพื่อยืนยัน",
+  "enterPluginName": "ป้อนชื่อปลั๊กอิน",
+  "enterPluginUrl": "ป้อนที่อยู่ URL ของปลั๊กอิน",
+  "enterRegexHint": "ป้อนรูปแบบ regex",
+  "enterRuleNameAndPattern": "โปรดป้อนชื่อกฎและรูปแบบ",
+  "enterRuleNameAndPatternMessage": "กรุณากรอกชื่อกฎและรูปแบบ Regex",
+  "enterRuleNameHint": "กรอกชื่อกฎ",
+  "enterSearchContent": "กรุณากรอกเนื้อหาที่ต้องการค้นหา",
+  "enterSubscriptionName": "กรอกชื่อการสมัครสมาชิก",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "กรอก URL การสมัครสมาชิก",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "กรุณากรอกชื่อโฟลเดอร์ที่จะซิงค์ (ค่าเริ่มต้น: NotificationManager)",
+  "entertainment": "ความบันเทิง",
+  "enterValidNameAndUrl": "กรุณากรอกชื่อและ URL ที่ถูกต้อง",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "กรุณากรอก URL ที่ถูกต้อง",
+  "enterVersion": "กรอกเวอร์ชัน",
+  "enterWebDAVPasswordHint": "กรุณากรอกรหัสผ่าน WebDAV",
+  "enterWebDAVServerAddressHint": "กรุณากรอกที่อยู่เซิร์ฟเวอร์ WebDAV",
+  "enterWebDAVUsernameHint": "กรุณากรอกชื่อผู้ใช้ WebDAV",
+  "errorDeletingDeviceMessage": "เกิดข้อผิดพลาดในการลบอุปกรณ์: {error}",
+  "errorLoadingPlugin": "เกิดข้อผิดพลาดในการโหลดปลั๊กอิน",
+  "errorOccurredMessage": "เกิดข้อผิดพลาด: {error}",
+  "errorRenamingDeviceMessage": "เกิดข้อผิดพลาดในการเปลี่ยนชื่ออุปกรณ์: {error}",
+  "errorSynchronizingDevicesMessage": "เกิดข้อผิดพลาดในการซิงค์อุปกรณ์: {error}",
+  "errorSyncingDevicesMessage": "เกิดข้อผิดพลาดในการซิงค์อุปกรณ์: {error}",
+  "errorText": "ข้อผิดพลาด",
+  "errorUnregisteringDeviceMessage": "เกิดข้อผิดพลาดในการยกเลิกการลงทะเบียนอุปกรณ์: {error}",
+  "exampleBlock400Prefix": "เช่น หมายเลขนำหน้า 400",
+  "exampleBlockMarketingSms": "เช่น บล็อก SMS การตลาด",
+  "exampleContentRegex": "เช่น .*offer.*",
+  "exampleContentRegexHint": "ตัวอย่าง Regex เนื้อหา",
+  "exampleCouponPromotionDiscount": "เช่น .*(coupon|promotion|discount).*",
+  "exampleFamilyFriends": "เช่น ครอบครัว, เพื่อน, ฯลฯ",
+  "examplePhoneNumber": "เช่น 10086, 12345, ฯลฯ",
+  "exampleRegex400Prefix": "ตัวอย่าง Regex สำหรับหมายเลขนำหน้า 400",
+  "exampleRegexFormat": "ตัวอย่าง: รูปแบบ ^10086$",
+  "exampleSenderRegexHint": "ตัวอย่าง",
+  "exchange": "แลกเปลี่ยน",
+  "exchangeNow": "แลกเปลี่ยนทันที",
+  "exchangeVip": "แลกเปลี่ยน VIP",
+  "expandLabelSelector": "ขยายตัวเลือกป้ายกำกับ",
+  "expiryTime": "เวลาหมดอายุ: {time}",
+  "export": "ส่งออก",
+  "exportAllApplicationSettings": "ส่งออกการตั้งค่าแอปพลิเคชันทั้งหมด",
+  "exportAllApplicationSettingsSubtitle": "ส่งออกการตั้งค่าแอปพลิเคชันทั้งหมด",
+  "exportAllRuleConfigurations": "ส่งออกการกำหนดค่ากฎทั้งหมด",
+  "exportAllRuleConfigurationsSubtitle": "ส่งออกการกำหนดค่ากฎทั้งหมด",
+  "exportComplete": "ส่งออกสำเร็จ",
+  "exportConfig": "ส่งออกการกำหนดค่า",
+  "exportContacts": "ส่งออกรายชื่อติดต่อ",
+  "exportData": "ส่งออกข้อมูล",
+  "exportError": "ข้อผิดพลาดในการส่งออก",
+  "exportFailed": "ส่งออกไม่สำเร็จ",
+  "exportFailure": "ส่งออกการกำหนดค่าไม่สำเร็จ",
+  "exportFeatureComingSoon": "ฟีเจอร์ส่งออกกำลังจะมาเร็วๆ นี้",
+  "exporting": "กำลังส่งออก...",
+  "exportLabels": "ส่งออกป้ายกำกับ",
+  "exportLabelsFailed": "ส่งออกป้ายกำกับไม่สำเร็จ: {error}",
+  "exportPluginList": "ส่งออกรายการปลั๊กอิน",
+  "exportPluginListFailed": "ส่งออกรายการปลั๊กอินไม่สำเร็จ: {error}",
+  "exportRules": "ส่งออกกฎ",
+  "exportRulesDialogTitle": "ส่งออกกฎ",
+  "exportRulesTitle": "ส่งออกกฎ",
+  "exportSmsRules": "ส่งออกกฎ SMS",
+  "exportStatisticsData": "ส่งออกข้อมูลสถิติ",
+  "exportSuccess": "ส่งออกสำเร็จ",
+  "exportSuccesslly": "ส่งออกการกำหนดค่าสำเร็จแล้ว",
+  "failedToAddContact": "เพิ่มรายชื่อติดต่อไม่สำเร็จ",
+  "failedToAddRule": "เพิ่มกฎไม่สำเร็จ: {error}",
+  "failedToAddSmsRule": "เพิ่มกฎ SMS ไม่สำเร็จ: {error}",
+  "failedToAddSmsSubscription": "เพิ่มการสมัครสมาชิก SMS ไม่สำเร็จ: {error}",
+  "failedToBackupSettings": "สำรองข้อมูลการตั้งค่าไม่สำเร็จ: {error}",
+  "failedToDecryptBackupFile": "ถอดรหัสไฟล์สำรองไม่สำเร็จ",
+  "failedToDeleteDevice": "ลบอุปกรณ์ไม่สำเร็จ",
+  "failedToDeleteSmsRule": "ลบกฎ SMS ไม่สำเร็จ: {error}",
+  "failedToExportRules": "ส่งออกกฎไม่สำเร็จ: {error}",
+  "failedToExportSmsRules": "ส่งออกกฎ SMS ไม่สำเร็จ: {error}",
+  "failedToGetCallerIdInfo": "ไม่สามารถรับข้อมูล ID ผู้โทร: {error}",
+  "failedToImportRules": "นำเข้ากฎไม่สำเร็จ: {error}",
+  "failedToImportSmsRules": "นำเข้ากฎ SMS ไม่สำเร็จ: {error}",
+  "failedToLoadContacts": "โหลดรายชื่อติดต่อไม่สำเร็จ",
+  "failedToLoadPlugin": "โหลดปลั๊กอินไม่สำเร็จ",
+  "failedToRenameDevice": "เปลี่ยนชื่ออุปกรณ์ไม่สำเร็จ",
+  "failedToRestoreSettings": "กู้คืนการตั้งค่าไม่สำเร็จ",
+  "failedToRestoreSettingsWithError": "กู้คืนการตั้งค่าไม่สำเร็จ: {error}",
+  "failedToSetPassword": "ตั้งรหัสผ่านไม่สำเร็จ: {error}",
+  "failedToSyncDevices": "ซิงค์อุปกรณ์ไม่สำเร็จ",
+  "failedToToggleRuleStatus": "เปลี่ยนสถานะกฎไม่สำเร็จ: {error}",
+  "failedToToggleSubscriptionStatus": "เปลี่ยนสถานะการสมัครสมาชิกไม่สำเร็จ",
+  "failedToUpdateContact": "อัปเดตรายชื่อติดต่อไม่สำเร็จ",
+  "failedToUpdateSmsRule": "อัปเดตกฎ SMS ไม่สำเร็จ: {error}",
+  "failure": "ความล้มเหลว",
+  "favoriteContacts": "รายชื่อติดต่อที่ชื่นชอบ",
+  "featureAddRules": "• เพิ่มกฎสำหรับเบอร์โทรศัพท์เฉพาะ",
+  "featureCenter": "ศูนย์กลางฟีเจอร์",
+  "featureEnableDisable": "• เปิด/ปิดตัวกรองต่างๆ ต่อ SIM",
+  "featureListTitle": "ฟีเจอร์:",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• จัดการรายการกฎต่อ SIM",
+  "features": "ฟีเจอร์",
+  "fetchingCallerIdInfo": "กำลังดึงข้อมูล ID ผู้โทร...",
+  "fileSavedTo": "บันทึกไฟล์ที่: {path}",
+  "filter": "ตัวกรอง",
+  "filterByLabel": "กรองตามป้ายกำกับ",
+  "filterClear": "ล้างตัวกรอง",
+  "filterControlPanelTitle": "แผงควบคุมตัวกรอง",
+  "filterControlSubtitle": "จัดการสถานะเปิด/ปิดของตัวกรองทั้งหมด",
+  "filterControlTitle": "ตัวควบคุมตัวกรอง",
+  "filterDeleteFailed": "การลบตัวกรองล้มเหลว",
+  "filterDeleteSuccess": "ลบตัวกรองสำเร็จแล้ว",
+  "filterDetails": "รายละเอียดตัวกรอง",
+  "filtered": "กรองแล้ว",
+  "filteredSms": "SMS ที่ถูกกรอง",
+  "filteredSmsLabel": "SMS ที่ถูกกรอง",
+  "filterExplanation": "คำอธิบายตัวกรอง",
+  "filterManagement": "การจัดการตัวกรอง",
+  "filterName": "ชื่อตัวกรอง",
+  "filterPattern": "รูปแบบตัวกรอง",
+  "filterPriorityNote": "หมายเหตุ: มีความสัมพันธ์ลำดับความสำคัญระหว่างตัวกรอง โปรดดูเอกสารช่วยเหลือสำหรับรายละเอียด",
+  "filterSaveFailed": "การบันทึกตัวกรองล้มเหลว",
+  "filterSaveSuccess": "บันทึกตัวกรองสำเร็จแล้ว",
+  "filterSettings": "การตั้งค่าตัวกรอง",
+  "filterSettingsTitle": "การตั้งค่าตัวกรอง",
+  "filterSMS": "กรอง SMS",
+  "filterToggleInstructions": "เปิดหรือปิดตัวกรองสำหรับช่อง SIM นี้:",
+  "filterToggleStatus": "เปิด/ปิดตัวกรอง: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "ประเภทตัวกรอง",
+  "financial": "การเงิน",
+  "flexibleCombinationFeature": "• การผสมผสานที่ยืดหยุ่น: เปิด/ปิดตัวกรองต่อช่อง SIM",
+  "fontSizesSetting": "ขนาดตัวอักษร",
+  "foundRules": "พบกฎ {count} รายการ",
+  "foundRulesDoYouWantToImport": "พบกฎ {count} รายการ คุณต้องการนำเข้าหรือไม่?",
+  "foundRulesToImport": "พบกฎ {count} รายการ คุณต้องการนำเข้าหรือไม่?",
+  "fraudAlert": "การแจ้งเตือนการฉ้อโกง - วางสาย",
+  "fraudScamLikely": "น่าจะเป็นการหลอกลวง",
+  "free": "ฟรี",
+  "functionSettingsTitle": "การตั้งค่าฟังก์ชัน",
+  "generalUpdateFailure": "อัปเดตล้มเหลว: {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "รับฟรี",
+  "github": "GitHub",
+  "globalFilterDescription": "กำหนดค่าตัวกรองทั่วโลกสำหรับซิมการ์ดทั้งหมด:",
+  "globalFilterFeature": "• ตัวกรองทั่วโลก: กฎพื้นฐานสำหรับสายเรียกเข้าทั้งหมด",
+  "globalFilterSettings": "การตั้งค่าตัวกรองทั่วโลก",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "กำหนดค่าการตั้งค่าตัวกรองทั่วโลกที่จะนำไปใช้กับช่อง SIM ทั้งหมด:",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "ค้นหารายชื่อติดต่อ, ป้ายกำกับ, บัญชีดำ, บัญชีขาว ฯลฯ",
+  "globalSearchTitle": "การค้นหาทั่วโลก",
+  "globalSettings": "การตั้งค่าทั่วโลก",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "ตำแหน่งแสดงโฆษณา Google",
+  "googleAdMobIntegrationText": "สามารถรวมโฆษณา Google AdMob ได้ที่นี่",
+  "googleDriveAuthDescription": "อนุญาตโดยใช้รหัสและคีย์ไคลเอ็นต์ Google Drive ที่กำหนดค่าในระบบ",
+  "googleDriveAuthorizationHint": "อนุญาตโดยใช้รหัสและคีย์ไคลเอ็นต์ Google Drive ที่กำหนดค่าในระบบ",
+  "googleDriveConfigTitle": "การกำหนดค่า Google Drive",
+  "googleDriveConfigurationTitle": "การกำหนดค่า Google Drive",
+  "government": "รัฐบาล",
+  "granted": "ได้รับอนุญาตแล้ว",
+  "grantNecessaryPermissions": "ให้สิทธิ์ที่จำเป็น",
+  "grantPermissions": "ให้สิทธิ์",
+  "headhunter": "ผู้สรรหาบุคลากร",
+  "height": "ความสูง",
+  "homePageTitle": "หน้าหลัก",
+  "homeTab": "หน้าแรก",
+  "howItWorksPoint1": "• ระบบจะอนุญาตสายเรียกเข้าจากหมายเลขเดียวกันโดยอัตโนมัติภายในกรอบเวลาที่กำหนด",
+  "howItWorksPoint2": "• กรอบเวลาที่สั้นลงจะทำให้การสกัดกั้นเข้มงวดขึ้น กรอบเวลาที่ยาวขึ้นจะทำให้การสกัดกั้นหลวมขึ้น",
+  "howItWorksPoint3": "• ระบบจะตรวจสอบบันทึกการโทรเพื่อพิจารณาว่าเป็นสายที่โทรซ้ำหรือไม่",
+  "howItWorksTitle": "วิธีการทำงาน:",
+  "iconCodeOptional": "รหัสไอคอน (ไม่บังคับ)",
+  "iconSize": "ขนาดไอคอน",
+  "import": "นำเข้า",
+  "important": "สำคัญ",
+  "importButton": "นำเข้า",
+  "importConfig": "นำเข้าการกำหนดค่า",
+  "importContacts": "นำเข้าผู้ติดต่อ",
+  "importExportContacts": "นำเข้า/ส่งออกผู้ติดต่อ",
+  "importExportContactsTooltip": "นำเข้า/ส่งออกผู้ติดต่อ",
+  "importExportRules": "นำเข้า/ส่งออกกฎ",
+  "importFailed": "การนำเข้าล้มเหลว: {error}",
+  "importFailure": "ไม่สามารถนำเข้าการกำหนดค่าได้",
+  "importFeatureComingSoon": "ฟีเจอร์นำเข้าจะมาเร็วๆ นี้",
+  "importLabels": "นำเข้าป้ายกำกับ",
+  "importLabelsFailed": "ไม่สามารถนำเข้าป้ายกำกับได้: {error}",
+  "importPluginList": "นำเข้ารายการปลั๊กอิน",
+  "importPluginListFailed": "ไม่สามารถนำเข้ารายการปลั๊กอินได้: {error}",
+  "importPluginSuccess": "นำเข้าปลั๊กอินสำเร็จ {count} รายการ",
+  "importRuleConfigurationsFromFile": "นำเข้าการกำหนดค่ากฎจากไฟล์",
+  "importRuleConfigurationsFromFileSubtitle": "นำเข้าการกำหนดค่ากฎจากไฟล์",
+  "importRules": "นำเข้ากฎ",
+  "importRulesButton": "นำเข้ากฎ",
+  "importRulesDialogTitle": "นำเข้ากฎ",
+  "importRulesError": "ไม่สามารถนำเข้ากฎได้: {error}",
+  "importRulesInstructions": "นำเข้ากฎจากไฟล์ CSV",
+  "importRulesSuccess": "นำเข้ากฎสำเร็จแล้ว",
+  "importRulesTitle": "นำเข้ากฎ",
+  "importSuccess": "นำเข้าสำเร็จ",
+  "incomingCallInterceptAction": "การดำเนินการสกัดกั้นสายเรียกเข้า",
+  "incomingCallNotification": "การแจ้งเตือนสายเรียกเข้า",
+  "incorrectPassword": "รหัสผ่านไม่ถูกต้อง",
+  "initializing": "กำลังเริ่มต้น",
+  "installed": "ติดตั้งแล้ว",
+  "insufficientMarks": "คะแนนไม่เพียงพอ",
+  "insurance": "ประกันภัย",
+  "interceptAction": "การดำเนินการสกัดกั้น",
+  "interceptionActionSettingsSubtitle": "ตั้งค่าการจัดการสายที่ถูกบล็อก",
+  "interceptionActionSettingsTitle": "การตั้งค่าการดำเนินการสกัดกั้น",
+  "interceptionTimeInterval": "ช่วงเวลาสกัดกั้น",
+  "internet": "อินเทอร์เน็ต",
+  "intervalSetSuccess": "ตั้งค่าช่วงเวลาอัปเดต {service} เป็น {days} วันแล้ว",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Regex เนื้อหาไม่ถูกต้อง",
+  "invalidLabel": "ป้ายชื่อไม่ถูกต้อง",
+  "invalidRegexPattern": "รูปแบบนิพจน์ทั่วไปไม่ถูกต้อง",
+  "invalidSenderRegex": "รูปแบบนิพจน์ทั่วไปของผู้ส่งไม่ถูกต้อง",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "เข้าร่วม Telegram Channel และ Group เพื่อข้อมูลเพิ่มเติม",
+  "jsLogsTitle": "บันทึก JS",
+  "jsonFormat": "รูปแบบ JSON",
+  "keepAllVersions": "เก็บทุกเวอร์ชัน",
+  "keepAllVersionsDescription": "เก็บประวัติเวอร์ชันสำรองทั้งหมด",
+  "keepAllVersionsLabel": "เก็บทุกเวอร์ชัน",
+  "keepAllVersionsSubtitle": "เก็บประวัติเวอร์ชันสำรอง",
+  "keepAllVersionsTitle": "เก็บทุกเวอร์ชัน",
+  "label": "ป้ายชื่อ",
+  "labelAddedSuccessfully": "เพิ่มป้ายชื่อ \"{name}\" สำเร็จแล้ว",
+  "labelCategories": "หมวดหมู่ป้ายชื่อ",
+  "labelDeleted": "ลบป้ายชื่อแล้ว",
+  "labelDescription": "ป้ายชื่อช่วยให้คุณจัดการผู้ติดต่อได้ดีขึ้น เพิ่มป้ายชื่อแบบกำหนดเองให้กับหมายเลขโทรศัพท์เพื่อระบุการโทรและข้อความได้ง่าย",
+  "labelFilter": "ตัวกรองป้ายชื่อ",
+  "labelFilterTooltip": "ตัวกรองป้ายชื่อ",
+  "labelIconColor": "สีไอคอนป้ายชื่อ",
+  "labelManagement": "การจัดการป้ายชื่อ",
+  "labelNotFound": "ไม่พบป้ายชื่อ",
+  "labelRemoved": "ลบป้ายชื่อแล้ว",
+  "labelRemoveFailed": "ล้มเหลวในการลบป้ายชื่อ: {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "ป้ายชื่อ",
+  "labelsColor": "สีของป้ายชื่อ",
+  "labelsDeleted": "ลบป้ายชื่อแล้ว {count} รายการ",
+  "labelsExportedSuccessfully": "ส่งออกป้ายชื่อสำเร็จแล้ว",
+  "labelsFontSize": "ขนาดตัวอักษรป้ายชื่อ",
+  "labelsImportedSuccessfully": "นำเข้าป้ายชื่อสำเร็จแล้ว {count} รายการ",
+  "labelsPosition": "ตำแหน่งของป้ายชื่อ",
+  "labelTag": "ป้ายชื่อ: {labelId}",
+  "labelUpdated": "อัปเดตป้ายชื่อแล้ว",
+  "labelUpdateFailed": "ล้มเหลวในการอัปเดตป้ายชื่อ: {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "อัปเดตป้ายชื่อ \"$labelText\" สำเร็จแล้ว",
+  "languageSettings": "การตั้งค่าภาษา",
+  "languageSettingsSubtitle": "เปลี่ยนภาษาที่แสดงของแอปพลิเคชัน",
+  "languageSettingsTitle": "การตั้งค่าภาษา",
+  "last30Days": "30 วันที่ผ่านมา",
+  "last7Days": "7 วันที่ผ่านมา",
+  "lastSyncLabel": "การซิงค์ครั้งล่าสุด",
+  "lastUpdated": "อัปเดตล่าสุด: {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "สมาชิกตลอดชีพ",
+  "lifetimeMembershipDescription": "ซื้อครั้งเดียว ปลดล็อกฟีเจอร์พรีเมียมทั้งหมดและการอัปเดตในอนาคตอย่างถาวร",
+  "loadContactsFailed": "ไม่สามารถโหลดรายชื่อผู้ติดต่อได้: {error}",
+  "loadDataFailed": "ไม่สามารถโหลดข้อมูลได้",
+  "loadFailed": "โหลดไม่สำเร็จ",
+  "loading": "กำลังโหลด...",
+  "loadingData": "กำลังโหลดข้อมูล...",
+  "loadingTags": "กำลังโหลดแท็ก...",
+  "loadLabelFailed": "ไม่สามารถโหลดป้ายชื่อได้: {error}",
+  "loadLabelsFailed": "ไม่สามารถโหลดป้ายชื่อได้: {error}",
+  "loadMarkCountFailed": "ไม่สามารถโหลดหมายเลขโทรศัพท์ที่ถูกทำเครื่องหมายได้: {error}",
+  "loadMarkedPhonesFailed": "ไม่สามารถโหลดหมายเลขโทรศัพท์ที่ถูกทำเครื่องหมายได้: {error}",
+  "loadMore": "โหลดเพิ่มเติม",
+  "loadPluginButton": "โหลดปลั๊กอิน",
+  "loadPluginsFailed": "ไม่สามารถโหลดปลั๊กอินได้: {error}",
+  "loadSettingsFailed": "ไม่สามารถโหลดการตั้งค่าได้: {error}",
+  "loadSmsRulesFailed": "ไม่สามารถโหลดกฎ SMS ได้: {error}",
+  "loadStatusFailedMessage": "ไม่สามารถโหลดสถานะได้",
+  "loadSubscriptionsFailed": "ไม่สามารถโหลดการสมัครสมาชิกได้: {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "เงินกู้",
+  "localBackupTitle": "การสำรองข้อมูลภายในเครื่อง",
+  "localCounterFilter": "ตัวกรองตัวนับภายในเครื่อง",
+  "localCounterFilterSubtitle": "กรองสายสแปมโดยอัตโนมัติตามความถี่ในการโทร",
+  "localCountFilter": "ตัวกรองจำนวนภายในเครื่อง",
+  "localCountFilterDescription": "ดักจับสายที่โทรบ่อยตามจำนวนหมายเลขภายในเครื่อง",
+  "localCountFilterExplanationContent": "ตัวกรองจำนวนภายในเครื่องจะวิเคราะห์บันทึกประวัติการโทรเพื่อระบุและบล็อกสายสแปมที่โทรบ่อยโดยอัตโนมัติ",
+  "localCountFilterExplanationTitle": "คำอธิบายตัวกรองจำนวนภายในเครื่อง",
+  "localCountFilterHowItWorksPoint1": "• กำหนดว่าจะบล็อกหรือไม่ตามค่าจำนวนของหมายเลข",
+  "localCountFilterHowItWorksPoint2": "• เมื่อจำนวนของหมายเลขเกินเกณฑ์ที่ตั้งไว้ คุณสามารถเลือกที่จะบล็อกโดยอัตโนมัติได้",
+  "localCountFilterHowItWorksPoint3": "• คุณสามารถเลือกอนุญาตหมายเลขที่ไม่เกินเกณฑ์ได้",
+  "localCountFilterHowItWorksPoint4": "• คุณสามารถเลือกว่าจะบันทึกบันทึกการสอบถามทั้งหมดหรือไม่",
+  "localCountFiltering": "การกรองจำนวนภายในเครื่อง",
+  "localCountFilteringExplanation": "• การกรองจำนวนภายในเครื่อง: กฎการกรองตามจำนวนการทำเครื่องหมายภายในเครื่อง",
+  "localCountFilterSettings": "การตั้งค่าตัวกรองจำนวนภายในเครื่อง",
+  "localCountFilterUseCases": "ตัวกรองนี้เหมาะอย่างยิ่งสำหรับการระบุสายสแปมที่โทรอัตโนมัติและสายการตลาด",
+  "localFilterSettings": "การตั้งค่าตัวกรองภายในเครื่อง",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "การแจ้งเตือนภายในเครื่องปิดใช้งานแล้ว",
+  "localNotificationEnabled": "การแจ้งเตือนภายในเครื่องเปิดใช้งานแล้ว",
+  "localServices": "บริการภายในเครื่อง",
+  "locationColor": "สีตำแหน่ง",
+  "locationFontSize": "ขนาดตัวอักษรตำแหน่ง",
+  "locationIconColor": "สีไอคอนตำแหน่ง",
+  "locationPosition": "ตำแหน่งตำแหน่ง",
+  "logAllLocalQueries": "บันทึกการสอบถามภายในเครื่องทั้งหมด",
+  "logAllLocalQueriesDescription": "บันทึกบันทึกสำหรับการสอบถามหมายเลขภายในเครื่องทั้งหมด",
+  "logAllRemoteQueries": "บันทึกการสอบถามภายนอกทั้งหมด",
+  "logAllRemoteQueriesDescription": "บันทึกการดำเนินการสอบถามหมายเลขภายนอกทั้งหมด",
+  "manage": "จัดการ",
+  "manageContacts": "จัดการรายชื่อผู้ติดต่อ",
+  "manageFavoriteContacts": "จัดการรายชื่อผู้ติดต่อที่ชื่นชอบ",
+  "manageFilterRules": "จัดการกฎตัวกรอง",
+  "manageFilterRulesDescription": "เพิ่ม แก้ไข หรือลบกฎตัวกรอง SMS",
+  "manageFrequentContacts": "จัดการรายชื่อผู้ติดต่อที่โทรบ่อย",
+  "markCounts": "จำนวนเครื่องหมาย",
+  "markCount": "จำนวนเครื่องหมาย",
+  "markedByCount": "ทำเครื่องหมายโดย {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "รายการหมายเลขโทรศัพท์ที่ถูกทำเครื่องหมาย",
+  "markExchange": "แลกเปลี่ยนเครื่องหมาย",
+  "markPhone": "ทำเครื่องหมายหมายเลขโทรศัพท์",
+  "markPhoneFailed": "ไม่สามารถตั้งค่าหมายเลขโทรศัพท์: {error}",
+  "markPhoneManagementSubtitle": "เพื่อตั้งค่าหมายเลขโทรศัพท์",
+  "markPhoneManagementTitle": "การจัดการหมายเลขโทรศัพท์",
+  "markPhoneSuccess": "ตั้งค่าหมายเลขโทรศัพท์สำเร็จแล้ว",
+  "matchFailed": "ไม่ตรงกัน!",
+  "matchFailedMessage": "ไม่ตรงกัน",
+  "matchNumbersWithSpecialCharacters": "ตรงกับรูปแบบตัวเลขเฉพาะ",
+  "matchNumbersWithSpecialCharactersTitle": "ตรงกับตัวเลขที่มีอักขระพิเศษ:",
+  "matchSpecificDigitPatterns": "ตรงกับรูปแบบ XXX-XXXX-XXXX",
+  "matchSpecificDigitPatternsTitle": "ตรงกับรูปแบบตัวเลขเฉพาะ:",
+  "matchSuccessful": "ตรงกันสำเร็จ!",
+  "matchSuccessfulMessage": "ตรงกันสำเร็จ!",
+  "medical": "การแพทย์",
+  "membershipPrivileges": "สิทธิประโยชน์สมาชิก",
+  "migrationTool": "เครื่องมือย้ายข้อมูล",
+  "migrationToolTitle": "เครื่องมือย้ายข้อมูล",
+  "minutes": "นาที",
+  "month": "เดือน",
+  "monthly": "รายเดือน",
+  "monthlyCallCount": "จำนวนสายรายเดือน",
+  "monthlyChartTitle": "สายที่ถูกบล็อกรายเดือน",
+  "monthlyMembership": "สมาชิกรายเดือน",
+  "monthlyMembershipDescription": "ปลดล็อกฟีเจอร์พรีเมียมทั้งหมด, ต่ออายุอัตโนมัติรายเดือน",
+  "monthlyTotal": "ยอดรวมรายเดือน",
+  "monthlyTotalLabel": "ยอดรวมรายเดือน",
+  "moreOptions": "ตัวเลือกเพิ่มเติม",
+  "mute": "ปิดเสียง",
+  "name": "ชื่อ",
+  "nameAndPhoneNumberCannotBeEmpty": "ชื่อและหมายเลขโทรศัพท์ต้องไม่ว่างเปล่า",
+  "nameAndPhoneNumberRequired": "ชื่อและหมายเลขโทรศัพท์ต้องไม่ว่างเปล่า",
+  "nameColor": "สีชื่อ",
+  "nameFontSize": "ขนาดตัวอักษรชื่อ",
+  "nameLabel": "ชื่อ: {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "ตำแหน่งชื่อ",
+  "nameUnknown": "ชื่อ: ไม่รู้จัก",
+  "nameWithValue": "ชื่อ: {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "รหัสผ่านใหม่",
+  "nextStep": "ถัดไป",
+  "noAction": "ไม่มีการดำเนินการ",
+  "noActionRules": "ไม่มีกฎการดำเนินการ",
+  "noActiveCloudSyncServiceMessage": "ไม่มีบริการซิงค์คลาวด์ที่ใช้งานอยู่",
+  "noCallLogs": "ไม่มีบันทึกการโทร",
+  "noCallRecords": "ไม่มีบันทึกการโทร",
+  "noContacts": "ยังไม่มีผู้ติดต่อ",
+  "noContactsYet": "ยังไม่มีผู้ติดต่อ",
+  "noData": "ไม่มีข้อมูล",
+  "noDevicesRegisteredMessage": "ยังไม่มีอุปกรณ์ที่ลงทะเบียน",
+  "noDevicesRegisteredYet": "ยังไม่มีอุปกรณ์ที่ลงทะเบียน",
+  "noFilters": "ยังไม่มีตัวกรอง",
+  "noLabels": "ยังไม่มีป้ายกำกับ",
+  "noMarkedPhones": "ยังไม่มีหมายเลขโทรศัพท์ที่ตั้งค่าไว้",
+  "noMatchingContacts": "ไม่มีผู้ติดต่อที่ตรงกัน",
+  "noMatchingContactsFound": "ไม่พบผู้ติดต่อที่ตรงกัน",
+  "noMatchingNumbersFound": "ไม่พบหมายเลขที่ตรงกัน",
+  "noMatchingRecords": "ไม่พบรายการที่ตรงกัน",
+  "noMatchingRules": "ไม่พบ {ruleType} ที่ตรงกัน",
+  "none": "ไม่มี",
+  "noneServiceType": "ไม่มี",
+  "noPlugins": "ยังไม่มีปลั๊กอิน",
+  "noRecords": "ไม่มีบันทึกการโทร",
+  "noResultReturned": "ไม่ได้รับผลลัพธ์",
+  "noResultReturnedLog": "ไม่ได้รับผลลัพธ์จากปลั๊กอิน",
+  "noRules": "ยังไม่มี {ruleType}",
+  "noRulesPrompt": "ไม่พบกฎ, โปรดเพิ่มกฎ",
+  "noRulesToExport": "ไม่มีกฎให้ส่งออก",
+  "noSmsFilterRulesYet": "ยังไม่มีกฎตัวกรอง SMS",
+  "noSmsRulesYet": "ยังไม่มีกฎ SMS",
+  "noSubscriptions": "ไม่มีการสมัครสมาชิก",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "ยังไม่มีการสมัครสมาชิก",
+  "notGranted": "ไม่ได้รับอนุญาต",
+  "notificationMode": "โหมดการแจ้งเตือน",
+  "notificationModeDescription": "แสดงข้อมูลผู้โทรในแถบแจ้งเตือน",
+  "notificationPermission": "การอนุญาตแจ้งเตือน",
+  "notificationPermissionDescription": "ใช้เพื่อแสดงการแจ้งเตือนสายเรียกเข้าและข้อความ",
+  "notifications": "การแจ้งเตือน",
+  "notificationSettings": "การตั้งค่าการแจ้งเตือน",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "บันทึกการตั้งค่าการแจ้งเตือนสำเร็จแล้ว",
+  "notSet": "ไม่ได้ตั้งค่า",
+  "notVerifiedText": "ยังไม่ยืนยัน",
+  "noValidSmsRulesFoundInFile": "ไม่พบกฎ SMS ที่ถูกต้องในไฟล์",
+  "number": "หมายเลข",
+  "numberColor": "สีหมายเลข",
+  "numberFontSize": "ขนาดตัวอักษรหมายเลข",
+  "numberPosition": "ตำแหน่งหมายเลข",
+  "numberSearch": "ค้นหาหมายเลข",
+  "numberTypeColor": "สีประเภทหมายเลข",
+  "numberTypeFontSize": "ขนาดตัวอักษรประเภทหมายเลข",
+  "numberTypePosition": "ตำแหน่งประเภทหมายเลข",
+  "ok": "ตกลง",
+  "okButton": "ตกลง",
+  "onboardingCompleteDescription": "ผู้จัดการความปลอดภัยการโทรของคุณพร้อมแล้ว, เริ่มต้นประสบการณ์การโทรที่ปลอดภัย!",
+  "onboardingLanguageDescription": "เลือกภาษาที่คุณต้องการเพื่อประสบการณ์ที่ดีที่สุด",
+  "onboardingPermissionsDescription": "เพื่อให้การบริการเต็มรูปแบบ, เราต้องการการอนุญาตดังต่อไปนี้:",
+  "onboardingPowerfulSpamBlockingDescription": "บล็อกสายเรียกเข้าและข้อความสแปมด้วยคลิกเดียว, ปรับแต่งกฎการบล็อก, และมอบสภาพแวดล้อมที่เงียบสงบให้คุณ",
+  "onboardingSmartCallerIdDescription": "ระบุสายเรียกเข้าที่ไม่รู้จักโดยอัตโนมัติ, ตั้งค่าหมายเลขที่น่าสงสัย, และปกป้องความปลอดภัยการโทรของคุณ",
+  "onboardingWelcomeDescription": "ผู้เชี่ยวชาญการจัดการการโทรของคุณ, ให้บริการระบุและบล็อกการโทรที่ครอบคลุม",
+  "oneDriveAuthDescription": "อนุญาตโดยใช้รหัสและคีย์ไคลเอ็นต์ OneDrive ที่กำหนดค่าระบบ",
+  "oneDriveAuthorizationHint": "อนุญาตโดยใช้รหัสและคีย์ไคลเอ็นต์ OneDrive ที่กำหนดค่าระบบ",
+  "oneDriveConfigTitle": "การตั้งค่า OneDrive",
+  "oneDriveConfigurationTitle": "การตั้งค่า OneDrive",
+  "onlineCallerIdSubscription": "การสมัครสมาชิกหมายเลขผู้โทรออนไลน์",
+  "openAppSettings": "เปิดการตั้งค่าแอป",
+  "openAppSettingsFailed": "ไม่สามารถเปิดการตั้งค่าแอปได้: {error}",
+  "operationFailed": "การดำเนินการล้มเหลว: {error}",
+  "operationFailure": "การดำเนินการล้มเหลว",
+  "operationSuccess": "การดำเนินการสำเร็จ",
+  "other": "อื่นๆ",
+  "ourOtherApps": "แอปอื่นๆ ของเรา",
+  "overlayMode": "หน้าต่างลอย",
+  "overlayModeDescription": "แสดงข้อมูลผู้โทรในหน้าต่างลอย",
+  "overlayPermission": "สิทธิ์หน้าต่างลอย",
+  "overlayPermissionDescription": "ใช้เพื่อแสดงการแจ้งสายเรียกเข้าแบบลอย",
+  "overview": "ภาพรวม",
+  "password": "รหัสผ่าน",
+  "passwordCannotBeEmpty": "รหัสผ่านต้องไม่ว่างเปล่า",
+  "passwordLabel": "รหัสผ่าน",
+  "passwordsDoNotMatch": "รหัสผ่านไม่ตรงกัน",
+  "passwordSetSuccessfully": "ตั้งรหัสผ่านสำเร็จ",
+  "pattern": "รูปแบบ",
+  "pendingSync": "กำลังรอการซิงค์",
+  "periodMonth": "เดือน",
+  "periodWeek": "สัปดาห์",
+  "periodYear": "ปี",
+  "permissionDenied": "คำขอสิทธิ์ถูกปฏิเสธ",
+  "permissionGranted": "สิทธิ์ได้รับการอนุมัติ",
+  "permissionManagement": "การจัดการสิทธิ์",
+  "phoneCallsTab": "โทรศัพท์",
+  "phoneNumber": "หมายเลขโทรศัพท์",
+  "phoneNumberCannotBeEmpty": "หมายเลขโทรศัพท์ต้องไม่ว่างเปล่า",
+  "phoneNumberHint": "ป้อนหมายเลขโทรศัพท์",
+  "phoneNumberHintText": "ป้อนหมายเลขโทรศัพท์เพื่อเพิ่มกฎ",
+  "phoneNumberLabel": "หมายเลขโทรศัพท์",
+  "phoneNumberRegexRequired": "โปรดป้อนทั้งหมายเลขโทรศัพท์และรูปแบบ regex",
+  "phoneNumberRequired": "ต้องมีหมายเลขโทรศัพท์",
+  "phoneNumberTypeFixedLine": "โทรศัพท์บ้าน",
+  "phoneNumberTypeFixedLineOrMobile": "โทรศัพท์บ้านหรือมือถือ",
+  "phoneNumberTypeMobile": "มือถือ",
+  "phoneNumberTypePager": "เพจเจอร์",
+  "phoneNumberTypePersonalNumber": "หมายเลขส่วนตัว",
+  "phoneNumberTypePremiumRate": "อัตราพรีเมียม",
+  "phoneNumberTypeSharedCost": "ค่าใช้จ่ายร่วมกัน",
+  "phoneNumberTypeTollFree": "โทรฟรี",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "ไม่ทราบ",
+  "phoneNumberTypeVoicemail": "ข้อความเสียง",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "สิทธิ์โทรศัพท์",
+  "phonePermissionDescription": "ใช้เพื่อระบุและบล็อกสายเรียกเข้า",
+  "phoneRule": "กฎโทรศัพท์",
+  "phoneRuleEditDialog": "กล่องโต้ตอบแก้ไขกฎโทรศัพท์",
+  "phoneRuleManagement": "การจัดการกฎโทรศัพท์",
+  "phoneRuleSubscription": "การสมัครสมาชิกกฎโทรศัพท์",
+  "phoneSubscription": "การสมัครสมาชิกโทรศัพท์",
+  "phoneSubscriptionRulesDescription": "สมัครรับรายชื่อกฎโทรศัพท์ผ่าน URL เพื่ออัปเดตรายการที่อนุญาตและรายการบล็อกโดยอัตโนมัติ รองรับไฟล์กฎรูปแบบ JSON",
+  "phoneSubscriptionTitle": "การสมัครสมาชิกกฎโทรศัพท์",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "โปรดเลือกป้ายกำกับและป้อนหมายเลขโทรศัพท์ที่ถูกต้อง",
+  "pluginAddedSuccess": "เพิ่มปลั๊กอิน \"{name}\" สำเร็จแล้ว",
+  "pluginDeleted": "ลบปลั๊กอินแล้ว",
+  "pluginLatestVersion": "ปลั๊กอินเป็นเวอร์ชันล่าสุดแล้ว",
+  "pluginListExportSuccess": "ส่งออกรายชื่อปลั๊กอินสำเร็จแล้ว",
+  "pluginLoadedSuccessfully": "โหลดปลั๊กอินสำเร็จแล้ว",
+  "pluginManagement": "การจัดการปลั๊กอิน",
+  "pluginManagementSubtitle": "จัดการและกำหนดค่าปลั๊กอินของบุคคลที่สาม",
+  "pluginManagementTitle": "การจัดการปลั๊กอิน",
+  "pluginName": "ชื่อปลั๊กอิน",
+  "pluginNotLoaded": "ปลั๊กอินยังไม่ได้โหลด โปรดโหลดปลั๊กอินก่อน",
+  "pluginsDeleted": "ลบปลั๊กอิน {count} รายการสำเร็จแล้ว",
+  "pluginService": "บริการปลั๊กอิน",
+  "pluginTestPageTitle": "ทดสอบปลั๊กอิน",
+  "pluginUpdateSuccess": "อัปเดตปลั๊กอินสำเร็จแล้ว",
+  "pluginUrl": "URL ปลั๊กอิน",
+  "pluginUrlCannotBeEmpty": "URL ปลั๊กอินต้องไม่ว่างเปล่า",
+  "pluginUrlHint": "ป้อน URL ปลั๊กอิน",
+  "pluginUrlLabel": "URL ปลั๊กอิน",
+  "pluginVersion": "เวอร์ชันปลั๊กอิน",
+  "political": "การเมือง",
+  "powerfulSpamBlocking": "การบล็อกสแปมที่ทรงพลัง",
+  "previousStep": "ก่อนหน้า",
+  "prioritizeRemoteAction": "จัดลำดับความสำคัญการตั้งค่าการดำเนินการระยะไกล",
+  "prioritizeRemoteActionDescription": "จัดลำดับความสำคัญการตั้งค่าการดำเนินการจากฐานข้อมูลระยะไกล",
+  "processing": "กำลังประมวลผล...",
+  "processingOperation": "กำลังประมวลผล...",
+  "purchase": "ซื้อ",
+  "quarterlyMembership": "สมาชิกรายไตรมาส",
+  "quarterlyMembershipDescription": "ปลดล็อกฟีเจอร์พรีเมียมทั้งหมด ต่ออายุอัตโนมัติทุกไตรมาส",
+  "queryButton": "ค้นหา",
+  "queryFailed": "การค้นหาล้มเหลว",
+  "queryFailedLog": "การค้นหาล้มเหลว",
+  "querying": "กำลังค้นหา...",
+  "queryingPhoneNumber": "กำลังค้นหาหมายเลขโทรศัพท์",
+  "queryResultTitle": "ผลการค้นหา",
+  "ready": "พร้อมแล้ว!",
+  "receiveWeeklyStatistics": "รับสถิติตัวเลขรายสัปดาห์",
+  "recruiter": "ผู้สรรหา",
+  "reEnterPasswordHint": "โปรดป้อนรหัสผ่านอีกครั้ง",
+  "refresh": "รีเฟรช",
+  "refreshPermissionStatus": "รีเฟรชสถานะสิทธิ์",
+  "refreshTooltip": "รีเฟรช",
+  "regexError": "ข้อผิดพลาด Regex: {error}",
+  "regexErrorMessage": "ข้อผิดพลาด Regex: {error}",
+  "regexPattern": "รูปแบบ Regex",
+  "regexPatternExplanation": "คำอธิบายรูปแบบ Regex",
+  "regexPatternExplanationButton": "คำอธิบายรูปแบบ Regex",
+  "regexPatternLabel": "รูปแบบ Regex",
+  "regexPatternsExamples": "ใช้ไวยากรณ์ regex มาตรฐานในการกำหนดรูปแบบ ตัวอย่าง:",
+  "regexPatternsForPhoneNumberMatching": "รูปแบบ Regex สำหรับการจับคู่หมายเลขโทรศัพท์",
+  "regexRule": "กฎ Regex",
+  "regexRuleAddFailed": "เพิ่มกฎ Regex ไม่สำเร็จ: {error}",
+  "regexRuleAddSuccess": "เพิ่มกฎ Regex สำเร็จแล้ว",
+  "regexRuleManagement": "การจัดการกฎ Regex",
+  "regexRuleNamePatternRequired": "ชื่อกฎและรูปแบบ Regex ต้องไม่ว่างเปล่า",
+  "regexRules": "กฎ Regex",
+  "regexTesterTitle": "เครื่องมือทดสอบ Regex",
+  "regexValidationFailed": "การตรวจสอบ Regex ไม่สำเร็จ: {error}",
+  "regexValidationSuccess": "การตรวจสอบ Regex สำเร็จแล้ว",
+  "region": "ภูมิภาค",
+  "registeredDevicesTitle": "อุปกรณ์ที่ลงทะเบียน",
+  "rejectAllCalls": "ปฏิเสธสายทั้งหมด",
+  "rejectAllCallsDescription": "เมื่อเปิดใช้งาน สายทั้งหมดจะถูกปฏิเสธด้วยลำดับความสำคัญสูงสุด",
+  "rejectAllNumbers": "ปฏิเสธตัวเลขทั้งหมด",
+  "rejectAllNumbersDesc": "ปฏิเสธสายเรียกเข้าทั้งหมดเมื่อเปิดใช้งาน",
+  "rejectExceededNumbers": "ปฏิเสธตัวเลขที่เกิน",
+  "rejectExceededNumbersDescription": "ปฏิเสธหมายเลขที่เกินเกณฑ์จำนวนโดยอัตโนมัติ",
+  "remoteFilterSettings": "การตั้งค่าตัวกรองระยะไกล",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "การตั้งค่าตัวกรองหมายเลขระยะไกล",
+  "remoteNumberFilter": "ตัวกรองหมายเลขระยะไกล",
+  "remoteNumberFilterDatabaseInfo": "ตัวกรองนี้ใช้ฐานข้อมูลระยะไกลอิสระเพื่อรับข้อมูลหมายเลขล่าสุด",
+  "remoteNumberFilterDescription": "สกัดกั้นสายรบกวนตามข้อมูลฐานข้อมูลระยะไกล",
+  "remoteNumberFilterExplanationContent": "ตัวกรองหมายเลขระยะไกลจะระบุและบล็อกสายสแปมโดยการสอบถามฐานข้อมูลระยะไกลตามจำนวนหมายเลข",
+  "remoteNumberFilterExplanationTitle": "คำอธิบายตัวกรองหมายเลขระยะไกล",
+  "remoteNumberFilterFeatureCountThreshold": "• เกณฑ์จำนวน: กำหนดตามความถี่ในการเกิดหมายเลข",
+  "remoteNumberFilterFeatureFilterAction": "• การดำเนินการตัวกรอง: กำหนดวิธีการจัดการหมายเลขที่เกินเกณฑ์",
+  "remoteNumberFilterFeaturePriority": "• การตั้งค่าลำดับความสำคัญ: ตั้งค่าลำดับความสำคัญสำหรับการดำเนินการระยะไกล",
+  "remoteNumberFilterFeatures": "คุณสมบัติ:",
+  "remoteNumberFiltering": "การกรองหมายเลขระยะไกล",
+  "remoteNumberFilteringExplanation": "• การกรองหมายเลขระยะไกล: กฎการกรองตามข้อมูลฐานข้อมูลระยะไกล",
+  "remoteNumberFilterSubtitle": "ระบุสายสแปมโดยใช้ฐานข้อมูลคลาวด์และรายงานชุมชน",
+  "removeAdsDescription": "ลบโฆษณาทั้งหมดในแอปอย่างถาวรเพื่อประสบการณ์ที่ราบรื่นยิ่งขึ้น",
+  "removeAdsTitle": "ลบโฆษณา",
+  "removedFromFavoriteContacts": "นำออกจากผู้ติดต่อที่ชื่นชอบ",
+  "removedFromFavorites": "นำออกจากรายการโปรด",
+  "removeFavorite": "นำรายการโปรดออก",
+  "removeFromFavorites": "นำออกจากรายการโปรด",
+  "renameButton": "เปลี่ยนชื่อ",
+  "renameDeviceDialogTitle": "เปลี่ยนชื่ออุปกรณ์",
+  "renameDeviceTitle": "เปลี่ยนชื่ออุปกรณ์",
+  "replaceCurrentSettingsConfirmation": "นี่จะแทนที่การตั้งค่าปัจจุบันทั้งหมดของคุณ คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?",
+  "requestAllPermissions": "ขอสิทธิ์ทั้งหมด",
+  "requestPermission": "ขอสิทธิ์",
+  "requestPermissionFailed": "ขอสิทธิ์ไม่สำเร็จ: {error}",
+  "requiredMarks": "{count} เครื่องหมาย",
+  "reset": "รีเซ็ต",
+  "restore": "กู้คืน",
+  "restoreApplicationSettingsFromBackup": "กู้คืนการตั้งค่าแอปพลิเคชันจากการสำรองข้อมูล",
+  "restoreApplicationSettingsFromBackupSubtitle": "กู้คืนการตั้งค่าแอปพลิเคชันจากการสำรองข้อมูล",
+  "restoreButton": "กู้คืน",
+  "restoreFailedWithError": "กู้คืนจากคลาวด์ไม่สำเร็จ: {error}",
+  "restoreFromCloud": "กู้คืนจากคลาวด์",
+  "restoreFromCloudDescription": "กู้คืนการตั้งค่าและกฎจากที่เก็บข้อมูลคลาวด์",
+  "restoreFromCloudFailed": "กู้คืนจากคลาวด์ไม่สำเร็จ: {error}",
+  "restoreFromCloudLabel": "กู้คืนจากคลาวด์",
+  "restoreFromCloudSuccess": "กู้คืนจากคลาวด์สำเร็จแล้ว",
+  "restoreFromCloudTitle": "กู้คืนจากคลาวด์",
+  "restoreFromLocal": "กู้คืนจากเครื่อง",
+  "restorePurchases": "กู้คืนการซื้อ",
+  "restoreSectionTitle": "กู้คืน",
+  "restoreSettings": "กู้คืนการตั้งค่า",
+  "restoreSettingsConfirmation": "นี่จะแทนที่การตั้งค่าปัจจุบันทั้งหมดของคุณ คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?",
+  "restoreSettingsDialogTitle": "กู้คืนการตั้งค่า",
+  "restoreSettingsTitle": "กู้คืนการตั้งค่า",
+  "restoreSuccessFromLocal": "กู้คืนจากเครื่องสำเร็จแล้ว",
+  "restoreSuccessMessage": "กู้คืนจากคลาวด์สำเร็จแล้ว",
+  "retry": "ลองอีกครั้ง",
+  "ridesharing": "การแชร์รถ",
+  "risk": "ความเสี่ยง",
+  "robocall": "สายรบกวน",
+  "ruleAction": "การดำเนินการกฎ",
+  "ruleAddButton": "เพิ่มกฎ",
+  "ruleAddedSuccess": "เพิ่มกฎสำเร็จแล้ว",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "เพิ่มกฎไม่สำเร็จ: {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "เพิ่มกฎสำเร็จแล้ว",
+  "ruleDeleteConfirmContent": "คุณแน่ใจหรือไม่ว่าต้องการลบ {ruleType} นี้?",
+  "ruleDeleteConfirmTitle": "ลบกฎ",
+  "ruleDeletedSuccess": "ลบกฎสำเร็จแล้ว",
+  "ruleDeletedSuccessfully": "ลบกฎสำเร็จแล้ว",
+  "ruleDeleteFailed": "ลบกฎไม่สำเร็จ: {error}",
+  "ruleDeleteFailure": "ลบกฎไม่สำเร็จ: {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "ลบกฎสำเร็จแล้ว",
+  "ruleDisabledSuccessfully": "ปิดใช้งานกฎสำเร็จแล้ว",
+  "ruleEnabledSuccessfully": "เปิดใช้งานกฎสำเร็จแล้ว",
+  "ruleLoadFailed": "โหลดกฎไม่สำเร็จ: {error}",
+  "ruleManagement": "การจัดการกฎ",
+  "ruleManagementTitle": "การจัดการกฎ",
+  "ruleName": "ชื่อกฎ",
+  "ruleNameAndContentRegexCannotBeEmpty": "ชื่อกฎและเนื้อหา Regex ต้องไม่ว่างเปล่า",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "ชื่อกฎและหมายเลขโทรศัพท์ต้องไม่ว่างเปล่า",
+  "ruleNameHint": "เช่น ครอบครัว เพื่อน ฯลฯ",
+  "ruleNameLabel": "ชื่อกฎ",
+  "ruleNamePatternRequired": "โปรดป้อนชื่อกฎและรูปแบบ",
+  "ruleNameRequired": "ชื่อกฎและหมายเลขโทรศัพท์ต้องไม่ว่างเปล่า",
+  "ruleNotExist": "กฎนี้ไม่มีอยู่จริง หรือถูกลบไปแล้ว",
+  "ruleNotFound": "ไม่พบกฎ: {error}",
+  "ruleSavedSuccessfully": "บันทึกกฎสำเร็จแล้ว!",
+  "ruleSavedSuccessMessage": "บันทึกกฎสำเร็จแล้ว!",
+  "ruleSaveFailed": "บันทึกไม่สำเร็จ: {error}",
+  "ruleSaveFailedMessage": "บันทึกไม่สำเร็จ: {error}",
+  "ruleSaveSuccess": "บันทึกกฎสำเร็จแล้ว!",
+  "rulesExportedSuccessfully": "ส่งออกกฎสำเร็จแล้ว",
+  "rulesExportedTo": "ส่งออกกฎไปยัง: {path}",
+  "rulesImported": "นำเข้ากฎสำเร็จแล้ว",
+  "rulesImportedSuccessfully": "นำเข้ากฎ {count} รายการสำเร็จแล้ว",
+  "rulesImportFailed": "นำเข้ากฎไม่สำเร็จ: {error}",
+  "ruleStatistics": "สถิติของกฎ",
+  "ruleStatusChanged": "เปลี่ยนสถานะกฎเป็น {status} สำเร็จแล้ว",
+  "ruleToggleFailed": "การดำเนินการไม่สำเร็จ: {error}",
+  "ruleToggleSuccess": "เปลี่ยนสถานะกฎเป็น {status} สำเร็จแล้ว",
+  "ruleUpdateFailed": "อัปเดตกฎไม่สำเร็จ: {error}",
+  "ruleUpdateSuccess": "อัปเดตกฎสำเร็จแล้ว",
+  "ruleVerification": "การยืนยันกฎ",
+  "save": "บันทึก",
+  "saveButton": "บันทึก",
+  "saveButtonLabel": "บันทึก",
+  "saveButtonText": "บันทึก",
+  "saveFailed": "บันทึกไม่สำเร็จ: {error}",
+  "saveFilter": "บันทึกตัวกรอง",
+  "saveSettings": "บันทึกการตั้งค่า",
+  "saveSettingsFailed": "บันทึกการตั้งค่าไม่สำเร็จ: {error}",
+  "scamsLikely": "มีแนวโน้มเป็นการหลอกลวง",
+  "search": "ค้นหา",
+  "searchContacts": "ค้นหาผู้ติดต่อ",
+  "searchError": "ข้อผิดพลาดในการค้นหา: {error}",
+  "searchFilters": "ตัวกรองการค้นหา",
+  "searchForContacts": "ค้นหาผู้ติดต่อ",
+  "searchHint": "ค้นหา...",
+  "searchSettingsSubtitle": "ค้นหาผู้ติดต่อ, ป้ายกำกับ, บัญชีดำ, บัญชีขาว ฯลฯ",
+  "searchSettingsTitle": "การตั้งค่าการค้นหา",
+  "securityMessage": "อย่าไว้ใจการโทรศัพท์ใดๆ ตรวจสอบหมายเลขบริการลูกค้าด้วยตนเองเสมอ ห้ามเปิดเผยรหัสผ่าน, รหัสยืนยัน, หมายเลขบัตร หรือข้อมูลส่วนตัว",
+  "selectActionToPerform": "เลือกการดำเนินการที่จะทำเมนกฎตรงกัน",
+  "selectActionWhenBlockingCalls": "เลือกการดำเนินการเมื่อบล็อกการโทร",
+  "selectActionWhenRuleMatches": "เลือกการดำเนินการเมนกฎตรงกัน",
+  "selectAll": "เลือกทั้งหมด",
+  "selectCountry": "เลือกประเทศ",
+  "selectDateRange": "เลือกช่วงวันที่",
+  "selectedDateRange": "ช่วงวันที่ที่เลือก",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "เลือกแล้ว {count} รายการ",
+  "selectedLabel": "เลือกแล้ว:",
+  "selectExportFormat": "เลือกรูปแบบการส่งออก",
+  "selectLabel": "เลือกป้ายกำกับ",
+  "selectLabelAndEnterPhoneNumber": "โปรดเลือกป้ายกำกับและกรอกหมายเลขโทรศัพท์ที่ถูกต้อง",
+  "selectLanguage": "เลือกภาษา",
+  "selectMultiple": "เลือกหลายรายการ",
+  "selectPeriod": "เลือกช่วงเวลา",
+  "selectSimCard": "เลือกซิมการ์ด",
+  "selectSimSlot": "เลือกสล็อตซิมการ์ด",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "เลือกการดำเนินการเฉพาะเมื่อบล็อกการโทร",
+  "selectTag": "เลือกแท็ก",
+  "selectTags": "เลือกแท็ก",
+  "selectTrustedDataSource": "โปรดเลือกแหล่งข้อมูลที่เชื่อถือได้",
+  "selectYourLanguage": "เลือกภาษาของคุณ",
+  "sender": "ผู้ส่ง",
+  "senderRegexOptional": "นิพจน์ทั่วไปของผู้ส่ง (ไม่บังคับ)",
+  "serverAddressLabel": "ที่อยู่เซิร์ฟเวอร์",
+  "serviceTypeContact": "การสมัครสมาชิกผู้ติดต่อ",
+  "serviceTypeLabel": "ประเภทบริการ",
+  "serviceTypePhone": "การสมัครสมาชิกโทรศัพท์",
+  "serviceTypePlugin": "การอัปเดตปลั๊กอิน",
+  "serviceTypeSms": "การสมัครสมาชิก SMS",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "ตั้งค่า",
+  "setEncryptionPassword": "ตั้งรหัสผ่านการเข้ารหัส",
+  "setEncryptionPasswordDescription": "ตั้งรหัสผ่านการเข้ารหัสสำหรับการสำรองและกู้คืน",
+  "setEncryptionPasswordLabel": "ตั้งรหัสผ่านการเข้ารหัส",
+  "setEncryptionPasswordTitle": "ตั้งรหัสผ่านการเข้ารหัส",
+  "setPasswordButton": "ตั้งค่า",
+  "settings": "การตั้งค่า",
+  "settingsBackedUpTo": "สำรองการตั้งค่าไปยัง: {path}",
+  "settingsLoaded": "โหลดการตั้งค่าสำเร็จแล้ว",
+  "settingsLoadFailed": "โหลดการตั้งค่าไม่สำเร็จ: {error}",
+  "settingsRestoredSuccessfully": "กู้คืนการตั้งค่าสำเร็จแล้ว โปรดรีสตาร์ทแอปเพื่อให้การเปลี่ยนแปลงมีผล",
+  "settingsSaved": "บันทึกการตั้งค่าแล้ว",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "บันทึกการตั้งค่าไม่สำเร็จ: {error}",
+  "settingsTab": "การตั้งค่า",
+  "settingsTitle": "การตั้งค่า",
+  "setup": "ตั้งค่า",
+  "showContactEditDialogStaticMethod": "เมธอดแบบสแตติกเพื่อแสดงกล่องโต้ตอบแก้ไขผู้ติดต่อ",
+  "showExplanation": "แสดงคำอธิบาย",
+  "silence": "เงียบ",
+  "silenceAndNoAnswer": "เงียบและไม่มีคำตอบ",
+  "silenceNoAnswer": "เงียบ ไม่มีคำตอบ",
+  "silentCallVoiceClone": "โคลนเสียงโทรแบบเงียบ",
+  "silentRules": "กฎแบบเงียบ",
+  "simCard": "ซิมการ์ด {simNumber}",
+  "simCardColor": "สีของซิมการ์ด",
+  "simCardConfigurationExplanation": "• การกำหนดค่าซิมการ์ด: ตั้งกฎการกรองที่แตกต่างกันสำหรับแต่ละซิมการ์ด",
+  "simCardFilterRules": "กฎการกรองซิมการ์ด",
+  "simCardFilterRulesDescription": "ตั้งกฎการกรองที่แตกต่างกันตามสล็อตซิมการ์ด",
+  "simCardFontSize": "ขนาดตัวอักษรซิมการ์ด",
+  "simCardPosition": "ตำแหน่งซิมการ์ด",
+  "simInfo": "ซิม {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "โหลดข้อมูลซิมการ์ดไม่สำเร็จ: {error}",
+  "simRuleInstructions": "กฎสล็อต SIM ช่วยให้คุณกำหนดกฎการกรองที่แยกจากกันสำหรับแต่ละสล็อต SIM",
+  "simRuleInstructionsTitle": "กฎสล็อต SIM",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "การจัดการกฎสล็อต SIM",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "ไม่สามารถโหลดข้อมูล SIM ได้: {error}",
+  "simSlotFilterConfiguration": "การกำหนดค่าตัวกรองสล็อต SIM",
+  "simSlotFilterConfigurationDescription": "อนุญาตให้ตั้งค่ากฎตัวกรองตามสล็อต SIM",
+  "simSlotFilterDescription": "กำหนดกฎการกรองที่แยกจากกันสำหรับซิมการ์ดแต่ละใบ:",
+  "simSlotFilterSettingsTitle": "การตั้งค่าตัวกรองสล็อต SIM {slotNumber}",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "ไม่สามารถโหลดสล็อต SIM ได้: {error}",
+  "simSlotManagement": "การจัดการสล็อต SIM",
+  "simSlotOperationFailed": "การดำเนินการสล็อต SIM ล้มเหลว: {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "ตำแหน่งสล็อต SIM {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• กฎสล็อต SIM: กลยุทธ์การกรองที่แยกจากกันต่อ SIM",
+  "simSlotRuleListTitle": "รายการกฎสล็อต SIM",
+  "simSlotRuleManagement": "กฎสล็อต SIM",
+  "simSlotRuleManagementTitle": "การจัดการกฎ",
+  "simSlotSettings": "การตั้งค่าสล็อต SIM",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "สล็อต SIM {slotNumber}",
+  "skip": "ข้าม",
+  "smartCallerId": "การระบุผู้โทรอัจฉริยะ",
+  "sms": "SMS",
+  "smsFilterDescription": "การกรอง SMS ช่วยให้คุณกรองข้อความสแปมโดยอัตโนมัติและรักษาความสะอาดของรายการข้อความของคุณ คุณสามารถตั้งค่ากฎการกรองและวิธีการแจ้งเตือนได้",
+  "smsFilterDisabled": "การกรอง SMS ปิดใช้งาน",
+  "smsFilterEnabled": "การกรอง SMS เปิดใช้งาน",
+  "smsFilterRuleAddedSuccessfully": "เพิ่มกฎตัวกรอง SMS สำเร็จแล้ว",
+  "smsFilterRules": "กฎตัวกรอง SMS",
+  "smsFilterSettings": "การตั้งค่าตัวกรอง SMS",
+  "smsHistory": "ประวัติ SMS",
+  "smsManagement": "การจัดการ SMS",
+  "smsPermission": "สิทธิ์ SMS",
+  "smsPermissionDescription": "ใช้เพื่อกรองข้อความสแปม",
+  "smsRuleAddedSuccessfully": "เพิ่มกฎ SMS สำเร็จแล้ว",
+  "smsRuleDeletedSuccessfully": "ลบกฎ SMS สำเร็จแล้ว",
+  "smsRuleLoadFailed": "ไม่สามารถโหลดกฎ SMS ได้: {error}",
+  "smsRuleManagement": "การจัดการกฎ SMS",
+  "smsRulesExportedSuccessfully": "ส่งออกกฎ SMS สำเร็จแล้วไปยัง {filePath}",
+  "smsRulesImportedSuccessfully": "นำเข้ากฎ SMS สำเร็จแล้ว",
+  "smsRuleSubscription": "การสมัครรับข้อมูลกฎ SMS",
+  "smsRuleUpdatedSuccessfully": "อัปเดตกฎ SMS สำเร็จแล้ว",
+  "smsSettingsSubtitle": "การกรอง SMS และการบล็อกคำสำคัญ",
+  "smsSettingsTitle": "การตั้งค่า SMS",
+  "smsSubscription": "การสมัครรับข้อมูล SMS",
+  "smsSubscriptionAddedSuccessfully": "เพิ่มการสมัครรับข้อมูล SMS สำเร็จแล้ว",
+  "smsSubscriptionRulesDescription": "สมัครรับรายการกฎ SMS ผ่าน URL รองรับการจับคู่รูปแบบปกติ คุณสามารถตั้งค่าการบล็อกหรืออนุญาตการดำเนินการได้",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "ปฏิเสธคำขอสิทธิ์บางส่วน",
+  "spamLikely": "น่าจะเป็นสแปม",
+  "startColor": "สีเริ่มต้น",
+  "startDate": "วันที่เริ่มต้น",
+  "startUsing": "เริ่มต้นใช้งาน",
+  "statAnswered": "รับสาย",
+  "statBlocked": "บล็อก",
+  "staticMethodShowCallerIdDialog": "วิธีคงที่ในการแสดงกล่องโต้ตอบข้อมูลผู้โทร",
+  "staticMethodToDisplayCountrySelectionDialog": "วิธีคงที่ในการแสดงกล่องโต้ตอบเลือกประเทศ",
+  "staticMethodToDisplayDialog": "วิธีคงที่ในการแสดงกล่องโต้ตอบ",
+  "statistics": "สถิติ",
+  "statisticsExportFeatureComingSoon": "ฟีเจอร์ส่งออกสถิติจะมาเร็วๆ นี้",
+  "statisticsGrid": "ตารางสถิติ",
+  "statisticsPageTitle": "การวิเคราะห์ข้อมูล",
+  "stirColor": "สี STIR",
+  "stirFontSize": "ขนาดตัวอักษร STIR",
+  "stirPosition": "ตำแหน่ง STIR",
+  "storagePermission": "สิทธิ์ที่เก็บข้อมูล",
+  "storagePermissionDescription": "ใช้เพื่อบันทึกการตั้งค่าและกฎ",
+  "subscribe": "สมัคร",
+  "subscriptionAddSuccess": "เพิ่มการสมัครรับข้อมูล \"{name}\" สำเร็จแล้ว",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "คุณแน่ใจหรือไม่ว่าต้องการลบการสมัครรับข้อมูลนี้?",
+  "subscriptionDeleteConfirmTitle": "ลบการสมัครรับข้อมูล",
+  "subscriptionDeleted": "ลบการสมัครรับข้อมูลแล้ว",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "ลบการสมัครรับข้อมูลสำเร็จแล้ว",
+  "subscriptionDeleteFailed": "ไม่สามารถลบการสมัครรับข้อมูลได้: {error}",
+  "subscriptionDeleteSuccess": "ลบการสมัครรับข้อมูลแล้ว",
+  "subscriptionEmptyState": "ไม่มีการสมัครรับข้อมูล",
+  "subscriptionEmptyText": "ยังไม่มีการสมัครรับข้อมูล",
+  "subscriptionLoadFailed": "ไม่สามารถโหลดการสมัครรับข้อมูลได้: {error}",
+  "subscriptionLoadingFailed": "ไม่สามารถโหลดการสมัครรับข้อมูลได้: {error}",
+  "subscriptionManagementTitle": "การจัดการการสมัครรับข้อมูล",
+  "subscriptionName": "ชื่อการสมัครรับข้อมูล",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "ชื่อและการสมัครรับข้อมูล URL ต้องไม่ว่างเปล่า",
+  "subscriptionNameHint": "ป้อนชื่อการสมัครรับข้อมูล",
+  "subscriptionPageTitle": "การจัดการการสมัครรับข้อมูล",
+  "subscriptionStatusChangeFailed": "ไม่สามารถเปลี่ยนสถานะการสมัครรับข้อมูลได้: {error}",
+  "subscriptionToggleFailed": "ไม่สามารถสลับสถานะการสมัครรับข้อมูลได้: {error}",
+  "subscriptionUpdateFailed": "ไม่สามารถอัปเดตการสมัครรับข้อมูลได้: {error}",
+  "subscriptionUpdateSuccess": "อัปเดตการสมัครรับข้อมูลสำเร็จแล้ว",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "URL การสมัครรับข้อมูล",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "ป้อน URL การสมัครรับข้อมูล",
+  "successfullyImportedRules": "นำเข้ากฎ {count} รายการสำเร็จแล้ว",
+  "supportSync": "รองรับการซิงค์",
+  "survey": "สำรวจ",
+  "syncDevicesButton": "ซิงค์อุปกรณ์",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "การซิงค์ล้มเหลว",
+  "syncFailedMessage": "การซิงค์ล้มเหลว",
+  "syncFolderNameHint": "โปรดป้อนชื่อโฟลเดอร์ซิงค์ (ค่าเริ่มต้น: NotificationManager)",
+  "syncFolderNameLabel": "ชื่อโฟลเดอร์ซิงค์",
+  "synchronized": "ซิงโครไนซ์แล้ว",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "กำลังซิงค์...",
+  "syncNow": "ซิงค์ทันที",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "ซิงค์ตอนนี้",
+  "syncStatusTitle": "สถานะการซิงค์",
+  "syncStatusUpdatedMessage": "อัปเดตสถานะการซิงค์แล้ว",
+  "syncSuccessful": "การซิงค์สำเร็จ",
+  "syncSuccessMessage": "การซิงค์สำเร็จ",
+  "syncWithCloudStorage": "ซิงค์กับที่เก็บข้อมูลบนคลาวด์",
+  "syncWithCloudStorageSubtitle": "ซิงค์กับที่เก็บข้อมูลบนคลาวด์",
+  "systemFeatures": "คุณสมบัติของระบบ:",
+  "systemSettingsTitle": "การตั้งค่าระบบ",
+  "tabAll": "ทั้งหมด",
+  "tabAnswered": "ตอบแล้ว",
+  "tabBlocked": "บล็อกแล้ว",
+  "tabMissed": "พลาดสาย",
+  "tabOutgoing": "สายออก",
+  "tagLabel": "แท็ก: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "อัปเดตแท็กแล้ว",
+  "takeaway": "ซื้อกลับบ้าน",
+  "telecommunication": "โทรคมนาคม",
+  "telegram": "Telegram",
+  "telemarketing": "การตลาดทางโทรศัพท์",
+  "testButton": "ทดสอบ",
+  "testButtonLabel": "ทดสอบ",
+  "testConnectionButton": "ทดสอบการเชื่อมต่อ",
+  "textColorsSetting": "สีข้อความและป้ายกำกับ",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "แอปนี้เป็นเครื่องมือระบุเบอร์โทรที่มีประสิทธิภาพที่ช่วยให้คุณระบุและบล็อกสายที่ไม่ต้องการได้",
+  "thisWeek": "สัปดาห์นี้",
+  "timeInterceptor": "ตัวสกัดกั้นเวลา",
+  "timeInterceptorDescription": "สกัดกั้น/อนุญาตสายที่อาจเกิดขึ้นโดยอัตโนมัติตามความถี่ในการโทร",
+  "timeInterceptorExplanation": "• ตัวสกัดกั้นเวลา: สกัดกั้น/อนุญาตสายซ้ำๆ ภายในระยะเวลาสั้นๆ",
+  "timeInterceptorExplanationContent": "ฟีเจอร์การสกัดกั้นความถี่ในการโทรจะวิเคราะห์ความถี่ในการโทรเพื่อระบุและสกัดกั้น/อนุญาตสายสแปมที่โทรบ่อยโดยอัตโนมัติ",
+  "timeInterceptorExplanationTitle": "คำอธิบายการสกัดกั้นความถี่ในการโทร",
+  "timeInterceptorSettingsTitle": "การตั้งค่าการสกัดกั้นความถี่ในการโทร",
+  "timeInterceptorSubtitle": "สกัดกั้นสายสแปมที่อาจเกิดขึ้นโดยอัตโนมัติตามความถี่ในการโทร",
+  "timeInterceptorTitle": "เปิดใช้งานการสกัดกั้นความถี่ในการโทร",
+  "timeWindowDescription": "กำหนดขนาดหน้าต่างเวลาสำหรับการอนุญาตให้โทรซ้ำๆ สายจากหมายเลขเดียวกันภายในหน้าต่างนี้จะได้รับอนุญาต",
+  "timeWindowLabel": "หน้าต่างเวลาสกัดกั้น (นาที): {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "กำหนดขนาดหน้าต่างเวลาสำหรับการอนุญาตให้โทรซ้ำๆ สายจากหมายเลขเดียวกันภายในหน้าต่างนี้จะได้รับอนุญาต",
+  "today": "วันนี้",
+  "total": "ทั้งหมด",
+  "totalBlocked": "บล็อกทั้งหมด",
+  "totalFiltered": "กรองทั้งหมด",
+  "transferDataBetweenDevicesOrPlatforms": "ถ่ายโอนข้อมูลระหว่างอุปกรณ์หรือแพลตฟอร์ม",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "ถ่ายโอนข้อมูลระหว่างอุปกรณ์หรือแพลตฟอร์ม",
+  "travelTicketing": "ตั๋วเดินทาง",
+  "trend": "แนวโน้ม",
+  "trendChart": "แผนภูมิแนวโน้ม",
+  "tutorial": "บทแนะนำ",
+  "type": "ประเภท",
+  "unassignedSIMCard": "ซิมการ์ดที่ไม่ได้กำหนด",
+  "unknown": "ไม่ทราบ",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "ป้ายกำกับที่ไม่ทราบ",
+  "unknownTag": "แท็ก: ไม่ทราบ",
+  "unregisterButton": "ยกเลิกการลงทะเบียน",
+  "unregisterDeviceConfirmationMessage": "คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการลงทะเบียน {deviceName}?",
+  "unregisterDeviceTitle": "ยกเลิกการลงทะเบียนอุปกรณ์",
+  "unsupportedFileFormat": "รูปแบบไฟล์ไม่รองรับ",
+  "update": "อัปเดต",
+  "updateAllNow": "อัปเดตทั้งหมดตอนนี้",
+  "updateCallFilterConfig": "อัปเดตการกำหนดค่าตัวกรองการโทร",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "ล้มเหลวในการอัปเดตผู้ติดต่อ: {error}",
+  "updateFavoriteStatus": "อัปเดตสถานะรายการโปรด",
+  "updateFavoriteStatusFailed": "ล้มเหลวในการอัปเดตสถานะรายการโปรด: {error}",
+  "updateInterval": "ช่วงเวลาอัปเดต",
+  "updateLabelFailed": "ล้มเหลวในการอัปเดตป้ายกำกับ",
+  "updateNow": "อัปเดตตอนนี้",
+  "updatePlugin": "อัปเดตปลั๊กอิน",
+  "updatePluginFailed": "ล้มเหลวในการอัปเดตปลั๊กอิน: {error}",
+  "updateRuleFailed": "ล้มเหลวในการอัปเดตกฎ: {error}",
+  "updateSubscriptionFailed": "ล้มเหลวในการอัปเดตการสมัครสมาชิก: {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} อัปเดตสำเร็จ ({count} กฎ)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "อัปเดตแท็ก",
+  "useCasesPoint1": "• ระบุสายสแปมที่โทรซ้ำอัตโนมัติ",
+  "useCasesPoint2": "• สกัดกั้นสายการตลาดที่โทรหลายครั้งในเวลาอันสั้น",
+  "useCasesPoint3": "• ป้องกันการก่อกวนและการคุกคามทางโทรศัพท์",
+  "useCasesTitle": "กรณีการใช้งาน:",
+  "useGlobalSettings": "ใช้การตั้งค่าส่วนกลาง",
+  "userEmail": "user@example.com",
+  "usernameLabel": "ชื่อผู้ใช้",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "ใช้ไวยากรณ์ regex มาตรฐานเพื่อกำหนดรูปแบบ ตัวอย่าง:",
+  "validateRegex": "ตรวจสอบ Regex",
+  "verificationFailedText": "ล้มเหลว",
+  "verifiedText": "ยืนยันแล้ว",
+  "verify": "ยืนยัน",
+  "version": "เวอร์ชัน: {version}",
+  "vipExchangeDescription": "แลกเปลี่ยนสมาชิก VIP กับจำนวนการทำเครื่องหมายหมายเลขโทรศัพท์",
+  "vipExchangeTitle": "แลกเปลี่ยน VIP",
+  "watchAd": "ดูโฆษณา",
+  "watchAdForTemp": "ดูโฆษณาเพื่อสิทธิ์ชั่วคราว",
+  "watchAdForTempDescription": "ดูโฆษณาสั้นๆ เพื่อปลดล็อกคุณสมบัติพรีเมียมบางอย่างชั่วคราว",
+  "webDAVConfigTitle": "การกำหนดค่า WebDAV",
+  "webdavConfigurationTitle": "การกำหนดค่า WebDAV",
+  "webdavPasswordHint": "โปรดป้อนรหัสผ่าน WebDAV",
+  "webdavServerAddressHint": "โปรดป้อนที่อยู่เซิร์ฟเวอร์ WebDAV",
+  "webdavUsernameHint": "โปรดป้อนชื่อผู้ใช้ WebDAV",
+  "week": "สัปดาห์",
+  "weekly": "รายสัปดาห์",
+  "weeklyBlockedCallsSummary": "สรุปสายที่บล็อกรายสัปดาห์",
+  "weeklyChartTitle": "สายที่บล็อกรายสัปดาห์",
+  "weeklyReport": "รายงานรายสัปดาห์",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "รับรายงานสรุปกิจกรรมการบล็อกสายประจำสัปดาห์",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "ยินดีต้อนรับ",
+  "whitelist": "รายการที่อนุญาต",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "รายการที่อนุญาต",
+  "width": "ความกว้าง",
+  "wildcardMatchingDescription": "ใช้ '.' เพื่อจับคู่ตัวอักษรใดๆ (เช่น '123.456' จะตรงกับ 123-456)",
+  "wildcardMatchingTitle": "การจับคู่ Wildcard:",
+  "wildcardSupportForFlexibleFiltering": "รองรับ Wildcard สำหรับการกรองที่ยืดหยุ่น",
+  "windowSizeSetting": "ขนาดหน้าต่าง",
+  "year": "ปี",
+  "yearly": "รายปี",
+  "yearlyChartTitle": "การโทรที่ถูกบล็อกรายปี",
+  "noSimCardsDetected": "ไม่พบซิมการ์ด",
+  "filterManagementDescription": "ตั้งค่าตัวกรองการโทร",
+  "callerIdCustomizationSubtitle": "ปรับแต่งเลย์เอาต์ ID ผู้โทร",
+  "fraudAlerSettingTitle": "การตั้งค่าการแจ้งเตือนการฉ้อโกง",
+  "fraudAlerSettingSubtitle": "เพื่อตั้งค่าการแจ้งเตือนการฉ้อโกง",
+  "enableFraudAlert": "เปิดใช้งานการแจ้งเตือนการฉ้อโกง",
+  "enableFraudAlertDescription": "แจ้งเตือนสำหรับการโทรที่สงสัยว่าเป็นการหลอกลวง",
+  "enableVibration": "เปิดใช้งานการสั่น",
+  "enableVibrationDescription": "สั่นเมื่อการโทรสงสัยว่าเป็นการหลอกลวง",
+  "notificationSettingsTitle": "การตั้งค่าการแจ้งเตือน",
+  "useLocalNotification": "ใช้การแจ้งเตือนในเครื่อง",
+  "useLocalNotificationDescription": "เปิดใช้งานการแจ้งเตือนในเครื่องสำหรับการโทรเข้า",
+  "cancelLocalNotification": "ปิดการแจ้งเตือนในเครื่อง",
+  "useStirNotification": "ใช้การแจ้งเตือนจาก STIR",
+  "useStirNotificationDescription": "เปิดใช้งานการแจ้งเตือน STIR สำหรับการโทรเข้า",
+  "cancelLocalNotificationDescription": "ปิดการแจ้งเตือนในเครื่องโดยอัตโนมัติ",
+  "callerIdSettingsTitle": "การตั้งค่า ID ผู้โทร",
+  "callerIdSettingsSubtitle": "เพื่อตั้งค่าการแจ้งเตือนการโทรเข้าและโหมดการแสดงผล",
+  "purchaseTitle": "การซื้อ",
+  "purchaseSubtitle": "เพื่อซื้อบริการ",
+  "callerIdNotificationTitle": "ข้อมูลการโทรเข้า",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "หมายเลข: {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "การโทรที่ถูกบล็อก",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "การโทรที่ถูกบล็อกจาก {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "ยืนยันแล้ว",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "ยังไม่ได้รับการยืนยัน",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "การยืนยันล้มเหลว",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "สถานะการยืนยันไม่ทราบ",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "การยืนยัน STIR/SHAKEN",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} สำหรับหมายเลข {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "การตั้งค่าข้อความรักษาความปลอดภัยแบบเลื่อน",
+  "messageColor": "สีข้อความ",
+  "messageFontSize": "ขนาดตัวอักษรข้อความ",
+  "messagePosition": "ตำแหน่งข้อความ",
+  "containerWidth": "ความกว้างคอนเทนเนอร์",
+  "scrollSpeed": "ความเร็วในการเลื่อน",
+  "enableSecurityMessage": "เปิดใช้งานข้อความรักษาความปลอดภัย",
+  "fraudAlertTitle": "การแจ้งเตือนการฉ้อโกง",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "การโทรที่อาจเป็นการฉ้อโกงจาก {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "ไม่สามารถโหลดกฎได้: {error}",
+  "loadCallLogFailed": "ไม่สามารถโหลดบันทึกการโทรได้: {error}",
+  "noBlockedTypeData": "ไม่มีข้อมูลประเภทที่ถูกบล็อก",
+  "importEntity": "นำเข้า {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "นำเข้า {entityTypeName} สำเร็จ, รวม {count} รายการ",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "ไม่สามารถนำเข้า {entityTypeName}: {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "ส่งออก {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "ส่งออก {entityTypeName} สำเร็จ",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "ไม่สามารถส่งออก {entityTypeName}: {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "บริการซิงค์คลาวด์",
+  "membershipCenter": "ศูนย์สมาชิก",
+  "redeemVipWithMarks": "แลก VIP ด้วยคะแนน",
+  "currentMarkCount": "จำนวนคะแนนปัจจุบัน",
+  "markMoreNumbersForMore": "ทำเครื่องหมายหมายเลขเพิ่มเติมเพื่อรับคะแนนเพิ่ม",
+  "noAds": "ไม่มีโฆษณา",
+  "cloudBackup": "สำรองข้อมูลบนคลาวด์",
+  "callerIdEnhancement": "การปรับปรุง ID ผู้โทร",
+  "voiceRecognition": "การรู้จำเสียง",
+  "feature": "คุณสมบัติ",
+  "normalUser": "ผู้ใช้ทั่วไป",
+  "vipUser": "ผู้ใช้ VIP",
+  "temporaryVip": "VIP ชั่วคราว",
+  "removeAds": "ลบโฆษณา",
+  "unknownAction": "การดำเนินการไม่ทราบ",
+  "settingsBackup": "สำรองข้อมูลการตั้งค่า ",
+  "allServicesStatusTitle": "สถานะบริการปัจจุบัน",
+  "allServicesStatusSubtitle": "สถานะปัจจุบันของแต่ละบริการคลาวด์",
+  "redirect": "เปลี่ยนเส้นทาง",
+  "notify": "แจ้ง",
+  "log": "บันทึก",
+  "custom": "กำหนดเอง",
+  "allowActionDescription": "การโทรจะได้รับอนุญาต แม้ว่าหมายเลขจะอยู่ในรายการบล็อก",
+  "blockActionDescription": "การโทรจะถูกบล็อกและแสดงในบันทึกการโทร",
+  "silenceActionDescription": "การโทรจะถูกปิดเสียง แต่จะแสดงในบันทึกการโทร",
+  "noneActionDescription": "จะไม่มีการดำเนินการพิเศษใดๆ กับการโทร",
+  "redirectActionDescription": "เปลี่ยนเส้นทางการโทรไปยังหมายเลขที่ระบุ",
+  "labelActionDescription": "เพิ่มป้ายกำกับให้กับการโทรเพื่อการระบุตัวตนที่ง่าย",
+  "notifyActionDescription": "ส่งการแจ้งเตือนเมื่อมีการรับสาย",
+  "logActionDescription": "บันทึกข้อมูลการโทรโดยไม่ดำเนินการอื่นใด",
+  "customActionDescription": "ดำเนินการตามการดำเนินการที่กำหนดเอง",
+  "synced": "ซิงค์แล้ว",
+  "needVipAccess": "คุณต้องเข้าถึง VIP เพื่อใช้คุณสมบัตินี้",
+  "importExportDescription": "นำเข้าหรือส่งออกข้อมูล {entityTypeName}",
+  "importExportTitle": "นำเข้า/ส่งออก",
+  "noPhoneRules": "ไม่พบกฎหมายเลขโทรศัพท์",
+  "noRegexRules": "ไม่พบกฎ regex",
+  "noAllowedBlockedRules": "ไม่พบกฎที่อนุญาต/บล็อก",
+  "importExport": "นำเข้า/ส่งออก",
+  "filterByAction": "กรองตามการดำเนินการ",
+  "upgradeToVip": "อัปเกรดเป็น VIP",
+  "batteryOptimizationPermission": "การเพิ่มประสิทธิภาพแบตเตอรี่",
+  "batteryOptimizationPermissionDescription": "อนุญาตให้แอปทำงานในเบื้องหลังเพื่อให้บริการต่างๆ เช่น ID ผู้โทร",
+  "permissionTitle": "สิทธิ์พิเศษ",
+  "permissionSubtitle": "จัดการสิทธิ์การแสดงผลและการเพิ่มประสิทธิภาพแบตเตอรี่",
+  "themeSettingsTitle": "การตั้งค่าธีม",
+  "themeSettingsSubtitle": "เลือกธีมที่คุณชื่นชอบ",
+  "databaseSyncTitle": "การซิงค์ฐานข้อมูล",
+  "countrySyncSettingsTitle": "การตั้งค่าการซิงค์ฐานข้อมูลตามประเทศ",
+  "countrySyncSettingsSubtitle": "เลือกประเทศสำหรับการซิงโครไนซ์ข้อมูล",
+  "countryDataDisclaimer": "โปรดทราบ: ฐานข้อมูลอาจไม่มีข้อมูลสำหรับทุกประเทศหรือภูมิภาคที่เฉพาะเจาะจง",
+  "editSubscription": "แก้ไขการสมัครสมาชิก",
+  "searchByNameOrPhoneNumber": "ค้นหาตามชื่อหรือเบอร์โทรศัพท์",
+  "allowedBlockedRulesInfo": "กฎที่อนุญาต/บล็อกใช้เพื่อจับคู่การโทรกับหมายเลขโทรศัพท์เฉพาะ ซึ่งมีลำดับความสำคัญสูงสุด",
+  "searchPhoneRulesHint": "ค้นหากฎโทรศัพท์",
+  "phoneRulesInfo": "กฎโทรศัพท์ใช้เพื่อจับคู่การโทรกับหมายเลขโทรศัพท์เฉพาะ ซึ่งมีลำดับความสำคัญต่ำกว่า บางส่วนมาจากระบบการสมัครสมาชิก phoneRule",
+  "searchSubscriptionsHint": "ค้นหาการสมัครสมาชิก",
+  "searchPluginsHint": "ค้นหาปลั๊กอิน",
+  "searchLabelsHint": "ค้นหาป้ายกำกับ",
+  "pluginDescription": "คำอธิบายปลั๊กอิน",
+  "enterPluginDescription": "ป้อนคำอธิบายปลั๊กอิน",
+  "searchRegexRulesHint": "ค้นหากฎ regex",
+  "regexRulesInfo": "กฎ Regex ใช้เพื่อกรองการโทรตามรูปแบบ Regex",
+  "searchMarkedPhonesHint": "ค้นหาโทรศัพท์ที่ทำเครื่องหมายไว้",
+  "searchContactSubscriptionsHint": "ค้นหาการสมัครสมาชิกผู้ติดต่อ",
+  "showAllContacts": "แสดงผู้ติดต่อทั้งหมด",
+  "showFavorites": "แสดงรายการโปรด",
+  "manualEntry": "ข้อมูลการป้อนด้วยตนเอง",
+  "scriptSaved": "สคริปต์ถูกบันทึกแล้ว",
+  "editScriptFor": "แก้ไขสคริปต์สำหรับ {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "บันทึกสคริปต์",
+  "testPlugin": "ทดสอบปลั๊กอิน",
+  "description": "คำอธิบาย",
+  "accessTargetUrl": "เข้าถึง URL เป้าหมาย",
+  "result": "ผลลัพธ์",
+  "editScript": "แก้ไขสคริปต์",
+  "numberFormat": "รูปแบบหมายเลข",
+  "nationalNumber": "หมายเลขประจำชาติ",
+  "e164Number": "หมายเลข E164",
+  "pluginRulesInfo": "เพื่อความปลอดภัย โปรดใช้ปลั๊กอินจากแหล่งที่เชื่อถือได้เท่านั้น รู้สึกอิสระที่จะใช้เทมเพลตของเราเพื่อสร้างปลั๊กอินที่กำหนดเองของคุณเอง!",
+  "advancedMode": "โหมดขั้นสูง",
+  "pleaseEnterAtLeastOneNumber": "โปรดป้อนอย่างน้อยหนึ่งหมายเลข",
+  "openInWebView": "เปิดใน WebView",
+  "pluginLabel": "ป้ายกำกับปลั๊กอิน",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "สีพื้นหลังข้อความ",
+  "clearAllCallLogs": "ล้างประวัติการโทรทั้งหมด",
+  "clearAllCallLogsConfirmation": "ยืนยันเพื่อล้างประวัติการโทรทั้งหมด",
+  "allCallLogsCleared": "ประวัติการโทรทั้งหมดถูกล้างแล้ว",
+  "unblocked": "ยกเลิกการบล็อก",
+  "blockNumber": "บล็อกหมายเลข",
+  "blockNumberSuccess": "บล็อกหมายเลขสำเร็จ",
+  "blockNumberFailed": "บล็อกหมายเลขล้มเหลว",
+  "unblockNumberConfirmation": "คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการบล็อก {phoneNumber}",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "กำลังโทรหา {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "ดูรายละเอียด",
+  "unblock": "ยกเลิกการบล็อก",
+  "unblockNumber": "ยกเลิกการบล็อกหมายเลข",
+  "unblockNumberSuccess": "ยกเลิกการบล็อกหมายเลขสำเร็จ",
+  "unblockNumberFailed": "ยกเลิกการบล็อกหมายเลขล้มเหลว",
+  "serviceNotAvailable": "บริการไม่พร้อมใช้งาน",
+  "callingNumberFailed": "การโทรหาหมายเลขล้มเหลว",
+  "listView": "มุมมองรายการ",
+  "timelineView": "มุมมองไทม์ไลน์",
+  "nameCannotBeEmpty": "ชื่อต้องไม่ว่างเปล่า",
+  "selectAction": "เลือกการดำเนินการ",
+  "selectTargetService": "เลือกบริการเป้าหมาย",
+  "callDetails": "รายละเอียดการโทร",
+  "callType": "ประเภทการโทร",
+  "callTime": "เวลาโทร",
+  "numberInvalidFormat": "รูปแบบหมายเลขไม่ถูกต้อง",
+  "membershipFeature": "ฟีเจอร์สมาชิก",
+  "medium": "ปานกลาง",
+  "verificationReport": "รายงานการตรวจสอบ",
+  "finalRisk": "ความเสี่ยงสุดท้าย",
+  "simState": "สถานะ SIM",
+  "ipCountry": "ประเทศ IP",
+  "simCountry": "ประเทศ SIM",
+  "isRoaming": "กำลังโรมมิ่ง",
+  "isNumberMatch": "ตรงกับหมายเลข",
+  "support": "สนับสนุน",
+  "rewardedAdService": "บริการโฆษณาที่ได้รับรางวัล",
+  "hasVipPrivilegeExceptAds": "คุณมีสิทธิ์ VIP อยู่แล้ว (ยกเว้นโฆษณา)",
+  "hasTempPrivilegeWithExpiry": "คุณมีสิทธิ์ชั่วคราวแล้ว หมดอายุ: {expiryDate}",
+  "watchMoreAdsForTempVip": "คุณต้องดูโฆษณาอีก {count} รายการเพื่อรับสิทธิ์ VIP ชั่วคราว",
+  "grantedTempPurchaseWithExpiry": "คุณได้รับสิทธิ์การซื้อชั่วคราว {days} วัน หมดอายุ: {expiryDate}",
+  "tempPurchaseExpired": "สิทธิ์การซื้อชั่วคราวหมดอายุแล้ว",
+  "loadingAd": "กำลังโหลดโฆษณา...",
+  "earnedTempVip": "ได้รับ VIP ชั่วคราว",
+  "vipExchangeService": "บริการแลก VIP",
+  "marksInsufficient": "เครื่องหมายไม่เพียงพอสำหรับการแลก",
+  "invalidExchangeRule": "กฎการแลกเปลี่ยนไม่ถูกต้อง",
+  "exchangeSuccess": "แลกเปลี่ยนสำเร็จเป็น {description} หมดอายุ: {expiryDate}",
+  "exchangeFailed": "การแลกเปลี่ยนล้มเหลว: {error}",
+  "vip3DaysWithAds": "VIP 3 วันพร้อมโฆษณา (ซิงค์เท่านั้น)",
+  "vip5DaysNoAds": "VIP 5 วันเต็มรูปแบบไม่มีโฆษณา",
+  "vip7DaysNoAds": "VIP 7 วันเต็มรูปแบบไม่มีโฆษณา",
+  "noNotifications": "ไม่มีการแจ้งเตือน",
+  "clearAllNotifications": "ล้างการแจ้งเตือนทั้งหมด",
+  "clearAllNotificationsConfirmation": "ยืนยันเพื่อล้างการแจ้งเตือนทั้งหมด",
+  "allNotificationsCleared": "ล้างการแจ้งเตือนทั้งหมดแล้ว",
+  "clearButton": "ล้าง",
+  "justNow": "เมื่อสักครู่",
+  "minutesAgo": "{count,plural, =1{1 นาทีที่แล้ว} other{{count} นาทีที่แล้ว}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{1 ชั่วโมงที่แล้ว} other{{count} ชั่วโมงที่แล้ว}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{1 วันที่แล้ว} other{{count} วันที่แล้ว}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "เมื่อวานนี้",
+  "deletionProposal": "ข้อเสนอการลบ",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "ข้อเสนอการลบ",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "สร้างข้อเสนอ",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "สร้างข้อเสนอการลบ",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "เหตุผล",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "หมายเลขที่ล้าสมัย",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "ข้อกังวลด้านความเป็นส่วนตัว",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "ไม่อยู่ในบริการ",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "ระบุตัวตนผิด",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "ข้อมูลไม่ถูกต้อง",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "ทำเครื่องหมายผิด",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "อื่นๆ",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "ส่ง",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "ยกเลิก",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "สถานะ",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "รอดำเนินการ",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "ใช้งานอยู่",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "เสร็จสมบูรณ์",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "หมดอายุแล้ว",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "ระดับความเสี่ยง",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "ยืนยันแล้ว",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "ต่ำ",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "สูง",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "ไม่ทราบ",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "ความคืบหน้าในการโหวต",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "เห็นด้วย: {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "ไม่เห็นด้วย: {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "ทั้งหมด: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "เห็นด้วย",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "ไม่เห็นด้วย",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "สร้างเมื่อ: {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "แสดงรายงาน",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "ซ่อนรายงาน",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "สถิติข้อเสนอ",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "ข้อเสนอทั้งหมด",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "ข้อเสนอที่ใช้งานอยู่",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "ข้อเสนอที่เสร็จสมบูรณ์",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "การโหวตของฉัน",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "สร้างข้อเสนอสำเร็จ",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "สร้างข้อเสนอไม่สำเร็จ",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "ส่งการโหวตสำเร็จ",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "ส่งการโหวตไม่สำเร็จ",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "ไม่พบข้อเสนอ",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "กำลังโหลดข้อเสนอ...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "รีเฟรชข้อเสนอ",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "ข้อเสนอที่รอดำเนินการทั้งหมด",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "ความเสี่ยงสูง",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "ความเสี่ยงปานกลาง",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "ความเสี่ยงต่ำ",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "ผลกระทบต่อชุมชน",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "ประเด็นวิกฤต",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "การมีส่วนร่วมของชุมชน",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "ไม่มีกิจกรรม",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "ต่ำ",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "ปานกลาง",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "สูง",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "สูงมาก",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "โหวตแล้ว",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "การโหวตของชุมชน",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "รอการโหวตจากชุมชนเพิ่มเติม",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "ข้อเสนอนี้ได้รับการประมวลผลแล้ว",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "สนับสนุน",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "คัดค้าน",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "อนุมัติ",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "ปฏิเสธ",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "เสร็จสมบูรณ์",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "รอดำเนินการ",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "วิกฤต",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "คัดค้าน",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "ต่ำมาก",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "การแจ้งเตือนเกี่ยวกับผลการโหวตข้อเสนอการลบและการอัปเดต",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "สร้างข้อเสนอการลบแล้ว",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "ข้อเสนอการลบหมายเลข {phoneNumber} ของคุณได้รับการส่งเพื่อชุมชนตรวจสอบแล้ว",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "ข้อเสนอได้รับการอนุมัติแล้ว ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "ข้อเสนอการลบหมายเลข {phoneNumber} ได้รับการอนุมัติจากชุมชนแล้ว ({supportPercentage}% การสนับสนุน, {totalVotes} โหวต)",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "ข้อเสนอถูกปฏิเสธแล้ว ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "ข้อเสนอการลบหมายเลข {phoneNumber} ถูกปฏิเสธโดยชุมชนแล้ว ({supportPercentage}% การสนับสนุน, {totalVotes} โหวต)",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "เริ่มการโหวตของชุมชนแล้ว",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "ข้อเสนอการลบหมายเลข {phoneNumber} ใหม่พร้อมให้ชุมชนโหวตแล้ว",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "การโหวตเสร็จสิ้นแล้ว",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "การโหวตของชุมชนสำหรับหมายเลข {phoneNumber} สิ้นสุดลงแล้ว ผลลัพธ์: {result} ({supportPercentage}% การสนับสนุน)",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "ได้รับโหวตใหม่แล้ว",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "มีคนโหวต {voteType} การลบหมายเลข {phoneNumber} แล้ว โหวตปัจจุบัน: {totalVotes}",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "โหลดจำนวนโหวตไม่สำเร็จ",
+  "voteCount": "จำนวนโหวต",
+  "deletionProposalInfo": "ข้อมูลข้อเสนอการลบ",
+  "deletionProposalDescription": "เสนอหมายเลขเพื่อลบซึ่งละเมิดแนวทางชุมชน การมีส่วนร่วมของคุณช่วยให้แพลตฟอร์มปลอดภัย",
+  "voteToEarnVip": "โหวตข้อเสนอเพื่อรับสิทธิพิเศษ VIP!",
+  "voteFailed": "การโหวตล้มเหลว",
+  "searchProposals": "ค้นหาข้อเสนอ",
+  "defaultNotifications": "การแจ้งเตือนเริ่มต้น",
+  "defaultNotificationsDescription": "ช่องทางการแจ้งเตือนเริ่มต้นสำหรับแอป",
+  "blockedCallNotifications": "การแจ้งเตือนสายที่ถูกบล็อก",
+  "blockedCallNotificationsDescription": "แสดงข้อมูลเกี่ยวกับสายเรียกเข้าที่ถูกบล็อก",
+  "stirVerification": "การยืนยัน STIR/SHAKEN",
+  "stirVerificationDescription": "แสดงผลการยืนยัน STIR/SHAKEN สำหรับหมายเลข",
+  "fraudAlerts": "การแจ้งเตือนการฉ้อโกง",
+  "fraudAlertsDescription": "แสดงคำเตือนสำหรับสายเรียกเข้าที่อาจเป็นการฉ้อโกง",
+  "notificationFrequencyDescription": "เลือกว่าคุณต้องการรับการแจ้งเตือนเกี่ยวกับข้อเสนอการลบใหม่บ่อยแค่ไหน คุณสามารถรับทันที เป็นชุด หรือตามช่วงเวลาที่กำหนดเองได้",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "ทันที",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "รับการแจ้งเตือนทันทีที่สร้างข้อเสนอ",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "เป็นชุด",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "รับสรุปการแจ้งเตือนเป็นประจำ",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "กำหนดเอง",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "กำหนดช่วงเวลาของคุณเองสำหรับการรับการแจ้งเตือน",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "ความถี่ที่กำหนดเอง",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} นาที",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} ชั่วโมง",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} ชั่วโมง {minutes} นาที",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "ข้อเสนอที่รอดำเนินการ",
+  "pendingProposalsBody": "คุณมี {count, plural, =0 {ไม่มีข้อเสนอที่รอดำเนินการ} one {1 ข้อเสนอที่รอดำเนินการ} other {{count} ข้อเสนอที่รอดำเนินการ}}",
+  "guidelinesLabel": "แนวทางปฏิบัติ",
+  "reportingGuidelines": "• รายงานเฉพาะหมายเลขที่เป็นปัญหาอย่างแท้จริงเท่านั้น\n• ให้เหตุผลที่ถูกต้องและละเอียด\n• เลือกระดับความเสี่ยงที่เหมาะสมตามความรุนแรง\n• การรายงานที่ไม่ถูกต้องอาจส่งผลให้บัญชีถูกจำกัด",
+  "riskLevelLabel": "ระดับความเสี่ยง",
+  "riskLevelDescription": "ระดับความเสี่ยงของหมายเลข",
+  "phoneNumberMinDigits": "หมายเลขโทรศัพท์ต้องมีอย่างน้อย 7 หลัก",
+  "provideDetailedExplanation": "ให้คำอธิบายโดยละเอียด (อย่างน้อย 10 ตัวอักษร)",
+  "reasonMinCharacters": "เหตุผลต้องมีอย่างน้อย 10 ตัวอักษร",
+  "countryCodeTwoLetters": "รหัสประเทศ (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "รหัสประเทศ (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "เช่น US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "ต้องระบุรหัสประเทศ",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "รหัสประเทศต้องมี 2 ตัวอักษร",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "หมายเลขโทรศัพท์ต้องมีอย่างน้อย 7 หลัก",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "ให้คำอธิบายโดยละเอียด (อย่างน้อย 10 ตัวอักษร)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "ต้องระบุเหตุผล",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "เหตุผลต้องมีอย่างน้อย 10 ตัวอักษร",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "แนวทางปฏิบัติ",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• รายงานเฉพาะหมายเลขที่เป็นปัญหาอย่างแท้จริงเท่านั้น\n• ให้เหตุผลที่ถูกต้องและละเอียด\n• เลือกระดับความเสี่ยงที่เหมาะสมตามความรุนแรง\n• การรายงานที่ไม่ถูกต้องอาจส่งผลให้บัญชีถูกจำกัด",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "วิกฤต",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "ปานกลาง",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "ต่ำมาก",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "ต่ำมาก - สร้างความรำคาญเล็กน้อย, สายเรียกเข้าไม่บ่อย",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "ต่ำ - สายเรียกเข้าที่ไม่ต้องการเป็นครั้งคราว",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "ปานกลาง - สแปมหรือการตลาดทางโทรศัพท์เป็นประจำ",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "สูง - การคุกคามหรือความพยายามหลอกลวงอย่างต่อเนื่อง",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "วิกฤต - การหลอกลวงที่เป็นอันตรายหรือการข่มขู่",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "ความถี่ในการแจ้งเตือน",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "ความถี่ในการแจ้งเตือน (ชั่วโมง)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "ข้อผิดพลาด: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "คะแนนโหวต: {totalVotes} ({supportPercentage}% การสนับสนุน)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "สนับสนุน ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "คัดค้าน ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "เมื่อสักครู่",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "{minutes} นาทีที่แล้ว",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{hours} ชั่วโมงที่แล้ว",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "{days} วันที่แล้ว",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "ความถี่ในการแจ้งเตือน (ชั่วโมง)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} โหวต ({supportPercentage}% การสนับสนุน)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 ชั่วโมง} =1{1 ชั่วโมง} other{{count} ชั่วโมง}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "ประกาศสำคัญ",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "หมายเลขถูกดึงมาจากอินเทอร์เน็ตและการส่งของผู้ใช้ เราไม่สามารถรับประกันได้ว่าหมายเลขที่ถูกลบไปแล้วจะไม่ถูกส่งเข้ามาอีกโดยผู้ใช้อื่นหรือแหล่งข้อมูลอื่น โปรดค้นหาและตรวจสอบข้อมูลอย่างแข็งขัน",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "อวาตาร์",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "สถานที่",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "ซิมการ์ด",
+  "liveActivitiesSettingsTitle": "การตั้งค่ากิจกรรมสด",
+  "elementsSettingsTitle": "การตั้งค่าองค์ประกอบ",
+  "liveActivityMode": "กิจกรรมสด",
+  "liveActivityModeDescription": "แสดงข้อมูลสายเรียกเข้าเป็นการแจ้งเตือนที่คงอยู่บนหน้าจอล็อกและใน Dynamic Island (iOS)",
+  "phoneNumberType": "ประเภทหมายเลขโทรศัพท์",
+  "liveActivitiesTestEndActivity": "สิ้นสุดกิจกรรม",
+  "liveActivitiesTestSendNewActivity": "ส่งกิจกรรมใหม่",
+  "liveActivitiesTestUpdateActivity": "อัปเดตกิจกรรม",
+  "liveActivityControlsTitle": "การควบคุมกิจกรรมสด",
+  "liveActivitiesTestTitle": "ทดสอบกิจกรรมสด",
+  "liveActivitiesTestSubtitle": "ทดสอบการแจ้งเตือนกิจกรรมสด",
+  "liveNotificationCustomizationTitle": "การปรับแต่งการแจ้งเตือนสด",
+  "liveNotificationCustomizationSubtitle": "ปรับแต่งรูปลักษณ์ของการแจ้งเตือนสด",
+  "notification_instructions": "คำแนะนำ:\n1. แตะ \"ส่ง\" เพื่อสร้างหรืออัปเดตการแจ้งเตือน\n2. ไปที่หน้าจอหลักของคุณหรือดึงถาดการแจ้งเตือนลงเพื่อดูผลลัพธ์\n3. แตะ \"สิ้นสุด\" เพื่อยกเลิกการแจ้งเตือน",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "ยกเลิกการแจ้งเตือนอัตโนมัติ",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "หากเลือก การแจ้งเตือนจะถูกยกเลิกโดยอัตโนมัติเมื่อผู้ใช้แตะ",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "ตั้งเวลาหน่วง",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "รายละเอียดข้อเสนอ",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "กรองตามสถานะ",
+  "proposalNotFound": "ไม่พบข้อเสนอ",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "ดำเนินการแล้ว",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "แสดงทั้งหมด",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "กรองและเรียงลำดับ",
+  "filterVerifiedOwner": "กรองเจ้าของที่ยืนยันแล้ว",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "กรองด้วย",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "เรียงลำดับเก่าสุด",
+  "sortNewest": "เรียงลำดับใหม่สุด",
+  "sortMostPopular": "เรียงลำดับยอดนิยมสูงสุด",
+  "sortLeastPopular": "เรียงลำดับยอดนิยมน้อยที่สุด",
+  "sortBy": "เรียงลำดับด้วย",
+  "simRulesNotFound": "ไม่พบกฎ SIM",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "กฎช่อง SIM",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "ไม่พบซิมการ์ด",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "ข้อมูล SIM ไม่ถูกต้อง",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "ข้อมูลซิมการ์ด",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "ช่อง SIM",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "เปิดใช้งานการกรอง",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "การตั้งค่าโดยละเอียด",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "หน้าจอจุดเริ่มต้น",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "ปฏิเสธ",
+  "callTypeSilenced": "ปิดเสียง",
+  "callTypeVoicemail": "ข้อความเสียง",
+  "callTypeUnknownIntercept": "ไม่ทราบว่าถูกดักจับ",
+  "andMoreItems": "และอีก {count} รายการ",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}

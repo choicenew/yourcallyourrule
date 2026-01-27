@@ -1,0 +1,3092 @@
+{
+  "@@locale": "fr",
+  "aboutContactSubscription": "À propos de l'abonnement aux contacts",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "À propos des étiquettes",
+  "aboutPhoneSubscriptionRules": "À propos des règles d'abonnement téléphonique",
+  "aboutPhoneSubscriptions": "À propos des abonnements téléphoniques",
+  "@aboutPhoneSubscriptions": {
+    "description": "About phone subscriptions title"
+  },
+  "aboutPhoneSubscriptionsDesc": "Abonnez-vous aux listes de règles téléphoniques via URL, mettez à jour automatiquement les règles. Prend en charge les fichiers de règles aux formats JSON, CSV.",
+  "@aboutPhoneSubscriptionsDesc": {
+    "description": "About phone subscriptions description"
+  },
+  "aboutSmsFilter": "À propos du filtrage des SMS",
+  "aboutSmsSubscriptionRules": "À propos des règles d'abonnement aux SMS",
+  "aboutSubtitle": "Version de l'application et informations légales",
+  "aboutTitle": "À propos",
+  "action": "Action",
+  "actionAll": "Tous",
+  "actionAllow": "Autoriser",
+  "actionBlock": "Bloquer",
+  "actionFilterAll": "Tous les filtres",
+  "actionFilterTitle": "Filtrer par type d'action",
+  "actionFilterTooltip": "Filtre d'action",
+  "actionNone": "Aucune action",
+  "actionSilence": "Silence",
+  "actionTag": "Action : {actionType}",
+  "actionType": "Type d'action",
+  "actionUnknown": "Inconnu",
+  "add": "Ajouter",
+  "addAllowedBlockedRule": "Ajouter une règle Autoriser/Bloquer",
+  "addAllowSubscription": "Ajouter un abonnement Autoriser",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Ajouter un abonnement Bloquer",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Ajouter un contact",
+  "addContactFailed": "Échec de l'ajout du contact : {error}",
+  "addedToAllowedRules": "Ajouté aux règles autorisées",
+  "addedToBlacklist": "Ajouté à la liste noire",
+  "addedToBlockedRules": "Ajouté aux règles bloquées",
+  "addedToFavoriteContacts": "Ajouté aux contacts favoris",
+  "addedToFavorites": "Ajouté aux contacts favoris",
+  "addedToWhitelist": "Ajouté à la liste blanche",
+  "addFavorite": "Ajouter aux favoris",
+  "addFilter": "Ajouter un filtre",
+  "addLabel": "Ajouter une étiquette",
+  "addLabelButton": "Ajouter une étiquette",
+  "addLabelFailed": "Échec de l'ajout de l'étiquette : {error}",
+  "addLabelToCall": "Ajouter une étiquette à l'enregistrement d'appel",
+  "addName": "Ajouter un nom",
+  "addNoneSubscription": "Ajouter un abonnement Aucun",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addOrEditContactInfo": "Utilisé pour ajouter ou modifier les informations de contact",
+  "addPhoneMark": "Ajouter une marque de téléphone",
+  "addPhoneNumberRule": "Ajouter une règle de numéro de téléphone",
+  "addPlugin": "Ajouter un plugin",
+  "addPluginFailed": "Échec de l'ajout du plugin",
+  "addPluginFailedWithError": "Échec de l'ajout du plugin : {error}",
+  "addPluginFromLocalFile": "Ajouter un plugin à partir d'un fichier local",
+  "addPluginFromUrl": "Ajouter un plugin à partir d'une URL",
+  "addRegexRule": "Ajouter une règle Regex",
+  "addRule": "Ajouter une règle",
+  "addRuleButton": "Ajouter une règle",
+  "addRuleFailed": "Échec de l'ajout de la règle : {error}",
+  "addRuleTooltip": "Ajouter une règle",
+  "addSilenceSubscription": "Ajouter un abonnement au silence",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSimRuleButton": "Ajouter une règle SIM",
+  "addSmsFilterRule": "Ajouter une règle de filtre SMS",
+  "addSmsRule": "Ajouter une règle SMS",
+  "addSmsSubscription": "Ajouter un abonnement SMS",
+  "addSubscription": "Ajouter un abonnement",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Ajouter un abonnement",
+  "addSubscriptionFailed": "Échec de l'ajout de l'abonnement : {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Ajouter un abonnement",
+  "addToAllowedRules": "Ajouter aux règles autorisées",
+  "addToBlacklist": "Ajouter à la liste noire",
+  "addToBlockedRules": "Ajouter aux règles bloquées",
+  "addToFavoriteContacts": "Ajouter aux contacts favoris",
+  "addToFavorites": "Ajouter aux favoris",
+  "addToRules": "Ajouter aux règles",
+  "addToWhitelist": "Ajouter à la liste blanche",
+  "adPlaceholder": "Espace réservé pour la publicité",
+  "agent": "Agent",
+  "all": "Tous",
+  "allCallsTab": "Tous",
+  "allDataClearedSuccessfully": "Toutes les données ont été effacées avec succès",
+  "allow": "Autoriser",
+  "allowAllAllowRules": "Autoriser toutes les règles d'autorisation",
+  "allowAllAllowRulesDesc": "Autoriser les appels provenant des règles d'autorisation",
+  "allowAllBlacklistedNumbers": "Autoriser tous les numéros de la liste noire",
+  "allowAllBlacklistedNumbersDesc": "Autoriser les appels provenant de la liste de blocage",
+  "@allowAllBlacklistedNumbersDesc": {
+    "description": "Allow calls from blocklist"
+  },
+  "allowAllBlockRules": "Autoriser toutes les règles de blocage",
+  "allowAllBlockRulesDesc": "Autoriser les appels provenant des règles de blocage",
+  "allowAllowedNumbers": "Autoriser les numéros autorisés",
+  "allowAllowedNumbersDesc": "Autoriser les appels provenant de la liste blanche",
+  "allowBlock": "Autoriser/Bloquer",
+  "allowBlockedNumbers": "Autoriser les numéros bloqués",
+  "allowBlockedNumbersDesc": "Autoriser les appels provenant de la liste de blocage",
+  "allowedBlockedRule": "Règle Autoriser/Bloquer",
+  "allowedBlockedRuleEditDialogTitle": "Modifier la règle Autoriser/Bloquer",
+  "allowedBlockedRuleManagement": "Gestion des règles Autoriser/Bloquer",
+  "allowNonExceededNumbers": "Autoriser les numéros qui ne dépassent pas",
+  "allowNonExceededNumbersDescription": "Autoriser automatiquement les numéros ne dépassant pas le seuil de nombre",
+  "allowRegexAllowRules": "Autoriser les règles d'autorisation Regex",
+  "allowRegexAllowRulesDesc": "Activer la correspondance de modèle regex pour les règles d'autorisation",
+  "allowRegexAllowRulesDescription": "Activer les règles d'autorisation basées sur regex",
+  "allowRegexBlockRules": "Autoriser les règles de blocage Regex",
+  "allowRegexBlockRulesDesc": "Activer la correspondance de modèle regex pour les règles de blocage",
+  "allowRegexBlockRulesDescription": "Activer les règles de blocage basées sur regex",
+  "allowRule": "Règle d'autorisation",
+  "allowRules": "Règles d'autorisation",
+  "allowWhitelistedNumbers": "Autoriser les numéros sur liste blanche",
+  "allowWhitelistedNumbersDescription": "Autoriser tous les numéros de la liste blanche",
+  "allPermissionsGranted": "Toutes les permissions accordées",
+  "allSettingsCompleted": "Tous les paramètres sont terminés.",
+  "allUpdateSuccess": "Toutes les mises à jour sont terminées ({count} règles)",
+  "@allUpdateSuccess": {
+    "description": "Full update success message",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerThenHangup": "Répondre puis raccrocher",
+  "appLegalese": "© 2023 Votre Appel Votre Règle. Tous droits réservés.",
+  "applicationSoftware": "Logiciel d'application",
+  "apply": "Appliquer",
+  "appName": "Votre Appel Votre Règle",
+  "authorizationFailedCheckCredentialsMessage": "L'autorisation a échoué : veuillez vérifier l'ID et la clé du client",
+  "authorizationFailedMessage": "L'autorisation a échoué",
+  "authorizationSuccessMessage": "Autorisation réussie",
+  "authorizeLoginButton": "Autoriser la connexion",
+  "automotiveIndustry": "Industrie automobile",
+  "autoSyncLabel": "Synchronisation automatique",
+  "autoUpdate": "Mise à jour automatique",
+  "autoUpdateDescription": "Définir les intervalles de mise à jour automatique pour les abonnements ou mettre à jour manuellement",
+  "autoUpdateSettings": "Paramètres de mise à jour automatique",
+  "autoUpdateSettingsSubtitle": "Gérer les mises à jour automatiques des règles et des plugins",
+  "autoUpdateSettingsTitle": "Paramètres de mise à jour automatique",
+  "autoUpdateSubtitle": "Gérer les mises à jour automatiques des règles et des plugins",
+  "autoUpdateTitle": "Mise à jour automatique",
+  "avatarBorderColor": "Couleur de la bordure de l'avatar",
+  "avatarBorderSize": "Taille de la bordure de l'avatar",
+  "avatarIconSizesSetting": "Tailles de l'avatar et de l'icône",
+  "avatarPosition": "Position de l'avatar",
+  "avatarSize": "Taille de l'avatar",
+  "axisPosition": "Position de l'axe {axis}",
+  "backgroundGradientSetting": "Dégradé d'arrière-plan",
+  "backup": "Sauvegarde",
+  "backupAndRestore": "Sauvegarde et restauration",
+  "backupAndRestoreSubtitle": "Sauvegarder ou restaurer les données de l'application",
+  "backupAndRestoreTitle": "Sauvegarde et restauration",
+  "backupFailed": "La sauvegarde a échoué",
+  "backupFailedMessage": "La sauvegarde a échoué",
+  "backupFailedWithError": "La sauvegarde a échoué : {error}",
+  "backupRestoreSubtitle": "Sauvegarder ou restaurer les données de l'application",
+  "backupRestoreTitle": "Sauvegarde et restauration",
+  "backupSectionTitle": "Sauvegarde",
+  "backupSettings": "Paramètres de sauvegarde",
+  "backupSettingsDialogTitle": "Paramètres de sauvegarde",
+  "backupSettingsTitle": "Paramètres de sauvegarde",
+  "backupSuccessMessage": "Sauvegarde réussie dans le cloud",
+  "backupSuccessToLocal": "Sauvegarde réussie vers : {path}",
+  "backupToCloud": "Sauvegarder dans le cloud",
+  "backupToCloudDescription": "Sauvegarder les paramètres et les règles dans le stockage cloud",
+  "backupToCloudFailed": "Échec de la sauvegarde dans le cloud : {error}",
+  "backupToCloudLabel": "Sauvegarder dans le cloud",
+  "backupToCloudSuccess": "Sauvegarde réussie dans le cloud",
+  "backupToCloudTitle": "Sauvegarde dans le Cloud",
+  "backupToLocalLabel": "Sauvegarde locale",
+  "bank": "Banque",
+  "basicInfo": "Informations de base",
+  "basicRuleFilter": "Filtre de règles de base",
+  "basicRuleFiltering": "Filtrage de règles de base",
+  "basicRuleFilteringExplanation": "• Filtrage de règles de base : règles de filtrage basées sur la liste noire, la liste blanche et les expressions régulières",
+  "basicRuleFilterSettings": "Paramètres du filtre de règles de base",
+  "@basicRuleFilterSettings": {
+    "description": "Title for basic rule filter settings page"
+  },
+  "basicRuleFilterSubtitle": "Filtrer les appels à l'aide de la liste noire/liste blanche et des expressions régulières",
+  "batchDeleteContacts": "Supprimer les contacts par lots",
+  "batchDeleteContactsConfirm": "Êtes-vous sûr de vouloir supprimer {count} contacts sélectionnés ?",
+  "batchDeleteFailed": "La suppression par lots a échoué",
+  "batchDeleteLabelsConfirm": "Êtes-vous sûr de vouloir supprimer {count} étiquettes ?",
+  "blacklist": "Liste noire",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "blacklistingAndWhitelisting": "Liste noire et liste blanche",
+  "blacklistLabel": "Liste noire",
+  "blackWhiteList": "Liste noire/liste blanche",
+  "block": "Bloquer",
+  "blockCalls": "Bloquer les appels",
+  "blocked": "Bloqué",
+  "blockedCallAction": "Action d'appel bloqué",
+  "blockedCalls": "Appels bloqués",
+  "blockedCallsTitle": "Appels bloqués",
+  "blockedCommunications": "Communications bloquées",
+  "blockedPhoneLabel": "Appels bloqués",
+  "blockedSpamCalls": "Appels indésirables bloqués",
+  "blockingTrend": "Tendance de blocage",
+  "blockInternationalCalls": "correspond aux numéros qui ne commencent pas par + ou 00",
+  "blockInternationalCallsTitle": "Bloquer les appels internationaux",
+  "blockLandlineNumbersTitle": "Bloquer les numéros de téléphone fixe",
+  "blockMobileNumbers": "correspond aux numéros qui ne commencent pas par 13-19",
+  "blockMobileNumbersTitle": "Bloquer les numéros de téléphone mobile",
+  "blockPremiumRateNumbers": "correspond aux numéros qui ne commencent pas par 118 ou 120-190",
+  "blockPremiumRateNumbersTitle": "Bloquer les numéros à tarif premium",
+  "blockRule": "Règle de blocage",
+  "blockRules": "Règles de blocage",
+  "blockSpecificAreaCodes": "correspond aux numéros commençant par 0 + 2-3 chiffres",
+  "blockSpecificAreaCodesTitle": "Bloquer les indicatifs régionaux spécifiques :",
+  "blockTypeAnalysisTitle": "Analyse du type de blocage",
+  "both": "Les deux",
+  "bulkDelete": "Supprimer les contacts par lots",
+  "bulkDeleteContacts": "Supprimer les contacts par lots",
+  "bulkDeleteLabels": "Supprimer les étiquettes en masse",
+  "call": "Appel",
+  "callback": "Rappeler",
+  "callbackTo": "Rappeler le {number}",
+  "@callbackTo": {
+    "description": "Callback notification message",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "callBlocking": "Blocage d'appels",
+  "callerIdApp": "Application d'identification de l'appelant",
+  "callerIdCustomizationTitle": "Personnaliser l'identification de l'appelant",
+  "callerIdDialogTitle": "Informations sur l'identification de l'appelant",
+  "callerIdDisplayMode": "Mode d'affichage de l'identification de l'appelant",
+  "callerIdMarkedByCount": "Marqué par {count}",
+  "@callerIdMarkedByCount": {
+    "description": "Mark count display",
+    "placeholders": {
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "callerIdPreview": "Aperçu de l'identification de l'appelant",
+  "callFilter": "Filtre d'appel",
+  "callFilterDescription": "Lorsqu'il est activé, les appels entrants sont vérifiés par rapport à la liste de règles ci-dessous. Les règles de filtrage des appels ne sont pas synchronisées entre les appareils par défaut.",
+  "callFilterRules": "Règles de filtrage des appels",
+  "callFilterRulesDescription": "Définir des règles de base pour le filtrage des appels",
+  "callFilterSettings": "Paramètres du filtre d'appel",
+  "callFrequencyInterceptionSubtitle": "Définir les limites de fréquence d'appel et les règles de blocage",
+  "callFrequencyInterceptionTitle": "Interception de la fréquence des appels",
+  "callHistory": "Historique des appels",
+  "callHistoryInfoDesc": "Ici est affiché votre historique des appels, y compris les appels entrants, sortants et manqués.",
+  "callHistoryInfoTitle": "Historique des appels",
+  "callHistoryInitFailed": "Échec de l'initialisation de l'historique des appels : {error}",
+  "@callHistoryInitFailed": {
+    "description": "Call history initialization failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryRefreshFailed": "Échec de l'actualisation de l'historique des appels : {error}",
+  "@callHistoryRefreshFailed": {
+    "description": "Call history refresh failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "callHistoryTab": "Historique des appels",
+  "callHistoryTimelineEarlier": "Plus tôt",
+  "callHistoryTimelineToday": "Aujourd'hui",
+  "callHistoryTimelineYesterday": "Hier",
+  "callScreeningPermission": "Autorisation de filtrage d'appel",
+  "callScreeningPermissionDescription": "Utilisé pour filtrer et bloquer les appels spam.",
+  "callScreeningPermissionNotGranted": "Autorisation de filtrage d'appel non accordée, peut affecter les fonctionnalités de l'application.",
+  "callSettingsSubtitle": "Paramètres d'identification de l'appelant, de filtrage et de blocage",
+  "callSettingsTitle": "Paramètres d'appel",
+  "callStatistics": "Statistiques d'appel",
+  "callTypeAnswered": "Répondu",
+  "callTypeBlocked": "Bloqué",
+  "callTypeIconColor": "Couleur de l'icône du type d'appel",
+  "callTypeMissed": "Appel manqué",
+  "callTypeOutgoing": "Sortant",
+  "callTypePosition": "Position du type d'appel",
+  "callTypeUnknown": "Inconnu",
+  "cancelButton": "Annuler",
+  "carRental": "Location de voiture",
+  "carrier": "Opérateur",
+  "carrierColor": "Couleur de l'opérateur",
+  "carrierFontSize": "Taille de la police de l'opérateur",
+  "carrierPosition": "Position de l'opérateur",
+  "changeLabel": "Modifier l'étiquette",
+  "changePluginStatusFailed": "Échec du changement de statut du plugin : {error}",
+  "changeSubscriptionStatusFailed": "Échec du changement de statut de l'abonnement : {error}",
+  "@changeSubscriptionStatusFailed": {
+    "description": "Failed to change subscription status error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "changeTag": "Modifier l'étiquette",
+  "charity": "Association caritative",
+  "chartMonthFormat": "Mois {month}",
+  "@chartMonthFormat": {
+    "description": "Month format for chart labels",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      }
+    }
+  },
+  "chartOneDayAgo": "Il y a 1 jour",
+  "chartOneMonthAgo": "Il y a 1 mois",
+  "chartOneWeekAgo": "Il y a 1 semaine",
+  "chartTenDaysAgo": "Il y a 10 jours",
+  "chartThreeDaysAgo": "Il y a 3 jours",
+  "chartToday": "Aujourd'hui",
+  "checkFileFormat": "Veuillez vérifier le format du fichier ou les permissions",
+  "checkPermissionFailed": "Échec de la vérification des permissions : {error}",
+  "chooseDefaultInterceptAction": "Choisir l'action d'interception par défaut",
+  "clearAllData": "Effacer toutes les données",
+  "clearAllDataConfirmation": "Êtes-vous sûr de vouloir effacer toutes les données de l'application ? Cette action est irréversible.",
+  "clearAllDataDescription": "Effacer toutes les données de l'application",
+  "clearAllDataLabel": "Effacer toutes les données",
+  "clearFilter": "Effacer le filtre",
+  "clearLabelFilter": "Effacer le filtre de libellé",
+  "clearLabelFilterButton": "Effacer le filtre de libellé",
+  "closeButton": "Fermer",
+  "cloudSync": "Synchronisation Cloud",
+  "cloudSyncAndBackupTitle": "Synchronisation et sauvegarde Cloud",
+  "cloudSyncSettingsSubtitle": "Configurer WebDAV, OneDrive et Google Drive",
+  "cloudSyncSettingsTitle": "Paramètres de synchronisation Cloud",
+  "cloudSyncTitle": "Synchronisation Cloud",
+  "collapseLabelSelector": "Réduire le sélecteur de libellé",
+  "collection": "Recouvrement de créances",
+  "colorPickerTitle": "Choisir une couleur",
+  "configManagement": "Gestion de la configuration",
+  "configUpdated": "Configuration mise à jour",
+  "configurationAdvice": "Grâce à une configuration appropriée, vous pouvez définir différentes stratégies de filtrage pour les cartes SIM professionnelles et personnelles.",
+  "configureBackupOptions": "Configurer les options de sauvegarde",
+  "configureBackupOptionsSubtitle": "Configurer les options de sauvegarde",
+  "configureCloudSyncService": "Configurer le service de synchronisation Cloud",
+  "configureCloudSyncServiceHint": "Veuillez configurer un service de synchronisation cloud pour activer la synchronisation multi-appareils.",
+  "configureCloudSyncServiceMessage": "Veuillez configurer un service de synchronisation cloud pour activer la synchronisation multi-appareils.",
+  "configureSimCardFilterRules": "Configurer les règles de filtrage des cartes SIM",
+  "configureSyncServiceHint": "Veuillez d'abord configurer le service de synchronisation dans les paramètres de synchronisation cloud",
+  "confirm": "Confirmer",
+  "confirmBatchDeleteContacts": "Êtes-vous sûr de vouloir supprimer la sélection",
+  "confirmButton": "Confirmer",
+  "confirmDelete": "Confirmer la suppression",
+  "confirmDeleteContact": "Êtes-vous sûr de vouloir supprimer",
+  "confirmDeleteContactName": "Confirmer la suppression ?",
+  "confirmDeleteFilter": "Êtes-vous sûr de vouloir supprimer ce filtre ?",
+  "confirmDeleteLabel": "Êtes-vous sûr de vouloir supprimer le libellé \"{name}\"",
+  "confirmDeletePlugin": "Êtes-vous sûr de vouloir supprimer le plugin \"{name}\"?",
+  "confirmDeletePlugins": "Êtes-vous sûr de vouloir supprimer {count} plugins?",
+  "@confirmDeletePlugins": {
+    "description": "Confirmation message shown before deleting one or more plugins.",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "5"
+      }
+    }
+  },
+  "confirmDeleteRuleMessage": "Êtes-vous sûr de vouloir supprimer cette règle ? Cette action est irréversible.",
+  "confirmDeleteSelectedContacts": "Êtes-vous sûr de vouloir supprimer les contacts sélectionnés ?",
+  "confirmDeleteSmsFilterRule": "Êtes-vous sûr de vouloir supprimer cette règle de filtrage SMS ?",
+  "confirmDeleteSmsRule": "Êtes-vous sûr de vouloir supprimer cette règle SMS ?",
+  "confirmDeleteSubscription": "Êtes-vous sûr de vouloir supprimer cet abonnement ?",
+  "confirmDeleteSubscriptions": "Êtes-vous sûr de vouloir supprimer {name}?",
+  "@confirmDeleteSubscriptions": {
+    "description": "Confirmation message shown before deleting a subscription.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Premium Plan"
+      }
+    }
+  },
+  "confirmPassword": "Confirmer le mot de passe",
+  "confirmPasswordLabel": "Confirmer le mot de passe",
+  "connectedStatus": "Connecté",
+  "connectionFailedCheckCredentialsMessage": "Échec de la connexion : Veuillez vérifier l'adresse du serveur, le nom d'utilisateur et le mot de passe",
+  "connectionFailedMessage": "Échec de la connexion",
+  "connectionStatusLabel": "État de la connexion",
+  "connectionSuccessMessage": "Connexion réussie",
+  "contactAddSuccess": "Contact ajouté avec succès",
+  "contactDeleted": "Contact supprimé",
+  "contactEditDialog": "Dialogue de modification du contact",
+  "contactNameHint": "Entrez le nom du contact (facultatif)",
+  "contactNameLabel": "Nom",
+  "contactNameOptional": "Nom du contact (facultatif)",
+  "contactNotFound": "Contact introuvable",
+  "contacts": "contacts",
+  "contactsDeleted": "{count} contacts supprimés",
+  "contactSettingsSubtitle": "Gestion des contacts et paramètres d'étiquettes",
+  "contactSettingsTitle": "Paramètres des contacts",
+  "contactsLoadingFailed": "Échec du chargement des contacts : {error}",
+  "contactsManagement": "Gestion des contacts",
+  "contactsManagementPageTitle": "Page de gestion des contacts",
+  "contactsPageTitle": "Gestion des contacts",
+  "contactsPermission": "Autorisation des contacts",
+  "contactsPermissionDescription": "Utilisé pour identifier les appels de contact.",
+  "contactsTab": "Contacts",
+  "contactSubscriptionDescription": "Abonnez-vous aux listes de contacts via l'URL, mettez automatiquement à jour les informations de contact et les étiquettes. Prend en charge les données au format JSON.",
+  "@contactSubscriptionDescription": {
+    "description": "About contact subscription description"
+  },
+  "contactSubscriptionLoadingFailed": "Échec du chargement des abonnements aux contacts : {error}",
+  "contactSubscriptionPageTitle": "Abonnements aux contacts",
+  "contactUpdateSuccess": "Contact mis à jour avec succès",
+  "contactUs": "Contactez nous",
+  "content": "Contenu",
+  "contentRegex": "Regex du contenu",
+  "countColor": "Couleur du nombre",
+  "countFontSize": "Taille de la police du nombre",
+  "countPosition": "Position du nombre",
+  "country": "Pays",
+  "countryNameColor": "Couleur du nom du pays",
+  "countryNameFontSize": "Taille de la police du nom du pays",
+  "countryRegionNamePosition": "Position du nom du pays/de la région",
+  "countrySelectionDialog": "Dialogue de sélection du pays",
+  "countrySelectionDialogDescription": "Utilisé pour sélectionner un pays afin d'interroger les informations d'identification de l'appelant",
+  "countThresholdDescription": "Définissez le seuil de nombre minimum requis pour déclencher des actions de filtrage",
+  "countThresholdLabel": "Seuil de nombre",
+  "countThresholdSettings": "Paramètres du seuil de nombre",
+  "countThresholdValue": "Seuil de nombre : {count}",
+  "createdRules": "Règles créées",
+  "csvFormat": "Format CSV",
+  "currentDeviceChip": "Actuel",
+  "currentDeviceLabel": "Étiquette de l'appareil actuel",
+  "currentDeviceTitle": "Appareil actuel",
+  "currentLabels": "Étiquettes actuelles :",
+  "currentLanguage": "Langue actuelle",
+  "currentPasswordLabel": "Mot de passe actuel",
+  "customerService": "Service client",
+  "customRange": "Plage personnalisée",
+  "dailyStatistics": "Statistiques quotidiennes",
+  "@dailyStatistics": {
+    "description": "Daily statistics notification option"
+  },
+  "dailyStatisticsDesc": "Recevez des statistiques quotidiennes sur les appels et messages bloqués",
+  "@dailyStatisticsDesc": {
+    "description": "Description for daily statistics option"
+  },
+  "dashboardTab": "Tableau de bord",
+  "dataAnalysis": "Analyse de données",
+  "dataAnalysisDashboardPage": "Page du tableau de bord d'analyse des données",
+  "dataExport": "Exportation de données",
+  "dataLoadFailure": "Échec du chargement des données : {error}",
+  "@dataLoadFailure": {
+    "description": "Data loading failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "dataLoadingFailed": "Échec du chargement des données : {error}",
+  "dataMigration": "Migration de données",
+  "dataMigrationDescription": "Cette fonctionnalité vous permet de transférer toutes vos données entre les appareils. Actuellement, vous pouvez utiliser les fonctions de sauvegarde et de restauration pour migrer manuellement vos données.",
+  "dataMigrationDialogContent": "Cette fonctionnalité vous permet de transférer toutes vos données entre les appareils. Actuellement, vous pouvez utiliser les fonctions de sauvegarde et de restauration pour migrer manuellement vos données.",
+  "dataMigrationDialogTitle": "Migration de données",
+  "dataMigrationSectionTitle": "Migration de données",
+  "dataSourceReminder": "Rappel de source de données",
+  "days": "{count, plural, =1{1 jour} other{{count} jours}}",
+  "@days": {
+    "description": "Day count display",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "daysVip": "{days} Jours VIP",
+  "debtCollection": "Recouvrement de créances",
+  "defaultPeriod": "Semaine",
+  "delete": "Supprimer",
+  "deleteButton": "Supprimer",
+  "deleteContact": "Supprimer le contact",
+  "deleteContactConfirm": "Êtes-vous sûr de vouloir supprimer {name} ?",
+  "deleteContactConfirmation": "Êtes-vous sûr de vouloir supprimer le contact",
+  "deleteDeviceConfirmation": "Êtes-vous sûr de vouloir supprimer {deviceName} ?",
+  "deleteDeviceDialogTitle": "Supprimer l'appareil",
+  "deleteFailed": "Échec de la suppression : {error}",
+  "deleteFilter": "Supprimer le filtre",
+  "deleteLabel": "Supprimer l'étiquette",
+  "deleteLabelFailed": "Échec de la suppression de l'étiquette : {error}",
+  "deletePlugin": "Supprimer le plugin",
+  "deletePluginFailed": "Échec de la suppression du plugin : {error}",
+  "deletePlugins": "Supprimer les plugins",
+  "deletePluginsFailed": "Échec de la suppression des plugins : {error}",
+  "deleteRule": "Supprimer la règle",
+  "deleteRuleFailed": "Échec de la suppression : {error}",
+  "deleteSelected": "Supprimer la sélection",
+  "deleteSmsRule": "Supprimer la règle SMS",
+  "deleteSubscription": "Supprimer l'abonnement",
+  "@deleteSubscription": {
+    "description": "Delete subscription dialog title"
+  },
+  "deleteSubscriptionConfirm": "Êtes-vous sûr de vouloir supprimer l'abonnement « {name} » ?",
+  "@deleteSubscriptionConfirm": {
+    "description": "Delete subscription confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSubscriptionFailed": "Échec de la suppression de l'abonnement : {error}",
+  "@deleteSubscriptionFailed": {
+    "description": "Failed to delete subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "deleteSuccess": "Suppression réussie",
+  "delivery": "Livraison",
+  "deviceDeletedSuccessfully": "Appareil supprimé avec succès",
+  "deviceDeletedSuccessfullyMessage": "Appareil supprimé avec succès",
+  "deviceIdLabel": "ID de l'appareil",
+  "deviceIDLabel": "ID de l'appareil",
+  "deviceManagementSubtitle": "Gérer la synchronisation multi-appareils",
+  "deviceManagementTitle": "Gestion des appareils",
+  "deviceModelLabel": "Modèle d'appareil",
+  "deviceName": "Nom de l'appareil",
+  "deviceNameCannotBeEmpty": "Le nom de l'appareil ne peut pas être vide",
+  "deviceNameHint": "Veuillez saisir le nom de l'appareil",
+  "deviceNameLabel": "Nom de l'appareil",
+  "deviceRenamedSuccessfully": "Appareil renommé avec succès",
+  "deviceRenamedSuccessfullyMessage": "Appareil renommé avec succès",
+  "devicesSyncedSuccessfully": "Appareils synchronisés avec succès",
+  "devicesSyncedSuccessfullyMessage": "Appareils synchronisés avec succès",
+  "devicesSynchronizedSuccessfullyMessage": "Appareils synchronisés avec succès",
+  "deviceUnregisteredSuccessfullyMessage": "Appareil désenregistré avec succès",
+  "dialogTitle": "Explication du modèle Regex",
+  "differentFromLocalCounter": "Cette fonctionnalité est différente du filtre de compteur local, car elle se concentre sur les modèles d'appels répétés dans un court laps de temps plutôt que sur les nombres de marquage à long terme.",
+  "disabled": "Désactivé",
+  "@disabled": {
+    "description": "Disabled status text"
+  },
+  "disabledStatus": "Désactivé",
+  "disableGlobalPlugins": "Désactiver les plugins globaux",
+  "disableSubscriptionSuccessfully": "Désabonnement réussi",
+  "disconnectButton": "Déconnexion",
+  "disconnectedMessage": "Déconnecté",
+  "disconnectedStatus": "Déconnecté",
+  "disconnectFailedMessage": "Échec de la déconnexion",
+  "done": "Terminé",
+  "dualSimAdvice": "Cette fonctionnalité est particulièrement utile pour les téléphones à double SIM afin de définir différentes stratégies de filtrage pour les cartes SIM professionnelles et personnelles.",
+  "earlier": "Plus tôt",
+  "ecommerce": "Commerce électronique",
+  "edit": "Modifier",
+  "editContact": "Modifier le contact",
+  "editFilter": "Modifier le filtre",
+  "editLabel": "Modifier l'étiquette",
+  "editPhoneRule": "Modifier la règle de téléphone",
+  "editPhoneRules": "Utilisé pour modifier les règles de téléphone",
+  "editPhoneRuleTitle": "Modifier la règle de téléphone",
+  "editRule": "Modifier la règle",
+  "editSmsRule": "Modifier la règle SMS",
+  "education": "Éducation",
+  "elementPositionsSetting": "Positions des éléments",
+  "email": "Email",
+  "emailOptional": "Email (Facultatif)",
+  "enableCallFilter": "Activer le filtre d'appel",
+  "enableCallFilterDescription": "Lorsqu'il est activé, les appels entrants sont vérifiés par rapport à la liste de règles ci-dessous. Les règles de filtrage des appels ne sont pas synchronisées entre les appareils par défaut.",
+  "enabled": "Activé",
+  "@enabled": {
+    "description": "Enabled status text"
+  },
+  "enabledStatus": "Activé",
+  "enableEncryption": "Activer le cryptage",
+  "enableEncryptionDescription": "Crypter les fichiers de sauvegarde",
+  "enableEncryptionLabel": "Activer le cryptage",
+  "enableEncryptionSubtitle": "Les fichiers de sauvegarde seront cryptés",
+  "enableEncryptionTitle": "Activer le cryptage",
+  "enableGlobalPlugins": "Activer les plugins globaux",
+  "enableLocalCountFilter": "Activer le filtre de comptage local",
+  "enableLocalCountFilterDescription": "Filtrer automatiquement les appels indésirables en fonction du nombre de marquages d'appel",
+  "enableLocalNotification": "Utiliser la notification locale",
+  "enableLocalNotificationDescription": "Lorsqu'elle est activée, les notifications pour les messages filtrés seront affichées sur l'appareil",
+  "enableLocationSummary": "Position",
+  "enableMuteRules": "Activer les règles de mise en sourdine",
+  "enableMuteRulesDesc": "Appliquer la configuration des règles d'interception de la mise sourdine",
+  "enableNoneActionRules": "Activer les règles sans action",
+  "enableNoneActionRulesDesc": "Autoriser les configurations de règles sans actions d'interception",
+  "enableNotifications": "Activer les notifications",
+  "enableRemoteNumberFilter": "Activer le filtre de numéro distant",
+  "enableRemoteNumberFilterDescription": "Utiliser la base de données distante pour filtrer les numéros",
+  "enableRule": "Activer la règle",
+  "enableSmsFilter": "Activer le filtrage SMS",
+  "enableSmsFilterDescription": "Lorsqu'il est activé, les messages seront automatiquement filtrés selon les règles",
+  "enableStatisticsNotifications": "Activer les notifications de statistiques",
+  "enableSubscriptionSuccessfully": "Abonnement activé avec succès",
+  "enableTimeInterception": "Activer l'interception temporelle",
+  "enableTimeInterceptionDescription": "Intercepter les appels répétés dans un court laps de temps",
+  "enableTimeInterceptor": "Activer l'intercepteur temporel",
+  "endCallImmediately": "Terminer l'appel immédiatement",
+  "endColor": "Couleur de fin",
+  "endDate": "Date de fin",
+  "enhancedFilterInstructionsTitle": "Système de filtrage amélioré",
+  "enhancedFilterSettings": "Paramètres de filtrage améliorés",
+  "@enhancedFilterSettings": {
+    "description": "Enhanced filter settings page title"
+  },
+  "enhancedFilterSettingsTitle": "Paramètres de filtrage améliorés",
+  "enhancedFilterSystemDescription": "Le système de filtrage amélioré prend en charge à la fois les règles globales et les configurations de filtrage par carte SIM.",
+  "enterBothPhoneNumberAndRegexPattern": "Veuillez entrer à la fois le numéro de téléphone et le modèle regex",
+  "enterBothPhoneNumberAndRegexPatternMessage": "Veuillez entrer à la fois le numéro de téléphone et le modèle regex.",
+  "enterContactName": "Veuillez entrer le nom du contact",
+  "enterCurrentPasswordHint": "Veuillez entrer le mot de passe actuel",
+  "enterDeviceName": "Entrez le nom de l'appareil",
+  "enterDeviceNameHint": "Veuillez entrer le nom de l'appareil",
+  "enterEmail": "Veuillez entrer votre adresse e-mail",
+  "enterEmailOptional": "Veuillez entrer votre adresse e-mail (facultatif)",
+  "enterEncryptionPasswordHint": "Entrez le mot de passe de chiffrement",
+  "enterEncryptionPasswordTitle": "Entrez le mot de passe de chiffrement",
+  "enterFilterName": "Veuillez entrer le nom du filtre",
+  "enterFilterPattern": "Veuillez entrer le modèle de filtre",
+  "enterIconCode": "Entrez le code de l'icône",
+  "enterName": "Entrez le nom du contact",
+  "enterNewDeviceNameHint": "Entrez un nouveau nom pour cet appareil",
+  "enterNewPasswordHint": "Veuillez entrer un nouveau mot de passe",
+  "enterPasswordAgain": "Entrez le mot de passe à nouveau",
+  "enterPasswordHint": "Veuillez entrer le mot de passe",
+  "enterPhoneNumber": "Entrez le numéro de téléphone",
+  "enterPhoneNumberHint": "Entrez le numéro de téléphone à tester",
+  "enterPhoneNumberMultiple": "Veuillez entrer le numéro de téléphone, plusieurs numéros séparés par des virgules",
+  "enterPhoneNumberToStartSearch": "Entrez le numéro de téléphone pour lancer la recherche",
+  "enterPhoneNumberToVerify": "Entrez le numéro de téléphone à vérifier",
+  "enterPluginName": "Entrez le nom du plugin",
+  "enterPluginUrl": "Entrez l'adresse URL du plugin",
+  "enterRegexHint": "Entrez le modèle regex",
+  "enterRuleNameAndPattern": "Veuillez entrer le nom et le modèle de la règle",
+  "enterRuleNameAndPatternMessage": "Veuillez entrer à la fois le nom de la règle et le modèle regex.",
+  "enterRuleNameHint": "Entrez le nom de la règle",
+  "enterSearchContent": "Veuillez entrer le contenu de la recherche",
+  "enterSubscriptionName": "Entrez le nom de l'abonnement",
+  "@enterSubscriptionName": {
+    "description": "Subscription name field hint"
+  },
+  "enterSubscriptionUrl": "Entrez l'URL de l'abonnement",
+  "@enterSubscriptionUrl": {
+    "description": "Subscription URL field hint"
+  },
+  "enterSyncFolderNameHint": "Veuillez entrer le nom du dossier de synchronisation (par défaut : NotificationManager)",
+  "entertainment": "Divertissement",
+  "enterValidNameAndUrl": "Veuillez entrer un nom et une URL valides",
+  "@enterValidNameAndUrl": {
+    "description": "Enter valid name and URL error message"
+  },
+  "enterValidUrl": "Veuillez entrer une URL valide",
+  "enterVersion": "Entrer la version",
+  "enterWebDAVPasswordHint": "Veuillez entrer le mot de passe WebDAV",
+  "enterWebDAVServerAddressHint": "Veuillez entrer l'adresse du serveur WebDAV",
+  "enterWebDAVUsernameHint": "Veuillez entrer le nom d'utilisateur WebDAV",
+  "errorDeletingDeviceMessage": "Erreur lors de la suppression de l'appareil : {error}",
+  "errorLoadingPlugin": "Erreur lors du chargement du plugin",
+  "errorOccurredMessage": "Une erreur s'est produite : {error}",
+  "errorRenamingDeviceMessage": "Erreur lors du renommage de l'appareil : {error}",
+  "errorSynchronizingDevicesMessage": "Erreur lors de la synchronisation des appareils : {error}",
+  "errorSyncingDevicesMessage": "Erreur lors de la synchronisation des appareils : {error}",
+  "errorText": "Erreur",
+  "errorUnregisteringDeviceMessage": "Erreur lors de la désinscription de l'appareil : {error}",
+  "exampleBlock400Prefix": "par exemple, Préfixe de bloc 400",
+  "exampleBlockMarketingSms": "par exemple, Bloquer les SMS marketing",
+  "exampleContentRegex": "par exemple, .*offer.*",
+  "exampleContentRegexHint": "Exemple de Regex de contenu",
+  "exampleCouponPromotionDiscount": "par exemple, .*(coupon|promotion|discount).*",
+  "exampleFamilyFriends": "par exemple, Famille, Amis, etc.",
+  "examplePhoneNumber": "par exemple, 10086, 12345, etc.",
+  "exampleRegex400Prefix": "Exemple de regex pour le préfixe 400",
+  "exampleRegexFormat": "Exemple : format ^10086$",
+  "exampleSenderRegexHint": "Exemple",
+  "exchange": "Échange",
+  "exchangeNow": "Échanger maintenant",
+  "exchangeVip": "Échanger VIP",
+  "expandLabelSelector": "Développer le sélecteur d'étiquette",
+  "expiryTime": "Heure d'expiration : {time}",
+  "export": "Exporter",
+  "exportAllApplicationSettings": "Exporter tous les paramètres de l'application",
+  "exportAllApplicationSettingsSubtitle": "Exporter tous les paramètres de l'application",
+  "exportAllRuleConfigurations": "Exporter toutes les configurations de règles",
+  "exportAllRuleConfigurationsSubtitle": "Exporter toutes les configurations de règles",
+  "exportComplete": "Exportation terminée",
+  "exportConfig": "Exporter la configuration",
+  "exportContacts": "Exporter les contacts",
+  "exportData": "Exporter des données",
+  "exportError": "Erreur d'exportation",
+  "exportFailed": "L'exportation a échoué",
+  "exportFailure": "Échec de l'exportation de la configuration",
+  "exportFeatureComingSoon": "Fonctionnalité d'exportation bientôt disponible",
+  "exporting": "Exportation...",
+  "exportLabels": "Exporter les étiquettes",
+  "exportLabelsFailed": "Échec de l'exportation des étiquettes: {error}",
+  "exportPluginList": "Exporter la liste des plugins",
+  "exportPluginListFailed": "Échec de l'exportation de la liste des plugins: {error}",
+  "exportRules": "Exporter les règles",
+  "exportRulesDialogTitle": "Exporter les règles",
+  "exportRulesTitle": "Exporter les règles",
+  "exportSmsRules": "Exporter les règles SMS",
+  "exportStatisticsData": "Exporter les données statistiques",
+  "exportSuccess": "Exportation réussie",
+  "exportSuccesslly": "Configuration exportée avec succès",
+  "failedToAddContact": "Échec de l'ajout du contact",
+  "failedToAddRule": "Échec de l'ajout de la règle: {error}",
+  "failedToAddSmsRule": "Échec de l'ajout de la règle SMS: {error}",
+  "failedToAddSmsSubscription": "Échec de l'ajout de l'abonnement SMS: {error}",
+  "failedToBackupSettings": "Échec de la sauvegarde des paramètres: {error}",
+  "failedToDecryptBackupFile": "Échec du déchiffrement du fichier de sauvegarde",
+  "failedToDeleteDevice": "Échec de la suppression de l'appareil",
+  "failedToDeleteSmsRule": "Échec de la suppression de la règle SMS: {error}",
+  "failedToExportRules": "Échec de l'exportation des règles: {error}",
+  "failedToExportSmsRules": "Échec de l'exportation des règles SMS: {error}",
+  "failedToGetCallerIdInfo": "Échec de la récupération des informations de l'identification de l'appelant: {error}",
+  "failedToImportRules": "Échec de l'importation des règles: {error}",
+  "failedToImportSmsRules": "Échec de l'importation des règles SMS: {error}",
+  "failedToLoadContacts": "Échec du chargement des contacts",
+  "failedToLoadPlugin": "Échec du chargement du plugin",
+  "failedToRenameDevice": "Échec du renommage de l'appareil",
+  "failedToRestoreSettings": "Échec de la restauration des paramètres",
+  "failedToRestoreSettingsWithError": "Échec de la restauration des paramètres: {error}",
+  "failedToSetPassword": "Échec de la définition du mot de passe: {error}",
+  "failedToSyncDevices": "Échec de la synchronisation des appareils",
+  "failedToToggleRuleStatus": "Échec de l'activation/désactivation de l'état de la règle: {error}",
+  "failedToToggleSubscriptionStatus": "Échec de l'activation/désactivation de l'état de l'abonnement",
+  "failedToUpdateContact": "Échec de la mise à jour du contact",
+  "failedToUpdateSmsRule": "Échec de la mise à jour de la règle SMS: {error}",
+  "failure": "Échec",
+  "favoriteContacts": "Contacts favoris",
+  "featureAddRules": "• Ajouter des règles spécifiques au numéro de téléphone",
+  "featureCenter": "Centre de fonctionnalités",
+  "featureEnableDisable": "• Activer/désactiver différents filtres par carte SIM",
+  "featureListTitle": "Fonctionnalités :",
+  "@featureListTitle": {
+    "description": "Title for features list section"
+  },
+  "featureManageRules": "• Gérer les listes de règles par carte SIM",
+  "features": "Fonctionnalités",
+  "fetchingCallerIdInfo": "Récupération des informations de l'identification de l'appelant...",
+  "fileSavedTo": "Fichier enregistré dans : {path}",
+  "filter": "Filtrer",
+  "filterByLabel": "Filtrer par étiquette",
+  "filterClear": "Effacer le filtre",
+  "filterControlPanelTitle": "Panneau de configuration des filtres",
+  "filterControlSubtitle": "Gérer l'état activé/désactivé de tous les filtres",
+  "filterControlTitle": "Contrôle des filtres",
+  "filterDeleteFailed": "La suppression du filtre a échoué",
+  "filterDeleteSuccess": "Filtre supprimé avec succès",
+  "filterDetails": "Détails du filtre",
+  "filtered": "Filtré",
+  "filteredSms": "SMS filtrés",
+  "filteredSmsLabel": "SMS filtrés",
+  "filterExplanation": "Explication du filtre",
+  "filterManagement": "Gestion des filtres",
+  "filterName": "Nom du filtre",
+  "filterPattern": "Modèle de filtre",
+  "filterPriorityNote": "Remarque : Il existe des relations de priorité entre les filtres, veuillez consulter la documentation d'aide pour plus de détails",
+  "filterSaveFailed": "L'enregistrement du filtre a échoué",
+  "filterSaveSuccess": "Filtre enregistré avec succès",
+  "filterSettings": "Paramètres de filtre",
+  "filterSettingsTitle": "Paramètres de filtre",
+  "filterSMS": "Filtrer les SMS",
+  "filterToggleInstructions": "Activer ou désactiver les filtres pour cet emplacement SIM :",
+  "filterToggleStatus": "Filtre {status} : {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "filterType": "Type de filtre",
+  "financial": "Financier",
+  "flexibleCombinationFeature": "• Combinaisons flexibles : activer/désactiver les filtres par emplacement SIM",
+  "fontSizesSetting": "Tailles de police",
+  "foundRules": "{count} règles trouvées",
+  "foundRulesDoYouWantToImport": "{count} règles trouvées. Voulez-vous les importer ?",
+  "foundRulesToImport": "{count} règles trouvées. Voulez-vous les importer ?",
+  "fraudAlert": "ALERTE À LA FRAUDE - Raccrochez",
+  "fraudScamLikely": "Fraude/Arnaque probable",
+  "free": "Gratuit",
+  "functionSettingsTitle": "Paramètres de fonction",
+  "generalUpdateFailure": "Échec de la mise à jour : {error}",
+  "@generalUpdateFailure": {
+    "description": "General update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "getFree": "Obtenir gratuitement",
+  "github": "GitHub",
+  "globalFilterDescription": "Configurer les filtres globaux pour toutes les cartes SIM :",
+  "globalFilterFeature": "• Filtres globaux : règles de base pour tous les appels entrants",
+  "globalFilterSettings": "Paramètres de filtre global",
+  "@globalFilterSettings": {
+    "description": "Global filter settings section title"
+  },
+  "globalFilterToggleInstructions": "Configurer les paramètres de filtre global qui s'appliquent à tous les emplacements SIM :",
+  "@globalFilterToggleInstructions": {
+    "description": "Instructions for configuring global filter settings"
+  },
+  "globalSearchSubtitle": "Rechercher des contacts, des étiquettes, des listes noires, des listes blanches, etc.",
+  "globalSearchTitle": "Recherche globale",
+  "globalSettings": "Paramètres globaux",
+  "@globalSettings": {
+    "description": "Title for global settings page"
+  },
+  "googleAdDisplayPosition": "Position d'affichage des annonces Google",
+  "googleAdMobIntegrationText": "Les annonces Google AdMob peuvent être intégrées ici",
+  "googleDriveAuthDescription": "Autoriser à l'aide de l'ID et de la clé client Google Drive configurés par le système",
+  "googleDriveAuthorizationHint": "Autoriser à l'aide de l'ID et de la clé client Google Drive configurés par le système",
+  "googleDriveConfigTitle": "Configuration de Google Drive",
+  "googleDriveConfigurationTitle": "Configuration de Google Drive",
+  "government": "Gouvernement",
+  "granted": "Accordé",
+  "grantNecessaryPermissions": "Accorder les autorisations nécessaires",
+  "grantPermissions": "Accorder des autorisations",
+  "headhunter": "Chasseur de têtes",
+  "height": "Taille",
+  "homePageTitle": "Page d'accueil",
+  "homeTab": "Accueil",
+  "howItWorksPoint1": "• Le système autorisera automatiquement les appels provenant du même numéro pendant la période définie.",
+  "howItWorksPoint2": "• Des périodes plus courtes entraînent une interception plus stricte ; des périodes plus longues entraînent une interception plus souple.",
+  "howItWorksPoint3": "• Le système vérifie les journaux d'appels pour déterminer s'il s'agit d'un appel répété.",
+  "howItWorksTitle": "Comment ça marche :",
+  "iconCodeOptional": "Code d'icône (facultatif)",
+  "iconSize": "Taille de l'icône",
+  "import": "Importer",
+  "important": "Important",
+  "importButton": "Importer",
+  "importConfig": "Importer la configuration",
+  "importContacts": "Importer des contacts",
+  "importExportContacts": "Importer/Exporter des contacts",
+  "importExportContactsTooltip": "Importer/Exporter des contacts",
+  "importExportRules": "Importer/Exporter des règles",
+  "importFailed": "Échec de l'importation : {error}",
+  "importFailure": "Échec de l'importation de la configuration",
+  "importFeatureComingSoon": "Fonction d'importation bientôt disponible",
+  "importLabels": "Importer des étiquettes",
+  "importLabelsFailed": "Échec de l'importation des étiquettes : {error}",
+  "importPluginList": "Importer la liste des plugins",
+  "importPluginListFailed": "Échec de l'importation de la liste des plugins : {error}",
+  "importPluginSuccess": "{count} plugins importés avec succès",
+  "importRuleConfigurationsFromFile": "Importer les configurations de règles à partir d'un fichier",
+  "importRuleConfigurationsFromFileSubtitle": "Importer les configurations de règles à partir d'un fichier",
+  "importRules": "Importer des règles",
+  "importRulesButton": "Importer les règles",
+  "importRulesDialogTitle": "Importer des règles",
+  "importRulesError": "Échec de l'importation des règles : {error}",
+  "importRulesInstructions": "Importer les règles à partir d'un fichier CSV",
+  "importRulesSuccess": "Règles importées avec succès",
+  "importRulesTitle": "Importer des règles",
+  "importSuccess": "Importation réussie",
+  "incomingCallInterceptAction": "Action d'interception d'appel entrant",
+  "incomingCallNotification": "Notification d'appel entrant",
+  "incorrectPassword": "Mot de passe incorrect",
+  "initializing": "Initialisation",
+  "installed": "Installé",
+  "insufficientMarks": "Notes insuffisantes",
+  "insurance": "Assurance",
+  "interceptAction": "Action d'interception",
+  "interceptionActionSettingsSubtitle": "Définir la manière dont les appels bloqués sont gérés",
+  "interceptionActionSettingsTitle": "Paramètres de l'action d'interception",
+  "interceptionTimeInterval": "Intervalle de temps d'interception",
+  "internet": "Internet",
+  "intervalSetSuccess": "Intervalle de mise à jour de {service} défini sur {days} jours",
+  "@intervalSetSuccess": {
+    "description": "Update interval confirmation message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
+    }
+  },
+  "invalidContentRegex": "Regex de contenu non valide",
+  "invalidLabel": "Étiquette non valide",
+  "invalidRegexPattern": "Motif regex non valide",
+  "invalidSenderRegex": "Regex d'expéditeur non valide",
+  "joinTheTelegramChannelAndGroupForMoreInfo": "Rejoignez le canal et le groupe Telegram pour plus d'informations",
+  "jsLogsTitle": "Journaux JS",
+  "jsonFormat": "Format JSON",
+  "keepAllVersions": "Conserver toutes les versions",
+  "keepAllVersionsDescription": "Conserver toutes les versions historiques de chaque sauvegarde",
+  "keepAllVersionsLabel": "Conserver toutes les versions",
+  "keepAllVersionsSubtitle": "Conserver les versions historiques de chaque sauvegarde",
+  "keepAllVersionsTitle": "Conserver toutes les versions",
+  "label": "Étiquette",
+  "labelAddedSuccessfully": "Étiquette \"{name}\" ajoutée avec succès",
+  "labelCategories": "Catégories d'étiquettes",
+  "labelDeleted": "Étiquette supprimée",
+  "labelDescription": "Les étiquettes vous aident à mieux gérer les contacts, ajoutez des étiquettes personnalisées aux numéros de téléphone pour identifier facilement les appels et les messages.",
+  "labelFilter": "Filtre d'étiquette",
+  "labelFilterTooltip": "Filtre d'étiquette",
+  "labelIconColor": "Couleur de l'icône de l'étiquette",
+  "labelManagement": "Gestion des étiquettes",
+  "labelNotFound": "Étiquette introuvable",
+  "labelRemoved": "Étiquette supprimée",
+  "labelRemoveFailed": "Échec de la suppression de l'étiquette : {error}",
+  "@labelRemoveFailed": {
+    "description": "Label removal failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labels": "Étiquettes",
+  "labelsColor": "Couleur des étiquettes",
+  "labelsDeleted": "{count} étiquettes supprimées",
+  "labelsExportedSuccessfully": "Étiquettes exportées avec succès",
+  "labelsFontSize": "Taille de la police des étiquettes",
+  "labelsImportedSuccessfully": "{count} étiquettes importées avec succès",
+  "labelsPosition": "Position des étiquettes",
+  "labelTag": "Étiquette : {labelId}",
+  "labelUpdated": "Étiquette mise à jour",
+  "labelUpdateFailed": "Échec de la mise à jour de l'étiquette : {error}",
+  "@labelUpdateFailed": {
+    "description": "Label update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "labelUpdateSuccess": "Étiquette \"$labelText\" mise à jour avec succès",
+  "languageSettings": "Paramètres de langue",
+  "languageSettingsSubtitle": "Modifier la langue d'affichage de l'application",
+  "languageSettingsTitle": "Paramètres de langue",
+  "last30Days": "30 derniers jours",
+  "last7Days": "7 derniers jours",
+  "lastSyncLabel": "Dernière synchronisation",
+  "lastUpdated": "Dernière mise à jour : {date}",
+  "@lastUpdated": {
+    "description": "Last updated label",
+    "placeholders": {
+      "date": {
+        "type": "Object"
+      }
+    }
+  },
+  "lifetimeMembership": "Abonnement à vie",
+  "lifetimeMembershipDescription": "Achat unique, débloquez définitivement toutes les fonctionnalités premium et les futures mises à jour",
+  "loadContactsFailed": "Échec du chargement des contacts : {error}",
+  "loadDataFailed": "Échec du chargement des données",
+  "loadFailed": "Échec du chargement",
+  "loading": "Chargement...",
+  "loadingData": "Chargement des données...",
+  "loadingTags": "Chargement des balises...",
+  "loadLabelFailed": "Échec du chargement des étiquettes : {error}",
+  "loadLabelsFailed": "Échec du chargement des étiquettes : {error}",
+  "loadMarkCountFailed": "Échec du chargement du nombre de numéros de téléphone signalés : {error}",
+  "loadMarkedPhonesFailed": "Échec du chargement des téléphones signalés : {error}",
+  "loadMore": "Charger plus",
+  "loadPluginButton": "Charger le plugin",
+  "loadPluginsFailed": "Échec du chargement des plugins : {error}",
+  "loadSettingsFailed": "Échec du chargement des paramètres : {error}",
+  "loadSmsRulesFailed": "Échec du chargement des règles SMS : {error}",
+  "loadStatusFailedMessage": "Échec du chargement de l'état",
+  "loadSubscriptionsFailed": "Échec du chargement des abonnements : {error}",
+  "@loadSubscriptionsFailed": {
+    "description": "Failed to load subscriptions error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "loan": "Prêt",
+  "localBackupTitle": "Sauvegarde locale",
+  "localCounterFilter": "Filtre de compteur local",
+  "localCounterFilterSubtitle": "Filtrer automatiquement les appels indésirables en fonction de la fréquence des appels",
+  "localCountFilter": "Filtre de comptage local",
+  "localCountFilterDescription": "Intercepter les appels fréquents en fonction du nombre de numéros locaux",
+  "localCountFilterExplanationContent": "Le filtre de comptage local analyse l'historique des appels pour identifier et bloquer automatiquement les appels indésirables fréquents.",
+  "localCountFilterExplanationTitle": "Explication du filtre de comptage local",
+  "localCountFilterHowItWorksPoint1": "• Déterminer s'il faut bloquer en fonction de la valeur de comptage du numéro",
+  "localCountFilterHowItWorksPoint2": "• Lorsqu'un comptage de numéro dépasse le seuil défini, vous pouvez choisir de le bloquer automatiquement",
+  "localCountFilterHowItWorksPoint3": "• Vous pouvez autoriser sélectivement les numéros qui ne dépassent pas le seuil",
+  "localCountFilterHowItWorksPoint4": "• Vous pouvez choisir d'enregistrer tous les journaux de requêtes",
+  "localCountFiltering": "Filtrage du comptage local",
+  "localCountFilteringExplanation": "• Filtrage du comptage local : règles de filtrage basées sur le nombre de signalements locaux",
+  "localCountFilterSettings": "Paramètres du filtre de comptage local",
+  "localCountFilterUseCases": "Ce filtre est particulièrement adapté à l'identification des appels indésirables automatisés et des appels marketing.",
+  "localFilterSettings": "Paramètres du filtre local",
+  "@localFilterSettings": {
+    "description": "Title for local filter settings page"
+  },
+  "localNotificationDisabled": "Notification locale désactivée",
+  "localNotificationEnabled": "Notification locale activée",
+  "localServices": "Services locaux",
+  "locationColor": "Couleur du lieu",
+  "locationFontSize": "Taille de la police du lieu",
+  "locationIconColor": "Couleur de l'icône du lieu",
+  "locationPosition": "Position du lieu",
+  "logAllLocalQueries": "Enregistrer toutes les requêtes locales",
+  "logAllLocalQueriesDescription": "Enregistrer les journaux pour toutes les requêtes de numéros locaux",
+  "logAllRemoteQueries": "Enregistrer toutes les requêtes à distance",
+  "logAllRemoteQueriesDescription": "Enregistrer toutes les opérations de requête de numéros à distance",
+  "manage": "Gérer les contacts",
+  "manageContacts": "Gérer",
+  "manageFavoriteContacts": "Gérer les contacts favoris",
+  "manageFilterRules": "Gérer les règles de filtre",
+  "manageFilterRulesDescription": "Ajouter, modifier ou supprimer des règles de filtre SMS",
+  "manageFrequentContacts": "Gérer les contacts fréquents",
+  "markCounts": "Nombre de signalements",
+  "markCount": "Nombre de signalements",
+  "markedByCount": "Signalé par {count}",
+  "@markedByCount": {
+    "description": "Text showing how many users have marked this number",
+    "placeholders": {
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "markedPhonesList": "Numéros de téléphone signalés",
+  "markExchange": "Échange de signalement",
+  "markPhone": "Signaler un numéro de téléphone",
+  "markPhoneFailed": "Échec du marquage du numéro de téléphone : {error}",
+  "markPhoneManagementSubtitle": "Pour marquer les numéros de téléphone",
+  "markPhoneManagementTitle": "Gestion des numéros marqués",
+  "markPhoneSuccess": "Numéro de téléphone marqué avec succès",
+  "matchFailed": "Échec de la correspondance !",
+  "matchFailedMessage": "Échec de la correspondance.",
+  "matchNumbersWithSpecialCharacters": "correspond à un format de numéro spécifique",
+  "matchNumbersWithSpecialCharactersTitle": "Correspondance des nombres avec des caractères spéciaux :",
+  "matchSpecificDigitPatterns": "correspond au format XXX-XXXX-XXXX",
+  "matchSpecificDigitPatternsTitle": "Correspondance des modèles de chiffres spécifiques :",
+  "matchSuccessful": "Correspondance réussie !",
+  "matchSuccessfulMessage": "Correspondance réussie !",
+  "medical": "Médical",
+  "membershipPrivileges": "Privilèges d'adhésion",
+  "migrationTool": "Outil de migration",
+  "migrationToolTitle": "Outil de migration",
+  "minutes": "minutes",
+  "month": "Mois",
+  "monthly": "Mensuel",
+  "monthlyCallCount": "Appels mensuels",
+  "monthlyChartTitle": "Appels bloqués mensuels",
+  "monthlyMembership": "Adhésion mensuelle",
+  "monthlyMembershipDescription": "Débloquez toutes les fonctionnalités premium, renouvellement automatique mensuel",
+  "monthlyTotal": "Total mensuel",
+  "monthlyTotalLabel": "Total mensuel",
+  "moreOptions": "Plus d'options",
+  "mute": "Muet",
+  "name": "Nom",
+  "nameAndPhoneNumberCannotBeEmpty": "Le nom et le numéro de téléphone ne peuvent pas être vides",
+  "nameAndPhoneNumberRequired": "Le nom et le numéro de téléphone ne peuvent pas être vides",
+  "nameColor": "Couleur du nom",
+  "nameFontSize": "Taille de la police du nom",
+  "nameLabel": "Nom : {name}",
+  "@nameLabel": {
+    "description": "Caller ID name label",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "namePosition": "Position du nom",
+  "nameUnknown": "Nom : Inconnu",
+  "nameWithValue": "Nom : {name}",
+  "@nameWithValue": {
+    "description": "Text showing the name of a contact",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "newPasswordLabel": "Nouveau mot de passe",
+  "nextStep": "Suivant",
+  "noAction": "Aucune action",
+  "noActionRules": "Aucune règle d'action",
+  "noActiveCloudSyncServiceMessage": "Aucun service de synchronisation cloud actif",
+  "noCallLogs": "Aucun journal d'appels",
+  "noCallRecords": "Aucun enregistrement d'appel",
+  "noContacts": "Pas encore de contacts",
+  "noContactsYet": "Pas encore de contacts",
+  "noData": "Aucune donnée",
+  "noDevicesRegisteredMessage": "Aucun appareil enregistré",
+  "noDevicesRegisteredYet": "Aucun appareil n'est encore enregistré.",
+  "noFilters": "Pas encore de filtres",
+  "noLabels": "Pas encore d'étiquettes",
+  "noMarkedPhones": "Aucun numéro de téléphone marqué",
+  "noMatchingContacts": "Aucun contact correspondant",
+  "noMatchingContactsFound": "Aucun contact correspondant trouvé",
+  "noMatchingNumbersFound": "Aucun numéro correspondant trouvé",
+  "noMatchingRecords": "Aucun enregistrement d'appel correspondant",
+  "noMatchingRules": "Aucune {ruleType} correspondante",
+  "none": "Aucun",
+  "noneServiceType": "Aucun",
+  "noPlugins": "Aucun plugin pour le moment",
+  "noRecords": "Aucun enregistrement d'appel",
+  "noResultReturned": "Aucun résultat retourné",
+  "noResultReturnedLog": "Aucun résultat retourné par le plugin",
+  "noRules": "Aucune {ruleType} pour le moment",
+  "noRulesPrompt": "Aucune règle trouvée, veuillez ajouter des règles",
+  "noRulesToExport": "Aucune règle à exporter",
+  "noSmsFilterRulesYet": "Aucune règle de filtrage SMS pour le moment",
+  "noSmsRulesYet": "Aucune règle SMS pour le moment",
+  "noSubscriptions": "Aucun abonnement",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "noSubscriptionsYet": "Aucun abonnement pour le moment",
+  "notGranted": "Non accordé",
+  "notificationMode": "Mode de notification",
+  "notificationModeDescription": "Afficher les informations de l'appelant dans la barre de notification",
+  "notificationPermission": "Autorisation de notification",
+  "notificationPermissionDescription": "Utilisé pour afficher les notifications d'appels et de messages entrants.",
+  "notifications": "Notifications",
+  "notificationSettings": "Paramètres de notification",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notificationSettingsSaved": "Paramètres de notification enregistrés avec succès",
+  "notSet": "Non défini",
+  "notVerifiedText": "Non vérifié",
+  "noValidSmsRulesFoundInFile": "Aucune règle SMS valide trouvée dans le fichier",
+  "number": "Numéro",
+  "numberColor": "Couleur du numéro",
+  "numberFontSize": "Taille de police du numéro",
+  "numberPosition": "Position du numéro",
+  "numberSearch": "Recherche de numéro",
+  "numberTypeColor": "Couleur du type de numéro",
+  "numberTypeFontSize": "Taille de police du type de numéro",
+  "numberTypePosition": "Position du type de numéro",
+  "ok": "OK",
+  "okButton": "OK",
+  "onboardingCompleteDescription": "Votre gestionnaire de sécurité des appels est prêt, commencez à profiter d'une expérience d'appel sécurisée !",
+  "onboardingLanguageDescription": "Choisissez votre langue préférée pour une expérience optimale.",
+  "onboardingPermissionsDescription": "Pour fournir un service complet, nous avons besoin des autorisations suivantes :",
+  "onboardingPowerfulSpamBlockingDescription": "Blocage en un clic des appels et messages indésirables, personnalisation des règles de blocage et vous offrant un environnement paisible.",
+  "onboardingSmartCallerIdDescription": "Identifiez automatiquement les appels inconnus, marquez les numéros suspects et protégez la sécurité de vos appels.",
+  "onboardingWelcomeDescription": "Votre expert en gestion des appels, fournissant des services complets d'identification et de blocage des appels.",
+  "oneDriveAuthDescription": "Autoriser en utilisant l'ID client et la clé OneDrive configurés par le système",
+  "oneDriveAuthorizationHint": "Autoriser en utilisant l'ID client et la clé OneDrive configurés par le système",
+  "oneDriveConfigTitle": "Configuration OneDrive",
+  "oneDriveConfigurationTitle": "Configuration OneDrive",
+  "onlineCallerIdSubscription": "Abonnement à l'identification de l'appelant en ligne",
+  "openAppSettings": "Ouvrir les paramètres de l'application",
+  "openAppSettingsFailed": "Impossible d'ouvrir les paramètres de l'application : {error}",
+  "operationFailed": "Échec de l'opération : {error}",
+  "operationFailure": "Échec de l'opération",
+  "operationSuccess": "Opération réussie",
+  "other": "Autre",
+  "ourOtherApps": "Nos autres applications",
+  "overlayMode": "Fenêtre flottante",
+  "overlayModeDescription": "Afficher les informations de l'appelant dans une fenêtre flottante",
+  "overlayPermission": "Autorisation de superposition",
+  "overlayPermissionDescription": "Utilisé pour afficher la superposition des appels entrants.",
+  "overview": "Aperçu",
+  "password": "Mot de passe",
+  "passwordCannotBeEmpty": "Le mot de passe ne peut pas être vide",
+  "passwordLabel": "Mot de passe",
+  "passwordsDoNotMatch": "Les mots de passe ne correspondent pas",
+  "passwordSetSuccessfully": "Mot de passe défini avec succès",
+  "pattern": "Modèle",
+  "pendingSync": "Synchronisation en attente",
+  "periodMonth": "Mois",
+  "periodWeek": "Semaine",
+  "periodYear": "Année",
+  "permissionDenied": "Demande d'autorisation refusée",
+  "permissionGranted": "Autorisation accordée",
+  "permissionManagement": "Gestion des autorisations",
+  "phoneCallsTab": "Téléphone",
+  "phoneNumber": "Numéro de téléphone",
+  "phoneNumberCannotBeEmpty": "Le numéro de téléphone ne peut pas être vide",
+  "phoneNumberHint": "Saisir le numéro de téléphone",
+  "phoneNumberHintText": "Saisir le numéro de téléphone pour ajouter une règle",
+  "phoneNumberLabel": "Numéro de téléphone",
+  "phoneNumberRegexRequired": "Veuillez saisir à la fois le numéro de téléphone et le modèle d'expression régulière",
+  "phoneNumberRequired": "Le numéro de téléphone est obligatoire",
+  "phoneNumberTypeFixedLine": "Ligne fixe",
+  "phoneNumberTypeFixedLineOrMobile": "Ligne fixe ou mobile",
+  "phoneNumberTypeMobile": "Mobile",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypePersonalNumber": "Numéro personnel",
+  "phoneNumberTypePremiumRate": "Tarif majoré",
+  "phoneNumberTypeSharedCost": "Frais partagés",
+  "phoneNumberTypeTollFree": "Numéro vert",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeUnknown": "Inconnu",
+  "phoneNumberTypeVoicemail": "Messagerie vocale",
+  "phoneNumberTypeVoip": "VoIP",
+  "phonePermission": "Autorisation téléphonique",
+  "phonePermissionDescription": "Utilisé pour identifier et bloquer les appels entrants.",
+  "phoneRule": "Règle téléphonique",
+  "phoneRuleEditDialog": "Boîte de dialogue de modification de la règle téléphonique",
+  "phoneRuleManagement": "Gestion des règles téléphoniques",
+  "phoneRuleSubscription": "Abonnement aux règles téléphoniques",
+  "phoneSubscription": "Abonnement téléphonique",
+  "phoneSubscriptionRulesDescription": "Abonnez-vous aux listes de règles téléphoniques via une URL pour mettre à jour automatiquement les règles de liste blanche et de liste noire. Prend en charge les fichiers de règles au format JSON.",
+  "phoneSubscriptionTitle": "Abonnements aux règles téléphoniques",
+  "@phoneSubscriptionTitle": {
+    "description": "Phone subscription page title"
+  },
+  "pleaseSelectLabelAndEnterValidPhone": "Veuillez sélectionner une étiquette et saisir un numéro de téléphone valide",
+  "pluginAddedSuccess": "Plugin \"{name}\" ajouté avec succès",
+  "pluginDeleted": "Plugin supprimé",
+  "pluginLatestVersion": "Le plugin est déjà la dernière version",
+  "pluginListExportSuccess": "Liste des plugins exportée avec succès",
+  "pluginLoadedSuccessfully": "Plugin chargé avec succès",
+  "pluginManagement": "Gestion des plugins",
+  "pluginManagementSubtitle": "Gérer et configurer les plugins tiers",
+  "pluginManagementTitle": "Gestion des plugins",
+  "pluginName": "Nom du plugin",
+  "pluginNotLoaded": "Le plugin n'est pas encore chargé. Veuillez d'abord charger le plugin.",
+  "pluginsDeleted": "{count} plugins supprimés avec succès.",
+  "pluginService": "Service de plugin",
+  "pluginTestPageTitle": "Test du plugin",
+  "pluginUpdateSuccess": "Plugin mis à jour avec succès",
+  "pluginUrl": "URL du plugin",
+  "pluginUrlCannotBeEmpty": "L'URL du plugin ne peut pas être vide",
+  "pluginUrlHint": "Entrez l'URL du plugin",
+  "pluginUrlLabel": "URL du plugin",
+  "pluginVersion": "Version du plugin",
+  "political": "Politique",
+  "powerfulSpamBlocking": "Blocage puissant du spam",
+  "previousStep": "Étape précédente",
+  "prioritizeRemoteAction": "Prioriser les paramètres d'action à distance",
+  "prioritizeRemoteActionDescription": "Prioriser les paramètres d'action de la base de données distante",
+  "processing": "Traitement en cours...",
+  "processingOperation": "Traitement en cours...",
+  "purchase": "Acheter",
+  "quarterlyMembership": "Adhésion trimestrielle",
+  "quarterlyMembershipDescription": "Débloquez toutes les fonctionnalités premium, renouvellement automatique trimestriel",
+  "queryButton": "Requête",
+  "queryFailed": "Échec de la requête",
+  "queryFailedLog": "Échec de la requête",
+  "querying": "Requête en cours...",
+  "queryingPhoneNumber": "Requête du numéro de téléphone",
+  "queryResultTitle": "Résultat de la requête",
+  "ready": "Prêt !",
+  "receiveWeeklyStatistics": "Recevoir des statistiques hebdomadaires",
+  "recruiter": "Recruteur",
+  "reEnterPasswordHint": "Veuillez saisir à nouveau le mot de passe",
+  "refresh": "Rafraîchir",
+  "refreshPermissionStatus": "Actualiser l'état de l'autorisation",
+  "refreshTooltip": "Rafraîchir",
+  "regexError": "Erreur de regex : {error}",
+  "regexErrorMessage": "Erreur de regex : {error}",
+  "regexPattern": "Expression régulière",
+  "regexPatternExplanation": "Explication de l'expression régulière",
+  "regexPatternExplanationButton": "Explication de l'expression régulière",
+  "regexPatternLabel": "Expression régulière",
+  "regexPatternsExamples": "Utilisez la syntaxe regex standard pour définir des modèles. Exemples :",
+  "regexPatternsForPhoneNumberMatching": "Modèles d'expressions régulières pour la correspondance des numéros de téléphone",
+  "regexRule": "Règle Regex",
+  "regexRuleAddFailed": "Échec de l'ajout de la règle regex : {error}",
+  "regexRuleAddSuccess": "Règle regex ajoutée avec succès",
+  "regexRuleManagement": "Gestion des règles Regex",
+  "regexRuleNamePatternRequired": "Le nom de la règle et le modèle regex ne peuvent pas être vides",
+  "regexRules": "Règles Regex",
+  "regexTesterTitle": "Testeur Regex",
+  "regexValidationFailed": "Échec de la validation Regex : {error}",
+  "regexValidationSuccess": "Validation Regex réussie",
+  "region": "Région",
+  "registeredDevicesTitle": "Appareils enregistrés",
+  "rejectAllCalls": "Rejeter tous les appels",
+  "rejectAllCallsDescription": "Lorsqu'il est activé, tous les appels seront rejetés avec la plus haute priorité",
+  "rejectAllNumbers": "Rejeter tous les numéros",
+  "rejectAllNumbersDesc": "Rejeter tous les appels entrants lorsqu'il est activé",
+  "rejectExceededNumbers": "Rejeter les numéros dépassés",
+  "rejectExceededNumbersDescription": "Rejeter automatiquement les numéros dépassant le seuil de comptage",
+  "remoteFilterSettings": "Paramètres de filtre à distance",
+  "@remoteFilterSettings": {
+    "description": "Title for remote filter settings page"
+  },
+  "remoteFilterSettingsPageTitle": "Paramètres de filtrage des numéros à distance",
+  "remoteNumberFilter": "Filtre de numéros à distance",
+  "remoteNumberFilterDatabaseInfo": "Ce filtre utilise une base de données distante indépendante pour obtenir les dernières informations sur les numéros.",
+  "remoteNumberFilterDescription": "Interceptez les appels de harcèlement en fonction des informations de la base de données distante",
+  "remoteNumberFilterExplanationContent": "Le filtre de numéros à distance identifie et bloque les appels indésirables en interrogeant une base de données distante en fonction du nombre de numéros.",
+  "remoteNumberFilterExplanationTitle": "Explication du filtre de numéros à distance",
+  "remoteNumberFilterFeatureCountThreshold": "• Seuil de comptage : déterminer en fonction de la fréquence d'apparition des numéros",
+  "remoteNumberFilterFeatureFilterAction": "• Actions de filtrage : configurez la façon de gérer les numéros dépassant le seuil",
+  "remoteNumberFilterFeaturePriority": "• Paramètres de priorité : définissez la priorité des actions à distance",
+  "remoteNumberFilterFeatures": "Fonctionnalités :",
+  "remoteNumberFiltering": "Filtrage des numéros à distance",
+  "remoteNumberFilteringExplanation": "• Filtrage des numéros à distance : règles de filtrage basées sur les informations de la base de données distante",
+  "remoteNumberFilterSubtitle": "Identifiez les appels indésirables à l'aide de la base de données cloud et des rapports de la communauté",
+  "removeAdsDescription": "Supprimez définitivement toutes les publicités de l'application pour une expérience plus fluide",
+  "removeAdsTitle": "Supprimer les publicités",
+  "removedFromFavoriteContacts": "Supprimé des contacts favoris",
+  "removedFromFavorites": "Supprimé des favoris",
+  "removeFavorite": "Supprimer des favoris",
+  "removeFromFavorites": "Supprimer des favoris",
+  "renameButton": "Renommer",
+  "renameDeviceDialogTitle": "Renommer l'appareil",
+  "renameDeviceTitle": "Renommer l'appareil",
+  "replaceCurrentSettingsConfirmation": "Cela remplacera tous vos paramètres actuels. Voulez-vous vraiment continuer ?",
+  "requestAllPermissions": "Demander toutes les autorisations",
+  "requestPermission": "Demander l'autorisation",
+  "requestPermissionFailed": "Échec de la demande d'autorisation : {error}",
+  "requiredMarks": "{count} Marques",
+  "reset": "Réinitialiser",
+  "restore": "Restaurer",
+  "restoreApplicationSettingsFromBackup": "Restaurer les paramètres de l'application à partir d'une sauvegarde",
+  "restoreApplicationSettingsFromBackupSubtitle": "Restaurer les paramètres de l'application à partir d'une sauvegarde",
+  "restoreButton": "Restaurer",
+  "restoreFailedWithError": "La restauration depuis le cloud a échoué : {error}",
+  "restoreFromCloud": "Restaurer depuis le Cloud",
+  "restoreFromCloudDescription": "Restaurer les paramètres et les règles depuis le stockage cloud",
+  "restoreFromCloudFailed": "Échec de la restauration depuis le cloud : {error}",
+  "restoreFromCloudLabel": "Restaurer depuis le Cloud",
+  "restoreFromCloudSuccess": "Restauration réussie depuis le cloud",
+  "restoreFromCloudTitle": "Restaurer depuis le Cloud",
+  "restoreFromLocal": "Restaurer depuis le local",
+  "restorePurchases": "Restaurer les achats",
+  "restoreSectionTitle": "Restaurer",
+  "restoreSettings": "Restaurer les paramètres",
+  "restoreSettingsConfirmation": "Ceci remplacera tous vos paramètres actuels. Êtes-vous sûr de vouloir continuer ?",
+  "restoreSettingsDialogTitle": "Restaurer les paramètres",
+  "restoreSettingsTitle": "Restaurer les paramètres",
+  "restoreSuccessFromLocal": "Restauration réussie depuis le local",
+  "restoreSuccessMessage": "Restauration réussie depuis le cloud",
+  "retry": "Réessayer",
+  "ridesharing": "Covoiturage",
+  "risk": "Risque",
+  "robocall": "Appel automatique",
+  "ruleAction": "Action de la règle",
+  "ruleAddButton": "Ajouter une règle",
+  "ruleAddedSuccess": "Règle ajoutée avec succès",
+  "@ruleAddedSuccess": {
+    "description": "Rule creation success message"
+  },
+  "ruleAddFailure": "Échec de l'ajout de la règle : {error}",
+  "@ruleAddFailure": {
+    "description": "Rule creation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleAddSuccess": "Règle ajoutée avec succès",
+  "ruleDeleteConfirmContent": "Êtes-vous sûr de vouloir supprimer cette {ruleType} ?",
+  "ruleDeleteConfirmTitle": "Supprimer la règle",
+  "ruleDeletedSuccess": "Règle supprimée avec succès",
+  "ruleDeletedSuccessfully": "Règle supprimée avec succès",
+  "ruleDeleteFailed": "Échec de la suppression de la règle : {error}",
+  "ruleDeleteFailure": "Échec de la suppression de la règle : {error}",
+  "@ruleDeleteFailure": {
+    "description": "Rule deletion failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "ruleDeleteSuccess": "Règle supprimée avec succès",
+  "ruleDisabledSuccessfully": "Règle désactivée avec succès",
+  "ruleEnabledSuccessfully": "Règle activée avec succès",
+  "ruleLoadFailed": "Échec du chargement des règles : {error}",
+  "ruleManagement": "Gestion des règles",
+  "ruleManagementTitle": "Gestion des règles",
+  "ruleName": "Nom de la règle",
+  "ruleNameAndContentRegexCannotBeEmpty": "Le nom de la règle et l'expression régulière du contenu ne peuvent pas être vides",
+  "ruleNameAndPhoneNumberCannotBeEmpty": "Le nom de la règle et le numéro de téléphone ne peuvent pas être vides",
+  "ruleNameHint": "par exemple, Famille, Amis, etc.",
+  "ruleNameLabel": "Nom de la règle",
+  "ruleNamePatternRequired": "Veuillez entrer le nom et le modèle de la règle",
+  "ruleNameRequired": "Le nom de la règle et le numéro de téléphone ne peuvent pas être vides",
+  "ruleNotExist": "La règle n'existe pas ou a été supprimée",
+  "ruleNotFound": "Règle non trouvée : {error}",
+  "ruleSavedSuccessfully": "Règle enregistrée avec succès !",
+  "ruleSavedSuccessMessage": "Règle enregistrée avec succès !",
+  "ruleSaveFailed": "Échec de l'enregistrement : {error}",
+  "ruleSaveFailedMessage": "Échec de l'enregistrement : {error}",
+  "ruleSaveSuccess": "Règle enregistrée avec succès !",
+  "rulesExportedSuccessfully": "Règles exportées avec succès",
+  "rulesExportedTo": "Règles exportées vers : {path}",
+  "rulesImported": "Règles importées avec succès",
+  "rulesImportedSuccessfully": "{count} règles importées avec succès",
+  "rulesImportFailed": "Échec de l'importation des règles : {error}",
+  "ruleStatistics": "Statistiques des règles",
+  "ruleStatusChanged": "Règle {status} avec succès",
+  "ruleToggleFailed": "Échec de l'opération : {error}",
+  "ruleToggleSuccess": "Règle {status} avec succès",
+  "ruleUpdateFailed": "Échec de la mise à jour de la règle : {error}",
+  "ruleUpdateSuccess": "Règle mise à jour avec succès",
+  "ruleVerification": "Vérification de la règle",
+  "save": "Enregistrer",
+  "saveButton": "Enregistrer",
+  "saveButtonLabel": "ENREGISTRER",
+  "saveButtonText": "Enregistrer",
+  "saveFailed": "Échec de l'enregistrement : {error}",
+  "saveFilter": "Enregistrer le filtre",
+  "saveSettings": "Enregistrer les paramètres",
+  "saveSettingsFailed": "Échec de l'enregistrement des paramètres : {error}",
+  "scamsLikely": "Arnaques probables",
+  "search": "Rechercher",
+  "searchContacts": "Rechercher des contacts",
+  "searchError": "Erreur de recherche : {error}",
+  "searchFilters": "Filtres de recherche",
+  "searchForContacts": "Rechercher des contacts",
+  "searchHint": "Rechercher...",
+  "searchSettingsSubtitle": "Rechercher des contacts, des étiquettes, des listes noires, des listes blanches, etc.",
+  "searchSettingsTitle": "Paramètres de recherche",
+  "securityMessage": "Ne faites confiance à aucun appel téléphonique. Vérifiez toujours les numéros du service clientèle de manière indépendante. Ne partagez jamais de mots de passe, de codes de vérification, de numéros de carte ou d'informations personnelles.",
+  "selectActionToPerform": "Sélectionnez l'action à effectuer lorsque la règle correspond",
+  "selectActionWhenBlockingCalls": "Sélectionnez l'action lors du blocage des appels",
+  "selectActionWhenRuleMatches": "Sélectionnez l'action lorsque la règle correspond",
+  "selectAll": "Sélectionner tout",
+  "selectCountry": "Sélectionner le pays",
+  "selectDateRange": "Sélectionner la plage de dates",
+  "selectedDateRange": "Plage de dates sélectionnée",
+  "@selectedDateRange": {
+    "description": "Selected date range text"
+  },
+  "selectedItems": "{count} éléments sélectionnés",
+  "selectedLabel": "Sélectionné :",
+  "selectExportFormat": "Sélectionner le format d'exportation",
+  "selectLabel": "Sélectionner une étiquette",
+  "selectLabelAndEnterPhoneNumber": "Veuillez sélectionner une étiquette et saisir un numéro de téléphone valide",
+  "selectLanguage": "Sélectionner la langue",
+  "selectMultiple": "Sélectionner plusieurs",
+  "selectPeriod": "Sélectionner la période",
+  "selectSimCard": "Sélectionner la carte SIM",
+  "selectSimSlot": "Sélectionner l'emplacement SIM",
+  "@selectSimSlot": {
+    "description": "Title for SIM slot selection dialog"
+  },
+  "selectSpecificActionForBlockedCalls": "Sélectionnez l'action spécifique à effectuer lors du blocage des appels",
+  "selectTag": "Sélectionner une étiquette",
+  "selectTags": "Sélectionner des étiquettes",
+  "selectTrustedDataSource": "Veuillez sélectionner des sources de données fiables",
+  "selectYourLanguage": "Sélectionnez votre langue",
+  "sender": "Expéditeur",
+  "senderRegexOptional": "Regex de l'expéditeur (Facultatif)",
+  "serverAddressLabel": "Adresse du serveur",
+  "serviceTypeContact": "Abonnement Contact",
+  "serviceTypeLabel": "Type de service",
+  "serviceTypePhone": "Abonnement Téléphonique",
+  "serviceTypePlugin": "Mise à jour du plugin",
+  "serviceTypeSms": "Abonnement SMS",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setButton": "Définir",
+  "setEncryptionPassword": "Définir le mot de passe de chiffrement",
+  "setEncryptionPasswordDescription": "Définir le mot de passe de chiffrement pour la sauvegarde et la restauration",
+  "setEncryptionPasswordLabel": "Définir le mot de passe de chiffrement",
+  "setEncryptionPasswordTitle": "Définir le mot de passe de chiffrement",
+  "setPasswordButton": "Définir",
+  "settings": "Paramètres",
+  "settingsBackedUpTo": "Paramètres sauvegardés dans : {path}",
+  "settingsLoaded": "Paramètres chargés",
+  "settingsLoadFailed": "Échec du chargement des paramètres : {error}",
+  "settingsRestoredSuccessfully": "Paramètres restaurés avec succès. Veuillez redémarrer l'application pour que les modifications prennent effet.",
+  "settingsSaved": "Paramètres enregistrés",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "Échec de l'enregistrement des paramètres : {error}",
+  "settingsTab": "Paramètres",
+  "settingsTitle": "Paramètres",
+  "setup": "Configuration",
+  "showContactEditDialogStaticMethod": "Méthode statique pour afficher la boîte de dialogue de modification des contacts",
+  "showExplanation": "Afficher l'explication",
+  "silence": "Silence",
+  "silenceAndNoAnswer": "Silence et Pas de réponse",
+  "silenceNoAnswer": "Silence Pas de réponse",
+  "silentCallVoiceClone": "Clonage vocal d'appel silencieux",
+  "silentRules": "Règles silencieuses",
+  "simCard": "Carte SIM {simNumber}",
+  "simCardColor": "Couleur de la carte SIM",
+  "simCardConfigurationExplanation": "• Configuration de la carte SIM : Définir des règles de filtrage indépendantes pour chaque carte SIM",
+  "simCardFilterRules": "Règles de filtrage de la carte SIM",
+  "simCardFilterRulesDescription": "Définir différentes règles de filtrage en fonction des emplacements des cartes SIM",
+  "simCardFontSize": "Taille de la police de la carte SIM",
+  "simCardPosition": "Position de la carte SIM",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfoLoadFailure": "Échec du chargement des informations de la carte SIM : {error}",
+  "simRuleInstructions": "Les règles de slot SIM vous permettent de configurer des règles de filtrage indépendantes pour chaque slot SIM.",
+  "simRuleInstructionsTitle": "Règles de slot SIM",
+  "@simRuleInstructionsTitle": {
+    "description": "Section title for SIM slot rules instructions"
+  },
+  "simRuleManagement": "Gestion des règles de slot SIM",
+  "@simRuleManagement": {
+    "description": "SIM slot rule management section title"
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotDataLoadFailed": "Échec du chargement des données SIM : {error}",
+  "simSlotFilterConfiguration": "Configuration du filtre de slot SIM",
+  "simSlotFilterConfigurationDescription": "Permet de définir des règles de filtrage par slot SIM",
+  "simSlotFilterDescription": "Configurez des règles de filtrage indépendantes pour chaque carte SIM :",
+  "simSlotFilterSettingsTitle": "Paramètres du filtre de slot SIM {slotNumber}",
+  "@simSlotFilterSettingsTitle": {
+    "description": "Title for SIM slot filter settings",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotLoadFailed": "Échec du chargement des slots SIM : {error}",
+  "simSlotManagement": "Gestion des slots SIM",
+  "simSlotOperationFailed": "L'opération sur le slot SIM a échoué : {error}",
+  "@simSlotOperationFailed": {
+    "description": "SIM slot operation failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlotPosition": "Position du slot SIM {slotNumber}",
+  "@simSlotPosition": {
+    "description": "SIM slot position display",
+    "placeholders": {
+      "slotNumber": {
+        "type": "int",
+        "format": "compact"
+      }
+    }
+  },
+  "simSlotRuleFeature": "• Règles de slot SIM : stratégies de filtrage indépendantes par SIM",
+  "simSlotRuleListTitle": "Liste des règles de slot SIM",
+  "simSlotRuleManagement": "Règles de slot SIM",
+  "simSlotRuleManagementTitle": "Gestion des règles",
+  "simSlotSettings": "Paramètres du slot SIM",
+  "@simSlotSettings": {
+    "description": "Title for SIM slot settings page"
+  },
+  "simSlotTitle": "Slot SIM {slotNumber}",
+  "skip": "Ignorer",
+  "smartCallerId": "Identification intelligente de l'appelant",
+  "sms": "SMS",
+  "smsFilterDescription": "Le filtrage SMS vous aide à filtrer automatiquement les messages indésirables et à garder votre liste de messages propre. Vous pouvez définir des règles de filtrage et des méthodes de notification.",
+  "smsFilterDisabled": "Filtrage SMS désactivé",
+  "smsFilterEnabled": "Filtrage SMS activé",
+  "smsFilterRuleAddedSuccessfully": "Règle de filtrage SMS ajoutée avec succès",
+  "smsFilterRules": "Règles de filtrage SMS",
+  "smsFilterSettings": "Paramètres de filtrage SMS",
+  "smsHistory": "Historique SMS",
+  "smsManagement": "Gestion SMS",
+  "smsPermission": "Autorisation SMS",
+  "smsPermissionDescription": "Utilisé pour filtrer les messages indésirables.",
+  "smsRuleAddedSuccessfully": "Règle SMS ajoutée avec succès",
+  "smsRuleDeletedSuccessfully": "Règle SMS supprimée avec succès",
+  "smsRuleLoadFailed": "Échec du chargement des règles SMS : {error}",
+  "smsRuleManagement": "Gestion des règles SMS",
+  "smsRulesExportedSuccessfully": "Les règles SMS ont été exportées avec succès vers {filePath}",
+  "smsRulesImportedSuccessfully": "Règles SMS importées avec succès",
+  "smsRuleSubscription": "Abonnement aux règles SMS",
+  "smsRuleUpdatedSuccessfully": "Règle SMS mise à jour avec succès",
+  "smsSettingsSubtitle": "Filtrage SMS et blocage de mots-clés",
+  "smsSettingsTitle": "Paramètres SMS",
+  "smsSubscription": "Abonnement SMS",
+  "smsSubscriptionAddedSuccessfully": "Abonnement SMS ajouté avec succès",
+  "smsSubscriptionRulesDescription": "Abonnez-vous aux listes de règles SMS via URL, en prenant en charge la correspondance d'expressions régulières. Vous pouvez définir des actions de blocage ou d'autorisation.",
+  "smsTab": "SMS",
+  "somePermissionsDenied": "Certaines demandes d'autorisation ont été refusées",
+  "spamLikely": "Probablement du spam",
+  "startColor": "Couleur de début",
+  "startDate": "Date de début",
+  "startUsing": "Commencer",
+  "statAnswered": "Répondu",
+  "statBlocked": "Bloqué",
+  "staticMethodShowCallerIdDialog": "Méthode statique pour afficher la boîte de dialogue d'informations sur l'identification de l'appelant",
+  "staticMethodToDisplayCountrySelectionDialog": "Méthode statique pour afficher la boîte de dialogue de sélection du pays",
+  "staticMethodToDisplayDialog": "Méthode statique pour afficher la boîte de dialogue",
+  "statistics": "Statistiques",
+  "statisticsExportFeatureComingSoon": "La fonctionnalité d'exportation des statistiques sera bientôt disponible",
+  "statisticsGrid": "Grille de statistiques",
+  "statisticsPageTitle": "Analyse de données",
+  "stirColor": "Couleur STIR",
+  "stirFontSize": "Taille de police STIR",
+  "stirPosition": "Position STIR",
+  "storagePermission": "Autorisation de stockage",
+  "storagePermissionDescription": "Utilisé pour enregistrer les paramètres et les règles.",
+  "subscribe": "S'abonner",
+  "subscriptionAddSuccess": "Abonnement \"{name}\" ajouté avec succès",
+  "@subscriptionAddSuccess": {
+    "description": "Subscription added success message",
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "subscriptionDeleteConfirmContent": "Êtes-vous sûr de vouloir supprimer cet abonnement ?",
+  "subscriptionDeleteConfirmTitle": "Supprimer l'abonnement",
+  "subscriptionDeleted": "Abonnement supprimé",
+  "@subscriptionDeleted": {
+    "description": "Subscription deleted success message"
+  },
+  "subscriptionDeletedSuccessfully": "Abonnement supprimé avec succès",
+  "subscriptionDeleteFailed": "Échec de la suppression de l'abonnement : {error}",
+  "subscriptionDeleteSuccess": "Abonnement supprimé",
+  "subscriptionEmptyState": "Aucun abonnement disponible",
+  "subscriptionEmptyText": "Aucun abonnement pour le moment",
+  "subscriptionLoadFailed": "Échec du chargement des abonnements : {error}",
+  "subscriptionLoadingFailed": "Échec du chargement des abonnements : {error}",
+  "subscriptionManagementTitle": "Gestion des abonnements",
+  "subscriptionName": "Nom de l'abonnement",
+  "@subscriptionName": {
+    "description": "Subscription name field label"
+  },
+  "subscriptionNameAndUrlCannotBeEmpty": "Le nom et l'URL de l'abonnement ne peuvent pas être vides",
+  "subscriptionNameHint": "Saisir le nom de l'abonnement",
+  "subscriptionPageTitle": "Gestion des abonnements",
+  "subscriptionStatusChangeFailed": "Échec de la modification de l'état de l'abonnement : {error}",
+  "subscriptionToggleFailed": "Échec de l'activation/désactivation de l'abonnement : {error}",
+  "subscriptionUpdateFailed": "Échec de la mise à jour de l'abonnement : {error}",
+  "subscriptionUpdateSuccess": "Abonnement mis à jour avec succès",
+  "@subscriptionUpdateSuccess": {
+    "description": "Subscription update success message",
+    "placeholders": {}
+  },
+  "subscriptionUrl": "URL de l'abonnement",
+  "@subscriptionUrl": {
+    "description": "Subscription URL field label"
+  },
+  "subscriptionUrlHint": "Saisir l'URL de l'abonnement",
+  "successfullyImportedRules": "Règles {count} importées avec succès",
+  "supportSync": "Support de synchronisation",
+  "survey": "Sondage",
+  "syncDevicesButton": "Synchroniser les appareils",
+  "@synced": {
+    "description": "Synced status label"
+  },
+  "syncFailed": "La synchronisation a échoué",
+  "syncFailedMessage": "La synchronisation a échoué",
+  "syncFolderNameHint": "Veuillez saisir le nom du dossier de synchronisation (par défaut : NotificationManager)",
+  "syncFolderNameLabel": "Nom du dossier de synchronisation",
+  "synchronized": "Synchronisé",
+  "@synchronized": {
+    "description": "Synchronized status label"
+  },
+  "syncing": "Synchronisation en cours...",
+  "syncNow": "Synchroniser maintenant",
+  "@syncNow": {
+    "description": "Sync now button text"
+  },
+  "syncNowButton": "Synchroniser maintenant",
+  "syncStatusTitle": "Statut de synchronisation",
+  "syncStatusUpdatedMessage": "Statut de synchronisation mis à jour",
+  "syncSuccessful": "Synchronisation réussie",
+  "syncSuccessMessage": "Synchronisation réussie",
+  "syncWithCloudStorage": "Synchroniser avec le stockage cloud",
+  "syncWithCloudStorageSubtitle": "Synchroniser avec le stockage cloud",
+  "systemFeatures": "Fonctionnalités du système :",
+  "systemSettingsTitle": "Paramètres système",
+  "tabAll": "Tous",
+  "tabAnswered": "Répondu",
+  "tabBlocked": "Bloqué",
+  "tabMissed": "Manqué",
+  "tabOutgoing": "Sortant",
+  "tagLabel": "Tag : {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "tagsUpdated": "Tags mis à jour",
+  "takeaway": "À retenir",
+  "telecommunication": "Télécommunications",
+  "telegram": "Telegram",
+  "telemarketing": "Télémarketing",
+  "testButton": "TEST",
+  "testButtonLabel": "TEST",
+  "testConnectionButton": "Tester la connexion",
+  "textColorsSetting": "Couleurs du texte et des étiquettes",
+  "thisAppIsAPowerfulCallerIdToolThatAllows": "Cette application est un puissant outil d'identification de l'appelant qui vous permet d'identifier et de bloquer les appels indésirables.",
+  "thisWeek": "Cette semaine",
+  "timeInterceptor": "Intercepteur de temps",
+  "timeInterceptorDescription": "Interceptez/autorisez automatiquement les appels potentiels en fonction de la fréquence des appels",
+  "timeInterceptorExplanation": "• Intercepteur de temps : intercepter/autoriser les appels répétés dans un court laps de temps",
+  "timeInterceptorExplanationContent": "La fonction d'interception de fréquence des appels analyse la fréquence des appels pour identifier et intercepter/autoriser automatiquement les appels spam fréquents.",
+  "timeInterceptorExplanationTitle": "Explication de l'interception de la fréquence des appels",
+  "timeInterceptorSettingsTitle": "Paramètres d'interception de la fréquence des appels",
+  "timeInterceptorSubtitle": "Interceptez automatiquement les appels spam potentiels en fonction de la fréquence des appels",
+  "timeInterceptorTitle": "Activer l'interception de la fréquence des appels",
+  "timeWindowDescription": "Définissez la durée de la fenêtre temporelle pour autoriser les appels répétés. Les appels provenant du même numéro dans cette fenêtre seront autorisés",
+  "timeWindowLabel": "Fenêtre d'interception (minutes) : {minutes}",
+  "@timeWindowLabel": {
+    "description": "Time window label with duration in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeWindowSetting": "Définissez la durée de la fenêtre temporelle pour autoriser les appels répétés. Les appels provenant du même numéro dans cette fenêtre seront autorisés",
+  "today": "Aujourd'hui",
+  "total": "Total",
+  "totalBlocked": "Total bloqué",
+  "totalFiltered": "Total filtré",
+  "transferDataBetweenDevicesOrPlatforms": "Transférer des données entre des appareils ou des plateformes",
+  "transferDataBetweenDevicesOrPlatformsSubtitle": "Transférer des données entre des appareils ou des plateformes",
+  "travelTicketing": "Billetterie de voyage",
+  "trend": "Tendance",
+  "trendChart": "Graphique des tendances",
+  "tutorial": "Tutoriel",
+  "type": "Type",
+  "unassignedSIMCard": "Carte SIM non attribuée",
+  "unknown": "Inconnu",
+  "@unknown": {
+    "description": "Display text for unknown status"
+  },
+  "unknownLabel": "Label inconnu",
+  "unknownTag": "Tag : Inconnu",
+  "unregisterButton": "Annuler l'inscription",
+  "unregisterDeviceConfirmationMessage": "Êtes-vous sûr de vouloir annuler l'enregistrement de {deviceName} ?",
+  "unregisterDeviceTitle": "Annuler l'enregistrement de l'appareil",
+  "unsupportedFileFormat": "Format de fichier non pris en charge",
+  "update": "Mettre à jour",
+  "updateAllNow": "Tout mettre à jour maintenant",
+  "updateCallFilterConfig": "Mettre à jour la configuration du filtre d'appels",
+  "@updateCallFilterConfig": {
+    "description": "Button text for updating call filter configuration"
+  },
+  "updateContactFailed": "Échec de la mise à jour du contact : {error}",
+  "updateFavoriteStatus": "Mettre à jour l'état des favoris",
+  "updateFavoriteStatusFailed": "Échec de la mise à jour de l'état des favoris : {error}",
+  "updateInterval": "Intervalle de mise à jour",
+  "updateLabelFailed": "Échec de la mise à jour de l'étiquette",
+  "updateNow": "Mettre à jour maintenant",
+  "updatePlugin": "Mettre à jour le plug-in",
+  "updatePluginFailed": "Échec de la mise à jour du plug-in : {error}",
+  "updateRuleFailed": "Échec de la mise à jour de la règle : {error}",
+  "updateSubscriptionFailed": "Échec de la mise à jour de l'abonnement : {error}",
+  "@updateSubscriptionFailed": {
+    "description": "Failed to update subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateSuccess": "{service} mis à jour avec succès ({count} règles)",
+  "@updateSuccess": {
+    "description": "Single service update success message",
+    "placeholders": {
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
+    }
+  },
+  "updateTags": "Mettre à jour les tags",
+  "useCasesPoint1": "• Identifier les appels de spam de recomposition automatique",
+  "useCasesPoint2": "• Intercepter les appels marketing qui appellent plusieurs fois en peu de temps",
+  "useCasesPoint3": "• Empêcher le « phone bombing » et le harcèlement",
+  "useCasesTitle": "Cas d'utilisation :",
+  "useGlobalSettings": "Utiliser les paramètres globaux",
+  "userEmail": "user@example.com",
+  "usernameLabel": "Nom d'utilisateur",
+  "useStandardRegexSyntaxToDefinePatternsExamples": "Utiliser la syntaxe regex standard pour définir les modèles. Exemples :",
+  "validateRegex": "Valider l'expression régulière",
+  "verificationFailedText": "Échec",
+  "verifiedText": "Vérifié",
+  "verify": "Vérifier",
+  "version": "Version : {version}",
+  "vipExchangeDescription": "Échangez l'abonnement VIP avec le nombre de marquages de numéros de téléphone",
+  "vipExchangeTitle": "Échange VIP de marquage",
+  "watchAd": "Regarder une publicité",
+  "watchAdForTemp": "Regarder une publicité pour des privilèges temporaires",
+  "watchAdForTempDescription": "Regardez une courte publicité pour débloquer temporairement certaines fonctionnalités premium",
+  "webDAVConfigTitle": "Configuration WebDAV",
+  "webdavConfigurationTitle": "Configuration WebDAV",
+  "webdavPasswordHint": "Veuillez entrer le mot de passe WebDAV",
+  "webdavServerAddressHint": "Veuillez entrer l'adresse du serveur WebDAV",
+  "webdavUsernameHint": "Veuillez entrer le nom d'utilisateur WebDAV",
+  "week": "Semaine",
+  "weekly": "Hebdomadaire",
+  "weeklyBlockedCallsSummary": "Résumé hebdomadaire des appels bloqués",
+  "weeklyChartTitle": "Appels bloqués hebdomadaires",
+  "weeklyReport": "Rapport hebdomadaire",
+  "@weeklyReport": {
+    "description": "Weekly report notification option"
+  },
+  "weeklyReportDesc": "Recevez un rapport récapitulatif hebdomadaire de l'activité de blocage des appels",
+  "@weeklyReportDesc": {
+    "description": "Description for weekly report option"
+  },
+  "welcome": "Bienvenue",
+  "whitelist": "Liste blanche",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "whitelistLabel": "Liste blanche",
+  "width": "Largeur",
+  "wildcardMatchingDescription": "Utilisez '.' pour correspondre à n'importe quel caractère (par exemple, '123.456' correspond à 123-456)",
+  "wildcardMatchingTitle": "Correspondance par caractère générique :",
+  "wildcardSupportForFlexibleFiltering": "Prise en charge des caractères génériques pour le filtrage flexible",
+  "windowSizeSetting": "Taille de la fenêtre",
+  "year": "Année",
+  "yearly": "Annuel",
+  "yearlyChartTitle": "Appels bloqués annuels",
+  "noSimCardsDetected": "Aucune carte SIM détectée",
+  "filterManagementDescription": "Définir les filtres d'appel",
+  "callerIdCustomizationSubtitle": "Personnaliser la mise en page de l'identification de l'appelant",
+  "fraudAlerSettingTitle": "Paramètre d'alerte de fraude",
+  "fraudAlerSettingSubtitle": "Pour configurer l'alerte de fraude",
+  "enableFraudAlert": "Activer l'alerte de fraude",
+  "enableFraudAlertDescription": "Alerte pour les appels suspects d'arnaque",
+  "enableVibration": "Activer la vibration",
+  "enableVibrationDescription": "Vibrer lorsqu'un appel est suspecté d'être une arnaque",
+  "notificationSettingsTitle": "Paramètres de notification",
+  "useLocalNotification": "Utiliser les notifications locales",
+  "useLocalNotificationDescription": "Activer les notifications locales pour les appels entrants",
+  "cancelLocalNotification": "Fermer les notifications locales",
+  "useStirNotification": "Utiliser la notification de STIR",
+  "useStirNotificationDescription": "Activer les notifications STIR pour les appels entrants",
+  "cancelLocalNotificationDescription": "Fermer automatiquement les notifications locales",
+  "callerIdSettingsTitle": "Paramètres d'identification de l'appelant",
+  "callerIdSettingsSubtitle": "Pour configurer la notification d'appel entrant et le mode d'affichage",
+  "purchaseTitle": "Achat",
+  "purchaseSubtitle": "Pour acheter le service",
+  "callerIdNotificationTitle": "Informations sur l'appel entrant",
+  "@callerIdNotificationTitle": {
+    "description": "Title for the Incoming Call Info"
+  },
+  "callerIdBody": "Numéro : {phoneNumber}",
+  "@callerIdBody": {
+    "description": "Body for the caller ID notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "blockedCallTitle": "Appel bloqué",
+  "@blockedCallTitle": {
+    "description": "Title for blocked call notification"
+  },
+  "blockedCallBody": "Appel bloqué de {phoneNumber}",
+  "@blockedCallBody": {
+    "description": "Body for blocked call notification, showing the phone number",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "stirVerified": "Vérifié",
+  "@stirVerified": {
+    "description": "STIR/SHAKEN verification status: Verified"
+  },
+  "stirNotVerified": "Non vérifié",
+  "@stirNotVerified": {
+    "description": "STIR/SHAKEN verification status: Not Verified"
+  },
+  "stirFailed": "Échec de la vérification",
+  "@stirFailed": {
+    "description": "STIR/SHAKEN verification status: Verification Failed"
+  },
+  "stirUnknown": "Statut de vérification inconnu",
+  "@stirUnknown": {
+    "description": "STIR/SHAKEN verification status: Unknown"
+  },
+  "stirVerificationTitle": "Vérification STIR/SHAKEN",
+  "@stirVerificationTitle": {
+    "description": "Title for STIR/SHAKEN verification notification"
+  },
+  "stirVerificationBody": "{stirResultMessage} pour le numéro {phoneNumber}",
+  "@stirVerificationBody": {
+    "description": "Body for STIR/SHAKEN verification notification, showing result and phone number",
+    "placeholders": {
+      "stirResultMessage": {
+        "type": "String",
+        "example": "Verified"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "scrollingSecurityMessageSettings": "Paramètres du message de sécurité défilant",
+  "messageColor": "Couleur du message",
+  "messageFontSize": "Taille de la police du message",
+  "messagePosition": "Position du message",
+  "containerWidth": "Largeur du conteneur",
+  "scrollSpeed": "Vitesse de défilement",
+  "enableSecurityMessage": "Activer le message de sécurité",
+  "fraudAlertTitle": "Alerte de fraude",
+  "@fraudAlertTitle": {
+    "description": "Title for the fraud alert notification"
+  },
+  "fraudAlertBody": "Appel de fraude potentiel de {phoneNumber}",
+  "@fraudAlertBody": {
+    "description": "Body for the fraud alert notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "example": "+1234567890"
+      }
+    }
+  },
+  "loadRulesFailed": "Échec du chargement des règles : {error}",
+  "loadCallLogFailed": "Échec du chargement du journal des appels : {error}",
+  "noBlockedTypeData": "Aucune donnée de type bloqué disponible",
+  "importEntity": "Importer {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityImportSuccess": "{entityTypeName} importé avec succès, total {count} enregistrements importés",
+  "@entityImportSuccess": {
+    "description": "Success message after importing entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object",
+        "example": "42"
+      }
+    }
+  },
+  "entityImportFailed": "Échec de l'importation de {entityTypeName} : {error}",
+  "@entityImportFailed": {
+    "description": "Error message when importing entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Exporter {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportSuccess": "{entityTypeName} exporté avec succès",
+  "@entityExportSuccess": {
+    "description": "Success message after exporting entities",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "entityExportFailed": "Échec de l'exportation de {entityTypeName} : {error}",
+  "@entityExportFailed": {
+    "description": "Error message when exporting entities fails",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      },
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "cloudSyncService": "Service de synchronisation cloud",
+  "membershipCenter": "Centre d'adhésion",
+  "redeemVipWithMarks": "Échangez VIP avec des points",
+  "currentMarkCount": "Nombre de points actuel",
+  "markMoreNumbersForMore": "Marquez plus de numéros pour plus de points",
+  "noAds": "Pas de publicités",
+  "cloudBackup": "Sauvegarde cloud",
+  "callerIdEnhancement": "Amélioration de l'identification de l'appelant",
+  "voiceRecognition": "Reconnaissance vocale",
+  "feature": "Fonctionnalité",
+  "normalUser": "Utilisateur normal",
+  "vipUser": "Utilisateur VIP",
+  "temporaryVip": "VIP temporaire",
+  "removeAds": "Supprimer les publicités",
+  "unknownAction": "Action inconnue",
+  "settingsBackup": "Sauvegarde des paramètres",
+  "allServicesStatusTitle": "État actuel du service",
+  "allServicesStatusSubtitle": "État actuel de chaque service cloud",
+  "redirect": "Rediriger",
+  "notify": "Notifier",
+  "log": "Journal",
+  "custom": "Personnalisé",
+  "allowActionDescription": "Les appels seront autorisés, même si le numéro est sur la liste de blocage.",
+  "blockActionDescription": "Les appels seront bloqués et affichés dans le journal des appels.",
+  "silenceActionDescription": "Les appels seront mis en sourdine, mais affichés dans le journal des appels.",
+  "noneActionDescription": "Aucune action spéciale ne sera effectuée pour l'appel.",
+  "redirectActionDescription": "Rediriger l'appel vers un numéro spécifié.",
+  "labelActionDescription": "Ajouter une étiquette à l'appel pour une identification facile.",
+  "notifyActionDescription": "Envoyer une notification lorsqu'un appel est reçu.",
+  "logActionDescription": "Enregistrer les informations de l'appel sans prendre d'autre mesure.",
+  "customActionDescription": "Effectuer une action personnalisée.",
+  "synced": "Synchronisé",
+  "needVipAccess": "Vous avez besoin d'un accès VIP pour utiliser cette fonctionnalité",
+  "importExportDescription": "Importer ou exporter les données {entityTypeName}",
+  "importExportTitle": "Importer/Exporter",
+  "noPhoneRules": "Aucune règle de téléphone trouvée",
+  "noRegexRules": "Aucune règle regex trouvée",
+  "noAllowedBlockedRules": "Aucune règle autorisée/bloquée trouvée",
+  "importExport": "Importer/Exporter",
+  "filterByAction": "Filtrer par action",
+  "upgradeToVip": "Passer à VIP",
+  "batteryOptimizationPermission": "Optimisation de la batterie",
+  "batteryOptimizationPermissionDescription": "Autoriser l'application à s'exécuter en arrière-plan pour fournir des services comme l'identification de l'appelant.",
+  "permissionTitle": "Permissions spéciales",
+  "permissionSubtitle": "Gérer les permissions de superposition et d'optimisation de la batterie",
+  "themeSettingsTitle": "Paramètres du thème",
+  "themeSettingsSubtitle": "Choisissez votre thème préféré",
+  "databaseSyncTitle": "Synchronisation de la base de données",
+  "countrySyncSettingsTitle": "Paramètres de synchronisation de la base de données par pays",
+  "countrySyncSettingsSubtitle": "Sélectionnez les pays pour la synchronisation des données",
+  "countryDataDisclaimer": "Veuillez noter: La base de données peut ne pas inclure de données pour tous les pays ou régions spécifiques.",
+  "editSubscription": "Modifier l'abonnement",
+  "searchByNameOrPhoneNumber": "Rechercher par nom ou numéro de téléphone",
+  "allowedBlockedRulesInfo": "Les règles autorisées/bloquées sont utilisées pour faire correspondre les appels à des numéros de téléphone spécifiques, qui ont la plus haute priorité.",
+  "searchPhoneRulesHint": "Rechercher des règles de téléphone",
+  "phoneRulesInfo": "Les règles de téléphone sont utilisées pour faire correspondre les appels à des numéros de téléphone spécifiques, qui ont une priorité inférieure. Certains proviennent des abonnements aux règles de téléphone.",
+  "searchSubscriptionsHint": "Rechercher des abonnements",
+  "searchPluginsHint": "Rechercher des plugins",
+  "searchLabelsHint": "Rechercher des étiquettes",
+  "pluginDescription": "Description du plugin",
+  "enterPluginDescription": "Saisir la description du plugin",
+  "searchRegexRulesHint": "Rechercher des règles regex",
+  "regexRulesInfo": "Les règles Regex sont utilisées pour filtrer les appels en fonction des motifs Regex.",
+  "searchMarkedPhonesHint": "Rechercher les téléphones marqués",
+  "searchContactSubscriptionsHint": "Rechercher les abonnements de contacts",
+  "showAllContacts": "Afficher tous les contacts",
+  "showFavorites": "Afficher les favoris",
+  "manualEntry": "Informations de saisie manuelle",
+  "scriptSaved": "Script enregistré",
+  "editScriptFor": "Modifier le script pour {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
+  "saveScript": "Enregistrer le script",
+  "testPlugin": "Tester le plugin",
+  "description": "Description",
+  "accessTargetUrl": "Accéder à l'URL cible",
+  "result": "Résultat",
+  "editScript": "Modifier le script",
+  "numberFormat": "Format de numéro",
+  "nationalNumber": "Numéro national",
+  "e164Number": "Numéro E164",
+  "pluginRulesInfo": "Pour la sécurité, veuillez n'utiliser que des plugins provenant de sources fiables. N'hésitez pas à utiliser nos modèles pour créer vos propres plugins personnalisés !",
+  "advancedMode": "Mode avancé",
+  "pleaseEnterAtLeastOneNumber": "Veuillez saisir au moins un numéro.",
+  "openInWebView": "Ouvrir dans WebView",
+  "pluginLabel": "Étiquette du plugin",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "messageBackgroundColor": "Couleur de fond du message",
+  "clearAllCallLogs": "Effacer tous les journaux d'appels",
+  "clearAllCallLogsConfirmation": "Confirmer pour effacer tous les journaux d'appels",
+  "allCallLogsCleared": "Tous les journaux d'appels ont été effacés",
+  "unblocked": "Débloqué",
+  "blockNumber": "Numéro de bloc",
+  "blockNumberSuccess": "Numéro de bloc réussi",
+  "blockNumberFailed": "Échec du numéro de bloc",
+  "unblockNumberConfirmation": "Êtes-vous sûr de vouloir débloquer {phoneNumber} ?",
+  "@unblockNumberConfirmation": {
+    "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that the user wants to unblock.",
+        "example": "+1 415-555-0132"
+      }
+    }
+  },
+  "callingNumber": "Appel de {phoneNumber}...",
+  "@callingNumber": {
+    "description": "Status text displayed on the screen when an outgoing call is initiated.",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number that is being dialed.",
+        "example": "+1 555-123-4567"
+      }
+    }
+  },
+  "viewDetails": "Voir les détails",
+  "unblock": "Débloquer",
+  "unblockNumber": "Débloquer le numéro",
+  "unblockNumberSuccess": "Numéro débloqué avec succès",
+  "unblockNumberFailed": "Échec du déblocage du numéro",
+  "serviceNotAvailable": "Service indisponible",
+  "callingNumberFailed": "Échec de l'appel du numéro",
+  "listView": "Vue liste",
+  "timelineView": "Vue chronologique",
+  "nameCannotBeEmpty": "Le nom ne peut pas être vide",
+  "selectAction": "Sélectionner l'action",
+  "selectTargetService": "Sélectionner le service cible",
+  "callDetails": "Détails de l'appel",
+  "callType": "Type d'appel",
+  "callTime": "Heure de l'appel",
+  "numberInvalidFormat": "Format de numéro non valide",
+  "membershipFeature": "Fonctionnalité d'adhésion",
+  "medium": "Moyen",
+  "verificationReport": "Rapport de vérification",
+  "finalRisk": "Risque final",
+  "simState": "État de la SIM",
+  "ipCountry": "Pays IP",
+  "simCountry": "Pays de la SIM",
+  "isRoaming": "Itinérance",
+  "isNumberMatch": "Correspondance du numéro",
+  "support": "Assistance",
+  "rewardedAdService": "Service de publicités rémunérées",
+  "hasVipPrivilegeExceptAds": "Vous disposez déjà de privilèges VIP (sauf pour les publicités)",
+  "hasTempPrivilegeWithExpiry": "Vous avez déjà des privilèges temporaires, date d'expiration : {expiryDate}",
+  "watchMoreAdsForTempVip": "Vous devez regarder {count} autres publicités pour obtenir des privilèges VIP temporaires",
+  "grantedTempPurchaseWithExpiry": "Vous avez bénéficié de {days} jours de privilèges d'achat temporaires. Date d'expiration : {expiryDate}",
+  "tempPurchaseExpired": "Le privilège d'achat temporaire a expiré",
+  "loadingAd": "Chargement de la publicité...",
+  "earnedTempVip": "VIP temporaire gagné",
+  "vipExchangeService": "Service d'échange VIP",
+  "marksInsufficient": "Points insuffisants pour l'échange",
+  "invalidExchangeRule": "Règle d'échange non valide",
+  "exchangeSuccess": "Échange réussi pour {description}, date d'expiration : {expiryDate}",
+  "exchangeFailed": "Échec de l'échange : {error}",
+  "vip3DaysWithAds": "VIP 3 jours avec publicités (synchronisation uniquement)",
+  "vip5DaysNoAds": "VIP 5 jours complets sans publicité",
+  "vip7DaysNoAds": "VIP 7 jours complets sans publicité",
+  "noNotifications": "Aucune notification",
+  "clearAllNotifications": "Effacer toutes les notifications",
+  "clearAllNotificationsConfirmation": "Confirmer pour effacer toutes les notifications",
+  "allNotificationsCleared": "Toutes les notifications effacées",
+  "clearButton": "Effacer",
+  "justNow": "À l'instant",
+  "minutesAgo": "{count,plural, =1{Il y a 1 minute} other{Il y a {count} minutes}}",
+  "@minutesAgo": {
+    "description": "Relative time for minutes ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "hoursAgo": "{count,plural, =1{Il y a 1 heure} other{Il y a {count} heures}}",
+  "@hoursAgo": {
+    "description": "Relative time for hours ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "daysAgo": "{count,plural, =1{Il y a 1 jour} other{Il y a {count} jours}}",
+  "@daysAgo": {
+    "description": "Relative time for days ago.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "yesterday": "Hier",
+  "deletionProposal": "Proposition de suppression",
+  "@deletionProposal": {
+    "description": "Deletion proposal title"
+  },
+  "deletionProposals": "Propositions de suppression",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
+  },
+  "createProposal": "Créer une proposition",
+  "@createProposal": {
+    "description": "Create proposal button text"
+  },
+  "createProposalTitle": "Créer une proposition de suppression",
+  "@createProposalTitle": {
+    "description": "Create proposal dialog title"
+  },
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
+  "reason": "Raison",
+  "@reason": {
+    "description": "Reason label"
+  },
+  "reasonOutdated": "Numéro obsolète",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Problème de confidentialité",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Hors service",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Mal identifié",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Informations inexactes",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
+  "reasonWrongMarked": "Mal signalé",
+  "@reasonWrongMarked": {
+    "description": "Wrong marked reason option"
+  },
+  "reasonOther": "Autre",
+  "@reasonOther": {
+    "description": "Other reason option"
+  },
+  "submit": "Soumettre",
+  "@submit": {
+    "description": "Submit button text"
+  },
+  "cancel": "Annuler",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "proposalStatus": "Statut",
+  "@proposalStatus": {
+    "description": "Proposal status label"
+  },
+  "statusPending": "En attente",
+  "@statusPending": {
+    "description": "Pending status"
+  },
+  "statusActive": "Actif",
+  "@statusActive": {
+    "description": "Active status"
+  },
+  "statusCompleted": "Terminé",
+  "@statusCompleted": {
+    "description": "Completed status"
+  },
+  "statusExpired": "Expiré",
+  "@statusExpired": {
+    "description": "Expired status"
+  },
+  "riskLevel": "Niveau de risque",
+  "@riskLevel": {
+    "description": "Risk level label"
+  },
+  "riskLevelVerified": "Vérifié",
+  "@riskLevelVerified": {
+    "description": "Verified risk level"
+  },
+  "riskLevelLow": "Faible",
+  "@riskLevelLow": {
+    "description": "Label for low risk level"
+  },
+  "riskLevelHigh": "Élevé",
+  "@riskLevelHigh": {
+    "description": "Label for high risk level"
+  },
+  "riskLevelUnknown": "Inconnu",
+  "@riskLevelUnknown": {
+    "description": "Unknown risk level"
+  },
+  "votingProgress": "Progression du vote",
+  "@votingProgress": {
+    "description": "Voting progress label"
+  },
+  "agreeVotes": "Pour : {count}",
+  "@agreeVotes": {
+    "description": "Agree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "disagreeVotes": "Contre : {count}",
+  "@disagreeVotes": {
+    "description": "Disagree votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalVotes": "Total : {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "voteAgree": "Pour",
+  "@voteAgree": {
+    "description": "Vote agree button text"
+  },
+  "voteDisagree": "Contre",
+  "@voteDisagree": {
+    "description": "Vote disagree button text"
+  },
+  "createdAt": "Créé le : {date}",
+  "@createdAt": {
+    "description": "Created date label",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@verificationReport": {
+    "description": "Verification report label"
+  },
+  "showReport": "Afficher le rapport",
+  "@showReport": {
+    "description": "Show report button text"
+  },
+  "hideReport": "Masquer le rapport",
+  "@hideReport": {
+    "description": "Hide report button text"
+  },
+  "proposalStatistics": "Statistiques des propositions",
+  "@proposalStatistics": {
+    "description": "Proposal statistics title"
+  },
+  "totalProposals": "Nombre total de propositions",
+  "@totalProposals": {
+    "description": "Total proposals label"
+  },
+  "activeProposals": "Propositions actives",
+  "@activeProposals": {
+    "description": "Active proposals label"
+  },
+  "completedProposals": "Propositions terminées",
+  "@completedProposals": {
+    "description": "Completed proposals label"
+  },
+  "myVotes": "Mes votes",
+  "@myVotes": {
+    "description": "My votes label"
+  },
+  "proposalCreated": "Proposition créée avec succès",
+  "@proposalCreated": {
+    "description": "Proposal created success message"
+  },
+  "proposalCreateFailed": "Échec de la création de la proposition",
+  "@proposalCreateFailed": {
+    "description": "Proposal create failed message"
+  },
+  "voteSubmitted": "Vote soumis avec succès",
+  "@voteSubmitted": {
+    "description": "Vote submitted success message"
+  },
+  "voteSubmitFailed": "Échec de la soumission du vote",
+  "@voteSubmitFailed": {
+    "description": "Vote submit failed message"
+  },
+  "noProposalsFound": "Aucune proposition trouvée",
+  "@noProposalsFound": {
+    "description": "No proposals found message"
+  },
+  "loadingProposals": "Chargement des propositions...",
+  "@loadingProposals": {
+    "description": "Loading proposals message"
+  },
+  "refreshProposals": "Actualiser les propositions",
+  "@refreshProposals": {
+    "description": "Refresh proposals button text"
+  },
+  "@overview": {
+    "description": "Overview label"
+  },
+  "totalPendingProposals": "Nombre total de propositions en attente",
+  "@totalPendingProposals": {
+    "description": "Total pending proposals label"
+  },
+  "highRisk": "Risque élevé",
+  "@highRisk": {
+    "description": "High risk label"
+  },
+  "mediumRisk": "Risque moyen",
+  "@mediumRisk": {
+    "description": "Medium risk label"
+  },
+  "lowRisk": "Faible risque",
+  "@lowRisk": {
+    "description": "Low risk label"
+  },
+  "communityImpact": "Impact communautaire",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "criticalIssues": "Problèmes critiques",
+  "@criticalIssues": {
+    "description": "Critical issues label"
+  },
+  "communityParticipation": "Participation communautaire",
+  "@communityParticipation": {
+    "description": "Community participation label"
+  },
+  "noActivity": "Aucune activité",
+  "@noActivity": {
+    "description": "No activity label"
+  },
+  "low": "Faible",
+  "@low": {
+    "description": "Low level label"
+  },
+  "moderate": "Modéré",
+  "@moderate": {
+    "description": "Moderate level label"
+  },
+  "high": "Élevé",
+  "@high": {
+    "description": "High level label"
+  },
+  "veryHigh": "Très élevé",
+  "@veryHigh": {
+    "description": "Very high level label"
+  },
+  "voted": "Voté",
+  "@voted": {
+    "description": "Label for when user voted"
+  },
+  "communityVotes": "Votes de la communauté",
+  "@communityVotes": {
+    "description": "Label for community votes count"
+  },
+  "waitingForMoreVotes": "En attente de plus de votes de la communauté",
+  "@waitingForMoreVotes": {
+    "description": "Message when waiting for more votes"
+  },
+  "proposalProcessed": "Cette proposition a été traitée",
+  "@proposalProcessed": {
+    "description": "Message when proposal is completed"
+  },
+  "supported": "SOUTENUE",
+  "@supported": {
+    "description": "Label for supported vote"
+  },
+  "opposed": "OPPOSÉE",
+  "@opposed": {
+    "description": "Label for opposed vote"
+  },
+  "approved": "APPROUVÉE",
+  "@approved": {
+    "description": "Status label for approved"
+  },
+  "rejected": "REJETÉE",
+  "@rejected": {
+    "description": "Status label for rejected"
+  },
+  "completed": "TERMINÉE",
+  "@completed": {
+    "description": "Status label for completed"
+  },
+  "pending": "EN ATTENTE",
+  "@pending": {
+    "description": "Status label for pending"
+  },
+  "critical": "Critique",
+  "@critical": {
+    "description": "Critical risk level label"
+  },
+  "oppose": "S'opposer",
+  "@oppose": {
+    "description": "Label for oppose votes"
+  },
+  "veryLow": "Très faible",
+  "@veryLow": {
+    "description": "Very low risk level label"
+  },
+  "deletionProposalNotificationDescription": "Notifications concernant les résultats des votes et les mises à jour des propositions de suppression.",
+  "@deletionProposalNotificationDescription": {
+    "description": "Description for deletion proposal notification channel"
+  },
+  "deletionProposalCreated": "Proposition de suppression créée",
+  "@deletionProposalCreated": {
+    "description": "Title for deletion proposal created notification"
+  },
+  "deletionProposalCreatedBody": "Votre proposition de suppression pour {phoneNumber} a été soumise à l'examen de la communauté.",
+  "@deletionProposalCreatedBody": {
+    "description": "Body text for deletion proposal created notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "proposalApproved": "Proposition approuvée ✅",
+  "@proposalApproved": {
+    "description": "Title for proposal approved notification"
+  },
+  "proposalApprovedBody": "La proposition de suppression pour {phoneNumber} a été approuvée par la communauté (soutien de {supportPercentage}%, {totalVotes} votes).",
+  "@proposalApprovedBody": {
+    "description": "Body text for proposal approved notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "proposalRejected": "Proposition rejetée ❌",
+  "@proposalRejected": {
+    "description": "Title for proposal rejected notification"
+  },
+  "proposalRejectedBody": "La proposition de suppression pour {phoneNumber} a été rejetée par la communauté (soutien de {supportPercentage}%, {totalVotes} votes).",
+  "@proposalRejectedBody": {
+    "description": "Body text for proposal rejected notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "communityVotingStarted": "Vote de la communauté commencé",
+  "@communityVotingStarted": {
+    "description": "Title for community voting started notification"
+  },
+  "communityVotingStartedBody": "Une nouvelle proposition de suppression pour {phoneNumber} est maintenant ouverte au vote de la communauté.",
+  "@communityVotingStartedBody": {
+    "description": "Body text for community voting started notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      }
+    }
+  },
+  "votingCompleted": "Vote terminé",
+  "@votingCompleted": {
+    "description": "Title for voting completed notification"
+  },
+  "votingCompletedBody": "Le vote de la communauté pour {phoneNumber} est terminé. Résultat : {result} (soutien de {supportPercentage}%).",
+  "@votingCompletedBody": {
+    "description": "Body text for voting completed notification",
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "result": {
+        "type": "String",
+        "description": "The voting result (Approved/Rejected)"
+      },
+      "supportPercentage": {
+        "type": "int",
+        "description": "The percentage of support votes"
+      }
+    }
+  },
+  "newVoteReceived": "Nouveau vote reçu",
+  "@newVoteReceived": {
+    "description": "Title for new vote received notification"
+  },
+  "newVoteReceivedBody": "Quelqu'un a voté pour {voteType} la suppression de {phoneNumber}. Votes actuels : {totalVotes}.",
+  "@newVoteReceivedBody": {
+    "description": "Body text for new vote received notification",
+    "placeholders": {
+      "voteType": {
+        "type": "String",
+        "description": "The type of vote (support/oppose)"
+      },
+      "phoneNumber": {
+        "type": "String",
+        "description": "The phone number in the proposal"
+      },
+      "totalVotes": {
+        "type": "int",
+        "description": "The total number of votes"
+      }
+    }
+  },
+  "loadVoteCountFailed": "Échec du chargement du nombre de votes",
+  "voteCount": "Nombre de votes",
+  "deletionProposalInfo": "Informations sur la proposition de suppression",
+  "deletionProposalDescription": "Proposer des numéros pour suppression qui violent les règles de la communauté. Votre participation contribue à la sécurité de la plateforme.",
+  "voteToEarnVip": "Votez sur les propositions pour gagner des privilèges VIP !",
+  "voteFailed": "Échec du vote",
+  "searchProposals": "Rechercher des propositions",
+  "defaultNotifications": "Notifications par défaut",
+  "defaultNotificationsDescription": "Canal de notification par défaut pour l'application.",
+  "blockedCallNotifications": "Notifications d'appel bloqué",
+  "blockedCallNotificationsDescription": "Affiche des informations sur les appels bloqués.",
+  "stirVerification": "Vérification STIR/SHAKEN",
+  "stirVerificationDescription": "Affiche les résultats de la vérification STIR/SHAKEN pour les numéros.",
+  "fraudAlerts": "Alertes de fraude",
+  "fraudAlertsDescription": "Affiche les avertissements pour les appels potentiellement frauduleux.",
+  "notificationFrequencyDescription": "Choisissez la fréquence à laquelle vous recevez des notifications concernant les nouvelles propositions de suppression. Vous pouvez les recevoir immédiatement, par lots ou à un intervalle personnalisé.",
+  "@notificationFrequencyDescription": {
+    "description": "A detailed explanation of what the notification frequency settings do"
+  },
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "immediateNotifications": "Immédiat",
+  "@immediateNotifications": {
+    "description": "Label for the immediate notification mode"
+  },
+  "immediateNotificationsDescription": "Recevez une notification dès qu'une proposition est créée.",
+  "@immediateNotificationsDescription": {
+    "description": "Description for the immediate notification mode"
+  },
+  "batchNotifications": "Par lots",
+  "@batchNotifications": {
+    "description": "Label for the batched notification mode"
+  },
+  "batchNotificationsDescription": "Recevez un résumé des notifications périodiquement.",
+  "@batchNotificationsDescription": {
+    "description": "Description for the batched notification mode"
+  },
+  "customNotifications": "Personnalisé",
+  "@customNotifications": {
+    "description": "Label for the custom notification mode"
+  },
+  "customNotificationsDescription": "Définissez votre propre intervalle pour recevoir des notifications.",
+  "@customNotificationsDescription": {
+    "description": "Description for the custom notification mode"
+  },
+  "customFrequency": "Fréquence personnalisée",
+  "@customFrequency": {
+    "description": "Title for the custom frequency slider section"
+  },
+  "notificationFrequencyDurationMinutes": "{minutes} min",
+  "@notificationFrequencyDurationMinutes": {
+    "description": "Formats a duration that is only in minutes.",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+  "notificationFrequencyDurationHours": "{hours} h",
+  "@notificationFrequencyDurationHours": {
+    "description": "Formats a duration that is in whole hours.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
+  "@notificationFrequencyDurationHoursAndMinutes": {
+    "description": "Formats a duration that has both hours and minutes.",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "pendingProposals": "Propositions en attente",
+  "pendingProposalsBody": "Vous avez {count, plural, =0 {aucune proposition en attente} one {1 proposition en attente} other {{count} propositions en attente}}.",
+  "guidelinesLabel": "Lignes directrices",
+  "reportingGuidelines": "• Ne signalez que les numéros qui posent réellement problème\n• Fournissez des raisons précises et détaillées\n• Choisissez un niveau de risque approprié en fonction de la gravité\n• Les rapports erronés peuvent entraîner des restrictions de compte",
+  "riskLevelLabel": "Niveau de risque",
+  "riskLevelDescription": "Niveau de risque du numéro",
+  "phoneNumberMinDigits": "Le numéro de téléphone doit comporter au moins 7 chiffres",
+  "provideDetailedExplanation": "Fournir une explication détaillée (minimum 10 caractères)",
+  "reasonMinCharacters": "La raison doit comporter au moins 10 caractères",
+  "countryCodeTwoLetters": "Code pays (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Code pays (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "ex. : US, CN, FR",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "Le code pays est obligatoire",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "countryCodeLengthError": "Le code pays doit comporter 2 lettres",
+  "@countryCodeLengthError": {
+    "description": "Validation message for country code length"
+  },
+  "@phoneNumberHint": {
+    "description": "Hint text for phone number input field"
+  },
+  "@phoneNumberRequired": {
+    "description": "Validation message for required phone number"
+  },
+  "phoneNumberLengthError": "Le numéro de téléphone doit comporter au moins 7 chiffres",
+  "@phoneNumberLengthError": {
+    "description": "Validation message for phone number length"
+  },
+  "reasonHint": "Fournir une explication détaillée (minimum 10 caractères)",
+  "@reasonHint": {
+    "description": "Hint text for reason input field"
+  },
+  "reasonRequired": "Une raison est requise",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "reasonLengthError": "La raison doit comporter au moins 10 caractères",
+  "@reasonLengthError": {
+    "description": "Validation message for reason length"
+  },
+  "guidelinesTitle": "Lignes directrices",
+  "@guidelinesTitle": {
+    "description": "Title for guidelines section"
+  },
+  "guidelinesText": "• Ne signalez que les numéros qui posent réellement problème\n• Fournissez des raisons précises et détaillées\n• Choisissez un niveau de risque approprié en fonction de la gravité\n• Les rapports erronés peuvent entraîner des restrictions de compte",
+  "@guidelinesText": {
+    "description": "Text content for guidelines section"
+  },
+  "riskLevelCritical": "Critique",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "Moyen",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "Très faible",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "riskDescriptionVeryLow": "Très faible - Gêne mineure, appels peu fréquents",
+  "@riskDescriptionVeryLow": {
+    "description": "Description for very low risk level"
+  },
+  "riskDescriptionLow": "Faible - Appels indésirables occasionnels",
+  "@riskDescriptionLow": {
+    "description": "Description for low risk level"
+  },
+  "riskDescriptionMedium": "Moyen - Spam ou télémarketing régulier",
+  "@riskDescriptionMedium": {
+    "description": "Description for medium risk level"
+  },
+  "riskDescriptionHigh": "Élevé - Harcèlement persistant ou tentatives d'escroquerie",
+  "@riskDescriptionHigh": {
+    "description": "Description for high risk level"
+  },
+  "riskDescriptionCritical": "Critique - Escroqueries ou menaces dangereuses",
+  "@riskDescriptionCritical": {
+    "description": "Description for critical risk level"
+  },
+  "notificationFrequencyTitle": "Fréquence des notifications",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "notificationFrequencyLabel": "Fréquence des notifications (heures)",
+  "@notificationFrequencyLabel": {
+    "description": "Label for notification frequency dropdown"
+  },
+  "errorMessage": "Erreur : {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "votesStatistics": "Votes : {totalVotes} ({supportPercentage}% de soutien)",
+  "@votesStatistics": {
+    "description": "Voting statistics text",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "supportCount": "Soutien ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "Opposition ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "timeJustNow": "À l'instant",
+  "@timeJustNow": {
+    "description": "Time format for recent events"
+  },
+  "timeMinutesAgo": "Il y a {minutes}m",
+  "@timeMinutesAgo": {
+    "description": "Time format for minutes ago",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "Il y a {hours}h",
+  "@timeHoursAgo": {
+    "description": "Time format for hours ago",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "timeDaysAgo": "Il y a {days}j",
+  "@timeDaysAgo": {
+    "description": "Time format for days ago",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "Fréquence des notifications (heures)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} votes ({supportPercentage}% de soutien)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 heures} =1{1 heure} other{{count} heures}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "Avis important",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "Les chiffres proviennent d'Internet et des soumissions des utilisateurs. Nous ne pouvons pas garantir qu'un numéro, une fois supprimé, ne sera pas soumis à nouveau par d'autres utilisateurs ou sources. Veuillez rechercher et vérifier activement les informations.",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "Localisation",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "Carte SIM",
+  "liveActivitiesSettingsTitle": "Paramètres des activités en direct",
+  "elementsSettingsTitle": "Paramètres des éléments",
+  "liveActivityMode": "Activité en direct",
+  "liveActivityModeDescription": "Affiche les informations d'appel sous forme de notification permanente sur l'écran de verrouillage et dans l'Île dynamique (iOS).",
+  "phoneNumberType": "Type de numéro de téléphone",
+  "liveActivitiesTestEndActivity": "Fin de l'activité",
+  "liveActivitiesTestSendNewActivity": "Envoyer une nouvelle activité",
+  "liveActivitiesTestUpdateActivity": "Mettre à jour l'activité",
+  "liveActivityControlsTitle": "Contrôles d'activité en direct",
+  "liveActivitiesTestTitle": "Test des activités en direct",
+  "liveActivitiesTestSubtitle": "Testez la notification d'activité en direct.",
+  "liveNotificationCustomizationTitle": "Personnalisation des notifications en direct",
+  "liveNotificationCustomizationSubtitle": "Personnalisez l'apparence des notifications en direct.",
+  "notification_instructions": "Instructions :\n1. Appuyez sur \"ENVOYER\" pour créer ou mettre à jour une notification.\n2. Accédez à votre écran d'accueil ou faites glisser le tiroir de notification vers le bas pour voir le résultat.\n3. Appuyez sur \"FIN\" pour ignorer la notification.",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "Annulation automatique de la notification",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "Si coché, la notification sera automatiquement ignorée lorsque l'utilisateur appuie dessus.",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "Définir le délai",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "Détails de la proposition",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "filterByStatus": "Filtrer par statut",
+  "proposalNotFound": "Proposition non trouvée",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "Traité",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Tout afficher",
+  "@showAll": {
+    "description": "A button to show all proposals."
+  },
+  "filterAndSortTitle": "Filtrer et trier",
+  "filterVerifiedOwner": "Filtrer le propriétaire vérifié",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "Filtrer par",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "Trier par ancienneté",
+  "sortNewest": "Trier par nouveauté",
+  "sortMostPopular": "Trier par popularité",
+  "sortLeastPopular": "Trier par moins populaire",
+  "sortBy": "Trier par",
+  "simRulesNotFound": "Règles SIM non trouvées",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "Règles d'emplacement SIM",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "Aucune carte SIM détectée",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "Données SIM non valides",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "simCardData": "Données de la carte SIM",
+  "@simCardData": {
+    "description": "A label for the SIM card data."
+  },
+  "simSlot": "Emplacement SIM",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "enableFiltering": "Activer le filtrage",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "Paramètres détaillés",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "entryPointViewTitle": "Vue du point d'entrée",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  },
+  "callTypeRejected": "Rejeté",
+  "callTypeSilenced": "Mis en sourdine",
+  "callTypeVoicemail": "Messagerie vocale",
+  "callTypeUnknownIntercept": "Interception inconnue",
+  "andMoreItems": "et {count} autres éléments",
+  "@andMoreItems": {
+    "description": "Text to show when there are more items than displayed.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  }
+}
