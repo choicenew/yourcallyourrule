@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -6,11 +5,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/features/plugin/providers/plugin_url_webview_service_provider.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_url_webview_service.dart';
+import '/core/entities/plugin/plugin_entry.dart';
+import '/features/plugin/providers/plugin_url_webview_service_provider.dart';
+import 'package:plugindemo/features/plugin/services/plugin_url_execution_service.dart';
 
-enum PageState { initial, loading, showPhoneNumberInput, showWebView, error, manualInput }
+enum PageState {
+  initial,
+  loading,
+  showPhoneNumberInput,
+  showWebView,
+  error,
+  manualInput,
+}
 
 class PluginUrlWebViewPage extends ConsumerStatefulWidget {
   final PluginEntry? plugin;
@@ -18,7 +24,8 @@ class PluginUrlWebViewPage extends ConsumerStatefulWidget {
   const PluginUrlWebViewPage({super.key, this.plugin});
 
   @override
-  ConsumerState<PluginUrlWebViewPage> createState() => _PluginUrlWebViewPageState();
+  ConsumerState<PluginUrlWebViewPage> createState() =>
+      _PluginUrlWebViewPageState();
 }
 
 class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
@@ -86,7 +93,9 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
           _urlToLoad = _staticUrl;
           final headersMap = staticResult['headers'];
           if (headersMap is Map) {
-            _staticHeaders = headersMap.map((key, value) => MapEntry(key.toString(), value.toString()));
+            _staticHeaders = headersMap.map(
+              (key, value) => MapEntry(key.toString(), value.toString()),
+            );
           } else {
             _staticHeaders = {};
           }
@@ -153,7 +162,9 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
       final uri = Uri.tryParse(urlText);
       if (uri != null) {
         final finalUrl = (uri.scheme.isEmpty) ? 'https://$urlText' : urlText;
-        _webViewController?.loadUrl(urlRequest: URLRequest(url: WebUri(finalUrl)));
+        _webViewController?.loadUrl(
+          urlRequest: URLRequest(url: WebUri(finalUrl)),
+        );
       }
     }
   }
@@ -181,22 +192,30 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
           ),
           IconButton(
             icon: const Icon(Icons.arrow_forward),
-            onPressed: _canGoForward ? () => _webViewController?.goForward() : null,
+            onPressed:
+                _canGoForward ? () => _webViewController?.goForward() : null,
           ),
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () {
               _webViewController?.reload();
             },
-          )
+          ),
         ],
       ),
       body: SafeArea(
         child: Column(
           children: [
-            if (_pageState == PageState.loading || (_pageState == PageState.showWebView && _progress < 1.0 && _progress > 0))
-              LinearProgressIndicator(value: _pageState == PageState.loading ? null : _progress),
-            if (_pageState == PageState.manualInput || _pageState == PageState.showWebView) _buildUrlBar(),
+            if (_pageState == PageState.loading ||
+                (_pageState == PageState.showWebView &&
+                    _progress < 1.0 &&
+                    _progress > 0))
+              LinearProgressIndicator(
+                value: _pageState == PageState.loading ? null : _progress,
+              ),
+            if (_pageState == PageState.manualInput ||
+                _pageState == PageState.showWebView)
+              _buildUrlBar(),
             Expanded(child: _buildBody()),
           ],
         ),
@@ -234,7 +253,10 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
         return Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Text('Error: $_errorMessage', style: const TextStyle(color: Colors.red)),
+            child: Text(
+              'Error: $_errorMessage',
+              style: const TextStyle(color: Colors.red),
+            ),
           ),
         );
       case PageState.manualInput:
@@ -261,7 +283,11 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
           ),
           const SizedBox(height: 16),
           if (_errorMessage != null) ...[
-            Text(_errorMessage!, style: const TextStyle(color: Colors.red), textAlign: TextAlign.center),
+            Text(
+              _errorMessage!,
+              style: const TextStyle(color: Colors.red),
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(height: 16),
           ],
           TextField(
@@ -298,7 +324,10 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
 
   Widget _buildWebView() {
     return InAppWebView(
-      initialUrlRequest: URLRequest(url: WebUri(_urlToLoad!), headers: _headers),
+      initialUrlRequest: URLRequest(
+        url: WebUri(_urlToLoad!),
+        headers: _headers,
+      ),
       initialSettings: InAppWebViewSettings(
         useShouldOverrideUrlLoading: true,
         mediaPlaybackRequiresUserGesture: false,
@@ -328,7 +357,8 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
             });
           }
           final canGoBack = await _webViewController?.canGoBack() ?? false;
-          final canGoForward = await _webViewController?.canGoForward() ?? false;
+          final canGoForward =
+              await _webViewController?.canGoForward() ?? false;
           setState(() {
             _canGoBack = canGoBack;
             _canGoForward = canGoForward;
@@ -353,7 +383,8 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
       onUpdateVisitedHistory: (controller, url, androidIsReload) async {
         if (mounted) {
           final canGoBack = await _webViewController?.canGoBack() ?? false;
-          final canGoForward = await _webViewController?.canGoForward() ?? false;
+          final canGoForward =
+              await _webViewController?.canGoForward() ?? false;
           setState(() {
             _canGoBack = canGoBack;
             _canGoForward = canGoForward;
@@ -363,41 +394,12 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
           });
         }
       },
-      
-      
-      
-      
+
       shouldOverrideUrlLoading: (controller, navigationAction) async {
         // Allow all navigation requests.
         return NavigationActionPolicy.ALLOW;
       },
       shouldInterceptRequest: (controller, request) async {
-        final uri = request.url;
-        if (uri.scheme == PluginUrlWebViewService.PROXY_SCHEME && uri.host == PluginUrlWebViewService.PROXY_HOST) {
-          final targetUrl = uri.queryParameters['targetUrl'];
-          final headersStr = uri.queryParameters['headers'];
-
-          if (targetUrl != null) {
-            final decodedUrl = Uri.decodeComponent(targetUrl);
-            Map<String, String> headers = {};
-            if (headersStr != null) {
-              try {
-                final decodedHeadersStr = Uri.decodeComponent(headersStr);
-                final decodedHeaders = jsonDecode(decodedHeadersStr) as Map<String, dynamic>;
-                headers = decodedHeaders.map((key, value) => MapEntry(key, value.toString()));
-              } catch (e) {
-                if (kDebugMode) {
-                  print("Error decoding headers from proxy URL: $e");
-                }
-              }
-            }
-
-            _webViewController?.loadUrl(urlRequest: URLRequest(url: WebUri(decodedUrl), headers: headers));
-
-            return WebResourceResponse(
-                contentType: 'text/plain', data: Uint8List(0), statusCode: 200, reasonPhrase: 'Request Handled');
-          }
-        }
         return null;
       },
     );
