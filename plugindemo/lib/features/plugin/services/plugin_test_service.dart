@@ -177,6 +177,10 @@ class PluginTestService {
       _requestCompleters.remove(requestId);
       _addLog("Error: $e");
       rethrow;
+    } finally {
+      // [FIX] Ensure Headless WebView is stopped and cleaned up after test
+      _addLog("Cleaning up channel resources...");
+      await _requestChannel?.cleanup();
     }
   }
 
