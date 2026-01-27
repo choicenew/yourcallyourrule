@@ -1,25 +1,17 @@
-// lib/features/plugin/services/plugin_test_service.dart (或者你的文件名)
-
 import 'dart:async';
 import 'dart:convert';
-import 'dart:typed_data';
-
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/foundation.dart';
 import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
-import 'package:html/parser.dart' as html_parser;
-import 'package:html/dom.dart' as dom;
+import 'package:plugindemo/features/plugin/services/core/js_execution_service.dart';
+import 'package:plugindemo/features/plugin/services/core/native_request_channel.dart';
+import 'package:http/http.dart' as http; // For loading script via URL
 
-// [新] 导入我们拆分出去的拦截器
-import 'webview_request_interceptor.dart';
-
-// 常量保持不变
-const String PROXY_SCHEME = "https";
-const String PROXY_HOST = "flutter-webview-proxy.internal";
-const String PROXY_PATH_FETCH = "/fetch";
-
+/// 插件测试服务
+/// [Refactored] 使用 JsExecutionService + NativeRequestChannel (Core)
 class PluginTestService {
-  HeadlessInAppWebView? _headlessWebView;
+  JsExecutionService? _jsService;
+  NativeRequestChannel? _requestChannel;
+
   final StreamController<String> _logController =
       StreamController<String>.broadcast();
   Stream<String> get logStream => _logController.stream;
@@ -28,244 +20,99 @@ class PluginTestService {
   String? _loadedPluginId;
   final Map<String, Completer<Map<String, dynamic>?>> _requestCompleters = {};
 
-  // [新] 创建一个拦截器实例来处理所有网络请求
-  final _requestInterceptor = WebViewRequestInterceptor();
-
   void _addLog(String log) {
-    print(log); // Also print to console for debugging
+    debugPrint(log);
     _logController.add(log);
   }
 
   Future<void> initialize() async {
-    _addLog("Initializing HeadlessInAppWebView for test service...");
-    _headlessWebView = HeadlessInAppWebView(
-      initialUrlRequest: URLRequest(url: WebUri('about:blank')),
-      initialSettings: InAppWebViewSettings(
-        javaScriptEnabled: true,
-        domStorageEnabled: true,
-        databaseEnabled: true,
-        useShouldInterceptRequest: true,
-        userAgent:
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36',
-      ),
-      onWebViewCreated: (controller) async {
-        _addLog('Headless WebView created.');
-        await _setupJavaScriptHandlers(controller);
-      },
-      // [关键修改] 将 shouldInterceptRequest 的职责完全委托给拦截器实例
-      shouldInterceptRequest: (controller, request) {
-        return _requestInterceptor.handleInterceptedRequest(
-          controller,
-          request,
-        );
-      },
-      onLoadStop: (controller, url) {
-        _addLog('Headless WebView loaded: $url');
-      },
-      onConsoleMessage: (controller, consoleMessage) {
-        _addLog(
-          'Console [${consoleMessage.messageLevel}]: ${consoleMessage.message}',
-        );
-      },
-    );
+    _addLog("Initializing PluginTestService (JS Engine)...");
 
-    await _headlessWebView?.run();
-    _addLog("HeadlessInAppWebView is running.");
+    _jsService = JsExecutionService(onLog: (msg) => _addLog(msg));
+    await _jsService!.init();
+
+    // Use Core Native Channel
+    const defaultUA =
+        'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36';
+
+    _requestChannel = NativeRequestChannel(
+      _jsService!,
+      defaultUserAgent: defaultUA,
+      onLog: (msg) => _addLog('[NET] $msg'),
+    );
+    _requestChannel!.register();
+
+    _setupHandlers();
+
+    _addLog("Test Service Ready.");
   }
 
-  // [已删除] 所有网络拦截相关的方法都已移至 WebViewRequestInterceptor
-  // - _shouldInterceptRequest
-  // - _handleOriginalProxyRequest
-  // - _handleLeakedRequest
-  // - _preprocessHtml
-  // - _purgeHarmfulContent
-  // - _getReceiverScript
-  // - getDomainBlockerScript
-  // - getUniversalNetworkInterceptorScript
+  void _setupHandlers() {
+    // Plugin Loaded Monitor
+    _jsService!.registerHandler('TestPageChannel', (args) {
+      // ... (Logic to detect 'pluginLoaded' message similar to PluginExecutionService)
+      // For testing, we just log and check simple string logic or JSON
+      dynamic message = args;
+      if (args is List && args.isNotEmpty) message = args[0];
 
-  Future<void> _setupJavaScriptHandlers(
-    InAppWebViewController controller,
-  ) async {
-    controller.addJavaScriptHandler(
-      handlerName: 'TestPageChannel',
-      callback: (args) {
-        if (args.isNotEmpty) {
-          final message = args[0] as String;
-          _addLog('JS->Flutter (TestPageChannel): $message');
-          if (message.contains('pluginLoaded')) {
-            try {
-              final data = jsonDecode(message);
-              if (data['type'] == 'pluginLoaded') {
-                _isPluginJsLoaded = true;
-                _loadedPluginId = data['pluginId'];
-                _addLog('Plugin JS loaded with ID: $_loadedPluginId');
-              }
-            } catch (e) {
-              _addLog('Error parsing pluginLoaded message: $e');
-            }
-          }
-        }
-      },
-    );
+      _addLog("TestPageChannel: $message");
 
-    controller.addJavaScriptHandler(
-      handlerName: 'PluginResultChannel',
-      callback: (args) {
-        if (args.isNotEmpty) {
-          final result = args[0];
-          _addLog('JS->Flutter (PluginResultChannel): $result');
-          try {
-            Map<String, dynamic> resultData;
-            if (result is String) {
-              resultData = jsonDecode(result);
-            } else {
-              resultData = Map<String, dynamic>.from(result);
-            }
-            final requestId = resultData['requestId'] as String?;
-
-            // ▼▼▼ [修改] 在这里委托会话清理 ▼▼▼
-            if (requestId != null) {
-              _requestInterceptor.cleanupSession(requestId);
-              _addLog('Session cleaned for completed requestId: $requestId.');
-            }
-            // ▲▲▲ 会话清理逻辑结束 ▲▲▲
-
-            if (requestId != null &&
-                _requestCompleters.containsKey(requestId)) {
-              _requestCompleters[requestId]!.complete(resultData);
-              _requestCompleters.remove(requestId);
-            }
-          } catch (e) {
-            _addLog('Error parsing plugin result: $e');
-          }
-        }
-      },
-    );
-
-    // [New] RequestChannel for Native HTTP Requests
-    controller.addJavaScriptHandler(
-      handlerName: 'RequestChannel',
-      callback: (args) async {
-        if (args.isEmpty) return;
-        _addLog('JS->Flutter (RequestChannel): ${args[0]}');
+      if (message.toString().contains('pluginLoaded')) {
+        // Try parsing
         try {
-          final requestData = jsonDecode(args[0]);
-          final String method = requestData['method'];
-          final String url = requestData['url'];
-
-          final Map<String, String> headers = {};
-          if (requestData['headers'] != null) {
-            (requestData['headers'] as Map<String, dynamic>).forEach((k, v) {
-              if (k.toLowerCase() != 'accept-encoding') {
-                headers[k] = v.toString();
-              }
-            });
+          if (message is String) message = jsonDecode(message);
+          if (message['type'] == 'pluginLoaded') {
+            _loadedPluginId = message['pluginId'];
+            _isPluginJsLoaded = true;
+            _addLog("Plugin Loaded ID: $_loadedPluginId");
           }
-          final String? body = requestData['body'];
-          final String? phoneRequestId = requestData['phoneRequestId'];
-          final String? externalRequestId = requestData['externalRequestId'];
-
-          _addLog('Making Native HTTP Request: $method $url');
-
-          // [修复] 根据 method 动态选择请求方式，支持 POST/PUT 等
-          final uri = Uri.parse(url);
-          http.Response response;
-
-          try {
-            switch (method.toUpperCase()) {
-              case 'POST':
-                response = await http
-                    .post(uri, headers: headers, body: body)
-                    .timeout(const Duration(seconds: 10));
-                break;
-              case 'PUT':
-                response = await http
-                    .put(uri, headers: headers, body: body)
-                    .timeout(const Duration(seconds: 10));
-                break;
-              case 'DELETE':
-                response = await http
-                    .delete(uri, headers: headers, body: body)
-                    .timeout(const Duration(seconds: 10));
-                break;
-              case 'GET':
-              default:
-                response = await http
-                    .get(uri, headers: headers)
-                    .timeout(const Duration(seconds: 10));
-                break;
-            }
-          } catch (e) {
-            _addLog('Network Error during $method: $e');
-            throw e;
-          }
-
-          _addLog('Native HTTP Response: ${response.statusCode}');
-
-          final responseData = {
-            'externalRequestId': externalRequestId,
-            'phoneRequestId': phoneRequestId,
-            'status': response.statusCode,
-            'statusText': response.reasonPhrase,
-            'responseText': response.body,
-            'headers': response.headers,
-          };
-          final String responseJson = jsonEncode(responseData);
-
-          final targetPluginId = _loadedPluginId ?? 'truecallerPluginchannel';
-          await controller.evaluateJavascript(
-            source:
-                'window.plugin["$targetPluginId"].handleResponse($responseJson);',
-          );
         } catch (e) {
-          _addLog('RequestChannel Error: $e');
-          try {
-            final requestData = jsonDecode(args[0]);
-            final targetPluginId = _loadedPluginId ?? 'truecallerPluginchannel';
-            final errorData = {
-              'phoneRequestId': requestData['phoneRequestId'],
-              'status': 0,
-              'error': e.toString(),
-            };
-            await controller.evaluateJavascript(
-              source:
-                  'window.plugin["$targetPluginId"].handleResponse(${jsonEncode(errorData)});',
-            );
-          } catch (innerE) {
-            _addLog('Error sending error response to JS: $innerE');
-          }
+          _addLog("Error parsing pluginLoaded: $e");
         }
-      },
-    );
+      }
+    });
+
+    // Result Monitor
+    _jsService!.registerHandler('PluginResultChannel', (args) {
+      dynamic message = args;
+      if (args is List && args.isNotEmpty) message = args[0];
+      _addLog("PluginResult: $message");
+
+      try {
+        Map<String, dynamic> result;
+        if (message is String)
+          result = jsonDecode(message);
+        else
+          result = Map<String, dynamic>.from(message);
+
+        final requestId = result['requestId'];
+        if (requestId != null && _requestCompleters.containsKey(requestId)) {
+          _requestCompleters.remove(requestId)!.complete(result);
+        }
+      } catch (e) {
+        _addLog("Error parsing result: $e");
+      }
+    });
   }
 
   Future<void> _loadPluginJs(PluginEntry plugin) async {
-    if (_headlessWebView?.webViewController == null) {
-      _addLog('Error: WebView controller is null. Cannot load plugin JS.');
+    final url = plugin.url;
+    if (url.isEmpty) {
+      _addLog("Error: Plugin URL is empty");
       return;
     }
-    String pluginUrl = plugin.url;
-    if (pluginUrl.isEmpty) {
-      _addLog('Error: Plugin JS URL is empty.');
-      return;
-    }
-    _addLog('Attempting to load JS plugin code from: $pluginUrl');
+
+    _addLog("Fetching script from $url...");
     try {
-      final response = await http.get(Uri.parse(pluginUrl));
+      final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        await _headlessWebView!.webViewController!.evaluateJavascript(
-          source: response.body,
-        );
-        _addLog(
-          'JS plugin code injected. Waiting for "pluginLoaded" message from JS...',
-        );
+        await _jsService!.evaluate(response.body);
+        _addLog("Script injected.");
       } else {
-        _addLog(
-          'Failed to load JS plugin code. Status: ${response.statusCode}',
-        );
+        _addLog("Failed to fetch script: ${response.statusCode}");
       }
     } catch (e) {
-      _addLog('Error loading JS plugin code: $e');
+      _addLog("Error fetching script: $e");
     }
   }
 
@@ -275,94 +122,66 @@ class PluginTestService {
     String? nationalNumber,
     String? e164Number,
   }) async {
-    if (_headlessWebView == null) {
+    if (_jsService == null) {
       await initialize();
     }
 
-    // Reset state for a new test
     _isPluginJsLoaded = false;
     _loadedPluginId = null;
 
     await _loadPluginJs(plugin);
 
-    // Wait for the plugin to confirm it's loaded
+    // Wait for load
     int attempts = 0;
-    while (!_isPluginJsLoaded && attempts < 100) {
-      // Wait for max 10 seconds
+    while (!_isPluginJsLoaded && attempts < 50) {
       await Future.delayed(const Duration(milliseconds: 100));
       attempts++;
     }
 
     if (!_isPluginJsLoaded || _loadedPluginId == null) {
-      _addLog('Plugin JS did not load correctly or timed out.');
-      throw Exception('Plugin JS did not load correctly or timed out.');
+      _addLog(
+        "Warning: pluginLoaded message not received. Attempting to run anyway (assuming explicit ID ${plugin.id})...",
+      );
+      _loadedPluginId = plugin.id; // Fallback
     }
 
-    _addLog('Starting query with provided numbers...');
+    final requestId = 'test_${DateTime.now().millisecondsSinceEpoch}';
+    final completer = Completer<Map<String, dynamic>?>();
+    _requestCompleters[requestId] = completer;
 
+    _addLog("Running generateOutput...");
     try {
-      final requestId = 'req_${DateTime.now().millisecondsSinceEpoch}';
-      final completer = Completer<Map<String, dynamic>?>();
-      _requestCompleters[requestId] = completer;
+      await _jsService!.injectConfig(plugin.id, plugin.config);
 
-      final phoneParam =
-          (phoneNumber != null && phoneNumber.isNotEmpty)
-              ? "'$phoneNumber'"
-              : 'null';
-      final nationalParam =
-          (nationalNumber != null && nationalNumber.isNotEmpty)
-              ? "'$nationalNumber'"
-              : 'null';
-      final e164Param =
-          (e164Number != null && e164Number.isNotEmpty)
-              ? "'$e164Number'"
-              : 'null';
+      await _jsService!.evaluate('''
+         (function() {
+            if (window.plugin && window.plugin['${plugin.id}']) {
+               window.plugin['${plugin.id}'].generateOutput(
+                  '$phoneNumber', '$nationalNumber', '$e164Number', '$requestId'
+               );
+            } else {
+               console.error('Plugin ${plugin.id} not found!');
+            }
+         })();
+       ''');
 
-      final configJson = jsonEncode(plugin.config);
-
-      await _headlessWebView!.webViewController!.evaluateJavascript(
-        source: '''
-        (function(pluginId, requestId) {
-          if (window.plugin && window.plugin[pluginId] && window.plugin[pluginId].generateOutput) {
-            // Inject Config
-            window.plugin[pluginId].config = $configJson;
-            
-            console.log(`Calling plugin[pluginId].generateOutput with numbers...`);
-            window.plugin[pluginId].generateOutput($phoneParam, $nationalParam, $e164Param, '$requestId');
-          } else {
-            console.error('Plugin or generateOutput function not found for pluginId:', pluginId);
-            window.flutter_inappwebview.callHandler('PluginResultChannel', JSON.stringify({
-              requestId: "$requestId",
-              success: false,
-              error: "generateOutput function not found"
-            }));
-          }
-        })('$_loadedPluginId', '$requestId');
-      ''',
-      );
-
-      final result = await completer.future.timeout(
+      return await completer.future.timeout(
         const Duration(seconds: 30),
         onTimeout: () {
           _requestCompleters.remove(requestId);
-          // [修改] 委托会话清理
-          _requestInterceptor.cleanupSession(requestId);
-          _addLog('Query timeout for requestId: $requestId');
-          return {'error': 'Query timeout', 'requestId': requestId};
+          _addLog("Timeout waiting for result.");
+          return {'error': 'Timeout'};
         },
       );
-
-      _addLog('Query completed for requestId: $requestId');
-      return result;
     } catch (e) {
-      _addLog('Query error: $e');
+      _requestCompleters.remove(requestId);
+      _addLog("Error: $e");
       rethrow;
     }
   }
 
   void dispose() {
-    _addLog("Disposing PluginTestService and HeadlessInAppWebView.");
-    _headlessWebView?.dispose();
+    _jsService?.dispose();
     _logController.close();
   }
 }

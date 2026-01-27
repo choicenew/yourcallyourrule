@@ -5,20 +5,20 @@ import 'package:flutter/material.dart';
 
 import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
 import 'package:plugindemo/features/plugin/services/plugin_manager_service.dart';
-import 'package:plugindemo/features/plugin/services/plugin_webview_service.dart';
+import 'package:plugindemo/features/plugin/services/plugin_execution_service.dart';
 
-/// 插件调用服务 - 负责协调插件管理服务和WebView服务
-/// 遵循单向依赖原则，作为连接数据库和WebView的桥梁
+/// 插件调用服务 - 负责协调插件管理服务和插件执行服务
+/// 遵循单向依赖原则，作为连接数据库和执行引擎的桥梁
 class PluginInvokerService {
   final PluginManagerService _managerService;
-  final PluginWebViewService _webViewService;
+  final PluginExecutionService _executionService;
 
   // 存储已加载的插件
   final Map<String, bool> _loadedPlugins = {};
 
-  PluginInvokerService(this._managerService, this._webViewService) {
+  PluginInvokerService(this._managerService, this._executionService) {
     // 监听插件就绪状态
-    _webViewService.pluginReadyStream.listen(_onPluginReady);
+    _executionService.pluginReadyStream.listen(_onPluginReady);
   }
 
   // 处理插件就绪事件
@@ -48,11 +48,11 @@ class PluginInvokerService {
       // 读取脚本内容
       final script = await scriptFile.readAsString();
 
-      // 加载脚本到WebView
-      await _webViewService.loadScript(plugin.id, script);
+      // 加载脚本到引擎
+      await _executionService.loadScript(plugin.id, script);
 
       // 等待插件就绪
-      await _webViewService.waitForPluginReady(plugin.id);
+      await _executionService.waitForPluginReady(plugin.id);
 
       // 标记插件为已加载
       _loadedPlugins[plugin.id] = true;
@@ -93,7 +93,7 @@ class PluginInvokerService {
       }
 
       // 调用插件生成输出
-      return await _webViewService.generatePluginOutput(
+      return await _executionService.generatePluginOutput(
         pluginId,
         phoneNumber,
         nationalNumber,
@@ -130,7 +130,7 @@ class PluginInvokerService {
         if (loaded) {
           // 调用插件生成输出
           futures.add(
-            _webViewService.generatePluginOutput(
+            _executionService.generatePluginOutput(
               plugin.id,
               phoneNumber,
               nationalNumber,
@@ -161,8 +161,6 @@ class PluginInvokerService {
   }
 
   /// 调用所有启用的插件并返回所有结果（用于获取完整数据）
-  /// 使用并行调用方式，一旦有第一个有效结果就立即返回，同时在后台继续获取所有数据
-  /// 返回值是一个包含两个元素的元组：第一个元素是第一个有效结果，第二个元素是所有结果的Future
   Future<(Map<String, dynamic>?, Future<List<Map<String, dynamic>>>)>
   callPluginsAll(
     String phoneNumber,
@@ -194,7 +192,7 @@ class PluginInvokerService {
         if (loaded) {
           debugPrint('[Invoker] Calling plugin: ${plugin.id}');
           // 异步调用插件并立即处理结果
-          _webViewService
+          _executionService
               .generatePluginOutput(
                 plugin.id,
                 phoneNumber,
@@ -494,7 +492,7 @@ class PluginInvokerService {
       // 确保插件已加载
       await loadPlugin(plugin);
 
-      return await _webViewService.getPluginSettings(pluginId);
+      return await _executionService.getPluginSettings(pluginId);
     } catch (e) {
       return [];
     }

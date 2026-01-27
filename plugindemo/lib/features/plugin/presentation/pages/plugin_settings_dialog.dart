@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_url_webview_service.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
+import '/core/entities/plugin/plugin_entry.dart';
+import '/features/plugin/services/plugin_invoker_service.dart';
+import 'package:plugindemo/features/plugin/services/plugin_url_execution_service.dart';
+import '/generated/app_localizations.dart';
 
 class PluginSettingsDialog extends StatefulWidget {
   final PluginEntry plugin;
@@ -95,14 +95,14 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
                                   context,
                                 ).leaveEmptyToUseDefault,
                             helperText:
-                                'Default: ${PluginUrlWebViewService.defaultUserAgent}',
+                                'Default: ${PluginUrlExecutionService.defaultUserAgent}',
                             helperMaxLines: 3,
                             border: const OutlineInputBorder(),
                             suffixIcon: IconButton(
                               icon: const Icon(Icons.phonelink_setup),
                               onPressed: () async {
                                 final ua =
-                                    await PluginUrlWebViewService()
+                                    await PluginUrlExecutionService()
                                         .getDeviceDefaultUserAgent();
                                 if (context.mounted) {
                                   setState(() {

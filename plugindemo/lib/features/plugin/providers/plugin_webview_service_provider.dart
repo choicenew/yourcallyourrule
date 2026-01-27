@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_webview_service.dart';
+import 'package:plugindemo/features/plugin/services/plugin_execution_service.dart';
 
-/// Provides a singleton instance of [PluginWebViewService].
-final pluginWebViewServiceProvider = Provider<PluginWebViewService>((ref) {
-  return PluginWebViewService();
+final pluginWebViewServiceProvider = Provider<PluginExecutionService>((ref) {
+  return PluginExecutionService();
 });
