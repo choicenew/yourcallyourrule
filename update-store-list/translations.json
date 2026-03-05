@@ -39,24 +39,24 @@
     "shortDescription": "Smarter Anruffilter. 100% Datenschutz: Keine Konten, kein Datenupload.",
     "fullDescription": "Holen Sie sich die Kontrolle über Ihre Anrufe und SMS mit ultimativem Datenschutz zurück. Sind Sie Spam-Anrufe und -Nachrichten leid? Diese App ist ein leistungsstarker, anpassbarer Anruf- und SMS-Blocker für datenschutzbewusste Nutzer.\n\n🛡️ 100% Datenschutz & Kein Konto\n- Null Daten-Upload: Kein Kontosystem, keine Online-Datenbank, kein verstecktes Tracking.\n- Lokale Verarbeitung: Alle Filterregeln, Protokolle und Daten werden vollständig auf Ihrem Gerät verwaltet."
   },
-  "pt-BR": {
+ "pt-BR": {
     "title": "Privacidade de Chamadas",
-    "shortDescription": "Filtro de chamadas inteligente. Privacidade total: sem contas ou uploads de dados.",
+    "shortDescription": "Filtro de chamadas inteligente. Privacidade total: sem contas ou uploads.",
     "fullDescription": "Retome o controle de suas chamadas e SMS com o máximo de privacidade. Cansado de chamadas indesejadas e mensagens de spam? Este aplicativo é um bloqueador de chamadas e SMS poderoso e altamente personalizável, projetado para usuários que priorizam a privacidade.\n\n🛡️ 100% de Privacidade e Sem Conta\n- Zero upload de dados: sem sistema de contas, sem banco de dados online, sem rastreamento oculto.\n- Processamento local: todas as regras, registros e dados são gerenciados em seu dispositivo."
   },
-  "ru-RU": {
-    "title": "Приватность звонков",
-    "shortDescription": "Умный фильтр звонков. Полная приватность: без аккаунтов и передачи данных.",
-    "fullDescription": "Верните себе контроль над звонками и SMS с максимальной конфиденциальностью. Устали от спама? Это приложение — мощный и настраиваемый блокировщик вызовов и SMS, созданный для пользователей, ценящих приватность.\n\n🛡️ 100% Приватность и Без аккаунта\n- Ноль передачи данных: нет системы аккаунтов, онлайн-баз данных и скрытого отслеживания.\n- Локальная обработка: все правила фильтрации, журналы вызовов и данные управляются на вашем устройстве."
+  "es-ES": {
+    "title": "Privacidad de Llamadas",
+    "shortDescription": "Filtro de llamadas inteligente. Privacidad total: sin cuentas ni cargas.",
+    "fullDescription": "Recupere el control de sus llamadas y SMS con la máxima privacidad. ¿Cansado de llamadas no deseadas y mensajes de spam? Esta aplicación es un bloqueador de llamadas y SMS potente y altamente personalizable, diseñado para usuarios que priorizan la privacidad.\n\n🛡️ 100% Privacidad y Sin Cuenta\n- Cero carga de datos: sin sistema de cuentas, sin base de datos en línea, sin seguimiento oculto.\n- Procesamiento local: todas las reglas, registros y datos se gestionan en su dispositivo."
   },
   "vi": {
     "title": "Quyền riêng tư cuộc gọi",
-    "shortDescription": "Bộ lọc cuộc gọi thông minh. Bảo mật tuyệt đối: không tài khoản, không tải dữ liệu.",
+    "shortDescription": "Bộ lọc cuộc gọi thông minh. Bảo mật 100%: không tài khoản, không tải dữ liệu.",
     "fullDescription": "Giành lại quyền kiểm soát các cuộc gọi và SMS của bạn với quyền riêng tư tối thượng. Mệt mỏi vì các cuộc gọi và tin nhắn rác? Ứng dụng này là một trình chặn cuộc gọi và SMS mạnh mẽ, được thiết kế cho những người dùng đặt quyền riêng tư lên hàng đầu.\n\n🛡️ 100% Quyền riêng tư & Không cần tài khoản\n- Không tải lên dữ liệu: không có hệ thống tài khoản, cơ sở dữ liệu trực tuyến, không theo dõi ẩn.\n- Xử lý cục bộ: tất cả các quy tắc lọc, nhật ký và dữ liệu được quản lý hoàn toàn trên thiết bị của bạn."
   },
   "th": {
     "title": "ความเป็นส่วนตัวของการโทร",
-    "shortDescription": "ตัวกรองการโทรอัจฉริยะ ความเป็นส่วนตัวสูงสุด: ไม่ต้องมีบัญชี ไม่มีการอัปโหลดข้อมูล",
+    "shortDescription": "ตัวกรองการโทรอัจฉริยะ ความเป็นส่วนตัว 100%: ไม่มีบัญชี ไม่เก็บข้อมูล",
     "fullDescription": "ยึดการควบคุมการโทรและ SMS ของคุณคืนมาด้วยความเป็นส่วนตัวสูงสุด เบื่อกับสายสแปมและข้อความขยะหรือไม่? แอปนี้คือเครื่องมือบล็อกการโทรและ SMS ที่ทรงพลังและปรับแต่งได้สูง ออกแบบมาสำหรับผู้ใช้ที่ให้ความสำคัญกับความเป็นส่วนตัว\n\n🛡️ ความเป็นส่วนตัว 100% และไม่ต้องมีบัญชี\n- ไม่มีการอัปโหลดข้อมูล: ไม่มีระบบบัญชี ไม่มีฐานข้อมูลออนไลน์ ไม่มีการติดตามแอบแฝง\n- การประมวลผลในเครื่อง: กฎการกรอง บันทึกการโทร และข้อมูลทั้งหมดได้รับการจัดการบนอุปกรณ์ของคุณทั้งหมด"
   },
   "id": {
