@@ -12,6 +12,7 @@ import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overl
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/location/services/provider/location_sync_service_provider.dart';
+import 'package:yourcallyourrule/features/plugin/providers/plugin_execution_service_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
@@ -19,7 +20,7 @@ import 'package:yourcallyourrule/core/provider/providers/background_sync_service
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/theme/app_theme.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
-import 'package:yourcallyourrule/features/plugin/providers/plugin_webview_service_provider.dart';
+
 import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
 
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
@@ -52,7 +53,7 @@ Future<void> main() async {
     final container = ProviderContainer();
 
     // 初始化插件WebView服务
-    await container.read(pluginWebViewServiceProvider).initialize();
+    await container.read(pluginExecutionServiceProvider).initialize();
 
     // 初始化核心来电监控服务
     debugPrint("Initializing Caller ID Monitor Service...");

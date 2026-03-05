@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'package:yourcallyourrule/common/error/logger.dart';
+
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/repositories/plugin_repository.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
@@ -22,14 +24,11 @@ class PluginManagerService extends ListService<PluginEntry, String> {
   final PluginManagerConfig _config;
 
   // 构造函数统一到类顶部
-  PluginManagerService(
-    this._repository, {
-    required ConfigRepository configRepository,
-  }) : _importExportService = UniversalImportExportService<PluginEntry>(
-         _repository,
-       ),
-       _config = PluginManagerConfig(configRepository: configRepository),
-       super(_repository);
+  PluginManagerService(this._repository, {required ConfigRepository configRepository})
+      : _importExportService =
+            UniversalImportExportService<PluginEntry>(_repository),
+        _config = PluginManagerConfig(configRepository: configRepository),
+        super(_repository);
 
   // region 基础CRUD操作（保持与PhoneSubscriptionService一致的结构）
   @override
@@ -77,7 +76,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     final updatedEntry = entry.copyWith(isEnabled: isEnabled);
     await _repository.update(updatedEntry);
   }
-  /*
+/*
   /// 批量切换所有插件状态
   Future<void> toggleAllPluginsStatus(bool isEnabled) async {
     final plugins = await getAll();
@@ -90,9 +89,8 @@ class PluginManagerService extends ListService<PluginEntry, String> {
   /// 获取插件目录（保持与PhoneSubscriptionService类似的静态方法结构）
   static Future<Directory> getPluginsDirectory() async {
     final appSupportDirectory = await getApplicationSupportDirectory();
-    final pluginsDirectory = Directory(
-      join(appSupportDirectory.path, 'plugins'),
-    );
+    final pluginsDirectory =
+        Directory(join(appSupportDirectory.path, 'plugins'));
 
     // 如果 plugins 文件夹不存在，则创建它
     if (!pluginsDirectory.existsSync()) {
@@ -119,32 +117,15 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 
   // 从插件脚本中提取插件信息
   static Map<String, dynamic> extractPluginInfo(String script) {
-    // 使用您的改进思路，并用 r"" 保证正则的正确性
-    // 增加 multiLine: true 让 ^ 和 $ 可以匹配行的开头和结尾，对这类解析更稳定
-    final idRegex = RegExp(
-      r"id:\s*['"
-      "](.*?)['"
-      "],?",
-      multiLine: true,
-    );
-    final nameRegex = RegExp(
-      r"name:\s*['"
-      "](.*?)['"
-      "],?",
-      multiLine: true,
-    );
-    final versionRegex = RegExp(
-      r"version:\s*['"
-      "](.*?)['"
-      "],?",
-      multiLine: true,
-    );
-    final descriptionRegex = RegExp(
-      r"description:\s*['"
-      "](.*?)['"
-      "],?",
-      multiLine: true,
-    );
+  // 使用您的改进思路，并用 r"" 保证正则的正确性
+  // 增加 multiLine: true 让 ^ 和 $ 可以匹配行的开头和结尾，对这类解析更稳定
+  final idRegex = RegExp(r"id:\s*['""](.*?)['""],?", multiLine: true);
+  final nameRegex = RegExp(r"name:\s*['""](.*?)['""],?", multiLine: true);
+  final versionRegex = RegExp(r"version:\s*['""](.*?)['""],?", multiLine: true);
+  final descriptionRegex = RegExp(r"description:\s*['""](.*?)['""],?", multiLine: true);
+
+
+
 
     final idMatch = idRegex.firstMatch(script);
     final nameMatch = nameRegex.firstMatch(script);
@@ -271,7 +252,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 
       return entry;
     } catch (e) {
-      //AppLogger.error('添加插件失败', e);
+      AppLogger.error('添加插件失败', e);
       debugPrint('添加插件失败: $e');
       return null;
     }
@@ -299,7 +280,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 
       return entry;
     } catch (e) {
-      // AppLogger.error('添加本地插件失败', e);
+      AppLogger.error('添加本地插件失败', e);
       debugPrint('添加本地插件失败: $e');
       return null;
     }
@@ -326,7 +307,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
       }
       return false;
     } catch (e) {
-      //AppLogger.error('更新插件失败', e);
+      AppLogger.error('更新插件失败', e);
       debugPrint('更新插件失败: $e');
       return false;
     }
@@ -353,19 +334,20 @@ class PluginManagerService extends ListService<PluginEntry, String> {
       }
     }
   }
-
+  
   // 批量启用/禁用所有插件
   Future<void> toggleAllPluginsStatus(bool isEnabled) async {
     final plugins = await getAll();
     if (plugins.isEmpty) return;
-
+    
     // 创建更新后的插件列表
-    final updatedPlugins =
-        plugins.map((plugin) => plugin.copyWith(isEnabled: isEnabled)).toList();
-
+    final updatedPlugins = plugins.map((plugin) => 
+      plugin.copyWith(isEnabled: isEnabled)).toList();
+    
     // 批量更新到数据库
     await _repository.saveAll(updatedPlugins);
   }
+
 
   // 导入导出功能
   Future<List<PluginEntry>> importFromFile(String path) async {
