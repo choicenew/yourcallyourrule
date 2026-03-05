@@ -1,0 +1,33 @@
+name: Update Store Listing (API)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-play-store:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install Google API Library
+        # 强制在独立文件夹内安装依赖
+        working-directory: ./update-store-list
+        run: npm install googleapis
+        
+      - name: Run Store Listing Update Script
+        env:
+          # 提取你在 GitHub 设置好的 Secret 凭证
+          PLAY_STORE_CREDENTIALS: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT }}
+        run: |
+          # 1. 在根目录生成凭证文件，供脚本读取
+          echo "$PLAY_STORE_CREDENTIALS" > play_config.json
+          
+          # 2. 进入独立的 js 文件夹执行脚本
+          cd update-store-list
+          node update.js
