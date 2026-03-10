@@ -62,7 +62,7 @@ jobs:
           MESSAGE+=$'\n\n'
           MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
 
-          COMMUNITY_MESSAGE=$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](https://github.com/choicenew/yourcallrule/tree/main/plugins) and help improve [translations](https://github.com/choicenew/yourcallrule/tree/main/lib/l10n).'
+          COMMUNITY_MESSAGE=$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](https://github.com/ngodeel/yourcallrule) and help improve [translations](https://github.com/choicenew/yourcallrule/tree/main/lib/l10n).'
           MESSAGE+="$COMMUNITY_MESSAGE"
           
           # --- D. 发送消息和文件 ---
