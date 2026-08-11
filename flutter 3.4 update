@@ -1,0 +1,80 @@
+AGP 9 和 built-in Kotlin
+在 AGP 9 版本之前，Android 应用和插件需要手动将 Kotlin Gradle 插件 (KGP) 添加到构建文件，系统才能识别并编译 Kotlin 代码。
+从 AGP 9.0 开始，Android 构建系统已原生支持 Kotlin，由于构建系统已经处理了 Kotlin，手动添加单独的 KGP 会导致冲突并造成构建失败，所以这个情况需要 Flutter 进行适配，所以：
+
+如果你是开发 Flutter App，这里需要更新 Android 构建文件，删除单独的 Kotlin Gradle 插件 (KGP)
+如果是插件的话，就需要对 Gradle 进行修改兼容
+
+
+设置   AGP 9.0 的插件必须  pubspec.yaml  里将 Flutter 的最低版本限制设置为 3.44 。
+
+这个问题主要还是 AGP 和 Kotlin 的破坏性更新带来的，以前 Flutter Android 项目里常见的是：
+groovy 代码解读复制代码plugins {
+    id "com.android.application"
+    id "kotlin-android"
+}
+
+或者老写法：
+groovy 代码解读复制代码apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+而到了 AGP 9.0，Android Gradle Plugin 自己内置了 Kotlin 支持同时默认启用，也就是说普通 Android app/library 模块里不再需要显式 apply org.jetbrains.kotlin.android 或 kotlin-android 插件。
+
+Google 官方说法是：AGP 9.0 introduces built-in Kotlin support and enables it by default，不再需要 apply org.jetbrains.kotlin.android / kotlin-android 来编译 Kotlin 源码。
+
+所以迁移后的 Flutter Android app 大致会从：
+groovy 代码解读复制代码plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+}
+
+变成：
+groovy 代码解读复制代码plugins {
+    id "com.android.application"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    // ...
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
+
+也就是 删掉 kotlin-android，删掉 android { kotlinOptions {} }，改用顶层 kotlin { compilerOptions {} }。
+
+Flutter 3.44 也不是强行让所有项目马上完全迁到 AGP 9 + built-in Kotlin，所以也加了两个 flag 做缓冲：
+ini 代码解读复制代码android.newDsl=false
+android.builtInKotlin=false
+
+
+而为了支持还没迁移的项目，Flutter 默认使用 legacy Kotlin Gradle Plugin 和 old AGP DSL types，Flutter migrator 会自动把这两个 flag 加到 gradle.properties。
+
+ABI
+Flutter 之前的做法是帮你按构建类型动态塞 ABI 过滤器，现在改成「在 defaultConfig 里统一塞一次」，这个变化也是遇到 AGP 9 的合并规则后。
+以前一般是 flutter build apk --target-platform android-arm64 或者 flutter build apk --split-per-abi ，而现在为了 AGP9 ， Flutter 把 ABI filter 放到了 defaultConfig ：
+groovy 代码解读复制代码android {
+    defaultConfig {
+        ndk {
+            abiFilters ...
+        }
+    }
+}
+
+所以，如果在特定构建类型或产品风格中使用自定义 abiFilters ，现在需要在构建或运行应用时传递 -Pdisable-abi-filtering=true 标志。
+
+作者：恋猫de小郭
+链接：https://juejin.cn/post/7641896054782672915
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
