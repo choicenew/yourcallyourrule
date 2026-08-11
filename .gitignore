@@ -52,3 +52,9 @@ app.*.map.json
 /临时参考/
 /docs/
 /plugins/
+
+# Sensitive & Local files
+local.properties
+**/local.properties
+key.properties
+**/key.properties
