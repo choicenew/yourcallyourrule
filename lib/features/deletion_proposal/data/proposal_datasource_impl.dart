@@ -312,7 +312,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
               'id': r.id,
               'entityId': r.entityId,
               'operation': r.operation,
-              'payload': r.payload,
+              'payload': r.payload != null ? jsonDecode(r.payload!) : null,
               'timestamp': r.timestamp,
             })
         .toList();
@@ -329,7 +329,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
               'id': r.id,
               'entityId': r.entityId,
               'operation': r.operation,
-              'payload': r.payload,
+              'payload': r.payload != null ? jsonDecode(r.payload!) : null,
               'timestamp': r.timestamp,
             })
         .toList();

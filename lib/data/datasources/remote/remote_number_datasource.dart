@@ -5,6 +5,7 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart' hide Column;
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/common/error/logger.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 
 import '../../../data/models/remote/remote_number_model.dart';
@@ -326,7 +327,17 @@ class RemoteNumberDataSource
               OrderingTerm(expression: tbl.timestamp, mode: OrderingMode.asc),
         ])).get();
 
-    return results.map((data) => data.toJson()).toList();
+    return results.map((data) {
+      final json = data.toJson();
+      if (json['payload'] != null && json['payload'] is String) {
+        try {
+          json['payload'] = jsonDecode(json['payload'] as String);
+        } catch (e) {
+          AppLogger.error('解析本地待同步 payload 失败，存在脏数据', e);
+        }
+      }
+      return json;
+    }).toList();
   }
 
   Future<void> clearPendingOperations(List<String> operationIds) async {
