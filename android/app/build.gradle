@@ -1,0 +1,168 @@
+plugins {
+    id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
+
+    id "dev.flutter.flutter-gradle-plugin"
+
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.withReader('UTF-8') { reader ->
+        keystoreProperties.load(reader)
+    }
+}
+
+
+android {
+
+    signingConfigs {
+        release {
+        // 检�?key.properties 文件是否存在
+        if (keystorePropertiesFile.exists()) {
+            // 如果存在，就使用 GitHub Actions 的配�?(�?key.properties 读取)
+            println ">>> 检测到 key.properties, 使用 CI/CD 签名配置"
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        } else {
+            // 如果不存�?key.properties，尝试读�?local.properties 中的本地调试签名配置
+            println ">>> 未找�?key.properties, 尝试使用 local.properties 本地签名配置"
+            def localStoreFile = localProperties.getProperty('key.storeFile')
+            if (localStoreFile != null) {
+                storeFile file(localStoreFile)
+                storePassword localProperties.getProperty('key.storePassword')
+                keyAlias localProperties.getProperty('key.keyAlias')
+                keyPassword localProperties.getProperty('key.keyPassword')
+            }
+        }
+    }
+}
+/*
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+*/
+    
+    namespace = "com.yours.yourcallyourrule"
+    // 【核心修正】改成这样！！！
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        multiDexEnabled true //local notification
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.yours.yourcallyourrule"
+        minSdk 30
+        targetSdk 36
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        manifestPlaceholders += [
+                'appAuthRedirectScheme': 'com.yours.yourcallyourrule'
+        ]
+    }
+    // 一个更健壮的配置，可以预防多种常见的重复文件问�?
+    packaging {
+        excludes += 'META-INF/DEPENDENCIES'
+        excludes += 'META-INF/LICENSE'
+        excludes += 'META-INF/LICENSE.txt'
+        excludes += 'META-INF/license.txt'
+        excludes += 'META-INF/NOTICE'
+        excludes += 'META-INF/NOTICE.txt'
+        excludes += 'META-INF/notice.txt'
+        excludes += 'META-INF/ASL2.0'
+
+        pickFirsts += 'lib/x86/libopenh264.so'
+        pickFirsts += 'lib/x86_64/libopenh264.so'
+        pickFirsts += 'lib/armeabi-v7a/libopenh264.so'
+        pickFirsts += 'lib/arm64-v8a/libopenh264.so'
+        pickFirsts += 'lib/arm64-v8a/libc++_shared.so'
+        pickFirsts += 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirsts += 'lib/x86_64/libc++_shared.so'
+        pickFirsts += 'lib/x86/libc++_shared.so'
+
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+                  minifyEnabled true
+      shrinkResources true
+    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+           signingConfig signingConfigs.release
+
+            minifyEnabled true
+            shrinkResources true
+
+          proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+flutter {
+    source = "../.."
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
+dependencies {
+
+   
+    implementation 'androidx.core:core-ktx:1.16.0'
+    
+    // 必须添加：因�?compileOptions 中启用了 coreLibraryDesugaringEnabled true
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+
+
+
+
+
+}
