@@ -4,9 +4,11 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_linux
+  flutter_inappwebview_linux
   flutter_js
   flutter_secure_storage_linux
   gtk
+  sqlite3_flutter_libs
   url_launcher_linux
 )
 

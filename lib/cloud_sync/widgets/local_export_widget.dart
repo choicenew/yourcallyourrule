@@ -31,7 +31,7 @@ class LocalExportWidget extends ConsumerWidget {
       final bytes = await file.readAsBytes();
 
       // 通过 FilePicker 保存到本地（手机存储）
-      final result = await FilePicker.platform.saveFile(
+      final result = await FilePicker.saveFile(
         dialogTitle: AppLocalizations.of(context)!.backup,
         fileName: 'backup_${DateTime.now().millisecondsSinceEpoch}.json',
         bytes: bytes,

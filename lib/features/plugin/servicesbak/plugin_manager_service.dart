@@ -363,7 +363,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 /*
 // 设置默认的外部存储目录
 Future<void> setDefaultStorageDirectory() async {
-  final result = await FilePicker.platform.getDirectoryPath();
+  final result = await FilePicker.getDirectoryPath();
   if (result != null) {
     await _config.saveDefaultStorageDirectory(result);
   }

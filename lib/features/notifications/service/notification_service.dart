@@ -85,18 +85,17 @@ class NotificationService implements NotificationServiceContract {
   Future<void> initialize() async {
     if (_isInitialized) return;
 
-      // 【核心修正】: 使用一个专门的、存在于 drawable 目录下的图标来初始化。
-    // 'ic_notification' 应该是您放置在 `android/app/src/main/res/drawable` 下的图标文件名。
     const initializationSettingsAndroid = AndroidInitializationSettings('ic_notification');
     const initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
     
     await _plugin.initialize(
-      initializationSettings,
-      onDidReceiveNotificationResponse: _onNotificationResponse,
-      onDidReceiveBackgroundNotificationResponse: onDidReceiveBackgroundNotificationResponse,
+      settings: initializationSettings,
+      onDidReceiveNotificationResponse: (response) {
+        _onNotificationResponse(response);
+      },
+      onDidReceiveBackgroundNotificationResponse: NotificationService.onDidReceiveBackgroundNotificationResponse,
     );
 
-    // Channel creation is now handled on-demand in showNotification
     _isInitialized = true;
   }
 
@@ -153,49 +152,33 @@ class NotificationService implements NotificationServiceContract {
     required String title, required String body, required NotificationConfig config,
     int notificationId = 0, Map<String, dynamic>? payload,
     bool autoCancel = true, Duration? autoCancelDelay,
-        // 【核心修正】: 接收新的可选参数
-  // 【最终修正】: 接收通用的 NotificationStyle 对象
     NotificationStyle? style,
   }) async {
     if (!_isInitialized) await initialize();
     await _createNotificationChannel(config);
-        // 【核心修正】:
-       // 【最终修正】:
-    // 1. 从 config 创建一个基础的 AndroidNotificationDetails。
+    
     AndroidNotificationDetails androidDetails = config.createAndroidDetails();
     
-    // 2. 如果外部传入了 style 对象，则用它的信息来“增强” androidDetails。
     if (style != null) {
-      // a. 准备大图标
       AndroidBitmap<Object>? largeIcon;
       if (style.largeIconPath != null) {
         largeIcon = FilePathAndroidBitmap(style.largeIconPath!);
       }
 
-      // b. 准备样式信息
       StyleInformation? styleInformation;
       if (style.useBigTextStyle) {
-        styleInformation = BigTextStyleInformation(
-           body,
-          // 也可以在这里设置展开时的标题和摘要，如果需要的话
-          //contentTitle: title,
-          // summaryText: 'Expand to see more',
-          );
+        styleInformation = BigTextStyleInformation(body);
       }
 
-      // c. 使用 copyWith 方法创建一个新的、增强版的 androidDetails
-      // (注意: AndroidNotificationDetails 没有 copyWith, 我们需要手动重建)
       androidDetails = AndroidNotificationDetails(
         config.channelId,
         config.channelName,
         channelDescription: config.channelDescription,
         importance: config.importance,
         priority: config.priority,
-        // 应用 style 中的增强属性
         largeIcon: largeIcon,
         color: style.color,
         styleInformation: styleInformation,
-        // 保留 config 中的其他属性
         playSound: config.playSound,
         sound: config.soundSource != null ? RawResourceAndroidNotificationSound(config.soundSource!) : null,
         enableVibration: config.enableVibration,
@@ -206,12 +189,15 @@ class NotificationService implements NotificationServiceContract {
     final details = NotificationDetails(android: androidDetails);
 
     await _plugin.show(
-      notificationId, title, body, details,
+      id: notificationId,
+      title: title,
+      body: body,
+      notificationDetails: details,
       payload: payload != null ? jsonEncode(payload) : null,
     );
     if (autoCancel) {
       final delay = autoCancelDelay ?? config.autoCancelDelay;
-      Future.delayed(delay, () => _plugin.cancel(notificationId));
+      Future.delayed(delay, () => _plugin.cancel(id: notificationId));
     }
   }
 
@@ -242,13 +228,16 @@ class NotificationService implements NotificationServiceContract {
     
     final details = NotificationDetails(android: androidDetails);
     await _plugin.show(
-      notificationId, title, body, details,
+      id: notificationId,
+      title: title,
+      body: body,
+      notificationDetails: details,
       payload: payload != null ? jsonEncode(payload) : null,
     );
   }
 
   @override
-  Future<void> cancelNotification(int notificationId) async { await _plugin.cancel(notificationId); }
+  Future<void> cancelNotification(int notificationId) async { await _plugin.cancel(id: notificationId); }
   @override
   Future<void> cancelAllNotifications() async { await _plugin.cancelAll(); }
   @override

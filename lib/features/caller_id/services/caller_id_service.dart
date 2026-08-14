@@ -151,7 +151,7 @@ class CallerIdService {
 
     // 获取手机所有本地联系人
     List<fluttercontact.Contact> allLocalContacts =
-        await fluttercontact.FlutterContacts.getContacts();
+        await fluttercontact.FlutterContacts.getAll();
 
     // 使用原始号码、E164 和 National 格式分别查询
     fluttercontact.Contact? localContact;

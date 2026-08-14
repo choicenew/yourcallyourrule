@@ -263,7 +263,7 @@ class ButtonPanel extends ConsumerWidget {
       children: [
         FilledButton( // Import
           onPressed: () async {
-            final result = await FilePicker.platform.pickFiles();
+            final result = await FilePicker.instance.pickFiles();
             if (result != null && result.files.single.path != null) {
               // 【修改点】: 正确地读取 Notifier 实例
               final styleNotifier = ref.read(callerIdStyleProvider.notifier);

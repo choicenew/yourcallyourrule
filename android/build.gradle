@@ -5,13 +5,35 @@ allprojects {
     }
 }
 
-rootProject.buildDir = "../build"
+def newBuildDir = rootProject.layout.buildDirectory.dir("../../build").get()
+rootProject.layout.buildDirectory.value(newBuildDir)
+
 subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    def newSubprojectBuildDir = newBuildDir.dir(project.name)
+    project.layout.buildDirectory.value(newSubprojectBuildDir)
+
+    plugins.withId('com.android.library') {
+        androidComponents {
+            finalizeDsl { extension ->
+                extension.compileSdk = 37
+            }
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
+    }
 
     project.evaluationDependsOn(":app")
 }
 
 tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+    delete rootProject.layout.buildDirectory
 }

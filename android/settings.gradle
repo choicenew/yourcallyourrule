@@ -19,9 +19,9 @@ pluginManagement {
 plugins {
     id "dev.flutter.flutter-plugin-loader" version "1.0.0"
     id "com.android.application" version '9.0.0' apply false
-    // Add the dependency for the Google services Gradle plugin
+    // 必须保留，以便支持那些还没迁移到 AGP 9.0 内置 Kotlin 的三方插件
+    id "org.jetbrains.kotlin.android" version "2.2.20" apply false
     id("com.google.gms.google-services") version "4.5.0" apply false
 }
-
 
 include ":app"

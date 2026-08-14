@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:csv/csv.dart';
 import 'package:yaml/yaml.dart';
@@ -16,6 +17,26 @@ abstract class ImportExportService<T extends BaseEntity, ID>
     extends BaseService<T, ID> {
   const ImportExportService(super.repository);
 
+  /// 准备导出数据字节
+  Future<Uint8List> prepareExportBytes(List<T>? entities, {ExportFormat format = ExportFormat.json}) async {
+    final dataToExport = entities ?? await getAll();
+    String exportData;
+
+    switch (format) {
+      case ExportFormat.json:
+        exportData = await prepareJsonForExport(dataToExport);
+        break;
+      case ExportFormat.csv:
+        exportData = await prepareCsvForExport(dataToExport);
+        break;
+      case ExportFormat.yaml:
+        exportData = await prepareYamlForExport(dataToExport);
+        break;
+    }
+
+    return Uint8List.fromList(utf8.encode(exportData));
+  }
+
   /// 导出数据到文件
   /// [filePath] 导出文件路径
   /// [entities] 要导出的实体列表，如果为null则导出所有实体
@@ -23,22 +44,9 @@ abstract class ImportExportService<T extends BaseEntity, ID>
   Future<bool> exportToFile(String filePath,
       {List<T>? entities, ExportFormat format = ExportFormat.json}) async {
     try {
-      final dataToExport = entities ?? await getAll();
-      String exportData;
-
-      switch (format) {
-        case ExportFormat.json:
-          exportData = await prepareJsonForExport(dataToExport);
-          break;
-        case ExportFormat.csv:
-          exportData = await prepareCsvForExport(dataToExport);
-          break;
-        case ExportFormat.yaml:
-          exportData = await prepareYamlForExport(dataToExport);
-          break;
-      }
-
-      await writeDataToFile(filePath, exportData);
+      final bytes = await prepareExportBytes(entities, format: format);
+      final file = File(filePath);
+      await file.writeAsBytes(bytes);
       return true;
     } catch (e) {
       // 处理导出错误
@@ -130,7 +138,7 @@ abstract class ImportExportService<T extends BaseEntity, ID>
     }
 
     // 转换为CSV字符串
-    return const ListToCsvConverter().convert(rows);
+    return const CsvEncoder().convert(rows);
   }
 
   /// 准备YAML数据用于导出
@@ -197,7 +205,7 @@ abstract class ImportExportService<T extends BaseEntity, ID>
   /// 解析CSV数据
   Future<List<T>> parseCsvData(String data) async {
     try {
-      final rows = const CsvToListConverter().convert(data);
+      final rows = const CsvDecoder().convert(data);
       if (rows.isEmpty) {
         return [];
       }

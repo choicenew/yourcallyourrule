@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/cloud_sync/entities/backup_version_entity.dart'
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_backup_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
+import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 
 import 'backup_encryption_service.dart';
 
@@ -28,11 +29,20 @@ class BackupRestoreService {
   // Service dependencies
   final BackupEncryptionService _encryptionService;
   final ConfigBackupService _configBackupService;
+  final RuleImportExportService? _rulesImportExportService;
+
+  RuleImportExportService get rulesImportExportService {
+    if (_rulesImportExportService == null) {
+      throw Exception('RuleImportExportService not provided');
+    }
+    return _rulesImportExportService!;
+  }
 
   BackupRestoreService(
     this._encryptionService,
-    this._configBackupService,
-  );
+    this._configBackupService, {
+    RuleImportExportService? rulesImportExportService,
+  }) : _rulesImportExportService = rulesImportExportService;
 
   // Encryption service initialization
 
@@ -520,7 +530,7 @@ class BackupRestoreService {
 
   /// 备份设置到指定路径
   /// 注意：在Android和iOS平台上，应该使用prepareSettingsBackup方法获取数据，
-  /// 然后使用FilePicker.platform.saveFile方法并提供bytes参数
+  /// 然后使用FilePicker.saveFile方法并提供bytes参数
   Future<String> backupSettings(String destination) async {
     _ensureInitialized();
 
@@ -729,7 +739,7 @@ class BackupRestoreService {
   Future<String> selectBackupFile() async {
     _ensureInitialized();
 
-    final result = await FilePicker.platform.pickFiles(
+    final result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['json'],
       dialogTitle: 'Select backup file',
@@ -742,14 +752,15 @@ class BackupRestoreService {
     return result.files.first.path!;
   }
 
-  Future<String> selectBackupDestination() async {
+  Future<String> selectBackupDestination(Uint8List bytes) async {
     _ensureInitialized();
 
-    final result = await FilePicker.platform.saveFile(
+    final result = await FilePicker.saveFile(
       dialogTitle: 'Save backup file',
       fileName: 'backup_${DateTime.now().millisecondsSinceEpoch}.json',
       type: FileType.custom,
       allowedExtensions: ['json'],
+      bytes: bytes,
     );
 
     if (result == null) {

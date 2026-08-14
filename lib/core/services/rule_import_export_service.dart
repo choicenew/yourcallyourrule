@@ -53,8 +53,8 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
       
       // 根据分隔符类型选择转换器
       final rows = isTabSeparated 
-          ? const CsvToListConverter(fieldDelimiter: '\t').convert(data)
-          : const CsvToListConverter().convert(data);
+          ? const CsvDecoder(fieldDelimiter: '\t').convert(data)
+          : const CsvDecoder().convert(data);
           
       if (rows.isEmpty) {
         debugPrint('[RuleImportExportService] CSV parsing: No rows found in data');

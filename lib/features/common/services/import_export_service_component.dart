@@ -25,7 +25,7 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
   /// 导入规则
   Future<void> importFromFile(BuildContext context) async {
     try {
-      final result = await FilePicker.platform.pickFiles(
+      final result = await FilePicker.pickFiles(
         dialogTitle: AppLocalizations.of(context)!.importEntity(entityTypeName),
         type: FileType.custom,
         allowedExtensions: ['json'],
@@ -53,26 +53,23 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
   /// 导出规则
   Future<void> exportToFile(BuildContext context) async {
     try {
-      final result = await FilePicker.platform.saveFile(
+      // 获取要导出的实体
+      final entities = await getEntitiesToExport();
+      
+      // 准备导出数据字节
+      final bytes = await importExportService.prepareExportBytes(entities);
+
+      final result = await FilePicker.saveFile(
         dialogTitle: AppLocalizations.of(context)!.exportEntity(entityTypeName),
         fileName: '${entityTypeName.toLowerCase().replaceAll(' ', '_')}_export.json',
+        bytes: bytes,
       );
       
       if (result != null) {
-        // 获取要导出的实体
-        final entities = await getEntitiesToExport();
-        
-        // 导出实体
-        final success = await importExportService.exportToFile(result, entities: entities);
-        
-        if (success) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(AppLocalizations.of(context)!.entityExportSuccess(entityTypeName)),
-            backgroundColor: Colors.green,
-          ));
-        } else {
-          throw Exception(AppLocalizations.of(context)!.exportFailed);
-        }
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(context)!.entityExportSuccess(entityTypeName)),
+          backgroundColor: Colors.green,
+        ));
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(

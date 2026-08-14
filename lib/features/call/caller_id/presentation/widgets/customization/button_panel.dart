@@ -40,7 +40,7 @@ class ButtonPanel extends ConsumerWidget {
             label: Text(AppLocalizations.of(context)!.import),
             onPressed: () async {
               try {
-                final result = await FilePicker.platform.pickFiles();
+                final result = await FilePicker.pickFiles();
                 if (result != null && result.files.single.path != null) {
                   // 1. 调用 manager 执行业务逻辑
                   final newConfig = await configurationManager.importConfig(result.files.single.path!);

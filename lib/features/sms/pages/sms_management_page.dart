@@ -281,7 +281,7 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
 
   Future<void> _importRules() async {
     try {
-      final result = await FilePicker.platform.pickFiles(
+      final result = await FilePicker.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['json', 'txt'],
       );
@@ -321,24 +321,23 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
 
   Future<void> _exportRules() async {
     try {
-      final result = await FilePicker.platform.saveFile(
+      final service = ref.read(smsServiceProvider);
+      final importExportService = service.importExportService;
+      
+      // 准备导出数据字节
+      final bytes = await importExportService.prepareExportBytes(_smsRules);
+
+      final result = await FilePicker.saveFile(
         dialogTitle: AppLocalizations.of(context)!.exportSmsRules,
         fileName: 'sms_rules.json',
+        bytes: bytes,
       );
 
       if (result != null) {
-        final service = ref.read(smsServiceProvider);
-        final importExportService = service.importExportService;
-        final success = await importExportService.exportToFile(result, entities: _smsRules);
-        
-        if (success) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(AppLocalizations.of(context)!.rulesExportedSuccessfully),
-            backgroundColor: Colors.green,
-          ));
-        } else {
-          throw Exception(AppLocalizations.of(context)!.exportFailed);
-        }
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(context)!.rulesExportedSuccessfully),
+          backgroundColor: Colors.green,
+        ));
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(

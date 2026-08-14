@@ -1,5 +1,5 @@
+import 'dart:typed_data';
 import 'package:yourcallyourrule/core/base/base_entity.dart';
-
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
@@ -32,9 +32,6 @@ class RuleImportExportAdapter<T extends RuleBase> implements ImportExportService
 
   @override
   BaseRepository<T, String> get repository {
-    // 这里需要进行类型转换，将BaseRepository<RuleBase, String>转换为BaseRepository<T, String>
-    // 由于Dart的泛型是固定的，这里使用as进行类型转换
-    // 实际上底层仓库操作的是RuleBase对象，但我们在适配器中确保只处理T类型的对象
     return _service.repository as BaseRepository<T, String>;
   }
 
@@ -107,6 +104,7 @@ class RuleImportExportAdapter<T extends RuleBase> implements ImportExportService
     return rules.whereType<T>().toList();
   }
 
+  /// 根据格式准备导出数据
   Future<String> prepareDataForExport(List<T> entities, {ExportFormat format = ExportFormat.json}) async {
     switch (format) {
       case ExportFormat.json:
@@ -181,5 +179,12 @@ class RuleImportExportAdapter<T extends RuleBase> implements ImportExportService
   @override
   Future<String> prepareYamlForExport(List<T> entities) async {
     return await _service.prepareYamlForExport(entities);
+  }
+
+  @override
+  Future<Uint8List> prepareExportBytes(List<T>? entities, {ExportFormat format = ExportFormat.json}) async {
+    final rules = entities ?? await getAll();
+    final bytes = await _service.prepareExportBytes(rules, format: format);
+    return bytes;
   }
 }

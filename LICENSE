@@ -16,36 +16,40 @@ The terms and conditions of this License apply retroactively to **all historical
 
 ### 2. PERMITTED USES
 Subject to strict compliance with Section 3 below, the Original Author (`choiceNew`) grants you a non-exclusive, non-transferable, limited permission to:
-1. **View, Inspect & Fork Repository**: Read, audit, study the source code, and create personal or independent forks on public platforms (e.g., GitHub), provided that any such fork remains subject to and retains this exact License unaltered.
-2. **Personal Modification & Local Compilation**: Modify the source code and compile binary executables **solely for your own personal, private, and non-commercial use** on devices owned or controlled by you.
+1. **View, Inspect, Fork & Contribute**: Read, audit, study the source code, create forks on public platforms (e.g., GitHub), and submit pull requests or contributions to the original repository.
+2. **Modification & Adaptation**: Modify, adapt, customize, and compile the source code for personal use or non-commercial development.
+3. **Non-Commercial Sharing**: Share modified or unmodified source code and self-compiled binaries, strictly subject to the restrictions in Section 3.
 
 ---
 
 ### 3. RESTRICTIONS & PROHIBITIONS
 
-#### 3.1. Strict Prohibition of Commercial Use
+#### 3.1. Strict Prohibition of Commercial Use & Third-Party Monetization
 Except for the Original Author (`choiceNew`), **no person, company, organization, or entity is permitted to use the software, source code, or derivative works for any commercial purposes**. Commercial purposes include, but are not limited to:
-- Selling, renting, licensing, or monetizing the software or its binaries.
-- Offering paid software-as-a-service (SaaS), support, or subscription services built upon this code.
+- Selling, renting, licensing, or charging fees for the software, binaries, or modified builds.
+- Offering paid software-as-a-service (SaaS), paid support, or subscription services built upon this code.
 - Including this software or derivative works in commercial products or enterprise internal production environments.
-- Displaying advertisements within the software or derivative builds to generate revenue.
+- **Inserting any third-party commercial advertisements, monetization SDKs, or paid paywalls** into the software or derivative builds.
 
-#### 3.2. Preservation of License & License Alteration Restrictions
-You may fork and modify the code, but **you are strictly prohibited from modifying, removing, or replacing this License file**. Any fork or derivative work must carry and be governed by this exact License without modification.
-
-#### 3.3. App Store & Platform Restrictions
-Due to potential policy, trademark, and accountability disputes, **distribution through third-party app stores is currently NOT supported**. Except for the Original Author (`choiceNew`), **you are strictly prohibited from submitting, packaging, publishing, or distributing this software or any derivative works to any public application store or distribution platform**, including but not limited to:
+#### 3.2. Absolute Prohibition of App Store & Repository Distribution
+To prevent trademark, policy, and liability disputes, **distribution through public application stores is strictly forbidden**. Except for the Original Author (`choiceNew`), **no person or entity is permitted under any name (including but not limited to using the original app name, a modified name, a renamed package, or as a fork/derivative)** to package, submit, publish, or distribute this software or derivative builds to any public application store or distribution platform, including but not limited to:
 - Google Play Store
 - Apple App Store
 - Huawei HarmonyOS AppGallery
-- Xiaomi App Store, Tencent App Store, or any other regional application store
+- Xiaomi App Store, Tencent App Store, OPPO/vivo App Store, or any regional store
 - F-Droid or any third-party software repository/store.
 
-#### 3.4. Third-Party Plugins & Extensions Disclaimer
-The Original Author (`choiceNew`) does NOT control, review, endorse, or assume responsibility for any third-party plugins, scripts, extensions, or modules independently created, developed, or distributed by third parties for use with this software. The installation or use of third-party plugins is entirely at your own risk.
+#### 3.3. Mandatory Disassociation & Sole Liability of Distributors
+If you distribute any build, fork, or binary of this software to third parties:
+1. **Mandatory Disassociation Notice**: You must prominently display a notice in the application's "About" section and distribution pages stating: *"This build is independently modified/distributed by a third party and is completely unaffiliated with the original author (`choiceNew`). The original author assumes no responsibility or liability for this build."*
+2. **Sole Liability & Assumption of Risk**: The Original Author maintains zero relationship (agency, partnership, or joint liability) with any third-party distributor. **The distributor assumes 100% sole and independent responsibility and liability** for their builds and actions.
+3. **Redress Solely Against Distributor**: Any third party or end user experiencing damages, losses, or legal claims arising from a third-party distributed build must seek remedies solely and directly from that third-party distributor.
 
-#### 3.5. Preservation of Copyright Notice & Attribution
-All copies, builds, forks, or partial extracts of the source code must retain all copyright notices, the original author (`choiceNew`) attribution, and this full License text intact. Removal or alteration of author credits in the UI, code comments, or documentation is strictly forbidden.
+#### 3.4. Prohibition of API Key & Private Endpoint Abuse
+Third-party builds and distributions must NOT abuse or bundle the Original Author's private API keys, proprietary Cloudflare endpoints, or private ad-unit credentials. Third-party deployers must configure their own credentials.
+
+#### 3.5. Preservation of License, Copyright & Attribution
+All copies, builds, and forks must retain all original copyright notices, the original author (`choiceNew`) attribution, official repository links, and this full License text intact.
 
 ---
 
@@ -54,5 +58,7 @@ Any breach of the terms of this License will automatically and immediately termi
 
 ---
 
-### 5. DISCLAIMER OF WARRANTY & LIMITATION OF LIABILITY
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE.
+### 5. DISCLAIMER OF WARRANTY & TOTAL LIMITATION OF LIABILITY
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+IN NO EVENT SHALL THE ORIGINAL AUTHOR (`choiceNew`) BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, LOSS OF USE, DATA, PROFITS, REPUTATION, OR BUSINESS INTERRUPTION; ACCOUNT SUSPENSION; OR DEVICE DAMAGE) ARISING IN ANY WAY OUT OF THE USE, MODIFICATION, OR DISTRIBUTION OF THIS SOFTWARE, REGARDLESS OF THE LEGAL THEORY (CONTRACT, STRICT LIABILITY, OR TORT INCLUDING NEGLIGENCE).

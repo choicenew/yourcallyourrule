@@ -414,16 +414,19 @@ class BackupRestorePage extends ConsumerWidget {
         return;
       }
 
-      final result = await FilePicker.platform.saveFile(
+      // 获取规则导出字节
+      final bytes = await backupService.rulesImportExportService.prepareExportBytes(rules);
+
+      final result = await FilePicker.saveFile(
         dialogTitle: AppLocalizations.of(context)!.exportRules,
         fileName: 'rules_${DateTime.now().millisecondsSinceEpoch}.json',
+        bytes: bytes,
       );
 
       if (result != null) {
-        final path = await backupService.backupRules(rules, result);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context)!.rulesExportedTo(path)),
+            content: Text(AppLocalizations.of(context)!.rulesExportedTo(result)),
           ),
         );
       }
@@ -450,7 +453,7 @@ class BackupRestorePage extends ConsumerWidget {
       final bytes = await backupFile.readAsBytes();
       
       // 使用FilePicker保存文件，提供bytes参数
-      final result = await FilePicker.platform.saveFile(
+      final result = await FilePicker.saveFile(
         dialogTitle: AppLocalizations.of(context)!.backupSettings,
         fileName: 'settings_${DateTime.now().millisecondsSinceEpoch}.json',
         bytes: bytes,
@@ -482,7 +485,7 @@ class BackupRestorePage extends ConsumerWidget {
     BackupRestoreService backupService,
   ) async {
     try {
-      final result = await FilePicker.platform.pickFiles(
+      final result = await FilePicker.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['json'],
       );
@@ -576,7 +579,7 @@ class BackupRestorePage extends ConsumerWidget {
     BackupRestoreService backupService,
   ) async {
     try {
-      final result = await FilePicker.platform.pickFiles(
+      final result = await FilePicker.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['json'],
       );

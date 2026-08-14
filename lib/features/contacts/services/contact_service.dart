@@ -359,7 +359,7 @@ class ContactService extends ListService<Contact, String> {
 
   // 从CSV文件导入联系人
   Future<void> importContactsFromCsv(String csvString) async {
-    final csvData = const CsvToListConverter().convert(csvString);
+    final csvData = const CsvDecoder().convert(csvString);
     final headers =
         (csvData.first).map((e) => e.toString().toLowerCase()).toList();
     final contacts =
@@ -404,7 +404,7 @@ class ContactService extends ListService<Contact, String> {
   // 修改CSV导出方法
   Future<String> exportContactsToCsv() async {
     final contacts = await _contactRepository.getAll();
-    return const ListToCsvConverter().convert(
+    return const CsvEncoder().convert(
       contacts.map((c) => [c.id, c.name, c.phoneNumbers.join(';')]).toList(),
     );
   }

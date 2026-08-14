@@ -85,7 +85,7 @@ class UniversalImportExportService<T extends BaseEntity> {
   }
 
   List<T> _parseCsvData(String data) {
-    final csv = const CsvToListConverter().convert(data);
+    final csv = const CsvDecoder().convert(data);
     final headers = csv.first.map((e) => e.toString()).toList();
     
     return csv.skip(1).map((row) {
@@ -155,7 +155,7 @@ class UniversalImportExportService<T extends BaseEntity> {
       rows.add(fieldNames.map((field) => map[field]?.toString() ?? '').toList());
     }
     
-    return const ListToCsvConverter().convert(rows);
+    return const CsvEncoder().convert(rows);
   }
 
   String _formatYaml(List<T> entities) {

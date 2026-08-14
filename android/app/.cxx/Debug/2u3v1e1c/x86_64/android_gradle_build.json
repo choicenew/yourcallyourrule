@@ -1,0 +1,28 @@
+{
+  "buildFiles": [
+    "D:\\VSCode-win32-x64-1.88.0\\flutter_windows_3.44.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\scripts\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "D:\\android-studio-2024.1.2.8-windows\\SDK\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\.cxx\\debug\\2u3v1e1c\\x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "D:\\android-studio-2024.1.2.8-windows\\SDK\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\Ngokel\\Desktop\\en\\test\\github\\yourcallyourrulemixhistory\\android\\app\\.cxx\\debug\\2u3v1e1c\\x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {},
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "D:\\android-studio-2024.1.2.8-windows\\SDK\\ndk\\28.2.13676358\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "D:\\android-studio-2024.1.2.8-windows\\SDK\\ndk\\28.2.13676358\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": []
+}

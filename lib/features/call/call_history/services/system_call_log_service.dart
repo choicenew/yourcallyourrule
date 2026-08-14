@@ -1,4 +1,4 @@
-import 'package:call_log/call_log.dart' as sys;
+import 'package:advanced_call_log/advanced_call_log.dart' as sys;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart' as app_call_log;
@@ -66,7 +66,7 @@ class SystemCallLogService {
 
         // 创建应用内通话记录对象
         final appLog = app_call_log.CallLog(
-          id: entry.id?.toString() ?? const Uuid().v4(),
+          id: const Uuid().v4(),
           phoneNumber: entry.number ?? '',
           name: entry.name ?? '',
           timestamp: callTimestamp,

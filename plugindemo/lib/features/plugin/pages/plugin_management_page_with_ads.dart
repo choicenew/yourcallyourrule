@@ -286,7 +286,7 @@ class _PluginManagementPageWithAdsState
 
   Future<void> _addPluginFromLocal() async {
     try {
-      FilePickerResult? result = await FilePicker.platform.pickFiles(
+      FilePickerResult? result = await FilePicker.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['js'],
       );
@@ -538,7 +538,7 @@ class _PluginManagementPageWithAdsState
                   onTap: () async {
                     Navigator.of(context).pop();
                     // 导出插件列表的逻辑
-                    final path = await FilePicker.platform.getDirectoryPath();
+                    final path = await FilePicker.getDirectoryPath();
                     if (path != null) {
                       final pluginService = ref.read(
                         pluginManagerServiceProvider,
@@ -576,7 +576,7 @@ class _PluginManagementPageWithAdsState
                   onTap: () async {
                     Navigator.of(context).pop();
                     // 导入插件列表的逻辑
-                    FilePickerResult? result = await FilePicker.platform
+                    FilePickerResult? result = await FilePicker
                         .pickFiles(
                           type: FileType.custom,
                           allowedExtensions: ['json'],

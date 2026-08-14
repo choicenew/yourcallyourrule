@@ -15,7 +15,7 @@ Future<String?> showImportExportDialog(BuildContext context) async {
             leading: const Icon(Icons.upload_file),
             title: Text(AppLocalizations.of(context)!.importConfig),
             onTap: () async {
-              final result = await FilePicker.platform.pickFiles(
+              final result = await FilePicker.pickFiles(
                 type: FileType.custom,
                 allowedExtensions: ['json'],
               );
