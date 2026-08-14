@@ -31,13 +31,28 @@ class LabelGenerator extends Generator {
   }
 
   bool _hasAppLabel(dynamic element) {
-    for (final meta in element.metadata) {
-      // meta is ElementAnnotation
-      final obj = meta.computeConstantValue();
-      if (obj?.type?.element?.name == 'AppLabel') {
-        return true;
+    try {
+      if (element is Element) {
+        const checker = TypeChecker.fromName('AppLabel');
+        if (checker.hasAnnotationOf(element)) {
+          return true;
+        }
       }
-    }
+    } catch (_) {}
+
+    try {
+      final metadata = (element as dynamic).metadata;
+      final iterable = metadata is Iterable ? metadata : (metadata as dynamic).annotations;
+      if (iterable is Iterable) {
+        for (final meta in iterable) {
+          final obj = (meta as dynamic).computeConstantValue();
+          if (obj?.type?.element?.name == 'AppLabel') {
+            return true;
+          }
+        }
+      }
+    } catch (_) {}
+
     return false;
   }
 
