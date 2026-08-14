@@ -177,40 +177,34 @@ class $RemoteNumbersTable extends RemoteNumbers
   RemoteNumberData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return RemoteNumberData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
       ),
-      label:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}label'],
-          )!,
-      priority:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}priority'],
-          )!,
-      action:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}action'],
-          )!,
-      count:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}count'],
-          )!,
+      label: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label'],
+      )!,
+      priority: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}priority'],
+      )!,
+      action: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action'],
+      )!,
+      count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}count'],
+      )!,
       labelsJson: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}labels_json'],
@@ -271,10 +265,9 @@ class RemoteNumberData extends DataClass
       priority: Value(priority),
       action: Value(action),
       count: Value(count),
-      labelsJson:
-          labelsJson == null && nullToAbsent
-              ? const Value.absent()
-              : Value(labelsJson),
+      labelsJson: labelsJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(labelsJson),
     );
   }
 
@@ -331,15 +324,17 @@ class RemoteNumberData extends DataClass
   RemoteNumberData copyWithCompanion(RemoteNumbersCompanion data) {
     return RemoteNumberData(
       id: data.id.present ? data.id.value : this.id,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
       name: data.name.present ? data.name.value : this.name,
       label: data.label.present ? data.label.value : this.label,
       priority: data.priority.present ? data.priority.value : this.priority,
       action: data.action.present ? data.action.value : this.action,
       count: data.count.present ? data.count.value : this.count,
-      labelsJson:
-          data.labelsJson.present ? data.labelsJson.value : this.labelsJson,
+      labelsJson: data.labelsJson.present
+          ? data.labelsJson.value
+          : this.labelsJson,
     );
   }
 
@@ -591,16 +586,14 @@ class $NumberCountriesTable extends NumberCountries
   NumberCountryData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return NumberCountryData(
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
-      countryIsoCode:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}country_iso_code'],
-          )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
+      countryIsoCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}country_iso_code'],
+      )!,
     );
   }
 
@@ -659,12 +652,12 @@ class NumberCountryData extends DataClass
       );
   NumberCountryData copyWithCompanion(NumberCountriesCompanion data) {
     return NumberCountryData(
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
-      countryIsoCode:
-          data.countryIsoCode.present
-              ? data.countryIsoCode.value
-              : this.countryIsoCode,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
+      countryIsoCode: data.countryIsoCode.present
+          ? data.countryIsoCode.value
+          : this.countryIsoCode,
     );
   }
 
@@ -875,30 +868,26 @@ class $PendingOperationsTable extends PendingOperations
   PendingOperationData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return PendingOperationData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      entityId:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}entity_id'],
-          )!,
-      operation:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}operation'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      entityId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}entity_id'],
+      )!,
+      operation: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}operation'],
+      )!,
       payload: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}payload'],
       ),
-      timestamp:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}timestamp'],
-          )!,
+      timestamp: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}timestamp'],
+      )!,
     );
   }
 
@@ -940,10 +929,9 @@ class PendingOperationData extends DataClass
       id: Value(id),
       entityId: Value(entityId),
       operation: Value(operation),
-      payload:
-          payload == null && nullToAbsent
-              ? const Value.absent()
-              : Value(payload),
+      payload: payload == null && nullToAbsent
+          ? const Value.absent()
+          : Value(payload),
       timestamp: Value(timestamp),
     );
   }
@@ -1305,26 +1293,22 @@ class $SyncRecordsTable extends SyncRecords
   SyncRecordData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return SyncRecordData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      syncTime:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}sync_time'],
-          )!,
-      syncType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}sync_type'],
-          )!,
-      status:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}status'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      syncTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sync_time'],
+      )!,
+      syncType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sync_type'],
+      )!,
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
       pushedRecordCount: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}pushed_record_count'],
@@ -1397,22 +1381,18 @@ class SyncRecordData extends DataClass implements Insertable<SyncRecordData> {
       syncTime: Value(syncTime),
       syncType: Value(syncType),
       status: Value(status),
-      pushedRecordCount:
-          pushedRecordCount == null && nullToAbsent
-              ? const Value.absent()
-              : Value(pushedRecordCount),
-      pulledRecordCount:
-          pulledRecordCount == null && nullToAbsent
-              ? const Value.absent()
-              : Value(pulledRecordCount),
-      errorMessage:
-          errorMessage == null && nullToAbsent
-              ? const Value.absent()
-              : Value(errorMessage),
-      metadata:
-          metadata == null && nullToAbsent
-              ? const Value.absent()
-              : Value(metadata),
+      pushedRecordCount: pushedRecordCount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(pushedRecordCount),
+      pulledRecordCount: pulledRecordCount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(pulledRecordCount),
+      errorMessage: errorMessage == null && nullToAbsent
+          ? const Value.absent()
+          : Value(errorMessage),
+      metadata: metadata == null && nullToAbsent
+          ? const Value.absent()
+          : Value(metadata),
     );
   }
 
@@ -1461,14 +1441,12 @@ class SyncRecordData extends DataClass implements Insertable<SyncRecordData> {
     syncTime: syncTime ?? this.syncTime,
     syncType: syncType ?? this.syncType,
     status: status ?? this.status,
-    pushedRecordCount:
-        pushedRecordCount.present
-            ? pushedRecordCount.value
-            : this.pushedRecordCount,
-    pulledRecordCount:
-        pulledRecordCount.present
-            ? pulledRecordCount.value
-            : this.pulledRecordCount,
+    pushedRecordCount: pushedRecordCount.present
+        ? pushedRecordCount.value
+        : this.pushedRecordCount,
+    pulledRecordCount: pulledRecordCount.present
+        ? pulledRecordCount.value
+        : this.pulledRecordCount,
     errorMessage: errorMessage.present ? errorMessage.value : this.errorMessage,
     metadata: metadata.present ? metadata.value : this.metadata,
   );
@@ -1478,18 +1456,15 @@ class SyncRecordData extends DataClass implements Insertable<SyncRecordData> {
       syncTime: data.syncTime.present ? data.syncTime.value : this.syncTime,
       syncType: data.syncType.present ? data.syncType.value : this.syncType,
       status: data.status.present ? data.status.value : this.status,
-      pushedRecordCount:
-          data.pushedRecordCount.present
-              ? data.pushedRecordCount.value
-              : this.pushedRecordCount,
-      pulledRecordCount:
-          data.pulledRecordCount.present
-              ? data.pulledRecordCount.value
-              : this.pulledRecordCount,
-      errorMessage:
-          data.errorMessage.present
-              ? data.errorMessage.value
-              : this.errorMessage,
+      pushedRecordCount: data.pushedRecordCount.present
+          ? data.pushedRecordCount.value
+          : this.pushedRecordCount,
+      pulledRecordCount: data.pulledRecordCount.present
+          ? data.pulledRecordCount.value
+          : this.pulledRecordCount,
+      errorMessage: data.errorMessage.present
+          ? data.errorMessage.value
+          : this.errorMessage,
       metadata: data.metadata.present ? data.metadata.value : this.metadata,
     );
   }
@@ -1777,25 +1752,22 @@ class $SyncConfigTable extends SyncConfig
   SyncConfigData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return SyncConfigData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
       lastSyncTime: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}last_sync_time'],
       ),
-      syncInterval:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}sync_interval'],
-          )!,
-      isAutoSync:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_auto_sync'],
-          )!,
+      syncInterval: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sync_interval'],
+      )!,
+      isAutoSync: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_auto_sync'],
+      )!,
     );
   }
 
@@ -1831,10 +1803,9 @@ class SyncConfigData extends DataClass implements Insertable<SyncConfigData> {
   SyncConfigCompanion toCompanion(bool nullToAbsent) {
     return SyncConfigCompanion(
       id: Value(id),
-      lastSyncTime:
-          lastSyncTime == null && nullToAbsent
-              ? const Value.absent()
-              : Value(lastSyncTime),
+      lastSyncTime: lastSyncTime == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastSyncTime),
       syncInterval: Value(syncInterval),
       isAutoSync: Value(isAutoSync),
     );
@@ -1877,16 +1848,15 @@ class SyncConfigData extends DataClass implements Insertable<SyncConfigData> {
   SyncConfigData copyWithCompanion(SyncConfigCompanion data) {
     return SyncConfigData(
       id: data.id.present ? data.id.value : this.id,
-      lastSyncTime:
-          data.lastSyncTime.present
-              ? data.lastSyncTime.value
-              : this.lastSyncTime,
-      syncInterval:
-          data.syncInterval.present
-              ? data.syncInterval.value
-              : this.syncInterval,
-      isAutoSync:
-          data.isAutoSync.present ? data.isAutoSync.value : this.isAutoSync,
+      lastSyncTime: data.lastSyncTime.present
+          ? data.lastSyncTime.value
+          : this.lastSyncTime,
+      syncInterval: data.syncInterval.present
+          ? data.syncInterval.value
+          : this.syncInterval,
+      isAutoSync: data.isAutoSync.present
+          ? data.isAutoSync.value
+          : this.isAutoSync,
     );
   }
 
@@ -2209,41 +2179,34 @@ class $ActiveDeletionProposalsTable extends ActiveDeletionProposals
   }) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return ActiveDeletionProposalData(
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
-      proposalStartTime:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}proposal_start_time'],
-          )!,
-      status:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}status'],
-          )!,
-      highestRiskLevel:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}highest_risk_level'],
-          )!,
-      proposalCount:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}proposal_count'],
-          )!,
-      verifiedOwnerCount:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}verified_owner_count'],
-          )!,
-      lastUpdated:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}last_updated'],
-          )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
+      proposalStartTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}proposal_start_time'],
+      )!,
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      highestRiskLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}highest_risk_level'],
+      )!,
+      proposalCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}proposal_count'],
+      )!,
+      verifiedOwnerCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}verified_owner_count'],
+      )!,
+      lastUpdated: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}last_updated'],
+      )!,
       verificationReportJson: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}verification_report_json'],
@@ -2304,10 +2267,9 @@ class ActiveDeletionProposalData extends DataClass
       proposalCount: Value(proposalCount),
       verifiedOwnerCount: Value(verifiedOwnerCount),
       lastUpdated: Value(lastUpdated),
-      verificationReportJson:
-          verificationReportJson == null && nullToAbsent
-              ? const Value.absent()
-              : Value(verificationReportJson),
+      verificationReportJson: verificationReportJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(verificationReportJson),
     );
   }
 
@@ -2363,40 +2325,36 @@ class ActiveDeletionProposalData extends DataClass
     proposalCount: proposalCount ?? this.proposalCount,
     verifiedOwnerCount: verifiedOwnerCount ?? this.verifiedOwnerCount,
     lastUpdated: lastUpdated ?? this.lastUpdated,
-    verificationReportJson:
-        verificationReportJson.present
-            ? verificationReportJson.value
-            : this.verificationReportJson,
+    verificationReportJson: verificationReportJson.present
+        ? verificationReportJson.value
+        : this.verificationReportJson,
   );
   ActiveDeletionProposalData copyWithCompanion(
     ActiveDeletionProposalsCompanion data,
   ) {
     return ActiveDeletionProposalData(
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
-      proposalStartTime:
-          data.proposalStartTime.present
-              ? data.proposalStartTime.value
-              : this.proposalStartTime,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
+      proposalStartTime: data.proposalStartTime.present
+          ? data.proposalStartTime.value
+          : this.proposalStartTime,
       status: data.status.present ? data.status.value : this.status,
-      highestRiskLevel:
-          data.highestRiskLevel.present
-              ? data.highestRiskLevel.value
-              : this.highestRiskLevel,
-      proposalCount:
-          data.proposalCount.present
-              ? data.proposalCount.value
-              : this.proposalCount,
-      verifiedOwnerCount:
-          data.verifiedOwnerCount.present
-              ? data.verifiedOwnerCount.value
-              : this.verifiedOwnerCount,
-      lastUpdated:
-          data.lastUpdated.present ? data.lastUpdated.value : this.lastUpdated,
-      verificationReportJson:
-          data.verificationReportJson.present
-              ? data.verificationReportJson.value
-              : this.verificationReportJson,
+      highestRiskLevel: data.highestRiskLevel.present
+          ? data.highestRiskLevel.value
+          : this.highestRiskLevel,
+      proposalCount: data.proposalCount.present
+          ? data.proposalCount.value
+          : this.proposalCount,
+      verifiedOwnerCount: data.verifiedOwnerCount.present
+          ? data.verifiedOwnerCount.value
+          : this.verifiedOwnerCount,
+      lastUpdated: data.lastUpdated.present
+          ? data.lastUpdated.value
+          : this.lastUpdated,
+      verificationReportJson: data.verificationReportJson.present
+          ? data.verificationReportJson.value
+          : this.verificationReportJson,
     );
   }
 
@@ -2690,26 +2648,22 @@ class $ProposalSubmissionsTable extends ProposalSubmissions
   ProposalSubmissionData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return ProposalSubmissionData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      proposerId:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}proposer_id'],
-          )!,
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
-      submissionTime:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}submission_time'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      proposerId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}proposer_id'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
+      submissionTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}submission_time'],
+      )!,
     );
   }
 
@@ -2787,14 +2741,15 @@ class ProposalSubmissionData extends DataClass
   ProposalSubmissionData copyWithCompanion(ProposalSubmissionsCompanion data) {
     return ProposalSubmissionData(
       id: data.id.present ? data.id.value : this.id,
-      proposerId:
-          data.proposerId.present ? data.proposerId.value : this.proposerId,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
-      submissionTime:
-          data.submissionTime.present
-              ? data.submissionTime.value
-              : this.submissionTime,
+      proposerId: data.proposerId.present
+          ? data.proposerId.value
+          : this.proposerId,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
+      submissionTime: data.submissionTime.present
+          ? data.submissionTime.value
+          : this.submissionTime,
     );
   }
 
@@ -3035,31 +2990,26 @@ class $ProposalVotesTable extends ProposalVotes
   ProposalVoteData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return ProposalVoteData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      voterId:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}voter_id'],
-          )!,
-      proposalId:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}proposal_id'],
-          )!,
-      voteTime:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}vote_time'],
-          )!,
-      isConsumed:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_consumed'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      voterId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}voter_id'],
+      )!,
+      proposalId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}proposal_id'],
+      )!,
+      voteTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}vote_time'],
+      )!,
+      isConsumed: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_consumed'],
+      )!,
     );
   }
 
@@ -3146,11 +3096,13 @@ class ProposalVoteData extends DataClass
     return ProposalVoteData(
       id: data.id.present ? data.id.value : this.id,
       voterId: data.voterId.present ? data.voterId.value : this.voterId,
-      proposalId:
-          data.proposalId.present ? data.proposalId.value : this.proposalId,
+      proposalId: data.proposalId.present
+          ? data.proposalId.value
+          : this.proposalId,
       voteTime: data.voteTime.present ? data.voteTime.value : this.voteTime,
-      isConsumed:
-          data.isConsumed.present ? data.isConsumed.value : this.isConsumed,
+      isConsumed: data.isConsumed.present
+          ? data.isConsumed.value
+          : this.isConsumed,
     );
   }
 
@@ -3380,14 +3332,12 @@ final class $$RemoteNumbersTableReferences
       );
 
   $$NumberCountriesTableProcessedTableManager get numberCountriesRefs {
-    final manager = $$NumberCountriesTableTableManager(
-      $_db,
-      $_db.numberCountries,
-    ).filter(
-      (f) => f.phoneNumber.phoneNumber.sqlEquals(
-        $_itemColumn<String>('phone_number')!,
-      ),
-    );
+    final manager =
+        $$NumberCountriesTableTableManager($_db, $_db.numberCountries).filter(
+          (f) => f.phoneNumber.phoneNumber.sqlEquals(
+            $_itemColumn<String>('phone_number')!,
+          ),
+        );
 
     final cache = $_typedResult.readTableOrNull(
       _numberCountriesRefsTable($_db),
@@ -3412,14 +3362,15 @@ final class $$RemoteNumbersTableReferences
 
   $$ActiveDeletionProposalsTableProcessedTableManager
   get activeDeletionProposalsRefs {
-    final manager = $$ActiveDeletionProposalsTableTableManager(
-      $_db,
-      $_db.activeDeletionProposals,
-    ).filter(
-      (f) => f.phoneNumber.phoneNumber.sqlEquals(
-        $_itemColumn<String>('phone_number')!,
-      ),
-    );
+    final manager =
+        $$ActiveDeletionProposalsTableTableManager(
+          $_db,
+          $_db.activeDeletionProposals,
+        ).filter(
+          (f) => f.phoneNumber.phoneNumber.sqlEquals(
+            $_itemColumn<String>('phone_number')!,
+          ),
+        );
 
     final cache = $_typedResult.readTableOrNull(
       _activeDeletionProposalsRefsTable($_db),
@@ -3696,16 +3647,12 @@ class $$RemoteNumbersTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$RemoteNumbersTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () =>
-                  $$RemoteNumbersTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$RemoteNumbersTableAnnotationComposer(
-                $db: db,
-                $table: table,
-              ),
+          createFilteringComposer: () =>
+              $$RemoteNumbersTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$RemoteNumbersTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$RemoteNumbersTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -3750,77 +3697,74 @@ class $$RemoteNumbersTableTableManager
                 labelsJson: labelsJson,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          $$RemoteNumbersTableReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
-          prefetchHooksCallback: ({
-            numberCountriesRefs = false,
-            activeDeletionProposalsRefs = false,
-          }) {
-            return PrefetchHooks(
-              db: db,
-              explicitlyWatchedTables: [
-                if (numberCountriesRefs) db.numberCountries,
-                if (activeDeletionProposalsRefs) db.activeDeletionProposals,
-              ],
-              addJoins: null,
-              getPrefetchedDataCallback: (items) async {
-                return [
-                  if (numberCountriesRefs)
-                    await $_getPrefetchedData<
-                      RemoteNumberData,
-                      $RemoteNumbersTable,
-                      NumberCountryData
-                    >(
-                      currentTable: table,
-                      referencedTable: $$RemoteNumbersTableReferences
-                          ._numberCountriesRefsTable(db),
-                      managerFromTypedResult:
-                          (p0) =>
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$RemoteNumbersTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                numberCountriesRefs = false,
+                activeDeletionProposalsRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (numberCountriesRefs) db.numberCountries,
+                    if (activeDeletionProposalsRefs) db.activeDeletionProposals,
+                  ],
+                  addJoins: null,
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (numberCountriesRefs)
+                        await $_getPrefetchedData<
+                          RemoteNumberData,
+                          $RemoteNumbersTable,
+                          NumberCountryData
+                        >(
+                          currentTable: table,
+                          referencedTable: $$RemoteNumbersTableReferences
+                              ._numberCountriesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
                               $$RemoteNumbersTableReferences(
                                 db,
                                 table,
                                 p0,
                               ).numberCountriesRefs,
-                      referencedItemsForCurrentItem:
-                          (item, referencedItems) => referencedItems.where(
-                            (e) => e.phoneNumber == item.phoneNumber,
-                          ),
-                      typedResults: items,
-                    ),
-                  if (activeDeletionProposalsRefs)
-                    await $_getPrefetchedData<
-                      RemoteNumberData,
-                      $RemoteNumbersTable,
-                      ActiveDeletionProposalData
-                    >(
-                      currentTable: table,
-                      referencedTable: $$RemoteNumbersTableReferences
-                          ._activeDeletionProposalsRefsTable(db),
-                      managerFromTypedResult:
-                          (p0) =>
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.phoneNumber == item.phoneNumber,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (activeDeletionProposalsRefs)
+                        await $_getPrefetchedData<
+                          RemoteNumberData,
+                          $RemoteNumbersTable,
+                          ActiveDeletionProposalData
+                        >(
+                          currentTable: table,
+                          referencedTable: $$RemoteNumbersTableReferences
+                              ._activeDeletionProposalsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
                               $$RemoteNumbersTableReferences(
                                 db,
                                 table,
                                 p0,
                               ).activeDeletionProposalsRefs,
-                      referencedItemsForCurrentItem:
-                          (item, referencedItems) => referencedItems.where(
-                            (e) => e.phoneNumber == item.phoneNumber,
-                          ),
-                      typedResults: items,
-                    ),
-                ];
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.phoneNumber == item.phoneNumber,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
               },
-            );
-          },
         ),
       );
 }
@@ -4027,19 +3971,12 @@ class $$NumberCountriesTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () =>
-                  $$NumberCountriesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$NumberCountriesTableOrderingComposer(
-                $db: db,
-                $table: table,
-              ),
-          createComputedFieldComposer:
-              () => $$NumberCountriesTableAnnotationComposer(
-                $db: db,
-                $table: table,
-              ),
+          createFilteringComposer: () =>
+              $$NumberCountriesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$NumberCountriesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$NumberCountriesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> phoneNumber = const Value.absent(),
@@ -4060,52 +3997,52 @@ class $$NumberCountriesTableTableManager
                 countryIsoCode: countryIsoCode,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          $$NumberCountriesTableReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$NumberCountriesTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
           prefetchHooksCallback: ({phoneNumber = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
-              addJoins: <
-                T extends TableManagerState<
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic
-                >
-              >(state) {
-                if (phoneNumber) {
-                  state =
-                      state.withJoin(
-                            currentTable: table,
-                            currentColumn: table.phoneNumber,
-                            referencedTable: $$NumberCountriesTableReferences
-                                ._phoneNumberTable(db),
-                            referencedColumn:
-                                $$NumberCountriesTableReferences
-                                    ._phoneNumberTable(db)
-                                    .phoneNumber,
-                          )
-                          as T;
-                }
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (phoneNumber) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.phoneNumber,
+                                referencedTable:
+                                    $$NumberCountriesTableReferences
+                                        ._phoneNumberTable(db),
+                                referencedColumn:
+                                    $$NumberCountriesTableReferences
+                                        ._phoneNumberTable(db)
+                                        .phoneNumber,
+                              )
+                              as T;
+                    }
 
-                return state;
-              },
+                    return state;
+                  },
               getPrefetchedDataCallback: (items) async {
                 return [];
               },
@@ -4272,18 +4209,12 @@ class $$PendingOperationsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$PendingOperationsTableFilterComposer(
-                $db: db,
-                $table: table,
-              ),
-          createOrderingComposer:
-              () => $$PendingOperationsTableOrderingComposer(
-                $db: db,
-                $table: table,
-              ),
-          createComputedFieldComposer:
-              () => $$PendingOperationsTableAnnotationComposer(
+          createFilteringComposer: () =>
+              $$PendingOperationsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PendingOperationsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PendingOperationsTableAnnotationComposer(
                 $db: db,
                 $table: table,
               ),
@@ -4319,16 +4250,9 @@ class $$PendingOperationsTableTableManager
                 timestamp: timestamp,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -4543,13 +4467,12 @@ class $$SyncRecordsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$SyncRecordsTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$SyncRecordsTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () =>
-                  $$SyncRecordsTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$SyncRecordsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SyncRecordsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SyncRecordsTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -4594,16 +4517,9 @@ class $$SyncRecordsTableTableManager
                 metadata: metadata,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -4754,12 +4670,12 @@ class $$SyncConfigTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$SyncConfigTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$SyncConfigTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$SyncConfigTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$SyncConfigTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SyncConfigTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SyncConfigTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -4788,16 +4704,9 @@ class $$SyncConfigTableTableManager
                 isAutoSync: isAutoSync,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -5108,18 +5017,18 @@ class $$ActiveDeletionProposalsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$ActiveDeletionProposalsTableFilterComposer(
+          createFilteringComposer: () =>
+              $$ActiveDeletionProposalsTableFilterComposer(
                 $db: db,
                 $table: table,
               ),
-          createOrderingComposer:
-              () => $$ActiveDeletionProposalsTableOrderingComposer(
+          createOrderingComposer: () =>
+              $$ActiveDeletionProposalsTableOrderingComposer(
                 $db: db,
                 $table: table,
               ),
-          createComputedFieldComposer:
-              () => $$ActiveDeletionProposalsTableAnnotationComposer(
+          createComputedFieldComposer: () =>
+              $$ActiveDeletionProposalsTableAnnotationComposer(
                 $db: db,
                 $table: table,
               ),
@@ -5167,57 +5076,52 @@ class $$ActiveDeletionProposalsTableTableManager
                 verificationReportJson: verificationReportJson,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          $$ActiveDeletionProposalsTableReferences(
-                            db,
-                            table,
-                            e,
-                          ),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$ActiveDeletionProposalsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
           prefetchHooksCallback: ({phoneNumber = false}) {
             return PrefetchHooks(
               db: db,
               explicitlyWatchedTables: [],
-              addJoins: <
-                T extends TableManagerState<
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic,
-                  dynamic
-                >
-              >(state) {
-                if (phoneNumber) {
-                  state =
-                      state.withJoin(
-                            currentTable: table,
-                            currentColumn: table.phoneNumber,
-                            referencedTable:
-                                $$ActiveDeletionProposalsTableReferences
-                                    ._phoneNumberTable(db),
-                            referencedColumn:
-                                $$ActiveDeletionProposalsTableReferences
-                                    ._phoneNumberTable(db)
-                                    .phoneNumber,
-                          )
-                          as T;
-                }
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (phoneNumber) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.phoneNumber,
+                                referencedTable:
+                                    $$ActiveDeletionProposalsTableReferences
+                                        ._phoneNumberTable(db),
+                                referencedColumn:
+                                    $$ActiveDeletionProposalsTableReferences
+                                        ._phoneNumberTable(db)
+                                        .phoneNumber,
+                              )
+                              as T;
+                    }
 
-                return state;
-              },
+                    return state;
+                  },
               getPrefetchedDataCallback: (items) async {
                 return [];
               },
@@ -5375,18 +5279,15 @@ class $$ProposalSubmissionsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$ProposalSubmissionsTableFilterComposer(
+          createFilteringComposer: () =>
+              $$ProposalSubmissionsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ProposalSubmissionsTableOrderingComposer(
                 $db: db,
                 $table: table,
               ),
-          createOrderingComposer:
-              () => $$ProposalSubmissionsTableOrderingComposer(
-                $db: db,
-                $table: table,
-              ),
-          createComputedFieldComposer:
-              () => $$ProposalSubmissionsTableAnnotationComposer(
+          createComputedFieldComposer: () =>
+              $$ProposalSubmissionsTableAnnotationComposer(
                 $db: db,
                 $table: table,
               ),
@@ -5418,16 +5319,9 @@ class $$ProposalSubmissionsTableTableManager
                 submissionTime: submissionTime,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -5601,16 +5495,12 @@ class $$ProposalVotesTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$ProposalVotesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () =>
-                  $$ProposalVotesTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$ProposalVotesTableAnnotationComposer(
-                $db: db,
-                $table: table,
-              ),
+          createFilteringComposer: () =>
+              $$ProposalVotesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ProposalVotesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ProposalVotesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -5643,16 +5533,9 @@ class $$ProposalVotesTableTableManager
                 isConsumed: isConsumed,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );

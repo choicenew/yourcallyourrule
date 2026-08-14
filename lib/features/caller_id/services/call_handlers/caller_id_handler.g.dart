@@ -50,7 +50,7 @@ final class CallHandlerProvider
   }
 }
 
-String _$callHandlerHash() => r'ae65231ff908c11e5f24251c4cce4622ccc1ecfd';
+String _$callHandlerHash() => r'3b50172e675d64e7d0fcb9acea49147d9ed5a05c';
 
 /// 通话处理器 Provider
 ///

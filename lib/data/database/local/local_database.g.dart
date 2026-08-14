@@ -201,21 +201,18 @@ class $ContactsTable extends Contacts
   ContactData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return ContactData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
-      name:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}name'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
@@ -232,16 +229,14 @@ class $ContactsTable extends Contacts
         DriftSqlType.string,
         data['${effectivePrefix}label_ids'],
       ),
-      isFavorite:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_favorite'],
-          )!,
-      lastUpdated:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}last_updated'],
-          )!,
+      isFavorite: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_favorite'],
+      )!,
+      lastUpdated: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}last_updated'],
+      )!,
     );
   }
 
@@ -300,14 +295,14 @@ class ContactData extends DataClass implements Insertable<ContactData> {
       id: Value(id),
       phoneNumber: Value(phoneNumber),
       name: Value(name),
-      avatar:
-          avatar == null && nullToAbsent ? const Value.absent() : Value(avatar),
+      avatar: avatar == null && nullToAbsent
+          ? const Value.absent()
+          : Value(avatar),
       url: url == null && nullToAbsent ? const Value.absent() : Value(url),
       note: note == null && nullToAbsent ? const Value.absent() : Value(note),
-      labelIds:
-          labelIds == null && nullToAbsent
-              ? const Value.absent()
-              : Value(labelIds),
+      labelIds: labelIds == null && nullToAbsent
+          ? const Value.absent()
+          : Value(labelIds),
       isFavorite: Value(isFavorite),
       lastUpdated: Value(lastUpdated),
     );
@@ -370,17 +365,20 @@ class ContactData extends DataClass implements Insertable<ContactData> {
   ContactData copyWithCompanion(ContactsCompanion data) {
     return ContactData(
       id: data.id.present ? data.id.value : this.id,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
       name: data.name.present ? data.name.value : this.name,
       avatar: data.avatar.present ? data.avatar.value : this.avatar,
       url: data.url.present ? data.url.value : this.url,
       note: data.note.present ? data.note.value : this.note,
       labelIds: data.labelIds.present ? data.labelIds.value : this.labelIds,
-      isFavorite:
-          data.isFavorite.present ? data.isFavorite.value : this.isFavorite,
-      lastUpdated:
-          data.lastUpdated.present ? data.lastUpdated.value : this.lastUpdated,
+      isFavorite: data.isFavorite.present
+          ? data.isFavorite.value
+          : this.isFavorite,
+      lastUpdated: data.lastUpdated.present
+          ? data.lastUpdated.value
+          : this.lastUpdated,
     );
   }
 
@@ -855,25 +853,22 @@ class $CallHistoryTable extends CallHistory
   CallHistoryData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return CallHistoryData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
       ),
-      timestamp:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}timestamp'],
-          )!,
+      timestamp: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}timestamp'],
+      )!,
       endTime: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}end_time'],
@@ -886,11 +881,10 @@ class $CallHistoryTable extends CallHistory
         DriftSqlType.string,
         data['${effectivePrefix}sim_display_name'],
       ),
-      callType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}call_type'],
-          )!,
+      callType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}call_type'],
+      )!,
       simSlotIndex: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}sim_slot_index'],
@@ -992,39 +986,31 @@ class CallHistoryData extends DataClass implements Insertable<CallHistoryData> {
       phoneNumber: Value(phoneNumber),
       name: name == null && nullToAbsent ? const Value.absent() : Value(name),
       timestamp: Value(timestamp),
-      endTime:
-          endTime == null && nullToAbsent
-              ? const Value.absent()
-              : Value(endTime),
-      duration:
-          duration == null && nullToAbsent
-              ? const Value.absent()
-              : Value(duration),
-      simDisplayName:
-          simDisplayName == null && nullToAbsent
-              ? const Value.absent()
-              : Value(simDisplayName),
+      endTime: endTime == null && nullToAbsent
+          ? const Value.absent()
+          : Value(endTime),
+      duration: duration == null && nullToAbsent
+          ? const Value.absent()
+          : Value(duration),
+      simDisplayName: simDisplayName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(simDisplayName),
       callType: Value(callType),
-      simSlotIndex:
-          simSlotIndex == null && nullToAbsent
-              ? const Value.absent()
-              : Value(simSlotIndex),
-      carrierName:
-          carrierName == null && nullToAbsent
-              ? const Value.absent()
-              : Value(carrierName),
-      countryIso:
-          countryIso == null && nullToAbsent
-              ? const Value.absent()
-              : Value(countryIso),
-      subscriptionId:
-          subscriptionId == null && nullToAbsent
-              ? const Value.absent()
-              : Value(subscriptionId),
-      labelIds:
-          labelIds == null && nullToAbsent
-              ? const Value.absent()
-              : Value(labelIds),
+      simSlotIndex: simSlotIndex == null && nullToAbsent
+          ? const Value.absent()
+          : Value(simSlotIndex),
+      carrierName: carrierName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(carrierName),
+      countryIso: countryIso == null && nullToAbsent
+          ? const Value.absent()
+          : Value(countryIso),
+      subscriptionId: subscriptionId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(subscriptionId),
+      labelIds: labelIds == null && nullToAbsent
+          ? const Value.absent()
+          : Value(labelIds),
     );
   }
 
@@ -1090,42 +1076,44 @@ class CallHistoryData extends DataClass implements Insertable<CallHistoryData> {
     timestamp: timestamp ?? this.timestamp,
     endTime: endTime.present ? endTime.value : this.endTime,
     duration: duration.present ? duration.value : this.duration,
-    simDisplayName:
-        simDisplayName.present ? simDisplayName.value : this.simDisplayName,
+    simDisplayName: simDisplayName.present
+        ? simDisplayName.value
+        : this.simDisplayName,
     callType: callType ?? this.callType,
     simSlotIndex: simSlotIndex.present ? simSlotIndex.value : this.simSlotIndex,
     carrierName: carrierName.present ? carrierName.value : this.carrierName,
     countryIso: countryIso.present ? countryIso.value : this.countryIso,
-    subscriptionId:
-        subscriptionId.present ? subscriptionId.value : this.subscriptionId,
+    subscriptionId: subscriptionId.present
+        ? subscriptionId.value
+        : this.subscriptionId,
     labelIds: labelIds.present ? labelIds.value : this.labelIds,
   );
   CallHistoryData copyWithCompanion(CallHistoryCompanion data) {
     return CallHistoryData(
       id: data.id.present ? data.id.value : this.id,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
       name: data.name.present ? data.name.value : this.name,
       timestamp: data.timestamp.present ? data.timestamp.value : this.timestamp,
       endTime: data.endTime.present ? data.endTime.value : this.endTime,
       duration: data.duration.present ? data.duration.value : this.duration,
-      simDisplayName:
-          data.simDisplayName.present
-              ? data.simDisplayName.value
-              : this.simDisplayName,
+      simDisplayName: data.simDisplayName.present
+          ? data.simDisplayName.value
+          : this.simDisplayName,
       callType: data.callType.present ? data.callType.value : this.callType,
-      simSlotIndex:
-          data.simSlotIndex.present
-              ? data.simSlotIndex.value
-              : this.simSlotIndex,
-      carrierName:
-          data.carrierName.present ? data.carrierName.value : this.carrierName,
-      countryIso:
-          data.countryIso.present ? data.countryIso.value : this.countryIso,
-      subscriptionId:
-          data.subscriptionId.present
-              ? data.subscriptionId.value
-              : this.subscriptionId,
+      simSlotIndex: data.simSlotIndex.present
+          ? data.simSlotIndex.value
+          : this.simSlotIndex,
+      carrierName: data.carrierName.present
+          ? data.carrierName.value
+          : this.carrierName,
+      countryIso: data.countryIso.present
+          ? data.countryIso.value
+          : this.countryIso,
+      subscriptionId: data.subscriptionId.present
+          ? data.subscriptionId.value
+          : this.subscriptionId,
       labelIds: data.labelIds.present ? data.labelIds.value : this.labelIds,
     );
   }
@@ -1625,21 +1613,18 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, RuleData> {
   RuleData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return RuleData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      name:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}name'],
-          )!,
-      ruleType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}rule_type'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      ruleType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}rule_type'],
+      )!,
       phoneNumber: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}phone_number'],
@@ -1648,21 +1633,18 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, RuleData> {
         DriftSqlType.string,
         data['${effectivePrefix}label_id'],
       ),
-      priority:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}priority'],
-          )!,
-      action:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}action'],
-          )!,
-      isEnabled:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_enabled'],
-          )!,
+      priority: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}priority'],
+      )!,
+      action: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action'],
+      )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
       pattern: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}pattern'],
@@ -1671,16 +1653,14 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, RuleData> {
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
       ),
-      isSubscribed:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_subscribed'],
-          )!,
-      count:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}count'],
-          )!,
+      isSubscribed: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_subscribed'],
+      )!,
+      count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}count'],
+      )!,
     );
   }
 
@@ -1748,23 +1728,21 @@ class RuleData extends DataClass implements Insertable<RuleData> {
       id: Value(id),
       name: Value(name),
       ruleType: Value(ruleType),
-      phoneNumber:
-          phoneNumber == null && nullToAbsent
-              ? const Value.absent()
-              : Value(phoneNumber),
-      labelId:
-          labelId == null && nullToAbsent
-              ? const Value.absent()
-              : Value(labelId),
+      phoneNumber: phoneNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(phoneNumber),
+      labelId: labelId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(labelId),
       priority: Value(priority),
       action: Value(action),
       isEnabled: Value(isEnabled),
-      pattern:
-          pattern == null && nullToAbsent
-              ? const Value.absent()
-              : Value(pattern),
-      avatar:
-          avatar == null && nullToAbsent ? const Value.absent() : Value(avatar),
+      pattern: pattern == null && nullToAbsent
+          ? const Value.absent()
+          : Value(pattern),
+      avatar: avatar == null && nullToAbsent
+          ? const Value.absent()
+          : Value(avatar),
       isSubscribed: Value(isSubscribed),
       count: Value(count),
     );
@@ -1841,18 +1819,18 @@ class RuleData extends DataClass implements Insertable<RuleData> {
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       ruleType: data.ruleType.present ? data.ruleType.value : this.ruleType,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
       labelId: data.labelId.present ? data.labelId.value : this.labelId,
       priority: data.priority.present ? data.priority.value : this.priority,
       action: data.action.present ? data.action.value : this.action,
       isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
       pattern: data.pattern.present ? data.pattern.value : this.pattern,
       avatar: data.avatar.present ? data.avatar.value : this.avatar,
-      isSubscribed:
-          data.isSubscribed.present
-              ? data.isSubscribed.value
-              : this.isSubscribed,
+      isSubscribed: data.isSubscribed.present
+          ? data.isSubscribed.value
+          : this.isSubscribed,
       count: data.count.present ? data.count.value : this.count,
     );
   }
@@ -2323,45 +2301,38 @@ class $PhoneRulesTable extends PhoneRules
         DriftSqlType.string,
         data['${effectivePrefix}id'],
       ),
-      name:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}name'],
-          )!,
-      ruleType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}rule_type'],
-          )!,
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      ruleType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}rule_type'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
       labelId: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}label_id'],
       ),
-      priority:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}priority'],
-          )!,
-      action:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}action'],
-          )!,
-      isEnabled:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_enabled'],
-          )!,
-      count:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}count'],
-          )!,
+      priority: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}priority'],
+      )!,
+      action: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action'],
+      )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
+      count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}count'],
+      )!,
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
@@ -2435,20 +2406,19 @@ class PhoneRuleData extends DataClass implements Insertable<PhoneRuleData> {
       name: Value(name),
       ruleType: Value(ruleType),
       phoneNumber: Value(phoneNumber),
-      labelId:
-          labelId == null && nullToAbsent
-              ? const Value.absent()
-              : Value(labelId),
+      labelId: labelId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(labelId),
       priority: Value(priority),
       action: Value(action),
       isEnabled: Value(isEnabled),
       count: Value(count),
-      avatar:
-          avatar == null && nullToAbsent ? const Value.absent() : Value(avatar),
-      subscriptionId:
-          subscriptionId == null && nullToAbsent
-              ? const Value.absent()
-              : Value(subscriptionId),
+      avatar: avatar == null && nullToAbsent
+          ? const Value.absent()
+          : Value(avatar),
+      subscriptionId: subscriptionId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(subscriptionId),
     );
   }
 
@@ -2512,26 +2482,27 @@ class PhoneRuleData extends DataClass implements Insertable<PhoneRuleData> {
     isEnabled: isEnabled ?? this.isEnabled,
     count: count ?? this.count,
     avatar: avatar.present ? avatar.value : this.avatar,
-    subscriptionId:
-        subscriptionId.present ? subscriptionId.value : this.subscriptionId,
+    subscriptionId: subscriptionId.present
+        ? subscriptionId.value
+        : this.subscriptionId,
   );
   PhoneRuleData copyWithCompanion(PhoneRulesCompanion data) {
     return PhoneRuleData(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       ruleType: data.ruleType.present ? data.ruleType.value : this.ruleType,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
       labelId: data.labelId.present ? data.labelId.value : this.labelId,
       priority: data.priority.present ? data.priority.value : this.priority,
       action: data.action.present ? data.action.value : this.action,
       isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
       count: data.count.present ? data.count.value : this.count,
       avatar: data.avatar.present ? data.avatar.value : this.avatar,
-      subscriptionId:
-          data.subscriptionId.present
-              ? data.subscriptionId.value
-              : this.subscriptionId,
+      subscriptionId: data.subscriptionId.present
+          ? data.subscriptionId.value
+          : this.subscriptionId,
     );
   }
 
@@ -2933,36 +2904,30 @@ class $RegexRulesTable extends RegexRules
         DriftSqlType.string,
         data['${effectivePrefix}id'],
       ),
-      name:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}name'],
-          )!,
-      ruleType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}rule_type'],
-          )!,
-      pattern:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}pattern'],
-          )!,
-      priority:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}priority'],
-          )!,
-      action:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}action'],
-          )!,
-      isEnabled:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_enabled'],
-          )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      ruleType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}rule_type'],
+      )!,
+      pattern: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}pattern'],
+      )!,
+      priority: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}priority'],
+      )!,
+      action: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action'],
+      )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
       subscriptionId: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}subscription_id'],
@@ -3022,10 +2987,9 @@ class RegexRuleData extends DataClass implements Insertable<RegexRuleData> {
       priority: Value(priority),
       action: Value(action),
       isEnabled: Value(isEnabled),
-      subscriptionId:
-          subscriptionId == null && nullToAbsent
-              ? const Value.absent()
-              : Value(subscriptionId),
+      subscriptionId: subscriptionId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(subscriptionId),
     );
   }
 
@@ -3077,8 +3041,9 @@ class RegexRuleData extends DataClass implements Insertable<RegexRuleData> {
     priority: priority ?? this.priority,
     action: action ?? this.action,
     isEnabled: isEnabled ?? this.isEnabled,
-    subscriptionId:
-        subscriptionId.present ? subscriptionId.value : this.subscriptionId,
+    subscriptionId: subscriptionId.present
+        ? subscriptionId.value
+        : this.subscriptionId,
   );
   RegexRuleData copyWithCompanion(RegexRulesCompanion data) {
     return RegexRuleData(
@@ -3089,10 +3054,9 @@ class RegexRuleData extends DataClass implements Insertable<RegexRuleData> {
       priority: data.priority.present ? data.priority.value : this.priority,
       action: data.action.present ? data.action.value : this.action,
       isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
-      subscriptionId:
-          data.subscriptionId.present
-              ? data.subscriptionId.value
-              : this.subscriptionId,
+      subscriptionId: data.subscriptionId.present
+          ? data.subscriptionId.value
+          : this.subscriptionId,
     );
   }
 
@@ -3494,41 +3458,34 @@ class $SubscriptionsTable extends Subscriptions
   SubscriptionData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return SubscriptionData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      name:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}name'],
-          )!,
-      url:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}url'],
-          )!,
-      tableType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}table_type'],
-          )!,
-      isEnabled:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_enabled'],
-          )!,
-      lastUpdated:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}last_updated'],
-          )!,
-      autoUpdate:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}auto_update'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      url: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}url'],
+      )!,
+      tableType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}table_type'],
+      )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
+      lastUpdated: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}last_updated'],
+      )!,
+      autoUpdate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}auto_update'],
+      )!,
       contactGroup: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}contact_group'],
@@ -3537,11 +3494,10 @@ class $SubscriptionsTable extends Subscriptions
         DriftSqlType.string,
         data['${effectivePrefix}keyword_filters'],
       ),
-      action:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}action'],
-          )!,
+      action: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action'],
+      )!,
     );
   }
 
@@ -3604,14 +3560,12 @@ class SubscriptionData extends DataClass
       isEnabled: Value(isEnabled),
       lastUpdated: Value(lastUpdated),
       autoUpdate: Value(autoUpdate),
-      contactGroup:
-          contactGroup == null && nullToAbsent
-              ? const Value.absent()
-              : Value(contactGroup),
-      keywordFilters:
-          keywordFilters == null && nullToAbsent
-              ? const Value.absent()
-              : Value(keywordFilters),
+      contactGroup: contactGroup == null && nullToAbsent
+          ? const Value.absent()
+          : Value(contactGroup),
+      keywordFilters: keywordFilters == null && nullToAbsent
+          ? const Value.absent()
+          : Value(keywordFilters),
       action: Value(action),
     );
   }
@@ -3671,8 +3625,9 @@ class SubscriptionData extends DataClass
     lastUpdated: lastUpdated ?? this.lastUpdated,
     autoUpdate: autoUpdate ?? this.autoUpdate,
     contactGroup: contactGroup.present ? contactGroup.value : this.contactGroup,
-    keywordFilters:
-        keywordFilters.present ? keywordFilters.value : this.keywordFilters,
+    keywordFilters: keywordFilters.present
+        ? keywordFilters.value
+        : this.keywordFilters,
     action: action ?? this.action,
   );
   SubscriptionData copyWithCompanion(SubscriptionsCompanion data) {
@@ -3682,18 +3637,18 @@ class SubscriptionData extends DataClass
       url: data.url.present ? data.url.value : this.url,
       tableType: data.tableType.present ? data.tableType.value : this.tableType,
       isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
-      lastUpdated:
-          data.lastUpdated.present ? data.lastUpdated.value : this.lastUpdated,
-      autoUpdate:
-          data.autoUpdate.present ? data.autoUpdate.value : this.autoUpdate,
-      contactGroup:
-          data.contactGroup.present
-              ? data.contactGroup.value
-              : this.contactGroup,
-      keywordFilters:
-          data.keywordFilters.present
-              ? data.keywordFilters.value
-              : this.keywordFilters,
+      lastUpdated: data.lastUpdated.present
+          ? data.lastUpdated.value
+          : this.lastUpdated,
+      autoUpdate: data.autoUpdate.present
+          ? data.autoUpdate.value
+          : this.autoUpdate,
+      contactGroup: data.contactGroup.present
+          ? data.contactGroup.value
+          : this.contactGroup,
+      keywordFilters: data.keywordFilters.present
+          ? data.keywordFilters.value
+          : this.keywordFilters,
       action: data.action.present ? data.action.value : this.action,
     );
   }
@@ -4128,49 +4083,42 @@ class $SmsTable extends Sms with TableInfo<$SmsTable, SmsMessageData> {
   SmsMessageData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return SmsMessageData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
       contactName: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}contact_name'],
       ),
-      messageType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}message_type'],
-          )!,
-      content:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}content'],
-          )!,
-      timestamp:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}timestamp'],
-          )!,
-      isRead:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_read'],
-          )!,
+      messageType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}message_type'],
+      )!,
+      content: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}content'],
+      )!,
+      timestamp: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}timestamp'],
+      )!,
+      isRead: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_read'],
+      )!,
       simInfo: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}sim_info'],
       ),
-      isMarked:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_marked'],
-          )!,
+      isMarked: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_marked'],
+      )!,
       labelIds: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}label_ids'],
@@ -4233,23 +4181,20 @@ class SmsMessageData extends DataClass implements Insertable<SmsMessageData> {
     return SmsCompanion(
       id: Value(id),
       phoneNumber: Value(phoneNumber),
-      contactName:
-          contactName == null && nullToAbsent
-              ? const Value.absent()
-              : Value(contactName),
+      contactName: contactName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(contactName),
       messageType: Value(messageType),
       content: Value(content),
       timestamp: Value(timestamp),
       isRead: Value(isRead),
-      simInfo:
-          simInfo == null && nullToAbsent
-              ? const Value.absent()
-              : Value(simInfo),
+      simInfo: simInfo == null && nullToAbsent
+          ? const Value.absent()
+          : Value(simInfo),
       isMarked: Value(isMarked),
-      labelIds:
-          labelIds == null && nullToAbsent
-              ? const Value.absent()
-              : Value(labelIds),
+      labelIds: labelIds == null && nullToAbsent
+          ? const Value.absent()
+          : Value(labelIds),
     );
   }
 
@@ -4314,12 +4259,15 @@ class SmsMessageData extends DataClass implements Insertable<SmsMessageData> {
   SmsMessageData copyWithCompanion(SmsCompanion data) {
     return SmsMessageData(
       id: data.id.present ? data.id.value : this.id,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
-      contactName:
-          data.contactName.present ? data.contactName.value : this.contactName,
-      messageType:
-          data.messageType.present ? data.messageType.value : this.messageType,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
+      contactName: data.contactName.present
+          ? data.contactName.value
+          : this.contactName,
+      messageType: data.messageType.present
+          ? data.messageType.value
+          : this.messageType,
       content: data.content.present ? data.content.value : this.content,
       timestamp: data.timestamp.present ? data.timestamp.value : this.timestamp,
       isRead: data.isRead.present ? data.isRead.value : this.isRead,
@@ -4719,45 +4667,38 @@ class $SmsRulesTable extends SmsRules
   SmsRuleData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return SmsRuleData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      name:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}name'],
-          )!,
-      contentRegex:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}content_regex'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      contentRegex: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}content_regex'],
+      )!,
       senderRegex: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}sender_regex'],
       ),
-      action:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}action'],
-          )!,
-      priority:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}priority'],
-          )!,
-      isEnabled:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_enabled'],
-          )!,
-      ruleType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}rule_type'],
-          )!,
+      action: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action'],
+      )!,
+      priority: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}priority'],
+      )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
+      ruleType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}rule_type'],
+      )!,
     );
   }
 
@@ -4807,10 +4748,9 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
       id: Value(id),
       name: Value(name),
       contentRegex: Value(contentRegex),
-      senderRegex:
-          senderRegex == null && nullToAbsent
-              ? const Value.absent()
-              : Value(senderRegex),
+      senderRegex: senderRegex == null && nullToAbsent
+          ? const Value.absent()
+          : Value(senderRegex),
       action: Value(action),
       priority: Value(priority),
       isEnabled: Value(isEnabled),
@@ -4872,12 +4812,12 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
     return SmsRuleData(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
-      contentRegex:
-          data.contentRegex.present
-              ? data.contentRegex.value
-              : this.contentRegex,
-      senderRegex:
-          data.senderRegex.present ? data.senderRegex.value : this.senderRegex,
+      contentRegex: data.contentRegex.present
+          ? data.contentRegex.value
+          : this.contentRegex,
+      senderRegex: data.senderRegex.present
+          ? data.senderRegex.value
+          : this.senderRegex,
       action: data.action.present ? data.action.value : this.action,
       priority: data.priority.present ? data.priority.value : this.priority,
       isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
@@ -5266,45 +5206,38 @@ class $PluginsTable extends Plugins with TableInfo<$PluginsTable, PluginData> {
   PluginData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return PluginData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      name:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}name'],
-          )!,
-      url:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}url'],
-          )!,
-      version:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}version'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      url: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}url'],
+      )!,
+      version: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}version'],
+      )!,
       description: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}description'],
       ),
-      isEnabled:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_enabled'],
-          )!,
-      pluginOrder:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}plugin_order'],
-          )!,
-      isAutoUpdate:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_auto_update'],
-          )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
+      pluginOrder: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}plugin_order'],
+      )!,
+      isAutoUpdate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_auto_update'],
+      )!,
       configJson: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}config_json'],
@@ -5364,17 +5297,15 @@ class PluginData extends DataClass implements Insertable<PluginData> {
       name: Value(name),
       url: Value(url),
       version: Value(version),
-      description:
-          description == null && nullToAbsent
-              ? const Value.absent()
-              : Value(description),
+      description: description == null && nullToAbsent
+          ? const Value.absent()
+          : Value(description),
       isEnabled: Value(isEnabled),
       pluginOrder: Value(pluginOrder),
       isAutoUpdate: Value(isAutoUpdate),
-      configJson:
-          configJson == null && nullToAbsent
-              ? const Value.absent()
-              : Value(configJson),
+      configJson: configJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(configJson),
     );
   }
 
@@ -5438,17 +5369,19 @@ class PluginData extends DataClass implements Insertable<PluginData> {
       name: data.name.present ? data.name.value : this.name,
       url: data.url.present ? data.url.value : this.url,
       version: data.version.present ? data.version.value : this.version,
-      description:
-          data.description.present ? data.description.value : this.description,
+      description: data.description.present
+          ? data.description.value
+          : this.description,
       isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
-      pluginOrder:
-          data.pluginOrder.present ? data.pluginOrder.value : this.pluginOrder,
-      isAutoUpdate:
-          data.isAutoUpdate.present
-              ? data.isAutoUpdate.value
-              : this.isAutoUpdate,
-      configJson:
-          data.configJson.present ? data.configJson.value : this.configJson,
+      pluginOrder: data.pluginOrder.present
+          ? data.pluginOrder.value
+          : this.pluginOrder,
+      isAutoUpdate: data.isAutoUpdate.present
+          ? data.isAutoUpdate.value
+          : this.isAutoUpdate,
+      configJson: data.configJson.present
+          ? data.configJson.value
+          : this.configJson,
     );
   }
 
@@ -5785,16 +5718,14 @@ class $LocationsTable extends Locations
   LocationData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return LocationData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
       region: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}region'],
@@ -5807,11 +5738,10 @@ class $LocationsTable extends Locations
         DriftSqlType.string,
         data['${effectivePrefix}carrier'],
       ),
-      numberType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}number_type'],
-          )!,
+      numberType: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}number_type'],
+      )!,
     );
   }
 
@@ -5858,16 +5788,15 @@ class LocationData extends DataClass implements Insertable<LocationData> {
     return LocationsCompanion(
       id: Value(id),
       phoneNumber: Value(phoneNumber),
-      region:
-          region == null && nullToAbsent ? const Value.absent() : Value(region),
-      countryName:
-          countryName == null && nullToAbsent
-              ? const Value.absent()
-              : Value(countryName),
-      carrier:
-          carrier == null && nullToAbsent
-              ? const Value.absent()
-              : Value(carrier),
+      region: region == null && nullToAbsent
+          ? const Value.absent()
+          : Value(region),
+      countryName: countryName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(countryName),
+      carrier: carrier == null && nullToAbsent
+          ? const Value.absent()
+          : Value(carrier),
       numberType: Value(numberType),
     );
   }
@@ -5917,14 +5846,17 @@ class LocationData extends DataClass implements Insertable<LocationData> {
   LocationData copyWithCompanion(LocationsCompanion data) {
     return LocationData(
       id: data.id.present ? data.id.value : this.id,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
       region: data.region.present ? data.region.value : this.region,
-      countryName:
-          data.countryName.present ? data.countryName.value : this.countryName,
+      countryName: data.countryName.present
+          ? data.countryName.value
+          : this.countryName,
       carrier: data.carrier.present ? data.carrier.value : this.carrier,
-      numberType:
-          data.numberType.present ? data.numberType.value : this.numberType,
+      numberType: data.numberType.present
+          ? data.numberType.value
+          : this.numberType,
     );
   }
 
@@ -6160,16 +6092,14 @@ class $PredefinedLabelsTable extends PredefinedLabels
   PredefinedLabelData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return PredefinedLabelData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      labelText:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}label_text'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      labelText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label_text'],
+      )!,
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
@@ -6217,8 +6147,9 @@ class PredefinedLabelData extends DataClass
     return PredefinedLabelsCompanion(
       id: Value(id),
       labelText: Value(labelText),
-      avatar:
-          avatar == null && nullToAbsent ? const Value.absent() : Value(avatar),
+      avatar: avatar == null && nullToAbsent
+          ? const Value.absent()
+          : Value(avatar),
       icon: icon == null && nullToAbsent ? const Value.absent() : Value(icon),
     );
   }
@@ -6589,11 +6520,10 @@ class $LabelPhonesTable extends LabelPhones
   LabelPhoneData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return LabelPhoneData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
@@ -6602,40 +6532,34 @@ class $LabelPhonesTable extends LabelPhones
         DriftSqlType.string,
         data['${effectivePrefix}icon'],
       ),
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
-      labelId:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}label_id'],
-          )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
+      labelId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label_id'],
+      )!,
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
       ),
-      priority:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}priority'],
-          )!,
-      action:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}action'],
-          )!,
-      isEnabled:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_enabled'],
-          )!,
-      ruleType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}rule_type'],
-          )!,
+      priority: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}priority'],
+      )!,
+      action: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action'],
+      )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
+      ruleType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}rule_type'],
+      )!,
     );
   }
 
@@ -6697,8 +6621,9 @@ class LabelPhoneData extends DataClass implements Insertable<LabelPhoneData> {
       icon: icon == null && nullToAbsent ? const Value.absent() : Value(icon),
       phoneNumber: Value(phoneNumber),
       labelId: Value(labelId),
-      avatar:
-          avatar == null && nullToAbsent ? const Value.absent() : Value(avatar),
+      avatar: avatar == null && nullToAbsent
+          ? const Value.absent()
+          : Value(avatar),
       priority: Value(priority),
       action: Value(action),
       isEnabled: Value(isEnabled),
@@ -6769,8 +6694,9 @@ class LabelPhoneData extends DataClass implements Insertable<LabelPhoneData> {
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       icon: data.icon.present ? data.icon.value : this.icon,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
       labelId: data.labelId.present ? data.labelId.value : this.labelId,
       avatar: data.avatar.present ? data.avatar.value : this.avatar,
       priority: data.priority.present ? data.priority.value : this.priority,
@@ -7206,55 +7132,46 @@ class $SimSlotRulesTable extends SimSlotRules
   SimSlotRuleData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return SimSlotRuleData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      name:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}name'],
-          )!,
-      priority:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}priority'],
-          )!,
-      action:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}action'],
-          )!,
-      isEnabled:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_enabled'],
-          )!,
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
-      simSlotIndex:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}sim_slot_index'],
-          )!,
-      labelId:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}label_id'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      priority: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}priority'],
+      )!,
+      action: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action'],
+      )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
+      simSlotIndex: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sim_slot_index'],
+      )!,
+      labelId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label_id'],
+      )!,
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
       ),
-      ruleType:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}rule_type'],
-          )!,
+      ruleType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}rule_type'],
+      )!,
     );
   }
 
@@ -7315,8 +7232,9 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
       phoneNumber: Value(phoneNumber),
       simSlotIndex: Value(simSlotIndex),
       labelId: Value(labelId),
-      avatar:
-          avatar == null && nullToAbsent ? const Value.absent() : Value(avatar),
+      avatar: avatar == null && nullToAbsent
+          ? const Value.absent()
+          : Value(avatar),
       ruleType: Value(ruleType),
     );
   }
@@ -7386,12 +7304,12 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
       priority: data.priority.present ? data.priority.value : this.priority,
       action: data.action.present ? data.action.value : this.action,
       isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
-      simSlotIndex:
-          data.simSlotIndex.present
-              ? data.simSlotIndex.value
-              : this.simSlotIndex,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
+      simSlotIndex: data.simSlotIndex.present
+          ? data.simSlotIndex.value
+          : this.simSlotIndex,
       labelId: data.labelId.present ? data.labelId.value : this.labelId,
       avatar: data.avatar.present ? data.avatar.value : this.avatar,
       ruleType: data.ruleType.present ? data.ruleType.value : this.ruleType,
@@ -7733,31 +7651,26 @@ class $LabelMarkStatisticsTable extends LabelMarkStatistics
   LabelMarkStatisticData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return LabelMarkStatisticData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      phoneNumber:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}phone_number'],
-          )!,
-      labelId:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}label_id'],
-          )!,
-      markedAt:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}marked_at'],
-          )!,
-      isCounted:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}is_counted'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
+      labelId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label_id'],
+      )!,
+      markedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}marked_at'],
+      )!,
+      isCounted: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_counted'],
+      )!,
     );
   }
 
@@ -7843,8 +7756,9 @@ class LabelMarkStatisticData extends DataClass
   LabelMarkStatisticData copyWithCompanion(LabelMarkStatisticsCompanion data) {
     return LabelMarkStatisticData(
       id: data.id.present ? data.id.value : this.id,
-      phoneNumber:
-          data.phoneNumber.present ? data.phoneNumber.value : this.phoneNumber,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
       labelId: data.labelId.present ? data.labelId.value : this.labelId,
       markedAt: data.markedAt.present ? data.markedAt.value : this.markedAt,
       isCounted: data.isCounted.present ? data.isCounted.value : this.isCounted,
@@ -8063,21 +7977,18 @@ class $UserMarkCountTable extends UserMarkCount
   UserMarkCountData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return UserMarkCountData(
-      id:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}id'],
-          )!,
-      totalCount:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.int,
-            data['${effectivePrefix}total_count'],
-          )!,
-      lastUpdated:
-          attachedDatabase.typeMapping.read(
-            DriftSqlType.string,
-            data['${effectivePrefix}last_updated'],
-          )!,
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      totalCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}total_count'],
+      )!,
+      lastUpdated: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}last_updated'],
+      )!,
     );
   }
 
@@ -8147,10 +8058,12 @@ class UserMarkCountData extends DataClass
   UserMarkCountData copyWithCompanion(UserMarkCountCompanion data) {
     return UserMarkCountData(
       id: data.id.present ? data.id.value : this.id,
-      totalCount:
-          data.totalCount.present ? data.totalCount.value : this.totalCount,
-      lastUpdated:
-          data.lastUpdated.present ? data.lastUpdated.value : this.lastUpdated,
+      totalCount: data.totalCount.present
+          ? data.totalCount.value
+          : this.totalCount,
+      lastUpdated: data.lastUpdated.present
+          ? data.lastUpdated.value
+          : this.lastUpdated,
     );
   }
 
@@ -8498,12 +8411,12 @@ class $$ContactsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$ContactsTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$ContactsTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$ContactsTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$ContactsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ContactsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ContactsTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -8552,16 +8465,9 @@ class $$ContactsTableTableManager
                 lastUpdated: lastUpdated,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -8853,13 +8759,12 @@ class $$CallHistoryTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$CallHistoryTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$CallHistoryTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () =>
-                  $$CallHistoryTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$CallHistoryTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CallHistoryTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CallHistoryTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -8924,16 +8829,9 @@ class $$CallHistoryTableTableManager
                 labelIds: labelIds,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -9199,12 +9097,12 @@ class $$RulesTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$RulesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$RulesTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$RulesTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$RulesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$RulesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$RulesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -9265,16 +9163,9 @@ class $$RulesTableTableManager
                 count: count,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -9525,12 +9416,12 @@ class $$PhoneRulesTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$PhoneRulesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$PhoneRulesTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$PhoneRulesTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$PhoneRulesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PhoneRulesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PhoneRulesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String?> id = const Value.absent(),
@@ -9587,16 +9478,9 @@ class $$PhoneRulesTableTableManager
                 subscriptionId: subscriptionId,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -9803,12 +9687,12 @@ class $$RegexRulesTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$RegexRulesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$RegexRulesTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$RegexRulesTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$RegexRulesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$RegexRulesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$RegexRulesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String?> id = const Value.absent(),
@@ -9853,16 +9737,9 @@ class $$RegexRulesTableTableManager
                 subscriptionId: subscriptionId,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -10111,16 +9988,12 @@ class $$SubscriptionsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$SubscriptionsTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () =>
-                  $$SubscriptionsTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$SubscriptionsTableAnnotationComposer(
-                $db: db,
-                $table: table,
-              ),
+          createFilteringComposer: () =>
+              $$SubscriptionsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SubscriptionsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SubscriptionsTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -10173,16 +10046,9 @@ class $$SubscriptionsTableTableManager
                 action: action,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -10421,12 +10287,12 @@ class $$SmsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$SmsTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$SmsTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$SmsTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$SmsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SmsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SmsTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -10479,16 +10345,9 @@ class $$SmsTableTableManager
                 labelIds: labelIds,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -10697,12 +10556,12 @@ class $$SmsRulesTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$SmsRulesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$SmsRulesTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$SmsRulesTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$SmsRulesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SmsRulesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SmsRulesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -10747,16 +10606,9 @@ class $$SmsRulesTableTableManager
                 ruleType: ruleType,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -10984,12 +10836,12 @@ class $$PluginsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$PluginsTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$PluginsTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$PluginsTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$PluginsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PluginsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PluginsTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -11038,16 +10890,9 @@ class $$PluginsTableTableManager
                 configJson: configJson,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -11225,12 +11070,12 @@ class $$LocationsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$LocationsTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$LocationsTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$LocationsTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$LocationsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$LocationsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$LocationsTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -11267,16 +11112,9 @@ class $$LocationsTableTableManager
                 numberType: numberType,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -11427,19 +11265,12 @@ class $$PredefinedLabelsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () =>
-                  $$PredefinedLabelsTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$PredefinedLabelsTableOrderingComposer(
-                $db: db,
-                $table: table,
-              ),
-          createComputedFieldComposer:
-              () => $$PredefinedLabelsTableAnnotationComposer(
-                $db: db,
-                $table: table,
-              ),
+          createFilteringComposer: () =>
+              $$PredefinedLabelsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PredefinedLabelsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PredefinedLabelsTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -11468,16 +11299,9 @@ class $$PredefinedLabelsTableTableManager
                 icon: icon,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -11718,13 +11542,12 @@ class $$LabelPhonesTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$LabelPhonesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$LabelPhonesTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () =>
-                  $$LabelPhonesTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$LabelPhonesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$LabelPhonesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$LabelPhonesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -11777,16 +11600,9 @@ class $$LabelPhonesTableTableManager
                 ruleType: ruleType,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -12029,13 +11845,12 @@ class $$SimSlotRulesTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$SimSlotRulesTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () => $$SimSlotRulesTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () =>
-                  $$SimSlotRulesTableAnnotationComposer($db: db, $table: table),
+          createFilteringComposer: () =>
+              $$SimSlotRulesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SimSlotRulesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SimSlotRulesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -12088,16 +11903,9 @@ class $$SimSlotRulesTableTableManager
                 ruleType: ruleType,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -12265,18 +12073,15 @@ class $$LabelMarkStatisticsTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$LabelMarkStatisticsTableFilterComposer(
+          createFilteringComposer: () =>
+              $$LabelMarkStatisticsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$LabelMarkStatisticsTableOrderingComposer(
                 $db: db,
                 $table: table,
               ),
-          createOrderingComposer:
-              () => $$LabelMarkStatisticsTableOrderingComposer(
-                $db: db,
-                $table: table,
-              ),
-          createComputedFieldComposer:
-              () => $$LabelMarkStatisticsTableAnnotationComposer(
+          createComputedFieldComposer: () =>
+              $$LabelMarkStatisticsTableAnnotationComposer(
                 $db: db,
                 $table: table,
               ),
@@ -12312,16 +12117,9 @@ class $$LabelMarkStatisticsTableTableManager
                 isCounted: isCounted,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );
@@ -12465,16 +12263,12 @@ class $$UserMarkCountTableTableManager
         TableManagerState(
           db: db,
           table: table,
-          createFilteringComposer:
-              () => $$UserMarkCountTableFilterComposer($db: db, $table: table),
-          createOrderingComposer:
-              () =>
-                  $$UserMarkCountTableOrderingComposer($db: db, $table: table),
-          createComputedFieldComposer:
-              () => $$UserMarkCountTableAnnotationComposer(
-                $db: db,
-                $table: table,
-              ),
+          createFilteringComposer: () =>
+              $$UserMarkCountTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UserMarkCountTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UserMarkCountTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
@@ -12499,16 +12293,9 @@ class $$UserMarkCountTableTableManager
                 lastUpdated: lastUpdated,
                 rowid: rowid,
               ),
-          withReferenceMapper:
-              (p0) =>
-                  p0
-                      .map(
-                        (e) => (
-                          e.readTable(table),
-                          BaseReferences(db, table, e),
-                        ),
-                      )
-                      .toList(),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
           prefetchHooksCallback: null,
         ),
       );

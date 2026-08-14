@@ -31,36 +31,39 @@ class LabelGenerator extends Generator {
   }
 
   bool _hasAppLabel(dynamic element) {
+    if (element == null) return false;
     try {
-      if (element is Element) {
-        const checker = TypeChecker.fromName('AppLabel');
-        if (checker.hasAnnotationOf(element)) {
-          return true;
+      dynamic annotations;
+      final meta = (element as dynamic).metadata;
+      if (meta is Iterable) {
+        annotations = meta;
+      } else if (meta != null) {
+        try {
+          annotations = meta.annotations;
+        } catch (_) {
+          annotations = [meta];
+        }
+      }
+      if (annotations is Iterable) {
+        for (final item in annotations) {
+          try {
+            final obj = (item as dynamic).computeConstantValue();
+            if (obj?.type?.element?.name == 'AppLabel') {
+              return true;
+            }
+          } catch (_) {}
+          try {
+            if ((item as dynamic).toSource().contains('AppLabel')) {
+              return true;
+            }
+          } catch (_) {}
         }
       }
     } catch (_) {}
-
-    try {
-      final metadata = (element as dynamic).metadata;
-      final iterable = metadata is Iterable ? metadata : (metadata as dynamic).annotations;
-      if (iterable is Iterable) {
-        for (final meta in iterable) {
-          final obj = (meta as dynamic).computeConstantValue();
-          if (obj?.type?.element?.name == 'AppLabel') {
-            return true;
-          }
-        }
-      }
-    } catch (_) {}
-
     return false;
   }
 
   String _generateForElement(dynamic element) {
-    ConstantReader annotation;
-    // We don't really need the annotation object content for AppLabel as it has no fields currently.
-    // But if we did, we'd wrap it.
-
     DartObject? constantValue;
     try {
       constantValue = element.computeConstantValue();

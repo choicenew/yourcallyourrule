@@ -108,12 +108,12 @@ _CallerIdConfig _$CallerIdConfigFromJson(Map<String, dynamic> json) =>
       securityMessageTextColor: const ColorConverter().fromJson(
         (json['securityMessageTextColor'] as num).toInt(),
       ),
-      securityMessageFontSize:
-          (json['securityMessageFontSize'] as num).toDouble(),
+      securityMessageFontSize: (json['securityMessageFontSize'] as num)
+          .toDouble(),
       securityMessageContainerWidth:
           (json['securityMessageContainerWidth'] as num).toDouble(),
-      securityMessageScrollSpeed:
-          (json['securityMessageScrollSpeed'] as num).toDouble(),
+      securityMessageScrollSpeed: (json['securityMessageScrollSpeed'] as num)
+          .toDouble(),
       securityMessageEnabled: json['securityMessageEnabled'] as bool,
       securityMessageBackgroundColor: const ColorConverter().fromJson(
         (json['securityMessageBackgroundColor'] as num).toInt(),

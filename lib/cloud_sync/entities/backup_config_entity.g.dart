@@ -12,12 +12,11 @@ BackupConfigEntity _$BackupConfigEntityFromJson(Map<String, dynamic> json) =>
       deviceName: json['deviceName'] as String,
       customSyncFolderName: json['customSyncFolderName'] as String?,
       localBackupPath: json['localBackupPath'] as String,
-      automaticBackupInterval:
-          json['automaticBackupInterval'] == null
-              ? null
-              : Duration(
-                microseconds: (json['automaticBackupInterval'] as num).toInt(),
-              ),
+      automaticBackupInterval: json['automaticBackupInterval'] == null
+          ? null
+          : Duration(
+              microseconds: (json['automaticBackupInterval'] as num).toInt(),
+            ),
       encryptionEnabled: json['encryptionEnabled'] as bool? ?? false,
     );
 
