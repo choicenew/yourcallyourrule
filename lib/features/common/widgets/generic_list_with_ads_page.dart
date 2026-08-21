@@ -137,6 +137,7 @@ class GenericListWithAdsPage<T> extends ConsumerStatefulWidget {
 class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPage<T>> {
   final _searchController = TextEditingController();
   Timer? _debounce;
+  bool _isInfoCardExpanded = false;
 
   @override
   void initState() {
@@ -278,7 +279,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // 提示卡片
-          if (widget.infoCard != null) ...[widget.infoCard!, const SizedBox(height: 16)],
+          if (widget.infoCard != null) ...[_buildCollapsibleInfoCard(), const SizedBox(height: 16)],
 
           // 头部内容（如果有）
           if (widget.headerContent != null) ...[widget.headerContent!, const SizedBox(height: 16)],
@@ -305,6 +306,98 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
           ),
         ],
       ),
+    );
+  }
+  
+  Widget _buildCollapsibleInfoCard() {
+    if (!_isInfoCardExpanded) {
+      return InkWell(
+        onTap: () {
+          setState(() {
+            _isInfoCardExpanded = true;
+          });
+        },
+        borderRadius: BorderRadius.circular(8.0),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+          decoration: BoxDecoration(
+            color: widget.themeColor.withOpacity(0.08),
+            borderRadius: BorderRadius.circular(8.0),
+            border: Border.all(
+              color: widget.themeColor.withOpacity(0.2),
+            ),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                Icons.info_outline,
+                size: 18,
+                color: widget.themeColor,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context)!.description,
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    color: widget.themeColor,
+                  ),
+                ),
+              ),
+              Icon(
+                Icons.keyboard_arrow_down,
+                size: 18,
+                color: widget.themeColor,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        InkWell(
+          onTap: () {
+            setState(() {
+              _isInfoCardExpanded = false;
+            });
+          },
+          borderRadius: BorderRadius.circular(8.0),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.info_outline,
+                  size: 18,
+                  color: widget.themeColor,
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  AppLocalizations.of(context)!.description,
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    color: widget.themeColor,
+                  ),
+                ),
+                const SizedBox(width: 4),
+                Icon(
+                  Icons.keyboard_arrow_up,
+                  size: 18,
+                  color: widget.themeColor,
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 4),
+        widget.infoCard!,
+      ],
     );
   }
 
