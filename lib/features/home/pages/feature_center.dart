@@ -28,8 +28,36 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
     }
   }
 
-  Color _randomColor() {
-    return Color((Random().nextDouble() * 0xFFFFFF).toInt()).withValues(alpha: 0.2);
+  Color _getFeatureColor(String id) {
+    // 包含 24 种丰富、明快、各具辨识度的高级柔和色相池，自动适配未来任意扩展
+    const palette = [
+      Color(0xFFE8F5E9), // 薄荷浅绿
+      Color(0xFFE3F2FD), // 天空浅蓝
+      Color(0xFFF3E5F5), // 薰衣草紫
+      Color(0xFFFFF3E0), // 温暖浅橙
+      Color(0xFFE0F7FA), // 冰海浅青
+      Color(0xFFFCE4EC), // 柔和浅粉
+      Color(0xFFFFF8E1), // 明亮浅琥珀
+      Color(0xFFEDE7F6), // 优雅深紫罗兰
+      Color(0xFFE0F2F1), // 极光碧绿
+      Color(0xFFFFEBEE), // 珊瑚柔红
+      Color(0xFFE1F5FE), // 晴空海蓝
+      Color(0xFFF1F8E9), // 嫩芽浅绿
+      Color(0xFFFFFDE7), // 阳光柔黄
+      Color(0xFFE8EAF6), // 经典靛蓝
+      Color(0xFFF9FBE7), // 抹茶青柠
+      Color(0xFFF8BBD0), // 樱花暖粉
+      Color(0xFFB2DFDB), // 晶石青绿
+      Color(0xFFFFCCBC), // 晚霞杏橙
+      Color(0xFFD1C4E9), // 暮色紫藤
+      Color(0xFFBBDEFB), // 琉璃透蓝
+      Color(0xFFC8E6C9), // 森林翠绿
+      Color(0xFFFFE0B2), // 麦浪金橙
+      Color(0xFFB3E5FC), // 冰川淡蓝
+      Color(0xFFD7CCC8), // 拿铁暖棕
+    ];
+    final hash = id.hashCode.abs();
+    return palette[hash % palette.length];
   }
 
   Future<void> _loadAndOrderFeatures() async {
@@ -41,7 +69,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.markPhoneManagementTitle,
         icon: Icons.label,
-        color: _randomColor(),
+        color: _getFeatureColor('mark_phone_management'),
         onTap: () => context.push('/mark-phone-management-with-ads'),
       ),
       _buildFeatureItem(
@@ -49,7 +77,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.pluginManagement,
         icon: Icons.extension,
-        color: _randomColor(),
+        color: _getFeatureColor('plugin_management'),
         onTap: () => context.push('/plugin-management-with-ads'),
       ),
       _buildFeatureItem(
@@ -57,7 +85,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.allowBlock,
         icon: Icons.block,
-        color: _randomColor(),
+        color: _getFeatureColor('allow_block'),
         onTap: () => context.push('/allowed-blocked-settings-with-ads'),
       ),
        _buildFeatureItem(
@@ -65,7 +93,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.phoneRuleManagement,
         icon: Icons.list,
-        color: _randomColor(),
+        color: _getFeatureColor('rule-management'),
         onTap: () => context.push('/rule-management-settings-with-ads'),
       ),
       _buildFeatureItem(
@@ -73,7 +101,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.simSlotRules, // Assuming you will add this localization key
         icon: Icons.sim_card,
-        color: _randomColor(),
+        color: _getFeatureColor('sim_slot_rules'),
         onTap: () => context.push('/sim-slot-rule-with-ads/0'), // Assuming simSlotIndex 0 for the first SIM slot
       ),
       _buildFeatureItem(
@@ -81,7 +109,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.regexRules,
         icon: Icons.code,
-        color: _randomColor(),
+        color: _getFeatureColor('regex_rules'),
         onTap: () => context.push('/regex-rule-with-ads'),
       ),
       _buildFeatureItem(
@@ -89,7 +117,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.phoneSubscription,
         icon: Icons.phone_callback,
-        color: _randomColor(),
+        color: _getFeatureColor('phone_subscription'),
         onTap: () => context.push('/phone-subscription-with-ads'),
       ),
       _buildFeatureItem(
@@ -97,7 +125,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.callHistory,
         icon: Icons.call,
-        color: _randomColor(),
+        color: _getFeatureColor('call_history'),
         onTap: () => context.push('/call-history'),
       ),
       _buildFeatureItem(
@@ -105,7 +133,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.contacts,
         icon: Icons.contacts,
-        color: _randomColor(),
+        color: _getFeatureColor('contacts'),
         onTap: () => context.push('/contacts-management'),
       ),
       _buildFeatureItem(
@@ -113,7 +141,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.statistics,
         icon: Icons.bar_chart,
-        color: _randomColor(),
+        color: _getFeatureColor('statistics'),
         onTap: () => context.push('/call-statistics'),
       ),
       _buildFeatureItem(
@@ -121,7 +149,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
         context: context,
         title: AppLocalizations.of(context)!.deletionProposals,
         icon: Icons.how_to_vote_outlined,
-        color: _randomColor(),
+        color: _getFeatureColor('deletion_proposal'),
         onTap: () => context.push('/deletion-proposal'),
       ),
       
@@ -166,9 +194,19 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: isDark ? Colors.white.withOpacity(0.08) : Colors.black.withOpacity(0.04),
+          width: 1,
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -278,24 +316,66 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
     required Color color,
     required VoidCallback onTap,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
     return InkWell(
       key: ValueKey(id), // The ID is used to create the essential Key.
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(16),
       child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
         decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(12),
+          color: isDark ? const Color(0xFF1E2430) : const Color(0xFFF8FAFC),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: isDark ? Colors.white.withOpacity(0.08) : Colors.black.withOpacity(0.05),
+            width: 1,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: isDark ? Colors.black.withOpacity(0.2) : Colors.black.withOpacity(0.02),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 32, color: Theme.of(context).primaryColor),
+            // 精致独立的彩色图标徽章容器
+            Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: isDark ? color.withOpacity(0.25) : color,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: isDark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.04),
+                  width: 0.8,
+                ),
+              ),
+              child: Icon(
+                icon,
+                size: 24,
+                color: isDark ? Colors.white : const Color(0xFF2C3E50),
+              ),
+            ),
             const SizedBox(height: 8),
-            Text(
-              title,
-              style: const TextStyle(fontSize: 14),
-              textAlign: TextAlign.center,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2.0),
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: isDark ? Colors.white70 : const Color(0xFF334155),
+                  letterSpacing: -0.2,
+                ),
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),

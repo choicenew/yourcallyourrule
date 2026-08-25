@@ -20,21 +20,39 @@ class _RuleVerificationCardState extends State<RuleVerificationCard> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final primaryColor = theme.primaryColor;
+    final isDark = theme.brightness == Brightness.dark;
+
     return Card(
-      color:
-          Theme.of(context).brightness == Brightness.dark
-              ? Colors.pink.withOpacity(0.2)
-              : Colors.pink[200], // <--- Adapt to theme
+      color: isDark ? primaryColor.withOpacity(0.15) : primaryColor.withOpacity(0.08), // <--- Adapt to theme
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: primaryColor.withOpacity(0.2),
+          width: 1,
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              AppLocalizations.of(context)!.ruleVerification,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                Icon(
+                  Icons.verified_user_outlined,
+                  size: 20,
+                  color: primaryColor,
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  AppLocalizations.of(context)!.ruleVerification,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
             const SizedBox(height: 16),
             Row(
@@ -47,21 +65,23 @@ class _RuleVerificationCardState extends State<RuleVerificationCard> {
                           AppLocalizations.of(
                             context,
                           )!.enterPhoneNumberToVerify,
-                      prefixIcon: const Icon(Icons.phone),
-                      prefixIconColor: Colors.white,
+                      prefixIcon: Icon(Icons.phone, color: primaryColor),
+                      prefixIconColor: primaryColor,
+                      filled: true,
+                      fillColor: isDark ? Colors.grey[850] : Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         // 设置边框为半透明白色
                         borderSide: BorderSide(
-                          color: Colors.white.withValues(alpha: 0.7),
+                          color: primaryColor.withOpacity(0.3),
                         ),
                       ),
                       // --- 修改点 6: 聚焦时边框的颜色（推荐添加）---
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         // 设置聚焦时边框为纯白色，并加粗
-                        borderSide: const BorderSide(
-                          color: Colors.white,
+                        borderSide: BorderSide(
+                          color: primaryColor,
                           width: 2.0,
                         ),
                       ),
@@ -69,7 +89,7 @@ class _RuleVerificationCardState extends State<RuleVerificationCard> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: BorderSide(
-                          color: Colors.white.withValues(alpha: 0.7),
+                          color: primaryColor.withOpacity(0.3),
                         ),
                       ),
                       contentPadding: const EdgeInsets.symmetric(
@@ -77,7 +97,7 @@ class _RuleVerificationCardState extends State<RuleVerificationCard> {
                       ),
                     ),
                     // 为了更好的可见性，输入文字的颜色也建议修改
-                    style: const TextStyle(color: Colors.black87),
+                    style: TextStyle(color: isDark ? Colors.white : Colors.black87),
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -94,7 +114,8 @@ class _RuleVerificationCardState extends State<RuleVerificationCard> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).primaryColor,
+                    backgroundColor: primaryColor,
+                    elevation: 2,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),

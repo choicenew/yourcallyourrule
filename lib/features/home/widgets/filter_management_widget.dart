@@ -62,21 +62,31 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
       }
     });
 
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
     return Card(
       color:
           _isExpanded
               ? null
-              : (Theme.of(context).brightness == Brightness.dark
-                  ? const Color(0xFFFFA726).withOpacity(0.2)
-                  : const Color(0xFFFFA726)),
+              : (isDark
+                  ? const Color(0xFFFFA726).withOpacity(0.15)
+                  : const Color(0xFFFFF3E0)),
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: isDark ? Colors.white.withOpacity(0.08) : const Color(0xFFFFA726).withOpacity(0.3),
+          width: 1,
+        ),
+      ),
       child: ExpansionTile(
-        title: Text(AppLocalizations.of(context)!.filterManagement),
+        title: Text(AppLocalizations.of(context)!.filterManagement, style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(
           AppLocalizations.of(context)!.filterManagementDescription,
         ),
-        leading: const Icon(Icons.filter_alt, color: Colors.blue),
+        leading: const Icon(Icons.filter_alt, color: Color(0xFFFB8C00)),
         initiallyExpanded: _isExpanded,
         onExpansionChanged: (expanded) {
           setState(() {

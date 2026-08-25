@@ -44,13 +44,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                 child: Column(
                   children: [
                     const CarouselCards(),
-                    GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const RuleVerificationCard(),
-                    //   GoogleAdWidget(adInfo: AdManager.bannerAd),
                     const FilterManagementWidget(),
-                    // GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
                     const FeatureCenter(),
-                    GoogleAdWidget(adInfo: AdManager.bannerAd),
                     //插入显示购买页
                     const VipPromotionCard(),
 

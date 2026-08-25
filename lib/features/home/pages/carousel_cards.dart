@@ -44,6 +44,7 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   // --- 状态和逻辑 (保持不变) ---
   final PageController _pageController = PageController();
   Timer? _autoPlayTimer;
+  int _currentPage = 0;
   // 【新增】为图表卡片管理其独立的状态。
   String _selectedTimeRange = 'Week';
 
@@ -89,9 +90,8 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
     final asyncCommunityStats = ref.watch(proposalStatisticsProvider);
 
     return Container(
-      // 调整高度以适应内容更丰富的卡片
-      height: 220,
-      margin: const EdgeInsets.symmetric(vertical: 16),
+      // 调整高度以适应内容更丰富的卡片与精致指示器
+      margin: const EdgeInsets.symmetric(vertical: 8),
 
       // 4. 【结构】: 使用外层 `when` 来处理“主数据源”的状态。
       // 这个 `when` 决定了整个轮播组件是显示内容、加载动画还是错误信息。
@@ -196,8 +196,26 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
             }
           });
 
-          // 返回最终的轮播视图
-          return PageView(controller: _pageController, children: cards);
+          // 返回最终的轮播视图与指示器
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                height: 195,
+                child: PageView(
+                  controller: _pageController,
+                  onPageChanged: (index) {
+                    setState(() {
+                      _currentPage = index;
+                    });
+                  },
+                  children: cards,
+                ),
+              ),
+              const SizedBox(height: 8),
+              _buildPageIndicator(cards.length),
+            ],
+          );
         },
 
         // --- 状态二: 主数据正在加载 ---
@@ -348,24 +366,37 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
       'Either provide (description and value) OR provide customContent. Not both, not neither.',
     );
 
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return GestureDetector(
       onTap: onTap,
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+        elevation: 2,
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(
+              color: isDark ? Colors.white.withOpacity(0.1) : Colors.white.withOpacity(0.25),
+              width: 1,
+            ),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors:
-                  Theme.of(context).brightness == Brightness.dark
-                      ? [color.withOpacity(0.3), color.withOpacity(0.1)]
-                      : [color.withOpacity(0.8), color],
+                  isDark
+                      ? [color.withOpacity(0.4), color.withOpacity(0.15)]
+                      : [color.withOpacity(0.85), color],
             ),
+            boxShadow: [
+              BoxShadow(
+                color: color.withOpacity(0.2),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -378,11 +409,19 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
                     title,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 18,
+                      fontSize: 17,
                       fontWeight: FontWeight.bold,
+                      letterSpacing: -0.2,
                     ),
                   ),
-                  Icon(icon, color: Colors.white),
+                  Container(
+                    padding: const EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(icon, color: Colors.white, size: 18),
+                  ),
                 ],
               ),
 
@@ -398,15 +437,20 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
                         const Spacer(),
                         Text(
                           description!,
-                          style: const TextStyle(color: Colors.white70),
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.85),
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                        const SizedBox(height: 8),
+                        const SizedBox(height: 4),
                         Text(
                           value!,
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 34,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: -0.5,
                           ),
                         ),
                       ],
@@ -416,6 +460,30 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildPageIndicator(int totalPages) {
+    if (totalPages <= 1) return const SizedBox.shrink();
+
+    final theme = Theme.of(context);
+    final primaryColor = theme.primaryColor;
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(totalPages, (index) {
+        final isSelected = index == _currentPage;
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          margin: const EdgeInsets.symmetric(horizontal: 3),
+          height: 5,
+          width: isSelected ? 18 : 6,
+          decoration: BoxDecoration(
+            color: isSelected ? primaryColor : Colors.grey.withOpacity(0.3),
+            borderRadius: BorderRadius.circular(3),
+          ),
+        );
+      }),
     );
   }
 
@@ -495,26 +563,37 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
     required String value,
     required Color color,
   }) {
-    return Column(
-      children: [
-        Text(
-          value,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: color.withOpacity(0.4),
+          width: 0.8,
         ),
-        const SizedBox(height: 4),
-        Text(
-          label,
-          style: TextStyle(
-            color: color,
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
+      ),
+      child: Column(
+        children: [
+          Text(
+            value,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.w800,
+            ),
           ),
-        ),
-      ],
+          const SizedBox(height: 2),
+          Text(
+            label,
+            style: TextStyle(
+              color: color,
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -525,12 +604,12 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
       height: height,
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+        elevation: 2,
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(18),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -550,12 +629,12 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
       height: height,
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+        elevation: 2,
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(18),
             gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -591,12 +670,12 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   Widget _buildCallerIdMockCard() {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+      elevation: 2,
       child: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(18),
           gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -638,8 +717,8 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   Widget _buildAdCard(Widget ad) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+      elevation: 2,
       clipBehavior: Clip.antiAlias, // Ensure ad respects rounded corners
       child: Stack(
         children: [
@@ -662,12 +741,12 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   Widget _buildPromotionCard() {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+      elevation: 2,
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(18),
           gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
