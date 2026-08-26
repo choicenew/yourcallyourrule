@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:live_updates/live_updates.dart';
+import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
@@ -56,24 +56,30 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
       );
 
       if (_activityId != null) {
-        await LiveUpdates.showLayoutNotification(
-          notificationId: _activityId!.hashCode,
-          layoutName: 'live_activity',
-          smallIconName: 'ic_notification',
-          ongoing: true,
-          viewData: payload,
+        await LiveActivity.update(
+          id: _activityId!,
+          lockScreen: payload.lockScreen,
+          compactLeading: payload.compactLeading,
+          compactTrailing: payload.compactTrailing,
+          minimal: payload.minimal,
+          expandedLeading: payload.expandedLeading,
+          expandedCenter: payload.expandedCenter,
+          expandedBottom: payload.expandedBottom,
         );
         setState(() {
           _status = "Successfully updated activity with ID:\n$_activityId";
         });
       } else {
         final newActivityId = _uuid.v4();
-        await LiveUpdates.showLayoutNotification(
-          notificationId: newActivityId.hashCode,
-          layoutName: 'live_activity',
-          smallIconName: 'ic_notification',
-          ongoing: true,
-          viewData: payload,
+        await LiveActivity.show(
+          id: newActivityId,
+          lockScreen: payload.lockScreen,
+          compactLeading: payload.compactLeading,
+          compactTrailing: payload.compactTrailing,
+          minimal: payload.minimal,
+          expandedLeading: payload.expandedLeading,
+          expandedCenter: payload.expandedCenter,
+          expandedBottom: payload.expandedBottom,
         );
         setState(() {
           _activityId = newActivityId;
@@ -94,7 +100,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
       return;
     }
     try {
-      await LiveUpdates.cancelNotification(_activityId!.hashCode);
+      await LiveActivity.end(id: _activityId!);
       setState(() {
         _status = "Successfully ended activity with ID:\n$_activityId";
         _activityId = null; // 清除ID
@@ -111,7 +117,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
     // ... UI部分的代码保持不变 ...
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.liveActivitiesTestTitle),
+        title: Text(AppLocalizations.of(context).liveActivitiesTestTitle),
       ),
       body: Center(
         child: Padding(
@@ -123,7 +129,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
               const Icon(Icons.notifications_active, size: 50, color: Colors.blue),
               const SizedBox(height: 15),
               Text(
-                AppLocalizations.of(context)!.liveActivityControlsTitle,
+                AppLocalizations.of(context).liveActivityControlsTitle,
                 style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
               ),
@@ -143,7 +149,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
               const SizedBox(height: 15),
               ElevatedButton.icon(
                 icon: const Icon(Icons.send),
-                label: Text(_activityId == null ? AppLocalizations.of(context)!.liveActivitiesTestSendNewActivity : AppLocalizations.of(context)!.liveActivitiesTestUpdateActivity),
+                label: Text(_activityId == null ? AppLocalizations.of(context).liveActivitiesTestSendNewActivity : AppLocalizations.of(context).liveActivitiesTestUpdateActivity),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   backgroundColor: Colors.blue,
@@ -154,7 +160,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
               const SizedBox(height: 12),
               OutlinedButton.icon(
                 icon: const Icon(Icons.cancel),
-                label: Text(AppLocalizations.of(context)!.liveActivitiesTestEndActivity),
+                label: Text(AppLocalizations.of(context).liveActivitiesTestEndActivity),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
@@ -162,7 +168,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
               ),
               const SizedBox(height: 15),
               Text(
-                AppLocalizations.of(context)!.notification_instructions,
+                AppLocalizations.of(context).notification_instructions,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Color.fromARGB(255, 117, 117, 117)),
               ),

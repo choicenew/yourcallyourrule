@@ -170,6 +170,8 @@ class SettingsPage extends ConsumerWidget {
         ),
         */
         const SizedBox(height: 8),
+        /*
+        // [Legacy] 原始基于 live_updates 自由排版页面（保留供后续观察与过渡使用）
         _buildSettingsCard(
           context,
           icon: Icons.notifications_active,
@@ -178,6 +180,17 @@ class SettingsPage extends ConsumerWidget {
           subtitle: AppLocalizations.of(context)!.liveNotificationCustomizationSubtitle,
           onTap: () {
             GoRouter.of(context).push('/live-notification-customization');
+          },
+        ),
+        */
+        _buildSettingsCard(
+          context,
+          icon: Icons.notifications_active,
+          iconColor: Colors.blue,
+          title: AppLocalizations.of(context)!.liveNotificationCustomizationTitle,
+          subtitle: AppLocalizations.of(context)!.liveNotificationCustomizationSubtitle,
+          onTap: () {
+            GoRouter.of(context).push('/kit-live-notification-customization');
           },
         ),
         const SizedBox(height: 8),

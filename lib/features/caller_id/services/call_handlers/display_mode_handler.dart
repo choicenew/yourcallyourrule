@@ -17,7 +17,7 @@ import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_repo
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/notification_handler.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/live_activity_handler.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_handlers/kit_live_activity_handler.dart';
 
 // part 指令
 part 'display_mode_handler.g.dart';
@@ -119,10 +119,10 @@ class DisplayModeHandler {
         break;
 
       case DisplayMode.live_activity:
-        final liveActivityHandler = await _ref.read(
-          liveActivityHandlerProvider.future,
+        final kitHandler = await _ref.read(
+          kitLiveActivityHandlerProvider.future,
         );
-        await liveActivityHandler.showCallerIdActivity(
+        await kitHandler.showCallerIdActivity(
           callerIdData: callerIdData,
           simInfo: simInfo,
           stirInfo: stirInfo,
@@ -134,11 +134,11 @@ class DisplayModeHandler {
   /// 公共方法，关闭所有可能的显示。
   Future<void> closeDisplay() async {
     final overlayHandler = _ref.read(overlayHandlerProvider);
-    final liveActivityHandler = await _ref.read(
-      liveActivityHandlerProvider.future,
+    final kitHandler = await _ref.read(
+      kitLiveActivityHandlerProvider.future,
     );
 
     overlayHandler.closeOverlay();
-    await liveActivityHandler.endActivity();
+    await kitHandler.endActivity();
   }
 }

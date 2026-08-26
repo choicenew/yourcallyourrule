@@ -1,0 +1,7 @@
+builders:
+  live_activity_setup_generator:
+    import: "package:live_activity_setup_generator/builder.dart"
+    builder_factories: ["liveActivitySetupBuilder"]
+    build_extensions: {"$lib$": ["ios_live_activity_setup.info"]}
+    auto_apply: root_package
+    build_to: source

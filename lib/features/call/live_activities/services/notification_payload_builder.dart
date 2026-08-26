@@ -1,194 +1,177 @@
-// lib/features/call/live_activities/services/live_notification_payload_builder.dart
+// lib/features/call/live_activities/services/notification_payload_builder.dart
 
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:live_updates/models/custom_view_data.dart';
-
-import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:live_activity_kit/live_activity_kit.dart';
+import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
+import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
 
-Color _colorStringToColor(String colorStr) {
-  try {
-    String hex = colorStr.toUpperCase().replaceAll('#', '');
-    if (hex.length == 6) {
-      hex = 'FF$hex';
-    }
-    return Color(int.parse(hex, radix: 16));
-  } catch (_) {
-    return const Color(0xFFFFFFFF);
-  }
+class LiveNotificationPayload {
+  final LANode lockScreen;
+  final LANode compactLeading;
+  final LANode compactTrailing;
+  final LANode minimal;
+  final LANode expandedLeading;
+  final LANode expandedCenter;
+  final LANode? expandedBottom;
+
+  const LiveNotificationPayload({
+    required this.lockScreen,
+    required this.compactLeading,
+    required this.compactTrailing,
+    required this.minimal,
+    required this.expandedLeading,
+    required this.expandedCenter,
+    this.expandedBottom,
+  });
 }
 
 class LiveNotificationPayloadBuilder {
-  /// 将配置和真实数据转换为 LiveUpdates 的 viewData Map
-  static Future<Map<String, CustomViewData>> build(
+  /// 将配置和真实数据转换为 LiveActivityKit 的节点 Bundle
+  static Future<LiveNotificationPayload> build(
     LiveNotificationConfig config,
     CallerIdData data,
     SimInfo? simInfo,
-    StirInfo? stirInfo,
-    {String? securityMessage}
-  ) async {
-    Future<Uint8List> _getAssetBytes(String? path) async {
-      if (path == null || path.isEmpty || path.startsWith('http')) return Uint8List(0);
-      try {
-        final byteData = await rootBundle.load(path);
-        return byteData.buffer.asUint8List();
-      } catch (e) {
-        // Fallback to app logo if specific asset fails
-        try {
-           final byteData = await rootBundle.load('assets/app_logo.png');
-           return byteData.buffer.asUint8List();
-        } catch (_) {
-           return Uint8List(0);
-        }
-      }
+    StirInfo? stirInfo, {
+    String? securityMessage,
+    bool isFraudCall = false,
+  }) async {
+    final String numberDisplay = data.phoneNumber.value;
+    final String nameDisplay = data.name ?? numberDisplay;
+
+    final String? labelText = (data.labels != null && data.labels!.isNotEmpty)
+        ? data.labels!.first.label
+        : null;
+    final ImageProvider? avatarProvider = config.avatar.visible
+        ? AvatarUtils.getAvatarImage(data.avatar, labelText)
+        : null;
+
+    final String? assetPath = (avatarProvider is AssetImage) ? avatarProvider.assetName : null;
+    final bool hasAvatar = assetPath != null && assetPath.isNotEmpty;
+
+    final List<String> details = [];
+    if (config.carrier.visible && data.carrier != null && data.carrier!.isNotEmpty) {
+      details.add(data.carrier!);
     }
-
-    final avatarBytes = await _getAssetBytes(data.avatar);
-    final callTypeIconBytes = await _getAssetBytes(
-      simInfo?.callType == 'incoming'
-          ? 'assets/icons/call_received.png'
-          : 'assets/icons/call_made.png',
-    );
-
-    final Map<String, CustomViewData> viewData = {};
-
-    // Avatar
-    if (config.avatar.visible) {
-      viewData['avatar_image'] = ImageViewData(
-        imageBytes: avatarBytes,
-        width: config.avatar.size,
-        height: config.avatar.size,
-        position: Offset(config.avatar.position.x, config.avatar.position.y),
-      );
+    if (config.location.visible && data.region != null && data.region!.isNotEmpty) {
+      details.add(data.region!);
     }
-
-    // Name
-    if (config.name.visible) {
-      viewData['caller_name_text'] = TextViewData(
-        text: data.name ?? 'Unknown',
-        textColor: _colorStringToColor(config.name.color),
-        textSize: config.name.fontSize,
-        position: Offset(config.name.position.x, config.name.position.y),
-      );
+    if (config.countryName.visible && data.countryName != null && data.countryName!.isNotEmpty) {
+      details.add(data.countryName!);
     }
-
-    // Number
-    if (config.number.visible) {
-      viewData['caller_number_text'] = TextViewData(
-        text: data.phoneNumber.value,
-        textColor: _colorStringToColor(config.number.color),
-        textSize: config.number.fontSize,
-        position: Offset(config.number.position.x, config.number.position.y),
-      );
+    if (config.simCard.visible && simInfo?.displayName != null && simInfo!.displayName!.isNotEmpty) {
+      details.add(simInfo.displayName!);
     }
+    final String detailLine = details.join(' · ');
 
-    // Location
-    if (config.location.visible) {
-      viewData['location_text'] = TextViewData(
-        text: data.region ?? '',
-        textColor: _colorStringToColor(config.location.color),
-        textSize: config.location.fontSize,
-        position: Offset(config.location.position.x, config.location.position.y),
-      );
-    }
+    final avatarNode = hasAvatar
+        ? LA.asset(assetPath, width: 44, height: 44, cornerRadius: 22)
+        : LA.symbol(
+            'person.crop.circle.fill',
+            size: 40,
+            color: isFraudCall
+                ? const Color(0xFFD32F2F)
+                : AvatarUtils.getColorFromName(nameDisplay),
+          );
 
-    // Carrier
-    if (config.carrier.visible) {
-      viewData['carrier_text'] = TextViewData(
-        text: data.carrier ?? '',
-        textColor: _colorStringToColor(config.carrier.color),
-        textSize: config.carrier.fontSize,
-        position: Offset(config.carrier.position.x, config.carrier.position.y),
-      );
-    }
-
-    // Country name
-    if (config.countryName.visible) {
-      viewData['country_name_text'] = TextViewData(
-        text: data.countryName ?? '',
-        textColor: _colorStringToColor(config.countryName.color),
-        textSize: config.countryName.fontSize,
-        position: Offset(config.countryName.position.x, config.countryName.position.y),
-      );
-    }
-
-    // Labels
-    if (config.labels.visible) {
-      viewData['labels_text'] = TextViewData(
-        text: data.labels?.map((l) => l.label).join(', ') ?? '',
-        textColor: _colorStringToColor(config.labels.color),
-        textSize: config.labels.fontSize,
-        position: Offset(config.labels.position.x, config.labels.position.y),
-      );
-    }
-
-    // Count
-    if (config.count.visible) {
-      viewData['count_text'] = TextViewData(
-        text: 'Marked by ${data.count}',
-        textColor: _colorStringToColor(config.count.color),
-        textSize: config.count.fontSize,
-        position: Offset(config.count.position.x, config.count.position.y),
-      );
-    }
-
-    // Number type
-    if (config.numberType.visible) {
-      viewData['number_type_text'] = TextViewData(
-        text: data.numberType.name,
-        textColor: _colorStringToColor(config.numberType.color),
-        textSize: config.numberType.fontSize,
-        position: Offset(config.numberType.position.x, config.numberType.position.y),
-      );
-    }
-
-    // STIR/SHAKEN
-    if (config.stir.visible && stirInfo != null) {
-      viewData['stir_text'] = TextViewData(
-        text: stirInfo.isVerified ? 'Verified' : 'Not Verified',
-        textColor: _colorStringToColor(config.stir.color),
-        textSize: config.stir.fontSize,
-        position: Offset(config.stir.position.x, config.stir.position.y),
-      );
-    }
-
-    // SIM Card
-    if (config.simCard.visible && simInfo != null) {
-      viewData['sim_card_text'] = TextViewData(
-        text: simInfo.displayName ?? '',
-        textColor: _colorStringToColor(config.simCard.color),
-        textSize: config.simCard.fontSize,
-        position: Offset(config.simCard.position.x, config.simCard.position.y),
-      );
-    }
-
-    // Call type icon
-    if (config.callType.visible) {
-      viewData['call_type_image'] = ImageViewData(
-        imageBytes: callTypeIconBytes,
-        width: config.callType.size,
-        height: config.callType.size,
-        position: Offset(config.callType.position.x, config.callType.position.y),
-      );
-    }
-
-    // Security message
-    if (config.securityMessage.visible) {
-      viewData['security_message_text'] = TextViewData(
-        text: securityMessage ?? 'Security Alert: Potential fraud detected.',
-        textColor: _colorStringToColor(config.securityMessage.color),
-        textSize: config.securityMessage.fontSize,
-        position: Offset(
-          config.securityMessage.position.x,
-          config.securityMessage.position.y,
+    final lockScreenNode = LA.column([
+      LA.row([
+        avatarNode,
+        LA.spacer(minLength: 10),
+        LA.column([
+          if (config.name.visible)
+            LA.text(
+              nameDisplay,
+              size: config.name.fontSize,
+              weight: FontWeight.bold,
+              color: isFraudCall ? const Color(0xFFD32F2F) : null,
+            ),
+          if (config.number.visible)
+            LA.text(numberDisplay, size: config.number.fontSize),
+        ]),
+      ]),
+      if (detailLine.isNotEmpty)
+        LA.padding(
+          LA.text(detailLine, size: 12, color: const Color(0xFF888888)),
+          top: 4,
         ),
-      );
-    }
+      if (config.stir.visible && stirInfo != null)
+        LA.padding(
+          LA.text(
+            stirInfo.isVerified ? '🛡️ Verified' : 'Not Verified',
+            size: config.stir.fontSize,
+            color: stirInfo.isVerified
+                ? const Color(0xFF2E7D32)
+                : const Color(0xFF888888),
+          ),
+          top: 4,
+        ),
+      if (config.securityMessage.visible && securityMessage != null)
+        LA.padding(
+          LA.container(
+            padding: const LAInsets(top: 6, bottom: 6, left: 8, right: 8),
+            background: const Color(0x22D32F2F),
+            cornerRadius: 6,
+            child: LA.text(
+              securityMessage,
+              size: config.securityMessage.fontSize,
+              color: const Color(0xFFD32F2F),
+            ),
+          ),
+          top: 6,
+        ),
+    ]);
 
-    return viewData;
+    final compactLeadingNode = hasAvatar
+        ? LA.asset(assetPath, width: 20, height: 20, cornerRadius: 10)
+        : LA.symbol(
+            'phone.fill',
+            color: isFraudCall
+                ? const Color(0xFFD32F2F)
+                : AvatarUtils.getColorFromName(nameDisplay),
+          );
+    final compactTrailingNode = LA.text(
+      nameDisplay,
+      size: 12,
+      weight: FontWeight.bold,
+    );
+    final minimalNode = LA.symbol(
+      'phone.fill',
+      color: isFraudCall
+          ? const Color(0xFFD32F2F)
+          : AvatarUtils.getColorFromName(nameDisplay),
+    );
+    final expandedLeadingNode = hasAvatar
+        ? LA.asset(assetPath, width: 40, height: 40, cornerRadius: 20)
+        : LA.symbol(
+            'person.crop.circle.fill',
+            size: 36,
+            color: isFraudCall
+                ? const Color(0xFFD32F2F)
+                : AvatarUtils.getColorFromName(nameDisplay),
+          );
+    final expandedCenterNode = LA.column([
+      if (config.name.visible)
+        LA.text(nameDisplay, size: 15, weight: FontWeight.bold),
+      if (config.number.visible)
+        LA.text(numberDisplay, size: 13),
+      if (detailLine.isNotEmpty)
+        LA.text(detailLine, size: 11),
+    ]);
+    final expandedBottomNode = (config.securityMessage.visible && securityMessage != null)
+        ? LA.text(securityMessage, size: 12, color: const Color(0xFFD32F2F))
+        : null;
+
+    return LiveNotificationPayload(
+      lockScreen: lockScreenNode,
+      compactLeading: compactLeadingNode,
+      compactTrailing: compactTrailingNode,
+      minimal: minimalNode,
+      expandedLeading: expandedLeadingNode,
+      expandedCenter: expandedCenterNode,
+      expandedBottom: expandedBottomNode,
+    );
   }
 }

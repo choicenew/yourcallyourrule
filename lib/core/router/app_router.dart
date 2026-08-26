@@ -27,6 +27,8 @@ import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 
 import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_notification_customization_screen.dart';
 import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_activities_test_page.dart';
+import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/kit_live_activities_test_page.dart';
+import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
 
@@ -128,6 +130,8 @@ class AppRouter {
   static const String notifications = 'notifications';
   static const String liveNotificationCustomization = 'live-notification-customization';
   static const String liveActivitiesTest = 'live-activities-test';
+  static const String kitLiveActivitiesTest = 'kit-live-activities-test';
+  static const String kitLiveNotificationCustomization = 'kit-live-notification-customization';
   static const String deletionProposal = 'deletion-proposal';
   static const String supabaseSettings = 'supabase-settings';
 
@@ -542,7 +546,19 @@ class AppRouter {
         path: '/supabase-settings',
         name: supabaseSettings,
         builder: (context, state) => const SupabaseSettingsPage(),
-),
+      ),
+      // 现代 Live Activity & 灵动岛测试页面
+      GoRoute(
+        path: '/$kitLiveActivitiesTest',
+        name: kitLiveActivitiesTest,
+        builder: (context, state) => const KitLiveActivitiesTestPage(),
+      ),
+      // 现代 Live Activity & 灵动岛自定义配置页面
+      GoRoute(
+        path: '/$kitLiveNotificationCustomization',
+        name: kitLiveNotificationCustomization,
+        builder: (context, state) => const KitLiveNotificationCustomizationScreen(),
+      ),
     ],
   );
   

@@ -24,7 +24,6 @@ import 'package:yourcallyourrule/theme/theme_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
 
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
-import 'package:yourcallyourrule/features/call/live_activities/services/live_activity_notification_manager.dart';
 import 'package:yourcallyourrule/core/provider/providers/foreground_sync_service_provider.dart';
 // 导入 FFI 包
 
@@ -81,8 +80,6 @@ Future<void> main() async {
     container.read(notificationServiceProvider);
     // --- Add ---
     container.read(overlayControlHandlerProvider);
-    // 初始化 Live Activity 通知管理器
-    container.read(liveActivityNotificationManagerProvider).initialize();
     // 后台同步服务将通过Provider系统初始化
 
     // 【新增】在应用启动时触发一次前台同步检查

@@ -1,25 +1,23 @@
-// lib/features/call/live_activities/handlers/live_activity_handler.dart
+// lib/features/caller_id/services/call_handlers/live_activity_handler.dart
+/// [Legacy & Standard Compatible Version] 基于 live_activity_kit 的 Live Activity 处理器实现。
+library;
 
 import 'package:flutter/foundation.dart';
-import 'package:live_updates/live_updates.dart';
+import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
-
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
-
-import 'package:yourcallyourrule/features/call/live_activities/services/live_notification_config_service.dart';
-
-import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart'; // 确保这个 import 存在
-import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service.dart';
+import 'package:yourcallyourrule/features/call/live_activities/services/live_notification_config_service.dart';
+import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 part 'live_activity_handler.g.dart';
 
-// --- 100% 模仿你的 notificationHandler Provider 模式 ---
 @Riverpod(keepAlive: true)
 Future<LiveActivityHandler> liveActivityHandler(Ref ref) async {
   final configRepository = ref.watch(configRepositoryProvider);
@@ -30,58 +28,35 @@ Future<LiveActivityHandler> liveActivityHandler(Ref ref) async {
   return handler;
 }
 
-/// Live Activity 处理器
-/// 专门负责处理 Live Activity 相关的创建、更新和结束逻辑
 class LiveActivityHandler {
   final LiveNotificationConfigService _configService;
   final Uuid _uuid;
 
   String? _currentActivityId;
 
-  /// 构造函数
   LiveActivityHandler({required LiveNotificationConfigService configService})
-    : _configService = configService,
-      _uuid = const Uuid();
+      : _configService = configService,
+        _uuid = const Uuid();
 
-  /// 初始化
-  Future<void> initialize({Function(String?)? onNotificationTapped}) async {
-    // 初始化 live_updates 插件，并设置回调
-    await LiveUpdates.initialize(onNotificationTapped: onNotificationTapped);
-  }
+  Future<void> initialize({Function(String?)? onNotificationTapped}) async {}
 
-  /// 显示或更新来电信息 Live Activity
   Future<void> showCallerIdActivity({
     required CallerIdData callerIdData,
     required SimInfo? simInfo,
     required StirInfo? stirInfo,
   }) async {
     try {
-      // 计算并设置通知标题：号码与 SIM 信息进入系统头部
       final context = AppRouter.navigatorKey.currentContext;
-      final String numberDisplay = callerIdData.phoneNumber.value;
-      final String simSuffix =
-          simInfo == null ? '' : '-SIM${simInfo.simSlotIndex! + 1}';
       final bool isFraudCall = FraudDetectionService.checkForFraudLabels(
         callerIdData,
       );
-      final String finalTitle = () {
-        if (context != null) {
-          if (isFraudCall) {
-            return "⚠️ ${AppLocalizations.of(context)!.fraudAlertTitle} ($numberDisplay)$simSuffix";
-          } else {
-            return "${AppLocalizations.of(context)!.callerIdNotificationTitle} ($numberDisplay)$simSuffix";
-          }
-        }
-        // 无 context 回退，保持可读性
-        return "Incoming Call ($numberDisplay)$simSuffix";
-      }();
 
-      // 本地化安全消息文本
+
+
       final String securityMessageText = () {
         if (context != null) {
-          return AppLocalizations.of(context)!.securityMessage;
+          return AppLocalizations.of(context).securityMessage;
         }
-        // 无上下文时的英文回退文本
         return 'Do not trust any phone calls. Always verify customer service numbers independently. Never share passwords, verification codes, card numbers, or personal information.';
       }();
 
@@ -91,40 +66,45 @@ class LiveActivityHandler {
         callerIdData,
         simInfo,
         stirInfo,
-        securityMessage: securityMessageText,
+        securityMessage: isFraudCall ? securityMessageText : null,
+        isFraudCall: isFraudCall,
       );
 
+      final activityId = _currentActivityId ?? _uuid.v4();
+
       if (_currentActivityId != null) {
-        await LiveUpdates.showLayoutNotification(
-          notificationId: _currentActivityId!.hashCode,
-          layoutName: 'live_activity',
-          smallIconName: 'ic_notification',
-          title: finalTitle,
-          ongoing: true,
-          viewData: payload,
+        await LiveActivity.update(
+          id: activityId,
+          lockScreen: payload.lockScreen,
+          compactLeading: payload.compactLeading,
+          compactTrailing: payload.compactTrailing,
+          minimal: payload.minimal,
+          expandedLeading: payload.expandedLeading,
+          expandedCenter: payload.expandedCenter,
+          expandedBottom: payload.expandedBottom,
         );
       } else {
-        final newActivityId = _uuid.v4();
-        await LiveUpdates.showLayoutNotification(
-          notificationId: newActivityId.hashCode,
-          layoutName: 'live_activity',
-          smallIconName: 'ic_notification',
-          title: finalTitle,
-          ongoing: true,
-          viewData: payload,
+        await LiveActivity.show(
+          id: activityId,
+          lockScreen: payload.lockScreen,
+          compactLeading: payload.compactLeading,
+          compactTrailing: payload.compactTrailing,
+          minimal: payload.minimal,
+          expandedLeading: payload.expandedLeading,
+          expandedCenter: payload.expandedCenter,
+          expandedBottom: payload.expandedBottom,
         );
-        _currentActivityId = newActivityId;
+        _currentActivityId = activityId;
       }
     } catch (e) {
       debugPrint('Failed to show/update Live Activity: $e');
     }
   }
 
-  /// 结束当前的 Live Activity
   Future<void> endActivity() async {
     if (_currentActivityId != null) {
       try {
-        await LiveUpdates.cancelNotification(_currentActivityId!.hashCode);
+        await LiveActivity.end(id: _currentActivityId!);
         _currentActivityId = null;
       } catch (e) {
         debugPrint('Failed to end Live Activity: $e');

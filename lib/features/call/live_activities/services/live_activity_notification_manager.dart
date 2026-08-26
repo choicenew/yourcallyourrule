@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:live_updates/live_updates.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 
@@ -12,37 +11,48 @@ LiveActivityNotificationManager liveActivityNotificationManager(Ref ref) {
 }
 
 class LiveActivityNotificationManager {
+  /// 初始化已废弃。为防止与 ADV_CALL_LOG 原生插件抢占主线程引发 tombstoned，
+  /// 本类的启动期 deepLinks 监听彻底移除！
+  /// 所有的监听与释放均已移交至 KitLiveActivityHandler 按需处理。
   Future<void> initialize() async {
-    debugPrint('LiveActivityNotificationManager: Initializing...');
-    // Initialize the plugin and set up the tap callback
-    await LiveUpdates.initialize(onNotificationTapped: _onNotificationTapped);
-    debugPrint('LiveActivityNotificationManager: Initialized');
+    debugPrint('LiveActivityNotificationManager: (Deprecated) initialize skipped to prevent Native lock.');
   }
 
-  void _onNotificationTapped(String? payload) {
+  /// 废弃
+  void startListening() {
+    debugPrint('LiveActivityNotificationManager: (Deprecated) startListening disabled.');
+  }
+
+  /// 废弃
+  void dispose() {
+    debugPrint('LiveActivityNotificationManager: (Deprecated) dispose disabled.');
+  }
+
+  /// 处理通知点击事件
+  void handleNotificationTapped(String? payload) {
     debugPrint(
       'LiveActivityNotificationManager: Notification tapped with payload: $payload',
     );
 
-    if (payload == null) {
-      debugPrint('LiveActivityNotificationManager: Payload is null, ignoring.');
+    if (payload == null || payload.isEmpty) {
+      debugPrint('LiveActivityNotificationManager: Payload is null or empty, ignoring.');
       return;
     }
 
-    // 尝试获取上下文，如果为空则稍后重试
     if (AppRouter.navigatorKey.currentContext == null) {
       debugPrint(
         'LiveActivityNotificationManager: Navigation context is null, scheduling retry...',
       );
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        _handleNavigation(payload);
+        handleNavigation(payload);
       });
     } else {
-      _handleNavigation(payload);
+      handleNavigation(payload);
     }
   }
 
-  void _handleNavigation(String payload) {
+  /// 执行页面跳转
+  void handleNavigation(String payload) {
     final context = AppRouter.navigatorKey.currentContext;
     if (context == null) {
       debugPrint(
@@ -56,12 +66,12 @@ class LiveActivityNotificationManager {
     );
 
     try {
-      if (payload == 'call_history' ||
-          payload == 'fraud_alert' ||
-          payload == 'blocked_call' ||
-          payload == 'stir_result') {
+      if (payload.contains('call_history') ||
+          payload.contains('fraud_alert') ||
+          payload.contains('blocked_call') ||
+          payload.contains('stir_result')) {
         GoRouter.of(context).goNamed(AppRouter.callHistory);
-      } else if (payload == 'deletion_proposal') {
+      } else if (payload.contains('deletion_proposal')) {
         GoRouter.of(context).goNamed(AppRouter.deletionProposal);
       } else {
         debugPrint(

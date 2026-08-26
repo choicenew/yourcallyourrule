@@ -1310,15 +1310,20 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.0"
-  live_updates:
+  live_activity_kit:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: e0ee446533ecc22680957dad8b398f7aecd0a62e
-      url: "https://github.com/choicenew/live_updates.git"
-    source: git
-    version: "0.1.1"
+      path: "临时参考/live_activity_kit"
+      relative: true
+    source: path
+    version: "1.1.0"
+  live_activity_setup_generator:
+    dependency: "direct dev"
+    description:
+      path: "local_plugins/live_activity_setup_generator"
+      relative: true
+    source: path
+    version: "1.0.0"
   logger:
     dependency: "direct main"
     description:

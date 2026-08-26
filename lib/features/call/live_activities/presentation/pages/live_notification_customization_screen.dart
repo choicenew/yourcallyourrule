@@ -12,7 +12,7 @@ import 'package:yourcallyourrule/features/call/live_activities/providers/live_no
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // Imports for preview functionality
-import 'package:live_updates/live_updates.dart';
+import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
@@ -54,7 +54,7 @@ class _LiveNotificationCustomizationScreenState
           AppLocalizations.of(context).securityMessage ??
           'Do not trust any phone calls. Always verify customer service numbers independently.';
 
-      final viewData = await LiveNotificationPayloadBuilder.build(
+      final payload = await LiveNotificationPayloadBuilder.build(
         config,
         mockData,
         mockSimInfo,
@@ -62,25 +62,16 @@ class _LiveNotificationCustomizationScreenState
         securityMessage: securityMessageText,
       );
 
-      // 测试用的 payload
-      const String testPayload = 'call_history';
-
-      debugPrint(
-        'LiveNotificationCustomizationScreen: Sending live activity with payload: $testPayload',
-      );
-
       if (_activityId != null) {
-        await LiveUpdates.showLayoutNotification(
-          notificationId: _activityId!.hashCode,
-          layoutName: 'live_activity',
-          smallIconName: 'ic_notification',
-          title: "Test Call",
-          ongoing: true,
-          viewData: viewData,
-          payload: testPayload,
-        );
-        debugPrint(
-          'LiveNotificationCustomizationScreen: Updated activity $_activityId',
+        await LiveActivity.update(
+          id: _activityId!,
+          lockScreen: payload.lockScreen,
+          compactLeading: payload.compactLeading,
+          compactTrailing: payload.compactTrailing,
+          minimal: payload.minimal,
+          expandedLeading: payload.expandedLeading,
+          expandedCenter: payload.expandedCenter,
+          expandedBottom: payload.expandedBottom,
         );
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -93,17 +84,15 @@ class _LiveNotificationCustomizationScreenState
         }
       } else {
         final newActivityId = _uuid.v4();
-        await LiveUpdates.showLayoutNotification(
-          notificationId: newActivityId.hashCode,
-          layoutName: 'live_activity',
-          smallIconName: 'ic_notification',
-          title: "Test Call",
-          ongoing: true,
-          viewData: viewData,
-          payload: testPayload,
-        );
-        debugPrint(
-          'LiveNotificationCustomizationScreen: Created activity $newActivityId',
+        await LiveActivity.show(
+          id: newActivityId,
+          lockScreen: payload.lockScreen,
+          compactLeading: payload.compactLeading,
+          compactTrailing: payload.compactTrailing,
+          minimal: payload.minimal,
+          expandedLeading: payload.expandedLeading,
+          expandedCenter: payload.expandedCenter,
+          expandedBottom: payload.expandedBottom,
         );
         if (mounted) {
           setState(() {
@@ -136,7 +125,7 @@ class _LiveNotificationCustomizationScreenState
       return;
     }
     try {
-      await LiveUpdates.cancelNotification(_activityId!.hashCode);
+      await LiveActivity.end(id: _activityId!);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text("Successfully ended activity with ID: $_activityId"),

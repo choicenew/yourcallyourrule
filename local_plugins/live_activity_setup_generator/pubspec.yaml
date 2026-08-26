@@ -1,0 +1,10 @@
+name: live_activity_setup_generator
+description: Generator to automatically ensure iOS Live Activity Widget setup
+version: 1.0.0
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  build: any
+  source_gen: any
+  analyzer: any
