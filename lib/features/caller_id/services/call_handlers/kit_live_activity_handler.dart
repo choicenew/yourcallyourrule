@@ -158,6 +158,20 @@ class KitLiveActivityHandler {
             LA.text(detailLine, size: 12, color: const Color(0xFF888888)),
             top: 4,
           ),
+        if (config.labels.visible && labelText != null && labelText.isNotEmpty)
+          LA.padding(
+            LA.container(
+              padding: const LAInsets(top: 2, bottom: 2, left: 6, right: 6),
+              background: isFraudCall ? const Color(0xFFD32F2F) : const Color(0xFF455A64),
+              cornerRadius: 4,
+              child: LA.text(
+                labelText,
+                size: config.labels.fontSize,
+                color: Colors.white,
+              ),
+            ),
+            top: 4,
+          ),
         if (config.stir.visible && stirInfo != null)
           LA.padding(
             LA.text(
@@ -201,7 +215,7 @@ class KitLiveActivityHandler {
                   : AvatarUtils.getColorFromName(nameDisplay),
             );
       final compactTrailingNode = LA.text(
-        nameDisplay,
+        labelText ?? nameDisplay,
         size: 12,
         weight: FontWeight.bold,
       );
