@@ -1313,9 +1313,11 @@ packages:
   live_activity_kit:
     dependency: "direct main"
     description:
-      path: "临时参考/live_activity_kit"
-      relative: true
-    source: path
+      path: "."
+      ref: local
+      resolved-ref: a602f2e4c61678651ce24a25c122baed4c6d30ff
+      url: "https://github.com/haygcao/live_activity_kit.git"
+    source: git
     version: "1.1.0"
   live_activity_setup_generator:
     dependency: "direct dev"
