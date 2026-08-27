@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -34,15 +35,21 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   try {
-    // 初始化Firebase服务
+    // 异步初始化Firebase服务（非阻塞后台执行）
     final firebaseService = FirebaseService();
-    await firebaseService.initialize();
+    unawaited(firebaseService.initialize().then((_) {
+      firebaseService.logAppOpen();
+    }).catchError((e, st) {
+      debugPrint('Firebase init error: $e');
+    }));
 
     // 初始化应用日志服务
     AppLogger.initialize();
 
-    // 初始化广告SDK
-    await MobileAds.instance.initialize();
+    // 初始化广告SDK（非阻塞后台执行）
+    unawaited(MobileAds.instance.initialize().catchError((e) {
+      debugPrint('MobileAds init error: $e');
+    }));
 
     // 初始化数据库服务（单例构造已完成内部初始化，无需显式 initialize）
     DatabaseService();
@@ -51,20 +58,16 @@ Future<void> main() async {
     // 创建一个顶层ProviderContainer
     final container = ProviderContainer();
 
-    // 初始化插件WebView服务
-    await container.read(pluginExecutionServiceProvider).initialize();
+    // 启动插件服务（非阻塞执行，确保插件执行引擎就绪）
+    unawaited(
+      container.read(pluginExecutionServiceProvider).initialize().catchError((e) {
+        debugPrint('PluginExecutionService init error: $e');
+      }),
+    );
 
-    // 初始化核心来电监控服务
-    debugPrint("Initializing Caller ID Monitor Service...");
-
-    // 1. 只需 `await` Provider 的 `.future` 即可。
-    //    这一步会自动执行 `CallerIdMonitorService` 的 `build` 方法，并等待其所有初始化逻辑完成。
-    await container.read(callerIdMonitorServiceProvider.future);
-
-    debugPrint("Caller ID Monitor Service initialized successfully.");
-
-    // 初始化通话事件监听服务，确保它在应用启动时就开始工作
-    await container.read(callEventListenerProvider.future);
+    // 核心来电监控与事件监听服务在后台激活（不需要在 main 里用 await 阻塞首帧渲染）
+    container.read(callerIdMonitorServiceProvider);
+    container.read(callEventListenerProvider);
 
     // 【重要】读取一次 locationSyncServiceProvider 来激活它
     // 我们不需要使用它的返回值，只是为了让它开始工作
@@ -85,9 +88,6 @@ Future<void> main() async {
     // 【新增】在应用启动时触发一次前台同步检查
     // 这是一个可靠的备用机制，以防 Workmanager 后台任务失败
     container.read(foregroundSyncServiceInitializerProvider);
-
-    // 记录应用启动事件
-    firebaseService.logAppOpen();
 
     runApp(
       UncontrolledProviderScope(container: container, child: const MyApp()),

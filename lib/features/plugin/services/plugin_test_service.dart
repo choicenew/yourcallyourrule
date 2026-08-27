@@ -106,8 +106,12 @@ class PluginTestService {
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        await _jsService!.evaluate(response.body);
-        _addLog("Script injected.");
+        final res = await _jsService!.evaluate(response.body);
+        if (res.isError) {
+          _addLog("❌ Script Load Error: ${res.stringResult}");
+        } else {
+          _addLog("Script injected.");
+        }
       } else {
         _addLog("Failed to fetch script: ${response.statusCode}");
       }
@@ -153,7 +157,7 @@ class PluginTestService {
     try {
       await _jsService!.injectConfig(plugin.id, plugin.config);
 
-      await _jsService!.evaluate('''
+      final evalRes = await _jsService!.evaluate('''
          (function() {
             if (globalThis.plugin && globalThis.plugin['${plugin.id}']) {
                globalThis.plugin['${plugin.id}'].generateOutput(
@@ -164,6 +168,9 @@ class PluginTestService {
             }
          })();
        ''');
+      if (evalRes.isError) {
+        _addLog("❌ JS Execution Error: ${evalRes.stringResult}");
+      }
 
       return await completer.future.timeout(
         const Duration(seconds: 30),

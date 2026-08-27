@@ -2,7 +2,7 @@ name: yourcallyourrule
 description: "A new Flutter project."
 publish_to: 'none'
 
-version: 4.19.01+26081417
+version: 4.20.01+260827163
 
 environment:
   sdk: ^3.8.0
@@ -81,7 +81,9 @@ dependencies:
   #     url: https://github.com/choicenew/live_updates.git
   #     ref: master
   live_activity_kit:
-    path: 临时参考/live_activity_kit
+    git:
+      url: https://github.com/haygcao/live_activity_kit.git
+      ref: local
   drift: 2.29.0
   envied: ^1.3.8
   supabase_flutter: ^2.17.1

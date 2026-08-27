@@ -21,9 +21,9 @@ class JsExecutionService {
     const consoleBridge = """
       if (typeof console === 'undefined' || !console.log) {
           globalThis.console = {
-              log: function(msg) { sendMessage('Log', msg); },
-              error: function(msg) { sendMessage('Log', '[ERROR] ' + msg); },
-              warn: function(msg) { sendMessage('Log', '[WARN] ' + msg); }
+              log: function(msg) { sendMessage('Log', JSON.stringify(msg)); },
+              error: function(msg) { sendMessage('Log', JSON.stringify('[ERROR] ' + msg)); },
+              warn: function(msg) { sendMessage('Log', JSON.stringify('[WARN] ' + msg)); }
           };
       }
     """;
@@ -59,8 +59,15 @@ class JsExecutionService {
     });
 
     _runtime.onMessage('Log', (dynamic args) {
-      debugPrint("JS Log: $args");
-      onLog?.call("JS: $args");
+      dynamic logContent = args;
+      if (args is List && args.isNotEmpty) logContent = args[0];
+      if (logContent is String) {
+        try {
+          logContent = jsonDecode(logContent);
+        } catch (_) {}
+      }
+      debugPrint("JS Log: $logContent");
+      onLog?.call("JS: $logContent");
     });
   }
 

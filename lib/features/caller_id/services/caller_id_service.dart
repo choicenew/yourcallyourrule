@@ -429,23 +429,33 @@ class CallerIdService {
 
       final int newCount = completePluginData.count ?? 0;
 
+      // 尝试获取新的标签文本
+      String labelText = 'Unknown';
+      if (initialData.labels?.isNotEmpty == true) {
+        labelText = initialData.labels!.first.label;
+      }
+      final String initialLabel = labelText;
+
+      // 如果初始标签为 Unknown，且插件有预定义标签，则尝试使用插件标签
+      if ((labelText == 'Unknown' || labelText.isEmpty) &&
+          completePluginData.predefinedLabel != null) {
+        labelText = completePluginData.predefinedLabel!;
+      }
+
+      // 如果头像原本是基于 Unknown 默认头像，且现在有了具体的预定义标签，更新为对应标签的头像
+      String? effectiveAvatar = newAvatar;
+      if (!hasHighPriorityAvatar &&
+          (effectiveAvatar == null || effectiveAvatar == 'assets/avatars/Unknown.png') &&
+          labelText != 'Unknown' && labelText.isNotEmpty) {
+        effectiveAvatar = 'assets/avatars/$labelText.png';
+      }
+
       // 如果数据有变化，则发射更新
       if (newName != initialData.name ||
           newAction != initialData.action ||
-          newAvatar != initialData.avatar ||
-          newCount != initialData.count) {
-        // 尝试获取新的标签文本
-        String labelText = 'Unknown';
-        if (initialData.labels?.isNotEmpty == true) {
-          labelText = initialData.labels!.first.label;
-        }
-
-        // 如果初始标签为 Unknown，且插件有预定义标签，则尝试使用插件标签
-        if ((labelText == 'Unknown' || labelText.isEmpty) &&
-            completePluginData.predefinedLabel != null) {
-          labelText = completePluginData.predefinedLabel!;
-        }
-
+          effectiveAvatar != initialData.avatar ||
+          newCount != initialData.count ||
+          labelText != initialLabel) {
         final List<Label> newLabels = [
           Label(label: labelText, color: null, icon: null),
         ];
@@ -459,12 +469,12 @@ class CallerIdService {
           region: initialData.region,
           carrier: initialData.carrier,
           labels: newLabels,
-          avatar: newAvatar,
+          avatar: effectiveAvatar,
           count: newCount,
           action: newAction,
         );
 
-        debugPrint('[CallerIdService] Emitting UPDATED CallerIdData.');
+        debugPrint('[CallerIdService] Emitting UPDATED CallerIdData with label: $labelText, avatar: $effectiveAvatar');
         _callerIdSubject.add(updatedCallerIdData);
       }
       // ----------------------------------------
