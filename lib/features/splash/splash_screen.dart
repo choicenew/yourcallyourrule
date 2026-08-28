@@ -36,7 +36,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   final AppOpenAdManager _appOpenAdManager = AppOpenAdManager.instance;
 
   // --- 时间配置 ---
-  static const Duration _minSplashDuration = Duration(seconds: 4);
+  static const Duration _minSplashDuration = Duration(milliseconds: 1500);
 
   @override
   void initState() {
@@ -66,6 +66,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     Timer(_minSplashDuration, () {
       debugPrint('✅ 门锁1: 最小显示时间到达');
       _minTimeElapsed = true;
+      _adLoadAttempted = true;
       _tryNavigate(); // 尝试开锁
     });
 
