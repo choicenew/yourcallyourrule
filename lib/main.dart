@@ -84,6 +84,9 @@ Future<void> main() async {
     // --- Add ---
     container.read(overlayControlHandlerProvider);
     // 后台同步服务将通过Provider系统初始化
+    if (!isOverlayMode) {
+      container.read(backgroundSyncInitProvider);
+    }
 
     // 【新增】在应用启动时触发一次前台同步检查
     // 这是一个可靠的备用机制，以防 Workmanager 后台任务失败
@@ -116,6 +119,7 @@ bool isOverlayMode = false;
 @pragma("vm:entry-point")
 void overlayMain() {
   WidgetsFlutterBinding.ensureInitialized();
+  debugPrint('Running overlayMain entrypoint...');
 
   // 设置为覆盖层模式（只读模式）
   isOverlayMode = true;
@@ -147,13 +151,6 @@ class MyApp extends ConsumerWidget {
     // .value 在有数据时返回 Locale，在加载或错误时返回 null
     // 这正是 MaterialApp 的 locale 属性所期望的 (Locale?)
     final locale = ref.watch(localeProvider).value;
-
-    // 仅在非覆盖层模式下初始化后台同步服务
-    // 后台同步服务已包含通话记录同步任务，不需要再单独初始化前台同步服务
-    if (!isOverlayMode) {
-      // 初始化后台同步服务
-      ref.watch(backgroundSyncInitProvider);
-    }
 
     return MaterialApp.router(
       title: 'Your Call Your Rule',

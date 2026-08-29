@@ -48,11 +48,8 @@ class _AnchoredAdaptiveBannerAdWidgetState
         height: adState.adSize!.height.toDouble(),
         child: AdWidget(ad: adState.bannerAd!),
       );
-    } else {
-      return SizedBox(
-        height: 60,
-        width: MediaQuery.of(context).size.width,
-      );
     }
+
+    return const SizedBox.shrink();
   }
 }

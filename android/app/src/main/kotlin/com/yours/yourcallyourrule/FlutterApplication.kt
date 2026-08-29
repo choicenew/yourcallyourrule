@@ -19,22 +19,10 @@ class MyApplication : FlutterApplication() {
 
 
 class MyApplication : Application() {
-  lateinit var flutterEngine : FlutterEngine
+  var flutterEngine : FlutterEngine? = null
 
   override fun onCreate() {
     super.onCreate()
-
-    // Instantiate a FlutterEngine.
-    flutterEngine = FlutterEngine(this)
-
-    // Start executing Dart code to pre-warm the FlutterEngine.
-    flutterEngine.dartExecutor.executeDartEntrypoint(
-      DartExecutor.DartEntrypoint.createDefault()
-    )
-
-    // Cache the FlutterEngine to be used by FlutterActivity.
-    FlutterEngineCache
-      .getInstance()
-      .put("my_engine_id", flutterEngine)
+    // 移除在 Application.onCreate 中的主线程同步预热，由 MainActivity 正常生命周期接管
   }
 }

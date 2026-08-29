@@ -25,6 +25,7 @@ class GoogleAdWidget extends ConsumerStatefulWidget {
 class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKeepAliveClientMixin {
   dynamic _ad; // 存储不同类型的广告
   bool _isAdLoaded = false; // 广告是否加载完成
+  bool _loadAttempted = false;
 
   @override
   bool get wantKeepAlive {
@@ -49,12 +50,16 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     // 如果广告单元ID发生变化，重新创建广告
     if (oldWidget.adInfo.adUnitId != widget.adInfo.adUnitId) {
       _disposeAd();
+      _loadAttempted = false;
       _createAd();
     }
   }
 
   // 根据广告类型创建相应的广告
   void _createAd() {
+    if (_loadAttempted) return;
+    _loadAttempted = true;
+
     final adState = ref.read(adStateProvider);
 
     if (!adState) return; // 如果广告被禁用，不创建广告
@@ -98,6 +103,9 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
         },
         onAdFailedToLoad: (ad, error) {
           ad.dispose();
+          _ad = null;
+          _isAdLoaded = false;
+          if (mounted) setState(() {});
         },
       ),
     );
@@ -113,10 +121,13 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
         onAdLoaded: (InterstitialAd ad) {
           _ad = ad;
           _isAdLoaded = true;
-          setState(() {});
+          if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
           debugPrint('InterstitialAd failed to load: $error');
+          _ad = null;
+          _isAdLoaded = false;
+          if (mounted) setState(() {});
         },
       ),
     );
@@ -135,19 +146,27 @@ void _createRewardedInterstitialAd() {
           onAdImpression: (ad) {},
           onAdFailedToShowFullScreenContent: (ad, err) {
             ad.dispose();
+            _ad = null;
+            _isAdLoaded = false;
+            if (mounted) setState(() {});
           },
           onAdDismissedFullScreenContent: (ad) {
             ad.dispose();
             _ad = null; // 清空广告
+            _isAdLoaded = false;
+            if (mounted) setState(() {});
           },
           onAdClicked: (ad) {},
         );
         _ad = ad;
         _isAdLoaded = true;
-        setState(() {});
+        if (mounted) setState(() {});
       },
       onAdFailedToLoad: (LoadAdError error) {
         debugPrint('RewardedInterstitialAd failed to load: $error');
+        _ad = null;
+        _isAdLoaded = false;
+        if (mounted) setState(() {});
       },
     ),
   );
@@ -162,10 +181,13 @@ void _createRewardedInterstitialAd() {
         onAdLoaded: (RewardedAd ad) {
           _ad = ad;
           _isAdLoaded = true;
-          setState(() {});
+          if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
           debugPrint('RewardedAd failed to load: $error');
+          _ad = null;
+          _isAdLoaded = false;
+          if (mounted) setState(() {});
         },
       ),
     );
@@ -188,6 +210,9 @@ void _createRewardedInterstitialAd() {
         },
         onAdFailedToLoad: (ad, error) {
           ad.dispose();
+          _ad = null;
+          _isAdLoaded = false;
+          if (mounted) setState(() {});
           debugPrint('NativeAd failed to load: $error');
         },
       ),
@@ -205,10 +230,13 @@ void _createRewardedInterstitialAd() {
         onAdLoaded: (AppOpenAd ad) {
           _ad = ad;
           _isAdLoaded = true;
-          setState(() {});
+          if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
           debugPrint('AppOpenAd failed to load: $error');
+          _ad = null;
+          _isAdLoaded = false;
+          if (mounted) setState(() {});
         },
       ),
     );
@@ -249,7 +277,7 @@ void _createRewardedInterstitialAd() {
       return const SizedBox();
     }
 
-    if (adState && !_isAdLoaded && _ad == null) {
+    if (adState && !_isAdLoaded && _ad == null && !_loadAttempted) {
       WidgetsBinding.instance.addPostFrameCallback((_) => _createAd());
     }
 

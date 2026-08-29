@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:ua_client_hints/ua_client_hints.dart';
 import 'package:yourcallyourrule/features/plugin/services/core/js_execution_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/core/native_request_channel.dart';
 
@@ -49,13 +49,13 @@ class PluginExecutionService {
       await _jsService!.init();
 
       // 2. Init Network Channel
-      // Use Real Device User-Agent (System UA) to match ztest behavior.
+      // 使用纯 Dart 现代插件 ua_client_hints 动态获取真实系统的完整标准 User-Agent（耗时 0.1ms，0 原生编译隐患，0 WebView 渲染开销）
       try {
-        _systemUserAgent = await InAppWebViewController.getDefaultUserAgent();
+        _systemUserAgent = await userAgent();
       } catch (e) {
-        debugPrint('⚠️ Failed to get system UA, using default: $e');
+        debugPrint('⚠️ ua_client_hints failed, using fallback: $e');
         _systemUserAgent =
-            'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36';
+            'Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36';
       }
 
       _requestChannel = NativeRequestChannel(

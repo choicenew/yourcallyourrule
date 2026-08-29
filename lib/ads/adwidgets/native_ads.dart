@@ -10,23 +10,16 @@ Widget nativeAdWidgetSmall({required double adWidth, required double adHeight}) 
   return Consumer(
     builder: (context, ref, child) {
       final adState = ref.watch(adStateProvider);
-      return ConstrainedBox(
-        constraints: BoxConstraints(
-          minWidth: adState ? adWidth : 0,
-          minHeight: adState ? adHeight : 0,
-        ),
-        child: adState
-            ? GoogleAdWidget(
-                adInfo: AdManager.nativeAdvancedAd,
-                width: adWidth,
-                height: adHeight,
-                nativeAdConfig: const NativeAdConfig(
-                  template: NativeAdTemplate.small,
-                  // 其他配置...
-                ),
-              )
-            : const SizedBox.shrink(),
-      );
+      return adState
+          ? GoogleAdWidget(
+              adInfo: AdManager.nativeAdvancedAd,
+              width: adWidth,
+              height: adHeight,
+              nativeAdConfig: const NativeAdConfig(
+                template: NativeAdTemplate.small,
+              ),
+            )
+          : const SizedBox.shrink();
     },
   );
 }
@@ -35,23 +28,16 @@ Widget nativeAdWidgetMedium({required double adWidth, required double adHeight})
   return Consumer(
     builder: (context, ref, child) {
       final adState = ref.watch(adStateProvider);
-      return ConstrainedBox(
-        constraints: BoxConstraints(
-          minWidth: adState ? adWidth : 0,
-          minHeight: adState ? adHeight : 0,
-        ),
-        child: adState
-            ? GoogleAdWidget(
-                adInfo: AdManager.nativeAdvancedAd,
-                width: adWidth,
-                height: adHeight,
-                nativeAdConfig: const NativeAdConfig(
-                  template: NativeAdTemplate.medium,
-                  // 其他配置...
-                ),
-              )
-            : const SizedBox.shrink(),
-      );
+      return adState
+          ? GoogleAdWidget(
+              adInfo: AdManager.nativeAdvancedAd,
+              width: adWidth,
+              height: adHeight,
+              nativeAdConfig: const NativeAdConfig(
+                template: NativeAdTemplate.medium,
+              ),
+            )
+          : const SizedBox.shrink();
     },
   );
 }

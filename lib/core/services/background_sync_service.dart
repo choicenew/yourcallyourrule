@@ -116,7 +116,7 @@ class BackgroundSyncService {
       constraints: Constraints(
         networkType: NetworkType.connected,
       ),
-      existingWorkPolicy: ExistingPeriodicWorkPolicy.replace,
+      existingWorkPolicy: ExistingPeriodicWorkPolicy.keep,
     );
     
     // 注册自动更新任务
@@ -128,7 +128,7 @@ class BackgroundSyncService {
         networkType: NetworkType.connected,
         requiresBatteryNotLow: true,
       ),
-      existingWorkPolicy: ExistingPeriodicWorkPolicy.replace,
+      existingWorkPolicy: ExistingPeriodicWorkPolicy.keep,
     );
     /*
     // 注册数据同步任务

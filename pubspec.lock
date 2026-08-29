@@ -1315,7 +1315,7 @@ packages:
     description:
       path: "."
       ref: local
-      resolved-ref: a602f2e4c61678651ce24a25c122baed4c6d30ff
+      resolved-ref: b8d5e792e3ea941bc78f6e55c1237bbaa1937595
       url: "https://github.com/haygcao/live_activity_kit.git"
     source: git
     version: "1.1.0"
@@ -2019,6 +2019,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
+  ua_client_hints:
+    dependency: "direct main"
+    description:
+      name: ua_client_hints
+      sha256: e6e302bb7c21d6a90023db61e0ec413f0810ce341bb7e2ab447ff5d61ec3d87e
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.7.0"
   universal_io:
     dependency: transitive
     description:

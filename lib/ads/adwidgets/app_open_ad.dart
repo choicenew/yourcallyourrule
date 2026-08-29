@@ -30,24 +30,27 @@ class AppOpenAdManager {
     final completer = Completer<void>();
     try {
       await AppOpenAd.load(
-        adUnitId: AdManager.appOpenAd.adUnitId, // 确保 AdManager.appOpenAd.adUnitId 有效
+        adUnitId: AdManager.appOpenAd.adUnitId,
         request: const AdRequest(),
         adLoadCallback: AppOpenAdLoadCallback(
           onAdLoaded: (ad) {
             debugPrint('✅ 开屏广告加载成功');
             _appOpenAd = ad;
-            completer.complete();
+            if (!completer.isCompleted) completer.complete();
           },
           onAdFailedToLoad: (error) {
             debugPrint('❌ 开屏广告加载失败: ${error.message}');
             _appOpenAd = null;
-            completer.complete();
+            if (!completer.isCompleted) completer.complete();
           },
         ),
-      );
+      ).timeout(const Duration(milliseconds: 2000), onTimeout: () {
+        debugPrint('⏱️ 开屏广告加载超时');
+        if (!completer.isCompleted) completer.complete();
+      });
     } catch (e) {
       debugPrint('❌ 广告加载异常: $e');
-      completer.complete();
+      if (!completer.isCompleted) completer.complete();
     }
     return completer.future;
   }
@@ -77,7 +80,8 @@ class AppOpenAdManager {
       return;
     }
     if (_isShowingAd) {
-      debugPrint('另一个广告正在显示');
+      debugPrint('另一个广告正在显示，直接放行导航');
+      _safelyInvokeDismissCallback();
       return;
     }
     
@@ -100,10 +104,7 @@ class AppOpenAdManager {
         autoNavigateTimer?.cancel(); // 用户已操作，取消自动导航
         
         _safelyInvokeDismissCallback(); // 确保导航被调用
-        
         _cleanupAd();
-        debugPrint('🔄 开始预加载下一个开屏广告...');
-        loadAd();
       },
       onAdFailedToShowFullScreenContent: (ad, error) {
         _isShowingAd = false;
@@ -111,13 +112,16 @@ class AppOpenAdManager {
         autoNavigateTimer?.cancel(); // 显示失败，取消计时器
         
         _safelyInvokeDismissCallback(); // 确保导航被调用
-        
         _cleanupAd();
-        debugPrint('🔄 显示失败，尝试重新预加载...');
-        loadAd();
       },
     );
     
-    _appOpenAd!.show();
+    try {
+      _appOpenAd!.show();
+    } catch (e) {
+      debugPrint('🔴 开屏广告展示异常: $e');
+      _safelyInvokeDismissCallback();
+      _cleanupAd();
+    }
   }
 }

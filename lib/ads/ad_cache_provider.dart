@@ -112,7 +112,7 @@ class AdCache extends _$AdCache { // 【修改】: 继承 _$AdCache (由生成�
 
     if (size == null) {
       debugPrint('Failed to get ad size for type: $bannerType');
-      state = const AdCacheState();
+      state = state.copyWith(isStarted: true, isLoaded: false);
       return;
     }
 
@@ -133,7 +133,11 @@ class AdCache extends _$AdCache { // 【修改】: 继承 _$AdCache (由生成�
         onAdFailedToLoad: (ad, error) {
           ad.dispose();
           debugPrint('Ad failed to load: $error');
-          state = const AdCacheState();
+          state = state.copyWith(
+            bannerAd: null,
+            isStarted: true,
+            isLoaded: false,
+          );
         },
       ),
     );

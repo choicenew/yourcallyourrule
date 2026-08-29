@@ -28,18 +28,14 @@ class MainActivity : FlutterActivity() {
     private var arePermissionsGranted = false
     private var isFlutterEngineConfigured = false
 
-    // 【改动 1：添加这个方法，这是官方标准做法】
-    // 它的作用是告诉 FlutterActivity：“不要自己创建新引擎，去缓存里拿这个id的引擎用”
-    override fun provideFlutterEngine(context: Context): FlutterEngine? {
-        return FlutterEngineCache.getInstance().get("my_engine_id")
-    }
+    // 移除 provideFlutterEngine 强制读缓存，让 FlutterActivity 采用官方标准生命周期自行创建
+    // override fun provideFlutterEngine(context: Context): FlutterEngine? {
+    //     return FlutterEngineCache.getInstance().get("my_engine_id")
+    // }
 
-
-      // 【改动 2：简化这个方法，保留您原有的所有逻辑】
-    // 因为 provideFlutterEngine 已经确保了传入的 flutterEngine 就是我们缓存的那个，
-    // 所以我们不再需要在这里手动获取缓存引擎了。
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        (applicationContext as? MyApplication)?.flutterEngine = flutterEngine
                     
             // GeneratedPluginRegistrant.registerWith(flutterEngine)
 

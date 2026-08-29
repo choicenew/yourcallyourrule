@@ -77,26 +77,12 @@ class _InlineAdaptiveBannerAdWidgetState
         adState.bannerAd != null &&
         adState.adSize != null) {
       return Container(
-        // 最终的容器尺寸由广告平台返回的真实尺寸决定，这是正确的做法。
         width: adState.adSize!.width.toDouble(),
         height: adState.adSize!.height.toDouble(),
         child: AdWidget(ad: adState.bannerAd!),
       );
-    } else {
-      // 显示加载占位符
-      return Container(
-        height: 60,
-        // 占位符的宽度可以响应外部传入的 width，也可以是全宽。
-        width: widget.width ?? MediaQuery.of(context).size.width,
-        margin: const EdgeInsets.symmetric(horizontal: 16),
-        decoration: BoxDecoration(
-          color: Colors.grey.withValues(alpha: 0.1),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: const Center(
-          child: CircularProgressIndicator(strokeWidth: 2, color: Colors.grey),
-        ),
-      );
     }
+
+    return const SizedBox.shrink();
   }
 }
