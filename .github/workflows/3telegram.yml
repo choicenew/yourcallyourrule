@@ -1,70 +1,68 @@
 # .github/workflows/3-telegram-distribution.yml
-
 name: 3. Distribute to Telegram (The Right Way)
-
 on:
   workflow_run:
     workflows: ["2. Sync Release to Public Repo"]
     types:
       - completed
-  
-  workflow_dispatch:
 
+  workflow_dispatch:
 jobs:
   send-to-telegram:
     name: Send Release to Telegram
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Authenticate gh CLI with PAT
         run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
-
       - name: Fetch, Download, and Send to Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PLAYSTORE_URL: "https://play.google.com/store/apps/details?id=com.yours.yourcallyourrule"
         run: |
           set -e
-
           # --- A. 获取私有仓库中最新的 Release 信息 ---
           SOURCE_TAG=$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName')
           if [[ -z "$SOURCE_TAG" ]]; then
             echo "::error::Could not find any release in the private repo to send."
             exit 1
           fi
-
           RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo ${{ github.repository }} --json name,body)
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
-
           # --- B. 下载附件 ---
           APK_FILENAME="app-release-universal.apk"
           mkdir -p release_assets
           (gh release download "$SOURCE_TAG" --repo ${{ github.repository }} --pattern "$APK_FILENAME" --dir release_assets) || echo "Warning: Failed to download APK. Will skip sending the file."
-          
+
           APK_PATH="release_assets/$APK_FILENAME"
-          
-          # --- C. ★★★ 这是最关键的修正 ★★★ ---
-          #    我们不再手动添加 %0A，而是使用真正的换行符
-          
+
+          # --- C. 严格区分三个独立仓库链接 ---
           SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+          # Release发布页：choicenew/yourcallrule
           RELEASE_URL="https://github.com/choicenew/yourcallrule/releases/tag/${SAFE_TARGET_TAG}"
-          
+          # Plugins插件仓库：ngodeel/yourcallrule
+          PLUGINS_LINK="https://github.com/ngodeel/yourcallrule"
+          # 开放源码审查库(非开源)：choicenew/yourcallyourrule
+          SOURCE_AUDIT_LINK="https://github.com/choicenew/yourcallyourrule"
+
           # 1. 移除 "Full Changelog"
           CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
-
-          # 2. 构建消息，使用真正的换行符 ( $'...' 语法)
+          # 2. 构建消息，沿用原有 $'\n' 追加逻辑
           MESSAGE="🚀 *New Release Available: \`${SAFE_TARGET_TAG}\`*"
-          MESSAGE+=$'\n\n' # 两个真正的换行符
+          MESSAGE+=$'\n\n'
           MESSAGE+="*What's New:*"
           MESSAGE+=$'\n'
           MESSAGE+="$CLEAN_BODY"
           MESSAGE+=$'\n\n'
           MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
+          MESSAGE+=$'\n'
+          MESSAGE+="[Get it on Play Store](${PLAYSTORE_URL})"
 
-          COMMUNITY_MESSAGE=$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](https://github.com/ngodeel/yourcallrule) and help improve [translations](https://github.com/choicenew/yourcallrule/tree/main/lib/l10n).'
+          COMMUNITY_MESSAGE=$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](${PLUGINS_LINK}) and review source‑code at [audit repository](${SOURCE_AUDIT_LINK}).'
           MESSAGE+="$COMMUNITY_MESSAGE"
-          
+
           # --- D. 发送消息和文件 ---
           echo "Sending message to Telegram..."
           curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
@@ -72,7 +70,6 @@ jobs:
             --data-urlencode "text=${MESSAGE}" \
             -d "parse_mode=Markdown" \
             -d "disable_web_page_preview=true"
-
           # 只有当文件存在时才尝试发送
           if [ -f "$APK_PATH" ]; then
             echo "Sending APK file to Telegram..."
@@ -84,5 +81,4 @@ jobs:
           else
             echo "Warning: APK file was not found at '$APK_PATH'. Skipping file send."
           fi
-
           echo "✅ Telegram notification process completed."

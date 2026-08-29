@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - local
+      - drift
 
 jobs:
   build_and_release:
@@ -169,6 +169,7 @@ jobs:
           (gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes && echo "Deleted existing release.") || echo "No existing release found."
           gh release create "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --title "$TITLE" --notes "$CLEAN_BODY" release_assets/*
 
+
   send_to_telegram:
     name: 3. Send Release to Telegram
     needs: [build_and_release, sync_to_public]
@@ -177,6 +178,7 @@ jobs:
     steps:
       - name: Authenticate gh CLI with PAT
         run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+
       - name: Send Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -184,28 +186,54 @@ jobs:
           SOURCE_TAG: ${{ needs.build_and_release.outputs.release_tag }}
           SAFE_TAG: ${{ needs.sync_to_public.outputs.safe_release_tag }}
           SOURCE_REPO: ${{ github.repository }}
-          TARGET_REPO_URL: "https://github.com/choicenew/yourcallrule"
+          TARGET_REPO_URL: "https://github.com/ngodeel/yourcallrule"
+          PLAYSTORE_URL: "https://play.google.com/store/apps/details?id=com.yours.yourcallyourrule"
         run: |
           set -e
           RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo "$SOURCE_REPO" --json name,body)
           BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
           APK_FILENAME="app-release-universal.apk"
-          
           mkdir -p release_assets
-          (gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "$APK_FILENAME" --dir release_assets) || true
+          (gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "$APK_FILENAME" --dir release_assets) || echo "Warning: Failed to download APK. Will skip sending the file."
           APK_PATH="release_assets/$APK_FILENAME"
-          
+
           RELEASE_URL="${TARGET_REPO_URL}/releases/tag/${SAFE_TAG}"
+          PLUGINS_LINK="${TARGET_REPO_URL}/tree/main/plugins"
+          TRANSLATE_LINK="${TARGET_REPO_URL}/tree/main/lib/l10n"
+
+          # 1. 移除 "Full Changelog"
           CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
-          
-          MESSAGE="🚀 *New Release Available: \`${SAFE_TAG}\`*${$'\n\n'}*What's New:*${$'\n'}$CLEAN_BODY${$'\n\n'}[View Full Release on GitHub](${RELEASE_URL})${$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](https://github.com/choicenew/yourcallrule/tree/main/plugins) and help improve [translations](https://github.com/choicenew/yourcallrule/tree/main/lib/l10n).'}"
-          
+
+          # 2. 使用已经验证可用的 += $'\n' 追加写法，和独立workflow完全一致
+          MESSAGE="🚀 *New Release Available: \`${SAFE_TAG}\`*"
+          MESSAGE+=$'\n\n'
+          MESSAGE+="*What's New:*"
+          MESSAGE+=$'\n'
+          MESSAGE+="$CLEAN_BODY"
+          MESSAGE+=$'\n\n'
+          MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
+          MESSAGE+=$'\n'
+          MESSAGE+="[Get it on Play Store](${PLAYSTORE_URL})"
+
+          COMMUNITY_MESSAGE=$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](${PLUGINS_LINK}) and help improve [translations](${TRANSLATE_LINK}).'
+          MESSAGE+="$COMMUNITY_MESSAGE"
+
+          echo "Sending message to Telegram..."
           curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${MESSAGE}" \
-            -d "parse_mode=Markdown" -d "disable_web_page_preview=true"
-            
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MESSAGE}" \
+            -d "parse_mode=Markdown" \
+            -d "disable_web_page_preview=true"
+
           if [ -f "$APK_PATH" ]; then
-            curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
-              -F "chat_id=${TELEGRAM_CHAT_ID}" -F "document=@${APK_PATH}" \
-              -F "caption=Direct download for \`${SAFE_TAG}\` (Universal)" -F "parse_mode=Markdown" || true
+            echo "Sending APK file to Telegram..."
+            (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+              -F "chat_id=${TELEGRAM_CHAT_ID}" \
+              -F "document=@${APK_PATH}" \
+              -F "caption=Direct download for \`${SAFE_TAG}\` (Universal)" \
+              -F "parse_mode=Markdown") || echo "Warning: Failed to send APK file, but continuing."
+          else
+            echo "Warning: APK file was not found at '$APK_PATH'. Skipping file send."
           fi
+          echo "✅ Telegram notification process completed."
