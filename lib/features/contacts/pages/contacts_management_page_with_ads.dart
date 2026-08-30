@@ -448,28 +448,71 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
 
   // 构建联系人卡片
   Widget _buildContactCard(Contact contact) {
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+    final isSelected = _selectedContactIds.contains(contact.id);
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: isSelected
+              ? const Color(0xFFFF9500)
+              : const Color(0xFFF5A623).withValues(alpha: 0.22),
+          width: isSelected ? 2 : 1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: isSelected
+                ? const Color(0xFFFF9500).withValues(alpha: 0.15)
+                : Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
       child: ListTile(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         leading: _buildContactAvatar(contact, isCheckbox: _isMultiSelectMode),
-        title: Text(contact.name),
+        title: Text(
+          contact.name,
+          style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Colors.black87),
+        ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(contact.phoneNumbers.join(', ')),
+            const SizedBox(height: 2),
+            Text(
+              contact.phoneNumbers.join(', '),
+              style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+            ),
             _buildLabelChips(contact.labelIds),
           ],
         ),
         onTap: _isMultiSelectMode 
           ? () => _toggleContactSelection(contact.id)
-          : null,
+          : () => _showEditContactDialog(contact),
         trailing: _isMultiSelectMode
           ? null
-          : PopupMenuButton<String>(
-              icon: const Icon(Icons.more_vert),
-              onSelected: (value) => _handleContactMenuAction(value, contact),
-              itemBuilder: (context) => _buildContactMenuItems(contact),
+          : Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: Icon(
+                    contact.isFavorite ? Icons.star_rounded : Icons.star_outline_rounded,
+                    color: contact.isFavorite ? const Color(0xFFF5A623) : Colors.grey[400],
+                    size: 20,
+                  ),
+                  onPressed: () => _toggleFavorite(contact),
+                  tooltip: contact.isFavorite
+                      ? AppLocalizations.of(context)!.removeFromFavorites
+                      : AppLocalizations.of(context)!.addToFavorites,
+                ),
+                PopupMenuButton<String>(
+                  icon: Icon(Icons.more_vert_rounded, color: Colors.grey[600]),
+                  onSelected: (value) => _handleContactMenuAction(value, contact),
+                  itemBuilder: (context) => _buildContactMenuItems(contact),
+                ),
+              ],
             ),
       ),
     );
