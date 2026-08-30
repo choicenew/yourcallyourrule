@@ -135,7 +135,14 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
                     }
                   },
                 ),
-              if (!_isSearchVisible)
+              if (!_isSearchVisible) ...[
+                IconButton(
+                  icon: const Icon(Icons.bolt_rounded, color: Color(0xFF00E676)),
+                  tooltip: 'Switch to Elite Home',
+                  onPressed: () {
+                    context.go('/elite-home');
+                  },
+                ),
                 IconButton(
                   icon: const Icon(Icons.notifications_none),
                   onPressed: () {
@@ -143,6 +150,7 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
                     context.push('/notifications');
                   },
                 ),
+              ],
             ],
           ),
         ),

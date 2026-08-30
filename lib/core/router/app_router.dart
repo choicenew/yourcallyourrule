@@ -14,6 +14,7 @@ import 'package:yourcallyourrule/features/sim_slot_rules/pages/sim_slot_rule_pag
 import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
+import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';
 import 'package:yourcallyourrule/presentation/settings/pages/settings_page.dart';
 import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
@@ -134,6 +135,7 @@ class AppRouter {
   static const String kitLiveNotificationCustomization = 'kit-live-notification-customization';
   static const String deletionProposal = 'deletion-proposal';
   static const String supabaseSettings = 'supabase-settings';
+  static const String eliteHome = 'elite-home';
 
 
   // 创建路由器
@@ -172,6 +174,12 @@ class AppRouter {
         path: '/',
         name: home,
         builder: (context, state) => const HomePage(),
+      ),
+      // Elite 多巴胺主页路由
+      GoRoute(
+        path: '/$eliteHome',
+        name: eliteHome,
+        builder: (context, state) => const EliteHomePage(),
       ),
       GoRoute(
         path: '/$purchase',
