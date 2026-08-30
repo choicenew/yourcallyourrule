@@ -1,15 +1,23 @@
+// -----------------------------------------------------------------------------
+// 文件: elite_quick_capsules.dart
+// 描述: Elite 功能胶囊区，精选高频日常拦截与进阶规则引擎（插件、正则、订阅、SIM 卡、云同步）。
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+// ------------------- Widget 定义 -------------------
 
 class EliteQuickCapsules extends StatelessWidget {
   const EliteQuickCapsules({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
@@ -41,7 +49,7 @@ class EliteQuickCapsules extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    l10n?.featureCenter ?? 'Smart Toolkit & Rules',
+                    l10n.phoneRuleManagement,
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w800,
@@ -49,7 +57,7 @@ class EliteQuickCapsules extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    l10n?.advancedRuleSettingsTitle ?? 'Direct access to all protection engines',
+                    l10n.filterManagementDescription,
                     style: TextStyle(
                       fontSize: 10,
                       color: Colors.grey[600],
@@ -67,21 +75,21 @@ class EliteQuickCapsules extends StatelessWidget {
             children: [
               Expanded(
                 child: _buildFeaturedActionCard(
-                  title: l10n?.allowBlock ?? 'Allow / Block',
-                  subtitle: l10n?.ruleManagementTitle ?? 'Custom list rules',
+                  title: l10n.allowBlock,
+                  subtitle: l10n.ruleManagementTitle,
                   icon: Icons.shield_outlined,
                   color: EliteDopamineTheme.freshMint,
-                  onTap: () => context.push('/allowed-blocked-settings-with-ads'),
+                  onTap: () => context.push('/${AppRouter.allowedBlockedSettingsWithAds}'),
                 ),
               ),
               const SizedBox(width: 10),
               Expanded(
                 child: _buildFeaturedActionCard(
-                  title: l10n?.markPhoneManagementTitle ?? 'Marked Numbers',
-                  subtitle: l10n?.labelManagementTitle ?? 'Crowdsourced tags',
+                  title: l10n.markPhoneManagementTitle,
+                  subtitle: l10n.labelManagementTitle,
                   icon: Icons.label_important_outline_rounded,
                   color: EliteDopamineTheme.warmSunAmber,
-                  onTap: () => context.push('/mark-phone-management-with-ads'),
+                  onTap: () => context.push('/${AppRouter.markPhoneManagementWithAds}'),
                 ),
               ),
             ],
@@ -93,21 +101,21 @@ class EliteQuickCapsules extends StatelessWidget {
             children: [
               Expanded(
                 child: _buildFeaturedActionCard(
-                  title: l10n?.callHistoryTab ?? 'Call Timeline',
-                  subtitle: l10n?.blockedCallsToday ?? 'Intercepted logs',
+                  title: l10n.callHistoryTab,
+                  subtitle: l10n.blockedCallsToday,
                   icon: Icons.history_rounded,
                   color: EliteDopamineTheme.skyAzure,
-                  onTap: () => context.push('/call-history'),
+                  onTap: () => context.push('/${AppRouter.callHistory}'),
                 ),
               ),
               const SizedBox(width: 10),
               Expanded(
                 child: _buildFeaturedActionCard(
-                  title: l10n?.contactsTab ?? 'Contacts Shield',
-                  subtitle: l10n?.serviceTypeContact ?? 'Address book rules',
+                  title: l10n.contactsTab,
+                  subtitle: l10n.serviceTypeContact,
                   icon: Icons.contacts_rounded,
                   color: EliteDopamineTheme.sunsetTangerine,
-                  onTap: () => context.push('/contacts-management'),
+                  onTap: () => context.push('/${AppRouter.contactsManagement}'),
                 ),
               ),
             ],
@@ -117,7 +125,7 @@ class EliteQuickCapsules extends StatelessWidget {
 
           // 二、进阶极客扩展胶囊区
           Text(
-            (l10n?.advancedRuleSettingsTitle ?? 'ADVANCED ENGINES').toUpperCase(),
+            l10n.advancedRuleSettingsTitle.toUpperCase(),
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w900,
@@ -132,40 +140,40 @@ class EliteQuickCapsules extends StatelessWidget {
             runSpacing: 8.0,
             children: [
               _buildCapsulePill(
-                title: l10n?.pluginManagement ?? 'Plugins',
+                title: l10n.pluginManagement,
                 icon: Icons.extension_rounded,
                 color: EliteDopamineTheme.softLilac,
-                onTap: () => context.push('/plugin-management-with-ads'),
+                onTap: () => context.push('/${AppRouter.pluginManagement}'),
               ),
               _buildCapsulePill(
-                title: l10n?.regexRules ?? 'Regex Engine',
+                title: l10n.regexRules,
                 icon: Icons.code_rounded,
                 color: EliteDopamineTheme.skyAzure,
-                onTap: () => context.push('/regex-rule-with-ads'),
+                onTap: () => context.push('/${AppRouter.regexRuleWithAds}'),
               ),
               _buildCapsulePill(
-                title: l10n?.phoneSubscription ?? 'Subscriptions',
+                title: l10n.phoneSubscription,
                 icon: Icons.cloud_download_rounded,
                 color: EliteDopamineTheme.freshMint,
-                onTap: () => context.push('/phone-subscription-with-ads'),
+                onTap: () => context.push('/${AppRouter.phoneSubscription}'),
               ),
               _buildCapsulePill(
-                title: l10n?.simSlotRules ?? 'Dual SIM',
+                title: l10n.simSlotRules,
                 icon: Icons.sim_card_rounded,
                 color: EliteDopamineTheme.warmSunAmber,
-                onTap: () => context.push('/sim-slot-rule-with-ads/0'),
+                onTap: () => context.push('/${AppRouter.simSlotRuleWithAds}/0'),
               ),
               _buildCapsulePill(
-                title: l10n?.smsFilterManagement ?? 'SMS Rules',
+                title: l10n.smsFilterManagement,
                 icon: Icons.sms_rounded,
                 color: EliteDopamineTheme.vibrantCoral,
-                onTap: () => context.push('/sms-management'),
+                onTap: () => context.push('/${AppRouter.smsManagement}'),
               ),
               _buildCapsulePill(
-                title: l10n?.cloudSyncAndBackupTitle ?? 'Cloud Sync',
+                title: l10n.cloudSettingsTitle,
                 icon: Icons.sync_rounded,
                 color: EliteDopamineTheme.sunsetTangerine,
-                onTap: () => context.push('/cloud-settings'),
+                onTap: () => context.push('/${AppRouter.cloudSettings}'),
               ),
             ],
           ),
@@ -187,45 +195,52 @@ class EliteQuickCapsules extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           decoration: BoxDecoration(
             color: const Color(0xFFFBF9F5),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: color.withValues(alpha: 0.2),
+              color: color.withValues(alpha: 0.22),
             ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(7),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: color.withValues(alpha: 0.14),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(icon, color: color, size: 18),
+                child: Icon(icon, color: color, size: 20),
               ),
-              const SizedBox(height: 8),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 12.5,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.black87,
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 12.5,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.black87,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitle,
+                      style: TextStyle(
+                        fontSize: 9.5,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.grey[600],
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                 ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 1),
-              Text(
-                subtitle,
-                style: TextStyle(
-                  fontSize: 9.5,
-                  color: Colors.grey[600],
-                ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
@@ -244,14 +259,14 @@ class EliteQuickCapsules extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 7),
           decoration: BoxDecoration(
-            color: const Color(0xFFF7F5F0),
-            borderRadius: BorderRadius.circular(16),
+            color: color.withValues(alpha: 0.10),
+            borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: color.withValues(alpha: 0.25),
+              color: color.withValues(alpha: 0.28),
               width: 1,
             ),
           ),
@@ -276,7 +291,9 @@ class EliteQuickCapsules extends StatelessWidget {
   }
 }
 
-@Preview(name: 'Quick Action Capsules', group: 'Elite Home')
+// ------------------- Widget Previewer 支持 -------------------
+
+@Preview(name: 'Quick Action Capsules', group: 'Elite Showcase')
 Widget previewEliteQuickCapsules() {
   return const MaterialApp(
     localizationsDelegates: AppLocalizations.localizationsDelegates,

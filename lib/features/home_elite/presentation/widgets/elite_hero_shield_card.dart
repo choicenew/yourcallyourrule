@@ -1,10 +1,18 @@
+// -----------------------------------------------------------------------------
+// 文件: elite_hero_shield_card.dart
+// 描述: Elite 能量脉冲防护盾牌卡片，集成安全指示、今日拦截指标与极速查号验证。
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+// ------------------- Widget 定义 -------------------
 
 class EliteHeroShieldCard extends ConsumerStatefulWidget {
   const EliteHeroShieldCard({super.key});
@@ -15,8 +23,8 @@ class EliteHeroShieldCard extends ConsumerStatefulWidget {
 
 class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     with SingleTickerProviderStateMixin {
-  late AnimationController _pulseController;
-  late Animation<double> _pulseAnimation;
+  late final AnimationController _pulseController;
+  late final Animation<double> _pulseAnimation;
   final TextEditingController _searchController = TextEditingController();
 
   @override
@@ -39,10 +47,19 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     super.dispose();
   }
 
+  void _handleSearchSubmit(String query) {
+    final trimmed = query.trim();
+    if (trimmed.isNotEmpty) {
+      context.push('/${AppRouter.search}', extra: trimmed);
+    } else {
+      context.push('/${AppRouter.verificationPage}');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final asyncStats = ref.watch(homeStatsProvider);
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     final blockedToday = asyncStats.value?.blockedCallsCount ?? 0;
     final totalRules = asyncStats.value?.totalRulesCount ?? 0;
@@ -143,7 +160,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                   ),
                                   const SizedBox(width: 3),
                                   Text(
-                                    l10n?.securityDashboardTitle ?? 'ACTIVE PROTECTION',
+                                    l10n.securityDashboardTitle,
                                     style: const TextStyle(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w900,
@@ -156,7 +173,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              l10n?.securityDashboardTitle ?? 'Real-time Call Shield',
+                              l10n.securityDashboardTitle,
                               style: const TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w900,
@@ -165,7 +182,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                             ),
                             const SizedBox(height: 2),
                             Text(
-                              l10n?.securityCheckCompleted ?? 'Protection active in background',
+                              l10n.securityCheckCompleted,
                               style: TextStyle(
                                 fontSize: 11,
                                 color: Colors.grey[600],
@@ -184,7 +201,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                     children: [
                       Expanded(
                         child: _buildMetricTile(
-                          label: l10n?.blockedCallsToday ?? 'Blocked Calls',
+                          label: l10n.blockedCallsToday,
                           value: '$blockedToday',
                           icon: Icons.shield_outlined,
                           accentColor: EliteDopamineTheme.vibrantCoral,
@@ -193,7 +210,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                       const SizedBox(width: 10),
                       Expanded(
                         child: _buildMetricTile(
-                          label: l10n?.phoneRuleManagement ?? 'Active Rules',
+                          label: l10n.phoneRuleManagement,
                           value: '$totalRules',
                           icon: Icons.rule_folder_outlined,
                           accentColor: EliteDopamineTheme.sunsetTangerine,
@@ -218,7 +235,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                       controller: _searchController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        hintText: l10n?.searchHint ?? 'Quick search or test phone number...',
+                        hintText: l10n.searchNumberHint,
                         hintStyle: TextStyle(
                           fontSize: 12,
                           color: Colors.grey[500],
@@ -234,22 +251,12 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                             size: 18,
                             color: EliteDopamineTheme.sunsetTangerine,
                           ),
-                          onPressed: () {
-                            if (_searchController.text.trim().isNotEmpty) {
-                              context.push('/search', extra: _searchController.text.trim());
-                            } else {
-                              context.push('/verification-page');
-                            }
-                          },
+                          onPressed: () => _handleSearchSubmit(_searchController.text),
                         ),
                         border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                       ),
-                      onSubmitted: (value) {
-                        if (value.trim().isNotEmpty) {
-                          context.push('/search', extra: value.trim());
-                        }
-                      },
+                      onSubmitted: _handleSearchSubmit,
                     ),
                   ),
                 ],
@@ -319,7 +326,9 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   }
 }
 
-@Preview(name: 'Hero Shield Card', group: 'Elite Home')
+// ------------------- Widget Previewer 支持 -------------------
+
+@Preview(name: 'Hero Shield Card', group: 'Elite Showcase')
 Widget previewEliteHeroShieldCard() {
   return const ProviderScope(
     child: MaterialApp(

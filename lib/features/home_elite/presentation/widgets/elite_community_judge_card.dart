@@ -1,10 +1,18 @@
+// -----------------------------------------------------------------------------
+// 文件: elite_community_judge_card.dart
+// 描述: Elite 社区判官重点卡片，展示众包纠错提议并支持一键微互动投票。
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+// ------------------- Widget 定义 -------------------
 
 class EliteCommunityJudgeCard extends ConsumerStatefulWidget {
   const EliteCommunityJudgeCard({super.key});
@@ -17,10 +25,14 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
   bool _hasVoted = false;
   String _votedAction = '';
 
+  void _navigateToProposals() {
+    context.push('/${AppRouter.deletionProposal}');
+  }
+
   @override
   Widget build(BuildContext context) {
     final asyncProposalStats = ref.watch(proposalStatisticsProvider);
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     final totalProposals = asyncProposalStats.value?['total'] ?? 18;
     final pendingProposals = asyncProposalStats.value?['pending'] ?? 6;
@@ -78,7 +90,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                               Row(
                                 children: [
                                   Text(
-                                    l10n?.deletionProposals ?? 'Community Shield Judge',
+                                    l10n.deletionProposals,
                                     style: const TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w800,
@@ -92,9 +104,9 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                       color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.15),
                                       borderRadius: BorderRadius.circular(6),
                                     ),
-                                    child: const Text(
-                                      'HOT',
-                                      style: TextStyle(
+                                    child: Text(
+                                      l10n.actionTag('HOT'),
+                                      style: const TextStyle(
                                         fontSize: 9,
                                         fontWeight: FontWeight.w900,
                                         color: EliteDopamineTheme.vibrantCoral,
@@ -104,7 +116,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                 ],
                               ),
                               Text(
-                                '$pendingProposals ${l10n?.pendingProposals ?? 'pending community votes'}',
+                                '$pendingProposals ${l10n.pendingProposals}',
                                 style: TextStyle(
                                   fontSize: 10,
                                   color: Colors.grey[600],
@@ -115,13 +127,13 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                         ],
                       ),
                       IconButton(
-                        onPressed: () => context.push('/deletion-proposal'),
+                        onPressed: _navigateToProposals,
                         icon: const Icon(
                           Icons.arrow_forward_ios_rounded,
                           size: 14,
                           color: EliteDopamineTheme.sunsetTangerine,
                         ),
-                        tooltip: l10n?.viewAllProposals ?? 'View all proposals',
+                        tooltip: l10n.viewAllProposals,
                       ),
                     ],
                   ),
@@ -150,7 +162,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Text(
-                                l10n?.telemarketing ?? 'Telemarketing',
+                                l10n.telemarketing,
                                 style: const TextStyle(
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
@@ -160,7 +172,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                             ),
                             const Spacer(),
                             Text(
-                              '88% ${l10n?.agreeRate ?? 'Agree'}',
+                              '88% ${l10n.agreeRate}',
                               style: TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.w800,
@@ -181,7 +193,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                         ),
                         const SizedBox(height: 3),
                         Text(
-                          l10n?.proposalReason ?? 'Community proposed to remove tag: "Delivery Courier Service"',
+                          l10n.proposalReason,
                           style: TextStyle(
                             fontSize: 11,
                             color: Colors.grey[600],
@@ -198,12 +210,12 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                   onPressed: () {
                                     setState(() {
                                       _hasVoted = true;
-                                      _votedAction = l10n?.support ?? 'Agree Delete';
+                                      _votedAction = l10n.support;
                                     });
                                   },
                                   icon: const Icon(Icons.thumb_up_rounded, size: 14),
                                   label: Text(
-                                    l10n?.support ?? 'Agree Delete',
+                                    l10n.support,
                                     style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                                   ),
                                   style: ElevatedButton.styleFrom(
@@ -223,12 +235,12 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                   onPressed: () {
                                     setState(() {
                                       _hasVoted = true;
-                                      _votedAction = l10n?.oppose ?? 'Keep Tag';
+                                      _votedAction = l10n.oppose;
                                     });
                                   },
                                   icon: const Icon(Icons.thumb_down_alt_rounded, size: 14),
                                   label: Text(
-                                    l10n?.oppose ?? 'Keep Tag',
+                                    l10n.oppose,
                                     style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                                   ),
                                   style: OutlinedButton.styleFrom(
@@ -258,7 +270,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                 const Icon(Icons.check_circle_rounded, color: EliteDopamineTheme.freshMint, size: 15),
                                 const SizedBox(width: 5),
                                 Text(
-                                  '${l10n?.voteSuccess ?? 'Thank you! Voted'}: $_votedAction',
+                                  '${l10n.voteSuccess}: $_votedAction',
                                   style: const TextStyle(
                                     fontSize: 11,
                                     fontWeight: FontWeight.bold,
@@ -279,7 +291,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${l10n?.totalProposals ?? 'Total Decisions'}: $totalProposals',
+                        '${l10n.totalProposals}: $totalProposals',
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w600,
@@ -287,12 +299,12 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                         ),
                       ),
                       InkWell(
-                        onTap: () => context.push('/deletion-proposal'),
+                        onTap: _navigateToProposals,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              l10n?.viewAll ?? 'Explore All',
+                              l10n.viewAll,
                               style: const TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
@@ -315,7 +327,9 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
   }
 }
 
-@Preview(name: 'Community Judge Card', group: 'Elite Home')
+// ------------------- Widget Previewer 支持 -------------------
+
+@Preview(name: 'Community Judge Card', group: 'Elite Showcase')
 Widget previewEliteCommunityJudgeCard() {
   return const ProviderScope(
     child: MaterialApp(

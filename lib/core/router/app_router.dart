@@ -136,6 +136,8 @@ class AppRouter {
   static const String deletionProposal = 'deletion-proposal';
   static const String supabaseSettings = 'supabase-settings';
   static const String eliteHome = 'elite-home';
+  static const String proHome = 'pro-home';
+  static const String specialPermissions = 'special-permissions';
 
 
   // 创建路由器
@@ -145,7 +147,8 @@ class AppRouter {
     routes: [
       // [注释]: 这是一个完整的、无删减的路由列表。
       GoRoute(
-        path: '/special-permissions',
+        path: '/$specialPermissions',
+        name: specialPermissions,
         builder: (context, state) => const SpecialPermissionPage(),
       ),
       GoRoute(
@@ -177,8 +180,8 @@ class AppRouter {
       ),
       // 原始 Pro 模式主页路由（随时切回）
       GoRoute(
-        path: '/pro-home',
-        name: 'pro-home',
+        path: '/$proHome',
+        name: proHome,
         builder: (context, state) => const HomePage(),
       ),
       // Elite 多巴胺主页路由别名

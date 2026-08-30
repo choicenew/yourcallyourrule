@@ -1,10 +1,18 @@
+// -----------------------------------------------------------------------------
+// 文件: elite_stats_insight_card.dart
+// 描述: Elite 拦截成就与数据战报卡片，展示已防护通话统计与类型分布。
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+// ------------------- Widget 定义 -------------------
 
 class EliteStatsInsightCard extends ConsumerStatefulWidget {
   const EliteStatsInsightCard({super.key});
@@ -16,10 +24,14 @@ class EliteStatsInsightCard extends ConsumerStatefulWidget {
 class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
   String _selectedRange = 'Week';
 
+  void _navigateToStatistics() {
+    context.push('/${AppRouter.callStatistics}');
+  }
+
   @override
   Widget build(BuildContext context) {
     final stats = ref.watch(callStatisticsProvider);
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     final totalBlocked = stats.blockedCallsCount;
     final filteredSms = stats.filteredSmsCount;
@@ -57,7 +69,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        l10n?.statistics ?? 'Defense Insights',
+                        l10n.statistics,
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
@@ -65,7 +77,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                         ),
                       ),
                       Text(
-                        'Time saved: ~${(totalBlocked * 3.5).toInt()} mins',
+                        '${l10n.timeSaved}: ~${(totalBlocked * 3.5).toInt()}',
                         style: const TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w700,
@@ -86,8 +98,8 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 ),
                 child: Row(
                   children: [
-                    _buildRangePill(l10n?.week ?? 'Week', 'Week'),
-                    _buildRangePill(l10n?.month ?? 'Month', 'Month'),
+                    _buildRangePill(l10n.week, 'Week'),
+                    _buildRangePill(l10n.month, 'Month'),
                   ],
                 ),
               ),
@@ -101,7 +113,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
             children: [
               Expanded(
                 child: _buildInsightMetric(
-                  label: l10n?.blockedCallsToday ?? 'Calls Shielded',
+                  label: l10n.blockedCallsToday,
                   count: '$totalBlocked',
                   color: EliteDopamineTheme.sunsetTangerine,
                   icon: Icons.phone_disabled_rounded,
@@ -110,7 +122,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
               const SizedBox(width: 10),
               Expanded(
                 child: _buildInsightMetric(
-                  label: l10n?.filteredSmsCount ?? 'SMS Filtered',
+                  label: l10n.filteredSmsCount,
                   count: '$filteredSms',
                   color: EliteDopamineTheme.vibrantCoral,
                   icon: Icons.mark_chat_read_rounded,
@@ -129,7 +141,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    l10n?.callTypeDistribution ?? 'Interception Breakdown',
+                    l10n.callTypeDistribution,
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w700,
@@ -137,7 +149,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                     ),
                   ),
                   Text(
-                    l10n?.securityCheckCompleted ?? 'Live',
+                    l10n.securityCheckCompleted,
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w600,
@@ -175,9 +187,9 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildLegendDot(l10n?.fraudRiskAnalysis ?? 'Scam (60%)', EliteDopamineTheme.vibrantCoral),
-                  _buildLegendDot(l10n?.telemarketing ?? 'Spam (25%)', EliteDopamineTheme.sunsetTangerine),
-                  _buildLegendDot(l10n?.robocall ?? 'Robocall (15%)', EliteDopamineTheme.freshMint),
+                  _buildLegendDot('${l10n.fraudRiskAnalysis} 60%', EliteDopamineTheme.vibrantCoral),
+                  _buildLegendDot('${l10n.telemarketing} 25%', EliteDopamineTheme.sunsetTangerine),
+                  _buildLegendDot('${l10n.robocall} 15%', EliteDopamineTheme.freshMint),
                 ],
               ),
             ],
@@ -188,10 +200,10 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
           // 底部跳转详情
           Center(
             child: TextButton.icon(
-              onPressed: () => context.push('/call-statistics'),
+              onPressed: _navigateToStatistics,
               icon: const Icon(Icons.bar_chart_rounded, size: 15),
               label: Text(
-                l10n?.viewAll ?? 'Open Detailed Analytics',
+                l10n.viewAll,
                 style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w800),
               ),
               style: TextButton.styleFrom(
@@ -321,7 +333,9 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
   }
 }
 
-@Preview(name: 'Stats Insight Card', group: 'Elite Home')
+// ------------------- Widget Previewer 支持 -------------------
+
+@Preview(name: 'Stats Insight Card', group: 'Elite Showcase')
 Widget previewEliteStatsInsightCard() {
   return const ProviderScope(
     child: MaterialApp(

@@ -61,3 +61,5 @@ local.properties
 **/local.properties
 key.properties
 **/key.properties
+# Widget Preview related
+.widget_preview/

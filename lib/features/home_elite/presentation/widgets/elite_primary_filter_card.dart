@@ -1,9 +1,17 @@
+// -----------------------------------------------------------------------------
+// 文件: elite_primary_filter_card.dart
+// 描述: Elite 一级拦截控制中心，提供直观的防护档位切换与卡槽规则直达。
+// -----------------------------------------------------------------------------
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+
+// ------------------- Widget 定义 -------------------
 
 class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
   const ElitePrimaryFilterCard({super.key});
@@ -15,9 +23,17 @@ class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
 class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard> {
   int _selectedDefenseLevel = 0; // 0: 智能防护, 1: 强力拦截, 2: 标记与静音
 
+  void _navigateToFilterSettings() {
+    context.push('/${AppRouter.filterSettings}');
+  }
+
+  void _navigateToSimSlotRules() {
+    context.push('/${AppRouter.simSlotRuleWithAds}/0');
+  }
+
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
@@ -52,7 +68,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        l10n?.filterControlTitle ?? 'Defense Profile',
+                        l10n.filterControlTitle,
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
@@ -60,7 +76,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                         ),
                       ),
                       Text(
-                        l10n?.filterManagementDescription ?? 'Direct Level-1 Protection',
+                        l10n.filterManagementDescription,
                         style: TextStyle(
                           fontSize: 10,
                           color: Colors.grey[600],
@@ -71,10 +87,10 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                 ],
               ),
               TextButton.icon(
-                onPressed: () => context.push('/filter-settings'),
+                onPressed: _navigateToFilterSettings,
                 icon: const Icon(Icons.settings_suggest_rounded, size: 15),
                 label: Text(
-                  l10n?.advancedRuleSettingsTitle ?? 'Settings',
+                  l10n.advancedRuleSettingsTitle,
                   style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                 ),
                 style: TextButton.styleFrom(
@@ -93,8 +109,8 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               Expanded(
                 child: _buildDefenseOption(
                   index: 0,
-                  title: l10n?.smartFilterTitle ?? 'Smart Shield',
-                  subtitle: l10n?.filterModeAuto ?? 'Auto Scam & Spam',
+                  title: l10n.smartFilterTitle,
+                  subtitle: l10n.filterModeAuto,
                   icon: Icons.shield_rounded,
                   activeColor: EliteDopamineTheme.freshMint,
                 ),
@@ -103,8 +119,8 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               Expanded(
                 child: _buildDefenseOption(
                   index: 1,
-                  title: l10n?.strictFilterTitle ?? 'Strict Mode',
-                  subtitle: l10n?.filterModeStrict ?? 'Block Unknowns',
+                  title: l10n.strictFilterTitle,
+                  subtitle: l10n.filterModeStrict,
                   icon: Icons.gpp_bad_rounded,
                   activeColor: EliteDopamineTheme.vibrantCoral,
                 ),
@@ -113,8 +129,8 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               Expanded(
                 child: _buildDefenseOption(
                   index: 2,
-                  title: l10n?.silenceModeTitle ?? 'Tag & Silence',
-                  subtitle: l10n?.filterModeSilence ?? 'Mute & Log',
+                  title: l10n.silenceModeTitle,
+                  subtitle: l10n.filterModeSilence,
                   icon: Icons.notifications_paused_rounded,
                   activeColor: EliteDopamineTheme.warmSunAmber,
                 ),
@@ -142,10 +158,10 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                 Expanded(
                   child: Text(
                     _selectedDefenseLevel == 0
-                        ? (l10n?.smartFilterDescription ?? 'Cloud AI & verified database active')
+                        ? l10n.smartFilterDescription
                         : _selectedDefenseLevel == 1
-                            ? (l10n?.strictFilterDescription ?? 'Strict mode: Blocking unknown foreign and frequent calls')
-                            : (l10n?.silenceModeDescription ?? 'Silent mode: Logging and displaying tags without hanging up'),
+                            ? l10n.strictFilterDescription
+                            : l10n.silenceModeDescription,
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w500,
@@ -154,7 +170,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                   ),
                 ),
                 InkWell(
-                  onTap: () => context.push('/sim-slot-rule-with-ads/0'),
+                  onTap: _navigateToSimSlotRules,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                     child: Row(
@@ -163,7 +179,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                         const Icon(Icons.sim_card_outlined, size: 13, color: EliteDopamineTheme.sunsetTangerine),
                         const SizedBox(width: 2),
                         Text(
-                          l10n?.simSlotRules ?? 'SIM Rules',
+                          l10n.simSlotRules,
                           style: const TextStyle(
                             fontSize: 10,
                             fontWeight: FontWeight.w800,
@@ -261,7 +277,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
   }
 }
 
-@Preview(name: 'Primary Filter Card', group: 'Elite Home')
+// ------------------- Widget Previewer 支持 -------------------
+
+@Preview(name: 'Primary Filter Card', group: 'Elite Showcase')
 Widget previewElitePrimaryFilterCard() {
   return const ProviderScope(
     child: MaterialApp(
