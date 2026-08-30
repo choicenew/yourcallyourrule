@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -273,4 +274,20 @@ class EliteQuickCapsules extends StatelessWidget {
       ),
     );
   }
+}
+
+@Preview(name: 'Quick Action Capsules', group: 'Elite Home')
+Widget previewEliteQuickCapsules() {
+  return const MaterialApp(
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
+    home: Scaffold(
+      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: EliteQuickCapsules(),
+        ),
+      ),
+    ),
+  );
 }

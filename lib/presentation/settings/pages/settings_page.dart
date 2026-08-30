@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
@@ -354,4 +355,15 @@ class SettingsPage extends ConsumerWidget {
       ),
     );
   }
+}
+
+@Preview(name: 'Settings Page (4-Grouped)', group: 'Elite Settings')
+Widget previewSettingsPage() {
+  return const ProviderScope(
+    child: MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: SettingsPage(),
+    ),
+  );
 }

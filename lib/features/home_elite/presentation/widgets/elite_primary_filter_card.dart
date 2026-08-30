@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
@@ -258,4 +259,22 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
       ),
     );
   }
+}
+
+@Preview(name: 'Primary Filter Card', group: 'Elite Home')
+Widget previewElitePrimaryFilterCard() {
+  return const ProviderScope(
+    child: MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: Scaffold(
+        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: ElitePrimaryFilterCard(),
+          ),
+        ),
+      ),
+    ),
+  );
 }

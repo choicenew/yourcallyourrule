@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
@@ -318,4 +319,22 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
       ],
     );
   }
+}
+
+@Preview(name: 'Stats Insight Card', group: 'Elite Home')
+Widget previewEliteStatsInsightCard() {
+  return const ProviderScope(
+    child: MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: Scaffold(
+        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: EliteStatsInsightCard(),
+          ),
+        ),
+      ),
+    ),
+  );
 }

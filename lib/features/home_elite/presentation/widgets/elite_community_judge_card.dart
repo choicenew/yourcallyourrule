@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
@@ -312,4 +313,22 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
       ),
     );
   }
+}
+
+@Preview(name: 'Community Judge Card', group: 'Elite Home')
+Widget previewEliteCommunityJudgeCard() {
+  return const ProviderScope(
+    child: MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: Scaffold(
+        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: EliteCommunityJudgeCard(),
+          ),
+        ),
+      ),
+    ),
+  );
 }

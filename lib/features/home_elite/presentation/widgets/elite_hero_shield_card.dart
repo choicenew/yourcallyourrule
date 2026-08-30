@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
@@ -316,4 +317,22 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
       ),
     );
   }
+}
+
+@Preview(name: 'Hero Shield Card', group: 'Elite Home')
+Widget previewEliteHeroShieldCard() {
+  return const ProviderScope(
+    child: MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: Scaffold(
+        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: EliteHeroShieldCard(),
+          ),
+        ),
+      ),
+    ),
+  );
 }

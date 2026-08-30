@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -126,4 +127,22 @@ class _NavItemData {
   final String label;
 
   const _NavItemData({required this.icon, required this.label});
+}
+
+@Preview(name: 'Floating Navigation Bar', group: 'Elite Home')
+Widget previewEliteFloatingNavBar() {
+  return MaterialApp(
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
+    home: Scaffold(
+      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+      body: const Center(
+        child: Text('Elite Home Content Area'),
+      ),
+      bottomNavigationBar: EliteFloatingNavBar(
+        currentIndex: 0,
+        onTap: (_) {},
+      ),
+    ),
+  );
 }

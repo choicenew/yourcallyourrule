@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_app_bar.dart';
@@ -61,4 +62,13 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
       ),
     );
   }
+}
+
+@Preview(name: 'Elite Home Page (Full)', group: 'Elite Home')
+Widget previewEliteHomePage() {
+  return const ProviderScope(
+    child: MaterialApp(
+      home: EliteHomePage(),
+    ),
+  );
 }
