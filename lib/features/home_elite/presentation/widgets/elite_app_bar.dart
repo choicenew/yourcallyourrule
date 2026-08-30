@@ -148,7 +148,7 @@ class EliteAppBar extends StatelessWidget {
                     color: Colors.black87,
                   ),
                 ),
-                onPressed: () => context.push('/elite-settings'),
+                onPressed: () => context.push('/settings'),
                 tooltip: l10n?.settingsTab ?? 'Settings',
               ),
             ],

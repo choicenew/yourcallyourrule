@@ -115,7 +115,7 @@ class EliteFloatingNavBar extends StatelessWidget {
         context.push('/dashboard');
         break;
       case 4:
-        context.push('/elite-settings');
+        context.push('/settings');
         break;
     }
   }
