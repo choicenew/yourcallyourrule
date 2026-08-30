@@ -29,7 +29,7 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
           children: [
             EliteAppBar(
               onSwitchToPro: () {
-                context.go('/');
+                context.go('/pro-home');
               },
             ),
             Expanded(

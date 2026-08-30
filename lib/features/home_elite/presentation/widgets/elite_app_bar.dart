@@ -98,7 +98,7 @@ class EliteAppBar extends StatelessWidget {
                     if (onSwitchToPro != null) {
                       onSwitchToPro!();
                     } else {
-                      context.go('/');
+                      context.go('/pro-home');
                     }
                   },
                   borderRadius: BorderRadius.circular(20),

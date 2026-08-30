@@ -169,13 +169,19 @@ class AppRouter {
         name: countrySyncSettings,
         builder: (context, state) => const CountrySelectionWidget(),
       ),
-      // 主页路由
+      // 主页路由（在 elite-ui 分支默认使用 Elite 多巴胺主页）
       GoRoute(
         path: '/',
         name: home,
+        builder: (context, state) => const EliteHomePage(),
+      ),
+      // 原始 Pro 模式主页路由（随时切回）
+      GoRoute(
+        path: '/pro-home',
+        name: 'pro-home',
         builder: (context, state) => const HomePage(),
       ),
-      // Elite 多巴胺主页路由
+      // Elite 多巴胺主页路由别名
       GoRoute(
         path: '/$eliteHome',
         name: eliteHome,
