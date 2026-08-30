@@ -13,28 +13,27 @@ class EliteAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
     final l10n = AppLocalizations.of(context);
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      color: Colors.transparent,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // 品牌 Logo 与多巴胺标题
+          // 品牌 Logo 与暖色多巴胺标题
           Row(
             children: [
               Container(
-                width: 42,
-                height: 42,
+                width: 40,
+                height: 40,
                 decoration: BoxDecoration(
-                  gradient: EliteDopamineTheme.shieldActiveGradient,
+                  gradient: EliteDopamineTheme.heroWarmGradient,
                   borderRadius: BorderRadius.circular(14),
                   boxShadow: [
                     BoxShadow(
-                      color: EliteDopamineTheme.emeraldGreen.withValues(alpha: 0.4),
-                      blurRadius: 12,
+                      color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.4),
+                      blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
                   ],
@@ -42,20 +41,20 @@ class EliteAppBar extends StatelessWidget {
                 child: const Icon(
                   Icons.shield_rounded,
                   color: Colors.white,
-                  size: 24,
+                  size: 22,
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   ShaderMask(
-                    shaderCallback: (bounds) => EliteDopamineTheme.shieldActiveGradient.createShader(bounds),
+                    shaderCallback: (bounds) => EliteDopamineTheme.heroWarmGradient.createShader(bounds),
                     child: Text(
                       l10n?.appTitle ?? 'YourCall',
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 19,
                         fontWeight: FontWeight.w900,
                         letterSpacing: -0.5,
                         color: Colors.white,
@@ -68,18 +67,18 @@ class EliteAppBar extends StatelessWidget {
                         width: 7,
                         height: 7,
                         decoration: const BoxDecoration(
-                          color: EliteDopamineTheme.emeraldGreen,
+                          color: EliteDopamineTheme.freshMint,
                           shape: BoxShape.circle,
                         ),
                       ),
-                      const SizedBox(width: 5),
+                      const SizedBox(width: 4),
                       Text(
-                        'ELITE ACTIVE',
+                        l10n?.securityDashboardTitle ?? 'ACTIVE SHIELD',
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w800,
-                          letterSpacing: 1.0,
-                          color: isDark ? Colors.grey[400] : Colors.grey[600],
+                          letterSpacing: 0.5,
+                          color: Colors.grey[600],
                         ),
                       ),
                     ],
@@ -89,10 +88,9 @@ class EliteAppBar extends StatelessWidget {
             ],
           ),
 
-          // 右侧功能按钮区：[Pro ⇄ Elite 切换胶囊] + [设置]
+          // 右侧：Pro 模式切换胶囊 + 设置按钮
           Row(
             children: [
-              // Pro 模式切换胶囊
               Material(
                 color: Colors.transparent,
                 child: InkWell(
@@ -105,34 +103,30 @@ class EliteAppBar extends StatelessWidget {
                   },
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     decoration: BoxDecoration(
-                      color: isDark
-                          ? Colors.white.withValues(alpha: 0.08)
-                          : Colors.black.withValues(alpha: 0.05),
+                      color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                        color: isDark
-                            ? Colors.white.withValues(alpha: 0.15)
-                            : Colors.black.withValues(alpha: 0.1),
+                        color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.3),
                         width: 1,
                       ),
                     ),
-                    child: Row(
+                    child: const Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(
                           Icons.dashboard_customize_outlined,
-                          size: 15,
-                          color: isDark ? Colors.amber[300] : Colors.amber[800],
+                          size: 14,
+                          color: EliteDopamineTheme.sunsetTangerine,
                         ),
-                        const SizedBox(width: 4),
+                        SizedBox(width: 4),
                         Text(
                           'Pro Mode',
                           style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: isDark ? Colors.white : Colors.black87,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w800,
+                            color: EliteDopamineTheme.sunsetTangerine,
                           ),
                         ),
                       ],
@@ -140,25 +134,21 @@ class EliteAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
-
-              // 设置直达按钮
+              const SizedBox(width: 6),
               IconButton(
                 icon: Container(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(7),
                   decoration: BoxDecoration(
-                    color: isDark
-                        ? Colors.white.withValues(alpha: 0.06)
-                        : Colors.black.withValues(alpha: 0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.settings_outlined,
-                    size: 20,
-                    color: isDark ? Colors.white70 : Colors.black87,
+                    size: 18,
+                    color: Colors.black87,
                   ),
                 ),
-                onPressed: () => context.push('/settings'),
+                onPressed: () => context.push('/elite-settings'),
                 tooltip: l10n?.settingsTab ?? 'Settings',
               ),
             ],

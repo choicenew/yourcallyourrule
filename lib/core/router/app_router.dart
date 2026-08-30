@@ -15,6 +15,7 @@ import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_pag
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';
+import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_settings_page.dart';
 import 'package:yourcallyourrule/presentation/settings/pages/settings_page.dart';
 import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
@@ -136,6 +137,7 @@ class AppRouter {
   static const String deletionProposal = 'deletion-proposal';
   static const String supabaseSettings = 'supabase-settings';
   static const String eliteHome = 'elite-home';
+  static const String eliteSettings = 'elite-settings';
 
 
   // 创建路由器
@@ -180,6 +182,12 @@ class AppRouter {
         path: '/$eliteHome',
         name: eliteHome,
         builder: (context, state) => const EliteHomePage(),
+      ),
+      // Elite 多巴胺设置页路由
+      GoRoute(
+        path: '/$eliteSettings',
+        name: eliteSettings,
+        builder: (context, state) => const EliteSettingsPage(),
       ),
       GoRoute(
         path: '/$purchase',

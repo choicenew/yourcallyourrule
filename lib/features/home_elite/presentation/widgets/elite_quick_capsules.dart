@@ -8,66 +8,58 @@ class EliteQuickCapsules extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
     final l10n = AppLocalizations.of(context);
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: EliteDopamineTheme.dopamineCardDecoration(
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+      decoration: EliteDopamineTheme.warmCardDecoration(
         context: context,
-        glowColor: EliteDopamineTheme.neonCyan,
+        glowColor: EliteDopamineTheme.warmSunAmber,
       ),
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(18.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // 标题与分类
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
+              Container(
+                padding: const EdgeInsets.all(7),
+                decoration: BoxDecoration(
+                  gradient: EliteDopamineTheme.heroWarmGradient,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(
+                  Icons.widgets_rounded,
+                  color: Colors.white,
+                  size: 18,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [EliteDopamineTheme.neonCyan, EliteDopamineTheme.emeraldGreen],
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Icon(
-                      Icons.widgets_rounded,
-                      color: Colors.white,
-                      size: 20,
+                  Text(
+                    l10n?.featureCenter ?? 'Smart Toolkit & Rules',
+                    style: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.black87,
                     ),
                   ),
-                  const SizedBox(width: 12),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        l10n?.featureCenter ?? 'Smart Toolkit & Rules',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                      Text(
-                        'Direct access to all protection engines',
-                        style: TextStyle(
-                          fontSize: 11,
-                          color: isDark ? Colors.grey[400] : Colors.grey[600],
-                        ),
-                      ),
-                    ],
+                  Text(
+                    l10n?.advancedRuleSettingsTitle ?? 'Direct access to all protection engines',
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.grey[600],
+                    ),
                   ),
                 ],
               ),
             ],
           ),
 
-          const SizedBox(height: 18),
+          const SizedBox(height: 14),
 
           // 一、高频日常安全大卡片（双列灵动卡）
           Row(
@@ -75,68 +67,64 @@ class EliteQuickCapsules extends StatelessWidget {
               Expanded(
                 child: _buildFeaturedActionCard(
                   title: l10n?.allowBlock ?? 'Allow / Block',
-                  subtitle: 'Custom numbers & lists',
+                  subtitle: l10n?.ruleManagementTitle ?? 'Custom list rules',
                   icon: Icons.shield_outlined,
-                  color: EliteDopamineTheme.emeraldGreen,
-                  isDark: isDark,
+                  color: EliteDopamineTheme.freshMint,
                   onTap: () => context.push('/allowed-blocked-settings-with-ads'),
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 10),
               Expanded(
                 child: _buildFeaturedActionCard(
                   title: l10n?.markPhoneManagementTitle ?? 'Marked Numbers',
-                  subtitle: 'Crowdsourced tags & labels',
+                  subtitle: l10n?.labelManagementTitle ?? 'Crowdsourced tags',
                   icon: Icons.label_important_outline_rounded,
-                  color: EliteDopamineTheme.electricViolet,
-                  isDark: isDark,
+                  color: EliteDopamineTheme.warmSunAmber,
                   onTap: () => context.push('/mark-phone-management-with-ads'),
                 ),
               ),
             ],
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
 
           Row(
             children: [
               Expanded(
                 child: _buildFeaturedActionCard(
                   title: l10n?.callHistoryTab ?? 'Call Timeline',
-                  subtitle: 'Intercepted logs & detail',
+                  subtitle: l10n?.blockedCallsToday ?? 'Intercepted logs',
                   icon: Icons.history_rounded,
-                  color: EliteDopamineTheme.neonCyan,
-                  isDark: isDark,
+                  color: EliteDopamineTheme.skyAzure,
                   onTap: () => context.push('/call-history'),
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 10),
               Expanded(
                 child: _buildFeaturedActionCard(
                   title: l10n?.contactsTab ?? 'Contacts Shield',
-                  subtitle: 'Address book rules',
+                  subtitle: l10n?.serviceTypeContact ?? 'Address book rules',
                   icon: Icons.contacts_rounded,
-                  color: EliteDopamineTheme.sunsetOrange,
-                  isDark: isDark,
+                  color: EliteDopamineTheme.sunsetTangerine,
                   onTap: () => context.push('/contacts-management'),
                 ),
               ),
             ],
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 16),
 
-          // 二、进阶极客扩展胶囊区（横向多巴胺药丸）
+          // 二、进阶极客扩展胶囊区
           Text(
-            'ADVANCED EXTENSIONS & ENGINES',
+            (l10n?.advancedRuleSettingsTitle ?? 'ADVANCED ENGINES').toUpperCase(),
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 10,
               fontWeight: FontWeight.w900,
-              letterSpacing: 1.0,
-              color: isDark ? Colors.grey[400] : Colors.grey[600],
+              letterSpacing: 0.8,
+              color: Colors.grey[600],
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 8),
 
           Wrap(
             spacing: 8.0,
@@ -145,43 +133,37 @@ class EliteQuickCapsules extends StatelessWidget {
               _buildCapsulePill(
                 title: l10n?.pluginManagement ?? 'Plugins',
                 icon: Icons.extension_rounded,
-                color: const Color(0xFFAB47BC),
-                isDark: isDark,
+                color: EliteDopamineTheme.softLilac,
                 onTap: () => context.push('/plugin-management-with-ads'),
               ),
               _buildCapsulePill(
                 title: l10n?.regexRules ?? 'Regex Engine',
                 icon: Icons.code_rounded,
-                color: const Color(0xFF26A69A),
-                isDark: isDark,
+                color: EliteDopamineTheme.skyAzure,
                 onTap: () => context.push('/regex-rule-with-ads'),
               ),
               _buildCapsulePill(
                 title: l10n?.phoneSubscription ?? 'Subscriptions',
                 icon: Icons.cloud_download_rounded,
-                color: const Color(0xFF42A5F5),
-                isDark: isDark,
+                color: EliteDopamineTheme.freshMint,
                 onTap: () => context.push('/phone-subscription-with-ads'),
               ),
               _buildCapsulePill(
                 title: l10n?.simSlotRules ?? 'Dual SIM',
                 icon: Icons.sim_card_rounded,
-                color: const Color(0xFFFFA726),
-                isDark: isDark,
+                color: EliteDopamineTheme.warmSunAmber,
                 onTap: () => context.push('/sim-slot-rule-with-ads/0'),
               ),
               _buildCapsulePill(
-                title: 'SMS Rules',
+                title: l10n?.smsFilterManagement ?? 'SMS Rules',
                 icon: Icons.sms_rounded,
-                color: const Color(0xFFEF5350),
-                isDark: isDark,
+                color: EliteDopamineTheme.vibrantCoral,
                 onTap: () => context.push('/sms-management'),
               ),
               _buildCapsulePill(
-                title: 'Cloud Sync',
+                title: l10n?.cloudSyncAndBackupTitle ?? 'Cloud Sync',
                 icon: Icons.sync_rounded,
-                color: const Color(0xFF7E57C2),
-                isDark: isDark,
+                color: EliteDopamineTheme.sunsetTangerine,
                 onTap: () => context.push('/cloud-settings'),
               ),
             ],
@@ -196,50 +178,50 @@ class EliteQuickCapsules extends StatelessWidget {
     required String subtitle,
     required IconData icon,
     required Color color,
-    required bool isDark,
     required VoidCallback onTap,
   }) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: isDark ? Colors.white.withValues(alpha: 0.04) : Colors.grey[50],
-            borderRadius: BorderRadius.circular(18),
+            color: const Color(0xFFFBF9F5),
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: isDark ? Colors.white.withValues(alpha: 0.08) : Colors.grey[200]!,
+              color: color.withValues(alpha: 0.2),
             ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(7),
                 decoration: BoxDecoration(
-                  color: color.withValues(alpha: 0.15),
-                  borderRadius: BorderRadius.circular(12),
+                  color: color.withValues(alpha: 0.14),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: Icon(icon, color: color, size: 20),
+                child: Icon(icon, color: color, size: 18),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               Text(
                 title,
                 style: const TextStyle(
-                  fontSize: 13,
+                  fontSize: 12.5,
                   fontWeight: FontWeight.w800,
+                  color: Colors.black87,
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 2),
+              const SizedBox(height: 1),
               Text(
                 subtitle,
                 style: TextStyle(
-                  fontSize: 10,
-                  color: isDark ? Colors.grey[400] : Colors.grey[600],
+                  fontSize: 9.5,
+                  color: Colors.grey[600],
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -255,35 +237,34 @@ class EliteQuickCapsules extends StatelessWidget {
     required String title,
     required IconData icon,
     required Color color,
-    required bool isDark,
     required VoidCallback onTap,
   }) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           decoration: BoxDecoration(
-            color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey[100],
-            borderRadius: BorderRadius.circular(20),
+            color: const Color(0xFFF7F5F0),
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: color.withValues(alpha: 0.3),
+              color: color.withValues(alpha: 0.25),
               width: 1,
             ),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, size: 14, color: color),
-              const SizedBox(width: 6),
+              Icon(icon, size: 13, color: color),
+              const SizedBox(width: 4),
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: 11,
+                  fontSize: 10.5,
                   fontWeight: FontWeight.w700,
-                  color: isDark ? Colors.white70 : Colors.black87,
+                  color: Colors.grey[800],
                 ),
               ),
             ],

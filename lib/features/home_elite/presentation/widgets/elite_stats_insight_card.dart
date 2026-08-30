@@ -18,20 +18,18 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
   @override
   Widget build(BuildContext context) {
     final stats = ref.watch(callStatisticsProvider);
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
     final l10n = AppLocalizations.of(context);
 
     final totalBlocked = stats.blockedCallsCount;
     final filteredSms = stats.filteredSmsCount;
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: EliteDopamineTheme.dopamineCardDecoration(
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+      decoration: EliteDopamineTheme.warmCardDecoration(
         context: context,
-        glowColor: EliteDopamineTheme.sunsetOrange,
+        glowColor: EliteDopamineTheme.sunsetTangerine,
       ),
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(18.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,34 +40,35 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
               Row(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(7),
                     decoration: BoxDecoration(
-                      gradient: EliteDopamineTheme.statsCardGradient,
+                      gradient: EliteDopamineTheme.coralSunsetGradient,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(
                       Icons.insights_rounded,
                       color: Colors.white,
-                      size: 20,
+                      size: 18,
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         l10n?.statistics ?? 'Defense Insights',
                         style: const TextStyle(
-                          fontSize: 16,
+                          fontSize: 15,
                           fontWeight: FontWeight.w800,
+                          color: Colors.black87,
                         ),
                       ),
                       Text(
                         'Time saved: ~${(totalBlocked * 3.5).toInt()} mins',
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
-                          color: EliteDopamineTheme.sunsetOrange,
+                        style: const TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w700,
+                          color: EliteDopamineTheme.sunsetTangerine,
                         ),
                       ),
                     ],
@@ -79,49 +78,47 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
 
               // Week / Month 切换胶囊
               Container(
-                padding: const EdgeInsets.all(3),
+                padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                  color: isDark ? Colors.white.withValues(alpha: 0.06) : Colors.grey[200],
-                  borderRadius: BorderRadius.circular(14),
+                  color: const Color(0xFFF0EDE6),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
                   children: [
-                    _buildRangePill('Week', isDark),
-                    _buildRangePill('Month', isDark),
+                    _buildRangePill(l10n?.week ?? 'Week', 'Week'),
+                    _buildRangePill(l10n?.month ?? 'Month', 'Month'),
                   ],
                 ),
               ),
             ],
           ),
 
-          const SizedBox(height: 18),
+          const SizedBox(height: 14),
 
-          // 多巴胺拦截成就柱状/比例条
+          // 多巴胺拦截成就指标
           Row(
             children: [
               Expanded(
                 child: _buildInsightMetric(
-                  label: 'Calls Shielded',
+                  label: l10n?.blockedCallsToday ?? 'Calls Shielded',
                   count: '$totalBlocked',
-                  color: EliteDopamineTheme.sunsetOrange,
+                  color: EliteDopamineTheme.sunsetTangerine,
                   icon: Icons.phone_disabled_rounded,
-                  isDark: isDark,
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 10),
               Expanded(
                 child: _buildInsightMetric(
-                  label: 'SMS Filtered',
+                  label: l10n?.filteredSmsCount ?? 'SMS Filtered',
                   count: '$filteredSms',
-                  color: EliteDopamineTheme.electricViolet,
+                  color: EliteDopamineTheme.vibrantCoral,
                   icon: Icons.mark_chat_read_rounded,
-                  isDark: isDark,
                 ),
               ),
             ],
           ),
 
-          const SizedBox(height: 14),
+          const SizedBox(height: 12),
 
           // 拦截类型分布多巴胺进度条
           Column(
@@ -131,70 +128,74 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Interception Type Breakdown',
+                    l10n?.callTypeDistribution ?? 'Interception Breakdown',
                     style: TextStyle(
-                      fontSize: 11,
+                      fontSize: 10,
                       fontWeight: FontWeight.w700,
-                      color: isDark ? Colors.grey[400] : Colors.grey[600],
+                      color: Colors.grey[700],
                     ),
                   ),
                   Text(
-                    'Live Telemetry',
+                    l10n?.securityCheckCompleted ?? 'Live',
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w600,
-                      color: isDark ? Colors.grey[500] : Colors.grey[400],
+                      color: Colors.grey[500],
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 6),
               ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(6),
                 child: SizedBox(
-                  height: 10,
+                  height: 8,
                   child: Row(
                     children: [
                       Expanded(
                         flex: 60,
-                        child: Container(color: EliteDopamineTheme.coralPink),
+                        child: Container(color: EliteDopamineTheme.vibrantCoral),
                       ),
                       const SizedBox(width: 2),
                       Expanded(
                         flex: 25,
-                        child: Container(color: EliteDopamineTheme.sunsetOrange),
+                        child: Container(color: EliteDopamineTheme.sunsetTangerine),
                       ),
                       const SizedBox(width: 2),
                       Expanded(
                         flex: 15,
-                        child: Container(color: EliteDopamineTheme.neonCyan),
+                        child: Container(color: EliteDopamineTheme.freshMint),
                       ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildLegendDot('Scam (60%)', EliteDopamineTheme.coralPink, isDark),
-                  _buildLegendDot('Spam (25%)', EliteDopamineTheme.sunsetOrange, isDark),
-                  _buildLegendDot('Robocall (15%)', EliteDopamineTheme.neonCyan, isDark),
+                  _buildLegendDot(l10n?.fraudRiskAnalysis ?? 'Scam (60%)', EliteDopamineTheme.vibrantCoral),
+                  _buildLegendDot(l10n?.telemarketing ?? 'Spam (25%)', EliteDopamineTheme.sunsetTangerine),
+                  _buildLegendDot(l10n?.robocall ?? 'Robocall (15%)', EliteDopamineTheme.freshMint),
                 ],
               ),
             ],
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
 
           // 底部跳转详情
           Center(
             child: TextButton.icon(
               onPressed: () => context.push('/call-statistics'),
-              icon: const Icon(Icons.bar_chart_rounded, size: 16),
-              label: const Text('Open Detailed Analytics', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
+              icon: const Icon(Icons.bar_chart_rounded, size: 15),
+              label: Text(
+                l10n?.viewAll ?? 'Open Detailed Analytics',
+                style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w800),
+              ),
               style: TextButton.styleFrom(
-                foregroundColor: EliteDopamineTheme.sunsetOrange,
+                foregroundColor: EliteDopamineTheme.sunsetTangerine,
+                visualDensity: VisualDensity.compact,
               ),
             ),
           ),
@@ -203,38 +204,34 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
     );
   }
 
-  Widget _buildRangePill(String title, bool isDark) {
-    final isSelected = _selectedRange == title;
+  Widget _buildRangePill(String label, String key) {
+    final isSelected = _selectedRange == key;
     return GestureDetector(
       onTap: () {
         setState(() {
-          _selectedRange = title;
+          _selectedRange = key;
         });
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
         decoration: BoxDecoration(
-          color: isSelected
-              ? (isDark ? const Color(0xFF2C2C3E) : Colors.white)
-              : Colors.transparent,
-          borderRadius: BorderRadius.circular(10),
+          color: isSelected ? Colors.white : Colors.transparent,
+          borderRadius: BorderRadius.circular(8),
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.1),
-                    blurRadius: 4,
+                    color: Colors.black.withValues(alpha: 0.08),
+                    blurRadius: 3,
                   ),
                 ]
               : null,
         ),
         child: Text(
-          title,
+          label,
           style: TextStyle(
-            fontSize: 11,
-            fontWeight: isSelected ? FontWeight.w800 : FontWeight.w500,
-            color: isSelected
-                ? (isDark ? Colors.white : Colors.black87)
-                : (isDark ? Colors.grey[400] : Colors.grey[600]),
+            fontSize: 10,
+            fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
+            color: isSelected ? Colors.black87 : Colors.grey[600],
           ),
         ),
       ),
@@ -246,28 +243,27 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
     required String count,
     required Color color,
     required IconData icon,
-    required bool isDark,
   }) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: isDark ? Colors.white.withValues(alpha: 0.03) : Colors.grey[50],
-        borderRadius: BorderRadius.circular(16),
+        color: const Color(0xFFFBF9F5),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(
-          color: color.withValues(alpha: 0.25),
+          color: color.withValues(alpha: 0.2),
         ),
       ),
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(7),
             decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.15),
+              color: color.withValues(alpha: 0.14),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(icon, color: color, size: 18),
+            child: Icon(icon, color: color, size: 16),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 8),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -275,16 +271,17 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 Text(
                   count,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w900,
+                    color: Colors.black87,
                   ),
                 ),
                 Text(
                   label,
                   style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 9.5,
                     fontWeight: FontWeight.w600,
-                    color: isDark ? Colors.grey[400] : Colors.grey[600],
+                    color: Colors.grey[600],
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -297,25 +294,25 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
     );
   }
 
-  Widget _buildLegendDot(String label, Color color, bool isDark) {
+  Widget _buildLegendDot(String label, Color color) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 8,
-          height: 8,
+          width: 7,
+          height: 7,
           decoration: BoxDecoration(
             color: color,
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 4),
+        const SizedBox(width: 3),
         Text(
           label,
           style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: isDark ? Colors.grey[400] : Colors.grey[600],
+            fontSize: 9,
+            fontWeight: FontWeight.w600,
+            color: Colors.grey[600],
           ),
         ),
       ],

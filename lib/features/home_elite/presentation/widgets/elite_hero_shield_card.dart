@@ -26,7 +26,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
       duration: const Duration(seconds: 3),
     )..repeat(reverse: true);
 
-    _pulseAnimation = Tween<double>(begin: 0.95, end: 1.05).animate(
+    _pulseAnimation = Tween<double>(begin: 0.96, end: 1.04).animate(
       CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
     );
   }
@@ -41,33 +41,31 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   @override
   Widget build(BuildContext context) {
     final asyncStats = ref.watch(homeStatsProvider);
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
     final l10n = AppLocalizations.of(context);
 
     final blockedToday = asyncStats.value?.blockedCallsCount ?? 0;
     final totalRules = asyncStats.value?.totalRulesCount ?? 0;
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: EliteDopamineTheme.dopamineCardDecoration(
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+      decoration: EliteDopamineTheme.warmCardDecoration(
         context: context,
-        glowColor: EliteDopamineTheme.emeraldGreen,
+        glowColor: EliteDopamineTheme.warmSunAmber,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
         child: Stack(
           children: [
-            // 背景多巴胺渐变光斑
+            // 暖阳背景光晕
             Positioned(
-              top: -60,
-              right: -60,
+              top: -50,
+              right: -50,
               child: Container(
-                width: 180,
-                height: 180,
+                width: 160,
+                height: 160,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: EliteDopamineTheme.emeraldGreen.withValues(alpha: isDark ? 0.15 : 0.2),
+                  color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.15),
                 ),
               ),
             ),
@@ -79,36 +77,35 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                 height: 140,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: EliteDopamineTheme.neonCyan.withValues(alpha: isDark ? 0.12 : 0.18),
+                  color: EliteDopamineTheme.freshMint.withValues(alpha: 0.12),
                 ),
               ),
             ),
 
             // 主体内容
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(18.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 上部：动态能量环 + 状态描述
+                  // 上部：能量盾 + 状态文字
                   Row(
                     children: [
-                      // 动态脉冲能量环
                       AnimatedBuilder(
                         animation: _pulseAnimation,
                         builder: (context, child) {
                           return Transform.scale(
                             scale: _pulseAnimation.value,
                             child: Container(
-                              width: 68,
-                              height: 68,
+                              width: 64,
+                              height: 64,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                gradient: EliteDopamineTheme.shieldActiveGradient,
+                                gradient: EliteDopamineTheme.heroWarmGradient,
                                 boxShadow: [
                                   BoxShadow(
-                                    color: EliteDopamineTheme.emeraldGreen.withValues(alpha: 0.45),
-                                    blurRadius: 18,
+                                    color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.4),
+                                    blurRadius: 16,
                                     spreadRadius: 2,
                                   ),
                                 ],
@@ -117,61 +114,60 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                 child: Icon(
                                   Icons.verified_user_rounded,
                                   color: Colors.white,
-                                  size: 34,
+                                  size: 32,
                                 ),
                               ),
                             ),
                           );
                         },
                       ),
-                      const SizedBox(width: 18),
-
-                      // 状态文字与标签
+                      const SizedBox(width: 16),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                               decoration: BoxDecoration(
-                                color: EliteDopamineTheme.emeraldGreen.withValues(alpha: 0.15),
-                                borderRadius: BorderRadius.circular(12),
+                                color: EliteDopamineTheme.freshMint.withValues(alpha: 0.15),
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              child: const Row(
+                              child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.bolt_rounded,
-                                    size: 14,
-                                    color: EliteDopamineTheme.emeraldGreen,
+                                    size: 13,
+                                    color: EliteDopamineTheme.freshMint,
                                   ),
-                                  SizedBox(width: 4),
+                                  const SizedBox(width: 3),
                                   Text(
-                                    'ACTIVE SHIELD',
-                                    style: TextStyle(
-                                      fontSize: 11,
+                                    l10n?.securityDashboardTitle ?? 'ACTIVE PROTECTION',
+                                    style: const TextStyle(
+                                      fontSize: 10,
                                       fontWeight: FontWeight.w900,
-                                      color: EliteDopamineTheme.emeraldGreen,
-                                      letterSpacing: 0.8,
+                                      color: EliteDopamineTheme.freshMint,
+                                      letterSpacing: 0.5,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 6),
+                            const SizedBox(height: 5),
                             Text(
                               l10n?.securityDashboardTitle ?? 'Real-time Call Shield',
                               style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w900,
+                                color: Colors.black87,
                               ),
                             ),
                             const SizedBox(height: 2),
                             Text(
-                              'Live protection running in background',
+                              l10n?.securityCheckCompleted ?? 'Protection active in background',
                               style: TextStyle(
-                                fontSize: 12,
-                                color: isDark ? Colors.grey[400] : Colors.grey[600],
+                                fontSize: 11,
+                                color: Colors.grey[600],
                               ),
                             ),
                           ],
@@ -180,85 +176,77 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                     ],
                   ),
 
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
 
-                  // 中部：今日拦截与激活规则成就胶囊
+                  // 中部：今日拦截与规则总数指标
                   Row(
                     children: [
                       Expanded(
                         child: _buildMetricTile(
-                          context: context,
-                          label: 'Blocked Calls',
+                          label: l10n?.blockedCallsToday ?? 'Blocked Calls',
                           value: '$blockedToday',
                           icon: Icons.shield_outlined,
-                          accentColor: EliteDopamineTheme.coralPink,
-                          isDark: isDark,
+                          accentColor: EliteDopamineTheme.vibrantCoral,
                         ),
                       ),
-                      const SizedBox(width: 12),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: _buildMetricTile(
-                          context: context,
-                          label: 'Active Rules',
+                          label: l10n?.phoneRuleManagement ?? 'Active Rules',
                           value: '$totalRules',
                           icon: Icons.rule_folder_outlined,
-                          accentColor: EliteDopamineTheme.neonCyan,
-                          isDark: isDark,
+                          accentColor: EliteDopamineTheme.sunsetTangerine,
                         ),
                       ),
                     ],
                   ),
 
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 14),
 
-                  // 底部：极速查号搜索框（直观搜索验证）
+                  // 底部：极速查号搜索框
                   Container(
-                    height: 48,
+                    height: 46,
                     decoration: BoxDecoration(
-                      color: isDark
-                          ? Colors.black.withValues(alpha: 0.25)
-                          : Colors.grey[100],
+                      color: const Color(0xFFF7F5F0),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(
-                        color: isDark
-                            ? Colors.white.withValues(alpha: 0.08)
-                            : Colors.grey[300]!,
+                        color: Colors.grey[300]!,
                       ),
                     ),
                     child: TextField(
                       controller: _searchController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        hintText: 'Quick search or test phone number...',
+                        hintText: l10n?.searchHint ?? 'Quick search or test phone number...',
                         hintStyle: TextStyle(
-                          fontSize: 13,
-                          color: isDark ? Colors.grey[500] : Colors.grey[400],
+                          fontSize: 12,
+                          color: Colors.grey[500],
                         ),
                         prefixIcon: const Icon(
                           Icons.search_rounded,
-                          size: 20,
-                          color: EliteDopamineTheme.neonCyan,
+                          size: 18,
+                          color: EliteDopamineTheme.warmSunAmber,
                         ),
                         suffixIcon: IconButton(
                           icon: const Icon(
                             Icons.arrow_forward_rounded,
                             size: 18,
-                            color: EliteDopamineTheme.emeraldGreen,
+                            color: EliteDopamineTheme.sunsetTangerine,
                           ),
                           onPressed: () {
                             if (_searchController.text.trim().isNotEmpty) {
-                              context.push('/search?query=${Uri.encodeComponent(_searchController.text.trim())}');
+                              context.push('/search', extra: _searchController.text.trim());
                             } else {
                               context.push('/verification-page');
                             }
                           },
                         ),
                         border: InputBorder.none,
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                       ),
                       onSubmitted: (value) {
                         if (value.trim().isNotEmpty) {
-                          context.push('/search?query=${Uri.encodeComponent(value.trim())}');
+                          context.push('/search', extra: value.trim());
                         }
                       },
                     ),
@@ -273,19 +261,15 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   }
 
   Widget _buildMetricTile({
-    required BuildContext context,
     required String label,
     required String value,
     required IconData icon,
     required Color accentColor,
-    required bool isDark,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: isDark
-            ? Colors.white.withValues(alpha: 0.04)
-            : Colors.grey[50],
+        color: const Color(0xFFFBF9F5),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: accentColor.withValues(alpha: 0.2),
@@ -295,14 +279,14 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(7),
             decoration: BoxDecoration(
-              color: accentColor.withValues(alpha: 0.15),
-              borderRadius: BorderRadius.circular(12),
+              color: accentColor.withValues(alpha: 0.14),
+              borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(icon, color: accentColor, size: 18),
+            child: Icon(icon, color: accentColor, size: 16),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 8),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -310,16 +294,17 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                 Text(
                   value,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 17,
                     fontWeight: FontWeight.w900,
+                    color: Colors.black87,
                   ),
                 ),
                 Text(
                   label,
                   style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                    color: isDark ? Colors.grey[400] : Colors.grey[600],
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.grey[600],
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_app_bar.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_community_judge_card.dart';
+import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_floating_nav_bar.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_hero_shield_card.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_primary_filter_card.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_quick_capsules.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_stats_insight_card.dart';
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 
 class EliteHomePage extends ConsumerStatefulWidget {
   const EliteHomePage({super.key});
@@ -22,6 +23,7 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
       body: SafeArea(
         child: Column(
           children: [
@@ -40,7 +42,7 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
                     EliteCommunityJudgeCard(),
                     EliteStatsInsightCard(),
                     EliteQuickCapsules(),
-                    SizedBox(height: 24),
+                    SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -48,13 +50,13 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigation(
+      bottomNavigationBar: EliteFloatingNavBar(
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
             _currentIndex = index;
           });
-          BottomNavigationHandler.handleNavigation(context, index);
+          EliteFloatingNavBar.handleEliteNavigation(context, index);
         },
       ),
     );
