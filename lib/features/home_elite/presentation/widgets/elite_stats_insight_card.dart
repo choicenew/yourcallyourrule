@@ -77,7 +77,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                         ),
                       ),
                       Text(
-                        '${l10n.timeSaved}: ~${(totalBlocked * 3.5).toInt()}',
+                        '${l10n.blockedCalls}: $totalBlocked',
                         style: const TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w700,
@@ -98,8 +98,8 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 ),
                 child: Row(
                   children: [
-                    _buildRangePill(l10n.week, 'Week'),
-                    _buildRangePill(l10n.month, 'Month'),
+                    _buildRangePill(l10n.thisWeek, 'Week'),
+                    _buildRangePill(l10n.thisMonth, 'Month'),
                   ],
                 ),
               ),
@@ -113,7 +113,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
             children: [
               Expanded(
                 child: _buildInsightMetric(
-                  label: l10n.blockedCallsToday,
+                  label: l10n.blockedCalls,
                   count: '$totalBlocked',
                   color: EliteDopamineTheme.sunsetTangerine,
                   icon: Icons.phone_disabled_rounded,
@@ -122,7 +122,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
               const SizedBox(width: 10),
               Expanded(
                 child: _buildInsightMetric(
-                  label: l10n.filteredSmsCount,
+                  label: l10n.smsFilterRules,
                   count: '$filteredSms',
                   color: EliteDopamineTheme.vibrantCoral,
                   icon: Icons.mark_chat_read_rounded,
@@ -141,7 +141,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    l10n.callTypeDistribution,
+                    l10n.blockTypeAnalysisTitle,
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w700,
@@ -149,7 +149,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                     ),
                   ),
                   Text(
-                    l10n.securityCheckCompleted,
+                    l10n.enabled,
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w600,
@@ -187,9 +187,9 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildLegendDot('${l10n.fraudRiskAnalysis} 60%', EliteDopamineTheme.vibrantCoral),
-                  _buildLegendDot('${l10n.telemarketing} 25%', EliteDopamineTheme.sunsetTangerine),
-                  _buildLegendDot('${l10n.robocall} 15%', EliteDopamineTheme.freshMint),
+                  _buildLegendDot('${l10n.callTypeBlocked} 60%', EliteDopamineTheme.vibrantCoral),
+                  _buildLegendDot('${l10n.callTypeMissed} 25%', EliteDopamineTheme.sunsetTangerine),
+                  _buildLegendDot('${l10n.callTypeSilenced} 15%', EliteDopamineTheme.freshMint),
                 ],
               ),
             ],
@@ -203,7 +203,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
               onPressed: _navigateToStatistics,
               icon: const Icon(Icons.bar_chart_rounded, size: 15),
               label: Text(
-                l10n.viewAll,
+                l10n.viewDetails,
                 style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w800),
               ),
               style: TextButton.styleFrom(

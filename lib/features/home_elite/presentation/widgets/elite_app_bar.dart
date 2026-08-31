@@ -73,7 +73,7 @@ class EliteAppBar extends StatelessWidget {
                   ShaderMask(
                     shaderCallback: (bounds) => EliteDopamineTheme.heroWarmGradient.createShader(bounds),
                     child: Text(
-                      l10n.appTitle,
+                      l10n.appName,
                       style: const TextStyle(
                         fontSize: 19,
                         fontWeight: FontWeight.w900,
@@ -94,7 +94,7 @@ class EliteAppBar extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        l10n.securityDashboardTitle,
+                        l10n.enabled,
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w800,
@@ -137,7 +137,7 @@ class EliteAppBar extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          l10n.proFeaturesTitle,
+                          l10n.phoneRuleManagement,
                           style: const TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w800,

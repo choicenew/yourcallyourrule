@@ -745,11 +745,11 @@ class BackupRestoreService {
       dialogTitle: 'Select backup file',
     );
 
-    if (result == null || result.files.isEmpty) {
+    if (result == null || result.isEmpty) {
       throw Exception('No file selected');
     }
 
-    return result.files.first.path!;
+    return result.first.path!;
   }
 
   Future<String> selectBackupDestination(Uint8List bytes) async {
@@ -767,7 +767,7 @@ class BackupRestoreService {
       throw Exception('No destination selected');
     }
 
-    return result;
+    return result.toFilePath();
   }
 
   void _ensureInitialized() {

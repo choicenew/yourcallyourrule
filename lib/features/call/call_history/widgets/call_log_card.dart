@@ -387,7 +387,7 @@ class CallLogCard extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildDetailRow(AppLocalizations.of(context)!.phoneNumber, log.phoneNumber),
-            if (log.name != null) _buildDetailRow(AppLocalizations.of(context)!.contactName, log.name!),
+            if (log.name != null) _buildDetailRow(AppLocalizations.of(context)!.name, log.name!),
             _buildDetailRow(AppLocalizations.of(context)!.callType, callTypeInfo.text),
             _buildDetailRow(AppLocalizations.of(context)!.callTime, formattedTime),
             _buildDetailRow(AppLocalizations.of(context)!.label, translatedLabelText),
@@ -446,19 +446,21 @@ class CallLogCard extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
     switch (type) {
       case LocalCallType.blocked:
-        return _CallTypeInfo(icon: Icons.block_rounded, color: EliteDopamineTheme.vibrantCoral, text: l10n.blocked);
+        return _CallTypeInfo(icon: Icons.block_rounded, color: EliteDopamineTheme.vibrantCoral, text: l10n.callTypeBlocked);
       case LocalCallType.incoming:
-        return _CallTypeInfo(icon: Icons.call_received_rounded, color: EliteDopamineTheme.freshMint, text: l10n.incoming);
+        return _CallTypeInfo(icon: Icons.call_received_rounded, color: EliteDopamineTheme.freshMint, text: l10n.callTypeAnswered);
       case LocalCallType.outgoing:
-        return _CallTypeInfo(icon: Icons.call_made_rounded, color: EliteDopamineTheme.skyAzure, text: l10n.outgoing);
+        return _CallTypeInfo(icon: Icons.call_made_rounded, color: EliteDopamineTheme.skyAzure, text: l10n.callTypeOutgoing);
       case LocalCallType.missed:
-        return _CallTypeInfo(icon: Icons.call_missed_rounded, color: EliteDopamineTheme.sunsetTangerine, text: l10n.missed);
+        return _CallTypeInfo(icon: Icons.call_missed_rounded, color: EliteDopamineTheme.sunsetTangerine, text: l10n.callTypeMissed);
       case LocalCallType.rejected:
-        return _CallTypeInfo(icon: Icons.call_end_rounded, color: Colors.grey, text: l10n.rejected);
+        return _CallTypeInfo(icon: Icons.call_end_rounded, color: Colors.grey, text: l10n.callTypeRejected);
       case LocalCallType.silenced:
-        return _CallTypeInfo(icon: Icons.notifications_off_rounded, color: EliteDopamineTheme.warmSunAmber, text: l10n.silenced);
+        return _CallTypeInfo(icon: Icons.notifications_off_rounded, color: EliteDopamineTheme.warmSunAmber, text: l10n.callTypeSilenced);
+      case LocalCallType.voicemail:
+        return const _CallTypeInfo(icon: Icons.voicemail, color: Colors.purple, text: 'Voicemail');
       default:
-        return _CallTypeInfo(icon: Icons.phone_rounded, color: Colors.grey, text: l10n.unknown);
+        return _CallTypeInfo(icon: Icons.phone_rounded, color: Colors.grey, text: l10n.callTypeUnknown);
     }
   }
 }

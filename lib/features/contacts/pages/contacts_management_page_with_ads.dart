@@ -537,10 +537,10 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                     type: FileType.custom,
                     allowedExtensions: ['vcf', 'csv', 'yaml', 'json'],
                   );
-                  if (result != null) {
-                    final file = File(result.files.single.path!);
+                  if (result != null && result.isNotEmpty) {
+                    final file = File(result.first.path!);
                     final content = await file.readAsString();
-                    final extension = result.files.single.extension?.toLowerCase();
+                    final extension = result.first.extension?.toLowerCase();
                         final contactService = ref.read(contactServiceProvider);
                         final directory = await getExternalStorageDirectory();
                         switch (extension) {

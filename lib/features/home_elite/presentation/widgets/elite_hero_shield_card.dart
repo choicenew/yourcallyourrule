@@ -61,8 +61,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     final asyncStats = ref.watch(homeStatsProvider);
     final l10n = AppLocalizations.of(context)!;
 
-    final blockedToday = asyncStats.value?.blockedCallsCount ?? 0;
-    final totalRules = asyncStats.value?.totalRulesCount ?? 0;
+    final blockedToday = asyncStats.value?.todayBlocked ?? 0;
+    final totalRules = asyncStats.value?.totalRules ?? 0;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
@@ -160,7 +160,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                   ),
                                   const SizedBox(width: 3),
                                   Text(
-                                    l10n.securityDashboardTitle,
+                                    l10n.enabled,
                                     style: const TextStyle(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w900,
@@ -173,7 +173,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              l10n.securityDashboardTitle,
+                              l10n.appName,
                               style: const TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w900,
@@ -182,7 +182,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                             ),
                             const SizedBox(height: 2),
                             Text(
-                              l10n.securityCheckCompleted,
+                              l10n.callFilterRules,
                               style: TextStyle(
                                 fontSize: 11,
                                 color: Colors.grey[600],
@@ -201,7 +201,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                     children: [
                       Expanded(
                         child: _buildMetricTile(
-                          label: l10n.blockedCallsToday,
+                          label: l10n.blockedCalls,
                           value: '$blockedToday',
                           icon: Icons.shield_outlined,
                           accentColor: EliteDopamineTheme.vibrantCoral,
@@ -235,7 +235,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                       controller: _searchController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        hintText: l10n.searchNumberHint,
+                        hintText: l10n.enterPhoneNumberToStartSearch,
                         hintStyle: TextStyle(
                           fontSize: 12,
                           color: Colors.grey[500],

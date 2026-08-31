@@ -68,7 +68,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        l10n.filterControlTitle,
+                        l10n.callFilterRules,
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
@@ -76,7 +76,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                         ),
                       ),
                       Text(
-                        l10n.filterManagementDescription,
+                        l10n.callFilterRulesDescription,
                         style: TextStyle(
                           fontSize: 10,
                           color: Colors.grey[600],
@@ -90,7 +90,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                 onPressed: _navigateToFilterSettings,
                 icon: const Icon(Icons.settings_suggest_rounded, size: 15),
                 label: Text(
-                  l10n.advancedRuleSettingsTitle,
+                  l10n.phoneRuleManagement,
                   style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                 ),
                 style: TextButton.styleFrom(
@@ -109,8 +109,8 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               Expanded(
                 child: _buildDefenseOption(
                   index: 0,
-                  title: l10n.smartFilterTitle,
-                  subtitle: l10n.filterModeAuto,
+                  title: l10n.allowRules,
+                  subtitle: l10n.allowAllowedNumbers,
                   icon: Icons.shield_rounded,
                   activeColor: EliteDopamineTheme.freshMint,
                 ),
@@ -119,8 +119,8 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               Expanded(
                 child: _buildDefenseOption(
                   index: 1,
-                  title: l10n.strictFilterTitle,
-                  subtitle: l10n.filterModeStrict,
+                  title: l10n.blockRules,
+                  subtitle: l10n.blockActionDescription,
                   icon: Icons.gpp_bad_rounded,
                   activeColor: EliteDopamineTheme.vibrantCoral,
                 ),
@@ -129,8 +129,8 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               Expanded(
                 child: _buildDefenseOption(
                   index: 2,
-                  title: l10n.silenceModeTitle,
-                  subtitle: l10n.filterModeSilence,
+                  title: l10n.silentRules,
+                  subtitle: l10n.silenceActionDescription,
                   icon: Icons.notifications_paused_rounded,
                   activeColor: EliteDopamineTheme.warmSunAmber,
                 ),
@@ -158,10 +158,10 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                 Expanded(
                   child: Text(
                     _selectedDefenseLevel == 0
-                        ? l10n.smartFilterDescription
+                        ? l10n.allowAllowedNumbersDesc
                         : _selectedDefenseLevel == 1
-                            ? l10n.strictFilterDescription
-                            : l10n.silenceModeDescription,
+                            ? l10n.blockActionDescription
+                            : l10n.silenceActionDescription,
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w500,

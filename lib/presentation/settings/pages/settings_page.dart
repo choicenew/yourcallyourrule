@@ -55,7 +55,7 @@ class SettingsPage extends ConsumerWidget {
                 icon: Icons.workspace_premium_rounded,
                 iconColor: EliteDopamineTheme.warmSunAmber,
                 title: l10n.purchaseTitle,
-                subtitle: l10n.purchaseDescription,
+                subtitle: l10n.purchaseSubtitle,
                 onTap: () => GoRouter.of(context).push('/purchase'),
               ),
               _buildDivider(),
@@ -63,15 +63,15 @@ class SettingsPage extends ConsumerWidget {
                 icon: Icons.translate_rounded,
                 iconColor: EliteDopamineTheme.sunsetTangerine,
                 title: l10n.languageSettingsTitle,
-                subtitle: l10n.languageSettingsDescription,
+                subtitle: l10n.languageSettingsSubtitle,
                 onTap: () => GoRouter.of(context).push('/language-settings'),
               ),
               _buildDivider(),
               _buildTile(
                 icon: Icons.palette_rounded,
                 iconColor: EliteDopamineTheme.softLilac,
-                title: l10n.themeTitle,
-                subtitle: l10n.themeDescription,
+                title: l10n.themeSettingsTitle,
+                subtitle: l10n.themeSettingsSubtitle,
                 onTap: () {
                   showDialog(
                     context: context,
@@ -84,7 +84,7 @@ class SettingsPage extends ConsumerWidget {
                 icon: Icons.sync_rounded,
                 iconColor: EliteDopamineTheme.freshMint,
                 title: l10n.autoUpdateTitle,
-                subtitle: l10n.autoUpdateDescription,
+                subtitle: l10n.autoUpdateSubtitle,
                 onTap: () => GoRouter.of(context).push('/auto-update'),
               ),
             ],
@@ -117,8 +117,8 @@ class SettingsPage extends ConsumerWidget {
               _buildTile(
                 icon: Icons.shield_outlined,
                 iconColor: EliteDopamineTheme.skyAzure,
-                title: l10n.specialPermissionsTitle,
-                subtitle: l10n.specialPermissionsDescription,
+                title: l10n.permissionTitle,
+                subtitle: l10n.permissionSubtitle,
                 onTap: () => GoRouter.of(context).push('/special-permissions'),
               ),
               _buildDivider(),
@@ -144,15 +144,15 @@ class SettingsPage extends ConsumerWidget {
                 icon: Icons.public_rounded,
                 iconColor: EliteDopamineTheme.skyAzure,
                 title: l10n.databaseSyncTitle,
-                subtitle: l10n.databaseSyncDescription,
+                subtitle: l10n.localDatabaseSyncDescription,
                 onTap: () => GoRouter.of(context).push('/country-sync-settings'),
               ),
               _buildDivider(),
               _buildTile(
                 icon: Icons.cloud_sync_rounded,
                 iconColor: EliteDopamineTheme.freshMint,
-                title: l10n.supabaseTitle,
-                subtitle: l10n.supabaseDescription,
+                title: l10n.databaseSyncTitle,
+                subtitle: l10n.localDatabaseSyncDescription,
                 onTap: () => GoRouter.of(context).push('/supabase-settings'),
               ),
               _buildDivider(),
@@ -177,7 +177,7 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 4. 社区与关于
-          _buildSectionHeader(l10n.aboutAppTitle, Icons.info_outline_rounded, EliteDopamineTheme.softLilac),
+          _buildSectionHeader(l10n.aboutTitle, Icons.info_outline_rounded, EliteDopamineTheme.softLilac),
           _buildGroupedCard(
             context: context,
             glowColor: EliteDopamineTheme.softLilac,
@@ -186,23 +186,23 @@ class SettingsPage extends ConsumerWidget {
                 icon: Icons.how_to_vote_rounded,
                 iconColor: EliteDopamineTheme.warmSunAmber,
                 title: l10n.deletionProposals,
-                subtitle: l10n.deletionProposalsDescription,
+                subtitle: l10n.deletionProposalDescription,
                 onTap: () => GoRouter.of(context).push('/deletion-proposal'),
               ),
               _buildDivider(),
               _buildTile(
                 icon: Icons.info_rounded,
                 iconColor: EliteDopamineTheme.softLilac,
-                title: l10n.aboutAppTitle,
-                subtitle: l10n.aboutAppDescription,
+                title: l10n.aboutTitle,
+                subtitle: l10n.aboutSubtitle,
                 onTap: () {
                   showModalBottomSheet(
                     context: context,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
                     ),
-                    builder: (context) => const Padding(
-                      padding: EdgeInsets.all(16.0),
+                    builder: (context) => Padding(
+                      padding: const EdgeInsets.all(16.0),
                       child: AboutCard(),
                     ),
                   );

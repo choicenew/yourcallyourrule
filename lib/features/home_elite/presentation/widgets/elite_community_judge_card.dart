@@ -104,9 +104,9 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                       color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.15),
                                       borderRadius: BorderRadius.circular(6),
                                     ),
-                                    child: Text(
-                                      l10n.actionTag('HOT'),
-                                      style: const TextStyle(
+                                    child: const Text(
+                                      'HOT',
+                                      style: TextStyle(
                                         fontSize: 9,
                                         fontWeight: FontWeight.w900,
                                         color: EliteDopamineTheme.vibrantCoral,
@@ -133,7 +133,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                           size: 14,
                           color: EliteDopamineTheme.sunsetTangerine,
                         ),
-                        tooltip: l10n.viewAllProposals,
+                        tooltip: l10n.viewDetails,
                       ),
                     ],
                   ),
@@ -162,7 +162,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Text(
-                                l10n.telemarketing,
+                                l10n.actionBlock,
                                 style: const TextStyle(
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
@@ -172,7 +172,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                             ),
                             const Spacer(),
                             Text(
-                              '88% ${l10n.agreeRate}',
+                              l10n.agreeVotes(88),
                               style: TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.w800,
@@ -193,7 +193,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                         ),
                         const SizedBox(height: 3),
                         Text(
-                          l10n.proposalReason,
+                          l10n.deletionProposalDescription,
                           style: TextStyle(
                             fontSize: 11,
                             color: Colors.grey[600],
@@ -210,12 +210,12 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                   onPressed: () {
                                     setState(() {
                                       _hasVoted = true;
-                                      _votedAction = l10n.support;
+                                      _votedAction = l10n.voteAgree;
                                     });
                                   },
                                   icon: const Icon(Icons.thumb_up_rounded, size: 14),
                                   label: Text(
-                                    l10n.support,
+                                    l10n.voteAgree,
                                     style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                                   ),
                                   style: ElevatedButton.styleFrom(
@@ -235,12 +235,12 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                   onPressed: () {
                                     setState(() {
                                       _hasVoted = true;
-                                      _votedAction = l10n.oppose;
+                                      _votedAction = l10n.voteDisagree;
                                     });
                                   },
                                   icon: const Icon(Icons.thumb_down_alt_rounded, size: 14),
                                   label: Text(
-                                    l10n.oppose,
+                                    l10n.voteDisagree,
                                     style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                                   ),
                                   style: OutlinedButton.styleFrom(
@@ -270,7 +270,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                 const Icon(Icons.check_circle_rounded, color: EliteDopamineTheme.freshMint, size: 15),
                                 const SizedBox(width: 5),
                                 Text(
-                                  '${l10n.voteSuccess}: $_votedAction',
+                                  '${l10n.voteSubmitted}: $_votedAction',
                                   style: const TextStyle(
                                     fontSize: 11,
                                     fontWeight: FontWeight.bold,
@@ -304,7 +304,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              l10n.viewAll,
+                              l10n.viewDetails,
                               style: const TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
