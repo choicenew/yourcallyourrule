@@ -110,22 +110,22 @@ class EliteFloatingNavBar extends StatelessWidget {
     );
   }
 
-  static void handleEliteNavigation(BuildContext context, int index) {
+  static Future<void> handleEliteNavigation(BuildContext context, int index) async {
     switch (index) {
       case 0:
-        context.go('/${AppRouter.eliteHome}');
+        context.goNamed(AppRouter.eliteHome);
         break;
       case 1:
-        context.push('/${AppRouter.callHistory}');
+        await context.pushNamed(AppRouter.callHistory);
         break;
       case 2:
-        context.push('/${AppRouter.contactsManagement}');
+        await context.pushNamed(AppRouter.contactsManagement);
         break;
       case 3:
-        context.push('/${AppRouter.dashboard}');
+        await context.pushNamed(AppRouter.dashboard);
         break;
       case 4:
-        context.push('/${AppRouter.settings}');
+        await context.pushNamed(AppRouter.settings);
         break;
     }
   }

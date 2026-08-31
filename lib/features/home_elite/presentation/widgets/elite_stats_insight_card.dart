@@ -25,7 +25,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
   String _selectedRange = 'Week';
 
   void _navigateToStatistics() {
-    context.push('/${AppRouter.callStatistics}');
+    context.pushNamed(AppRouter.callStatistics);
   }
 
   @override
@@ -34,13 +34,38 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
     final l10n = AppLocalizations.of(context)!;
 
     final totalBlocked = stats.blockedCallsCount;
-    final filteredSms = stats.filteredSmsCount;
+    final totalRules = stats.blockRulesCount + stats.allowRulesCount + stats.silenceRulesCount;
+    final blockRules = stats.blockRulesCount;
+    final allowRules = stats.allowRulesCount;
+    final silenceRules = stats.silenceRulesCount;
+
+    final int sum = blockRules + allowRules + silenceRules;
+    final int blockedPct = sum > 0 ? ((blockRules / sum) * 100).round() : (totalBlocked > 0 ? 100 : 0);
+    final int allowPct = sum > 0 ? ((allowRules / sum) * 100).round() : 0;
+    final int silencePct = sum > 0 ? (100 - blockedPct - allowPct).clamp(0, 100) : 0;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
-        glowColor: EliteDopamineTheme.sunsetTangerine,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.2,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 16,
+            offset: const Offset(0, 4),
+          ),
+          BoxShadow(
+            color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.08),
+            blurRadius: 24,
+            spreadRadius: 1,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
       padding: const EdgeInsets.all(18.0),
       child: Column(
@@ -108,7 +133,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
 
           const SizedBox(height: 14),
 
-          // 多巴胺拦截成就指标
+          // 多巴胺真实统计成就指标
           Row(
             children: [
               Expanded(
@@ -122,10 +147,10 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
               const SizedBox(width: 10),
               Expanded(
                 child: _buildInsightMetric(
-                  label: l10n.smsFilterRules,
-                  count: '$filteredSms',
-                  color: EliteDopamineTheme.vibrantCoral,
-                  icon: Icons.mark_chat_read_rounded,
+                  label: l10n.phoneRuleManagement,
+                  count: '$totalRules',
+                  color: EliteDopamineTheme.freshMint,
+                  icon: Icons.rule_folder_rounded,
                 ),
               ),
             ],
@@ -133,7 +158,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
 
           const SizedBox(height: 12),
 
-          // 拦截类型分布多巴胺进度条
+          // 拦截类型分布多巴胺进度条（根据真实数据计算）
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -163,33 +188,40 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 borderRadius: BorderRadius.circular(6),
                 child: SizedBox(
                   height: 8,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 60,
-                        child: Container(color: EliteDopamineTheme.vibrantCoral),
-                      ),
-                      const SizedBox(width: 2),
-                      Expanded(
-                        flex: 25,
-                        child: Container(color: EliteDopamineTheme.sunsetTangerine),
-                      ),
-                      const SizedBox(width: 2),
-                      Expanded(
-                        flex: 15,
-                        child: Container(color: EliteDopamineTheme.freshMint),
-                      ),
-                    ],
-                  ),
+                  child: sum > 0
+                      ? Row(
+                          children: [
+                            if (blockedPct > 0)
+                              Expanded(
+                                flex: blockedPct,
+                                child: Container(color: EliteDopamineTheme.vibrantCoral),
+                              ),
+                            if (blockedPct > 0 && (allowPct > 0 || silencePct > 0)) const SizedBox(width: 2),
+                            if (allowPct > 0)
+                              Expanded(
+                                flex: allowPct,
+                                child: Container(color: EliteDopamineTheme.sunsetTangerine),
+                              ),
+                            if (allowPct > 0 && silencePct > 0) const SizedBox(width: 2),
+                            if (silencePct > 0)
+                              Expanded(
+                                flex: silencePct,
+                                child: Container(color: EliteDopamineTheme.freshMint),
+                              ),
+                          ],
+                        )
+                      : Container(
+                          color: const Color(0xFFE8E5DF),
+                        ),
                 ),
               ),
               const SizedBox(height: 6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildLegendDot('${l10n.callTypeBlocked} 60%', EliteDopamineTheme.vibrantCoral),
-                  _buildLegendDot('${l10n.callTypeMissed} 25%', EliteDopamineTheme.sunsetTangerine),
-                  _buildLegendDot('${l10n.callTypeSilenced} 15%', EliteDopamineTheme.freshMint),
+                  _buildLegendDot('${l10n.blockRules} $blockedPct%', EliteDopamineTheme.vibrantCoral),
+                  _buildLegendDot('${l10n.allowRules} $allowPct%', EliteDopamineTheme.sunsetTangerine),
+                  _buildLegendDot('${l10n.silentRules} $silencePct%', EliteDopamineTheme.freshMint),
                 ],
               ),
             ],

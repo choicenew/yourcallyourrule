@@ -50,9 +50,9 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   void _handleSearchSubmit(String query) {
     final trimmed = query.trim();
     if (trimmed.isNotEmpty) {
-      context.push('/${AppRouter.search}', extra: trimmed);
+      context.pushNamed(AppRouter.search, extra: trimmed);
     } else {
-      context.push('/${AppRouter.verificationPage}');
+      context.pushNamed(AppRouter.verificationPage);
     }
   }
 
@@ -66,24 +66,41 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
-        glowColor: EliteDopamineTheme.warmSunAmber,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.2,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 16,
+            offset: const Offset(0, 4),
+          ),
+          BoxShadow(
+            color: EliteDopamineTheme.freshMint.withValues(alpha: 0.08),
+            blurRadius: 24,
+            spreadRadius: 2,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
         child: Stack(
           children: [
-            // 暖阳背景光晕
+            // 柔和多巴胺光晕装饰
             Positioned(
-              top: -50,
-              right: -50,
+              top: -40,
+              right: -40,
               child: Container(
-                width: 160,
-                height: 160,
+                width: 140,
+                height: 140,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.15),
+                  color: EliteDopamineTheme.skyAzure.withValues(alpha: 0.10),
                 ),
               ),
             ),
@@ -91,8 +108,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
               bottom: -40,
               left: -40,
               child: Container(
-                width: 140,
-                height: 140,
+                width: 130,
+                height: 130,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: EliteDopamineTheme.freshMint.withValues(alpha: 0.12),
@@ -106,7 +123,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 上部：能量盾 + 状态文字
+                  // 上部：能量盾 + 防护引擎状态（去除与 App Bar 重复的标题）
                   Row(
                     children: [
                       AnimatedBuilder(
@@ -115,14 +132,18 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                           return Transform.scale(
                             scale: _pulseAnimation.value,
                             child: Container(
-                              width: 64,
-                              height: 64,
+                              width: 60,
+                              height: 60,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                gradient: EliteDopamineTheme.heroWarmGradient,
+                                gradient: const LinearGradient(
+                                  colors: [Color(0xFF2DD4BF), Color(0xFF10B981)],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.4),
+                                    color: EliteDopamineTheme.freshMint.withValues(alpha: 0.35),
                                     blurRadius: 16,
                                     spreadRadius: 2,
                                   ),
@@ -132,14 +153,14 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                 child: Icon(
                                   Icons.verified_user_rounded,
                                   color: Colors.white,
-                                  size: 32,
+                                  size: 30,
                                 ),
                               ),
                             ),
                           );
                         },
                       ),
-                      const SizedBox(width: 16),
+                      const SizedBox(width: 14),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -160,7 +181,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                   ),
                                   const SizedBox(width: 3),
                                   Text(
-                                    l10n.enabled,
+                                    l10n.enabledStatus,
                                     style: const TextStyle(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w900,
@@ -173,16 +194,16 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              l10n.appName,
+                              l10n.smartCallerId,
                               style: const TextStyle(
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w900,
                                 color: Colors.black87,
                               ),
                             ),
                             const SizedBox(height: 2),
                             Text(
-                              l10n.callFilterRules,
+                              l10n.callFilterRulesDescription,
                               style: TextStyle(
                                 fontSize: 11,
                                 color: Colors.grey[600],

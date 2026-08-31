@@ -1,0 +1,29 @@
+Warning: Flutter support for your project's Android Gradle Plugin version (Android Gradle Plugin version 9.0.0) will soon be dropped. Please upgrade your Android Gradle Plugin version to a version of at least Android Gradle Plugin version 9.0.1 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's AGP version is typically defined in the plugins block of the `settings.gradle` file (C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\android/settings.gradle), by a plugin with the id of com.android.application. 
+If you don't see a plugins block, your project was likely created with an older template version. In this case it is most likely defined in the top-level build.gradle file (C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\android/build.gradle) by the following line in the dependencies block of the buildscript: "classpath 'com.android.tools.build:gradle:<version>'".
+
+Warning: Flutter support for your project's Kotlin version (2.2.20) will soon be dropped. Please upgrade your Kotlin version to a version of at least 2.3.20 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's KGP version is typically defined in the plugins block of the `settings.gradle` file (C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\android/settings.gradle), by a plugin with the id of org.jetbrains.kotlin.android. 
+If you don't see a plugins block, your project was likely created with an older template version, in which case it is most likely defined in the top-level build.gradle file (C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\android/build.gradle) by the ext.kotlin_version property.
+WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): cronet_http, firebase_analytics, firebase_app_check, floating_window_android, flutter_js, google_sign_in_android, msal_auth, shared_preferences_android, sim_card_code, sim_reader, ua_client_hints, webview_flutter_android, workmanager_android
+Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
+
+
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+Warning: Flutter support for your project's Android Gradle Plugin version (Android Gradle Plugin version 9.0.0) will soon be dropped. Please upgrade your Android Gradle Plugin version to a version of at least Android Gradle Plugin version 9.0.1 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's AGP version is typically defined in the plugins block of the `settings.gradle` file (C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\android/settings.gradle), by a plugin with the id of com.android.application. 
+If you don't see a plugins block, your project was likely created with an older template version. In this case it is most likely defined in the top-level build.gradle file (C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\android/build.gradle) by the following line in the dependencies block of the buildscript: "classpath 'com.android.tools.build:gradle:<version>'".
+
+Warning: Flutter support for your project's Kotlin version (2.2.20) will soon be dropped. Please upgrade your Kotlin version to a version of at least 2.3.20 soon.
+Alternatively, use the flag "--android-skip-build-dependency-validation" to bypass this check.
+
+Potential fix: Your project's KGP version is typically defined in the plugins block of the `settings.gradle` file (C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\android/settings.gradle), by a plugin with the id of org.jetbrains.kotlin.android. 
+If you don't see a plugins block, your project was likely created with an older template version, in which case it is most likely defined in the top-level build.gradle file (C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\android/build.gradle) by the ext.kotlin_version property.

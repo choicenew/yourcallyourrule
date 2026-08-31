@@ -176,20 +176,12 @@ class SettingsPage extends ConsumerWidget {
 
           const SizedBox(height: 20),
 
-          // 4. 社区与关于
+          // 4. 关于应用
           _buildSectionHeader(l10n.aboutTitle, Icons.info_outline_rounded, EliteDopamineTheme.softLilac),
           _buildGroupedCard(
             context: context,
             glowColor: EliteDopamineTheme.softLilac,
             children: [
-              _buildTile(
-                icon: Icons.how_to_vote_rounded,
-                iconColor: EliteDopamineTheme.warmSunAmber,
-                title: l10n.deletionProposals,
-                subtitle: l10n.deletionProposalDescription,
-                onTap: () => GoRouter.of(context).push('/deletion-proposal'),
-              ),
-              _buildDivider(),
               _buildTile(
                 icon: Icons.info_rounded,
                 iconColor: EliteDopamineTheme.softLilac,

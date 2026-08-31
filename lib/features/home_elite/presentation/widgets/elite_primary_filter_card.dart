@@ -1,14 +1,15 @@
-// -----------------------------------------------------------------------------
-// 文件: elite_primary_filter_card.dart
-// 描述: Elite 一级拦截控制中心，提供直观的防护档位切换与卡槽规则直达。
-// -----------------------------------------------------------------------------
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/call/call_filter/providers/enhanced_filter_config_provider.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
+import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
+import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
+import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
+import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -20,15 +21,27 @@ class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
   ConsumerState<ElitePrimaryFilterCard> createState() => _ElitePrimaryFilterCardState();
 }
 
-class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard> {
+class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
+    with SingleTickerProviderStateMixin {
   int _selectedDefenseLevel = 0; // 0: 智能防护, 1: 强力拦截, 2: 标记与静音
+  bool _showAdvancedSettings = false;
+  TabController? _simTabController;
+
+  @override
+  void dispose() {
+    _simTabController?.dispose();
+    super.dispose();
+  }
 
   void _navigateToFilterSettings() {
-    context.push('/${AppRouter.filterSettings}');
+    context.pushNamed(AppRouter.filterSettings);
   }
 
   void _navigateToSimSlotRules() {
-    context.push('/${AppRouter.simSlotRuleWithAds}/0');
+    context.pushNamed(
+      AppRouter.simSlotRuleWithAds,
+      pathParameters: {'simSlotIndex': '0'},
+    );
   }
 
   @override
@@ -37,9 +50,26 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
-        glowColor: EliteDopamineTheme.sunsetTangerine,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.2,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 16,
+            offset: const Offset(0, 4),
+          ),
+          BoxShadow(
+            color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.08),
+            blurRadius: 24,
+            spreadRadius: 1,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
       padding: const EdgeInsets.all(18.0),
       child: Column(
@@ -132,7 +162,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                   title: l10n.silentRules,
                   subtitle: l10n.silenceActionDescription,
                   icon: Icons.notifications_paused_rounded,
-                  activeColor: EliteDopamineTheme.warmSunAmber,
+                  activeColor: EliteDopamineTheme.sunsetTangerine,
                 ),
               ),
             ],
@@ -144,8 +174,11 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             decoration: BoxDecoration(
-              color: const Color(0xFFF7F5F0),
+              color: const Color(0xFFFBF9F5),
               borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: const Color(0xFFEDE8DF),
+              ),
             ),
             child: Row(
               children: [
@@ -193,6 +226,359 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               ],
             ),
           ),
+
+          const SizedBox(height: 10),
+
+          // 展开/收起完整高级过滤规则总控按钮
+          InkWell(
+            onTap: () {
+              setState(() {
+                _showAdvancedSettings = !_showAdvancedSettings;
+              });
+            },
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+              decoration: BoxDecoration(
+                color: _showAdvancedSettings
+                    ? EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.1)
+                    : const Color(0xFFF7F5F0),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    _showAdvancedSettings ? Icons.tune_rounded : Icons.tune_outlined,
+                    size: 14,
+                    color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    _showAdvancedSettings ? l10n.closeButton : l10n.filterManagement,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w800,
+                      color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[800],
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  Icon(
+                    _showAdvancedSettings ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded,
+                    size: 16,
+                    color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // 高级原生多巴胺拦截管理控件
+          if (_showAdvancedSettings) ...[
+            const SizedBox(height: 12),
+            _buildAdvancedFilterSettingsSection(l10n),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAdvancedFilterSettingsSection(AppLocalizations l10n) {
+    final enhancedConfigAsync = ref.watch(enhancedFilterConfigProvider);
+
+    return enhancedConfigAsync.when(
+      data: (enhancedConfig) {
+        final isSimSlotRuleEnabled = enhancedConfig.filterEnabledMap['SimSlotRuleService'] ?? false;
+        if (isSimSlotRuleEnabled) {
+          return _buildDopamineSimSlotContent(l10n);
+        } else {
+          return _buildDopamineGlobalFilterList(l10n, enhancedConfig);
+        }
+      },
+      loading: () => const Center(
+        child: Padding(
+          padding: EdgeInsets.all(12),
+          child: CircularProgressIndicator(strokeWidth: 2),
+        ),
+      ),
+      error: (err, _) => Center(
+        child: Text(
+          l10n.dataLoadFailure(err.toString()),
+          style: const TextStyle(fontSize: 11, color: Colors.grey),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDopamineGlobalFilterList(AppLocalizations l10n, dynamic enhancedConfig) {
+    final isSimSlotEnabled = enhancedConfig.filterEnabledMap['SimSlotRuleService'] ?? false;
+
+    // SIM 卡槽规则总开关
+    final allRulesCountProvider = FutureProvider<int>((ref) async {
+      final service = ref.watch(simSlotRuleServiceProvider);
+      final rules = await service.getAllSimSlotRules();
+      return rules.length;
+    });
+    final rulesCount = ref.watch(allRulesCountProvider).value ?? 0;
+
+    // 本地计数过滤
+    final localConfig = ref.watch(localCountFilterConfigProvider.select((v) => v.value));
+    final isLocalCountEnabled = localConfig?.enableLocalCountFilter ?? false;
+
+    // 云端远程库过滤
+    final remoteConfig = ref.watch(remoteNumberFilterConfigProvider.select((v) => v.value));
+    final isRemoteEnabled = remoteConfig?.enableRemoteNumberFilter ?? false;
+
+    // 时间拦截器
+    final timeConfig = ref.watch(timeInterceptorConfigProvider.select((v) => v.value));
+    final isTimeEnabled = timeConfig?.shouldIntercept ?? false;
+
+    return Column(
+      children: [
+        _buildDopamineSwitchTile(
+          icon: Icons.sim_card_outlined,
+          iconColor: EliteDopamineTheme.skyAzure,
+          title: l10n.simCardFilterRules,
+          subtitle: l10n.simCardFilterRulesDescription,
+          badgeText: '$rulesCount',
+          value: isSimSlotEnabled,
+          onChanged: (val) {
+            final notifier = ref.read(enhancedFilterConfigProvider.notifier);
+            val ? notifier.enableFilter('SimSlotRuleService') : notifier.disableFilter('SimSlotRuleService');
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildDopamineSwitchTile(
+          icon: Icons.filter_alt_outlined,
+          iconColor: EliteDopamineTheme.sunsetTangerine,
+          title: l10n.localCountFilter,
+          subtitle: l10n.localCountFilterDescription,
+          badgeText: localConfig != null ? '${localConfig.countThreshold}' : null,
+          value: isLocalCountEnabled,
+          onChanged: (val) {
+            if (localConfig != null) {
+              ref.read(localCountFilterConfigProvider.notifier).updateConfig(
+                    localConfig.copyWith(enableLocalCountFilter: val),
+                  );
+            }
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildDopamineSwitchTile(
+          icon: Icons.cloud_outlined,
+          iconColor: EliteDopamineTheme.softLilac,
+          title: l10n.remoteNumberFilter,
+          subtitle: l10n.remoteNumberFilterDescription,
+          badgeText: remoteConfig != null ? '${remoteConfig.countThreshold}' : null,
+          value: isRemoteEnabled,
+          onChanged: (val) {
+            if (remoteConfig != null) {
+              ref.read(remoteNumberFilterConfigProvider.notifier).updateConfig(
+                    remoteConfig.copyWith(enableRemoteNumberFilter: val),
+                  );
+            }
+          },
+        ),
+        const SizedBox(height: 8),
+        _buildDopamineSwitchTile(
+          icon: Icons.timer_outlined,
+          iconColor: EliteDopamineTheme.freshMint,
+          title: l10n.timeInterceptor,
+          subtitle: l10n.timeInterceptorDescription,
+          badgeText: timeConfig != null ? '${timeConfig.duration.inMinutes}m' : null,
+          value: isTimeEnabled,
+          onChanged: (val) {
+            if (timeConfig != null) {
+              ref.read(timeInterceptorConfigProvider.notifier).updateShouldIntercept(val);
+            }
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDopamineSimSlotContent(AppLocalizations l10n) {
+    final simCardsAsync = ref.watch(simCardsProvider);
+
+    return simCardsAsync.when(
+      data: (simCards) {
+        if (simCards.isEmpty) {
+          return Center(
+            child: Text(
+              l10n.noSimCardsDetected,
+              style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+            ),
+          );
+        }
+
+        if (_simTabController == null || _simTabController!.length != simCards.length) {
+          _simTabController?.dispose();
+          _simTabController = TabController(length: simCards.length, vsync: this);
+        }
+
+        return Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: const Color(0xFFF7F5F0),
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: TabBar(
+                controller: _simTabController,
+                indicator: BoxDecoration(
+                  gradient: EliteDopamineTheme.heroWarmGradient,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                indicatorSize: TabBarIndicatorSize.tab,
+                dividerColor: Colors.transparent,
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.grey[700],
+                labelStyle: const TextStyle(fontWeight: FontWeight.w800, fontSize: 11),
+                tabs: simCards.map((sim) {
+                  final slot = sim.simSlotIndex ?? 0;
+                  return Tab(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.sim_card_outlined, size: 14),
+                        const SizedBox(width: 4),
+                        Text('SIM ${slot + 1} (${sim.carrierName ?? ""})'),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+            const SizedBox(height: 10),
+            _buildSimSlotRulesList(l10n, simCards[_simTabController?.index ?? 0].simSlotIndex ?? 0),
+          ],
+        );
+      },
+      loading: () => const Center(
+        child: Padding(
+          padding: EdgeInsets.all(12),
+          child: CircularProgressIndicator(strokeWidth: 2),
+        ),
+      ),
+      error: (err, _) => Center(child: Text(err.toString())),
+    );
+  }
+
+  Widget _buildSimSlotRulesList(AppLocalizations l10n, int simSlot) {
+    return Column(
+      children: [
+        _buildDopamineSwitchTile(
+          icon: Icons.filter_alt_outlined,
+          iconColor: EliteDopamineTheme.sunsetTangerine,
+          title: l10n.localCountFilter,
+          subtitle: l10n.localCountFilterDescription,
+          value: true,
+          onChanged: (_) {},
+        ),
+        const SizedBox(height: 8),
+        _buildDopamineSwitchTile(
+          icon: Icons.cloud_outlined,
+          iconColor: EliteDopamineTheme.softLilac,
+          title: l10n.remoteNumberFilter,
+          subtitle: l10n.remoteNumberFilterDescription,
+          value: true,
+          onChanged: (_) {},
+        ),
+        const SizedBox(height: 8),
+        _buildDopamineSwitchTile(
+          icon: Icons.timer_outlined,
+          iconColor: EliteDopamineTheme.freshMint,
+          title: l10n.timeInterceptor,
+          subtitle: l10n.timeInterceptorDescription,
+          value: true,
+          onChanged: (_) {},
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDopamineSwitchTile({
+    required IconData icon,
+    required Color iconColor,
+    required String title,
+    required String subtitle,
+    String? badgeText,
+    required bool value,
+    required ValueChanged<bool> onChanged,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFBF9F5),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: value ? iconColor.withValues(alpha: 0.35) : const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(7),
+            decoration: BoxDecoration(
+              color: iconColor.withValues(alpha: 0.14),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Icon(icon, color: iconColor, size: 16),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    if (badgeText != null) ...[
+                      const SizedBox(width: 6),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                        decoration: BoxDecoration(
+                          color: iconColor.withValues(alpha: 0.15),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          badgeText,
+                          style: TextStyle(
+                            fontSize: 9,
+                            fontWeight: FontWeight.w800,
+                            color: iconColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  subtitle,
+                  style: TextStyle(
+                    fontSize: 9.5,
+                    color: Colors.grey[600],
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+          Switch.adaptive(
+            value: value,
+            activeColor: iconColor,
+            onChanged: onChanged,
+          ),
         ],
       ),
     );
@@ -220,20 +606,16 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           duration: const Duration(milliseconds: 220),
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
           decoration: BoxDecoration(
-            color: isSelected
-                ? activeColor.withValues(alpha: 0.12)
-                : const Color(0xFFFBF9F5),
+            color: isSelected ? activeColor.withValues(alpha: 0.12) : const Color(0xFFFBF9F5),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: isSelected
-                  ? activeColor
-                  : Colors.grey[300]!,
+              color: isSelected ? activeColor : const Color(0xFFEDE8DF),
               width: isSelected ? 2 : 1,
             ),
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                      color: activeColor.withValues(alpha: 0.2),
+                      color: activeColor.withValues(alpha: 0.18),
                       blurRadius: 8,
                       offset: const Offset(0, 3),
                     ),

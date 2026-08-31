@@ -31,15 +31,27 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
   int _currentNavIndex = 0;
 
   void _navigateToProHome() {
-    context.go('/${AppRouter.proHome}');
+    context.goNamed(AppRouter.proHome);
   }
 
-  void _handleNavTap(int index) {
-    if (_currentNavIndex == index) return;
+  Future<void> _handleNavTap(int index) async {
+    if (index == 0) {
+      if (_currentNavIndex != 0) {
+        setState(() {
+          _currentNavIndex = 0;
+        });
+      }
+      return;
+    }
     setState(() {
       _currentNavIndex = index;
     });
-    EliteFloatingNavBar.handleEliteNavigation(context, index);
+    await EliteFloatingNavBar.handleEliteNavigation(context, index);
+    if (mounted) {
+      setState(() {
+        _currentNavIndex = 0;
+      });
+    }
   }
 
   @override

@@ -21,14 +21,14 @@ class EliteAppBar extends StatelessWidget {
   });
 
   void _handleSettingsTap(BuildContext context) {
-    context.push('/${AppRouter.settings}');
+    context.pushNamed(AppRouter.settings);
   }
 
   void _handleProSwitch(BuildContext context) {
     if (onSwitchToPro != null) {
       onSwitchToPro!();
     } else {
-      context.go('/${AppRouter.proHome}');
+      context.goNamed(AppRouter.proHome);
     }
   }
 
@@ -42,72 +42,79 @@ class EliteAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // 品牌 Logo 与暖色多巴胺标题
-          Row(
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  gradient: EliteDopamineTheme.heroWarmGradient,
-                  borderRadius: BorderRadius.circular(14),
-                  boxShadow: [
-                    BoxShadow(
-                      color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.4),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: const Icon(
-                  Icons.shield_rounded,
-                  color: Colors.white,
-                  size: 22,
-                ),
-              ),
-              const SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ShaderMask(
-                    shaderCallback: (bounds) => EliteDopamineTheme.heroWarmGradient.createShader(bounds),
-                    child: Text(
-                      l10n.appName,
-                      style: const TextStyle(
-                        fontSize: 19,
-                        fontWeight: FontWeight.w900,
-                        letterSpacing: -0.5,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        width: 7,
-                        height: 7,
-                        decoration: const BoxDecoration(
-                          color: EliteDopamineTheme.freshMint,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        l10n.enabled,
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 0.5,
-                          color: Colors.grey[600],
-                        ),
+          // 品牌 Logo 与暖色多巴胺标题（使用 Expanded 防止小屏幕溢出）
+          Expanded(
+            child: Row(
+              children: [
+                Container(
+                  width: 38,
+                  height: 38,
+                  decoration: BoxDecoration(
+                    gradient: EliteDopamineTheme.heroWarmGradient,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.35),
+                        blurRadius: 8,
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
-                ],
-              ),
-            ],
+                  child: const Icon(
+                    Icons.shield_rounded,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ShaderMask(
+                        shaderCallback: (bounds) => EliteDopamineTheme.heroWarmGradient.createShader(bounds),
+                        child: Text(
+                          l10n.appName,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: -0.3,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: 6,
+                            height: 6,
+                            decoration: const BoxDecoration(
+                              color: EliteDopamineTheme.freshMint,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            l10n.enabled,
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: 0.5,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
+          const SizedBox(width: 8),
 
           // 右侧：Pro 模式切换胶囊 + 设置按钮
           Row(

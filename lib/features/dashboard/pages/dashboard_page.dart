@@ -2,19 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-
-// 引入两个独立的、自给自足的“智能”容器组件
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/call_statistics_container_widget.dart';
-import 'package:yourcallyourrule/features/deletion_proposal/widgets/statistics_container_widget.dart';
-
-// 引入通用组件
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/statistics_container_widget.dart';
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 数据分析仪表盘页面
-///
-/// 【最终形态】: 这是一个 `StatefulConsumerWidget`，它使用 `TabController`
-///             来管理两个独立的统计模块的切换。
 class DashboardPage extends ConsumerStatefulWidget {
   const DashboardPage({super.key});
 
@@ -39,36 +33,72 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
+      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.dataAnalysis),
-        // 【核心修正】: 使用了您提供的、正确的 AppBar 返回逻辑
+        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+        elevation: 0,
+        surfaceTintColor: Colors.transparent,
+        title: Text(
+          l10n.dataAnalysis,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w900,
+            color: Colors.black87,
+          ),
+        ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
           onPressed: () {
             if (GoRouter.of(context).canPop()) {
               context.pop();
             } else {
-              // 假设您的 Home 路由名称是 AppRouter.home
-              GoRouter.of(context).goNamed(AppRouter.home);
+              GoRouter.of(context).go('/');
             }
           },
         ),
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: [
-            Tab(text: AppLocalizations.of(context)!.callStatistics), // 本机统计
-            Tab(text: AppLocalizations.of(context)!.deletionProposals), // 社区贡献
-          ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(48),
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            padding: const EdgeInsets.all(4),
+            decoration: BoxDecoration(
+              color: const Color(0xFFF0EDE6),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: TabBar(
+              controller: _tabController,
+              indicator: BoxDecoration(
+                gradient: EliteDopamineTheme.heroWarmGradient,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.3),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              indicatorSize: TabBarIndicatorSize.tab,
+              dividerColor: Colors.transparent,
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.grey[700],
+              labelStyle: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
+              unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+              tabs: [
+                Tab(text: l10n.callStatistics),
+                Tab(text: l10n.deletionProposals),
+              ],
+            ),
+          ),
         ),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          // 第一个标签页：通话统计
+        children: const [
           CallStatisticsContainerWidget(),
-          
-          // 第二个标签页：社区贡献统计
           StatisticsContainerWidget(),
         ],
       ),
