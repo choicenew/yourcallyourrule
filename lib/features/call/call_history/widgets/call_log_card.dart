@@ -458,7 +458,7 @@ class CallLogCard extends ConsumerWidget {
       case LocalCallType.silenced:
         return _CallTypeInfo(icon: Icons.notifications_off_rounded, color: EliteDopamineTheme.warmSunAmber, text: l10n.callTypeSilenced);
       case LocalCallType.voicemail:
-        return const _CallTypeInfo(icon: Icons.voicemail, color: Colors.purple, text: 'Voicemail');
+        return _CallTypeInfo(icon: Icons.voicemail, color: Colors.purple, text: 'Voicemail');
       default:
         return _CallTypeInfo(icon: Icons.phone_rounded, color: Colors.grey, text: l10n.callTypeUnknown);
     }

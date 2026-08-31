@@ -490,8 +490,8 @@ class BackupRestorePage extends ConsumerWidget {
         allowedExtensions: ['json'],
       );
 
-      if (result != null && result.isNotEmpty) {
-        final file = File(result.first.path!);
+      if (result != null) {
+        final file = File(result.files.single.path!);
         try {
           final rules = await backupService.restoreRules(file.path);
 
@@ -584,8 +584,8 @@ class BackupRestorePage extends ConsumerWidget {
         allowedExtensions: ['json'],
       );
 
-      if (result != null && result.isNotEmpty) {
-        final file = File(result.first.path!);
+      if (result != null) {
+        final file = File(result.files.single.path!);
 
         // Show confirmation dialog
         final shouldRestore =

@@ -99,7 +99,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 child: Row(
                   children: [
                     _buildRangePill(l10n.thisWeek, 'Week'),
-                    _buildRangePill(l10n.thisMonth, 'Month'),
+                    _buildRangePill(l10n.month, 'Month'),
                   ],
                 ),
               ),

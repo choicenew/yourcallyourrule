@@ -80,7 +80,11 @@ class EliteQuickCapsules extends StatelessWidget {
                   subtitle: l10n.pluginManagement,
                   icon: Icons.extension_rounded,
                   color: EliteDopamineTheme.freshMint,
-                  gradient: EliteDopamineTheme.freshMintGradient,
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF34C759), Color(0xFF30D158)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
                   onTap: () => context.push('/${AppRouter.pluginManagement}'),
                 ),
               ),
@@ -144,7 +148,7 @@ class EliteQuickCapsules extends StatelessWidget {
               _buildCompactCapsule(
                 context: context,
                 icon: Icons.cloud_sync_outlined,
-                title: l10n.cloudSettings,
+                title: l10n.cloudSyncTitle,
                 color: EliteDopamineTheme.warmSunAmber,
                 onTap: () => context.push('/${AppRouter.cloudSettings}'),
               ),

@@ -196,14 +196,10 @@ class SettingsPage extends ConsumerWidget {
                 title: l10n.aboutTitle,
                 subtitle: l10n.aboutSubtitle,
                 onTap: () {
-                  showModalBottomSheet(
-                    context: context,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-                    ),
-                    builder: (context) => Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: AboutCard(),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AboutPage(),
                     ),
                   );
                 },

@@ -41,9 +41,9 @@ class ButtonPanel extends ConsumerWidget {
             onPressed: () async {
               try {
                 final result = await FilePicker.pickFiles();
-                if (result != null && result.isNotEmpty && result.first.path != null) {
+                if (result != null && result.files.single.path != null) {
                   // 1. 调用 manager 执行业务逻辑
-                  final newConfig = await configurationManager.importConfig(result.first.path!);
+                  final newConfig = await configurationManager.importConfig(result.files.single.path!);
                   // 2. 业务逻辑成功后，通知 Notifier 更新其状态，UI会自动刷新
                   notifier.updateStateWith(newConfig);
 

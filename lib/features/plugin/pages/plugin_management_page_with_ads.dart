@@ -291,12 +291,12 @@ class _PluginManagementPageWithAdsState
 
   Future<void> _addPluginFromLocal() async {
     try {
-      final result = await FilePicker.pickFiles(
+      FilePickerResult? result = await FilePicker.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['js'],
       );
 
-      if (result != null && result.isNotEmpty && result.first.path != null) {
+      if (result != null && result.files.single.path != null) {
         setState(() {
           _isLoading = true;
         });
@@ -581,13 +581,13 @@ class _PluginManagementPageWithAdsState
                   onTap: () async {
                     Navigator.of(context).pop();
                     // 导入插件列表的逻辑
-                    final result = await FilePicker
+                    FilePickerResult? result = await FilePicker
                         .pickFiles(
                           type: FileType.custom,
                           allowedExtensions: ['json'],
                         );
 
-                    if (result != null && result.isNotEmpty && result.first.path != null) {
+                    if (result != null && result.files.single.path != null) {
                       final pluginService = ref.read(
                         pluginManagerServiceProvider,
                       );
