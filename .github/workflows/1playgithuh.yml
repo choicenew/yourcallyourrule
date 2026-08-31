@@ -6,7 +6,7 @@ on:
   # 新增：当有代码推送到 main 分支时，检查是否需要运行
   push:
     branches:
-      - local  # 这里改成你的主分支名字，通常是 main 或者 master    
+      - elite-ui  # 这里改成你的主分支名字，通常是 main 或者 master    
 
 jobs:
   build_and_release:
