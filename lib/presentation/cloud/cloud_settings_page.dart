@@ -227,6 +227,7 @@ class CloudSettingsPage extends ConsumerWidget {
           ),
         ],
       ),
+      ),
     );
   }
 

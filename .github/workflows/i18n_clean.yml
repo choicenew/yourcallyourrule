@@ -1,0 +1,161 @@
+name: i18n Clean Unused Keys
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "运行模式：preview 只打印清单（安全），apply 真正修改 ARB 文件（会自动在仓库内备份并提交）"
+        required: true
+        default: "preview"
+        type: choice
+        options:
+          - preview
+          - apply
+      create_pr:
+        description: "apply 模式下是否创建 Pull Request 提交修改 + 备份"
+        required: false
+        default: true
+        type: boolean
+      pr_branch_name:
+        description: "PR 分支名"
+        required: false
+        default: "chore/i18n-clean-unused-keys"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  clean:
+    name: Clean unused translation keys (double-scan safe)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository (full history for create-pr)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify cleaner script
+        run: |
+          test -f "i18n_cleaner.py" || { echo "i18n_cleaner.py not found at project root"; exit 1; }
+
+      - name: Dry-run preview (always)
+        run: |
+          echo "=== 第一轮：dry-run 预览，打印将会删除的键 ==="
+          python i18n_cleaner.py
+
+      - name: Apply cleanup + 本地仓库内永久化备份（mode == apply）
+        if: ${{ github.event.inputs.mode == 'apply' }}
+        run: |
+          echo "=== 第二轮：apply 模式，执行清理并在仓库内生成永久化备份 ==="
+          # --nobackup 关闭脚本自己那份临时备份；下面我们自己生成 zip 并放进仓库
+          python i18n_cleaner.py --apply --nobackup
+
+      - name: 在仓库内生成永久化备份压缩包（apply）
+        if: ${{ github.event.inputs.mode == 'apply' }}
+        run: |
+          TS="$(date +%Y%m%d_%H%M%S)"
+          OUT_DIR="_l10n_permanent_backups"
+          mkdir -p "$OUT_DIR"
+          OUT_FILE="$OUT_DIR/l10n_backup_${TS}_run${GITHUB_RUN_ID}_att${GITHUB_RUN_ATTEMPT}.zip"
+          echo "备份时间戳=$TS  输出=$OUT_FILE"
+          (cd lib && zip -r "../$OUT_FILE" l10n -x "*.DS_Store")
+          echo "已生成备份大小: $(du -h "$OUT_FILE" | cut -f1)"
+          # 留一份 sha256，防止备份包本身被篡改
+          (cd "$OUT_DIR" && sha256sum "$(basename "$OUT_FILE")" > "$(basename "$OUT_FILE").sha256")
+          echo "备份校验文件: $OUT_FILE.sha256"
+          cat "$OUT_FILE.sha256"
+          # 把本次备份的路径写进环境变量，后续步骤/PR 里引用
+          echo "PERM_BACKUP_FILE=$OUT_FILE" >> "$GITHUB_ENV"
+          echo "PERM_BACKUP_SHASUM=$OUT_FILE.sha256" >> "$GITHUB_ENV"
+
+      - name: 可选：作为 Release Asset 再留一份永久备份（apply，只要仓库里有 tag 就会发布；没有也不报错）
+        if: ${{ github.event.inputs.mode == 'apply' }}
+        continue-on-error: true
+        run: |
+          # 只在当前 HEAD 恰好命中一个 tag 时，额外发布一个轻量 Release 用来存备份资产（永久化保存）
+          TAG="i18n-clean-backup-$(date +%Y%m%d-%H%M%S)"
+          echo "若发布 Release：tag=$TAG  asset=$PERM_BACKUP_FILE"
+          gh release create "$TAG" \
+            "$PERM_BACKUP_FILE" \
+            "$PERM_BACKUP_SHASUM" \
+            --title "i18n l10n backup $(date +%F_%T)" \
+            --notes "i18n_cleaner 清理前整份 l10n 目录的永久化备份。\n校验文件：${PERM_BACKUP_SHASUM}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 仅上传执行记录辅助 Artifact（短期 7 天，可有可无，非备份）
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: i18n-clean-run-log
+          path: |
+            i18n_reports/06_清理执行记录.md
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Show git diff + git status（apply）
+        if: ${{ github.event.inputs.mode == 'apply' }}
+        run: |
+          echo "=== 工作区变更清单（含备份 zip + sha256） ==="
+          git status --short || true
+          echo
+          echo "=== ARB 修改差异摘要 ==="
+          git --no-pager diff --stat -- "lib/l10n/*.arb" || true
+
+      - name: Create Pull Request（永久化提交：ARB 修改 + 本地备份 zip + sha256 + 执行记录）
+        if: ${{ github.event.inputs.mode == 'apply' && github.event.inputs.create_pr == 'true' }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.event.inputs.pr_branch_name || 'chore/i18n-clean-unused-keys' }}
+          base: ${{ github.head_ref || github.ref_name }}
+          add-paths: |
+            lib/l10n/**
+            _l10n_permanent_backups/**
+            i18n_reports/06_清理执行记录.md
+          commit-message: |
+            chore(l10n): remove unused keys + keep permanent backup zip
+          title: "chore(l10n): 清理未使用翻译键（含整份 l10n 永久化备份 zip 已提交进仓库）"
+          body: |
+            ## 本 PR 包含
+
+            1. `lib/l10n/*.arb`：删除脚本判定 100% 未使用的翻译键（同时删 `@key` 元数据）
+            2. **永久化备份（已提交在仓库里，Merge 之后会永久存在）**
+               - `${{ env.PERM_BACKUP_FILE }}`：清理前整份 l10n 目录的 zip
+               - `${{ env.PERM_BACKUP_SHASUM }}`：zip 的 sha256 校验文件，防止备份包被篡改
+            3. `i18n_reports/06_清理执行记录.md`：本次执行明细 + 一条命令恢复方法
+
+            ## 清理策略（100% 确认才删，宁可漏删一千）
+
+            1. **调用级扫描**：所有 `.dart` 中匹配
+               - `AppLocalizations.of(context)!?.xxx`
+               - `l10n!?.xxx`
+            2. **文本级整词扫描**：在全部 `.dart` / `.arb` 中对"候选待删键"做整词匹配（`"xxx"` / 标识符边界），命中即保留
+            3. **最终删除集** = (en 键集合) - (调用级 ∪ 文本级)
+
+            ## 一键还原方法（万一删错）
+
+            **方案 1（推荐）**：本 PR 里自带的 zip 就是清理前原样，执行：
+            ```
+            rm -rf lib/l10n
+            unzip ${{ env.PERM_BACKUP_FILE }} -d lib/
+            ```
+            **方案 2**：在合并之前直接 `git checkout HEAD -- lib/l10n/` 还原。
+            **方案 3**：如果已经合入主干，在 Release 页面有同名备份资产（tag: i18n-clean-backup-YYYYmmdd-HHMMSS），下载 zip 后按方案 1 解压即可。
+          labels: |
+            l10n
+            automated pr
+          draft: false
+

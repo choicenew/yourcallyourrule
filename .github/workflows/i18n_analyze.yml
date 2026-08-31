@@ -1,0 +1,90 @@
+name: i18n Analyze
+
+on:
+  workflow_dispatch:
+    inputs:
+      report_artifact_name:
+        description: "Artifacts name for generated i18n reports"
+        required: false
+        default: "i18n-reports"
+  push:
+    paths:
+      - "lib/**/*.dart"
+      - "lib/l10n/**"
+    branches-ignore: []
+  pull_request:
+    paths:
+      - "lib/**/*.dart"
+      - "lib/l10n/**"
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  analyze:
+    name: Analyze unused / missing translations
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-i18n-analyzer
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies (no external deps needed; keep step for future)
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Verify analyzer script exists
+        run: |
+          test -f "i18n_analyzer.py" || { echo "i18n_analyzer.py not found at project root"; exit 1; }
+
+      - name: Run i18n analyzer
+        run: |
+          python i18n_analyzer.py
+
+      - name: Print summary to job log
+        run: |
+          REPORT_DIR="i18n_reports"
+          echo "--- Analyzer produced the following files ---"
+          ls -la "$REPORT_DIR" || true
+          echo
+          if [ -f "$REPORT_DIR/05_原始数据.json" ]; then
+            echo "--- Top-level summary from 05_原始数据.json ---"
+            python - <<'PY'
+            import json
+            p = "i18n_reports/05_原始数据.json"
+            with open(p, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            s = data.get("summary", {})
+            for k, v in s.items():
+                print(f"  {k}: {v}")
+            PY
+          fi
+
+      - name: Upload reports as workflow artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event.inputs.report_artifact_name || 'i18n-reports' }}
+          path: |
+            i18n_reports/*.md
+            i18n_reports/*.csv
+            i18n_reports/*.json
+          if-no-files-found: warn
+          retention-days: 30
