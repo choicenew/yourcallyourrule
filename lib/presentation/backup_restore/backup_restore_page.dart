@@ -238,27 +238,38 @@ class BackupRestorePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final backupService = ref.watch(backupRestoreServiceProvider);
-    final rulesAsync = ref.watch(rulesProvider);
     return Scaffold(
+      backgroundColor: const Color(0xFFFFFBF5),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.backupAndRestore),
+        title: Text(
+          AppLocalizations.of(context)!.backupAndRestore,
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildBackupSection(context, ref, backupService),
-            const SizedBox(height: 24),
-              GoogleAdWidget(adInfo: AdManager.bannerAd),  
-              const SizedBox(height: 24),
+            const SizedBox(height: 14),
+            GoogleAdWidget(adInfo: AdManager.bannerAd),  
+            const SizedBox(height: 14),
             _buildRestoreSection(context, ref, backupService),
-            const SizedBox(height: 24),
-              GoogleAdWidget(adInfo: AdManager.bannerAd),  
-              const SizedBox(height: 24),
+            const SizedBox(height: 14),
+            GoogleAdWidget(adInfo: AdManager.bannerAd),  
+            const SizedBox(height: 14),
             _buildDataMigrationSection(context, ref, backupService),
-            const SizedBox(height: 24),
-            InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
+            const SizedBox(height: 14),
+            InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
           ],
         ),
       ),
@@ -270,51 +281,115 @@ class BackupRestorePage extends ConsumerWidget {
     WidgetRef ref,
     BackupRestoreService backupService,
   ) {
-    return Card(
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(18.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              AppLocalizations.of(context)!.backup,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.backup_rounded, color: Color(0xFFFF9500), size: 20),
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  AppLocalizations.of(context)!.backup,
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             ListTile(
-              leading: const Icon(Icons.settings),
-              title: Text(AppLocalizations.of(context)!.backupSettings),
+              contentPadding: EdgeInsets.zero,
+              leading: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF7F5F0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.settings_rounded, size: 18, color: Colors.black87),
+              ),
+              title: Text(AppLocalizations.of(context)!.backupSettings, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
               subtitle: Text(
                 AppLocalizations.of(context)!.configureBackupOptions,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
               onTap: () => _showBackupConfigDialog(context, ref),
             ),
             ListTile(
-              leading: const Icon(Icons.rule),
-              title: Text(AppLocalizations.of(context)!.exportRules),
+              contentPadding: EdgeInsets.zero,
+              leading: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF7F5F0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.rule_rounded, size: 18, color: Colors.black87),
+              ),
+              title: Text(AppLocalizations.of(context)!.exportRules, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
               subtitle: Text(
                 AppLocalizations.of(context)!.exportAllRuleConfigurations,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
               onTap: () => _exportRules(context, ref, backupService),
             ),
             ListTile(
-              leading: const Icon(Icons.settings_backup_restore),
-              title: Text(AppLocalizations.of(context)!.settingsBackup),
+              contentPadding: EdgeInsets.zero,
+              leading: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF7F5F0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.settings_backup_restore_rounded, size: 18, color: Colors.black87),
+              ),
+              title: Text(AppLocalizations.of(context)!.settingsBackup, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
               subtitle: Text(
                 AppLocalizations.of(context)!.exportAllApplicationSettings,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
               onTap: () => _backupSettings(context, ref, backupService),
             ),
             ListTile(
-              leading: const Icon(Icons.cloud_upload),
-              title: Text(AppLocalizations.of(context)!.cloudSync),
+              contentPadding: EdgeInsets.zero,
+              leading: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF7F5F0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.cloud_upload_rounded, size: 18, color: Colors.black87),
+              ),
+              title: Text(AppLocalizations.of(context)!.cloudSync, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
               subtitle: Text(
                 AppLocalizations.of(context)!.syncWithCloudStorage,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
               onTap: () => _showCloudSyncDialog(context, ref),
             ),
           ],
@@ -328,35 +403,81 @@ class BackupRestorePage extends ConsumerWidget {
     WidgetRef ref,
     BackupRestoreService backupService,
   ) {
-    return Card(
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(18.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              AppLocalizations.of(context)!.restore,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF34C759).withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.restore_rounded, color: Color(0xFF34C759), size: 20),
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  AppLocalizations.of(context)!.restore,
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             ListTile(
-              leading: const Icon(Icons.upload_file),
-              title: Text(AppLocalizations.of(context)!.importRules),
+              contentPadding: EdgeInsets.zero,
+              leading: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF7F5F0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.upload_file_rounded, size: 18, color: Colors.black87),
+              ),
+              title: Text(AppLocalizations.of(context)!.importRules, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
               subtitle: Text(
                 AppLocalizations.of(context)!.importRuleConfigurationsFromFile,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
               onTap: () => _importRules(context, ref, backupService),
             ),
             ListTile(
-              leading: const Icon(Icons.restore),
-              title: Text(AppLocalizations.of(context)!.restoreSettings),
+              contentPadding: EdgeInsets.zero,
+              leading: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF7F5F0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.restore_rounded, size: 18, color: Colors.black87),
+              ),
+              title: Text(AppLocalizations.of(context)!.restoreSettings, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
               subtitle: Text(
                 AppLocalizations.of(
                   context,
                 )!.restoreApplicationSettingsFromBackup,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
               onTap: () => _restoreSettings(context, ref, backupService),
             ),
           ],
@@ -370,26 +491,63 @@ class BackupRestorePage extends ConsumerWidget {
     WidgetRef ref,
     BackupRestoreService backupService,
   ) {
-    return Card(
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(18.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              AppLocalizations.of(context)!.dataMigration,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.compare_arrows_rounded, color: Color(0xFF6C5CE7), size: 20),
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  AppLocalizations.of(context)!.dataMigration,
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             ListTile(
-              leading: const Icon(Icons.compare_arrows),
-              title: Text(AppLocalizations.of(context)!.migrationTool),
+              contentPadding: EdgeInsets.zero,
+              leading: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF7F5F0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.move_up_rounded, size: 18, color: Colors.black87),
+              ),
+              title: Text(AppLocalizations.of(context)!.migrationTool, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
               subtitle: Text(
                 AppLocalizations.of(
                   context,
                 )!.transferDataBetweenDevicesOrPlatforms,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
               onTap: () => _showDataMigrationDialog(context),
             ),
           ],

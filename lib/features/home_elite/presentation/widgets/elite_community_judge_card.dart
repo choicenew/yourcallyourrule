@@ -385,8 +385,8 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Text(
-                              '社区审议中心',
+                            Text(
+                              l10n.communityVotes,
                               style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,

@@ -13,81 +13,104 @@ class NotificationSettingsWidget extends ConsumerWidget {
     final config = ref.watch(callerIdConfigProvider);
     final notifier = ref.read(callerIdConfigProvider.notifier);
     
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                const Icon(Icons.notifications, size: 20),
-                const SizedBox(width: 8),
-                Text(
-                  AppLocalizations.of(context)!.notificationSettingsTitle,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.useLocalNotification),
-              subtitle: Text(AppLocalizations.of(context)!.useLocalNotificationDescription),
-              value: config.useLocalNotification,
-              onChanged: (value) => notifier.setUseLocalNotification(value),
-            ),
-            const Divider(),
-            SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.cancelLocalNotification),
-              subtitle: Text(AppLocalizations.of(context)!.cancelLocalNotificationDescription),
-              value: config.cancelLocalNotification,
-              onChanged: (value) => notifier.setCancelLocalNotification(value),
-            ),
-                        // 【新增】: 只有当“自动取消”开启时，才显示延迟时间设置
-            if (config.cancelLocalNotification)
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      AppLocalizations.of(context)!.setDelayTime, // 需要在 .arb 文件中添加
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Slider(
-                            value: config.notificationAutoCancelDelay.inSeconds.toDouble(),
-                            min: 1,
-                            max: 30,
-                            divisions: 29, // 30 - 1
-                            label: "${config.notificationAutoCancelDelay.inSeconds} s",
-                            onChanged: (value) {
-                              notifier.setNotificationAutoCancelDelay(Duration(seconds: value.toInt()));
-                            },
-                          ),
-                        ),
-                        Text("${config.notificationAutoCancelDelay.inSeconds} s"),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              /*
-            const Divider(),
-            SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.useStirNotification),
-              subtitle: Text(AppLocalizations.of(context)!.useStirNotificationDescription),
-              value: config.useStirNotification,
-              onChanged: (value) => notifier.setUseStirNotification(value),
-            ),
-*/
-
-
-          ],
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(Icons.notifications_rounded, color: Color(0xFFFF9500), size: 20),
+              ),
+              const SizedBox(width: 10),
+              Text(
+                AppLocalizations.of(context)!.notificationSettingsTitle,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          SwitchListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text(AppLocalizations.of(context)!.useLocalNotification, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+            subtitle: Text(AppLocalizations.of(context)!.useLocalNotificationDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+            activeColor: const Color(0xFFFF9500),
+            value: config.useLocalNotification,
+            onChanged: (value) => notifier.setUseLocalNotification(value),
+          ),
+          const Divider(height: 1, color: Color(0xFFF0ECE3)),
+          SwitchListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text(AppLocalizations.of(context)!.cancelLocalNotification, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+            subtitle: Text(AppLocalizations.of(context)!.cancelLocalNotificationDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+            activeColor: const Color(0xFFFF9500),
+            value: config.cancelLocalNotification,
+            onChanged: (value) => notifier.setCancelLocalNotification(value),
+          ),
+          if (config.cancelLocalNotification)
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.setDelayTime,
+                    style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Slider(
+                          value: config.notificationAutoCancelDelay.inSeconds.toDouble(),
+                          min: 1,
+                          max: 30,
+                          divisions: 29,
+                          activeColor: const Color(0xFFFF9500),
+                          inactiveColor: const Color(0xFFEDE8DF),
+                          label: "${config.notificationAutoCancelDelay.inSeconds} s",
+                          onChanged: (value) {
+                            notifier.setNotificationAutoCancelDelay(Duration(seconds: value.toInt()));
+                          },
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          "${config.notificationAutoCancelDelay.inSeconds} s",
+                          style: const TextStyle(fontWeight: FontWeight.w900, color: Color(0xFFFF9500), fontSize: 13),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+        ],
       ),
     );
   }

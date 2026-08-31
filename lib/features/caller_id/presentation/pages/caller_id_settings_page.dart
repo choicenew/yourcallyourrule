@@ -18,28 +18,36 @@ class CallerIdSettingsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFFBF5),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.callerIdSettingsTitle),
+        title: Text(
+          AppLocalizations.of(context)!.callerIdSettingsTitle,
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
           onPressed: () => context.pop(),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            CallerIdDisplayModeSelector(),
-            SizedBox(height: 16),
-              GoogleAdWidget(adInfo: AdManager.bannerAd),
-            NotificationSettingsWidget(),
-            SizedBox(height: 16),
-              GoogleAdWidget(adInfo: AdManager.bannerAd),
-            OverlayPermissionWidget(),
-             SizedBox(height: 16),
-             nativeAdWidgetMedium(adWidth: 320, adHeight: 320)
-          ],
-        ),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        children: const [
+          CallerIdDisplayModeSelector(),
+          SizedBox(height: 14),
+          GoogleAdWidget(adInfo: AdManager.bannerAd),
+          SizedBox(height: 14),
+          NotificationSettingsWidget(),
+          SizedBox(height: 14),
+          GoogleAdWidget(adInfo: AdManager.bannerAd),
+          SizedBox(height: 14),
+          OverlayPermissionWidget(),
+          SizedBox(height: 14),
+          nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
+        ],
       ),
     );
   }

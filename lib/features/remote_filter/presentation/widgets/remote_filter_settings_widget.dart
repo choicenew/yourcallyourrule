@@ -23,47 +23,116 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
 
     return Column(
       children: [
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableRemoteNumberFilter),
-          subtitle: Text(AppLocalizations.of(context)!.enableRemoteNumberFilterDescription),
-          value: config.enableRemoteNumberFilter,
-          onChanged: (value) => notifier.updateConfig(config.copyWith(enableRemoteNumberFilter: value)),
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.rejectExceededNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription),
-          value: config.rejectExceededNumbers,
-          onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.prioritizeRemoteAction),
-          subtitle: Text(AppLocalizations.of(context)!.prioritizeRemoteActionDescription),
-          value: config.prioritizeRemoteAction,
-          onChanged: (value) => notifier.updateConfig(config.copyWith(prioritizeRemoteAction: value)),
-        ),
-        SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.logAllRemoteQueries),
-          subtitle: Text(AppLocalizations.of(context)!.logAllRemoteQueriesDescription),
-          value: config.logAllRemoteQueries,
-          onChanged: (value) => notifier.updateConfig(config.copyWith(logAllRemoteQueries: value)),
-        ),
-        const SizedBox(height: 16),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('${AppLocalizations.of(context)!.countThresholdLabel}: ${config.countThreshold}', 
-              style: Theme.of(context).textTheme.titleMedium),
-            const SizedBox(height: 8),
-            Slider(
-              value: config.countThreshold.toDouble(),
-              min: 1,
-              max: 10,
-              divisions: 9,
-              label: config.countThreshold.toString(),
-              onChanged: (value) => notifier.updateConfig(config.copyWith(countThreshold: value.round())),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: const Color(0xFFEDE8DF),
+              width: 1.1,
             ),
-            Text(AppLocalizations.of(context)!.countThresholdDescription),
-          ],
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.03),
+                blurRadius: 8,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              SwitchListTile(
+                title: Text(AppLocalizations.of(context)!.enableRemoteNumberFilter, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+                subtitle: Text(AppLocalizations.of(context)!.enableRemoteNumberFilterDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                activeColor: const Color(0xFFFF9500),
+                value: config.enableRemoteNumberFilter,
+                onChanged: (value) => notifier.updateConfig(config.copyWith(enableRemoteNumberFilter: value)),
+              ),
+              const Divider(height: 1, indent: 16, endIndent: 16, color: Color(0xFFF0ECE3)),
+              SwitchListTile(
+                title: Text(AppLocalizations.of(context)!.rejectExceededNumbers, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+                subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                activeColor: const Color(0xFFFF9500),
+                value: config.rejectExceededNumbers,
+                onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
+              ),
+              const Divider(height: 1, indent: 16, endIndent: 16, color: Color(0xFFF0ECE3)),
+              SwitchListTile(
+                title: Text(AppLocalizations.of(context)!.prioritizeRemoteAction, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+                subtitle: Text(AppLocalizations.of(context)!.prioritizeRemoteActionDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                activeColor: const Color(0xFFFF9500),
+                value: config.prioritizeRemoteAction,
+                onChanged: (value) => notifier.updateConfig(config.copyWith(prioritizeRemoteAction: value)),
+              ),
+              const Divider(height: 1, indent: 16, endIndent: 16, color: Color(0xFFF0ECE3)),
+              SwitchListTile(
+                title: Text(AppLocalizations.of(context)!.logAllRemoteQueries, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+                subtitle: Text(AppLocalizations.of(context)!.logAllRemoteQueriesDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                activeColor: const Color(0xFFFF9500),
+                value: config.logAllRemoteQueries,
+                onChanged: (value) => notifier.updateConfig(config.copyWith(logAllRemoteQueries: value)),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 14),
+        Container(
+          padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: const Color(0xFFEDE8DF),
+              width: 1.1,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.03),
+                blurRadius: 8,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.countThresholdLabel,
+                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(
+                      '${config.countThreshold}',
+                      style: const TextStyle(fontWeight: FontWeight.w900, color: Color(0xFFFF9500), fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Slider(
+                value: config.countThreshold.toDouble(),
+                min: 1,
+                max: 10,
+                divisions: 9,
+                activeColor: const Color(0xFFFF9500),
+                inactiveColor: const Color(0xFFEDE8DF),
+                label: config.countThreshold.toString(),
+                onChanged: (value) => notifier.updateConfig(config.copyWith(countThreshold: value.round())),
+              ),
+              Text(
+                AppLocalizations.of(context)!.countThresholdDescription,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+            ],
+          ),
         ),
       ],
     );

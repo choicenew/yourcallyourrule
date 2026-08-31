@@ -295,74 +295,164 @@ class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      backgroundColor: const Color(0xFFFFFBF5),
+      appBar: AppBar(
+        title: Text(
+          widget.title,
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            TextField(
-              controller: _pluginUrlController,
-              decoration: const InputDecoration(
-                hintText: 'Enter plugin JS URL',
-                labelText: 'Plugin JS URL',
-              ),
-            ),
-            const SizedBox(height: 8),
-            ElevatedButton(
-              onPressed: _loadPlugin,
-              child: Text(_isPluginJsLoaded ? 'Plugin Loaded ✓' : 'Load Plugin JS'),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: _phoneNumberController,
-              decoration: const InputDecoration(
-                hintText: 'Enter phone number',
-                labelText: 'Phone Number',
-              ),
-            ),
-            const SizedBox(height: 8),
-            ElevatedButton(
-              onPressed: _isPluginJsLoaded ? _queryPhoneNumber : null,
-              child: const Text('Query Phone Info'),
-            ),
-            const SizedBox(height: 16),
             Container(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(4),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: const Color(0xFFEDE8DF),
+                  width: 1.1,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.03),
+                    blurRadius: 8,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  TextField(
+                    controller: _pluginUrlController,
+                    decoration: InputDecoration(
+                      hintText: 'Enter plugin JS URL',
+                      labelText: 'Plugin JS URL',
+                      labelStyle: TextStyle(fontSize: 13, color: Colors.grey[700], fontWeight: FontWeight.w600),
+                      prefixIcon: const Icon(Icons.extension_rounded, color: Color(0xFF6C5CE7), size: 20),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14),
+                        borderSide: const BorderSide(color: Color(0xFFEDE8DF), width: 1.1),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14),
+                        borderSide: const BorderSide(color: Color(0xFF6C5CE7), width: 1.5),
+                      ),
+                      filled: true,
+                      fillColor: const Color(0xFFF7F5F0),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: _loadPlugin,
+                      icon: Icon(_isPluginJsLoaded ? Icons.check_circle_rounded : Icons.download_rounded, size: 18),
+                      label: Text(_isPluginJsLoaded ? 'Plugin Loaded ✓' : 'Load Plugin JS', style: const TextStyle(fontWeight: FontWeight.w800)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: _isPluginJsLoaded ? const Color(0xFF34C759) : const Color(0xFF6C5CE7),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        elevation: 0,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _phoneNumberController,
+                    decoration: InputDecoration(
+                      hintText: 'Enter phone number',
+                      labelText: 'Phone Number',
+                      labelStyle: TextStyle(fontSize: 13, color: Colors.grey[700], fontWeight: FontWeight.w600),
+                      prefixIcon: const Icon(Icons.phone_rounded, color: Color(0xFFFF9500), size: 20),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14),
+                        borderSide: const BorderSide(color: Color(0xFFEDE8DF), width: 1.1),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14),
+                        borderSide: const BorderSide(color: Color(0xFFFF9500), width: 1.5),
+                      ),
+                      filled: true,
+                      fillColor: const Color(0xFFF7F5F0),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: _isPluginJsLoaded ? _queryPhoneNumber : null,
+                      icon: const Icon(Icons.search_rounded, size: 18),
+                      label: const Text('Query Phone Info', style: TextStyle(fontWeight: FontWeight.w800)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFFF9500),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        elevation: 0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            Container(
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(color: const Color(0xFFEDE8DF), width: 1.1),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Query Result:',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Query Result:', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 13.5)),
                   const SizedBox(height: 4),
-                  Text(_queryResult.isEmpty ? 'No result yet' : _queryResult),
+                  Text(
+                    _queryResult.isEmpty ? 'No result yet' : _queryResult,
+                    style: TextStyle(fontSize: 13, color: Colors.grey[800]),
+                  ),
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(4),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(color: const Color(0xFFEDE8DF), width: 1.1),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Logs:',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 4),
+                    const Text('Logs:', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 13.5)),
+                    const SizedBox(height: 6),
                     Expanded(
                       child: SingleChildScrollView(
                         child: Text(
                           _jsLogs.isEmpty ? 'No logs yet' : _jsLogs,
-                          style: const TextStyle(
-                              fontSize: 12, fontFamily: 'monospace'),
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontFamily: 'monospace',
+                            color: Colors.grey[700],
+                          ),
                         ),
                       ),
                     ),

@@ -212,11 +212,25 @@ class _SearchPageState extends ConsumerState<SearchPage> {
     // ▲▲▲▲▲ 修正结束 ▲▲▲▲▲
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.numberSearch)),
+      backgroundColor: const Color(0xFFFFFBF5),
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.numberSearch,
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
+      ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Row(
               children: [
                 Expanded(
@@ -224,24 +238,42 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                     controller: _searchController,
                     decoration: InputDecoration(
                       hintText: AppLocalizations.of(context)!.enterPhoneNumber,
-                      prefixIcon: const Icon(Icons.search),
-                      border: const OutlineInputBorder(),
+                      hintStyle: const TextStyle(fontSize: 13, color: Colors.black26),
+                      prefixIcon: const Icon(Icons.search_rounded, color: Color(0xFFFF9500), size: 20),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: const BorderSide(color: Color(0xFFEDE8DF), width: 1.1),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: const BorderSide(color: Color(0xFFFF9500), width: 1.5),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
                     ),
                     keyboardType: TextInputType.phone,
                     onSubmitted: (_) => _triggerSearch(),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: searchState.isLoading ? null : _triggerSearch,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFFF9500),
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                    elevation: 0,
+                  ),
                   child:
                       searchState.isLoading
                           ? const SizedBox(
                             width: 20,
                             height: 20,
-                            child: CircularProgressIndicator(strokeWidth: 2),
+                            child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
                           )
-                          : Text(AppLocalizations.of(context)!.search),
+                          : Text(AppLocalizations.of(context)!.search, style: const TextStyle(fontWeight: FontWeight.w800)),
                 ),
               ],
             ),

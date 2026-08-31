@@ -53,94 +53,136 @@ class LanguageSelectionWidget extends StatelessWidget {
       orElse: () => supportedLocales[0],
     );
 
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              AppLocalizations.of(context)!.currentLanguage,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-
-
-
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor.withValues(alpha:0.1),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      _buildFlagImage(currentLanguage['flag'] ?? ''),
-                      const SizedBox(width: 12),
-                      Text(
-                        currentLanguage['name'],
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-                  const Icon(Icons.check, color: Colors.orange),
-                ],
-              ),
-            ),
- 
- 
- 
-          ],
+    return Container(
+      padding: const EdgeInsets.all(18.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(Icons.translate_rounded, color: Color(0xFFFF9500), size: 20),
+              ),
+              const SizedBox(width: 10),
+              Text(
+                AppLocalizations.of(context)!.currentLanguage,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            decoration: BoxDecoration(
+              color: const Color(0xFFF7F5F0),
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: const Color(0xFFEDE8DF)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    _buildFlagImage(currentLanguage['flag'] ?? ''),
+                    const SizedBox(width: 12),
+                    Text(
+                      currentLanguage['name'],
+                      style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                    ),
+                  ],
+                ),
+                const Icon(Icons.check_circle_rounded, color: Color(0xFFFF9500), size: 20),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 
   Widget _buildLanguageSelectionCard(BuildContext context) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              AppLocalizations.of(context)!.selectLanguage,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            SizedBox(
-              height: 200.0, // Adjust height as needed
-              child: ListView.builder(
-                itemCount: supportedLocales.length,
-                itemBuilder: (context, index) {
-                  final language = supportedLocales[index];
-                  final isSelected =
-                      currentLocale.languageCode == language['code'].languageCode &&
-                      (currentLocale.countryCode == null || language['code'].countryCode == null || currentLocale.countryCode == language['code'].countryCode);
-                  return _buildLanguageOption(
-                    context,
-                    language['name'],
-                    language['flag'] ?? '',
-                    isSelected,
-                    () {
-                      if (!isSelected) {
-                        // 使用 Riverpod 的 Notifier 更新语言
-                        localeNotifier.updateLocale(language['code']);
-                      }
-                    },
-                  );
-                },
-              ),
-            ),
-          ],
+    return Container(
+      padding: const EdgeInsets.all(18.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(Icons.language_rounded, color: Color(0xFF6C5CE7), size: 20),
+              ),
+              const SizedBox(width: 10),
+              Text(
+                AppLocalizations.of(context)!.selectLanguage,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          SizedBox(
+            height: 280.0,
+            child: ListView.builder(
+              itemCount: supportedLocales.length,
+              itemBuilder: (context, index) {
+                final language = supportedLocales[index];
+                final isSelected =
+                    currentLocale.languageCode == language['code'].languageCode &&
+                    (currentLocale.countryCode == null || language['code'].countryCode == null || currentLocale.countryCode == language['code'].countryCode);
+                return _buildLanguageOption(
+                  context,
+                  language['name'],
+                  language['flag'] ?? '',
+                  isSelected,
+                  () {
+                    if (!isSelected) {
+                      localeNotifier.updateLocale(language['code']);
+                    }
+                  },
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -154,12 +196,13 @@ class LanguageSelectionWidget extends StatelessWidget {
   ) {
     return InkWell(
       onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        margin: const EdgeInsets.only(bottom: 4),
         decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(color: Colors.grey.shade200),
-          ),
+          color: isSelected ? const Color(0xFFFF9500).withValues(alpha: 0.08) : Colors.transparent,
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -170,11 +213,15 @@ class LanguageSelectionWidget extends StatelessWidget {
                 const SizedBox(width: 12),
                 Text(
                   name,
-                  style: const TextStyle(fontSize: 16),
+                  style: TextStyle(
+                    fontSize: 14.5,
+                    fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
+                    color: isSelected ? const Color(0xFFFF9500) : Colors.black87,
+                  ),
                 ),
               ],
             ),
-            if (isSelected) const Icon(Icons.check, color: Colors.orange),
+            if (isSelected) const Icon(Icons.check_circle_rounded, color: Color(0xFFFF9500), size: 18),
           ],
         ),
       ),

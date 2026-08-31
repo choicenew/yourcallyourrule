@@ -162,18 +162,34 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
 
   @override
   Widget build(BuildContext context) {
-    // [注释]: build 方法保持不变，因为它只负责UI渲染。
     return Scaffold(
-      appBar: AppBar(title: const Text('Phone Verification')),
+      backgroundColor: const Color(0xFFFFFBF5),
+      appBar: AppBar(
+        title: const Text(
+          'Phone Verification',
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
+      ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: Column(
           children: [
-            // 统一广告组件参数配置
             const GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            const SizedBox(height: 12),
             _buildInputSection(),
+            const SizedBox(height: 14),
             const GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            const SizedBox(height: 14),
             _buildResultsSection(),
-            // 统一广告组件参数配置
+            const SizedBox(height: 14),
             nativeAdWidgetMedium(adWidth: 320, adHeight: 390),
           ],
         ),
@@ -182,31 +198,86 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
   }
 
   Widget _buildInputSection() {
-    // [注释]: 这个纯UI构建方法保持不变。
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return Container(
+      padding: const EdgeInsets.all(18.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       child: Column(
         children: [
           TextField(
             controller: _countryCodeController,
-            decoration: const InputDecoration(
-                labelText: 'Country Code (ISO 3166-1 alpha-2)',
-                hintText: 'Example: US, CN, JP',
-                icon: Icon(Icons.language)),
+            decoration: InputDecoration(
+              labelText: 'Country Code (ISO 3166-1 alpha-2)',
+              labelStyle: TextStyle(fontSize: 13, color: Colors.grey[700], fontWeight: FontWeight.w600),
+              hintText: 'Example: US, CN, JP',
+              hintStyle: const TextStyle(fontSize: 13, color: Colors.black26),
+              prefixIcon: const Icon(Icons.language_rounded, color: Color(0xFF2D9CDB), size: 20),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14),
+                borderSide: const BorderSide(color: Color(0xFFEDE8DF), width: 1.1),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14),
+                borderSide: const BorderSide(color: Color(0xFF2D9CDB), width: 1.5),
+              ),
+              filled: true,
+              fillColor: const Color(0xFFF7F5F0),
+              contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+            ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           TextField(
             controller: _phoneNumberController,
-            decoration: const InputDecoration(
-                labelText: 'Phone Number',
-                hintText: 'Enter phone number (e.g. US)',
-                icon: Icon(Icons.phone)),
+            decoration: InputDecoration(
+              labelText: 'Phone Number',
+              labelStyle: TextStyle(fontSize: 13, color: Colors.grey[700], fontWeight: FontWeight.w600),
+              hintText: 'Enter phone number (e.g. US)',
+              hintStyle: const TextStyle(fontSize: 13, color: Colors.black26),
+              prefixIcon: const Icon(Icons.phone_rounded, color: Color(0xFFFF9500), size: 20),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14),
+                borderSide: const BorderSide(color: Color(0xFFEDE8DF), width: 1.1),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14),
+                borderSide: const BorderSide(color: Color(0xFFFF9500), width: 1.5),
+              ),
+              filled: true,
+              fillColor: const Color(0xFFF7F5F0),
+              contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+            ),
             keyboardType: TextInputType.phone,
           ),
           const SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: _isLoading ? null : _verifyPhoneNumber,
-            child: const Text('Verify Number'),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: _isLoading ? null : _verifyPhoneNumber,
+              icon: _isLoading 
+                  ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                  : const Icon(Icons.verified_rounded, size: 18),
+              label: const Text('Verify Number', style: TextStyle(fontWeight: FontWeight.w800)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFFF9500),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                padding: const EdgeInsets.symmetric(vertical: 13),
+                elevation: 0,
+              ),
+            ),
           ),
         ],
       ),
@@ -214,13 +285,28 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
   }
 
   Widget _buildResultsSection() {
-    // [注释]: 这个纯UI构建方法保持不变。
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return Container(
+      padding: const EdgeInsets.all(18.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Verification Results:', style: TextStyle(fontSize: 18)),
+          const Text('Verification Results:', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87)),
+          const SizedBox(height: 10),
           _buildResultItem('Global Reject All', _verificationResults['Global Reject']),
           _buildResultItem('Allowed', _verificationResults['Allowed']),
           _buildResultItem('Blocked', _verificationResults['Blocked']),
@@ -233,43 +319,57 @@ class VerificationPageState extends ConsumerState<VerificationPage> {
           _buildResultItem('Local Count Filter', _verificationResults['Local Count Filter']),
           _buildResultItem('Remote Number Filter', _verificationResults['Remote Number Filter']),
           if (_callerIdData != null) ...[
-            const Divider(),
+            const Divider(height: 24),
             CircleAvatar(
               backgroundImage: _callerIdData?.avatarImage,
-              radius: 28,
+              radius: 26,
+              backgroundColor: const Color(0xFFFF9500),
               child: _callerIdData?.avatarImage == null
-                  ? Text(_callerIdData?.labels?.isNotEmpty == true
-                      ? _callerIdData!.labels!.first.label[0].toUpperCase()
-                      : '?')
+                  ? Text(
+                      _callerIdData?.labels?.isNotEmpty == true
+                          ? _callerIdData!.labels!.first.label[0].toUpperCase()
+                          : '?',
+                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    )
                   : null,
             ),
+            const SizedBox(height: 10),
+            Text('Carrier: ${_callerIdData?.carrier ?? "N/A"}', style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('Country: ${_callerIdData?.countryName ?? "N/A"}', style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('Region: ${_callerIdData?.region ?? "N/A"}', style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('Label: ${_callerIdData?.labels?.map((l) => l.label).join(', ') ?? "Unknown"}', style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('Number Type: ${_callerIdData?.numberType ?? "N/A"}', style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('Count Times: ${_callerIdData?.count ?? 0}', style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+            Text('Caller Name: ${_callerIdData?.name ?? "N/A"}', style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
             const SizedBox(height: 12),
-            Text('Carrier: ${_callerIdData?.carrier ?? "N/A"}'),
-            Text('Country: ${_callerIdData?.countryName ?? "N/A"}'),
-            Text('Region: ${_callerIdData?.region ?? "N/A"}'),
-            Text('Label: ${_callerIdData?.labels?.map((l) => l.label).join(', ') ?? "Unknown"}'),
-            Text('Number Type: ${_callerIdData?.numberType ?? "N/A"}'),
-            Text('Count Times: ${_callerIdData?.count ?? 0}'),
-            Text('Caller Name: ${_callerIdData?.name ?? "N/A"}'),
-            ElevatedButton(
-                onPressed: _testShowCallerIdOverlay,
-                child: const Text('Test Overlay'))
+            ElevatedButton.icon(
+              onPressed: _testShowCallerIdOverlay,
+              icon: const Icon(Icons.picture_in_picture_alt_rounded, size: 16),
+              label: const Text('Test Overlay', style: TextStyle(fontWeight: FontWeight.w800)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF6C5CE7),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
           ],
           if (_pluginSourceData != null) ...[  
-            const Divider(),
-            const Text('Plugin Data:'),
-            Text('Name: ${_pluginSourceData?.name ?? "Unknown"}'),
-            Text('SourceLabel: ${_pluginSourceData?.sourceLabel ?? "Unknown"}'),            
-            Text('Label: ${_pluginSourceData?.predefinedLabel ?? _pluginSourceData?.sourceLabel ?? "Unknown"}'),
-            Text('Location: ${[_pluginSourceData?.province, _pluginSourceData?.city].where((e) => e != null).join(", ")}'),
-            Text('Carrier: ${_pluginSourceData?.carrier ?? "Unknown"}'),
-            Text('Count: ${_pluginSourceData?.count ?? 0}'),
-            Text('Action: ${_pluginSourceData?.action.toString() ?? "RuleAction.none"}'),
+            const Divider(height: 24),
+            const Text('Plugin Data:', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14)),
+            const SizedBox(height: 6),
+            Text('Name: ${_pluginSourceData?.name ?? "Unknown"}', style: const TextStyle(fontSize: 13)),
+            Text('SourceLabel: ${_pluginSourceData?.sourceLabel ?? "Unknown"}', style: const TextStyle(fontSize: 13)),            
+            Text('Label: ${_pluginSourceData?.predefinedLabel ?? _pluginSourceData?.sourceLabel ?? "Unknown"}', style: const TextStyle(fontSize: 13)),
+            Text('Location: ${[_pluginSourceData?.province, _pluginSourceData?.city].where((e) => e != null).join(", ")}', style: const TextStyle(fontSize: 13)),
+            Text('Carrier: ${_pluginSourceData?.carrier ?? "Unknown"}', style: const TextStyle(fontSize: 13)),
+            Text('Count: ${_pluginSourceData?.count ?? 0}', style: const TextStyle(fontSize: 13)),
+            Text('Action: ${_pluginSourceData?.action.toString() ?? "RuleAction.none"}', style: const TextStyle(fontSize: 13)),
           ],
           if (_legacyPluginData.isNotEmpty) ...[
-            const Divider(),
-            const Text('Legacy Plugin Data:'),
-            ..._legacyPluginData.entries.map((e) => Text('${e.key}: ${e.value}'))
+            const Divider(height: 24),
+            const Text('Legacy Plugin Data:', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14)),
+            const SizedBox(height: 6),
+            ..._legacyPluginData.entries.map((e) => Text('${e.key}: ${e.value}', style: const TextStyle(fontSize: 13))),
           ]
         ],
       ),

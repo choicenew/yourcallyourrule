@@ -26,15 +26,23 @@ class _LanguageSettingsPageState extends ConsumerState<LanguageSettingsPage> {
     final asyncLocale = ref.watch(localeProvider);
 
     return Scaffold(
+      backgroundColor: const Color(0xFFFFFBF5),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.languageSettings),
+        title: Text(
+          AppLocalizations.of(context)!.languageSettings,
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
           onPressed: () => Navigator.of(context).pop(),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.check),
+            icon: const Icon(Icons.check_circle_rounded, color: Color(0xFFFF9500), size: 22),
             onPressed: () => Navigator.of(context).pop(),
             tooltip: AppLocalizations.of(context)!.save,
           ),

@@ -15,21 +15,33 @@ class RemoteFilterSettingsPage extends ConsumerWidget {
     final configAsync = ref.watch(remoteNumberFilterConfigProvider);
 
     return Scaffold(
+      backgroundColor: const Color(0xFFFFFBF5),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.remoteFilterSettingsPageTitle),
+        title: Text(
+          AppLocalizations.of(context)!.remoteFilterSettingsPageTitle,
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
         actions: [
           // [注释]: 当配置正在后台更新时 (isReloading)，显示一个加载指示器。
           if (configAsync.isReloading)
             const Padding(
               padding: EdgeInsets.all(16.0),
-              child: SizedBox(width: 24, height: 24, child: CircularProgressIndicator(color: Colors.white)),
+              child: SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Color(0xFFFF9500), strokeWidth: 2)),
             )
         ],
       ),
       // [重构]: body 直接渲染自包含的 RemoteFilterSettingsWidget。
       body: const SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: RemoteFilterSettingsWidget(),
         ),
       ),

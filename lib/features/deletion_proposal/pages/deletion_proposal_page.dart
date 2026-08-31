@@ -434,15 +434,16 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: isPublic ? Colors.white : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: isPublic ? [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 4, offset: const Offset(0, 1))] : null,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: isPublic ? [BoxShadow(color: Colors.black.withValues(alpha: 0.06), blurRadius: 6, offset: const Offset(0, 2))] : null,
                   ),
                   alignment: Alignment.center,
                   child: Text(
                     AppLocalizations.of(context)!.deletionProposals,
                     style: TextStyle(
-                      fontWeight: isPublic ? FontWeight.bold : FontWeight.normal,
-                      color: isPublic ? Theme.of(context).primaryColor : Colors.grey.shade700,
+                      fontWeight: isPublic ? FontWeight.w900 : FontWeight.w600,
+                      color: isPublic ? const Color(0xFFFF9500) : Colors.grey[700],
+                      fontSize: 13,
                     ),
                   ),
                 ),
@@ -454,15 +455,16 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: !isPublic ? Colors.white : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: !isPublic ? [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 4, offset: const Offset(0, 1))] : null,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: !isPublic ? [BoxShadow(color: Colors.black.withValues(alpha: 0.06), blurRadius: 6, offset: const Offset(0, 2))] : null,
                   ),
                   alignment: Alignment.center,
                   child: Text(
-                     AppLocalizations.of(context)!.proposalCreated,
+                    AppLocalizations.of(context)!.proposalCreated,
                     style: TextStyle(
-                      fontWeight: !isPublic ? FontWeight.bold : FontWeight.normal,
-                      color: !isPublic ? Theme.of(context).primaryColor : Colors.grey.shade700,
+                      fontWeight: !isPublic ? FontWeight.w900 : FontWeight.w600,
+                      color: !isPublic ? const Color(0xFFFF9500) : Colors.grey[700],
+                      fontSize: 13,
                     ),
                   ),
                 ),
@@ -474,51 +476,83 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
     );
   }
   
-  // --- 新增：构建 My History 列表项 ---
+  // --- 构建 My History 列表项 ---
   Widget _buildHistoryTile(BuildContext context, MyProposalHistoryItem item) {
-    return Card(
-      elevation: 1,
-      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        title: Text(
-          item.phoneNumber,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
         ),
-        subtitle: Padding(
-          padding: const EdgeInsets.only(top: 6.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  const Icon(Icons.access_time, size: 14, color: Colors.grey),
-                  const SizedBox(width: 4),
-                  Text(DateFormat.yMMMd().add_jm().format(item.submissionTime)),
-                ],
-              ),
-              if (item.status == MyProposalStatus.underReview) ...[
-                const SizedBox(height: 4),
-                Text(
-                  'Votes: ${item.currentVotes} • Risk: ${item.highestRiskLevel}',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500
-                  ),
-                ),
-              ],
-            ],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
           ),
-        ),
-        trailing: Container(
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: const Icon(Icons.history_rounded, color: Color(0xFFFF9500), size: 20),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  item.phoneNumber,
+                  style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 15, color: Colors.black87),
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  children: [
+                    const Icon(Icons.access_time_rounded, size: 12, color: Colors.grey),
+                    const SizedBox(width: 4),
+                    Text(
+                      DateFormat.yMMMd().add_jm().format(item.submissionTime),
+                      style: const TextStyle(fontSize: 11, color: Colors.grey),
+                    ),
+                  ],
+                ),
+                if (item.status == MyProposalStatus.underReview) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    'Votes: ${item.currentVotes} • Risk: ${item.highestRiskLevel}',
+                    style: const TextStyle(
+                      color: Color(0xFFFF9500),
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(8)
+              color: const Color(0xFFF7F5F0),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: const Color(0xFFEDE8DF)),
             ),
-            child: Text(item.status.name, style: const TextStyle(fontSize: 12))
-        ),
+            child: Text(
+              item.status.name,
+              style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: Colors.grey[800]),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -537,16 +571,6 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
               _showStatisticsDialog(currentVoteCount);
             },
           ),
-          /*          // =======================================================
-          // --- ✅ 在这里添加测试按钮 ---
-          // =======================================================
-          const Divider(), // 添加一个分割线，让界面更清晰
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: TestSyncButton(), // 直接插入我们创建的测试按钮 Widget
-          ),
-          // =======================================================
-*/
         ],
       ),
     );
@@ -573,7 +597,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   }
   
   Future<void> _showVipExchangeDialog(BuildContext context) async {
-    GoRouter.of(context).push('/vip-exchange');
+    context.pushNamed('/vip-exchange');
     if (mounted) {
       await ref.read(deletionProposalProvider.notifier).refreshProposals();
     }
