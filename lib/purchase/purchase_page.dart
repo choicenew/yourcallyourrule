@@ -82,7 +82,7 @@ class PurchasePage extends ConsumerWidget {
       featureCard: cardFactory.createFeatureCard(context),
       purchaseCards: purchaseCards,
       bottomButtons: bottomButtons,
-      backgroundGradient: const [Color.fromARGB(255, 233, 11, 11), Color(0xFFFFF3E0)],
+      backgroundGradient: const [Color(0xFFFFFBF5), Color(0xFFFFF3E0)],
     );
   }
 }

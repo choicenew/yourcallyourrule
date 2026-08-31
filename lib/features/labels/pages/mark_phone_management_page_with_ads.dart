@@ -18,6 +18,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 
 /// 号码标记管理页面 - 集成广告功能
 /// 用于用户添加号码标记，查看标记次数，以及兑换VIP功能
@@ -248,7 +249,7 @@ class _MarkPhoneManagementPageWithAdsState
 
   Future<void> _navigateToVipExchangePage() async {
     // 导航到VIP兑换页面
-     GoRouter.of(context).push('/vip-exchange');
+    context.pushNamed(AppRouter.vipExchange);
 
     // 返回后刷新标记次数
     await _loadMarkCount();
@@ -276,130 +277,203 @@ class _MarkPhoneManagementPageWithAdsState
   }
 
   Widget _buildMarkCountCard() {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.markCount,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFFFF9500).withValues(alpha: 0.08),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Icon(
+                      Icons.workspace_premium_rounded,
+                      color: Color(0xFFFF9500),
+                      size: 20,
+                    ),
                   ),
+                  const SizedBox(width: 10),
+                  Text(
+                    AppLocalizations.of(context)!.markCount,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                Text(
+                child: Text(
                   '$_markCount',
                   style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFF5A623),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: Color(0xFFFF9500),
                   ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xFFFF9500), Color(0xFFFF5E3A)],
+              ),
+              borderRadius: BorderRadius.circular(14),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFFFF9500).withValues(alpha: 0.35),
+                  blurRadius: 8,
+                  offset: const Offset(0, 3),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            ElevatedButton.icon(
+            child: ElevatedButton.icon(
               onPressed: _navigateToVipExchangePage,
-              icon: const Icon(Icons.card_membership),
-              label: Text(AppLocalizations.of(context)!.exchangeVip),
+              icon: const Icon(Icons.card_membership_rounded, color: Colors.white, size: 18),
+              label: Text(
+                AppLocalizations.of(context)!.exchangeVip,
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+              ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFF5A623),
-                foregroundColor: Colors.white,
-                minimumSize: const Size(double.infinity, 48),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+                padding: const EdgeInsets.symmetric(vertical: 12),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
   /// 构建单个标记号码卡片
   Widget _buildMarkedPhoneCard(LabelPhoneEntry entry) {
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.only(bottom: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          children: [
-            FutureBuilder<String>(
-               future: _getLabelName(entry.labelId),
-               builder: (context, snapshot) {
-                 final labelName = snapshot.data ?? '';
-                 return CircleAvatar(
-                   backgroundColor: AvatarUtils.getColorFromName(entry.labelId),
-                   radius: 24,
-                   backgroundImage: AvatarUtils.getAvatarImage(entry.avatar, labelName),
-                   child: AvatarUtils.getAvatarImage(entry.avatar, labelName) == null
-                       ? Text(
-                           AvatarUtils.getAvatarInitial(entry.name.isNotEmpty ? entry.name : labelName),
-                           style: const TextStyle(color: Colors.white, fontSize: 18),
-                         )
-                       : null,
-                 );
-               },
-             ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    entry.phoneNumber.value,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  FutureBuilder<String>(
-                    future: _getLabelName(entry.labelId),
-                    builder: (context, snapshot) {
-                      final labelText = snapshot.data ?? AppLocalizations.of(context)!.loading;
-                      // 使用LabelTranslationUtils翻译标签文本
-                      final translatedLabel = LabelTranslationUtils.translateLabelText(context, labelText);
-                      return Text(
-                        translatedLabel,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                        ),
-                      );
-                    },
-                  ),
-                  if (entry.name.isNotEmpty) ...[                    const SizedBox(height: 4),
-                    Text(
-                      entry.name,
-                      style: const TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-            IconButton(
-              icon: const Icon(Icons.edit, color: Colors.blue),
-              onPressed: () => _editMarkedPhone(entry),
-              tooltip: AppLocalizations.of(context)!.edit,
-            ),
-            IconButton(
-              icon: const Icon(Icons.delete, color: Colors.red),
-              onPressed: () => _deleteMarkedPhone(entry),
-              tooltip: AppLocalizations.of(context)!.deleteButton,
-            ),
-          ],
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          FutureBuilder<String>(
+             future: _getLabelName(entry.labelId),
+             builder: (context, snapshot) {
+               final labelName = snapshot.data ?? '';
+               return CircleAvatar(
+                 backgroundColor: AvatarUtils.getColorFromName(entry.labelId),
+                 radius: 22,
+                 backgroundImage: AvatarUtils.getAvatarImage(entry.avatar, labelName),
+                 child: AvatarUtils.getAvatarImage(entry.avatar, labelName) == null
+                     ? Text(
+                         AvatarUtils.getAvatarInitial(entry.name.isNotEmpty ? entry.name : labelName),
+                         style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                       )
+                     : null,
+               );
+             },
+           ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  entry.phoneNumber.value,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black87,
+                  ),
+                ),
+                const SizedBox(height: 3),
+                FutureBuilder<String>(
+                  future: _getLabelName(entry.labelId),
+                  builder: (context, snapshot) {
+                    final labelText = snapshot.data ?? AppLocalizations.of(context)!.loading;
+                    final translatedLabel = LabelTranslationUtils.translateLabelText(context, labelText);
+                    return Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF7F5F0),
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: Text(
+                        translatedLabel,
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                if (entry.name.isNotEmpty) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    entry.name,
+                    style: const TextStyle(fontSize: 13, color: Colors.grey),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.edit_outlined, color: Colors.blue, size: 20),
+            onPressed: () => _editMarkedPhone(entry),
+            tooltip: AppLocalizations.of(context)!.edit,
+          ),
+          IconButton(
+            icon: const Icon(Icons.delete_outline_rounded, color: Colors.red, size: 20),
+            onPressed: () => _deleteMarkedPhone(entry),
+            tooltip: AppLocalizations.of(context)!.deleteButton,
+          ),
+        ],
       ),
     );
   }

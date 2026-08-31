@@ -733,10 +733,27 @@ class _PluginManagementPageWithAdsState
   // 构建插件卡片
   Widget _buildPluginCard(PluginEntry plugin) {
     final isSelected = _selectedPluginIds.contains(plugin.id);
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: isSelected
+              ? const Color(0xFF6C5CE7)
+              : const Color(0xFFEDE8DF),
+          width: isSelected ? 1.8 : 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: isSelected
+                ? const Color(0xFF6C5CE7).withValues(alpha: 0.16)
+                : Colors.black.withValues(alpha: 0.03),
+            blurRadius: isSelected ? 12 : 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       clipBehavior: Clip.antiAlias,
       child: Theme(
         data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
@@ -745,25 +762,48 @@ class _PluginManagementPageWithAdsState
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
-                child: Text(
-                  plugin.name,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  overflow: TextOverflow.ellipsis,
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(7),
+                      decoration: BoxDecoration(
+                        color: plugin.isEnabled
+                            ? const Color(0xFF6C5CE7).withValues(alpha: 0.12)
+                            : Colors.grey.withValues(alpha: 0.12),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Icon(
+                        Icons.extension_rounded,
+                        size: 18,
+                        color: plugin.isEnabled ? const Color(0xFF6C5CE7) : Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        plugin.name,
+                        style: const TextStyle(
+                          fontSize: 15.5,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.black87,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.refresh),
+                    icon: const Icon(Icons.refresh_rounded, size: 20),
                     onPressed: () => _updatePlugin(plugin),
                     tooltip: AppLocalizations.of(context)!.updatePlugin,
                   ),
-                  Switch(
+                  Switch.adaptive(
                     value: plugin.isEnabled,
+                    activeTrackColor: const Color(0xFF6C5CE7),
                     onChanged: (value) => _togglePluginStatus(plugin, value),
                   ),
                 ],
@@ -772,19 +812,26 @@ class _PluginManagementPageWithAdsState
           ),
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+              padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 14.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    '${AppLocalizations.of(context)!.pluginVersion}: ${plugin.version}',
-                    style: const TextStyle(fontSize: 14, color: Colors.grey),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF7F5F0),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Text(
+                      '${AppLocalizations.of(context)!.pluginVersion}: ${plugin.version}',
+                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.grey[700]),
+                    ),
                   ),
                   if (plugin.description.isNotEmpty) ...[
                     const SizedBox(height: 8),
                     Text(
                       '${AppLocalizations.of(context)!.description}: ${plugin.description}',
-                      style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                     ),
                   ],
                   if (plugin.url.isNotEmpty) ...[
@@ -795,20 +842,25 @@ class _PluginManagementPageWithAdsState
                         'Url: ${plugin.url}',
                         style: const TextStyle(
                           fontSize: 12,
-                          color: Colors.blue,
+                          color: Color(0xFF007AFF),
+                          decoration: TextDecoration.underline,
                         ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
-                          Text(AppLocalizations.of(context)!.autoUpdate),
-                          Switch(
+                          Text(
+                            AppLocalizations.of(context)!.autoUpdate,
+                            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                          ),
+                          const SizedBox(width: 4),
+                          Switch.adaptive(
                             value: plugin.isAutoUpdate,
                             onChanged: (value) {
                               final updatedPlugin = plugin.copyWith(
@@ -828,29 +880,29 @@ class _PluginManagementPageWithAdsState
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.science_outlined),
+                            icon: const Icon(Icons.science_outlined, size: 18),
                             onPressed: () => _testPlugin(plugin),
                             tooltip: AppLocalizations.of(context)!.testPlugin,
                           ),
                           if (plugin.url.isNotEmpty)
                             IconButton(
-                              icon: const Icon(Icons.public),
+                              icon: const Icon(Icons.public_rounded, size: 18),
                               onPressed: () => _accessPluginUrl(plugin),
                               tooltip:
                                   AppLocalizations.of(context)!.accessTargetUrl,
                             ),
                           IconButton(
-                            icon: const Icon(Icons.edit),
+                            icon: const Icon(Icons.edit_note_rounded, size: 20),
                             onPressed: () => _editPluginScript(plugin),
                             tooltip: AppLocalizations.of(context)!.editScript,
                           ),
                           IconButton(
-                            icon: const Icon(Icons.settings),
+                            icon: const Icon(Icons.settings_outlined, size: 18),
                             onPressed: () => _openSettings(plugin),
                             tooltip: 'Settings',
                           ),
                           IconButton(
-                            icon: const Icon(Icons.delete, color: Colors.red),
+                            icon: const Icon(Icons.delete_outline_rounded, size: 18, color: Colors.red),
                             onPressed: () => _deletePlugin(plugin),
                             tooltip: AppLocalizations.of(context)!.deletePlugin,
                           ),
@@ -900,22 +952,37 @@ class _PluginManagementPageWithAdsState
   }
 
   Widget _buildInfoCard() {
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.only(bottom: 16),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              AppLocalizations.of(context)!.pluginManagementSubtitle,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Text(AppLocalizations.of(context)!.pluginRulesInfo),
-          ],
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF6C5CE7).withValues(alpha: 0.06),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppLocalizations.of(context)!.pluginManagementSubtitle,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            AppLocalizations.of(context)!.pluginRulesInfo,
+            style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+          ),
+        ],
       ),
     );
   }

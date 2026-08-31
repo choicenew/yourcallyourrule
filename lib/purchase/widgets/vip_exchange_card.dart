@@ -12,7 +12,6 @@ class VipExchangeCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     return ModernPurchaseCard(
       title: AppLocalizations.of(context)!.vipExchangeTitle,
       description: AppLocalizations.of(context)!.vipExchangeDescription,
@@ -22,7 +21,7 @@ class VipExchangeCard extends ConsumerWidget {
         Navigator.of(context).pushNamed('/vip-exchange');
       },
       gradientColors: const [Color(0xFFFFB74D), Color(0xFFFF9800)],
-      icon: Icons.stars,
+      icon: Icons.stars_rounded,
       labels: [AppLocalizations.of(context)!.markExchange, AppLocalizations.of(context)!.getFree],
     );
   }
@@ -44,85 +43,115 @@ class VipExchangeRuleCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          gradient: LinearGradient(
-            colors: canExchange
-                ? [const Color(0xFF81C784), const Color(0xFF4CAF50)]
-                : [Colors.grey.shade300, Colors.grey.shade400],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: canExchange ? const Color(0xFFFF9500) : const Color(0xFFEDE8DF),
+          width: canExchange ? 1.8 : 1.1,
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.requiredMarks('${rule.requiredMarks}'),
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Colors.white..withValues( alpha: 0.3),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      AppLocalizations.of(context)!.daysVip('${rule.days}'),
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: canExchange
+                ? const Color(0xFFFF9500).withValues(alpha: 0.16)
+                : Colors.black.withValues(alpha: 0.04),
+            blurRadius: canExchange ? 14 : 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: canExchange
+                            ? const Color(0xFFFF9500).withValues(alpha: 0.12)
+                            : Colors.grey.withValues(alpha: 0.12),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Icon(
+                        Icons.workspace_premium_rounded,
+                        color: canExchange ? const Color(0xFFFF9500) : Colors.grey,
+                        size: 20,
                       ),
                     ),
+                    const SizedBox(width: 10),
+                    Text(
+                      AppLocalizations.of(context)!.requiredMarks('${rule.requiredMarks}'),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.black87,
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: canExchange
+                        ? const Color(0xFFFF9500).withValues(alpha: 0.12)
+                        : Colors.grey.withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                ],
-              ),
-              const SizedBox(height: 12),
-              Text(
-                rule.description,
-                style: const TextStyle(color: Colors.white, fontSize: 16),
-              ),
-              const SizedBox(height: 12),
-              Row(
-                children: [
-                  if (!rule.hasAds)
-                    _buildFeatureChip(AppLocalizations.of(context)!.noAds),
-                  if (rule.hasSync)
-                    _buildFeatureChip(AppLocalizations.of(context)!.supportSync),
-                ],
-              ),
-              const SizedBox(height: 16),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: canExchange ? onExchange : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: canExchange ? Colors.green : Colors.grey,
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                  child: Text(
+                    AppLocalizations.of(context)!.daysVip('${rule.days}'),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w800,
+                      color: canExchange ? const Color(0xFFFF9500) : Colors.grey[700],
                     ),
                   ),
-                  child: Text(canExchange ? AppLocalizations.of(context)!.exchangeNow : AppLocalizations.of(context)!.insufficientMarks),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              rule.description,
+              style: TextStyle(color: Colors.grey[700], fontSize: 13, fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                if (!rule.hasAds)
+                  _buildFeatureChip(AppLocalizations.of(context)!.noAds),
+                if (rule.hasSync)
+                  _buildFeatureChip(AppLocalizations.of(context)!.supportSync),
+              ],
+            ),
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: canExchange ? onExchange : null,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: canExchange ? const Color(0xFFFF9500) : const Color(0xFFEDE8DF),
+                  foregroundColor: canExchange ? Colors.white : Colors.grey[500],
+                  elevation: canExchange ? 2 : 0,
+                  shadowColor: const Color(0xFFFF9500).withValues(alpha: 0.4),
+                  padding: const EdgeInsets.symmetric(vertical: 13),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                ),
+                child: Text(
+                  canExchange ? AppLocalizations.of(context)!.exchangeNow : AppLocalizations.of(context)!.insufficientMarks,
+                  style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -133,17 +162,18 @@ class VipExchangeRuleCard extends ConsumerWidget {
       margin: const EdgeInsets.only(right: 8),
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.3),
-        borderRadius: BorderRadius.circular(12),
+        color: const Color(0xFFF7F5F0),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: const Color(0xFFEDE8DF)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.check_circle_outline, color: Colors.white, size: 14),
+          const Icon(Icons.check_circle_rounded, color: Color(0xFF34C759), size: 14),
           const SizedBox(width: 4),
           Text(
             label,
-            style: const TextStyle(color: Colors.white, fontSize: 12),
+            style: TextStyle(color: Colors.grey[800], fontSize: 11, fontWeight: FontWeight.w600),
           ),
         ],
       ),

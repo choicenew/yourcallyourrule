@@ -55,7 +55,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
             if (GoRouter.of(context).canPop()) {
               context.pop();
             } else {
-              GoRouter.of(context).go('/');
+              context.goNamed(AppRouter.home);
             }
           },
         ),

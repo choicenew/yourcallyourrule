@@ -31,10 +31,24 @@ class ModernPurchasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFFBF5),
       appBar: AppBar(
-        title: Text(title),
-        backgroundColor: const Color(0xFFF5A623),
+        title: Text(
+          title,
+          style: const TextStyle(
+            color: Colors.black87,
+            fontWeight: FontWeight.w900,
+            fontSize: 20,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -50,9 +64,9 @@ class ModernPurchasePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               featureCard,
-              const SizedBox(height: 24.0),
+              const SizedBox(height: 20.0),
               ...purchaseCards,
-              const SizedBox(height: 24.0),
+              const SizedBox(height: 20.0),
               ...bottomButtons,
             ],
           ),

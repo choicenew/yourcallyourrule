@@ -178,14 +178,24 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFBF9F5),
       appBar: AppBar(
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        backgroundColor: const Color(0xFFFBF9F5),
+        foregroundColor: Colors.black87,
         title: widget.isMultiSelectMode 
-          ? Text(AppLocalizations.of(context)!.selectedItems(widget.selectedItemIds.length)) 
-          : Text(widget.title),
-        backgroundColor: widget.themeColor,
+          ? Text(
+              AppLocalizations.of(context)!.selectedItems(widget.selectedItemIds.length),
+              style: const TextStyle(color: Colors.black87, fontWeight: FontWeight.w900, fontSize: 18),
+            ) 
+          : Text(
+              widget.title,
+              style: const TextStyle(color: Colors.black87, fontWeight: FontWeight.w900, fontSize: 20, letterSpacing: -0.3),
+            ),
         leading: widget.isMultiSelectMode 
           ? IconButton(
-              icon: const Icon(Icons.close),
+              icon: const Icon(Icons.close_rounded, color: Colors.black87),
               onPressed: widget.onToggleMultiSelectMode,
             )
           : null,
@@ -194,7 +204,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
           : _buildDefaultActions(),
       ),
       body: widget.isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
           : _buildContent(),
     );
   }
@@ -205,16 +215,16 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
       actions.addAll(widget.customActions!);
     }
     if (widget.getItemId != null && widget.onToggleMultiSelectMode != null) {
-      actions.add(IconButton(icon: const Icon(Icons.select_all), onPressed: widget.onToggleMultiSelectMode, tooltip: AppLocalizations.of(context)!.selectMultiple));
+      actions.add(_buildAppbarButton(icon: Icons.checklist_rtl_rounded, onPressed: widget.onToggleMultiSelectMode!, tooltip: AppLocalizations.of(context)!.selectMultiple));
     }
     if (widget.onAdd != null) {
-      actions.add(IconButton(icon: const Icon(Icons.add), onPressed: widget.onAdd, tooltip: AppLocalizations.of(context)!.add));
+      actions.add(_buildAppbarButton(icon: Icons.add_rounded, onPressed: widget.onAdd!, tooltip: AppLocalizations.of(context)!.add));
     }
     if (widget.onRefresh != null) {
-      actions.add(IconButton(icon: const Icon(Icons.refresh), onPressed: widget.onRefresh, tooltip: AppLocalizations.of(context)!.refresh));
+      actions.add(_buildAppbarButton(icon: Icons.refresh_rounded, onPressed: widget.onRefresh!, tooltip: AppLocalizations.of(context)!.refresh));
     }
     if (widget.onMoreOptions != null) {
-      actions.add(IconButton(icon: const Icon(Icons.more_vert), onPressed: widget.onMoreOptions, tooltip: AppLocalizations.of(context)!.moreOptions));
+      actions.add(_buildAppbarButton(icon: Icons.more_horiz_rounded, onPressed: widget.onMoreOptions!, tooltip: AppLocalizations.of(context)!.moreOptions));
     }
     if (widget.customActions == null && widget.actions != null) {
       actions.addAll(widget.actions!);
@@ -224,28 +234,81 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
   
   List<Widget> _buildMultiSelectActions() {
     return [
-      IconButton(icon: const Icon(Icons.delete), onPressed: widget.selectedItemIds.isNotEmpty ? widget.onDeleteSelected : null, tooltip: AppLocalizations.of(context)!.deleteSelected),
+      IconButton(
+        icon: const Icon(Icons.delete_outline_rounded, color: Colors.red),
+        onPressed: widget.selectedItemIds.isNotEmpty ? widget.onDeleteSelected : null,
+        tooltip: AppLocalizations.of(context)!.deleteSelected,
+      ),
     ];
+  }
+
+  Widget _buildAppbarButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+    required String tooltip,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 3),
+      child: IconButton(
+        icon: Icon(icon, color: Colors.grey[800], size: 20),
+        onPressed: onPressed,
+        tooltip: tooltip,
+        style: IconButton.styleFrom(
+          backgroundColor: const Color(0xFFF7F5F0),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          padding: const EdgeInsets.all(8),
+        ),
+      ),
+    );
   }
 
   Widget _buildContent() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 14.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (widget.infoCard != null) Padding(padding: const EdgeInsets.only(top: 16), child: widget.infoCard!),
-          if (widget.headerContent != null) Padding(padding: const EdgeInsets.only(top: 16), child: widget.headerContent!),
+          if (widget.infoCard != null) Padding(padding: const EdgeInsets.only(top: 12), child: widget.infoCard!),
+          if (widget.headerContent != null) Padding(padding: const EdgeInsets.only(top: 12), child: widget.headerContent!),
           if (widget.onSearchChanged != null)
             Padding(
-              padding: const EdgeInsets.only(top: 16.0, bottom: 8.0),
-              child: TextField(
-                controller: _searchController,
-                decoration: InputDecoration(
-                  hintText: widget.searchHintText ?? AppLocalizations.of(context)!.search,
-                  prefixIcon: const Icon(Icons.search),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+              padding: const EdgeInsets.only(top: 12.0, bottom: 6.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: const Color(0xFFEDE8DF),
+                    width: 1.1,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.03),
+                      blurRadius: 10,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: TextField(
+                  controller: _searchController,
+                  style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.black87),
+                  decoration: InputDecoration(
+                    hintText: widget.searchHintText ?? AppLocalizations.of(context)!.search,
+                    hintStyle: TextStyle(color: Colors.grey[400], fontSize: 13, fontWeight: FontWeight.w500),
+                    prefixIcon: Icon(Icons.search_rounded, color: widget.themeColor, size: 20),
+                    suffixIcon: _searchController.text.isNotEmpty
+                        ? IconButton(
+                            icon: const Icon(Icons.clear_rounded, size: 16, color: Colors.grey),
+                            onPressed: () {
+                              _searchController.clear();
+                              if (widget.onSearchChanged != null) {
+                                widget.onSearchChanged!('');
+                              }
+                            },
+                          )
+                        : null,
+                    border: InputBorder.none,
+                    contentPadding: const EdgeInsets.symmetric(vertical: 11, horizontal: 12),
                   ),
                 ),
               ),

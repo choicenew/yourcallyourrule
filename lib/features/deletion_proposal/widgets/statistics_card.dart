@@ -28,92 +28,159 @@ class StatisticsCard extends StatelessWidget {
       children: [
         // Vote statistics card (if voteCount is provided)
         if (voteCount != null) ...[
-          Card(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.how_to_vote,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        AppLocalizations.of(context)!.statistics,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  _buildStatisticItem(
-                    context,
-                    AppLocalizations.of(context)!.totalVotes(voteCount!),
-                    voteCount.toString(),
-                    Icons.how_to_vote,
-                    Theme.of(context).colorScheme.secondary,
-                  ),
-                  if (onExchangeVip != null) ...[
-                    const SizedBox(height: 16),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        onPressed: onExchangeVip,
-                        icon: const Icon(Icons.star),
-                        label: Text(AppLocalizations.of(context)!.exchangeVip),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.amber,
-                          foregroundColor: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
-        ],
-
-         GoogleAdWidget(adInfo: AdManager.bannerAd),
-        // Overview card
-        Card(
-          child: Padding(
+          Container(
             padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: const Color(0xFFEDE8DF),
+                width: 1.1,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.04),
+                  blurRadius: 10,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
             child: Column(
               children: [
                 Row(
                   children: [
-                    Icon(
-                      Icons.analytics,
-                      color: Theme.of(context).colorScheme.primary,
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(
+                        Icons.how_to_vote_rounded,
+                        color: Color(0xFFFF9500),
+                        size: 20,
+                      ),
                     ),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: 10),
                     Text(
-                      AppLocalizations.of(context)!.overview,
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
+                      AppLocalizations.of(context)!.statistics,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.black87,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
                 _buildStatisticItem(
                   context,
-                  AppLocalizations.of(context)!.totalPendingProposals,
-                  totalPending.toString(),
-                  Icons.pending_actions,
-                  Theme.of(context).colorScheme.primary,
+                  AppLocalizations.of(context)!.totalVotes(voteCount!),
+                  voteCount.toString(),
+                  Icons.how_to_vote_rounded,
+                  const Color(0xFFFF9500),
                 ),
+                if (onExchangeVip != null) ...[
+                  const SizedBox(height: 16),
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFFFF9500), Color(0xFFFF5E3A)],
+                      ),
+                      borderRadius: BorderRadius.circular(14),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFFFF9500).withValues(alpha: 0.35),
+                          blurRadius: 8,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: ElevatedButton.icon(
+                      onPressed: onExchangeVip,
+                      icon: const Icon(Icons.workspace_premium_rounded, color: Colors.white, size: 18),
+                      label: Text(
+                        AppLocalizations.of(context)!.exchangeVip,
+                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
+          const SizedBox(height: 14),
+        ],
+
+        GoogleAdWidget(adInfo: AdManager.bannerAd),
+        const SizedBox(height: 14),
+
+        // Overview card
+        Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: const Color(0xFFEDE8DF),
+              width: 1.1,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.04),
+                blurRadius: 10,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Icon(
+                      Icons.analytics_rounded,
+                      color: Color(0xFF6C5CE7),
+                      size: 20,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    AppLocalizations.of(context)!.overview,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              _buildStatisticItem(
+                context,
+                AppLocalizations.of(context)!.totalPendingProposals,
+                totalPending.toString(),
+                Icons.pending_actions_rounded,
+                const Color(0xFF6C5CE7),
+              ),
+            ],
+          ),
         ),
-        const SizedBox(height: 16),
-          GoogleAdWidget(adInfo: AdManager.bannerAd),
+        const SizedBox(height: 14),
+        GoogleAdWidget(adInfo: AdManager.bannerAd),
+        const SizedBox(height: 14),
+
         // Risk level breakdown
         Row(
           children: [
@@ -122,8 +189,8 @@ class StatisticsCard extends StatelessWidget {
                 context,
                 AppLocalizations.of(context)!.highRisk,
                 highRisk,
-                Icons.warning,
-                Colors.red,
+                Icons.warning_amber_rounded,
+                const Color(0xFFFF4B4B),
               ),
             ),
             const SizedBox(width: 8),
@@ -132,8 +199,8 @@ class StatisticsCard extends StatelessWidget {
                 context,
                 AppLocalizations.of(context)!.mediumRisk,
                 mediumRisk,
-                Icons.info,
-                Colors.orange,
+                Icons.info_outline_rounded,
+                const Color(0xFFFF9500),
               ),
             ),
             const SizedBox(width: 8),
@@ -142,50 +209,67 @@ class StatisticsCard extends StatelessWidget {
                 context,
                 AppLocalizations.of(context)!.lowRisk,
                 lowRisk,
-                Icons.check_circle,
-                Colors.green,
+                Icons.check_circle_outline_rounded,
+                const Color(0xFF34C759),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
         GoogleAdWidget(adInfo: AdManager.bannerAd),  
+        const SizedBox(height: 14),
+
         // Additional metrics
-        Card(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.communityImpact,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                _buildMetricRow(
-                  context,
-                  AppLocalizations.of(context)!.activeProposals,
-                  totalPending.toString(),
-                  Icons.assignment,
-                ),
-                const SizedBox(height: 12),
-                _buildMetricRow(
-                  context,
-                  AppLocalizations.of(context)!.criticalIssues,
-                  highRisk.toString(),
-                  Icons.priority_high,
-                ),
-                const SizedBox(height: 12),
-                _buildMetricRow(
-                  context,
-                  AppLocalizations.of(context)!.communityParticipation,
-                  _calculateParticipationLevel(context, totalPending),
-                  Icons.people,
-                ),
-              ],
+        Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: const Color(0xFFEDE8DF),
+              width: 1.1,
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.04),
+                blurRadius: 10,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.communityImpact,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 16),
+              _buildMetricRow(
+                context,
+                AppLocalizations.of(context)!.activeProposals,
+                totalPending.toString(),
+                Icons.assignment_outlined,
+              ),
+              const SizedBox(height: 12),
+              _buildMetricRow(
+                context,
+                AppLocalizations.of(context)!.criticalIssues,
+                highRisk.toString(),
+                Icons.priority_high_rounded,
+              ),
+              const SizedBox(height: 12),
+              _buildMetricRow(
+                context,
+                AppLocalizations.of(context)!.communityParticipation,
+                _calculateParticipationLevel(context, totalPending),
+                Icons.people_alt_outlined,
+              ),
+            ],
           ),
         ),
       ],
@@ -204,8 +288,8 @@ class StatisticsCard extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(12),
+            color: color.withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(14),
           ),
           child: Icon(
             icon,
@@ -220,15 +304,18 @@ class StatisticsCard extends StatelessWidget {
             children: [
               Text(
                 value,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w900,
                   color: color,
                 ),
               ),
               Text(
                 label,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.outline,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey[600],
                 ),
               ),
             ],
@@ -245,41 +332,57 @@ class StatisticsCard extends StatelessWidget {
     IconData icon,
     Color color,
   ) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: color.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Icon(
-                icon,
-                color: color,
-                size: 20,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              count.toString(),
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: color,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Theme.of(context).colorScheme.outline,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ],
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: color.withValues(alpha: 0.08),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(7),
+            decoration: BoxDecoration(
+              color: color.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Icon(
+              icon,
+              color: color,
+              size: 18,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            count.toString(),
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w900,
+              color: color,
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+              color: Colors.grey[600],
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }

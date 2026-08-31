@@ -15,11 +15,21 @@ class FilterSettingsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFFBF5),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.filterSettingsTitle),
+        title: Text(
+          AppLocalizations.of(context)!.filterSettingsTitle,
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
       ),
-      // [重构]: 不再使用 SingleChildScrollView 和 Padding，因为 Tab 视图内部已经处理了滚动。
-      // [重构]: 直接渲染 EnhancedCompositeFilterSettingsWidget，不再需要任何参数。
       body: const EnhancedCompositeFilterSettingsWidget(),
     );
   }

@@ -48,7 +48,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final callConfig = ref.watch(callFilterConfigProvider.select((v) => v.value));
+    final callConfig = ref.watch(
+      callFilterConfigProvider.select((v) => v.value),
+    );
     final callNotifier = ref.read(callFilterConfigProvider.notifier);
 
     final defenseOptions = [
@@ -62,7 +64,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowAllAllowedNumbers ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowAllAllowedNumbers: val));
+            callNotifier.updateConfig(
+              callConfig.copyWith(allowAllAllowedNumbers: val),
+            );
           }
         },
       ),
@@ -76,7 +80,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowRegexBlockRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowRegexBlockRules: val));
+            callNotifier.updateConfig(
+              callConfig.copyWith(allowRegexBlockRules: val),
+            );
           }
         },
       ),
@@ -90,7 +96,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowSilenceRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowSilenceRules: val));
+            callNotifier.updateConfig(
+              callConfig.copyWith(allowSilenceRules: val),
+            );
           }
         },
       ),
@@ -104,7 +112,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.rejectAllNumbers ?? false,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(rejectAllNumbers: val));
+            callNotifier.updateConfig(
+              callConfig.copyWith(rejectAllNumbers: val),
+            );
           }
         },
       ),
@@ -118,7 +128,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowRegexAllowRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowRegexAllowRules: val));
+            callNotifier.updateConfig(
+              callConfig.copyWith(allowRegexAllowRules: val),
+            );
           }
         },
       ),
@@ -251,10 +263,14 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                     width: 156,
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: isSelected ? item.activeColor.withValues(alpha: 0.12) : const Color(0xFFFBF9F5),
+                      color: isSelected
+                          ? item.activeColor.withValues(alpha: 0.12)
+                          : const Color(0xFFFBF9F5),
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(
-                        color: isSelected ? item.activeColor : const Color(0xFFEDE8DF),
+                        color: isSelected
+                            ? item.activeColor
+                            : const Color(0xFFEDE8DF),
                         width: isSelected ? 1.8 : 1,
                       ),
                       boxShadow: isSelected
@@ -283,14 +299,17 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                               ),
                               child: Icon(
                                 item.icon,
-                                color: isSelected ? Colors.white : item.activeColor,
+                                color: isSelected
+                                    ? Colors.white
+                                    : item.activeColor,
                                 size: 16,
                               ),
                             ),
                             Switch.adaptive(
                               value: item.isEnabled,
-                              activeThumbColor: item.activeColor,
-                              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              activeColor: item.activeColor,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
                               onChanged: item.onToggle,
                             ),
                           ],
@@ -303,7 +322,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w900,
-                            color: isSelected ? Colors.black87 : Colors.grey[800],
+                            color: isSelected
+                                ? Colors.black87
+                                : Colors.grey[800],
                           ),
                         ),
                         const SizedBox(height: 2),
@@ -378,18 +399,27 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                 InkWell(
                   onTap: _navigateToSimSlotRules,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 6,
+                      vertical: 4,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.3),
+                        color: EliteDopamineTheme.sunsetTangerine.withValues(
+                          alpha: 0.3,
+                        ),
                       ),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.sim_card_outlined, size: 12, color: EliteDopamineTheme.sunsetTangerine),
+                        const Icon(
+                          Icons.sim_card_outlined,
+                          size: 12,
+                          color: EliteDopamineTheme.sunsetTangerine,
+                        ),
                         const SizedBox(width: 3),
                         Text(
                           l10n.simSlotRules,
@@ -756,10 +786,84 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           ),
           Switch.adaptive(
             value: value,
-            activeThumbColor: iconColor,
+            activeColor: iconColor,
             onChanged: onChanged,
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildDefenseOption({
+    required int index,
+    required String title,
+    required String subtitle,
+    required IconData icon,
+    required Color activeColor,
+  }) {
+    final isSelected = _selectedDefenseLevel == index;
+
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            _selectedDefenseLevel = index;
+          });
+        },
+        borderRadius: BorderRadius.circular(16),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 220),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+          decoration: BoxDecoration(
+            color: isSelected ? activeColor.withValues(alpha: 0.12) : const Color(0xFFFBF9F5),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: isSelected ? activeColor : const Color(0xFFEDE8DF),
+              width: isSelected ? 2 : 1,
+            ),
+            boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                      color: activeColor.withValues(alpha: 0.18),
+                      blurRadius: 8,
+                      offset: const Offset(0, 3),
+                    ),
+                  ]
+                : null,
+          ),
+          child: Column(
+            children: [
+              Icon(
+                icon,
+                color: isSelected ? activeColor : Colors.grey[600],
+                size: 22,
+              ),
+              const SizedBox(height: 5),
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w800,
+                  color: isSelected ? Colors.black87 : Colors.grey[800],
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 1),
+              Text(
+                subtitle,
+                style: TextStyle(
+                  fontSize: 8.5,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey[600],
+                ),
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

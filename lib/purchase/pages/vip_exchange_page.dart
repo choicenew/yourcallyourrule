@@ -83,20 +83,34 @@ class _VipExchangePageState extends ConsumerState<VipExchangePage> {
 
   @override
   Widget build(BuildContext context) {
-    final context = AppRouter.navigatorKey.currentContext!;
     final vipExchangeService = ref.watch(vipExchangeServiceProvider);
     final rules = vipExchangeService.getAvailableExchangeRules();
     
     return Scaffold(
+      backgroundColor: const Color(0xFFFFFBF5),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.redeemVipWithMarks),
+        title: Text(
+          AppLocalizations.of(context)!.redeemVipWithMarks,
+          style: const TextStyle(
+            color: Colors.black87,
+            fontWeight: FontWeight.w900,
+            fontSize: 20,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
       ),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
           : Column(
               children: [
-                _buildMarkCountHeader(),
+                _buildMarkCountHeader(context),
                 Expanded(
                   child: ListView.builder(
                     padding: const EdgeInsets.all(16),
@@ -105,13 +119,10 @@ class _VipExchangePageState extends ConsumerState<VipExchangePage> {
                       final rule = rules[index];
                       final canExchange = _canExchangeMap[rule.requiredMarks] ?? false;
                       
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 16),
-                        child: VipExchangeRuleCard(
-                          rule: rule,
-                          canExchange: canExchange,
-                          onExchange: () => _exchangeVip(rule),
-                        ),
+                      return VipExchangeRuleCard(
+                        rule: rule,
+                        canExchange: canExchange,
+                        onExchange: () => _exchangeVip(rule),
                       );
                     },
                   ),
@@ -122,21 +133,21 @@ class _VipExchangePageState extends ConsumerState<VipExchangePage> {
   }
   
   // 构建标记计数头部
-  Widget _buildMarkCountHeader() {
-    final context = AppRouter.navigatorKey.currentContext!;
+  Widget _buildMarkCountHeader(BuildContext context) {
     return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.blue.shade700, Colors.blue.shade500],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
+        gradient: const LinearGradient(
+          colors: [Color(0xFFFF9500), Color(0xFFFF5E3A)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
+        borderRadius: BorderRadius.circular(22),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
-            blurRadius: 10,
+            color: const Color(0xFFFF9500).withValues(alpha: 0.35),
+            blurRadius: 14,
             offset: const Offset(0, 5),
           ),
         ],
@@ -144,23 +155,24 @@ class _VipExchangePageState extends ConsumerState<VipExchangePage> {
       child: Column(
         children: [
           Text(
-AppLocalizations.of(context)!.currentMarkCount,
-            
-            style: TextStyle(color: Colors.white, fontSize: 16),
+            AppLocalizations.of(context)!.currentMarkCount,
+            style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w700),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Text(
             '$_currentMarkCount',
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
+              fontSize: 40,
+              fontWeight: FontWeight.w900,
+              letterSpacing: -0.5,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Text(
             AppLocalizations.of(context)!.markMoreNumbersForMore,
-            style: TextStyle(color: Colors.white70, fontSize: 14),
+            style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w500),
+            textAlign: TextAlign.center,
           ),
         ],
       ),

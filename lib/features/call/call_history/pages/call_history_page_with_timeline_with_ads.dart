@@ -22,6 +22,8 @@ import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_a
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
+import '../../../home_elite/theme/elite_dopamine_theme.dart';
+
 // 用于承载 CallLogCard 所需的元数据
 class CallLogMeta {
   final Map<String, String> labelIdToTextMap;
@@ -164,10 +166,9 @@ class _CallHistoryPageWithTimelineWithAdsState
 
     // 1. 按标签筛选 (逻辑不变)
     if (_selectedLabelId != null) {
-      filteredLogs =
-          filteredLogs
-              .where((log) => log.labelIds?.contains(_selectedLabelId) ?? false)
-              .toList();
+      filteredLogs = filteredLogs
+          .where((log) => log.labelIds?.contains(_selectedLabelId) ?? false)
+          .toList();
     }
 
     // 2. 按 Tab 筛选 (使用 LocalCallType 枚举)
@@ -188,19 +189,19 @@ class _CallHistoryPageWithTimelineWithAdsState
 
       // 执行类型安全的过滤
       if (targetType != null) {
-        filteredLogs =
-            filteredLogs.where((log) => log.callType == targetType).toList();
+        filteredLogs = filteredLogs
+            .where((log) => log.callType == targetType)
+            .toList();
       }
     }
 
     // 3. 按搜索关键字筛选 (逻辑不变)
     if (_searchKeyword.isNotEmpty) {
       final keyword = _searchKeyword.toLowerCase();
-      filteredLogs =
-          filteredLogs.where((log) {
-            return (log.name?.toLowerCase().contains(keyword) ?? false) ||
-                log.phoneNumber.toLowerCase().contains(keyword);
-          }).toList();
+      filteredLogs = filteredLogs.where((log) {
+        return (log.name?.toLowerCase().contains(keyword) ?? false) ||
+            log.phoneNumber.toLowerCase().contains(keyword);
+      }).toList();
     }
 
     // 4. 排序 (逻辑不变)
@@ -242,10 +243,9 @@ class _CallHistoryPageWithTimelineWithAdsState
   void _deleteSelectedLogs() async {
     final callLogService = ref.read(callLogServiceProvider);
     try {
-      final logsToDelete =
-          _currentLogs
-              .where((log) => _selectedLogIds.contains(log.id))
-              .toList();
+      final logsToDelete = _currentLogs
+          .where((log) => _selectedLogIds.contains(log.id))
+          .toList();
       await callLogService.deleteLogs(logsToDelete);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -274,85 +274,79 @@ class _CallHistoryPageWithTimelineWithAdsState
   void _showMoreOptions() {
     showModalBottomSheet(
       context: context,
-      builder:
-          (ctx) => SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ListTile(
-                  leading: Icon(
-                    _displayMode == ListDisplayMode.timeline
-                        ? Icons.view_list
-                        : Icons.timeline,
-                  ),
-                  title: Text(
-                    _displayMode == ListDisplayMode.timeline
-                        ? AppLocalizations.of(ctx)!.listView
-                        : AppLocalizations.of(ctx)!.timelineView,
-                  ),
-                  onTap: () {
-                    Navigator.pop(ctx);
-                    setState(
-                      () =>
-                          _displayMode =
-                              _displayMode == ListDisplayMode.timeline
-                                  ? ListDisplayMode.list
-                                  : ListDisplayMode.timeline,
-                    );
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.delete_sweep),
-                  title: Text(AppLocalizations.of(ctx)!.clearAllCallLogs),
-                  onTap: () {
-                    Navigator.pop(ctx);
-                    _showClearAllDialog();
-                  },
-                ),
-
-                // START: 添加的新代码
-                ListTile(
-                  leading: const Icon(Icons.label_outline),
-                  title: Text(
-                    AppLocalizations.of(ctx)!.labelManagement,
-                  ), // 假设您有这个本地化字符串
-                  onTap: () {
-                    Navigator.pop(ctx); // 首先关闭 BottomSheet
-                    // 使用 GoRouter 进行命名路由跳转
-                    GoRouter.of(
-                      context,
-                    ).pushNamed(AppRouter.labelManagementWithAds);
-                  },
-                ),
-
-                // END: 添加的新代码
-              ],
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: Icon(
+                _displayMode == ListDisplayMode.timeline
+                    ? Icons.view_list
+                    : Icons.timeline,
+              ),
+              title: Text(
+                _displayMode == ListDisplayMode.timeline
+                    ? AppLocalizations.of(ctx)!.listView
+                    : AppLocalizations.of(ctx)!.timelineView,
+              ),
+              onTap: () {
+                Navigator.pop(ctx);
+                setState(
+                  () => _displayMode = _displayMode == ListDisplayMode.timeline
+                      ? ListDisplayMode.list
+                      : ListDisplayMode.timeline,
+                );
+              },
             ),
-          ),
+            ListTile(
+              leading: const Icon(Icons.delete_sweep),
+              title: Text(AppLocalizations.of(ctx)!.clearAllCallLogs),
+              onTap: () {
+                Navigator.pop(ctx);
+                _showClearAllDialog();
+              },
+            ),
+
+            // START: 添加的新代码
+            ListTile(
+              leading: const Icon(Icons.label_outline),
+              title: Text(
+                AppLocalizations.of(ctx)!.labelManagement,
+              ), // 假设您有这个本地化字符串
+              onTap: () {
+                Navigator.pop(ctx); // 首先关闭 BottomSheet
+                // 使用 GoRouter 进行命名路由跳转
+                GoRouter.of(
+                  context,
+                ).pushNamed(AppRouter.labelManagementWithAds);
+              },
+            ),
+
+            // END: 添加的新代码
+          ],
+        ),
+      ),
     );
   }
 
   void _showClearAllDialog() async {
     final confirmed = await showDialog<bool>(
       context: context,
-      builder:
-          (ctx) => AlertDialog(
-            title: Text(AppLocalizations.of(ctx)!.clearAllCallLogs),
-            content: Text(
-              AppLocalizations.of(ctx)!.clearAllCallLogsConfirmation,
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(ctx, false),
-                child: Text(AppLocalizations.of(ctx)!.cancelButton),
-              ),
-              TextButton(
-                onPressed: () => Navigator.pop(ctx, true),
-                style: TextButton.styleFrom(foregroundColor: Colors.red),
-                child: Text(AppLocalizations.of(ctx)!.delete),
-              ),
-            ],
+      builder: (ctx) => AlertDialog(
+        title: Text(AppLocalizations.of(ctx)!.clearAllCallLogs),
+        content: Text(AppLocalizations.of(ctx)!.clearAllCallLogsConfirmation),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(AppLocalizations.of(ctx)!.cancelButton),
           ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: Text(AppLocalizations.of(ctx)!.delete),
+          ),
+        ],
+      ),
     );
     if (confirmed == true) {
       await ref.read(callLogServiceProvider).clearAllLogs();
@@ -371,35 +365,34 @@ class _CallHistoryPageWithTimelineWithAdsState
   void _showLabelFilterDialog() {
     showDialog(
       context: context,
-      builder:
-          (ctx) => AlertDialog(
-            title: Text(AppLocalizations.of(ctx)!.filterByLabel),
-            content: SizedBox(
-              width: double.maxFinite,
-              child: PublicSelectLabel(
-                initialLabelId: _selectedLabelId,
-                onLabelIdChanged: (labelId) {
-                  _onLabelFilterChanged(labelId);
-                  Navigator.pop(ctx);
-                },
-                themeColor: Theme.of(context).primaryColor,
-              ),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(ctx),
-                child: Text(AppLocalizations.of(ctx)!.cancelButton),
-              ),
-              if (_selectedLabelId != null)
-                TextButton(
-                  onPressed: () {
-                    _onLabelFilterChanged(null);
-                    Navigator.pop(ctx);
-                  },
-                  child: Text(AppLocalizations.of(ctx)!.clearFilter),
-                ),
-            ],
+      builder: (ctx) => AlertDialog(
+        title: Text(AppLocalizations.of(ctx)!.filterByLabel),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: PublicSelectLabel(
+            initialLabelId: _selectedLabelId,
+            onLabelIdChanged: (labelId) {
+              _onLabelFilterChanged(labelId);
+              Navigator.pop(ctx);
+            },
+            themeColor: Theme.of(context).primaryColor,
           ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(AppLocalizations.of(ctx)!.cancelButton),
+          ),
+          if (_selectedLabelId != null)
+            TextButton(
+              onPressed: () {
+                _onLabelFilterChanged(null);
+                Navigator.pop(ctx);
+              },
+              child: Text(AppLocalizations.of(ctx)!.clearFilter),
+            ),
+        ],
+      ),
     );
   }
 
@@ -408,14 +401,15 @@ class _CallHistoryPageWithTimelineWithAdsState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
       bottomNavigationBar: BottomNavigation(
         currentIndex: 1,
-        onTap:
-            (index) => BottomNavigationHandler.handleNavigation(context, index),
+        onTap: (index) =>
+            BottomNavigationHandler.handleNavigation(context, index),
       ),
       body: GenericTimelineListWithAdsPage<CallLog>(
         title: AppLocalizations.of(context)!.callHistory,
-        themeColor: Colors.teal,
+        themeColor: EliteDopamineTheme.sunsetTangerine,
         items: _getFilteredLogs(),
         isLoading: _isLoading,
         onRefresh: _loadData,
@@ -461,8 +455,9 @@ class _CallHistoryPageWithTimelineWithAdsState
       ),
       onRequiresRefresh: _loadData,
       isSelected: _selectedLogIds.contains(log.id),
-      onMultiSelectTap:
-          _isMultiSelectMode ? () => _toggleItemSelection(log.id) : null,
+      onMultiSelectTap: _isMultiSelectMode
+          ? () => _toggleItemSelection(log.id)
+          : null,
     );
   }
 
@@ -538,48 +533,79 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
       return const Center(child: CircularProgressIndicator());
     }
 
-    // 使用 LocalCallType 枚举进行类型安全的统计
-    final blockedCount =
-        widget.allItems
-            .where((log) => log.callType == LocalCallType.blocked)
-            .length;
-    final answeredCount =
-        widget.allItems
-            .where((log) => log.callType == LocalCallType.incoming)
-            .length;
+    final blockedCount = widget.allItems
+        .where((log) => log.callType == LocalCallType.blocked)
+        .length;
+    final answeredCount = widget.allItems
+        .where((log) => log.callType == LocalCallType.incoming)
+        .length;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GridView.count(
-          crossAxisCount: 2,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 16,
-          childAspectRatio: 2.0,
+        Row(
           children: [
-            _buildStatCard(
-              AppLocalizations.of(context)!.statBlocked,
-              blockedCount.toString(),
-              Colors.red,
+            Expanded(
+              child: _buildDopamineStatCard(
+                title: AppLocalizations.of(context)!.statBlocked,
+                value: blockedCount.toString(),
+                icon: Icons.shield_rounded,
+                color: EliteDopamineTheme.vibrantCoral,
+              ),
             ),
-            _buildStatCard(
-              AppLocalizations.of(context)!.statAnswered,
-              answeredCount.toString(),
-              Colors.green,
+            const SizedBox(width: 12),
+            Expanded(
+              child: _buildDopamineStatCard(
+                title: AppLocalizations.of(context)!.statAnswered,
+                value: answeredCount.toString(),
+                icon: Icons.phone_callback_rounded,
+                color: EliteDopamineTheme.freshMint,
+              ),
             ),
           ],
         ),
-        const SizedBox(height: 16),
-        TabBar(
-          controller: _tabController,
-          isScrollable: true,
-          tabs: _tabs.map((tab) => Tab(text: tab)).toList(),
+        const SizedBox(height: 14),
+        Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFFF7F5F0),
+            borderRadius: BorderRadius.circular(14),
+          ),
+          padding: const EdgeInsets.all(3),
+          child: TabBar(
+            controller: _tabController,
+            isScrollable: true,
+            tabAlignment: TabAlignment.start,
+            indicator: BoxDecoration(
+              gradient: EliteDopamineTheme.heroWarmGradient,
+              borderRadius: BorderRadius.circular(11),
+              boxShadow: [
+                BoxShadow(
+                  color: EliteDopamineTheme.sunsetTangerine.withValues(
+                    alpha: 0.25,
+                  ),
+                  blurRadius: 6,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            indicatorSize: TabBarIndicatorSize.tab,
+            dividerColor: Colors.transparent,
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.grey[700],
+            labelStyle: const TextStyle(
+              fontWeight: FontWeight.w800,
+              fontSize: 12,
+            ),
+            unselectedLabelStyle: const TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+            ),
+            tabs: _tabs.map((tab) => Tab(text: tab)).toList(),
+          ),
         ),
         if (widget.selectedLabelId != null)
           Padding(
-            padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+            padding: const EdgeInsets.only(top: 8.0, left: 4.0, right: 4.0),
             child: LabelFilterChip(
               labelId: widget.selectedLabelId!,
               onDeleted: () => widget.onLabelChanged(null),
@@ -589,30 +615,64 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
     );
   }
 
-  Widget _buildStatCard(String title, String value, Color color) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              value,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: color,
-              ),
+  Widget _buildDopamineStatCard({
+    required String title,
+    required String value,
+    required IconData icon,
+    required Color color,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: const Color(0xFFEDE8DF), width: 1.1),
+        boxShadow: [
+          BoxShadow(
+            color: color.withValues(alpha: 0.08),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: color.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(12),
             ),
-            const SizedBox(height: 4),
-            Text(
-              title,
-              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+            child: Icon(icon, color: color, size: 20),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  value,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black87,
+                  ),
+                ),
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.grey[600],
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

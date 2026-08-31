@@ -38,10 +38,20 @@ class _AboutPageState extends State<AboutPage> {
     final textTheme = Theme.of(context).textTheme;
     
     return Scaffold(
+      backgroundColor: const Color(0xFFFFFBF5),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.aboutTitle),
-        centerTitle: true,
+        title: Text(
+          AppLocalizations.of(context)!.aboutTitle,
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -49,64 +59,84 @@ class _AboutPageState extends State<AboutPage> {
           children: [
             // 顶部区域 - 应用信息
             Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 32.0),
+              padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
               decoration: BoxDecoration(
-                color: colorScheme.primaryContainer,
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(24),
-                  bottomRight: Radius.circular(24),
+                gradient: const LinearGradient(
+                  colors: [Color(0xFFFF9500), Color(0xFFFF5E3A)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
+                borderRadius: BorderRadius.circular(24),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFFFF9500).withValues(alpha: 0.3),
+                    blurRadius: 16,
+                    offset: const Offset(0, 6),
+                  ),
+                ],
               ),
               child: Column(
                 children: [
                   // 应用图标
                   Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: colorScheme.surface,
+                    padding: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
                       shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: colorScheme.shadow..withValues(alpha:0.2),
-                          blurRadius: 10,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
                     ),
                     child: ClipOval(
                       child: Image.asset(
                         'assets/app_logo.png',
-                        width: 80,
-                        height: 80,
+                        width: 72,
+                        height: 72,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          width: 72,
+                          height: 72,
+                          color: const Color(0xFFFF9500),
+                          child: const Icon(Icons.shield_rounded, color: Colors.white, size: 40),
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 12),
                   // 应用名称
                   Text(
                     AppLocalizations.of(context)!.callerIdApp,
-                    style: textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: colorScheme.onPrimaryContainer,
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 4),
                   // 版本号
-                  Text(
-                    'Version: $version',
-                    style: textTheme.bodyMedium?.copyWith(
-                      color: colorScheme.onPrimaryContainer..withValues(alpha:0.8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.2),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(
+                      'Version: $version',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 12),
                   // 应用描述
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       AppLocalizations.of(context)!.thisAppIsAPowerfulCallerIdToolThatAllows,
-                      style: textTheme.bodyMedium?.copyWith(
-                        color: colorScheme.onPrimaryContainer,
+                      style: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.9),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -117,63 +147,79 @@ class _AboutPageState extends State<AboutPage> {
             
             // 功能特点区域
             Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     AppLocalizations.of(context)!.features,
-                    style: textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black87,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 12),
                   _buildFeatureCard(
                     context, 
-                    Icons.cloud, 
+                    Icons.cloud_sync_rounded, 
                     AppLocalizations.of(context)!.onlineCallerIdSubscription
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                   _buildFeatureCard(
                     context, 
-                    Icons.star_half, 
+                    Icons.filter_list_rounded, 
                     AppLocalizations.of(context)!.wildcardSupportForFlexibleFiltering
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                   _buildFeatureCard(
                     context, 
-                    Icons.block, 
+                    Icons.block_rounded, 
                     AppLocalizations.of(context)!.blacklistingAndWhitelisting
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                   _buildFeatureCard(
                     context, 
-                    Icons.telegram, 
+                    Icons.send_rounded, 
                     AppLocalizations.of(context)!.joinTheTelegramChannelAndGroupForMoreInfo
                   ),
                   
-                  const SizedBox(height: 32),
+                  const SizedBox(height: 24),
                   
                   // 教程链接
-                  Card(
-                    elevation: 0,
-                    color: colorScheme.surfaceContainerHighest,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(18),
+                      border: Border.all(color: const Color(0xFFEDE8DF), width: 1.1),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.03),
+                          blurRadius: 8,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
                     ),
                     child: ListTile(
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                      leading: Icon(Icons.school, color: colorScheme.primary),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                      leading: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Icon(Icons.school_rounded, color: Color(0xFF6C5CE7), size: 20),
+                      ),
                       title: Text(
                         AppLocalizations.of(context)!.tutorial,
-                        style: textTheme.titleMedium,
+                        style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
                       ),
-                      trailing: Icon(Icons.chevron_right, color: colorScheme.primary),
+                      trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
                       onTap: () => _launchUrl(Uri.parse('https://github.com/choicenew/yourcallrule')),
                     ),
                   ),
                   
-                  const SizedBox(height: 32),
+                  const SizedBox(height: 24),
                   
                   // 联系我们区域
                   Center(
@@ -181,32 +227,34 @@ class _AboutPageState extends State<AboutPage> {
                       children: [
                         Text(
                           AppLocalizations.of(context)!.contactUs,
-                          style: textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w900,
+                            color: Colors.black87,
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 14),
                         // 社交媒体按钮
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             _buildSocialMediaButton(
                               context, 
-                              Icons.code, // 使用代码图标替代GitHub图标
+                              Icons.code_rounded,
                               'https://github.com/choicenew/yourcallrule',
                               AppLocalizations.of(context)!.github,
                             ),
-                            const SizedBox(width: 24),
+                            const SizedBox(width: 16),
                             _buildSocialMediaButton(
                               context, 
-                              Icons.telegram, 
+                              Icons.send_rounded, 
                               'https://t.me/yourcallyourrule',
                               AppLocalizations.of(context)!.telegram,
                             ),
-                            const SizedBox(width: 24),
+                            const SizedBox(width: 16),
                             _buildSocialMediaButton(
                               context, 
-                              Icons.email, 
+                              Icons.email_rounded, 
                               'mailto:oakjeol@gmail.com',
                               AppLocalizations.of(context)!.email,
                             ),
@@ -226,43 +274,47 @@ class _AboutPageState extends State<AboutPage> {
 
   // 构建功能卡片
   Widget _buildFeatureCard(BuildContext context, IconData icon, String title) {
-    final colorScheme = Theme.of(context).colorScheme;
-    
-    return Card(
-      elevation: 0,
-      color: colorScheme.surfaceVariant,
-      shape: RoundedRectangleBorder(
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: colorScheme.primary..withValues(alpha:0.1),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(icon, color: colorScheme.primary),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-            ),
-          ],
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.02),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(icon, color: const Color(0xFFFF9500), size: 18),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Colors.black87),
+            ),
+          ),
+        ],
       ),
     );
   }
 
   // 构建社交媒体按钮
   Widget _buildSocialMediaButton(BuildContext context, IconData icon, String url, String label) {
-    final colorScheme = Theme.of(context).colorScheme;
-    
     return Column(
       children: [
         InkWell(
@@ -271,20 +323,28 @@ class _AboutPageState extends State<AboutPage> {
           child: Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: colorScheme.primaryContainer,
+              color: Colors.white,
               shape: BoxShape.circle,
+              border: Border.all(color: const Color(0xFFEDE8DF)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.04),
+                  blurRadius: 8,
+                  offset: const Offset(0, 3),
+                ),
+              ],
             ),
             child: Icon(
               icon,
-              color: colorScheme.primary,
-              size: 28,
+              color: const Color(0xFFFF9500),
+              size: 22,
             ),
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         Text(
           label,
-          style: Theme.of(context).textTheme.bodySmall,
+          style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: Colors.grey[700]),
         ),
       ],
     );

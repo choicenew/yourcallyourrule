@@ -21,23 +21,46 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
     
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 AppLocalizations.of(context)!.blockingTrend,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
               ),
-              Row(
-                children: [
-                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodWeek, 'Week', notifier),
-                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodMonth, 'Month', notifier),
-                  _buildTimeRangeButton(AppLocalizations.of(context)!.periodYear, 'Year', notifier),
-                ],
+              Container(
+                padding: const EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF7F5F0),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _buildTimeRangeButton(AppLocalizations.of(context)!.periodWeek, 'Week', notifier),
+                    _buildTimeRangeButton(AppLocalizations.of(context)!.periodMonth, 'Month', notifier),
+                    _buildTimeRangeButton(AppLocalizations.of(context)!.periodYear, 'Year', notifier),
+                  ],
+                ),
               ),
             ],
           ),
@@ -46,7 +69,6 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
             children: [
               SizedBox(
                 height: 200,
-                // [注释]: 这里调用了已修正的 StatisticChart
                 child: StatisticChart(
                   showDetailedChart: true,
                   chartData: state.chartData,
@@ -55,8 +77,8 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
               if (state.isLoading)
                 Positioned.fill(
                   child: Container(
-                    color: Colors.white.withOpacity(0.5),
-                    child: const Center(child: CircularProgressIndicator()),
+                    color: Colors.white.withValues(alpha: 0.6),
+                    child: const Center(child: CircularProgressIndicator(strokeWidth: 2)),
                   ),
                 ),
             ],
@@ -76,17 +98,26 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
         }
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
-          color: isSelected ? Theme.of(context).primaryColor.withOpacity(0.1) : Colors.transparent,
-          borderRadius: BorderRadius.circular(20),
+          color: isSelected ? const Color(0xFFFF9500) : Colors.transparent,
+          borderRadius: BorderRadius.circular(9),
+          boxShadow: isSelected
+              ? [
+                  BoxShadow(
+                    color: const Color(0xFFFF9500).withValues(alpha: 0.3),
+                    blurRadius: 4,
+                    offset: const Offset(0, 1),
+                  ),
+                ]
+              : null,
         ),
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 12,
-            color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            fontSize: 11,
+            color: isSelected ? Colors.white : Colors.grey[700],
+            fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
           ),
         ),
       ),

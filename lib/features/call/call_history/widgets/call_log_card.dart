@@ -54,23 +54,23 @@ class CallLogCard extends ConsumerWidget {
     final hasLocation = region != null && region!.isNotEmpty;
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 5.0),
+      margin: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 5.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: isSelected
               ? EliteDopamineTheme.sunsetTangerine
-              : EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.22),
-          width: isSelected ? 2 : 1,
+              : const Color(0xFFEDE8DF),
+          width: isSelected ? 1.8 : 1.1,
         ),
         boxShadow: [
           BoxShadow(
             color: isSelected
-                ? EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.18)
-                : Colors.black.withValues(alpha: 0.03),
-            blurRadius: isSelected ? 12 : 6,
-            offset: const Offset(0, 3),
+                ? EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.16)
+                : Colors.black.withValues(alpha: 0.04),
+            blurRadius: isSelected ? 14 : 10,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -78,15 +78,25 @@ class CallLogCard extends ConsumerWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onMultiSelectTap,
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(20),
           child: Padding(
-            padding: const EdgeInsets.all(14.0),
+            padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 12.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildCardHeader(context, ref, callTypeInfo, avatarPath, translatedLabelText, hasLabels, region, hasLocation),
-                const SizedBox(height: 8),
-                _buildFooterAndActions(context, timeString, callTypeInfo),
+                _buildCardHeader(
+                  context,
+                  ref,
+                  callTypeInfo,
+                  avatarPath,
+                  translatedLabelText,
+                  hasLabels,
+                  region,
+                  hasLocation,
+                  timeString,
+                ),
+                const SizedBox(height: 10),
+                _buildFooterAndActions(context, callTypeInfo),
               ],
             ),
           ),
@@ -95,7 +105,7 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
-  /// 构建卡片头部
+  /// 构建卡片头部（右侧竖向堆叠时间与运营商，中间展示姓名号码与标签）
   Widget _buildCardHeader(
     BuildContext context,
     WidgetRef ref,
@@ -105,10 +115,15 @@ class CallLogCard extends ConsumerWidget {
     bool hasLabels,
     String? locationText,
     bool hasLocation,
+    String timeString,
   ) {
+    final simInfo = '${log.simDisplayName} ${log.carrierName}'.trim();
+    final hasSimInfo = simInfo.isNotEmpty;
+
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // 头像与来电类型微型角标
         SizedBox(
           width: 44,
           height: 44,
@@ -146,68 +161,118 @@ class CallLogCard extends ConsumerWidget {
           ),
         ),
         const SizedBox(width: 12),
+
+        // 中间：姓名、号码、标签、归属地
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Flexible(
-                          child: Text(
-                            log.name ?? log.phoneNumber,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w800,
-                              fontSize: 15,
-                              color: Colors.black87,
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 6.0),
-                          child: InkWell(
-                            onTap: () async {
-                              final updated = await PhoneMetaEditDialog.show(context, log: log);
-                              if (updated && context.mounted) onRequiresRefresh();
-                            },
-                            borderRadius: BorderRadius.circular(12),
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: Icon(Icons.edit_note_rounded, size: 16, color: Colors.grey[500]),
-                            ),
-                          ),
-                        ),
-                      ],
+                    child: Text(
+                      log.name ?? log.phoneNumber,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 15,
+                        color: Colors.black87,
+                        letterSpacing: -0.2,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  if (hasLabels)
+                  if (hasLabels) ...[
+                    const SizedBox(width: 6),
                     _buildLabelChip(context, ref, translatedLabelText!),
+                  ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4.0),
+                    child: InkWell(
+                      onTap: () async {
+                        final updated = await PhoneMetaEditDialog.show(context, log: log);
+                        if (updated && context.mounted) onRequiresRefresh();
+                      },
+                      borderRadius: BorderRadius.circular(8),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Icon(Icons.edit_note_rounded, size: 16, color: Colors.grey[400]),
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              const SizedBox(height: 2),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              const SizedBox(height: 3),
+              Wrap(
+                spacing: 6,
+                runSpacing: 4,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  Text(
-                    log.name != null ? log.phoneNumber : '',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.grey[600],
+                  if (log.name != null)
+                    Text(
+                      log.phoneNumber,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey[600],
+                      ),
                     ),
-                  ),
                   if (hasLocation)
                     _buildRegionChip(context, locationText!),
                 ],
               ),
             ],
           ),
+        ),
+
+        const SizedBox(width: 8),
+
+        // 右侧：竖向堆叠时间与 SIM 卡/运营商信息
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              timeString,
+              style: TextStyle(
+                fontSize: 12.5,
+                fontWeight: FontWeight.w800,
+                color: Colors.grey[800],
+              ),
+            ),
+            if (hasSimInfo) ...[
+              const SizedBox(height: 3),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF7F5F0),
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(
+                    color: const Color(0xFFEDE8DF),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.sim_card_outlined,
+                      size: 10,
+                      color: EliteDopamineTheme.sunsetTangerine,
+                    ),
+                    const SizedBox(width: 2),
+                    Text(
+                      simInfo,
+                      style: TextStyle(
+                        fontSize: 9,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.grey[700],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ],
         ),
       ],
     );
@@ -216,70 +281,54 @@ class CallLogCard extends ConsumerWidget {
   /// 构建底部信息与操作按钮组合栏
   Widget _buildFooterAndActions(
     BuildContext context,
-    String timeString,
     _CallTypeInfo callTypeInfo,
   ) {
-    final simInfo = '${log.simDisplayName} ${log.carrierName}'.trim();
-    final hasSimInfo = simInfo.isNotEmpty;
-
     return Row(
       children: [
-        // 状态与时间标签
+        // 状态胶囊标签
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
           decoration: BoxDecoration(
             color: callTypeInfo.color.withValues(alpha: 0.12),
-            borderRadius: BorderRadius.circular(6),
+            borderRadius: BorderRadius.circular(8),
           ),
-          child: Text(
-            callTypeInfo.text,
-            style: TextStyle(
-              fontSize: 10,
-              color: callTypeInfo.color,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-        ),
-        const SizedBox(width: 6),
-        Text(
-          timeString,
-          style: TextStyle(
-            fontSize: 11,
-            fontWeight: FontWeight.w600,
-            color: Colors.grey[600],
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(callTypeInfo.icon, size: 12, color: callTypeInfo.color),
+              const SizedBox(width: 4),
+              Text(
+                callTypeInfo.text,
+                style: TextStyle(
+                  fontSize: 10.5,
+                  color: callTypeInfo.color,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ],
           ),
         ),
-        if (hasSimInfo) ...[
-          const SizedBox(width: 4),
-          Text('•', style: TextStyle(fontSize: 10, color: Colors.grey[400])),
-          const SizedBox(width: 4),
-          Flexible(
-            child: Text(
-              simInfo,
-              style: TextStyle(fontSize: 10, color: Colors.grey[600]),
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-        ],
 
         const Spacer(),
 
-        // 快速操作图标按钮组
+        // 快速操作图标按钮组（独立温润容器，宽松间距）
         _buildActionButton(
           icon: Icons.info_outline_rounded,
+          color: EliteDopamineTheme.skyAzure,
           tooltip: AppLocalizations.of(context)!.viewDetails,
           onTap: () => _showCallDetailsDialog(context),
         ),
-        const SizedBox(width: 2),
+        const SizedBox(width: 6),
         _buildActionButton(
           icon: Icons.label_outline_rounded,
+          color: EliteDopamineTheme.softLilac,
           tooltip: AppLocalizations.of(context)!.addLabel,
           onTap: () async {
             final updated = await PhoneMetaEditDialog.show(context, log: log);
             if (updated && context.mounted) onRequiresRefresh();
           },
         ),
-        const SizedBox(width: 2),
+        const SizedBox(width: 6),
         _buildActionButton(
           icon: log.callType == LocalCallType.blocked ? Icons.lock_open_rounded : Icons.phone_outlined,
           color: log.callType == LocalCallType.blocked ? EliteDopamineTheme.freshMint : EliteDopamineTheme.sunsetTangerine,
@@ -288,9 +337,10 @@ class CallLogCard extends ConsumerWidget {
               : AppLocalizations.of(context)!.call,
           onTap: actionHandler.handleCallAction,
         ),
-        const SizedBox(width: 2),
+        const SizedBox(width: 6),
         _buildActionButton(
           icon: Icons.rule_folder_outlined,
+          color: EliteDopamineTheme.warmSunAmber,
           tooltip: AppLocalizations.of(context)!.addRule,
           onTap: () => _showRuleActionDialog(context),
         ),
@@ -304,13 +354,19 @@ class CallLogCard extends ConsumerWidget {
     required VoidCallback onTap,
     Color? color,
   }) {
-    return IconButton(
-      visualDensity: VisualDensity.compact,
-      padding: EdgeInsets.zero,
-      constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-      icon: Icon(icon, size: 17, color: color ?? Colors.grey[600]),
-      onPressed: onTap,
-      tooltip: tooltip,
+    final activeColor = color ?? Colors.grey[700]!;
+
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        padding: const EdgeInsets.all(7),
+        decoration: BoxDecoration(
+          color: activeColor.withValues(alpha: 0.10),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, size: 16, color: activeColor),
+      ),
     );
   }
 

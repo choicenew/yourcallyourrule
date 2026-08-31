@@ -450,43 +450,51 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
   Widget _buildContactCard(Contact contact) {
     final isSelected = _selectedContactIds.contains(contact.id);
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 4.5),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(18),
         border: Border.all(
           color: isSelected
               ? const Color(0xFFFF9500)
-              : const Color(0xFFF5A623).withValues(alpha: 0.22),
-          width: isSelected ? 2 : 1,
+              : const Color(0xFFEDE8DF),
+          width: isSelected ? 1.8 : 1.1,
         ),
         boxShadow: [
           BoxShadow(
             color: isSelected
-                ? const Color(0xFFFF9500).withValues(alpha: 0.15)
+                ? const Color(0xFFFF9500).withValues(alpha: 0.16)
                 : Colors.black.withValues(alpha: 0.03),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
+            blurRadius: isSelected ? 12 : 8,
+            offset: const Offset(0, 3),
           ),
         ],
       ),
       child: ListTile(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
         leading: _buildContactAvatar(contact, isCheckbox: _isMultiSelectMode),
-        title: Text(
-          contact.name,
-          style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Colors.black87),
-        ),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        title: Row(
           children: [
-            const SizedBox(height: 2),
-            Text(
-              contact.phoneNumbers.join(', '),
-              style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+            Flexible(
+              child: Text(
+                contact.name,
+                style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 15, color: Colors.black87),
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
-            _buildLabelChips(contact.labelIds),
+            if (contact.labelIds != null && contact.labelIds!.isNotEmpty) ...[
+              const SizedBox(width: 6),
+              _buildLabelChips(contact.labelIds),
+            ],
           ],
+        ),
+        subtitle: Padding(
+          padding: const EdgeInsets.only(top: 3.0),
+          child: Text(
+            contact.phoneNumbers.join(', '),
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey[600]),
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
         onTap: _isMultiSelectMode 
           ? () => _toggleContactSelection(contact.id)
@@ -500,7 +508,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                   icon: Icon(
                     contact.isFavorite ? Icons.star_rounded : Icons.star_outline_rounded,
                     color: contact.isFavorite ? const Color(0xFFF5A623) : Colors.grey[400],
-                    size: 20,
+                    size: 22,
                   ),
                   onPressed: () => _toggleFavorite(contact),
                   tooltip: contact.isFavorite
@@ -508,7 +516,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                       : AppLocalizations.of(context)!.addToFavorites,
                 ),
                 PopupMenuButton<String>(
-                  icon: Icon(Icons.more_vert_rounded, color: Colors.grey[600]),
+                  icon: Icon(Icons.more_vert_rounded, color: Colors.grey[600], size: 20),
                   onSelected: (value) => _handleContactMenuAction(value, contact),
                   itemBuilder: (context) => _buildContactMenuItems(contact),
                 ),

@@ -12,46 +12,58 @@ class ThemeSelector extends ConsumerWidget {
     // 这能确保当主题模式改变时，这个 Widget 会自动重建以更新UI。
     final currentThemeMode = ref.watch(themeModeProvider);
 
-    return SegmentedButton<ThemeMode>(
-      // 定义按钮的各个部分
-      segments: const <ButtonSegment<ThemeMode>>[
-        // 亮色模式按钮
-        ButtonSegment(
-          value: ThemeMode.light,
-          label: Text('Light'),
-          icon: Icon(Icons.wb_sunny_outlined),
+    return AlertDialog(
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
+      title: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: const Icon(Icons.palette_rounded, color: Color(0xFF6C5CE7), size: 20),
+          ),
+          const SizedBox(width: 10),
+          const Text(
+            'Theme',
+            style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18),
+          ),
+        ],
+      ),
+      content: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: SegmentedButton<ThemeMode>(
+          segments: const <ButtonSegment<ThemeMode>>[
+            ButtonSegment(
+              value: ThemeMode.light,
+              label: Text('Light'),
+              icon: Icon(Icons.wb_sunny_rounded),
+            ),
+            ButtonSegment(
+              value: ThemeMode.dark,
+              label: Text('Dark'),
+              icon: Icon(Icons.nightlight_rounded),
+            ),
+            ButtonSegment(
+              value: ThemeMode.system,
+              label: Text('System'),
+              icon: Icon(Icons.settings_suggest_rounded),
+            ),
+          ],
+          selected: <ThemeMode>{currentThemeMode},
+          onSelectionChanged: (Set<ThemeMode> newSelection) {
+            ref.read(themeModeProvider.notifier).setThemeMode(newSelection.first);
+            Navigator.of(context).pop();
+          },
+          style: SegmentedButton.styleFrom(
+            selectedForegroundColor: Colors.white,
+            selectedBackgroundColor: const Color(0xFF6C5CE7),
+            backgroundColor: const Color(0xFFF7F5F0),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          ),
         ),
-        // 暗色模式按钮
-        ButtonSegment(
-          value: ThemeMode.dark,
-          label: Text('Dark'),
-          icon: Icon(Icons.nightlight_outlined),
-        ),
-        // 跟随系统按钮
-        ButtonSegment(
-          value: ThemeMode.system,
-          label: Text('System'),
-          icon: Icon(Icons.settings_suggest_outlined),
-        ),
-      ],
-      
-      // `selected` 需要一个 Set，它包含了当前被选中的值。
-      // 我们用 `currentThemeMode` 来初始化这个 Set。
-      selected: <ThemeMode>{currentThemeMode},
-
-      // 当用户点击一个新的选项时，这个回调函数会被触发。
-      onSelectionChanged: (Set<ThemeMode> newSelection) {
-        // 2. 使用 ref.read 来调用 Notifier 中的方法。
-        // newSelection.first 会获取用户点击的那个唯一的选项。
-        ref.read(themeModeProvider.notifier)
-           .setThemeMode(newSelection.first);
-      },
-      
-      // (可选) 增加一些样式让它更好看
-      style: SegmentedButton.styleFrom(
-        // 选中项的背景色，会使用主题的 secondaryContainer 颜色
-        selectedForegroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
-        selectedBackgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       ),
     );
   }
