@@ -3877,7 +3877,7 @@ abstract class AppLocalizations {
   /// No description provided for @filterSettingsTitle.
   ///
   /// In en, this message translates to:
-  /// **'Filter Settings'**
+  /// **'Filter Preferences'**
   String get filterSettingsTitle;
 
   /// No description provided for @filterSMS.

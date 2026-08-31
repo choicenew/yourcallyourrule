@@ -2067,7 +2067,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get filterSettings => 'Filter Settings';
 
   @override
-  String get filterSettingsTitle => 'Filter Settings';
+  String get filterSettingsTitle => 'Filter Preferences';
 
   @override
   String get filterSMS => 'Filter SMS';
